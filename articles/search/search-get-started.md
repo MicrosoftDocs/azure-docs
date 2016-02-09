@@ -31,11 +31,11 @@ Microsoft Azure Search is a hosted cloud search service that you can use to add 
 	- In the Jumpbar, click **Search services**. The Jumpbar lists every service provisioned in your subscription. If a search service has been defined, you'll see **Search services** in the list.
 	- In the Jumpbar, click **Browse** and then type "search" in the search box to produce a list of all search services created in your subscriptions.
 
-### Verify you have room for a new index and data source
+## Verify you have room for a new index and data source
 
 Many customers start with the free edition. This edition is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before starting this walkthrough.
 
-### Create an index and load data
+## Create an index and load data
 
 Search queries iterate over an *index* containing searchable data, metadata, and constructs used for optimizing certain search behaviors. As a first step, you will need to define and populate an index.
 
@@ -51,14 +51,19 @@ To keep this task simple, we'll assume a data source that Azure Search can crawl
 
 2. Click **Data Source** > **DocumentDB** > **Name**, type a name for the data source. This is a connection object in Azure Search that can be used with other indexers. Once you create it, it becomes available as an "existing data source" in your service.
 3. Select your existing DocumentDB account, and the database and collection. If you're using the sample data we provide, your data source definition will look like this:
+
   	![][2]
+
 Notice that we skipped the query. This is because we didn't create a change track field in our dataset this time around. If your dataset includes a field that keeps track of when a record is updated, you can configure an Azure Search indexer to use change tracking for selective updates to your index.
 
 #### Step 2: Define the index
 
 1. Click **Index** and take a look at the design surface for creating an Azure Search index. In our sample dataset, the Value array and ID field were detected automatically and added to the definition. Depending on how your data is structured, you might get better field detection.
+
   	![][3]
+
 Checkboxes across the top of the field list are *index attributes* that control how the field is used. **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results, for example when fields only used in filter expressions. **Filterable**, **Sortable**, and **Facetable** determine whether a field can be used in a filter, a sort, or a facet navigation structure. **Searchable** means that a field is included in full text search. Numeric fields and Boolean fields are often marked as not searchable. 
+
 2. Add the fields collection to your index. 
 	
 Field | Type | Options |
@@ -77,18 +82,29 @@ inventory | Edm.Int32 | Retrievable |
 lastUpdated | Edm.DateTimeOffset | |
 
 As a point of comparison, the following screenshot is an illustration of an index built to the specification in the previous table.
+
   	![][4]
 
 #### Step 3: Define the indexer
 
 1. Still in the **Import data** wizard, click **Indexer** > **Name**, type a name for the indexer. This object defines an executable process. Once you create it, you can put it on recurring schedule, or invoke it from the Indexers list in your dashboard. Your import data entries should be all filled in and ready to go.
+
    ![][5]
+
 2. To run the wizard, click **OK** to start the import.
 
 
-### Query the index
+## Query the index
 
-Search Explorer is a built-in query tool that connects directly to your index. It provides a search box so that you can verify a search input returns the data you expect.
+Search Explorer is a built-in query tool that connects directly to your index. It provides a search box so that you can verify a search input returns the data you expect. Click Search Explorer on the command bar to see what search results come back.
+
+
+## Next steps
+
+After you run the wizard once, you can go back and modify individual components: index, indexer, or data source. Some edits, such as the changing the field data type, are not allowed on the index, but most properties and settings are modifiable.
+
+To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles to display a list of existing objects.
+
 
 <a id="apdx-sampledata"></a>
 ### Appendix: Get sample data into DocumentDB
