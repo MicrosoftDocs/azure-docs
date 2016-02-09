@@ -4,8 +4,9 @@ description="Get started building Microsoft Azure App Service logic apps with Ya
 services=""	
 documentationCenter="" 	
 authors="msftman"	
-manager="dwrede"	
-editor=""/>
+manager="erikre"	
+editor=""
+tags="connectors"/>
 
 <tags
 ms.service=""

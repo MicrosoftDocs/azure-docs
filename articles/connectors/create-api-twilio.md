@@ -4,8 +4,9 @@ description="Get started using the Twilio API (connector) in your Microsoft Azur
 services=""	
 documentationCenter="" 	
 authors="msftman"	
-manager="dwrede"	
-editor=""/>
+manager="erikre"	
+editor=""
+tags="connectors"/>
 
 <tags
 ms.service=""

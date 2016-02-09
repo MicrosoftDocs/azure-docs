@@ -4,8 +4,9 @@ description="Get started using the Azure Service Bus API (connector) in your Mic
 services=""	
 documentationCenter="" 	
 authors="msftman"	
-manager="dwrede"	
-editor=""/>
+manager="erikre"	
+editor=""
+tags="connectors"/>
 
 <tags
 ms.service=""

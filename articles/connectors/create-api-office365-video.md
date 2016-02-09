@@ -4,8 +4,9 @@ description="Get started using the Office 365 Video API (connector) in your Micr
 services=""	
 documentationCenter="" 	
 authors="msftman"	
-manager="dwrede"	
-editor=""/>
+manager="erikre"	
+editor=""
+tags="connectors"/>
 
 <tags
 ms.service=""

@@ -4,8 +4,9 @@ description="Get started using the Azure App Service Salesforce API in your Logi
 services=""	
 documentationCenter="" 	
 authors="msftman"	
-manager="dwrede"	
-editor=""/>
+manager="erikre"	
+editor=""
+tags="connectors"/>
 
 <tags
 ms.service=""

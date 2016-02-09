@@ -4,8 +4,9 @@
 	services="app-service\logic"
 	documentationCenter=""
 	authors="MSFTMAN"
-	manager="dwrede"
-	editor="cgronlun"/>
+	manager="erikre"
+	editor=""
+    tags="connectors"/>
 
 <tags
 	ms.service="app-service-logic"

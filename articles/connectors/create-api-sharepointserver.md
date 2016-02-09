@@ -4,8 +4,9 @@ description="Get started using the Azure App Service SharePoint Server API in yo
 services=""	
 documentationCenter="" 	
 authors="msftman"	
-manager="dwrede"	
-editor=""/>
+manager="erikre"	
+editor=""
+tags="connectors"/>
 
 <tags
 ms.service=""
