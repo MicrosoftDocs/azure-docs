@@ -50,6 +50,19 @@ Before a virtual machine can be added to the Marketplace, its image must be adde
 
 >[AZURE.NOTE] The marketplace UI may error after you remove a previously added image from the PIR. To fix this, click **Settings** in the portal. Then, click **Discard modifications** under **Portal customization**.
 
+## Create an image of WindowsServer2012R2 including .NET 3.5
+
+1.	In Hyper-V, create a virtual machine by using a copy of the WindowsServer2012 PIR image. Store this VHD in a new location and record that location so it can be copied later.
+
+2.	Follow these steps: [https://technet.microsoft.com/library/dn482071.aspx](https://technet.microsoft.com/library/dn482071.aspx). These steps include ensuring that the source media is available, which involves downloading the Windows Server 2012 R2 ISO from TechNet.
+
+3.	To generalize the image, use Sysprep on the virtual machine as described here: [https://technet.microsoft.com/library/hh824938.aspx](https://technet.microsoft.com/library/hh824938.aspx).
+
+4.	Wait until the virtual machine is off (which happens as part of the Sysprep process), then copy the VHD to a staging folder.
+
+5.	Use this new VHD as part of a new PIR Image. Put NET3.5 in the image name so that you remember it has been added.
+
+
 ## Next steps
 
 [Add an image to the Platform Image Repository](azure-stack-add-image-pir.md)

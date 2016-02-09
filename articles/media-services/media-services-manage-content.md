@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"   
 	ms.author="juliako"/>
 
 
@@ -108,7 +108,7 @@ This section describes the steps you can take to encode your content with Media 
 ![Process2][process2]
 
 
-The [Task Preset Strings for Media Encoder Standard](https://msdn.microsoft.com/en-US/library/mt269960) topic explains what each preset means.
+The [Task Preset Strings for Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) topic explains what each preset means.
 
 5. Then, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.
 6. Press OK.

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/10/2015"
+   ms.date="02/04/2016"
    ms.author="maroche"/>
 
 
@@ -41,8 +41,8 @@ Although the default free text search is simple and intuitive, users can also us
 | Basic Search              | Basic search using one or more search terms. Results are any assets that match on any property with one or more of the terms specified. | sales data                                                |
 | Property Scoping          | Only return data sources where the search term is matched with the specified property                                                   | name:finance                                              |
 | Boolean Operators         | Broaden or narrow a search using Boolean operations                                                                                     | finance NOT corporate                                     |
-| Grouping with Parenthesis | Use parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators              | name:finance AND (tags:Q1 OR tags:Q2)Comparison Operators |
-| Comparison Operators      | Use comparisons other than equality for properties that have numeric and date data types                                                | creationTime>"11/05/2014"                                 |
+| Grouping with Parenthesis | Use parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators              | name:finance AND (tags:Q1 OR tags:Q2) |
+| Comparison Operators      | Use comparisons other than equality for properties that have numeric and date data types                                                | modifiedTime > "11/05/2014"                                 |
 
 For more information on **Azure Data Catalog** search, see [https://msdn.microsoft.com/library/azure/mt267594.aspx](https://msdn.microsoft.com/library/azure/mt267594.aspx).
 
