@@ -11,7 +11,6 @@
    ms.service="security-center"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/08/2016"
