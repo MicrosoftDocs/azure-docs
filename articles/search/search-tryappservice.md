@@ -10,7 +10,7 @@
 <tags
    ms.service="search"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
    ms.date="01/13/2016"
