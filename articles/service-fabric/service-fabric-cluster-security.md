@@ -92,13 +92,15 @@ Here is a filled out script as an example.
 Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate2 -Password abcd123 -UseExistingCertificate -ExistingPfxFilePath C:\MyCertificates\ChackdanTestCertificate.pfx
 ```
 
-On successful completion of the script, you will get an output like the one below, which you will need for step #3 (Set up a secure cluster).
+On successful completion of the script, you will get an output like the one below, which you will need for Step 3 (Set up a secure cluster).
 
-1. **Certificate Thumbprint:** 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
-2. **SourceVault:** Resource ID of the key vault:  /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
-3. **Certificate URL:** URL to the certificate location in the key vault: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea
+- **Certificate Thumbprint** : 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
 
-You now have the information you need to set up a secure cluster. Go to Step #3.
+- **SourceVault** /Resource ID of the key vault :  /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
+
+- **Certificate URL** /URL to the certificate location in the key vault : https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea
+
+You now have the information you need to set up a secure cluster. Go to Step 3.
 
 **Step 2.5**: If you *do not* have a certificate, and you want to create a new self-signed certificate and upload it to the key vault, follow these steps.
 
@@ -138,9 +140,11 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FileP
 
 On successful completion of the script, you will get an output like the one below. You need these for Step 3.
 
-1. **Certificate Thumbprint:** 64881409F4D86498C88EEC3697310C15F8F1540F
-2. **SourceVault:** Resource ID of the Key Vault:  /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
-3. **Certificate URL:** /URL to the certificate location in the key vault: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea
+- **Certificate Thumbprint** : 64881409F4D86498C88EEC3697310C15F8F1540F
+
+- **SourceVault** /Resource ID of the key vault : /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
+
+- **Certificate URL** /URL to the certificate location in the key vault: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea
 
 ### Step 3: Set up a secure cluster
 
