@@ -21,7 +21,7 @@
 
 Microsoft Azure Search is a hosted cloud search service that you can use to add search functionality to custom applications. It provides the search engine and storage for your data, which you access and manage using the Azure Portal, a .NET SDK, or a REST API. 
 
-This article is a code-free introduction to Azure Search, using capabilities built right into the portal. You can use a [sample Azure DocumentDB database](#apdx-sampledata) to complete this tutorial.
+This article is a code-free introduction to Azure Search, using capabilities built right into the portal. If you don't have data, you can quickly create a [sample Azure DocumentDB database](#apdx-sampledata) using the data files and instructions in this article.
 
 > [AZURE.NOTE] This tutorial requires an [Azure subscription](../includes/free-trial-note.md) and an [Azure Search service](search-create-service-portal.md). If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for [Try Azure App Service](search-tryappservice.md) instead. This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.
  
@@ -35,7 +35,7 @@ This article is a code-free introduction to Azure Search, using capabilities bui
 
 ## Check for space
 
-Many customers start with the free edition. This edition is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before starting this walkthrough. This walkthrough will create one of each.
+Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before starting this walkthrough. This walkthrough will create one of each object.
 
 ## Create an index and load data
 
@@ -43,7 +43,7 @@ Search queries iterate over an *index* containing searchable data, metadata, and
 
 There are several ways to create an index. Approaches vary in how much automation or integration is offered. If you have usable data in a data store that Azure Search can crawl - such as Azure SQL Database, SQL Server on an Azure VM, or DocumentDB - you can create and populate an index very easily using an indexer.
 
-To keep this task simple, we'll assume a data source that Azure Search can crawl using one of its *indexers*. If you don't already have a SQL table or view or a DocumentDB database, you can create [a sample DocumentDB database](#apdx-sampledata) to complete this walkthrough.
+To keep this task simple, we'll assume a data source that Azure Search can crawl using one of its *indexers* and the **Import data** wizard. If you don't already have a SQL table or view or a DocumentDB database, you can quickly create [a sample DocumentDB database](#apdx-sampledata) as a prerequisite to this tutorial.
 
 > [AZURE.NOTE] Newly announced is indexer support for crawling Azure Blob Storage, but that feature is in preview and not yet a portal option. To try that indexer, you'll need to write code. See [Indexing Azure Blob storage in Azure Search](search-howto-indexing-azure-blob-storage.md) for more information.
 
@@ -62,7 +62,7 @@ Notice that we skipped the query. This is because we're not implementing change 
 
 #### Step 2: Define the index
 
-Click **Index** and take a look at the design surface for creating an Azure Search index. In our sample dataset, all of the fields were detected automatically and added to the definition with the correct data type. 
+Still in the wizard, click **Index** and take a look at the design surface for creating an Azure Search index. In our sample dataset, all of the fields were detected automatically and added to the definition with the correct data type. 
 
   ![][3]
 
@@ -72,7 +72,9 @@ Checkboxes across the top of the field list are *index attributes* that control 
 - **Filterable**, **Sortable**, and **Facetable** determine whether a field can be used in a filter, a sort, or a facet navigation structure. 
 - **Searchable** means that a field is included in full text search. Numeric fields and Boolean fields are often marked as not searchable. 
 
-Mark the fields collection in your index to use the following options. Most fields are Retrievable. Most string fields are Searchable (you don't need to make the Key searchable). A few fields like genre, orderableOnline, rating, and tags are also Filterable, Sortable, and Facetable. 
+Mark the fields in your index to use the following options (Retrievable, Searchable, and so on). 
+
+Most fields are Retrievable. Most string fields are Searchable (you don't need to make the Key searchable). A few fields like genre, orderableOnline, rating, and tags are also Filterable, Sortable, and Facetable. 
 	
 Field | Type | Options |
 ------|------|---------|
@@ -96,30 +98,33 @@ As a point of comparison, the following screenshot is an illustration of an inde
 
 #### Step 3: Define the indexer
 
-1. Still in the **Import data** wizard, click **Indexer** > **Name**, type a name for the indexer. This object defines an executable process. Once you create it, you can put it on recurring schedule, or invoke it from the Indexers list in your dashboard. Your import data entries should be all filled in and ready to go.
+Still in the **Import data** wizard, click **Indexer** > **Name**, type a name for the indexer. This object defines an executable process. Once you create it, you could put it on recurring schedule, but for now use the default option to run the indexer immediately. 
+
+Your import data entries should be all filled in and ready to go.
 
   ![][5]
 
-2. To run the wizard, click **OK** to start the import.
+To run the wizard, click **OK** to start the import.
 
-3. Double-click the **Indexers** tile on the dashboard to open the indexers list. You should see the indexer you just created in the list, and you should see status indicating "in progress" or success, along with the number of documents indexed into Azure Search.
+To check progress, double-click the **Indexers** tile on the dashboard to open the indexers list. You should see the indexer you just created in the list, and you should see status indicating "in progress" or success, along with the number of documents indexed into Azure Search.
 
   ![][6]
 
 ## Query the index
 
-**Search explorer** is a built-in query tool that connects directly to your index. It provides a search box so that you can verify a search input returns the data you expect. Click **Search explorer** to enter some queries.
+You now have a search index that's ready to query. 
 
-1. Notice which index is active. If it's not the one you just created, click **Change index** on the command bar to select the one you want.
+**Search explorer** is a query tool built into the portal. It provides a search box so that you can verify a search input returns the data you expect. 
+
+1. Click **Search explorer** on the command bar.
+2. Notice which index is active. If it's not the one you just created, click **Change index** on the command bar to select the one you want.
 2. Leave the search box empty and then click the **Search** button to execute a wildcard search that returns all documents.
 3. Enter a few full-text search queries, like Frank Zappa OR Santana.
 4. Try other query syntax using the [examples provided at the end of this article](https://msdn.microsoft.com/library/azure/dn798927.aspx) for ideas, modifying your query to use search strings that are likely to be found in your index.
 
 ## Next steps
 
-After you run the wizard once, you can go back and modify individual components: index, indexer, or data source. Some edits, such as the changing the field data type, are not allowed on the index, but most properties and settings are modifiable.
-
-To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles to display a list of existing objects.
+After you run the wizard once, you can go back and view or modify individual components: index, indexer, or data source. Some edits, such as the changing the field data type, are not allowed on the index, but most properties and settings are modifiable. To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles on your dashboard to display a list of existing objects.
 
 To learn more about other features mentioned in this article, visit these links:
 
