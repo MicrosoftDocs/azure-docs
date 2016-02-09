@@ -16,7 +16,7 @@
    ms.date="12/10/2015"
    ms.author="terrylan"/>
 
-# Get started with Azure Security Center
+# Getting started with Azure Security Center
 
 This document helps you get started quickly with Azure Security Center by guiding you through the security monitoring and policy management components and linking you to next steps.
 
@@ -48,7 +48,7 @@ In the portal, follow these steps to access Security Center:
 Configure a security **policy** for your subscription(s):
 
 4. Click the **Security policy** tile on the **Security Center** blade.
-5. On the **Security policy--Define policy per subscription** blade, select a subscription.
+5. On the **Security policy-Define policy per subscription** blade, select a subscription.
 6. On the **Security policy** blade, turn on **Data collection** to automatically collect logs. Turning on **Data collection** will also provision the monitoring extension on all current and new VMs in the subscription.
 7. Click **Choose storage accounts**. For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. If you do not choose a storage account for each region, it will be created for you. The data that's collected is logically isolated from other customers’ data for security reasons.
 8. Turn on the **Recommendations** you’d like to see as part of your security policy. Examples:
@@ -89,12 +89,12 @@ Address **Security Alerts**:
 ## Next steps
 In this document, you were introduced to the security monitoring and policy management components in Security Center. To learn more, see the following:
 
-- [Setting security policies in Azure Security Center](security-center-policies.md)--Learn how to configure security policies
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md)--Learn how recommendations help you protect your Azure resources
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts
-- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information
+- [Setting security policies in Azure Security Center](security-center-policies.md)--Learn how to configure security policies.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md)--Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
+- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-get-started/security-tile.png
