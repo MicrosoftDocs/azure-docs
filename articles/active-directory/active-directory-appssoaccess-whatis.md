@@ -80,7 +80,7 @@ Password-based SSO relies on a browser extension to securely retrieve the applic
 
 For password-based SSO, the end user’s browsers can be:
 
-- Internet Explorer 8, 9, and 10 -- on Windows 7 or later (See also [IE Extension Deployment Guide](active-directory-saas-ie-group-policy.md))
+- Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later (See also [IE Extension Deployment Guide](active-directory-saas-ie-group-policy.md))
 - Chrome -- on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
