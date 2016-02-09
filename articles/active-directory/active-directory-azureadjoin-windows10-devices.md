@@ -161,10 +161,10 @@ Workplace Join in Windows 8.1 was used to enable BYOD. In Windows 10, BYOD is en
 ###Can the user connect their Microsoft account to their domain account in Windows 10?
 Not in Windows 10. In Windows 8.1, users of domain-joined devices could “connect” their Microsoft account (for example, Hotmail, Live, Outlook, Xbox, etc.) to their domain account to enable certain experiences like SSO to Live services, use of Windows Store and roaming of user settings across devices. In Windows 10, the Microsoft account Connect functionality has been retired. The user can add one or more Microsoft accounts as additional accounts to enable SSO to consumer services such as the Windows Store. This is done in **Settings** > **Accounts** > **Your account**.
 
-Users upgrading from Windows 8.1 domain-joined devices who had their MSA connected will automatically have their connected MSA added to the list of additional accounts they use.
+Users upgrading from Windows 8.1 domain-joined devices who had their Microsoft account connected will automatically have their connected Microsoft account added to the list of additional accounts they use.
 
 
-## Additional Information
+## Additional information
 * [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
