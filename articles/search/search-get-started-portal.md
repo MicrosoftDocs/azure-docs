@@ -19,13 +19,13 @@
 
 # Get started with Azure Search in the Azure Portal
 
-Microsoft Azure Search is a hosted cloud search service used for adding search functionality to custom applications. It provides the search engine and storage for your data, which you access and manage using the Azure Portal, a .NET SDK, or a REST API. 
+Microsoft Azure Search is a hosted cloud search service that you can use to add search functionality to custom applications. It provides the search engine and storage for your data, which you access and manage using the Azure Portal, a .NET SDK, or a REST API. 
 
-This article is a code-free introduction to Azure Search, using capabilities built right into the portal.  
+This article is a code-free introduction to Azure Search, using capabilities built right into the portal. You can use a [sample Azure DocumentDB database](#apdx-sampledata) to complete this tutorial.
 
-> [AZURE.NOTE] Completing this tutorial requires an [Azure subscription](../includes/free-trial-note.md) and an [Azure Search service](search-create-service-portal.md). If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for [Try Azure App Service](search-tryappservice.md) instead. This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.
+> [AZURE.NOTE] This tutorial requires an [Azure subscription](../includes/free-trial-note.md) and an [Azure Search service](search-create-service-portal.md). If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for [Try Azure App Service](search-tryappservice.md) instead. This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.
  
-## Find your service dashboard
+## Find your service
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
 
@@ -33,9 +33,9 @@ This article is a code-free introduction to Azure Search, using capabilities bui
 	- In the Jumpbar, click **Search services**. The Jumpbar lists every service provisioned in your subscription. If a search service has been defined, you'll see **Search services** in the list.
 	- In the Jumpbar, click **Browse** and then type "search" in the search box to produce a list of all search services created in your subscriptions.
 
-## Verify you have room for a new index and data source
+## Check for space
 
-Many customers start with the free edition. This edition is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before starting this walkthrough.
+Many customers start with the free edition. This edition is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before starting this walkthrough. This walkthrough will create one of each.
 
 ## Create an index and load data
 
@@ -62,13 +62,17 @@ Notice that we skipped the query. This is because we're not implementing change 
 
 #### Step 2: Define the index
 
-1. Click **Index** and take a look at the design surface for creating an Azure Search index. In our sample dataset, all of the fields were detected automatically and added to the definition with the correct data type. 
+Click **Index** and take a look at the design surface for creating an Azure Search index. In our sample dataset, all of the fields were detected automatically and added to the definition with the correct data type. 
 
   ![][3]
 
-Checkboxes across the top of the field list are *index attributes* that control how the field is used. **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results, for example when fields used only in filter expressions. **Filterable**, **Sortable**, and **Facetable** determine whether a field can be used in a filter, a sort, or a facet navigation structure. **Searchable** means that a field is included in full text search. Numeric fields and Boolean fields are often marked as not searchable. 
+Checkboxes across the top of the field list are *index attributes* that control how the field is used. 
 
-2. Mark the fields collection in your index to use the following options. Most fields are Retrievable. Most string fields are Searchable (you don't need to make the Key searchable). A few fields like genre, orderableOnline, rating, and tags are also Filterable, Sortable, and Facetable. 
+- **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results, for example when fields used only in filter expressions. 
+- **Filterable**, **Sortable**, and **Facetable** determine whether a field can be used in a filter, a sort, or a facet navigation structure. 
+- **Searchable** means that a field is included in full text search. Numeric fields and Boolean fields are often marked as not searchable. 
+
+Mark the fields collection in your index to use the following options. Most fields are Retrievable. Most string fields are Searchable (you don't need to make the Key searchable). A few fields like genre, orderableOnline, rating, and tags are also Filterable, Sortable, and Facetable. 
 	
 Field | Type | Options |
 ------|------|---------|
@@ -109,7 +113,7 @@ As a point of comparison, the following screenshot is an illustration of an inde
 1. Notice which index is active. If it's not the one you just created, click **Change index** on the command bar to select the one you want.
 2. Leave the search box empty and then click the **Search** button to execute a wildcard search that returns all documents.
 3. Enter a few full-text search queries, like Frank Zappa OR Santana.
-4. Try other query syntax using the [examples in this article]() for ideas, modifying your query to use search strings that are likely to be found in your index.
+4. Try other query syntax using the [examples provided at the end of this article](https://msdn.microsoft.com/library/azure/dn798927.aspx) for ideas, modifying your query to use search strings that are likely to be found in your index.
 
 ## Next steps
 
@@ -117,9 +121,15 @@ After you run the wizard once, you can go back and modify individual components:
 
 To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles to display a list of existing objects.
 
+To learn more about other features mentioned in this article, visit these links:
+
+- [Indexers](search-indexer-overview.md)
+- [Create Index (includes a detailed explanation of the index attributes)](https://msdn.microsoft.com/library/azure/dn798941.aspx)
+- [Search Explorer](search-explorer.md)
+- [Search Documents (includes examples of query syntax)](https://msdn.microsoft.com/library/azure/dn798927.aspx)
 
 <a id="apdx-sampledata"></a>
-## Appendix: Get sample data into DocumentDB
+## Appendix: Get sample data from this DocumentDB database
 
 This section creates a small database in DocumentDB that can be used to complete the tasks in this tutorial.
 
@@ -129,7 +139,7 @@ The following instructions give you general guidance, but are not exhaustive. If
 
 We provide three JSON data files for this dataset. Data is divided into three files to meet the upload requirements in Document Explorer. 
 
-[Click here]() to get the files. 
+[Click here](https://github.com/Azure-Samples/) to get the music store JSON data files. 
 
 1. Add DocumentDB to your subscription and then open the service dashboard.
 2. Click **Add Database** to create a new database with an id of `musicstoredb`. It will show up in a database list further down the page after it's created.
@@ -137,7 +147,7 @@ We provide three JSON data files for this dataset. Data is divided into three fi
 3. Click **Add Collection** to create a collection with an id of `musicstorecoll`.
 3. Click **Document Explorer**.
 4. Click **Add Documents**.
-5. In **Add Document**, upload JSON files in batches less than 100.
+5. In **Add Document**, upload JSON files in batches smaller than 100.
 	- 386.json
 	- 387.json
 	- . . .
