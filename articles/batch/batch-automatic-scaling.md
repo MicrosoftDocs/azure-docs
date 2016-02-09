@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Automatically scale compute nodes in an Azure Batch pool | Microsoft Azure"
 	description="Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool."

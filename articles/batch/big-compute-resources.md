@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resources for batch and HPC workloads in the cloud | Microsoft Azure"
-   description="Lists technical resources to help you run your large-scale parallel, batch, and high perforance computeing (HPC) workloads in Azure."
+   description="Lists technical resources to help you run your large-scale parallel, batch, and high performance computing (HPC) workloads in Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -10,7 +10,7 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="01/26/2016"
@@ -84,7 +84,6 @@ Use these Azure quickstart templates to deploy Linux HPC clusters with open sour
 
 * [MPI forum](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
 
-
 ## Compute intensive instances
 
 Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.md), including compute intensive [A8 and A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) instances capable of connecting to a back-end RDMA network, to run your Linux and Windows HPC workloads.
@@ -114,8 +113,6 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.
 * [Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/)
 
 * [Media Services](https://azure.microsoft.com/documentation/services/media-services/)
-
-
 
 ## Next steps
 
