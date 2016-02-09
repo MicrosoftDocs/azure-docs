@@ -2,6 +2,7 @@
    pageTitle="Azure AD B2B collaboration preview: How it works | Microsoft Azure"
    description="Describes how Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""

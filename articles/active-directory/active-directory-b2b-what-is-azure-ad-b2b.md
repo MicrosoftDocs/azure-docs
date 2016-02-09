@@ -2,6 +2,7 @@
    pageTitle="Azure Active Directory B2B collaboration preview: Simple, secure cloud partner integration | Microsoft Azure"
    description="Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""

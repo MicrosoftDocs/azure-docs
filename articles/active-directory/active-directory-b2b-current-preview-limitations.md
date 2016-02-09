@@ -2,6 +2,7 @@
    pageTitle="Current preview limitations for Azure Active Directory B2B collaboration | Microsoft Azure"
    description="Azure Active Directory B2B supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
