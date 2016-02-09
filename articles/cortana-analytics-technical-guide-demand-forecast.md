@@ -16,15 +16,15 @@
 	ms.date="01/24/2016"
 	ms.author="yijichen"/>
 
-# Technical guide to the Cortana Analytics Solution Template for demand forecast in energy
+# Technical Guide to the Cortana Analytics Solution Template for Demand Forecast in Energy
 
 ## **Overview**
 
-Solution Templates are designed to accelerate the process of building an E2E demo on top of Cortana Analytics Suite. A deployed template will provision your subscription with necessary Cortana Analytics component and build the relationships between. It also seeds the data pipeline with sample data getting generated from a data simulation application. Download the data simulator from the link provided and install it on your local machine, refer to the readme.txt file for instruction on using the simulator. Data generated from the simulator will hydrate the data pipeline and start generating machine learning prediction which can then be visualized on the PowerBI dashboard.
+Solution Templates are designed to accelerate the process of building an E2E demo on top of Cortana Analytics Suite. A deployed template will provision your subscription with necessary Cortana Analytics component and build the relationships between. It also seeds the data pipeline with sample data getting generated from a data simulation application. Download the data simulator from the link provided and install it on your local machine, refer to the readme.txt file for instruction on using the simulator. Data generated from the simulator will hydrate the data pipeline and start generating machine learning prediction which can then be visualized on the Power BI dashboard.
 
 The deployment process will guide you through several steps to set up your solution credentials. Make sure you record these credentials such as solution name, username, and password you provide during the deployment.
 
-The goal of this document is to explain the reference architecture and different components provisioned in your subscription as part of this Solution Template. The document also talks about how to replace the sample data, with real data of your own to be able to see insights/predictions from you won data. Additionally, the document talks about the parts of the Solution Template that would need to be modified if you want to customize the solution with your own data. Instructions on how to build the PowerBI dashboard for this Solution Template are provided at the end.
+The goal of this document is to explain the reference architecture and different components provisioned in your subscription as part of this Solution Template. The document also talks about how to replace the sample data, with real data of your own to be able to see insights/predictions from you won data. Additionally, the document talks about the parts of the Solution Template that would need to be modified if you want to customize the solution with your own data. Instructions on how to build the Power BI dashboard for this Solution Template are provided at the end.
 
 >[AZURE.TIP] You can download and print a [PDF version of this document](http://github.com/yijichen/document-public/raw/master/Demand%20Forecasting%20for%20Engery%20Solution%20Template.pdf).
 
@@ -36,8 +36,7 @@ The goal of this document is to explain the reference architecture and different
 When the solution is deployed, various Azure services within Cortana
 Analytics Suite are activated (*i.e.* Event Hub, Stream Analytics,
 HDInsight, Data Factory, Machine Learning, *etc.*). The architecture
-diagram above shows, at a high level, how the Demand Forecasting for Energy Solution Template is constructed from end-to-end. You will be able to investigate these services by clicking on them on the solution template diagram created with the deployment of the solution.
-You can download a [full-size version of the diagram](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png). The following sections describe each piece.
+diagram above shows, at a high level, how the Demand Forecasting for Energy Solution Template is constructed from end-to-end. You will be able to investigate these services by clicking on them on the solution template diagram created with the deployment of the solution. The following sections describe each piece.
 
 ## **Data Source and Ingestion**
 
@@ -45,7 +44,7 @@ You can download a [full-size version of the diagram](http://download.microsoft.
 
 For this template the data source used is generated from a desktop
 application that you will download and run locally after successful
-deployment. You will find the instructions to download and install this application in the properties bar when you select the first node called Predictive Maintenance Data Simulator on the solution template diagram. This application feeds the [Azure Event Hub](#azure-event-hub) service
+deployment. You will find the instructions to download and install this application in the properties bar when you select the first node called Energy Forecasting Data Simulator on the solution template diagram. This application feeds the [Azure Event Hub](#azure-event-hub) service
 with data points, or events, that will be used in the rest of the solution flow.
 
 The event generation application will populate the Azure Event Hub only
@@ -141,10 +140,10 @@ For the Demand Forecasting for Energy Solution Template, the Azure Stream Analyt
 
 The [Azure Stream Analytics](https://azure.microsoft.com/en-us/services/stream-analytics/) query can be found by:
 
--   Logging into the [Azure portal](https://manage.windowsazure.com/)
+-   Logging into the [Azure management portal](https://manage.windowsazure.com/)
 
 -   Locating the stream analytics jobs ![](media\cortana-analytics-technical-guide-demand-forecast\icon-stream-analytics.png) that were
-    generated when the solution was deployed. One is for pushing data to blob storage (e.g. mytest1streaming432822asablob) and the other one is for pushing data to PowerBI (e.g. mytest1streaming432822asapbi).
+    generated when the solution was deployed. One is for pushing data to blob storage (e.g. mytest1streaming432822asablob) and the other one is for pushing data to Power BI (e.g. mytest1streaming432822asapbi).
 
 
 -   Selecting
@@ -174,12 +173,12 @@ service orchestrates the movement and processing of data. In the Demand Forecast
 [pipelines](data-factory-create-pipelines.md)
 that move and process the data using various technologies.
 
-  You can access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This will take you to the data factory on your Azure portal. If you see errors under your datasets, you can ignore those as they are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
+  You can access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This will take you to the data factory on your Azure management portal. If you see errors under your datasets, you can ignore those as they are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
 
 This section discusses the necessary [pipelines](data-factory-create-pipelines.md) and [activities](data-factory-create-pipelines.md) contained in the [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/). Below is the diagram view of the solution.
 
-![](media\cortana-analytics-technical-guide-demand-forecast\ADF.png)
+![](media\cortana-analytics-technical-guide-demand-forecast\ADF2.png)
 
 Five of the pipelines of this factory contain
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
@@ -252,15 +251,18 @@ Once the Data Generator is launched, the pipeline begins to get hydrated and the
 
 1. Check the data from Azure Blob Storage.
 
-	One of the Stream Analytics job writes the raw incoming data to blob storage. If you click on **Azure Blob Storage** component of your solution from the screen you successfully deployed the solution and then click **Open** in the right panel, it will take you to the [management portal](portal.azure.com). Once there, click on **Blobs**. In the next panel, you will see a list of Containers. Click on **'energysadata'**. In the next panel, you will see the **'demandongoing'** folder. Inside the rawdata folder, you will see folders with names such as date=2016-01-28 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see files that should have finite sizes in MB in those folders.
+	One of the Stream Analytics job writes the raw incoming data to blob storage. If you click on **Azure Blob Storage** component of your solution from the screen you successfully deployed the solution and then click **Open** in the right panel, it will take you to the [Azure management portal](https://portal.azure.com). Once there, click on **Blobs**. In the next panel, you will see a list of Containers. Click on **"energysadata"**. In the next panel, you will see the **"demandongoing"** folder. Inside the rawdata folder, you will see folders with names such as date=2016-01-28 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see files that should have finite sizes in MB in those folders.
 
 2. Check the data from Azure SQL Database.
 
-	The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of 2 hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [azure management portal](manage.windowsazure.com/). On the left panel locate SQL DATABASES![](media\cortana-analytics-technical-guide-demand-forecast\SQLicon2.png)  and click it. Then locate your database (i.e. demo123456db) and click on it. On the next page at the bottom, click on MANAGE.
+	The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of 2 hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [Azure management portal](https://manage.windowsazure.com/). On the left panel locate SQL DATABASES![](media\cortana-analytics-technical-guide-demand-forecast\SQLicon2.png)  and click it. Then locate your database (i.e. demo123456db) and click on it. On the next page under **"Connect to your database"** section, click **"Run Transact-SQL queries against your SQL database"**.
 
-	![](media\cortana-analytics-technical-guide-demand-forecast\icon-manage.png)
+	Here, you can click on New Query and query for the number of rows (e.g. "select count(*) from DemandRealHourly)" As your database grows, the number of rows in the table should increase.)
 
-	Here, you can click on New Query and query for the number of rows (e.g. select count(*) from DemandRealHourly). As your database grows, the number of rows in the table should increase.
+3. Check the data from Power BI dashboard.
+
+	You can set up Power BI hot path dashboard to monitor the raw incoming data. Please follow the instruction in the "Power BI Dashboard" section.
+
 
 
 ## **Power BI Dashboard**
@@ -279,43 +281,42 @@ Power BI connects to an Azure SQL database as its data source, where the predict
 
 1.  Get the database credentials.
 
-    You'll need **database server name, database name, user name and
+    You will need **database server name, database name, user name and
     password** before moving to next steps. Here are the steps to guide
     you how to find them.
 
-    -   Once **'Azure SQL Database'** on your solution template diagram turns green, click it and then click **'Open'**.
+    -   Once **"Azure SQL Database"** on your solution template diagram turns green, click it and then click **"Open"**. You will be guided to Azure management portal and your database information page will be opened as well.
 
-    -   You'll see a new browser tab/window which displays the [Azure
-    portal](https://portal.azure.com/) page. Click **'Resource groups'** on the left panel.
+    -   On the page, you can find a "Database" section. It lists out the database you have created. The name of your database should be **"Your Soution Name + Random Number + 'db'"** (e.g. "mytest12345db").
 
-    -   Select the subscription you're using for deploying the solution, and
-    then select **'YourSolutionName\_ResourceGroup'**.
-    -   In the new pop out panel, click the  ![](media\cortana-analytics-technical-guide-demand-forecast\SQLicon.png) icon to access your
-    database. Your database name is next to the this icon (*e.g.*, **'mytest1db'**), and  the **database server name** is listed under the Server name property and should look similar to **YourSoutionName.database.windows.net**.
+	-	Click your database, in the new pop out pannel, you can find your database server name on the top. Your database server name name shoud be **"Your Solution Name + Random Number + 'database.windows.net,1433'"** (e.g. "mytest12345.database.windows.net,1433").
 
 	-   Your database **username** and **password** are the same as
 	the username and password previously recorded during deployment of the solution.
 
 2.	Update the data source of the cold path Power BI file
-	-  Make sure you have installed [Power BI desktop](https://powerbi.microsoft.com/en-us/desktop).
+	-  Make sure you have installed the latest version of [Power BI desktop](https://powerbi.microsoft.com/en-us/desktop).
 
-	-	In the **'DemandForecastingDataGeneratorv1.0'** folder you downloaded, double click the **‘Power BI Template\DemandForecastPowerBI.pbix’** file. Once you open it, on the top of the file, click **‘Edit Queries’**. In the pop out window, double click **‘Source’** on the right panel.
+	-	In the **"DemandForecastingDataGeneratorv1.0"** folder you downloaded, double click the **‘Power BI Template\DemandForecastPowerBI.pbix’** file. The initial visulizations are based on dummy data.
+	>[AZURE.NOTE] If you see an error massage, please make sure you have installed the latest version of Power BI Desktop.
+
+		Once you open it, on the top of the file, click **‘Edit Queries’**. In the pop out window, double click **‘Source’** on the right panel.
 
 		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
-	-   In the pop out window, replace **'Server'** and **'Database'** with
-	your own server and database names, and then click **'OK'**. For server
+	-   In the pop out window, replace **"Server"** and **"Database"** with
+	your own server and database names, and then click **"OK"**. For server
 	name, make sure you specify the port 1433
 	(**YourSoutionName.database.windows.net, 1433**). Ignore the warning
 	messages that appear on the screen.
 
 	-   In the next pop out window, you'll see two options on the left pane
-	(**Windows** and **Database**). Click **'Database'**, fill in your
-	**'Username'** and **'Password'** (this is the username and password
+	(**Windows** and **Database**). Click **"Database"**, fill in your
+	**"Username"** and **"Password"** (this is the username and password
 	you entered when you first deployed the solution and created an
 	Azure SQL database). In ***Select which level to apply these
 	settings to***, check database level option. Then click
-	**'Connect'**.
+	**"Connect"**.
 
 	-   Once you're guided back to the previous page, close the window. A message will pop out - click **Apply**. Lastly, click the **Save** button to save
 	the changes. Your Power BI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you will only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you will see new predictions reflected in your visualizations when you refresh the data.
@@ -323,7 +324,7 @@ Power BI connects to an Azure SQL database as its data source, where the predict
 3. (Optional) Publish the cold path dashboard to [Power BI
     online](http://www.powerbi.com/). Note that this step needs a Power BI account (or Office 365 account).
 
-	-   Click **'Publish'** and few seconds later a window appears
+	-   Click **"Publish"** and few seconds later a window appears
 		displaying "Publishing to Power BI Success!" with a green
 		check mark. Click the link below "Open
 		demoprediction.pbix in Power BI". To find detailed instructions, see [Publish from Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
@@ -365,16 +366,16 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
     [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics-power-bi-dashboard.md)
     to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
 
-	- Locate the stream analytics job in your [Azure Portal](https://manage.windowsazure.com). The name of the job should be: YourSoutionName+'streamingjob'+random number+'asapbi' (i.e. demostreamingjob123456asapbi).
+	- Locate the stream analytics job in your [Azure management portal](https://manage.windowsazure.com). The name of the job should be: YourSoutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
 
 	- Setup the output of the ASA query which is **PBIoutput**. Make sure the **Output Alias** is the same as in your query. You can name your **Dataset Name** and **Table Name** as **‘EnergyStreamData’**. Once
-    you have added all three output tables and started the Stream
-    Analytics job, you should get a confirmation message (*e.g.*,
-    "Starting stream analytics job energyforecastasapbi  succeeded").
+    you have added the output, click **"Start"** at the bottom of the page to start the Stream
+    Analytics job. You should get a confirmation message (*e.g.*,
+    "Starting stream analytics job myteststreamingjob12345asablob succeeded").
 
 2. Log in to [Power BI online](http://www.powerbi.com)
 
-    -   On the left panel Datasets section in My Workspace, you should be able to see a new dataset showing on the left panel of PowerBI. This is the streaming data you pushed from Azure Stream Analytics in the previous step.
+    -   On the left panel Datasets section in My Workspace, you should be able to see a new dataset showing on the left panel of Power BI. This is the streaming data you pushed from Azure Stream Analytics in the previous step.
 
     -   Make sure the ***Visualizations*** pane is open and is shown on the
     right side of the screen.
@@ -386,7 +387,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 
 	-	Click ‘EnergyStreamData’ in **Fields** panel.
 
-	-	Click **“Timestamp”** and **“Load”** so that they both shows under “Values”.
+	-	Click **“Timestamp”** and make sure it shows under "Axis". Click **“Load”** and make sure it shows under "Values".
 
 	-	Click **SAVE** on the top and name the report as “EnergyStreamDataReport”. The report named “EnergyStreamDataReport” will be shown in Reports section in the Navigator pane on left.
 
@@ -401,7 +402,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 ## **Cost Estimation Tools**
 
 The following two tools are available to help you better understand the
-total costs involved in running the Predictive Maintenance for Aerospace
+total costs involved in running the Demand Forecasting for Energy
 Solution Template in your subscription:
 
 -   [Microsoft Azure Cost Estimator
