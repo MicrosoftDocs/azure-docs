@@ -102,6 +102,9 @@ The **Configure** tile is only shown if the application was configured by the IT
 
 * **Users are automatically signed in using a single account that I manage** -  This is a special case, and is appropriate to use when all assigned users need to be granted access using a single shared account. The most common use case for this is social media applications, where an organization has a single “company” account and multiple users need to make updates to that account. This also corresponds to the password SSO case where the [administrators manage credentials](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). However, after selecting this option, the approver will be prompted to enter the username and password for the single shared account. Once completed, all assigned users will be signed in using this account when clicking on the application in their Azure AD access panels or Office 365.
 
+##Additional Resources
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
