@@ -17,7 +17,7 @@
    ms.author="chackdan"/>
 
 
-#Create an Azure Service Fabric cluster on-premises or other clouds by using the  Azure ServiceFabric "Deploy Anywhere" package 
+#Create an Azure Service Fabric cluster on-premises or on ther clouds
  
 Azure Service Fabric allows the creation of Service Fabric clusters on any Virtual Machines or computers running Windows Server (Linux support coming later). This means you can deploy and run Service Fabric applications in any environment where you have a set of Windows Server or Linux computers that are interconnected, be it on-premises or with any cloud provider. Service Fabric provides a setup package for you to create such Service Fabric clusters.
 
@@ -27,7 +27,7 @@ This article walks you through the steps for creating a cluster using "Deploy An
 
 ## Microsoft Azure Service Fabric "deploy anywhere" Package
 
-The "Deploy anywhere" package for Windows Server 2012 R2 deployments is MicrosoftAzureServiceFabricWindowsServerversion.zip
+The "Deploy anywhere" package for Windows Server 2012 R2 deployments is MicrosoftAzureServiceFabricWindowsServer<version>.zip
 
 In the download package you will find the following files.
 
@@ -92,7 +92,7 @@ The simplest way to think about these concepts is to consider FDs as the unit of
 
 When you specify UDs in the ClusterConfig.JSON, You get to choose the name of the UD. For example, the following are all allowed
 "upgradeDomain": "UD0"
-"upgradeDomain": "UD1"
+"upgradeDomain": "UD1A"
 "upgradeDomain": "DomainRed"
 "upgradeDomain": "Blue"
 
@@ -106,16 +106,12 @@ After you have gone steps outlined in the planning and preparation section above
 #### Modify Cluster Configuration
 open the ClusterConfig.JSON from the package you downloaded. you can use any editor of your choice. Modify the following settings. 
 
-**Configuration Setting :** NodeTypes
+|**Configuration Setting :**|**Description :**|
+|-----------------------|--------------------------|
+|NodeTypes|Node types allow you to separate your cluster nodes into various groups. A cluster must have at least one NodeType. All nodes in a group have the following common characteristics. <br> *Name*  - This is the Node Type name. <br>*EndPoints* - These are various named end points (Ports) that are associated with this Node Type. You can use any port number that you wish, as long as they do not conflict with anything else in this manifest and are not already in use by any other program on the machine/VM*PlacementProperties* - These describe properties for this node type that you will then use as placement constraints for system services or your services. These properties are user defined key/value pairs that provide extra metadata for a given node. Examples of node properties would be whether or not the node has a hard drive or graphics card, the number of spindles in it hard drive, cores, and other physical properties. <br> *Capacities* - Node capacities define the name and amount of a particular resource that a particular node has available for consumption. For example, a node may define that it has capacity for a metric called “MemoryInMb” and that it has 2048 available by default. These capacities are used at runtime to ensure that services which require particular amounts of resources are placed on nodes with those resources remaining available.|
+|NodeList|The details for each of the nodes that will be part of the cluster (node type, node name, seed node, IP address, Fault Domain and Upgrade Domain of the node). The machines you want the cluster to be created on need to be listed here with their IP address. 
 
-**Description :**Node types allow you to separate your cluster nodes into various groups. A cluster must have at least one NodeType. All nodes in a group have the following common characteristics. <br> *Name*  - This is the Node Type name. <br>*EndPoints* - These are various named end points (Ports) that are associated with this Node Type. You can use any port number that you wish, as long as they do not conflict with anything else in this manifest and are not already in use by any other program on the machine/VM*PlacementProperties* - These describe properties for this node type that you will then use as placement constraints for system services or your services. These properties are user defined key/value pairs that provide extra metadata for a given node. Examples of node properties would be whether or not the node has a hard drive or graphics card, the number of spindles in it hard drive, cores, and other physical properties. <br> *Capacities* - Node capacities define the name and amount of a particular resource that a particular node has available for consumption. For example, a node may define that it has capacity for a metric called “MemoryInMb” and that it has 2048 available by default. These capacities are used at runtime to ensure that services which require particular amounts of resources are placed on nodes with those resources remaining available.
-
-**Configuration Setting :** NodeList
-
-**Description :** The details for each of the nodes that will be part of the cluster (node type, node name, seed node, IP address, Fault Domain and Upgrade Domain of the node). The machines you want the cluster to be created on need to be listed here with their IP address. 
-
-If you use the same IP addresses for all the nodes, then a scale minimized or one-box cluster will be created, which you can use for test purposes. Scale minimized clusters should not be used for deploying production workloads.
-
+If you use the same IP addresses for all the nodes, then a scale minimized or one-box cluster will be created, which you can use for test purposes. Scale minimized clusters should not be used for deploying production workloads..|
 
 #### Run Setup script
 Once you have modified the cluster configuration in the JSON doc and added all the node information to it, run the cluster creation powershell script from the package folder and pass in the path to the configuration file and the location of the package root to it. 
