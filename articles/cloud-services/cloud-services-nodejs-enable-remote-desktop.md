@@ -13,9 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
-
 
 # Enabling Remote Desktop in Azure
 
@@ -29,7 +28,7 @@ application.
 
 ## Prerequisites
 
-- Install and configure [Azure Powershell](../install-configure-powershell.md).
+- Install and configure [Azure Powershell](../powershell-install-configure.md).
 - Deploy a Node.js app to an Azure Cloud Service. For more information, see [Build and deploy a Node.js application to an Azure Cloud Service](cloud-services-nodejs-develop-deploy-app.md).
 
 
@@ -117,12 +116,12 @@ instances in the cloud, disable remote desktop access using [Azure PowerShell].
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
-  [3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
-  [4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
-  [5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
-  [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
-  [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
+[3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
+[4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
+[5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
+[6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
+[7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
   
-  [Remotely Accessing Role Instances in Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
-  [Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+[Remotely Accessing Role Instances in Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
+[Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  

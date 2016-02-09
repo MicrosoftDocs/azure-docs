@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="02/08/2016" 
 	ms.author="ginathan;bradsev" /> 
 
 # The Cortana Analytics Process in action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset
