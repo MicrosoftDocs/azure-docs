@@ -28,9 +28,8 @@ To launch the Monitor and Management App, click the URL for **Monitoring App** i
 
 ![Monitoring and Management App](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
-Notice that there are three tabs (**Resource Explorer**, **Monitoring Views** and **Alerts**) on the left and the first tab (Resource Explorer) is selected by default. 
-
 ## Understanding the Monitoring and Management App
+There are three tabs (**Resource Explorer**, **Monitoring Views** and **Alerts**) on the left and the first tab (Resource Explorer) is selected by default. 
 
 ### Resource Explorer
 You see Resource Explorer **tree view** in the left pane, **Diagram View** at the top and **Activity Windows** list at the bottom in the middle pane, and **Properties**/**Activity Window Explorer** tabs in the right pane. 
@@ -215,6 +214,8 @@ The Activity Window Explorer window is in the right-most pane of the Monitoring 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
 You can switch to different activity window by clicking on it in the calendar view at the top. You can also use the left arrow/right arrow buttons at the top to see activity windows from the previous/next week.
+
+You can use the toolbar buttons in the bottom pane to **rerun** the activity window or **refresh** the details in the pane. 
 
 
 ## Using system views
