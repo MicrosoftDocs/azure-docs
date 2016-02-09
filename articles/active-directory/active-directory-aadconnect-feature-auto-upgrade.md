@@ -41,5 +41,7 @@ You can change between **Enabled** and **Disabled** with `Set-ADSyncAutoUpgrade`
 
 Automatic upgrade is using Azure AD Connect Health as the upgrade infrastructure. For auto upgrade to correctly work, make sure you have opened the URLs in the proxy for **Azure AD Connect Health** as documented in [Office 365 URLs and IP address ranges ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
+If the synchronization service manager UI is running on the server, then the upgrade will be suspended until the UI is closed.
+
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

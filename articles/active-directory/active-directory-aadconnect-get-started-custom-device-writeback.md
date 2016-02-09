@@ -48,6 +48,7 @@ Use the following steps to prepare for using device writeback.
 
 	`Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
 
+Enterprise admin credentials are required since changes to the configuration namespace are needed. A domain admin will not have enough permissions.
 
 ![Powershell](./media/active-directory-aadconnect-get-started-custom-device-writeback/powershell.png)
 
