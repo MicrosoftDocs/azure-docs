@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/28/2016"
+   ms.date="02/01/2016"
    ms.author="seanmck"/>
 
 # Disaster recovery in Azure Service Fabric
@@ -28,7 +28,9 @@ When you create a Service Fabric clusters in Azure, you are required to choose a
 
 ### Fault domains
 
-By default, the VMs in the cluster will be evenly spread across logical groups known as fault domains, which segment the machines based on potential failures in the host hardware. Specifically, if two VMs reside in two distinct fault domains, you can be sure that they do not share the same physical rack or network switch. As a result, local network or power failure affecting one VM will not affect the other, allowing Service Fabric to rebalance the work load of the unresponsive machine within the cluster.
+By default, the VMs in the cluster will be evenly spread across logical groups known as fault domains, which segment the machines based on potential failures in the host hardware. Specifically, if two VMs reside in two distinct fault domains, you can be sure that they do not share the same power source or network switch. As a result, a local network or power failure affecting one VM will not affect the other, allowing Service Fabric to rebalance the work load of the unresponsive machine within the cluster.
+
+>[AZURE.NOTE] Currently, Service Fabric clusters are made up of three fault domains. In a future release, this will be expanded to five, further limiting the impact of isolated hardware failures.
 
 ### Geographic distribution
 
@@ -52,6 +54,8 @@ In general, as long as a majority of the nodes remain available, the cluster wil
 
 Once in quorum loss, the cluster's applications and services will remain unavailable until a majority of nodes have come back up. At that point, assuming that the state stored on those nodes is still available, the cluster can return to normal operation.
 
+
+
 ### Physical data center destruction
 
 In the highly unlikely event that an entire physical data center is destroyed, any Service Fabric clusters hosted there will be lost, along with their state.
@@ -59,6 +63,10 @@ In the highly unlikely event that an entire physical data center is destroyed, a
 To protect against this possibility, it is important to periodically [backup your state](service-fabric-reliable-services-backup-restore.md) to a geo-redundant store and ensure that you have validated the ability to restore it. How often you perform a backup will be dependent on your recovery point objective (RPO).
 
 >[AZURE.NOTE] Backup and restore is currently only available for the Reliable Services API. Backup and restore for Reliable Actors will be available in an upcoming release.
+
+### Software failures and other sources of data loss
+
+As a cause of data loss, code defects in services, human operational errors, and security breaches are more common than widespread data center failures. However, in all cases, the recovery strategy is the same: take regular backups of all stateful services and exercise your ability to restore that state.
 
 ## Next Steps
 
