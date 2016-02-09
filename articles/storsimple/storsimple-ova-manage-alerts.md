@@ -35,7 +35,7 @@ After you enable email notification for a virtual device, members of the notific
 
 #### To enable email notification of alerts for a virtual device
 
-1. Go to **Devices** > **Configuration** for the virtual device. Go to the following **Alert Settings** section.
+1. Go to **Devices** > **Configuration** for the virtual device. Go to the **Alert Settings** section.
 
     ![alert settings](./media/storsimple-ova-manage-alerts/alerts2.png)
 
@@ -158,7 +158,7 @@ If cloud connectivity fails on your StorSimple production device, then depending
 
 |Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|On-premises virtual device configuration unsupported.|Slow performance.|The current configuration may result in performance degradation. Ensure that your server meets the minimum configuration requirements. For more information, go to [StorSimple Virtual Array Requirements](storsimple-ova-system-requirements.md).| 
+|On-premises virtual device configuration unsupported.|Slow performance.|The current configuration may result in performance degradation. Ensure that your server meets the minimum configuration requirements. For more information, go to [StorSimple Virtual Array Requirements](storsimple-ova-system-requirements.md). 
 |You are running out of provisioned disk space on <*device name*>.|Disk space warning.|You are running low on provisioned disk space. To free up space, consider moving workloads to another volume or share or deleting data.
 
 ### Job failure alerts
