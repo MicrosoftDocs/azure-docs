@@ -26,7 +26,8 @@ Before deploying SQL resource providers, you'll need to create a default Windows
 
 ### Create an image of Windows Server including .NET 3.5
 
-You'll need to create a Windows Server 2012 R2 Datacenter VHD with .Net 3.5 image and set is as the default image in the Platform Image repository. For more information, see [Create an image of WindowsServer2012R2 including .NET 3.5](azure-stack-add-image-pir.md#Create-an-image-of-WindowsServer2012R2-including-.NET-3.5).
+You'll need to create a Windows Server 2012 R2 Datacenter VHD with .Net 3.5 image and set is as the default image in the Platform Image repository. For more information, see [Create an image of WindowsServer2012R2 including .NET 3.5](azure-stack-add-image-pir.md#create-an-image-of-windowsserver2012r2-including-net-35).
+
 
 ### Turn off IE Enhanced Security and enable cookies
 
