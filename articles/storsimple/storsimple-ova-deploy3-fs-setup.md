@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Set up as file server (Preview)
@@ -94,6 +94,11 @@ Use the following step-by-step instructions to set up and configure your StorSim
 1.  Click **Apply**. This will apply and validate the device settings.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image8.png)
+
+	> [AZURE.NOTE]
+	> 
+	> Ensure that your virtual array is in its own organizational unit (OU) for Active Directory and no group policy objects 
+	> (GPO) are applied to it.
 
 1.  (Optionally) configure your web proxy server. Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here.
 
