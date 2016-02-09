@@ -30,7 +30,7 @@ AzCopy is a Windows command-line utility designed for copying data to and from M
 3. If desired, you can add the AzCopy installation location to your system path.
 
 ### Mac/Linux
-AzCopy is not available for Mac/Linux OSs. However, the Azure 
+AzCopy is not available for Mac/Linux OSs. However, Azure CLI is a suitable alternative for copying data to and from Azure Storage. Read [Using the Azure CLI with Azure Storage](storage-azure-cli.md) to learn more.
 
 ## Understand the AzCopy command-line syntax
 
