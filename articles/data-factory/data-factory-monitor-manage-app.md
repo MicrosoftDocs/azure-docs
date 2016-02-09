@@ -28,7 +28,7 @@ To launch the Monitor and Management App, click the URL for **Monitoring App** i
 
 ![Monitoring and Management App](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
-Notice that there are three tabs (**Resource Explorer**, **Monitoring Views** and **Alerts**) on the left and the first tab (Resource Explorer) is selected by default. Let's focus on this tab for now and we will get to the other tabs later in this article.
+Notice that there are three tabs (**Resource Explorer**, **Monitoring Views** and **Alerts**) on the left and the first tab (Resource Explorer) is selected by default. 
 
 ## Understanding the Monitoring and Management App
 
@@ -107,12 +107,6 @@ The Activity windows list in the bottom of the middle pane displays all activity
 This list does not refresh automatically, so use the refresh button on the toolbar to manually refresh it.  
 
 
-The Activity Windows list has command bar buttons to do the following:
-
-- **Rerun** an activity window. 
-- **Refresh** the activity window list. 
-- **Clear any filter** you have specified on a column. Let’s see how you can actually specify a filter on a column.
-
 The activity windows can be in one of the following statuses:
 
 <table>
@@ -172,23 +166,8 @@ The activity windows can be in one of the following statuses:
 </tr>
 </table>
 
-### Properties window
-The Properties window is in the right-most pane of the Monitoring and Management app. 
 
-![Properties window](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
-
-It displays properties for the item you selected in the resource explorer (tree view) (or) diagram view (or) activity windows list. 
-
-### Activity Window Explorer
-
-The Activity Window Explorer window is in the right-most pane of the Monitoring and Management App. It displays details about the activity window you selected in the Activity Windows pop up or Activity Windows list. 
-
-![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
-
-You can switch to different activity window by clicking on it in the calendar view at the top. You can also use the left arrow/right arrow buttons at the top to see activity windows from the previous/next week.
-
-In the Activity Window details pane (bottom pane), you see two buttons on the toolbar. The first one is to **rerun** an activity window and the second one is to **refresh** details in the window. The details are not automatically refreshed, so you use the refresh button to do so.  
-
+### Sorting and filtering activity windows
 In the Activity Windows list, click on the name of a column (for example: Status). 
 
 ![Activity Windows List column menu](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
@@ -212,6 +191,32 @@ When you click an activity window in the list, you will see details about the ac
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 
+### Rerun selected activity window(s)
+Select one or more activity windows in the list, click the down arrow for the first command bar button and select **Rerun** / **Rerun with upstream in pipeline**. When you select **Rerun with upstream in pipeline** option, it reruns all upstream activity windows as well. 
+	![Rerun a activity window](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+
+You may want to filter activity windows based on the status (for example: **Failed**) and then rerun the failed activity windows after correcting the issue that causes the activity windows to fail. See the following section for details about filtering activity windows in the list. 
+
+### Refresh activity windows  
+The details are not automatically refreshed, so you use the **refresh** button (second button) on the command bar to manually refresh the activity windows list.  
+ 
+
+### Properties window
+The Properties window is in the right-most pane of the Monitoring and Management app. 
+
+![Properties window](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
+
+It displays properties for the item you selected in the resource explorer (tree view) (or) diagram view (or) activity windows list. 
+
+### Activity Window Explorer
+
+The Activity Window Explorer window is in the right-most pane of the Monitoring and Management App. It displays details about the activity window you selected in the Activity Windows pop up or Activity Windows list. 
+
+![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
+
+You can switch to different activity window by clicking on it in the calendar view at the top. You can also use the left arrow/right arrow buttons at the top to see activity windows from the previous/next week.
+
+
 ## Using system views
 The Monitoring and Management App includes pre-built system views (**Recent activity windows**, **Failed activity windows**, **In-Progress activity windows**) that allows you to view recent/failed/in-progress activity windows for your data factory. 
 
@@ -232,7 +237,7 @@ Change the start time and end time settings in the command bar to filter activit
 
 ## Performing batch actions
 
-### Rerun an activity window
+### Re-running multiple failures
 Select an activity window, click the down arrow for the first command bar button and select **Rerun** / **Rerun with upstream in pipeline**. When you select **Rerun with upstream in pipeline** option, it reruns all upstream activity windows as well. 
 	![Rerun a activity window](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
@@ -269,7 +274,7 @@ The Alerts page lets you create a new alert, view/edit/delete existing alerts. Y
 
 In the Alerts list, use the buttons associated with the alert to edit/delete/disable/enable an alert. 
 
-## Event/status/substatus
+### Event/status/substatus
 The following table provides the list of available events and statuses (and sub-statuses).
 
 Event name | Status | Sub status
