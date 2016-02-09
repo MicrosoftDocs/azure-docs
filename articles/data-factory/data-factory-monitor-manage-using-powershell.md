@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Azure PowerShell
@@ -47,7 +47,7 @@ If you are using Azure PowerShell of **version < 1.0**, You will need to use cmd
 4. Switch to AzureResourceManager mode as the Azure Data Factory cmdlets are available in this mode: **Switch-AzureMode AzureResourceManager**.
   
 
-##In This Tutorial
+##In this tutorial
 The following table lists the steps you will perform as part of the tutorial and their descriptions. 
 
 Step | Description
@@ -58,7 +58,7 @@ Step | Description
 [Step 4: Create and run a pipeline](#CreateAndRunAPipeline) | In this step, you will create a pipeline named **ADFTutorialPipeline** in the data factory: **ADFTutorialDataFactoryPSH**. . The pipeline will have a **Copy Activity** that copies data from an Azure blob to an output Azure database table.
 [Step 5: Monitor data sets and pipeline](#MonitorDataSetsAndPipeline) | In this step, you will monitor the datasets and the pipeline using Azure PowerShell in this step.
 
-## <a name="CreateDataFactory"></a>Step 1: Create an Azure Data Factory
+## <a name="CreateDataFactory"></a>Step 1: Create an Azure data factory
 In this step, you use the Azure PowerShell to create an Azure data factory named **ADFTutorialDataFactoryPSH**.
 
 1. Start Azure PowerShell and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
@@ -433,7 +433,6 @@ See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive document
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234.aspx
 [old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[data-factory-create-storage]: ../storage-create-storage-account.md
 
 [adf-get-started]: data-factory-get-started.md
 [azure-portal]: http://portal.azure.com
@@ -442,5 +441,5 @@ See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive document
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
 
-[sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
+[sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  

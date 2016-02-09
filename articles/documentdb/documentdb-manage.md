@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Manage DocumentDB capacity | Microsoft Azure" 
-	description="Learn how you can scale DocumentDB to meet the capacity needs of your application." 
+	pageTitle="DocumentDB - Capacity - Document storage | Microsoft Azure" 
+	description="Learn about data storage and document storage in DocumentDB and how you can scale DocumentDB to meet the capacity needs of your application." 
+	keywords="document storage"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -13,18 +14,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="01/27/2016" 
 	ms.author="mimig"/>
 
-# Manage DocumentDB capacity needs
-DocumentDB is a fully managed, scalable document oriented NoSQL database service.  With DocumentDB, you don’t have to rent virtual machines, deploy software, monitor databases or worry about disaster recovery. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.  
+# Learn about capacity and document storage in DocumentDB
+DocumentDB is a fully managed, scalable document oriented NoSQL database service for JSON documents.  With DocumentDB, you don’t have to rent virtual machines, deploy software, monitor databases or worry about disaster recovery. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.  
 
 You can get started with DocumentDB by [creating a database account](documentdb-create-account.md) through the [Azure Portal](https://portal.azure.com/). DocumentDB is offered in units of solid-state drive (SSD) backed storage and throughput. These units are provisioned by creating database collections within your database account. Each collection includes 10GB of database storage with reserved throughput. If the throughput requirements of your application change, you dynamically change this by setting the [performance level](documentdb-performance-levels.md) for each collection.  
 
 When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis. This means that some application requests may succeed while others may be throttled.
 
+This article provides an overview of the resources and metrics available to manage capacity and plan data storage. 
+
 ## Database account and administrative resources
 As an Azure subscriber, you can provision one or more DocumentDB database accounts. Each database account comes with a quota of administrative resources including databases, users, and permissions. These resources are subject to [limits and quotas](documentdb-limits.md). If you need additional administrative resources, please [contact support](documentdb-increase-limits.md).   
+
+The Azure Portal provides usage metrics for monitoring database accounts, databases and collections. For more information, see [Monitor a DocumentDB account](documentdb-monitor-accounts.md).
 
 ## Databases with unlimited document storage
 A single DocumentDB database can contain practically an unlimited amount of document storage partitioned by collections. Collections form the transaction domains for the documents contained within them. A DocumentDB database is elastic in size – ranging from a few GB to potentially terabytes of SSD backed document storage and provisioned throughput. Unlike a traditional RDBMS database, a database in DocumentDB is not scoped to a single machine.   
@@ -34,9 +39,9 @@ With DocumentDB, as you need to scale your applications, you can create more col
 ## Database collections
 Each DocumentDB database can contain one or more collections. Collections act as highly available data partitions for document storage and processing. Each collection can store documents with heterogeneous schema. DocumentDB's automatic indexing and query capabilities allow you to easily filter and retrieve documents. A collection provides the scope for document storage and query execution. A collection is also a transaction domain for all the documents contained within it. Collections are allocated throughput based on their specified performance level.  This can be adjusted dynamically through the Azure Portal or one of the SDKs. 
 
-You can create any number of collections to meet the storage and throughput scale requirements of your applications. Collections can be created through the [Azure Portal](https://portal.azure.com/) or through any one of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).   
+You can create any number of collections to meet the data storage and throughput scale requirements of your applications. Collections can be created through the [Azure Portal](https://portal.azure.com/) or through any one of the [DocumentDB SDKs](documentdb-sdk-dotnet.md).   
 
->[AZURE.NOTE] Each collection supports storage for up to 10GB of document data. 
+>[AZURE.NOTE] Each collection supports up to 10GB of document data storage. In order to store larger datasets, you must partition across multiple collections. See [How to partition data in DocumentDB with the .NET SDK](documentdb-sharding.md) for more information.
  
 ## Request units and database operations
 DocumentDB allows for a rich set of database operations including relational and hierarchical queries with UDFs, stored procedures and triggers – all operating on the documents within a database collection. The processing cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.
@@ -47,7 +52,7 @@ Request units are provisioned and assigned based on the performance level set fo
 
 Request unit consumption is evaluated as a rate per second. For applications that exceed the provisioned request unit rate for a collection, requests to that collection will be throttled until the rate drops below the reserved level. If your application requires a higher level of throughput, you can adjust the performance level of existing collections or spread the applications requests across new collections.
 
-A request unit is a normalized measure of request processing cost. A single request unit represents the processing capacity required to read (via self link) a single 1KB JSON document consisting of 10 unique property values. The request unit charge assumes a consistency level set to the default “Session” and all of documents automatically indexed. A request to insert, replace or delete the same document will consume more processing from the service and thereby more request units. Each response from the service includes a custom header (x-ms-request-charge) that measures the request units consumed for the request. This header is also accessible through the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). In the .NET SDK, RequestCharge is a property of the ResourceResponse object.
+A request unit is a normalized measure of request processing cost. A single request unit represents the processing capacity required to read (via self link) a single 1KB JSON document consisting of 10 unique property values. The request unit charge assumes a consistency level set to the default “Session” and all of documents automatically indexed. A request to insert, replace or delete the same document will consume more processing from the service and thereby more request units. Each response from the service includes a custom header (x-ms-request-charge) that measures the request units consumed for the request. This header is also accessible through the [SDKs](documentdb-sdk-dotnet.md). In the .NET SDK, RequestCharge is a property of the ResourceResponse object.
 
 >[AZURE.NOTE] The baseline of 1 request unit for a 1KB document corresponds to a simple GET by self link of the document. 
 
@@ -74,5 +79,5 @@ By default all documents are indexed by DocumentDB automatically. However, if yo
 ## Next steps
 For instructions on monitoring performance levels on the Azure Portal, see [Monitor a DocumentDB account](documentdb-monitor-accounts.md).
 
-For more information on choosing performance levels for collections, see [Performance levels in DocumentDB](documentdb-performance-levels).
+For more information on choosing performance levels for collections, see [Performance levels in DocumentDB](documentdb-performance-levels.md).
  

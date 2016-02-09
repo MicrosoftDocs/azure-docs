@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/05/2016"
 	ms.author="heidist"/>
 
 # Create an Azure Search service in the Azure Classic Portal
@@ -25,7 +25,7 @@ Microsoft Azure Search is a hosted cloud search service that allows you to embed
 
 As an administrator, you can add Azure Search to an existing Azure subscription at no cost when choosing the shared service, or at the standard rate when opting in for dedicated resources.
 
-1. Sign in to the [Azure Classic Portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 
 2. In the Jumpbar, click **New** > **Data + storage** > **Search**.
 
@@ -35,7 +35,7 @@ As an administrator, you can add Azure Search to an existing Azure subscription 
 
      ![][2]
 
-	- **Service name** must be unique, lowercase, and under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions.
+	- **Service name** must be unique, lowercase, and under 60 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions.
 
 	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels.
 
@@ -92,10 +92,7 @@ After the service is created, you can return to the Azure Classic Portal to get 
 <a id="sub-4"></a>
 ## Test service operations
 
-Confirming that your service is operational and accessible from a client application is the final step in configuring Azure Search. You can use either of the following links for a code-free approach to verifying service availability.
-
-- [How to use Chrome Postman with Azure Search](search-chrome-postman.md)
-- [How to use Telerik Fiddler with Azure Search](search-fiddler.md)
+Confirming that your service is operational and accessible from a client application is the final step in configuring Azure Search. You can use [Fiddler with Azure Search](search-fiddler.md) to verify service availability.
 
 <!--Next steps and links -->
 <a id="next-steps"></a>

@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	editor="" 
 	tags=""/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="02/05/2016" 
 	ms.author="genemi"/>
 
 
@@ -35,7 +35,7 @@ This topic explains how the implementation of extended events in Azure SQL Datab
 
 > [AZURE.NOTE] As of October 2015, the extended event session feature is activated in Azure SQL Database at the Preview level. The General Availability (GA) date is not yet set.
 > 
-> The Azure [Service Updates](http://azure.microsoft.com/updates/?service=sql-database) page has posts when GA announcements are made.
+> The Azure [Service Updates](https://azure.microsoft.com/updates/?service=sql-database) page has posts when GA announcements are made.
 
 
 ## Prerequisites
@@ -44,7 +44,7 @@ This topic explains how the implementation of extended events in Azure SQL Datab
 This topic assumes you already have some knowledge of:
 
 
-- [Azure SQL Database service](http://azure.microsoft.com/services/sql-database/).
+- [Azure SQL Database service](https://azure.microsoft.com/services/sql-database/).
 
 
 - [Extended events](http://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
@@ -54,7 +54,7 @@ This topic assumes you already have some knowledge of:
 Prior exposure to the following items is helpful when choosing the Event File as the [target](#AzureXEventsTargets):
 
 
-- [Azure Storage service](http://azure.microsoft.com/services/storage/)
+- [Azure Storage service](https://azure.microsoft.com/services/storage/)
 
 
 - PowerShell

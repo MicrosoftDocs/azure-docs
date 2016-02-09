@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/27/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to administer your StorSimple device
@@ -34,7 +34,7 @@ The StorSimple Manager service runs in Microsoft Azure and connects to multiple 
 
 #### To connect to the service
 
-1. Navigate to [http://azure.microsoft.com/](http://azure.microsoft.com/)
+1. Navigate to [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 
 1. Using your Microsoft account credentials, log on to the Microsoft Azure classic portal (located at the top-right of the pane).
 
@@ -65,7 +65,7 @@ The navigational hierarchy for the StorSimple Manager service UI is shown in the
 
 ![Video available](./media/storsimple-manager-service-administration/Video_icon.png) **Video available**
 
-To watch a video that walks you through the StorSimple Manager service user interface, click [here](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
+To watch a video that walks you through the StorSimple Manager service user interface, click [here](https://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Administer StorSimple device using StorSimple Manager service
 
@@ -112,6 +112,4 @@ If you experience any issues with the day-to-day operation of your StorSimple de
 - [Troubleshoot an operational device](storsimple-troubleshoot-operational-device.md)
 - [Use StorSimple monitoring indicator LEDs](storsimple-monitoring-indicators.md)
 
-If you cannot resolve the issues and you need to create a service request, refer to:
-
--  [Contact Microsoft Support](storsimple-contact-microsoft-support.md)
+If you cannot resolve the issues and you need to create a service request, refer to [Contact Microsoft Support](storsimple-contact-microsoft-support.md).

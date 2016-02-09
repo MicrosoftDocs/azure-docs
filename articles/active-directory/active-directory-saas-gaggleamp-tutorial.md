@@ -3,7 +3,7 @@
 	description="Learn how to configure single sign-on between Azure Active Directory and GaggleAMP."
 	services="active-directory"
 	documentationCenter=""
-	authors="ashimaabrol"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="v-aabrol"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with GaggleAMP
@@ -72,6 +72,7 @@ To configure the integration of GaggleAMP into Azure AD, you need to add GaggleA
 ![Creating an Azure AD test user](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_01.png)<br>
 7. In the results pane, select **GaggleAMP**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with GaggleAMP based on a test user called "Britta Simon".

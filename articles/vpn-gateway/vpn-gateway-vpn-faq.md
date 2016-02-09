@@ -84,8 +84,6 @@ Other software VPN solutions should work with our gateway as long as they confor
 
 ## Point-to-Site connections
 
-Presently, point-to-site connections are available only for the classic deployment model (also known as Service Management). We are working on a point-to-site solution for the Azure Resource Manager deployment model. When that is available, this page will be updated.
-
 ### What operating systems can I use with point-to-site?
 
 The following operating systems are supported:
@@ -244,7 +242,7 @@ For traffic between different Azure virtual networks, Azure charges only for tra
 
 ### Can I connect a virtual network with IPsec VPNs to my ExpressRoute circuit?
 
-Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-coexist.md).
+Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md).
 
 ## Cross-Premises connectivity and VMs
 

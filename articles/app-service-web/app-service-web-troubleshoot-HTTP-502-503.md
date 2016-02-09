@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/13/2016"
 	ms.author="cephalin"/>
 
 # Troubleshoot: web app unavailable due to HTTP 502/503
 
 This article helps you troubleshoot HTTP 502/503 errors in your web app hosted in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**.
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
 ## Symptom
 
@@ -50,7 +50,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 ####	Track Service health
 
-Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](insights-service-health.md).
+Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](../azure-portal/insights-service-health.md).
 
 ####	Monitor your web app
 
@@ -69,7 +69,7 @@ Some of the metrics that you might want to monitor for your web app are
 For more information, see:
 
 -	[Monitor Web Apps in Azure App Service](web-sites-monitor.md)
--	[Receive alert notifications](insights-receive-alert-notifications.md)
+-	[Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md)
 
 <a name="collect" />
 ### 2. Collect data
@@ -133,9 +133,9 @@ For more information, see [Auto-Healing Azure Web Sites](/blog/auto-healing-wind
 
 ####	Restart the web app
 
-This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.com), on your web app’s blade, you have the options to stop or restart your app.
+This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.com/), on your web app’s blade, you have the options to stop or restart your app.
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 You can also manage your web app using Azure Powershell. For more information, see
-[Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
+[Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).

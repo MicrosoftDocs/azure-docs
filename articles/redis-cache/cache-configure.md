@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="12/11/2015"
+	ms.date="12/16/2015"
 	ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -118,15 +118,16 @@ Click **OK** to save the persistence configuration.
 
 >[AZURE.IMPORTANT] Redis data persistence is only available for Premium caches. For more information, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
 
+<a name="cluster-size"></a>
 ## Redis Cluster Size
 
-Click **(PREVIEW) Redis Cluster Size** to add or remove shards from a running premium cache with clustering enabled.
+Click **(PREVIEW) Redis Cluster Size** to change the cluster size for a running premium cache with clustering enabled.
 
 >[AZURE.NOTE] Note that while the Azure Redis Cache Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
 
 ![Redis cluster size](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
-To change the shard count, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
+To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
 
 >[AZURE.IMPORTANT] Redis clustering is only available for Premium caches. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 
@@ -147,7 +148,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure Portal.
+>Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure Portal or command line management tools such as Azure CLI or PowerShell.
 
 |Setting|Default value|Description|
 |---|---|---|
@@ -177,7 +178,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 
 ## Redis commands not supported in Azure Redis Cache
 
->[AZURE.IMPORTANT] Because configuration and management of Azure Redis Cache instances is done using the Azure Portal the following commands are disabled. If you try to invoke them you will receive an error message similar to `"(error) ERR unknown command"`.
+>[AZURE.IMPORTANT] Because configuration and management of Azure Redis Cache instances is managed by Microsoft the following commands are disabled. If you try to invoke them you will receive an error message similar to `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 
@@ -31,7 +31,7 @@ Azure Stream Analytics is a fully managed service providing low-latency, highly 
 Before you begin this article, you must have the following:
 
 - Install Visual Studio 2012 or 2013.
-- Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/).
+- Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 - Create an Azure Resource Group in your subscription. The following is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](../install-configure-powershell.md);  
 
 
@@ -150,6 +150,8 @@ Add the following code to the beginning of the **Main** method:
 	StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
 
 The **resourceGroupName** variable's value should be the same as the name of the resource group you created or picked in the prerequisite steps.
+
+To automate the credential presentation aspect of job creation, refer to [Authenticating a service principal with Azure Resource Manager](./articles/resource-group-authenticate-service-principal.md).
 
 The remaining sections of this article assume that this code is at the beginning of the **Main** method.
 

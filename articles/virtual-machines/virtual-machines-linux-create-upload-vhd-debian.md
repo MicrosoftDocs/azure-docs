@@ -19,13 +19,13 @@
 
 
 
-#Prepare Debian VHD for Azure
+# Prepare a Debian VHD for Azure
 
-##Prerequisites
-This section assumes that you have already installed a Debian Linux operating system from an .iso file downloaded from the [Debian website](https://www.debian.org/distrib/) to a virtual hard disk. Multiple tools exist to create .vhd files; Hyper-V is only one example. For instructions using Hyper-V, see [Install the Hyper-V Role and Configure a Virtual Machine](https://technet.microsoft.com/library/hh846766.aspx). 
+## Prerequisites
+This section assumes that you have already installed a Debian Linux operating system from an .iso file downloaded from the [Debian website](https://www.debian.org/distrib/) to a virtual hard disk. Multiple tools exist to create .vhd files; Hyper-V is only one example. For instructions using Hyper-V, see [Install the Hyper-V Role and Configure a Virtual Machine](https://technet.microsoft.com/library/hh846766.aspx).
 
 
-## Installation Notes
+## Installation notes
 
 - The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the **convert-vhd** cmdlet.
 - When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. LVM or RAID may be used on data disks if preferred.
@@ -33,7 +33,7 @@ This section assumes that you have already installed a Debian Linux operating sy
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
 
-##Debian 7.x and 8.x
+## Debian 7.x and 8.x
 
 1. In Hyper-V Manager, select the virtual machine.
 
@@ -47,13 +47,13 @@ This section assumes that you have already installed a Debian Linux operating sy
 
 5. Rebuild the grub and run:
 
-        # sudo update-grub 
+        # sudo update-grub
 
 6. Install the dependency packages for Azure Linux Agent:
 
         # apt-get install -y git parted
 
-7.	Install the Azure Linux Agent from Github using [guidance](virtual-machines-linux-update-agent.md) and choose version 2.0.14:
+7.	Install the Azure Linux Agent from GitHub using [guidance](virtual-machines-linux-update-agent.md) and choose version 2.0.14:
 
 			# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent
 			# chmod +x waagent
@@ -65,10 +65,10 @@ This section assumes that you have already installed a Debian Linux operating sy
         # sudo waagent –force -deprovision
         # export HISTSIZE=0
         # logout
- 
+
 9. Click **Action** -> Shut Down in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
-##Using Credativ Script to create Debian VHD
+## Using a Credativ script to create Debian VHD
 
 There is a script available on the Credativ website that can help you to build the Debian VHD automatically. You can download it from [here](https://gitlab.credativ.com/de/azure-manage) and install it in in your Linux VM. To create a Debian VHD (for example, Debian 7) run:
 
@@ -76,6 +76,6 @@ There is a script available on the Credativ website that can help you to build t
 
 If any issue to use this script, just file a issue to Credativ [here](https://gitlab.credativ.com/groups/de/issues).
 
-## Next Steps
+## Next steps
 
-You're now ready to use your Debian .vhd to create new Azure Virtual Machines.
+You're now ready to use your Debian virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see steps 2 and 3 in [Creating and uploading a virtual hard disk that contains the Linux operating system](virtual-machines-linux-create-upload-vhd.md).

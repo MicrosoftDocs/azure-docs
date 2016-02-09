@@ -1,6 +1,6 @@
 <properties
    pageTitle="Creating and registering the publisher account | Microsoft Azure"
-   description="Instructions for creating a Microsoft seller account so, upon approval, you can sell various offer types on the Azure Marketplace."
+   description="Instructions for creating a Microsoft Developer account so, upon approval, you can sell various offer types on the Azure Marketplace."
    services="Azure Marketplace"
    documentationCenter=""
    authors="HannibalSII"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/06/2015"
+   ms.date="01/25/2016"
    ms.author="hascipio"/>
 
-# Create a Microsoft seller account
-This article walks you through the necessary account creation and registration process to become an approved Microsoft seller for the Azure Marketplace.
+# Create a Microsoft Developer account
+This article walks you through the necessary account creation and registration process to become an approved Microsoft Developer for the Azure Marketplace.
 
 ## 1. Create a Microsoft account
 > [AZURE.WARNING] To start the publishing process, you will need to create a Microsoft account. This account will be used to register for and to sign in to both the **Microsoft Developer Center** and **Azure Publishing Portal**. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
@@ -47,10 +47,10 @@ The address that forms the user name should be on your domain and controlled by 
 ## 2. Create your Microsoft Developer Center account
 The Microsoft Developer Center is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, **and the same account must be used in the Azure Publishing Portal.** You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one. During the process, we will collect company address information, bank account information, and tax information. These are typically obtainable from finance or business contacts.
 
-> [AZURE.IMPORTANT] You must complete the following seller profile components in order to progress through the various phases of offer creation and deployment.
+> [AZURE.IMPORTANT] You must complete the following Developer profile components in order to progress through the various phases of offer creation and deployment.
 
 
-| Seller profile | To start draft | Staging | Publish free and solution template | Publish commercial |
+| Developer profile | To start draft | Staging | Publish free and solution template | Publish commercial |
 |----|----|----|----|----|
 |Company registration | Must have | Must have | Must have | Must have |
 |Tax profile ID | Optional | Optional | Optional | Must have |
@@ -79,8 +79,6 @@ The Microsoft Developer Center is used to register the company information once.
 
 6. Select your "Account Type", **Individual** or **Company**.
 
-    <!-- Insert screenshot -->
-
     > [AZURE.IMPORTANT] To better understand account types and which is best for you to choose,please view page [Account types, locations, and fees](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
 
 7. Enter the **Publisher display name**, typically the name of your company.
@@ -95,7 +93,7 @@ The Microsoft Developer Center is used to register the company information once.
 
 10. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info (or PayPal in supported markets). When you are finished, click **Next** to move on to the **"Review screen"**.
 
-11. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the **Microsoft Azure Marketplace Publisher Agreement**. Check the box to indicate you have read and accepted these terms.
+11. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the [Microsoft Azure Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560). Check the box to indicate you have read and accepted these terms.
 
 12. Click **Finish** to confirm your registration. We'll send a confirmation message to your developer email address.
 
@@ -147,7 +145,7 @@ The Azure publishing portal is used to publish and manage your offer(s). You wil
 
 3.	Sign in with your company registration Microsoft account (i.e., marketplace@example.com), and you can add co-admins as necessary.
 
-  > [AZURE.TIP] The participation policies are described on the [Azure website](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+  > [AZURE.TIP] The participation policies are described on the [Azure website](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
   > If you have issues with Developer Center registration, please log a support ticket as below:
   1. Contact [Support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=en-us&pesid=15635&ccsid=635847950577064286).

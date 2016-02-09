@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jeffreyg; ronitr"/>
  
 # Get started with SQL database auditing
@@ -21,7 +21,7 @@ Azure SQL Database Auditing tracks database events and writes audited events to 
 
 Auditing can help you maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 
-Auditing tools enable and facilitate adherence to compliance standards but don't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](http://azure.microsoft.com/support/trust-center/compliance).
+Auditing tools enable and facilitate adherence to compliance standards but don't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
 + [Azure SQL Database Auditing basics]
 + [Set up auditing for your database]
@@ -29,7 +29,7 @@ Auditing tools enable and facilitate adherence to compliance standards but don't
 
 ##<a id="subheading-1"></a>Azure SQL Database Auditing basics
 
-The following section describes the configuration of auditing using the Azure Portal. You may also [set up auditing for your database using the Classic Azure Classic Portal].
+The following section describes the configuration of auditing using the Azure Portal. You may also [set up auditing for your database using the Azure Classic Portal].
 
 SQL Database Auditing allows you to:
 
@@ -62,7 +62,7 @@ Before setting up auditing check if you are using a ["Downlevel Client"](sql-dat
 
 ##<a id="subheading-2"></a>Set up auditing for your database
 
-1. Launch the [Azure Portal](https://portal.azure.com) at https://portal.azure.com. Alternatively, you can also launch the [Classic Azure Classic Portal](https://manage.windowsazure.com/) at https://manage.windowsazure.com/. Refer to details below.
+1. Launch the [Azure Portal](https://portal.azure.com) at https://portal.azure.com. Alternatively, you can also launch the [Azure Classic Portal](https://manage.windowsazure.com/) at https://manage.windowsazure.com/. Refer to details below.
 
 2. Navigate to the settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade select **Auditing & Threat detection**.
 
@@ -99,9 +99,9 @@ You can import your audit logs into the Excel template directly from your Azure 
 ![Navigation Pane][4]
 
 
-##<a id="subheading-4"></a>Set up auditing for your database using the Classic Azure Classic Portal
+##<a id="subheading-4"></a>Set up auditing for your database using the Azure Classic Portal
 
-1. Launch the [Classic Azure Classic Portal](https://manage.windowsazure.com/) at https://manage.windowsazure.com/.
+1. Launch the [Azure Classic Portal](https://manage.windowsazure.com/) at https://manage.windowsazure.com/.
 
 2. Click the SQL Database / SQL Server you want to audit, and then click the **AUDITING & SECURITY** tab.
 
@@ -123,7 +123,7 @@ You can import your audit logs into the Excel template directly from your Azure 
 
 
 ##<a id="subheading-5">Practices for usage in production</a>
-The description in this section refers to screen captures above. Either [Azure Portal](https://portal.azure.com) or [Classic Azure Classic Portal](https://manage.windowsazure.com/) may be used.
+The description in this section refers to screen captures above. Either [Azure Portal](https://portal.azure.com) or [Azure Classic Portal](https://manage.windowsazure.com/) may be used.
 
 
 ##<a id="subheading-6"></a>Storage Key Regeneration
@@ -159,7 +159,7 @@ There are several PowerShell cmdlets you can use to configure auditing in Azure 
 [Azure SQL Database Auditing basics]: #subheading-1
 [Set up auditing for your database]: #subheading-2
 [Analyze audit logs and reports]: #subheading-3
-[Set up auditing for your database using the Classic Azure Classic Portal]: #subheading-4
+[Set up auditing for your database using the Azure Classic Portal]: #subheading-4
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation]: #subheading-7

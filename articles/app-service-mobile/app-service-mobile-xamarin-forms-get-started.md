@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="11/23/2015"
+	ms.date="02/04/2016"
 	ms.author="normesta"/>
 
 #Create a Xamarin.Forms app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Overview
 
@@ -32,12 +30,12 @@ Completing this tutorial is a prerequisite for all other Mobile Apps tutorials f
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
- 
+* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+
 * [Visual Studio Community 2013] or later.  If you install Visual Studio Community 2013, install [Xamarin] separately.  You can install the Xamarin tools when you install Visual Studio 2015.
 
 * A Mac with [Xcode] v7.0 or later and [Xamarin Studio] installed. If you plan to build your app on a Windows computer by using Visual Studio, you'll still need access to a networked Mac to do it.
- 
+
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
 
 ## Create a new Azure Mobile App backend
@@ -53,9 +51,9 @@ You have now provisioned an Azure Mobile App backend that can be used by your mo
 
 Follow the steps below to configure the server project to use either the Node.js or .NET backend.
 
-[AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
- 
+
 ## (Optional) Test your backend project locally
 
 If you chose a .NET backend configuration above, you can optionally test the backend locally.
@@ -95,7 +93,7 @@ This section is for running the Xamarin iOS project for iOS devices. You can ski
 
 ####In Visual Studio
 1. Right-click the iOS project, and then click **Set as StartUp Project**.
-2. On the **Build** menu, click **Configuration Manager**. 
+2. On the **Build** menu, click **Configuration Manager**.
 3. In the **Configuration Manager** dialog box, select the **Build** and **Deploy** checkboxes of the iOS project.
 4. Press the **F5** key to build the project and start the app in the iPhone emulator.
 
@@ -119,7 +117,7 @@ This section is for running the Xamarin droid project for Android. You can skip 
 
 ####In Visual Studio
 1. Right-click the Android project, and then click **Set as StartUp Project**.
-4. On the **Build** menu, click **Configuration Manager**. 
+4. On the **Build** menu, click **Configuration Manager**.
 5. In the **Configuration Manager** dialog box, select the **Build** and **Deploy** checkboxes of the Android project.
 6. Press the **F5** key to build the project and start the app in an Android emulator.
 
@@ -141,16 +139,16 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
 
 ####In Visual Studio
 1. Right-click any of the Windows projects, and then click **Set as StartUp Project**.
-4. On the **Build** menu, click **Configuration Manager**. 
+4. On the **Build** menu, click **Configuration Manager**.
 5. In the **Configuration Manager** dialog box, select the **Build** and **Deploy** checkboxes of the Windows project that you chose.
 6. Press the **F5** key to build the project and start the app in a Windows emulator.
 
 In the app, type meaningful text, such as _Learn Xamarin_ and then click the **+** button.
-	
+
 This sends a POST request to the new mobile app backend hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the data is displayed in the list.
 
 ![][12]
-	
+
 > [AZURE.NOTE]
 > You'll find the code that accesses your mobile app backend in the TodoItemManager.cs C# file of the portable class library project of your solution.
 
@@ -180,4 +178,3 @@ This sends a POST request to the new mobile app backend hosted in Azure. Data fr
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
- 

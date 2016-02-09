@@ -55,7 +55,7 @@ After upgrading to V12, [service tier recommendations](sql-database-service-tier
 
 ## Start the upgrade
 
-1. In the [Azure portal](http://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE ALL** > **SQL servers**, and selecting the desired server.
+1. In the [Azure portal](https://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE ALL** > **SQL servers**, and selecting the desired server.
 2. Select **Latest SQL database update**, then select **Upgrade this server**.
 
       ![upgrade server][1]
@@ -112,7 +112,8 @@ Follow the directions in the [Create an elastic database pool](sql-database-elas
 
 ## Monitor databases after upgrading to SQL Database V12
 
-
+>[AZURE.IMPORTANT] Upgrade to the latest version of SQL Server Management Studio (SSMS) to take advantage of the new v12 capabilities. [Download SQL Server Management Studio] (https://msdn.microsoft.com/library/mt238290.aspx).
+	
 After upgrading, it is recommended to monitor the database actively to ensure applications are running at the desired performance and optimize usage as needed. 
 
 In addition to monitoring individual databases you can monitor elastic database pools [using the portal](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) or with [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools) 

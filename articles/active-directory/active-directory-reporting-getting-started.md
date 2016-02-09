@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/01/2015"
+   ms.date="02/01/2016"
    ms.author="curtand;kenhoff"/>
 
 # Getting started with Azure Active Directory Reporting
@@ -92,7 +92,7 @@ If this is your first time viewing the reports, you'll need to agree to a dialog
 
 ### Explore each report
 
-Navigate into each report to see the data being collected and the sign ins processed. You can find a [list of all the reports here](active-directory-reporting-what-it-is.md).
+Navigate into each report to see the data being collected and the sign ins processed. You can find a [list of all the reports here](active-directory-reporting-guide.md).
 
 ![All reports](./media/active-directory-reporting-getting-started/reportsMain.png)
 

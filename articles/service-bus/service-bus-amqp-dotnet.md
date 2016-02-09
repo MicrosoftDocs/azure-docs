@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Using Service Bus from .NET with AMQP 1.0
@@ -21,7 +21,7 @@
 
 ## Downloading the Service Bus SDK
 
-AMQP 1.0 support is available in the Service Bus SDK version 2.1 or later. You can download the latest SDK from [NuGet][].
+AMQP 1.0 support is available in the Service Bus SDK version 2.1 or later. You can download the latest Service Bus bits from [NuGet][].
 
 ## Configuring .NET applications to use AMQP 1.0
 
@@ -198,7 +198,6 @@ Ready to learn more? Visit the following links:
   [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-
 [Azure classic portal]: http://manage.windowsazure.com
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md

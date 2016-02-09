@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="elizapo"/>
 
 # How to create a hybrid collection for Azure RemoteApp
@@ -28,7 +28,7 @@ Don't know which you need? Check out [Which kind of collection do you need for A
 This tutorial walks you through the process of creating a hybrid collection. There are eight steps: 
 
 1.	Decide what [image](remoteapp-imageoptions.md) to use for your collection. You can create a custom image or use one of the Microsoft images included with your subscription.
-2. Set up your virtual network. Check out the [VNET planning](remoteapp-planvpn.md) and [sizing](remoteapp-vnetsizing.md) information.
+2. Set up your virtual network. Check out the [VNET planning](remoteapp-planvnet.md) and [sizing](remoteapp-vnetsizing.md) information.
 2.	Create a collection.
 2.	Join your collection to your local domain.
 3.	Add a template image to your collection.
@@ -40,10 +40,10 @@ This tutorial walks you through the process of creating a hybrid collection. The
 
 You need to do the following before creating the collection:
 
-- [Sign up](http://azure.microsoft.com/services/remoteapp/) for Azure RemoteApp. 
+- [Sign up](https://azure.microsoft.com/services/remoteapp/) for Azure RemoteApp. 
 - Create a user account in Active Directory to use as the Azure RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain.
 - Gather information about your on-premises network: IP address information and VPN device details.
-- Install the [Azure PowerShell](../install-configure-powershell.md) module.
+- Install the [Azure PowerShell](../powershell-install-configure.md) module.
 - Gather information about the users that you want to grant access to. You will need the Azure Active Directory user principal name (for example, name@contoso.com) for each user. Make sure that the UPN matches between Azure AD and Active Directory.
 - Choose your template image. An Azure RemoteApp template image contains the apps and programs that you want to publish for your users. See [Azure RemoteApp image options](remoteapp-imageoptions.md) for more information. 
 - Want to use the Office 365 ProPlus image? Check out info [here](remoteapp-officesubscription.md).
@@ -58,7 +58,7 @@ Make sure you review the [VNET planning](remoteapp-planvnet.md) and [VNET size](
 
 ### Create an Azure VNET and join it to your Active Directory deployment
 
-Start by creating a [virtual network](../virtual-network/virtual-networks-create-vnet.md). This is done on the **Network** tab in the Azure Management portal. You need to connect your virtual network to the Active Directory deployment that is synchronized to your Azure Active Directory tenant.
+Start by creating a [virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). This is done on the **Network** tab in the Azure Management portal. You need to connect your virtual network to the Active Directory deployment that is synchronized to your Azure Active Directory tenant.
 
 See [About Virtual Network Settings in the Management Portal](../virtual-network/virtual-networks-settings.md) for more information.
 
@@ -120,7 +120,7 @@ See [Directory synchronization roadmap](http://msdn.microsoft.com//library/azure
 
 An Azure RemoteApp app is the app or program that you provide to your users. It is located in the template image you uploaded for the collection. When a user accesses an app, it appears to run in their local environment, but it is really running in Azure. 
 
-Before your users can access apps, you need to publish them to the end-user feed – a list of available apps that your users access through the Remote Desktop client.
+Before your users can access apps, you need to publish them – this lets your users access the apps through the Remote Desktop client.
  
 You can publish multiple apps to your collection. From the publishing page, click **Publish** to add an app. You can either publish from the **Start** menu of the template image or by specifying the path on the template image for the app. If you choose to add from the **Start** menu, choose the program to add. If you choose to provide the path to the app, provide a name for the app and the path to where it is installed on the template image.
 

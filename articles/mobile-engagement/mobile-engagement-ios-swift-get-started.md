@@ -2,7 +2,7 @@
 	pageTitle="Get Started with Azure Mobile Engagement for iOS in Swift"
 	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for iOS Apps."
 	services="mobile-engagement"
-	documentationCenter="Mobile"
+	documentationCenter="ios"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -67,7 +67,7 @@ We will create a basic app with XCode to demonstrate the integration:
 
 	![][2]
 
-5. Open the `Build Phases` tab and in the `Link Binary With Libraries` menu add the frameworks as shown below:
+5. Open the `Build Phases` tab and in the `Link Binary With Libraries` menu add the frameworks as shown below. **NOTE** You must include `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration` :
 
 	![][3]
 

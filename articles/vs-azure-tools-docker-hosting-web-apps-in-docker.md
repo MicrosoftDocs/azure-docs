@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/20/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Hosting Web Apps in Docker
@@ -163,7 +163,7 @@ The procedure below is for communicating with a Docker host that's been deployed
 
 Now that you have a Docker host, you can issue Docker commands to it. To learn more about Docker, see the [Docker documentation](https://docs.docker.com/) and the [Docker online tutorial](https://www.docker.com/tryit/).
 
-To learn about using the Docker VM extension for Linux on Azure, see [The Docker Virtual Machine Extension for Linux on Azure](virtual-machines-docker-vm-extension.md).
+To learn about using the Docker VM extension for Linux on Azure, see [The Docker Virtual Machine Extension for Linux on Azure](/virtual-machines/virtual-machines-docker-vm-extension.md).
 
 For issues with using Docker in Visual Studio, see [Troubleshooting Docker Client Errors on Windows Using Visual Studio](vs-azure-tools-docker-troubleshooting-docker-errors.md).
 
