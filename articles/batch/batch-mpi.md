@@ -35,6 +35,14 @@ When you submit a task with multi-instance settings to a job, Batch performs sev
 
 > [AZURE.NOTE] Though it is functionally distinct, the "multi-instance task" is not a unique task type like the [StartTask][net_starttask] or [JobPreparationTask][net_jobprep]. The multi-instance task is simply a standard Batch task ([CloudTask][net_task] in Batch .NET) whose multi-instance settings have been configured. In this article, we refer to this as the multi-instance task.
 
+## Requirements for multi-instance tasks
+
+Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. If you try to run a multi-instance task in a pool with internode communication disabled, or with a *maxTasksPerNode* value greater than 1, the task will never be scheduled--it will remain indefinitely in the "active" state.
+
+Additionally, multi-instance tasks will execute *only* on nodes in **pools created after 12/14/2015**.
+
+> [AZURE.TIP] When you use size [A8 or A9 compute nodes](./../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network. You can see the full list of compute node sizes available for Batch pools in [Sizes for Cloud Services](./../cloud-services/cloud-services-sizes-specs.md).
+
 ## Create a multi-instance task with Batch .NET
 
 The following code snippet shows you how to create a multi-instance task using the Batch .NET library. In the snippet, we create a standard [CloudTask][net_task], then configure its [MultiInstanceSettings][net_multiinstance_prop] property.
@@ -88,6 +96,8 @@ The **application command**, the command line specified for the main task, is ex
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
 
+> [AZURE.NOTE] You are not limited to using MS-MPI when implementing an MPI solution with multi-instance tasks in Batch. You may use any other implementation of the MPI standard that is compatible with the operating system you specify for the compute nodes in your pool.
+
 ## Resource files
 
 You can specify one or more **common resource files** for a multi-instance task. These common resource files are downloaded from [Azure Storage](./../storage/storage-introduction.md) into the node's task shared directory by all of the subtasks, including the primary. You can access the task shared directory from application and coordination command lines by using the `AZ_BATCH_TASK_SHARED_DIR` environment variable.
@@ -117,12 +127,6 @@ To obtain information on subtasks using the Batch .NET library, the [CloudTask.L
 Unless otherwise stated, Batch .NET methods that operate on the standard [CloudTask][net_task] apply only to the primary subtask. For example, when you call the [CloudTask.ListNodeFiles][net_task_listnodefiles] method on a multi-instance task, only the primary task's files are returned.
 
 **TODO: Add code snippet showing task monitoring, accessing subtasks, obtaining their files**
-
-## Pool requirements for multi-instance tasks
-
-Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. If you try to run a multi-instance task in a pool with internode communication disabled, or with a *maxTasksPerNode* value greater than 1, the task will never be scheduled--it will remain indefinitely in the "active" state.
-
-Additionally, multi-instance tasks will execute *only* on nodes in **pools created after 12/14/2015**.
 
 ## Next steps
 
