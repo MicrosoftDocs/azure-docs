@@ -13,24 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/09/2016"
 	ms.author="andkjell"/>
 
 # Troubleshoot connectivity issues with Azure AD Connect
 This article explains how connectivity between Azure AD Connect and Azure AD works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment with a proxy server.
 
 ## Troubleshoot connectivity issues in the installation wizard
-Azure AD Connect depends on two different configuration methods to connect to Azure AD. The installation wizard and the sync engine proper require machine.config to be properly configured since these are .Net applications. There is also a dependency on the Sign-in assistant and it requires winhttp to be configured to properly work.
+Azure AD Connect is using Modern Authentication (using the ADAL library) for authentication. The installation wizard and the sync engine proper require machine.config to be properly configured since these are .Net applications.
 
 In this article we will show how Fabrikam connects to Azure AD through its proxy. The proxy server is named fabrikamproxy and is using port 8080.
 
 First we need to make sure [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity) is correctly configured.  
 ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [AZURE.NOTE] In some blogs it is documented that changes should be made to miiserver.exe.config instead. However, this file is overwritten on every upgrade so even if it works during initial install, the system will stop working on first upgrade. For that reason the recommendation is to update machine.config instead.
+> [AZURE.NOTE] In some non-Microsoft blogs it is documented that changes should be made to miiserver.exe.config instead. However, this file is overwritten on every upgrade so even if it works during initial install, the system will stop working on first upgrade. For that reason the recommendation is to update machine.config instead.
 
-Second we need to make sure winhttp is configured. This can be done with [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
-![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
+
 
 The proxy server must also have the required URLs opened. The official list is documented in [Office 365 URLs and IP address ranges ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -40,7 +39,9 @@ Of these, the following table is the absolute bare minimum to be able to connect
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Used to download CRL lists. |
 | *.verisign.com | HTTP/80 | Used to download CRL lists. |
+| *.trust.com | HTTP/80 | Used to download CRL lists for MFA. |
 | *.windows.net | HTTPS/443 | Used to login to Azure AD. |
+| secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Used for MFA. |
 | *.microsoftonline.com | HTTPS/443 | Used to configure your Azure AD directory and import/export data. |
 
 ## Errors in the wizard
@@ -55,20 +56,17 @@ This error will appear when the wizard itself cannot reach the proxy.
 - If you see this, verify the [machine.config](active-directory-aadconnect-prerequisites.md#connectivity) has been correctly configured.
 - If that looks ok, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
 
-### The Sign-in assistant has not been correctly configured
-This error appear when the Sign-in assistant cannot reach the proxy or the proxy is not allowing the request.
-![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
+### The MFA endpoint cannot be reached
+This error will appear if the endpoint https://secure.aadcdn.microsoftonline-p.com cannot be reached and your global admin has MFA enabled.  
+![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
-- If you see this, look at the proxy configuration in [netsh](active-directory-aadconnect-prerequisites.md#connectivity) and verify it is correct.
-![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
-- If that looks ok, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
+- If you see this, verify that the endpoint secure.aadcdn.microsoftonline-p.com has been added to the proxy.
 
 ### The password cannot be verified
 If the installation wizard is successful in connecting to Azure AD, but the password itself cannot be verified you will see this:
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
 - Is the password a temporary password and must be changed? Is it actually the correct password? Try to login to https://login.microsoftonline.com (on another server than the Azure AD Connect server) and verify the account is usable.
-- Is MFA (Multi-Factor Authentication) enabled on the user? If it is, then disable it.
 
 ### Verify proxy connectivity
 To verify if the Azure AD Connect server has actual connectivity with the Proxy and Internet we will use some PowerShell to see if the proxy is allowing web requests or not. In a PowerShell prompt, run `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technically the first call is to https://login.microsoftonline.com and this will work as well, but the other URI is faster to respond.)
@@ -135,3 +133,20 @@ Time | URL
 1/11/2016 8:49 | connect://adminwebservice.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
+
+## Troubleshooting steps for previous releases.
+With releases starting with build number 1.1.100.0 (initially released February 2016) the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.
+
+For the single-sign in assistant to work, winhttp must be configured. This can be done with [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
+![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
+
+### The Sign-in assistant has not been correctly configured
+This error appear when the Sign-in assistant cannot reach the proxy or the proxy is not allowing the request.
+![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
+
+- If you see this, look at the proxy configuration in [netsh](active-directory-aadconnect-prerequisites.md#connectivity) and verify it is correct.
+![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
+- If that looks ok, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
+
+## Next steps
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

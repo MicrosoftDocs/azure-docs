@@ -27,13 +27,15 @@ Related links:
 - For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
-## 1.1.xxx.0
+## 1.1.100.0
 Released: 2016 February
 
 **New features:**
 
 - [Automatic upgrade](active-directory-aadconnect-feature-auto-upgrade.md) feature for Express settings customers.
 - Support for the global admin using MFA and PIM in the installation wizard.
+    - You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use MFA.
+    - You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for MFA to properly work.
 - Allow changing the user's sign-in method after initial install.
 - Allow [Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the installation wizard. This also allows connecting to forests where not all domains are available.
 - [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) is built-in to the sync engine.

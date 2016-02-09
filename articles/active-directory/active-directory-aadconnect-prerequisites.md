@@ -44,6 +44,9 @@ Before you install Azure AD Connect, there are a few things that you will need.
 - An Enterprise Administrator account for your local Active Directory if you use express settings or upgrade from DirSync.
 - [Accounts is Active Directory](active-directory-aadconnect-accounts-permissions.md) if you use the custom settings installation path.
 
+### Azure AD Connect server configuration
+- If your global administrators have MFA enabled, then the URL https://secure.aadcdn.microsoftonline-p.com must be in the trusted sites list. You will be prompted to add this to the trusted sites list if it is not added before you are prompted for an MFA challenge. You can use Internet Explorer to add it to your trusted sites.
+
 ### Connectivity
 - If you have firewalls on your Intranet and you need to open ports between the Azure AD Connect servers and your domain controllers then see [Azure AD Connect Ports](active-directory-aadconnect-ports.md) for more information.
 - If your proxy limits which URLs which can be accessed then the URLs documented in [Office 365 URLs and IP address ranges ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened in the proxy.
@@ -77,14 +80,6 @@ If your proxy server requires authentication, then the section should look like 
 
 With this change in machine.config the installation wizard and sync engine will respond to authentication requests from the proxy server. In all installation wizard pages, excluding the **Configure** page, the signed in user's credentials are used. On the **Configure** page at the end of the installation wizard, the context is switched to the [service account](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) which was created.
 See MSDN for more information about the [default proxy Element](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
-
-- You also need to configure winhttp. Start a cmd-prompt and enter:
-
-```
-C:\>netsh
-netsh>winhttp
-netsh winhttp>set proxy <PROXYADDRESS>:<PROXYPORT>
-```
 
 If you have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 
