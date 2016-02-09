@@ -21,7 +21,7 @@
 
 Microsoft Azure Search is a hosted cloud search service that you can use to add search functionality to custom applications. It provides the search engine and storage for your data, which you access and manage using the Azure Portal, a .NET SDK, or a REST API. 
 
-This article is a code-free introduction to Azure Search, using capabilities built right into the portal. If you don't have data, you can quickly create a [sample Azure DocumentDB database](#apdx-sampledata) using the data files and instructions in this article.
+This article is a code-free introduction to Azure Search, using capabilities built right into the portal. If you don't have data to work with, you can quickly create a [sample Azure DocumentDB database](#apdx-sampledata) using our data files and the instructions in this article.
 
 > [AZURE.NOTE] This tutorial requires an [Azure subscription](../includes/free-trial-note.md) and an [Azure Search service](search-create-service-portal.md). If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for [Try Azure App Service](search-tryappservice.md) instead. This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.
  
@@ -58,23 +58,23 @@ To keep this task simple, we'll assume a data source that Azure Search can crawl
 
   ![][2]
 
-Notice that we skipped the query. This is because we're not implementing change tracking in our dataset this time around. If your dataset includes a field that keeps track of when a record is updated, you can configure an Azure Search indexer to use change tracking for selective updates to your index.
+Notice that we are skipping the query. This is because we're not implementing change tracking in our dataset this time around. If your dataset includes a field that keeps track of when a record is updated, you can configure an Azure Search indexer to use change tracking for selective updates to your index.
+
+Click **OK** to complete this step of the wizard.
 
 #### Step 2: Define the index
 
-Still in the wizard, click **Index** and take a look at the design surface for creating an Azure Search index. In our sample dataset, all of the fields were detected automatically and added to the definition with the correct data type. 
+Still in the wizard, click **Index** and take a look at the design surface for creating an Azure Search index. In our sample dataset, all of the fields are detected by the wizard automatically and the index is preloaded with fields and  a data type assignment. 
 
   ![][3]
 
-Checkboxes across the top of the field list are *index attributes* that control how the field is used. 
+Although the fields and data types are configured, you still need to assign attributes. The check boxes across the top of the field list are *index attributes* that control how the field is used. 
 
 - **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results, for example when fields used only in filter expressions. 
 - **Filterable**, **Sortable**, and **Facetable** determine whether a field can be used in a filter, a sort, or a facet navigation structure. 
 - **Searchable** means that a field is included in full text search. Numeric fields and Boolean fields are often marked as not searchable. 
 
-Mark the fields in your index to use the following options (Retrievable, Searchable, and so on). 
-
-Most fields are Retrievable. Most string fields are Searchable (you don't need to make the Key searchable). A few fields like genre, orderableOnline, rating, and tags are also Filterable, Sortable, and Facetable. 
+Before you leave this page, mark the fields in your index to use the following options (Retrievable, Searchable, and so on). Most fields are Retrievable. Most string fields are Searchable (you don't need to make the Key searchable). A few fields like genre, orderableOnline, rating, and tags are also Filterable, Sortable, and Facetable. 
 	
 Field | Type | Options |
 ------|------|---------|
@@ -96,6 +96,8 @@ As a point of comparison, the following screenshot is an illustration of an inde
 
  ![][4]
 
+Click **OK** to complete this step of the wizard.
+
 #### Step 3: Define the indexer
 
 Still in the **Import data** wizard, click **Indexer** > **Name**, type a name for the indexer. This object defines an executable process. Once you create it, you could put it on recurring schedule, but for now use the default option to run the indexer immediately. 
@@ -104,7 +106,9 @@ Your import data entries should be all filled in and ready to go.
 
   ![][5]
 
-To run the wizard, click **OK** to start the import.
+To run the wizard, click **OK** to start the import and close the wizard.
+
+## Check progress
 
 To check progress, double-click the **Indexers** tile on the dashboard to open the indexers list. You should see the indexer you just created in the list, and you should see status indicating "in progress" or success, along with the number of documents indexed into Azure Search.
 
