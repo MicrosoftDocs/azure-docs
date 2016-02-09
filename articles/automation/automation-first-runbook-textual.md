@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/17/2015"
+	ms.date="02/09/2016"
 	ms.author="bwren"/>
 
 
@@ -30,7 +30,7 @@ This tutorial walks you through the creation of a [PowerShell Workflow runbook](
 
 To complete this tutorial, you will need the following.
 
-- Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-trial/" target="_blank">[sign up for a free trial](http://azure.microsoft.com/pricing/free-trial/).
+- Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-trial/" target="_blank">[sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/).
 - [Automation account](automation-configuring.md) to hold the runbook.
 - An Azure virtual machine.  We will stop and start this machine so it should not be production.
 - [Azure Active Directory user and Automation Credential asset](automation-configuring.md) to authenticate to Azure resources.  This user must have permission to start and stop the virtual machine.

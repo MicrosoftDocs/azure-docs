@@ -193,7 +193,7 @@ Do the following before running **azure vm create** with the image:
 Then run a command similar to the following.
 
 	azure vm create -g <your-resource-group-name> -n <your-new-vm-name> -l eastus -y Linux -o <your-storage-account-name> -d "https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
-	
+
 For additional command options, run `azure help vm create`.
 
 ## Next steps

@@ -1,7 +1,7 @@
 
 This article shows you how to configure HTTPS for a web app in Azure App Service. It does not cover client certificate authentication; for information about that, see [How To Configure TLS Mutual Authentication for Web Apps](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
-By default, Azure already enables HTTP for your app with a wildcard certificate for  the \*.azurewebsites.net domain. If you don't plan to configure a custom domain, then you can benefit from the default HTTPS certificate. However, like [all wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), it is not as secure as using a custom domain with your own certificate.   
+By default, Azure already enables HTTPS for your app with a wildcard certificate for  the \*.azurewebsites.net domain. If you don't plan to configure a custom domain, then you can benefit from the default HTTPS certificate. However, like [all wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), it is not as secure as using a custom domain with your own certificate.   
 
 The rest of this document provides details on enabling HTTPS for custom domains, such as **contoso.com**, **www.contoso.com**, or **\*.contoso.com**
 
@@ -11,11 +11,11 @@ The rest of this document provides details on enabling HTTPS for custom domains,
 To enable HTTPS for a custom domain, such as **contoso.com**, you must first [configure a custom domain name in Azure App Service](../articles/app-service-web/web-sites-custom-domain-name.md). Then, you do the following:
 
 1. [Get an SSL certificate](#bkmk_getcert)
-2. [Configure Standard pricing tier](#bkmk_standardmode)
+2. [Configure Standard or Premium pricing tier](#bkmk_standardmode)
 2. [Configure SSL in your app](#bkmk_configuressl)
 3. [Enforce SSL on your app](#bkmk_enforce) (Optional)
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**.
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
 <a name="bkmk_getcert"></a>
 ## 1. Get an SSL certificate
@@ -386,21 +386,25 @@ You can create a test certificate from a Windows system that has Visual Studio i
 	The **myserver.pfx** produced by this command can be used to secure your app for testing purposes.
 
 <a name="bkmk_standardmode"></a>
-## 2. Configure Standard pricing tier
+## 2. Configure Standard or Premium pricing tier
 
-Enabling HTTPS for a custom domain is only available for the **Standard** tier in Azure App Service. Use the following steps to switch your App Service plan to **Standard** tier.
+Enabling HTTPS for a custom domain is only available for the **Standard** and **Premium** pricing tiers in Azure App Service. Use the following steps to switch your App Service plan to **Standard** tier.
 
 > [AZURE.NOTE] Before switching an app from the **Free** tier to **Standard** tier, you should remove spending caps in place for your subscription, otherwise you risk your app becoming unavailable if you reach your caps before the billing period ends. For more information on shared and **Standard** tier, see [Pricing Details][pricing].
 
-1.	In your browser, open the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
-2.	Click the **Browse** option on the left side of the page.
-3.	Click the **Web Apps** blade.
+1.	In your browser, open the [Azure Portal](https://portal.azure.com).
+	
+2.	Click the **App Service** option on the left side of the page.
+
 4.	Click the name of your app.
+
 5.	In the **Essentials** page, click **Settings**.
-6.	Click **Scale**
+
+6.	Click **Scale Up**
+	
 	![The scale tab][scale]
-7.	In the **Scale** section, set the App Service plan mode by clicking **Select**.
-	![The Pricing tier][sslreserved]
+
+7.	In the **Scale Up** section, set the App Service plan mode by clicking **Select**.
 
 	> [AZURE.NOTE] If you receive a "Configuring scale for web app '&lt;app name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Azure support](/support/options/).
 
@@ -409,16 +413,24 @@ Enabling HTTPS for a custom domain is only available for the **Standard** tier i
 
 Before performing the steps in this section, you must have associated a custom domain name with your app. For more information, see [Configuring a custom domain name for a web app][customdomain].
 
-1.	In your browser, open the [Azure Management Portal](https://portal.azure.com).
-2.	Click the **Browse** option on the left side of the page.
-3.	Click the **Web Apps** blade.
+1.	In your browser, open the [Azure Portal](https://portal.azure.com).
+
+2.	Click the **App Service** option on the left side of the page.
+
 4.	Click the name of your app.
+
 5.	In the **Essentials** page, click **Settings**.
+
 6.	Click **Custom domains and SSL**.
-	![The config tab][sslconfig]
+
+	![The config tab][configure]
+
 7.	In the **certificates** section, click **Upload**
+
 8.	Using the **Upload a certificate** dialog, select the .pfx certificate file created earlier using the IIS Manager or OpenSSL. Specify the password, if any, that was used to secure the .pfx file. Finally, click the **Save** to upload the certificate.
-	![ssl upload][ssluploadcert]
+
+	![ssl upload][uploadcert]
+
 9. In the **ssl bindings** section of the **SSL Settings** tab, use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use [Server Name Indication][sni] (SNI) or IP based SSL.
 
 	![ssl bindings][sslbindings]

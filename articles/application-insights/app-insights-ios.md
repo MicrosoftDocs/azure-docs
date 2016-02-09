@@ -12,19 +12,26 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="11/17/2015"
+    ms.date="02/04/2016"
     ms.author="awills"/>
 
 # Analytics for iOS apps
 
-Microsoft provides two solutions for device devOps: [HockeyApp](http://hockeyapp.net/) for devOps workflow and crash analysis; and [Application Insights](app-insights-overview.md) for usage and crash analytics.
+Microsoft provides two solutions for device devOps: [HockeyApp](http://hockeyapp.net/) for client devices; and [Application Insights](app-insights-overview.md) for the server side and client web pages.
 
-[HockeyApp](http://hockeyapp.net/) is our Mobile DevOps solution for building iOS, OS X, Android or Windows device apps, as well as cross platform apps based on Xamarin, Cordova, and Unity. With it, you can distribute builds to beta testers, collect crash data, and get user feedback. It’s integrated with Visual Studio Team Services enabling easy build deployments and work item integration. You can learn more from the [HockeyApp Knowledge Base](http://support.hockeyapp.net/kb) and keep up to date on the [HockeyApp Blog](http://hockeyapp.net/blog/).
+[HockeyApp](http://hockeyapp.net/) is our Mobile DevOps solution for building iOS, OS X, Android or Windows device apps, as well as cross platform apps based on Xamarin, Cordova, and Unity. With it, you can distribute builds to beta testers, collect crash data, and get user feedback. It’s integrated with Visual Studio Team Services enabling easy build deployments and work item integration. 
+
+Go to:
+
+* [HockeyApp](http://support.hockeyapp.net/kb)
+* [HockeyApp Blog](http://hockeyapp.net/blog/)
+* Join [Hockeyapp Preseason](http://hockeyapp.net/preseason/) to get early releases.
+
+If your app has a server side, use [Application Insights](app-insights-overview.md) to monitor the web server side of your app on [ASP.NET](app-insights-asp-net.md) or [J2EE](app-insights-java-get-started.md). 
 
 
-Use [Application Insights SDK for iOS](https://github.com/Microsoft/ApplicationInsights-iOS) for usage analytics. If your app has a server side, you can send the client and server data to the same Application Insights resource.
+
+There is an [Application Insights SDK for iOS](https://github.com/Microsoft/ApplicationInsights-iOS) which is no longer supported.
 
 
-* [Get started with Application Insights for iOS](https://github.com/Microsoft/ApplicationInsights-iOS).
-* [Get started with HockeyApp for Android](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios).
 

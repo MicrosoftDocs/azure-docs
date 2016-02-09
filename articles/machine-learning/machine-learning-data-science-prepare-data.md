@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/08/2016"
 	ms.author="bradsev" />
 
 
@@ -26,7 +26,7 @@ Pre-processing and cleaning tasks, like the data exploration task, can be carrie
 
 This article introduces various data processing concepts and tasks that can be undertaken either before or after ingesting data into Azure Machine Learning. 
 
-For an example of data exploration and pre-processing done inside Azure Machine Learning studio, see the [Pre-processing data in Azure ML Studio](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
+For an example of data exploration and pre-processing done inside Azure Machine Learning studio, see the [Pre-processing data in Azure ML Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
 
 
 ## Why pre-process and clean data?

@@ -10,10 +10,10 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="02/09/2016"
    ms.author="terrylan"/>
 
 # Getting started with Azure Security Center
@@ -27,9 +27,9 @@ Azure Security Center helps you prevent, detect, and respond to threats with inc
 
 ## Prerequisites
 
-To get started with Azure Security Center, you must have a subscription to Microsoft Azure. Azure Security Center is enabled with your subscription. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
+To get started with Azure Security Center, you must have a subscription to Microsoft Azure. Azure Security Center is enabled with your subscription. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Azure Security Center is accessed from the [Azure portal](http://azure.microsoft.com/features/azure-portal/). See [portal documentation](https://azure.microsoft.com/documentation/services/azure-portal/) to learn more.
+Azure Security Center is accessed from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). See [portal documentation](https://azure.microsoft.com/documentation/services/azure-portal/) to learn more.
 
 
 ## Accessing Azure Security Center

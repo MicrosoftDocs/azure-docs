@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="01/31/2016"
    ms.author="juliako"/>
 
 # Azure SDK for .NET 2.8, 2.8.1 and 2.8.2
@@ -91,7 +91,9 @@ Following the installation of the 2.8.2 tools, customers may experience the foll
 - If you are using Windows 10 and have not installed Internet Explorer, you may get an "Internet Explorer could not be found" error.
 To resolve the issue, install Internet Explorer using the Add/Remove Windows Components dialog.
 
-If you observe this issue, use the Send-a-smilefeature to report it.
+If you observe this issue, use the Send-a-smile feature to report it.
+
+For more information, see [this](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-2-for-net/) post.
 ##Other updates
 
 For other updates, see [Azure SDK 2.8 announcement post](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).

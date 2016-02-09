@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/31/2016"  
 	ms.author="juliako"/>
 
 
@@ -37,8 +37,7 @@ In this tutorial, the Azure Classic Portal is used to accomplish the following t
 ## Prerequisites
 The following are required to complete the tutorial.
 
-- To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes.
-For details, see [Azure Free Trial](azure.microsoft.com).
+- To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). 
 - A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
 - A webcam and an encoder that can send a multi-bitrate live stream.
 
@@ -89,13 +88,13 @@ Once the channel is created, you can get ingest URLs that you will provide to th
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-For more information about Ingest URLs, see [Using on-premises encoders to send multi-bitrate live stream to a channel](../media-services-channels-overview.md).
+For more information about Ingest URLs, see [Using on-premises encoders to send multi-bitrate live stream to a channel](media-services-channels-overview.md).
 
 ## Configure a live encoder and ingest live stream
 
 >[AZURE.NOTE] This step will require the channel’s ingest URL that was mentioned in the previous step.
 
-For detailed information about how to configure Wirecast and start ingesting the stream, see [Wirecast Configuration](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+For detailed information about how to configure Wirecast and start ingesting the stream, see [Wirecast Configuration](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
 >[AZURE.NOTE] If for any reason you stop the encoder and then need to restart it you should first reset the channel by clicking the **RESET** command in the Azure Classic Portal.
 
@@ -206,7 +205,7 @@ If this topic didn't contain what you were expecting, is missing something, or i
 
 
 ## Additional resources
-- [Getting Started with Live Streaming Using the Azure Classic Portal](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
+- [Getting Started with Live Streaming Using the Azure Classic Portal](https://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
 
 <!-- URLs. -->
 [Azure Classic Portal]: http://manage.windowsazure.com/

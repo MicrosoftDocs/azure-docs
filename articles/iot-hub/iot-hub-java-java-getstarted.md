@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure IoT Hub | Microsoft Azure"
+	pageTitle="Get started with Azure IoT Hub for Java | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure IoT Hub with Java."
 	services="iot-hub"
 	documentationCenter="java"
@@ -16,13 +16,13 @@
      ms.date="12/21/2015"
      ms.author="dobett"/>
 
-# Tutorial: Get started with Azure IoT Hub
+# Get started with Azure IoT Hub for Java
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 ## Introduction
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and a solution backend. One of the biggest challenges IoT projects face is how to reliably and securely connect devices to the solution backend. To address this challenge, IoT Hub:
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and a solution back end. One of the biggest challenges IoT projects face is how to reliably and securely connect devices to the solution back end. To address this challenge, IoT Hub:
 
 - Offers reliable device-to-cloud and cloud-to-device hyper-scale messaging.
 - Enables secure communications using per-device security credentials and access control.
@@ -32,7 +32,7 @@ This tutorial shows you how to:
 
 - Use the Azure portal to create an IoT hub.
 - Create a device identity in your IoT hub.
-- Create a simulated device that sends telemetry to your cloud backend.
+- Create a simulated device that sends telemetry to your cloud back end.
 
 At the end of this tutorial you will have three Java console applications:
 
@@ -40,7 +40,7 @@ At the end of this tutorial you will have three Java console applications:
 * **read-d2c-messages**, which displays the telemetry sent by your simulated device.
 * **simulated-device**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second.
 
-> [AZURE.NOTE] The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution backend.
+> [AZURE.NOTE] The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution back end.
 
 To complete this tutorial you'll need the following:
 
@@ -120,14 +120,6 @@ In this tutorial, you configured a new IoT hub in the portal and then created a 
 - [Process Device-to-Cloud messages][lnk-process-d2c-tutorial] shows how to reliably process telemetry and interactive messages coming from devices.
 - [Uploading files from devices][lnk-upload-tutorial] describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
 
-You can find out more about IoT Hub in the following articles:
-
-* [IoT Hub overview][lnk-hub-overview]
-* [IoT Hub developer guide][lnk-hub-dev-guide]
-* [Design your IoT Hub solution][lnk-hub-guidance]
-* [Supported device platforms and languages][lnk-supported-devices]
-* [Azure IoT Developer Center][lnk-dev-center]
-
 <!-- Images. -->
 [1]: ./media/iot-hub-java-java-getstarted/create-iot-hub1.png
 [2]: ./media/iot-hub-java-java-getstarted/create-iot-hub2.png
@@ -144,11 +136,6 @@ You can find out more about IoT Hub in the following articles:
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
-[lnk-hub-overview]: iot-hub-what-is-iot-hub.md
-[lnk-hub-guidance]: iot-hub-guidance.md
-[lnk-hub-dev-guide]: iot-hub-devguide.md
-[lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[lnk-dev-center]: http://www.azure.com/develop/iot
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-resource-groups]: resource-group-portal.md

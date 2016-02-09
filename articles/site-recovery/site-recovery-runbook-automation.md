@@ -26,13 +26,13 @@ can orchestrate recovery of your virtual machines protected using Azure Site Rec
 recovery plans and gives you capability to execute runbooks, thus allowing powerful automation tasks.
 
 If you have not heard about Azure Automation yet, sign up
-[here](http://azure.microsoft.com/services/automation/) and
+[here](https://azure.microsoft.com/services/automation/) and
 download their sample scripts
-[here](http://azure.microsoft.com/documentation/scripts/). Read
+[here](https://azure.microsoft.com/documentation/scripts/). Read
 more about [Azure Site
-Recovery](http://azure.microsoft.com/services/site-recovery/) and
+Recovery](https://azure.microsoft.com/services/site-recovery/) and
 how to orchestrate recovery to Azure using recovery plans
-[here](http://azure.microsoft.com/blog/?p=166264).
+[here](https://azure.microsoft.com/blog/?p=166264).
 
 In this tutorial, we will look at how you can integrate Azure Automation
 runbooks into recovery plans. We will automate simple tasks that earlier

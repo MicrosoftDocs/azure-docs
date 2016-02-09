@@ -28,7 +28,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 {
     // TODO: If your service needs to handle user requests, return a list of ServiceReplicaListeners here.
     return new[] { new ServiceReplicaListener(parameters =>
-        new WcfCommunicationListener(typeof(ICalculator), this)
+        new WcfCommunicationListener(ServiceInitializationParameters,typeof(ICalculator), this)
         {
             //
             // The name of the endpoint configured in the ServiceManifest under the Endpoints section

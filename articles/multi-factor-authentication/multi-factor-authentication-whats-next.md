@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="01/21/2016" 
 	ms.author="billmath"/>
 
 # Configuring Azure Multi-Factor Authentication
@@ -81,7 +81,7 @@ Fraud alert can be reported two ways.  Either through the mobile app or through 
 
 ### To view the fraud report
 
-1. Log on to [http://azure.microsoft.com](http://azure.microsoft.com)
+1. Log on to [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. On the left, select Active Directory.
 3. At the top select Multi-Factor Auth Providers. This will bring up a list of your Multi-Factor Auth Providers.
 4. If you have more than one Multi-Factor Auth Provider, select the one you wish to view the fraud alert report and click Manage at the bottom of the page. If you have only one, just click Manage. This will open the Azure Multi-Factor Authentication Management Portal.
@@ -109,7 +109,7 @@ A one-time bypass allows a user to authenticate a single time by "bypassing" mul
 
 ### To view the one-time bypass report
 
-1. Log on to [http://azure.microsoft.com](http://azure.microsoft.com)
+1. Log on to [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. On the left, select Active Directory.
 3. At the top select Multi-Factor Auth Providers. This will bring up a list of your Multi-Factor Auth Providers.
 4. If you have more than one Multi-Factor Auth Provider, select the one you wish to view the fraud alert report and click Manage at the bottom of the page. If you have only one, just click Manage. This will open the Azure Multi-Factor Authentication Management Portal.
@@ -159,7 +159,7 @@ Before you begin be aware of the following:
 
 ## Caching in Azure Multi-Factor Authentication
 
-Caching allows you to set a specific time period so that subsequent authentication attempts succeed automatically. This is primarily used when on-premises systems such as VPN send multiple verification requests while the first request is still in progress. This allows the subsequent requests to succeed automatically after the user succeeds the verification in progress. Note that caching is not intended to be used for sign-ins to 
+Caching allows you to set a specific time period so that subsequent authentication attempts succeed automatically. This is primarily used when on-premises systems such as VPN send multiple verification requests while the first request is still in progress. This allows the subsequent requests to succeed automatically after the user succeeds the verification in progress. Note that caching is not intended to be used for sign-ins to Azure AD.
 
 
 ### To setup caching in Azure Multi-Factor Authentication

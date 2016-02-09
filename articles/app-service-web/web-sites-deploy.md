@@ -180,7 +180,6 @@ the Git repository. Starting in Visual Studio 2013, Git support is built-in and 
 ###<a name="webmatrix"></a>How to deploy from WebMatrix directly
 
 * [Build and deploy a Node.js web site to Azure using WebMatrix](web-sites-nodejs-use-webmatrix.md).
-* [Create and deploy a PHP-MySQL web app using WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3: Integrated Git and Deployment to Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). 
 How to use WebMatrix to deploy from a Git source control repository.
 
@@ -220,7 +219,7 @@ Additional pros of deploying using TFS are:
 
 ###<a name="tfs"></a>How to deploy continuously with TFS
 
-* [Continuous Delivery for Cloud Services in Azure](../cloud-services-dotnet-continuous-delivery.md). This document is for an Azure Cloud 
+* [Continuous Delivery for Cloud Services in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md). This document is for an Azure Cloud 
 Service, but some of its content is relevant to Web Apps.
 
 ###<a name="gitmercurial"></a>How to deploy from an on-premises Git or Mercurial repository
@@ -269,9 +268,9 @@ Additional pros of deploying using Visual Studio Team Services are:
 
 ###<a name="vsts"></a>How to deploy continuously with Visual Studio Team Services
 
-- [Continuous delivery to Azure using Visual Studio Team Services and TFVC](../cloud-services-continuous-delivery-use-vso.md). Step-by-step 
+- [Continuous delivery to Azure using Visual Studio Team Services and TFVC](../cloud-services/cloud-services-continuous-delivery-use-vso.md). Step-by-step 
 tutorial that shows how to set up continuous delivery from Visual Studio Team Services to a web app, using TFVC. 
-- [Continuous delivery to Azure using Visual Studio Team Services and Git](../cloud-services-continuous-delivery-use-vso-git.md). Similar to 
+- [Continuous delivery to Azure using Visual Studio Team Services and Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md). Similar to 
 the previous tutorial but uses Git instead of TFVC.
 
 ###<a name="cloudgitmercurial"></a>How to deploy from a cloud-based Git or Mercurial repository
@@ -279,9 +278,9 @@ the previous tutorial but uses Git instead of TFVC.
 - [Publishing from Source Control to Web Apps with Git](web-sites-publish-source-control.md). How to enable continuous 
 deployment of repositories from GitHub, CodePlex, or BitBucket. Although this tutorial shows how to publish a Git repository, 
 the process for Mercurial repositories hosted in CodePlex or BitBucket is similar.
-- [Deploying to Web Apps with GitHub using Kudu](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Video by Scott 
+- [Deploying to Web Apps with GitHub using Kudu](https://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Video by Scott 
 Hanselman and David Ebbo that shows how to deploy a web app directly from GitHub to App Service.
-- [Deploy to Azure Button for Web Apps](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog about a 
+- [Deploy to Azure Button for Web Apps](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog about a 
 method for triggering deployment from a Git repository.
 - [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
@@ -345,7 +344,7 @@ For more information, see the following resource:
 
 For more information, see the following resource:
 
-* [Simple Web Apps: Deployment](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog by David Ebbo about a tool he wrote to make it easier to use Web Deploy.
+* [Simple Web Apps: Deployment](https://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog by David Ebbo about a tool he wrote to make it easier to use Web Deploy.
 * [Web Deployment Tool](http://technet.microsoft.com/library/dd568996). Official documentation on the Microsoft TechNet site. Dated but still a good place to start.
 * [Using Web Deploy](http://www.iis.net/learn/publish/using-web-deploy). Official documentation on the Microsoft IIS.NET site. Also dated but a good place to start.
 * [StackOverflow](http://www.stackoverflow.com). The best place to go for more current information about how to use Web Deploy from the command line.
@@ -357,7 +356,7 @@ In some scenarios you might want to be able to easily switch back and forth betw
 
 Having a backup and restore plan in place is an important part of any deployment workflow. For information about the Web Apps backup and restore feature, see [Web Apps Backups](web-sites-backup.md).  
 
-For information about how to use Azure's Role-Based Access Control to manage access to Web Apps deployment, see [RBAC and Web App Publishing](http://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing).
+For information about how to use Azure's Role-Based Access Control to manage access to Web Apps deployment, see [RBAC and Web App Publishing](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/).
 
 For information about other deployment topics, see the Deploy section in [Web Apps Documentation](/documentation/services/web-sites/).
 

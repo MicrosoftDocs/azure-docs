@@ -4,17 +4,17 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/12/2015"
-	ms.author="mahesh-unnikrishnan"/>
+	ms.topic="get-started-article"
+	ms.date="01/26/2016"
+	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
 

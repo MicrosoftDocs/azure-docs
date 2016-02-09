@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure classic portal keyboard shortcuts | Microsoft Azure"
    description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure classic portal. Individual services might have their own specialized keyboard shortcuts."
    services="cloud-services"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="02/07/2016"
    ms.author="curtand"/>
 
 # Azure classic portal keyboard shortcuts
@@ -49,4 +49,3 @@
 ## Next steps
 
 Get to know the Azure classic portal better: http://azure.microsoft.com.
-

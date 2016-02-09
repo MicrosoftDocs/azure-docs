@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/11/2016"
+   ms.date="01/20/2016"
    ms.author="alkohli"/>
 
 # Disaster recovery and device failover for your StorSimple Virtual Array (Preview)
@@ -44,37 +44,37 @@ DR is modeled as a full device restore using the heat map–based tiering and tr
 
 For any device failover, the following prerequisites should be satisfied:
 
--   The source device needs to be in a **Deactivated** state.
+- The source device needs to be in a **Deactivated** state.
 
--   The target device needs to show up as **Active** in the Azure classic portal. You will need to provision a target virtual device of the same or higher capacity. You should then use the local web UI to configure and successfully register the virtual device.
+- The target device needs to show up as **Active** in the Azure classic portal. You will need to provision a target virtual device of the same or higher capacity. You should then use the local web UI to configure and successfully register the virtual device.
 
 	> [AZURE.IMPORTANT]
 	> 
 	> Do not attempt to configure the registered virtual device through the service by clicking **complete device setup**. No device configuration should be performed through the service.
 
--   The source and target device have to be the same type. You can only fail over a virtual device configured as a file server to another file server. The same is true for an iSCSI server.
+- The source and target device have to be the same type. You can only fail over a virtual device configured as a file server to another file server. The same is true for an iSCSI server.
 
--   For a file server DR, we recommend that you join the target device to the same domain as that of the source so that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported in this release.
+- For a file server DR, we recommend that you join the target device to the same domain as that of the source so that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported in this release.
 
 ### Other considerations
 
--   We recommend that you take all the volumes or shares on the source device offline.
+- We recommend that you take all the volumes or shares on the source device offline.
 
--   If it is a planned failover, we recommend that you take a backup of the device and then proceed with the failover to minimize data loss. If it is an unplanned failover, the most recent backup will be used to restore the device.
+- If it is a planned failover, we recommend that you take a backup of the device and then proceed with the failover to minimize data loss. If it is an unplanned failover, the most recent backup will be used to restore the device.
 
--   The available target devices for DR are devices that have the same or larger capacity compared to the source device. The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
+- The available target devices for DR are devices that have the same or larger capacity compared to the source device. The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
 
 ### DR prechecks
 
 Before the DR begins, prechecks are performed on the device. These checks help ensure that no errors will occur when DR commences. The prechecks include:
 
--   Validating the storage account
+- Validating the storage account
 
--   Checking the cloud connectivity to Azure
+- Checking the cloud connectivity to Azure
 
--   Checking available space on the target device
+- Checking available space on the target device
 
--   Checking if an iSCSI server source device has valid ACR names, IQN (not exceeding 220 characters in length), and CHAP password (12 and 16 characters in length) associated with the volumes
+- Checking if an iSCSI server source device has valid ACR names, IQN (not exceeding 220 characters in length), and CHAP password (12 and 16 characters in length) associated with the volumes
 
 If any of the above prechecks fail, you cannot proceed with the DR. You need to resolve those issues and then retry DR.
 
@@ -95,40 +95,40 @@ We recommend that you have a StorSimple virtual device provisioned, configured v
 
 Perform the following steps to restore the device to a target StorSimple virtual device.
 
-1.  Take volumes/shares offline on the host. Refer to the operating system–specific instructions on the host to take the volumes/shares offline. If not already offline, you will need to take all the volumes/shares offline on the device by going to **Devices > Shares** (or **Device > Volumes**). Select a share/volume and click **Take offline** on the bottom of the page. When prompted for confirmation, click **Yes**. Repeat this process for all the shares/volumes on the device.
+1. Take volumes/shares offline on the host. Refer to the operating system–specific instructions on the host to take the volumes/shares offline. If not already offline, you will need to take all the volumes/shares offline on the device by going to **Devices > Shares** (or **Device > Volumes**). Select a share/volume and click **Take offline** on the bottom of the page. When prompted for confirmation, click **Yes**. Repeat this process for all the shares/volumes on the device.
 
-2.  On the **Devices** page, select the source device for failover and click **Deactivate**. You will be prompted for confirmation. Device deactivation is a permanent process that cannot be undone. You will also be reminded to take your shares/volumes offline on the host.
+2. On the **Devices** page, select the source device for failover and click **Deactivate**. You will be prompted for confirmation. Device deactivation is a permanent process that cannot be undone. You will also be reminded to take your shares/volumes offline on the host.
 
 	![](./media/storsimple-ova-failover-dr/image18.png)
 
-1.  Upon confirmation, the deactivation will start. After the deactivation is successfully completed, you will be notified.
+3. Upon confirmation, the deactivation will start. After the deactivation is successfully completed, you will be notified.
 
 	![](./media/storsimple-ova-failover-dr/image19.png)
 
-1.  On the **Devices** page, the device state will now change to **Deactivated**.
+4. On the **Devices** page, the device state will now change to **Deactivated**.
 
 	![](./media/storsimple-ova-failover-dr/image20.png)
 
-1.  Select the deactivated device and at the bottom of the page, click **Failover**.
+5. Select the deactivated device and at the bottom of the page, click **Failover**.
 
-2.  In the Confirm failover wizard that opens up, do the following:
+6. In the Confirm failover wizard that opens up, do the following:
 
-    1.  From the dropdown list of available devices, choose a **Target device.** Only the devices that have sufficient capacity are displayed in the dropdown list.
+    1. From the dropdown list of available devices, choose a **Target device.** Only the devices that have sufficient capacity are displayed in the dropdown list.
 
-    2.  Review the details associated with the source device such as device name, total capacity, and the names of the shares that will be failed over.
+    2. Review the details associated with the source device such as device name, total capacity, and the names of the shares that will be failed over.
 
 		![](./media/storsimple-ova-failover-dr/image21.png)
 
-1.  Check **I agree that failover is a permanent operation and once the failover is successfully completed, the source device will be deleted**.
+7. Check **I agree that failover is a permanent operation and once the failover is successfully completed, the source device will be deleted**.
 
-2.  Click the check icon ![](./media/storsimple-ova-failover-dr/image1.png).
+8. Click the check icon ![](./media/storsimple-ova-failover-dr/image1.png).
 
 
-1.  A failover job will be initiated and you will be notified. Click **View job** to monitor the failover.
+9. A failover job will be initiated and you will be notified. Click **View job** to monitor the failover.
 
 	![](./media/storsimple-ova-failover-dr/image22.png)
 
-1.  In the **Jobs** page, you will see a failover job created for the source device. This job performs the DR prechecks.
+10. In the **Jobs** page, you will see a failover job created for the source device. This job performs the DR prechecks.
 
 	![](./media/storsimple-ova-failover-dr/image23.png)
 
@@ -136,7 +136,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 	![](./media/storsimple-ova-failover-dr/image24.png)
 
-1.  After the failover is completed, go to the **Devices** page.
+11. After the failover is completed, go to the **Devices** page.
 
 	a. Select the StorSimple virtual device that was used as the target device for the failover process.
 
@@ -144,9 +144,11 @@ Perform the following steps to restore the device to a target StorSimple virtual
  	
 	![](./media/storsimple-ova-failover-dr/image25.png)
 
-![](./media/storsimple-ova-failover-dr/image26.png)**Video available**
+![](./media/storsimple-ova-failover-dr/video_icon.png) **Video available**
 
-To watch a video that demonstrates how you can failover a StorSimple on-premises virtual device to another virtual device, click [here](https://www.youtube.com/watch?v=qVaGzFvbHos&index=5&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo).
+This video demonstrates how you can fail over a StorSimple on-premises virtual device to another virtual device.
+
+> [AZURE.VIDEO storsimple-virtual-array-disaster-recovery]
 
 ## Business continuity disaster recovery (BCDR)
 

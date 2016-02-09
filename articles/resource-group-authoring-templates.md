@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="02/08/2016"
    ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager templates
@@ -169,6 +169,8 @@ The following example shows how to define parameters:
           "minValue": 1
        }
     }
+
+For how to input the parameter values during deployment, see [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy/#parameter-file). 
 
 ## Variables
 

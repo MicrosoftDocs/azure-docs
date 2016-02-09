@@ -1,7 +1,7 @@
 <properties
 	pageTitle="How to configure Microsoft Account authentication for your App Services application"
 	description="Learn how to configure Microsoft Account authentication for your App Services application."
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	services="app-service\mobile"
 	documentationCenter=""
 	manager="dwrede"
@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Microsoft Account login
 
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
-&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to configure Azure App Service to use Microsoft Account as an authentication provider.
 
@@ -51,7 +48,7 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 
 
     > [AZURE.NOTE] The client secret is an important security credential. Do not share the client secret with anyone or distribute it within a client application.
-	
+
 
 ## <a name="secrets"> </a>Add Microsoft Account information to your application
 
@@ -66,12 +63,12 @@ If using the App Service Gateway, ignore this section and instead navigate to yo
 9. Click **Microsoft Account**. Paste in the App ID and App Secret values which you obtained previously, and optionally enable any scopes your application requires. Then click **OK**.
 
     ![][1]
-	
-	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
+
+	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
 17. (Optional) To restrict access to your site to only users authenticated by Microsoft account, set **Action to take when request is not authenticated** to **Microsoft Account**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Microsoft account for authentication.
 
-11. Click **Save**. 
+11. Click **Save**.
 
 
 You are now ready to use Microsoft Account for authentication in your app.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -25,7 +25,7 @@ Learn how to install Zeppelin notebooks on Spark clusters and how to use the Zep
 
 **Prerequisites:**
 
-* Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
 * An SSH client. For Linux and Unix distributions or Macintosh OS X, the `ssh` command is provided with the operating system. For Windows, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
@@ -212,7 +212,7 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 		http://hn0-myspar:9995
 
 	* **hn0** denotes headnode0
-	* **myspar** is the first five letters of the Spark cluster.
+	* **myspar** is the first six letters of the Spark cluster name.
 	* **9995** is the port where Zeppelin notebook is accessible.
 
 2. Create a new notebook. From the header pane, click **Notebook**, and then click **Create New Note**.
@@ -311,7 +311,9 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Extensions
+### Tools and extensions
+
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 

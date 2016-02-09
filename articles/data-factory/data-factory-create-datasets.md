@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Datasets
@@ -131,7 +131,7 @@ Daily slices that starts at 6 AM instead of the default midnight.
 
 	"availability":
 	{
-		"frequency": "Daily",
+		"frequency": "Day",
 		"interval": "1",
 		"offset": "06:00:00"
 	}
