@@ -52,7 +52,7 @@ To keep this task simple, we'll assume a data source that Azure Search can crawl
 2. Click **Data Source** > **DocumentDB** > **Name**, type a name for the data source. This is a connection object in Azure Search that can be used with other indexers. Once you create it, it becomes available as an "existing data source" in your service.
 3. Select your existing DocumentDB account, and the database and collection. If you're using the sample data we provide, your data source definition will look like this:
 
-  	![][2]
+  ![][2]
 
 Notice that we skipped the query. This is because we didn't create a change track field in our dataset this time around. If your dataset includes a field that keeps track of when a record is updated, you can configure an Azure Search indexer to use change tracking for selective updates to your index.
 
@@ -60,7 +60,7 @@ Notice that we skipped the query. This is because we didn't create a change trac
 
 1. Click **Index** and take a look at the design surface for creating an Azure Search index. In our sample dataset, the Value array and ID field were detected automatically and added to the definition. Depending on how your data is structured, you might get better field detection.
 
-  	![][3]
+  ![][3]
 
 Checkboxes across the top of the field list are *index attributes* that control how the field is used. **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results, for example when fields only used in filter expressions. **Filterable**, **Sortable**, and **Facetable** determine whether a field can be used in a filter, a sort, or a facet navigation structure. **Searchable** means that a field is included in full text search. Numeric fields and Boolean fields are often marked as not searchable. 
 
@@ -83,13 +83,13 @@ lastUpdated | Edm.DateTimeOffset | |
 
 As a point of comparison, the following screenshot is an illustration of an index built to the specification in the previous table.
 
-  	![][4]
+ ![][4]
 
 #### Step 3: Define the indexer
 
 1. Still in the **Import data** wizard, click **Indexer** > **Name**, type a name for the indexer. This object defines an executable process. Once you create it, you can put it on recurring schedule, or invoke it from the Indexers list in your dashboard. Your import data entries should be all filled in and ready to go.
 
-   ![][5]
+  ![][5]
 
 2. To run the wizard, click **OK** to start the import.
 
@@ -113,7 +113,7 @@ This section creates a small database in DocumentDB that can be used to complete
 
 The following instructions are general guidance, but not exhaustive. Fortunately, most of the commands you'll use are in the service command bar at the top of the dashboard or in the database blade. If you need more help with DocumentDB portal navigation or tasks, please see DocumentDB documentation. 
 
-   ![][1]
+  ![][1]
 
 We provide three JSON data files for this dataset. Data is divided into three files to meet the upload requirements in Document Explorer. 
 
