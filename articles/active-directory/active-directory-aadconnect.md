@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/25/2016"
+	ms.date="02/09/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
@@ -94,6 +94,8 @@ Azure AD Connect comes with several features you can optionally turn on or are e
 
 The [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) feature is turned on by default and will protect your cloud directory from a lot of deletes at the same time. By default it will allow 500 deletes per run and this can be changed depending on your organization’s size.
 
+[Automatic upgrade](active-directory-aadconnect-feature-auto-upgrade.md) is enabled by default for express settings installations and will ensure your Azure AD Connect is always up to date with the latest release.
+
 ### Next steps to configure features
 
 | Topic |  |
@@ -103,6 +105,7 @@ The [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent
 | Password writeback | [Getting started with password management](active-directory-passwords-getting-started.md) |
 | Device writeback | [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md) |
 | Prevent accidental deletes | [Azure AD Connect sync: Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |
+| Automatic upgrade | [Azure AD Connect: Automatic upgrade](active-directory-aadconnect-feature-auto-upgrade.md)|
 
 ## Customize Azure AD Connect sync
 Azure AD Connect sync comes with a default configuration which is intended to work for most customers and topologies. But there are always situations where the default configuration will not work and must be adjusted. It is supported to make changes as documented in this section and linked topics.
@@ -117,11 +120,11 @@ The configuration model in sync is called [declarative provisioning](active-dire
 
 | Topic |  |
 | --------- | --------- |
+| All Azure AD Connect sync articles | [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) |
 | Technical concepts | [Azure AD Connect sync: Technical Concepts](active-directory-aadconnectsync-technical-concepts.md) |
 | Understanding the default configuration | [Azure AD Connect sync: Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md) |
 | Understanding users and contacts | [Azure AD Connect sync: Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | Declarative provisioning | [Azure AD Connect Sync: Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| Declarative provisioning functions reference | [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md) |
 | Change the default configuration | [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
 
 ## More information and references

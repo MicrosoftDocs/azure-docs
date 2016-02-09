@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="02/09/2016"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
@@ -74,7 +74,7 @@ To connect to your Active Directory Domain Service, Azure AD Connect needs the c
 
 ![Connect Directory](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
-### Domain/OU filtering
+### Domain and OU filtering
 By default all domains and OUs will be synchronized. If there are some domains or OUs you do not want to synchronize to Azure AD, you can unselect these domains and OUs.  
 ![DomainOU filtering](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)
 This page in the wizard is configuring domain-based filtering as also documented in [domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
@@ -102,7 +102,7 @@ A specific attribute|This option allows you to select your own attribute.  **Lim
 
 >[AZURE.WARNING] Using an Alternate ID is not compatible with all Office 365 workloads.  For more information, please refer to [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx).
 
-### Sync filtering  based on groups
+### Sync filtering based on groups
 The filtering on groups feature allows you to run a small pilot where only a small subset of objects should be created in Azure AD and Office 365. To use this feature, created a group in your on-premises Active Directory and add the users and groups which should be synchronized with Azure AD as direct members. You can later add and remove users to this group to maintain the list of objects which should be present in Azure AD. All objects you want to synchronize must be a direct member of the group. This will include users, groups, contacts, and computers/devices. Nested group membership will not be resolved; a group member will only include the group itself and not its members.
 
 To use this feature, in the customized path you will see this page:
@@ -121,7 +121,7 @@ This screen allows you to select the optional features for your specific scenari
 
 Optional Features      | Description
 -------------------    | ------------- |
-Exchange Hybrid Deployment |The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Azure by synchronizing a specific set of [attributes](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) from Azure AD back into your on-premises directory.
+Exchange Hybrid Deployment |The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Office 365 by synchronizing a specific set of [attributes](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) from Azure AD back into your on-premises directory.
 Azure AD app and attribute filtering|By enabling Azure AD app and attribute filtering, the set of synchronized attributes can be tailored to a specific set on a subsequent page of the wizard.  This opens two additional configuration pages in the wizard. For additional information see [Azure AD app and attribute filtering](#azure-ad-app-and-attribute-filtering).
 Password synchronization | You can enable this option if you selected federation as the sign-in solution. Password synchronization can then be used as a backup option. For additional information see [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md).
 Password writeback|By enabling password writeback, password changes that originate with Azure AD will be written back to your on-premises directory. For additional information see [Getting started with password management](active-directory-passwords-getting-started.md).

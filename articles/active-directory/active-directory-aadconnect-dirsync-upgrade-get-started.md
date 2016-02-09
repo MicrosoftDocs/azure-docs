@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/01/2016"
+   ms.date="02/09/2016"
    ms.author="shoatman;billmath"/>
 
-# Upgrading Windows Azure Active Directory sync (DirSync) to Azure AD Connect
+# Azure AD Connect: Upgrade Windows Azure Active Directory sync (DirSync)
 
 The following documentation will help you upgrade your existing DirSync installation to Azure AD Connect.
 

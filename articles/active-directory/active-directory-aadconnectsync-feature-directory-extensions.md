@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect sync: Prevent accidental deletes | Microsoft Azure"
+   pageTitle="Azure AD Connect sync: Directory extensions | Microsoft Azure"
    description="This topic describes the directory extensions feature in Azure AD Connect."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/01/2016"
+   ms.date="02/09/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Directory extensions
@@ -28,7 +28,7 @@ The installation will show the following attributes, which are valid candidates:
 - Single-valued attributes
 - Strings, Integer, Binary
 
-An object can have up to 100 directory extensions attributes. The max length is 250 characters. If an attribute value is longer, it will be truncated.
+An object can have up to 100 directory extensions attributes. The max length is 250 characters. If an attribute value is longer, it will be truncated by the sync engine.
 
 During installation of Azure AD Connect, an application will be registered where these attributes will be available. You can see this application in the Azure portal.  
 ![Schema Extension App](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)

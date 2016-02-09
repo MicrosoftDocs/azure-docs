@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/05/2016"
+   ms.date="02/09/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Auto upgrade
@@ -25,7 +25,7 @@ Making sure your Azure AD Connect installation is always up to date has never be
 Automatic upgrade is enabled by default for the following:
 
 - Express settings installation
-- Using SQL Express LocalDB , which is what Express settings will use
+- Using SQL Express LocalDB , which is what Express settings will always use
 - The AD account is the default MSOL_ account created by Express settings
 - Have less than 100,000 objects in the metaverse
 

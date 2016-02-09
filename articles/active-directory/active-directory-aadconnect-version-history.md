@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/05/2016"
+   ms.date="02/09/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -35,7 +35,7 @@ Released: 2016 February
 - [Automatic upgrade](active-directory-aadconnect-feature-auto-upgrade.md) feature for Express settings customers.
 - Support for the global admin using MFA and PIM in the installation wizard.
 - Allow changing the user's sign-in method after initial install.
-- Allow [Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-ou-filtering) in the installation wizard. This also allows connecting to forests where not domains are available.
+- Allow [Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the installation wizard. This also allows connecting to forests where not all domains are available.
 - [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) is built-in to the sync engine.
 
 **Features promoted from preview to GA:**
@@ -49,7 +49,9 @@ Released: 2016 February
 
 **Fixed issues:**
 
-- TBA
+- The verify DNS domains page didn't always recognize the domains.
+- Prompts for domain admin credentials when configuring ADFS .
+- The on-premises AD accounts are not recognized by the installation wizard if located in a domain with a different DNS tree than the root domain.
 
 ## 1.0.9131.0
 Released: 2015 December

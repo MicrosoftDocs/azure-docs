@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/01/2016"
+   ms.date="02/09/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Scheduler

@@ -13,14 +13,14 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/05/2016"
+   ms.date="02/09/2016"
    ms.author="andkjell;billmath"/>
 
 # More details about features in preview
 This topic describes how to use features currently in preview.
 
 ## Group writeback
-The option for group writeback in optional features will allow you to writeback “Office 365 Groups” to a forest with Exchange installed. This is a group which is always mastered in the cloud. If you have Exchange on-premises then you can write back these groups to on-premises so users with an on-premises Exchange mailbox can send and receive emails from these groups.
+The option for group writeback in optional features will allow you to writeback **Office 365 Groups** to a forest with Exchange installed. This is a group which is always mastered in the cloud. If you have Exchange on-premises then you can write back these groups to on-premises so users with an on-premises Exchange mailbox can send and receive emails from these groups.
 
 More information about Office 365 Groups and how to use them can be found [here](http://aka.ms/O365g).
 
@@ -41,6 +41,8 @@ This group will be represented as a distribution group in on-premises AD DS. You
 User writeback is in early preview. It can only be used when Azure AD is the source for all user objects and on-premises Active Directory is empty before you enable the feature (green-field deployment).
 
 >[AZURE.WARNING] This feature should only be evaluated in a test environment and should not be used in an Azure AD directory used for production usage.
+
+.
 
 >[AZURE.NOTE] A subscription to Azure AD Premium is required for user writeback.
 

@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/05/2016"
+   ms.date="02/09/2016"
    ms.author="andkjell;billmath"/>
 
 
-# Accounts and permissions required for Azure AD Connect
+# Azure AD Connect: Accounts and permissions
 
 The Azure AD Connect installation wizard offers two different paths:
 
@@ -48,10 +48,22 @@ Connect to AD DS | On-premises Active Directory credentials | Member of the Ente
 These credentials are only used during the installation and will not be used after the installation has completed. It is Enterprise Admin, and not Domain Admin, to make sure the permissions in Active Directory can be set in all domains.
 
 ### Global Admin credentials
-These credentials are only used during the installation and will not be used after the installation has completed. It is used to create the [Azure AD account](#azure-ad-service-account) used for synchronizing changes to Azure AD. The account will also enable sync as a feature in Azure AD. The account used cannot have MFA enabled.
+These credentials are only used during the installation and will not be used after the installation has completed. It is used to create the [Azure AD account](#azure-ad-service-account) used for synchronizing changes to Azure AD. The account will also enable sync as a feature in Azure AD.
+
+### Permissions for the created AD DS account for express settings
+The [account](#active-directory-account) created for reading and writing to AD DS will have the following permissions when created by express settings:
+
+| Permission | Used for |
+| ---- | ---- |
+| <li>Replicate Directory Changes</li><li>Replicate Directory Changes All | Password sync |
+| Read/Write all properties User | Import and Exchange hybrid |
+| Read/Write all properties iNetOrgPerson | Import and Exchange hybrid |
+| Read/Write all properties Group | Import and Exchange hybrid |
+| Read/Write all properties Contact | Import and Exchange hybrid |
+| Reset password | Preparation for enabling password writeback |
 
 ## Custom settings installation
-When using custom settings the account used to connect to Active Directory must be created before the installation.
+When using custom settings the account used to connect to Active Directory must be created before the installation. The permissions you must grant this account can be found in [create the AD DS account](#create-the-ad-ds-account).
 
 Wizard Page  | Credentials Collected | Permissions Required| Used For
 ------------- | ------------- |------------- |-------------
@@ -95,7 +107,7 @@ If you use express settings, then an account will be created in Active Directory
 ![AD account](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Azure AD Connect sync service accounts
-A local service account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed **AAD_** and used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the accounts are created in the domain. If you use a SQL server on a remote server, the **AAD_** service account must be located in the domain.
+A local service account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed **AAD_** and used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the account is created in the domain. If you use a SQL server on a remote server, the **AAD_** service account must be located in the domain.
 
 ![Sync Service Account](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 

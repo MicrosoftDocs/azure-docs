@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/05/2016"
+   ms.date="02/09/2016"
    ms.author="andkjell;billmath"/>
 
 # Prerequisites for Azure AD Connect
@@ -138,10 +138,11 @@ When using Azure AD Connect to deploy Active Directory Federation Services or th
 ## Azure AD Connect supporting components
 The following is a list of components that Azure AD Connect will install on the server where Azure AD Connect is installed. This list is for a basic Express installation.  If you choose to use a different SQL Server on the Install synchronization services page then SQL Express LocalDB is not installed locally.
 
-- Microsoft SQL Server 2012 Command Line Utilities
-- Microsoft SQL Server 2012 Native Client
-- Microsoft SQL Server 2012 Express LocalDB
+- Azure AD Connect Health
 - Microsoft Online Services Sign-In Assistant for IT Professionals (installed but no dependency on it)
+- Microsoft SQL Server 2012 Command Line Utilities
+- Microsoft SQL Server 2012 Express LocalDB
+- Microsoft SQL Server 2012 Native Client
 - Microsoft Visual C++ 2013 Redistribution Package
 
 ## Hardware requirements for Azure AD Connect
