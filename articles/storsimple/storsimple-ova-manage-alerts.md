@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/02/2016"
+   ms.date="02/09/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to view and manage StorSimple Virtual Array alerts
@@ -21,15 +21,53 @@
 
 The **Alerts** tab in the StorSimple Manager service provides a way for you to review and clear StorSimple Virtual Array–related alerts on a real-time basis. From this tab, you can centrally monitor the health issues of your StorSimple  Virtual Arrays and the overall Microsoft Azure StorSimple solution.
 
-This tutorial describes common alert conditions, alert severity levels, and how to configure alert notifications. Additionally, it includes alert quick reference tables, which enable you to quickly locate a specific alert and respond appropriately.
+This tutorial describes how to configure alert notifications, common alert conditions, alert severity levels, and how to view and track alerts. Additionally, it includes alert quick reference tables, which enable you to quickly locate a specific alert and respond appropriately.
 
 ![Alerts page](./media/storsimple-ova-manage-alerts/alerts1.png)
+
+## Configure alert settings
+
+You can choose whether you want to be notified by email of alert conditions for each of your StorSimple virtual devices. Additionally, you can identify other alert notification recipients by entering their email addresses in the **OTHER EMAIL RECIPIENTS** box, separated by semicolons.
+
+>[AZURE.NOTE] You can enter a maximum of 20 email addresses per virtual device.
+
+After you enable email notification for a virtual device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
+
+#### To enable email notification of alerts for a virtual device
+
+1. Go to **Devices** > **Configuration** for the virtual device. Go to the following **Alert Settings** section.
+
+    ![alert settings](./media/storsimple-ova-manage-alerts/alerts2.png)
+
+2. Under **Alert Settings**, set the following:
+
+    1. In the **SEND EMAIL NOTIFICATION** field, select **YES**.
+
+    2. In the **EMAIL SERVICE ADMINISTRATORS** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
+
+    3. In the **OTHER EMAIL RECIPIENTS** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device. 
+
+        ![alerts notification configuration](./media/storsimple-ova-manage-alerts/alerts3.png)
+
+3. At the bottom of the page, click **Save** to save your configuration.
+
+4. To send a test email notification, click the arrow icon next to **SEND TEST EMAIL**. The StorSimple Manager service will display status messages as it forwards the test notification. 
+
+5. When the following message appears, click **OK**. 
+
+    ![Alerts test notification email sent](./media/storsimple-ova-manage-alerts/alerts4.png)
+
+    >[AZURE.NOTE] If the test notification message can't be sent, the StorSimple Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again. 
+
+    The test notification message will be similar to the following.
+
+    ![Alerts test email example](./media/storsimple-ova-manage-alerts/alerts5.png)
 
 ## Common alert conditions
 
 Your StorSimple Virtual Array (also known as the StorSimple on-premises virtual device) generates alerts in response to a variety of conditions. The following are the most common types of alert conditions:
 
-- **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the virtual devices and the StorSimple Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
+- **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the virtual devices and the StorSimple Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For information about ports and firewall settings, go to [StorSimple Virtual Array system requirements](storsimple-ova-system-requirements.md). For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
 
 - **Performance issues** – These alerts are caused when your system isn’t performing optimally, such as when it is under a heavy load.
 
@@ -45,42 +83,6 @@ Alerts have different severity levels, depending on the impact that the alert si
 
 - **Information** – This alert contains information that can be useful in tracking and managing your system.
 
-## Configure alert settings
-
-You can choose whether you want to be notified by email of alert conditions for each of your StorSimple virtual devices. Additionally, you can identify other alert notification recipients by entering their email addresses in the **OTHER EMAIL RECIPIENTS** box, separated by semicolons.
-
->[AZURE.NOTE] You can enter a maximum of 20 email addresses per virtual device.
-
-After you enable email notification for a virtual device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
-
-#### To enable email notification of alerts for a virtual device
-
-1. Go to **Devices** > **Configure** for the virtual device.
-
-    ![alert settings](./media/storsimple-ova-manage-alerts/alerts2.png)
-
-2. Under **Alert Settings**, set the following:
-
-    1. In the **SEND EMAIL NOTIFICATION** field, select **YES**.
-
-    2. In the **EMAIL SERVICE ADMINISTRATORS** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
-
-    3. In the **OTHER EMAIL RECIPIENTS** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device. 
-
-        ![alerts notification configuration](./media/storsimple-ova-manage-alerts/alerts3.png)
-
-3. To send a test email notification, click the arrow icon next to **SEND TEST EMAIL**. The StorSimple Manager service will display status messages as it forwards the test notification. 
-
-4. When the following message appears, click **OK**. 
-
-    ![Alerts test notification email sent](./media/storsimple-ova-manage-alerts/alerts4.png)
-
-    >[AZURE.NOTE] If the test notification message can't be sent, the StorSimple Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again. 
-
-    The test notification message will be similar to the following.
-
-    ![Alerts test email example](./media/storsimple-ova-manage-alerts/alerts5.png)
-
 ## View and track alerts
 
 The StorSimple Manager service dashboard provides you with a quick glance at the number of alerts on your virtual devices, arranged by severity level.
@@ -93,9 +95,14 @@ Clicking the severity level opens the **Alerts** tab. The results include only t
 
 Clicking an alert in the list provides you with additional details for the alert, including the last time the alert was reported, the number of occurrences of the alert on the device, and the recommended action to resolve the alert.
 
-You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts, press the Ctrl key while you select the alerts, and then click **Clear**. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
+You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts,  for each error that you want to clear, click any column except the **Alert** column, and then click **Clear**. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
 
-When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. Some events will be cleared by the system if another event is triggered with new information. In that case, you will see the following message.
+When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. 
+![alert comments](./media/storsimple-ova-manage-alerts/clear-alert.png)
+
+Click the check icon ![check-icon](./media/storsimple-ova-manage-alerts/check-icon.png) to save your comments.
+
+Some events will be cleared by the system if another event is triggered with new information. In that case, you will see the following message.
 
 ![Clear alert message](./media/storsimple-ova-manage-alerts/alerts8.png)
 
@@ -141,7 +148,7 @@ If cloud connectivity fails on your StorSimple production device, then depending
 
 - **For the local data on your device**: For some time, there will be no disruption and reads will continue to be served. However, as the number of outstanding IOs increases and exceeds a limit, the reads could start to fail. 
 
-	Depending on the amount of data on your device, the writes will also continue to occur for the first few hours after the disruption in the cloud connectivity. The writes will then slow down and eventually start to fail if the cloud connectivity is disrupted for several hours. (There is temporary storage on the device for data that is to be pushed to the cloud. This area is flushed when the data is sent. If connectivity fails, data in this storage area will not be pushed to the cloud, and IO will fail.)   
+	Depending on the amount of data on your device, the writes will also continue to occur for the first few hours after the disruption in the cloud connectivity. The writes will then slow down and eventually start to fail if the cloud connectivity is disrupted for several hours. There is temporary storage on the device for data that is to be pushed to the cloud. This area is flushed when the data is sent. If connectivity fails, data in this storage area will not be pushed to the cloud, and IO will fail.   
  
 - **For the data in the cloud**: For most cloud connectivity errors, an error is returned. Once the connectivity is restored, the IOs are resumed without the user having to bring the volume online. In rare instances, user intervention may be required to bring back the volume online from the Azure classic portal. 
  
@@ -160,7 +167,7 @@ If cloud connectivity fails on your StorSimple production device, then depending
 |:---|:---|:---|
 |Backup of <*device name*> couldn’t be completed.|Backup job failure.|Could not create a backup. Consider one of the following:<ul><li>Connectivity issues could be preventing the backup operation from successfully completing. Ensure that there are no connectivity issues. For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) for your virtual device.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul> Resolve the issues, clear the alert and retry the operation.|
 |Restore of <*device name*> couldn’t be completed.|Restore job failure.|Could not restore from backup. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the restore operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the restore operation.|
-|Clone of <*device name*> couldn’t be completed.|Clone job failure.|Could not create a clone. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the clone operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the restore operation.|
+|Clone of <*device name*> couldn’t be completed.|Clone job failure.|Could not create a clone. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the clone operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the operation.|
 
 ### Performance alerts
 
