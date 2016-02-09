@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # How to use the Azure Mobile Apps Node.js SDK
@@ -338,7 +338,7 @@ An example _azureMobile.js_ file implementing the database settings given above 
 We recommend that you add _azureMobile.js_ to your _.gitignore_ file (or other source code control ignore file) to prevent passwords from
 being stored in the cloud.  Always configure production settings in App Settings within the [Azure Portal].
 
-### <a name="howto-appsettings"><a>App Settings for configuring your Mobile App
+### <a name="howto-appsettings"></a>App Settings for configuring your Mobile App
 
 Most settings in the _azureMobile.js_ file have an equivalent App Setting in the [Azure Portal].  Use the following list to configure your
 app in App Settings:
@@ -751,7 +751,7 @@ From the editor, you can also execute the code on the site
 [Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Toubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
-[use Node modules]: ../nodejs-use-node-mobiles-azure-apps.md
+[use Node modules]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
