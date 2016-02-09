@@ -57,7 +57,7 @@ In order to complete this tutorial, you’ll need an active Azure subscription.
 
     ![][img-devicelist]
 
-2.  You can see there are four simulated devices created by the provisioning process.
+2.  The device list shows that there are four simulated devices created by the provisioning process.
 
 3.  Click on a device in the device list to view the device details.
 
@@ -130,6 +130,8 @@ In order to complete this tutorial, you’ll need an active Azure subscription.
 9.  Return to the **Alarm History** table in the **Solution Dashboard** and observe the change in behavior that results from the updated rule.
 
     ![][img-newhistory]
+    
+When you are done, you can delete the preconfigured solution from your Azure subscription on the [azureiotsuite.com][lnk-azureiotsuite] site - this enables you to easily delete all the resources that were provisioned when you created the preconfigured solution.
 
 ## Next Steps
 

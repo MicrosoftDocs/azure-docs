@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/09/2016"
 	ms.author="bradsev;garye;gopitk" />
 
 
 # Import data into Azure Machine Learning Studio from various online data sources with the Reader module
+
+This document describes the support for importing online data from various sources and the information needed to move data from these sources into an Azure Machine Learning experiment.
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
@@ -32,8 +34,7 @@ You can access data from within the Azure Machine Learning Studio from one of se
 - Azure table
 - Azure SQL database or SQL Server on Azure VM
 - A data feed provider, OData currently
-
-This document describes these supported sources and the information needed to move data from these sources into an Azure Machine Learning experiment. 
+ 
 
 The workflow for conducting experiments in Azure Machine Learning Studio consists of dragging-and-dropping components onto the canvas. To access online data sources, add the [Reader][reader] module to your experiment, select the **Data source**, and then provide the parameters needed to access the data. The online data sources that are supported are itemized in the table below. This table also summarizes the file formats that are supported and parameters that are used to access the data.
 
