@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/12/2016" 
 	ms.author="nitinme"/>
 
 
@@ -45,6 +45,8 @@ We use this data to predict whether a building will be hotter or colder based on
 
 ##<a name="app"></a>Write a machine learning application using Spark MLlib
 
+In this application we use a Spark ML pipeline to perform a document classification. In the pipeline, we split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels. Perform the following steps to create the application.
+
 1. From the [Azure Preview Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
 2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
@@ -53,7 +55,7 @@ We use this data to predict whether a building will be hotter or colder based on
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Create a new notebook. Click **New**, and then click **Python 2**.
+2. Create a new notebook. Click **New**, and then click **PySpark**.
 
 	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 
@@ -61,10 +63,7 @@ We use this data to predict whether a building will be hotter or colder based on
 
 	![Provide a name for the notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
-3. Start building your machine learning application. In this application we use a Spark ML pipeline to perform a document classification. In the pipeline, we split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels.
-
-	To start building the application, first import the required modules and assign resources to the application. In the empty cell in the new notebook, paste the following snippet, and then press **SHIFT + ENTER**.
-
+3. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark, SQL, and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types that are required for this scenario. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**. 
 
 		from pyspark.ml import Pipeline
 		from pyspark.ml.classification import LogisticRegression
@@ -73,29 +72,14 @@ We use this data to predict whether a building will be hotter or colder based on
 		
 		import os
 		import sys
-		from pyspark import SparkConf
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
 		from pyspark.sql.types import *
 		
 		from pyspark.mllib.classification import LogisticRegressionWithSGD
 		from pyspark.mllib.regression import LabeledPoint
 		from numpy import array
 		
-		# Assign resources to the application
-		conf = SparkConf()
-		conf.setMaster('yarn-client')
-		conf.setAppName('pysparkregression')
-		conf.set("spark.cores.max", "4")
-		conf.set("spark.executor.memory", "4g")
 		
-		sc = SparkContext(conf=conf)
-		sqlContext = SQLContext(sc)
-
-	Everytime you run a job in Jupyter, your web browser window title will show a **(Busy)** status along with the notebook title. You will also see a solid circle next to the **Python 2** text in the top-right corner. After the job completes, this will change to a hollow circle.
-
-	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
- 
+	 
 4. You must now load the data (hvac.csv), parse it, and use it to train the model. For this, you define a function that checks whether the actual temperature of the building is greater than the target temperature. If the actual temperature is greater, the building is hot, denoted by the value **1.0**. If the actual temperature is lesser, the building is cold, denoted by the value **0.0**. 
 
 	Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
