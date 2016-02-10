@@ -59,6 +59,7 @@ When you create an import job or an export job, you'll also need the *drive ID*,
 
   > [AZURE.IMPORTANT] 
     - See the [FAQ section](#frequently-asked-questions) for special instructions if you are using a Windows 10 machine to prepare your hard drive.
+    
     - External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not prepare an external HDD. The disk inside the external casing also cannot be used for importing data. Use a 3.5" SATA II/III **internal** hard disk drive. If you cannot connect the SATA disk directly to your machine, use an external SATA to USB adaptor. See the list of recommended adaptors in FAQ section.
 
 ## Create an Import Job in the Classic Portal##
