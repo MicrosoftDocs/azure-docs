@@ -20,7 +20,9 @@
 
 ## Overview
 
-AzCopy is a Windows command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can also copy data from one object to another within your storage account, or between storage accounts.
+AzCopy is a Windows command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
+
+> [AZURE.NOTE] This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/en-us/services/storage/). If not, reading the [Introduction to Azure Storage](https://azure.microsoft.com/en-us/documentation/articles/storage-introduction/) documentation will be helpful. Most importantly, you will need to [create a Storage account](https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#create-a-storage-account) in order to start using AzCopy.
 
 ## Download and install AzCopy
 
@@ -40,17 +42,15 @@ The basic syntax for AzCopy commands is:
 
 ## AzCopy Blob Samples
 
-Open a command window and navigate to the AzCopy installation directory on your computer, where the `AzCopy.exe` executable is located. The examples below demonstrate a variety of scenarios for copying blobs with AzCopy. Look at the [AzCopy Options](#azcopy-options) section for a detailed explanation of each option.
+Open a command window and navigate to the AzCopy installation directory on your computer, where the `AzCopy.exe` executable is located. The examples below demonstrate a variety of scenarios for copying blobs with AzCopy. Look at the [AzCopy Options](#azcopy-options) section for a detailed explanation of the options used in each sample.
 
-**Upload to Blob storage:**
+**Upload a single file to Blob storage:**
 
-	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:abc.txt
+	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:"abc.txt"
 
-**Download a from Blob Storage:**
+**Download a single from Blob Storage:**
 
-	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
-
-For more information about working with your storage access keys, please see [View, copy, and regenerate storage access keys](../storage-create-storage-account/#regeneratestoragekeys).
+	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 
 ### Copy a blob via server-side copy
 
