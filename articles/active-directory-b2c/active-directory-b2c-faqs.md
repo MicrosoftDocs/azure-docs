@@ -32,9 +32,9 @@ Azure AD B2C can't be used with Microsoft Office 365. In general, it can't be us
 
 ### What are local accounts in Azure AD B2C? How are they different from work or school accounts in Azure AD?
 
-In an Azure AD tenant, every user in the tenant (except users with existing Microsoft accounts) signs in with an email address of the form `<xyz>@<tenant domain>` where `<tenant domain>` is one of the verified domains in the tenant or the initial `<...>.onmicrosoft.com` domain. This type of account is a work or school account, also referred to as an organizational account.
+In an Azure AD tenant, every user in the tenant (except users with existing Microsoft accounts) signs in with an email address of the form `<xyz>@<tenant domain>`, where `<tenant domain>` is one of the verified domains in the tenant or the initial `<...>.onmicrosoft.com` domain. This type of account is a work or school account.
 
-In an Azure AD B2C tenant, most apps want the user to sign in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com or jim@live.com). This type of account is a local account. Today, we also support arbitrary usernames (just plain strings) as local accounts (for example, joe, bob, sarah or jim). You can choose one of these two local account types in the Azure AD B2C service.
+In an Azure AD B2C tenant, most apps want the user to sign in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account. Today, we also support arbitrary user names (just plain strings) as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types in the Azure AD B2C service.
 
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
 
@@ -55,13 +55,13 @@ No, you can host your application anywhere (in the cloud or on-premises). All it
 
 ### I have multiple Azure AD B2C Tenants. How can I manage them on the Azure Portal?
 
-Each Azure AD B2C tenant has its own B2C features blade on the Azure portal. See [Azure AD B2C preview: Register your Application](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) to learn how you can navigate to a specific tenant's B2C features blade on the Azure portal. Switching between Azure AD B2C directories on the Azure portal will not keep your B2C features blade open on most browsers.
+Each Azure AD B2C tenant has its own B2C features blade on the Azure portal. See [Azure AD B2C preview: Register your application](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) to learn how you can navigate to a specific tenant's B2C features blade on the Azure portal. Switching between Azure AD B2C directories on the Azure portal will not keep your B2C features blade open on most browsers.
 
 ### How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
 
 Use the [company branding feature](../active-directory/active-directory-add-company-branding.md) to customize the content of verification emails. The "From:" field can be changed via Support.
 
-### How can I migrate my existing usernames, passwords, and profiles from my database to Azure AD B2C?
+### How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
 
 You can use the Azure AD Graph API to write your migration tool. See the [Graph API sample](active-directory-b2c-devquickstarts-graph-dotnet.md) for details. We will provide various migration options and tools out-of-the-box in the future.
 
@@ -77,9 +77,9 @@ No, Azure AD Connect is not designed to work with Azure AD B2C. We will provide 
 
 Not currently. Integrating these systems is on our roadmap.
 
-### Does Azure AD B2C work with SharePoint On-Premises 2016 or earlier?
+### Does Azure AD B2C work with SharePoint on-premises 2016 or earlier?
 
-Not currently. Azure AD B2C doesn't have support for SAML 1.1 tokens that portals and e-commerce applications built on SharePoint On-Premises need. Note that Azure AD B2C is not meant for the SharePoint external partner-sharing scenario; see [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) instead.
+Not currently. Azure AD B2C doesn't have support for SAML 1.1 tokens that portals and e-commerce applications built on SharePoint on-premises need. Note that Azure AD B2C is not meant for the SharePoint external partner-sharing scenario; see [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) instead.
 
 ### Should I use Azure AD B2C or B2B to manage external identities?
 
@@ -97,9 +97,9 @@ Currently, Azure AD B2C is optimized for English only. We plan to roll out local
 
 Not currently. This feature is on our roadmap. Also note that verifying your domain in the **Domains** tab of your tenant on the Azure classic portal will not do this.
 
-### Can I get Azure AD B2C as part of Enterprise Mobility Suite (EMS)?
+### Can I get Azure AD B2C as part of Enterprise Mobility Suite?
 
-No, Azure AD B2C is a pay-as-you-go Azure service and is not part of EMS.
+No, Azure AD B2C is a pay-as-you-go Azure service and is not part of Enterprise Mobility Suite.
 
 ### How do I report issues with Azure AD B2C?
 
