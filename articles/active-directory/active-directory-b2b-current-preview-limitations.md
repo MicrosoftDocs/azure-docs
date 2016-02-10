@@ -2,6 +2,7 @@
    pageTitle="Current preview limitations for Azure Active Directory B2B collaboration | Microsoft Azure"
    description="Azure Active Directory B2B supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/03/2016"
+   ms.date="02/09/2016"
    ms.author="viviali"/>
 
 # Azure AD B2B collaboration preview: Current preview limitations
@@ -36,3 +37,5 @@ Browse our other articles on Azure B2B collaboration:
 - [CSV file format reference](active-directory-b2b-references-csv-file-format.md)
 - [External user token format](active-directory-b2b-references-external-user-token-format.md)
 - [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+
