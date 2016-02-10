@@ -16,7 +16,7 @@
 	ms.date="02/05/2016"
 	ms.author="kgremban"/>
 
-# Managing Role-Based Access Control with Windows PowerShell 
+# Managing Role-Based Access Control with Windows PowerShell
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
@@ -37,7 +37,7 @@ Before you can use Windows PowerShell to manage RBAC, you must have the followin
 
 - Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../install-configure-powershell.md).
 
->[AZURE.IMPORTANT] If you're running Windows 10 or Windows Management Framework 5, you need to [install the Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell before you can use the cmdlets we walk through in this article.
+>[AZURE.IMPORTANT] Before you can use the cmdlets in this article, you need to [install the Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
 
 This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
