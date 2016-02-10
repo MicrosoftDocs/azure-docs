@@ -77,7 +77,7 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 7.	Click the **Publish-GalleryPackages.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command adds two marketplace items to the Azure Stack POC portal.
 
 8.	Verify that these files are in the D:\MySql\Prerequisites\BlobStorage\Container folder:
-  - AzureStack.MySql.Setup.1.0.46.0.nupkg
+  - AzureStack.MySql.Setup.1.0.1.0.nupkg
   - mysql-5.5.44-winx64.zip
   - mysql-5.6.26-winx64.zip
   - \_.AzureStack.local.pfx
