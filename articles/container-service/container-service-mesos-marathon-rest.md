@@ -26,6 +26,8 @@ Before working through these examples, you will need a Mesos cluster configured 
 - [Deploying an Azure Container Service Cluster](./contianer-service-deployment.md) 
 - [Connecting to an ACS Cluster](./container-service-connect.md)
 
+<TODO> Add Info about Mesos and Marthon API and include links.
+
 
 ## Gather information from Mesos and Marathon
 
@@ -45,7 +47,7 @@ curl localhost:8080/v2/apps
 
 ## Deploying a Docker Container
 
-Docker containers are deployed through Marathon using a json file that describes the intended deployment. The following sample will deploy the Docker hello world container, binding port 80 of the Docker host / Mesos agent to port 80 of the container.
+Docker containers are deployed through Marathon using a json file that describes the intended deployment. The following sample will deploy the Docker hello world container, binding port 80 of the Mesos agent to port 80 of the container.
 ```json
 {
   "id": "helloworld",
@@ -65,7 +67,7 @@ Docker containers are deployed through Marathon using a json file that describes
 }
 ```
 
-In order to deploy a Docker container, create your own json file or use the sample provided here - <insert Ross sample>. This json file will needs to be copied to your computer. When ready run the following command to deploy the container.
+In order to deploy a Docker container, create your own json file or use the sample provided here - <insert Ross sample>, and store it in an accessible location. When ready run the following command to deploy the container.
 
 
 ```
@@ -88,12 +90,10 @@ curl localhost:8080/v2/apps
 
 ## Scaling a Docker Container
 
-The Marathon API can also be used to scale application deployments out or in. In the previous example one instance of an application was deployed. Let's scale this out to three instances. To do so, create a json file with the following json text.
+The Marathon API can also be used to scale application deployments out or in. In the previous example one instance of an application was deployed, let's scale this out to three instances. To do so, create a json file with the following json text and store it in an accessible location.
 
 ```json
-{
-	"instances": 3
-}
+{ "instances": 3 }
 ```
 
 Run the following command to scale the application out.
@@ -109,3 +109,16 @@ curl localhost:8080/v2/apps
 ```
 
 ## Marathon REST API PowerShell
+
+```powershell
+Invoke-WebRequest -Uri http://localhost:5050/master/slaves
+```
+
+```powershell
+Invoke-WebRequest -Method Post -Uri http://localhost:8080/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
+```
+
+```powershell
+Invoke-WebRequest -Method Put -Uri http://localhost:8080/v2/apps/helloworld -ContentType application/json -InFile 'c:\scale.json'
+```
+

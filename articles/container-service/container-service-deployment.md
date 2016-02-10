@@ -79,7 +79,7 @@ If an Azure account is not returned, use the following to log the CLI into Azure
 azure login -u user@domain.com
 ```
 
-Next, make sure to configur the Azure CLI tools to use Azure Resource manager.
+Next, make sure to configur the Azure CLI tools to use Azure Resource Manager.
  
 ```bash
 azure config mode arm
@@ -115,7 +115,7 @@ Alternativley you can provide a json formatted parameters file using the `-e` sw
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON'
  ```
  
-There is an example parameters file (called 'azuredeploy.parameters.json') in GitHub alongside each template.
+An example parameters file name `azuredeploy.parameters.json` can be found with the ACS templates in GitHub.
  
 ## Creating a Service using PowerShell
 
