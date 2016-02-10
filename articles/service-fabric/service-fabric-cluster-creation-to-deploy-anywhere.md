@@ -63,7 +63,7 @@ Pre-requisites for each machine that you want to be a part of the cluster:
 ####3. Determine the Initial Cluster Size
 Each node consists of a full Service Fabric stack and is an individual member of the Service Fabric cluster. In a typical Service Fabric deployment there is one node per OS instance (physical or virtual). The cluster size is determined by your business needs; however, you must have a minimum cluster size of three nodes (machines/VMs).
 ###### Note  
-For development purposes, you can have more than one node on a given machine. In a production environment, Service Fabric supports only one node per physical/virtual machine.
+For development purposes, you can have more than one node on a given machine. In a production environment, Service Fabric supports only one node per physical or virtual machine.
 
 #### 4. Determine the number of Fault Domains and Upgrade Domains
 A **fault domain (FD)** is a physical unit of failure and is directly related to the physical infrastructure in the data centers. A fault domain consists of hardware components (computers, switches, and more) that share a single point of failure. Although there is no 1:1 mapping between fault domains and racks, loosely speaking, each rack can be considered a fault domain. When considering the nodes in your cluster, it is strongly recommended that the nodes be distributed amongst at least three fault domains. 
@@ -74,7 +74,7 @@ When you specify FDs in the ClusterConfig.JSON, You get to choose the name of th
 "faultDomain": "fd:/Room1/Rack1/PDU1/M1"
 
 
-An **upgrade domain (UD)** is a logical unit of nodes. During a Service Fabric orchestrated upgrade (Application upgrade or Fabric upgrades, all nodes in a UD are taken down to perform the upgrade while nodes in other UDs remain available to serve requests. The firm ware upgrades you do to your machines, will not honor UDs, so you must do them one machine at a time.
+An **upgrade domain (UD)** is a logical unit of nodes. During a Service Fabric orchestrated upgrade (Application upgrade or Fabric/Cluster upgrades, all nodes in a UD are taken down to perform the upgrade while nodes in other UDs remain available to serve requests. The firmware upgrades you do to your machines will not honor UDs, so you must do them one machine at a time.
 
 The simplest way to think about these concepts is to consider FDs as the unit of unplanned failure, and UDs as the unit of planned maintenance. 
 
