@@ -38,12 +38,9 @@ Verify that you have the following items before beginning configuration.
 - An externally-facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 	
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-## Install the PowerShell modules
-
-You'll need the latest version of the Azure Resource Manager PowerShell cmdlets to configure your connection.
 	
-[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
+- You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+
 
 ## 1. Connect to your subscription 
 
