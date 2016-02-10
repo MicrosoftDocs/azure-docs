@@ -43,7 +43,7 @@ Explore the growing collection of [Azure Stack GitHub Templates](https://github.
 
 ### Visual Studio Cloud Tools
 Use the Visual Studio Cloud Tools to quickly build new applications or deploy existing applications to Azure Stack.
-[Download for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)
+[Download for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003)
 
 ### Azure PowerShell SDK
 Azure PowerShell is a module that provides cmdlets to manage Azure and Azure Stack with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure Stack platform.
