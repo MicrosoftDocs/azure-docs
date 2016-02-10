@@ -13,23 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/09/2016" 
+	ms.date="02/10/2016" 
 	ms.author="heidist"/>
 
 #What’s new in the latest update to Azure Search#
 
-Azure Search is cloud hosted search service on Microsoft Azure. It is generally available, offering a 99.9% availability service-level agreement (SLA) for supported configurations of the [2015-02-28 version of the Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
-
-##How features are versioned and rolled out
-
-Features are released separately or jointly through the [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216), or the service dashboard in the [Azure Portal](https://portal.azure.com). Both the .NET library and REST APIs have multiple versions. Older APIs remain operational as we roll out new features. You can visit [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) to learn more about our versioning policy.
-
-Preview and generally available (GA) features are tied to an API version of the same category.
-
-- Preview features are experimental and could change or even be abandoned before graduating to GA. Preview features are always available in the [preview version of the REST API](search-api-2015-02-28-preview.md), and sometimes in the [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216). Feature documentation will always explain how to access the feature in question.
-- GA features are stable and unlikely to change. Any change to a GA feature is announced as a breaking change.
-
-Features that are purely portal or tool-based are expected to change over time and are not classified as either preview or GA.
+Azure Search is cloud hosted search service on Microsoft Azure. It is generally available, offering a 99.9% availability service-level agreement (SLA) for configurations of the [2015-02-28 version of the Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) or the [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx).
 
 ##New in 2016
 
@@ -70,6 +59,17 @@ Lucene language analyzers|November 2014|Preview|Added to provide multi-lingual s
 Portal support was introduced for building indexes|November 2014|[Portal](https://portal.azure.com)|Indexes, analyzers, and scoring profiles can be constructed in the portal.
 Management api-version 2014-07-31-Preview|October 2014|Preview|First public preview release of the management REST API. Documentation for this api-version is available upon request.
 Search Service REST API|August 2014|Preview|First public preview release of the service REST API (api-version-2014-07-31-Preview). This is the REST API for index and document operations, scoring profiles for tuning search results, geospatial support. This release supports service provisioning in the Azure Portal. Documentation for this api-version is available upon request. It is versioned independently of the service REST API.
+
+##How features are versioned and rolled out
+
+Features are released separately or jointly through the [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216), or the service dashboard in the [Azure Portal](https://portal.azure.com). Both the .NET library and REST APIs have multiple versions. Older APIs remain operational as we roll out new features. You can visit [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) to learn more about our versioning policy.
+
+Preview and generally available (GA) features are tied to an API version of the same category.
+
+- Preview features are experimental and could change or even be abandoned before graduating to GA. Preview features are always available in the [preview version of the REST API](search-api-2015-02-28-preview.md), and sometimes in the [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216). Feature documentation will always explain how to access the feature in question.
+- GA features are stable and unlikely to change. Any change to a GA feature is announced as a breaking change.
+
+Features that are purely portal or tool-based are expected to change over time and are not classified as either preview or GA.
 
 
 
