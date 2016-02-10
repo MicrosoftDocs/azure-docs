@@ -297,12 +297,11 @@ Power BI connects to an Azure SQL database as its data source, where the predict
 2.	Update the data source of the cold path Power BI file
 	-  Make sure you have installed the latest version of [Power BI desktop](https://powerbi.microsoft.com/en-us/desktop).
 
-	-	In the **"DemandForecastingDataGeneratorv1.0"** folder you downloaded, double click the **‘Power BI Template\DemandForecastPowerBI.pbix’** file. The initial visulizations are based on dummy data.
+	-	In the **"DemandForecastingDataGeneratorv1.0"** folder you downloaded, double click the **‘Power BI Template\DemandForecastPowerBI.pbix’** file. The initial visualizations are based on dummy data.
 
 	>[AZURE.TIP] If you see an error massage, please make sure you have installed the latest version of Power BI Desktop.
 
 		Once you open it, on the top of the file, click **‘Edit Queries’**. In the pop out window, double click **‘Source’** on the right panel.
-
 		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   In the pop out window, replace **"Server"** and **"Database"** with
