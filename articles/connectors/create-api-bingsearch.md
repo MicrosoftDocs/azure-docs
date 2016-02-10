@@ -5,16 +5,17 @@
     suite=""
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
-   ms.service=""
+   ms.service="multiple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/04/2016"
+   ms.date="02/09/2016"
    ms.author="mandia"/>
 
 # Get started with the Bing Search API 
@@ -26,9 +27,11 @@ With Bing Search, you can:
 
 - Build your business flow based on the data you get from your search. 
 - Use actions to search images, search the news, and more. These actions get a response, and then make the output available for other actions. For example, you can search for a video, and then use Twitter to post that video to a Twitter feed.
-- Add the API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+- Add the Bing Search API to PowerApps Enterprise. Then, your users can use this API within their apps. 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](..powerapps-register-from-available-apis.md). To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
+For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](..powerapps-register-from-available-apis.md). 
+
+To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 Bing Search includes the following actions. There are no triggers. 
@@ -205,6 +208,92 @@ Retrieves all web sites, videos, images, etc. from a Bing search.
 |200|OK|
 |default|Operation Failed.|
 
+
+## Object definitions
+
+#### WebResultModel: Bing web search results
+
+|Property Name | Data Type | Required |
+|---|---|---|
+|Title|string|no|
+|Description|string|no|
+|DisplayUrl|string|no|
+|Id|string|no|
+|FullUrl|string|no|
+
+#### VideoResultModel: Bing video search results
+
+|Property Name | Data Type |Required |
+|---|---|---|
+|Title|string|no|
+|DisplayUrl|string|no|
+|Id|string|no|
+|MediaUrl|string|no|
+|Runtime|integer|no|
+|Thumbnail|not defined|no|
+
+#### ThumbnailModel: Thumbnail properties of the multimedia element
+
+|Property Name | Data Type |Required |
+|---|---|---|
+|MediaUrl|string|no|
+|ContentType|string|no|
+|Width|integer|no|
+|Height|integer|no|
+|FileSize|integer|no|
+
+#### ImageResultModel: Bing image search results
+
+|Property Name | Data Type |Required |
+|---|---|---|
+|Title|string|no|
+|DisplayUrl|string|no|
+|Id|string|no|
+|MediaUrl|string|no|
+|SourceUrl|string|no|
+|Thumbnail|not defined|no|
+
+#### NewsResultModel: Bing news search results
+
+|Property Name | Data Type |Required |
+|---|---|---|
+|Title|string|no|
+|Description|string|no|
+|DisplayUrl|string|no|
+|Id|string|no|
+|Source|string|no|
+|Date|string|no|
+
+#### SpellResultModel: Bing spelling suggestions results
+
+|Property Name | Data Type |Required |
+|---|---|---|
+|Id|string|no|
+|Value|string|no|
+
+#### RelatedSearchResultModel: Bing related search results
+
+|Property Name | Data Type |Required |
+|---|---|---|
+|Title|string|no|
+|Id|string|no|
+|BingUrl|string|no|
+
+#### CompositeSearchResultModel: Bing composite search results
+
+|Property Name | Data Type |Required |
+|---|---|---|
+|WebResultsTotal|integer|no|
+|ImageResultsTotal|integer|no|
+|VideoResultsTotal|integer|no|
+|NewsResultsTotal|integer|
+|SpellSuggestionsTotal|integer|no|
+|WebResults|array|no|
+|ImageResults|array|no|
+|VideoResults|array|no|
+|NewsResults|array|no|
+|SpellSuggestionResults|array|no|
+|RelatedSearchResults|array|no|
 
 ## Next steps
 

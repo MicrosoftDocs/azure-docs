@@ -1,19 +1,20 @@
 <properties
-	pageTitle="Use the Azure blob storage API in your Logic Apps | Microsoft Azure"
+	pageTitle="Add the Azure blob storage API in your Logic Apps | Microsoft Azure"
 	description="Overview of Azure blob storage API with REST API parameters"
 	services=""
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
-   ms.service=""
+   ms.service="multiple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/04/2016"
+   ms.date="02/09/2016"
    ms.author="mandia"/>
 
 # Get started with the Azure blob storage API
@@ -210,6 +211,48 @@ Updates a file in Azure Blob Storage.
 |200|OK|
 |default|Operation Failed.|
 
+## Object definitions
+
+#### DataSetsMetadata
+
+|Property Name | Data Type | Required|
+|---|---|---|
+|tabular|not defined|no|
+|blob|not defined|no|
+
+#### TabularDataSetsMetadata
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
+
+#### BlobDataSetsMetadata
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+
+
+#### BlobMetadata
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|Id|string|no|
+|Name|string|no|
+|DisplayName|string|no|
+|Path|string|no|
+|LastModified|string|no|
+|Size|integer|no|
+|MediaType|string|no|
+|IsFolder|boolean|no|
+|ETag|string|no|
+|FileLocator|string|no|
 
 ## Next steps
 
