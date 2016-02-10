@@ -79,7 +79,7 @@ The following diagram shows an example of an internal load-balanced endpoint for
 
 ## Load balancer considerations
 
-A load balancer is configured by default to timeout an idle session in 4 minutes. If your application behind a load balancer is idle for more than 4 minutes and it doesn't have a Keep-Alive configuration, the connection will be dropped. You can change the load balancer behavior to allow a [longer timeout setting for Azure load balancer](../load-balancer/load-balancer-tcp-idle-timeout.md).
+A load balancer is configured by default to timeout an idle session in 4 minutes. If your application behind a load balancer leaves a connection idle for more than 4 minutes and it doesn't have a Keep-Alive configuration, the connection will be dropped. You can change the load balancer behavior to allow a [longer timeout setting for Azure load balancer](../load-balancer/load-balancer-tcp-idle-timeout.md).
 
 Other consideration is the type of distribution mode supported by Azure Load Balancer. You can configure source IP affinity (source IP, destination IP) or source IP protocol (source IP , destination IP and protocol). Check out [Azure Load Balancer distribution mode (source IP affinity)](../load-balancer/load-balancer-distribution-mode.md) for more information.
 
