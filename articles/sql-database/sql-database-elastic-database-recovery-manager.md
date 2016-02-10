@@ -36,8 +36,8 @@ In a sharded database environment, there is one tenant per database, and many da
 
 The GSM and LSM may become out of sync for the following reasons:
 
-1. The deletion of a shard whose range is believed to no longer be in use, or by the renaming of a shard. Deleting a shard results in an **orphaned shard mapping**. A renamed database can similarly cause an orphaned shard mapping. Depending on the intent, the shard may need to be removed or the shard location simply needs to be updated. To recover a deleted database, see [Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage](sql-database-troubleshoot-backup-and-restore.md).
-2. A geo-failover event occurs. To continue, one must update the server name, database name and/or shard mapping details for any and all shards in a shard map. In case of a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions.
+1. The deletion of a shard whose range is believed to no longer be in use, or renaming of a shard. Deleting a shard results in an **orphaned shard mapping**. Similary, a renamed database can cause an orphaned shard mapping. Depending on the intent of the change, the shard may need to be removed or the shard location needs to be updated. To recover a deleted database, see [Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage](sql-database-troubleshoot-backup-and-restore.md).
+2. A geo-failover event occurs. To continue, one must update the server name, and database name of shard map manager in the application and then update the shard mapping details for any and all shards in a shard map. In case of a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions.
 3. Either a shard or the ShardMapManager database is restored to an earlier point-in time.
 
 For more information about Azure SQL Database Elastic Database tools, Geo-Replication and Restore, please see the following: 
@@ -89,7 +89,7 @@ The [DetectMappingDifferences method](https://msdn.microsoft.com/library/azure/m
 
 The [ResolveMappingDifferences method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) selects one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
 
-	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution);
+	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    
 * The *RecoveryToken* parameter enumerates the differences in the mappings between the GSM and the LSM for the specific shard. 
 
@@ -150,7 +150,7 @@ This example performs the following steps:
 	
 		  foreach (RecoveryToken g in gs) 
 			{ 
-			   rm.ResolveMappingDifferences(g, 						MappingDifferenceResolution.KeepShardMapping); 
+			   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
 			} 
 		} 
 	} 
