@@ -28,7 +28,6 @@ Application Gateway currently supports layer-7 application delivery for the foll
 - Cookie-based session affinity
 - Secure Sockets Layer (SSL) offload
 
-
 ## HTTP layer 7 load balancing
 
 Azure provides layer 4 load balancing via Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway service. The Application Gateway then will apply the routing rules to HTTP traffic, providing layer 7 (HTTP) load balancing. When you create an application gateway, an endpoint (VIP) will be associated and used as public IP for ingress network traffic.
@@ -41,7 +40,14 @@ HTTP layer 7 load balancing is useful for:
 - Applications that want to free web server farms from SSL termination overhead.
 - Applications, such as a content delivery network, that require multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 
+## Application Gateway rules 
 
+A rule defines how the network traffic will be routed to the back-end servers from a specific listener. There are 2 rule types:
+
+- [Basic](application-gateway-create-gateway-arm.md) - round-robin rule to route traffic to all back-end server pools.
+
+- [PathBasedRouting](application-gateway-create-url-route-arm-ps.md) - URL path based routing rule, which allows you to route traffic based on url path mapped to a specific back-end server pool.  
+ 
 ## Gateway sizes and instances
 
 Application Gateway is currently offered in three sizes: Small, Medium, and Large. Small instance sizes are intended for development and testing scenarios.
@@ -58,6 +64,7 @@ The table below shows an average performance throughput for each application gat
 
 
 >[AZURE.NOTE] This is an approximate guidance for an application gateway throughput. The actual throughput is dependent on various environment details, such as average page size, location of back-end instances, and processing time to serve a page.
+
 
 ## Health monitoring
 
