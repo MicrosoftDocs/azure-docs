@@ -91,7 +91,7 @@ When you specify UDs in the ClusterConfig.JSON, You get to choose the name of th
 "upgradeDomain": "Blue"
 
 #### 5. Download the "Deploy Anywhere" package
-Download the [MicrosoftAzureServiceFabricWindowsServerversion.zip](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the downloaded package to your deployment machine or on one of the machines that will be the part of your cluster.
+Download the latest [MicrosoftAzureServiceFabricWindowsServer&lt;version&gt;.zip](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the downloaded package to your deployment machine or on one of the machines that will be the part of your cluster.
 
 ## Deploy your Cluster
 
