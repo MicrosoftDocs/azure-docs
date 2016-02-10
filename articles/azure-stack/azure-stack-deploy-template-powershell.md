@@ -22,6 +22,8 @@ Use PowerShell to deploy Azure Resource Manager (ARM) templates to the Azure Sta
 
 ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
 
+>[Note] If you work on the Client VM, you’ll need to first **uninstall** the existing Azure PowerShell module and then [download]( http://aka.ms/webpi-azps) the latest Azure PowerShell SDK. 
+
 ## Authenticate PowerShell with Microsoft Azure Stack (required)
 
 1.  Run the following PowerShell cmdlet to configure the environment, and authenticate a user.
