@@ -27,7 +27,7 @@ This article walks you through the steps for creating a cluster using "Deploy An
 
 ## Microsoft Azure Service Fabric "deploy anywhere" Package
 
-The "Deploy anywhere" package for Windows Server 2012 R2 deployments is MicrosoftAzureServiceFabricWindowsServer&lt;version&gt;.zip
+The "Deploy anywhere" package for Windows Server 2012 R2 or Windows Server 2012 deployments is MicrosoftAzureServiceFabricWindowsServer&lt;version&gt;.zip
 
 In the download package you will find the following files.
 
@@ -45,7 +45,7 @@ In the download package you will find the following files.
 Review and act on the following steps prior to moving on to the next section - Deployment of your cluster.
 
 ####1. Plan your cluster Infrastructure 
-You are about to deploy a service fabric cluster to the machines you own, so you get to decide on what kinds of failures you want the cluster to survive, say for example - do you need separate power lines, internet connections etc that feed these machines. These are in addition to thinking through, the physical security, Physical location etc.  Once you make these decisions, you logically map the machines to the various Fault Domains (scroll down for definition). The infrastructure planning for production clusters will be far more involved than the test only clusters. 
+You are about to deploy a service fabric cluster to the machines you own, so you get to decide on what kinds of failures you want the cluster to survive, say for example - do you need separate power lines, internet connections etc that feed these machines. These are in addition to thinking through, the physical security like the physical location of these machines, who needs access to them etc.  Once you make these decisions, you logically map the machines to the various Fault Domains (scroll down for definition). <br> The infrastructure planning for production clusters will be far more involved than the test only clusters. 
 
 ####2. Prepare the machines to meet the pre-requisites 
 
@@ -53,8 +53,7 @@ Pre-requisites for each machine that you want to be a part of the cluster:
 
 - Minimum of 2 GB memory is recommended
 - Network Connectivity – Make sure that the machines are on a secure network/or networks
-- Windows Server 2012 R2.
-- KB2858668 is required for Windows Server 2012.
+- Windows Server 2012 R2 or Windows Server 2012 (you need to have KB2858668 installed for this).
 - .NET Framework 4.5.1 or higher, full install
 - Windows PowerShell 3.0
 - Visual C++ 2012 (VC++ 11.0) Redistributable Package
@@ -69,8 +68,11 @@ For development purposes, you can have more than one node on a given machine. In
 A **fault domain (FD)** is a physical unit of failure and is directly related to the physical infrastructure in the data centers. A fault domain consists of hardware components (computers, switches, and more) that share a single point of failure. Although there is no 1:1 mapping between fault domains and racks, loosely speaking, each rack can be considered a fault domain. When considering the nodes in your cluster, it is strongly recommended that the nodes be distributed amongst at least three fault domains. 
 
 When you specify FDs in the ClusterConfig.JSON, You get to choose the name of the FD. Service fabric supports hierarchical FDs, so you can reflect you infra topology in them for example, the following are allowed
+
 "faultDomain": "fd:/Room1/Rack1/Machine1"
+
 "faultDomain": "fd:/FD1"
+
 "faultDomain": "fd:/Room1/Rack1/PDU1/M1"
 
 
@@ -79,9 +81,13 @@ An **upgrade domain (UD)** is a logical unit of nodes. During a Service Fabric o
 The simplest way to think about these concepts is to consider FDs as the unit of unplanned failure, and UDs as the unit of planned maintenance. 
 
 When you specify UDs in the ClusterConfig.JSON, You get to choose the name of the UD. For example, the following are all allowed
+
 "upgradeDomain": "UD0"
+
 "upgradeDomain": "UD1A"
+
 "upgradeDomain": "DomainRed"
+
 "upgradeDomain": "Blue"
 
 #### 5. Download the "Deploy Anywhere" package
@@ -99,13 +105,13 @@ open the ClusterConfig.JSON from the package you downloaded. you can use any edi
 |NodeTypes|Node types allow you to separate your cluster nodes into various groups. A cluster must have at least one NodeType. All nodes in a group have the following common characteristics. <br> *Name*  - This is the Node Type name. <br>*EndPoints* - These are various named end points (Ports) that are associated with this Node Type. You can use any port number that you wish, as long as they do not conflict with anything else in this manifest and are not already in use by any other program on the machine/VM <br> *PlacementProperties* - These describe properties for this node type that you will then use as placement constraints for system services or your services. These properties are user defined key/value pairs that provide extra metadata for a given node. Examples of node properties would be whether or not the node has a hard drive or graphics card, the number of spindles in it hard drive, cores, and other physical properties. <br> *Capacities* - Node capacities define the name and amount of a particular resource that a particular node has available for consumption. For example, a node may define that it has capacity for a metric called “MemoryInMb” and that it has 2048 available by default. These capacities are used at runtime to ensure that services which require particular amounts of resources are placed on nodes with those resources remaining available.|
 |Nodes|The details for each of the nodes that will be part of the cluster (node type, node name, IP address, Fault Domain and Upgrade Domain of the node). The machines you want the cluster to be created on need to be listed here with their IP address. <br> If you use the same IP addresses for all the nodes, then a scale minimized or one-box cluster will be created, which you can use for test purposes. Scale minimized clusters should not be used for deploying production workloads..|
 
-####2. Run Setup script
+####2. Run the Create Cluster script
 Once you have modified the cluster configuration in the JSON doc and added all the node information to it, run the cluster creation powershell script from the package folder and pass in the path to the configuration file and the location of the package root to it. 
 
 This script can be run on any machine that has admin access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on, may or may not be part of the cluster.
 
 ```
-C:\ServiceFabricDeployAnywherePackag> .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\ServiceFabricDeployAnywherePackage\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\ServiceFabricDeployAnywherePackage\MicrosoftAzureServiceFabric.cab
+C:\ServiceFabricDeployAnywherePackage> .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\ServiceFabricDeployAnywherePackage\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\ServiceFabricDeployAnywherePackage\MicrosoftAzureServiceFabric.cab
 ```
 
 
