@@ -22,7 +22,8 @@
 
 ## Overview
 
-This tutorial shows you how to add a cloud-based backend service to an Apache Cordova mobile app by using an Azure mobile app backend.  You will create both a new mobile app backend and a simple _Todo list_ Apache Cordova app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to an Apache Cordova mobile app by using an Azure mobile app
+backend.  You will create both a new mobile app backend and a simple _Todo list_ Apache Cordova app that stores app data in Azure.
 
 Completing this tutorial is a prerequisite for all other Apache Cordova tutorials about using the Mobile Apps feature in Azure App Service.
 
@@ -33,6 +34,9 @@ To complete this tutorial, you need the following:
 * A PC with [Visual Studio Community 2015] or newer.
 * [Visual Studio Tools for Apache Cordova].
 * An [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
+
+You may also bypass Visual Studio and use the Apache Cordova command line directly.  This is useful when completing the tutorial on a
+Mac computer.  Compiling Apache Cordova client applications using the command line is not covered by this tutorial.
 
 ## Create a new Azure mobile app backend
 
