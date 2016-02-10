@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="11/13/2015"
+   ms.date="02/09/2016"
    ms.author="tomfitz" />
 
 # Editing Resource Manager templates with Visual Studio
@@ -61,7 +61,7 @@ For more information about the structure of the template, see [Authoring Azure R
 
 ## See Also
 
-[Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-project-create-deploy.md)
+[Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx)
 
