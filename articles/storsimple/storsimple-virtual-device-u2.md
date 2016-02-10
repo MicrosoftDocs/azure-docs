@@ -28,7 +28,7 @@ The StorSimple virtual device is an additional capability that comes with your M
 
 #### Virtual device model comparison
 
-The StorSimple virtual device is available in two models, a standard 8010 and a premium 8020 (introduced in Update 2). A comparison of the two models is tabulated below.
+The StorSimple virtual device is available in two models, a standard 8010 (formerly known as 1100) and a premium 8020 (introduced in Update 2). A comparison of the two models is tabulated below.
 
 
 | Device model          | 8010<sup>1</sup>                                                                     | 8020                                                                                                                               |
@@ -36,9 +36,9 @@ The StorSimple virtual device is available in two models, a standard 8010 and a 
 | **Maximum capacity**      | 30 TB                                                                     | 64 TB                                                                                                                                |
 | **Azure VM**              | Standard_A3 (4 cores, 7 GB memory)                                                                      | Standard_DS3 (4 cores, 14 GB memory)                                                                                                                          |
 | **Version compatibility** | Versions running pre-Update 2 or later                                             | Versions running Update 2 or later                                                                                                  |
-| **Region availability**   | All Azure regions                                                         | Azure regions that support Premium Storage<br></br>For a list of regions that currently support 8020, see [Supported regions for 8020](#supported-regions-for-8020) |
+| **Region availability**   | All Azure regions                                                         | Azure regions that support Premium Storage<br></br>For a list of regions, see [supported regions for 8020](#supported-regions-for-8020) |
 | **Storage type**          | Uses Azure Standard Storage<br></br> Learn how to [create a Standard Storage account]() | Uses Azure Premium Storage<br></br>Learn how to [create a Premium Storage account](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)                                                               |
-| **Workload guidance**     | Item level retrieval of files from backups                                              | Cloud dev and test scenarios, Low latency, higher performance workloads <br></br>Secondary device for disaster recovery                                                                                            |
+| **Workload guidance**     | Item level retrieval of files from backups                                              | Cloud dev and test scenarios, low latency, higher performance workloads <br></br>Secondary device for disaster recovery                                                                                            |
  
 <sup>1</sup> *Formerly known as 1100*.
 
@@ -257,18 +257,18 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 
 The regions that are currently supported for 8020 and those that will be supported in near future as tabulated below. All these regions support Premium Storage.
 
-| S. no.                                                  | Currently supported in regions | Coming soon in regions* |   
+| S. no.                                                  | Currently supported in regions | Coming soon in regions* |
 |---------------------------------------------------------|--------------------------------|-------------------------|
 | 1                                                       | Central US                     | Australia Southeast     |
 | 2                                                       |  East US                       | East Asia               |
 | 3                                                       |  East US 2                     | South Central US        |
-| 4                                                       | West US                        |                         | 
-| 5                                                       | North Europe                   |                         | 
-| 6                                                       | West Europe                    |                         | 
+| 4                                                       | West US                        |                         |
+| 5                                                       | North Europe                   |                         |
+| 6                                                       | West Europe                    |                         |
 | 7                                                       | Southeast Asia                 |                         |
-| 8                                                       | Japan East                     |                         |  
-| 9                                                       | Japan West                     |                         |  
-| 10                                                      | Australia East                 |                         | 
+| 8                                                       | Japan East                     |                         |
+| 9                                                       | Japan West                     |                         |
+| 10                                                      | Australia East                 |                         |
 
 *Premium Storage was launched recently in these geos.   
 
