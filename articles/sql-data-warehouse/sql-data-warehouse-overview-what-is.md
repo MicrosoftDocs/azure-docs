@@ -117,7 +117,7 @@ Polybase is easy to use and allows you to leverage your data from different sour
 
 - PolyBase uses external tables to access non-relational data. The table definitions are stored in SQL Data Warehouse, and can be acessed by SQL and tools like you would access normal relational data.
 
-- Polybase is agnostic in it's integration. It exposes the same features and functionality to all the sources that it supports. The data read by Polybase can be in a variety of formats, including delimited files or ORC files.
+- Polybase is agnostic in its integration. It exposes the same features and functionality to all the sources that it supports. The data read by Polybase can be in a variety of formats, including delimited files or ORC files.
 
 - PolyBase can be used to access blob storage that is also being used as storage for an HD Insight cluster, giving you cutting edge access to the same data with relational and non-relational tools.
 
