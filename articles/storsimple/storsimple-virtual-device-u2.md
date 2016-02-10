@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/22/2016"
+   ms.date="02/10/2016"
    ms.author="alkohli" />
 
 # Deploy and manage a StorSimple virtual device in Azure (Update 2)
@@ -36,7 +36,7 @@ The StorSimple virtual device is available in two models, a standard 8010 and a 
 | **Maximum capacity**      | 30 TB                                                                     | 64 TB                                                                                                                                |
 | **Azure VM**              | Standard_A3 (4 cores, 7 GB memory)                                                                      | Standard_DS3 (4 cores, 14 GB memory)                                                                                                                          |
 | **Version compatibility** | Versions running pre-Update 2 or later                                             | Versions running Update 2 or later                                                                                                  |
-| **Region availability**   | All Azure regions                                                         | Azure regions that support Premium Storage<br></br>For a list of regions that currently support Premium Storage, see [Azure Services by Region](https://azure.microsoft.com/regions/#services) |
+| **Region availability**   | All Azure regions                                                         | Azure regions that support Premium Storage<br></br>For a list of regions that currently support 8020, see [Supported regions for 8020](#supported-regions-for-8020) |
 | **Storage type**          | Uses Azure Standard Storage<br></br> Learn how to [create a Standard Storage account]() | Uses Azure Premium Storage<br></br>Learn how to [create a Premium Storage account](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)                                                               |
 | **Workload guidance**     | Item level retrieval of files from backups                                              | Cloud dev and test scenarios, Low latency, higher performance workloads <br></br>Secondary device for disaster recovery                                                                                            |
  
@@ -79,7 +79,7 @@ The following sections explain the configuration prerequisites for your StorSimp
 
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
 
-- For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. More information on [regions that currently support Premium Storage](https://azure.microsoft.com/regions/#services).
+- For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. More information on [regions that are currently supported for 8020](#supported-regions-for-8020).
 - It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid or if the DNS server is not able to resolve IP addresses correctly, the creation of the virtual device will fail.
 - Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios. 
 - You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-about.md) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements: 							
@@ -252,6 +252,25 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 [AZURE.INCLUDE [Shut down a virtual device](../../includes/storsimple-shutdown-virtual-device.md)]
 
 [AZURE.INCLUDE [Delete a virtual device](../../includes/storsimple-delete-virtual-device.md)]
+
+##Supported regions for 8020
+
+The regions that are currently supported for 8020 and those that will be supported in near future as tabulated below. All these regions support Premium Storage.
+
+| S. no.                                                  | Currently supported in regions | Coming soon in regions* |   
+|---------------------------------------------------------|--------------------------------|-------------------------|
+| 1                                                       | Central US                     | Australia Southeast     |
+| 2                                                       |  East US                       | East Asia               |
+| 3                                                       |  East US 2                     | South Central US        |
+| 4                                                       | West US                        |                         | 
+| 5                                                       | North Europe                   |                         | 
+| 6                                                       | West Europe                    |                         | 
+| 7                                                       | Southeast Asia                 |                         |
+| 8                                                       | Japan East                     |                         |  
+| 9                                                       | Japan West                     |                         |  
+| 10                                                      | Australia East                 |                         | 
+
+*Premium Storage was launched recently in these geos.   
 
 ## Next steps
 
