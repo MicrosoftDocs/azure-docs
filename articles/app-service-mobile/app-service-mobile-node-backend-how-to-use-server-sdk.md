@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # How to use the Azure Mobile Apps Node.js SDK
@@ -338,7 +338,7 @@ An example _azureMobile.js_ file implementing the database settings given above 
 We recommend that you add _azureMobile.js_ to your _.gitignore_ file (or other source code control ignore file) to prevent passwords from
 being stored in the cloud.  Always configure production settings in App Settings within the [Azure Portal].
 
-### <a name="howto-appsettings"><a>App Settings for configuring your Mobile App
+### <a name="howto-appsettings"></a>App Settings for configuring your Mobile App
 
 Most settings in the _azureMobile.js_ file have an equivalent App Setting in the [Azure Portal].  Use the following list to configure your
 app in App Settings:
@@ -670,6 +670,34 @@ You can also specify authentication on specific operations:
 
 The same token that is used for the tables endpoint must be used for custom APIs requiring authentication.
 
+### <a name="howto-customapi-auth"></a>How to: Handle Large File Uploads
+
+Azure Mobile Apps SDK uses the [body-parser middleware](https://github.com/expressjs/body-parser) to accept and decode body content in your submission.  You can pre-configure
+body-parser to accept larger file uploads:
+
+	var express = require('express'),
+        bodyParser = require('body-parser'),
+		azureMobileApps = require('azure-mobile-apps');
+
+	var app = express(),
+		mobile = azureMobileApps();
+
+    // Set up large body content handling
+    app.use(bodyParser.json({ limit: '50mb' }));
+    app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
+	// Import the Custom API
+	mobile.api.import('./api');
+
+	// Add the mobile API so it is accessible as a Web API
+	app.use(mobile);
+
+	// Start listening on HTTP
+	app.listen(process.env.PORT || 3000);
+
+You can adjust the 50Mb limit we have shown above.  Note that the file will be base-64 encoded before transmission, which will
+increase the size of the actual upload.
+
 ## <a name="Debugging"></a>Debugging and troubleshooting
 
 The Azure App Service provides several debugging and troubleshooting techniques for Node.js applications.
@@ -751,7 +779,7 @@ From the editor, you can also execute the code on the site
 [Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Toubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
-[use Node modules]: ../nodejs-use-node-mobiles-azure-apps.md
+[use Node modules]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
