@@ -33,6 +33,8 @@ For more information about consumption and rate plans, see the [Microsoft Azure 
 
 <!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
 
+<!-- Below section commented out as a new "right nav" floating bar is created for each article and is no longer necessary to have this section.
+
 ## Content:
 
 This topic helps you with the following tasks when reading your bill.
@@ -44,7 +46,7 @@ This topic helps you with the following tasks when reading your bill.
 -  Footer Information
 -  Understand the Additional Information
 -  Understand Detailed Usage Charges
--  Analyze Daily Usage Data
+-  Analyze Daily Usage Data -->
 
 ### View or download a bill for Microsoft Azure:
 
