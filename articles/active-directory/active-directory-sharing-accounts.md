@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="02/01/2016"  
+ 	ms.date="02/09/2016"  
  	ms.author="stevenpo"/>
 
 # Sharing accounts with Azure AD
@@ -69,5 +69,6 @@ You can also make your shared account more secure with Multi-Factor Authenticati
 
 ## Related articles
 
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 - [Protecting apps with conditional access](active-directory-conditional-access.md)
 - [Self-service group management/SSAA](active-directory-accessmanagement-self-service-group-management.md)

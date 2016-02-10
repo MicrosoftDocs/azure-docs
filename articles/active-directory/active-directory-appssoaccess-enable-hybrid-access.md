@@ -40,5 +40,6 @@ There is only one requirement for enabling access to a web application: the web 
 7. The response is sent through the application proxy to the user.
 
 ## Related articles
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 - [Enabling Azure AD Application Proxy](active-directory-application-proxy-enable.md#step-1-enable-application-proxy-in-azure-ad)
 - [Publishing applications through Azure AD App Proxy](active-directory-application-proxy-publish.md)
