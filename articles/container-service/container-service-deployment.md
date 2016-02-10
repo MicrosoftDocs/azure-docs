@@ -117,7 +117,7 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
  
 There is an example parameters file (called 'azuredeploy.parameters.json') in GitHub alongside each template.
  
-# Creating a Service using PowerShell
+## Creating a Service using PowerShell
 
 These instructions are based on the 1.0 version of the [Azure PowerShell cmdlets](https://azure.microsoft.com/blog/azps-1-0/). 
 
