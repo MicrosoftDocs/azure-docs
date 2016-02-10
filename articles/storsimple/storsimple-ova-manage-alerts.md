@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/09/2016"
+   ms.date="02/10/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to view and manage StorSimple Virtual Array alerts
 
 ## Overview
 
-The **Alerts** tab in the StorSimple Manager service provides a way for you to review and clear StorSimple Virtual Array–related alerts on a real-time basis. From this tab, you can centrally monitor the health issues of your StorSimple  Virtual Arrays and the overall Microsoft Azure StorSimple solution.
+The **Alerts** tab in the StorSimple Manager service provides a way for you to review and clear StorSimple Virtual Array–related alerts on a real-time basis. From this tab, you can centrally monitor the health issues of your StorSimple  Virtual Arrays (also known as StorSimple on-premises virtual devices) and the overall Microsoft Azure StorSimple solution.
 
-This tutorial describes how to configure alert notifications, common alert conditions, alert severity levels, and how to view and track alerts. Additionally, it includes alert quick reference tables, which enable you to quickly locate a specific alert and respond appropriately.
+This tutorial describes how to configure alert notifications, common alert conditions, alert severity levels, and how to view and track alerts. 
 
 ![Alerts page](./media/storsimple-ova-manage-alerts/alerts1.png)
 
@@ -65,7 +65,7 @@ After you enable email notification for a virtual device, members of the notific
 
 ## Common alert conditions
 
-Your StorSimple Virtual Array (also known as the StorSimple on-premises virtual device) generates alerts in response to a variety of conditions. The following are the most common types of alert conditions:
+Your StorSimple Virtual Array generates alerts in response to a variety of conditions. The following are the most common types of alert conditions:
 
 - **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the virtual devices and the StorSimple Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For information about ports and firewall settings, go to [StorSimple Virtual Array system requirements](storsimple-ova-system-requirements.md). For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
 
@@ -98,6 +98,7 @@ Clicking an alert in the list provides you with additional details for the alert
 You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts,  for each error that you want to clear, click any column except the **Alert** column, and then click **Clear**. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
 
 When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. 
+
 ![alert comments](./media/storsimple-ova-manage-alerts/clear-alert.png)
 
 Click the check icon ![check-icon](./media/storsimple-ova-manage-alerts/check-icon.png) to save your comments.
@@ -118,79 +119,8 @@ You may find it more efficient to run reports on alerts so that you can review a
 
 - **Time range** – By specifying the **From** and **To** dates and time stamps, you can look at alerts during the time period that you are interested in.
 
-## Alerts quick reference
-
-The following tables list some of the Microsoft Azure StorSimple alerts that you might encounter, as well as additional information and recommendations where available. StorSimple virtual device alerts fall into one of the following categories:
-
-- [Cloud connectivity alerts](#cloud-connectivity-alerts)
-
-- [Configuration alerts](#configuration-alerts)
-
-- [Job failure alerts](#job-failure-alerts)
-
-- [Performance alerts](#performance-alerts)
-
-- [Security alerts](#security-alerts)
-
-- [Update alerts](#update-alerts)
-
-### Cloud connectivity alerts
-
-|Alert text|Event|More information / recommended actions|
-|:---|:---|:---|
-|Device *<device name>* is not connected to the cloud.|The named device cannot connect to the cloud. |Could not connect to the cloud. This could be due to one of the following:<ul><li>There may be a problem with the network settings on your device.</li><li>There may be a problem with the storage account credentials.</li></ul>For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) of the device.| 
-
-#### StorSimple behavior when cloud connectivity fails
-
-What happens if cloud connectivity fails for my StorSimple device running in production?
-
-If cloud connectivity fails on your StorSimple production device, then depending on the state of your device, the following can occur: 
-
-- **For the local data on your device**: For some time, there will be no disruption and reads will continue to be served. However, as the number of outstanding IOs increases and exceeds a limit, the reads could start to fail. 
-
-	Depending on the amount of data on your device, the writes will also continue to occur for the first few hours after the disruption in the cloud connectivity. The writes will then slow down and eventually start to fail if the cloud connectivity is disrupted for several hours. There is temporary storage on the device for data that is to be pushed to the cloud. This area is flushed when the data is sent. If connectivity fails, data in this storage area will not be pushed to the cloud, and IO will fail.   
- 
-- **For the data in the cloud**: For most cloud connectivity errors, an error is returned. Once the connectivity is restored, the IOs are resumed without the user having to bring the volume online. In rare instances, user intervention may be required to bring back the volume online from the Azure classic portal. 
- 
-- **For cloud snapshots in progress**: The operation is retried a few times within 4-5 hours and if the connectivity is not restored, the cloud snapshots will fail.
-
-### Configuration alerts
-
-|Alert text|Event|More information / recommended actions|
-|:---|:---|:---|
-|On-premises virtual device configuration unsupported.|Slow performance.|The current configuration may result in performance degradation. Ensure that your server meets the minimum configuration requirements. For more information, go to [StorSimple Virtual Array Requirements](storsimple-ova-system-requirements.md). 
-|You are running out of provisioned disk space on <*device name*>.|Disk space warning.|You are running low on provisioned disk space. To free up space, consider moving workloads to another volume or share or deleting data.
-
-### Job failure alerts
-
-|Alert text|Event|More information / recommended actions|
-|:---|:---|:---|
-|Backup of <*device name*> couldn’t be completed.|Backup job failure.|Could not create a backup. Consider one of the following:<ul><li>Connectivity issues could be preventing the backup operation from successfully completing. Ensure that there are no connectivity issues. For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) for your virtual device.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul> Resolve the issues, clear the alert and retry the operation.|
-|Restore of <*device name*> couldn’t be completed.|Restore job failure.|Could not restore from backup. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the restore operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the restore operation.|
-|Clone of <*device name*> couldn’t be completed.|Clone job failure.|Could not create a clone. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the clone operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the operation.|
-
-### Performance alerts
-
-|Alert text|Event|More information / recommended actions|
-|:---|:---|:---|
-|You are experiencing unexpected delays in data transfer.|Slow data transfer.|Throttling errors occur when you exceed the scalability targets of a storage service. The storage service does this to ensure that no single client or tenant can use the service at the expense of others. For more information on troubleshooting your Azure storage account, go to [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
-|You are running low on local reservation disk space on <*device name*>.|Slow response time.|10% of the total provisioned size for <*device name*> is reserved on the local device and you are now running low on the reserved space. The workload on <*device name*> is generating a higher rate of churn or you might have recently migrated a large amount of data. This may result in reduced performance. Consider one of the following actions to resolve this:<ul><li>Increase the cloud bandwidth to this device.</li><li>Reduce or move workloads to another volume or share.</li></ul>
-
-### Security alerts
-
-|Alert text|Event|More information / recommended actions|
-|:---|:---|:---|
-|Password for <*device name*> will expire in <*number*> days.|Password warning.| Your password will expire in <number< days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-ova-change-device-admin-password.md).
-
-### Update alerts
-
-|Alert text|Event|More information / recommended actions|
-|:---|:---|:---|
-|New updates are available for your device.|Updates to the StorSimple Virtual Array are available.|You can install new updates from the **Maintenance** page.|
-|Could not scan for new updates on <*device name*>.|Update failure. |An error occurred while installing new updates. You can manually install the updates. If the problem persists, contact [Microsoft Support](storsimple-contact-microsoft-support.md).|
-
 ## Next steps
 
-- Learn about [using the web UI to manage your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)
+- [Learn about the StorSimple Virtual Array](storsimple-ova-overview.md).
 
 
