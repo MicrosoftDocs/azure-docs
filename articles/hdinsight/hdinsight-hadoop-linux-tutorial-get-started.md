@@ -85,78 +85,21 @@ In this section, you will use [Ambari](hdinsight-hadoop-manage-ambari.md) to run
     ![Selecting ambari views](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
 4. In the __Query Editor__ section of the page, paste the following HiveQL statements into the worksheet:
 
-		DROP TABLE log4jLogs;
-		CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-		STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-		SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
-
-	These statements perform the following actions:
-
-	- **DROP TABLE** - Deletes the table and the data file, in case the table already exists.
-	- **CREATE EXTERNAL TABLE** - Creates a new "external" table in Hive. External tables store only the table definition in Hive; the data is left in the original location.
-	- **ROW FORMAT** - Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
-	- **STORED AS TEXTFILE LOCATION** - Tells Hive where the data is stored (the example/data directory), and that it is stored as text.
-	- **SELECT** - Selects a count of all rows where column t4 contains the value [ERROR].
-
-	>[AZURE.NOTE] External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, but you always want Hive queries to use the latest data. Dropping an external table does *not* delete the data, only the table definition.
-
-2. Use the __Execute__ button at the bottom of the Query Editor to start the query. It should turn orange and the text will change to __Stop execution__. A __Query Process Results__ section should appear beneath the Query Editor and display information about the job.
+		SHOW tables;
+5. Click __Execute__. A __Query Process Results__ section should appear beneath the Query Editor and display information about the job.
 
     > [AZURE.IMPORTANT] Some browsers may not correctly refresh the log or results information. If you run a job and it appears to run forever without updating the log or returning results, try using Mozilla FireFox or Google Chrome instead.
     
-3. Once the query has finished, The __Query Process Results__ section will display the results of the operation. The __Stop execution__ button will also change back to a green __Execute__ button. The __Results__ tab should contain the following information:
-
-        sev       cnt
-        [ERROR]   3
-
-    The __Logs__ tab can be used to view the logging information created by the job. You can use this for troubleshooting if there are problems with a query.
+    Once the query has finished, The __Query Process Results__ section will display the results of the operation. 
     
     > [AZURE.TIP] Note the __Save results__ dropdown in the upper left of the __Query Process Results__ section; you can use this to either download the results, or save them to HDInsight storage as a CSV file.
+6. Repeat step 4 and step 5 to run the following query:
 
-3. Select the first four lines of this query, then select __Execute__. Notice that there are no results when the job completes. This is because using the __Execute__ button when part of the query is selected will only run the selected statements. In this case, the selection didn't include the final statement that retrieves rows from the table. If you select just that line and use __Execute__, you should see the expected results.
+        SELECT * FROM hivesampletable;
+        
+For more information about using Hive in HDInsight, see [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md).
 
-3. Use the __New Worksheet__ button at the bottom of the __Query Editor__ to create a new worksheet. In the new worksheet, enter the following HiveQL statements:
-
-		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
-
-	These statements perform the following actions:
-
-	- **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table will delete the underlying data as well.
-	- **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
-	- **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain [ERROR], and then inserts the data into the **errorLogs** table.
-    
-    Use the __Execute__ button to run this query. The __Results__ tab will not contain any information as no rows are returned by this query, but the status should show as __SUCCEEDED__.
-    
-4. To the right of the Query Editor is a row of icons. Select the one that looks like a chain.
-
-    ![icons](./media/hdinsight-hadoop-linux-tutorial-get-started/icons.png)
-    
-    This is the __Visual Explain__ view of the query, which can be helpful in understanding the flow of complex queries. You can view a textual equivalent of this view by using the __Explain__ button in the Query Editor.
-    
-    ![visual explain image](./media/hdinsight-hadoop-linux-tutorial-get-started/visualexplain.png)
-    
-    The other icons are as follows:
-    
-    * **Settings**: The gear icon allows you to change Hive settings, such as setting `hive.execution.engine` or Tez parameters.
-    * **Tez**: Displays the Directed Acyclic Graph (DAG) that Tez used to perform the query. If you want to view the DAG for queries you've ran in the past, use the __Tez View__ instead.
-    * **Notifications**: Displays notifications, such as "Query has been submitted" or if an error occurs when running a query.
-
-5. Select the __SQL__ icon to switch back to the Query Editor, then create a new worksheet and enter the following query:
-
-        SELECT * from errorLogs;
-    
-    Use the __Save as__ button at the bottom of the editor. Name this query __Errorlogs__ and select __OK__. Note that the name of the worksheet changes to __Errorlogs__.
-    
-    Saved queries also appear in the __Saved Queries__ tab at the top of the page. Select this and you should see __Errorlogs__ listed. Selecting the name will open the query in the Query Editor.
-
-4. Execute the __Errorlogs__ query. The results will be as follows:
-
-        errorlogs.t1 	errorlogs.t2 	errorlogs.t3 	errorlogs.t4 	errorlogs.t5 	errorlogs.t6 	errorlogs.t7
-        2012-02-03 	18:35:34 	SampleClass0 	[ERROR] 	incorrect 	id 	
-        2012-02-03 	18:55:54 	SampleClass1 	[ERROR] 	incorrect 	id 	
-        2012-02-03 	19:25:27 	SampleClass4 	[ERROR] 	incorrect 	id
+For visulizing Hive data, see [Connect Excel to Hadoop by using Power Query](hdinsight-connect-excel-power-query.md) and [Connect Excel to Hadoop with the Microsoft Hive ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 ## Next steps
 
