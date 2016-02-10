@@ -63,8 +63,7 @@ Specify the subscription that you want to use.
 
 ## 2. Create a virtual network and a gateway subnet
 
-- If you already have a virtual network with a gateway subnet, you can jump ahead to **Step 3 - Add your local site**. 
-- If you already have a virtual network and you want to add a gateway subnet to your VNet, see [Add a gateway subnet to a VNet](#gatewaysubnet).
+If you already have a virtual network with a gateway subnet, you can jump ahead to **Step 3 - Add your local site**. 
 
 ### To create a virtual network and a gateway subnet
 
@@ -82,7 +81,7 @@ The sample below creates a virtual network named *testvnet* and two subnets, one
 	$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
 	New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
-### <a name="gatewaysubnet"></a>To add a gateway subnet to a VNet (optional)
+### <a name="gatewaysubnet"></a>To add a gateway subnet to a virtual network you have already created
 
 This step is required only if you need to add a gateway subnet to a VNet that you previously created.
 
