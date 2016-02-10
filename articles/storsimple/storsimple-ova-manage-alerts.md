@@ -95,7 +95,7 @@ Clicking the severity level opens the **Alerts** tab. The results include only t
 
 Clicking an alert in the list provides you with additional details for the alert, including the last time the alert was reported, the number of occurrences of the alert on the device, and the recommended action to resolve the alert.
 
-You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts,  for each error that you want to clear, click any column except the **Alert** column, and then click **Clear**. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
+You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
 
 When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. 
 

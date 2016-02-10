@@ -4,14 +4,14 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
+   ms.workload="NA"
    ms.date="02/09/2016"
    ms.author="v-sharos" />
 
@@ -91,7 +91,7 @@ Clicking an alert in the list provides you with additional details for the alert
 
 ![Hardware alert example](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
 
-You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from the device by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts, press the Ctrl key while you select the alerts, and then click **Clear**. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
+You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from the device by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
 
 When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. Some events will be cleared by the system if another event is triggered with new information. In that case, you will see the following message.
 
