@@ -39,7 +39,7 @@ After you enable email notification for a virtual device, members of the notific
 
     ![alert settings](./media/storsimple-ova-manage-alerts/alerts2.png)
 
-2. Under **Alert Settings**, set the following:
+2. Under **Alert settings**, set the following:
 
     1. In the **Send email notification** field, select **YES**.
 
