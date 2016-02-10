@@ -48,6 +48,12 @@ NSG rules contain the following properties.
 |**Priority**|Rules are checked in the order of priority, once a rule applies, no more rules are tested for matching|Number between 100 and 65535|Consider creating rules jumping priorities by 100 for each rule, to leave space for new rules to come between existing rules|
 |**Access**|Type of access to apply if the rule matches|allow or deny|Keep in mind that if an allow rule is not found for a packet, the packet is dropped|
 
+NSGs contain two sets of rules: inbound and outbound. The priority for a rule must be unique within each set. 
+
+![NSG rule processing](./media/virtual-network-nsg-overview/figure3.png) 
+
+The figure above shows how NSG rules are processed.
+
 ### Default Tags
 
 Default tags are system-provided identifiers to address a category of IP addresses. You can use default tags in the **source address prefix** and **destination address prefix** properties of any rule. There are three default tags you can use.
@@ -263,6 +269,6 @@ Since some of the NSGs above need to be associated to individual NICs, you need 
 - [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 - [Manage NSG logs](virtual-network-nsg-manage-log.md).
 
-[green]: ./media/backup-introduction-to-azure-backup/green.png
-[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
-[red]: ./media/backup-introduction-to-azure-backup/red.png
+[green]: ./media/virtual-network-nsg-overview/green.png
+[yellow]: ./media/virtual-network-nsg-overview/yellow.png
+[red]: ./media/virtual-network-nsg-overview/red.png
