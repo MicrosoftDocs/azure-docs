@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="markvi"/>
 
 #List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory
@@ -196,6 +196,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 
 
+##Related Articles
 
-
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
