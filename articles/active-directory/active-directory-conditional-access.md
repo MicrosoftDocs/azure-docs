@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Securing access to Office 365 and other apps connected to Azure Active Directory | Microsoft Azure"  
     description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."  
-    services="active-directory"  
+    services="active-directory" 
+	keywords="access to apps, secure access to company resources, conditional access policies" 
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
@@ -31,13 +32,13 @@ Securing access to company resources is important to every organization. With th
 
 ## User-based access to resources
   
-- **User attributes**: The first is the user attributes level whereby you can apply policies to ensure that only those users who you can identify can access your resources.   
+- **User attributes**: At the user attributes level, you can apply policies to ensure that only authorized users can access company resources.   
 - **Group membership of a user**: You can also control the level of access provided to a user based on their membership to a group or groups.   
-- **Multi factor authentication (MFA)**: In addition, you can also enforce that a user authenticates his/her identify by using a multi factor authentication system. For example, you can force a user to confirm a PIN on a personal mobile phone to ensure an extra layer of security. The MFA authentication protects your resources from being accessed by an unauthorized user who has gained access to the username and password of a valid user. 
+- **Multi factor authentication (MFA)**: In addition, you can also enforce policies where a  user has to authenticate his/her identify by using a multi factor authentication system. For example, you can force a user to confirm a PIN on a personal mobile phone to ensure an extra layer of security. The MFA authentication protects your resources from being accessed by an unauthorized user who has gained access to the username and password of a valid user. 
 
 ## Device based conditional access 
 
-- **Registered devices**: At the device level,you can set policies that enforce that only registered or known devices are allowed access. In addition, you can use a Mobile Device Management (MDM) solution such as Intune to ensure only Managed devices access your resources. The device level conditional access ensures that only devices that are compliant with your policies such as enforcing PIN on a device are allowed access. In addition, by using MDM solutions you can ensure that corporate data on a lost/stolen device can we wiped remotely.  
+- **Registered devices**: At the device level, you can set policies that enforce that only registered or known devices are allowed access. In addition, you can use a Mobile Device Management (MDM) solution such as Microsoft Intune to ensure only Managed devices access your resources. The device level conditional access ensures that only devices that are compliant with your policies such as enforcing PIN on a device are allowed access. In addition, by using MDM solutions you can ensure that corporate data on a lost/stolen device can we wiped remotely.  
 - **Device policies**: You can also set policies to restrict access on a per application basis only. In addition, you can also set access level based on the physical location of the device i.e. whether the request is coming from a known corporate network or outside.  
 
 The level of access that you can set using these policies can be applied to resources in the cloud or on-premises. The resources in the cloud could be apps such as Office 365 and 3rd party SaaS apps. In addition, these could also be Line of Business apps that you have hosted on the cloud.  

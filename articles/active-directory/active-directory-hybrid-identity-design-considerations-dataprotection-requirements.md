@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 #Plan for enhancing data security through strong identity solution
