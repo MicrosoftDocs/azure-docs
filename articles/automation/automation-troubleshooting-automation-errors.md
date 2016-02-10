@@ -41,9 +41,9 @@ In order to determine what's wrong, take the following steps:
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount – Credential $Cred
+        Login-AzureRmAccount –Credential $Cred
 
-3. If your authentication fails locally, this means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Active Directory account set up correctly.  
+3. If your authentication fails locally, this means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.  
 
   <br/>
 ### Scenario: Unable to find the Azure subscription
@@ -52,7 +52,7 @@ In order to determine what's wrong, take the following steps:
 You receive the error "The subscription named ``<subscription name>`` cannot be found" when working with the Select-AzureSubscription or Select-AzureRmSubscription cmdlets.
 
 **Reason for the error:** 
-This error occurs if the subscription name is not valid or if the active directory user who is trying get the subscription details is not configured as an admin of the subscription.
+This error occurs if the subscription name is not valid or if the Azure Active Directory user who is trying to get the subscription details is not configured as an admin of the subscription.
 
 **Troubleshooting tips:** 
 In order to determine if you have properly authenticated to Azure and have access to the subscription you are trying to select, take the following steps:  
@@ -70,7 +70,7 @@ In order to determine if you have properly authenticated to Azure and have acces
 You receive the error “Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required” when authenticating to Azure with your Azure username and password.
 
 **Reason for the error:** 
-If you have multi-factor authentication on your Azure account, you can't use an Active Directory user to authenticate to Azure.  Instead, you need to use a certificate or a service principal to authenticate to Azure.
+If you have multi-factor authentication on your Azure account, you can't use an Azure Active Directory user to authenticate to Azure.  Instead, you need to use a certificate or a service principal to authenticate to Azure.
 
 **Troubleshooting tips:** 
 To use a certificate with the Azure Service Management cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](./resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](./resource-group-authenticate-service-principal.md)
