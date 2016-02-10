@@ -403,6 +403,18 @@ The output for the **Pig** job should appear similar to the following:
 
 ##<a name="troubleshooting"></a>Troubleshooting
 
+###Errors when running jobs
+
+If you encounter errors when running these jobs on a Linux-based cluster, and you created the Python scripts on a Windows client, the problem may be caused by the line endings. Many Windows editors default to using CRLF as the line ending, but Linux applications usually expect LF.
+
+If you are using an editor that cannot create LF line endings, or are unsure what line endings are being used, use the following PowerShell statements to remove the CR characters before uploading the file to HDInsight:
+
+    $original_file ='c:\path\to\streaming.py'
+    $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
+    [IO.File]::WriteAllText($original_file, $text)
+
+###PowerShell scripts
+
 Both of the example PowerShell scripts used to run the examples contain a commented line that will display error output for the job. If you are not seeing the expected output for the job, uncomment the following line and see if the error information indicates a problem.
 
 	# Get-AzureRmHDInsightJobOutput `
@@ -420,16 +432,6 @@ For this job..|Look at these files in the blob container
 ---|---
 Hive|/HivePython/stderr<p>/HivePython/stdout
 Pig|/PigPython/stderr<p>/PigPython/stdout
-
-#Troubleshooting
-
-If you encounter errors when running these jobs on a Linux-based cluster, and you created the Python scripts on a Windows client, the problem may be caused by the line endings. Many Windows editors default to using CRLF as the line ending, but Linux applications usually expect LF.
-
-If you are using an editor that cannot create LF line endings, or are unsure what line endings are being used, use the following PowerShell statements to remove the CR characters before uploading the file to HDInsight:
-
-    $original_file ='c:\path\to\streaming.py'
-    $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
-    [IO.File]::WriteAllText($original_file, $text)
 
 ##<a name="next"></a>Next steps
 
