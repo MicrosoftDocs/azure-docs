@@ -38,20 +38,9 @@ The basic syntax for AzCopy commands is:
 
 	AzCopy /Source:<source> /Dest:<destination> [Options]
 
-## AzCopy Samples
+## AzCopy Blob Samples
 
-The following samples show how to perform a variety of tasks with AzCopy. Look at the [AzCopy Options](#azcopy-options) section for a detailed explanation of each option.
-## Write your first AzCopy command
-
-Open a command window and navigate to the AzCopy installation directory on your computer, where the `AzCopy.exe` executable is located. The following line of code will upload a file from your local file system to Blob storage
-
-	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:abc.txt
-
-## Limit concurrent writes while copying data
-
-When you copy blobs or files with AzCopy, keep in mind that another application may be modifying the data while you are copying it. If possible, ensure that the data you are copying is not being modified during the copy operation. For example, when copying a VHD associated with an Azure virtual machine, make sure that no other applications are currently writing to the VHD. A good way to do this is by leasing the resource to be copied. Alternately, you can create a snapshot of the VHD first and then copy the snapshot.
-
-If you cannot prevent other applications from writing to blobs or files while they are being copied, then keep in mind that by the time the job finishes, the copied resources may no longer have full parity with the source resources.
+Open a command window and navigate to the AzCopy installation directory on your computer, where the `AzCopy.exe` executable is located. The examples below demonstrate a variety of scenarios for copying blobs with AzCopy. Look at the [AzCopy Options](#azcopy-options) section for a detailed explanation of each option.
 
 ## Copy Azure blobs with AzCopy
 
@@ -533,6 +522,12 @@ The option `/EntityOperation` indicates how to insert entities into the table. P
 - `InsertOrReplace`: Replaces an existing entity or inserts a new entity if it does not exist in the table.
 
 Note that you cannot specify option `/PKRS` in the import scenario. Unlike the export scenario, in which you must specify option `/PKRS` to start concurrent operations, AzCopy will by default start concurrent operations when you import entities. The default number of concurrent operations started is equal to the number of core processors; however, you can specify a different number of concurrent with option `/NC`. For more details, type `AzCopy /?:NC` at the command line.
+
+## Limit concurrent writes while copying data
+
+When you copy blobs or files with AzCopy, keep in mind that another application may be modifying the data while you are copying it. If possible, ensure that the data you are copying is not being modified during the copy operation. For example, when copying a VHD associated with an Azure virtual machine, make sure that no other applications are currently writing to the VHD. A good way to do this is by leasing the resource to be copied. Alternately, you can create a snapshot of the VHD first and then copy the snapshot.
+
+If you cannot prevent other applications from writing to blobs or files while they are being copied, then keep in mind that by the time the job finishes, the copied resources may no longer have full parity with the source resources.
 
 ## AzCopy Options
 
