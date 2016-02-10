@@ -35,9 +35,9 @@ In the following section, you'll create a new ASP.NET 5 web application project,
 
 1. Select **ASP.NET Web Application** and give your new project a name. (The screen shots in this article use the default name of **WebApplication1**).
 
-1. Tap the **OK** button.
+1. Tap **OK**.
 
-1. Since the web app will be hosted/run in Docker, clear the **Host in the cloud** check box if it's selected and then tap the **OK** button.
+1. Since the web app will be hosted/run in Docker, clear the **Host in the cloud** check box if it's selected and then tap **OK**.
 
   ![][0]
 
@@ -48,7 +48,7 @@ Once the project has been created - or you've opened an existing project - the f
 
 1. From the Visual Studio Solution Explorer, right-click the project and select **Publish** from the project's context menu.
 
-1. In the **Select a publish target** section of the **Publish Web** dialog box, choose the **Docker Containers** button.
+1. In the **Select a publish target** section of the **Publish Web** dialog box, tap **Docker Containers**.
 
     If you don't see a Docker Containers option, make sure you have installed the Visual Studio 2015 Tools for Docker and that you selected an ASP.NET 5 Web Site template in the previous section.
 
@@ -56,13 +56,13 @@ Once the project has been created - or you've opened an existing project - the f
 
     The **Select Docker Virtual Machine** dialog box lets you specify the Docker host in which you want to publish the project. You can create a new Docker host or choose an existing VM hosted on Azure or elsewhere. Later in this example, we'll create a new Azure Docker host.
 
-1. If you're already logged into an Azure account, skip to step 5. If you're not logged into an account, choose the **Add an account** button.
+1. If you're already logged into an Azure account, skip to step 5. If you're not logged into an account, tap **Add an account**.
 
     ![][2]
 
-1. In the **Sign in to Visual Studio** dialog box, enter the email account for your Azure subscription and then tap the **Continue** button.
+1. In the **Sign in to Visual Studio** dialog box, enter the email account for your Azure subscription and then tap **Continue**.
 
-1. Tap the **New** button to create a new Azure Docker VM and then tap the **OK** button.
+1. Tap **New** to create a new Azure Docker VM and then tap **OK**.
 
     ![][3]
 
@@ -70,7 +70,7 @@ Once the project has been created - or you've opened an existing project - the f
 
     As an alternative, you can choose to publish to a custom Docker host. See the [Provide a custom Docker host](#provide-a-custom-docker-host) section later in this topic for more information.
 
-1. Enter the following information in the **Create a virtual machine on Microsoft Azure** dialog box. When you're done, tap the **OK** button. This creates a Linux virtual machine with a configured Docker extension.
+1. Enter the following information in the **Create a virtual machine on Microsoft Azure** dialog box. When you're done, tap **OK**. This creates a Linux virtual machine with a configured Docker extension.
 
     ![][4]
 
@@ -87,11 +87,11 @@ Once the project has been created - or you've opened an existing project - the f
 	|Passwords|Enter a password for the user and then confirm it.|
 	|Certificates directory |This specifies the folder where your Docker certificates are stored. While you can create a new folder or point to an existing folder, it's recommended that you use the default certificates folder (C:\\Users\\[*username*]\\.docker). Otherwise, the Auth options can't be automatically retrieved if you reuse the same host on another project or system.|
 
-1. Tap the ellipsis (...) button next to the **Certificates directory** entry, and then either create a new directory for the Docker certificates, or navigate to an existing Docker certificates directory.
+1. Tap the ellipsis (...) next to the **Certificates directory** entry, and then either create a new directory for the Docker certificates, or navigate to an existing Docker certificates directory.
 
     If the Docker certificates needed for the VM aren't found, an exclamation icon appears next to the entry, letting you know that the required certificates weren't found, and that continuing will delete and then recreate any existing certificates.
 
-1. Tap the **OK** button to begin creating the VM. You'll see a message that the virtual machine is being created in Azure.
+1. Tap **OK** to begin creating the VM. You'll see a message that the virtual machine is being created in Azure.
 
     Visual Studio creates an Azure Resource Manager (ARM) template file, parameters file, and a PowerShell script so you can execute the commands again in the future.
 
@@ -103,9 +103,9 @@ Once the project has been created - or you've opened an existing project - the f
 
 1. After the Docker host is fully provisioned in Azure, you can check your account on the Azure portal. You should be able to see the new virtual machine under the **Virtual Machine** category on the Azure portal.
 
-1. Once the Docker host is ready, go back and publish the web app project. On the context menu for the web application project's node in **Solution Explorer**, choose **Publish**. Visual Studio creates a publish file based on the VM you created.
+1. Once the Docker host is ready, go back and publish the web app project. On the context menu for the web application project's node in **Solution Explorer**, tap **Publish**. Visual Studio creates a publish file based on the VM you created.
 
-1. On the **Connection** tab of the **Publish Web** dialog box, choose the **Validate Connection** box to make sure the Docker host is ready. If the connection is good, choose the **Publish** button to publish the web app.
+1. On the **Connection** tab of the **Publish Web** dialog box, tap **Validate Connection** to make sure the Docker host is ready. If the connection is good, tap **Publish** to publish the web app.
 
     The first time you publish an app to a Docker host, it will take time to download any of the base images that are referenced in your Docker file (such as **FROM** *imagename*).
 
@@ -121,7 +121,7 @@ In the previous section, you saw how to create a Docker virtual machine hosted o
 
     ![][5]
 
-1. Tap the **OK** button.
+1. Tap **OK**.
 
 1. In the **Publish Web** dialog box, add values to the settings in the **CustomDockerHost** section, such as: the server URL, image name, Docker file location, and host and container port numbers.
 
@@ -129,9 +129,9 @@ In the previous section, you saw how to create a Docker virtual machine hosted o
 
     ![][6]
 
-1. After you've entered all the required values, tap the **Validate Connection** button to ensure the connection to the Docker host works properly.
+1. After you've entered all the required values, tap **Validate Connection** to ensure the connection to the Docker host works properly.
 
-1. If the connection works properly, you can tap the **Next** button to see a list of the components that will be published, or you can tap the **Publish** button to immediately publish the project.
+1. If the connection works properly, you can tap **Next** to see a list of the components that will be published, or you can tap **Publish** to immediately publish the project.
 
 ## Test the Docker host
 
