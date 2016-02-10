@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="02/10/2016"
    ms.author="telmos" />
 
 # IP addresses (classic) in Azure
@@ -57,6 +57,8 @@ Static (reserved) public IP addresses are commonly used in the scenarios where a
 - depends on external DNS name resolution, and a dynamic IP would require updating A records.
 - consumes external web services which use IP based security model.
 - uses SSL certificates linked to an IP address.
+
+>[AZURE.NOTE] When you create a classic VM in the Azure portal, the VM will automatically have a public IP associate to it through a new cloud service created by the portal. This is not an instance-level public IP, abut a cloud service VIP.
 
 ### IaaS VMs and PaaS role instances
 You can assign a public IP address to an IaaS [VM](virtual-machines-about.md) or PaaS role instance within a cloud service. This is referred to as an instance-level public IP address ([ILPIP](virtual-networks-instance-level-public-ip.md)). This public IP address can be dynamic only.

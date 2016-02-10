@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/10/2016"
    ms.author="telmos" />
 
 # What is a Network Security Group (NSG)?
 
-Network security group (NSG) contains a list of Access control List (ACL) rules that allow\deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.  In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
+Network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
+
+## NSG resource
 
 NSGs contain the following properties.
 
@@ -97,11 +99,24 @@ You can associate different NSGs to a VM (or NIC, depending on the deployment mo
 	2. NSG applied to NIC (Resource Manager) or VM (classic).
 - **Outbound traffic**
 	1. NSG applied to NIC (Resource Manager) or VM (classic).
-	3. NSG applied to subnet.
+	2. NSG applied to subnet.
 
 ![NSG ACLs](./media/virtual-network-nsg-overview/figure2.png)
 
 >[AZURE.NOTE] Although you can only associate a single NSG to a subnet, VM, or NIC; you can associate the same NSG to as many resources as you want.
+
+## Implementation
+You can implement NSGs in the classic or Resource Manager deployment models using the different tools listed below.
+
+|Deployment tool|Classic|Resource Manager|
+|---|---|---|
+|Classic portal|![No][red]|![No][red]|
+|Azure portal|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Yes][green]</a>|
+|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Yes][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Yes][green]</a>|
+|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Yes][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Yes][green]</a>|
+|ARM template|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Yes][green]</a>|
+
+**Key** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Yes][green]= Supported &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Partially][yellow]= Partially Supported &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [No][red]= Not Supported
 
 ## Planning
 
@@ -111,7 +126,7 @@ Before implementing NSGs, you need to answer the questions below:
 
 2. Are the resources you want to filter traffic to/from connected to subnets in existing VNets or will they be connected to new VNets or subnets?
  
-For more information on planning for network security in Azure, read the [best practices for colud services and network security](best-practices-network-security.md). 
+For more information on planning for network security in Azure, read the [best practices for cloud services and network security](best-practices-network-security.md). 
 
 ## Design considerations
 
@@ -247,3 +262,7 @@ Since some of the NSGs above need to be associated to individual NICs, you need 
 - [Deploy NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
 - [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 - [Manage NSG logs](virtual-network-nsg-manage-log.md).
+
+[green]: ./media/backup-introduction-to-azure-backup/green.png
+[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
+[red]: ./media/backup-introduction-to-azure-backup/red.png
