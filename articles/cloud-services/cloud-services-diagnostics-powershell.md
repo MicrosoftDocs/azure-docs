@@ -23,7 +23,7 @@ You can collect diagnostic data like application logs, performance counter etc. 
 
 ## Enable diagnostics extension as part of deploying a Cloud Service
 
-This approach of good for continuous integration type of scenarios where the diagnostics extension can be enabled. You can enable the diagnostics extension as part of deploying the cloud service by passing in the *ExtensionConfiguration* parameter to the [New-AzureDeployment](https://msdn.microsoft.com/library/azure/mt589089.aspx) cmdlet. The *ExtensionConfiguration* parameter takes an array of diagnostics configurations that can be created using the [New-AzureServiceDiagnosticsExtensionConfig](https://msdn.microsoft.com/library/azure/mt589168.aspx) cmdlet. 
+This approach of good for continuous integration type of scenarios where the diagnostics extension can be enabled as part of deploying the cloud service. When creating a new Cloud Service deployment you can enable the diagnostics extension by passing in the *ExtensionConfiguration* parameter to the [New-AzureDeployment](https://msdn.microsoft.com/library/azure/mt589089.aspx) cmdlet. The *ExtensionConfiguration* parameter takes an array of diagnostics configurations that can be created using the [New-AzureServiceDiagnosticsExtensionConfig](https://msdn.microsoft.com/library/azure/mt589168.aspx) cmdlet. 
 
 The following example shows how you can enable diagnostics for a cloud service with a WebRole and WorkerRole each having a different diagnostics configuration.
 
