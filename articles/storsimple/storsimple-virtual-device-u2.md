@@ -42,6 +42,24 @@ The StorSimple virtual device is available in two models, a standard 8010 (forme
  
 <sup>1</sup> *Formerly known as 1100*.
 
+#### Supported regions for 8020
+
+The regions that are currently supported for 8020 and those that will be supported in near future are tabulated below. All these regions support Premium Storage. This list will be continuously updated as Premium Storage becomes available in more regions. 
+
+| S. no.                                                  | Currently supported in regions | Coming soon in regions* |
+|---------------------------------------------------------|--------------------------------|-------------------------|
+| 1                                                       | Central US                     | Australia Southeast     |
+| 2                                                       |  East US                       | East Asia               |
+| 3                                                       |  East US 2                     | South Central US        |
+| 4                                                       | West US                        |                         |
+| 5                                                       | North Europe                   |                         |
+| 6                                                       | West Europe                    |                         |
+| 7                                                       | Southeast Asia                 |                         |
+| 8                                                       | Japan East                     |                         |
+| 9                                                       | Japan West                     |                         |
+| 10                                                      | Australia East                 |                         |
+
+*Premium Storage was launched recently in these geos.
 
 This article describes the step-by-step process of deploying a StorSimple virtual device in Azure. After reading this article, you will:
 
@@ -253,24 +271,7 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 
 [AZURE.INCLUDE [Delete a virtual device](../../includes/storsimple-delete-virtual-device.md)]
 
-##Supported regions for 8020
-
-The regions that are currently supported for 8020 and those that will be supported in near future as tabulated below. All these regions support Premium Storage.
-
-| S. no.                                                  | Currently supported in regions | Coming soon in regions* |
-|---------------------------------------------------------|--------------------------------|-------------------------|
-| 1                                                       | Central US                     | Australia Southeast     |
-| 2                                                       |  East US                       | East Asia               |
-| 3                                                       |  East US 2                     | South Central US        |
-| 4                                                       | West US                        |                         |
-| 5                                                       | North Europe                   |                         |
-| 6                                                       | West Europe                    |                         |
-| 7                                                       | Southeast Asia                 |                         |
-| 8                                                       | Japan East                     |                         |
-| 9                                                       | Japan West                     |                         |
-| 10                                                      | Australia East                 |                         |
-
-*Premium Storage was launched recently in these geos.   
+   
 
 ## Next steps
 
