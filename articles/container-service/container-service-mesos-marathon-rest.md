@@ -63,6 +63,7 @@ Docker containers are deployed through Marathon using a json file that describes
     }
   }
 }
+```
 
 In order to deploy a Docker container, create your own json file or use the sample provided here - <insert Ross sample>. This json file will needs to be copied to your computer. When ready run the following command to deploy the container.
 
