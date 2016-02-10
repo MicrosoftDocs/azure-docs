@@ -1,19 +1,20 @@
 <properties
-	pageTitle="Use the Facebook API in your Logic Apps | Microsoft Azure"
+	pageTitle="Add the Facebook API in your Logic Apps | Microsoft Azure"
 	description="Overview of the Facebook API with REST API parameters"
 	services=""
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
-   ms.service=""
+   ms.service="multiple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/04/2016"
+   ms.date="02/09/2016"
    ms.author="mandia"/>
 
 # Get started with the Facebook API
@@ -162,6 +163,278 @@ Post a message to a Facebook Page as the logged in user.
 |400|Bad Request|
 |500|Internal Server Error|
 |default|Operation Failed.|
+
+
+## Object definitions
+
+#### GetFeedResponse
+
+|Property Name | Data Type | Required|
+|---|---|---|
+|data|array|no|
+
+#### TriggerFeedResponse
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|data|array|no|
+
+#### PostItem: A single entry in a profile's feed
+The profile could be a user, page, app, or group. 
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|id|string|no|
+|admin_creator|array|no|
+|caption|string|no|
+|created_time|string|no|
+|description|string|no|
+|feed_targeting|not defined|no|
+|from|not defined|no|
+|icon|string|no|
+|is_hidden|boolean|no|
+|is_published|boolean|no|
+|link|string|no|
+|message|string|no|
+|name|string|no|
+|object_id|string|no|
+|picture|string|no|
+|place|not defined|no|
+|privacy|not defined|no|
+|properties|array|no|
+|source|string|no|
+|status_type|string|no|
+|story|string|no|
+|targeting|not defined|no|
+|to|array|no|
+|type|string|no|
+|updated_time|string|no|
+|with_tags|not defined|no|
+
+#### TriggerItem: A single entry in a profile's feed
+The profile could be a user, page, app, or group.
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|id|string|no|
+|created_time|string|no|
+|from|not defined|no|
+|message|string|no|
+|type|string|no|
+
+#### AdminItem
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|id|string|no|
+|link|string|no|
+
+#### PropertyItem
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|name|string|no|
+|text|string|no|
+|href|string|no|
+
+#### UserPostFeedRequest
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|message|string|yes|
+|link|string|no|
+|picture|string|no|
+|name|string|no|
+|caption|string|no|
+|description|string|no|
+|place|string|no|
+|tags|string|no|
+|privacy|not defined|no|
+|object_attachment|string|no|
+
+#### PagePostFeedRequest
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|message|string|yes|
+|link|string|no|
+|picture|string|no|
+|name|string|no|
+|caption|string|no|
+|description|string|no|
+|actions|array|no|
+|place|string|no|
+|tags|string|no|
+|object_attachment|string|no|
+|targeting|not defined|no|
+|feed_targeting|not defined|no|
+|published|boolean|no|
+|scheduled_publish_time|string|no|
+|backdated_time|string|no|
+|backdated_time_granularity|string|no|
+|child_attachments|array|no|
+|multi_share_end_card|boolean|no|
+
+#### PostFeedResponse
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|id|string|no|
+
+#### ProfileCollection
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|data|array|no|
+
+#### UserItem
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|id|string|no|
+|first_name|string|no|
+|last_name|string|no|
+|name|string|no|
+|gender|string|no|
+|about|string|no|
+
+#### ActionItem
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|name|string|no|
+|link|string|no|
+
+#### TargetItem
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|countries|array|no|
+|locales|array|no|
+|regions|array|no|
+|cities|array|no|
+
+#### FeedTargetItem: Object that controls news feed targeting for this post
+Anyone in these groups is more likely to see this post, others are less likely. Applies to Pages only.
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|countries|array|no|
+|regions|array|no|
+|cities|array|no|
+|age_min|integer|no|
+|age_max|integer|no|
+|genders|array|no|
+|relationship_statuses|array|no|
+|interested_in|array|no|
+|college_years|array|no|
+|interests|array|no|
+|relevant_until|integer|no|
+|education_statuses|array|no|
+|locales|array|no|
+
+#### PlaceItem
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|id|string|no|
+|name|string|no|
+|overall_rating|number|no|
+|location|not defined|no|
+
+#### LocationItem
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|city|string|no|
+|country|string|no|
+|latitude|number|no|
+|located_in|string|no|
+|longitude|number|no|
+|name|string|no|
+|region|string|no|
+|state|string|no|
+|street|string|no|
+|zip|string|no|
+
+#### PrivacyItem
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|description|string|no|
+|value|string|yes|
+|allow|string|no|
+|deny|string|no|
+|friends|string|no|
+
+#### ChildAttachmentsItem
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|link|string|no|
+|picture|string|no|
+|image_hash|string|no|
+|name|string|no|
+|description|string|no|
+
+#### PostPhotoRequest
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|url|string|yes|
+|caption|string|no|
+
+#### PostPhotoResponse
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|id|string|yes|
+|post_id|string|yes|
+
+#### PostVideoRequest
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|videoData|string|yes|
+|description|string|yes|
+|title|string|yes|
+|uploadedVideoName|string|no|
+
+#### GetPhotoResponse
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|data|not defined|yes|
+
+#### GetPhotoResponseItem
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|url|string|yes|
+|is_silhouette|boolean|yes|
+|height|string|no|
+|width|string|no|
+
+#### GetEventResponse
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|data|array|yes|
+
+#### GetEventResponseItem
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|id|string|yes|
+|name|string|yes|
+|start_time|string|no|
+|end_time|string|no|
+|timezone|string|no|
+|location|string|no|
+|description|string|no|
+|ticket_uri|string|no|
+|rsvp_status|string|yes|
+
 
 ## Next steps
 

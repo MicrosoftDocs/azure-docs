@@ -1,20 +1,21 @@
 <properties
-	pageTitle="Use the Dropbox API in PowerApps Enterprise or logic apps| Microsoft Azure"
+	pageTitle="Add the Dropbox API in PowerApps Enterprise or logic apps| Microsoft Azure"
 	description="Overview of the Dropbox API with REST API parameters"
 	services=""
     suite=""
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
-   ms.service=""
+   ms.service="multiple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/04/2016"
+   ms.date="02/09/2016"
    ms.author="mandia"/>
 
 # Get started with the Dropbox API 
@@ -27,9 +28,11 @@ With Dropbox, you can:
 - Build your business flow based on the data you get from Dropbox. 
 - Use triggers for when a file is created or updated.
 - Use actions to create a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a new file is created in Dropbox, you can email that file using Office 365.
-- Add the API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+- Add the Dropbox API to PowerApps Enterprise. Then, your users can use this API within their apps. 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](..powerapps-register-from-available-apis.md). To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
+For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](..powerapps-register-from-available-apis.md). 
+
+To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 Dropbox includes the following triggers and actions.
@@ -250,6 +253,48 @@ Triggers a flow when a file is modified in a Dropbox folder.
 |200|OK|
 |default|Operation Failed.|
 
+
+## Object definitions
+
+#### DataSetsMetadata
+
+|Property Name | Data Type | Required|
+|---|---|---|
+|tabular|not defined|no|
+|blob|not defined|no|
+
+#### TabularDataSetsMetadata
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
+
+#### BlobDataSetsMetadata
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+
+#### BlobMetadata
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|Id|string|no|
+|Name|string|no|
+|DisplayName|string|no|
+|Path|string|no|
+|LastModified|string|no|
+|Size|integer|no|
+|MediaType|string|no|
+|IsFolder|boolean|no|
+|ETag|string|no|
+|FileLocator|string|no|
 
 ## Next steps
 After you add the Dropbox API to PowerApps Enterprise, [give users permissions](../powerapps-manage-api-connection-user-access.md) to use the API in their apps.

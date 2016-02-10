@@ -1,19 +1,20 @@
 <properties
-	pageTitle="Use the SFTP API in your Logic Apps | Microsoft Azure"
+	pageTitle="Add the SFTP API in your Logic Apps | Microsoft Azure"
 	description="Overview of the SFTP API with REST API parameters"
 	services=""
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
-   ms.service=""
+   ms.service="multiple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/04/2016"
+   ms.date="02/09/2016"
    ms.author="mandia"/>
 
 # Get started with the SFTP API
@@ -39,7 +40,7 @@ Triggers | Actions
 --- | ---
 <ul><li>When a file is created or modified </li></ul> | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is created or modified </li></ul>
 
-All connectors support data in JSON and XML formats. 
+All APIs support data in JSON and XML formats. 
 
 
 ## Create a connection to SFTP
@@ -57,7 +58,7 @@ After you create the connection, you enter the SFTP properties, like the folder 
 >[AZURE.TIP] You can use this same SFTP connection in other logic apps.
 
 
-## REST API reference
+## Swagger REST API reference
 
 ### Create file
 Uploads a file in SFTP.
@@ -210,6 +211,49 @@ Triggers a flow when a file is modified in SFTP.
 |---|---|
 |200|OK|
 |default|Operation Failed.|
+
+
+## Object definitions
+
+#### DataSetsMetadata
+
+| Name | Data Type | Required|
+|---|---|---|
+|tabular|not defined|no|
+|blob|not defined|no|
+
+#### TabularDataSetsMetadata
+
+| Name | Data Type | Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
+
+#### BlobDataSetsMetadata
+
+| Name | Data Type | Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+
+#### BlobMetadata
+
+| Name | Data Type | Required|
+|---|---|---|
+|Id|string|no|
+|Name|string|no|
+|DisplayName|string|no|
+|Path|string|no|
+|LastModified|string|no|
+|Size|integer|no|
+|MediaType|string|no|
+|IsFolder|boolean|no|
+|ETag|string|no|
+|FileLocator|string|no|
 
 
 ## Next steps
