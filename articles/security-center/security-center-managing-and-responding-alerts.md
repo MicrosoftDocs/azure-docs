@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/10/2016"
    ms.author="yurid"/>
 
 # Managing and responding to security alerts in Azure Security Center
@@ -25,7 +25,8 @@ This document helps you use Azure Security Center capabilities to manage and res
  Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 ## What are security alerts?
-Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and integrated antimalware and firewalls to detect real threats and reduce false positives. A list of prioritized security alerts, including alerts from integrated partner solutions, is shown in Security Center along with the information you need to quickly investigate and recommendations on how to remediate an attack. 
+Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and integrated antimalware and firewalls to detect real threats and reduce false positives. A list of prioritized security alerts, including alerts from integrated partner solutions, is shown in Security Center along with the information you need to quickly investigate and recommendations on how to remediate an attack.
+ 
 Microsoft security researchers are constantly analyzing emerging threats across the globe, including new attack patterns and trends seen across its consumer and enterprise products and online services. As a result, Security Center can update its detection algorithms as new vulnerabilities and exploits are discovered – helping customers keep pace with evolving threats. Examples of some of the types of threats Security Center can detect include:
 
 - **Brute force detection over network data**: Uses machine-learning models that understand typical network traffic patterns for your applications, enables more effective detection of access attempts being executed by bad actors instead of legitimate users.
