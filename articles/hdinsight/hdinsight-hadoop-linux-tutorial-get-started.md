@@ -54,29 +54,12 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
 6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
 
 
-##Connect to the Hive View
+##Run Hive queries
 
-Ambari Views provide several utilities through a web page. In the following sections, you'll use the Hive view to run Hive queries on your HDInsight cluster.
+Ambari Views provide several utilities through a web page. In the following sections, you'll use the Hive view to run Hive queries on your HDInsight cluster. For other methods to run Hive queries, see [Use Hive in HDInsight](hdinsight-use-hive.md).
+
 
 > [AZURE.NOTE] Ambari is a management and monitoring utility provided with Linux-based HDInsight clusters. Ambari has a lot of capabilities that won't be discussed in this document. For more information, see [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
-
-To display Ambari Views from the Azure Portal, select your HDInsight cluster and then select __Ambari Views__ from the __Quick Links__ section
-
-![quick links section](./media/hdinsight-hadoop-linux-tutorial-get-started/quicklinks.png)
-
-You can also navigate directly to Ambari by going to https://CLUSTERNAME.azurehdinsight.net in a web browser (where __CLUSTERNAME__ is the name of your HDInsight cluster,) and then select the set of squares from the page menu (next to the __Admin__ link and button on the left of the page,) to list available views. Select the __Hive view__.
-
-![Selecting ambari views](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
-
-> [AZURE.NOTE] When accessing Ambari, you will be prompted to authenticate to the site. Enter the admin (default `admin`,) account name and password you used when creating the cluster.
-
-You should see a page similar to the following:
-
-![Image of the hive view page, containing a query editor section](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png)
-
-##Run Hive query
-
-In this section, you will use [Ambari](hdinsight-hadoop-manage-ambari.md) to run a Hive query against the data .... For other methods to run Hive querys, see [Use Hive in HDInsight](hdinsight-use-hive.md).
 
 1. Browse to  **https://<ClusterName>.azurehdinsight.net**, where <ClusterName> is the cluster you created in the previous section to open Ambari.
 2. Enter the Hadoop username and password that you specified in the previous section. The default username is **admin**.
@@ -99,13 +82,13 @@ In this section, you will use [Ambari](hdinsight-hadoop-manage-ambari.md) to run
         
 For more information about using Hive in HDInsight, see [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md).
 
-For visulizing Hive data, see [Connect Excel to Hadoop by using Power Query](hdinsight-connect-excel-power-query.md) and [Connect Excel to Hadoop with the Microsoft Hive ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md).
+For visualizing Hive data, see [Connect Excel to Hadoop by using Power Query](hdinsight-connect-excel-power-query.md) and [Connect Excel to Hadoop with the Microsoft Hive ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 ## Next steps
 
 In this document, you have learned how to create a Linux-based HDInsight cluster using the Azure Portal, connect to the cluster using SSH, and how to perform basic Hive queries.
 
-To learn more about analyzing data with HDinsight, see the following:
+To learn more about analyzing data with HDInsight, see the following:
 
 - To learn more about using Hive with HDInsight, including how to perform Hive queries from Visual Studio, see [Use Hive with HDInsight][hdinsight-use-hive].
 
