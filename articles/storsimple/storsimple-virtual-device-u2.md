@@ -28,7 +28,7 @@ The StorSimple virtual device is an additional capability that comes with your M
 
 #### Virtual device model comparison
 
-The StorSimple virtual device is available in two models, a standard 8010 (formerly known as 1100) and a premium 8020 (introduced in Update 2). A comparison of the two models is tabulated below.
+The StorSimple virtual device is available in two models, a standard 8010 (formerly known as the 1100) and a premium 8020 (introduced in Update 2). A comparison of the two models is tabulated below.
 
 
 | Device model          | 8010<sup>1</sup>                                                                     | 8020                                                                                                                               |
@@ -40,11 +40,11 @@ The StorSimple virtual device is available in two models, a standard 8010 (forme
 | **Storage type**          | Uses Azure Standard Storage<br></br> Learn how to [create a Standard Storage account]() | Uses Azure Premium Storage<br></br>Learn how to [create a Premium Storage account](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)                                                               |
 | **Workload guidance**     | Item level retrieval of files from backups                                              | Cloud dev and test scenarios, low latency, higher performance workloads <br></br>Secondary device for disaster recovery                                                                                            |
  
-<sup>1</sup> *Formerly known as 1100*.
+<sup>1</sup> *Formerly known as the 1100*.
 
 #### Supported regions for 8020
 
-The regions that are currently supported for 8020 and those that will be supported in near future are tabulated below. All these regions support Premium Storage. This list will be continuously updated as Premium Storage becomes available in more regions. 
+The Premium Storage regions that are currently supported for 8020 and those that will be supported in the near future are tabulated below. This list will be continuously updated as Premium Storage becomes available in more regions. 
 
 | S. no.                                                  | Currently supported in regions | Coming soon in regions* |
 |---------------------------------------------------------|--------------------------------|-------------------------|
@@ -275,7 +275,7 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 
 ## Next steps
 
-- Learn how to [Use the StorSimple Manager service to manage a virtual device](storsimple-manager-service-administration.md).
+- Learn how to [use the StorSimple Manager service to manage a virtual device](storsimple-manager-service-administration.md).
  
-- Understand how to [Restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md). 
+- Understand how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md). 
 
