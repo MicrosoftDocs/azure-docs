@@ -34,16 +34,14 @@ If you are not interested in offering a CSP “Reseller Incentive,” you can go
 Your current selection is shown in your Publisher Profile.  Follow these steps to view or change your current selection:
 
 1.	Log in to your Microsoft Azure Publishing account
-https://publish.windowsazure.com/workspace
+<https://publish.windowsazure.com/workspace>
   ![Profile landing screen][1]
 
 2.	Click on **Publishers**
-
   ![Profile landing screen - publishers link][2]
 
 3.	Notice the information in your profile about CSPs.  
 Specifically notice that there is a **switch to say yes or no** to the "Reseller Incentive" and that the default status is “Yes.”
-
   ![Profile - Publishers][3]
 
 4.	To change your "Reseller Incentive" status access your Publisher Profile then select and save your choice:
