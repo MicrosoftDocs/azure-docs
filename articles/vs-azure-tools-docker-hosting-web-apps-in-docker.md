@@ -85,7 +85,7 @@ Once the project has been created - or you've opened an existing project - the f
 	|Image|Choose an OS image to use in the Docker host, if any. For this example, choose an Ubuntu Server image. (Note that a Windows Server image is now available in the list of available images.)|
 	|Username|Enter a unique user name for the virtual machine.|
 	|Passwords|Enter a password for the user and then confirm it.|
-	|Certificates directory |This specifies the folder where your Docker certificates are stored. While you can create a new folder or point to an existing folder, it's recommended that you use the default certificates folder (C:\\Users\\[*username*]\\.docker). Otherwise, the Auth options can't be automatically retrieved if you reuse the same host on another project or system.|
+	|Certificates directory |This specifies the directory where your Docker certificates are stored. While you can create a new directory or point to an existing directory, it's recommended that you use the default certificates directory (C:\\Users\\[*username*]\\.docker). Otherwise, the Auth options can't be automatically retrieved if you reuse the same host on another project or system.|
 
 1. Tap the ellipsis (...) next to the **Certificates directory** entry, and then either create a new directory for the Docker certificates, or navigate to an existing Docker certificates directory.
 
