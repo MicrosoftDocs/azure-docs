@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/24/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 
@@ -39,6 +39,7 @@ The following topics discuss each of the different mechanisms available for sett
 - [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](active-directory-conditional-access-on-premises-setup.md)
 - [Conditional Access Device Policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 - [Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
 
 <!--Image references-->

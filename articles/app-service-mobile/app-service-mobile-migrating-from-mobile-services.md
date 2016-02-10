@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migrate your existing Azure Mobile Service to Azure App Service
@@ -74,7 +74,7 @@ upgrade the Mobile Service pricing tier to Standard.  You can do this in the SCA
 
   1.  Log onto the [Azure Classic Portal].
   2.  Select your Mobile Service.
-  3.  Select the **SCALE** tab.
+  3.  Select the **SCALE UP** tab.
   4.  Under **Mobile Service Tier**, click on the **STANDARD** tier.  Click on the **SAVE** icon at the bottom of the page.
 
 Remember to set the pricing tier to an appropriate setting after migration.
