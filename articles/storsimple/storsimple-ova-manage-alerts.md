@@ -15,7 +15,7 @@
    ms.date="02/10/2016"
    ms.author="v-sharos" />
 
-# Use the StorSimple Manager service to view and manage StorSimple Virtual Array alerts
+# Use the StorSimple Manager service to view and manage alerts for the StorSimple Virtual Array (Preview)
 
 ## Overview
 
