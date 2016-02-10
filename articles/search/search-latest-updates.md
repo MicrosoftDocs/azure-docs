@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/09/2016" 
+	ms.date="02/10/2016" 
 	ms.author="heidist"/>
 
 #What’s new in the latest update to Azure Search#
@@ -35,8 +35,12 @@ Features that are purely portal or tool-based are expected to change over time a
 
 Feature|Released|Status|Details
 -------|--------|------|-------
+[.NET SDK 1.0](https://msdn.microsoft.com/library/azure/dn951165.aspx)|February 2016|GA|This is the GA release of the .NET client library, Microsoft.Azure.Search.dll. This version includes breaking changes, relative to earlier versions of the SDK. See [Upgrading to the Azure Search .NET SDK version 1.0.1-preview](search-dotnet-sdk-migration.md) for migration guidance.
+[Lucene query syntax support](https://msdn.microsoft.com/library/azure/mt589323.aspx)|February 2016|GA|This is the GA release of this feature. 
+=======
 [.NET SDK 1.1](https://msdn.microsoft.com/library/azure/dn951165.aspx)|February 2016|GA|This is the first generally available release of the .NET client library, `Microsoft.Azure.Search.dll`. This version introduces breaking changes. See [Upgrading to the Azure Search .NET SDK version 1.1](search-dotnet-sdk-migration.md) for migration guidance.
 [Lucene query syntax support](https://msdn.microsoft.com/library/azure/mt589323.aspx)|February 2016|[GA](search-api-2015-02-28.md)|The Lucene query syntax is now generally available in both the REST API and .NET SDK. Set the `queryType` parameter to `full` in the REST API and the `SearchParameters.QueryType` property to `QueryType.Full` in the .NET SDK to enable the Lucene syntax.
+>>>>>>> 7afb0eb90aed5b9668e882e7d4715398384714b1
 [Custom Analyzers](https://azure.microsoft.com/blog/custom-analyzers-in-azure-search/)|January 2016|[Preview](search-api-2015-02-28-preview.md)|User-defined configurations of tokenizers and token filters. See [Analysis in Azure Search](https://msdn.microsoft.com/library/azure/mt605304.aspx) on MSDN.
 [Azure Blob Storage Indexer](search-howto-indexing-azure-blob-storage.md)|January 2016|[Preview](search-api-2015-02-28-preview.md)|PDF, Office documents, XML, HTML, or even video and audio files can be merged or ingested into an Azure Search index.
 [Search Explorer](search-explorer.md)|January 2016|[Portal](https://portal.azure.com)|Built-in query tool for ad hoc queries against an index.
