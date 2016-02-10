@@ -66,7 +66,7 @@ Once the project has been created - or you've opened an existing project - the f
 
     ![][3]
 
-    Note that you also have the choice of using an existing Docker host. To do this, select it in the **Existing Azure Docker Virtual Machines** dropdown list rather than tapping the **New** button. Note that the list isn't restricted to just container hosts; all of the VMs in your Azure tenant are listed.
+    Note that you also have the choice of using an existing Docker host. To do this, select it in the **Existing Azure Docker Virtual Machines** dropdown list rather than tapping **New**. Note that the list isn't restricted to just container hosts; all of the VMs in your Azure tenant are listed.
 
     As an alternative, you can choose to publish to a custom Docker host. See the [Provide a custom Docker host](#provide-a-custom-docker-host) section later in this topic for more information.
 
