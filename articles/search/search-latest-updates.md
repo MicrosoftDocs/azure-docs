@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/23/2016" 
+	ms.date="02/09/2016" 
 	ms.author="heidist"/>
 
 #What’s new in the latest update to Azure Search#
@@ -35,12 +35,13 @@ Features that are purely portal or tool-based are expected to change over time a
 
 Feature|Released|Status|Details
 -------|--------|------|-------
+[.NET SDK 1.1](https://msdn.microsoft.com/library/azure/dn951165.aspx)|February 2016|GA|This is the first generally available release of the .NET client library, `Microsoft.Azure.Search.dll`. This version introduces breaking changes. See [Upgrading to the Azure Search .NET SDK version 1.1](search-dotnet-sdk-migration.md) for migration guidance.
+[Lucene query syntax support](https://msdn.microsoft.com/library/azure/mt589323.aspx)|February 2016|[GA](search-api-2015-02-28.md)|The Lucene query syntax is now generally available in both the REST API and .NET SDK. Set the `queryType` parameter to `full` in the REST API and the `SearchParameters.QueryType` property to `QueryType.Full` in the .NET SDK to enable the Lucene syntax.
 [Custom Analyzers](https://azure.microsoft.com/blog/custom-analyzers-in-azure-search/)|January 2016|[Preview](search-api-2015-02-28-preview.md)|User-defined configurations of tokenizers and token filters. See [Analysis in Azure Search](https://msdn.microsoft.com/library/azure/mt605304.aspx) on MSDN.
 [Azure Blob Storage Indexer](search-howto-indexing-azure-blob-storage.md)|January 2016|[Preview](search-api-2015-02-28-preview.md)|PDF, Office documents, XML, HTML, or even video and audio files can be merged or ingested into an Azure Search index.
 [Search Explorer](search-explorer.md)|January 2016|[Portal](https://portal.azure.com)|Built-in query tool for ad hoc queries against an index.
 [Power BI Content Pack for Azure Search](http://blogs.msdn.com/b/powerbi/archive/2016/01/19/visualizing-azure-search-data-with-power-bi.aspx)|January 2016|Tool|Visualization and analysis of service data using  a new Power BI content pack for Azure Search. Available via Search Analytics.
 [Search Analytics](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/)|January 2016|Portal|Enable data collection for insights into user's search activity.
-[.NET SDK 1.0.1-preview](https://msdn.microsoft.com/library/azure/dn951165.aspx)|January 2016|Preview|This is the third iteration of the .NET client library, Microsoft.Azure.Search.dll. This version introduces breaking changes. See [Upgrading to the Azure Search .NET SDK version 1.0.1-preview](search-dotnet-sdk-migration.md) for migration guidance.
 
 ##New in 2015
 

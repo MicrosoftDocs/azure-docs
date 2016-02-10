@@ -83,10 +83,12 @@ Once the token has been acquired, the caller includes it with HTTP requests in t
 
 #### How to protect the API app from access by users in the same tenant
 
-Bearer tokens for users in the same tenant are considered valid for the protected API app.  If you want to ensure that only a service principal can call the protected API app, add code in the protected API app to check the following claims:
+Bearer tokens for users in the same tenant are considered valid for the protected API app.  If you want to ensure that only a service principal can call the protected API app, add code in the protected API app to validate the following claims from the token:
 
-* `appid` should be the same as the client ID of the Azure AD application that is associated with the caller.
-* `objectidentifier` should be the service principal ID of the caller.
+* `appid` should be the client ID of the Azure AD application that is associated with the caller. 
+* `oid` (`objectidentifier`) should be the service principal ID of the caller. 
+
+App Service also provides the `objectidentifier` claim in the X-MS-CLIENT-PRINCIPAL-ID header.
 
 ### How to protect the API app from browser access
 
