@@ -405,7 +405,11 @@ The output for the **Pig** job should appear similar to the following:
 
 ###Errors when running jobs
 
-If you encounter errors when running these jobs on a Linux-based cluster, and you created the Python scripts on a Windows client, the problem may be caused by the line endings. Many Windows editors default to using CRLF as the line ending, but Linux applications usually expect LF.
+When running the hive job, you may encounter an error similar to the following:
+
+    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+    
+This problem may be caused by the line endings in the streaming.py file. Many Windows editors default to using CRLF as the line ending, but Linux applications usually expect LF.
 
 If you are using an editor that cannot create LF line endings, or are unsure what line endings are being used, use the following PowerShell statements to remove the CR characters before uploading the file to HDInsight:
 
