@@ -1,20 +1,21 @@
 <properties
-	pageTitle="Use the Microsoft Translator in PowerApps Enterprise or logic apps| Microsoft Azure"
+	pageTitle="Add the Microsoft Translator in PowerApps Enterprise or logic apps| Microsoft Azure"
 	description="Overview of the Microsoft Translator API with REST API parameters"
 	services=""
     suite=""
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
-   ms.service=""
+   ms.service="multiple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/04/2016"
+   ms.date="02/09/2016"
    ms.author="mandia"/>
 
 # Get started with the Microsoft Translator API
@@ -26,9 +27,11 @@ With Microsoft Translator, you can:
 
 - Build your business flow based on the data you get from Microsoft Translator. 
 - Use actions to translate text, detect a language, and more. These actions get a response, and then make the output available for other actions. For example, when a new file is created in Dropbox, you can translate the text in the file to another language using Microsoft Translator.
-- Add the API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+- Add the Microsoft Translator API to PowerApps Enterprise. Then, your users can use this API within their apps. 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](..powerapps-register-from-available-apis.md). To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
+For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](..powerapps-register-from-available-apis.md). 
+
+To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 Microsoft Translator includes the following actions. There are no triggers.
@@ -134,6 +137,15 @@ There are no parameters for this call.
 |---|---|
 |200|OK|
 |default|Operation Failed.|
+
+## Object definitions
+
+#### Language: language model for Microsoft Translator translatable languages
+
+| Name | Data Type | Required|
+|---|---|---|
+|Code|string|no|
+|Name|string|no|
 
 
 ## Next steps

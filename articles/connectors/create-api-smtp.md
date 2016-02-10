@@ -1,19 +1,20 @@
 <properties
-	pageTitle="Use the SMTP API in your Logic Apps | Microsoft Azure"
+	pageTitle="Add the SMTP API in your Logic Apps | Microsoft Azure"
 	description="Overview of the SMTP API with REST API parameters"
 	services=""
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
-   ms.service=""
+   ms.service="multiple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/04/2016"
+   ms.date="02/09/2016"
    ms.author="mandia"/>
 
 # Get started with the SMTP API
@@ -50,7 +51,7 @@ When you add this API to your logic apps, enter the following values:
 
 After you create the connection, you enter the SMTP properties, like the To or CC values. The **REST API reference** in this topic describes these properties.
 
->[AZURE.TIP] You can use this same SMTP server connection in other logic apps.
+>[AZURE.TIP] You can use this same SMTP connection in other logic apps.
 
 ## Swagger REST API reference
 
@@ -62,36 +63,33 @@ Sends an email to one or more recipients.
 | ---|---|---|---|---|---|
 |emailMessage| many|yes|body|none |Email message|
 
-#### Email object
+## Object definitions
 
-| Name |Data Type |  Required | Description |
-|---|---|---|---|
-|To|string|no |Email address of recipient(s). Separate multiple email addresses using semicolon (;). Example: recipient1@domain.com;recipient2@domain.com.|
-|CC|string|no |Email address of recipient(s) for carbon copy. Separate multiple email addresses using semicolon (;). Example: recipient1@domain.com;recipient2@domain.com.|
-|Subject|string|no |Email subject|
-|Body|string|no |Email body|
-|From|string|no |Email address of sender. Example: sender@domain.com|
-|IsHtml|boolean|no |When this property is set to true, the content of the body will be sent as HTML content.|
-|Bcc|string|no |Email address of recipient(s) for blind carbon copy. Separate multiple email addresses using semicolon(;).Example: recipient1@domain.com;recipient2@domain.com.|
-|Importance|string|no |Importance of the email ("High", "Normal", "Low")|
-|Attachments|array|no |Attachments to be sent along with the email.|
+#### Email: SMTP email
 
-#### Attachment object 
+| Name | Data Type | Required|
+|---|---|---|
+|To|string|no|
+|CC|string|no|
+|Subject|string|no|
+|Body|string|no|
+|From|string|no|
+|IsHtml|boolean|no|
+|Bcc|string|no|
+|Importance|string|no|
+|Attachments|array|no|
 
-| Name |Data Type | Required | Description |
-|---|---|---|---|
-|FileName|string|no | File name of attachment
-|ContentId|string|no | Content id
-|ContentData|string|yes | Content data (base64 encoded for streams and as-is for string)
-|ContentType|string|yes | Content type
-|ContentTransferEncoding|string|yes | Content Transfer Encoding (base64 or none)
 
-#### Response
+#### Attachment: Email attachment
 
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
+| Name | Data Type |Required|
+|---|---|---|
+|FileName|string|no|
+|ContentId|string|no|
+|ContentData|string|yes|
+|ContentType|string|yes|
+|ContentTransferEncoding|string|yes|
+
 
 ## Next steps
 [Create a logic app](..app-service-logic-create-a-logic-app.md).
