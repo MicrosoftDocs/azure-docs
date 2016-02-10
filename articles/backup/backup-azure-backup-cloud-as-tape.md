@@ -17,6 +17,7 @@
 
 # Use Azure Backup to replace your tape infrastructure
 Azure Backup and System Center Data Protection Manager customers can:
+
 - Back up data in schedules which best suit their organization needs
 - Retain the backup data for longer periods
 - Make Azure a part of their long term retention needs (instead of tape).
