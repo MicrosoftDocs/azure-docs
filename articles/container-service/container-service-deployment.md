@@ -91,17 +91,19 @@ If you want to create your cluster in a new Resource Group, you must first creat
 azure group create GROUP_NAME REGION
 ```
  
-Once you have a Resource Group you can create your cluster this this command, where:
+Once you have a Resource Group you can create your cluster with this command, where:
 
 - **RESOURCE_GROUP** is the name of the Resource Group you want to use for this service.
 - **DEPLOYMENT_NAME** is the name of this deployment.
 - **TEMPLATE_URI** is the location of the deployment file. **Note** - this must be the RAW file, not a pointer to the GitHub UI. To find this URL select the azuredeploy.json file in GitHub and click the RAW button:
+
+> Note - when running this command, the shell will prompt you for deployment parameter values.
  
 ```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI
 ```
  
-### Providing a Parameters
+### Providing Template Parameters
  
 This version of the command requires the user to define parameters interactively. If you want to provide parameters as a json formatted string you can do so with the `-p` switch. For example:
  
@@ -134,7 +136,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : InvalidOperation,Microsoft.Azure.Commands.Profile.GetAzureRMSubscriptionCommand
 ```
 
-To log into Azure, use the `Login-AzureRMAccount command.
+If you need to log into Azure, use the `Login-AzureRMAccount command.
 
 ```powershell
 Login-AzureRmAccount
@@ -146,19 +148,21 @@ SubscriptionId        : 00000000-0000-0000-0000-000000000000
 CurrentStorageAccount :
 ```
  
-Before creating a cluster in a new Resource Group, you must first create the Resource Group. Use this command, Where `GROUP_NAME` is the name of the resource group you want to create, and `REGION` is the region where you want to create the Resource Group.
+Before creating a cluster in a new Resource Group, you must first create the Resource Group. To create a new Resource Group, use the `New-AzureRmResourceGroup` command, specifying a resource group name and destination region.
 
 ```powershell
 New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 ```
 
 Once you have a Resource Group, you can create your cluster with the following command.
- 
+
+> Note - when running this command, PowerShell will prompt you for deployment parameter values.
+
 ```powershell
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
  ```
  
-### Dynamic Template Parameters
+### Providing Template Parameters
  
 If you are familiar with PowerShell, you know that you can cycle through the available parameters for a cmdlet by typing a minus sign (-) and then pressing the TAB key. This same functionality also works with parameters that you define in your template. As soon as you type the template name, the cmdlet fetches the template, parses it, and adds the template parameters to the command dynamically. This makes it very easy to specify the template parameter values. And, if you forget a required parameter value, PowerShell prompts you for the value.
  
