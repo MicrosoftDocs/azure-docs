@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="02/08/2016"
    ms.author="sethm" />
 
 # Service Bus quotas

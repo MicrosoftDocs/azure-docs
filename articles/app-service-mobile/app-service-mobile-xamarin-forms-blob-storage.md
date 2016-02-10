@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="01/21/2015"
+	ms.date="02/03/2016"
     ms.author="donnam"/>
 
 #Connect to Azure Storage in your Xamarin.Forms app
@@ -93,7 +93,11 @@ To complete this tutorial, you need the following:
             return base.DeleteFileAsync(id, name);
         }
 
-6. Publish your server project to your mobile app backend.
+6. Update the Web API configuration to set up attribute routing. In **Startup.MobileApp.cs**, add the following line to the `ConfigureMobileApp()` method, after the definition of the `config` variable:
+
+        config.MapHttpAttributeRoutes();
+
+7. Publish your server project to your mobile app backend.
 
 ###Routes registered by the storage controller
 
@@ -719,5 +723,5 @@ This article described how to use the new file support in the Azure Mobile clien
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
-[Understanding Shared Access Signatures]: https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/
-[Create an Azure Storage Account]: https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#create-a-storage-account
+[Understanding Shared Access Signatures]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[Create an Azure Storage Account]:  ../storage/storage-create-storage-account.md#create-a-storage-account

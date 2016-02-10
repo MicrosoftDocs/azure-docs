@@ -1,6 +1,6 @@
 <properties
    pageTitle="How to work with 'big data' data sources"
-   description="How-to article highlighting patters for using Azure Data Catalog  with 'big data' data sources, including Azure Blob Storage and Hadoop HDFS."
+   description="How-to article highlighting patters for using Azure Data Catalog  with 'big data' data sources, including Azure Blob Storage, Azure Data Lake, and Hadoop HDFS."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 
