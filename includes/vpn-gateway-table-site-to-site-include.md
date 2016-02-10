@@ -3,4 +3,4 @@ A Site-to-Site connection can be configured in both deployment models and by usi
 | **Deployment Model / Tool** | **Classic portal** | **Azure Portal** | **PowerShell** |
 |-----------------------|----------------|--------------|------------|
 | **Classic**              | [Article](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md)       | Yes          | Yes        |
-| **Resource Manager**      | No             | Yes - Article coming soon    | [Article](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)  |
+| **Resource Manager**      | No             | No    | [Article](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)  |
