@@ -31,7 +31,7 @@ The following considerations apply when using REST.
 - If using JSON, you MUST set the Accept header to [JSON Verbose format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/). Odata does not understand the __metadata property in the request, unless you set it to verbose.  
 
 	**Accept**: application/json;odata=verbose
-- When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. | You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+- When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 ## Standard HTTP request headers supported by Media Services
 
