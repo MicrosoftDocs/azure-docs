@@ -13,25 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2015"
+   ms.date="02/10/2016"
    ms.author="DavidBosland"/>
 
 # You can view and change your Cloud Solution Provider's "Reseller Incentive"
 
-## What is a Cloud Solution Provider?
-
-As of March 15, 2016, Microsoft will technically enable Microsoft-approved Cloud Solution Providers (CSPs) – the same companies who resell Office 365 and Azure first-party services today - to resell partner applications and services listed on Azure Marketplace such as yours at no additional cost to you.
-
-## What is the “Reseller Incentive?”
-
-By default, Microsoft will waive the 20% Marketplace Service Fee we retain today when a customer purchases a partner offer directly from Marketplace and pass it through as a price discount to our CSP resellers, meaning at the end of the day there will be no additional cost to our software partners, whose payouts from direct sales on Marketplace will be the same -- you will continue to receive 80% net revenues from such sales.
-
-If you are not interested in offering a CSP “Reseller Incentive,” you can go to the Azure Marketplace publisher portal and opt-out.  Microsoft CSPs will still be able to sell your offers but will not receive an incentive.  In other words, Microsoft will not waive its 20% Marketplace Service Fee and pass it through as a price discount to CSPs, and the CSPs will only be able to sell your offers at full Marketplace list price.
-
+>[AZURE.IMPORTANT] As of March 15, 2016, Microsoft will technically enable Microsoft-approved Cloud Solution Providers (CSPs) “Reseller Incentive.”  This incentive value will be defaulted to Yes.  You will have the ability to opt-out of this program by following these instructions to change the setting in your profile.
 
 ## How do I view or change my “Reseller Incentive” status?
 
-Your current selection is shown in your Publisher Profile.  Follow these steps to view or change your current selection:
+Your current selection is shown in your Publisher Profile.  The default value will be *Yes*.  Follow these steps to view or change your current selection:
 
 1.	Log in to your Microsoft Azure Publishing account
 <https://publish.windowsazure.com/workspace>
