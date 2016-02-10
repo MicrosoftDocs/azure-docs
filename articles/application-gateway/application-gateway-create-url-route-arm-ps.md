@@ -20,8 +20,6 @@
 
 URL Path Based Routing enables you to route traffic to back-end server pools based on URL paths from client Http request. A common use for url based routing is to route requests for different content types to different back-end server pools.
 
-
-
 URL path based routing introduces a rule type to application gateway. Application gateway has 2 rule types: basic and PathBasedRouting. Basic rule type will provide round-robin service for the back-end pools while PathBasedRouting will provide network traffic mapping based on the path pattern for the URL. 
 
 ## Scenario
@@ -190,6 +188,6 @@ Create an application gateway with all configuration objects from the steps abov
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku
 
-# Get Application Gateway
+## Get Application Gateway
 $getgw =  Get-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $rgname
 
