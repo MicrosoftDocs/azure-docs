@@ -17,7 +17,7 @@
 
 # Set up continuous integration for a Service Fabric application using Visual Studio Team Services (VSTS)
 
-This article describes the steps to set up continuous integration for a Service Fabric application using Visual Studio Team Services (VSTS). This procedure assures that your application is built, packaged, and deployed in an automated fashion. Note that these instructions recreate the cluster from scratch every time.
+This article describes the steps to set up continuous integration for a Service Fabric application using Visual Studio Team Services (VSTS), to assure that your application is built, packaged, and deployed in an automated fashion. Note that these instructions recreate the cluster from scratch every time.
 
 This document reflects the current procedure and is expected to change over time.
 
@@ -43,6 +43,7 @@ Before you can set up the build machine, you need to create a [Service Principal
 
 1.	Install Azure PowerShell.
 2. Install PowerShellGet. To do this, install [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), which includes PowerShellGet.
+
     >[AZURE.NOTE] You can skip this step if you are running Windows 10 with the latest updates.
 
 3.	Install and update the AzureRM module.
@@ -134,7 +135,8 @@ When the script finishes, it outputs the following three values. Note these valu
 If you have already provisioned a machine, (or plan to provide your own), install [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) on the selected machine.
 
 If you don't yet have a machine, you can quickly provision an Azure Virtual Machine (VM) with Visual Studio 2015 pre-installed. To do this:
-1. Log in to the [Azure Management Portal](https://portal.azure.com).
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Choose the **New** command in the top-left corner of the screen.
 
@@ -152,7 +154,7 @@ If you don't yet have a machine, you can quickly provision an Azure Virtual Mach
 
 ### Install Service Fabric SDK
 
-Install the [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-fabric/).
+Install the [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-fabric/) on your machine.
 
 ### Install Azure PowerShell
 
@@ -209,7 +211,7 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 
     a.	Log on to your team project, such as **https://[your-VSTS-account-name].visualstudio.com**.
 
-    b.	Choose the 'gear' icon in the upper-right corner of your screen.
+    b.	Choose the gear icon in the upper-right corner of your screen.
 
     c.	From the control panel, choose the **Agent pools** tab.
 
@@ -233,9 +235,9 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 |User account to run the service|Accept the default value, `NT AUTHORITY\LocalService`.|
 |Un-configure existing agent?|Accept the default value, **N**.|
 
-3. You will be prompted for credentials. Enter the credentials for your Microsoft account that has rights to your team project.
+3.  You will be prompted for credentials. Enter the credentials for your Microsoft account that has rights to your team project.
 
-4. Verify that your build agent was registered. To do this:
+4.  Verify that your build agent was registered. To do this:
 
     a. Go back to your web browser, (should be at  `https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool`), and refresh the page.
 
@@ -294,9 +296,10 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 |ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
 |ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` This should be the folder containing your .sfproj file.||||
 
-3. Save the build definition and give it a name. (You can change this name later if you want.)
+3.  Save the build definition and give it a name. (You can change this name later if you want.)
 
 ### Add a "Build" step
+@<Author GitHub alias> – Please review the copy edit to your article, address any questions I’ve entered in the comments, and let me know if I’ve changed the technical meaning anywhere.
 
 1.	On the **Build** tab, choose the **Add build step…** command."
 
@@ -393,7 +396,7 @@ Click **Queue Build** to start a build. Builds will also be triggered upon push 
 
 The previous instructions create a new cluster for each build and remove it at the end of the build. If you'd rather have each build perform an application upgrade (to an existing cluster) instead, use the following steps:
 
-1.	Manually create a test cluster through the Azure Management Portal or Azure PowerShell. You can refer to the `ProvisionAndDeploy-SecureCluster.ps1` script as a reference.
+1.	Manually create a test cluster through the Azure portal or Azure PowerShell. You can refer to the `ProvisionAndDeploy-SecureCluster.ps1` script as a reference.
 
 2.	Configure your publish profile to support application upgrade by following [these instructions](service-fabric-visualstudio-configure-upgrade.md).
 
