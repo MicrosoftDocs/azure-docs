@@ -148,7 +148,7 @@ You can use the Resource Explorer to capture the virtual machine, as an alternat
 
 	- On the left hand side, you should see the storage account of the virtual machine which we captured in the above steps. Double click on the **system** menu underneath it. You should see the contents of the **system** folder on the right side.
 
-		![Storage Explorer system](./media/virtual-machines-windows-capture-image-resource-manager/StorageExplorer1.png)
+		![Storage Explorer system](./media/virtual-machines-windows-capture-image/StorageExplorer1.png)
 
 	- Double click **Microsoft.Compute** and then **Images** which will show you all your image folders. Double click on the folder name that you entered for the **destinationContainerName** variable while capturing the image from Resource Explorer. It will show you both the VHD as well as the JSON template file.
 
