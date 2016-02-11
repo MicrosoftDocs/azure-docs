@@ -3,7 +3,7 @@
 
 <a name="selector1"></a>
 
-[Visual Studio Application Insights](app-insights-overview.md) monitors your live application to help you [detect and diagnose performance issues and exceptions](app-insights-detect-triage-diagnose.md), and [discover how your app is used](app-insights-overview-usage.md). 
+[Visual Studio Application Insights](../article/application-insights/app-insights-overview.md) monitors your live application to help you [detect and diagnose performance issues and exceptions](../article/application-insights/app-insights-detect-triage-diagnose.md), and [discover how your app is used](../article/application-insights/app-insights-overview-usage.md). 
 
 Install the SDK and then add monitoring for other data:
 
