@@ -140,7 +140,7 @@ In addition, you can use following UI tools to access the data:
 1.	Use Visual Studio Server Explorer. Navigate to your storage account. After the VM runs about 5 minutes you should see the four default tables: “LinuxCpu”, ”LinuxDisk”, ”LinuxMemory”, and ”Linuxsyslog”. Double click the table name to view the data.
 2.	Use [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer") to access the data.
 
-![image](./media/virtual-machines-linux-diagnostic-extension/no1.png)
+![image](./media/virtual-machines-linux-classic-diagnostic-extension/no1.png)
 
 If have enabled fileCfg or perfCfg specified in Scenario 2 and 3, you can use the previous tools to view non-default data.
 
