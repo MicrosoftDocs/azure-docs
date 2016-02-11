@@ -13,9 +13,9 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/10/2016"
+   ms.date="02/11/2016"
    ms.author="yurid"/>
-
+ 
 # Managing and responding to security alerts in Azure Security Center
 This document helps you use Azure Security Center capabilities to manage and respond to security alerts.
 
@@ -78,7 +78,7 @@ In this case, the alerts that were triggered refer to suspicious Remote Desktop 
 ![Suggestions for what to do about security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig8.png)
 
 > [AZURE.NOTE] The remediation suggested by
- Security Center will vary according to the security alert. In some cases, you may have to use other Azure capabilities to implement the recommended remediation. For example, the remediation for this attack is to blacklist the IP address that is generating this attack by using a [network ACL](virtual-networks-acl.md) or a [network security group](virtual-networks-nsg.md) rule.
+ Security Center will vary according to the security alert. In some cases, you may have to use other Azure capabilities to implement the recommended remediation. For example, the remediation for this attack is to blacklist the IP address that is generating this attack by using a [network ACL](../virtual-network/virtual-networks-acl.md) or a [network security group](../virtual-network/virtual-networks-nsg.md) rule.
 
 
 ## Next steps
