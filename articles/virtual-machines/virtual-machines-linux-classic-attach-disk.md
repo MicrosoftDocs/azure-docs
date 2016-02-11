@@ -47,7 +47,7 @@ You can use the same instructions to initialize multiple data disks, using the r
 
 	You can find the identifier of the last data disk that was added in the messages that are displayed.
 
-	![Get the disk messages](./media/virtual-machines-linux-how-to-attach-disk/DiskMessages.png)
+	![Get the disk messages](./media/virtual-machines-linux-classic-attach-disk/DiskMessages.png)
 
 	OR
 
