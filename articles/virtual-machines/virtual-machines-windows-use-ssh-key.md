@@ -102,7 +102,7 @@ The easiest way to resolve this is to set the `OPENSSL_CONF` environment variabl
 
 3.	Your screen should look like the following:
 
-	![linuxwelcomegit](./media/virtual-machines-linux-use-ssh-key/linuxwelcomegit.png)
+	![linuxwelcomegit](./media/virtual-machines-linux-ssh-from-linux/linuxwelcomegit.png)
 
 4.	Answer the questions that are asked.
 5.	It would have created two files: `myPrivateKey.key` and `myCert.pem`.
