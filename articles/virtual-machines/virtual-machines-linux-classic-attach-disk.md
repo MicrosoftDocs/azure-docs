@@ -92,7 +92,7 @@ You can use the same instructions to initialize multiple data disks, using the r
 5. When prompted, type **p** to make the partition the primary partition, type **1** to make it the first partition, and then type enter to accept the default value for the cylinder. On some systems, it can show the default values of the first and the last sectors, instead of the cylinder. You can choose to accept these defaults.
 
 
-	![Create partition](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
+	![Create partition](./media/virtual-machines-linux-classic-attach-disk/DiskCylinder.png)
 
 
 
