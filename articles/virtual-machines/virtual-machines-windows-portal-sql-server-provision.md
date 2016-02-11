@@ -61,7 +61,7 @@ This tutorial assumes that you already have an Azure account. If you do not have
 1. 	Each template identifies a SQL Server version and an operating system. Select one of these images from the list to bring up a blade containing its details.
 1.	The details blade provides a description of this virtual machine image, and it allows you to select a deployment model. Under **Select a deployment model**, select **Resource Manager** and click **Create**.
 <br/>
-![Azure Compute Blade](./media/virtual-machines-sql-server-provision-resource-manager/azure-compute-sql-deployment-model.png)
+![Azure Compute Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 <br/>
 
 ## <a id="ConfigureVM"> Configure the VM
