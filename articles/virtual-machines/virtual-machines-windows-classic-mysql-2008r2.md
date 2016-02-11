@@ -67,7 +67,7 @@ Follow these steps to install, configure, and run the Community version of MySQL
 9.	On the **Product Configuration** page, click **Next**.
 10.	On the **Type and Networking** page, specify your desired configuration type and connectivity options, including the TCP port if needed. Select **Show Advanced Options**, and then click **Next**.
 
-	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_TypeNetworking.png)
+	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_TypeNetworking.png)
 
 11.	On the **Accounts and Roles** page, specify a strong MySQL root password. Add additional MySQL user accounts as needed, and then click **Next**.
 
