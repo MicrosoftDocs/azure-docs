@@ -59,7 +59,7 @@ The test scripts are intended to run on the JMeter Master VM. When you select a 
 
 The following image shows the structure of the test environment and Elasticsearch cluster. Note that the test scripts use SSH to connect to each node in the cluster to perform various Elasticsearch operations such as stopping or restarting a node.
 
-![](./media/guidance-elasticsearch-resilience-testing1.png)
+![](./media/guidance-elasticsearch/resilience-testing1.png)
 
 ## Setting up the JMeter tests
 
@@ -142,7 +142,7 @@ node app.js
 
 The following menu should appear:
 
-![](./media/guidance-elasticsearch-resilience-testing2.png)
+![](./media/guidance-elasticsearch/resilience-testing2.png)
 
 2.  Enter the number of the scenario you want to run: [11, 12, 13 or 21].
 

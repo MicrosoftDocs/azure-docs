@@ -201,7 +201,7 @@ The throughput and number of samples processed for the three configurations are 
 
 Elasticsearch is dependent on having sufficient network bandwidth to support the influx of client requests as well as the synchronization information that flows between nodes in the cluster. As highlighted earlier, you have limited control over the bandwidth availability which depends on many variables such as the datacenter in use, and the current network load of other VMs sharing the same network infrastructure. However, it is still worth examining the network activity for each cluster if only to verify that the volume of traffic is not excessive. The graph below shows a comparison of the network traffic received by node 2 in each of the clusters (the volumes for the other nodes in each cluster was very similar).
 
-![](media/guidance-elasticsearch-data-ingestion-image1.png)
+![](media/guidance-elasticsearch/data-ingestion-image1.png)
 
 The average bytes received per second for node 2 in each cluster configuration over the two-hour period were as follows:
 
@@ -236,11 +236,11 @@ The following set of graphs illustrate the CPU utilization for the busiest node 
 
 > [AZURE.NOTE] The default index structure of 5 shards with 1 replica (10 shards in all), results in a modest imbalance in load between the nodes in a cluster; two nodes will contain 3 shards while the other node will contain 4. The busiest node is most likely to be the item that restricts throughput the most, hence the reason that this node has been selected in each case:
 
-![](media/guidance-elasticsearch-data-ingestion-image2.png)
+![](media/guidance-elasticsearch/data-ingestion-image2.png)
 
-![](media/guidance-elasticsearch-data-ingestion-image3.png)
+![](media/guidance-elasticsearch/data-ingestion-image3.png)
 
-![](media/guidance-elasticsearch-data-ingestion-image4.png)
+![](media/guidance-elasticsearch/data-ingestion-image4.png)
 
 For the small, medium, and large clusters, the average CPU utilization for these nodes was 75.01%, 64.93%., and 64.64%. Rarely does utilization actually hit 100%, and utilization drops as the size of the nodes and the available CPU power available increases. CPU power is therefore unlikely to be a factor limiting the performance of the large cluster.
 
@@ -248,14 +248,14 @@ For the small, medium, and large clusters, the average CPU utilization for these
 
 Memory use is another important aspect that can influence performance. For the tests, Elasticsearch was allocated 50% of the available memory; this is in line with [documented recommendations](https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#_give_half_your_memory_to_lucene). While the tests were running, the JVM was monitored for excess garbage collection activity (an indication of lack of heap memory). In all cases, the heap size was stable and the JVM exhibited low garbage collection activity. The screenshot in figure 1 shows a snapshot of Marvel, highlighting the key JVM statistics for a short period while the test was running on the large cluster.
 
-![](media/guidance-elasticsearch-data-ingestion-image5.png)
+![](media/guidance-elasticsearch/data-ingestion-image5.png)
 
 ***Figure 1. JVM memory and garbage collection activity on the large cluster.***
 
 ### Determining Limiting Factors: Disk I/O Rates
 The remaining physical feature on the server side that might constrain performance is the performance of the disk I/O subsystem. The graph below compares the disk activity in terms of bytes written for the busiest nodes in each cluster.
 
-![](media/guidance-elasticsearch-data-ingestion-image6.png)
+![](media/guidance-elasticsearch/data-ingestion-image6.png)
 
 The following table shows the average bytes written per second for node 2 in each cluster configuration over the two-hour period:
 
@@ -269,11 +269,11 @@ The volume of data written increases with the number of requests being processed
 
 > [AZURE.NOTE] The disk wait time is measured by monitoring the percentage of CPU time during which processors are blocked waiting for I/O operations to complete.
 
-![](media/guidance-elasticsearch-data-ingestion-image7.png)
+![](media/guidance-elasticsearch/data-ingestion-image7.png)
 
-![](media/guidance-elasticsearch-data-ingestion-image8.png)
+![](media/guidance-elasticsearch/data-ingestion-image8.png)
 
-![](media/guidance-elasticsearch-data-ingestion-image9.png)
+![](media/guidance-elasticsearch/data-ingestion-image9.png)
 
 | Configuration | Average Disk Wait CPU Time (%) |
 |---------------|--------------------------------|
@@ -296,11 +296,11 @@ The tests were initially performed using VMs configured with standard disks. A s
 
 Response times were noticeably better, resulting in an average throughput much closer to 4x that of the small cluster. This is more in line with the resources available on a Standard DS4 VM. Average CPU utilization on the busiest node in the cluster (node 1 in this case) increased as it spent less time waiting for I/O to complete:
 
-![](media/guidance-elasticsearch-data-ingestion-image10.png)
+![](media/guidance-elasticsearch/data-ingestion-image10.png)
 
 The reduction in disk wait time becomes apparent when you consider the following graph, which shows that for the busiest node this statistic dropped to around 1% on average:
 
-![](media/guidance-elasticsearch-data-ingestion-image11.png)
+![](media/guidance-elasticsearch/data-ingestion-image11.png)
 
 There is a price to pay for this improvement, however. The number of ingestion errors increased by a factor of 10 to 35797 (12.3%). Again, most of these errors were the result of the bulk insert queue overflowing. Given that the hardware now appears to be running close to capacity, it may be necessary to either add more nodes or throttle back the rate of bulk inserts to reduce the volume of errors. These issues are discussed later in this document.
 
@@ -317,9 +317,9 @@ The error rate was also similar (33862 failures out of 289488 requests in total 
 
 The following graphs show the CPU utilization and disk wait statistics for the busiest node in the cluster (node 2 this time):
 
-![](media/guidance-elasticsearch-data-ingestion-image12.png)
+![](media/guidance-elasticsearch/data-ingestion-image12.png)
 
-![](media/guidance-elasticsearch-data-ingestion-image13.png)
+![](media/guidance-elasticsearch/data-ingestion-image13.png)
 
 In this case, in performance terms alone, using ephemeral storage could be considered a more cost-effective solution than using premium storage.
 
@@ -348,7 +348,7 @@ The throughput was consistent with that for the large Ubuntu clusters, although 
 
 The CPU utilization reported by the Windows monitoring tools was marginally higher than that of Ubuntu. However, you should treat direct comparisons of measurements such as these across operating systems with extreme caution due to the way in which different operating systems report these statistics. Additionally, information on disk latency in terms of CPU time spent waiting for I/O is not available in the same way as it is for Ubuntu. The important point is that CPU utilization was high, indicating that time spent waiting for I/O was low:
 
-![](media/guidance-elasticsearch-data-ingestion-image14.png)
+![](media/guidance-elasticsearch/data-ingestion-image14.png)
 
 ### Scaling-Up: Conclusions
 
@@ -520,11 +520,11 @@ In this test, the refresh rate was set to the default value of 1 second. The fol
 
 In this test, dropping the refresh rate resulted in an 18% improvement in throughput, and a 21% reduction in average response time. The following graphs generated by using Marvel illustrate the primary reason for this difference. Figure 2 below shows the index merge activity that occurred with the refresh interval set to 1 second, and figure 3 illustrates the level of activity with the refresh interval set to 30 seconds. Index merges are performed to prevent the number of in-memory index segments from becoming too numerous. A 1 second refresh interval generates a large number of small segments which have to be merged frequently, whereas a 30 second refresh interval generates fewer large segments which can be merged more optimally.
 
-![](media/guidance-elasticsearch-data-ingestion-image15.png)
+![](media/guidance-elasticsearch/data-ingestion-image15.png)
 
 ***Figure 2. Index merge activity for an index refresh rate of 1 second***
 
-![](media/guidance-elasticsearch-data-ingestion-image16.png)
+![](media/guidance-elasticsearch/data-ingestion-image16.png)
 
 ***Figure 3. Index merge activity for an index refresh rate of 30 seconds***
 
@@ -559,25 +559,25 @@ The next sets of graphs compare the response times during the tests. In each cas
 
 With no replicas, most operations took between 75ms and 750ms, with the quickest response times around 25ms:
 
-![](media/guidance-elasticsearch-data-ingestion-image17.png)
+![](media/guidance-elasticsearch/data-ingestion-image17.png)
 
 With 1 replica the most populated operational response time was in the range 125ms to 1250ms. The quickest responses took approximately 75ms, although there were fewer of these quick responses than in the 0 replicas case. There were also far more responses that took significantly longer than the most common cases, in excess of 1250ms:
 
-![](media/guidance-elasticsearch-data-ingestion-image18.png)
+![](media/guidance-elasticsearch/data-ingestion-image18.png)
 
 With 2 replicas, the most populated response time range was 200ms to 1500ms, but there were far fewer results below the minimum range than in the 1 replica test. However, the pattern of results above the upper limit were very similar to that of the 1 replica test. This is most likely due to the effects of the bulk insert queue overflowing (exceeding a queue length of 50 requests). The additional work required to maintain 2 replicas causes the queue to overflow more frequently, preventing ingestion operations from having excessive response times; operations are rejected quickly rather than taking a lengthy period of time, possibly causing timeout exceptions or impacting the responsiveness of client applications (this is the purpose of the bulk insert queue mechanism):
 
-![](media/guidance-elasticsearch-data-ingestion-image19.png)
+![](media/guidance-elasticsearch/data-ingestion-image19.png)
 
 <span id="_The_Impact_of_1" class="anchor"><span id="_Impact_of_Increasing" class="anchor"></span></span>Using Marvel, you can see the effect of the number of replicas on the bulk index queue. Figure 4 shows the data from Marvel which depicts how the bulk insert queue filled during the test. The average queue length was around 40 requests, but periodic bursts caused it to overflow and requests were rejected as a result:
 
-![](media/guidance-elasticsearch-data-ingestion-image20.png)
+![](media/guidance-elasticsearch/data-ingestion-image20.png)
 
 ***Figure 4. Bulk index queue size and number of requests rejected with 2 replicas.***
 
 You should compare this with figure 5 below which shows the results for a single replica. The Elasticsearch engine was able to process requests quickly enough to keep the average queue length at around 25, and at no point did the queue length exceed 50 requests so no work was rejected.
 
-![](media/guidance-elasticsearch-data-ingestion-image21.png)
+![](media/guidance-elasticsearch/data-ingestion-image21.png)
 
 ***Figure 5. Bulk index queue size and number of requests rejected with 1 replica.***
 
@@ -1038,7 +1038,7 @@ The constructor that takes the *String* parameter is invoked from JMeter, and th
 
 You specify the data for the constructor string in the JUnit Request page used to configure the JUnit sampler in JMeter. The following image shows an example:
 
-![](media/guidance-elasticsearch-data-ingestion-image22.png)
+![](media/guidance-elasticsearch/data-ingestion-image22.png)
 
 The *BulkInsertTest* and *BigBulkInsertTest* methods perform the actual work of generating and uploading the data. Both methods are very similar; they connect to the Elasticsearch cluster and then create a batch of documents (as determined by the *ItemsPerInsert* constructor string parameter). The documents are added to the index by using the Elasticsearch Bulk API. The difference between the two methods is that the *data1* and *data2* string fields in each document are omitted from the upload in the *BulkInsertTest* method, but are filled in with strings of 12000 characters in the *BigBulkInsertTest* method. Note that you select which of these methods to run using the *Test Method* box in the JUnit Request page in JMeter (highlighted in the previous figure).
 

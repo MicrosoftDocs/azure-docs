@@ -33,11 +33,11 @@ The following list summarizes the items you should consider when creating a JMet
 
 - Avoid creating too many threads in a thread group. An excessive number of threads will cause JMeter to fail with "Out of memory" exceptions. It is better to add more JMeter subordinate servers each running a smaller number of threads than attempt to run a large number of threads on a single JMeter server.
 
-![](./media/guidance-elasticsearch-jmeter-testing1.png)
+![](./media/guidance-elasticsearch/jmeter-testing1.png)
 
 - To assess the performance of the cluster, incorporate the [Perfmon Metrics Collector](http://jmeter-plugins.org/wiki/PerfMon/) plugin into the test plan; this is a JMeter listener that is available as one of the standard JMeter standard plugins. Save the raw performance data to a set of files in CSV format and process them when the test is complete. This is more efficient and imposes less strain on JMeter than attempting to process the data as it is captured. You can use a tool such Excel to import the data and generate a range of graphs for analytical purposes.
 
-![](./media/guidance-elasticsearch-jmeter-testing2.png)
+![](./media/guidance-elasticsearch/jmeter-testing2.png)
 
 You should consider capturing the following information:
 
@@ -57,13 +57,13 @@ Field 16 in the output from *vmstat* contains the CPU time spent waiting for I/O
 
 - Use separate Aggregate Report listeners to record the performance and frequency of successful and failed operations. Capture success and failure data to different files.
 
-![](./media/guidance-elasticsearch-jmeter-testing3.png)
+![](./media/guidance-elasticsearch/jmeter-testing3.png)
 
 - Keep each JMeter test case as simple as possible to enable you to directly correlate performance with specific test actions. For test cases that require complex logic, consider encapsulating this logic in a JUnit test and use the JUnit Request sampler in JMeter to run the test.
 
 - Use the HTTP Request sampler to perform HTTP operations, such as GET, POST, PUT or DELETE. For example, you can run Elasticsearch searches by using a POST query and providing the query details in the *Body Data* box:
 
-![](./media/guidance-elasticsearch-jmeter-testing4.png)
+![](./media/guidance-elasticsearch/jmeter-testing4.png)
 
 - For ease of repeatability and reuse, parameterize test JMeter test plans. You can then use scripting to automate the running of test plans.
 

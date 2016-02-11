@@ -41,7 +41,7 @@ Shards for indexes that hold multiple types will likely be bigger than those for
 
 If there is a significant mismatch between data volumes for the types, information for one type can become sparsely distributed across many shards reducing the efficiency of searches that retrieve this data.
 
-![](./media/guidance-elasticsearch-query-performance1.png)
+![](./media/guidance-elasticsearch/query-performance1.png)
 
 ***Figure 1. The effects of sharing an index between types***
 
@@ -314,11 +314,11 @@ These figures show that the DS4 cluster was able to sustain an I/O rate approxim
 
 To help justify this conclusion, the following graphs illustrate the how the I/O was performed over time by each cluster:
 
-![](./media/guidance-elasticsearch-query-performance2.png)
+![](./media/guidance-elasticsearch/query-performance2.png)
 
 The graph for the D4 cluster shows significant variation, especially during the first half of the test. This was likely due to throttling to reduce the I/O rate. In the initial stages of the test, the queries are able to run quickly as there is little data to analyze. The disks in the D4 cluster are therefore likely to be operating close to their IOPS capacity, although each I/O operation might not be returning much data. The DS4 cluster is able to support a higher IOPS rate and does not suffer the same degree of throttling; the I/O rates are more regular. To illustrate this theory, the next pair of graphs show how the CPU was blocked by disk I/O over time (the disk wait times shown in the graphs are the proportion of the time that the CPU spent waiting for I/O):
 
-![](./media/guidance-elasticsearch-query-performance3.png)
+![](./media/guidance-elasticsearch/query-performance3.png)
 
 It is important to understand that in this test scenario, there are two predominant reasons for I/O operations to block the CPU:
 
@@ -502,11 +502,11 @@ The next table compares the number of ingestion operations performed by the test
 
 The improved ingestion rates occur with doc values disabled as less data is being written to disk as documents are inserted. The improved performance is especially noticeable with the D4 VM using HDDs to store data. In this case, the response time for ingestion operations also decreased by 15% (see the first table in this section). This could be due to the reduced pressure on the HDDs which were likely running close to their IOPS limits in the test with doc values enabled; see the [Disk Type](#performance-results-disk-type) test for more information. The following graph compares the I/O performance of the D4 VMs with doc values enabled (values held on disk) and doc values disabled (values held in memory):
 
-![](./media/guidance-elasticsearch-query-performance4.png)
+![](./media/guidance-elasticsearch/query-performance4.png)
 
 In contrast, the ingestion figures for the VMs using SSDs show a small increase in the number of documents but also an increase in the response time of the ingestion operations. With one or two small exceptions, the query response times were also worse. The SSDs are less likely to be running close to their IOPS limits with doc values enabled, so changes in performance are more likely due to increased processing activity and the overhead of managing the JVM heap. This is evident by comparing the CPU utilization with doc values enabled and disabled. The next graph highlights this data for the DS4 cluster, where most of the CPU utilization moves from the 30%-40% band with doc values enabled, to the 40%-50% band with doc values disabled (the DS14 cluster showed a similar trend):
 
-![](./media/guidance-elasticsearch-query-performance5.png)
+![](./media/guidance-elasticsearch/query-performance5.png)
 
 To isolate the effects that doc values on query performance from data ingestion, a pair of query-only tests were performed for each cluster as follows:
 
