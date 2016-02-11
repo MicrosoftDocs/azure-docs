@@ -13,7 +13,7 @@ Application architecture|32-bit|32-bit|32-bit/64-bit|32-bit/64-bit|32-bit/64-bit
 Web Sockets per instance<sup>7</sup>|5|35|350|Unlimited|Unlimited
 Concurrent [debugger connections](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md) per application|1|1|1|5|5
 [azurewebsites.net subdomain with FTP/S and SSL](../articles/app-service-web/web-sites-configure-ssl-certificate.md)|X|X|X|X|X
-[Custom domain](web-sites-custom-domain-name.md) support||X|X|X|X
+[Custom domain](../articles/app-service-web/web-sites-custom-domain-name.md) support||X|X|X|X
 Custom domain [SSL support](../articles/app-service-web/web-sites-configure-ssl-certificate.md)|||Unlimited|Unlimited, 5 SNI SSL and 1 IP SSL connections included|Unlimited, 5 SNI SSL and 1 IP SSL connections included
 Integrated Load Balancer||X|X|X|X
 [Always On](../articles/app-service-web/web-sites-configure.md)|||X|X|X
