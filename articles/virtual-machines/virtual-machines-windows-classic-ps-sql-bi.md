@@ -291,7 +291,7 @@ The following table summarizes some of the options available to publish existing
 
 - **SQL Server Data Tools: Remote**:  On your local computer, create a Reporting Services project in SQL Server Data Tools that contains Reporting Services reports. Configure the project to connect to the web service URL.
 
-	![ssdt project properties for SSRS project](./media/virtual-machines-sql-server-business-intelligence/IC650114.gif)
+	![ssdt project properties for SSRS project](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
 
 - Create a .VHD hard drive that contains reports and then upload and attach the drive.
 
