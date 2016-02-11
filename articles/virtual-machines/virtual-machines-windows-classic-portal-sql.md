@@ -48,7 +48,7 @@ In this tutorial, you will:
 
 3. On the **Choose an Image** page, click **SQL SERVER**. Then select a SQL Server image. Click the next arrow at the bottom right of the page.
 
-	![Choose an Image](./media/virtual-machines-provision-sql-server/choose-sql-vm.png)
+	![Choose an Image](./media/virtual-machines-windows-classic-portal-sql/choose-sql-vm.png)
 
 For the most up-to-date information on the supported SQL Server images on Azure, see [SQL Server on Azure Virtual Machines Overview](virtual-machines-sql-server-infrastructure-services.md).
 
