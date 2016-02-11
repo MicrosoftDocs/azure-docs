@@ -232,7 +232,7 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
 	- Shutdown the machine through the portal
     - Click on Capture and specify the image name as **mariadb-galera-image** and provide a  description and check "I have run waagent".
 	![Capture the Virtual Machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture.png)
-	![Capture the Virtual Machine](./media/virtual-machines-mariadb-cluster/Capture2.PNG)
+	![Capture the Virtual Machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
 
 ## Creating the cluster
 
