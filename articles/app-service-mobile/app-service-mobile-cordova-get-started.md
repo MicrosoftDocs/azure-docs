@@ -54,7 +54,7 @@ Mac computer.  Compiling Apache Cordova client applications using the command li
 
 ## Next Steps
 
-Now that you completed this quick start tutorial, move on to [adding Authentication to your Apache Cordova app](app-service-mobile-cordova-get-started-auth.md).
+Now that you completed this quick start tutorial, move on to [adding Authentication to your Apache Cordova app].
 
 
 <!-- Images. -->
@@ -63,4 +63,5 @@ Now that you completed this quick start tutorial, move on to [adding Authenticat
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
+[adding Authentication to your Apache Cordova app]: app-service-mobile-get-started-users.md
 
