@@ -130,7 +130,7 @@ You can use the Resource Explorer to capture the virtual machine, as an alternat
 
 5. You will see a list of all the actions that you can perform on the virtual machine.
 
-	![Resource Explorer Action items](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerActionItems.png)
+	![Resource Explorer Action items](./media/virtual-machines-windows-capture-image/ArmExplorerActionItems.png)
 
 6. Deallocate the virtual machine by clicking the action button for **deallocate**. The status of your VM will change from **Stopped** to **Stopped (deallocated)**.
 
