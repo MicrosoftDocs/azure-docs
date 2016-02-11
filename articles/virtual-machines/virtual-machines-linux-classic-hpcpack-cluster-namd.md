@@ -408,4 +408,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [job_resources]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/job_resources.png
 [creds]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/creds.png
 [task_details]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/task_details.png
-[vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
+[vmd_view]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/vmd_view.png
