@@ -149,7 +149,7 @@ automate most of this process.
 
 3. **Submit jobs to the cluster**
 
-    Connect to the head node to submit jobs, or set up an on-premises computer to do this. For information, see [Submit Jobs to an HPC cluster in Azure](virtual-machines-hpcpack-cluster-submit-jobs.md).
+    Connect to the head node to submit jobs, or set up an on-premises computer to do this. For information, see [Submit Jobs to an HPC cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).
 
 4. **Take the nodes offline and stop (deallocate) them**
 
