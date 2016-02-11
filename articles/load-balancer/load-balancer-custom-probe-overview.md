@@ -40,7 +40,7 @@ The probe configuration of all load balanced instances for an endpoint (load bal
 
 For cloud services only. Azure Load Balancer utilizes the Guest Agent inside the virtual machine, listens and responds with an HTTP 200 OK response only when the instance is in the Ready state (ie. The instance is not in the Busy, Recycling, Stopping, etc states). 
 
-Check out [configuring the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/jj151530.asp) or [get started creating an internet facing load balancer for cloud services](load-balancer-get-started-internet-classic-cloud/#check-load-balancer-health-status-for-cloud-services) for more information. 
+Check out [configuring the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/jj151530.asp) or [get started creating an internet facing load balancer for cloud services](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services) for more information. 
  
 ### What would make a guest agent probe to mark an instance as unhealthy?
 
@@ -72,7 +72,7 @@ TCP probes are initiating a connection by performing a three-way  handshake to t
 - In the event the TCP server does not respond at all after the timeout period. It will depend on the number of failed probe requests, which were configured to go unanswered before marking probe as down.
 - 	It receives a TCP reset from the role instance.
 
-Check out [get started creating an Internet facing load balancer for resource manager](load-balancer-get-started-internet-arm-ps#create-lb-rules-nat-rules-a-probe-and-a-load-balancer) to understand how to configure an HTTP health probe or TCP probe.
+Check out [get started creating an Internet facing load balancer for resource manager](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer) to understand how to configure an HTTP health probe or TCP probe.
 
 ## Adding healthy instances back to the load balancer
 
