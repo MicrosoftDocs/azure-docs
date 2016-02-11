@@ -122,7 +122,7 @@ Setting Up
 
 ##Further Reading
 
-Suppose you want to automate these steps to deploy applications to remote Linux virtual machines? You can do this using the Linux CustomScript extension. See [Deploy a LAMP app using the Azure CustomScript Extension for Linux](virtual-machines-linux-script-lamp.md).
+Suppose you want to automate these steps to deploy applications to remote Linux virtual machines? You can do this using the Linux CustomScript extension. See [Deploy a LAMP app using the Azure CustomScript Extension for Linux](virtual-machines-linux-classic-lamp-script.md).
 
 There are many other resources for setting up a LAMP stack on Ubuntu.
 
