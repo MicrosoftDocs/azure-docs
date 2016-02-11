@@ -199,7 +199,7 @@ After you finish this initial setup, more configuration options for the capabili
 
 This is the configuration that results from the successful completion of this phase. 
 
-![](./media/virtual-machines-workload-intranet-sharepoint-phase4/workload-spsqlao_04.png)
+![](./media/virtual-machines-windows-ps-sp-intranet-ph4/workload-spsqlao_04.png)
 
 ## Next step
 
