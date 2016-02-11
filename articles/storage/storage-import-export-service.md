@@ -57,7 +57,8 @@ When you create an import job or an export job, you'll also need the *drive ID*,
 6.	**Maximum size of a job:** The size of a job is determined by the capacity of the hard drives used and the maximum amount of data that can be stored in a storage account. Each job may contain no more than 10 hard drives.
 7.  **Supported Operating System:** Customer can use one of the following Operating Systems to prepare the hard drive using Azure Import/Export Tool before shipping to Azure - Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2.  
 
-  > [AZURE.IMPORTANT] 
+  > [AZURE.IMPORTANT]
+  >  
   >  - See the [FAQ section](#frequently-asked-questions) for special instructions if you are using a Windows 10 machine to prepare your hard drive.
   >  
   >  - External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not prepare an external HDD. The  disk inside the external casing also cannot be used for importing data. Use a 3.5" SATA II/III **internal** hard disk drive. If you cannot connect the SATA disk directly to your machine, use an external SATA to USB adaptor. See the list of recommended adaptors in FAQ section.
