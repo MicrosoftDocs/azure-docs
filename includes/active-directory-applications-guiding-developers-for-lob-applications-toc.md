@@ -3,3 +3,4 @@
 - [Assigning users to an application](active-directory-applications-guiding-developers-assigning-users.md)
 - [Assigning groups to an application](active-directory-applications-guiding-developers-assigning-groups.md)
 - [Integrating applications with Azure Active Directory](active-directory-integrating-applications.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
