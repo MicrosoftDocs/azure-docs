@@ -52,7 +52,7 @@ Consider two different approaches for attaching multiple disks based on whether 
 
 - **Oracle ASM with Windows Server 2012 storage pools** is likely to result in better read operation IOPS performance if your database primarily performs read operations, or if you value the performance of read operations over write operations. An image based on the Windows Server 2012 operating system is required. See [Deploy storage spaces on a stand-alone server](http://technet.microsoft.com/library/jj822938.aspx) for more information about storage pools. In this arrangement, two equal subsets of attached disks are first “striped” together as physical disks in two storage pool volumes, and then the volumes are added to an ASM disk group. The following illustration logically depicts this arrangement.  
 
-	![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image3.png)  
+	![](media/virtual-machines-windows-classic-oracle-considerations/image3.png)  
 
 >[AZURE.IMPORTANT] Evaluate the trade-off between write performance and read performance on a case-by-case basis. Your actual results can vary when you use these approaches.
 
