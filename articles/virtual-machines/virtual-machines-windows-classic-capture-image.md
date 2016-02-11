@@ -72,7 +72,7 @@ Prior to caputuring an image of an Azure virtual machine, it is recommended the 
 
 12.	Click the check mark to capture the image. The new image is now available under **Images**.
 
- 	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
+ 	![Image capture successful](./media/virtual-machines-windows-classic-capture-image/VMCapturedImageAvailable.png)
 
 ##Next steps
 
