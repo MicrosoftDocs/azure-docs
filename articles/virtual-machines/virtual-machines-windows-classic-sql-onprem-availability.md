@@ -53,7 +53,7 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
 
 1. Select an existing Azure Management Certificate from the local Windows certificate store if you have installed one before. Select or enter the id of an Azure subscription if you have used one before. You can click Download to download and install an Azure Management Certificate and download the list of subscriptions using an Azure account.
 
-	![SQL](./media/virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups/IC742864.png)
+	![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 
 1. You will populate each field on the page with values that will be used to create the Azure Virtual Machine (VM) that will host the replica.
 
