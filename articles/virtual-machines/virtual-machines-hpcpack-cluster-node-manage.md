@@ -187,4 +187,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * If you want a way to
 automatically grow or shrink the cluster nodes according to
-the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
