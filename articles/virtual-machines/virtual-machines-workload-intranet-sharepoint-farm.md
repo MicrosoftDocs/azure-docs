@@ -78,7 +78,7 @@ To deploy this configuration, use the following process:
 
 - Phase 1: Configure Azure.
 
-	Use Azure PowerShell to create a storage account, availability sets, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
+	Use Azure PowerShell to create a storage account, availability sets, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-windows-ps-sp-intranet-ph1.md).
 
 - Phase 2: Configure the domain controllers.
 
