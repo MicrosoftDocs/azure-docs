@@ -19,7 +19,7 @@
 # Configure an external listener for AlwaysOn Availability Groups in Azure
 
 > [AZURE.SELECTOR]
-- [Internal Listener](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [Internal Listener](virtual-machines-windows-classic-ps-sql-int-listener.md)
 - [External Listener](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 This topic shows you how to configure a listener for an AlwaysOn Availability Group that is externally accessible on the internet. This is made possible associating the cloud service's **public Virtual IP (VIP)** address with the listener.
@@ -47,7 +47,7 @@ Note the following guidelines about the availability group listener in Azure whe
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-This article focuses on creating a listener that uses **external load balancing**. If you want a listener that is private to your virtual network, see the version of this article that provides steps for setting up an [listener with ILB](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+This article focuses on creating a listener that uses **external load balancing**. If you want a listener that is private to your virtual network, see the version of this article that provides steps for setting up an [listener with ILB](virtual-machines-windows-classic-ps-sql-int-listener.md)
 
 ## Create load-balanced VM endpoints with direct server return
 

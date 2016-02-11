@@ -19,7 +19,7 @@
 # Configure an ILB listener for AlwaysOn Availability Groups in Azure
 
 > [AZURE.SELECTOR]
-- [Internal Listener](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [Internal Listener](virtual-machines-windows-classic-ps-sql-int-listener.md)
 - [External Listener](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 ## Overview

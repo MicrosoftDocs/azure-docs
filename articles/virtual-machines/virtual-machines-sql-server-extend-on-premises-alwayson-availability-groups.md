@@ -95,7 +95,7 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
 
 ## Create an availability group listener
 
-After the availability group has been created, you should create a listener for clients to connect to the replicas. Listeners direct incoming connections to either the primary or a read-only secondary replica. For more information on listeners, see [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+After the availability group has been created, you should create a listener for clients to connect to the replicas. Listeners direct incoming connections to either the primary or a read-only secondary replica. For more information on listeners, see [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 ## Next steps
 
