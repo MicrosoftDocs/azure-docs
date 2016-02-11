@@ -66,4 +66,4 @@ After you create a virtual machine, it's a good idea to add a data disk so your 
 
 [How to Attach a Data Disk to a Linux Virtual Machine](virtual-machines-linux-how-to-attach-disk.md)
 
-[How to Attach a Data Disk to a Windows Virtual Machine](storage-windows-attach-disk.md)
+[How to Attach a Data Disk to a Windows Virtual Machine](virtual-machines-windows-classic-attach-disk.md)
