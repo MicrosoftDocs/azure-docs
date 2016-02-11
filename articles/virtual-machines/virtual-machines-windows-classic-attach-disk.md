@@ -39,7 +39,7 @@ Here's a walkthrough of the steps in this tutorial.
 
 2. After you log on to the virtual machine, open **Server Manager**. In the left pane, select **File and Storage Services**.
 
-	![Open Server Manager](./media/storage-windows-attach-disk/fileandstorageservices.png)
+	![Open Server Manager](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
 
 3. Expand the menu and select **Disks**.
 
