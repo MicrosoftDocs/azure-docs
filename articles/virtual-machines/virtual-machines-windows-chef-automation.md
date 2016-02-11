@@ -224,7 +224,7 @@ I hope this has been helpful! Go  and start your infrastructure as code journey 
 
 
 <!--Image references-->
-[2]: ./media/virtual-machines-automation-with-chef/2.png
+[2]: ./media/virtual-machines-windows-chef-automation/2.png
 [3]: ./media/virtual-machines-automation-with-chef/3.png
 [4]: ./media/virtual-machines-automation-with-chef/4.png
 [5]: ./media/virtual-machines-automation-with-chef/5.png
