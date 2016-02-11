@@ -556,5 +556,5 @@ Instead of using TSPSolver to create or delete the queue, you can create or dele
 [create_namespace_dialog]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/CreateNameSpaceDialog.png
 [available_namespaces]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/AvailableNamespaces.png
 [click_create]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/ClickCreate.png
-[namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
+[namespace_list]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/AccessKey.png
