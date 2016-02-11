@@ -20,13 +20,13 @@
 #How to Use SSH with Linux and Mac on Azure
 
 > [AZURE.SELECTOR]
-- [Windows](../articles/virtual-machines/virtual-machines-windows-use-ssh-key.md)
+- [Windows](../articles/virtual-machines/virtual-machines-linux-ssh-from-windows.md)
 - [Linux/Mac](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md)
 
 This topic describes how to use **ssh-keygen** and **openssl** on Linux and Mac to create and use **ssh-rsa** format and **.pem** format files to secure communication with Azure VMs based on Linux. Creating Linux-based Azure Virtual Machines using the Resource Manager deployment model is recommended for new deployments and takes an *ssh-rsa* type public key file or string (depending on the deployment client). The [Azure portal](https://portal.azure.com) currently accepts only the **ssh-rsa** format strings, whether for classic or Resource Manager deployments.
 
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-To create these types of files for use on a Windows computer to communicate securely with Linux VMs in Azure, see [Use SSH keys on Windows](virtual-machines-windows-use-ssh-key.md). 
+To create these types of files for use on a Windows computer to communicate securely with Linux VMs in Azure, see [Use SSH keys on Windows](virtual-machines-linux-ssh-from-windows.md). 
 
 ## Which files do you need?
 
