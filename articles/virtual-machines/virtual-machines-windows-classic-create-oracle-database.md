@@ -100,7 +100,7 @@ The following example shows you how you can create a virtual machine (VM) based 
 		![](media/virtual-machines-windows-classic-create-oracle-database/image7.png)
 	e. **Step 5:** The **Progress Page** will report the status of your database creation.
 
-		![](media/virtual-machines-creating-oracle-database-virtual-machine/image8.png)
+		![](media/virtual-machines-windows-classic-create-oracle-database/image8.png)
 	f. After your database is created, you’ll have the option to use the **Password Management** dialog box. Modify password settings if needed for your requirements, and then close the dialog boxes to exit the **Database Configuration Assistant** wizard.
 
 ##To confirm your database is installed
