@@ -97,7 +97,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduce
 CoreOS is a small, optimized distro for pure compute scale with a high degree of control for customization.
 
 10. [Image Gallery](https://azure.microsoft.com/marketplace/partners/coreos/)  
-11. \[Classic Deployment]: [How to: Use CoreOS on Azure](virtual-machines-linux-coreos-how-to.md)
+11. \[Classic Deployment]: [How to: Use CoreOS on Azure](virtual-machines-linux-classic-coreos-howto.md)
 12. \[Classic Deployment]: [How to: Get Started with Fleet and Docker on CoreOS on Azure](virtual-machines-linux-coreos-fleet-get-started.md)
 
 
@@ -261,7 +261,7 @@ This section starts with a blog entry containing a series of videos on [Video: A
 	- [How to use docker with swarm on Azure](virtual-machines-linux-docker-swarm.md)
 	- [Get Started with Docker and Compose on Azure](virtual-machines-linux-docker-compose-quickstart.md)
 
-2. [Fleet with CoreOS](virtual-machines-linux-coreos-how-to.md)
+2. [Fleet with CoreOS](virtual-machines-linux-classic-coreos-howto.md)
 3. Deis
 	- [GitHub repo: Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-linux/tree/master/coreos/deis)
 4. Kubernetes
