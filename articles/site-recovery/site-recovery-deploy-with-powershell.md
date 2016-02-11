@@ -75,17 +75,17 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 
 In PowerShell, run these cmdlets:
 
+```
+$UserName = "<user@live.com>"
+$Password = "<password>"
+$AzureSubscriptionName = "prod_sub1"
 
+$SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
+$Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $securePassword
+Add-AzureAccount -Credential $Cred;
+$AzureSubscription = Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
 
-			$UserName = "<user@live.com>"
-	$Password = "<password>"
-	$AzureSubscriptionName = "prod_sub1"
-
-	$SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
-	$Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $securePassword
-	Add-AzureAccount -Credential $Cred;
-	$AzureSubscription = Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-
+```
 
 Replace the elements within the "< >" with your specific information.
 
@@ -95,16 +95,16 @@ In PowerShell, replace the elements within the "< >" with your specific informat
 
 ```
 
-	$VaultName = "<testvault123>"
-	$VaultGeo  = "<Southeast Asia>"
-	$OutputPathForSettingsFile = "<c:\>"
+$VaultName = "<testvault123>"
+$VaultGeo  = "<Southeast Asia>"
+$OutputPathForSettingsFile = "<c:\>"
 
 ```
 
 
 ```
-	New-AzureSiteRecoveryVault -Location $VaultGeo -Name $VaultName;
-	$vault = Get-AzureSiteRecoveryVault -Name $VaultName;
+New-AzureSiteRecoveryVault -Location $VaultGeo -Name $VaultName;
+$vault = Get-AzureSiteRecoveryVault -Name $VaultName;
 
 ```
 
@@ -116,20 +116,22 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 	
 	```
 	
-		$VaultName = "<testvault123>"
-		$VaultGeo  = "<Southeast Asia>"
-		$OutputPathForSettingsFile = "<c:\>"
+	$VaultName = "<testvault123>"
+	$VaultGeo  = "<Southeast Asia>"
+	$OutputPathForSettingsFile = "<c:\>"
 	
-		$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
+	$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 	
 	```
 	
 2.	Set the vault context by running the following commands:
 	
-	```	
-		$VaultSettingFilePath = $vaultSetingsFile.FilePath 
-		$VaultContext = Import-AzureSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath -ErrorAction Stop
-```
+	```
+	
+	$VaultSettingFilePath = $vaultSetingsFile.FilePath 
+	$VaultContext = Import-AzureSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath -ErrorAction Stop
+	
+	```
 
 ## Step 4: Install the Azure Site Recovery Provider
 
@@ -137,19 +139,19 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 	
 	```
 	
-		pushd C:\ASR\
+	pushd C:\ASR\
 	
 	```
 	
-2. Extract the files using the downloaded provider by running the following command
+2.	Extract the files using the downloaded provider by running the following command
 	
 	```
 	
-		AzureSiteRecoveryProvider.exe /x:. /q
+	AzureSiteRecoveryProvider.exe /x:. /q
 	
 	```
 	
-3. Install the provider using the following commands:
+3.	Install the provider using the following commands:
 	
 	```
 	
@@ -162,18 +164,18 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 	$installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
 	do
 	{
-	                $isNotInstalled = $true;
-	                if(Test-Path $installationRegPath)
-	                {
-	                                $isNotInstalled = $false;
-	                }
+		$isNotInstalled = $true;
+		if(Test-Path $installationRegPath)
+		{
+			$isNotInstalled = $false;
+		}
 	}While($isNotInstalled)
 	
 	```
 	
 	Wait for the installation to finish.
 	
-4. Register the server in the vault using the following command:
+4.	Register the server in the vault using the following command:
 	
 	```
 	
@@ -208,7 +210,7 @@ Run the following command on all VMM hosts:
 
 ```
 
-	marsagentinstaller.exe /q /nu
+marsagentinstaller.exe /q /nu
 
 ```
 
@@ -220,8 +222,7 @@ Run the following command on all VMM hosts:
 	```
 	
 	$ReplicationFrequencyInSeconds = "300";
-	$ProfileResult = New-AzureSiteRecoveryProtectionProfileObject -ReplicationProvider 	HyperVReplica -RecoveryAzureSubscription $AzureSubscriptionName `
-	-RecoveryAzureStorageAccount $StorageAccountName -ReplicationFrequencyInSeconds 	$ReplicationFrequencyInSeconds;
+	$ProfileResult = New-AzureSiteRecoveryProtectionProfileObject -ReplicationProvider HyperVReplica -RecoveryAzureSubscription $AzureSubscriptionName -RecoveryAzureStorageAccount $StorageAccountName -ReplicationFrequencyInSeconds 	$ReplicationFrequencyInSeconds;
 	
 	```
 	
@@ -229,8 +230,8 @@ Run the following command on all VMM hosts:
 	
 	```
 	
-		$PrimaryCloud = "testcloud"
-		$protectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $PrimaryCloud;	
+	$PrimaryCloud = "testcloud"
+	$protectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $PrimaryCloud;	
 	
 	```
 	
@@ -238,26 +239,42 @@ Run the following command on all VMM hosts:
 	
 	```
 	
-		$associationJob = Start-AzureSiteRecoveryProtectionProfileAssociationJob -	ProtectionProfile $profileResult -PrimaryProtectionContainer $protectionContainer;		
+	$associationJob = Start-AzureSiteRecoveryProtectionProfileAssociationJob -ProtectionProfile $profileResult -PrimaryProtectionContainer $protectionContainer;		
 	
 	```
 	
 4.	After the job has finished, run the following command:
 
-			$job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
-			if($job -eq $null -or $job.StateDescription -ne "Completed")
-			{
-				$isJobLeftForProcessing = $true;
-			}
-5. After the job has finished processing, run the following command:
+	```
+	
+	$job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
+	if($job -eq $null -or $job.StateDescription -ne "Completed")
+	{
+		$isJobLeftForProcessing = $true;
+	}
+	
+	```
 
+5.	After the job has finished processing, run the following command:
+
+	```
+	Do
+	{
+		$job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
+		Write-Host "Job State:{0}, StateDescription:{1}" -f Job.State, $job.StateDescription;
+		if($job -eq $null -or $job.StateDescription -ne "Completed")
+		{
+			$isJobLeftForProcessing = $true;
+		}
+		
 		if($isJobLeftForProcessing)
-			{
+		{
 			Start-Sleep -Seconds 60
-			}
-				}While($isJobLeftForProcessing)
-	
-	
+		}
+	}While($isJobLeftForProcessing)
+		
+	```
+
 To check the completion of the operation, follow the steps in [Monitor Activity](#monitor).
 
 ## Step 8: Configure network mapping
@@ -267,16 +284,16 @@ Note that if the target network has multiple subnets and one of those subnets ha
 
 The first command gets servers for the current Azure Site Recovery vault. The command stores the Microsoft Azure Site Recovery servers in the $Servers array variable.
 
+```
+$Servers = Get-AzureSiteRecoveryServer
 
-
-	$Servers = Get-AzureSiteRecoveryServer
-
+```
 
 The second command gets the site recovery network for the first server in the $Servers array. The command stores the networks in the $Networks variable.
 
 ```
 
-	$Networks = Get-AzureSiteRecoveryNetwork -Server $Servers[0]
+$Networks = Get-AzureSiteRecoveryNetwork -Server $Servers[0]
 
 ```
 
@@ -284,7 +301,7 @@ The third command gets your Azure subscriptions by using the Get-AzureSubscripti
 
 ```
 
-	$Subscriptions = Get-AzureSubscription
+$Subscriptions = Get-AzureSubscription
 
 ```
 
@@ -292,7 +309,7 @@ The fourth command gets Azure virtual networks by using the Get-AzureVNetSite cm
 
 ```
 
-	$AzureVmNetworks = Get-AzureVNetSite
+$AzureVmNetworks = Get-AzureVNetSite
 
 ```
 
@@ -328,14 +345,16 @@ To enable protection the operating system and operating system disk properties m
 	
 	$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 		
-		```
-			
+	```
+		
 3. Enable the DR for the VM by running the following command:
 
+	```
 	
 	$jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity 	-Protection Enable -Force
 	
-
+	```
+	
 ## Test your deployment
 
 To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines and run a test failover for the plan. Test failover simulates your failover and recovery mechanism in an isolated network. Note that:
@@ -395,21 +414,21 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 	
 	```
 	
-		$RPCreationJob = New-AzureSiteRecoveryRecoveryPlan -File $TemplatePath -WaitForCompletion;
+	$RPCreationJob = New-AzureSiteRecoveryRecoveryPlan -File $TemplatePath -WaitForCompletion;
 	
 	```
 	
 ### Run a test failover
 
-1. Get the RecoveryPlan object by running the following command:
+1.	Get the RecoveryPlan object by running the following command:
 	
 	```
 	
-		$RPObject = Get-AzureSiteRecoveryRecoveryPlan -Name $RPName;
+	$RPObject = Get-AzureSiteRecoveryRecoveryPlan -Name $RPName;
 	
 	```
 	
-2. Start the test failover by running the following command:
+2.	Start the test failover by running the following command:
 	
 	```
 	
@@ -425,21 +444,17 @@ Use the following commands to monitor the activity. Note that you have to wait i
 
 Do
 {
-                $job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
-                Write-Host "Job State:{0}, StateDescription:{1}" -f Job.State, $job.StateDescription;
-                if($job -eq $null -or $job.StateDescription -ne "Completed")
-                {
-                                $isJobLeftForProcessing = $true;
-                }
+        $job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
+        Write-Host "Job State:{0}, StateDescription:{1}" -f Job.State, $job.StateDescription;
+        if($job -eq $null -or $job.StateDescription -ne "Completed")
+        {
+        	$isJobLeftForProcessing = $true;
+        }
 
-```
-
-```
-
-if($isJobLeftForProcessing)
-                {
-                                Start-Sleep -Seconds 60
-                }
+	if($isJobLeftForProcessing)
+        {
+        	Start-Sleep -Seconds 60
+        }
 }While($isJobLeftForProcessing)
 
 ```
