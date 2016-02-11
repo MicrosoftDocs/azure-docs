@@ -126,7 +126,7 @@ You can use the Resource Explorer to capture the virtual machine, as an alternat
 
 4. On the top right side of the template page, you should see tabs for the various operations available for this virtual machine. Click the tab for **Actions (POST/DELETE)**.
 
-	![Resource Explorer Action menu](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerActionMenu.png)
+	![Resource Explorer Action menu](./media/virtual-machines-windows-capture-image/ArmExplorerActionMenu.png)
 
 5. You will see a list of all the actions that you can perform on the virtual machine.
 
