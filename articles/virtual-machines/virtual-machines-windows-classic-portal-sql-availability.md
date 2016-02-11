@@ -344,7 +344,7 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 
 1. Finally, you add the remaining nodes to the cluster. In the browser tree, right-click **Cluster1.corp.contoso.com** and click **Add Node**, as shown below.
 
-	![Add Node to the Cluster](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784634.png)
+	![Add Node to the Cluster](./media/virtual-machines-windows-classic-portal-sql-availability/IC784634.png)
 
 1. In the **Add Node Wizard**, click **Next**. In the **Select Servers** page, add **ContosoSQL2** and **ContosoWSFCNode** to the list by typing the server name in **Enter server name** and then clicking **Add**. When you are done, click **Next**.
 
