@@ -41,7 +41,7 @@ Specify the values for the variables, removing the < and > characters. Note that
 - Table ST, for your storage accounts
 - Table A, for your availability sets
 
-Recall that you defined Table M in [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) and Tables V, S, ST, and A in [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Recall that you defined Table M in [Phase 2](virtual-machines-windows-ps-lob-ph2.md) and Tables V, S, ST, and A in [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
 When you have supplied all the proper values, run the resulting block at the Azure PowerShell command prompt.
 
