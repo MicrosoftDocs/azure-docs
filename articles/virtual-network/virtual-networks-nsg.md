@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/10/2016"
+   ms.date="02/11/2016"
    ms.author="telmos" />
 
 # What is a Network Security Group (NSG)?
@@ -133,7 +133,7 @@ Before implementing NSGs, you need to answer the questions below:
 
 2. Are the resources you want to filter traffic to/from connected to subnets in existing VNets or will they be connected to new VNets or subnets?
  
-For more information on planning for network security in Azure, read the [best practices for cloud services and network security](best-practices-network-security.md). 
+For more information on planning for network security in Azure, read the [best practices for cloud services and network security](../best-practices-network-security.md). 
 
 ## Design considerations
 
