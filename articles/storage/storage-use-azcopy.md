@@ -44,59 +44,49 @@ The basic syntax for AzCopy commands is:
 
 Open a command window and navigate to the AzCopy installation directory on your computer, where the `AzCopy.exe` executable is located. The examples below demonstrate a variety of scenarios for copying blobs with AzCopy. Look at the [AzCopy Options](#azcopy-options) section for a detailed explanation of the options used in each sample.
 
-**Upload a single file to Blob storage:**
+### Upload a single file to a blob container
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:"abc.txt"
 
-**Download a single from Blob Storage:**
+>If the specified destination container does not exist, AzCopy will create it and upload the file into it.
 
-	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
-
-### Copy a blob via server-side copy
-
-When you copy a blob within a storage account or across storage accounts, a server-side copy operation is performed. For more information about server-side copy operations, see [Introducing Asynchronous Cross-Account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
-
-**Copy a blob within a storage account:**
-
-	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt
-
-**Copy a blob across storage accounts:**
-
-	AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
-
-### Copy a blob from the secondary region
-
-If your storage account has read-access geo-redundant storage enabled, then you can copy data from the secondary region.
-
-**Copy a blob to the primary account from the secondary:**
-
-	AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
-
-**Download a blob in the secondary to a file in the file system:**
-
-	AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
-
-### Upload a file to a new blob container or virtual directory
-
-**Upload a file to a new blob container**
-
-	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mynewcontainer /DestKey:key /Pattern:abc.txt
-
-Note that if the specified destination container does not exist, AzCopy will create it and upload the file into it.
-
-**Upload a file to a new blob virtual directory**
+### Upload a single file to a blob container virtual directory
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 
-Note that if the specified virtual directory does not exist, AzCopy will upload the file to include the virtual directory in its name (*e.g.*, `vd/abc.txt` in the example above).
+>If the specified virtual directory does not exist, AzCopy will upload the file to include the virtual directory in its name (*e.g.*, `vd/abc.txt` in the example above).
 
-### Download a blob to a new folder
+### Download a single blob
 
-	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 
-If the folder `C:\myfolder` does not yet exist, AzCopy will create it in the file system and download `abc.txt ` into the new folder.
+>If the folder `C:\myfolder` does not exist, AzCopy will create it and download `abc.txt ` into the new folder.
 
-### Upload files and subfolders in a directory to a container, recursively
+### Copy a blob within a Storage account
+
+	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt
+
+>When you copy a blob within a Storage account, a [server-side copy]((http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)) operation is performed.
+
+### Copy a blob across Storage accounts
+
+	AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
+
+>When you copy a blob across Storage accounts, a [server-side copy]((http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)) operation is performed.
+
+### Copy a blob from secondary region to primary region
+
+	AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
+
+>You must have read-access geo-redundant storage enabled.
+
+### Download a blob from a secondary region
+
+	AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+
+>You must have read-access geo-redundant storage enabled.
+
+### Upload all files and subfolders to a blob container
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /S
 
@@ -110,31 +100,19 @@ Specifying option `/S` copies the contents of the specified directory to Blob st
 
 After the copy operation, the container will include the following files:
 
-    abc.txt
-    abc1.txt
-    abc2.txt
-    subfolder\a.txt
-    subfolder\abcd.txt
+  	abc.txt
+	abc1.txt
+	abc2.txt
+	subfolder\a.txt
+	subfolder\abcd.txt
 
-### Upload files from a directory to a container, non-recursively
-
-	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key
-
-If you do not specify option `/S` on the command line, AzCopy will not copy recursively. Only the files in the specified directory are copied; any subfolders and their files are NOT copied. For instance, assume the following files reside in folder `C:\myfolder`:
-
-	C:\myfolder\abc.txt
-	C:\myfolder\abc1.txt
-	C:\myfolder\abc2.txt
-	C:\myfolder\subfolder\a.txt
-	C:\myfolder\subfolder\abcd.txt
-
-After the copy operation, the container will include the following files:
+If you do not specify option `/S` on the command line, AzCopy will not copy recursively. After the copy operation, the container will include the following files:
 
 	abc.txt
 	abc1.txt
 	abc2.txt
 
-### Download all blobs in a container to a directory in the file system, recursively
+### Download all blobs from a blob container
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /S
 
@@ -153,6 +131,12 @@ After the copy operation, the directory `C:\myfolder` will include the following
 	C:\myfolder\abc2.txt
 	C:\myfolder\vd1\a.txt
 	C:\myfolder\vd1\abcd.txt
+
+If you do not specify option `/S` on the command line, AzCopy will will only copy blobs that don't reside in a virtual directory:
+
+	C:\myfolder\abc.txt
+	C:\myfolder\abc1.txt
+	C:\myfolder\abc2.txt
 
 ### Download blobs in a virtual blob directory to a directory in the file system, recursively
 
