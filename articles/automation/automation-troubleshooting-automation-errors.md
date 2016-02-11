@@ -22,7 +22,6 @@ This article explains some of the common errors you might experience when workin
 
 ## Troubleshoot authentication errors when working with Azure Automation runbooks  
 
-
 ### Scenario: Sign in to Azure Account failed
 
 **Error:** 
@@ -42,18 +41,18 @@ In order to determine what's wrong, take the following steps:
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount – Credential $Cred
+        Login-AzureRmAccount –Credential $Cred
 
-3. If your authentication fails locally, this means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Active Directory account set up correctly.    
+3. If your authentication fails locally, this means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.  
 
-
+  <br/>
 ### Scenario: Unable to find the Azure subscription
 
 **Error:**
 You receive the error "The subscription named ``<subscription name>`` cannot be found" when working with the Select-AzureSubscription or Select-AzureRmSubscription cmdlets.
 
 **Reason for the error:** 
-This error occurs if the subscription name is not valid or if the active directory user who is trying get the subscription details is not configured as an admin of the subscription.
+This error occurs if the subscription name is not valid or if the Azure Active Directory user who is trying to get the subscription details is not configured as an admin of the subscription.
 
 **Troubleshooting tips:** 
 In order to determine if you have properly authenticated to Azure and have access to the subscription you are trying to select, take the following steps:  
@@ -64,24 +63,21 @@ In order to determine if you have properly authenticated to Azure and have acces
     * If you don't see any subscription details in the output, this means that the subscription isn’t initialized yet.  
     * If you do see the subscription details in the output, confirm that you are using the correct subscription name or ID with the **Select-AzureSubscription** cmdlet.   
 
-
-
+  <br/>
 ### Scenario: Authentication to Azure failed because multi-factor authentication is enabled
 
 **Error:** 
 You receive the error “Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required” when authenticating to Azure with your Azure username and password.
 
 **Reason for the error:** 
-If you have multi-factor authentication on your Azure account, you can't use an Active Directory user to authenticate to Azure.  Instead, you need to use a certificate or a service principal to authenticate to Azure.
+If you have multi-factor authentication on your Azure account, you can't use an Azure Active Directory user to authenticate to Azure.  Instead, you need to use a certificate or a service principal to authenticate to Azure.
 
 **Troubleshooting tips:** 
 To use a certificate with the Azure Service Management cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](./resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](./resource-group-authenticate-service-principal.md)
 
-
-
-## Troubleshoot common errors when working with runbooks 
-
-### Scenario: Cannot bind parameters when executing a runbook
+  <br/>
+## Troubleshoot common errors when working with runbooks  
+### Scenario: Runbook fails because of deserialized object
 
 **Error:** 
 Your runbook fails with the error "Cannot bind parameter ``<ParameterName>``. Cannot convert the ``<ParameterType>`` value of type Deserialized ``<ParameterType>`` to type ``<ParameterType>``". 
@@ -97,7 +93,7 @@ Any of the following three solutions will fix this problem:
 
 3. Use a PowerShell runbook instead of a PowerShell Workflow runbook.  
 
-
+  <br/>
 ### Scenario: Runbook job failed because the allocated quota exceeded
 
 **Error:** 
@@ -114,7 +110,7 @@ If you want to use more than 500 minutes of processing per month you will need t
 3. Click on **Settings** > **Pricing tier and Usage** > **Pricing tier**  
 4. On the **Choose your pricing tier** blade, select **Basic**    
 
-
+  <br/>
 ### Scenario: Cmdlet not recognized when executing a runbook
 
 **Error:** 
@@ -132,7 +128,9 @@ Any of the following solutions will fix the problem:
 
 - If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this by using the fully qualified name for the cmdlet. For example, you can use **ModuleName\CmdletName**.  
 
+- If you are executing the runbook on-premises in a hybrid worker group, then make sure that the module/cmdlet is installed on the machine that hosts the hybrid worker.
 
+  <br/>
 ## Troubleshoot common errors when importing modules 
 
 ### Scenario: Module fails to import or cmdlets can't be executed after importing
@@ -161,7 +159,7 @@ ModuleName.Zip **->** ModuleName or Version Number **->** (ModuleName.psm1, Modu
 
 - Make sure that any referenced .dlls are present in the module folder.  
 
-
+  <br/>
 
 ## Next steps
 
