@@ -293,7 +293,7 @@ If you created a VM using a .pem file created from your `~/.ssh/id_rsa` file, yo
 
 ## If you have trouble connecting
 
-You can read the suggestions at [Troubleshooting SSH Connections](virtual-machines-troubleshoot-ssh-connections.md) to see if they can help resolve the situation.
+You can read the suggestions at [Troubleshooting SSH Connections](virtual-machines-linux-troubleshoot-ssh-connection.md) to see if they can help resolve the situation.
 
 ## Next steps
  

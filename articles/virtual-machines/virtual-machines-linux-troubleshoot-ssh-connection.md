@@ -167,7 +167,7 @@ Make sure to replace the values of $RGName, $VmName, $Location, and the SSH cred
 
 If the SSH client still cannot reach the SSH service on the virtual machine, it can be due to many reasons. Here are the components involved.
 
-![Diagram that shows components of SSH service](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot1.png)
+![Diagram that shows components of SSH service](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot1.png)
 
 The following sections will help you isolate the source of the failure and figure out solutions or workarounds.
 
@@ -206,7 +206,7 @@ The SSH client on your computer could fail to reach the SSH service on the Azure
 
 To eliminate your computer as the source of the failure, check that it can make SSH connections to another on-premises, Linux-based computer.
 
-![Diagram that highlights SSH client computer component](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot2.png)
+![Diagram that highlights SSH client computer component](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot2.png)
 
 If this fails, check for these on your computer:
 
@@ -228,7 +228,7 @@ If you are using certificate authentication, verify that you have these permissi
 
 To eliminate your organization edge device as the source of failure, check that a computer directly connected to the Internet can make SSH connections to your Azure VM. If you are accessing the VM over a site-to-site VPN or ExpressRoute connection, skip to [Source 4: Network security groups](#nsg).
 
-![Diagram that highlights organization edge device](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot3.png)
+![Diagram that highlights organization edge device](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
 If you do not have a computer that is directly connected to the Internet, you can easily create a new Azure virtual machine in its own resource group or cloud service and use it. For more information, see [Create a virtual machine running Linux in Azure](virtual-machines-linux-tutorial.md). Delete the resource group or virtual machine and cloud service when you are done with your testing.
 
@@ -246,7 +246,7 @@ Work with your network administrator to correct the settings of your organizatio
 
 To eliminate the cloud service endpoint and ACL as the source of the failure, for VMs created using the [classic deployment model](../resource-manager-deployment-model.md), check that another Azure VM in the same virtual network can make SSH connections to your VM.
 
-![Diagram that highlights cloud service endpoint and ACL](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
+![Diagram that highlights cloud service endpoint and ACL](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
 If you do not have another VM in the same virtual network, you can easily create a new one. For more information, see [Create a virtual machine running Linux in Azure](virtual-machines-linux-tutorial.md). Delete the extra VM when you are done with your testing.
 
@@ -267,7 +267,7 @@ For more information, see [About network security groups](../virtual-network/vir
 
 The last source of possible problems is the Azure virtual machine itself.
 
-![Diagram that highlights Linux-based Azure virtual machine](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot5.png)
+![Diagram that highlights Linux-based Azure virtual machine](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
 If you have not done so already, follow the instructions [to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) on the virtual machine.
 
