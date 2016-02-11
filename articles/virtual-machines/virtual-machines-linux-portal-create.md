@@ -45,7 +45,7 @@ Go to the Azure Marketplace in the Preview portal to find the Windows Server VM 
 
 2. On the Hub menu, click **New** > **Compute** > **Ubuntu Server 14.04 LTS**.
 
-	![choosing a VM image](media/virtual-machines-linux-tutorial-portal-rm/chooseubuntuvm.png)
+	![choosing a VM image](media/virtual-machines-linux-portal-create/chooseubuntuvm.png)
 
 	> [AZURE.TIP] To find additional images, click **Marketplace** and then search or filter for available items.
 
