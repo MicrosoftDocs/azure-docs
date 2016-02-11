@@ -81,7 +81,7 @@ In the form fields, enter the base64-encoded versions of your CA Certificate, yo
 ## Add the Docker Communication Endpoint
 When viewing your VM in the resource group you've created, scroll down to click **Endpoints** to view the endpoints on the VM as shown here.
 
-![](./media/virtual-machines-docker-with-portal/AddingEndpoint.png)
+![](./media/virtual-machines-linux-classic-portal-use-docker/AddingEndpoint.png)
 
 Click **+ Add** to add another endpoint, and in the default case, enter a name for the endpoint (in this example, **docker**), and 2376 for both private and public ports. Leave the protocol value showing **TCP**, and Click **OK** to create the endpoint.
 
