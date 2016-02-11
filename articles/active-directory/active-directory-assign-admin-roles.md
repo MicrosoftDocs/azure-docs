@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="02/11/2016"
 	ms.author="curtand"/>
 
 # Assigning administrator roles in Azure Active Directory (Azure AD)
@@ -71,17 +71,30 @@ The global administrator has access to all administrative features. By default, 
 
 ## Assign or remove administrator roles
 
-
 1. In the Azure classic portal, click **Active Directory**, and then click the name of your organization’s directory.
+
 2. On the **Users** page, click the display name of the user you want to edit.
+
 3. In the **Organizational Role** list, select the administrator role that you want to assign to this user, or select **User** if you want to remove an existing administrator role.
+
 4. In the **Alternate Email Address** box, type an email address. This email address is used for important notifications, including password self-reset, so the user must be able to access the email account whether or not the user can access Azure.
+
 5. Select **Allow** or **Block** to specify whether to allow the user to sign in and access services.
+
 6. Specify a location from the **Usage Location** drop-down list.
+
 7. When you have finished, click **Save**.
 
-## What's next
+## Next Steps
 
-- [Manage users](../active-directory-create-users.md)
+- To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
+
+- To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
+
+- For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated directory.md)
+
+- [Manage users](active-directory-create-users.md)
+
 - [Manage passwords](active-directory-manage-passwords.md)
+
 - [Manage groups](active-directory-manage-groups.md)
