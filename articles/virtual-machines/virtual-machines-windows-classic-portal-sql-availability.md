@@ -316,7 +316,7 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 
 1. In the left pane, right-click **Failover Cluster Manager**, and then click **Create a Cluster**, as shown below.
 
-	![Create Cluster](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784632.png)
+	![Create Cluster](./media/virtual-machines-windows-classic-portal-sql-availability/IC784632.png)
 
 1. In the Create Cluster Wizard, create a one-node cluster by stepping through the pages with the settings below:
 
