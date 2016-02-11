@@ -256,13 +256,8 @@ This section starts with a blog entry containing a series of videos on [Video: A
 	- [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
 	- [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-xplat-cli.md)
 	- [Using the Docker VM Extension from the Azure portal](virtual-machines-docker-with-portal.md)
-<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-opensource.md
-	- [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
-	- [How to use docker-machine on Azure](virtual-machines-linux-classic-docker-machine.md)
-=======
 	- [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
-	- [How to use docker-machine on Azure](virtual-machines-docker-machine.md)
->>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-opensource-links.md
+	- [How to use docker-machine on Azure](virtual-machines-linux-classic-docker-machine.md)
 	- [How to use docker with swarm on Azure](virtual-machines-docker-swarm.md)
 	- [Get Started with Docker and Compose on Azure](virtual-machines-linux-docker-compose-quickstart.md)
 
