@@ -643,7 +643,7 @@ exit ${RTNSTS}
 [step_variables]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/step_variables.png
 [data_files]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/data_files.png
 [decompose]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/decompose.png
-[job_details]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_details.png
+[job_details]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/job_details.png
 [job_resources]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_resources.png
 [task_details1]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details1.png
 [task_dependencies]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_dependencies.png
