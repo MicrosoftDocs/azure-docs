@@ -213,4 +213,4 @@ Go to the [Docker user guide](https://docs.docker.com/userguide/) and create som
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
-[Docker Swarm on Azure]: virtual-machines-docker-swarm.md
+[Docker Swarm on Azure]: virtual-machines-linux-docker-swarm.md
