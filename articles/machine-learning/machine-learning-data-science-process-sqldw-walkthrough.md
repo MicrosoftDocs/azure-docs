@@ -3,7 +3,7 @@
 	description="Advanced Analytics Process and Technology in Action"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,hangzh,weig"
+	authors="bradsev,hangzh-msft,wguo123"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
-	ms.author="bradsev;hangzh;wguo123"/>
+	ms.date="02/05/2016" 
+	ms.author="bradsev;hangzh;weig"/>
 
 
 # The Cortana Analytics Process in action: using SQL Data Warehouse
@@ -29,6 +29,7 @@ The procedure follows the [Cortana Analytics Process (CAP)](https://azure.micros
 The NYC Taxi Trip data consists of about 20GB of compressed CSV files (~48GB uncompressed), recording more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and drop-off locations and times, anonymized hack (driver's) license number, and the medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
 
 1. The **trip_data.csv** file contains trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
+
 		medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
 		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
 		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
@@ -357,7 +358,7 @@ These queries provide a quick verification of the number of rows and columns in 
 	-- Report number of columns in table <nyctaxi_trip>
 	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
 
-You should get 173,179,759 rows and 14 columns.
+**Output:** You should get 173,179,759 rows and 14 columns.
 
 ### Exploration: Trip distribution by medallion
 
@@ -369,7 +370,7 @@ This example query identifies the medallions (taxi numbers) that completed more 
 	GROUP BY medallion
 	HAVING COUNT(*) > 100
 
-The query should return 13,369 medallions.
+**Output:** The query should return a table with rows specifying the 13,369 medallions (taxis) and the number of trip completed by them in 2013. The last column contains the count of the number of trips completed.
 
 ### Exploration: Trip distribution by medallion and hack_license
 
@@ -380,6 +381,8 @@ This example identifies the medallions (taxi numbers) and hack_license numbers (
 	WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
 	GROUP BY medallion, hack_license
 	HAVING COUNT(*) > 100
+
+**Output:** The query should return a table with 13,369 rows specifying the 13,369 car/driver IDs that have completed more that 100 trips in 2013. The last column contains the count of the number of trips completed.
 
 ### Data quality assessment: Verify records with incorrect longitude and/or latitude
 
@@ -394,9 +397,11 @@ This example investigates if any of the longitude and/or latitude fields either 
 	OR    (pickup_longitude = '0' AND pickup_latitude = '0')
 	OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
+**Output:** The query returns 837,467 trips that have invalid longitude and/or latitude fields.
+
 ### Exploration: Tipped vs. not tipped trips distribution
 
-This example finds the number of trips that were tipped vs. the number that were not tipped in a specified time period (or in the full dataset if covering the full year). This distribution reflects the binary label distribution to be later used for binary classification modeling.
+This example finds the number of trips that were tipped vs. the number that were not tipped in a specified time period (or in the full dataset if covering the full year as it is set up here). This distribution reflects the binary label distribution to be later used for binary classification modeling.
 
 	SELECT tipped, COUNT(*) AS tip_freq FROM (
 	  SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
@@ -404,7 +409,7 @@ This example finds the number of trips that were tipped vs. the number that were
 	  WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tipped
 
-The query should return the following tip frequencies: 90,447,622 tipped and 82,264,709 not-tipped.
+**Output:** The query should return the following tip frequencies for the year 2013: 90,447,622 tipped and 82,264,709 not-tipped.
 
 ### Exploration: Tip class/range distribution
 
@@ -422,6 +427,16 @@ This example computes the distribution of tip ranges in a given time period (or 
 	WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tip_class
 
+**Output:**
+
+|tip_class	| tip_freq |
+| --------- | -------|
+|1	| 82230915 |
+|2	| 6198803 |
+|3	| 1932223 |
+|0	| 82264625 |
+|4	| 85765 |
+
 ### Exploration: Compute and compare trip distance
 
 This example converts the pickup and drop-off longitude and latitude to SQL geography points, computes the trip distance using SQL geography points difference, and returns a random sample of the results for comparison. The example limits the results to valid coordinates only using the data quality assessment query covered earlier.
@@ -437,7 +452,7 @@ This example converts the pickup and drop-off longitude and latitude to SQL geog
 	  DROP FUNCTION fnCalculateDistance
 	GO
 
-	-- User-defined function calculate the direct distance between two geographical coordinates.
+	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 	
 	RETURNS float
@@ -517,6 +532,16 @@ Here is an example to call this function to generate features in your SQL query:
 	AND CAST(pickup_latitude AS float) BETWEEN -90 AND 90
 	AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
 	AND pickup_longitude != '0' AND dropoff_longitude != '0'
+
+**Output:** This query generates a table (with 2,803,538 rows) with pickup and dropoff latitudes and longitudes and the corresponding direct distances in miles. Here are the results for first 3 rows:
+
+||pickup_latitude | pickup_longitude	| dropoff_latitude |dropoff_longitude | DirectDistance |
+|---| --------- | -------|-------| --------- | -------|
+|1	| 40.731804 | -74.001083 | 40.736622 | -73.988953 | .7169601222 |
+|2	| 40.715794 | -74,010635 | 40.725338 | -74.00399 | .7448343721 |
+|3	| 40.761456 | -73.999886 | 40.766544 | -73.988228 | 0.7037227967 |
+
+
 
 ### Prepare data for model building
 

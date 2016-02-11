@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -153,10 +153,10 @@ Allowed operators
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## Extension attributes and custom attributes
-Extension attributes and custom attributes are supported in dynamic membership rules. 
+Extension attributes and custom attributes are supported in dynamic membership rules.
 
 Extension attributes are synced from on premise Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15.
-An example of a rule that uses an extension attribute would be 
+An example of a rule that uses an extension attribute would be
 
 (user.extensionAttribute15 -eq "Marketing")
 
@@ -173,11 +173,11 @@ To configure a group as a “Manager” group
 --------------------------------------------------------------------------------
 1. On the Administrator portal, click the **Configure** tab, and then select **ADVANCED RULE**.
 2. Type the rule with the following syntax:
-Direct Reports for *Direct Reports for {UserID_of_manager}*. An example of a valid rule for Direct Reports is 
+Direct Reports for *Direct Reports for {UserID_of_manager}*. An example of a valid rule for Direct Reports is
 
-Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863” 
+Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
-where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the AAD Admin Portal on the profile tab of the user page of the user that is the manager. 
+where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the AAD Admin Portal on the profile tab of the user page of the user that is the manager.
 
 3. When saving this rule, all users that satisfy the rule will be joined as members of the group. Note that it can take some minutes for the group to initially populate.
 
@@ -188,6 +188,8 @@ These articles provide additional information on Azure Active Directory.
 * [Troubleshooting dynamic memberships for groups](active-directory-accessmanagement-troubleshooting.md)
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
 * [What is Azure Active Directory?](active-directory-whatis.md)
 
