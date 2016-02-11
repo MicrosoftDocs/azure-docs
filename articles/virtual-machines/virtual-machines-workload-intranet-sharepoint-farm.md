@@ -82,7 +82,7 @@ To deploy this configuration, use the following process:
 
 - Phase 2: Configure the domain controllers.
 
-	Configure two Active Directory replica domain controllers and DNS settings for the virtual network. For the detailed configuration steps, see [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md).
+	Configure two Active Directory replica domain controllers and DNS settings for the virtual network. For the detailed configuration steps, see [Phase 2](virtual-machines-windows-ps-sp-intranet-ph2.md).
 
 - Phase 3: Configure the SQL Server infrastructure.  
 

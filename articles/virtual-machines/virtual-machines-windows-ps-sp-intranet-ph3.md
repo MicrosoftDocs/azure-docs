@@ -39,7 +39,7 @@ Use the following block of PowerShell commands to create the virtual machines fo
 - Table ST, for your storage accounts
 - Table A, for your availability sets
 
-Recall that you defined Table M in [Phase 2: Configure Domain Controllers](virtual-machines-workload-intranet-sharepoint-phase2.md) and Tables V, S, ST, and A in [Phase 1: Configure Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
+Recall that you defined Table M in [Phase 2: Configure Domain Controllers](virtual-machines-windows-ps-sp-intranet-ph2.md) and Tables V, S, ST, and A in [Phase 1: Configure Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 > [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
@@ -128,9 +128,9 @@ After they restart, reconnect to them using an account that has local administra
 
 For each SQL server, do the following:
 
-1. Use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) to log on using the credentials of the local administrator account.
+1. Use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-windows-ps-sp-intranet-ph2.md#logon) to log on using the credentials of the local administrator account.
 
-2. Use the [To initialize an empty disk procedure](virtual-machines-workload-intranet-sharepoint-phase2.md#datadisk) twice, once for each SQL server, to add the extra data disk.
+2. Use the [To initialize an empty disk procedure](virtual-machines-windows-ps-sp-intranet-ph2.md#datadisk) twice, once for each SQL server, to add the extra data disk.
 
 3. Run the following commands from a Windows PowerShell command prompt.
 
@@ -138,7 +138,7 @@ For each SQL server, do the following:
 		md f:\Log
 		md f:\Backup
 
-4. Use the [To test connectivity procedure](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) to test connectivity to locations on your organization network. This procedure ensures that DNS name resolution is working correctly (that the virtual machine is correctly configured with DNS servers in the virtual network) and that packets can be sent to and from the cross-premises virtual network.
+4. Use the [To test connectivity procedure](virtual-machines-windows-ps-sp-intranet-ph2.md#testconn) to test connectivity to locations on your organization network. This procedure ensures that DNS name resolution is working correctly (that the virtual machine is correctly configured with DNS servers in the virtual network) and that packets can be sent to and from the cross-premises virtual network.
 
 Use the following procedure twice, once for each SQL server, to configure the SQL server to use the F: drive for new databases and for accounts and permissions.
 
@@ -175,9 +175,9 @@ For information about optimizing SQL Server performance in Azure, see [Performan
 
 ## Configure the cluster majority node server
 
-Use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) for the cluster majority node to log on using the credentials of a domain account.
+Use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-windows-ps-sp-intranet-ph2.md#logon) for the cluster majority node to log on using the credentials of a domain account.
 
-On the cluster majority node, use the [To test connectivity procedure](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) to test connectivity to locations on your organization network.
+On the cluster majority node, use the [To test connectivity procedure](virtual-machines-windows-ps-sp-intranet-ph2.md#testconn) to test connectivity to locations on your organization network.
 
 ## Create the Windows server cluster
 

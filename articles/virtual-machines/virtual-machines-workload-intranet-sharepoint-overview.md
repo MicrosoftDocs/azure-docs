@@ -76,7 +76,7 @@ To compute the estimated costs for this configuration, see the [Azure pricing ca
 You deploy this configuration in the following phases:
 
 - [Phase 1: Configure Azure](virtual-machines-workload-intranet-sharepoint-phase1.md). Create a storage account, availability sets, and a cross-premises virtual network.
-- [Phase 2: Configure domain controllers](virtual-machines-workload-intranet-sharepoint-phase2.md). Create and configure replica Active Directory Domain Services (AD DS) domain controllers.
+- [Phase 2: Configure domain controllers](virtual-machines-windows-ps-sp-intranet-ph2.md). Create and configure replica Active Directory Domain Services (AD DS) domain controllers.
 - [Phase 3: Configure SQL Server infrastructure](virtual-machines-windows-ps-sp-intranet-ph3.md). Create and configure the SQL Server virtual machines, prepare them for use with SharePoint, and create the cluster.
 - [Phase 4: Configure SharePoint servers](virtual-machines-workload-intranet-sharepoint-phase4.md). Create and configure the four SharePoint virtual machines.
 - [Phase 5: Create the availability group and add the SharePoint databases](virtual-machines-windows-ps-sp-intranet-ph5.md). Prepare databases and create a SQL Server AlwaysOn availability group.
