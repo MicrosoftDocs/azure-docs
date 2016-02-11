@@ -243,7 +243,7 @@ Shortly after starting the service the cluster should be established in the curr
 
 An output similar to the image below should follow:
 
-![corosync-quorumtool -l sample output](media/virtual-machines-linux-mysql-cluster/image001.png)
+![corosync-quorumtool -l sample output](media/virtual-machines-linux-classic-mysql-cluster/image001.png)
 
 ## Setting up Pacemaker
 
