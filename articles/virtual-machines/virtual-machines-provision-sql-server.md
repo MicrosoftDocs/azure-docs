@@ -157,7 +157,7 @@ The following list provides additional resources for SQL Server in Azure virtual
 ### Recommended resources for SQL Server on Azure VMs:
 - [SQL Server on Azure Virtual Machines Overview](virtual-machines-sql-server-infrastructure-services.md)
 
-- [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-sql-server-connectivity.md)
+- [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-sql-connect.md)
 
 - [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md)
 
