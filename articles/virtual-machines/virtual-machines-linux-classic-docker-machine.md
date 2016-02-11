@@ -207,7 +207,7 @@ Go to the [Docker user guide](https://docs.docker.com/userguide/) and create som
 [nginx]: ./media/virtual-machines-linux-classic-docker-machine/nginxondocker.png
 [portalsettingsitem]: ./media/virtual-machines-linux-classic-docker-machine/portalsettingsitem.png
 [managementcertificatesitem]: ./media/virtual-machines-linux-classic-docker-machine/managementcertificatesitem.png
-[uploaditem]: ./media/virtual-machines-docker-machine/uploaditem.png
+[uploaditem]: ./media/virtual-machines-linux-classic-docker-machine/uploaditem.png
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
