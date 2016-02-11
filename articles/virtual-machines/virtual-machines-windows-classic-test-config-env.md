@@ -179,7 +179,7 @@ Next, to allow traffic for the Ping tool, run this command at an administrator-l
 
 This is your current configuration.
 
-![](./media/virtual-machines-base-configuration-test-environment/BC_TLG02.png)
+![](./media/virtual-machines-windows-classic-test-config-env/BC_TLG02.png)
 
 ## Phase 3: Configure APP1
 
