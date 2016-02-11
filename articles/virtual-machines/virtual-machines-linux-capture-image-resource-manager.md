@@ -37,7 +37,7 @@ For example, you might create a resource group named *MyResourceGroup* in the Ce
 
 After the VM is provisioned and running, you might want to attach and mount a data disk. See instructions [here](virtual-machines-linux-cli-create.md#attach-and-mount-a-disk).
 
-To perform other customizations, you'll need to connect to the VM using an SSH client of your choice. For details, see [Connect to your Azure Linux VM using ssh](virtual-machines-linux-tutorial-portal-rm.md#connect-to-your-azure-linux-vm-using-strongsshstrong).
+To perform other customizations, you'll need to connect to the VM using an SSH client of your choice. For details, see [Connect to your Azure Linux VM using ssh](virtual-machines-linux-portal-create.md#connect-to-your-azure-linux-vm-using-strongsshstrong).
 
 
 ## Capture the VM
