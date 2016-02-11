@@ -39,7 +39,7 @@ Xrdp is an open source RDP server, which allows you to connect your Linux server
 We will use the default endpoint 3389 for Remote Desktop in this doc. So set up 3389 endpoint as Remote Desktop to your Linux VM like below:
 
 
-![image](./media/virtual-machines-linux-remote-desktop/no1.png)
+![image](./media/virtual-machines-linux-classic-remote-desktop/no1.png)
 
 
 if you didn't know how to set up endpoint to your VM, see [guidance](virtual-machines-set-up-endpoints.md).
