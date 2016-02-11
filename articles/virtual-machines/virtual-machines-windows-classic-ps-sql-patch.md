@@ -30,7 +30,7 @@ You can use the [Azure portal](http://go.microsoft.com/fwlink/?LinkID=525040&clc
 
 The following Azure portal screenshot shows these options under **OPTIONAL CONFIGURATION** | **SQL AUTOMATED PATCHING**.
 
-![SQL Automatic Patching in Azure portal](./media/virtual-machines-sql-server-automated-patching/IC778484.jpg)
+![SQL Automatic Patching in Azure portal](./media/virtual-machines-windows-classic-ps-sql-patch/IC778484.jpg)
 
 For existing SQL Server 2012 or 2014 virtual machines, select the **Auto patching** settings in the **Configuration** section of the virtual machine properties. In the **Automated patching** window, you can enable the feature, set the maintenance schedule and start hour, and choose the maintenance window duration. This is shown in the following screenshot.
 
