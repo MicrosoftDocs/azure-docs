@@ -224,7 +224,7 @@ As seen in the diagram, Azure Load Balancer distributes traffic across multiple 
 
 Another approach to implement this application pattern is to use a consolidated web role that contains both presentation tier and business tier components as shown in the following diagram. This application pattern is useful for applications that require stateful design. Since Azure provides stateless compute nodes on web and worker roles, we recommend that you implement a logic to store session state using one of the following technologies: [Azure Caching](https://azure.microsoft.com/documentation/services/redis-cache/), [Azure Table Storage](../storage/storage-dotnet-how-to-use-tables.md) or [Azure SQL Database](../sql-database/sql-database-technical-overview.md).
 
-![Application patterns with Cloud Services](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728014.png)
+![Application patterns with Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 
 ## Pattern with Azure VMs, Azure SQL Database, and Azure Web Apps
 
