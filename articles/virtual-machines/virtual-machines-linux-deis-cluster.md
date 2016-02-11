@@ -26,7 +26,7 @@ This article walks you through provisioning a [Deis](http://deis.io/) cluster on
 
 The following diagram shows the architecture of the deployed system. A system administrator manages the cluster using Deis tools such as **deis** and **deisctl**. Connections are established through an Azure load balancer, which forwards the connections to one of the member nodes on the cluster. The clients access deployed applications through the load balancer as well. In this case, the load balancer forwards the traffic to a Deis router mesh, which further routs traffic to corresponding Docker containers hosted on the cluster.
 
-  ![Architecture diagram of deployed Desis cluster](media/virtual-machines-deis-cluster/architecture-overview.png)
+  ![Architecture diagram of deployed Desis cluster](media/virtual-machines-linux-deis-cluster/architecture-overview.png)
 
 In order to run through the following steps, you'll need:
 
@@ -93,7 +93,7 @@ Each CoreOS cluster needs to have a unique token from this free service. Please 
 
 11. Once the resource group is provisioned, you can see all the resources in the group on Azure classic portal. As shown in the following screenshot, the resource group contains a virtual network with three VMs, which are joined to the same availability set. The group also contains a load balancer, which has an associated public IP.
 
-  ![The provisioned resource group on Azure classic portal](media/virtual-machines-deis-cluster/resource-group.png)
+  ![The provisioned resource group on Azure classic portal](media/virtual-machines-linux-deis-cluster/resource-group.png)
 
 ## Install the client
 
@@ -116,7 +116,7 @@ You need **deisctl** to control your Deis cluster. Although deisctl is automatic
 
 The template defines inbound NAT rules that map 2223 to instance 1, 2224 to instance 2, and 2225 to instance 3. This provides redundancy for using the deisctl tool. You can examine these rules on Azure classic portal:
 
-![NAT rules on the load balancer](media/virtual-machines-deis-cluster/nat-rules.png)
+![NAT rules on the load balancer](media/virtual-machines-linux-deis-cluster/nat-rules.png)
 
 > [AZURE.NOTE] Currently the template only supports 3-node clusters. This is because of a limitation in Azure Resource Manager template NAT rule definition, which doesn’t support loop syntax.
 
@@ -171,7 +171,7 @@ The following steps show how to deploy a "Hello World" Go application to the clu
 
 1. For the routing mesh to work properly, you’ll need to have a wildcard A record for your domain pointing to the public IP of the load balancer. The following screenshot shows the A record for a sample domain registration on GoDaddy:
 
-    ![Godaddy A record](media/virtual-machines-deis-cluster/go-daddy.png)
+    ![Godaddy A record](media/virtual-machines-linux-deis-cluster/go-daddy.png)
 <p />
 2. Install deis:
 
@@ -187,7 +187,7 @@ The following steps show how to deploy a "Hello World" Go application to the clu
 
 4. Add id_rsa.pub, or the public key of your choice, to GitHub. You can do this by using the Add SSH key button in your SSH keys configuration screen:
 
-  ![Github key](media/virtual-machines-deis-cluster/github-key.png)
+  ![Github key](media/virtual-machines-linux-deis-cluster/github-key.png)
 <p />
 5. Register a new user:
 
