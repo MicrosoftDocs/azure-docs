@@ -46,7 +46,7 @@ See [Miscellaneous considerations for Oracle virtual machine images](virtual-mac
 
 ## Prepare an Oracle Linux virtual machine
 
-[Prepare an Oracle Linux virtual machine for Azure](virtual-machines-prepare-oracle-linux-virtual-machine.md) steps you through the prerequisites and virtual machine creation for Oracle Linux 6.4+ and Oracle Linux 7.0+.
+[Prepare an Oracle Linux virtual machine for Azure](virtual-machines-linux-prepare-oracle.md) steps you through the prerequisites and virtual machine creation for Oracle Linux 6.4+ and Oracle Linux 7.0+.
 
 ## Oracle Data Guard
 
