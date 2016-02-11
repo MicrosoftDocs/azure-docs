@@ -97,7 +97,7 @@ The following example shows you how you can create a virtual machine (VM) based 
 
 	d. **Step 4:** Review the **Create Database – Summary** options, and then click **Finish**.
 
-		![](media/virtual-machines-creating-oracle-database-virtual-machine/image7.png)
+		![](media/virtual-machines-windows-classic-create-oracle-database/image7.png)
 	e. **Step 5:** The **Progress Page** will report the status of your database creation.
 
 		![](media/virtual-machines-creating-oracle-database-virtual-machine/image8.png)
