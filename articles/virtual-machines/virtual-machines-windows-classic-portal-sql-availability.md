@@ -46,7 +46,7 @@ At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will cons
 
 The figure below is a graphical representation of the solution.
 
-![Test Lab Architecture for AG in Azure](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC791912.png)
+![Test Lab Architecture for AG in Azure](./media/virtual-machines-windows-classic-portal-sql-availability/IC791912.png)
 
 Note that this is one possible configuration. For example, you can minimize the number of VMs for a two-replica availability group in order to save on compute hours in Azure by using the domain controller as the quorum file share witness in a 2-node WSFC cluster. This method reduces the VM count by one from the above configuration.
 
