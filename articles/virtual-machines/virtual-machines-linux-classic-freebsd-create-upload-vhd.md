@@ -112,7 +112,7 @@ You need a storage account in Azure to upload a .vhd file so it can be used in A
 
 3. Click **Data Services** > **Storage** > **Quick Create**.
 
-	![Quick create a storage account](./media/virtual-machines-freebsd-create-upload-vhd/Storage-quick-create.png)
+	![Quick create a storage account](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Storage-quick-create.png)
 
 4. Fill out the fields as follows:
 
@@ -122,24 +122,24 @@ You need a storage account in Azure to upload a .vhd file so it can be used in A
 
 	- Decide whether to use **geo-replication** for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location. The secondary location is assigned automatically, and can't be changed. If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication. However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount. More details on managing geo-replication of Storage accounts can be found here: [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
 
-	![Enter storage account details](./media/virtual-machines-freebsd-create-upload-vhd/Storage-create-account.png)
+	![Enter storage account details](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Storage-create-account.png)
 
 
 5. Click **Create Storage Account**. The account now appears under **Storage**.
 
-	![Storage account successfully created](./media/virtual-machines-freebsd-create-upload-vhd/Storagenewaccount.png)
+	![Storage account successfully created](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Storagenewaccount.png)
 
 6. Next, create a container for your uploaded VHDs. Click the storage account name and then click **Containers**.
 
-	![Storage account detail](./media/virtual-machines-freebsd-create-upload-vhd/storageaccount_detail.png)
+	![Storage account detail](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/storageaccount_detail.png)
 
 7. Click **Create a Container**.
 
-	![Storage account detail](./media/virtual-machines-freebsd-create-upload-vhd/storageaccount_container.png)
+	![Storage account detail](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/storageaccount_container.png)
 
 8. Type a **Name** for your container and select the **Access** policy.
 
-	![Container name](./media/virtual-machines-freebsd-create-upload-vhd/storageaccount_containervalues.png)
+	![Container name](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/storageaccount_containervalues.png)
 
     > [AZURE.NOTE] By default, the container is private and can be accessed only by the account owner. To allow public read access to the blobs in the container, but not the container properties and metadata, use the "Public Blob" option. To allow full public read access for the container and blobs, use the "Public Container" option.
 
@@ -156,7 +156,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 	This command opens a sign-in window so you can sign with your work or school account.
 
-	![PowerShell Window](./media/virtual-machines-freebsd-create-upload-vhd/add_azureaccount.png)
+	![PowerShell Window](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/add_azureaccount.png)
 
 3. Azure authenticates and saves the credential information, and then closes the window.
 
@@ -169,7 +169,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 3. A browser window opens and prompts you to download a .publishsettings file. It contains information and a certificate for your Microsoft Azure subscription.
 
-	![Browser download page](./media/virtual-machines-freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
+	![Browser download page](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 
 3. Save the .publishsettings file.
 
@@ -202,12 +202,12 @@ After you upload the .vhd, you can add it as an image to the list of custom imag
 
 2. After you complete the previous steps, the new image is listed when you choose the **Images** tab on the Azure classic portal.  
 
-    ![add image](./media/virtual-machines-freebsd-create-upload-vhd/addfreebsdimage.png)
+    ![add image](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/addfreebsdimage.png)
 
 3. Create a virtual machine from gallery. This new image is now available under **My Images**. Select the new image and go through the prompts to set up a hostname, password/SSH key and etc.
 
-	![custom image](./media/virtual-machines-freebsd-create-upload-vhd/createfreebsdimageinazure.png)
+	![custom image](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/createfreebsdimageinazure.png)
 
 4. Once provisioning has completed, you will see your FreeBSD VM running in Azure.
 
-	![freebsd image in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
+	![freebsd image in azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
