@@ -23,7 +23,7 @@
 
 In this phase of deploying a high availability line of business application in Azure infrastructure services, you build out the web servers and load your line of business application on them.
 
-You must complete this phase before moving on to [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md). See [Deploy a high-availability line of business application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) for all of the phases.
+You must complete this phase before moving on to [Phase 5](virtual-machines-windows-ps-lob-ph5.md). See [Deploy a high-availability line of business application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) for all of the phases.
 
 ## Create the web server virtual machines in Azure
 
@@ -41,7 +41,7 @@ Specify the values for the variables, removing the < and > characters. Note that
 - Table ST, for your storage accounts
 - Table A, for your availability sets
 
-Recall that you defined Table M in [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) and Tables V, S, ST, and A in [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Recall that you defined Table M in [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) and Tables V, S, ST, and A in [Phase 1](virtual-machines-windows-ps-lob-ph1.md).
 
 When you have supplied all the proper values, run the resulting block at the Azure PowerShell command prompt.
 
@@ -150,4 +150,4 @@ This diagram is the configuration resulting from the successful completion of th
 
 ## Next Step
 
-- Use [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md) to complete the configuration of this workload.
+- Use [Phase 5](virtual-machines-windows-ps-lob-ph5.md) to complete the configuration of this workload.

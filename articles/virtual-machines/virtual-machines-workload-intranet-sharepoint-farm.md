@@ -86,7 +86,7 @@ To deploy this configuration, use the following process:
 
 - Phase 3: Configure the SQL Server infrastructure.  
 
-	Prepare the SQL Server virtual machines for use with SharePoint and create the SQL Server cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-workload-intranet-sharepoint-phase3.md).
+	Prepare the SQL Server virtual machines for use with SharePoint and create the SQL Server cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-windows-ps-sp-intranet-ph3.md).
 
 - Phase 4: Configure the SharePoint servers.
 
@@ -94,7 +94,7 @@ To deploy this configuration, use the following process:
 
 - Phase 5: Create an AlwaysOn Availability Group.
 
-	Prepare the SharePoint databases, create an AlwaysOn Availability Group, and then add the SharePoint databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-workload-intranet-sharepoint-phase5.md).
+	Prepare the SharePoint databases, create an AlwaysOn Availability Group, and then add the SharePoint databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-windows-ps-sp-intranet-ph5.md).
 
 Once configured, you can expand this SharePoint farm with guidance from [Microsoft Azure architectures for SharePoint 2013](http://technet.microsoft.com/library/dn635309.aspx).
 
