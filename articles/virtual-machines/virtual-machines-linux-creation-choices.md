@@ -93,7 +93,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [Creating a virtual machine for a website with Visual Studio]: virtual-machines-dotnet-create-visual-studio-powershell.md
 [Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries]: virtual-machines-arm-deployment.md
 
-[Log On to the Virtual Machine]: virtual-machines-linux-how-to-log-on.md
+[Log On to the Virtual Machine]: virtual-machines-linux-classic-log-on.md
 
 [Attach a Data Disk]: virtual-machines-linux-classic-attach-disk.md
 

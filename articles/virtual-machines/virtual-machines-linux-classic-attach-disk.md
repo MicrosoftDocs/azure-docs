@@ -178,4 +178,4 @@ You can use the same instructions to initialize multiple data disks, using the r
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
-[Logon]: virtual-machines-linux-how-to-log-on.md
+[Logon]: virtual-machines-linux-classic-log-on.md
