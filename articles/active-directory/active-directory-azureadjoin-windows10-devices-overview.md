@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Windows 10 for the enterprise: Ways to use devices for work | Microsoft Azure"
-	description="Overview of deploying Windows 10 devices for enterprises, and how to integrate with Azure Active Directory for the Windows cloud, contrasting the different ways a device can be provisioned and used in an enterprise through the Azure Portal."
+	description="Overview of deploying Windows 10 devices for enterprises, and how to integrate with Azure Active Directory for the Windows cloud. Contrasts the different ways a device can be provisioned and used in an enterprise through the Azure portal."
     keywords="windows cloud, Windows on Azure Active Directory, Windows 10 devices on Azure, Azure Windows devices"
 	services="active-directory"
 	documentationCenter=""
@@ -20,7 +20,7 @@
 
 # Windows 10 for the enterprise: Ways to use devices for work
 
-Windows 10 provides you with the ability to leverage Azure Active Directory. You can connect Windows 10 devices to Azure AD so that users can sign in to Windows with Azure AD accounts or add their Azure IDs to gain access to business apps and resources.
+Windows 10 gives you the ability to leverage Azure Active Directory (Azure AD). You can connect Windows 10 devices to Azure AD so that users can sign in to Windows by using Azure AD accounts or by adding their Azure IDs to gain access to business apps and resources.
 
 ![Azure Active Directory with Windows Cloud](./media/active-directory-azureadjoin/windows10-overview.png)
 
