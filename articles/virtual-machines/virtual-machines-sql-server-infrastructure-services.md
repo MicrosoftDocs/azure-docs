@@ -52,7 +52,7 @@ In order to determine the best virtual machine configuration settings for your S
 
 In addition to reviewing performance best practices, other initial tasks include the following:
 
-- [Review security best practices for SQL Server in Azure VMs](virtual-machines-sql-server-security-considerations.md)
+- [Review security best practices for SQL Server in Azure VMs](virtual-machines-windows-classic-sql-security.md)
 - [Set up connectivity](virtual-machines-sql-server-connectivity-resource-manager.md)
 
 ### Migrate your data
@@ -122,7 +122,7 @@ The following database engine settings are configured. For more settings, examin
 |Feature|Configuration|
 |---|---|
 |Instance|Contains a default (unnamed) instance of the SQL Server Database Engine, listening only on the shared memory protocol|
-|Authentication|By default, Azure selects Windows Authentication during SQL Server virtual machine setup. If you want to use the sa login or create a new SQL Server account, you need to change the authentication mode. For more information, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-security-considerations.md).|
+|Authentication|By default, Azure selects Windows Authentication during SQL Server virtual machine setup. If you want to use the sa login or create a new SQL Server account, you need to change the authentication mode. For more information, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-security.md).|
 |sysadmin|The Azure user who installed the virtual machine is initially the only member of the SQL Server sysadmin fixed server role|
 |Memory|The Database Engine memory is set to dynamic memory configuration|
 |Contained database authentication|Off|
