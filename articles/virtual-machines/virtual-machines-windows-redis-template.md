@@ -387,7 +387,7 @@ In order to create a robust and reusable approach to Resource Manager template d
 
 This diagram describes the relationships between all files downloaded from GitHub for this deployment:
 
-![redis-files](media/virtual-machines-redis-template/redis-files.png)
+![redis-files](media/virtual-machines-windows-redis-template/redis-files.png)
 
 This section steps you through the structure of the azuredeploy.json template for the Redis cluster.
 
