@@ -55,7 +55,7 @@ This topic describes and walks you through the deployment and configuration of a
 
 1. Click **From Gallery**.
 
-	![new vm from gallery](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692020.gif)
+	![new vm from gallery](./media/virtual-machines-windows-classic-ps-sql-report/IC692020.gif)
 
 1. Click **SQL Server 2014 RTM Standard – Windows Server 2012 R2** and then click the arrow to continue.
 
