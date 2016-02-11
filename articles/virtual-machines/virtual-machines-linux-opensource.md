@@ -120,7 +120,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 5. [The basics: Selecting Linux Usernames](virtual-machines-linux-usernames.md)
 6. \[Classic Deployment]: [The basics: Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-how-to-log-on.md)
 7. [The basics: SSH](virtual-machines-linux-use-ssh-key.md)
-8. \[Classic Deployment]: [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
+8. \[Classic Deployment]: [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-classic-reset-access.md)
 9. [The basics: Using Root](virtual-machines-linux-use-root-privileges.md)
 10. \[Classic Deployment]: [The basics: Attaching a Data Disk to a Linux VM](virtual-machines-linux-how-to-attach-disk.md)
 11. \[Classic Deployment]: [The basics: Detaching a Data Disk from a Linux VM](virtual-machines-linux-how-to-detach-disk.md)
@@ -232,7 +232,7 @@ Authentication and encryption are critical topics in software development, and t
 
 4. [The basics: Certificate Use and Management](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 7. [The basics: SSH](virtual-machines-linux-use-ssh-key.md)
-8. [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
+8. [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-classic-reset-access.md)
 9. [The basics: Using Root](virtual-machines-linux-use-root-privileges.md)
 
 ## Linux high performance computing (HPC)
