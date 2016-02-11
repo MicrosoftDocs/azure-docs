@@ -212,7 +212,7 @@ Next, create a shared folder and a text file within the folder on APP1 with thes
 
 This is your current configuration.
 
-![](./media/virtual-machines-base-configuration-test-environment/BC_TLG03.png)
+![](./media/virtual-machines-windows-classic-test-config-env/BC_TLG03.png)
 
 ## Phase 4: Configure CLIENT1
 
