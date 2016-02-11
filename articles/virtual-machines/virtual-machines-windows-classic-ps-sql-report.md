@@ -47,7 +47,7 @@ This topic describes and walks you through the deployment and configuration of a
 
 1. Click **Virtual Machines** in the left pane.
 
-	![microsoft azure virtual machines](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC660124.gif)
+	![microsoft azure virtual machines](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
 
 1. Click **New**.
 
