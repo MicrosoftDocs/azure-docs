@@ -267,6 +267,6 @@ instances added in a “burst to Azure” configuration).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/burst.png
-[iaas]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/iaas.png
+[iaas]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/iaas.png
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
