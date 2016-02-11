@@ -84,7 +84,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 	3.	Click **Next**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image13.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image13.png)
 
 11.	In the **Configure Server Start Mode and JDK** dialog, select **Production Mode**, select the available JDK (or browser to a JDK if desired), and then click **Next**.
 
