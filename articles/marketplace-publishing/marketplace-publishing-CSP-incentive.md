@@ -46,7 +46,7 @@ Specifically notice that there is a **switch to say yes or no** to the "Reseller
 
     ![Profile - Publishers - change boxes][4]
 
-[1]: ./media/marketplace-publishing-CSP-incentive/Profile-stock.png
-[2]: ./media/marketplace-publishing-CSP-incentive/Profile-boxes.png
-[3]: ./media/marketplace-publishing-CSP-incentive/Profile-publishers-boxes.png
-[4]: ./media/marketplace-publishing-CSP-incentive/Profile-publishers-change-boxes.png
+[1]: ./media/marketplace-publishing-csp-incentive/profile-stock.png
+[2]: ./media/marketplace-publishing-csp-incentive/profile-boxes.png
+[3]: ./media/marketplace-publishing-csp-incentive/profile-publishers-boxes.png
+[4]: ./media/marketplace-publishing-csp-incentive/profile-publishers-change-boxes.png
