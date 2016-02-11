@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Every Article on Application Management in Azure Active Directory | Microsoft Azure"
+	pageTitle="Article Index for Application Management in Azure Active Directory | Microsoft Azure"
 	description="Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/11/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Article Index for Application Management in Azure Active Directory
@@ -24,7 +24,7 @@ There is a brief introduction to each major feature area, as well as guidance on
 
 ##Overview Articles
 
-The articles below are good starting points for those who simply want a brief explanation of Azure AD application management features. These topics are explored at depth throughout the rest of this guide.
+The articles below are good starting points for those who simply want a brief explanation of Azure AD application management features.
 
 | Article Guide |   |
 | :---: | --- |
@@ -128,7 +128,7 @@ Automate the creation, maintenance, and removal of user identities in SaaS appli
 
 | Article Guide |   |
 | :---: | --- |
-| Learn about how it works and find answers to common questions | [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md) |
+| Learn about how it works and find answers to common questions | [Automate User Provisioning & Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md) |
 | Configure how information is mapped between Azure AD and your SaaS app | [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | How to enable automated provisioning to any app that supports the SCIM protocol | [Set up Automated User Provisioning to any SCIM-Enabled App](active-directory-scim-provisioning.md) |
 | Get notified of provisioning failures | [Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md) |
