@@ -65,7 +65,7 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 	- In the **CONFIRM PASSWORD** box, retype the password.
 	- Select the appropriate **SIZE** from the drop down list.
 
-	![VM Configuration](./media/virtual-machines-provision-sql-server/4VM-Config.png)
+	![VM Configuration](./media/virtual-machines-windows-classic-portal-sql/4VM-Config.png)
 
 	>[AZURE.NOTE] The size of the virtual machine is specified during provisioning:
  	>
