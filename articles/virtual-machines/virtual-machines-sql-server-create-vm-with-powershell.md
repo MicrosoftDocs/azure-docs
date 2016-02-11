@@ -169,7 +169,7 @@ After logging onto the machine with remote desktop, configure SQL Server based o
 
 You can find additional instructions for provisioning virtual machines with PowerShell in the [virtual machines documentation](virtual-machines-windows-classic-create-powershell.md). For additional scripts related to SQL Server and Premium Storage, see [Use Azure Premium Storage with SQL Server on Virtual Machines](virtual-machines-sql-server-use-premium-storage.md).
 
-In many cases, the next step is to migrate your databases to this new SQL Server VM. For database migration guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md).
+In many cases, the next step is to migrate your databases to this new SQL Server VM. For database migration guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md).
 
 If you're also interested in seeing how to perform these steps from the Azure classic portal, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md).
 

@@ -418,7 +418,7 @@ The following diagram illustrates the ports to open in the VM firewall to allow 
 
 - [How to Attach a Data Disk to a Virtual Machine](virtual-machines-windows-classic-attach-disk.md)
 
-- [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md)
+- [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md)
 
 - [Determine the Server Mode of an Analysis Services Instance](https://msdn.microsoft.com/library/gg471594.aspx)
 
