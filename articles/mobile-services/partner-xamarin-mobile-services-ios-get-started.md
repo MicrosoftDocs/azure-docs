@@ -113,8 +113,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with push notifications]
   Learn how to send a very basic push notification to your app.
 
-* [How to use the Xamarin Component client for Azure Mobile Services](partner-xamarin-mobile-services-how-to-use-client-library.md)
-   Learn how to query the mobile service, work with data, and access custom APIs.
+
 
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]

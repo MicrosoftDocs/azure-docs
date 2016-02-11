@@ -79,7 +79,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Add push notifications to your app][Get started with push notifications]  
   Learn how to send a very basic push notification to your app.
 
-* [How to use the .NET client library](mobile-services-windows-dotnet-how-to-use-client-library.md)  
+* [How to use the .NET client library](mobile-services-dotnet-how-to-use-client-library.md)  
  Learn how to query the mobile service, work with data, and access custom APIs.
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
