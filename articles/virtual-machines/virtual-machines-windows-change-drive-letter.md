@@ -112,7 +112,7 @@ If you want to use an existing data disk, make sure you've also uploaded the VHD
 [About Azure Storage accounts][Storage]
 
 <!--Link references-->
-[Attach]: storage-windows-attach-disk.md
+[Attach]: virtual-machines-windows-classic-attach-disk.md
 
 [VHD]: virtual-machines-create-upload-vhd-windows-server.md
 
