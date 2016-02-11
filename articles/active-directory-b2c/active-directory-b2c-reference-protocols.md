@@ -27,8 +27,8 @@ Azure Active Directory (Azure AD) B2C provides identity as a service for your ap
 ## The basics
 Every app that uses Azure AD B2C needs to be registered in your B2C directory in the [Azure portal](https://portal.azure.com). The app registration process collects and assigns a few values to your app:
 
-- An **application ID** that uniquely identifies your app.
-- A **redirect URI** or **package identifier** that can be used to direct responses back to your app.
+- An **Application ID** that uniquely identifies your app.
+- A **Redirect URI** or **package identifier** that can be used to direct responses back to your app.
 - A few other scenario-specific values. For more, learn [how to register your application](active-directory-b2c-app-registration.md).
 
 After you register your app, it communicates with Azure AD by sending requests to the v2.0 endpoint:
@@ -44,7 +44,7 @@ In nearly all OAuth and OpenID Connect flows, four parties are involved in the e
 
 - The **authorization server** is the Azure AD v2.0 endpoint. It securely handles anything related to user information and access. It also handles the trust relationships between the parties in a flow. It is responsible for verifying the user's identity, granting and revoking access to resources, and issuing tokens. It is also known as the identity provider.
 - The **resource owner** is typically the end user. It is the party that owns the data, and it has the power to allow third parties to access that data or resource.
-- The **OAuth client** is your app. It is identified by its application ID. It is usually the party that end users interact with. It also requests tokens from the authorization server. The resource owner must grant the client permission to access the resource.
+- The **OAuth client** is your app. It is identified by its Application ID. It is usually the party that end users interact with. It also requests tokens from the authorization server. The resource owner must grant the client permission to access the resource.
 - The **resource server** is where the resource or data resides. It trusts the authorization server to securely authenticate and authorize the OAuth client. It also uses bearer access tokens to ensure that access to a resource can be granted.
 
 ## Policies
