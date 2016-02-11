@@ -1139,7 +1139,7 @@ To add in IP Address, see the [Appendix](#appendix-migrating-a-multisite-alwayso
 [3]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/3_Virtual_Disk_Properties.png
 [4]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/4_Virtual_Disk_Properties_Details.png
 [5]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/5_Get_Storage_Pool.png
-[6]: ./media/virtual-machines-sql-server-use-premium-storage/6_Deployments_Always_On.png
+[6]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/6_Deployments_Always_On.png
 [7]: ./media/virtual-machines-sql-server-use-premium-storage/7_Add_More_Secondaries.png
 [8]: ./media/virtual-machines-sql-server-use-premium-storage/8_Use_Existing_Secondary_Single_Site.png
 [9]: ./media/virtual-machines-sql-server-use-premium-storage/9_Use_Existing_Secondary_Multi_Site.png
