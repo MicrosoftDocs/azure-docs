@@ -49,7 +49,7 @@ This part is easy, unless you don't have an Azure account. [Get a free one easil
 
 4. And wait until it's running. It shouldn't take too long at all.
 
-> ![Docker image running in portal](./media/virtual-machines-docker-ubuntu-quickstart/DockerUbuntuRunning.png)
+> ![Docker image running in portal](./media/virtual-machines-linux-classic-docker-quickstart/DockerUbuntuRunning.png)
 
 ## Connect with SSH and Have Fun
 
