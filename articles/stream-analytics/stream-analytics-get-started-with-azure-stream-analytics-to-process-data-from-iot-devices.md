@@ -83,7 +83,7 @@ Now download the sample data file from [GitHub](https://github.com/Azure/azure-s
 
 You can see the results of the query in the browser below.
 
-![](./stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+![](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ## Cleansing the data based on a condition
 
