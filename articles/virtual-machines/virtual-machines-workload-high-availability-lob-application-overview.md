@@ -73,7 +73,7 @@ You deploy this configuration in the following phases:
 
 - [Phase 1: Configure Azure](virtual-machines-windows-ps-lob-ph1.md). Create storage accounts, availability sets, and a cross-premises virtual network.
 - [Phase 2: Configure domain controllers](virtual-machines-workload-high-availability-LOB-application-phase2.md). Create and configure replica Active Directory Domain Services (AD DS) domain controllers.
-- [Phase 3: Configure SQL Server infrastructure](virtual-machines-workload-high-availability-LOB-application-phase3.md). Create and configure the virtual machines running SQL Server, create the cluster, and enable SQL Server AlwaysOn Availability Groups.
+- [Phase 3: Configure SQL Server infrastructure](virtual-machines-windows-ps-lob-ph3.md). Create and configure the virtual machines running SQL Server, create the cluster, and enable SQL Server AlwaysOn Availability Groups.
 - [Phase 4: Configure web servers](virtual-machines-windows-ps-lob-ph4.md). Create and configure the two web server virtual machines.
 - [Phase 5: Add the application databases to a SQL Server AlwaysOn Availability Group](virtual-machines-windows-ps-lob-ph5.md). Prepare the line of business application databases and add them to a SQL Server AlwaysOn Availability Group.
 

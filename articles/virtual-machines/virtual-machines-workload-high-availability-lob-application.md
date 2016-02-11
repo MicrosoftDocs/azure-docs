@@ -70,7 +70,7 @@ To deploy this configuration, use the following process:
 
 - Phase 3: Configure the SQL Server infrastructure.  
 
-	Create the virtual machines running SQL Server and the cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md).
+	Create the virtual machines running SQL Server and the cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-windows-ps-lob-ph3.md).
 
 - Phase 4: Configure the web servers.
 
