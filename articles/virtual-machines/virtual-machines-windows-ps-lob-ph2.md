@@ -24,7 +24,7 @@
 
 In this phase of deploying a high-availability line of business application in Azure infrastructure services, you configure two replica domain controllers in the Azure Virtual Network so that client web requests for web resources can be authenticated locally within the Azure virtual network, rather than sending that authentication traffic across the connection to your on-premises network. 
 
-You must complete this phase before moving on to [Phase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md). See [Deploy a High-Availability Line of Business Application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) for all of the phases.
+You must complete this phase before moving on to [Phase 3](virtual-machines-windows-ps-lob-ph3.md). See [Deploy a High-Availability Line of Business Application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) for all of the phases.
 
 ## Create the domain controller virtual machines in Azure
 
@@ -52,7 +52,7 @@ Use the following block of Azure PowerShell commands to create the virtual machi
 - Table ST, for your storage accounts
 - Table A, for your availability sets
 
-Recall that you defined Tables V, S, ST, and A in [Phase 1: Configure Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Recall that you defined Tables V, S, ST, and A in [Phase 1: Configure Azure](virtual-machines-windows-ps-lob-ph1.md).
 
 > [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
@@ -195,5 +195,5 @@ This diagram shows the configuration resulting from the successful completion of
 
 ## Next step
 
-- Use [Phase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md) to continue with the configuration of this workload.
+- Use [Phase 3](virtual-machines-windows-ps-lob-ph3.md) to continue with the configuration of this workload.
 
