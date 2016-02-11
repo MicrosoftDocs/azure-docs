@@ -1,17 +1,16 @@
 <properties 
 	pageTitle="Connect to SQL Database using SQL Server Management Studio in Azure RemoteApp | Microsoft Azure" 
-	description="Use this tutorial to learn how to use SQL Server Management Studio in Azure RemoteApp for security and performance when connecting to SQL Database" 
+	description="Use this tutorial to learn how to use SQL Server Management Studio in Azure RemoteApp for security and performance when connecting to SQL Database"
 	services="sql-database" 
-	documentationCenter="" 
+	documentationCenter=""
 	authors="adhurwit" 
-	manager=""
-	tags=""//>
+	manager=""/>
 
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="01/20/2016" 
 	ms.author="adhurwit"/>

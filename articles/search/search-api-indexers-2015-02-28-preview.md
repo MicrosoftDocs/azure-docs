@@ -10,7 +10,8 @@ editor="" />
 <tags 
 ms.service="search" 
 ms.devlang="rest-api" 
-ms.workload="search" ms.topic="article"  
+ms.workload="search" 
+ms.topic="article"  
 ms.tgt_pltfrm="na" 
 ms.date="11/04/2015" 
 ms.author="heidist" />
