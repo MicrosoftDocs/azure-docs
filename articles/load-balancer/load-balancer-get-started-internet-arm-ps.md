@@ -140,10 +140,12 @@ Create a load balancer rule.
 Create a health probe. There are two ways to configure a probe:
  
 HTTP probe
+	
 	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 or
 
 TCP probe
+	
 	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 ### Step 4

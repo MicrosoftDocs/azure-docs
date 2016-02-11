@@ -50,7 +50,7 @@ This article walks you through the steps to create, configure, start, and delete
 - **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 - **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
 - **Listener:** The listener has a front-end port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
-- **Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
+- **Rule:** The rule binds the listener, the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener. 
 
 
 
@@ -74,29 +74,21 @@ Here are the steps that are needed to create an application gateway:
 Make sure that you are using the latest version of Azure PowerShell. More info is available at [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
 
 ### Step 1
-
+Login to Azure
 		Login-AzureRmAccount
 
-
-
+You will be prompted to authenticate with your credentials.<BR>
 ### Step 2
-
 Check the subscriptions for the account.
 
 		Get-AzureRmSubscription
 
-You will be prompted to authenticate with your credentials.<BR>
-
 ### Step 3
-
 Choose which of your Azure subscriptions to use. <BR>
-
 
 		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-
 ### Step 4
-
 Create a new resource group (skip this step if you're using an existing resource group).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
@@ -104,7 +96,6 @@ Create a new resource group (skip this step if you're using an existing resource
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway will use the same resource group.
 
 In the example above, we created a resource group called "appgw-RG" and location "West US".
-
 
 >[AZURE.NOTE] If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
 
@@ -173,7 +164,6 @@ Configure application gateway setting "poolsetting01" for the load-balanced netw
 Configure the front-end IP port named "frontendport01" for the public IP endpoint.
 
 	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
-
 
 ### Step 5
 
