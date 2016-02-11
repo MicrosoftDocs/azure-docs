@@ -17,7 +17,7 @@
 	ms.date="01/29/2016"
 	ms.author="anhoh"/>
 
-# Import data to DocumentDB - Database Migration tool
+# Import data to DocumentDB with the Database Migration tool
 
 This article shows you how to use the open source DocumentDB data migration tool to import data to [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and DocumentDB collections.
 
