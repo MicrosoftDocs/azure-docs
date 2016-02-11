@@ -280,7 +280,7 @@ and for MariaDB3
 
 3. You will need to get the internal IP address of each of the 3 VMs for the next step:
 
-	![Getting IP address](./media/virtual-machines-mariadb-cluster/IP.png)
+	![Getting IP address](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/IP.png)
 
 4. SSH into the 3 VMs and and edit the configuration file on each
 
