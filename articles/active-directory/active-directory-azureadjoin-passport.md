@@ -19,12 +19,12 @@
 
 # Authenticating identities without passwords through Microsoft Passport
 
-The current methods of authentication with passwords alone are not sufficient to keep users safe. Users reuse and forget passwords. Passwords are breachable, phishable, prone to cracks, and guessable. They also get difficult to remember and prone to attacks like “[pass the hash](https://technet.microsoft.com/dn785092.aspx)”.
+The current methods of authentication with passwords alone are not sufficient to keep users safe. Users reuse and forget passwords. Passwords are breachable, phishable, prone to cracks, and guessable. They also get difficult to remember and prone to attacks like “[pass the hash](https://technet.microsoft.com/dn785092.aspx).”
 
 ## What is Microsoft Passport?
-Microsoft Passport is a new private/public key or certificate-based authentication approach for organizations and consumers that goes beyond passwords. This form of authentication relies on  key pair credentials that can replace passwords and are resistant to breaches, thefts and phishing.
+Microsoft Passport is a new private/public key or certificate-based authentication approach for organizations and consumers that goes beyond passwords. This form of authentication relies on  key pair credentials that can replace passwords and are resistant to breaches, thefts, and phishing.
 
- Microsoft Passport lets users authenticate to a Microsoft account, a Windows Server Active Directory account, a Microsoft Azure Active Directory (Azure AD) account, or a non-Microsoft service that supports Fast IDentity Online (FIDO) authentication. After an initial two-step verification during Microsoft Passport enrollment, a Microsoft Passport is set up on the user's device, and the user sets a gesture, which can be Windows Hello or a PIN. The user provides the gesture to verify identity. Windows then uses Microsoft Passport to authenticate users and help them to access protected resources and services.
+ Microsoft Passport lets users authenticate to a Microsoft account, a Windows Server Active Directory account, a Microsoft Azure Active Directory (Azure AD) account, or a non-Microsoft service that supports Fast IDentity Online (FIDO) authentication. After an initial two-step verification during Microsoft Passport enrollment, a Microsoft Passport is set up on the user's device, and the user sets a gesture, which can be Windows Hello or a PIN. The user provides the gesture to verify their identity. Windows then uses Microsoft Passport to authenticate users and help them to access protected resources and services.
 
 The private key is made available solely through a “user gesture” like a PIN, biometrics, or a remote device like a smart card that the user uses to sign into the device. This information is linked to a certificate or an asymmetrical key pair. The private key is hardware attested if the device has a Trusted Platform Module (TPM) chip. The private key never leaves the device.
 
@@ -41,7 +41,7 @@ By enabling Microsoft Passport, enterprises can make their resources even more s
 * Configuring Microsoft Passport to support smart card-like scenarios using certificate-based trust.
 
 ## How it works
-1. Keys are generated on the hardware by TPM or software. Many devices have a built-in trusted platform module (TPM) chip that secures the hardware by integrating cryptographic keys into devices. TPM 1.2 or TPM 2.0 generates keys or certificates that are created out of the generated keys.
+1. Keys are generated on the hardware by TPM or software. Many devices have a built-in TPM chip that secures the hardware by integrating cryptographic keys into devices. TPM 1.2 or TPM 2.0 generates keys or certificates that are created out of the generated keys.
 
 2. These hardware-bound keys are attested by the TPM.
 
@@ -55,7 +55,7 @@ The preceding diagram illustrates the private-public key pair and the validation
 
 1. The user proves their identity through multiple built-in proofing methods (gestures, physical smart cards, multi-factor authentication) and sends this information to an Identity Provider (IDP) like Azure Active Directory or Active Directory.
 
-2. The device then creates the keys, attests the key, takes the public portion of this key, attaches it with station statements, signs in and sends it to the IDP to register the key.
+2. The device then creates the key, attests the key, takes the public portion of this key, attaches it with station statements, signs in, and sends it to the IDP to register the key.
 
 4. As soon as the IDP registers the public portion of the key, the IDP challenges the device to sign with the private portion of the key.
 
