@@ -97,7 +97,7 @@ A screenshot of the completed application appears next.
 
 		C:\Python34\Scripts\django-admin.exe startproject helloworld
 
-	![The result of the New-AzureService command](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-cmd-new-azure-service.png)
+	![The result of the New-AzureService command](./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-cmd-new-azure-service.png)
 
 1.  The **django-admin** command generates a basic structure for Django-based websites:
 
