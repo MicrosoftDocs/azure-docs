@@ -51,7 +51,7 @@ Go to the Azure Marketplace in the Preview portal to find the Windows Server VM 
 
 3. At the bottom of the **Ubuntu Server 14.04 LTS** page, select **Use the Resource Manager stack** to create the VM in Azure Resource Manager. Note that for most new workloads, we recommend the Resource Manager stack. For considerations, see [Azure Compute, Network and Storage Providers under the Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).
 
-4. Next, click ![create button](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
+4. Next, click ![create button](media/virtual-machines-linux-portal-create/createbutton.png).
 
 	![change to the resource manager compute stack](media/virtual-machines-linux-portal-create/changetoresourcestack.png)
 
@@ -73,7 +73,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-3-settings.png)
 
-6. Click **Summary** to review your configuration choices. When you're done reviewing or updating the settings, click ![OK button](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png) .
+6. Click **Summary** to review your configuration choices. When you're done reviewing or updating the settings, click ![OK button](media/virtual-machines-linux-portal-create/createbutton.png) .
 
 	![creation summary](media/virtual-machines-linux-tutorial-portal-rm/summarybeforecreation.png)
 
