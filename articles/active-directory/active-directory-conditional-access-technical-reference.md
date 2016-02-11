@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Technical reference : conditional access to Azure AD apps | Microsoft Azure"
+	pageTitle="Technical reference: conditional access to Azure AD apps | Microsoft Azure"
 	description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
     services="active-directory"
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/11/20165"
+	ms.date="02/11/2016"
 	ms.author="femila"/>
 
-# Technical reference : conditional access to Azure AD apps
+# Technical reference: conditional access to Azure AD apps
 
 ## Services enabled with conditional access
 Conditional Access rules are supported across various Azure AD application types. This list includes:
@@ -45,7 +45,7 @@ Conditional Access rules that use an “At work” network, rely on trusted IP r
 - Require multi-factor authentication when not at work
 - Block access when not at work
 
-Trusted IP ranges can be configured in the [multi-factor authentication configuration page](multi-factor-authentication-whats-next.md). Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules. The inside corpnet claim is not used since it is not available for longer lived sessions, such as refresh tokens in mobile applications.
+Trusted IP ranges can be configured in the [multi-factor authentication configuration page](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules. The inside corpnet claim is not used since it is not available for longer lived sessions, such as refresh tokens in mobile applications.
 
 ## Per-application rules
 Rules are configured per application allowing the high value services to be secured without impacting access to other services. Conditional Access rules can be configured on a the ‘Configure’ Tab of the application. 
