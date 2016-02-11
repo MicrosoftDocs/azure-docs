@@ -108,7 +108,7 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 
 3. At the **Windows Security** dialog box, click **Use another account**.
 
-	![Click Use another account](./media/virtual-machines-provision-sql-server/credentials.png)
+	![Click Use another account](./media/virtual-machines-windows-classic-portal-sql/credentials.png)
 
 4. Use the name of the machine as the domain name, followed by your administrator name in this format: `machinename\username`. Type your password and connect to the machine.
 
