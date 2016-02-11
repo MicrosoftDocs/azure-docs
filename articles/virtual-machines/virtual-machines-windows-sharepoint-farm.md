@@ -40,7 +40,7 @@ To create the basic (three-server) SharePoint farm:
 
 The high-availability SharePoint farm consists of nine virtual machines in this configuration.
 
-![sharepointfarm](./media/virtual-machines-sharepoint-farm-azure-preview/HAFarm.png)
+![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
 You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
 
