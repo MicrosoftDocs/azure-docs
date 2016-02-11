@@ -40,7 +40,7 @@ The out-of-the-box dependency monitor currently reports calls to these  types of
 * Java
  * Calls to a database through a [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) driver, such as MySQL, SQL Server, PostgreSQL or SQLite.
 * Web pages
- * [AJAX calls](https://azure.microsoft.com/blog/ajax-collection-in-application-insights/)
+ * [AJAX calls](app-insights-javascript.md)
 
 Again, you could write your own SDK calls to monitor other dependencies.
 
@@ -131,9 +131,10 @@ For example, if you build your code with an assembly that you didn't write yours
 
 If you want to switch off the standard dependency tracking module, remove the reference to DependencyTrackingTelemetryModule in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
-## Diagnosing AJAX issues
 
+## Ajax
 
+See [Web pages](app-insights-javascript.md).
 
 
  

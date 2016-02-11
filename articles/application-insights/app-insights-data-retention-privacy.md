@@ -64,7 +64,7 @@ There are three sources of data:
 The main categories are:
 
 * [Web server telemetry](app-insights-asp-net.md) - HTTP requests.  Uri, time taken to process the request, response code, client IP address. Session id.
-* [Web pages](articles/app-insights-javascript.md) - Page, user and session counts. Page load times. Exceptions. Ajax calls.
+* [Web pages](app-insights-javascript.md) - Page, user and session counts. Page load times. Exceptions. Ajax calls.
 * Performance counters - Memory, CPU, IO, Network occupancy.
 * Client and server context - OS, locale, device type, browser, screen resolution.
 * [Exceptions](app-insights-asp-net-exceptions.md) and crashes - **stack dumps**, build id, CPU type. 
