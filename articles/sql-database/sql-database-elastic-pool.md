@@ -48,15 +48,13 @@ Databases that are great candidates for elastic database pools typically have pe
 [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
 
 
-
-
 > [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers.
 
 ## Elastic database jobs
 
 With a pool, management tasks are simplified by running scripts in **[elastic jobs](sql-database-elastic-jobs-overview.md)**. An elastic database job eliminates most of tedium associated with large numbers of databases. To begin, see [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
 
-For more information about other tools, see the [Elastic database tools topics map](sql-database-elastic-scale-documentation-map.md).
+For more information about other tools, see the [Elastic database tools learning map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
 
 ## Business continuity features for databases in a pool
 
