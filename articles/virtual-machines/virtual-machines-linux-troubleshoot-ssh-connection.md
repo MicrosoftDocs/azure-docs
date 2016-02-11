@@ -206,7 +206,7 @@ The SSH client on your computer could fail to reach the SSH service on the Azure
 
 To eliminate your computer as the source of the failure, check that it can make SSH connections to another on-premises, Linux-based computer.
 
-![Diagram that highlights SSH client computer component](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot2.png)
+![Diagram that highlights SSH client computer component](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot2.png)
 
 If this fails, check for these on your computer:
 
