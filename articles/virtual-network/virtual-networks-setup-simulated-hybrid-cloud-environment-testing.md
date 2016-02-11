@@ -52,7 +52,7 @@ If you don't already have an Azure subscription, you can sign up for a free tria
 
 ## Phase 1: Configure the TestLab virtual network
 
-Use the instructions in the [Base Configuration Test Environment](../virtual-machines/virtual-machines-base-configuration-test-environment.md) to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
+Use the instructions in the [Base Configuration Test Environment](../virtual-machines/virtual-machines-windows-classic-test-config-env.md) to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
 
 From the Azure Management Portal on your local computer, connect to DC1 with the CORP\User1 credentials. To configure the CORP domain so that computers and users use their local domain controller for authentication, run these commands from an administrator-level Windows PowerShell command prompt.
 
