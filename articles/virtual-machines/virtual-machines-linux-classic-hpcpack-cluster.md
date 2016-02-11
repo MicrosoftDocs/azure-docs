@@ -303,7 +303,7 @@ The HPC Pack **clusrun** tool can be used to execute commands on Linux nodes eit
 * Try an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/) with Azure Resource Manager to speed up deployments of HPC Pack with a larger number of  Linux compute nodes.
 
 <!--Image references-->
-[scenario]: ./media/virtual-machines-linux-cluster-hpcpack/scenario.png
+[scenario]: ./media/virtual-machines-linux-classic-hpcpack-cluster/scenario.png
 [validate]: ./media/virtual-machines-linux-cluster-hpcpack/validate.png
 [resources]: ./media/virtual-machines-linux-classic-hpcpack-cluster/resources.png
 [deploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster/deploy.png
