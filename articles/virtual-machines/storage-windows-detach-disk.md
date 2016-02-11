@@ -30,4 +30,4 @@
 
 [About disks and VHDs for virtual machines](virtual-machines-disks-vhds.md)
 
-[How to attach a data disk to a Windows virtual machine](storage-windows-attach-disk.md)
+[How to attach a data disk to a Windows virtual machine](virtual-machines-windows-classic-attach-disk.md)
