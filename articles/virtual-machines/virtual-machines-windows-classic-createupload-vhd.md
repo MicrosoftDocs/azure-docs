@@ -96,7 +96,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
 
 8. Type a **Name** for your container and select the **Access** policy.
 
-	![Container name](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png)
+	![Container name](./media/virtual-machines-windows-classic-createupload-vhd/storageaccount_containervalues.png)
 
 	> [AZURE.NOTE] By default, the container is private and can be accessed only by the account owner. To allow public read access to the blobs in the container, but not the container properties and metadata, use the **Public Blob** option. To allow full public read access for the container and blobs, use the **Public Container** option.
 
