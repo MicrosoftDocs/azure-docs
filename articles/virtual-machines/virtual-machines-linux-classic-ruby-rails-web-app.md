@@ -173,4 +173,4 @@ To use Azure services from your Ruby application, see:
 
 [new-endpoint]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 
-[new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
+[new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
