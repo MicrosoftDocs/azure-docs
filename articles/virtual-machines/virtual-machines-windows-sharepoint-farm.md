@@ -27,7 +27,7 @@ With the Microsoft Azure portal marketplace, you can quickly create pre-configur
 
 The basic SharePoint farm consists of three virtual machines in this configuration.
 
-![sharepointfarm](./media/virtual-machines-sharepoint-farm-azure-preview/Non-HAFarm.png)
+![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/Non-HAFarm.png)
 
 You can use this farm configuration for a simplified setup for SharePoint app development or your first-time evaluation of SharePoint 2013.
 
@@ -40,7 +40,7 @@ To create the basic (three-server) SharePoint farm:
 
 The high-availability SharePoint farm consists of nine virtual machines in this configuration.
 
-![sharepointfarm](./media/virtual-machines-sharepoint-farm-azure-preview/HAFarm.png)
+![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
 You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
 
