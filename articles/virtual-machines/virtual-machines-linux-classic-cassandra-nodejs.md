@@ -86,7 +86,7 @@ Cassandra’s data-center-aware replication and consistency model described abov
 
 **Disaster Recovery:** Multi-region Cassandra cluster, if properly designed, can withstand catastrophic data center outages. If one region is down, the application deployed to other regions can start serving the end users. Like any other business continuity implementations, the application has to be tolerant for some data loss resulting from the data in the asynchronous pipeline. However, Cassandra makes the recovery much swifter than the time taken by traditional database recovery processes. Figure 2 shows the typical multi-region deployment model with eight nodes in each region. Both regions are mirror images of each other for the same of symmetry; real world designs depend on the workload type (e.g. transactional or analytical), RPO, RTO, data consistency and availability requirements. 
 
-![Multi region deployment](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux2.png)
+![Multi region deployment](./media/virtual-machines-linux-classic-cassandra-nodejs/cassandra-linux2.png)
 
 Figure 2: Multi-region Cassandra deployment
 
