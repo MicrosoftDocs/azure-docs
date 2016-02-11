@@ -100,5 +100,5 @@ Once configured, you can expand this SharePoint farm with guidance from [Microso
 
 ## Next step
 
-- Get an [overview](virtual-machines-workload-intranet-sharepoint-overview.md) of the production workload before diving into the configuration.
+- Get an [overview](virtual-machines-windows-sp-intranet-overview.md) of the production workload before diving into the configuration.
 

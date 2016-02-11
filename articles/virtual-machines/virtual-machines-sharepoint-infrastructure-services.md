@@ -53,7 +53,7 @@ This configuration uses the classic deployment model.
 
 ## High-availability, intranet SharePoint production farm
 
-With the deployment of [SharePoint 2013 with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md), you build out a production-ready, high-availability, intranet SharePoint Server 2013 farm in Azure.
+With the deployment of [SharePoint 2013 with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-windows-sp-intranet-overview.md), you build out a production-ready, high-availability, intranet SharePoint Server 2013 farm in Azure.
 
 This configuration uses the classic deployment model.
 
