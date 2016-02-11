@@ -94,6 +94,6 @@ The image is ready to be used to create virtual machines. You can use the Azure 
 [Azure classic portal]: http://manage.windowsazure.com
 [How to Log on to a Virtual Machine Running Linux]: virtual-machines-linux-how-to-log-on.md
 [About Virtual Machine Images in Azure]: virtual-machines-images.md
-[How to Create a Custom Virtual Machine]: virtual-machines-linux-create-custom.md
+[How to Create a Custom Virtual Machine]: virtual-machines-linux-classic-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
-[How to Create a Linux Virtual Machine]: virtual-machines-linux-create-custom.md
+[How to Create a Linux Virtual Machine]: virtual-machines-linux-classic-create-custom.md

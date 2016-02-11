@@ -37,7 +37,7 @@ If you prefer working in a command shell, choose between the Azure command-line 
 
 To create virtual machines in Resource Manager deployment model using the Azure CLI, see [Create a Virtual Machine Running Linux][]. Follow the tabs or article selectors on this article to read instructions using Azure PowerShell and Templates.  
 
-For classic deployment model, see [Create a custom Linux virtual machine using Azure CLI](virtual-machines-linux-create-custom.md) and
+For classic deployment model, see [Create a custom Linux virtual machine using Azure CLI](virtual-machines-linux-classic-create-custom.md) and
 [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines][].
 
 
@@ -85,7 +85,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell]:  virtual-machines-deploy-rmtemplates-powershell.md
 [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines]: virtual-machines-ps-create-preconfigure-linux-vms.md
 
-[How to Create a Custom Virtual Machine Running Linux in Azure]: virtual-machines-linux-create-custom.md
+[How to Create a Custom Virtual Machine Running Linux in Azure]: virtual-machines-linux-classic-create-custom.md
 [How to Capture a Linux Virtual Machine to Use as a Template with the CLI]: virtual-machines-linux-classic-capture-image.md
 
 [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System]: virtual-machines-linux-create-upload-vhd.md
