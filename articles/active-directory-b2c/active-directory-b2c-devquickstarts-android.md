@@ -191,14 +191,14 @@ public class Constants {
 
 
 ```
-`SCOPES`: The scopes that you pass to the server that you want to request from the server when a user signs in. For B2C preview, you pass `client_id`. However, this is expected to change to `read scopes` in the future. This document will be updated when that occurs.
-`ADDITIONAL_SCOPES`: Additional scopes you may want to use for your application. They are expected to be used in the future.
-`CLIENT_ID`: The Application ID you got from the portal.
-`REDIRECT_URL`: The redirect where you expect the token to be posted back.
-`EXTRA_QP`: Anything extra you want to pass to the server in a URL-encoded format.
-`FB_POLICY`: The policy you are invoking. This is the most important part for this walk-through.
-`EMAIL_SIGNIN_POLICY`: The policy you are invoking. This is the most important part for this walk-through.
-`EMAIL_SIGNUP_POLICY`: The policy you are invoking. This is the most important part for this walk-through.
+- `SCOPES`: The scopes that you pass to the server that you want to request from the server when a user signs in. For B2C preview, you pass `client_id`. However, this is expected to change to `read scopes` in the future. This document will be updated when that occurs.
+- `ADDITIONAL_SCOPES`: Additional scopes you may want to use for your application. They are expected to be used in the future.
+- `CLIENT_ID`: The Application ID you got from the portal.
+- `REDIRECT_URL`: The redirect where you expect the token to be posted back.
+- `EXTRA_QP`: Anything extra you want to pass to the server in a URL-encoded format.
+- `FB_POLICY`: The policy you are invoking. This is the most important part for this walk-through.
+- `EMAIL_SIGNIN_POLICY`: The policy you are invoking. This is the most important part for this walk-through.
+- `EMAIL_SIGNUP_POLICY`: The policy you are invoking. This is the most important part for this walk-through.
 
 ## Add references to Android ADAL to your project
 
@@ -729,32 +729,30 @@ public class ToDoActivity extends Activity {
 ```
 
 
- You may notice that this relies on methods we haven't written yet, such as `updateLoggedInUser()`, `clearSessionCookie()` and `getTasks()`. We'll write those below.	You can safely ignore the errors in Android Studio for now.
+ You might have noticed that this relies on methods that haven't been written yet. They include `updateLoggedInUser()`, `clearSessionCookie()`, and `getTasks()`. You'll write those later in this guide. You can safely ignore the errors in Android Studio for now.
 
 Explanation of the parameters:
 
-  * ***SCOPES*** is required and is the scopes you are trying to request access for. For the B2C preview this is the same as the Clientid but will change in the future.
-  * ***POLICY*** is the policy for while you wish to authenticate the user.
-  * ***CLIENT_ID*** is required and comes from the AzureAD Portal.
-  * You can setup redirectUri as your packagename. It is not required to be provided for the acquireToken call.
-  * ***getUserInfo()*** is the way we look up if the user is already in the cache and prompt the user if they are not found or the access token is invalid. We write this method below.
-  * ***PromptBehavior.always*** helps to ask for credentials to skip cache and cookie.
-  * ***Callback*** will be called after authorization code is exchanged for a token.
+  - `SCOPES`: Required, the scopes you are trying to request access for. For the B2C preview, this is the same as `client_id`, but this is expected to change in the future.
+  - `POLICY`: The policy for when you want to authenticate the user.
+  - `CLIENT_ID`: Required, comes from the Azure AD portal.
+  - `redirectUri`: Can be set up as your package name. It is not required to be provided for the `acquireToken` call.
+  - `getUserInfo()`: The way to look up whether a user is already in the cache. The parameter also describes how to prompt a user if that user is not found or if the user's access token is invalid. This method will be written later in this guide.
+  - `PromptBehavior.always`: Helps to ask for credentials to skip the cache and cookie.
+  - `Callback`: Called after an authorization code is exchanged for a token. It will have an object `AuthenticationResult`, which contains access token, expiration date date, and ID token information.
 
-  The Callback will have an object of AuthenticationResult which has accesstoken, date expired, and idtoken info.
+> [AZURE.NOTE]	The Microsoft Intune company portal app provides the broker component, and it may be installed on the user's device. The app provides single sign-on (SSO) access across all applications on the device. Developers should be prepared to allow for Intune. ADAL for Android will use the broker account if there is one user account created in the authenticator. To use the broker, the developer needs to register a special `redirectUri` for the broker to use. `redirectUri` is in the format of msauth://packagename/Base64UrlencodedSignature. You can get `redirectUri` for your app by using the script `brokerRedirectPrint.ps1` or by using the API call `mContext.getBrokerRedirectUri()`. The signature is related to your signing certificates from the Google Play store.
 
-> [AZURE.NOTE]	Microsoft Intune's Company portal app provides the broker component and may be installed on the user's device. Developers should be prepared to allow for it's use as it provides SSO across all applications on the device. ADAL for Android will use the broker account if there is one user account created in the Authenticator. To use the broker, the developer needs to register a special redirectUri for broker usage. RedirectUri is in the format of msauth://packagename/Base64UrlencodedSignature. You can get your redirecturi for your app using the script `brokerRedirectPrint.ps1` or use API call `mContext.getBrokerRedirectUri()`. The signature is related to your signing certificates from the Google Play store.
-
- A Developer can skip the broker user with:
+ A developer can skip the broker user by using:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
     ```
-> [AZURE.NOTE] In order to reduce the complexity of this B2C Quickstart, we have opted in our sample to skip the broker.
+> [AZURE.NOTE] In order to reduce the complexity of this B2C Quickstart, we have opted to skip the broker in our sample.
 
-Next, let's create some helper methods that will get the token alone during our authentication calls to the Task API.
+Next, create helper methods that get the token alone during authentication calls to the task API.
 
-**In the same file** called `ToDoActivity.java`
+In the same `ToDoActivity.java` file, write the following.
 
 ```
     private void getToken(final AuthenticationCallback callback) {
@@ -768,7 +766,7 @@ Next, let's create some helper methods that will get the token alone during our 
     }
 ```
 
-Let's also add some methods that will "set" and "get" our AuthenticationResult (which has our token) in to the global CONSTANTS. This is needed because even though `ToDoActivity.java` uses **sResult** in it's flows our other activites wouldn't have access to the token to work (such as add a task in our `AddTaskActivity.java`)
+Also add methods that will "set" and "get" `AuthenticationResult` (which has your token) to the global `Constants`. Even though `ToDoActivity.java` uses `sResult` in its flows, you need to add these methods because your other activities won't otherwise have access to the token to do work (such as adding a task in `AddTaskActivity.java`).
 
 ```
 
@@ -784,9 +782,9 @@ Let's also add some methods that will "set" and "get" our AuthenticationResult (
 
 
 ```
-### Step 12: Create a method to return a UserIdentifier
+## Create a method to return a user identifier
 
-ADAL for Android represents the user in the form of a **UserIdentifier** object. This manages the user and allows us to know if the same user is being used in our calls so we can rely on the cache vs. making a new call to the server. In order to make this easier, we create a `getUserInfo()` which will return a UserIdentifier we can use for `acquireToken()`. We also create a getUniqueId() method which will quickly reutrn us the ID of the UserIdentifier in our cache.
+ADAL for Android represents the user in the form of a `UserIdentifier` object. This manages the user. You can use the object to identify whether the same user is being used in your calls. By using this information, you can rely on the cache, rather than make a new call to the server. To make this easier, we created `getUserInfo()` method that will return `UserIdentifier`. You can use this with `acquireToken()`. We also created a `getUniqueId()` method that will return the ID of `UserIdentifier` in the cache.
 
 ```
   private String getUniqueId() {
@@ -807,7 +805,7 @@ ADAL for Android represents the user in the form of a **UserIdentifier** object.
 
 ```
 
-### Step 13: Write some helper methods
+### Write some helper methods
 
 We need to write some hepler methods that help us clear the cookies and provide an AuthenticationCallback. These are used purely for the sample in order to make sure we're in a clean state when calling our ToDo activity.
 
