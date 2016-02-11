@@ -380,4 +380,4 @@ The SOA client application requires no changes except altering the head name to 
 [options]: ./media/virtual-machines-windows-excel-cluster-hpcpack/options.png
 [run]: ./media/virtual-machines-windows-excel-cluster-hpcpack/run.png
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
-[udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
+[udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
