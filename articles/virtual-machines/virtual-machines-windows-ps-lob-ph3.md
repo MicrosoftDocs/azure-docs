@@ -39,7 +39,7 @@ Use the following block of PowerShell commands to create the virtual machines fo
 - Table ST, for your storage accounts
 - Table A, for your availability sets
 
-Recall that you defined Table M in [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) and Tables V, S, ST, and A in [Phase 1](virtual-machines-windows-ps-lob-ph1.md).
+Recall that you defined Table M in [Phase 2](virtual-machines-windows-ps-lob-ph2.md) and Tables V, S, ST, and A in [Phase 1](virtual-machines-windows-ps-lob-ph1.md).
 
 > [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
@@ -163,7 +163,7 @@ Use the following procedure twice, once for each virtual machine running SQL Ser
 6.	Click **OK** to close the window.
 7.	In the left pane, expand the **Security folder**.
 8.	Right-click **Logins**, and then click **New login**.
-9.	In **Login name**, type *domain*\sqladmin in (in which *domain* is the name of the domain in which the sqladmin account was created in [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md)). 
+9.	In **Login name**, type *domain*\sqladmin in (in which *domain* is the name of the domain in which the sqladmin account was created in [Phase 2](virtual-machines-windows-ps-lob-ph2.md)). 
 10.	Under **Select a page**, click **Server Roles**, click **sysadmin**, and then click **OK**.
 11.	Close SQL Server 2014 Management Studio.
 
@@ -212,7 +212,7 @@ For both SQL Server virtual machines and for the cluster majority node, run the 
 
 Due to current non-RFC-compliant behavior by DHCP in Azure, creation of a Windows Server Failover Cluster (WSFC) cluster can fail. For details, search for "WSFC cluster behavior in Azure networking" in High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines. However, there is a workaround. Use the following steps to create the cluster.
 
-1.	Log on to the primary SQL Server virtual machine with the sqladmin account created in [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
+1.	Log on to the primary SQL Server virtual machine with the sqladmin account created in [Phase 2](virtual-machines-windows-ps-lob-ph2.md).
 2.	From the Start screen, type **Failover**, and then click **Failover Cluster Manager**.
 3.	In the left pane, right-click **Failover Cluster Manager**, and then click **Create Cluster**.
 4.	On the **Before You Begin** page, click **Next**.
@@ -243,7 +243,7 @@ The next step is to enable AlwaysOn Availability Groups using the SQL Server Con
 
 Use these steps to enable AlwaysOn Availability Groups on SQL Server.
 
-1.	Log on to the primary SQL Server virtual machine with the sqladmin account created in [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
+1.	Log on to the primary SQL Server virtual machine with the sqladmin account created in [Phase 2](virtual-machines-windows-ps-lob-ph2.md).
 2.	On the Start screen, type **SQL Server Configuration**, and then click **SQL Server Configuration Manager**.
 3.	In the left pane, click **SQL Server Services**.
 4.	In the contents pane, double-click **SQL Server (MSSQLSERVER)**.

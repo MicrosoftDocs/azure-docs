@@ -66,7 +66,7 @@ To deploy this configuration, use the following process:
 
 - Phase 2: Configure the domain controllers 
 
-	Configure two Active Directory replica domain controllers and DNS settings for the virtual network. For the detailed configuration steps, see [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
+	Configure two Active Directory replica domain controllers and DNS settings for the virtual network. For the detailed configuration steps, see [Phase 2](virtual-machines-windows-ps-lob-ph2.md).
 
 - Phase 3: Configure the SQL Server infrastructure.  
 
@@ -84,5 +84,5 @@ Once configured, you can easily expand this line of business application by addi
 
 ## Next step
 
-- Get an [overview](virtual-machines-workload-high-availability-lob-application-overview.md) of the production workload before diving into the configuration.
+- Get an [overview](virtual-machines-windows-lob-overview.md) of the production workload before diving into the configuration.
 
