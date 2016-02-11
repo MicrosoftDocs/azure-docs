@@ -39,7 +39,7 @@ This **From Gallery** option opens a wizard that helps you set up the virtual ma
 
 2.	Under **Security Extensions**, check **Trend Micro Deep Security Agent**.
 
-	![Install the VM Agent and the Deep Security Agent](./media/virtual-machines-install-trend/InstallVMAgentandTrend.png)
+	![Install the VM Agent and the Deep Security Agent](./media/virtual-machines-windows-classic-install-trend/InstallVMAgentandTrend.png)
 
 3.	Click the check mark to create the virtual machine.
 
