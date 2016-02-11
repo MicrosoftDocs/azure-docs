@@ -91,7 +91,7 @@ The following example shows you how you can create a virtual machine (VM) based 
 
 	b. **Step 2:** Enter a value for **Global Database Name**. Enter and confirm a value for **Administrative Password**. This password is for your Oracle database **SYSTEM** user. Clear **Create As Container Database**. Click **Next**.
 
-		![](media/virtual-machines-creating-oracle-database-virtual-machine/image6.png)
+		![](media/virtual-machines-windows-classic-create-oracle-database/image6.png)
 
 	c. **Step 3:** The prerequisites check should proceed automatically, advancing to **Step 4**.
 
