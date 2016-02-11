@@ -77,7 +77,7 @@ If you have applications in your private network that need to be accessed by use
 
 Application Proxy is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supports unlimited applications. If your organization has [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) or [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), then you can [use groups to assign access to applications](#how-to-manage-who-has-access-to-which-apps).
 
-You may also be interested in [Azure AD Domain Services](active-directory-ds-overview.md), which allows you to migrate your on-premises applications to Azure while still satisfying the identity needs of those applications.
+You may also be interested in [Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md), which allows you to migrate your on-premises applications to Azure while still satisfying the identity needs of those applications.
 
 ###Enabling single sign-on between Azure AD and on-premises AD
 
