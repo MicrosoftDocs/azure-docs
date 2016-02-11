@@ -736,22 +736,6 @@ None of the properties are required.
 
 
 
- **Object**:
-
-Required properties for Object:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-
-
-
  **SendMessage**:Send Email Message
 
 Required properties for SendMessage:
