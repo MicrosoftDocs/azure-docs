@@ -132,6 +132,6 @@ To learn more about Linux on Azure, see:
 
 - [How to use the Azure Command-Line Tools for Mac and Linux](virtual-machines-command-line-tools.md)
 
-- [Deploy a LAMP app using the Azure CustomScript Extension for Linux](virtual-machines-linux-script-lamp.md)
+- [Deploy a LAMP app using the Azure CustomScript Extension for Linux](virtual-machines-linux-classic-lamp-script.md)
 
 - [The Docker Virtual Machine Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
