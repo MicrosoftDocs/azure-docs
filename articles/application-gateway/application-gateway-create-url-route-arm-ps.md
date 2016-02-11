@@ -83,7 +83,6 @@ Choose which of your Azure subscriptions to use. <BR>
 
 		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-
 ### Step 4
 Create a new resource group (skip this step if you're using an existing resource group).
 
