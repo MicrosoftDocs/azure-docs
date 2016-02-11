@@ -28,7 +28,7 @@ This topic provides an overview of some aspects of using Linux virtual machines 
 When creating a Linux virtual machine using the Azure classic portal, you are asked to provide a username, password or an SSH public key. The choice of a username for deploying a Linux virtual machine on Azure is subject to the following constraint: names of system accounts (UID <100) already present in the virtual machine are not allowed, 'root' for example.
 
 
- - See [Create a Virtual Machine Running Linux](virtual-machines-linux-tutorial.md)
+ - See [Create a Virtual Machine Running Linux](virtual-machines-linux-cli-create.md)
  - See [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md)
 
 
@@ -70,7 +70,7 @@ The Azure Linux Agent includes functionality to automatically detect this name c
  - [How to Inject Custom Data](virtual-machines-how-to-inject-custom-data.md)
  - [Custom Data and Cloud-Init on Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
  - [Create Azure Swap Partitions Using Cloud-Init](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [How to Use CoreOS on Azure](virtual-machines-linux-coreos-how-to.md)
+ - [How to Use CoreOS on Azure](virtual-machines-linux-classic-coreos-howto.md)
 
 
 ## Virtual Machine Image Capture
@@ -83,7 +83,7 @@ Azure provides the ability to capture the state of an existing virtual machine i
 
 3. Click *Capture* in the Azure classic portal or use the Powershell or CLI tools to capture the virtual machine as an image.
 
- - See: [How to Capture a Linux Virtual Machine to Use as a Template](virtual-machines-linux-capture-image.md)
+ - See: [How to Capture a Linux Virtual Machine to Use as a Template](virtual-machines-linux-classic-capture-image.md)
 
 
 ## Attaching Disks
@@ -95,6 +95,6 @@ On Linux, the resource disk is typically managed by the Azure Linux Agent and au
 
 >[AZURE.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
 
-On Linux the data disk might be named by the kernel as `/dev/sdc`, and users will need to partition, format and mount that resource. This is covered step-by-step in the tutorial: [How to Attach a Data Disk to a Virtual Machine](virtual-machines-linux-how-to-attach-disk.md).
+On Linux the data disk might be named by the kernel as `/dev/sdc`, and users will need to partition, format and mount that resource. This is covered step-by-step in the tutorial: [How to Attach a Data Disk to a Virtual Machine](virtual-machines-linux-classic-attach-disk.md).
 
  - **See also:** [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md)

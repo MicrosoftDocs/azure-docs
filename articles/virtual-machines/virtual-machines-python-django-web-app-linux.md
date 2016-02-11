@@ -20,7 +20,7 @@
 # Django Hello World web application on a Linux VM
 
 > [AZURE.SELECTOR]
-- [Windows](virtual-machines-python-django-web-app-windows-server.md)
+- [Windows](virtual-machines-windows-classic-python-django-web-app.md)
 - [Mac/Linux](virtual-machines-python-django-web-app-linux.md)
 
 <br>
