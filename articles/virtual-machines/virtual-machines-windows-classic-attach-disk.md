@@ -49,7 +49,7 @@ Here's a walkthrough of the steps in this tutorial.
 
 6.	Complete the wizard using the default values. When the wizard is done, the **Volumes** section lists the new volume. The disk is now online and ready to store data.
 
-	![Volume successfully initialized](./media/storage-windows-attach-disk/newvolumecreated.png)
+	![Volume successfully initialized](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)
 
 > [AZURE.NOTE] The size of the VM determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-size-specs.md).
 
