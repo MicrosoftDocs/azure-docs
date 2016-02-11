@@ -22,7 +22,7 @@
 # Django Hello World web application on a Windows Server VM
 
 > [AZURE.SELECTOR]
-- [Windows](virtual-machines-python-django-web-app-windows-server.md)
+- [Windows](virtual-machines-windows-classic-python-django-web-app.md)
 - [Mac/Linux](virtual-machines-python-django-web-app-linux.md)
 
 <br>
@@ -54,7 +54,7 @@ A screenshot of the completed application appears next.
 1. Instruct Azure to direct port 80 traffic from the web to port 80 on the virtual machine:
  - Navigate to your newly created virtual machine in the Azure classic portal and click the **ENDPOINTS** tab.
  - Click the **ADD** button at the bottom of the screen.
-	![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
+	![add endpoint](./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-addendpoint.png)
 
  - Open up the **TCP** protocol's **PUBLIC PORT 80** as **PRIVATE PORT 80**.
 ![][port80]
@@ -97,7 +97,7 @@ A screenshot of the completed application appears next.
 
 		C:\Python34\Scripts\django-admin.exe startproject helloworld
 
-	![The result of the New-AzureService command](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-cmd-new-azure-service.png)
+	![The result of the New-AzureService command](./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-cmd-new-azure-service.png)
 
 1.  The **django-admin** command generates a basic structure for Django-based websites:
 
@@ -180,9 +180,9 @@ A screenshot of the completed application appears next.
 
 When you're done with this tutorial, shut down and/or remove your newly created Azure virtual machine to free up resources for other tutorials and avoid incurring Azure usage charges.
 
-[1]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-browser-azure.png
+[1]: ./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-browser-azure.png
 
-[port80]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
+[port80]: ./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-port80.png
 
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [python.org]: https://www.python.org/downloads/
