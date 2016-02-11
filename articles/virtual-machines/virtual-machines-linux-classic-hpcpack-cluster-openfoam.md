@@ -638,7 +638,7 @@ exit ${RTNSTS}
 
 
 <!--Image references-->
-[keygen]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/keygen.png
+[keygen]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/keygen.png
 [keys]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/keys.png
 [step_variables]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/step_variables.png
 [data_files]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/data_files.png
