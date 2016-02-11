@@ -59,7 +59,7 @@ Now the fun starts. You can immediately connect to the VM using SSH:
 
 and start issuing Docker commands, remembering that on this Azure VM the default configuration requires **`sudo`**:
 
-> ![Pulling images](./media/virtual-machines-docker-ubuntu-quickstart/DockerPullSmallImages.png)
+> ![Pulling images](./media/virtual-machines-linux-classic-docker-quickstart/DockerPullSmallImages.png)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
