@@ -202,7 +202,7 @@ After you upload the .vhd, you can add it as an image to the list of custom imag
 
 2. After you complete the previous steps, the new image is listed when you choose the **Images** tab on the Azure classic portal.  
 
-    ![add image](./media/virtual-machines-freebsd-create-upload-vhd/addfreebsdimage.png)
+    ![add image](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/addfreebsdimage.png)
 
 3. Create a virtual machine from gallery. This new image is now available under **My Images**. Select the new image and go through the prompts to set up a hostname, password/SSH key and etc.
 
