@@ -376,7 +376,7 @@ The SOA client application requires no changes except altering the head name to 
 [connect]: ./media/virtual-machines-windows-excel-cluster-hpcpack/connect.png
 [cert]: ./media/virtual-machines-windows-excel-cluster-hpcpack/cert.png
 [addin]: ./media/virtual-machines-windows-excel-cluster-hpcpack/addin.png
-[macro]: ./media/virtual-machines-excel-cluster-hpcpack/macro.png
+[macro]: ./media/virtual-machines-windows-excel-cluster-hpcpack/macro.png
 [options]: ./media/virtual-machines-excel-cluster-hpcpack/options.png
 [run]: ./media/virtual-machines-excel-cluster-hpcpack/run.png
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
