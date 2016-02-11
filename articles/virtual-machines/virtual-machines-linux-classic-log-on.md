@@ -40,7 +40,7 @@ This procedure shows you how to use the PuTTY program to access the virtual mach
 
 3. Enter the Host Name and the Port information that you collected from the dashboard, and then click **Open**.
 
-	![Open PuTTY](./media/virtual-machines-linux-how-to-log-on/putty.png)
+	![Open PuTTY](./media/virtual-machines-linux-classic-log-on/putty.png)
 
 4. Log on to the virtual machine using the account that you specified when the machine was created. For more details on how to create a virtual machine with user name and password, see [Create a Virtual Machine Running Linux](virtual-machines-linux-tutorial.md).
 
