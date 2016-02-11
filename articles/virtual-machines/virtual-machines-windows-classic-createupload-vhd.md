@@ -159,7 +159,7 @@ When you upload the .vhd file, you can place the .vhd file anywhere within your 
 	- **VHDName** is the name you want the Azure classic portal to display to identify the virtual hard disk
 	- **PathToVHDFile** is the full path and name of the .vhd file
 
-	![PowerShell Add-AzureVHD](./media/virtual-machines-create-upload-vhd-windows-server/powershell_upload_vhd.png)
+	![PowerShell Add-AzureVHD](./media/virtual-machines-windows-classic-createupload-vhd/powershell_upload_vhd.png)
 
 For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx).
 
