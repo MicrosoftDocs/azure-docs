@@ -62,7 +62,7 @@ Prior to caputuring an image of an Azure virtual machine, it is recommended the 
 
 9.	On the command bar, click **Capture**.
 
-	![Capture virtual machine](./media/virtual-machines-capture-image-windows-server/CaptureVM.png)
+	![Capture virtual machine](./media/virtual-machines-windows-classic-capture-image/CaptureVM.png)
 
 	The **Capture the Virtual Machine** dialog box appears.
 
@@ -85,7 +85,7 @@ The image is ready to be used to create virtual machines. To do this, you'll cre
 [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
 [Enter Sysprep.exe options]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
 [The virtual machine is stopped]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
-[Capture an image of the virtual machine]: ./media/virtual-machines-capture-image-windows-server/CaptureVM.png
+[Capture an image of the virtual machine]: ./media/virtual-machines-windows-classic-capture-image/CaptureVM.png
 [Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
