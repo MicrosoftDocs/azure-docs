@@ -209,7 +209,7 @@ Create these new availability sets with these Azure PowerShell commands.
 
 This is the configuration resulting from the successful completion of this phase.
 
-![](./media/virtual-machines-workload-intranet-sharepoint-phase1/workload-spsqlao_01.png)
+![](./media/virtual-machines-windows-ps-sp-intranet-ph1/workload-spsqlao_01.png)
 
 ## Next step
 
