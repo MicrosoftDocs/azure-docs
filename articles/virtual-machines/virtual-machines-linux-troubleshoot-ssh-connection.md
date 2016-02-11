@@ -267,7 +267,7 @@ For more information, see [About network security groups](../virtual-network/vir
 
 The last source of possible problems is the Azure virtual machine itself.
 
-![Diagram that highlights Linux-based Azure virtual machine](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot5.png)
+![Diagram that highlights Linux-based Azure virtual machine](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
 If you have not done so already, follow the instructions [to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) on the virtual machine.
 
