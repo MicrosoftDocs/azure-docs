@@ -25,7 +25,7 @@ Set up your first or next SharePoint farm in Microsoft Azure and take advantage 
 
 With the virtual machines and virtual network features of Azure infrastructure services, you can quickly deploy and run a SharePoint farm that is transparently connected to your on-premises network. For example, you can set up the following:
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/workload-spsqlao.png)
+![](./media/virtual-machines-windows-sp-intranet/workload-spsqlao.png)
 
 Because the Azure virtual network is an extension of your on-premises network with all of the correct naming and traffic routing in place, your users will access it in the same way as if it were located in an on-premises datacenter.
 
@@ -50,13 +50,13 @@ You can create these dev/test environments for free with your [Visual Studio sub
 
 A cloud-only virtual network is not connected to an on-premises network. If you just want to quickly create a basic or high-availability SharePoint farm, see [Create SharePoint server farms](virtual-machines-sharepoint-farm-azure-preview.md). The following example shows the basic SharePoint farm configuration.
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/Non-HAFarm.png)
+![](./media/virtual-machines-windows-sp-intranet/Non-HAFarm.png)
 
 ### Cross-premises virtual network
 
 A cross-premises virtual network is connected to an on-premises network with a site-to-site VPN or ExpressRoute connection. If you want to create a dev/test environment that mimics the final configuration and experiment with accessing the SharePoint server and performing remote administration over a VPN connection, see [Set up a SharePoint intranet farm in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/CreateSPFarmHybridCloud.png)
+![](./media/virtual-machines-windows-sp-intranet/CreateSPFarmHybridCloud.png)
 
 Your next step is to create a high-availability intranet SharePoint farm in Azure.
 
@@ -64,7 +64,7 @@ Your next step is to create a high-availability intranet SharePoint farm in Azur
 
 The baseline, representative configuration for a functional, high-availability intranet SharePoint farm is the following:
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/workload-spsqlao.png)
+![](./media/virtual-machines-windows-sp-intranet/workload-spsqlao.png)
 
 This consists of:
 
