@@ -62,7 +62,7 @@ To deploy this configuration, use the following process:
 
 - Phase 1: Configure Azure 
 
-	Use Azure PowerShell to create the storage accounts, availability sets, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+	Use Azure PowerShell to create the storage accounts, availability sets, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-windows-ps-lob-ph1.md).
 
 - Phase 2: Configure the domain controllers 
 
@@ -78,7 +78,7 @@ To deploy this configuration, use the following process:
 
 - Phase 5: Configure a SQL Server AlwaysOn Availability Group.
 
-	Prepare the application databases, create a SQL Server AlwaysOn Availability Group, and then add the application databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md).
+	Prepare the application databases, create a SQL Server AlwaysOn Availability Group, and then add the application databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-windows-ps-lob-ph5.md).
 
 Once configured, you can easily expand this line of business application by adding more web servers or virtual machines running SQL Servers to the cluster.
 
