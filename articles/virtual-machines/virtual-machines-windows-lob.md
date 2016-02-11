@@ -26,7 +26,7 @@ Set up your first or next web-based, intranet-only line of business application 
  
 With the Virtual Machines and Virtual Network features of Azure infrastructure services, you can quickly deploy and run a line of business application that is accessible by your organization's users. For example, you can set this up.
 
-![](./media/virtual-machines-workload-high-availability-LOB-application/workload-lobapp-phase4.png)
+![](./media/virtual-machines-windows-lob/workload-lobapp-phase4.png)
  
 Because the Azure Virtual Network is an extension of your on-premises network with all of the correct naming and traffic routing in place, your users will access the servers of the line of business application in the same way as if it were located in an on-premises datacenter.
 
@@ -38,7 +38,7 @@ Your next step is to set up a dev/test line of business application hosted in Az
 
 A cross-premises virtual network is connected to an on-premises network with a site-to-site VPN or ExpressRoute connection. If you want to create a dev/test environment that mimics the final configuration and experiment with accessing the application and performing remote administration over a VPN connection, see [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md). 
 
-![](./media/virtual-machines-workload-high-availability-LOB-application/CreateLOBAppHybridCloud_3.png)
+![](./media/virtual-machines-windows-lob/CreateLOBAppHybridCloud_3.png)
  
 You can create this dev/test environment for free with your [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) or an [Azure Trial Subscription](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -48,7 +48,7 @@ Your next step is to create a high-availability line of business application in 
 
 The baseline, representative configuration for a high-availability line of business application in Azure looks like this.
 
-![](./media/virtual-machines-workload-high-availability-LOB-application/workload-lobapp-phase4.png)
+![](./media/virtual-machines-windows-lob/workload-lobapp-phase4.png)
  
 This consists of:
 
