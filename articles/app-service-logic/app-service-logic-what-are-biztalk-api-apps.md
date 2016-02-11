@@ -4,7 +4,7 @@
 	services="app-service\logic" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,10 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/10/2016" 
 	ms.author="mandia"/>
 
 # What are Connectors and BizTalk API Apps
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
 
 Azure App Services is built atop a principle of extensibility and common connectivity through API Apps. A *Connector* is a type of API App that focuses on connectivity. Connectors, like any other API App, are used from Web Apps, Mobile Apps, and Logic Apps. Connectors make it easy to connect to existing services and help manage authentication, provide monitoring, analytics, and more.
 
@@ -32,7 +33,7 @@ In Azure App Service, there are different Service "Tiers" available. All Tiers i
 
 
 ## Standard Connectors
-App Service comes with a rich set of connectors that provide a turnkey way to connect your web, mobile, and logic apps to some of the biggest names in SaaS today, including Office 365, SalesForce, Sugar CRM, OneDrive, DropBox, Marketo, Facebook, and many more. It also includes a set of connectors to communicate  with external Services using FTP, SFTP, POP3/IMAP, SMTP, and SOAP; which are as easy as making an HTTP call.  
+App Service comes with a rich set of connectors that provide a turnkey way to connect your web, mobile, and logic apps to some of the biggest names in SaaS today, including Office 365, SalesForce, Sugar CRM, OneDrive, DropBox, Facebook, and many more. It also includes a set of connectors to communicate  with external Services using FTP, SFTP, POP3/IMAP, SMTP, and SOAP; which are as easy as making an HTTP call.  
 
 ## Premium Connectors 
 The Premium connectors extend the reach of App Services further into the enterprise with connectivity to SAP, Oracle, DB2, Informix, and WebSphere MQ. 

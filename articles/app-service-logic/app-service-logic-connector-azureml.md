@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/10/2016"
    ms.author="jehollan"/>
    
 # Overview
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
 The Azure ML Connector for Logic Apps enables calling Azure ML APIs for batch scoring (Batch Execution Service) and retraining. These features in combination with Logic App Triggers enable scheduling batch jobs and setting up scheduled retraining of models.
 
  ![][1]

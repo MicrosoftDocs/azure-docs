@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/03/2015"
+   ms.date="02/10/2016"
    ms.author="plarsen"/>
 
 # Informix Connector
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
 
 Microsoft Connector for Informix is an API app for connecting applications through Azure App Service to resources stored in an IBM Informix database. Connector includes a Microsoft Client to connect to remote Informix server computers across a TCP/IP network connection, including Azure hybrid connections to on-premises Informix servers using the Azure Service Bus Relay. Connector supports the following database operations:
 
