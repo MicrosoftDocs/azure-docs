@@ -368,16 +368,16 @@ The SOA client application requires no changes except altering the head name to 
 * See [Managing SOA Services in Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) for more about deploying and managing SOA services with HPC Pack.
 
 <!--Image references-->
-[scenario]: ./media/virtual-machines-excel-cluster-hpcpack/scenario.png
-[github]: ./media/virtual-machines-excel-cluster-hpcpack/github.png
-[template]: ./media/virtual-machines-excel-cluster-hpcpack/template.png
-[parameters]: ./media/virtual-machines-excel-cluster-hpcpack/parameters.png
-[create]: ./media/virtual-machines-excel-cluster-hpcpack/create.png
-[connect]: ./media/virtual-machines-excel-cluster-hpcpack/connect.png
-[cert]: ./media/virtual-machines-excel-cluster-hpcpack/cert.png
-[addin]: ./media/virtual-machines-excel-cluster-hpcpack/addin.png
-[macro]: ./media/virtual-machines-excel-cluster-hpcpack/macro.png
-[options]: ./media/virtual-machines-excel-cluster-hpcpack/options.png
-[run]: ./media/virtual-machines-excel-cluster-hpcpack/run.png
-[endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
-[udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
+[scenario]: ./media/virtual-machines-windows-excel-cluster-hpcpack/scenario.png
+[github]: ./media/virtual-machines-windows-excel-cluster-hpcpack/github.png
+[template]: ./media/virtual-machines-windows-excel-cluster-hpcpack/template.png
+[parameters]: ./media/virtual-machines-windows-excel-cluster-hpcpack/parameters.png
+[create]: ./media/virtual-machines-windows-excel-cluster-hpcpack/create.png
+[connect]: ./media/virtual-machines-windows-excel-cluster-hpcpack/connect.png
+[cert]: ./media/virtual-machines-windows-excel-cluster-hpcpack/cert.png
+[addin]: ./media/virtual-machines-windows-excel-cluster-hpcpack/addin.png
+[macro]: ./media/virtual-machines-windows-excel-cluster-hpcpack/macro.png
+[options]: ./media/virtual-machines-windows-excel-cluster-hpcpack/options.png
+[run]: ./media/virtual-machines-windows-excel-cluster-hpcpack/run.png
+[endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
+[udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
