@@ -175,4 +175,4 @@ As you configure your virtual machine and install software on it, it's a good id
 
 ## Next steps
 
-To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](/virtual-machines/virtual-machines-linux-tutorial.md) and [Create a virtual machine running Windows in the Azure preview portal](/virtual-machines/virtual-machines-windows-tutorial.md).
+To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](/virtual-machines/virtual-machines-linux-cli-create.md) and [Create a virtual machine running Windows in the Azure preview portal](/virtual-machines/virtual-machines-windows-tutorial.md).
