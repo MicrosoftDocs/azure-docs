@@ -72,7 +72,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
 
 3. Click **Data Services** > **Storage** > **Quick Create**.
 
-	![Quick create a storage account](./media/virtual-machines-create-upload-vhd-windows-server/Storage-quick-create.png)
+	![Quick create a storage account](./media/virtual-machines-windows-classic-createupload-vhd/Storage-quick-create.png)
 
 4. Fill out the fields as follows:
 
