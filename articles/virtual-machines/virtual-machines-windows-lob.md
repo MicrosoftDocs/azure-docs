@@ -26,7 +26,7 @@ Set up your first or next web-based, intranet-only line of business application 
  
 With the Virtual Machines and Virtual Network features of Azure infrastructure services, you can quickly deploy and run a line of business application that is accessible by your organization's users. For example, you can set this up.
 
-![](./media/virtual-machines-workload-high-availability-LOB-application/workload-lobapp-phase4.png)
+![](./media/virtual-machines-windows-lob/workload-lobapp-phase4.png)
  
 Because the Azure Virtual Network is an extension of your on-premises network with all of the correct naming and traffic routing in place, your users will access the servers of the line of business application in the same way as if it were located in an on-premises datacenter.
 
@@ -48,7 +48,7 @@ Your next step is to create a high-availability line of business application in 
 
 The baseline, representative configuration for a high-availability line of business application in Azure looks like this.
 
-![](./media/virtual-machines-workload-high-availability-LOB-application/workload-lobapp-phase4.png)
+![](./media/virtual-machines-windows-lob/workload-lobapp-phase4.png)
  
 This consists of:
 
