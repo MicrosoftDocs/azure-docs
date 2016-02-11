@@ -71,7 +71,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 3. Click **Settings** to see storage and networking settings for the new VM. For a first VM you can generally accept the default settings. If you selected a VM size that supports it, you can try out Premium Storage by selecting **Premium (SSD)** under **Disk type**. When done, click ![OK button](media/virtual-machines-linux-portal-create/okbutton.png).
 
-	![](media/virtual-machines-linux-tutorial-portal-rm/step-3-settings.png)
+	![](media/virtual-machines-linux-portal-create/step-3-settings.png)
 
 6. Click **Summary** to review your configuration choices. When you're done reviewing or updating the settings, click ![OK button](media/virtual-machines-linux-portal-create/createbutton.png) .
 
