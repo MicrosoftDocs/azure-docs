@@ -62,7 +62,7 @@ To deploy this configuration, use the following process:
 
 - Phase 1: Configure Azure 
 
-	Use Azure PowerShell to create the storage accounts, availability sets, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+	Use Azure PowerShell to create the storage accounts, availability sets, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-windows-ps-lob-ph1.md).
 
 - Phase 2: Configure the domain controllers 
 
@@ -70,15 +70,15 @@ To deploy this configuration, use the following process:
 
 - Phase 3: Configure the SQL Server infrastructure.  
 
-	Create the virtual machines running SQL Server and the cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md).
+	Create the virtual machines running SQL Server and the cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-windows-ps-lob-ph3.md).
 
 - Phase 4: Configure the web servers.
 
-	Create the web server virtual machines and add your line of business application to it. For the detailed configuration, see [Phase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md).
+	Create the web server virtual machines and add your line of business application to it. For the detailed configuration, see [Phase 4](virtual-machines-windows-ps-lob-ph4.md).
 
 - Phase 5: Configure a SQL Server AlwaysOn Availability Group.
 
-	Prepare the application databases, create a SQL Server AlwaysOn Availability Group, and then add the application databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md).
+	Prepare the application databases, create a SQL Server AlwaysOn Availability Group, and then add the application databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-windows-ps-lob-ph5.md).
 
 Once configured, you can easily expand this line of business application by adding more web servers or virtual machines running SQL Servers to the cluster.
 
