@@ -138,7 +138,7 @@ Analysis Services, Reporting Services, SQL Server Database Engine, and data sour
 
 - Data source is Azure SQL database.
 
-![bi iaas scenarios vm and AzureSQL as data source](./media/virtual-machines-sql-server-business-intelligence/IC650110.gif)
+![bi iaas scenarios vm and AzureSQL as data source](./media/virtual-machines-windows-classic-ps-sql-bi/IC650110.gif)
 
 ### Hybrid –data on-premises
 
