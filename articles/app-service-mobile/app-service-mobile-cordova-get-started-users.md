@@ -48,7 +48,7 @@ Next, you will update the app to authenticate users before requesting resources 
 2. Locate the `Content-Security-Policy` meta tag in the head section.  You will need to add the OAuth host to the list of allowed sources.
 
     | Provider               | SDK Provider Name | OAuth Host                  |
-    +------------------------+-------------------+-----------------------------+
+    | :--------------------- | :---------------- | :-------------------------- |
     | Azure Active Directory | aad               | https://login.windows.net   |
     | Facebook               | facebook          | https://www.facebook.com    |
     | Google                 | google            | https://accounts.google.com |
@@ -61,6 +61,10 @@ Next, you will update the app to authenticate users before requesting resources 
 
     You should replace <tt>https://login.windows.net</tt> with the OAuth host from the table above.  Consult the [Content-Security-Policy documentation]
     for more information on this meta tag.
+
+    Note that some authentication providers do not require Content-Security-Policy when used on appropriate mobile
+    devices.  For example, no Content-Security-Policy changes are required when using Google authentication on an
+    Android device.
 
 3. Open the <tt>www/js/index.js</tt> file for editing.  Although the project will build and run with just the changes
    that have already been made, it is considered Best Practice to explicitly call a login() method to initiate a login
