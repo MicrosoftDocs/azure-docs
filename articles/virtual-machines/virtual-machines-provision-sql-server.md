@@ -69,7 +69,7 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 
 	>[AZURE.NOTE] The size of the virtual machine is specified during provisioning:
  	>
-	> - For production workloads, we recommend using Premium Storage with the following minimum recommended sizes: **DS3** for SQL Server Enterprise edition and **DS2** for SQL Server Standard edition. For more information, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md).
+	> - For production workloads, we recommend using Premium Storage with the following minimum recommended sizes: **DS3** for SQL Server Enterprise edition and **DS2** for SQL Server Standard edition. For more information, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-perf.md).
 	> - The selected size limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](virtual-machines-size-specs.md).
 
 5. After entering your VM configuration details, click the next arrow on the bottom right to continue.
@@ -159,7 +159,7 @@ The following list provides additional resources for SQL Server in Azure virtual
 
 - [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-sql-server-connectivity.md)
 
-- [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md)
+- [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-perf.md)
 
 - [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-security-considerations.md)
 
