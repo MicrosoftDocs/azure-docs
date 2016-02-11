@@ -95,7 +95,7 @@ The below resources should provide more information on deploying from the image 
 
 - [Deploying a Windows Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md)
 
-- [Deploying a Linux Virtual Machine](../virtual-machines/virtual-machines-linux-tutorial.md)
+- [Deploying a Linux Virtual Machine](../virtual-machines/virtual-machines-linux-cli-create.md)
 
 - [Virtual Machine FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 

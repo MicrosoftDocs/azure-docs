@@ -34,7 +34,7 @@ This table helps you compare the choices offered by Azure.
 
 Try out a virtual machine by creating a simple virtual machine quickly. For instructions, see one of these tutorials:
 
-[Create a virtual machine running Linux](virtual-machines-linux-tutorial.md)
+[Create a virtual machine running Linux](virtual-machines-linux-cli-create.md)
 
 [Create a virtual machine running Windows in the Azure portal](virtual-machines-windows-tutorial.md)
 

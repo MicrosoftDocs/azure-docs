@@ -78,7 +78,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [overview]: ../resource-group-overview.md
 
 [Create a Virtual Machine Running Windows]: virtual-machines-windows-tutorial.md
-[Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md
+[Create a Virtual Machine Running Linux]: virtual-machines-linux-cli-create.md
 
 [Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows]:xplat-cli-azure-manage-vm-asm-arm.md
 [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI]: virtual-machines-deploy-rmtemplates-azure-cli.md
@@ -100,5 +100,5 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [Base Configuration Test Environment]: virtual-machines-base-configuration-test-environment.md
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
-[Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md
+[Create a Virtual Machine Running Linux]: virtual-machines-linux-cli-create.md
 [Create a Custom Virtual Machine]: virtual-machines-create-custom.md
