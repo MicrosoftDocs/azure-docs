@@ -281,7 +281,7 @@ Create a main activity and call it `LoginActivity`.
 
 Create a file called `LoginActivity.java`.
 
-You need to initialize the activity and add some buttons that will control your UI. This is familiar to you if you've written Android code before:
+You need to initialize the activity and add some buttons that will control your UI. This is familiar to you if you've written Android code before.
 
 ```
 import android.app.Activity;
@@ -362,15 +362,13 @@ public class LoginActivity extends Activity {
 
 
 ```
-What we've done is create buttons that call our ToDoActivity intent (which will call ADAL when we need a token) with our own Activity as a reference and an extra parameter. This extra parameter is passed by the `intent.putExtra()` method. You see here we define "thePolicy" as what you specified in `Constants.java`. This allows the intent to know what policy to invoke during authentication.
+You have now created buttons that call your `ToDoActivity` intent (which calls ADAL when you need a token). They do this by using your activity as a reference and an extra parameter. This extra parameter is passed by the `intent.putExtra()` method. You define `"thePolicy"` by using what you specified in `Constants.java`. This tells the intent which policy to invoke during authentication.
 
-### Step 9: Create the Settings Activity
+## Create the settings activity
 
-This is just an Activity that populates our Settings UI.
+This is an activity that populates your settings UI.
 
-Create a file called `SettingsActivity.java`
-
-Pretty simple CRUD here:
+Create a file called `SettingsActivity.java` for simple create, read, update, and delete (CRUD) operations.
 
 ```
  package com.microsoft.aad.taskapplication;
@@ -488,13 +486,11 @@ public class SettingsActivity extends Activity {
 }
 ```
 
-### Step 10: Create the AddTask Activity
+## Create the add-task activity
 
-This will allow us to add a Task to our REST API endpoint. Again, rather simple.
+By using this, you can add a task to your REST API endpoint.
 
-Create a file called `AddTaskActivity.java`
-
-And write:
+Create a file called `AddTaskActivity.java` and write the following.
 
 ```
 package com.microsoft.aad.taskapplication;
@@ -541,13 +537,11 @@ public class AddTaskActivity extends Activity {
 
 ```
 
-### Step 11: Create the ToDoList Activity
+## Create the to-do list activity
 
-Now we have the most important Activity, one that allows us to get a token from Azure AD for policy and then use that token to call the Task REST API server.
+This is the most important activity. By employing it, you can get a token from Azure AD for a policy, and then use that token to call the task REST API server.
 
-Create a file called `ToDoActivity.java`
-
-Write the following (I'll explain the calls afterwards):
+Create a file called `ToDoActivity.java` and write the following. (The calls will be explained later.)
 
 ```
 
