@@ -37,7 +37,7 @@ For more information on licensing and current rates, see [Virtual Machines Licen
 
 The Microsoft Azure Virtual Machine gallery includes several images that contain Microsoft SQL Server. The software installed on the virtual machine images varies based on the version of the operating system and the version of SQL Server. The list of images available in the Azure virtual machine gallery changes frequently.
 
-![SQL image in azure VM gallery](./media/virtual-machines-sql-server-business-intelligence/IC741367.png)
+![SQL image in azure VM gallery](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)
 
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) The following PowerShell script returns the list of Azure images that contain “SQL-Server” in the ImageName:
 
