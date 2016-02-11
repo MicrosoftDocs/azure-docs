@@ -32,7 +32,7 @@ All distributions running on Azure will need to meet a number of prerequisites t
 It is for this reason that we recommend that you start with one of our [Linux on Azure Endorsed Distributions](virtual-machines-linux-endorsed-distributions.md) when possible. The following articles will guide you through how to prepare the various endorsed Linux distributions that are supported on Azure:
 
 - **[CentOS-based Distributions](virtual-machines-linux-create-upload-vhd-centos.md)**
-- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
+- **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
 - **[SLES & openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
