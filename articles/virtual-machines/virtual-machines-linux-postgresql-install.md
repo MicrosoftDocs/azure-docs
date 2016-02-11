@@ -202,7 +202,7 @@ You have now set up a four-column table with the following column names and rest
 
 You should see the following if your table has been successfully created:
 
-![image](./media/virtual-machines-linux-postgresql/no4.png)
+![image](./media/virtual-machines-linux-postgresql-install/no4.png)
 
 You can also check the table structure by using the following command:
 
