@@ -185,7 +185,7 @@ When you enable SQL automated backup you can configure the following:
 ### Key Vault Integration
 To store security secrets in Azure for encryption, click **Azure key vault integration** and click **Enable**.
 
-<br/>![SQL ARM Azure Key Vault Integration](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-akv.png)
+<br/>![SQL ARM Azure Key Vault Integration](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
 <br/>
 
 The following table lists the parameters required to configure Azure Key Vault Integration.
