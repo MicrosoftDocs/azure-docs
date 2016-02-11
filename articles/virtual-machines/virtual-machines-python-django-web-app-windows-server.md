@@ -49,7 +49,7 @@ A screenshot of the completed application appears next.
 
 ## Creating and configuring an Azure virtual machine to host Django
 
-1. Follow the instructions given [here](virtual-machines-windows-tutorial-classic-portal.md) to create an Azure virtual machine of the Windows Server 2012 R2 Datacenter distribution.
+1. Follow the instructions given [here](virtual-machines-windows-classic-tutorial.md) to create an Azure virtual machine of the Windows Server 2012 R2 Datacenter distribution.
 
 1. Instruct Azure to direct port 80 traffic from the web to port 80 on the virtual machine:
  - Navigate to your newly created virtual machine in the Azure classic portal and click the **ENDPOINTS** tab.
