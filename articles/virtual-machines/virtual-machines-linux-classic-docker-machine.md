@@ -206,7 +206,7 @@ Go to the [Docker user guide](https://docs.docker.com/userguide/) and create som
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
 [portalsettingsitem]: ./media/virtual-machines-docker-machine/portalsettingsitem.png
-[managementcertificatesitem]: ./media/virtual-machines-docker-machine/managementcertificatesitem.png
+[managementcertificatesitem]: ./media/virtual-machines-linux-classic-docker-machine/managementcertificatesitem.png
 [uploaditem]: ./media/virtual-machines-docker-machine/uploaditem.png
 
 <!--Link references-->
