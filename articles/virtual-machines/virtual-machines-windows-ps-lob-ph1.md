@@ -214,7 +214,7 @@ Create these new availability sets with these Azure PowerShell commands.
 
 This is the configuration resulting from the successful completion of this phase.
 
-![](./media/virtual-machines-workload-high-availability-LOB-application-phase1/workload-lobapp-phase1.png)
+![](./media/virtual-machines-windows-ps-lob-ph1/workload-lobapp-phase1.png)
 
 ## Next step
 
