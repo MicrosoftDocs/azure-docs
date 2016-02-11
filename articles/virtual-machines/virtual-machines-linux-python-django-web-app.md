@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows](virtual-machines-python-django-web-app-windows-server.md)
-- [Mac/Linux](virtual-machines-python-django-web-app-linux.md)
+- [Mac/Linux](virtual-machines-linux-python-django-web-app.md)
 
 <br>
 
