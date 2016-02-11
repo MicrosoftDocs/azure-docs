@@ -32,7 +32,7 @@ The first step requires an Azure VM from a Linux image that supports the Docker 
 
 > [AZURE.NOTE] Currently, only Ubuntu 14.04 LTS images more recent than July 2014 support the Docker VM Extension.
 
-![Create a new Ubuntu Image](./media/virtual-machines-docker-with-portal/ChooseUbuntu.png)
+![Create a new Ubuntu Image](./media/virtual-machines-linux-classic-portal-use-docker/ChooseUbuntu.png)
 
 ## Create Docker Certificates
 
