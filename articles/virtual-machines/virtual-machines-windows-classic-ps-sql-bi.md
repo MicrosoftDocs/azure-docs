@@ -39,7 +39,7 @@ The Microsoft Azure Virtual Machine gallery includes several images that contain
 
 ![SQL image in azure VM gallery](./media/virtual-machines-sql-server-business-intelligence/IC741367.png)
 
-![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) The following PowerShell script returns the list of Azure images that contain “SQL-Server” in the ImageName:
+![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) The following PowerShell script returns the list of Azure images that contain “SQL-Server” in the ImageName:
 
 	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
 	
@@ -86,7 +86,7 @@ The following table summarizes the Business Intelligence features installed on t
 
 <sup>1</sup> For additional information on SharePoint and Azure virtual machines, see [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) and [SharePoint Deployment on Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
 
-![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) Run the following PowerShell command to get a list of installed services that contain “SQL” in the service name.
+![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) Run the following PowerShell command to get a list of installed services that contain “SQL” in the service name.
 
 	get-service | Where-Object{ $_.DisplayName -like '*SQL*' } | Select DisplayName, status, servicetype, dependentservices | format-Table -AutoSize
 
