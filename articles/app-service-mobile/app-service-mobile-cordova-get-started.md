@@ -1,16 +1,18 @@
 <properties
     pageTitle="Create a Cordova app on Azure App Service Mobile Apps | Microsoft Azure"
     description="Follow this tutorial to get started with using Azure mobile app backends for Apache Cordova development"
-    services="app-service\mobile"
+    services="app-service-mobile"
     documentationCenter="javascript"
     authors="adrianhall"
     manager="glenga"
-    editor=""/>
+    editor=""
+    tags=""
+    keywords="cordova,javascript,mobile,client" />
 
 <tags
     ms.service="app-service-mobile"
     ms.workload="na"
-    ms.tgt_pltfrm="mobile-javascript"
+    ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="article"
     ms.date="02/09/2016"
