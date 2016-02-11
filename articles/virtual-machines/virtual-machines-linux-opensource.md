@@ -34,7 +34,7 @@ The sections are broken down on the right of this page. (Links may occur in more
 - [Azure Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/)
 - [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index)
 - [Events and Demonstrations: Microsoft Openness CEE](http://www.opennessatcee.com/)
-- \[Classic Deployment]: [How to: Uploading your own Distro Image](virtual-machines-linux-create-upload-vhd.md) (and also instructions using an [Azure-Endorsed Distribution](virtual-machines-linux-endorsed-distributions.md))
+- \[Classic Deployment]: [How to: Uploading your own Distro Image](virtual-machines-linux-classic-create-upload-vhd.md) (and also instructions using an [Azure-Endorsed Distribution](virtual-machines-linux-endorsed-distributions.md))
 - [Notes: General Linux Requirements to Run in Azure](virtual-machines-linux-create-upload-vhd-generic.md)
 - \[Classic Deployment]: [Notes: General Introduction for Linux on Azure](virtual-machines-linux-introduction.md)
 

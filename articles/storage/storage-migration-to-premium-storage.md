@@ -670,7 +670,7 @@ See the following resources for specific scenarios for migrating virtual machine
 
 - [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 - [Create and upload a Windows Server VHD to Azure.](../virtual-machines-create-upload-vhd-windows-server.md)
-- [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines-linux-create-upload-vhd.md)
+- [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines-linux-classic-create-upload-vhd.md)
 - [Migrating Virtual Machines from Amazon AWS to Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Also see the following resources to learn more about Azure Storage and Azure Virtual Machines:
