@@ -202,7 +202,7 @@ Jupyter is much more than a word processor as it allows the
 mixing of computation and rich media (text, graphics, video and virtually
 anything a modern web browser can display). You can mix, text, code, videos and more!
 
-![Screenshot](./media/virtual-machines-python-ipython-notebook/jupyter-editing-experience.png)
+![Screenshot](./media/virtual-machines-linux-jupyter-notebook/jupyter-editing-experience.png)
 
 And with the power of Python's many excellent libraries for scientific and
 technical computing, in the following screenshot, a simple calculation can be performed with the same ease
