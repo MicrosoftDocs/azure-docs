@@ -41,7 +41,7 @@ See [Security Center Pricing](https://azure.microsoft.com/pricing/details/securi
 You can enable data collection for your Azure subscriptions in the security policy. To enable data collection, [sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and then select **Security policy**. Set **Data collection** to **On** and configure the storage accounts where you want data to be collected (see the question “[Where is my data stored?](#where-is-my-data-stored)”). When **Data collection** is enabled, it automatically collects security configuration and event information from all supported virtual machines in the subscription.
 
 ### What happens when I enable data collection?
-Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various relevant security configurations and puts them into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces.
+Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various relevant security configurations and events them into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces.
 
 In addition, the operating system raises event log events on all activities.  The Azure Security Monitoring Agent reads event log entries and ETW traces, and then copies them to your storage account for analysis.  This is the storage account that you configured in the security policy. For more information about the storage account, see the question “[Where is my data stored?](#where-is-my-data-stored)”
 
@@ -95,7 +95,7 @@ The **Resources health** tile on the **Security Center** blade shows the overall
 ### How are permissions handled in Security Center?
  Security Center supports role-based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory role-based access control](role-based-access-control-configure.md).
 
-When users opens Security Center, the only recommendations and alerts that they'll see are related to resources that they have access to. This means that users will only see items that are related to resources for which they are an owner, contributor, or reader.
+When users open Security Center, the only recommendations and alerts that they'll see are related to resources that they have access to. This means that users will only see items that are related to resources for which they are an owner, contributor, or reader for the subscription or resource group that a resource belongs to.
 
 To edit a security policy, you must be either the owner of the subscription or a contributor to it.
 
