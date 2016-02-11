@@ -113,7 +113,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 4.	For **Path**, type **c:\mywar\shoppingcart.war.**
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image18.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image18.png)
 
 	Click **Next**.
 
