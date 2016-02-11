@@ -404,7 +404,7 @@ For more information on creating endpoints, see the following:
 
 The following diagram illustrates the ports to open in the VM firewall to allow remote access to features and components on the VM.
 
-![ports to open for bi applications in Azure VMs](./media/virtual-machines-sql-server-business-intelligence/IC654385.gif)
+![ports to open for bi applications in Azure VMs](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
 ## Resources
 
