@@ -94,4 +94,4 @@ example, start HPC Cluster Manager, and complete the [Deployment To-do List](htt
 
 <!--Image references-->
 [headnode]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/headnode.png
-[marketplace]: ./media/virtual-machines-hpcpack-cluster-headnode/marketplace.png
+[marketplace]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/marketplace.png
