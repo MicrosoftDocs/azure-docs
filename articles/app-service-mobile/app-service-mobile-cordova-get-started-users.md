@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add authentication on Apache Cordova with Mobile Apps| Azure App Service"
+	pageTitle="Add authentication on Apache Cordova with Mobile Apps | Azure App Service"
 	description="Learn how to use Mobile Apps in Azure App Service to authenticate users of your Apache Cordova app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="javascript"
