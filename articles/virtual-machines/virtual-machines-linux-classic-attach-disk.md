@@ -99,7 +99,7 @@ You can use the same instructions to initialize multiple data disks, using the r
 6. Type **p** to see the details about the disk that is being partitioned.
 
 
-	![List disk information](./media/virtual-machines-linux-how-to-attach-disk/DiskInfo.png)
+	![List disk information](./media/virtual-machines-linux-classic-attach-disk/DiskInfo.png)
 
 
 
