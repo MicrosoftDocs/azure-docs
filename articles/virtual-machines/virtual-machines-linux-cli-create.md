@@ -27,7 +27,7 @@
 - [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [CLI](virtual-machines-linux-cli-create.md)
 
-Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows to quickly create an Ubuntu Server VM running in Azure, connect to it using **ssh**, and create and mount a new disk. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](virtual-machines-linux-create-upload-vhd.md).
+Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows to quickly create an Ubuntu Server VM running in Azure, connect to it using **ssh**, and create and mount a new disk. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](virtual-machines-linux-classic-create-upload-vhd.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
@@ -318,10 +318,10 @@ Remember, that your new disk will not typically be available to the VM if it reb
 
 To learn more about Linux on Azure, see:
 
-- [Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource.md)
+- [Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource-links.md)
 
 - [How to use the Azure Command-Line Interface](../virtual-machines-command-line-tools.md)
 
-- [Deploy a LAMP app using the Azure CustomScript Extension for Linux](virtual-machines-linux-script-lamp.md)
+- [Deploy a LAMP app using the Azure CustomScript Extension for Linux](virtual-machines-linux-classic-lamp-script.md)
 
 - [The Docker Virtual Machine Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)

@@ -101,7 +101,7 @@ The below resources should provide more information on deploying from the image 
 
 - [Create and upload your own VHD](../virtual-machines-create-upload-vhd-windows-server/)
 
-- [Capture Linux VM Image](../virtual-machines/virtual-machines-linux-capture-image.md)
+- [Capture Linux VM Image](../virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 

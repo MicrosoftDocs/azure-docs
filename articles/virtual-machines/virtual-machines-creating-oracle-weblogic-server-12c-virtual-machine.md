@@ -179,7 +179,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 ##Additional resources
 Now that you’ve set up your Virtual Machine running Oracle WebLogic Server, see the following topics for additional information.
 
--	[Oracle Virtual Machine images - Miscellaneous Considerations](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md)
+-	[Oracle Virtual Machine images - Miscellaneous Considerations](virtual-machines-windows-classic-oracle-considerations.md)
 
 -	[Oracle WebLogic Server Product Documentation](http://www.oracle.com/technetwork/middleware/weblogic/documentation/index.html)
 
