@@ -198,7 +198,7 @@ Or
 
 1. Right-click **Reporting Services Configuration Manager** and click **Run as Administrator**.
 
-	![search for ssrs configuration manager](./media/virtual-machines-sql-server-business-intelligence/IC650113.gif)
+	![search for ssrs configuration manager](./media/virtual-machines-windows-classic-ps-sql-bi/IC650113.gif)
 
 ### Configure Reporting Services
 
