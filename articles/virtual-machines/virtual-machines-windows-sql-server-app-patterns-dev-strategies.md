@@ -186,7 +186,7 @@ The following diagram demonstrates an on-premises scenario and its cloud enabled
 
 Running multiple copies of an application in different VMs make sure that you are load balancing requests across them. When you have multiple virtual machines, you need to make sure that all your VMs are accessible and running at one point in time. If you configure load balancing, Azure Load Balancer track the health of VMs and directs incoming calls to the healthy functioning VM nodes properly. For information on how to set up load balancing of the virtual machines, see [Load balancing for Azure infrastructure services](virtual-machines-load-balance.md). Having multiple instances of web and application servers behind a load balancer ensures the high availability of the presentation and business tiers.
 
-![Scale out and high availability](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728012.png)
+![Scale out and high availability](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728012.png)
 
 ### Best practices for application patterns requiring SQL HADR
 
