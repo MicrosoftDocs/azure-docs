@@ -168,7 +168,7 @@ Your VM is up and running and waiting for you to connect.
 
 With Linux virtual machines, you typically connect using **ssh**. 
 
-> [AZURE.NOTE] This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access. This article uses username and password with **SSH** for brevity.
+> [AZURE.NOTE] This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access. This article uses username and password with **SSH** for brevity.
 
 If you're not familiar with connecting with **ssh**, the command takes the form `ssh <username>@<publicdnsaddress> -p <the ssh port>`. In this case, we use the username and password from the previous step and port 22, which is the default **ssh** port.
 
@@ -310,7 +310,7 @@ The data disk is now ready to use as `/datadrive`.
 	bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr  vmlinuz
 	boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 
-> [AZURE.NOTE] You can also connect to your Linux virtual machine using an SSH key for identification. For details, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
+> [AZURE.NOTE] You can also connect to your Linux virtual machine using an SSH key for identification. For details, see [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md).
 
 ## Next Steps
 

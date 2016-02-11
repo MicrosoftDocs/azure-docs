@@ -101,7 +101,7 @@ For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virt
 
 	$vm1 | Add-AzureProvisioningConfig -Linux -SSHKeyPairs "<SSH key pairs>"
 
-For more information, see [How to use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
+For more information, see [How to use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md).
 
 **Option 3**: Specify a list of SSH public keys that are already deployed in the subscription.
 

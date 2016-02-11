@@ -29,7 +29,7 @@ When creating a Linux virtual machine using the Azure classic portal, you are as
 
 
  - See [Create a Virtual Machine Running Linux](virtual-machines-linux-cli-create.md)
- - See [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md)
+ - See [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md)
 
 
 ## Obtaining Superuser Privileges Using `sudo`
