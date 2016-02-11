@@ -65,7 +65,7 @@ Linux virtual machines:
 
 -  [Attach a disk and prep it for use](virtual-machines-linux-classic-attach-disk.md)
 -  [Capture a Linux virtual machine](virtual-machines-linux-classic-capture-image.md)
--  [Detach a disk](virtual-machines-linux-how-to-detach-disk.md)
+-  [Detach a disk](virtual-machines-linux-classic-detach-disk.md)
 
 Windows virtual machines:
 

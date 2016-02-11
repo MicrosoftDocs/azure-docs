@@ -172,7 +172,7 @@ You can use the same instructions to initialize multiple data disks, using the r
 ## Additional Resources
 [How to log on to a virtual machine running Linux][Logon]
 
-[How to detach a disk from a Linux virtual machine ](virtual-machines-linux-how-to-detach-disk.md)
+[How to detach a disk from a Linux virtual machine ](virtual-machines-linux-classic-detach-disk.md)
 
 [Using the Azure CLI with the Service Management API](virtual-machines-command-line-tools.md)
 

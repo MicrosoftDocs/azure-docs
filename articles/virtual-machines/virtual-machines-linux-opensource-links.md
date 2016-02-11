@@ -123,7 +123,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 8. \[Classic Deployment]: [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
 9. [The basics: Using Root](virtual-machines-linux-use-root-privileges.md)
 10. \[Classic Deployment]: [The basics: Attaching a Data Disk to a Linux VM](virtual-machines-linux-classic-attach-disk.md)
-11. \[Classic Deployment]: [The basics: Detaching a Data Disk from a Linux VM](virtual-machines-linux-how-to-detach-disk.md)
+11. \[Classic Deployment]: [The basics: Detaching a Data Disk from a Linux VM](virtual-machines-linux-classic-detach-disk.md)
 12. [Blogging the basics: Optimizing Storage, Disks, and Performance with Linux and Azure](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 13. [The basics: RAID](virtual-machines-linux-configure-raid.md)
 14. \[Classic Deployment]: [The basics: Capturing a Linux VM to Make a Template](virtual-machines-linux-classic-capture-image.md)
