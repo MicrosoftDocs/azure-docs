@@ -30,7 +30,7 @@ This article contains links to the step-by-step instructions for deploying a hig
 
 This is the configuration, with placeholder names for each server.
 
-![](./media/virtual-machines-workload-high-availability-LOB-application-overview/workload-lobapp-phase4.png) 
+![](./media/virtual-machines-windows-lob-overview/workload-lobapp-phase4.png) 
  
 At least two machines for each role ensure high availability. All of the virtual machines are in a single Azure location (also known as a region). Each group of virtual machines for a specific role is in their own availability set. 
 
