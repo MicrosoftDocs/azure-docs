@@ -69,7 +69,7 @@ If you want to manually configure your Availability Group and associated listene
 - [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
 - [Extend on-premises AlwaysOn Availability Groups to Azure](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
 
-For other high availability considerations, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
+For other high availability considerations, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-dr.md).
 
 ## Backup and restore
 For on-premises databases, Azure can act as a secondary data center to store SQL Server backup files. For an overview of backup and restore options, see [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-backup-and-restore.md).
@@ -105,7 +105,7 @@ The SQL Server installation in the platform image contains the following configu
 |Analysis Services|Installed|
 |Integration Services|Installed|
 |Reporting Services|Configured in Native mode|
-|AlwaysOn Availability Groups|Available in SQL Server 2012 or later. Requires [additional configuration](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
+|AlwaysOn Availability Groups|Available in SQL Server 2012 or later. Requires [additional configuration](virtual-machines-windows-classic-sql-dr.md)
 |Replication|Installed|
 |Full-Text and Semantic Extractions for Search|Installed (Semantic Extractions in SQL Server 2012 or later only)|
 |Data Quality Services|Installed (SQL Server 2012 or later only)|
@@ -143,6 +143,6 @@ If you create a virtual machine by using a platform-provided SQL Server image, y
 
 - [Provisioning a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-sql-server-provision-resource-manager.md)
 - [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md)
-- [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
+- [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-dr.md)
 - [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure Virtual Machines](virtual-machines-about.md)
