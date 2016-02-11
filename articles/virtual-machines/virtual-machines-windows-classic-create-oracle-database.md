@@ -115,7 +115,7 @@ The following example shows you how you can create a virtual machine (VM) based 
 
 	The result should be the global name of the database that you created.
 
-	![](media/virtual-machines-creating-oracle-database-virtual-machine/image9.png)
+	![](media/virtual-machines-windows-classic-create-oracle-database/image9.png)
 
 ##Allowing your database to be reached remotely
 To allow your database to be reached remotely (for example, from a client computer running Java code), you’ll need to start the database listener, open port 1521 in your virtual machine’s firewall, and create a public endpoint for port 1521.
