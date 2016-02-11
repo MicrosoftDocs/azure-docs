@@ -34,7 +34,7 @@
 
 You can easily create a new Windows-based Azure virtual machine by using a Resource Manager template with Azure PowerShell. This template creates a single virtual machine running Windows in a new virtual network with a single subnet in a new resource group.
 
-![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
+![](./media/virtual-machines-windows-ps-template/windowsvm.png)
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
