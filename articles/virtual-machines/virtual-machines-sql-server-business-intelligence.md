@@ -299,7 +299,7 @@ The following table summarizes some of the options available to publish existing
 	
 	1. Create and install a management certificate.
 	
-	1. Upload the VHD file to Azure using the Add-AzureVHD cmdlet [Create and upload a Windows Server VHD to Azure](virtual-machines-create-upload-vhd-windows-server.md).
+	1. Upload the VHD file to Azure using the Add-AzureVHD cmdlet [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md).
 	
 	1. Attach the disk to the virtual machine.
 
