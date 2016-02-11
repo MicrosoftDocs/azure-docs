@@ -318,7 +318,7 @@ Remember, that your new disk will not typically be available to the VM if it reb
 
 To learn more about Linux on Azure, see:
 
-- [Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource.md)
+- [Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource-links.md)
 
 - [How to use the Azure Command-Line Interface](../virtual-machines-command-line-tools.md)
 

@@ -70,7 +70,7 @@ The Azure Linux Agent includes functionality to automatically detect this name c
  - [How to Inject Custom Data](virtual-machines-how-to-inject-custom-data.md)
  - [Custom Data and Cloud-Init on Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
  - [Create Azure Swap Partitions Using Cloud-Init](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [How to Use CoreOS on Azure](virtual-machines-linux-coreos-how-to.md)
+ - [How to Use CoreOS on Azure](virtual-machines-linux-classic-coreos-howto.md)
 
 
 ## Virtual Machine Image Capture
@@ -83,7 +83,7 @@ Azure provides the ability to capture the state of an existing virtual machine i
 
 3. Click *Capture* in the Azure classic portal or use the Powershell or CLI tools to capture the virtual machine as an image.
 
- - See: [How to Capture a Linux Virtual Machine to Use as a Template](virtual-machines-linux-capture-image.md)
+ - See: [How to Capture a Linux Virtual Machine to Use as a Template](virtual-machines-linux-classic-capture-image.md)
 
 
 ## Attaching Disks
