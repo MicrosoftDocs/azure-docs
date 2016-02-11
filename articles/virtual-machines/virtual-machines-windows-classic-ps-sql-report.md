@@ -51,7 +51,7 @@ This topic describes and walks you through the deployment and configuration of a
 
 1. Click **New**.
 
-	![new button](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692019.gif)
+	![new button](./media/virtual-machines-windows-classic-ps-sql-report/IC692019.gif)
 
 1. Click **From Gallery**.
 
