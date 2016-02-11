@@ -16,23 +16,23 @@
 	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C preview: extensible policy framework
+# Azure Active Directory B2C preview: Extensible policy framework
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## The basics
 
-Azure Active Directory (AD) B2C's extensible policy framework is the core strength of the service. Policies fully describe consumer identity experiences such as sign up, sign in or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
+The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
 
 - Account types (social accounts such as Facebook, or local accounts such as email address) that consumers can use to sign up for the application.
-- Attributes (for example, first name, postal code, and shoe size) to be collected from the consumer during sign up.
+- Attributes (for example, first name, postal code, and shoe size) to be collected from the consumer during sign-up.
 - Use of Multi-Factor Authentication.
 - The look-and-feel of all sign-up pages.
-- Information (which manifests as claims in a token) that the application receives when the policy run completes.
+- Information (which manifests as claims in a token) that the application receives when the policy run finishes.
 
-You can create multiple policies of different types in your tenant and use them in your applications as needed. Policies can be re-used across applications. This allows developers to define and modify consumer identity experiences with minimal or no changes to their code.
+You can create multiple policies of different types in your tenant and use them in your applications as needed. Policies can be reused across applications. This allows developers to define and modify consumer identity experiences with minimal or no changes to their code.
 
-Policies are available for use via a simple developer interface. Your application triggers a policy using a standard HTTP authentication request (passing a policy parameter in the request) and receives a customized token as response. For example, the only difference between requests invoking a sign-up policy and a sign-in policy is the policy name used in the "p" query string parameter:
+Policies are available for use via a simple developer interface. Your application triggers a policy using a standard HTTP authentication request (passing a policy parameter in the request) and receives a customized token as response. For example, the only difference between requests invoking a sign-up policy and those invoking a sign-in policy is the policy name used in the "p" query string parameter:
 
 ```
 
@@ -66,15 +66,15 @@ For more details about the policy framework, see this [blog post](http://blogs.t
 
 ## How to create a sign-up policy
 
-To enable sign up on your application, you will need to create a sign-up policy. This policy describes the experiences that consumers will go through during sign up and the contents of tokens that the application will receive on successful sign-ups.
+To enable sign-up on your application, you will need to create a sign-up policy. This policy describes the experiences that consumers will go through during sign-up and the contents of tokens that the application will receive on successful sign-ups.
 
 1. [Navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Sign-up policies**.
 3. Click **+Add** at the top of the blade.
 4. The **Name** determines the sign-up policy name used by your application. For example, enter "SiUp".
 5. Click **Identity providers** and select "Email address". Optionally, you can also select social identity providers, if already configured. Click **OK**.
-6. Click **Sign-up attributes**. Here you choose attributes that you want to collect from the consumer during sign up. For example, select "Country/Region", "Display Name" and "Postal Code". Click **OK**.
-7. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful sign up experience. For example, select "Display Name", "Identity Provider", "Postal Code", "User is new" and "User's Object ID".
+6. Click **Sign-up attributes**. Here you choose attributes that you want to collect from the consumer during sign-up. For example, select "Country/Region", "Display Name" and "Postal Code". Click **OK**.
+7. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful sign-up experience. For example, select "Display Name", "Identity Provider", "Postal Code", "User is new" and "User's Object ID".
 8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiUp**" (the **B2C\_1\_** fragment is automatically added) in the **Sign-up policies** blade.
 9. Open the policy by clicking "**B2C_1_SiUp**".
 10. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
@@ -85,14 +85,14 @@ To enable sign up on your application, you will need to create a sign-up policy.
 
 ## How to create a sign-in policy
 
-To enable sign in on your application, you will need to create a sign-in policy. This policy describes the experiences that consumers will go through during sign in and the contents of tokens that the application will receive on successful sign-ins.
+To enable sign-in on your application, you will need to create a sign-in policy. This policy describes the experiences that consumers will go through during sign-in and the contents of tokens that the application will receive on successful sign-ins.
 
 1. [Navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Sign-in policies**.
 3. Click **+Add** at the top of the blade.
 4. The **Name** determines the sign-in policy name used by your application. For example, enter "SiIn".
 5. Click **Identity providers** and select "Email address". Optionally, you can also select social identity providers, if already configured. Click **OK**.
-6. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful sign in experience. For example, select "Display Name", "Identity Provider", "Postal Code"  and "User's Object ID". Click **OK**.
+6. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful sign-in experience. For example, select "Display Name", "Identity Provider", "Postal Code"  and "User's Object ID". Click **OK**.
 7. Click **Create**. Note that the policy just created appears as "**B2C_1_SiIn**" (the **B2C\_1\_** fragment is automatically added) in the **Sign-in policies** blade.
 8. Open the policy by clicking "**B2C_1_SiIn**".
 9. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
@@ -110,7 +110,7 @@ To enable profile editing on your application, you will need to create a profile
 3. Click **+Add** at the top of the blade.
 4. The **Name** determines the profile editing policy name used by your application. For example, enter "SiPe".
 5. Click **Identity providers** and select "Email address". Optionally, you can also select social identity providers, if already configured. Click **OK**.
-6. Click **Profile attributes**. Here you choose attributes that the consumer can view and edit. For example, select "Country/Region", "Display Name" and "Postal Code". Click **OK**.
+6. Click **Profile attributes**. Here you choose attributes that the consumer can view and edit. For example, select "Country/Region", "Display Name", and "Postal Code". Click **OK**.
 7. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful profile editing experience. For example, select "Display Name" and "Postal Code".
 8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiPe**" (the **B2C\_1\_** fragment is automatically added) in the **Profile editing policies** blade.
 9. Open the policy by clicking "**B2C_1_SiPe**".

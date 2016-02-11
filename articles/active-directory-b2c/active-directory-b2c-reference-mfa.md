@@ -16,9 +16,9 @@
 	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C preview: enable Multi-Factor Authentication in your consumer-facing applications
+# Azure Active Directory B2C preview: Enable Multi-Factor Authentication in your consumer-facing applications
 
-Azure Active Directory (AD) B2C integrates directly with [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) to make it easy for you to add a second layer of security to sign-up and sign-in experiences in your consumer-facing applications. And you can do this without writing a single line of code. Currently we support phone call and text message verification. If you already created sign-up and sign-in policies, you can still enable Multi-Factor Authentication.
+Azure Active Directory (Azure AD) B2C integrates directly with [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) so that you can add a second layer of security to sign-up and sign-in experiences in your consumer-facing applications. And you can do this without writing a single line of code. Currently we support phone call and text message verification. If you already created sign-up and sign-in policies, you can still enable Multi-Factor Authentication.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -27,8 +27,8 @@ Multi-Factor Authentication can also be enabled when you create sign-up and sign
 
 This feature helps applications handle scenarios such as the following:
 
-- You don't require Multi-Factor Authentication to access one application, but do require it to access another one. For example, the consumer can sign into an auto insurance application with a social or local account, but must verify the phone number before accessing the home insurance application registered in the same directory.
-- You don't require Multi-Factor Authentication to access an application in general, but do require it to access the sensitive portions within it. For example, the consumer can sign into a banking application with a social or local account and check account balance, but must verify the phone number before attempting a wire transfer.
+- You don't require Multi-Factor Authentication to access one application, but you do require it to access another one. For example, the consumer can sign into an auto insurance application with a social or local account, but must verify the phone number before accessing the home insurance application registered in the same directory.
+- You don't require Multi-Factor Authentication to access an application in general, but you do require it to access the sensitive portions within it. For example, the consumer can sign in to a banking application with a social or local account and check account balance, but must verify the phone number before attempting a wire transfer.
 
 ## Modify your sign-up policy to enable Multi-Factor Authentication
 
@@ -36,11 +36,11 @@ This feature helps applications handle scenarios such as the following:
 2. Click **Sign-up policies**.
 3. Click your sign-up policy (for example, "B2C_1_SiUp") to open it.
 4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
-5. Click **Save** at the top of the blade. You're done!
+5. Click **Save** at the top of the blade.
 
 You can use the "Run now" feature on the policy to verify the consumer experience. Confirm the following:
 
-A consumer account gets created in your directory before the Multi-Factor Authentication step occurs. During the step, the consumer is asked to provide his or her phone number and verify it. If verification is successful, the phone number is attached to the consumer account for later use. Even if the consumer cancels or drops out, he or she can be asked to verify a phone number again during next sign-in (with Multi-Factor Authentication enabled).
+A consumer account gets created in your directory before the Multi-Factor Authentication step occurs. During the step, the consumer is asked to provide his or her phone number and verify it. If verification is successful, the phone number is attached to the consumer account for later use. Even if the consumer cancels or drops out, he or she can be asked to verify a phone number again during the next sign-in (with Multi-Factor Authentication enabled).
 
 ## Modify your sign-in policy to enable Multi-Factor Authentication
 
@@ -48,8 +48,8 @@ A consumer account gets created in your directory before the Multi-Factor Authen
 2. Click **Sign-in policies**.
 3. Click your sign-in policy (for example, "B2C_1_SiIn") to open it. Click **Edit** at the top of the blade.
 4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
-5. Click **Save** at the top of the blade. You're done!
+5. Click **Save** at the top of the blade.
 
 You can use the "Run now" feature on the policy to verify the consumer experience. Confirm the following:
 
-When the consumer signs in (using a social or local account), if a verified phone number is attached to the consumer account, he or she is asked to verify it. If no phone number is attached, the consumer is asked to provide one and verify it; on successful verification, the phone number is attached to the consumer account for later use.
+When the consumer signs in (using a social or local account), if a verified phone number is attached to the consumer account, he or she is asked to verify it. If no phone number is attached, the consumer is asked to provide one and verify it. On successful verification, the phone number is attached to the consumer account for later use.
