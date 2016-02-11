@@ -244,7 +244,7 @@ Use the following command to delete data in a table:
 
 This deletes all the information in the "John" row. The output is:
 
-![image](./media/virtual-machines-linux-postgresql/no8.png)
+![image](./media/virtual-machines-linux-postgresql-install/no8.png)
 
 ### Update data in a table
 
