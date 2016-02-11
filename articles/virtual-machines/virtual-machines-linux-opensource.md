@@ -98,7 +98,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 10. [Image Gallery](https://azure.microsoft.com/marketplace/partners/coreos/)  
 11. \[Classic Deployment]: [How to: Use CoreOS on Azure](virtual-machines-linux-coreos-how-to.md)
-12. \[Classic Deployment]: [How to: Get Started with Fleet and Docker on CoreOS on Azure](virtual-machines-linux-coreos-fleet-get-started.md)
+12. \[Classic Deployment]: [How to: Get Started with Fleet and Docker on CoreOS on Azure](virtual-machines-linux-classic-coreos-fleet-get-started.md)
 
 
 #### [Oracle Linux](https://azure.microsoft.com/marketplace/?term=Oracle+Linux)

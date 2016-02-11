@@ -208,4 +208,4 @@ You should now have a running three-node CoreOS cluster on Azure. From here, you
 [Patrick Chanezon's CoreOS Tutorial]: https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
-[Get Started with Fleet on CoreOS on Azure]: virtual-machines-linux-coreos-fleet-get-started.md
+[Get Started with Fleet on CoreOS on Azure]: virtual-machines-linux-classic-coreos-fleet-get-started.md
