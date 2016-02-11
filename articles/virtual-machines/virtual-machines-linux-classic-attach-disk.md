@@ -112,7 +112,7 @@ You can use the same instructions to initialize multiple data disks, using the r
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
-	![Create file system](./media/virtual-machines-linux-how-to-attach-disk/DiskFileSystem.png)
+	![Create file system](./media/virtual-machines-linux-classic-attach-disk/DiskFileSystem.png)
 
 	>[AZURE.NOTE] Note that SUSE Linux Enterprise 11 systems only support read-only access for ext4 file systems.  For these systems it is recommended to format the new file system as ext3 rather than ext4.
 
