@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/13/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 #Stream Analytics release notes

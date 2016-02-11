@@ -171,6 +171,7 @@ In articles that specify both a services value and a documentationCenter value, 
  - **azure-security**
  - **backup**
  - **batch**
+ - **best-practice**
  - **biztalk-services**
  - **billing**
  - **cache**

@@ -103,7 +103,7 @@ HDInsight tools in Server Explorer enable you to navigate Hive databases and lin
 
 ###<a id="mobile">Microsoft Azure Mobile App SDK
 
-Tools for working with [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop-preview.md).
+Tools for working with [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop.md).
 
 ###<a id="ps"></a>Microsoft Azure PowerShell
 

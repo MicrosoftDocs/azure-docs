@@ -35,7 +35,7 @@ Knowing the resource group name that contains the source web app, we can use the
 
 To create a new App Service Plan, we can use New-AzureRmAppServicePlan command as in the following example
 
-	New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan
+	New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
 
 Using the New-AzureRmWebApp command, we can create the new web app in the North Central US region, and tie it to an existing premium tier App Service Plan, moreover we can use the same resource group as the source web app, or define a new resource group, the following demonstrates that:
 
@@ -77,7 +77,7 @@ The following demonstrates creating a clone of the source web app to a new web a
 
 ## Configuring Traffic Manager while cloning a App ##
 
-Configuring Traffic manager with When creating a new Web App while cloning from an existing one, you have the option to connect both web apps to either a new traffic manager profile or an existing one - note that only ARM version of Traffic Manager is supported.
+Creating multi-region web apps and configuring Azure Traffic Manager to route traffic to all these web apps, is a n important scenario to insure that customers' apps are highly available, when cloning an existing web app you have the option to connect both web apps to either a new traffic manager profile or an existing one - note that only ARM version of Traffic Manager is supported.
 
 ### Creating a new Traffic Manager profile while cloning a App ###
 

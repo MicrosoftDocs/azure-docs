@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Data Catalog frequently asked questions"
    description="Frequently asked questions about Azure Data Catalog preview, including capabilities for data source discovery, annotation, and management."
    services="data-catalog"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/04/2016"
    ms.author="maroche"/>
 
 # Azure Data Catalog frequently asked questions
@@ -41,10 +41,12 @@ A: Microsoft **Azure Data Catalog** is a fully managed service hosted in the Mic
 
 During preview, **Azure Data Catalog** services are available only in the following data centers:
 
-- US West
-- US East
-- Europe West
+- West US
+- East US
+- West Europe
+- North Europe
 - Australia East
+- Southeast Asia
 
 ## Q: What are the limits on the number of data assets in Azure Data Catalog?
 

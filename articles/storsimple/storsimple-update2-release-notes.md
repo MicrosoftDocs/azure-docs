@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/27/2016"
+   ms.date="02/01/2016"
    ms.author="v-sharos" />
 
 # StorSimple 8000 Series Update 2 release notes  
@@ -114,3 +114,6 @@ This release updates the driver and the disk firmware on your device.
 
 This update cannot be applied to the virtual device. New virtual devices will need to be created. 
 
+## Next step
+
+Learn how to [install Update 2](storsimple-install-update-2.md) on your StorSimple device.

@@ -13,16 +13,13 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/05/2016" 
+	ms.date="02/04/2016"
 	ms.author="ricksal"/>
 
 
 # How to use the Android client library for Mobile Apps
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as querying for data (inserting, updating, and deleting), authenticating users, handling errors, and customizing the client. It also does a deep-dive into common client code used in most mobile apps.
 
@@ -45,32 +42,32 @@ If you decide not to complete the Quickstart tutorial, and want to connect an An
 
 After this, you will need to complete the steps described in the Deep dive section.
 
-###<a name="gradle-build"></a>Update the Gradle build file 
+###<a name="gradle-build"></a>Update the Gradle build file
 
 Change both **build.gradle** files:
 
 1. Add this code to the *Project* level **build.gradle** file inside the *buildscript* tag:
- 
+
 		buildscript {
 		    repositories {
 		        jcenter()
 		    }
-		} 
+		}
 
 2. Add this code to the *Module app* level **build.gradle** file inside the *dependencies* tag:
 
 		compile 'com.microsoft.azure:azure-mobile-android:3.0'
 
-	Currently the latest version is 3.0. The supported versions are listed [here](http://go.microsoft.com/fwlink/p/?LinkID=717034). 
+	Currently the latest version is 3.0. The supported versions are listed [here](http://go.microsoft.com/fwlink/p/?LinkID=717034).
 
 ###<a name="enable-internet"></a>Enable internet permission
 To access Azure, your app must have the INTERNET permission enabled. If it's not already enabled, add the following line of code to your **AndroidManifest.xml** file:
 
 	<uses-permission android:name="android.permission.INTERNET" />
 
-## The basics deep dive  
+## The basics deep dive
 
-This section discusses some of the code in the Quickstart app. If you did not complete the Quickstart, you will need to add this code to your app. 
+This section discusses some of the code in the Quickstart app. If you did not complete the Quickstart, you will need to add this code to your app.
 
 > [AZURE.NOTE] The string "MobileServices" occurs frequently in the code: the code actually references the Mobile Apps SDK, it's just a temporary carry-over from the past.
 
@@ -105,7 +102,7 @@ For example if it had an integer Priority column, then you might add this field,
 	    public Integer getPriority() {
 	        return mPriority;
 	    }
-	
+
 	    /**
 	     * Sets the item priority
 	     *
@@ -304,9 +301,9 @@ This section describes how to issue queries to the Mobile App backend, which inc
 
 ### <a name="showAll"></a>How to: Return all Items from a Table
 
-The following query returns all items in the *ToDoItem* table. 
+The following query returns all items in the *ToDoItem* table.
 
-	List<ToDoItem> results = mToDoTable.execute().get();             
+	List<ToDoItem> results = mToDoTable.execute().get();
 
 The *results* variable returns the result set from the query as a list.
 
@@ -318,9 +315,9 @@ The following query execution returns all items from the *ToDoItem* table where 
 								.field("complete").eq(false)
 								.execute().get();
 
-*mToDoTable* is the reference to the mobile service table that we created previously. 
+*mToDoTable* is the reference to the mobile service table that we created previously.
 
-You define a filter using the **where** method call on the table reference. This is followed by a **field** method call followed by a method call that specifies the logical predicate. Possible predicate methods include **eq** (equals), **ne** (not equal), **gt** (greater than), **ge** (greater than or equal to), **lt** (less than), **le** (less than or equal to), and etc. These methods let you compare number and string fields to specific values. 
+You define a filter using the **where** method call on the table reference. This is followed by a **field** method call followed by a method call that specifies the logical predicate. Possible predicate methods include **eq** (equals), **ne** (not equal), **gt** (greater than), **ge** (greater than or equal to), **lt** (less than), **le** (less than or equal to), and etc. These methods let you compare number and string fields to specific values.
 
 You can filter on dates. The following methods let you compare the entire date field or parts of of the date: **year**, **month**, **day**, **hour**, **minute** and **second**. The following example adds a filter for items whose *due date* equals 2013.
 
@@ -380,7 +377,7 @@ The following code illustrates how to return all items from a table of  *ToDoIte
 	List<ToDoItemNarrow> result = mToDoTable.select("complete", "text").execute().get();
 
 
-Here the parameters to the select function are the string names of the table's columns that you want to return. 
+Here the parameters to the select function are the string names of the table's columns that you want to return.
 
 The **select** method needs to follow methods like **where** and **orderBy**, if they are present. It can be followed by paging methods like **top**.
 
@@ -416,11 +413,11 @@ Next you execute the following code:
 
 	ToDoItem entity = mToDoTable.insert(item).get();
 
-The returned entity matches the data inserted into the backend table, included the ID and any other values set on the backend.   
+The returned entity matches the data inserted into the backend table, included the ID and any other values set on the backend.
 
 Mobile Apps requires that each table have a column named **id**, which is used to index the table. By default, this column is a string data type, which is needed to support offline sync. The default value of the ID column is a GUID, but you can provide other unique values, such as email addresses or usernames. When a string ID value is not provided for an inserted record, the backend generates a new GUID value.
 
-String ID values provide the following advantages: 
+String ID values provide the following advantages:
 
 + IDs can be generated without making a round-trip to the database.
 + Records are easier to merge from different tables or databases.
@@ -428,15 +425,15 @@ String ID values provide the following advantages:
 
 ##<a name="updating"></a>How to: Update data in a mobile app
 
-The following code shows how to update data in a table. 
+The following code shows how to update data in a table.
 
     mToDoTable.update(item).get();
 
-In this example, *item* is a reference to a row in the *ToDoItem* table, which has had some changes made to it. 
+In this example, *item* is a reference to a row in the *ToDoItem* table, which has had some changes made to it.
 
 ##<a name="deleting"></a>How to: Delete data in a mobile app
 
-The following code shows how to delete data from a table by specifying the data object. 
+The following code shows how to delete data from a table by specifying the data object.
 
 	mToDoTable.delete(item);
 
@@ -444,11 +441,11 @@ You can also delete an item by specifying the **id** field of the row to delete.
 
 	String myRowId = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
    	mToDoTable.delete(myRowId);
-                    
+
 
 ##<a name="lookup"></a>How to: Look up a specific item
 
-This code shows how to look up an item with a specific *id*. 
+This code shows how to look up an item with a specific *id*.
 
 	ToDoItem result = mToDoTable
 						.lookUp("0380BAFB-BCFF-443C-B7D5-30199F730335")
@@ -479,9 +476,9 @@ The following code shows how to do an insert. The first step is to create a [**J
 	jsonItem.addProperty("text", "Wake up");
 	jsonItem.addProperty("complete", false);
 
-The next step is to insert the object. 
+The next step is to insert the object.
 
-    mJsonToDoTable.insert(jsonItem).get();                   
+    mJsonToDoTable.insert(jsonItem).get();
 
 
 If you need to get the ID of the inserted object, use this method call:
@@ -544,35 +541,35 @@ You can do filtering, sorting and paging by concatenating  methods that have the
 
 ##<a name="custom-api"></a>How to: Call a custom API
 
-A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON. 
+A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.
 
-From an Android client, you call the **invokeApi** method to call the custom API endpoint. The following example shows how to call an API endpoint named *completeAll*, which returns a collection class named MarkAllResult. 
+From an Android client, you call the **invokeApi** method to call the custom API endpoint. The following example shows how to call an API endpoint named *completeAll*, which returns a collection class named MarkAllResult.
 
 	public void completeItem(View view) {
-	    
-	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll", MarkAllResult.class ); 
-	    	
+
+	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll", MarkAllResult.class );
+
 	    	Futures.addCallback(result, new FutureCallback<MarkAllResult>() {
 	    		@Override
 	    		public void onFailure(Throwable exc) {
 	    			createAndShowDialog((Exception) exc, "Error");
 	    		}
-	    		
+
 	    		@Override
 	    		public void onSuccess(MarkAllResult result) {
 	    			createAndShowDialog(result.getCount() + " item(s) marked as complete.", "Completed Items");
-	                refreshItemsFromTable();	
+	                refreshItemsFromTable();
 	    		}
 	    	});
 	    }
-	
+
 The **invokeApi** method is called on the client, which sends a POST request to the new custom API. The result returned by the custom API is displayed in a message dialog, as are any errors. Other versions of **invokeApi** let you optionally send an object in the request body, specify the HTTP method, and send query parameters with the request. Untyped versions of **invokeApi** are provided as well.
 
 ##<a name="authentication"></a>How to: add authentication to your app
 
 Tutorials already describe in detail how to add these features.
 
-App Service supports [authenticating app users](mobile-services-android-get-started-users.md) using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in your backend. 
+App Service supports [authenticating app users](app-service-mobile-android-get-started-users.md) using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in your backend.
 
 Two authentication flows are supported: a *server* flow and a *client* flow. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs, and requires you to code this.
 
@@ -633,7 +630,7 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
     	compile 'com.android.support:support-v4:23.0.0'
 	}
 
-3. Add the below code to your application, making the following replacements: 
+3. Add the below code to your application, making the following replacements:
 
 * Replace **INSERT-AUTHORITY-HERE** ith the name of the tenant in which you provisioned your application. The format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure classic portal].
 
@@ -716,7 +713,7 @@ By uncommenting the following lines of code you can implement offline sync, and 
 
 ##<a name="customizing"></a>How to: Customize the client
 
-There are several ways for you to customize the default behavior of the client. 
+There are several ways for you to customize the default behavior of the client.
 
 ### <a name="headers"></a>How to: Customize request headers
 

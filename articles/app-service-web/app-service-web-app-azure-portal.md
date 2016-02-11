@@ -76,8 +76,6 @@ Other than the brand name, a few things in the portal have been renamed or group
 
 ## More Resources
 
-[The Azure cloud application platform](../app-service-cloud-app-platform.md)
-
 [Azure Portal]: https://portal.azure.com
 [Azure Marketplace]: /marketplace/
 
