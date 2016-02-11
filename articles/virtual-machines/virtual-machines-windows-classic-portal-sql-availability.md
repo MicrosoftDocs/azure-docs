@@ -336,7 +336,7 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 
 1. Right-click the failed **IP Address** resource, and then click **Properties**.
 
-	![Cluster Properties](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784633.png)
+	![Cluster Properties](./media/virtual-machines-windows-classic-portal-sql-availability/IC784633.png)
 
 1. Select **Static IP Address** and specify **10.10.2.101** in the Address text box. Then, click **OK**.
 
