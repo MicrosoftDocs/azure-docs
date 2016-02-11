@@ -178,7 +178,7 @@ once you log in, you will see the "Jupyter Notebook Dashboard", which is the
 ontrol center for all notebook operations.  From this page you can create
 new notebooks and open existing ones.
 
-![Screenshot](./media/virtual-machines-python-ipython-notebook/jupyter-tree-view.png)
+![Screenshot](./media/virtual-machines-linux-jupyter-notebook/jupyter-tree-view.png)
 
 ### Using the Jupyter Notebook
 
