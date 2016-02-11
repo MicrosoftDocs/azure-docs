@@ -130,7 +130,7 @@ This application pattern is useful when:
 
 The following diagram demonstrates how you can place the application tiers in multiple virtual machines in Azure by scaling out the presentation tier due to increased volume of incoming client requests. As seen in the diagram, Azure Load Balancer is responsible for distributing traffic across multiple virtual machines and also determining which web server to connect to. Having multiple instances of the web servers behind a load balancer ensures the high availability of the presentation tier.
 
-![Application pattern - presentation tier scale out](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728010.png)
+![Application pattern - presentation tier scale out](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728010.png)
 
 ### Best practices for 2-tier, 3-tier, or n-tier patterns that have multiple VMs in one tier
 
