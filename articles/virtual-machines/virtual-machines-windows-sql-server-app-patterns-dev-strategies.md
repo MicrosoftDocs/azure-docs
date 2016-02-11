@@ -80,7 +80,7 @@ This application pattern is useful when:
 
 The following diagram demonstrates a simple on-premises scenario and how you can deploy its cloud enabled solution in a single virtual machine in Azure.
 
-![1-tier application pattern](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728008.png)
+![1-tier application pattern](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728008.png)
 
 Deploying the business layer (business logic and data access components) on the same physical tier as the presentation layer can maximize application performance, unless you must use a separate tier due to scalability or security concerns.
 
