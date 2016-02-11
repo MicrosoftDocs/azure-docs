@@ -156,7 +156,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 	This command opens a sign-in window so you can sign with your work or school account.
 
-	![PowerShell Window](./media/virtual-machines-freebsd-create-upload-vhd/add_azureaccount.png)
+	![PowerShell Window](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/add_azureaccount.png)
 
 3. Azure authenticates and saves the credential information, and then closes the window.
 
