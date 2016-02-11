@@ -48,7 +48,7 @@ From the virtual machine that the operating system was installed to, complete th
 
 2. Open a command prompt window as an administrator. Change the directory to **%windir%\system32\sysprep**, and then run `sysprep.exe`.
 
-	![Open a Command Prompt window](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
+	![Open a Command Prompt window](./media/virtual-machines-windows-classic-createupload-vhd/sysprep_commandprompt.png)
 
 3.	The **System Preparation Tool** dialog box appears.
 
