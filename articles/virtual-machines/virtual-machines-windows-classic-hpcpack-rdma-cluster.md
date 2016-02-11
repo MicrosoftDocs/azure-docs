@@ -266,7 +266,7 @@ instances added in a “burst to Azure” configuration).
 * If you want to run Linux MPI applications that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-cluster-rdma.md).
 
 <!--Image references-->
-[burst]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/burst.png
-[iaas]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/iaas.png
-[pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
-[pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
+[burst]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/burst.png
+[iaas]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/iaas.png
+[pingpong1]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong1.png
+[pingpong2]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong2.png
