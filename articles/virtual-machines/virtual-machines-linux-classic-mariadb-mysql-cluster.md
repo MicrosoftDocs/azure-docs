@@ -313,7 +313,7 @@ The command parameters structure is: `azure vm endpoint create-multiple <Machine
 
 Finally, since the CLI sets the load-balancer probe interval to 15 seconds (which may be a bit too long), change it in the portal under **Endpoints** for any of the VMs
 
-![Edit endpoint](./media/virtual-machines-mariadb-cluster/Endpoint.PNG)
+![Edit endpoint](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint.PNG)
 
 then click on Reconfigure The Load-Balanced Set and go next
 
