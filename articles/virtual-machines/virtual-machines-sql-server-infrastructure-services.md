@@ -53,7 +53,7 @@ In order to determine the best virtual machine configuration settings for your S
 In addition to reviewing performance best practices, other initial tasks include the following:
 
 - [Review security best practices for SQL Server in Azure VMs](virtual-machines-sql-server-security-considerations.md)
-- [Set up connectivity](virtual-machines-sql-server-connectivity-resource-manager.md)
+- [Set up connectivity](virtual-machines-windows-sql-connect.md)
 
 ### Migrate your data
 

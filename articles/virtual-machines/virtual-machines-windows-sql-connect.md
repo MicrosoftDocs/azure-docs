@@ -19,7 +19,7 @@
 # Connect to a SQL Server Virtual Machine on Azure (Resource Manager)
 
 > [AZURE.SELECTOR]
-- [Resource Manager](virtual-machines-sql-server-connectivity-resource-manager.md)
+- [Resource Manager](virtual-machines-windows-sql-connect.md)
 - [Classic](virtual-machines-sql-server-connectivity.md)
 
 ## Overview
