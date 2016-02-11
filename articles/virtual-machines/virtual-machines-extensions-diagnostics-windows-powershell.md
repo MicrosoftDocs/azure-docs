@@ -25,7 +25,7 @@ Azure Diagnostics is the capability within Azure that enables the collection of 
 
 ## Enable the diagnostics extension if you use the Resource Manager deployment model
 
-You can enable the diagnostics extension while you create a Windows VM through the Azure Resource Manager deployment model by adding the extension configuration to the Resource Manager template. See [Create a Windows virtual machine with monitoring and diagnostics by using the Azure Resource Manager template](virtual-machines-extensions-diagnostics-windows-template.md).
+You can enable the diagnostics extension while you create a Windows VM through the Azure Resource Manager deployment model by adding the extension configuration to the Resource Manager template. See [Create a Windows virtual machine with monitoring and diagnostics by using the Azure Resource Manager template](virtual-machines-windows-extensions-diagnostics-template.md).
 
 To enable the diagnostics extension on an existing VM that was created through the Resource Manager deployment model, you can use the [Set-AzureRMVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt603499.aspx) PowerShell cmdlet as shown below.
 
@@ -89,7 +89,7 @@ The configuration needs to be updated to include the following:
 		<Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
 		```
 
-	- For more information on how metrics are generated based on the performance counters and metrics configuration, see [Azure Diagnostics metrics table in storage](virtual-machines-extensions-diagnostics-windows-template.md#wadmetrics-tables-in-storage).
+	- For more information on how metrics are generated based on the performance counters and metrics configuration, see [Azure Diagnostics metrics table in storage](virtual-machines-windows-extensions-diagnostics-template.md#wadmetrics-tables-in-storage).
 
 - The **StorageAccount** element needs to be updated with the name of the diagnostics storage account.
 
