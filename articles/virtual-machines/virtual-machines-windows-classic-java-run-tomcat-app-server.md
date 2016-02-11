@@ -134,11 +134,9 @@ At this point, your Tomcat website should be viewable from an external browser b
 ## Next steps
 Learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications by viewing the information available at the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
-[virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
+[virtual_machine_tomcat]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
 
-[service_automatic_startup]: ./media/virtual-machines-java-run-tomcat-application-server/WA_TomcatServiceAutomaticStart.png
-
-
+[service_automatic_startup]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/WA_TomcatServiceAutomaticStart.png
 
 
 
@@ -146,9 +144,11 @@ Learn about other services (such as Azure Storage, service bus, and SQL Database
 
 
 
-[NewIBRule]: ./media/virtual-machines-java-run-tomcat-application-server/NewInboundRule.png
-[NewRulePort]: ./media/virtual-machines-java-run-tomcat-application-server/NewRulePort.png
-[NewRuleProtocol]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProtocol.png
-[NewRuleAction]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
-[NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
-[NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
+
+
+[NewIBRule]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewInboundRule.png
+[NewRulePort]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRulePort.png
+[NewRuleProtocol]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProtocol.png
+[NewRuleAction]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleAction.png
+[NewRuleName]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleName.png
+[NewRuleProfile]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProfile.png
