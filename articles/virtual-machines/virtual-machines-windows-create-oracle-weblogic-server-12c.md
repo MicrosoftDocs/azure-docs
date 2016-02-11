@@ -74,7 +74,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 9.	In the **Specify Domain Name and Location** dialog, accept the default values and then click **Next**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image12.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image12.png)
 
 10.	In the **Configure Administrator User Name and Password** dialog:
 
