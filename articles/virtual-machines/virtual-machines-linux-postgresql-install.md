@@ -234,7 +234,7 @@ Use the following command to show a table:
 
 The output is:
 
-![image](./media/virtual-machines-linux-postgresql/no7.png)
+![image](./media/virtual-machines-linux-postgresql-install/no7.png)
 
 ### Delete data in a table
 
