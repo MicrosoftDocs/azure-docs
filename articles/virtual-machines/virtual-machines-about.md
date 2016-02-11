@@ -40,7 +40,7 @@ Try out a virtual machine by creating a simple virtual machine quickly. For inst
 
 Because those tutorials help you create a virtual machine quickly, they show you only one way to do it instead of describing the various tools you can use to create virtual machines. For a summary of these tools and links to instructions, see:
 
-[Different ways to create a Linux virtual machine](virtual-machines-linux-choices-create-vm.md)
+[Different ways to create a Linux virtual machine](virtual-machines-linux-creation-choices.md)
 
 [Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md)
 
