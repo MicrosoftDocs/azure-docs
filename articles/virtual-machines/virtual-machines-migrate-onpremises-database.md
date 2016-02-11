@@ -172,4 +172,4 @@ Use the [Windows Import/Export Service method](../storage-import-export-service/
 
 ## Next Steps
 
-For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](virtual-machines-sql-server-infrastructure-services.md).
+For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-classic-sql-overview.md).

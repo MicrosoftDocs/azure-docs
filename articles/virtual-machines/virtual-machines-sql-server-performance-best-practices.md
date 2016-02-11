@@ -123,4 +123,4 @@ If you are interested in exploring SQL Server and Premium Storage in more depth,
 
 For security best practices, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-security-considerations.md).
 
-Review other SQL Server Virtual Machine topics at [SQL Server on Azure Virtual Machines Overview](virtual-machines-sql-server-infrastructure-services.md).
+Review other SQL Server Virtual Machine topics at [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-classic-sql-overview.md).

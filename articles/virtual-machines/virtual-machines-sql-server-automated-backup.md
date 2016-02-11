@@ -112,4 +112,4 @@ You can find additional backup and restore guidance for SQL Server on Azure VMs 
 
 A related feature for SQL Server VMs in Azure is [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-patching.md).
 
-Review other [resources for running SQL Server in Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md).
+Review other [resources for running SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).
