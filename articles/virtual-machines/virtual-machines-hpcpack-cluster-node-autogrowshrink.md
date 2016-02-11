@@ -46,7 +46,7 @@ property. See [What’s New in Microsoft HPC Pack 2012 R2 Update
 * **For a cluster with Azure burst nodes** - Run the script on a client computer where HPC Pack is installed, or on the head node. If running on a client computer, ensure that you set the variable $env:CCP_SCHEDULER properly to point to the head node. The Azure “burst” nodes must already be added to the cluster, but they may be in the Not-Deployed state.
 
 
-* **For a cluster deployed in Azure VMs** - Run the script on the head node VM, because it depends on the **Start-HpcIaaSNode.ps1** and **Stop-HpcIaaSNode.ps1** scripts that are installed there. Those scripts additionally require an Azure management certificate or publish settings file (see [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-hpcpack-cluster-node-manage.md)). Make sure all the compute node VMs you need are already added to the cluster. They may be in the Stopped state.
+* **For a cluster deployed in Azure VMs** - Run the script on the head node VM, because it depends on the **Start-HpcIaaSNode.ps1** and **Stop-HpcIaaSNode.ps1** scripts that are installed there. Those scripts additionally require an Azure management certificate or publish settings file (see [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)). Make sure all the compute node VMs you need are already added to the cluster. They may be in the Stopped state.
 
 ## Syntax
 
