@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/09/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Hash distribution and its effect on query performance in SQL Data Warehouse
