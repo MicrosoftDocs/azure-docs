@@ -50,7 +50,7 @@ You can create these dev/test environments for free with your [Visual Studio sub
 
 A cloud-only virtual network is not connected to an on-premises network. If you just want to quickly create a basic or high-availability SharePoint farm, see [Create SharePoint server farms](virtual-machines-sharepoint-farm-azure-preview.md). The following example shows the basic SharePoint farm configuration.
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/Non-HAFarm.png)
+![](./media/virtual-machines-windows-sp-intranet/Non-HAFarm.png)
 
 ### Cross-premises virtual network
 
