@@ -1,6 +1,6 @@
 <properties
-pageTitle="Use the Excel API in your Logic apps and Power apps | Microsoft Azure"
-description="Get started using the Azure App Service Excel API in your Logic apps and your Power apps."
+pageTitle="Add the Excel API in PowerApps Enterprise and Logic Apps | Microsoft Azure"
+description="Overview of the Excel API with REST API parameters"
 services=""	
 documentationCenter="" 	
 authors="msftman"	
@@ -9,7 +9,7 @@ editor=""
 tags="connectors"/>
 
 <tags
-ms.service=""
+ms.service="multiple"
 ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
@@ -31,25 +31,20 @@ With the Excel connector, you can:
 * Use it to build power apps
 
 
-This topic focuses on the Excel triggers and actions available, creating a connection to the connector, and also lists the REST API parameters.
+For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](..powerapps-register-from-available-apis.md). 
 
-Need help creating a logic app? See [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
 
-## Let's talk about triggers and actions
+## Triggers and actions
+Excel includes the following action. There are no triggers. 
 
-The Excel connector can be used as an action; there are no triggers. All connectors support data in JSON and XML formats. 
-
- The Excel connector has the following action(s) and/or trigger(s) available:
-
-### Excel actions
-You can take these action(s):
-
-|Action|Description|
+|Trigger|Actions|
 |--- | ---|
-|PostItem|Inserts a new row into an Excel table|
-|GetItem|Retrieves a single row from an Excel table|
-|DeleteItem|Deletes a row from an Excel table|
-|PatchItem|Updates an existing row in an Excel table|
+|None | <ul><li>Get rows</li><li>Insert row</li><li>Delete row</li><li>Get row</li><li>Get tables</li><li>Update row</li></ul>
+
+All APIs support data in JSON and XML formats. 
+
+
 ## Create a connection to Excel
 To use the Excel API, you first create a **connection** then provide the details for these properties: 
 
@@ -57,9 +52,9 @@ To use the Excel API, you first create a **connection** then provide the details
 | ---|---|---|
 |fileSource|Yes|Provide a Connection to file source|  
 
->[AZURE.TIP] You can use this connection in other logic or power apps or both.
+>[AZURE.TIP] You can use this connection in other logic apps.
 
-## Excel REST API reference
+## Swagger REST API reference
 #### This documentation is for version: 1.0
 
 
@@ -152,203 +147,79 @@ To use the Excel API, you first create a **connection** then provide the details
 
 
 
-## Object definition(s): 
+## Object definition
 
- **DataSetsMetadata**:
+#### DataSetsMetadata
 
-Required properties for DataSetsMetadata:
+| Name | Data Type | Required|
+|---|---|---|
+|tabular|not defined|no|
+|blob|not defined|no|
 
+#### TabularDataSetsMetadata
 
-None of the properties are required. 
+| Name | Data Type |Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
 
+#### BlobDataSetsMetadata
 
-**All properties**: 
+| Name | Data Type |Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
 
+#### TableMetadata
 
-| Name | Data Type |
-|---|---|
-|tabular|not defined|
-|blob|not defined|
+| Name | Data Type |Required|
+|---|---|---|
+|name|string|no|
+|title|string|no|
+|x-ms-permission|string|no|
+|schema|not defined|no|
 
+#### DataSetsList
 
+| Name | Data Type |Required|
+|---|---|---|
+|value|array|no|
 
- **TabularDataSetsMetadata**:
+#### DataSet
 
-Required properties for TabularDataSetsMetadata:
+| Name | Data Type |Required|
+|---|---|---|
+|Name|string|no|
+|DisplayName|string|no|
 
+#### Table
 
-None of the properties are required. 
+| Name | Data Type |Required|
+|---|---|---|
+|Name|string|no|
+|DisplayName|string|no|
 
+#### Item
 
-**All properties**: 
+| Name | Data Type |Required|
+|---|---|---|
+|ItemInternalId|string|no|
 
+#### TablesList
 
-| Name | Data Type |
-|---|---|
-|source|string|
-|displayName|string|
-|urlEncoding|string|
-|tableDisplayName|string|
-|tablePluralName|string|
+| Name | Data Type |Required|
+|---|---|---|
+|value|array|no|
 
+#### ItemsList
 
-
- **BlobDataSetsMetadata**:
-
-Required properties for BlobDataSetsMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|source|string|
-|displayName|string|
-|urlEncoding|string|
-
-
-
- **TableMetadata**:
-
-Required properties for TableMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|name|string|
-|title|string|
-|x-ms-permission|string|
-|schema|not defined|
-
-
-
- **Object**:
-
-Required properties for Object:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-
-
-
- **DataSetsList**:
-
-Required properties for DataSetsList:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|value|array|
-
-
-
- **DataSet**:
-
-Required properties for DataSet:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|Name|string|
-|DisplayName|string|
-
-
-
- **Table**:
-
-Required properties for Table:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|Name|string|
-|DisplayName|string|
-
-
-
- **Item**:
-
-Required properties for Item:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|ItemInternalId|string|
-
-
-
- **TablesList**:
-
-Required properties for TablesList:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|value|array|
-
-
-
- **ItemsList**:
-
-Required properties for ItemsList:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|value|array|
+| Name | Data Type |Required|
+|---|---|---|
+|value|array|no|
 
 
 ## Next Steps
