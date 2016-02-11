@@ -112,7 +112,7 @@ Finally, create the virtual machine with PowerShell:
 
 		New-AzureVM –ServiceName $svcname -VMs $vm1
 
->[AZURE.NOTE] For additional explanation and configuration options, see the **Build your command set** section in [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md).
+>[AZURE.NOTE] For additional explanation and configuration options, see the **Build your command set** section in [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-windows-classic-create-powershell.md).
 
 ## Example PowerShell script
 
@@ -167,7 +167,7 @@ After logging onto the machine with remote desktop, configure SQL Server based o
 
 ## Next steps
 
-You can find additional instructions for provisioning virtual machines with PowerShell in the [virtual machines documentation](virtual-machines-ps-create-preconfigure-windows-vms.md). For additional scripts related to SQL Server and Premium Storage, see [Use Azure Premium Storage with SQL Server on Virtual Machines](virtual-machines-sql-server-use-premium-storage.md).
+You can find additional instructions for provisioning virtual machines with PowerShell in the [virtual machines documentation](virtual-machines-windows-classic-create-powershell.md). For additional scripts related to SQL Server and Premium Storage, see [Use Azure Premium Storage with SQL Server on Virtual Machines](virtual-machines-sql-server-use-premium-storage.md).
 
 In many cases, the next step is to migrate your databases to this new SQL Server VM. For database migration guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md).
 

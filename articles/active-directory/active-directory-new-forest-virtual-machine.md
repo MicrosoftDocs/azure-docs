@@ -63,7 +63,7 @@ To configure...  | On-premises  | Azure virtual network
  
 Repeat the following steps to create VMs to host the DC role as needed. You should deploy at least two virtual DCs to provide fault tolerance and redundancy. If the Azure virtual network includes at least two DCs that are similarly configured (that is, they are both GCs, run DNS server, and neither holds any FSMO role, and so on) then place the VMs that run those DCs in an availability set for improved fault tolerance.
 
-To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines-ps-create-preconfigure-windows-vms.md).
+To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines-windows-classic-create-powershell.md).
 
 1. In the classic portal, click **New** > **Compute** > **Virtual Machine** > **From Gallery**. Use the following values to complete the wizard. Accept the default value for a setting unless another value is suggested or required.
 
@@ -111,7 +111,7 @@ After the DC installation finishes, connect to the VM again and log on to the DC
 	**Virtual Machine Configuration**  | <p>Select <b>Install the VM Agent</b> and any other extensions you need.</p>
 2. After each VM is provisioned, sign in and join it to the domain. In **Server Manager**, click **Local Server** > **WORKGROUP** > **Change…** and then select **Domain** and type the name of your on-premises domain. Provide credentials of a domain user, and then restart the VM to complete the domain join.
 
-To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines-ps-create-preconfigure-windows-vms.md).
+To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines-windows-classic-create-powershell.md).
 
 For more information about using Windows PowerShell, see [Get Started with Azure Cmdlets](https://msdn.microsoft.com/library/azure/jj554332.aspx) and [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/jj554330.aspx).
 

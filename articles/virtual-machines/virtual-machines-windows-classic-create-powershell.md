@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure classic portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
-- [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Powershell - Windows](virtual-machines-windows-classic-create-powershell.md)
 - [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 <br>
