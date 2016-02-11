@@ -37,7 +37,7 @@ This part is easy, unless you don't have an Azure account. [Get a free one easil
 
 1. Now that you're logged on, click **New** in the lower left-hand corner to create a new VM image. You might see the proper image in the banner immediately:
 
-> ![Choose the Docker Ubuntu image in the banner](./media/virtual-machines-docker-ubuntu-quickstart/CreateNewDockerBanner.png)
+> ![Choose the Docker Ubuntu image in the banner](./media/virtual-machines-linux-classic-docker-quickstart/CreateNewDockerBanner.png)
 
 2. But if not, search for it in the Image Gallery:
 
