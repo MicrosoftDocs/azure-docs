@@ -93,7 +93,7 @@ Each CoreOS cluster needs to have a unique token from this free service. Please 
 
 11. Once the resource group is provisioned, you can see all the resources in the group on Azure classic portal. As shown in the following screenshot, the resource group contains a virtual network with three VMs, which are joined to the same availability set. The group also contains a load balancer, which has an associated public IP.
 
-  ![The provisioned resource group on Azure classic portal](media/virtual-machines-deis-cluster/resource-group.png)
+  ![The provisioned resource group on Azure classic portal](media/virtual-machines-linux-deis-cluster/resource-group.png)
 
 ## Install the client
 
