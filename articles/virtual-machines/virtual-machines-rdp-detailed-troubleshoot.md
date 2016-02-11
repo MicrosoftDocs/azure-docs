@@ -191,6 +191,6 @@ Verify that the Remote Desktop endpoint for the Azure VM is also using TCP port 
 
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
 
-[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-troubleshoot-ssh-connections.md)
+[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-linux-troubleshoot-ssh-connection.md)
 
 [Troubleshoot access to an application running on an Azure virtual machine](virtual-machines-troubleshoot-access-application.md)

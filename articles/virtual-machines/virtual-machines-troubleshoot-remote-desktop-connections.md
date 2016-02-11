@@ -24,7 +24,7 @@ The Remote Desktop (RDP) connection to your Windows-based Azure virtual machine 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-This article applies to Azure virtual machines running Windows. For Azure virtual machines running Linux, see [Troubleshoot SSH connection to an Azure VM](virtual-machines-troubleshoot-ssh-connections.md).
+This article applies to Azure virtual machines running Windows. For Azure virtual machines running Linux, see [Troubleshoot SSH connection to an Azure VM](virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
@@ -176,6 +176,6 @@ If none of these errors occurred and you still could not connect to the VM via R
 
 [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 
-[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-troubleshoot-ssh-connections.md)
+[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-linux-troubleshoot-ssh-connection.md)
 
 [Troubleshoot access to an application running on an Azure virtual machine](virtual-machines-troubleshoot-access-application.md)
