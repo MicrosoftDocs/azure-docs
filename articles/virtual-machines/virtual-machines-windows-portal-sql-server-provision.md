@@ -156,7 +156,7 @@ By default, Azure optimizes the storage for 5000 IOPs, 200 MBs, and 1 TB of stor
 - **Data warehousing** optimizes the storage for analytic and reporting workloads.
 
 The following image shows the Storage configuration blade.
-<br/>![SQL ARM Storage](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-storage.png)
+<br/>![SQL ARM Storage](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
 <br/>
 
 >[AZURE.NOTE] Storage configuration limits depend on the virtual machine size. For more information see [Sizes for virtual machines](virtual-machines-size-specs.md)
