@@ -44,7 +44,7 @@ Here's a video walkthrough of the steps in this tutorial. It also covers endpoin
 
 3. On the command bar at the bottom of the page, click **Connect**.
 
-	![Log on to the virtual machine](./media/virtual-machines-log-on-windows-server/connectwindows.png)
+	![Log on to the virtual machine](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
 	
 > [AZURE.TIP] If the Connect button isn't available, see the troubleshooting tips at the end of this article.
 
