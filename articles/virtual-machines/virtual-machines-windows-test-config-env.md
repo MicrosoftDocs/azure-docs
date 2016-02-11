@@ -103,7 +103,7 @@ Next, you create the TestLab Azure Virtual Network that will host the Corpnet su
 
 This is your current configuration.
 
-![](./media/virtual-machines-base-configuration-test-environment-resource-manager/BC_TLG01.png)
+![](./media/virtual-machines-windows-test-config-env/BC_TLG01.png)
 
 ## Phase 2: Configure DC1
 
