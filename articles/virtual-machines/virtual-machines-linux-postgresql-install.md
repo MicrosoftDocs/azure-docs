@@ -206,7 +206,7 @@ You should see the following if your table has been successfully created:
 
 You can also check the table structure by using the following command:
 
-![image](./media/virtual-machines-linux-postgresql/no5.png)
+![image](./media/virtual-machines-linux-postgresql-install/no5.png)
 
 ### Add data to a table
 
