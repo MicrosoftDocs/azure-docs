@@ -184,7 +184,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload nginx@{1,2,3}.service
 [Patrick Chanezon's CoreOS Tutorial]: https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
-[How to Use CoreOS on Azure]: virtual-machines-linux-coreos-how-to.md
+[How to Use CoreOS on Azure]: virtual-machines-linux-classic-coreos-howto.md
 [Configure a load-balanced set]: ../load-balancer/load-balancer-internet-getstarted.md
 [Launching containers with fleet]: https://coreos.com/docs/launching-containers/launching/launching-containers-fleet/
 [Unit Files]: https://coreos.com/docs/launching-containers/launching/fleet-unit-files/
