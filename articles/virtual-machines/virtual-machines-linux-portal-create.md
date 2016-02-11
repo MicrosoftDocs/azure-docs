@@ -53,7 +53,7 @@ Go to the Azure Marketplace in the Preview portal to find the Windows Server VM 
 
 4. Next, click ![create button](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
 
-	![change to the resource manager compute stack](media/virtual-machines-linux-tutorial-portal-rm/changetoresourcestack.png)
+	![change to the resource manager compute stack](media/virtual-machines-linux-portal-create/changetoresourcestack.png)
 
 ## Create the virtual machine
 
