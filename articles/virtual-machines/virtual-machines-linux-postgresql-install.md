@@ -153,7 +153,7 @@ Modify two variables in the /etc/init.d/postgresql file. The prefix is set to th
 
 	# sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![image](./media/virtual-machines-linux-postgresql/no2.png)
+![image](./media/virtual-machines-linux-postgresql-install/no2.png)
 
 Change the file to make it executable:
 
