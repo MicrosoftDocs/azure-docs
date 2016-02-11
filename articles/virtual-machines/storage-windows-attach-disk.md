@@ -59,4 +59,4 @@ Here's a walkthrough of the steps in this tutorial.
 
 [About disks and VHDs for virtual machines](virtual-machines-disks-vhds.md)
 
-[logon]: virtual-machines-log-on-windows-server.md
+[logon]: virtual-machines-windows-classic-connect-logon.md

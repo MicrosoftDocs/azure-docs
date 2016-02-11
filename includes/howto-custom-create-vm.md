@@ -56,4 +56,4 @@ A *custom* virtual machine refers to a virtual machine you create using the **Fr
 After the virtual machine is created, it's started automatically. When the portal shows the status as running, you can log in to the virtual machine. For instructions, see one of the following articles:
 
 - [How to Log on to a Virtual Machine Running Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
-- [How to Log on to a Virtual Machine Running Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
+- [How to Log on to a Virtual Machine Running Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md)
