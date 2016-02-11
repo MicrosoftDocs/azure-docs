@@ -189,7 +189,7 @@ For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://ms
 
 5.	In the **Create an image from a VHD** window, under **Operating System Family**, select your operating system. Check **I have run Sysprep on the virtual machine associated with this VHD** to verify that you generalized the operating system, and then click **OK**.
 
-    ![Add Image](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
+    ![Add Image](./media/virtual-machines-windows-classic-createupload-vhd/Create_Image_From_VHD.png)
 
 6. After you complete the previous steps, the new image is listed when you choose the **Images** tab.
 
