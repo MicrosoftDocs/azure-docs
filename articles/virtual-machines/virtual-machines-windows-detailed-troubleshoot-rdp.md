@@ -34,7 +34,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 These are the components involved in an RDP connection:
 
-![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_0.png)
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_0.png)
 
 Before proceeding, it might help to mentally review what has changed since the last successful Remote Desktop connection to the VM. For example:
 
