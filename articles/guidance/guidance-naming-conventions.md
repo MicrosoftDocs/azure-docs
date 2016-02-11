@@ -1,7 +1,20 @@
 # Naming conventions
 
-TODO - set naming scope for all resources, is it global to all of Azure,
-scoped to a resource gruop, etc.
+The choice of a name for any asset, service or entity in Microsoft Azure is an important choice because:
+
+- It is difficult (though not impossible) to change that name at a later time.
+- There are certain constraints and requirements that must be met when choosing a name.
+- Good naming conventions can provide "at a glance" context and understanding to how and where a
+service fits into the landscape or an application or larger service.
+
+This article provides a summary of the naming rules and restrictions for Azure entities and services,
+as well as providing a baseline set of recommendations for naming conventions.  These conventions are
+intended to provide a starting point to then customize to the needs and standards of your own 
+development process, rather than being strict guidelines.  
+
+Ultimately, the key to success with naming conventions is establishing and following them across 
+your applications and organizations, adapting them as you deploy more applications and services
+across the Azure platform. 
 
 ## Subscriptions
 
@@ -21,10 +34,12 @@ and child company name (*North Wind*).
 
 - Department is a name within the organization where a group of individuals work. This item within
 the namespace as optional. This is because some companies may not need to drill into such detail due
-to their size. You may wish to use a The company may want to use a different identifier,
+to their size.  
 
 - Product line is a specific name for a product or function that is performed from within the department.
-As with the department namespace, this area is optional and can be swapped out as needed.
+While typically optional for internal-facing services and applications, it is highly recommended to use
+for public-facing services that will require easy separation and identification (such as for clear 
+separation of billing records).
 
 - Environment is the name that describes the deployment lifecycle of the applications or services,
 such as Dev, Lab, or Prod.
@@ -59,11 +74,43 @@ shows some examples typically used.
 When developing a specific naming convention for your company or project(s), it is importantly to
 choose a common set of affixes as well as their position (suffix or prefix).
 
+## Naming Rules and Restrictions
+
+Each resource or service type in Azure enforces a set of naming restrictions and scope; any naming convention
+or pattern must adhere to the requisite naming rules and scope.  For example, while the name of a VM maps to a DNS
+name (and is thus required to be unique across all of Azure), the name of a VNET is scoped to the Resource Group that
+it is created within.
+
+| Service Group | Service or Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
+| ------------- | ----------------- | ----- | ------ | ------ | ---------------- | ----------------- | ------- |
+| Resource Group | Resource Group | TODO | TODO | TODO | TODO | TODO | TODO
+| Resource Group | Availability Set | TODO | TODO | TODO | TODO | TODO | TODO
+| Storage | Storage account name | TODO | 3-24	| Lower case | Alphanumeric | `<service short name>-<type>-<number>` | `awesomegame-data-001` |
+| Storage | Blob name | TODO | 1-1024 | Case sensitive | Any URL char | `<variable based on blob usage>` | `<variable based on blob usage>` |
+| Storage | Container name | TODO | 3-63 |	Lower case | Alphanumeric and dash | `<context>` | `logs` |
+| Storage | Queue name | TODO | 3-63 | Lower case | Alphanumeric and dash | `<service short name>-<context>-<num>` | `awesomeservice-messages-001` |
+| Storage | Table name | TODO | 3-63 |Case insensitive | Alphanumeric | `<service short name>-<context>` | `awesomeservice-logs` |
+| Storage | File name | TODO | 3-63 | Lower case | Alphanumeric | `<variable based on blob usage>` | `<variable based on blob usage>` |
+| Networking | Virtual Network (VNet) | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO |
+| Networking | Subnet | Parent VNet | TODO | Case-insensitive | Alphanumeric, underscore, and hyphen | TODO | TODO |
+| Networking | Network Interface | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO |
+| Networking | Network Security Group | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO |
+| Networking | Network Security Group rule | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO |
+| Networking | Public IP Address | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO
+| Networking | Load Balancer | TODO | TODO | Case-insensitive | TODO | TODO | TODO
+| Networking | Azure Gateway | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO
+| Networking | Azure Gateway | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO
+| Networking | Azure Gateway Connection | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO
+| Networking | Load Balanced Rules Config | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO
+| Networking | Traffic Manager Profile | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO
+ 	  
 ## Azure Resource Manager (ARM) Tagging
 
 TODO - what are the naming rules for ARM tags
 
-## Virtual Machines
+## Tips and Gotchas
+
+### Virtual Machines
 
 Especially in larger topologies, carefully naming virtual machines will greatly streamline identifying the
 role and purpose of each machine, as well as enabling more predictable scripting.
@@ -78,43 +125,9 @@ role and purpose of each machine, as well as enabling more predictable scripting
 
 TODO - recommendations on naming VMs.
 
-## Virtual Networks and Subnets
+###	Storage accounts and storage entities
 
-TODO - what are the naming rules for VNet's and subnets
-
-The next logical step is to create the virtual networks necessary to support the communications across
-the virtual machines in the solution.
-
-Cloud services provide a communication boundary among computers within that cloud service. These computers
-can use IP Addresses or the Azure-provided DNS service to communicate with each other using the computer name.
-
-Virtual networks also create a communication boundary, so that virtual machines within the same virtual
-network can access other computers within the same virtual network, regardless of to which cloud service
-they belong. Within the virtual network, this communication remains private, without the need for the communication to go through the public endpoints. This communication can occur via IP address, or by name, using a DNS service installed in the virtual network, or on premises, if the virtual machine is connected to the corporate network via a Site-to-Site connection. The Azure-provided DNS service will not aid in name resolution across cloud services, even if they belong to the same virtual network.
-
-TODO
-
-##	Storage accounts and storage entities
-
-The choice of a name for any asset, service or entity in Microsoft Azure is an important choice because:
-
-- It is difficult (though not impossible) to change that name at a later time.
-- There are certain constraints and requirements that must be met when choosing a name.
-- Good naming conventions can provide "at a glance" context and understanding to how and where a
-service fits into the landscape or an application or larger service.
-
-This table covers the naming requirements for each element of a storage account:
-
-| Item | Length | Casing | Valid characters | Pattern | Example |
--------|--------|--------|------------------|---------|-----|
-| Storage account name | 3-24	| Lower case | Alphanumeric | `<service short name>-<type>-<number>` | `awesomegame-data-001` |
-| Blob name | 1-1024 | Case sensitive | Any URL char | `<variable based on blob usage>` | `<variable based on blob usage>` |
-| Container name | 3-63 |	Lower case | Alphanumeric and dash | `<context>` | `logs` |
-| Queue name | 3-63 | Lower case | Alphanumeric and dash | `<service short name>-<context>-<num>` | `awesomeservice-messages-001` |
-| Table name | 3-63 |Case insensitive | Alphanumeric | `<service short name>-<context>` | `awesomeservice-logs` |
-| File name | 3-63 | Lower case | Alphanumeric | `<variable based on blob usage>` | `<variable based on blob usage>` |
-
-It is also possible to configure a custom domain name for accessing blob data in your Azure Storage account.
+It possible to configure a custom domain name for accessing blob data in your Azure Storage account.
 The default endpoint for the Blob service is `https://mystorage.blob.core.windows.net`.
 
 But if you map a custom domain (such as www.contoso.com) to the blob endpoint for your storage account,
@@ -171,31 +184,3 @@ From that baseline we can then map out the conventions for each of the resource 
 As seen in the diagram below:
 
 ![application topology diagram](media/guidance-naming-convention-example.png "Sample Application Topology")
-
-## TODO - merge in resources
-
-### Networking naming
-The choice of a name for any asset in Microsoft Azure is an important choice because:
-•	It is difficult (though not impossible) to change that name at a later time. 
-•	There are certain constraints and requirements that must be met when choosing a name. 
-This table covers the naming requirements for various elements of Azure networking.
-
-Item	Length 	Casing	Valid characters
-Virtual network		Case-insensitive	Alphanumeric and hyphen
-Cannot start with a space or end with a hyphen
-Subnet		Case-insensitive	Alphanumeric, underscore, and hyphen
-Must be unique within a virtual network 
-Network Interface (ARM)		Case-insensitive	
-Network Security Group		Case-insensitive	Alphanumeric and hyphen
-Network Security Group rule		Case-insensitive	Alphanumeric and hyphen
-AT&T VLAN name	15	Case-insensitive	Alphanumeric and hyphen
-Public IP Address (ARM)		Case-insensitive	
-Load balancer (ARM)		Case-insensitive	
-Azure Gateway (ARM)		Case-insensitive	
-Azure Gateway Connection (ARM)		Case-insensitive	
-Load Balanced Rules Config (ARM)		Case-insensitive	
-Load Balancer Inbound NAT rules config (ARM)		Case-insensitive	
-Load Balancer FrontEnd IP address config (ARM)		Case-insensitive	
-Load Balancer Backend IP address Config (ARM)		Case-insensitive	
-Traffic Manager Profile (ARM)		Case-insensitive	
-Availability Set (ARM)		Case-insensitive	
