@@ -651,6 +651,6 @@ exit ${RTNSTS}
 [heat_map]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/heat_map.png
 [tank]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/tank.png
 [tank_result]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/tank_result.png
-[isosurface]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/isosurface.png
+[isosurface]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface.png
 [isosurface_color]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/linux_processes.png
