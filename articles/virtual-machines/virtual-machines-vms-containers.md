@@ -80,7 +80,7 @@ In general, it's easy to see that container technology is a step forward, but th
 Developers take to Docker containers quickly, because above all it makes using Linux containers easy:
 
 - They can use simple, incremental commands to create a fixed image that is easy to deploy and can automate building those images using a dockerfile
-- They can share those images easily using simple, [git](https://git-scm.com/)-style push and pull commands to [public](https://registry.hub.docker.com/) or [private docker registries](virtual-machines-docker-registry-on-azure-blob-storage.md) 
+- They can share those images easily using simple, [git](https://git-scm.com/)-style push and pull commands to [public](https://registry.hub.docker.com/) or [private docker registries](virtual-machines-linux-docker-registry-in-blob-storage.md) 
 - They can think of isolated application components instead of computers
 - They can use a large number of tools that understand docker containers and different base images
 
@@ -138,7 +138,11 @@ More recently, Azure released the [Azure resource management](virtual-machines-a
 
 There are several popular systems that can deploy entire groups of VMs and install Docker (or other Linux container host systems) on them as an automatable group. For direct links, see the [containers and tools](#containers-and-vm-technologies) section, below. There are several systems that do this to a greater or lesser extent, and this list is not exhaustive. Depending upon your skill set and scenarios, they may or may not be useful. 
 
-Docker has its own set of VM-creation tools ([docker-machine](virtual-machines-docker-machine.md)) and a load-balancing, docker-container cluster management tool ([swarm](virtual-machines-docker-swarm.md)). In addition, the [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md) comes with default support for [`docker-compose`](https://docs.docker.com/compose/), which can deploy configured application containers across multiple containers.
+<<<<<<< HEAD
+Docker has its own set of VM-creation tools ([docker-machine](virtual-machines-docker-machine.md)) and a load-balancing, docker-container cluster management tool ([swarm](virtual-machines-linux-docker-swarm.md)). In addition, the [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md) comes with default support for [`docker-compose`](https://docs.docker.com/compose/), which can deploy configured application containers across multiple containers.
+=======
+Docker has its own set of VM-creation tools ([docker-machine](virtual-machines-linux-classic-docker-machine.md)) and a load-balancing, docker-container cluster management tool ([swarm](virtual-machines-docker-swarm.md)). In addition, the [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md) comes with default support for [`docker-compose`](https://docs.docker.com/compose/), which can deploy configured application containers across multiple containers.
+>>>>>>> vm-refactor-staging
 
 In addition, you can try out [Mesosphere's Data Center Operating System (DCOS)](http://docs.mesosphere.com/install/azurecluster/). DCOS is based on the open-source [mesos](http://mesos.apache.org/) "distributed systems kernel" that enables you to treat your datacenter as one addressable service. DCOS has built-in packages for several important systems such as [Spark](http://spark.apache.org/) and [Kafka](http://kafka.apache.org/) (and others) as well as built-in services such as [Marathon](https://mesosphere.github.io/marathon/) (a container control system) and [Chronos](https://mesosphere.github.io/chronos/) (a distributed scheduler). Mesos was derived from lessons learned at Twitter, AirBnb, and other web-scale businesses.
 
@@ -189,12 +193,12 @@ Docker on Microsoft Azure:
 - [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-xplat-cli-install.md)
 - [Using the Docker VM Extension from the Azure portal](virtual-machines-docker-with-portal.md)
 - [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
-- [How to use docker-machine on Azure](virtual-machines-docker-machine.md)
-- [How to use docker with swarm on Azure](virtual-machines-docker-swarm.md)
+- [How to use docker-machine on Azure](virtual-machines-linux-classic-docker-machine.md)
+- [How to use docker with swarm on Azure](virtual-machines-linux-docker-swarm.md)
 - [Get Started with Docker and Compose on Azure](virtual-machines-linux-docker-compose-quickstart.md)
 - [Using an Azure resource group template to create a Docker host on Azure quickly](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 - [The built-in support for `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) for contained applications
-- [Implement a Docker private registry on Azure](virtual-machines-docker-registry-on-azure-blob-storage.md)
+- [Implement a Docker private registry on Azure](virtual-machines-linux-docker-registry-in-blob-storage.md)
 
 Linux distributions and Azure examples:
 
