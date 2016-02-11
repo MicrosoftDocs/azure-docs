@@ -39,7 +39,7 @@ Use the following block of PowerShell commands to create the virtual machines fo
 - Table ST, for your storage accounts
 - Table A, for your availability sets
 
-Recall that you defined Table M in [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) and Tables V, S, ST, and A in [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Recall that you defined Table M in [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) and Tables V, S, ST, and A in [Phase 1](virtual-machines-windows-ps-lob-ph1.md).
 
 > [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
