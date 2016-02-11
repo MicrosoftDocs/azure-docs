@@ -20,7 +20,7 @@
 
 # How to capture a classic Linux virtual machine as an image
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image-resource-manager.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image.md).
 
 
 This article shows you how to capture a classic Azure virtual machine running Linux as an image to create other virtual machines. This image includes the OS disk and data disks attached to the virtual machine. It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines from the image.
@@ -95,5 +95,5 @@ The image is ready to be used to create virtual machines. You can use the Azure 
 [How to Log on to a Virtual Machine Running Linux]: virtual-machines-linux-how-to-log-on.md
 [About Virtual Machine Images in Azure]: virtual-machines-images.md
 [How to Create a Custom Virtual Machine]: virtual-machines-linux-create-custom.md
-[How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
+[How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [How to Create a Linux Virtual Machine]: virtual-machines-linux-create-custom.md
