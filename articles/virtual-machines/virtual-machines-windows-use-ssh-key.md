@@ -135,7 +135,7 @@ The easiest way to resolve this is to set the `OPENSSL_CONF` environment variabl
 
 8. Click **Save Private Key**, which is highlighted in the screenshot below:
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtygenprivatekey.png)
+	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-linux/linuxputtygenprivatekey.png)
 
 9. Save the file as a PPK
 
