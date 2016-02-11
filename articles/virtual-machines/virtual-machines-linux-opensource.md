@@ -87,7 +87,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduce
 ### SUSE Linux Enterprise Server and openSUSE
 
 9. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=OpenSUSE)
-11. \[Classic Deployment]: [How to: Install and Run MySQL](virtual-machines-linux-mysql-use-opensuse.md)
+11. \[Classic Deployment]: [How to: Install and Run MySQL](virtual-machines-linux-classic-mysql-on-opensuse.md)
 12. [How To: Prep a Custom SLES or openSUSE VM](virtual-machines-linux-create-upload-vhd-suse.md)  
 13. [[SUSE forum] How to: Move to a New Patch Server](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure)
 14. [Images: SUSE Linux Enterprise Server for SAP Cloud Appliance  Library](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver11sp3forsapcloudappliance/)
@@ -215,7 +215,7 @@ This section contains information about several different storage approaches and
 
 ### Relational database
 2. MySQL
-    - [How to: Install and Run MySQL](virtual-machines-linux-mysql-use-opensuse.md)
+    - [How to: Install and Run MySQL](virtual-machines-linux-classic-mysql-on-opensuse.md)
     - [How to: Optimize Performance of MySQL on Azure](virtual-machines-linux-optimize-mysql-perf.md)
     - [How to: MySQL Clusters](virtual-machines-linux-mysql-cluster.md)
     - [How to: Create a MySQL Database using the Marketplace](store-php-create-mysql-database.md)
