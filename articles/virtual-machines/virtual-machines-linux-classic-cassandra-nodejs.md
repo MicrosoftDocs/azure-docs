@@ -45,7 +45,7 @@ We will start with a single region deployment and harvest the learnings in creat
 
 **High Availability:** The Cassandra nodes shown in the Figure 1 are deployed to two availability sets so that the nodes are spread between multiple fault domains for high availability. VMs annotated with each availability set is mapped to 2 fault domains.  Microsoft Azure uses the concept of fault domain to manage unplanned down time (e.g. hardware or software failures) while the concept of upgrade domain (e.g. host or guest OS patching/upgrades, application upgrades) is used for managing scheduled down time. Please see [Disaster Recovery and High Availability for Azure Applications](http://msdn.microsoft.com/library/dn251004.aspx) for the role of fault and upgrade domains in attaining high availability. 
 
-![Single region deployment](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux1.png)
+![Single region deployment](./media/virtual-machines-linux-classic-cassandra-nodejs/cassandra-linux1.png)
 
 Figure 1: Single region deployment
 
