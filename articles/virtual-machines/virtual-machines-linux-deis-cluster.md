@@ -26,7 +26,7 @@ This article walks you through provisioning a [Deis](http://deis.io/) cluster on
 
 The following diagram shows the architecture of the deployed system. A system administrator manages the cluster using Deis tools such as **deis** and **deisctl**. Connections are established through an Azure load balancer, which forwards the connections to one of the member nodes on the cluster. The clients access deployed applications through the load balancer as well. In this case, the load balancer forwards the traffic to a Deis router mesh, which further routs traffic to corresponding Docker containers hosted on the cluster.
 
-  ![Architecture diagram of deployed Desis cluster](media/virtual-machines-deis-cluster/architecture-overview.png)
+  ![Architecture diagram of deployed Desis cluster](media/virtual-machines-linux-deis-cluster/architecture-overview.png)
 
 In order to run through the following steps, you'll need:
 
