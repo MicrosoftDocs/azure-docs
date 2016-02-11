@@ -25,11 +25,11 @@ Azure Active Directory (Azure AD) B2C supports authentication for a variety of m
 ## The basics
 Every app that uses Azure AD B2C must be registered in your [B2C directory](active-directory-b2c-get-started.md) via the [Azure Portal](https://portal.azure.com/). The app registration process collects and assigns a few values to your app:
 
-- An **application ID** that uniquely identifies your app.
-- A **redirect uniform resource identifier** that can be used to direct responses back to your app.
+- An **Application ID** that uniquely identifies your app.
+- A **Redirect URI** that can be used to direct responses back to your app.
 - Any other scenario-specific values. For more details, learn how to [register an app](active-directory-b2c-app-registration.md).
 
-After the app is registered, it communicates with Azure AD by sending requests to the Azure AD v2.0 endpoints:
+After the app is registered, it communicates with Azure AD by sending requests to the Azure AD v2.0 endpoint:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
