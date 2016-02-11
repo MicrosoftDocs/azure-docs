@@ -84,7 +84,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
 
 5. Click **Create Storage Account**. The account now appears under **Storage**.
 
-	![Storage account successfully created](./media/virtual-machines-create-upload-vhd-windows-server/Storagenewaccount.png)
+	![Storage account successfully created](./media/virtual-machines-windows-classic-createupload-vhd/Storagenewaccount.png)
 
 6. Next, create a container for your uploaded VHDs. Click the storage account name and then click **Containers**.
 
