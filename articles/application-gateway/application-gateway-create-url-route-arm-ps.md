@@ -18,12 +18,12 @@
 
 # Create an application gateway using URL based routing 
 
-URL Path Based Routing enables you to route traffic to back-end server pools based on URL paths from client Http request. A common use for url based routing is to route requests for different content types to different back-end server pools.
+URL Path Based Routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL lists in Application Gateway and send the network traffic to the defined back-end pool. A common use for URL based routing is to load balance requests for different content types to different back-end server pools.
 
 URL path based routing introduces a rule type to application gateway. Application gateway has 2 rule types: basic and PathBasedRouting. Basic rule type will provide round-robin service for the back-end pools while PathBasedRouting will provide network traffic mapping based on the path pattern for the URL. 
 
 ## Scenario
-In the following example, Application Gateway is serving traffic for contoso.com with two backend server pools: video server pool and image server pool.
+In the following example, Application Gateway is serving traffic for contoso.com with two back-end server pools: video server pool and image server pool.
 
 Requests for http://contoso.com/image* will be routed to image server pool (pool1), and http://contoso.com/video* will be routed to video server pool (pool2). A default server pool (pool1) is selected if none of the path patterns match.
 
