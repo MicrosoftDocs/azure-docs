@@ -54,7 +54,7 @@ Prior to caputuring an image of an Azure virtual machine, it is recommended the 
 
 	- Click **OK**.
 
-	![Run Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
+	![Run Sysprep](./media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png)
 
 7.	Sysprep shuts down the virtual machine, which changes the status of the virtual machine in the Azure classic portal to **Stopped**.
 
@@ -83,7 +83,7 @@ The image is ready to be used to create virtual machines. To do this, you'll cre
 [How to sign in to a virtual machine running Windows Server]: virtual-machines-log-on-windows-server.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx
 [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
-[Enter Sysprep.exe options]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
+[Enter Sysprep.exe options]: ./media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png
 [The virtual machine is stopped]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
 [Capture an image of the virtual machine]: ./media/virtual-machines-windows-classic-capture-image/CaptureVM.png
 [Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
