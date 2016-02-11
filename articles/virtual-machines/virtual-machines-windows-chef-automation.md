@@ -230,7 +230,7 @@ I hope this has been helpful! Go  and start your infrastructure as code journey 
 [5]: ./media/virtual-machines-windows-chef-automation/5.png
 [6]: ./media/virtual-machines-windows-chef-automation/6.png
 [7]: ./media/virtual-machines-windows-chef-automation/7.png
-[8]: ./media/virtual-machines-automation-with-chef/8.png
+[8]: ./media/virtual-machines-windows-chef-automation/8.png
 [9]: ./media/virtual-machines-automation-with-chef/9.png
 [10]: ./media/virtual-machines-windows-chef-automation/10.png
 [11]: ./media/virtual-machines-windows-chef-automation/11.png
