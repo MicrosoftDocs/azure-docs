@@ -86,7 +86,7 @@ To deploy this configuration, use the following process:
 
 - Phase 3: Configure the SQL Server infrastructure.  
 
-	Prepare the SQL Server virtual machines for use with SharePoint and create the SQL Server cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-workload-intranet-sharepoint-phase3.md).
+	Prepare the SQL Server virtual machines for use with SharePoint and create the SQL Server cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-windows-ps-sp-intranet-ph3.md).
 
 - Phase 4: Configure the SharePoint servers.
 
