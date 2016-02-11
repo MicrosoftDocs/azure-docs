@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/29/2015" 
+	ms.date="02/10/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -37,13 +37,17 @@ You give it a name and location, and, if necessary, select a subscription.
 
 ![set group values](./media/resource-group-portal/set-group-properties.png)
 
-However, you do not need to explicitly create an empty resource group. When creating a new resource, you can choose to either create a new resource group or use an existing resource group. The following image shows how to create a new web app with the option of selecting an existing resource group or creating a new one. 
+However, you do not need to explicitly create an empty resource group. When creating a new resource, you can choose to either create a new resource group or use an existing resource group. The following image shows how to create a new web app in an existing resource group. 
 
 ![create resource group](./media/resource-group-portal/select-existing-group.png)
 
+The next image shows how to create a new resource group while creating the web app. You select **New** and give the resource group a name.
+
+![create new resource group](./media/resource-group-portal/select-new-group.png)
+
 ## Browse resource groups
 
-You can browse all resource groups by clicking the **Browse All** and **Resource groups**. 
+You can browse all resource groups by clicking **Resource groups**. 
 
 ![browse resource groups](./media/resource-group-portal/browse-groups.png)
 
@@ -54,6 +58,20 @@ When you select a particular resource group, you see a resource group blade that
 The resource group blade also gives you a unified view of your billing and monitoring information for all the resources in the resource group.
 
 ![monitoring and billing](./media/resource-group-portal/monitoring-billing.png)
+
+## View your subscription and costs
+
+You can view information about your subscription and the rolled-up costs for all of your resources. Select **Subscriptions** and the subscription you want to see. You might only have one subscription to select.
+
+![subscription](./media/resource-group-portal/select-subscription.png)
+
+Within the subscription blade, you will see a burn rate.
+
+![burn rate](./media/resource-group-portal/burn-rate.png)
+
+And, a breakdown of costs by resource type.
+
+![resource cost](./media/resource-group-portal/cost-by-resource.png)
 
 ## Customizing the interface
 
@@ -131,13 +149,13 @@ You can apply tags to resource groups and resources to logically organize your a
 
 If you want to execute a deployment but not use any of the templates in the Marketplace, you can create customized template that defines the infrastructure for your solution. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
-To deploy a customized template through the portal, select **New**, **Marketplace**, and **Everything**.
-
-![find template deployment](./media/resource-group-portal/launch-template.png)
-
-Search for **Template Deployment**, and select it from the returned list.
+To deploy a customized template through the portal, select **New**, and start searching for **Template Deployment** until you can select it from the options.
 
 ![search template deployment](./media/resource-group-portal/search-template.png)
+
+Select **Template Deployment** from the available resources.
+
+![select template deployment](./media/resource-group-portal/select-template.png)
 
 After launching the template deployment, you can create the custom template and set values for the deployment.
 
