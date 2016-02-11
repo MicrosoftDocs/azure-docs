@@ -55,7 +55,7 @@ This part is easy, unless you don't have an Azure account. [Get a free one easil
 
 Now the fun starts. You can immediately connect to the VM using SSH:
 
-> ![Connecting with SSH](./media/virtual-machines-docker-ubuntu-quickstart/SSHToDockerUbuntu.png)
+> ![Connecting with SSH](./media/virtual-machines-linux-classic-docker-quickstart/SSHToDockerUbuntu.png)
 
 and start issuing Docker commands, remembering that on this Azure VM the default configuration requires **`sudo`**:
 
