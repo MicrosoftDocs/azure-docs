@@ -31,7 +31,7 @@ Select one of the following templates to deploy a Mesos or Docker Swarm cluster:
  
 Each template will have a deploy to Azure button, selecting this button will launch the Azure portal and a form that looks something like this.
  
- ![Create deployment](media/create-mesos-params.png)
+![Create deployment](media/create-mesos-params.png)
  
 Complete the form using this guidance.
 

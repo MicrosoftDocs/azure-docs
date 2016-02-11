@@ -27,8 +27,18 @@ Mesos provides an environment for deploying and scaling clustered workload while
 
 ## Exploring the Mesos UI
 
+![Create deployment](media/ui1.png)
+
 ## Exploring the Marathon UI
 
+![Create deployment](media/ui2.png)
+
 ## Deploying a Docker Container
+
+![Create deployment](media/ui3.png)
+
+![Create deployment](media/ui4.png)
+
+![Create deployment](media/ui5.png)
 
 ## Scaling out a Docker Container
