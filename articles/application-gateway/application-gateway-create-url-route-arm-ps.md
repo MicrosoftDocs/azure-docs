@@ -64,7 +64,7 @@ Here are the steps that are needed to create an application gateway:
 
 ## Create a resource group for Resource Manager
 
-Make sure that you are using the latest version of Azure PowerShell. More info is available at [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
+Make sure that you are using the latest version of Azure PowerShell. More info is available at [Using Windows PowerShell with Resource Manager](../articles/powershell-azure-resource-manager.md).
 
 ### Step 1
 Login to Azure 
