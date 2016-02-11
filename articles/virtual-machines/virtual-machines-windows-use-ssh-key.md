@@ -129,7 +129,7 @@ The easiest way to resolve this is to set the `OPENSSL_CONF` environment variabl
 
 6. Click **Open**. You will receive a prompt which should look like this:
 
-	![linuxgoodforeignkey](./media/virtual-machines-linux-use-ssh-key/linuxgoodforeignkey.png)
+	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-linux/linuxgoodforeignkey.png)
 
 7. Click **OK**
 
