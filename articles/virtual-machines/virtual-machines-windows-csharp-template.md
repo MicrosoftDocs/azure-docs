@@ -516,4 +516,4 @@ Because you are charged for resources used in Azure, it is always a good practic
 
 3. Browse to the Audit Logs in the Azure portal to see the status of the resources:
 
-	![Create an AD application](./media/arm-template-deployment/crpportal.png)
+	![Create an AD application](./media/virtual-machines-windows-csharp-template/crpportal.png)
