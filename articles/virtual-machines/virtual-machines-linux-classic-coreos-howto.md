@@ -194,7 +194,7 @@ You should now have a running three-node CoreOS cluster on Azure. From here, you
 
 <!--Image references-->
 [CloudServiceInNewPortal]: ./media/virtual-machines-linux-classic-coreos-howto/cloudservicefromnewportal.png
-[EmptyCoreOSCluster]: ./media/virtual-machines-linux-coreos-how-to/endresultemptycluster.png
+[EmptyCoreOSCluster]: ./media/virtual-machines-linux-classic-coreos-howto/endresultemptycluster.png
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 
