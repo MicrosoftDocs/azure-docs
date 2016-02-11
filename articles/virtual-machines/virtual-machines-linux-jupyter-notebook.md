@@ -184,7 +184,7 @@ new notebooks and open existing ones.
 
 If you click the **New** button, you will see the following opening page.
 
-![Screenshot](./media/virtual-machines-python-ipython-notebook/jupyter-untitled-notebook.png)
+![Screenshot](./media/virtual-machines-linux-jupyter-notebook/jupyter-untitled-notebook.png)
 
 The area marked with an `In []:` prompt is the input area, and here you can
 type any valid Python code and it will execute when you hit `Shift-Enter` or
