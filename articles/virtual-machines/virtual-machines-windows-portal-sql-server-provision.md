@@ -85,7 +85,7 @@ Verify that the **Location** is correct for your requirements.
 * Click **OK** to save the settings.
 <br/>
 
->![SQL ARM Basics](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-basic.png)
+>![SQL ARM Basics](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-basic.png)
 <br/>
 
 ## 2. Choose virtual machine size
