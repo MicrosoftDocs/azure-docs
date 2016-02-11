@@ -106,7 +106,7 @@ As an example, this is how you can install Anaconda on Ubuntu
 	/anaconda3/bin/jupyter-notebook --generate-config
 
 
-![Screenshot](./media/virtual-machines-python-ipython-notebook/anaconda-install.png)
+![Screenshot](./media/virtual-machines-linux-jupyter-notebook/anaconda-install.png)
 
 
 ### Configuring Jupyter and using SSL
