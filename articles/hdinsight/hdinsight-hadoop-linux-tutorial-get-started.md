@@ -29,13 +29,13 @@ If you are new to Hadoop and big data, you can read more about the terms: [Apach
 
 ### Prerequisites
 
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial, you must have:
 
 - **Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## Create cluster
 
-In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](resource-group-template-deploy.md). The Azure ARM template experience is not required to follow the instructions. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using ARM template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+Most of Hadoop jobs are batch jobs. You create a cluster and run some jobs. In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](resource-group-template-deploy.md). The Azure ARM template experience is not required for following this tutorial. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using ARM template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
 1. Click the following image to open an ARM template in the Azure Portal. The ARM template is located in a public blob container. 
 
@@ -58,12 +58,9 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 
 ##Run Hive queries
 
-Ambari Views provide several utilities through a web page. In the following sections, you'll use the Hive view to run Hive queries on your HDInsight cluster. For other methods to run Hive queries, see [Use Hive in HDInsight](hdinsight-use-hive.md).
+[Ambari](hdinsight-hadoop-manage-ambari.md) Views provide several utilities through a web page. One of the utilities is Hive view. In this section, you'll use the Hive view to run Hive queries on your HDInsight cluster. For other methods to run Hive queries, see [Use Hive in HDInsight](hdinsight-use-hive.md).
 
-
-> [AZURE.NOTE] Ambari is a management and monitoring utility provided with Linux-based HDInsight clusters. Ambari has a lot of capabilities that won't be discussed in this document. For more information, see [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
-
-1. Browse to  **https://&gt;ClusterName>.azurehdinsight.net**, where &gt;ClusterName> is the cluster you created in the previous section to open Ambari.
+1. Browse to  **https://&lt;ClusterName>.azurehdinsight.net**, where &lt;ClusterName> is the cluster you created in the previous section to open Ambari.
 2. Enter the Hadoop username and password that you specified in the previous section. The default username is **admin**.
 3. Open **Hive View** as shown in the following screenshot:
 
@@ -73,18 +70,14 @@ Ambari Views provide several utilities through a web page. In the following sect
 		SHOW tables;
 5. Click __Execute__. A __Query Process Results__ section should appear beneath the Query Editor and display information about the job. 
 
-    Once the query has finished, The __Query Process Results__ section will display the results of the operation. You shall see one table called **hivesampletable**.
+    Once the query has finished, The __Query Process Results__ section will display the results of the operation. You shall see one table called **hivesampletable**. This sample Hive table comes with all the HDInsight clusters.
     
     > [AZURE.TIP] Note the __Save results__ dropdown in the upper left of the __Query Process Results__ section; you can use this to either download the results, or save them to HDInsight storage as a CSV file.
 6. Repeat step 4 and step 5 to run the following query:
 
         SELECT * FROM hivesampletable;
-        
-For more information about using Hive in HDInsight, see [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md).
 
-For exporting the Hive data to AZure SQL database or SQL Server database, see [Use Sqoop with Hadoop in HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md).
-
-For visualizing Hive data, see [Connect Excel to Hadoop by using Power Query](hdinsight-connect-excel-power-query.md) and [Connect Excel to Hadoop with the Microsoft Hive ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md).
+After you have completed a Hive job, you can [export the results to Azure SQL database or SQL Server database](hdinsight-use-sqoop-mac-linux.md), you can also [visualize the results using Excel](hdinsight-connect-excel-power-query.md). For more information about using Hive in HDInsight, see [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md).
 
 ## Next steps
 
