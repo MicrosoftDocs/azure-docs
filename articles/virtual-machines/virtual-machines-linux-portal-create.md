@@ -61,7 +61,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 1. On the **Create virtual machine** blade, click **Basics**. Enter a **Name** you want for the VM, and a public key file (in **ssh-rsa** format, in this case from the `~/.ssh/id_rsa.pub` file). If you have more than one subscription, specify the one for the new VM, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
 
-	![](media/virtual-machines-linux-tutorial-portal-rm/step-1-thebasics.png)
+	![](media/virtual-machines-linux-portal-create/step-1-thebasics.png)
 
 	> [AZURE.NOTE] You may also choose username/password authentication here and enter that information if you do not want to secure your **ssh** session with a public and private key exchange.
 
