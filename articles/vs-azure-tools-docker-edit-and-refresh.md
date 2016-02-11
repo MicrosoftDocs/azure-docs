@@ -94,9 +94,6 @@ Visual Studio 2015 Tools for Docker enables ASP .NET 5 Web app developers to tes
 
 ##Troubleshooting 
 
-Error running docker-machine create --driver virtualbox default
-Disable HyperV via the Control Panel
-
 - **Running the app causes PowerShell to open, display an error, and then close. The browser page doesn’t open.**
 
 	This could be an error during `docker-compose-up`. To view the error, perform the following steps:
