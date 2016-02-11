@@ -552,7 +552,7 @@ Instead of using TSPSolver to create or delete the queue, you can create or dele
 
 [solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
 [client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png
-[create_service_bus]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ServiceBusCreateNew.png
+[create_service_bus]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/ServiceBusCreateNew.png
 [create_namespace_dialog]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/CreateNameSpaceDialog.png
 [available_namespaces]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/AvailableNamespaces.png
 [click_create]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/ClickCreate.png
