@@ -106,7 +106,7 @@ You can use the same instructions to initialize multiple data disks, using the r
 7. Type **w** to write the settings for the disk.
 
 
-	![Write the disk changes](./media/virtual-machines-linux-how-to-attach-disk/DiskWrite.png)
+	![Write the disk changes](./media/virtual-machines-linux-classic-attach-disk/DiskWrite.png)
 
 8. Make the file system on the new partition. Append the partition number (1) to the device id. For example, type the following command and then enter the account password:
 
