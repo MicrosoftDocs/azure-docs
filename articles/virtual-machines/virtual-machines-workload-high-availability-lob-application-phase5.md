@@ -23,7 +23,7 @@
 
 In this final phase of deploying a high-availability line of business application in Azure infrastructure services, you create a new SQL Server AlwaysOn Availability Group and add the databases of the application.
 
-See [Deploy a high-availability line of business application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) for all of the phases.
+See [Deploy a high-availability line of business application in Azure](virtual-machines-windows-lob-overview.md) for all of the phases.
 
 ## Create the Availability Group and add databases
 

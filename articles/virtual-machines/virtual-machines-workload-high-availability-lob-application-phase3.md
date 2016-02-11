@@ -23,7 +23,7 @@
 
 In this phase of deploying a high-availability line of business application in Azure infrastructure services, you configure the two computers running SQL Server and the cluster majority node computer, and then combine them into a Windows Server cluster. 
 
-You must complete this phase before moving on to [Phase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md). See [Deploy a High-Availability Line of Business Application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) for all of the phases.
+You must complete this phase before moving on to [Phase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md). See [Deploy a High-Availability Line of Business Application in Azure](virtual-machines-windows-lob-overview.md) for all of the phases.
 
 > [AZURE.NOTE] These instructions use a SQL Server image in the Azure image gallery and you are charged ongoing costs for the use of the SQL Server license. It is also possible to create virtual machines in Azure and install your own SQL Server licenses, but you must have Software Assurance and License Mobility to use your SQL Server license on a virtual machine, including an Azure virtual machine. For more information about installing SQL Server on a virtual machine, see [Installation for SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
 
