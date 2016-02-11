@@ -228,7 +228,7 @@ If you are using certificate authentication, verify that you have these permissi
 
 To eliminate your organization edge device as the source of failure, check that a computer directly connected to the Internet can make SSH connections to your Azure VM. If you are accessing the VM over a site-to-site VPN or ExpressRoute connection, skip to [Source 4: Network security groups](#nsg).
 
-![Diagram that highlights organization edge device](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot3.png)
+![Diagram that highlights organization edge device](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
 If you do not have a computer that is directly connected to the Internet, you can easily create a new Azure virtual machine in its own resource group or cloud service and use it. For more information, see [Create a virtual machine running Linux in Azure](virtual-machines-linux-tutorial.md). Delete the resource group or virtual machine and cloud service when you are done with your testing.
 
