@@ -109,15 +109,17 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 
 *Log4J v2.0*
 
-    
-    <Appenders>
-      <ApplicationInsightsAppender name="aiAppender" />
-    </Appenders>
-    <Loggers>
-      <Root level="trace">
-        <AppenderRef ref="aiAppender"/>
-      </Root>
-    </Loggers>
+
+    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+      <Appenders>
+        <ApplicationInsightsAppender name="aiAppender" />
+      </Appenders>
+      <Loggers>
+        <Root level="trace">
+          <AppenderRef ref="aiAppender"/>
+        </Root>
+      </Loggers>
+    </Configuration>
 
 
 *Log4J v1.2*

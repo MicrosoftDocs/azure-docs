@@ -310,3 +310,11 @@ Here's the complete component, web test and web test alert template that I creat
 }
 
 ```
+
+## See also
+
+Other automation articles:
+
+* [Create an Application Insights resource](app-insights-powershell-script-create-resource.md) - quick method without using a template.
+* [Set up Alerts](app-insights-powershell-alerts.md)
+* [Send Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
