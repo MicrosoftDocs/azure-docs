@@ -68,7 +68,7 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 ### Manual deployment with the Azure portal
 
-* [Set up the head node of an HPC Pack cluster in an Azure VM](virtual-machines-hpcpack-cluster-headnode.md)
+* [Set up the head node of an HPC Pack cluster in an Azure VM](virtual-machines-windows-hpcpack-cluster-headnode.md)
 
 ### Cluster management
 
