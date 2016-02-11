@@ -45,7 +45,7 @@ If you want to connect to your SQL Server database engine from the Internet, the
 
 If you use the portal to provision a SQL Server virtual machine image with the resource manager, these steps are done for you when you select **Public** for the SQL connectivity option:
 
-![](./media/virtual-machines-sql-server-connectivity-resource-manager/sql-vm-portal-connectivity.png)
+![](./media/virtual-machines-windows-sql-connect/sql-vm-portal-connectivity.png)
 
 If this was not one during provisioning, then you can manually configure SQL Server and your virtual machines by following the [steps in this article to manually configure connectivity](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). 
 
