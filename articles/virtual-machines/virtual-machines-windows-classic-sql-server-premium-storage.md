@@ -1134,7 +1134,7 @@ To add in IP Address, see the [Appendix](#appendix-migrating-a-multisite-alwayso
 - [SQL Server in Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md)
 
 <!-- IMAGES -->
-[1]: ./media/virtual-machines-sql-server-use-premium-storage/1_VNET_Portal.png
+[1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png
 [2]: ./media/virtual-machines-sql-server-use-premium-storage/2_Diskname_Lun.png
 [3]: ./media/virtual-machines-sql-server-use-premium-storage/3_Virtual_Disk_Properties.png
 [4]: ./media/virtual-machines-sql-server-use-premium-storage/4_Virtual_Disk_Properties_Details.png
