@@ -298,7 +298,7 @@ Your base configuration in Azure is now ready for application development and te
 
 ## Next step
 
-- [Add a new virtual machine](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) to the Corpnet subnet, such as one running Microsoft SQL Server.
+- [Add a new virtual machine](virtual-machines-windows-create-powershell.md) to the Corpnet subnet, such as one running Microsoft SQL Server.
 
 
 ## <a id="costs"></a>Minimizing the costs of test environment virtual machines in Azure
