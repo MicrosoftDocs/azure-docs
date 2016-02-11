@@ -106,7 +106,7 @@ The following table summarizes the Business Intelligence features installed on t
 
 - Stop or uninstall services you do not plan to use. For example if the virtual machine is only used for Reporting Services, stop or uninstall Analysis Services and SQL Server Integration Services. The following image is an example of the services that are started by default.
 
-	![SQL Server services](./media/virtual-machines-sql-server-business-intelligence/IC650107.gif)
+	![SQL Server services](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
 
 	>[AZURE.NOTE] The SQL Server database engine is required in the supported BI scenarios. In a single server VM topology, the database engine is required to be running on the same VM.
 
