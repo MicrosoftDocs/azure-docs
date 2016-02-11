@@ -118,6 +118,6 @@ If you want to use an existing data disk, make sure you've also uploaded the VHD
 
 [Logon]: virtual-machines-log-on-windows-server.md
 
-[Detach]: storage-windows-detach-disk.md
+[Detach]: virtual-machines-windows-classic-detach-disk.md
 
 [Storage]: ../storage-whatis-account.md
