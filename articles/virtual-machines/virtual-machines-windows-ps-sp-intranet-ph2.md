@@ -223,7 +223,7 @@ Next, perform the following steps to add more account properties to the new user
 
 This shows the configuration resulting from the successful completion of this phase, with placeholder computer names.
 
-![](./media/virtual-machines-workload-intranet-sharepoint-phase2/workload-spsqlao_02.png)
+![](./media/virtual-machines-windows-ps-sp-intranet-ph2/workload-spsqlao_02.png)
 
 ## Next step
 
