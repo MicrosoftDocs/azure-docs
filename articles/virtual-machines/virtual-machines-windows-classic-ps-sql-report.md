@@ -59,7 +59,7 @@ This topic describes and walks you through the deployment and configuration of a
 
 1. Click **SQL Server 2014 RTM Standard – Windows Server 2012 R2** and then click the arrow to continue.
 
-	![next](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
+	![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 	If you need the Reporting Services data driven subscriptions feature, choose **SQL Server 2014 RTM Enterprise – Windows Server 2012 R2**. For more information on SQL Server editions and feature support, see [Features Supported by the Editions of SQL Server 2012](https://msdn.microsoft.com/library/cc645993.aspx#Reporting).
 
@@ -77,7 +77,7 @@ This topic describes and walks you through the deployment and configuration of a
 	
 	- **New Password** and **confirm**. This password is used for the new administrator account and it is recommended you use a strong password.
 	
-	- Click **Next**. ![next](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
+	- Click **Next**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 1. On the next page, edit the following fields:
 
@@ -97,7 +97,7 @@ This topic describes and walks you through the deployment and configuration of a
 
 		- **HTTPS**: The default public and private ports are **443**. A security best practice is to change the private port and configure your firewall and the report server to use the private port. For more information on endpoints, see [How to Set Up Communication with a Virtual Machine](virtual-machines-set-up-endpoints.md). Note that if you use a port other than 443, change the parameter **$HTTPsport = 443** in the HTTPS script.
 	
-	- Click next . ![next](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
+	- Click next . ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 1. On the last page of the wizard, keep the default **Install the VM agent** selected. The steps in this topic do not utilize the VM agent but if you plan to keep this VM, the VM agent and extensions will allow you to enhance he CM.  For more information on the VM agent, see [VM Agent and Extensions – Part 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). One of the default extensions installed ad running is the “BGINFO” extension that displays on the VM desktop, system information such as internal IP and free drive space.
 
