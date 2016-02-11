@@ -42,7 +42,7 @@ ADMINPASSWORD   | This is the password used for the user account on each Virtual
 DNSNAMEPREFIX   | This must be a world unique value. It will be used to create DNS names for each of the key parts of the service. More information below.
 AGENTCOUNT      | This is the number of virtual machines that will be created in the ACS agent scale set.
 MASTERCOUNT     | This is the number of Virtual Machines to configure as masters for your cluster. You can select 1, but this will not provide any resilience in your cluster and is only recommended for testing. The recommended number for a production cluster would be 3 or 5. 
-SSHRSAPUBLICKEY	| It is required that you use SSH for authentication against the Virtual Machines. This is where you add your public key. If you need to create an SSH key, you can find guidance for [windows](./virtual-machines-windows-use-ssh-key.md) and [Linux](./virtual-machines-linux-use-ssh-key.md) on the Azure documentation site.
+SSHRSAPUBLICKEY	| It is required that you use SSH for authentication against the Virtual Machines. This is where you add your public key. If you need to create an SSH key, you can find guidance for [windows](../articles/virtual-machines-windows-use-ssh-key.md) and [Linux](../articles/virtual-machines-linux-use-ssh-key.md) on the Azure documentation site.
   
 Once you have confirgure your parameters, click OK. The parameters blade will disappear.
  
