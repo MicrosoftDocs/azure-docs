@@ -78,7 +78,7 @@ To deploy this configuration, use the following process:
 
 - Phase 5: Configure a SQL Server AlwaysOn Availability Group.
 
-	Prepare the application databases, create a SQL Server AlwaysOn Availability Group, and then add the application databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md).
+	Prepare the application databases, create a SQL Server AlwaysOn Availability Group, and then add the application databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-windows-ps-lob-ph5.md).
 
 Once configured, you can easily expand this line of business application by adding more web servers or virtual machines running SQL Servers to the cluster.
 
