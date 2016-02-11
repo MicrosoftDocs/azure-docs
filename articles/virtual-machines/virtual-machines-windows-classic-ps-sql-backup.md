@@ -46,7 +46,7 @@ The following Azure portal screenshot shows these options under **OPTIONAL CONFI
 
 For existing SQL Server 2014 virtual machines, select the **Auto backup** settings in the **Configuration** section of the virtual machine properties. In the **Automated backup** window, you can enable the feature, set the retention period, select the storage account, and set encryption. This is shown in the following screenshot.
 
-![Automated Backup Configuration in Azure portal](./media/virtual-machines-sql-server-automated-backup/IC792133.jpg)
+![Automated Backup Configuration in Azure portal](./media/virtual-machines-windows-classic-ps-sql-backup/IC792133.jpg)
 
 >[AZURE.NOTE] When you enable Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal will not show that Automated Backup is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal will reflect the new settings.
 
