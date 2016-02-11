@@ -79,7 +79,7 @@ Follow these steps to install, configure, and run the Community version of MySQL
 
 13.	On the **Advanced Options** page, specify changes to logging options as needed, and then click **Next**.
 
-	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_AdvOptions.png)
+	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_AdvOptions.png)
 
 14.	On the **Apply Server Configuration** page, click **Execute**. When the configuration steps are complete, click **Finish**.
 15.	On the **Product Configuration** page, click **Next**.
