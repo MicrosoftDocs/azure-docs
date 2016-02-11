@@ -80,7 +80,7 @@ In general, it's easy to see that container technology is a step forward, but th
 Developers take to Docker containers quickly, because above all it makes using Linux containers easy:
 
 - They can use simple, incremental commands to create a fixed image that is easy to deploy and can automate building those images using a dockerfile
-- They can share those images easily using simple, [git](https://git-scm.com/)-style push and pull commands to [public](https://registry.hub.docker.com/) or [private docker registries](virtual-machines-docker-registry-on-azure-blob-storage.md) 
+- They can share those images easily using simple, [git](https://git-scm.com/)-style push and pull commands to [public](https://registry.hub.docker.com/) or [private docker registries](virtual-machines-linux-docker-registry-in-blob-storage.md) 
 - They can think of isolated application components instead of computers
 - They can use a large number of tools that understand docker containers and different base images
 
@@ -194,7 +194,7 @@ Docker on Microsoft Azure:
 - [Get Started with Docker and Compose on Azure](virtual-machines-linux-docker-compose-quickstart.md)
 - [Using an Azure resource group template to create a Docker host on Azure quickly](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 - [The built-in support for `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) for contained applications
-- [Implement a Docker private registry on Azure](virtual-machines-docker-registry-on-azure-blob-storage.md)
+- [Implement a Docker private registry on Azure](virtual-machines-linux-docker-registry-in-blob-storage.md)
 
 Linux distributions and Azure examples:
 
