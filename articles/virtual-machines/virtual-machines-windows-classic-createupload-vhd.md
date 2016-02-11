@@ -80,7 +80,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
  - Choose the **location or affinity group** for the storage account. An affinity group lets you place your cloud services and storage in the same datacenter.
  - Decide whether to use **geo-replication** for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location. The secondary location is assigned automatically, and can't be changed. If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication. However, if you turn on geo-replication later, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount. For more details, see [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
 
-      ![Enter storage account details](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
+      ![Enter storage account details](./media/virtual-machines-windows-classic-createupload-vhd/Storage-create-account.png)
 
 5. Click **Create Storage Account**. The account now appears under **Storage**.
 
