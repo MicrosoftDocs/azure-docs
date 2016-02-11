@@ -128,7 +128,7 @@ Now you can **ssh** into your Azure VM, and you're ready to go.
 
 To learn more about Linux on Azure, see:
 
-- [Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource.md)
+- [Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource-links.md)
 
 - [How to use the Azure Command-Line Tools for Mac and Linux](virtual-machines-command-line-tools.md)
 

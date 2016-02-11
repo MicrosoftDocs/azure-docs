@@ -190,4 +190,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload nginx@{1,2,3}.service
 [Unit Files]: https://coreos.com/docs/launching-containers/launching/fleet-unit-files/
 [busybox Docker Hub image]: https://registry.hub.docker.com/_/busybox/
 [nginx Docker Hub image]: https://hub.docker.com/_/nginx/
-[Linux and Open-Source Computing on Azure]: virtual-machines-linux-opensource.md
+[Linux and Open-Source Computing on Azure]: virtual-machines-linux-opensource-links.md
