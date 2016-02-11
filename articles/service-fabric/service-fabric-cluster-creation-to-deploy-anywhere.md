@@ -35,7 +35,7 @@ In the download package you will find the following files.
 |-----------------------|--------------------------|
 |AzureServiceFabricDeployAnywhere.cab|The cab file that contains the binaries that will be deployed to each machine in the cluster.|
 |ClusterConfig.JSON|Cluster Configuration file that contains all the settings for the cluster including the information for each machine that is part of the cluster.|
-|EULA.txt|The license terms for the use of Microsoft Azure Service Fabric "deploy anywhere" package.|
+|EULA.txt|The license terms for the use of Microsoft Azure Service Fabric "deploy anywhere" package. [Click here](http://go.microsoft.com/fwlink/?LinkID=733084) if you would like to download a copy of the EULA now.|
 |Readme.txt|Link to the release notes and Basic installation instructions.It is a small subset of the instructions you will find on this page.|
 |CreateServiceFabricCluster.ps1|PowerShell script that creates the cluster as per the settings in the ClusterConfig.JSON.|
 |RemoveServiceFabricCluster.ps1|PowerShell script for cluster removal as per the settings in the ClusterConfig.JSON.|
