@@ -182,7 +182,7 @@ When you're done with this tutorial, shut down and/or remove your newly created 
 
 [1]: ./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-browser-azure.png
 
-[port80]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
+[port80]: ./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-port80.png
 
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [python.org]: https://www.python.org/downloads/
