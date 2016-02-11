@@ -116,7 +116,7 @@ You need **deisctl** to control your Deis cluster. Although deisctl is automatic
 
 The template defines inbound NAT rules that map 2223 to instance 1, 2224 to instance 2, and 2225 to instance 3. This provides redundancy for using the deisctl tool. You can examine these rules on Azure classic portal:
 
-![NAT rules on the load balancer](media/virtual-machines-deis-cluster/nat-rules.png)
+![NAT rules on the load balancer](media/virtual-machines-linux-deis-cluster/nat-rules.png)
 
 > [AZURE.NOTE] Currently the template only supports 3-node clusters. This is because of a limitation in Azure Resource Manager template NAT rule definition, which doesn’t support loop syntax.
 
