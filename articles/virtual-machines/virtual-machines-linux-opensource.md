@@ -78,7 +78,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduce
 
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
 2. [Image Gallery](https://azure.microsoft.com/marketplace/partners/OpenLogic/)
-3. [How to: Prepare a Custom CentOS-Based VM for Azure](virtual-machines-linux-create-upload-vhd-centos.md)
+3. [How to: Prepare a Custom CentOS-Based VM for Azure](virtual-machines-linux-create-upload-centos.md)
 4. \[Classic Deployment]: [Blog: How to Deploy a CentOS VM Image from OpenLogic](https://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. \[Classic Deployment]: [How to: Install Apache Qpid Proton-C for AMQP and Service Bus](../service-bus/service-bus-amqp-apache.md/)
 7. [Images: Apache 2.2.15 on OpenLogic CentOS 6.3](https://azure.microsoft.com/marketplace/partners/cognosys/apache2215onopenlogiccentos63/)
