@@ -119,7 +119,7 @@ For more information, see [What is a Network Security Group (NSG)?](../virtual-n
 
 ### Source 5: Windows-based Azure virtual machine
 
-![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_5.png)
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)
 
 Use the [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) to see if the failure is due to the Azure virtual machine itself. If this diagnostics package is unable to solve the **RDP connectivity to an Azure VM (Reboot Required)** issue, follow the instructions in [this article](virtual-machines-windows-reset-password.md) to reset the Remote Desktop service on the virtual machine. This will:
 
