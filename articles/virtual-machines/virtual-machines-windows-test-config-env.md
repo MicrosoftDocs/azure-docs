@@ -30,7 +30,7 @@ You can use the resulting test environment:
 
 The Base Configuration test environment consists of the Corpnet subnet in a cloud-only virtual network named TestLab that simulates a simplified, private intranet connected to the Internet.
 
-![](./media/virtual-machines-base-configuration-test-environment-resource-manager/BC_TLG04.png)
+![](./media/virtual-machines-windows-test-config-env/BC_TLG04.png)
 
 It contains:
 
@@ -292,7 +292,7 @@ Next, verify that you can access web and file share resources on APP1 from CLIEN
 
 This is your final configuration.
 
-![](./media/virtual-machines-base-configuration-test-environment-resource-manager/BC_TLG04.png)
+![](./media/virtual-machines-windows-test-config-env/BC_TLG04.png)
 
 Your base configuration in Azure is now ready for application development and testing or for additional test environments.
 
