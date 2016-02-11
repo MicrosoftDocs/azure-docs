@@ -34,7 +34,7 @@ See [Miscellaneous considerations for Oracle virtual machine images](virtual-mac
 
 ## Oracle database virtual machine
 
-[Creating an Oracle database virtual machine in Azure](virtual-machines-creating-oracle-database-virtual-machine.md) steps you through virtual machine creation, database creation, and configuration of popular options.
+[Creating an Oracle database virtual machine in Azure](virtual-machines-windows-classic-create-oracle-database.md) steps you through virtual machine creation, database creation, and configuration of popular options.
 
 ## Oracle WebLogic Server 12c
 
