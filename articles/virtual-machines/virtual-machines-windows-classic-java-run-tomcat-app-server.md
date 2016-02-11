@@ -146,7 +146,7 @@ Learn about other services (such as Azure Storage, service bus, and SQL Database
 
 
 
-[NewIBRule]: ./media/virtual-machines-java-run-tomcat-application-server/NewInboundRule.png
+[NewIBRule]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewInboundRule.png
 [NewRulePort]: ./media/virtual-machines-java-run-tomcat-application-server/NewRulePort.png
 [NewRuleProtocol]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProtocol.png
 [NewRuleAction]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
