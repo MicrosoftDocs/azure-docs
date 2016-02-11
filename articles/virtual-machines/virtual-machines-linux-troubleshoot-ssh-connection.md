@@ -167,7 +167,7 @@ Make sure to replace the values of $RGName, $VmName, $Location, and the SSH cred
 
 If the SSH client still cannot reach the SSH service on the virtual machine, it can be due to many reasons. Here are the components involved.
 
-![Diagram that shows components of SSH service](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot1.png)
+![Diagram that shows components of SSH service](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot1.png)
 
 The following sections will help you isolate the source of the failure and figure out solutions or workarounds.
 
