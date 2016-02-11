@@ -24,7 +24,7 @@ Azure provides various offers to suite your business needs and get started using
 
 Following are details on common offers
 - <b>Free Trial</b>
-  - [Sign-up & Benefits](https://azure.microsoft.com/en-us/pricing/free-trial/)
+  - [Sign-up & Benefits](https://azure.microsoft.com/pricing/free-trial/)
   - [FAQ](https://azure.microsoft.com/pricing/free-trial-faq/)
   - [Step by Step Sign up guide](https://azure.microsoft.com/documentation/articles/billing-buy-sign-up-azure-subscription/#sign-up-for-an-azure-free-trial-subscription)
   - [Upgrade Free Trial to Pay-As-You-Go](https://azure.microsoft.com/documentation/articles/billing-buy-sign-up-azure-subscription/#upgrade-your-azure-free-trial-subscription-to-a-pay-as-you-go-subscription)
@@ -36,25 +36,25 @@ Following are details on common offers
   - [Enroll as a partner](http://go.microsoft.com/fwlink/?linkid=309258&clcid=0x409) or [Subscribe to Action pack](http://go.microsoft.com/fwlink/?linkid=525768&clcid=0x409)
   - [Use Azure credits - Step by Step video](http://blogs.technet.com/b/uspartner_ts2team/archive/2014/07/24/activating-your-azure-internal-use-rights-benefit.aspx). Access the [MPN portal](https://mspartner.microsoft.com/Pages/Locale.aspx) and verify your eligibility status and follow steps under Software Keys & benefits. If you cannot verify your eligibility, contact [MPN support](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
 - <b>MSDN & Visual Studio subscriber</b>
-  - [MSDN Dev/Test Benefits.](https://azure.microsoft.com/offers/ms-azr-0023p/) [Visual Studio subscribers benefits.](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/)
-  - [Activate Visual Studio subsriber Azure credit](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/)
+  - [MSDN Dev/Test Benefits.](https://azure.microsoft.com/offers/ms-azr-0023p/) [Visual Studio subscribers benefits.](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
+  - [Activate Visual Studio subsriber Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
   - [Activate MSDN Azure benefits in three simple steps](https://www.youtube.com/watch?v=SN2CA71uOEI&feature=youtu.be). Logon to [MSDN account page](https://msdn.microsoft.com/subscriptions/manage/default.aspx) and verify eligibility, click on 'Activ ate Azure benefit'. If you cannot verify your eligibility, contact the [MSDN Subscriptions Customer Service Centers](https://msdn.microsoft.com/subscriptions/contactus.aspx)
 - <b>BizSpark</b>
-  - [Benefits BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two). More details [link](https://azure.microsoft.com/en-us/offers/ms-azr-0064p/)
+  - [Benefits BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two). More details [link](https://azure.microsoft.com/offers/ms-azr-0064p/)
   - [Join BizSpark](https://www.microsoft.com/bizspark/signup/default.aspx). If issues, [Contact BizSpark Team](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team).
 - <b>BizSpark Plus</b>
-   - [Benefits BizSpark Plus](https://www.microsoft.com/bizspark/plus/default.aspx). More details [link](https://azure.microsoft.com/en-us/offers/ms-azr-0149p/)
+   - [Benefits BizSpark Plus](https://www.microsoft.com/bizspark/plus/default.aspx). More details [link](https://azure.microsoft.com/offers/ms-azr-0149p/)
    - [Join BizSpark](https://www.microsoft.com/bizspark/signup/default.aspx) and then ask partner contact to upgrade. If issues, [Contact BizSpark Team](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team).
 - <b>Resellers</b> (Open Volume License programs)
-  - [Purchase, Benefits, Activate](https://azure.microsoft.com/en-us/offers/ms-azr-0111p/)
-  - [Step by Step guide to activate](https://azure.microsoft.com/en-us/documentation/articles/billing-buy-sign-up-azure-subscription/#activate-your-azure-subscription-by-using-an-online-service-activation-key-a-5x5-key)
+  - [Purchase, Benefits, Activate](https://azure.microsoft.com/offers/ms-azr-0111p/)
+  - [Step by Step guide to activate](https://azure.microsoft.com/documentation/articles/billing-buy-sign-up-azure-subscription/#activate-your-azure-subscription-by-using-an-online-service-activation-key-a-5x5-key)
  - <b>EA (Enterprise Agreement)</b>
-   - [Know more] (https://azure.microsoft.com/en-us/pricing/enterprise-agreement/)
+   - [Know more] (https://azure.microsoft.com/pricing/enterprise-agreement/)
    - To activate, contact your Microsoft Account Manager or Reseller to get started today
 
 ## Sign up for an Azure Free Trial subscription
 
-To sign up for an Azure Free Trial subscription, you must provide a phone number, a credit card, and a Microsoft Account. Your Microsoft account is the email address you use, along with your password, to sign in to any Windows Live program or service, such as Outlook, Hotmail, or OneDrive. You may set up a Microsoft account using any email address belonging to you, including your company email. Please see [Microsoft account FAQ](https://www.microsoft.com/en-us/account/faq.aspx) for more details.
+To sign up for an Azure Free Trial subscription, you must provide a phone number, a credit card, and a Microsoft Account. Your Microsoft account is the email address you use, along with your password, to sign in to any Windows Live program or service, such as Outlook, Hotmail, or OneDrive. You may set up a Microsoft account using any email address belonging to you, including your company email. Please see [Microsoft account FAQ](https://www.microsoft.com/account/faq.aspx) for more details.
 
 >[AZURE.NOTE] Your phone number and credit card details are used only to verify your identity. Although your credit card won’t be charged, Microsoft will place an authorization hold on it for a minimal amount to verify that the credit card is valid. The hold will be released within 3-5 business days, depending on your financial institution’s policies.
 
@@ -90,7 +90,7 @@ The example screenshot is for the English version of the agreement. The agreemen
 7. When the subscription is ready, select **Start managing my service** to begin.</br>
  ![startservice](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
-## Upgrade Azure Free Trial to Pay-As-You-Go 
+## Upgrade Azure Free Trial to Pay-As-You-Go
 
 1. Log on to the [Azure Account Portal](https://account.windowsazure.com/subscriptions) by using the Microsoft account or your School/Work account that you used to sign up for the free trail.
 2. Select the subscription, and then select **Upgrade**.</br>![billpage](./media/billing-buy-sign-up-azure-subscription/billpage.png)
