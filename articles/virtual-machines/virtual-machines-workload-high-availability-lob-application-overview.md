@@ -71,11 +71,11 @@ To compute the estimated costs for this configuration, see the [Azure Pricing Ca
 
 You deploy this configuration in the following phases:
 
-- [Phase 1: Configure Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md). Create storage accounts, availability sets, and a cross-premises virtual network.
+- [Phase 1: Configure Azure](virtual-machines-windows-ps-lob-ph1.md). Create storage accounts, availability sets, and a cross-premises virtual network.
 - [Phase 2: Configure domain controllers](virtual-machines-workload-high-availability-LOB-application-phase2.md). Create and configure replica Active Directory Domain Services (AD DS) domain controllers.
 - [Phase 3: Configure SQL Server infrastructure](virtual-machines-workload-high-availability-LOB-application-phase3.md). Create and configure the virtual machines running SQL Server, create the cluster, and enable SQL Server AlwaysOn Availability Groups.
 - [Phase 4: Configure web servers](virtual-machines-workload-high-availability-LOB-application-phase4.md). Create and configure the two web server virtual machines.
-- [Phase 5: Add the application databases to a SQL Server AlwaysOn Availability Group](virtual-machines-workload-high-availability-LOB-application-phase5.md). Prepare the line of business application databases and add them to a SQL Server AlwaysOn Availability Group.
+- [Phase 5: Add the application databases to a SQL Server AlwaysOn Availability Group](virtual-machines-windows-ps-lob-ph5.md). Prepare the line of business application databases and add them to a SQL Server AlwaysOn Availability Group.
 
 This deployment is designed to accompany the [Line of Business Applications architecture blueprint](http://msdn.microsoft.com/dn630664) and incorporate the latest recommendations.
 
@@ -91,5 +91,5 @@ For additional information about designing IT workloads for Azure, see [Azure in
 
 ## Next step
 
-To start the configuration of this workload, go to [Phase 1: Configure Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+To start the configuration of this workload, go to [Phase 1: Configure Azure](virtual-machines-windows-ps-lob-ph1.md).
 

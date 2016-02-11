@@ -78,23 +78,23 @@ To deploy this configuration, use the following process:
 
 - Phase 1: Configure Azure.
 
-	Use Azure PowerShell to create a storage account, availability sets, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
+	Use Azure PowerShell to create a storage account, availability sets, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-windows-ps-sp-intranet-ph1.md).
 
 - Phase 2: Configure the domain controllers.
 
-	Configure two Active Directory replica domain controllers and DNS settings for the virtual network. For the detailed configuration steps, see [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md).
+	Configure two Active Directory replica domain controllers and DNS settings for the virtual network. For the detailed configuration steps, see [Phase 2](virtual-machines-windows-ps-sp-intranet-ph2.md).
 
 - Phase 3: Configure the SQL Server infrastructure.  
 
-	Prepare the SQL Server virtual machines for use with SharePoint and create the SQL Server cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-workload-intranet-sharepoint-phase3.md).
+	Prepare the SQL Server virtual machines for use with SharePoint and create the SQL Server cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-windows-ps-sp-intranet-ph3.md).
 
 - Phase 4: Configure the SharePoint servers.
 
-	Configure the four SharePoint virtual machines for a new SharePoint farm. For the detailed configuration, see [Phase 4](virtual-machines-workload-intranet-sharepoint-phase4.md).
+	Configure the four SharePoint virtual machines for a new SharePoint farm. For the detailed configuration, see [Phase 4](virtual-machines-windows-ps-sp-intranet-ph4.md).
 
 - Phase 5: Create an AlwaysOn Availability Group.
 
-	Prepare the SharePoint databases, create an AlwaysOn Availability Group, and then add the SharePoint databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-workload-intranet-sharepoint-phase5.md).
+	Prepare the SharePoint databases, create an AlwaysOn Availability Group, and then add the SharePoint databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-windows-ps-sp-intranet-ph5.md).
 
 Once configured, you can expand this SharePoint farm with guidance from [Microsoft Azure architectures for SharePoint 2013](http://technet.microsoft.com/library/dn635309.aspx).
 
