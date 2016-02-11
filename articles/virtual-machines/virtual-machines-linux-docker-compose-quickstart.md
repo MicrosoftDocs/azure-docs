@@ -124,4 +124,4 @@ You should now see the WordPress start screen, where you can complete the instal
 
 <!--Image references-->
 
-[wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
+[wordpress_start]: ./media/virtual-machines-linux-docker-compose-quickstart/WordPress.png

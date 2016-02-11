@@ -259,7 +259,7 @@ This section starts with a blog entry containing a series of videos on [Video: A
 	- [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
 	- [How to use docker-machine on Azure](virtual-machines-docker-machine.md)
 	- [How to use docker with swarm on Azure](virtual-machines-docker-swarm.md)
-	- [Get Started with Docker and Compose on Azure](virtual-machines-docker-compose-quickstart.md)
+	- [Get Started with Docker and Compose on Azure](virtual-machines-linux-docker-compose-quickstart.md)
 
 2. [Fleet with CoreOS](virtual-machines-linux-coreos-how-to.md)
 3. Deis

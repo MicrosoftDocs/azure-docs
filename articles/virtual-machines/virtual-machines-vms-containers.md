@@ -191,7 +191,7 @@ Docker on Microsoft Azure:
 - [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
 - [How to use docker-machine on Azure](virtual-machines-docker-machine.md)
 - [How to use docker with swarm on Azure](virtual-machines-docker-swarm.md)
-- [Get Started with Docker and Compose on Azure](virtual-machines-docker-compose-quickstart.md)
+- [Get Started with Docker and Compose on Azure](virtual-machines-linux-docker-compose-quickstart.md)
 - [Using an Azure resource group template to create a Docker host on Azure quickly](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 - [The built-in support for `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) for contained applications
 - [Implement a Docker private registry on Azure](virtual-machines-docker-registry-on-azure-blob-storage.md)
