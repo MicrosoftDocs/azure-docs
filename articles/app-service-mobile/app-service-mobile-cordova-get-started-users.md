@@ -90,12 +90,12 @@ Next, you will update the app to authenticate users before requesting resources 
 
             }, handleError);
 
-   For example, for Azure Active Directory, use:
+    For example, for Azure Active Directory, use:
 
         client.login('aad')
 
-   The login() method is an async function that returns a JavaScript Promise.  The rest of the initialization is placed inside
-   the promise response so that it is not executed until the login() method completes.
+    The login() method is an async function that returns a JavaScript Promise.  The rest of the initialization is placed inside
+    the promise response so that it is not executed until the login() method completes.
 
 4. Run your project.  When the project has finished initializing, your application will show the OAuth login page for the
    chosen authentication provider.
