@@ -31,7 +31,7 @@ These steps show you how to create a Linux virtual machine using a fill-in-the-b
 
 You'll build your command set by copying the sets of command blocks into a text file or the PowerShell ISE and then filling in the variable values and removing the < and > characters. See the two [examples](#examples) at the end of this article for an idea of the final result.
 
-For the companion topic for Windows-based virtual machines, see [Use Azure PowerShell to create Windows-based virtual machines](virtual-machines-ps-create-preconfigure-windows-vms.md).
+For the companion topic for Windows-based virtual machines, see [Use Azure PowerShell to create Windows-based virtual machines](virtual-machines-windows-classic-create-powershell.md).
 
 ## Install Azure PowerShell
 
@@ -173,7 +173,7 @@ Review the Azure PowerShell command set you built in your text editor or the Pow
 
 Copy the command set to the clipboard and then right-click your open Azure PowerShell command prompt. This will issue the command set as a series of PowerShell commands and create your Azure virtual machine. 
 
-After the virtual machine is created, see [How to log on to a virtual machine running Linux](virtual-machines-linux-how-to-log-on.md).
+After the virtual machine is created, see [How to log on to a virtual machine running Linux](virtual-machines-linux-classic-log-on.md).
 
 If you want to reuse the command set, you can:
 
@@ -276,6 +276,6 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 [How to install and configure Azure PowerShell](powershell-install-configure.md)
 
-[How to log on to a virtual machine running Linux](virtual-machines-linux-how-to-log-on.md)
+[How to log on to a virtual machine running Linux](virtual-machines-linux-classic-log-on.md)
 
-[Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
+[Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-windows-classic-create-powershell.md)
