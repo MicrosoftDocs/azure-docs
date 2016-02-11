@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to View and Change the Cloud Solution Provider's "Reseller Incentive" | Microsoft Azure"
+   pageTitle="How to view and change the Cloud Solution Provider's Reseller Incentive | Microsoft Azure"
    description="How to view and change your selection for CSP Reseller Incentive"
    services="marketplace-publishing"
    documentationCenter="na"
@@ -16,33 +16,29 @@
    ms.date="02/10/2016"
    ms.author="DavidBosland"/>
 
-# You can view and change your Cloud Solution Provider's "Reseller Incentive"
+# View and change your Cloud Solution Provider "Reseller Incentive" in the Azure Marketplace
 
->[AZURE.IMPORTANT] As of March 15, 2016, Microsoft will technically enable Microsoft-approved Cloud Solution Providers (CSPs) “Reseller Incentive.”  This incentive value will be defaulted to Yes.  You will have the ability to opt-out of this program by following these instructions to change the setting in your profile.
+On March 15, 2016 we'll make the Cloud Solution Providers (CSPs) “Reseller Incentive” available to Marketplace publishers.  The default setting for this incentive value is **Yes**.  As a publisher you can decide to opt-out of the incentive program.  This article shows how to change the setting in your publisher profile so you can opt-out.
 
-## How do I view or change my “Reseller Incentive” status?
+## To view or change your “Reseller Incentive” status, follow these steps:
 
-Your current selection is shown in your Publisher Profile.  The default value will be *Yes*.  Follow these steps to view or change your current selection:
-
-1.	Log in to your Microsoft Azure Publishing account
-<https://publish.windowsazure.com/workspace>
+1.	Log in to your [Microsoft Azure Publishing account](https://publish.windowsazure.com/workspace)
 
     ![Profile landing screen][1]
 
-2.	Click on **Publishers**
+2.	Click **Publishers**
 
     ![Profile landing screen - publishers link][2]
 
-3.	Notice the information in your profile about CSPs.  
-Specifically notice that there is a **switch to say yes or no** to the "Reseller Incentive" and that the default status is “Yes.”
+3.	Notice the information in your profile about CSPs.  There is a **switch to say yes or no** to the "Reseller Incentive" - the default status is “Yes.”
 
     ![Profile - Publishers][3]
 
 4.	To change your "Reseller Incentive" status access your Publisher Profile then select and save your choice:
 
-  - Select **Yes** to choose to provide the 20% discount to the CSPs who are reselling the applications and services you have listed in the Azure Market or select **No** to opt out of this incentive program.  
+  - Select **Yes** to choose to provide the 20 percent discount to the CSPs who are reselling the applications and services you have listed in the Azure Marketplace.  Or select **No** to opt out of this incentive program.  In either case the publisher receives the same payout.
 
-  - Once you have made a selection **be sure to select Save** in the upper right hand corner to save your changes.
+  - After you make a selection make sure you click **Save** in the upper right hand corner.
 
     ![Profile - Publishers - change boxes][4]
 
