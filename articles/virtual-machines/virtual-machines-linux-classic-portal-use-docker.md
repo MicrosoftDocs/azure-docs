@@ -59,7 +59,7 @@ At the command line, use **`base64`** or another favorite encoding tool to creat
 To add the Docker VM Extension, locate the VM instance you created and scroll down to **Extensions** and click it to bring up VM Extensions, as shown below.
 > [AZURE.NOTE] This functionality is supported in the preview portal only: https://portal.azure.com/
 
-![](./media/virtual-machines-docker-with-portal/ClickExtensions.png)
+![](./media/virtual-machines-linux-classic-portal-use-docker/ClickExtensions.png)
 ### Add an Extension
 Click the **+ Add** to display the possible VM Extensions you can add to this VM.
 
