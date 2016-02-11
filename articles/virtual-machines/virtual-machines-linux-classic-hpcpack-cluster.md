@@ -309,7 +309,7 @@ The HPC Pack **clusrun** tool can be used to execute commands on Linux nodes eit
 [deploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster/deploy.png
 [management]: ./media/virtual-machines-linux-cluster-hpcpack/management.png
 [heatmap]: ./media/virtual-machines-linux-cluster-hpcpack/heatmap.png
-[fileshareperms]: ./media/virtual-machines-linux-cluster-hpcpack/fileshare1.png
+[fileshareperms]: ./media/virtual-machines-linux-classic-hpcpack-cluster/fileshare1.png
 [filesharing]: ./media/virtual-machines-linux-cluster-hpcpack/fileshare2.png
 [nfsauth]: ./media/virtual-machines-linux-cluster-hpcpack/nfsauth.png
 [nfsshare]: ./media/virtual-machines-linux-cluster-hpcpack/nfsshare.png
