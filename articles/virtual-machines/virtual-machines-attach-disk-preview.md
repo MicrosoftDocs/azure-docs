@@ -75,7 +75,7 @@ Continue by following instructions for attaching either a new disk or an existin
 
 After the disk is added, you need to prepare it for use in the virtual machine's operating system:
 
-- For Linux, see "How to: Initialize a new data disk in Linux" in this [article](virtual-machines-linux-how-to-attach-disk.md).
+- For Linux, see "How to: Initialize a new data disk in Linux" in this [article](virtual-machines-linux-classic-attach-disk.md).
 - For Windows, see "How to: initialize a new data disk in Windows Server" in this [article](virtual-machines-windows-classic-attach-disk.md).
 
 ## Additional resources

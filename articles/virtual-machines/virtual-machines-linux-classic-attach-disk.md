@@ -47,7 +47,7 @@ You can use the same instructions to initialize multiple data disks, using the r
 
 	You can find the identifier of the last data disk that was added in the messages that are displayed.
 
-	![Get the disk messages](./media/virtual-machines-linux-how-to-attach-disk/DiskMessages.png)
+	![Get the disk messages](./media/virtual-machines-linux-classic-attach-disk/DiskMessages.png)
 
 	OR
 
@@ -87,32 +87,32 @@ You can use the same instructions to initialize multiple data disks, using the r
 4. When prompted, type **n** to create a new partition.
 
 
-	![Create new device](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
+	![Create new device](./media/virtual-machines-linux-classic-attach-disk/DiskPartition.png)
 
 5. When prompted, type **p** to make the partition the primary partition, type **1** to make it the first partition, and then type enter to accept the default value for the cylinder. On some systems, it can show the default values of the first and the last sectors, instead of the cylinder. You can choose to accept these defaults.
 
 
-	![Create partition](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
+	![Create partition](./media/virtual-machines-linux-classic-attach-disk/DiskCylinder.png)
 
 
 
 6. Type **p** to see the details about the disk that is being partitioned.
 
 
-	![List disk information](./media/virtual-machines-linux-how-to-attach-disk/DiskInfo.png)
+	![List disk information](./media/virtual-machines-linux-classic-attach-disk/DiskInfo.png)
 
 
 
 7. Type **w** to write the settings for the disk.
 
 
-	![Write the disk changes](./media/virtual-machines-linux-how-to-attach-disk/DiskWrite.png)
+	![Write the disk changes](./media/virtual-machines-linux-classic-attach-disk/DiskWrite.png)
 
 8. Make the file system on the new partition. Append the partition number (1) to the device id. For example, type the following command and then enter the account password:
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
-	![Create file system](./media/virtual-machines-linux-how-to-attach-disk/DiskFileSystem.png)
+	![Create file system](./media/virtual-machines-linux-classic-attach-disk/DiskFileSystem.png)
 
 	>[AZURE.NOTE] Note that SUSE Linux Enterprise 11 systems only support read-only access for ext4 file systems.  For these systems it is recommended to format the new file system as ext3 rather than ext4.
 
