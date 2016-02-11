@@ -160,7 +160,7 @@ There are two common workflows for connecting to an Azure Virtual Machine:
 
 - To connect in the , click the name of the virtual machine and then click **Connect**. A Remote desktop connection opens and the computer name is automatically populated.
 
-	![connect to azure virtual machine](./media/virtual-machines-sql-server-business-intelligence/IC650112.gif)
+	![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-bi/IC650112.gif)
 
 - Connect to the virtual machine with Windows Remote Desktop Connection. In the user interface of the remote desktop:
 
