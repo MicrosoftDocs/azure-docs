@@ -164,7 +164,7 @@ The following image shows the Storage configuration blade.
 ### Patching
 **SQL automated patching** is enabled by default. Automated patching allows Azure to automatically patch SQL Server and the operating system. Specify a day of the week, time, and duration for a maintenance window. Azure will perform patching in the maintenance window. The maintenance window schedule uses the VM locale for time. If you do not want Azure to automatically patch SQL Server and the operating system click **Disable**.  
 
-<br/>![SQL ARM Patching](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-patching.png)
+<br/>![SQL ARM Patching](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 <br/>
 
 For more information, see [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-patching.md).
