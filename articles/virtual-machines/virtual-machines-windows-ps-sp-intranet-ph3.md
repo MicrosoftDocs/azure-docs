@@ -237,7 +237,7 @@ Use these steps to enable AlwaysOn Availability Groups on SQL Server.
 
 The next diagram shows the configuration resulting from the successful completion of this phase, with placeholder computer names.
 
-![](./media/virtual-machines-workload-intranet-sharepoint-phase3/workload-spsqlao_03.png)
+![](./media/virtual-machines-windows-ps-sp-intranet-ph3/workload-spsqlao_03.png)
 
 ## Next step
 
