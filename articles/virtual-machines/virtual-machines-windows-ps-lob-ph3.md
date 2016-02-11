@@ -254,7 +254,7 @@ Use these steps to enable AlwaysOn Availability Groups on SQL Server.
 
 This diagram shows the configuration resulting from the successful completion of this phase, with placeholder computer names.
 
-![](./media/virtual-machines-workload-high-availability-LOB-application-phase3/workload-lobapp-phase3.png)
+![](./media/virtual-machines-windows-ps-lob-ph3/workload-lobapp-phase3.png)
 
 ## Next step
 
