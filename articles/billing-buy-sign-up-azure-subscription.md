@@ -25,9 +25,9 @@ Azure provides various offers to suite your business needs and get started using
 Following are details on common offers
 
 - **Free Trial**
-  - [Sign-up & Benefits](https://azure.microsoft.com/pricing/free-trial/)
+  - [Sign up - step by step guide](#SignupFreeTrial)
+  - [Benefits](https://azure.microsoft.com/pricing/free-trial/)
   - [FAQ](https://azure.microsoft.com/pricing/free-trial-faq/)
-  - [Step by Step Sign up guide](#SignupFreeTrial)
   - [Upgrade Free Trial to Pay-As-You-Go](#UpgradeFreeToPYG)
 - **Pay-As-You-Go**
    - [Sign-up](https://azure.microsoft.com/pricing/purchase-options/)
@@ -47,10 +47,10 @@ Following are details on common offers
    - [Benefits BizSpark Plus](https://www.microsoft.com/bizspark/plus/default.aspx). More details [link](https://azure.microsoft.com/offers/ms-azr-0149p/)
    - [Join BizSpark](https://www.microsoft.com/bizspark/signup/default.aspx) and then ask partner contact to upgrade. If issues, [Contact BizSpark Team](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team).
 - **Resellers** (Open Volume License programs)
+  - [Activate Online service Key - step by step guide](#activateKey)
   - [Purchase, Benefits, Activate](https://azure.microsoft.com/offers/ms-azr-0111p/)
-  - [Step by Step guide to activate](#activateKey)
 - **EA (Enterprise Agreement)**
-  - [Know more] (https://azure.microsoft.com/pricing/enterprise-agreement/)
+  - [Know more](https://azure.microsoft.com/pricing/enterprise-agreement/)
   - To activate, contact your Microsoft Account Manager or Reseller to get started today
 
 <a name="SignupFreeTrial"></a>
