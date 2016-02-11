@@ -54,7 +54,7 @@ A screenshot of the completed application appears next.
 1. Instruct Azure to direct port 80 traffic from the web to port 80 on the virtual machine:
  - Navigate to your newly created virtual machine in the Azure classic portal and click the **ENDPOINTS** tab.
  - Click the **ADD** button at the bottom of the screen.
-	![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
+	![add endpoint](./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-addendpoint.png)
 
  - Open up the **TCP** protocol's **PUBLIC PORT 80** as **PRIVATE PORT 80**.
 ![][port80]
