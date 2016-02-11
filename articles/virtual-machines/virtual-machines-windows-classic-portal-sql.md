@@ -104,7 +104,7 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 
 2. Click the **Open** button.
 
-	![Click the Open button](./media/virtual-machines-provision-sql-server/click-open-to-connect.png)
+	![Click the Open button](./media/virtual-machines-windows-classic-portal-sql/click-open-to-connect.png)
 
 3. At the **Windows Security** dialog box, click **Use another account**.
 
