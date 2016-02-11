@@ -171,7 +171,7 @@ The following steps show how to deploy a "Hello World" Go application to the clu
 
 1. For the routing mesh to work properly, you’ll need to have a wildcard A record for your domain pointing to the public IP of the load balancer. The following screenshot shows the A record for a sample domain registration on GoDaddy:
 
-    ![Godaddy A record](media/virtual-machines-deis-cluster/go-daddy.png)
+    ![Godaddy A record](media/virtual-machines-linux-deis-cluster/go-daddy.png)
 <p />
 2. Install deis:
 
