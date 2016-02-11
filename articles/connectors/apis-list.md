@@ -29,10 +29,10 @@ For pricing information and a list of what is included with each Service Tier, s
 |-----------|-----------|-----------|-----------|
 |[![API Icon] [bingsearchicon] <br> **Bing Search**][bingsearchdoc]|[![API Icon] [boxicon] <br> **Box**][boxDoc]|[![API Icon] [crmonlineicon] <br> **CRM Online**][crmonlinedoc]|[![API Icon] [dropboxicon] <br> **Dropbox**][dropboxdoc]|
 |[![API Icon] [excelicon] <br> **Excel**][exceldoc]|[![API Icon] [ftpicon] <br> **FTP**][ftpdoc]|[![API Icon] [googledriveicon] <br> **Google Drive**][googledrivedoc]|[![API Icon] [microsofttranslatoricon] <br> **Translator**][microsofttranslatordoc]|
-|[![API Icon] [office365icon] <br> **Office 365** <br> **Outlook**][office365outlookdoc]|[![API Icon] [office365icon] <br> **Office 365**<br> **Users**][office365usersdoc]|[![API Icon] [office365icon] <br> **Office 365** <br>**Video**][office365videodoc]|[![API Icon] [office365icon] <br> **Office**<br>**Unified**][officeunifieddoc]|
-|[![API Icon] [onedriveicon] <br> **OneDrive**][onedrivedoc]|[![API Icon] [salesforceicon] <br> **Salesforce**][salesforcedoc]|[![API Icon] [servicebusicon] <br> **Service Bus**][servicebusdoc]|[![API Icon] [sftpicon] <br> **SFTP**][sftpdoc]|
-|[![API Icon] [sharepointicon] <br> **SharePoint**<br>**Server**][sharepointdoc]|[![API Icon] [slackicon] <br> **Slack** <br>][slackdoc]|[![API Icon] [smtpicon] <br> **SMTP**][smtpdoc]|[![API Icon] [sqlicon] <br> **SQL**][sqldoc]|
-|[![API Icon] [twilioicon] <br> **Twilio**][twiliodoc]|[![API Icon] [twittericon] <br> **Twitter**][twitterdoc]|[![API Icon] [yammericon] <br> **Yammer**][yammerdoc]
+|[![API Icon] [office365icon] <br> **Office 365** <br> **Outlook**][office365outlookdoc]|[![API Icon] [office365icon] <br> **Office 365**<br> **Users**][office365usersdoc]|[![API Icon] [office365icon] <br> **Office 365** <br>**Video**][office365videodoc]|[![API Icon] [onedriveicon] <br> **OneDrive**][onedrivedoc]|
+|[![API Icon] [salesforceicon] <br> **Salesforce**][salesforcedoc]|[![API Icon] [servicebusicon] <br> **Service Bus**][servicebusdoc]|[![API Icon] [sftpicon] <br> **SFTP**][sftpdoc]|[![API Icon] [sharepointicon] <br> **SharePoint**<br>**Server**][sharepointdoc]|
+|[![API Icon] [slackicon] <br> **Slack** <br>][slackdoc]|[![API Icon] [smtpicon] <br> **SMTP**][smtpdoc]|[![API Icon] [sqlicon] <br> **SQL**][sqldoc]|[![API Icon] [twilioicon] <br> **Twilio**][twiliodoc]|
+|[![API Icon] [twittericon] <br> **Twitter**][twitterdoc]|[![API Icon] [yammericon] <br> **Yammer**][yammerdoc]
 
 >[AZURE.INFO] These APIs will work with version 2015-12-01-preview of the service.
 
@@ -52,7 +52,7 @@ APIs can also be used as actions within your apps. Actions are useful for lookin
 [What's new](TODO)  
 [Get help migrating to version 2015-12-01-preview](TODO)  
 [Build a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Get started with Power apps now](./get-started-azure-portal.md)  
+[Get started with Power apps now](../power-apps/powerapps-get-started-azure-portal.md)  
 
 <!--API Documentation-->
 [bingsearchDoc]: ./create-api-bingsearch.md "Search Bing for web, images, news and video."
