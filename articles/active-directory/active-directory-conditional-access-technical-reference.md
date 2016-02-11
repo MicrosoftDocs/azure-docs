@@ -14,19 +14,20 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/16/2015"
+	ms.date="02/11/20165"
 	ms.author="femila"/>
 
 # Technical reference : conditional access to Azure AD apps
 
 ## Services enabled with conditional access
-Conditional Access rules are supported across various Azure AD application types. This list includes
-•	Federated applications from the Azure AD application gallery
-•	Password SSO applications from the Azure AD application gallery
-•	Applications registered with the Azure Application Proxy
-•	Developed line of business and multi-tenant applications registered with Azure AD
-•	Visual Studio Online
-•	Azure Remote App
+Conditional Access rules are supported across various Azure AD application types. This list includes:
+
+- Federated applications from the Azure AD application gallery
+- Password SSO applications from the Azure AD application gallery
+- Applications registered with the Azure Application Proxy
+- Developed line of business and multi-tenant applications registered with Azure AD
+- Visual Studio Online
+- Azure Remote App
 
 ## Enable access rules
 
@@ -40,9 +41,11 @@ Select groups may also be exempted from policy using the ‘Except’ option. An
 ## “At work” networks
 
 Conditional Access rules that use an “At work” network, rely on trusted IP ranges that have been configured in Azure AD. These rules include:
-•	Require multi-factor authentication when not at work
-•	Block access when not at work
-Trusted IP ranges can be configured in the multi-factor authentication configuration page. Learn more. Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules. The inside corpnet claim is not used since it is not available for longer lived sessions, such as refresh tokens in mobile applications.
+
+- Require multi-factor authentication when not at work
+- Block access when not at work
+
+Trusted IP ranges can be configured in the [multi-factor authentication configuration page](multi-factor-authentication-whats-next.md). Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules. The inside corpnet claim is not used since it is not available for longer lived sessions, such as refresh tokens in mobile applications.
 
 ## Per-application rules
 Rules are configured per application allowing the high value services to be secured without impacting access to other services. Conditional Access rules can be configured on a the ‘Configure’ Tab of the application. 
