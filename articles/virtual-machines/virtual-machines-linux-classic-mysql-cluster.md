@@ -307,7 +307,7 @@ The following screenshot shows `crm_mon` with one node stopped (exit using Contr
 
 And this screenshot shows both nodes, with one master and one slave:
 
-![crm_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
+![crm_mon operational master/slave](media/virtual-machines-linux-classic-mysql-cluster/image003.png)
 
 ## Testing
 
