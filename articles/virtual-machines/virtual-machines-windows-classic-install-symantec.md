@@ -41,7 +41,7 @@ For general instructions, see [Create a Virtual Machine Running Windows Server][
 2.	Under Security Extensions, check **Symantec Endpoint Protection**.
 
 
-	![Install the VM Agent and the Endpoint Protection Client](./media/virtual-machines-install-symantec/InstallVMAgentandSymantec.png)
+	![Install the VM Agent and the Endpoint Protection Client](./media/virtual-machines-windows-classic-install-symantec/InstallVMAgentandSymantec.png)
 
 3.	Click the check mark at the bottom of the page to create the virtual machine.
 
