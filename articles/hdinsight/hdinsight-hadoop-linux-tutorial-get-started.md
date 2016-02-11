@@ -3,7 +3,7 @@
    	description="Follow this Linux tutorial to get started using Hadoop in HDInsight. Learn how to provision Linux clusters, and query data with Hive."
    	services="hdinsight"
    	documentationCenter=""
-   	authors="nitinme"
+   	authors="mumian"
    	manager="paulettm"
    	editor="cgronlun"
 	tags="azure-portal"/>
@@ -14,8 +14,8 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="01/21/2016"
-   	ms.author="nitinme"/>
+   	ms.date="02/11/2016"
+   	ms.author="jgao"/>
 
 # Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight
 
@@ -23,19 +23,19 @@
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-Learn how to create a Linux-based Hadoop cluster in HDInsight, and use Ambari Hive View to run a Hive job.
+Learn how to create Linux-based Hadoop clusters in HDInsight, and use Ambari Hive View to run Hive jobs.
 
 If you are new to Hadoop and big data, you can read more about the terms: [Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084), [MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086), [Hadoop Distributed File System (HDFS)](http://go.microsoft.com/fwlink/?LinkId=510087), and [Hive](http://go.microsoft.com/fwlink/?LinkId=510085). To understand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight](hdinsight-hadoop-introduction.md).
 
 ### Prerequisites
 
-Before you begin this Linux tutorial for Hadoop, you must have the following:
+Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## Create cluster
 
-In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](resource-group-template-deploy.md). Azure ARM template experience is not required to follow the instructions. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](resource-group-template-deploy.md). The Azure ARM template experience is not required to follow the instructions. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using ARM template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
 1. Click the following image to open an ARM template in the Azure Portal. The ARM template is located in a public blob container. 
 
@@ -43,7 +43,7 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
 
 2. From the **Parameters** blade, enter the following:
 
-    - **ClusterName**: Enter a name for the HBase cluster that you will create.
+    - **ClusterName**: Enter a name for the Hadoop cluster that you will create.
     - **ClusterStorageAccountName**: Each cluster has an Azure Blob storage account dependency. After you delete a cluster, the data retains in the storage account.
     - **Cluster login name and password**: The default login name is **admin**.
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
@@ -53,6 +53,8 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
 5. Click **Legal terms**, and then click **Create**.
 6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
 
+After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md#delete-clusters).
+
 
 ##Run Hive queries
 
@@ -61,7 +63,7 @@ Ambari Views provide several utilities through a web page. In the following sect
 
 > [AZURE.NOTE] Ambari is a management and monitoring utility provided with Linux-based HDInsight clusters. Ambari has a lot of capabilities that won't be discussed in this document. For more information, see [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
-1. Browse to  **https://<ClusterName>.azurehdinsight.net**, where <ClusterName> is the cluster you created in the previous section to open Ambari.
+1. Browse to  **https://&gt;ClusterName>.azurehdinsight.net**, where &gt;ClusterName> is the cluster you created in the previous section to open Ambari.
 2. Enter the Hadoop username and password that you specified in the previous section. The default username is **admin**.
 3. Open **Hive View** as shown in the following screenshot:
 
@@ -69,11 +71,9 @@ Ambari Views provide several utilities through a web page. In the following sect
 4. In the __Query Editor__ section of the page, paste the following HiveQL statements into the worksheet:
 
 		SHOW tables;
-5. Click __Execute__. A __Query Process Results__ section should appear beneath the Query Editor and display information about the job.
+5. Click __Execute__. A __Query Process Results__ section should appear beneath the Query Editor and display information about the job. 
 
-    > [AZURE.IMPORTANT] Some browsers may not correctly refresh the log or results information. If you run a job and it appears to run forever without updating the log or returning results, try using Mozilla FireFox or Google Chrome instead.
-    
-    Once the query has finished, The __Query Process Results__ section will display the results of the operation. 
+    Once the query has finished, The __Query Process Results__ section will display the results of the operation. You shall see one table called **hivesampletable**.
     
     > [AZURE.TIP] Note the __Save results__ dropdown in the upper left of the __Query Process Results__ section; you can use this to either download the results, or save them to HDInsight storage as a CSV file.
 6. Repeat step 4 and step 5 to run the following query:
@@ -82,11 +82,13 @@ Ambari Views provide several utilities through a web page. In the following sect
         
 For more information about using Hive in HDInsight, see [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md).
 
+For exporting the Hive data to AZure SQL database or SQL Server database, see [Use Sqoop with Hadoop in HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md).
+
 For visualizing Hive data, see [Connect Excel to Hadoop by using Power Query](hdinsight-connect-excel-power-query.md) and [Connect Excel to Hadoop with the Microsoft Hive ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 ## Next steps
 
-In this document, you have learned how to create a Linux-based HDInsight cluster using the Azure Portal, connect to the cluster using SSH, and how to perform basic Hive queries.
+In this tutorial, you have learned how to create a Linux-based HDInsight cluster using an ARM template, and how to perform basic Hive queries.
 
 To learn more about analyzing data with HDInsight, see the following:
 
