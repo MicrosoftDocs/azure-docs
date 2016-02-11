@@ -150,7 +150,7 @@ The easiest way to resolve this is to set the `OPENSSL_CONF` environment variabl
 
 4.	Before selecting **Open**, click the Connection > SSH > Auth tab to choose your key. See the screenshot below for the field to fill in:
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png)
+	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-linux/linuxputtyprivatekey.png)
 
 5.	Click **Open** to connect to your virtual machine
  
