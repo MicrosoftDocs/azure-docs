@@ -19,6 +19,8 @@
 The Visual Studio Tools for Docker provides a convenient way to develop and test your application locally in a Docker container without having to restart the container each time you make a code change. This article will illustrate how to use the "Edit and Refresh" feature to start an ASP.NET 5 Web app in a local Docker container, make any necessary changes, and then refresh the browser to see those changes. 
 
 ## Prerequisites
+The following tools need to be installed.
+
 - [Visual Studio 2015 Update 1](https://go.microsoft.com/fwlink/?LinkId=691979&clcid=0x409)
 - [Microsoft ASP .NET and Web Tools 2015 RC](https://go.microsoft.com/fwlink/?LinkId=627627)
 - [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)
@@ -96,7 +98,8 @@ Error running docker-machine create --driver virtualbox default
 Disable HyperV via the Control Panel
 
 - **Running the app causes PowerShell to open, display an error, and then close. The browser page doesn’t open.**
-This could be an error during `docker-compose-up`. To view the error, perform the following steps:
+
+	This could be an error during `docker-compose-up`. To view the error, perform the following steps:
 
 	1. Open the `Properties\launchSettings.json` file
 	
@@ -111,13 +114,16 @@ This could be an error during `docker-compose-up`. To view the error, perform th
 			"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
 
 - **Build : Failed to build the image, Error checking TLS connection: Host is not running**
-Verify the default docker host is running. See the [Configuring the Docker client](#configuring-the-docker-client) section.
+
+	Verify the default docker host is running. See the [Configuring the Docker client](#configuring-the-docker-client) section.
 
 - **Unable to find volume mapping**
-By default, VirtualBox shares `C:\Users` as `c:/Users`. If the project is not under `c:\Users`, manually add it to the VirtualBox [Shared folders](https://www.virtualbox.org/manual/ch04.html#sharedfolders).
+
+	By default, VirtualBox shares `C:\Users` as `c:/Users`. If the project is not under `c:\Users`, manually add it to the VirtualBox [Shared folders](https://www.virtualbox.org/manual/ch04.html#sharedfolders).
 
 - **Using Microsoft Edge as the default browser**
-If you are using the Microsoft Edge browser, the site might not open as Edge considers the IP address to be unsecured. To remedy this, perform the following steps:
+
+	If you are using the Microsoft Edge browser, the site might not open as Edge considers the IP address to be unsecured. To remedy this, perform the following steps:
 	1. From the Windows Run box, type `Internet Options`.
 	2. Tap **Internet Options** when it appears. 
 	2. Tap the **Security** tab.
