@@ -171,3 +171,31 @@ From that baseline we can then map out the conventions for each of the resource 
 As seen in the diagram below:
 
 ![application topology diagram](media/guidance-naming-convention-example.png "Sample Application Topology")
+
+## TODO - merge in resources
+
+### Networking naming
+The choice of a name for any asset in Microsoft Azure is an important choice because:
+•	It is difficult (though not impossible) to change that name at a later time. 
+•	There are certain constraints and requirements that must be met when choosing a name. 
+This table covers the naming requirements for various elements of Azure networking.
+
+Item	Length 	Casing	Valid characters
+Virtual network		Case-insensitive	Alphanumeric and hyphen
+Cannot start with a space or end with a hyphen
+Subnet		Case-insensitive	Alphanumeric, underscore, and hyphen
+Must be unique within a virtual network 
+Network Interface (ARM)		Case-insensitive	
+Network Security Group		Case-insensitive	Alphanumeric and hyphen
+Network Security Group rule		Case-insensitive	Alphanumeric and hyphen
+AT&T VLAN name	15	Case-insensitive	Alphanumeric and hyphen
+Public IP Address (ARM)		Case-insensitive	
+Load balancer (ARM)		Case-insensitive	
+Azure Gateway (ARM)		Case-insensitive	
+Azure Gateway Connection (ARM)		Case-insensitive	
+Load Balanced Rules Config (ARM)		Case-insensitive	
+Load Balancer Inbound NAT rules config (ARM)		Case-insensitive	
+Load Balancer FrontEnd IP address config (ARM)		Case-insensitive	
+Load Balancer Backend IP address Config (ARM)		Case-insensitive	
+Traffic Manager Profile (ARM)		Case-insensitive	
+Availability Set (ARM)		Case-insensitive	
