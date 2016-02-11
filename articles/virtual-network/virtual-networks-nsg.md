@@ -122,7 +122,7 @@ You can implement NSGs in the classic or Resource Manager deployment models usin
 |Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Yes][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Yes][green]</a>|
 |ARM template|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Yes][green]</a>|
 
-|**Key**|![Yes][green] Supported </br>Click for article|![No][red] Not Supported|
+|**Key**|![Yes][green] Supported. Click for article.|![No][red] Not Supported.|
 |---|---|---|
 
 ## Planning
