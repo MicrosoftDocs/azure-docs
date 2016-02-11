@@ -204,13 +204,13 @@ Open your favorite browser and have a look.
 Go to the [Docker user guide](https://docs.docker.com/userguide/) and create some applications on Microsoft Azure. Or, go play with [Docker Swarm on Azure] and see how [swarm](https://github.com/docker/swarm) can be used with docker and Azure.
 
 <!--Image references-->
-[nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
-[portalsettingsitem]: ./media/virtual-machines-docker-machine/portalsettingsitem.png
-[managementcertificatesitem]: ./media/virtual-machines-docker-machine/managementcertificatesitem.png
-[uploaditem]: ./media/virtual-machines-docker-machine/uploaditem.png
+[nginx]: ./media/virtual-machines-linux-classic-docker-machine/nginxondocker.png
+[portalsettingsitem]: ./media/virtual-machines-linux-classic-docker-machine/portalsettingsitem.png
+[managementcertificatesitem]: ./media/virtual-machines-linux-classic-docker-machine/managementcertificatesitem.png
+[uploaditem]: ./media/virtual-machines-linux-classic-docker-machine/uploaditem.png
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
-[Docker Swarm on Azure]: virtual-machines-docker-swarm.md
+[Docker Swarm on Azure]: virtual-machines-linux-docker-swarm.md

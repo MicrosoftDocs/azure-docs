@@ -254,12 +254,12 @@ This section starts with a blog entry containing a series of videos on [Video: A
 
 1. Docker
 	- [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
-	- [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-xplat-cli.md)
-	- [Using the Docker VM Extension from the Azure portal](virtual-machines-docker-with-portal.md)
-	- [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
-	- [How to use docker-machine on Azure](virtual-machines-docker-machine.md)
-	- [How to use docker with swarm on Azure](virtual-machines-docker-swarm.md)
-	- [Get Started with Docker and Compose on Azure](virtual-machines-docker-compose-quickstart.md)
+	- [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-linux-classic-cli-use-docker.md)
+	- [Using the Docker VM Extension from the Azure portal](virtual-machines-linux-classic-portal-use-docker.md)
+    - [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
+	- [How to use docker-machine on Azure](virtual-machines-linux-classic-docker-machine.md)
+	- [How to use docker with swarm on Azure](virtual-machines-linux-docker-swarm.md)
+	- [Get Started with Docker and Compose on Azure](virtual-machines-linux-docker-compose-quickstart.md)
 
 2. [Fleet with CoreOS](virtual-machines-linux-coreos-how-to.md)
 3. Deis
@@ -300,5 +300,10 @@ This section starts with a blog entry containing a series of videos on [Video: A
 [Support, Troubleshooting, and "It Just Doesn't Work"]: #supportdebug
 
 <!--Link references--In actual articles, you only need a single period before the slash. -->
+<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-opensource.md
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
+[How to use docker with swarm on Azure]: virtual-machines-linux-docker-swarm.md
+=======
+[How to use docker-machine on Azure]: virtual-machines-linux-classic-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
+>>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-opensource-links.md
