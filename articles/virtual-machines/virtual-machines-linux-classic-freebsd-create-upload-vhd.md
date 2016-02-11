@@ -122,7 +122,7 @@ You need a storage account in Azure to upload a .vhd file so it can be used in A
 
 	- Decide whether to use **geo-replication** for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location. The secondary location is assigned automatically, and can't be changed. If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication. However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount. More details on managing geo-replication of Storage accounts can be found here: [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
 
-	![Enter storage account details](./media/virtual-machines-freebsd-create-upload-vhd/Storage-create-account.png)
+	![Enter storage account details](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Storage-create-account.png)
 
 
 5. Click **Create Storage Account**. The account now appears under **Storage**.
