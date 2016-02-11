@@ -43,7 +43,7 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
 
 1. By default, the **Add Replica to Availability Group Wizard** is displayed. Click **Next**.  If you have selected the **Do not show this page again** option at the bottom of the page during a previous launch of this wizard, this screen will not be displayed.
 
-	![SQL](./media/virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups/IC742861.png)
+	![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
 
 1. You will be required to connect to all existing secondary replicas. You can click on **Connect…** beside each replica or you can click **Connect All…** at the bottom of the screen. After authentication, click **Next** to advance to the next screen.
 
