@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/10/2016"
    ms.author="sameerch"/>
 
 
 # Get started with the POP3 Connector and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
 Connect to a POP3 server to retrieve emails, including emails with attachments.
 
 Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the POP3 Connector to your business workflow and process data as part of this workflow within a Logic App. 

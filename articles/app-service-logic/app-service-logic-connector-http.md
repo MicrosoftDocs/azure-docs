@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/17/2015"
+   ms.date="02/10/2016"
    ms.author="prkumar"/>
 
 
 # Get started with the HTTP listener and HTTP action and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
 Connect directly to HTTP resources to listen for HTTP requests and configure HTTP web requests. There are some scenarios where you may need to work with direct HTTP connections, including:
 
 1.	To develop a logic App that supports a web or mobile user interactive front end.
