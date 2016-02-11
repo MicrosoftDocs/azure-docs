@@ -71,7 +71,7 @@ You can see the added drives in the virtual machine by looking at the kernel mes
 ####Step 2: Create RAID with the additional disks
 Follow this article for detailed RAID setup steps:  
 
-[Configure software RAID on Linux](virtual-machines-linux-configure-RAID.md)
+[Configure software RAID on Linux](virtual-machines-linux-configure-raid.md)
 
 >[AZURE.NOTE] If you are using the XFS file system, follow the steps below after you have created RAID.
 
