@@ -318,3 +318,4 @@ Other automation articles:
 * [Create an Application Insights resource](app-insights-powershell-script-create-resource.md) - quick method without using a template.
 * [Set up Alerts](app-insights-powershell-alerts.md)
 * [Send Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Create release annotations](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
