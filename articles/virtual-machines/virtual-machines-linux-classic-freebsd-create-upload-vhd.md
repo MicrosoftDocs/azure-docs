@@ -127,7 +127,7 @@ You need a storage account in Azure to upload a .vhd file so it can be used in A
 
 5. Click **Create Storage Account**. The account now appears under **Storage**.
 
-	![Storage account successfully created](./media/virtual-machines-freebsd-create-upload-vhd/Storagenewaccount.png)
+	![Storage account successfully created](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Storagenewaccount.png)
 
 6. Next, create a container for your uploaded VHDs. Click the storage account name and then click **Containers**.
 
