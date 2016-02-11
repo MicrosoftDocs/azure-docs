@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/11/2016"
 	ms.author="jroth"/>
 
-# Azure Subscription and Service Limits, Quotas, and Constraints
+# Azure subscription and service limits, quotas, and constraints
 
 ## Overview
 
@@ -125,7 +125,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### Virtual Machine Disk Limits 
+#### Virtual Machine Disk Limits
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
