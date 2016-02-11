@@ -85,7 +85,7 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
 
 1. Review the results on the **Validation** page. Correct outstanding issues and re-run the validation if necessary. Click **Next**.
 
-	![SQL](./media/virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups/IC742866.png)
+	![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742866.png)
 
 1. Review the settings on the **Summary** page, then click **Finish**.
 
