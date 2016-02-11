@@ -39,26 +39,28 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 	**Important**: You must have at least 128GB of free space on the physical boot volume.
 
-4. Copy WindowsServer2016Datacenter.vhdx and call it MicrosoftAzureStackPOCBoot.vhdx.
+4. Copy WindowsServer2016Datacenter.vhdx to the C:\ drive and rename it MicrosoftAzureStackPOCBoot.vhdx.
 
 5. In File Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
 
-6. Run the bcdboot command:
+6. Open a Command Prompt window as an administrator and run the bcdboot command:
 
-    	bcdboot <mounted drive letter>:\windows
+    	`bcdboot <mounted drive letter>:\windows`
 
-7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared.
+  This command creates a dual boot environment. From this point, you should boot into the upper boot option.
+
+7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/en-us/library/mt126134.aspx).
 
 8. Configure the BIOS to use Local Time instead of UTC.
 
-9. Verify that four drives for Azure Stack POC data:
+9. Log in using a local account with administrator permissions.
+
+10. Verify that four drives for Azure Stack POC data:
   - Are visible in disk management
   - Are not in use
   - Show as Online, RAW
 
-10. Verify that the host is not joined to a domain.
-
-11. Log in using a local account with administrator permissions.
+11. Verify that the host is not joined to a domain.
 
 12. Verify network connectivity to Azure.com.
 
