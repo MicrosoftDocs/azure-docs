@@ -208,4 +208,4 @@ utilities. For example, you can use HPC Pack GUI tools or command-line commands 
 
 
 <!--Image references-->
-[jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
+[jobsubmit]: ./media/virtual-machines-windows-hpcpack-cluster-submit-jobs/jobsubmit.png
