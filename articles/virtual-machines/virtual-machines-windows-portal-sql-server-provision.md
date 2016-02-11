@@ -177,7 +177,7 @@ When you enable SQL automated backup you can configure the following:
 - What storage account to use for backups
 - Whether or not to encrypt the backup. To encrypt the backup, click **Enable**. If the automated backups are encrypted, specify a password. Azure creates a certificate to encrypt the backups and uses the specified password to protect that certificate.
 
-<br/>![SQL ARM Backup](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-autobackup.png)
+<br/>![SQL ARM Backup](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 <br/>
 
  For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-backup.md).
