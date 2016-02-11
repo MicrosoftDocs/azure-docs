@@ -31,7 +31,7 @@ This topic contains links to the step-by-step instructions for deploying an intr
 
 This is the configuration, with placeholder names for each server.
 
-![](./media/virtual-machines-workload-intranet-sharepoint-overview/workload-spsqlao_05.png)
+![](./media/virtual-machines-windows-sp-intranet-overview/workload-spsqlao_05.png)
 
 Two machines for each role ensure high availability. All of the virtual machines are in a single region. Each group of virtual machines for a specific role is in its own availability set.
 
