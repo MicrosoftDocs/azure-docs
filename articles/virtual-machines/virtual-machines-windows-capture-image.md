@@ -120,7 +120,7 @@ You can use the Resource Explorer to capture the virtual machine, as an alternat
 
 2. On the top right side of the tool, select **Read/Write** to allow _PUT_ and _POST_ operations. It is set to **Read Only** by default, which means by default you can only do _GET_ operations.
 
-	![Resource Explorer Read/Write](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerReadWrite.png)
+	![Resource Explorer Read/Write](./media/virtual-machines-windows-capture-image/ArmExplorerReadWrite.png)
 
 3. Next find your Windows virtual machine. You can either type the name in the _Search box_ at the top of the tool, or you could navigate through the menu on the left as **subscriptions** > your Azure subscription > **resourceGroups** > your resource group > **providers** > **Microsoft.Compute** > **virtualMachines** > your Windows virtual machine. When you click on your virtual machine on the left navigation, you will see its template on the right side of the tool.
 
