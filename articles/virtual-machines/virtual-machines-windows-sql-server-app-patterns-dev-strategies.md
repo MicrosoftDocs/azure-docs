@@ -104,7 +104,7 @@ This application pattern is useful when:
 
 The following diagram demonstrates how you can place a simple 3-tier application in Azure by placing each application tier in a different virtual machine.
 
-![3-tier application pattern](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728009.png)
+![3-tier application pattern](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728009.png)
 
 In this application pattern, there is only one virtual machine (VM) in each tier. If you have multiple VMs in Azure, we recommend that you set up a virtual network. [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) creates a trusted security boundary and also allows VMs to communicate among themselves over the private IP address. In addition, always make sure that all Internet connections only go to the presentation tier. This means that you should open up a public endpoint on the presentation tier but not on the other tiers. When following this application pattern, you also need to set up the network access control list (ACL) on that public port to allow for access certain IP addresses. For more information, see [Manage the ACL on an endpoint](virtual-machines-set-up-endpoints.md/#manage-the-acl-on-an-endpoint).
 
