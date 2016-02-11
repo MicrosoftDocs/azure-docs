@@ -10,10 +10,10 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/03/2016"
+   ms.date="02/09/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -68,7 +68,7 @@ Use the table below as a reference to help you understand the available recommen
 |-----|-----|
 |Enable Data Collection for subscriptions/virtual machines|Recommends that you turn on data collection in the security policy for each of your subscriptions or for select VMs.|
 |Resolve mismatch baseline rules|Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved.|
-|Apply system updates|Recommends that you deploy missing system updates to VMs (Windows VMs only).|
+|Apply system updates|Recommends that you deploy missing system security and critical updates to VMs (Windows VMs only).|
 |Configure ACLs for endpoints|Recommends that you configure access control lists to restrict inbound access to VMs (classic VMs only).|
 |Add a web application firewall|Recommends that you deploy a web application firewall (WAF) for web endpoints (Resource Manager VMs only).|
 |Finalize web application firewall setup|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
@@ -79,7 +79,7 @@ Use the table below as a reference to help you understand the available recommen
 |Enable database SQL Auditing|Recommends that you turn on auditing for Azure SQL databases (Azure SQL service only; doesn't include SQL running on your virtual machines).|
 |Enable Transparent Data Encryption on SQL databases|Recommends that you enable encryption for SQL databases (Azure SQL service only).|
 |Deploy the VM Agent|Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision patch scanning, baseline scanning, and antimalware programs. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent.|
-| [Apply disk encryption](security-center-apply-disk-encryption.md) |Recommends that you encrypt your VM disks (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM.|
+| [Apply disk encryption](security-center-apply-disk-encryption.md) |Recommends that you encrypt your VM disks using Azure Disk Encryption (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM.|
 
 You can filter and dismiss recommendations.
 
