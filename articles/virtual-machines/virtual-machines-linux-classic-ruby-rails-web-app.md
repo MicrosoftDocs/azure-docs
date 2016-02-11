@@ -165,7 +165,7 @@ To use Azure services from your Ruby application, see:
 
 <!-- Images -->
 
-[default-rails-cloud]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
+[default-rails-cloud]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/basicrailscloud.png
 
 [vmlist]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
 
