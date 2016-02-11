@@ -149,7 +149,7 @@ A self-signed certificate was created on the VM when the VM was provisioned. The
 	
 		For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
 		
-		![login inlcudes vm name](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC764111.png)
+		![login inlcudes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 	
 	1. Run mmc.exe. For more information, see [How to: View Certificates with the MMC Snap-in](https://msdn.microsoft.com/library/ms788967.aspx).
 	
@@ -199,7 +199,7 @@ To use the Windows PowerShell script to configure the report server, complete th
 
 	For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
 	
-	![login inlcudes vm name](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC764111.png)
+	![login inlcudes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 
 1. On the VM, open **Windows PowerShell ISE** with administrative privileges. The PowerShell ISE is installed by default on Windows server 2012. It is recommended you use the ISE instead of a standard Windows PowerShell window so that you can paste the script into the ISE, modify the script, and then run the script.
 
@@ -340,7 +340,7 @@ To use Windows PowerShell to configure the report server, complete the following
 
 	For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
 
-	![login inlcudes vm name](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC764111.png)
+	![login inlcudes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 
 1. On the VM, open **Windows PowerShell ISE** with administrative privileges. The PowerShell ISE is installed by default on Windows server 2012. It is recommended you use the ISE instead of a standard Windows PowerShell window so that you can paste the script into the ISE, modify the script, and then run the script.
 
