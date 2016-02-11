@@ -59,7 +59,7 @@ Ubuntu is a very popular and Azure-endorsed Linux distribution based on dpkg and
 
 1. [How to: Upload your own Ubuntu Image](virtual-machines-linux-create-upload-vhd-ubuntu.md)
 2. [How to: Ubuntu LAMP Stack](virtual-machines-linux-install-lamp-stack.md)
-3. \[Classic Deployment]: [How to: MySQL Clusters](virtual-machines-linux-mysql-cluster.md)
+3. \[Classic Deployment]: [How to: MySQL Clusters](virtual-machines-linux-classic-mysql-cluster.md)
 4. \[Classic Deployment]: [How to: Node.js and Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 5. \[Resource Manager Deployment]: [How to: IPython Notebook](virtual-machines-python-ipython-notebook.md)
 6. \[Classic Deployment]: [Geeking out: Running ASP.NET 5 on Linux using Docker Containers](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
@@ -217,7 +217,7 @@ This section contains information about several different storage approaches and
 2. MySQL
     - [How to: Install and Run MySQL](virtual-machines-linux-mysql-use-opensuse.md)
     - [How to: Optimize Performance of MySQL on Azure](virtual-machines-linux-optimize-mysql-perf.md)
-    - [How to: MySQL Clusters](virtual-machines-linux-mysql-cluster.md)
+    - [How to: MySQL Clusters](virtual-machines-linux-classic-mysql-cluster.md)
     - [How to: Create a MySQL Database using the Marketplace](store-php-create-mysql-database.md)
     - [How to: Django and MySQL on Azure Websites with Python and Visual Studio](../app-service-web/web-sites-python-ptvs-django-mysql.md)
     - [MySQL High Availability Architecture in Microsoft Azure](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
