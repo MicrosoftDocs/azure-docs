@@ -206,7 +206,7 @@ After you upload the .vhd, you can add it as an image to the list of custom imag
 
 3. Create a virtual machine from gallery. This new image is now available under **My Images**. Select the new image and go through the prompts to set up a hostname, password/SSH key and etc.
 
-	![custom image](./media/virtual-machines-freebsd-create-upload-vhd/createfreebsdimageinazure.png)
+	![custom image](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/createfreebsdimageinazure.png)
 
 4. Once provisioning has completed, you will see your FreeBSD VM running in Azure.
 
