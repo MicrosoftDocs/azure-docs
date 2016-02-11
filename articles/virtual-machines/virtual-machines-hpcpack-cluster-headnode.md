@@ -88,7 +88,7 @@ Pack head node by using the Resource Manager deployment model in the Azure porta
 
 * You can now work with the head node of your HPC Pack cluster. For
 example, start HPC Cluster Manager, and complete the [Deployment To-do List](https://technet.microsoft.com/library/jj884141.aspx).
-* Add [Azure burst nodes](virtual-machines-hpcpack-cluster-node-burst.md) in a cloud service to increase the cluster compute capacity on-demand. 
+* Add [Azure burst nodes](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md) in a cloud service to increase the cluster compute capacity on-demand. 
 
 * Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
 

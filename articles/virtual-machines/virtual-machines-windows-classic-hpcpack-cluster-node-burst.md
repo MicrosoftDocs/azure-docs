@@ -121,4 +121,4 @@ automatically grow or shrink the Azure computing resources according to
 the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
-[burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
+[burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
