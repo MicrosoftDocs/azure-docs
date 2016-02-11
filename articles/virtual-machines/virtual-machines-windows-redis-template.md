@@ -34,7 +34,7 @@ This template utilizes a “t-shirt size” concept in order to specify a “Sma
 
 The Redis Cluster template for the “Medium” t-shirt size creates this configuration:
 
-![cluster-architecture](media/virtual-machines-redis-template/cluster-architecture.png)
+![cluster-architecture](media/virtual-machines-windows-redis-template/cluster-architecture.png)
 
 Before diving into more details related to Azure Resource Manager and the template we will use for this deployment, make sure you have Azure PowerShell or the Azure CLI configured correctly.
 
@@ -387,7 +387,7 @@ In order to create a robust and reusable approach to Resource Manager template d
 
 This diagram describes the relationships between all files downloaded from GitHub for this deployment:
 
-![redis-files](media/virtual-machines-redis-template/redis-files.png)
+![redis-files](media/virtual-machines-windows-redis-template/redis-files.png)
 
 This section steps you through the structure of the azuredeploy.json template for the Redis cluster.
 
@@ -658,7 +658,7 @@ You can see that this resource depends on the resource VM already being deployed
 
 By familiarizing yourself with the other files included in this deployment, you will be able to understand all the details and best practices required to organize and orchestrate complex deployment strategies for multi-node solutions, based on any technology, leveraging Azure Resource Manager templates. While not mandatory, a recommended approach is to structure your template files as highlighted by the following diagram:
 
-![redis-template-structure](media/virtual-machines-redis-template/redis-template-structure.png)
+![redis-template-structure](media/virtual-machines-windows-redis-template/redis-template-structure.png)
 
 In essence, this approach suggests to:
 
