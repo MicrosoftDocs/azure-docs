@@ -75,7 +75,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 6. Click **Summary** to review your configuration choices. When you're done reviewing or updating the settings, click ![OK button](media/virtual-machines-linux-portal-create/createbutton.png) .
 
-	![creation summary](media/virtual-machines-linux-tutorial-portal-rm/summarybeforecreation.png)
+	![creation summary](media/virtual-machines-linux-portal-create/summarybeforecreation.png)
 
 8. While Azure creates the VM, you can track the progress in **Notifications**, in the Hub menu. After Azure creates the VM, you'll see it on your Startboard unless you cleared **Pin to Startboard** in the **Create virtual machine** blade.
 
