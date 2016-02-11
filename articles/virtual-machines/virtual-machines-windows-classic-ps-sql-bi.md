@@ -122,7 +122,7 @@ The following are example deployments that use Microsoft Azure Virtual Machines.
 
 Analysis Services, Reporting Services, SQL Server Database Engine, and data sources on a single virtual machine.
 
-![bi iass scenario with 1 virtual machine](./media/virtual-machines-sql-server-business-intelligence/IC650108.gif)
+![bi iass scenario with 1 virtual machine](./media/virtual-machines-windows-classic-ps-sql-bi/IC650108.gif)
 
 ### Two Virtual Machines
 
