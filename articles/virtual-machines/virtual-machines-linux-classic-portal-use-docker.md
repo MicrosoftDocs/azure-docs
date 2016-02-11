@@ -69,7 +69,7 @@ Choose the Docker VM Extension, which brings up the Docker description and impor
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/ChooseDockerExtension.png)
 
-![](./media/virtual-machines-docker-with-portal/CreateButtonFocus.png)
+![](./media/virtual-machines-linux-classic-portal-use-docker/CreateButtonFocus.png)
 ### Add your Certificate and Key Files:
 
 In the form fields, enter the base64-encoded versions of your CA Certificate, your Server Certificate, and your Server Key, as shown in the following graphic.
