@@ -146,7 +146,7 @@ Analysis Services, Reporting Services, SQL Server Database Engine, and data sour
 
 - Data source is on-premises.
 
-![bi iaas scenarios vm and on premise data sources](./media/virtual-machines-sql-server-business-intelligence/IC654384.gif)
+![bi iaas scenarios vm and on premise data sources](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
 
 ## Reporting Services Native Mode Configuration
 
