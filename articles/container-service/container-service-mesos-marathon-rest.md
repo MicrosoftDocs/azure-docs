@@ -98,6 +98,8 @@ The Marathon API can also be used to scale application deployments out or in. In
 
 Run the following command to scale the application out.
 
+> Note – the URI will be http://loclahost:8080/v2/apps/ and then the ID of the application to scale. If using the hello world sample provided here, the URI would be http://localhost:8080/v2/helloworld.
+
 ```json
 curl http://localhost:8080/v2/apps/helloworld -H "Content-type: application/json" -X PUT -d @scale.json
 ```
@@ -110,13 +112,50 @@ curl localhost:8080/v2/apps
 
 ## Marathon REST API PowerShell
 
+Just like the Mesos and Marathon endpoints can be initiated using curl, we can also perform the same actions on a Windows system using PowerShell. This quick exercise will complete similar tasks as the last exercise, this time using PowerShell commands.
+
+To gather information about the Mesos cluster such as agent names and agent status run the following command. 
+
 ```powershell
 Invoke-WebRequest -Uri http://localhost:5050/master/slaves
 ```
 
+Docker containers are deployed through Marathon using a json file that describes the intended deployment. The following sample will deploy the Docker hello world container, binding port 80 of the Mesos agent to port 80 of the container.
+
+```json
+{
+  "id": "helloworld",
+  "cpus": 0.1,
+  "mem": 16.0,
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "hello-world",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort": 80, "hostPort": 80, "servicePort": 9000, "protocol": "tcp" }
+      ]
+    }
+  }
+}
+```
+
+Create your own json file or use the sample provided here - <insert Ross sample>, and store it in an accessible location. When ready run the following command to deploy the container.
+
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost:8080/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
+
+The Marathon API can also be used to scale application deployments out or in. In the previous example one instance of an application was deployed, let's scale this out to three instances. To do so, create a json file with the following json text and store it in an accessible location.
+
+```json
+{ "instances": 3 }
+```
+
+Run the following command to scale the application out.
+
+> Note – the URI will be http://loclahost:8080/v2/apps/ and then the ID of the application to scale. If using the hello world sample provided here, the URI would be http://localhost:8080/v2/helloworld.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost:8080/v2/apps/helloworld -ContentType application/json -InFile 'c:\scale.json'
