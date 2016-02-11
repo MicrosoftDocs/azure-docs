@@ -67,7 +67,7 @@ The Remote Desktop client may not be able to reach the Remote Desktop service on
 
 Verify that your computer can make Remote Desktop connections to another on-premises, Windows-based computer.
 
-![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_1.png)
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_1.png)
 
 If you cannot, check for the following on your computer:
 
