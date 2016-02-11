@@ -369,7 +369,7 @@ The SOA client application requires no changes except altering the head name to 
 
 <!--Image references-->
 [scenario]: ./media/virtual-machines-excel-cluster-hpcpack/scenario.png
-[github]: ./media/virtual-machines-excel-cluster-hpcpack/github.png
+[github]: ./media/virtual-machines-windows-excel-cluster-hpcpack/github.png
 [template]: ./media/virtual-machines-excel-cluster-hpcpack/template.png
 [parameters]: ./media/virtual-machines-excel-cluster-hpcpack/parameters.png
 [create]: ./media/virtual-machines-windows-excel-cluster-hpcpack/create.png
