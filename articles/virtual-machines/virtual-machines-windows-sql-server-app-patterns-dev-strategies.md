@@ -164,7 +164,7 @@ This application pattern is useful when:
 
 The following diagram demonstrates an on-premises scenario and its cloud enabled solution. In this scenario, you place the application tiers in multiple virtual machines in Azure by scaling out the business tier, which contains the business logic tier and data access components. As seen in the diagram, Azure Load Balancer is responsible for distributing traffic across multiple virtual machines and also determining which web server to connect to. Having multiple instances of the application servers behind a load balancer ensures the high availability of the business tier. For more information, see [Best practices for 2-tier, 3-tier, or n-tier application patterns that have multiple virtual machines in one tier](#best-practices-for-2-tier-3-tier-or-n-tier-patterns-that-have-multiple-vms-in-one-tier).
 
-![Application pattern with business tier scale out](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728011.png)
+![Application pattern with business tier scale out](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728011.png)
 
 ## 2-tier and 3-tier with presentation and business tiers scale-out and HADR
 
