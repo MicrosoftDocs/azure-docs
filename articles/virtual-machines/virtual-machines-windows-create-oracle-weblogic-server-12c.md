@@ -100,7 +100,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 14.	In the **Creating Domain** dialog, check **Start Admin Server** and then click **Done**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image17.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image17.png)
 
 15.	A command prompt for **startWebLogic.cmd** is started. When prompted, provide your WebLogic user name and password.
 
