@@ -34,7 +34,7 @@ It is for this reason that we recommend that you start with one of our [Linux on
 - **[CentOS-based Distributions](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
-- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
 - **[SLES & openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 
