@@ -172,6 +172,7 @@ the example below creates two rules: one for "/image/" path routing traffic to b
 	$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting01
 
 The rule path map configuration also configures a default back-end address pool if the path doesn't match any of the pre-defined path rules. 
+
 	$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $videoPathRule, $imagePathRule -DefaultBackendAddressPool $pool1 -DefaultBackendHttpSettings $poolSetting02
 
 ### Step 8 
