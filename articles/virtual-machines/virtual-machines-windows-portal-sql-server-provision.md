@@ -138,7 +138,7 @@ For more information, see [Connect to a SQL Server Virtual Machine (Resource Man
 ### Authentication
 If you require SQL Server Authentication, click **Enable** under **SQL authentication**.
 
-<br/>![SQL ARM Authentication](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-authentication.png)
+<br/>![SQL ARM Authentication](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
 <br/>
 
 
