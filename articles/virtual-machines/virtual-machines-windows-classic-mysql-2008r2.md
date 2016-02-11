@@ -75,7 +75,7 @@ Follow these steps to install, configure, and run the Community version of MySQL
 
 12.	On the **Windows Service** page, specify changes to the default settings for running the MySQL Server as a Windows service as needed, and then click **Next**.
 
-	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_WindowsService.png)
+	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_WindowsService.png)
 
 13.	On the **Advanced Options** page, specify changes to logging options as needed, and then click **Next**.
 
