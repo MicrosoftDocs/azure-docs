@@ -66,7 +66,7 @@ APIs can also be used as actions within your apps. Actions are useful for lookin
 [office365outlookdoc]: ./create-api-office365-outlook.md/ "The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account."
 [officeunifieddoc]: ./create-api-bingsearch.md/
 [office365usersdoc]: ./create-api-office365-users.md/
-[office365videodoc]: ./create-api-video.md/
+[office365videodoc]: ./create-api-office365-video.md/
 [onedrivedoc]: ./create-api-onedrive.md/ "Connects to your personal Microsoft OneDrive and upload, delete, list files, and more."
 [salesforcedoc]: ./create-api-salesforce.md/ "Connect to your Salesforce account and manage  accounts, leads, opportunities, and more."
 [servicebusdoc]: ./create-api-servicebus.md/ "Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions."
@@ -74,7 +74,7 @@ APIs can also be used as actions within your apps. Actions are useful for lookin
 [slackdoc]: ./create-api-slack.md/ "Connect to Slack and post messages to Slack channels."
 [sftpdoc]: ./create-api-sftp.md/ "Connects to SFTP and can upload, get, delete files, and more."
 [smtpdoc]: ./create-api-smtp.md/ "Connects to a SMTP server and can send email with attachments."
-[sqldoc]: ./create-api-sqlserver.md/ "Connects to on-premises SQL Server or an Azure SQL Database. You can create, update, get, and delete entries on a SQL database table."
+[sqldoc]: ./create-api-sqlazure.md/ "Connects to on-premises SQL Server or an Azure SQL Database. You can create, update, get, and delete entries on a SQL database table."
 [twiliodoc]: ./create-api-twilio.md/ "Connects to Twilio and can send and get messages, get available numbers, managing incoming phone numbers, and more."
 [twitterdoc]: ./create-api-twitter.md/ "Connects to Twitter and get timelines, post tweets, and more."
 [yammerdoc]: ./create-api-yammer.md/ "Connects to Yammer to post messages and get new messages."
