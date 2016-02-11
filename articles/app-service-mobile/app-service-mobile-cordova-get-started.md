@@ -52,6 +52,10 @@ Mac computer.  Compiling Apache Cordova client applications using the command li
 
 [AZURE.INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 
+## Next Steps
+
+Now that you completed this quick start tutorial, move on to [adding Authentication to your Apache Cordova app](app-service-mobile-cordova-get-started-auth.md).
+
 
 <!-- Images. -->
 
