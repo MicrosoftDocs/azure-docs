@@ -16,7 +16,7 @@
 	ms.date="01/24/2016"
 	ms.author="yijichen;garye"/>
 
-# Cortana Analytics Solution Template Playbook for demand forecasting of energy  
+# Cortana Analytics Solution Template Playbook for Demand Forecasting of Energy  
 
 ## Executive Summary  
 

@@ -273,10 +273,59 @@ This section describes how to set up Power BI dashboard to visualize
 your real time data from Azure stream analytics (hot path), as well as
 forecast results from Azure machine learning (cold path).
 
-### Setup Cold Path Dashboard
-In cold path data pipeline, the essential goal is to get the demand forecast of each region. The forecast result is updated every 1 hour.
 
-Power BI connects to an Azure SQL database as its data source, where the prediction results are stored. Please note: 1) Upon deploying your solution, real prediction will show up in the database about 1 hour. You should start this step 1 hour after you deploy the solution. 2) In this step, the prerequisite is to download and install the free software [Power BI desktop](https://powerbi.microsoft.com/en-us/desktop).
+### Setup Hot Path Dashboard
+
+The following steps will guide you how to visualize real time data
+output from Stream Analytics jobs that were generated at the time of
+solution deployment. A [Power BI online](http://www.powerbi.com/)
+account is required to perform the following steps. If you don't have an
+account, you can [create one](https://powerbi.microsoft.com/pricing).
+
+1.  Add Power BI output in Azure Stream Analytics (ASA).
+
+    -  You will need to follow the instructions in
+    [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics-power-bi-dashboard.md)
+    to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
+
+	- Locate the stream analytics job in your [Azure management portal](https://manage.windowsazure.com). The name of the job should be: YourSoutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
+
+	- Setup the output of the ASA query which is **PBIoutput**. Make sure the **Output Alias** is the same as in your query. You can name your **Dataset Name** and **Table Name** as **‘EnergyStreamData’**. Once
+    you have added the output, click **"Start"** at the bottom of the page to start the Stream
+    Analytics job. You should get a confirmation message (*e.g.*,
+    "Starting stream analytics job myteststreamingjob12345asablob succeeded").
+
+2. Log in to [Power BI online](http://www.powerbi.com)
+
+    -   On the left panel Datasets section in My Workspace, you should be able to see a new dataset showing on the left panel of Power BI. This is the streaming data you pushed from Azure Stream Analytics in the previous step.
+
+    -   Make sure the ***Visualizations*** pane is open and is shown on the
+    right side of the screen.
+
+3. Create the "Demand by Timestamp" tile:
+	-	Click dataset **‘EnergyStreamData’** on the left panel Datasets section.
+
+	-	Click **"Line Chart"** icon ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic8.png).
+
+	-	Click ‘EnergyStreamData’ in **Fields** panel.
+
+	-	Click **“Timestamp”** and make sure it shows under "Axis". Click **“Load”** and make sure it shows under "Values".
+
+	-	Click **SAVE** on the top and name the report as “EnergyStreamDataReport”. The report named “EnergyStreamDataReport” will be shown in Reports section in the Navigator pane on left.
+
+	-	Click **“Pin Visual”**![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png) icon on top right corner of this line chart, a "Pin to Dashboard" window may show up for you to choose a dashboard. Please select "EnergyStreamDataReport", then click "Pin".
+
+	-	Hover the mouse over this tile on the dashboard, click "edit" icon on top right corner to change its title as "Demand by Timestamp"
+
+4.	Create other dashboard tiles based on appropriate datasets. The final dashboard view is shown below.
+		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+
+
+### Setup Cold Path Dashboard
+In cold path data pipeline, the essential goal is to get the demand forecast of each region. Power BI connects to an Azure SQL database as its data source, where the prediction results are stored.
+
+> [AZURE.NOTE] 1) It takes few hours to collect enough forecast results for the dashboard. We recommend you start this process 2-3 hours after you lunch the data generator. 2) In this step, the prerequisite is to download and install the free software [Power BI desktop](https://powerbi.microsoft.com/en-us/desktop).
+
 
 
 1.  Get the database credentials.
@@ -348,53 +397,6 @@ data up-to-date".
 
 	-   Schedule the refresh based on your needs. To find more information, see
 [Data refresh in Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
-
-
-### Setup Hot Path Dashboard
-
-The following steps will guide you how to visualize real time data
-output from Stream Analytics jobs that were generated at the time of
-solution deployment. A [Power BI online](http://www.powerbi.com/)
-account is required to perform the following steps. If you don't have an
-account, you can [create one](https://powerbi.microsoft.com/pricing).
-
-1.  Add Power BI output in Azure Stream Analytics (ASA).
-
-    -  You will need to follow the instructions in
-    [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics-power-bi-dashboard.md)
-    to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
-
-	- Locate the stream analytics job in your [Azure management portal](https://manage.windowsazure.com). The name of the job should be: YourSoutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
-
-	- Setup the output of the ASA query which is **PBIoutput**. Make sure the **Output Alias** is the same as in your query. You can name your **Dataset Name** and **Table Name** as **‘EnergyStreamData’**. Once
-    you have added the output, click **"Start"** at the bottom of the page to start the Stream
-    Analytics job. You should get a confirmation message (*e.g.*,
-    "Starting stream analytics job myteststreamingjob12345asablob succeeded").
-
-2. Log in to [Power BI online](http://www.powerbi.com)
-
-    -   On the left panel Datasets section in My Workspace, you should be able to see a new dataset showing on the left panel of Power BI. This is the streaming data you pushed from Azure Stream Analytics in the previous step.
-
-    -   Make sure the ***Visualizations*** pane is open and is shown on the
-    right side of the screen.
-
-3. Create the "Demand by Timestamp" tile:
-	-	Click dataset **‘EnergyStreamData’** on the left panel Datasets section.
-
-	-	Click **"Line Chart"** icon ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic8.png).
-
-	-	Click ‘EnergyStreamData’ in **Fields** panel.
-
-	-	Click **“Timestamp”** and make sure it shows under "Axis". Click **“Load”** and make sure it shows under "Values".
-
-	-	Click **SAVE** on the top and name the report as “EnergyStreamDataReport”. The report named “EnergyStreamDataReport” will be shown in Reports section in the Navigator pane on left.
-
-	-	Click **“Pin Visual”**![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png) icon on top right corner of this line chart, a "Pin to Dashboard" window may show up for you to choose a dashboard. Please select "EnergyStreamDataReport", then click "Pin".
-
-	-	Hover the mouse over this tile on the dashboard, click "edit" icon on top right corner to change its title as "Demand by Timestamp"
-
-4.	Create other dashboard tiles based on appropriate datasets. The final dashboard view is shown below.
-		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
 
 
 ## **Cost Estimation Tools**
