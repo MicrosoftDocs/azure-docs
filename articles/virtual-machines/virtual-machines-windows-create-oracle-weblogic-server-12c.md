@@ -66,7 +66,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 7.	In the **Welcome** dialog, select **Create a new WebLogic domain** and then click **Next**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image10.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image10.png)
 
 8.	In the **Select Domain Source** dialog, accept the default values and then click **Next**.
 
