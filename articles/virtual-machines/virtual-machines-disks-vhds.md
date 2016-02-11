@@ -64,7 +64,7 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 Linux virtual machines:
 
 -  [Attach a disk and prep it for use](virtual-machines-linux-how-to-attach-disk.md)
--  [Capture a Linux virtual machine](virtual-machines-linux-capture-image.md)
+-  [Capture a Linux virtual machine](virtual-machines-linux-classic-capture-image.md)
 -  [Detach a disk](virtual-machines-linux-how-to-detach-disk.md)
 
 Windows virtual machines:

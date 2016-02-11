@@ -126,7 +126,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 11. \[Classic Deployment]: [The basics: Detaching a Data Disk from a Linux VM](virtual-machines-linux-how-to-detach-disk.md)
 12. [Blogging the basics: Optimizing Storage, Disks, and Performance with Linux and Azure](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 13. [The basics: RAID](virtual-machines-linux-configure-raid.md)
-14. \[Classic Deployment]: [The basics: Capturing a Linux VM to Make a Template](virtual-machines-linux-capture-image.md)
+14. \[Classic Deployment]: [The basics: Capturing a Linux VM to Make a Template](virtual-machines-linux-classic-capture-image.md)
 15. [The basics: The Azure Linux Agent](virtual-machines-linux-agent-user-guide.md)
 16. [The basics: Azure VM Extensions and Features](virtual-machines-extensions-features.md)
 17. \[Classic Deployment]: [The basics: Injecting Custom Data into a VM to use with Cloud-init](virtual-machines-how-to-inject-custom-data.md)

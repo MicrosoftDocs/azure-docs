@@ -83,7 +83,7 @@ These steps assume that you've already created an Azure virtual machine using th
 
 	On the [Azure classic portal] [], it will appear in the **IMAGES** list.
 
-	![Image capture successful](./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png)
+	![Image capture successful](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
 
 
 ## Next steps
