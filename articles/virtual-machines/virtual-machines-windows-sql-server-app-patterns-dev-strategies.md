@@ -244,7 +244,7 @@ This application pattern is useful when:
 
 The following diagram demonstrates an on-premises scenario and its cloud enabled solution. In this scenario, you place the application tiers in a single virtual machine in Azure and access data in Azure SQL Database.
 
-![Mixed application pattern](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728015.png)
+![Mixed application pattern](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728015.png)
 
 If you choose to implement a combined web and application tier by using Azure Web Apps, we recommend that you keep the middle-tier or application tier as dynamic-link libraries (DLLs) in the context of a web application.
 
