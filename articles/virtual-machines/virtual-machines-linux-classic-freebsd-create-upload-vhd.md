@@ -135,7 +135,7 @@ You need a storage account in Azure to upload a .vhd file so it can be used in A
 
 7. Click **Create a Container**.
 
-	![Storage account detail](./media/virtual-machines-freebsd-create-upload-vhd/storageaccount_container.png)
+	![Storage account detail](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/storageaccount_container.png)
 
 8. Type a **Name** for your container and select the **Access** policy.
 
