@@ -41,7 +41,7 @@ in the **Google Android Emulator** and verify that an Unexpected Connection Fail
 
 Next, you will update the app to authenticate users before requesting resources from the Mobile App backend.
 
-## Add authentication to the app
+##<a name="add-authentication"></a>Add authentication to the app
 
 1. Open your project in **Visual Studio**, then open the <tt>www/index.html</tt> file for editing.
 
@@ -99,11 +99,6 @@ Next, you will update the app to authenticate users before requesting resources 
 
 4. Run your project.  When the project has finished initializing, your application will show the OAuth login page for the
    chosen authentication provider.
-
-<!-- Anchors. -->
-[Register your app for authentication and configure Mobile Services]: #register
-[Restrict table permissions to authenticated users]: #permissions
-[Add authentication to the app]: #add-authentication
 
 <!-- URLs. -->
 [Get started with Mobile Apps]: app-service-mobile-cordova-get-started.md
