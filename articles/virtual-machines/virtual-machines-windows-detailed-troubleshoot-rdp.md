@@ -82,7 +82,7 @@ In all of these cases, temporarily disable the software and try to connect to an
 
 Verify that a computer directly connected to the Internet can make Remote Desktop connections to your Azure virtual machine.
 
-![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_2.png)
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_2.png)
 
 If you do not have a computer that is directly connected to the Internet, create and test with a new Azure virtual machine in a resource group or cloud service. For more information, see [Create a virtual machine running Windows in Azure](virtual-machines-windows-tutorial.md). You can delete the virtual machine and the resource group or the cloud service, after the test.
 
