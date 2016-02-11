@@ -38,7 +38,7 @@ Your next step is to set up a dev/test line of business application hosted in Az
 
 A cross-premises virtual network is connected to an on-premises network with a site-to-site VPN or ExpressRoute connection. If you want to create a dev/test environment that mimics the final configuration and experiment with accessing the application and performing remote administration over a VPN connection, see [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md). 
 
-![](./media/virtual-machines-workload-high-availability-LOB-application/CreateLOBAppHybridCloud_3.png)
+![](./media/virtual-machines-windows-lob/CreateLOBAppHybridCloud_3.png)
  
 You can create this dev/test environment for free with your [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) or an [Azure Trial Subscription](https://azure.microsoft.com/pricing/free-trial/).
 
