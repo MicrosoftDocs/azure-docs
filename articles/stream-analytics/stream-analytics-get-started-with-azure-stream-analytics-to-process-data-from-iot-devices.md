@@ -24,7 +24,7 @@ In this tutorial you will learn to create stream processing logic to gather data
 
 ## Prerequisites
 
--   Azure Subscription
+-   [Azure Subscription](https://azure.microsoft.com/pricing/free-trial/)
 -   Sample query and data files downloadable from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted)
 
 ## Scenario
