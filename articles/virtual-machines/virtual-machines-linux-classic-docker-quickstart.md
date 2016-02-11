@@ -37,29 +37,29 @@ This part is easy, unless you don't have an Azure account. [Get a free one easil
 
 1. Now that you're logged on, click **New** in the lower left-hand corner to create a new VM image. You might see the proper image in the banner immediately:
 
-> ![Choose the Docker Ubuntu image in the banner](./media/virtual-machines-docker-ubuntu-quickstart/CreateNewDockerBanner.png)
+> ![Choose the Docker Ubuntu image in the banner](./media/virtual-machines-linux-classic-docker-quickstart/CreateNewDockerBanner.png)
 
 2. But if not, search for it in the Image Gallery:
 
-> ![Locate the image in the Image Gallery](./media/virtual-machines-docker-ubuntu-quickstart/DockerOnUbuntuServerMSOpenTech.png)
+> ![Locate the image in the Image Gallery](./media/virtual-machines-linux-classic-docker-quickstart/DockerOnUbuntuServerMSOpenTech.png)
 
 3. Provide either the username and password for the instance, or the contents of a **.pub** file (ssh-rsa format)  to enable SSH using a certificate. (The below graphic shows specifying a username and password combination.) Then press **Create** at the bottom.
 
-> ![Configure the vm instance](./media/virtual-machines-docker-ubuntu-quickstart/CreateVMDockerUbuntuPwd.png)
+> ![Configure the vm instance](./media/virtual-machines-linux-classic-docker-quickstart/CreateVMDockerUbuntuPwd.png)
 
 4. And wait until it's running. It shouldn't take too long at all.
 
-> ![Docker image running in portal](./media/virtual-machines-docker-ubuntu-quickstart/DockerUbuntuRunning.png)
+> ![Docker image running in portal](./media/virtual-machines-linux-classic-docker-quickstart/DockerUbuntuRunning.png)
 
 ## Connect with SSH and Have Fun
 
 Now the fun starts. You can immediately connect to the VM using SSH:
 
-> ![Connecting with SSH](./media/virtual-machines-docker-ubuntu-quickstart/SSHToDockerUbuntu.png)
+> ![Connecting with SSH](./media/virtual-machines-linux-classic-docker-quickstart/SSHToDockerUbuntu.png)
 
 and start issuing Docker commands, remembering that on this Azure VM the default configuration requires **`sudo`**:
 
-> ![Pulling images](./media/virtual-machines-docker-ubuntu-quickstart/DockerPullSmallImages.png)
+> ![Pulling images](./media/virtual-machines-linux-classic-docker-quickstart/DockerPullSmallImages.png)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
