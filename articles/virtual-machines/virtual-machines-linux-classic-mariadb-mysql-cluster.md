@@ -317,7 +317,7 @@ Finally, since the CLI sets the load-balancer probe interval to 15 seconds (whic
 
 then click on Reconfigure The Load-Balanced Set and go next
 
-![Reconfigure Load Balanced Set](./media/virtual-machines-mariadb-cluster/Endpoint2.PNG)
+![Reconfigure Load Balanced Set](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint2.PNG)
 
 then change the Probe Interval to 5 seconds and save
 
