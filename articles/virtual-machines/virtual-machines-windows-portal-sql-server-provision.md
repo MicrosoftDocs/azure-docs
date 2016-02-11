@@ -118,7 +118,7 @@ On the **Create Virtual Machine** blade under **Configure SQL Server** configure
 
 ### Connectivity
 Under **SQL connectivity**, specify **Public (internet)** to allow connections to SQL Server from machines or services on the internet. With this option selected, Azure will automatically configure the firewall and the network security group to allow traffic on port 1433.  
-<br/>![SQL ARM Connectivity](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-connectivity-alt.png)
+<br/>![SQL ARM Connectivity](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
 <br/>
 
 In order to connect to SQL Server via the internet, you will also need to enable SQL Server Authentication.
