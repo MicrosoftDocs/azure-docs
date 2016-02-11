@@ -27,7 +27,7 @@ With the Microsoft Azure portal marketplace, you can quickly create pre-configur
 
 The basic SharePoint farm consists of three virtual machines in this configuration.
 
-![sharepointfarm](./media/virtual-machines-sharepoint-farm-azure-preview/Non-HAFarm.png)
+![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/Non-HAFarm.png)
 
 You can use this farm configuration for a simplified setup for SharePoint app development or your first-time evaluation of SharePoint 2013.
 
