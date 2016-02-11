@@ -169,7 +169,7 @@ Check if the endpoint of PostgreSQL is on:
 
 You should see the following output:
 
-![image](./media/virtual-machines-linux-postgresql/no3.png)
+![image](./media/virtual-machines-linux-postgresql-install/no3.png)
 
 ## Connect to the Postgres database
 
