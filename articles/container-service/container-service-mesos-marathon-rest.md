@@ -1,7 +1,7 @@
 <properties
    pageTitle=""
    description=""
-   services="virtual-machines"
+   services="container-service"
    documentationCenter=""
    authors="rgardler"
    manager="nepeters"
