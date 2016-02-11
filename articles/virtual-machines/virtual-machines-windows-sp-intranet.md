@@ -25,7 +25,7 @@ Set up your first or next SharePoint farm in Microsoft Azure and take advantage 
 
 With the virtual machines and virtual network features of Azure infrastructure services, you can quickly deploy and run a SharePoint farm that is transparently connected to your on-premises network. For example, you can set up the following:
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/workload-spsqlao.png)
+![](./media/virtual-machines-windows-sp-intranet/workload-spsqlao.png)
 
 Because the Azure virtual network is an extension of your on-premises network with all of the correct naming and traffic routing in place, your users will access it in the same way as if it were located in an on-premises datacenter.
 
@@ -64,7 +64,7 @@ Your next step is to create a high-availability intranet SharePoint farm in Azur
 
 The baseline, representative configuration for a functional, high-availability intranet SharePoint farm is the following:
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/workload-spsqlao.png)
+![](./media/virtual-machines-windows-sp-intranet/workload-spsqlao.png)
 
 This consists of:
 
