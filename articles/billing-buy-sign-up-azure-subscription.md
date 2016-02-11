@@ -49,9 +49,9 @@ Following are details on common offers
 - **Resellers** (Open Volume License programs)
   - [Purchase, Benefits, Activate](https://azure.microsoft.com/offers/ms-azr-0111p/)
   - [Step by Step guide to activate](#activateKey)
- - **EA (Enterprise Agreement)**
-   - [Know more] (https://azure.microsoft.com/pricing/enterprise-agreement/)
-   - To activate, contact your Microsoft Account Manager or Reseller to get started today
+- **EA (Enterprise Agreement)**
+  - [Know more] (https://azure.microsoft.com/pricing/enterprise-agreement/)
+  - To activate, contact your Microsoft Account Manager or Reseller to get started today
 
 <a name="SignupFreeTrial"></a>
 ## Sign up for an Azure Free Trial subscription
