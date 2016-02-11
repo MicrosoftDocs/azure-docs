@@ -2,6 +2,7 @@
    pageTitle="External user object attribute changes for Azure Active Directory B2B collaboration preview | Microsoft Azure"
    description="Azure Active Directory B2B supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,10 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# External user object attribute changes for Azure Active Directory (Azure AD) B2B collaboration preview
+# Azure AD B2B collaboration preview: External user object attribute changes
+
 Each user in an Azure AD directory is represented by a user object. The user object in Azure AD undergoes attribute changes in various stages of the B2B collaboration invite-redeem flow. The user object representing the partner user in the directory has attributes that change at redeem time, when the partner user clicks the link in the invite email. Specifically:
 
 - The **SignInName** and **AltSecId** attributes are populated
@@ -33,3 +35,5 @@ Browse our other articles on Azure B2B collaboration:
 - [CSV file format reference](active-directory-b2b-references-csv-file-format.md)
 - [External user token format](active-directory-b2b-references-external-user-token-format.md)
 - [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+

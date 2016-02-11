@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Authentication Protocols
@@ -23,9 +23,9 @@ Azure AD B2C provides identity-as-a-service for your apps by supporting two indu
 <!-- TODO: Need link to libraries above -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-
+	
 ## The Basics
-Every app that uses Azure AD B2C will need to be registered your B2C directory in the [Azure Portal](https://portal.azure.com/).  The app registration process will collect & assign a few values to your app:
+Every app that uses Azure AD B2C will need to be registered your B2C directory in the [Azure Portal](https://portal.azure.com).  The app registration process will collect & assign a few values to your app:
 
 - An **Application Id** that uniquely identifies your app
 - A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
@@ -70,5 +70,3 @@ check out [the types of apps you can build with Azure AD B2C](active-directory-b
 - Build Daemons or Server Side Processes with the OAuth 2.0 Client Credentials Flow (coming soon)
 - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon)
 - Get tokens in a Web API with the OAuth 2.0 On Behalf Of Flow (coming soon)
-
-<!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->

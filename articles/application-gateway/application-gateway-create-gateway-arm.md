@@ -233,7 +233,7 @@ Once the application gateway is in a stopped state, use the **Remove-AzureRmAppl
 To verify that the service has been removed, you can use the **Get-AzureRmApplicationGateway** cmdlet. This step is not required.
 
 
-	Get-AzureRmApplicationGateway -Name appgwtest-ResourceGroupName appgw-rg
+	Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 
 ## Next steps

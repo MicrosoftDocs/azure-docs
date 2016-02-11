@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Recover an Azure SQL Database from a user error
@@ -76,7 +76,7 @@ To restore a deleted database using the Azure Portal, use the following steps.
 1. Log in to the [Azure Portal](https://portal.Azure.com)
 2. On the left side of the screen select **BROWSE** and then select **SQL Servers**.
 3. Navigate to your sever and select it.
-4. Under **Operations** on you server's blade, select **Deleted Databases**.
+4. Scroll down to **Operations** on you server's blade, click the **Deleted Databases** tile.
 5. Select the deleted database you want to restore.
 6. Specify a database name and click **Create**.
 7. The database restore process will begin and can be monitored using **NOTIFICATIONS** on the left side of the screen.

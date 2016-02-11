@@ -4,7 +4,7 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags
@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.topic="get-started-article"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
@@ -46,15 +46,13 @@ If the Azure AD tenant for your organization is set to synchronize with your on-
 
 #### Install or update Azure AD Connect
 
-You will need to install the latest recommended release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you will need to update it to use the Azure AD Connect GA build. Ensure you use the current version of Azure AD Connect, in order to avoid known issues/bugs.
+You will need to install the latest recommended release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you will need to update it to use the Azure AD Connect GA build. Ensure you use the latest version of Azure AD Connect, in order to avoid known issues/bugs.
 
 **[Download Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Minimum recommended version: **1.0.9125** - published on November 3, 2015.
+Minimum recommended version: **1.0.9131** - published on December 3, 2015.
 
   > [AZURE.WARNING] You MUST install the latest recommended release of Azure AD Connect in order to enable legacy password credentials (required for NTLM and Kerberos authentication) to synchronize to your Azure AD tenant. This functionality is not available in prior releases of Azure AD Connect or with the legacy DirSync tool.
-
-NOTE: You no longer need to create the 'EnableWindowsLegacyCredentialsSync' registry key with the latest version of Azure AD Connect (i.e. 1.0.9125 and above).
 
 Installation instructions for Azure AD Connect are available in the following article - [Getting started with Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 

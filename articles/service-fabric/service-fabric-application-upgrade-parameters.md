@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/09/2016"
    ms.author="subramar"/>
 
 
@@ -70,13 +70,13 @@ The MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService, and Ma
 
 ## Next steps
 
+[Uprading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
-[Service Fabric application upgrade using Visual Studio](service-fabric-application-upgrade.md)
+[Uprading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
-[Service Fabric application upgrade using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+Make your application upgrades compatible by learning how to use [Data Serialization](service-fabric-application-upgrade-data-serialization.md).
 
-[Manual upgrade and upgrading with a diff package](service-fabric-application-upgrade-advanced.md)
+Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
 
-[Troubleshooting application upgrade ](service-fabric-application-upgrade-troubleshooting.md)
-
-[Data serialization](service-fabric-application-upgrade-data-serialization.md)
+Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades ](service-fabric-application-upgrade-troubleshooting.md).
+ 

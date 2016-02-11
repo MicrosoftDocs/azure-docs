@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Widevine License Template Overview

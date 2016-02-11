@@ -8,13 +8,13 @@
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
-   ms.author="inhenk"/>
+   ms.date="02/10/2016"
+   ms.author="kgremban"/>
 
 # Getting started with Azure Privileged Identity Management
 
