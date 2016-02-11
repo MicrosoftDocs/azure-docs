@@ -98,7 +98,7 @@ Work with your network administrator to correct the settings of your organizatio
 
 For virtual machines created using the classic deployment model, verify that another Azure virtual machine that is in the same cloud service or virtual network can make Remote Desktop connections to your Azure virtual machine.
 
-![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_3.png)
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [AZURE.NOTE] For virtual machines created in Resource Manager, skip to [Source 4: Network Security Groups](#nsgs).
 
