@@ -193,7 +193,7 @@ For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://ms
 
 6. After you complete the previous steps, the new image is listed when you choose the **Images** tab.
 
-	![custom image](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
+	![custom image](./media/virtual-machines-windows-classic-createupload-vhd/vm_custom_image.png)
 
 	This new image is now available under **My Images** when you create a virtual machine. For instructions, see [Create a custom virtual machine](virtual-machines-create-custom.md).
 
