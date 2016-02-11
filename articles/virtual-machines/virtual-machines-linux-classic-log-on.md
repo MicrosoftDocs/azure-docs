@@ -44,7 +44,7 @@ This procedure shows you how to use the PuTTY program to access the virtual mach
 
 4. Log on to the virtual machine using the account that you specified when the machine was created. For more details on how to create a virtual machine with user name and password, see [Create a Virtual Machine Running Linux](virtual-machines-linux-tutorial.md).
 
-	![Log on to the virtual machine](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
+	![Log on to the virtual machine](./media/virtual-machines-linux-classic-log-on/sshlogin.png)
 
 >[AZURE.NOTE] The VMAccess extension can help you reset the SSH key or password if you've forgotten it. If you've forgotten the user name, you can use the extension to create a new one with sudo authority. For instructions, see the [How to Reset a Password or SSH for Linux Virtual Machines].
 
