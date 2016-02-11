@@ -321,7 +321,7 @@ then click on Reconfigure The Load-Balanced Set and go next
 
 then change the Probe Interval to 5 seconds and save
 
-![Change Probe Interval](./media/virtual-machines-mariadb-cluster/Endpoint3.PNG)
+![Change Probe Interval](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint3.PNG)
 
 ## Validating the cluster
 
