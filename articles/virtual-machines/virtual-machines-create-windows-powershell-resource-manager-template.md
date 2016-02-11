@@ -287,4 +287,4 @@ You now have a new Windows virtual machine named MyWindowsVM in your new resourc
 
 ## Next Steps
 
-Learn how to manage the virtual machine that you just created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md).
+Learn how to manage the virtual machine that you just created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).

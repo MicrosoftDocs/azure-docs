@@ -258,4 +258,4 @@ You should see the newly created VM in either the [Azure portal](https://portal.
 
 ## Next steps
 
-To manage your new virtual machine with Azure PowerShell, read [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md).
+To manage your new virtual machine with Azure PowerShell, read [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).
