@@ -42,7 +42,7 @@ See [Miscellaneous considerations for Oracle virtual machine images](virtual-mac
 
 ## Oracle WebLogic Server 12c and Oracle Database 12c
 
-[Creating an Oracle WebLogic Server 12c and Oracle Database 12c virtual machine in Azure](virtual-machines-creating-oracle-weblogic-server-12c-oracle-database-12c-virtual-machine.md) steps you through virtual machine and database creation and configuration.
+[Creating an Oracle WebLogic Server 12c and Oracle Database 12c virtual machine in Azure](virtual-machines-windows-create-oracle-weblogic-server-12c-database.md) steps you through virtual machine and database creation and configuration.
 
 ## Prepare an Oracle Linux virtual machine
 
