@@ -216,7 +216,7 @@ First, insert information into a row:
 
 You should see this output:
 
-![image](./media/virtual-machines-linux-postgresql/no6.png)
+![image](./media/virtual-machines-linux-postgresql-install/no6.png)
 
 You can add a couple more people to the table as well. Here are some options, or you can create your own:
 
