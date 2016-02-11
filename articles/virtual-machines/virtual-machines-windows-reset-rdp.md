@@ -33,7 +33,7 @@ To reset the Remote Desktop service in the [Azure portal](https://portal.azure.c
 
 To reset the name and password of the local administrator account in the [Azure portal](https://portal.azure.com), click **Browse all** > **Virtual machines (classic)** > *your Windows virtual machine* > **All settings** > **Password reset**. The following page appears.
 
-![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
+![](./media/virtual-machines-windows-reset-rdp/Portal-PW-Reset-Windows.png)
 
 
 ## VMAccess extension and PowerShell
