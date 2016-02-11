@@ -48,7 +48,7 @@ This tutorial is intended to show you the steps required to set up the described
 
 - You have installed the [Azure PowerShell cmdlets](..\powershell-install-configure.md).
 
-- You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md)
+- You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-portal-sql.md)
 
 - You already have a solid understanding of AlwaysOn Availability Groups for on-premise solutions. For more information, see [AlwaysOn Availability Groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
