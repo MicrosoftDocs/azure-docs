@@ -106,7 +106,7 @@ If this command returns "False", your proposed name is unique. Then, create the 
 
 This is your current configuration.
 
-![](./media/virtual-machines-base-configuration-test-environment/BC_TLG01.png)
+![](./media/virtual-machines-windows-classic-test-config-env/BC_TLG01.png)
 
 ## Phase 2: Configure DC1
 
