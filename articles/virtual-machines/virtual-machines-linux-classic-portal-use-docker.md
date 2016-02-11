@@ -74,7 +74,7 @@ Choose the Docker VM Extension, which brings up the Docker description and impor
 
 In the form fields, enter the base64-encoded versions of your CA Certificate, your Server Certificate, and your Server Key, as shown in the following graphic.
 
-![](./media/virtual-machines-docker-with-portal/AddExtensionFormFilled.png)
+![](./media/virtual-machines-linux-classic-portal-use-docker/AddExtensionFormFilled.png)
 
 > [AZURE.NOTE] Note that (as in the preceding image) the 2376 is filled in by default. You can enter any endpoint here, but the next step will be to open up the matching endpoint. If you change the default, make sure to open up the matching endpoint in the next step.
 
