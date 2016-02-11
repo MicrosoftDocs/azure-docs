@@ -640,7 +640,7 @@ exit ${RTNSTS}
 <!--Image references-->
 [keygen]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/keygen.png
 [keys]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/keys.png
-[step_variables]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/step_variables.png
+[step_variables]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/step_variables.png
 [data_files]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/data_files.png
 [decompose]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/decompose.png
 [job_details]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/job_details.png
