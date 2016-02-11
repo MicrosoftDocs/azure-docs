@@ -85,7 +85,7 @@ When viewing your VM in the resource group you've created, scroll down to click 
 
 Click **+ Add** to add another endpoint, and in the default case, enter a name for the endpoint (in this example, **docker**), and 2376 for both private and public ports. Leave the protocol value showing **TCP**, and Click **OK** to create the endpoint.
 
-![](./media/virtual-machines-docker-with-portal/AddEndpointFormFilledOut.png)
+![](./media/virtual-machines-linux-classic-portal-use-docker/AddEndpointFormFilledOut.png)
 
 
 ## Test your Docker Client and Azure Docker Host
