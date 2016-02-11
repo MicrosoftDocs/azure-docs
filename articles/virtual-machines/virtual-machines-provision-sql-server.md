@@ -161,7 +161,7 @@ The following list provides additional resources for SQL Server in Azure virtual
 
 - [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md)
 
-- [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-security-considerations.md)
+- [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-security.md)
 
 ### High Availability and Disaster Recovery:
 - [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
