@@ -96,7 +96,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 13.	In the **Configuration Summary** dialog, click **Create**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image16.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image16.png)
 
 14.	In the **Creating Domain** dialog, check **Start Admin Server** and then click **Done**.
 
