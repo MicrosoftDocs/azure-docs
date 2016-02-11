@@ -87,7 +87,7 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 * [Tutorial: Set up a hybrid cluster with HPC Pack in Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
-* [Add Azure "burst" nodes to an HPC Pack head node in Azure](virtual-machines-hpcpack-cluster-node-burst.md)
+* [Add Azure "burst" nodes to an HPC Pack head node in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md)
 
 * [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
