@@ -154,7 +154,7 @@ You can use the Resource Explorer to capture the virtual machine, as an alternat
 
 	- From here, you can either find out the URL or download the VHD/template by right clicking on it.
 
-		![Storage Explorer template](./media/virtual-machines-windows-capture-image-resource-manager/StorageExplorer2.png)
+		![Storage Explorer template](./media/virtual-machines-windows-capture-image/StorageExplorer2.png)
 
 
 ## Deploy a new VM from the captured image
