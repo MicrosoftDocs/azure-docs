@@ -90,7 +90,7 @@ To deploy this configuration, use the following process:
 
 - Phase 4: Configure the SharePoint servers.
 
-	Configure the four SharePoint virtual machines for a new SharePoint farm. For the detailed configuration, see [Phase 4](virtual-machines-workload-intranet-sharepoint-phase4.md).
+	Configure the four SharePoint virtual machines for a new SharePoint farm. For the detailed configuration, see [Phase 4](virtual-machines-windows-ps-sp-intranet-ph4.md).
 
 - Phase 5: Create an AlwaysOn Availability Group.
 
