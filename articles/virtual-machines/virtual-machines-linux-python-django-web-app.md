@@ -20,7 +20,8 @@
 # Django Hello World web application on a Linux VM
 
 > [AZURE.SELECTOR]
-- [Windows](virtual-machines-python-django-web-app-windows-server.md)
+<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-python-django-web-app.md
+- [Windows](virtual-machines-windows-classic-python-django-web-app.md)
 - [Mac/Linux](virtual-machines-linux-python-django-web-app.md)
 
 <br>
@@ -47,7 +48,7 @@ A screenshot of the completed application is below:
 
 ## Creating and configuring an Azure virtual machine to host Django
 
-1. Follow the instructions given [here](virtual-machines-linux-tutorial-portal-rm.md) to create an Azure virtual machine of the *Ubuntu Server 14.04 LTS* distribution.  If you prefer, you can choose password authentication instead of SSH public key.
+1. Follow the instructions given [here](virtual-machines-linux-portal-create.md) to create an Azure virtual machine of the *Ubuntu Server 14.04 LTS* distribution.  If you prefer, you can choose password authentication instead of SSH public key.
 
 1. Edit the network security group to allow incoming http traffic to port 80 using the instructions [here](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
