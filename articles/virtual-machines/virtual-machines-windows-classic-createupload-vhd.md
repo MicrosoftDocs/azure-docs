@@ -185,7 +185,7 @@ For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://ms
 
 	- Under **VHD URL**, click the folder button to open the **Browse Cloud Storage** window. Find the .vhd file, and then click **Open**.
 
-    ![Select VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
+    ![Select VHD](./media/virtual-machines-windows-classic-createupload-vhd/Select_VHD.png)
 
 5.	In the **Create an image from a VHD** window, under **Operating System Family**, select your operating system. Check **I have run Sysprep on the virtual machine associated with this VHD** to verify that you generalized the operating system, and then click **OK**.
 
