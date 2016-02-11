@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
-- [CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+- [CLI - Template](virtual-machines-linux-extensions-configuration-samples.md)
 
 <br> 
 
