@@ -74,7 +74,7 @@ To deploy this configuration, use the following process:
 
 - Phase 4: Configure the web servers.
 
-	Create the web server virtual machines and add your line of business application to it. For the detailed configuration, see [Phase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md).
+	Create the web server virtual machines and add your line of business application to it. For the detailed configuration, see [Phase 4](virtual-machines-windows-ps-lob-ph4.md).
 
 - Phase 5: Configure a SQL Server AlwaysOn Availability Group.
 

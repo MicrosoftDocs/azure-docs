@@ -146,7 +146,7 @@ From a computer on your on-premises network:
 
 This diagram is the configuration resulting from the successful completion of this phase.
 
-![](./media/virtual-machines-workload-high-availability-LOB-application-phase4/workload-lobapp-phase4.png)
+![](./media/virtual-machines-windows-ps-lob-ph4/workload-lobapp-phase4.png)
 
 ## Next Step
 
