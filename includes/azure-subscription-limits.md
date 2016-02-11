@@ -1,7 +1,7 @@
 Resource|Default Limit|Maximum Limit
 ---|---|---
-Cores per [subscription](http://msdn.microsoft.com/library/azure/hh531793.aspx) <sup>1</sup>|20|10,000
-[Co-administrators](http://msdn.microsoft.com/library/azure/gg456328.aspx) per subscription|200|200
+Cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup>|20|10,000
+[Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription|200|200
 [Storage accounts](../articles/storage/storage-create-storage-account.md) per subscription|100|100
 [Cloud services](../articles/cloud-services/fundamentals-application-models.md#tellmecs) per subscription|20|200
 [Local networks](http://msdn.microsoft.com/library/jj157100.aspx) per subscription|10|500
