@@ -52,7 +52,7 @@ From the virtual machine that the operating system was installed to, complete th
 
 3.	The **System Preparation Tool** dialog box appears.
 
-	![Start Sysprep](./media/virtual-machines-create-upload-vhd-windows-server/sysprepgeneral.png)
+	![Start Sysprep](./media/virtual-machines-windows-classic-createupload-vhd/sysprepgeneral.png)
 
 4.  In the **System Preparation Tool**, select **Enter System Out of Box Experience (OOBE)** and make sure that **Generalize** is checked.
 
