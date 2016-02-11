@@ -210,4 +210,4 @@ After you upload the .vhd, you can add it as an image to the list of custom imag
 
 4. Once provisioning has completed, you will see your FreeBSD VM running in Azure.
 
-	![freebsd image in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
+	![freebsd image in azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
