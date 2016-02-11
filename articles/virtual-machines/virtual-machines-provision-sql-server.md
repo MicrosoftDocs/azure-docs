@@ -166,7 +166,7 @@ The following list provides additional resources for SQL Server in Azure virtual
 ### High Availability and Disaster Recovery:
 - [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
 
-- [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-backup-and-restore.md)
+- [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-br.md)
 
 ### SQL Server Workloads in Azure:
 - [SQL Server Business Intelligence in Azure Virtual Machines](virtual-machines-sql-server-business-intelligence.md)
