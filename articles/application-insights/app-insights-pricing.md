@@ -114,11 +114,6 @@ If throttling occurs, you'll see a notification warning that this has happened.
 * Open Settings/Quota and Pricing to see the Data Volume chart.
 * Or in Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
 
-*How can I reduce the amount of data my app sends?*
-
-* Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search.  Adaptive sampling is enabled by default, from version 2.0.0-beta3 of Application Insights SDK for ASP.NET.
-* [Switch off telemetry collectors](app-insights-configuration-with-applicationinsights-config.md) that you don't need.
-
 
 ### Tips for reducing your data rate
 
