@@ -138,7 +138,7 @@ You can use the Resource Explorer to capture the virtual machine, as an alternat
 
 8. Under the **capture** action button, you can set the values for capturing your image. Your filled values could look like the following.
 
-	![Resource Explorer capture](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerCaptureAction.png)
+	![Resource Explorer capture](./media/virtual-machines-windows-capture-image/ArmExplorerCaptureAction.png)
 
 	Click on the **capture** action button to capture your virtual machine's image. This creates a new VHD for the image as well as a JSON template file, which as of now are not accessible via either the Resource Explorer or the [Azure portal](https://portal.azure.com).
 
