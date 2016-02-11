@@ -26,12 +26,12 @@ This article shows you how to deploy a Microsoft HPC Pack cluster on Azure with 
 
 NAMD (for Nanoscale Molecular Dynamics program) is a parallel molecular dynamics package designed for high-performance simulation of large biomolecular systems containing up to millions of atoms, such as viruses, cell structures, and large proteins. NAMD scales to hundreds of cores for typical simulations and to more than 500,000 cores for the largest simulations.
 
-Microsoft HPC Pack provides features to run a variety of large-scale HPC and parallel applications, including MPI applications, on clusters of Microsoft Azure virtual machines. Starting in Microsoft HPC Pack 2012 R2 Update 2, HPC Pack also supports running Linux HPC applications on Linux compute node VMs deployed in an HPC Pack cluster. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-cluster-hpcpack.md) for an introduction.
+Microsoft HPC Pack provides features to run a variety of large-scale HPC and parallel applications, including MPI applications, on clusters of Microsoft Azure virtual machines. Starting in Microsoft HPC Pack 2012 R2 Update 2, HPC Pack also supports running Linux HPC applications on Linux compute node VMs deployed in an HPC Pack cluster. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for an introduction.
 
 
 ## Prerequisites
 
-* **HPC Pack cluster with Linux compute nodes** - See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-cluster-hpcpack.md) for the prerequisites and steps to deploy an HPC Pack cluster with Linux compute nodes on Azure by using an Azure PowerShell script and HPC Pack images in the Azure Marketplace.
+* **HPC Pack cluster with Linux compute nodes** - See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for the prerequisites and steps to deploy an HPC Pack cluster with Linux compute nodes on Azure by using an Azure PowerShell script and HPC Pack images in the Azure Marketplace.
 
     Following is a sample XML configuration file you can use with the script to deploy an Azure-based HPC Pack cluster consisting of a Windows Server 2012 R2 head node and 4 size Large (A3) CentOS 6.6 compute nodes. Substitute appropriate values for your subscription and service names.
 
@@ -127,7 +127,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 
 ## Set up a file share for Linux nodes
 
-Now set up a standard SMB share on a folder on the head node, and mount the shared folder on all Linux nodes to allow the Linux nodes to access NAMD files with a common path. See the file sharing options and steps in [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](virtual-machines-linux-cluster-hpcpack.md). (We recommend mounting a shared folder on the head node in this article because CentOS 6.6 Linux nodes don’t currently support the Azure File service, which provides similar features. For more about mounting an Azure File share, see [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).)
+Now set up a standard SMB share on a folder on the head node, and mount the shared folder on all Linux nodes to allow the Linux nodes to access NAMD files with a common path. See the file sharing options and steps in [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md). (We recommend mounting a shared folder on the head node in this article because CentOS 6.6 Linux nodes don’t currently support the Azure File service, which provides similar features. For more about mounting an Azure File share, see [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).)
 
 1.	Create a folder on the head node, and share it to everyone by setting Read/Write privileges. In this example, \\\\CentOS66HN\Namd is the name of the folder, where CentOS66HN is the host name of the head node.
 
