@@ -1157,5 +1157,5 @@ To add in IP Address, see the [Appendix](#appendix-migrating-a-multisite-alwayso
 [21]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_11.png
 [22]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_12.png
 [23]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_13.png
-[24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
+[24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
