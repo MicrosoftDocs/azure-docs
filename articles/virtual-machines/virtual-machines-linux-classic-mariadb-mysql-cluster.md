@@ -35,7 +35,7 @@ This topic performs the following steps:
 4. Use the Azure Load Balancer to balance the load for the 3 nodes
 5. To minimize repetitive work, create a VM image containing MariaDB+Galera and use it to create the other cluster VMs.
 
-![Architecture](./media/virtual-machines-mariadb-cluster/Setup.png)
+![Architecture](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
 
 > [AZURE.NOTE]  This topic uses the [Azure CLI] tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, check out this link for the [Azure CLI command reference]. You will also need to [create an SSH key for authentication] and make note of the **.pem file location**.
 
