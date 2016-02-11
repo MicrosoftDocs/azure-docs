@@ -157,4 +157,4 @@ To provide redundancy, put two or more similarly configured VMs in the same avai
 
 [Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-choices-create-vm.md)
 
-[Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md)
+[Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-creation-choices.md)

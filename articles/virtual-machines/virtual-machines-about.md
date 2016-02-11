@@ -42,7 +42,7 @@ Because those tutorials help you create a virtual machine quickly, they show you
 
 [Different ways to create a Linux virtual machine](virtual-machines-linux-choices-create-vm.md)
 
-[Different ways to create a Windows virtual machine](virtual-machines-windows-choices-create-vm.md)
+[Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md)
 
 If you're just starting to learn about Azure virtual machines, be sure to also check out the [Frequently asked questions](virtual-machines-questions.md).
 
