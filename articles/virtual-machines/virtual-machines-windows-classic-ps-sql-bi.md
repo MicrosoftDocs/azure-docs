@@ -130,7 +130,7 @@ Analysis Services, Reporting Services, SQL Server Database Engine, and data sour
 
 - Data sources on a second VM. The second VM includes SQL Server Database Engine as a data source.
 
-![bi  iaas scenario with 2 virtual machines](./media/virtual-machines-sql-server-business-intelligence/IC650109.gif)
+![bi  iaas scenario with 2 virtual machines](./media/virtual-machines-windows-classic-ps-sql-bi/IC650109.gif)
 
 ### Mixed Azure – data on Azure SQL database
 
