@@ -56,7 +56,7 @@ A cloud-only virtual network is not connected to an on-premises network. If you 
 
 A cross-premises virtual network is connected to an on-premises network with a site-to-site VPN or ExpressRoute connection. If you want to create a dev/test environment that mimics the final configuration and experiment with accessing the SharePoint server and performing remote administration over a VPN connection, see [Set up a SharePoint intranet farm in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/CreateSPFarmHybridCloud.png)
+![](./media/virtual-machines-windows-sp-intranet/CreateSPFarmHybridCloud.png)
 
 Your next step is to create a high-availability intranet SharePoint farm in Azure.
 
