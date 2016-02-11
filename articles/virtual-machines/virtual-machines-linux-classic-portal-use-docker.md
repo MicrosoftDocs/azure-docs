@@ -32,7 +32,7 @@ The first step requires an Azure VM from a Linux image that supports the Docker 
 
 > [AZURE.NOTE] Currently, only Ubuntu 14.04 LTS images more recent than July 2014 support the Docker VM Extension.
 
-![Create a new Ubuntu Image](./media/virtual-machines-docker-with-portal/ChooseUbuntu.png)
+![Create a new Ubuntu Image](./media/virtual-machines-linux-classic-portal-use-docker/ChooseUbuntu.png)
 
 ## Create Docker Certificates
 
@@ -59,33 +59,33 @@ At the command line, use **`base64`** or another favorite encoding tool to creat
 To add the Docker VM Extension, locate the VM instance you created and scroll down to **Extensions** and click it to bring up VM Extensions, as shown below.
 > [AZURE.NOTE] This functionality is supported in the preview portal only: https://portal.azure.com/
 
-![](./media/virtual-machines-docker-with-portal/ClickExtensions.png)
+![](./media/virtual-machines-linux-classic-portal-use-docker/ClickExtensions.png)
 ### Add an Extension
 Click the **+ Add** to display the possible VM Extensions you can add to this VM.
 
-![](./media/virtual-machines-docker-with-portal/ClickAdd.png)
+![](./media/virtual-machines-linux-classic-portal-use-docker/ClickAdd.png)
 ### Select the Docker VM Extension
 Choose the Docker VM Extension, which brings up the Docker description and important links, and then click **Create** at the bottom to begin the installation procedure.
 
-![](./media/virtual-machines-docker-with-portal/ChooseDockerExtension.png)
+![](./media/virtual-machines-linux-classic-portal-use-docker/ChooseDockerExtension.png)
 
-![](./media/virtual-machines-docker-with-portal/CreateButtonFocus.png)
+![](./media/virtual-machines-linux-classic-portal-use-docker/CreateButtonFocus.png)
 ### Add your Certificate and Key Files:
 
 In the form fields, enter the base64-encoded versions of your CA Certificate, your Server Certificate, and your Server Key, as shown in the following graphic.
 
-![](./media/virtual-machines-docker-with-portal/AddExtensionFormFilled.png)
+![](./media/virtual-machines-linux-classic-portal-use-docker/AddExtensionFormFilled.png)
 
 > [AZURE.NOTE] Note that (as in the preceding image) the 2376 is filled in by default. You can enter any endpoint here, but the next step will be to open up the matching endpoint. If you change the default, make sure to open up the matching endpoint in the next step.
 
 ## Add the Docker Communication Endpoint
 When viewing your VM in the resource group you've created, scroll down to click **Endpoints** to view the endpoints on the VM as shown here.
 
-![](./media/virtual-machines-docker-with-portal/AddingEndpoint.png)
+![](./media/virtual-machines-linux-classic-portal-use-docker/AddingEndpoint.png)
 
 Click **+ Add** to add another endpoint, and in the default case, enter a name for the endpoint (in this example, **docker**), and 2376 for both private and public ports. Leave the protocol value showing **TCP**, and Click **OK** to create the endpoint.
 
-![](./media/virtual-machines-docker-with-portal/AddEndpointFormFilledOut.png)
+![](./media/virtual-machines-linux-classic-portal-use-docker/AddEndpointFormFilledOut.png)
 
 
 ## Test your Docker Client and Azure Docker Host
