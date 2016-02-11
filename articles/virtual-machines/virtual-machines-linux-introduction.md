@@ -83,7 +83,7 @@ Azure provides the ability to capture the state of an existing virtual machine i
 
 3. Click *Capture* in the Azure classic portal or use the Powershell or CLI tools to capture the virtual machine as an image.
 
- - See: [How to Capture a Linux Virtual Machine to Use as a Template](virtual-machines-linux-capture-image.md)
+ - See: [How to Capture a Linux Virtual Machine to Use as a Template](virtual-machines-linux-classic-capture-image.md)
 
 
 ## Attaching Disks

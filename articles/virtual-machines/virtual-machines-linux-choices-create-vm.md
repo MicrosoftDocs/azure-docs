@@ -86,7 +86,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines]: virtual-machines-ps-create-preconfigure-linux-vms.md
 
 [How to Create a Custom Virtual Machine Running Linux in Azure]: virtual-machines-linux-create-custom.md
-[How to Capture a Linux Virtual Machine to Use as a Template with the CLI]: virtual-machines-linux-capture-image.md
+[How to Capture a Linux Virtual Machine to Use as a Template with the CLI]: virtual-machines-linux-classic-capture-image.md
 
 [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System]: virtual-machines-linux-create-upload-vhd.md
 
