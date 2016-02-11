@@ -100,7 +100,7 @@ To create a new Windows-based virtual machine in Azure, use the instructions in
 
 ## Create a Linux-based VM
 
-Use the instructions in [Create and preconfigure a Linux virtual machine using Azure Powershell](virtual-machines-ps-create-preconfigure-linux-vms.md) to create a new Linux-based virtual machine in Azure that is preconfigured:
+Use the instructions in [Create and preconfigure a Linux virtual machine using Azure Powershell](virtual-machines-linux-classic-createpowershell.md) to create a new Linux-based virtual machine in Azure that is preconfigured:
 
 - With additional disks.
 - As a member of an existing load-balanced set.

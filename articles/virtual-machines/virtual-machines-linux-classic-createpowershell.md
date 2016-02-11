@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [PowerShell](virtual-machines-ps-create-preconfigure-linux-vms.md)
+- [PowerShell](virtual-machines-linux-classic-createpowershell.md)
 
 <br>
 

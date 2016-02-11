@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Azure classic portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
 - [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
-- [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
+- [PowerShell - Linux](virtual-machines-linux-classic-createpowershell.md)
 
 <br>
 
@@ -34,7 +34,7 @@ These steps show you how to customize a set of Azure PowerShell commands that cr
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
-For the companion topic to configure Linux-based virtual machines, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](virtual-machines-ps-create-preconfigure-linux-vms.md).
+For the companion topic to configure Linux-based virtual machines, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](virtual-machines-linux-classic-createpowershell.md).
 
 
 ## Step 1: Install Azure PowerShell
