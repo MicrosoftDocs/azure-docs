@@ -136,7 +136,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 3. A browser window opens and prompts you to download a .publishsettings file. It contains information and a certificate for your Microsoft Azure subscription.
 
-	![Browser download page](./media/virtual-machines-create-upload-vhd-windows-server/Browser_download_GetPublishSettingsFile.png)
+	![Browser download page](./media/virtual-machines-windows-classic-createupload-vhd/Browser_download_GetPublishSettingsFile.png)
 
 3. Save the .publishsettings file.
 
