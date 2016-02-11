@@ -25,7 +25,7 @@
 
 [MySQL](http://www.mysql.com) is a popular open source, SQL database. Using the [Azure classic portal](http://manage.windowsazure.com), you can create a virtual machine running Windows Server 2012 R2 from the Image Gallery. You can then install and configure it as a MySQL Server.
 
-For instructions on installing MySQL on Linux, refer to: [How to install MySQL on Azure](virtual-machines-linux-install-mysql.md).
+For instructions on installing MySQL on Linux, refer to: [How to install MySQL on Azure](virtual-machines-linux-mysql-install.md).
 
 This tutorial shows you how to:
 
