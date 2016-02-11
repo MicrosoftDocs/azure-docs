@@ -145,7 +145,7 @@ A self-signed certificate was created on the VM when the VM was provisioned. The
 
 	1. From the Azure classic portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
 	
-		![connect to azure virtual machine](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
+		![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
 	
 		For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
 		
@@ -195,7 +195,7 @@ To use the Windows PowerShell script to configure the report server, complete th
 
 1. From the Azure classic portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
 
-	![connect to azure virtual machine](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
+	![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
 
 	For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
 	
@@ -336,7 +336,7 @@ To use Windows PowerShell to configure the report server, complete the following
 
 1. From the Azure classic portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
 
-	![connect to azure virtual machine](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
+	![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
 
 	For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
 
@@ -559,7 +559,7 @@ If you do not want to run the PowerShell script to configure the report server, 
 
 1. From the Azure classic portal, select the VM and click connect. Use the user name and password you configured when you created the VM.
 
-	![connect to azure virtual machine](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif)
+	![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
 
 1. Run Windows update and install updates to the VM. If a restart of the VM is required, restart the VM and reconnect to the VM from the Azure classic portal.
 
