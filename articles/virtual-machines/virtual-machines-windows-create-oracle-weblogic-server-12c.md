@@ -92,7 +92,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 12.	In the **Select Optional Configuration** dialog, do not select any options, and then click **Next**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image15.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image15.png)
 
 13.	In the **Configuration Summary** dialog, click **Create**.
 
