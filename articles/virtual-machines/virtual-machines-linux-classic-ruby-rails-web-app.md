@@ -169,7 +169,7 @@ To use Azure services from your Ruby application, see:
 
 [vmlist]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
 
-[endpoints]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png
+[endpoints]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/endpoints.png
 
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
