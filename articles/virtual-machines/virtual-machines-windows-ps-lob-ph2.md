@@ -191,7 +191,7 @@ Next, add a user account to manage the SQL Server virtual machines.
 
 This diagram shows the configuration resulting from the successful completion of this phase, with placeholder computer names.
 
-![](./media/virtual-machines-workload-high-availability-LOB-application-phase2/workload-lobapp-phase2.png)
+![](./media/virtual-machines-windows-ps-lob-ph2/workload-lobapp-phase2.png)
 
 ## Next step
 
