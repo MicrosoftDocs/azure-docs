@@ -58,7 +58,7 @@ In all of the above articles, you can easily use an existing Azure image to crea
 
 ### Use Your Own Image
 
-Use an image based on an existing Azure virtual machine by *capturing* that VM, or upload an image of your own, stored in a virtual hard disk (VHD). For classic deployment model, see [How to Capture a Linux Virtual Machine to Use as a Template with the CLI][] and [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System][]. For Resource Manager deployment model, see [How to capture a Linux virtual machine as a Resource Manager template](virtual-machines-linux-capture-image-resource-manager.md).
+Use an image based on an existing Azure virtual machine by *capturing* that VM, or upload an image of your own, stored in a virtual hard disk (VHD). For classic deployment model, see [How to Capture a Linux Virtual Machine to Use as a Template with the CLI][] and [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System][]. For Resource Manager deployment model, see [How to capture a Linux virtual machine as a Resource Manager template](virtual-machines-linux-capture-image.md).
 
 ## Next Steps
 
