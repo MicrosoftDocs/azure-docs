@@ -105,7 +105,7 @@ Secondary | Readable Secondary | Yes
 
 You have successfully configured a SQL Server AlwaysOn Availability Group for your application databases.
 
-![](./media/virtual-machines-workload-high-availability-LOB-application-phase5/workload-lobapp-phase4.png)
+![](./media/virtual-machines-windows-ps-lob-ph5/workload-lobapp-phase4.png)
 
 You are now ready to begin rolling out this new application to your intranet users.
 
