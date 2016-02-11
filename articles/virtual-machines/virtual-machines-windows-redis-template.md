@@ -34,7 +34,7 @@ This template utilizes a “t-shirt size” concept in order to specify a “Sma
 
 The Redis Cluster template for the “Medium” t-shirt size creates this configuration:
 
-![cluster-architecture](media/virtual-machines-redis-template/cluster-architecture.png)
+![cluster-architecture](media/virtual-machines-windows-redis-template/cluster-architecture.png)
 
 Before diving into more details related to Azure Resource Manager and the template we will use for this deployment, make sure you have Azure PowerShell or the Azure CLI configured correctly.
 
