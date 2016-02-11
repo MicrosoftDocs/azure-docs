@@ -64,7 +64,7 @@ There are three sources of data:
 The main categories are:
 
 * [Web server telemetry](app-insights-asp-net.md) - HTTP requests.  Uri, time taken to process the request, response code, client IP address. Session id.
-* [Web pages](articles/app-insights-javascript.md) - Page, user and session counts. Page load times. Exceptions.
+* [Web pages](app-insights-javascript.md) - Page, user and session counts. Page load times. Exceptions. Ajax calls.
 * Performance counters - Memory, CPU, IO, Network occupancy.
 * Client and server context - OS, locale, device type, browser, screen resolution.
 * [Exceptions](app-insights-asp-net-exceptions.md) and crashes - **stack dumps**, build id, CPU type. 
@@ -191,7 +191,7 @@ Your action  | Data classes collected (see next table)
 [Add Application Insights SDK to a .NET web project][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users
 [Install Status Monitor on IIS][redfield]<br/>[Add AI Extension to Azure VM or Web App][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
 [Add Application Insights SDK to a Java web app][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
-[Add JavaScript SDK to web page][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf
+[Add JavaScript SDK to web page][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax
 [Add SDK to Windows Store app][windows]|DeviceContext<br/>Users<br/>Crash data
 [Define default properties][apiproperties]|**Properties** on all standard and custom events
 [Call TrackMetric][api]|Numeric values<br/>**Properties**
@@ -218,6 +218,7 @@ Metrics | Metric name and value
 Events | Event name and value
 PageViews | URL and page name or screen name
 Client perf | URL/page name, browser load time
+Ajax | HTTP calls from web page to server
 Requests |URL, duration, response code
 Dependencies|Type(SQL, HTTP, ...), connection string or URI, sync/async, duration, success, SQL statement (with Status Monitor)
 **Exceptions** | Type, **message**, call stacks, source file and line number, thread id
