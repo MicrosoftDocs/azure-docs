@@ -152,7 +152,7 @@ If you have promoted your VM to a domain controller in a new Active Directory fo
 
 Make sure that the account name is a name that the virtual machine can verify as a valid account, and that the password is correct.
 
-If you need to change the password of the local administrator account, see [How to reset a password or the Remote Desktop service for Windows virtual machines](virtual-machines-windows-reset-password.md).
+If you need to change the password of the local administrator account, see [How to reset a password or the Remote Desktop service for Windows virtual machines](virtual-machines-windows-reset-rdp.md).
 
 <a id="rdpconnect"></a>
 ### Remote Desktop connection error: This computer can't connect to the remote computer.
@@ -172,7 +172,7 @@ If none of these errors occurred and you still could not connect to the VM via R
 
 [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 
-[How to reset a password or the Remote Desktop service for Windows virtual machines](virtual-machines-windows-reset-password.md)
+[How to reset a password or the Remote Desktop service for Windows virtual machines](virtual-machines-windows-reset-rdp.md)
 
 [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 

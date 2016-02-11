@@ -29,11 +29,11 @@ If you can't connect to a Windows virtual machine because of a forgotten passwor
 To reset the Remote Desktop service in the [Azure portal](https://portal.azure.com), click **Browse all** > **Virtual machines (classic)** > *your Windows virtual machine* > **Reset Remote Access**. The following page appears.
 
 
-![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
+![](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)
 
 To reset the name and password of the local administrator account in the [Azure portal](https://portal.azure.com), click **Browse all** > **Virtual machines (classic)** > *your Windows virtual machine* > **All settings** > **Password reset**. The following page appears.
 
-![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
+![](./media/virtual-machines-windows-reset-rdp/Portal-PW-Reset-Windows.png)
 
 
 ## VMAccess extension and PowerShell
