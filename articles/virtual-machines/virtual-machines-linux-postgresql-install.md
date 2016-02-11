@@ -135,7 +135,7 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 
 	You should receive the following output:
 
-![image](./media/virtual-machines-linux-postgresql/no1.png)
+![image](./media/virtual-machines-linux-postgresql-install/no1.png)
 
 ## Set up PostgreSQL
 
