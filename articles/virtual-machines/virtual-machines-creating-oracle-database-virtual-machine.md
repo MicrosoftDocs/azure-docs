@@ -190,7 +190,7 @@ The **Oracle Database with Advanced Options bundle** includes license-included i
 ##Additional resources
 Now that you’ve set up your virtual machine and created your database, see the following topics for additional information.
 
--	[Oracle virtual machine images - Miscellaneous considerations](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md)
+-	[Oracle virtual machine images - Miscellaneous considerations](virtual-machines-windows-classic-oracle-considerations.md)
 
 -	[Oracle Database 12c Documentation Library](http://www.oracle.com/pls/db1211/homepage)
 

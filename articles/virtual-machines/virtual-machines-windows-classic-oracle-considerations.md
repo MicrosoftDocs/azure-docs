@@ -48,11 +48,11 @@ Although the simplest approach is to attach a single disk to the virtual machine
 Consider two different approaches for attaching multiple disks based on whether you want to prioritize the performance of read operations or write operations for your database:
 
 - **Oracle ASM on its own** is likely to result in better write operation performance, but worse IOPS for read operations as compared to the approach using Windows Server 2012 storage pools. The following illustration logically depicts this arrangement.  
-	![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image2.png)
+	![](media/virtual-machines-windows-classic-oracle-considerations/image2.png)
 
 - **Oracle ASM with Windows Server 2012 storage pools** is likely to result in better read operation IOPS performance if your database primarily performs read operations, or if you value the performance of read operations over write operations. An image based on the Windows Server 2012 operating system is required. See [Deploy storage spaces on a stand-alone server](http://technet.microsoft.com/library/jj822938.aspx) for more information about storage pools. In this arrangement, two equal subsets of attached disks are first “striped” together as physical disks in two storage pool volumes, and then the volumes are added to an ASM disk group. The following illustration logically depicts this arrangement.  
 
-	![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image3.png)  
+	![](media/virtual-machines-windows-classic-oracle-considerations/image3.png)  
 
 >[AZURE.IMPORTANT] Evaluate the trade-off between write performance and read performance on a case-by-case basis. Your actual results can vary when you use these approaches.
 

@@ -30,7 +30,7 @@ See [List of Oracle virtual machine images](virtual-machines-oracle-list-oracle-
 
 ## Considerations for Windows-based virtual machines
 
-See [Miscellaneous considerations for Oracle virtual machine images](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md) to understand limitations for Oracle software on Windows Server-based Azure virtual machines.
+See [Miscellaneous considerations for Oracle virtual machine images](virtual-machines-windows-classic-oracle-considerations.md) to understand limitations for Oracle software on Windows Server-based Azure virtual machines.
 
 ## Oracle database virtual machine
 
