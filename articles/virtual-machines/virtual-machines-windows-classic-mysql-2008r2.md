@@ -123,7 +123,7 @@ To test your remote connection to the MySQL Server service running on the Azure 
 1.	In the Azure classic portal, click **Virtual Machines**, click the name of your MySQL server virtual machine, and then click **Dashboard**.
 2.	From the virtual machine dashboard, note the **DNS Name** value under the **Quick Glance** section. Here is an example:
 
-	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_DNSName.png)
+	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_DNSName.png)
 
 3.	From a local computer running MySQL or the MySQL client, run the following command to log in as a MySQL user.
 
