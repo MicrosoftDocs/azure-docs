@@ -11,7 +11,7 @@
 <tags
      ms.service="iot-suite"
      ms.devlang="na"
-     ms.topic="article"
+     ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="11/27/2015"
