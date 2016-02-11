@@ -29,7 +29,11 @@ Azure offers you great cloud solutions, built on virtual machines&mdash;based on
 
 **But that's old news.** The *new* news is that Azure offers you even more Docker goodness:
 
+<<<<<<< HEAD
 - [Many](virtual-machines-docker-with-xplat-cli-install.md) [different](virtual-machines-docker-with-portal.md) [ways](virtual-machines-linux-classic-docker-quickstart.md) to [create Docker hosts](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) for containers to suit your situation
+=======
+- [Many](virtual-machines-docker-with-xplat-cli-install.md) [different](virtual-machines-linux-classic-portal-use-docker.md) [ways](virtual-machines-linux-classic-docker-quickstart.md) to [create Docker hosts](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) for containers to suit your situation
+>>>>>>> vm-refactor-staging
 - [Azure Resource Manager](resource-group-overview.md) and [resource group templates](resource-group-authoring-templates.md) to simplify deploying and updating complex distributed applications
 - integration with a large array of both proprietary and open-source configuration management tools
 
@@ -191,7 +195,7 @@ Docker on Microsoft Azure:
 - [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
 - [Azure Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-xplat-cli-install.md)
-- [Using the Docker VM Extension from the Azure portal](virtual-machines-docker-with-portal.md)
+- [Using the Docker VM Extension from the Azure portal](virtual-machines-linux-classic-portal-use-docker.md)
 - [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
 - [How to use docker-machine on Azure](virtual-machines-linux-classic-docker-machine.md)
 - [How to use docker with swarm on Azure](virtual-machines-linux-docker-swarm.md)

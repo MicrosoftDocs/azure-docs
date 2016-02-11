@@ -255,8 +255,8 @@ This section starts with a blog entry containing a series of videos on [Video: A
 1. Docker
 	- [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
 	- [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-linux-classic-cli-use-docker.md)
-	- [Using the Docker VM Extension from the Azure portal](virtual-machines-docker-with-portal.md)
-	- [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
+	- [Using the Docker VM Extension from the Azure portal](virtual-machines-linux-classic-portal-use-docker.md)
+    - [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
 	- [How to use docker-machine on Azure](virtual-machines-linux-classic-docker-machine.md)
 	- [How to use docker with swarm on Azure](virtual-machines-linux-docker-swarm.md)
 	- [Get Started with Docker and Compose on Azure](virtual-machines-linux-docker-compose-quickstart.md)
