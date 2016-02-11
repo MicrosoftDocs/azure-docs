@@ -24,7 +24,7 @@
 - [Portal - Windows](virtual-machines-windows-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 - [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [Portal - Linux](virtual-machines-linux-portal-create.md)
 - [CLI](virtual-machines-linux-tutorial.md)
 
 Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows to quickly create an Ubuntu Server VM running in Azure, connect to it using **ssh**, and create and mount a new disk. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](virtual-machines-linux-create-upload-vhd.md).
