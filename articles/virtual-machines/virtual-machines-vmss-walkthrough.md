@@ -20,7 +20,7 @@
 # Automatically scale machines in a Virtual Machine Scale Set
 
 > [AZURE.SELECTOR]
-- [Azure CLI](virtual-machines-vmss-walkthrough-cli.md)
+- [Azure CLI](virtual-machines-linux-cli-vmss-create.md)
 - [Azure PowerShell](virtual-machines-vmss-walkthrough.md)
 
 <br>
