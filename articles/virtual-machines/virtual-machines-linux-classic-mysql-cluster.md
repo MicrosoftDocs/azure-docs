@@ -303,7 +303,7 @@ After a few seconds, and using `sudo crm_mon –L`, verify that one of your node
 
 The following screenshot shows `crm_mon` with one node stopped (exit using Control-C)
 
-![crm_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
+![crm_mon node stopped](media/virtual-machines-linux-classic-mysql-cluster/image002.png)
 
 And this screenshot shows both nodes, with one master and one slave:
 
