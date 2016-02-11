@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Setting up Azure Active Directory for self service application access management| Microsoft Azure"
-	description="overview of Self-service group management that enables users to create and manage security groups in Azure Active Directory and offers users the possibility to request security group memberships"
+	description="overview of Self-service group management that enables users to create and manage security groups or Office groups in Azure Active Directory and offers users the possibility to request security group or Office group memberships"
 	services="active-directory"
 	documentationCenter=""
   authors="curtand"
@@ -13,13 +13,13 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.topic="get-started-article"
+	ms.date="02/10/2016"
 	ms.author="curtand"/>
 
-# Setting up Azure Active Directory for self service application access management
+# Setting up Azure Active Directory for self service group management
 
-Self-service group management enables users to create and manage security groups in Azure Active Directory (Azure AD) and offers users the possibility to request security group memberships, which can subsequently be approved or denied by the owner of the group. By using self-service group management features, the day-to-day control of group membership can be delegated to people who understand the business context for that membership. Self service group management features are available only for security groups and Office 365 groups, not for mail-enabled security groups or distribution lists.
+Self-service group management enables users to create and manage security groups or Office groups in Azure Active Directory (Azure AD) and offers users the possibility to request security group or Office group memberships, which can subsequently be approved or denied by the owner of the group. By using self-service group management features, the day-to-day control of group membership can be delegated to people who understand the business context for that membership. Self service group management features are available only for security groups and Office 365 groups, not for mail-enabled security groups or distribution lists.
 
 Self-service group management is currently comprised of two essential scenarios: delegated group management and self-service group management.
 
@@ -31,9 +31,9 @@ Self-service group management is currently comprised of two essential scenarios:
 
 ## Making a group available for end user self-service
 
-In the Azure portal, on the **Configure** tab, set the **Delegated group management** switch to Enabled, and then set the **Users can create groups switch** to Enabled.
+In the Azure portal, on the **Configure** tab, set the **Delegated group management** switch to Enabled, and then set the **Users can create security groups switch** or the **Users can create Office groups switch** to Enabled.
 
-When the **Users can create groups** switch is set to **Enabled**, all users in your directory are allowed to create new security groups and add members to these groups. These new groups would also show up in the Access Panel for all other users, and that other users can create requests to join these groups if the policy setting on the group allows this. If this switch is set to Disabled, users cannot create groups and cannot change existing groups that they are an owner of, but they can still manage the memberships of those groups and approve requests from other users to join their groups.
+When the **Users can create security groups** switch is set to **Enabled**, all users in your directory are allowed to create new security groups and add members to these groups. These new groups would also show up in the Access Panel for all other users, and that other users can create requests to join these groups if the policy setting on the group allows this. If this switch is set to Disabled, users cannot create groups and cannot change existing groups that they are an owner of, but they can still manage the memberships of those groups and approve requests from other users to join their groups.
 
 You can also use the **Users who can use self-service for security groups** switch to achieve a more fine-grained access control over the self-service group management capabilities for your users. When the **Users can create groups** switch is set to Enabled, all users in your directory are allowed to create new security groups and add members to these groups. By also setting the **Users who can use self-service for security groups** switch to Some, you are restricting security group management to only a limited group of users. When this switch is set to Some, a group called SSGMSecurityGroupsUsers is created in your directory and only those users whom you have made members of this group can then create new security groups and add members to these groups within your directory. By setting the **Users who can use self-service for security groups** switch to All, you enable all users in your directory to create new security groups.
 

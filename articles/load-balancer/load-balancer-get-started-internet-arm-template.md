@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/18/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Get started creating an Internet facing load balancer using an ARM template
@@ -38,9 +38,9 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
-2. Run the **New-AzureRmResourceGroup** cmdlet to create a resource group using the template.
+2. Run the **New-AzureRmResourceGroupDeployment** cmdlet to create a resource group using the template.
 
-		New-AzureRmResourceGroup -Name TestRG -Location uswest `
+		New-AzureRmResourceGroupDeployment -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'	
 
