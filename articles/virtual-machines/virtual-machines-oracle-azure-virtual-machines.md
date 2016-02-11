@@ -54,4 +54,4 @@ See [Miscellaneous considerations for Oracle virtual machine images](virtual-mac
 
 ## Oracle GoldenGate
 
-[Configuring Oracle GoldenGate for Azure](virtual-machines-configuring-oracle-goldengate.md) steps you through database and replication setup.
+[Configuring Oracle GoldenGate for Azure](virtual-machines-windows-classic-configure-oracle-goldengate.md) steps you through database and replication setup.
