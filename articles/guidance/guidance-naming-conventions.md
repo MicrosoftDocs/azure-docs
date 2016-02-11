@@ -42,7 +42,7 @@ for public-facing services that will require easy separation and identification 
 separation of billing records).
 
 - Environment is the name that describes the deployment lifecycle of the applications or services,
-such as Dev, Lab, or Prod.
+such as Dev, QA, or Prod.
 
 | Company | Department | Product Line or Service | Environment | Full Name  |
 ----------| ---------- | ----------------------- | ----------- | ---------- |
@@ -81,32 +81,48 @@ or pattern must adhere to the requisite naming rules and scope.  For example, wh
 name (and is thus required to be unique across all of Azure), the name of a VNET is scoped to the Resource Group that
 it is created within.
 
+In general, avoid having any special characters (`-` or `_`) as the first or last character in any name, as these will
+fail most validation rules.
+
 | Service Group | Service or Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | ------------- | ----------------- | ----- | ------ | ------ | ---------------- | ----------------- | ------- |
-| Resource Group | Resource Group | TODO | TODO | TODO | TODO | TODO | TODO
-| Resource Group | Availability Set | TODO | TODO | TODO | TODO | TODO | TODO
-| Storage | Storage account name | TODO | 3-24	| Lower case | Alphanumeric | `<service short name>-<type>-<number>` | `awesomegame-data-001` |
-| Storage | Blob name | TODO | 1-1024 | Case sensitive | Any URL char | `<variable based on blob usage>` | `<variable based on blob usage>` |
-| Storage | Container name | TODO | 3-63 |	Lower case | Alphanumeric and dash | `<context>` | `logs` |
-| Storage | Queue name | TODO | 3-63 | Lower case | Alphanumeric and dash | `<service short name>-<context>-<num>` | `awesomeservice-messages-001` |
-| Storage | Table name | TODO | 3-63 |Case insensitive | Alphanumeric | `<service short name>-<context>` | `awesomeservice-logs` |
-| Storage | File name | TODO | 3-63 | Lower case | Alphanumeric | `<variable based on blob usage>` | `<variable based on blob usage>` |
-| Networking | Virtual Network (VNet) | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO |
-| Networking | Subnet | Parent VNet | TODO | Case-insensitive | Alphanumeric, underscore, and hyphen | TODO | TODO |
-| Networking | Network Interface | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO |
-| Networking | Network Security Group | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO |
-| Networking | Network Security Group rule | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO |
-| Networking | Public IP Address | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO
+| Resource Group | Resource Group | Global | 1-64 | Case insensitive | Alphanumeric, underscore, and hyphen | `<service short name>-<environment>-rg` | `profx-prod-rg` |
+| Resource Group | Availability Set | Resource Group | 1-80 | Case insensitive | Alphanumeric, underscore, and hyphen | `<service-short-name>-<context>-as` | `profx-sql-as` |
+| General | Tag | Associated Entity | 512 (name), 256 (value) | Case insensitive | Alphanumeric | `"key" : "value"` | `"department" : "Central IT"` |
+| Storage | Storage account name | Global | 3-24 | Lower case | Alphanumeric | `<service short name><type><number>` | `awesomegamedata001` |
+| Storage | Container name | Storage account | 3-63 |	Lower case | Alphanumeric and dash | `<context>` | `logs` |
+| Storage | Blob name | Container | 1-1024 | Case sensitive | Any URL char | `<variable based on blob usage>` | `<variable based on blob usage>` |
+| Storage | Queue name | Storage account | 3-63 | Lower case | Alphanumeric and dash | `<service short name>-<context>-<num>` | `awesomeservice-messages-001` |
+| Storage | Table name | Storage account | 3-63 |Case insensitive | Alphanumeric | `<service short name>-<context>` | `awesomeservice-logs` |
+| Storage | File name | Storage account | 3-63 | Lower case | Alphanumeric | `<variable based on blob usage>` | `<variable based on blob usage>` |
+| Networking | Virtual Network (VNet) | Resource Group | 2-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<service short name>-[section]-vnet` | `profx-vnet` |
+| Networking | Subnet | Parent VNet | 2-80 | Case-insensitive | Alphanumeric, underscore, dash, and period | `<role>-subnet` | `gateway-subnet` |
+| Networking | Network Interface | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO |
+| Networking | Network Security Group | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO |
+| Networking | Network Security Group rule | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO |
+| Networking | Public IP Address | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO
 | Networking | Load Balancer | TODO | TODO | Case-insensitive | TODO | TODO | TODO
-| Networking | Azure Gateway | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO
-| Networking | Azure Gateway | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO
-| Networking | Azure Gateway Connection | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO
-| Networking | Load Balanced Rules Config | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO
-| Networking | Traffic Manager Profile | TODO | TODO | Case-insensitive | Alphanumeric and hyphen | TODO | TODO
+| Networking | Azure Gateway | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO
+| Networking | Azure Gateway | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO
+| Networking | Azure Gateway Connection | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO
+| Networking | Load Balanced Rules Config | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO
+| Networking | Traffic Manager Profile | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO
  	  
 ## Azure Resource Manager (ARM) Tagging
 
-TODO - what are the naming rules for ARM tags
+Aside from the name of any entity in Azure, the Azure Resource Manager supports tagging entities with arbitary
+text strings to identify context and streamline automation.  For example, a tag such as "sql2014ee" could identify 
+any VMs in a deployment running SQL Server 2014 Enterprise Edition for the purposes of running an automated script
+against them.  Tags should be used to augment and enhance context along side of the naming conventions chosen.
+
+> [AZURE.TIP] One other advantage of tags is that tags span resource groups, allowing you to link and correlate entities across
+> disparate deployments.
+
+Each resource or resource group can have a maximum of 15 tags. The tag name is limited to 512 characters, and the tag value is limited to 256 characters.
+
+For more information on resource tagging, please refer to [https://azure.microsoft.com/en-us/documentation/articles/resource-group-using-tags/](https://azure.microsoft.com/en-us/documentation/articles/resource-group-using-tags/).
+
+TODO - example of using tagging
 
 ## Tips and Gotchas
 
