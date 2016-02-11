@@ -178,8 +178,6 @@ The service configuration file is created for each cloud service that you add to
 
 [Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
 
-[About Configuring Virtual Network Settings in the Management Portal](virtual-networks-settings.md) 
-
 [Configure a Virtual Network by Using a Network Configuration File](virtual-networks-using-network-configuration-file.md) 
 
 
