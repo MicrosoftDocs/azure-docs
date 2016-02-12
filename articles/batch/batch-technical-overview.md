@@ -3,7 +3,7 @@
 	description="Learn about using the Azure Batch service for large-scale parallel and HPC workloads"
 	services="batch"
 	documentationCenter=""
-	authors="dlepow"
+	authors="mmacy"
 	manager="timlt"
 	editor=""/>
 
@@ -14,70 +14,69 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="02/12/2016"
-	ms.author="danlep"/>
+	ms.author="marsma"/>
 
 # Basics of Azure Batch
 
-Azure Batch enables you to run large-scale parallel and high performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can scale the compute resources to meet the needs of your jobs.
+Azure Batch enables you to run large-scale parallel and high performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can scale compute resources to meet the needs of your jobs.
 
-With the Batch service, you programmatically define Azure compute resources to execute large-scale batch jobs. You can run these jobs on demand or on a schedule, and you don't need to manually configure and manage an HPC cluster, individual VMs, virtual networks, or a job scheduler.
+With the Batch service, you programmatically define Azure compute resources to execute large-scale batch jobs. You can run these jobs on demand or on a schedule, and you don't need to manually configure and manage an HPC cluster, individual virtual machines, virtual networks, or a job scheduler.
 
 ## Use cases for Batch
 
 Batch is a managed Azure service that is used for *batch processing* or *batch computing*--running a large volume of similar tasks to get some desired result. Batch computing is most commonly used by organizations that process, transform, and analyze large amounts of data.
 
-Batch works well with intrinsically parallel (also known as "embarrassingly parallel") applications and workloads. These types of workloads are easily split into multiple tasks that perform work simultaneously on many computers.
+Batch works best with intrinsically parallel (also known as "embarrassingly parallel") applications and workloads, but many types of parallel workloads can be processed using Batch. Intrinsically parallel workloads are easily split into multiple tasks that perform work simultaneously on many computers.
 
 ![Parallel tasks][1]<br/>
-*Figure 1. Multiple computers executing tasks in parallel*
+*Parallel task processing on multiple computers*
 
 Some examples of workloads that are commonly processed using this technique are:
 
 * Financial risk modeling
-* Climate and hydrology simulation analysis
+* Climate and hydrology data analysis
 * Image rendering, analysis, and processing
 * Media encoding and transcoding
 * Genetic sequence analysis
 * Engineering stress analysis
 * Software testing
 
-Batch can also perform parallel calculations with a reduce step at the end, and more complex HPC workloads such as Message Passing Interface (MPI) applications.
+Batch can also perform parallel calculations with a reduce step at the end, as well as execute more complex HPC workloads such as Message Passing Interface (MPI) applications.
+
+For a comparison between Batch and other HPC solution options in Azure, see [Batch and HPC solutions](batch-hpc-solutions.md).
 
 >[AZURE.NOTE] At this time, Batch supports workloads that run on Windows Server-based virtual machines only.
 
-For a comparison of Batch with other HPC solution options in Azure, see [Batch and HPC solutions](batch-hpc-solutions.md).
-
 ## Developing with Batch
 
-Develop with the Batch APIs to create and manage pools of compute nodes and to schedule the jobs and tasks that run on them. Write client applications or front-ends to run jobs and tasks on demand, on a schedule, or as part of a larger workflow managed by tools such as [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
+When you build solutions that use Azure Batch for parallel workload processing, you do so programmatically using the Batch APIs. With the Batch APIs, you can create and manage pools of compute nodes and schedule jobs and tasks to run on those nodes. Using the Batch APIs to communicate with the Batch service, author a client application to efficiently process large-scale workloads for your organization, or provide a service front-end to your customers so that they can run jobs and tasks--on demand, or on a schedule. You can also use Batch as part of a larger workflow, managed by tools such as [Azure Data Factory][data_factory].
 
-See [Azure Batch feature overview](batch-api-basics.md) for more about the Batch concepts.
+When you are ready to dig in to the Batch API and get a more in-depth understanding of the features it provides, check out the [Azure Batch feature overview](batch-api-basics.md).
 
 ### Accounts you'll need
 
-+ **Azure account and subscription** - If you don't have an account, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
++ **Azure account and subscription** - If you don't already have an Azure account, you can activate your [MSDN subscriber benefit][msdn_benefits], or sign up for a [free trial][free_trial]. When you create an account, a default subscription will be created for you.
 
-+ **Batch account** - You use the name and URL of a Batch account and an access key as credentials when you make Batch API calls. All your Batch resources such as compute nodes, pools, jobs, and tasks are associated with a Batch account. One way to create a Batch account and manage access keys for the account is to use the [Azure portal](batch-account-create-portal.md).
++ **Batch account** - When your applications interact with the Batch service, the account name, the URL of the account, and an access key are used as credentials. All of your Batch resources such as pools, compute nodes, jobs, and tasks are associated with a Batch account. The easiest way to create an account and manage its access keys is to use the [Azure portal](batch-account-create-portal.md).
 
-+ **Storage account** - For most Batch scenarios you'll need an Azure storage account to store your data inputs and outputs and the scripts or executables that run on the compute nodes. To create a storage account, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
++ **Storage account** - Nearly every Batch scenario will use [Azure Storage][azure_storage] for file staging--for the programs that your tasks run, and for the data that they process--and for the storage of output data that your tasks generate. To create a Storage account, see [About Azure storage accounts](./../storage/storage-create-storage-account.md).
 
 ### Batch development libraries and tools
 
-Use these .NET libraries and tools with Visual Studio to develop and manage Azure Batch applications.
+To build solutions using Azure Batch, you can use the .NET client libraries, PowerShell, or issue direct calls with the REST API.
 
-+ [Batch client .NET library](http://www.nuget.org/packages/Azure.Batch/) (NuGet) – Develop client applications to run jobs with the Batch service
-+ [Batch Management .NET library](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) (NuGet) – Manage Batch accounts
-+ [Batch Explorer](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer) (GitHub) - Build this GUI application to browse, access, and update resources in a Batch account, including jobs and tasks, compute nodes and pools, and files on a compute node. See the [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx).
++ [Batch .NET client library][api_net_nuget] (NuGet) – Develop client applications or services to run jobs with the Batch service
++ [Batch Management .NET client library][api_net_mgmt_nuget] (NuGet) – Manage Batch accounts programmatically in your client applications or services
++ [Azure Batch Explorer][batch_explorer] (GitHub) - Build this GUI application to browse, access, and update resources in a Batch account, including jobs and tasks, compute nodes and pools, and files on a compute node.
 
 ## Scenario: Scale out a parallel workload
 
 A common scenario with the Batch APIs involves scaling out intrinsically parallel work such as image rendering on a pool of compute nodes providing up to thousands of compute cores.
 
-Figure 2 shows a workflow that uses a Batch .NET client application to run a parallel workload with Batch.
-
+*Figure 2* shows a common Batch workflow, with a client application or a hosted service using Batch to run a parallel workload.
 
 ![Batch solution workflow][2]<br/>
-*Figure 2. Scale out a parallel workload on Batch*
+*Figure 2. Scale out a parallel workload in Batch*
 
 1.	Upload input files (such as source data or images) required for a job to an Azure storage account. The Batch service will load files onto compute nodes when the job tasks run.
 
@@ -95,6 +94,14 @@ Figure 2 shows a workflow that uses a Batch .NET client application to run a par
 
 * Get started developing your first application with the [Batch client .NET library](batch-dotnet-get-started.md)
 * Browse the Batch code samples on [GitHub](https://github.com/Azure/azure-batch-samples)
+
+[azure_storage]: https://azure.microsoft.com/services/storage/
+[api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
+[api_net_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
+[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
+[free_trial]: https://azure.microsoft.com/pricing/free-trial/
+[msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
