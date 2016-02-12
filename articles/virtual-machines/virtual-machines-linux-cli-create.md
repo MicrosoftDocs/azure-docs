@@ -320,7 +320,7 @@ To learn more about Linux on Azure, see:
 
 - [Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource-links.md)
 
-- [How to use the Azure Command-Line Interface](../virtual-machines-command-line-tools.md)
+- [How to use the Azure Command-Line Interface](virtual-machines-command-line-tools.md)
 
 - [Deploy a LAMP app using the Azure CustomScript Extension for Linux](virtual-machines-linux-classic-lamp-script.md)
 
