@@ -22,7 +22,7 @@
 ## Usage scenarios for Azure AD Join
 ### Scenario 1: Businesses largely in the cloud
 
-Azure AD Join can benefit you if you currently operate and manage identities for your business in the cloud or are moving to the cloud soon. You can use an account that you have created in Azure Active Directory (Azure AD) to sign in to Windows 10. Through either [the first run experience (FRX) process](active-directory-azureadjoin-user-frx.md), or by joining Azure AD from [the settings menu](active-directory-azureadjoin-user-upgrade.md), your users can join their machines to Azure AD.  Your users can also enjoy single sign-on (SSO) access to  cloud resources like Office 365, either in their browsers or in Office applications.
+Azure Active Directory Join can benefit you if you currently operate and manage identities for your business in the cloud or are moving to the cloud soon. You can use an account that you have created in Azure Active Directory (Azure AD) to sign in to Windows 10. Through [the first run experience (FRX) process](active-directory-azureadjoin-user-frx.md), or by joining Azure AD from [the settings menu](active-directory-azureadjoin-user-upgrade.md), your users can join their machines to Azure AD.  Your users can also enjoy single sign-on (SSO) access to  cloud resources like Office 365, either in their browsers or in Office applications.
 
 ### Scenario 2: Educational institutions
 
@@ -73,7 +73,7 @@ You can set up your users and employees to use their personal Windows devices (B
 
 **At the user level**
 
-*	Windows 10 (Professional and Enterprise Editions)
+*	Windows 10 (Professional and Enterprise editions)
 
 
 ### Administrator tasks
