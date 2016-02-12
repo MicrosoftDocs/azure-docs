@@ -112,7 +112,7 @@ You can provision HDInsight clusters on one of the following two operating syste
 
 - **HDInsight on Windows (Windows Server 2012 R2 Datacenter)**: Select this option if you need to integrate with Windows-based services and technologies that will run on the cluster with Hadoop, or if you are migrating from an existing Windows-based Hadoop distribution.
 
-- **HDInsight on Linux (Ubuntu 12.04 LTS for Linux)**: Select this option if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
+- **HDInsight on Linux (Ubuntu 12.04 LTS for Linux)**: Select this option if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [AZURE.NOTE] Information in this document assumes that you are using a Linux-based HDInsight cluster. For information that is specific to Windows-based clusters, see [Create Windows-based Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
 
