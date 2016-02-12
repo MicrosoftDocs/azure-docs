@@ -4,13 +4,15 @@
     services="app-service\mobile"
     documentationCenter="javascript"
     authors="adrianhall"
-    manager="glenga"
-    editor=""/>
+    manager="ggailey777"
+    editor=""
+    tags=""
+    keywords="cordova,javascript,mobile,client" />
 
 <tags
     ms.service="app-service-mobile"
     ms.workload="na"
-    ms.tgt_pltfrm="mobile-javascript"
+    ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="article"
     ms.date="02/09/2016"
