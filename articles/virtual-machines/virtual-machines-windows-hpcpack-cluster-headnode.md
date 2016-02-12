@@ -59,7 +59,7 @@ Pack head node by using the Resource Manager deployment model in the Azure porta
 
    * If you create a new VNet in **Settings**, specify a private network address range such as 10.0.0.0/16 and a subnet address range such as 10.0.0.0/24.
     
-4. After you create the VM and the VM is running, [connect to the VM](virtual-machines-log-on-windows-server-preview.md). 
+4. After you create the VM and the VM is running, [connect to the VM](virtual-machines-windows-connect-logon.md). 
 
 5. Join the VM to an existing domain forest, or create a new domain forest on the VM itself.
 
@@ -88,7 +88,7 @@ Pack head node by using the Resource Manager deployment model in the Azure porta
 
 * You can now work with the head node of your HPC Pack cluster. For
 example, start HPC Cluster Manager, and complete the [Deployment To-do List](https://technet.microsoft.com/library/jj884141.aspx).
-* Add [Azure burst nodes](virtual-machines-hpcpack-cluster-node-burst.md) in a cloud service to increase the cluster compute capacity on-demand. 
+* Add [Azure burst nodes](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md) in a cloud service to increase the cluster compute capacity on-demand. 
 
 * Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
 
