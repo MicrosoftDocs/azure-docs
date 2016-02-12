@@ -85,7 +85,7 @@ On a Virtual Machine:
 
 	C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
 
-The above commands generates the log file *maeventtable.csv*, which you can open and inspect for failure messages.
+The above commands generates the log file *maeventtable.csv*, which you can open and inspect for failure messages.    
 
 
 ## Frequently Asked Questions
