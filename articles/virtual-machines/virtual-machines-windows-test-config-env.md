@@ -19,7 +19,7 @@
 
 # Base Configuration test environment with Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-base-configuration-test-environment.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-test-config-env.md).
 
 This article provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using virtual machines created in Resource Manager.
 
@@ -298,7 +298,7 @@ Your base configuration in Azure is now ready for application development and te
 
 ## Next step
 
-- [Add a new virtual machine](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) to the Corpnet subnet, such as one running Microsoft SQL Server.
+- [Add a new virtual machine](virtual-machines-windows-create-powershell.md) to the Corpnet subnet, such as one running Microsoft SQL Server.
 
 
 ## <a id="costs"></a>Minimizing the costs of test environment virtual machines in Azure
