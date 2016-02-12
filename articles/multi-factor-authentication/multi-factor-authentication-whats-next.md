@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="02/12/2016" 
 	ms.author="billmath"/>
 
 # Configuring Azure Multi-Factor Authentication
@@ -194,7 +194,7 @@ Outside corpnet|For browser flows, multi-factor authentication required.|For bro
 
 ### To enable Trusted IPs
 
-1. Sign-in to the Azure Management Portal.
+1. Sign-in to the Azure .
 2. On the left, click Active Directory.
 3. Under, Directory click on the directory you wish to setup Trusted IPsing on.
 4. On the Directory you have selected, click Configure.
@@ -282,7 +282,7 @@ By default, users cannot create app passwords.  This feature must be enabled.  T
 
 
 
-1. Sign-in to the Azure Management Portal.
+1. Sign-in to the Azure classic portal.
 2. On the left, click Active Directory.
 3. Under, Directory click on the directory for the user you wish to enable.
 4. At the top, click Users.
@@ -316,7 +316,7 @@ Additionally users can also create app passwords later on by changing their sett
 
 ### To create app passwords in the Azure portal
 --------------------------------------------------------------------------------
-1. Sign-in to the Azure Management portal
+1. Sign-in to the Azure classic portal.
 3. At the top, right-click on your user name and select Additional Security Verification.
 5. On the proofup page, at the top, select app passwords
 6. Click **Create**
@@ -351,7 +351,7 @@ To ensure that the user accounts are secured, you should restore Multi-Factor Au
 
 ### How to enable/disable Suspend MFA for remembered devices and set
 
-1. Sign-in to the Azure Management Portal.
+1. Sign-in to the Azure classic portal.
 2. On the left, click Active Directory.
 3. Under Active Directory, click on the directory you wish to setup Suspend Multi-Factor Authentication for remembered devices on.
 4. On the Directory you have selected, click Configure.
@@ -375,7 +375,7 @@ Method|Description
 
 ### How to enable/disable authentication methods
 
-1. Sign-in to the Azure Management Portal.
+1. Sign-in to the Azure classic portal.
 2. On the left, click Active Directory.
 3. Under Active Directory, click on the directory you wish to enable or disable authentication methods.
 4. On the Directory you have selected, click Configure.
