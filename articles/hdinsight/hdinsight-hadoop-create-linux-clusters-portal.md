@@ -165,7 +165,7 @@ Now that you have successfully created an HDInsight cluster, use the following t
 
 ###HBase clusters
 
-* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
+* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux)
 
 ###Storm clusters

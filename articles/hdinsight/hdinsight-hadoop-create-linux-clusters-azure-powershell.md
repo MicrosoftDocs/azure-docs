@@ -23,7 +23,7 @@
 
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. This document provides information on how to provision a Linux-based HDInsight cluster by using Azure PowerShell, as well as an example script.
 
-> [AZURE.NOTE] Azure PowerShell is only available on Windows clients. If you are using a Linux, Unix, or Mac OS X client, see [Create a Linux-based HDInsight cluster using Azure CLI](hdinsight-hadoop-create-linux-cluster-azure-cli.md) for information on using the Azure CLI to create a cluster.
+> [AZURE.NOTE] Azure PowerShell is only available on Windows clients. If you are using a Linux, Unix, or Mac OS X client, see [Create a Linux-based HDInsight cluster using Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) for information on using the Azure CLI to create a cluster.
 
 ###Prerequisites
 
@@ -123,7 +123,7 @@ Now that you have successfully created an HDInsight cluster, use the following t
 
 ###HBase clusters
 
-* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
+* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux)
 
 ###Storm clusters

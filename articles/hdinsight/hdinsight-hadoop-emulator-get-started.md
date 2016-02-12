@@ -431,7 +431,7 @@ The samples currently contain all the required binaries, so building is not requ
 ##<a name="blobstorage"></a>Connect to Azure Blob storage
 The HDInsight Emulator uses HDFS as the default file system. However, Azure HDInsight uses Azure Blob storage as the default file system. It is possible to configure the HDInsight Emulator to use Azure Blob storage instead of local storage. Follow the instructions below to create a storage container in Azure and to connect it to the HDInsight Emulator.
 
->[AZURE.NOTE] For more information on how HDInsight uses Azure Blob storage, see [Use Azure Blob storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+>[AZURE.NOTE] For more information on how HDInsight uses Azure Blob storage, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 Before you start with the instructions below, you must have created a storage account. For instructions, see [How To Create a Storage Account](../storage/storage-create-storage-account.md).
 

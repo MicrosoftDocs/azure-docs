@@ -94,7 +94,7 @@ HDInsight cluster requires an Azure Resource group and a Blob container on an Az
 [AZURE.INCLUDE [data center list](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
-For information on creating an Azure Storage account by using the Azure Portal, see [About Azure storage accounts](../stroage/storage-create-storage-account.md).
+For information on creating an Azure Storage account by using the Azure Portal, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 If you have already had a Storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
@@ -103,7 +103,7 @@ If you have already had a Storage account but do not know the account name and a
 	# List the keys for a Storage account
 	Get-AzureRmStorageAccountKey -ResourceGroupName <Azure Resource Group Name> -name $storageAccountName <Azure Storage Account Name>
 
-For details on getting the information by using the Portal, see the "View, copy, and regenerate storage access keys" section of [About Azure storage accounts](storage-create-storage-account.md).
+For details on getting the information by using the Portal, see the "View, copy, and regenerate storage access keys" section of [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 **To create an Azure storage container**
 
