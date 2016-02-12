@@ -31,10 +31,6 @@
 9. Click **OK**.  The role will now be activated.
 10. Once a role has been activated you can also deactivate a role by clicking **Deactivate**.  Additionally, the role can be removed from the user by using the steps in [Adding or Removing a Role](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
 
-<!--- Was this article deleted?
-For more information about role activation settings see [How to Configure Role Activation](active-directory-privileged-identity-management-how-to-configure-role-activation.md).
---->
-
 For more information about security alerts specific to role activation settings see [How to Configure Security Alerts](active-directory-privileged-identity-management-how-to-configure-security-alerts.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
