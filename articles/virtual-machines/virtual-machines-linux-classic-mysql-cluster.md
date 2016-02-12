@@ -243,7 +243,7 @@ Shortly after starting the service the cluster should be established in the curr
 
 An output similar to the image below should follow:
 
-![corosync-quorumtool -l sample output](media/virtual-machines-linux-mysql-cluster/image001.png)
+![corosync-quorumtool -l sample output](media/virtual-machines-linux-classic-mysql-cluster/image001.png)
 
 ## Setting up Pacemaker
 
@@ -303,11 +303,11 @@ After a few seconds, and using `sudo crm_mon –L`, verify that one of your node
 
 The following screenshot shows `crm_mon` with one node stopped (exit using Control-C)
 
-![crm_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
+![crm_mon node stopped](media/virtual-machines-linux-classic-mysql-cluster/image002.png)
 
 And this screenshot shows both nodes, with one master and one slave:
 
-![crm_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
+![crm_mon operational master/slave](media/virtual-machines-linux-classic-mysql-cluster/image003.png)
 
 ## Testing
 
