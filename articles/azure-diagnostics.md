@@ -55,7 +55,7 @@ Pick which service you are trying to collect diagnostics on.
 - [Azure Diagnostics Schema Configuration](https://msdn.microsoft.com/library/azure/mt634524.aspx) - Learn how to change the schema file to collect and route diagnostics data. Note that you can also use Visual Studio to change the schema file.
 - [How Azure Diagnostics data is stored in Azure Storage](./cloud-services/cloud-services-dotnet-diagnostics-storage.md) - Know the names of the tables and blobs where the diagnostic data is written.
 - Learn to [use Performance Counters in Azure Diagnostics](./cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
-- [Route diagnostics information to other Application Insights](./cloud-services/azure-diagnostics-configure-applicationinsights.md)
+- [Route diagnostics information to other Application Insights](./azure-diagnostics-configure-applicationinsights.md)
 - [ToubleShooting Azure Diagnostics](./azure-diagnostics-troubleshooting.md)
 
 ### Cloud Services using Azure Diagnostics
@@ -63,13 +63,13 @@ Pick which service you are trying to collect diagnostics on.
 - [Set up Azure Diagnostics in a Cloud Services Application](./cloud-services/cloud-services-dotnet-diagnostics.md)
 - [Trace the flow of a Cloud Services application with Azure Diagnostics](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 - [Use Visual Studio to trace a Cloud Services application](./vs-azure-tools-debug-cloud-services-virtual-machines.md)
-- [Use PowerShell to set up diagnostics on Cloud Services](./virtual-machines-extensions-diagnostics-windows-powershell.md)
-- [Using Azure Diagnostics with Application Insights for Cloud Services](app-insights-cloudservices.md)
+- [Use PowerShell to set up diagnostics on Cloud Services](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
+- [Using Azure Diagnostics with Application Insights for Cloud Services](./application-insights/app-insights-cloudservices.md)
 
 ### Virtual Machines using Azure Diagnostics
 - [Set up Azure Diagnostics on an Azure Virtual Machine](./virtual-machines/virtual-machines-dotnet-diagnostics.md)
 - [Use Visual Studio to trace Azure Virtual Machines](./vs-azure-tools-debug-cloud-services-virtual-machines.md)
-- [Use PowerShell to set up diagnostics on Azure Virtual Machines](./virtual-machines-extensions-diagnostics-windows-powershell.md)
+- [Use PowerShell to set up diagnostics on Azure Virtual Machines](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
 - [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](./virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md)
 
 ### Service Fabric using Azure Diagnostics
@@ -77,4 +77,4 @@ Pick which service you are trying to collect diagnostics on.
 
 ### Web Apps
 (Note that Web Apps do not use Azure Diagnostics)
- - [Web Apps](./web-sites/web-sites-enable-diagnostic-log.md)
+ - [Web Apps](./app-service-web/web-sites-enable-diagnostic-log.md)
