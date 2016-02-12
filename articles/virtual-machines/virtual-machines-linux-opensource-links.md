@@ -60,13 +60,8 @@ Ubuntu is a very popular and Azure-endorsed Linux distribution based on dpkg and
 1. [How to: Upload your own Ubuntu Image](virtual-machines-linux-create-upload-ubuntu.md)
 2. [How to: Ubuntu LAMP Stack](virtual-machines-linux-install-lamp-stack.md)
 3. \[Classic Deployment]: [How to: MySQL Clusters](virtual-machines-linux-mysql-cluster.md)
-<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-opensource.md
-4. \[Classic Deployment]: [How to: Node.js and Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
-5. \[Resource Manager Deployment]: [How to: IPython Notebook](virtual-machines-linux-jupyter-notebook.md)
-=======
 4. \[Classic Deployment]: [How to: Node.js and Cassandra](virtual-machines-linux-classic-cassandra-nodejs.md)
-5. \[Resource Manager Deployment]: [How to: IPython Notebook](virtual-machines-python-ipython-notebook.md)
->>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-opensource-links.md
+5. \[Resource Manager Deployment]: [How to: IPython Notebook](virtual-machines-linux-jupyter-notebook.md)
 6. \[Classic Deployment]: [Geeking out: Running ASP.NET 5 on Linux using Docker Containers](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 7. [Images: Redis Server](https://azure.microsoft.com/marketplace/partners/cognosys/redisserver269ubuntu1204lts/)
 8. [Images: Minecraft Server](https://azure.microsoft.com/marketplace/partners/bitnami/craftbukkitminecraft179r030ubuntu1210/)
@@ -103,7 +98,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 10. [Image Gallery](https://azure.microsoft.com/marketplace/partners/coreos/)  
 11. \[Classic Deployment]: [How to: Use CoreOS on Azure](virtual-machines-linux-classic-coreos-howto.md)
-12. \[Classic Deployment]: [How to: Get Started with Fleet and Docker on CoreOS on Azure](virtual-machines-linux-coreos-fleet-get-started.md)
+12. \[Classic Deployment]: [How to: Get Started with Fleet and Docker on CoreOS on Azure](virtual-machines-linux-classic-coreos-fleet-get-started.md)
 
 
 #### [Oracle Linux](https://azure.microsoft.com/marketplace/?term=Oracle+Linux)
@@ -236,13 +231,8 @@ This section contains information about several different storage approaches and
 Authentication and encryption are critical topics in software development, and there are many, many topics on the web that describe how to learn and use proper security techniques for both. We describe some of the basic usage to get up and running quickly with Linux and opensource workloads, as well pointing to tools to use to reset or remove remote security features on Azure. These are basic procedures, and we will be adding more complex scenarios soon.
 
 4. [The basics: Certificate Use and Management](http://msdn.microsoft.com/library/azure/gg981929.aspx)
-<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-opensource.md
-7. [The basics: SSH](virtual-machines-linux-use-ssh-key.md)
-8. [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-classic-reset-access.md)
-=======
 7. [The basics: SSH](virtual-machines-linux-ssh-from-linux.md)
-8. [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
->>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-opensource-links.md
+8. [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-classic-reset-access.md)
 9. [The basics: Using Root](virtual-machines-linux-use-root-privileges.md)
 
 ## Linux high performance computing (HPC)
@@ -253,18 +243,9 @@ Run HPC workloads on Linux VM clusters built with open-source tools or with Micr
  (and [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
 2.	[Quickstart template: Spin up a Torque cluster](https://azure.microsoft.com/documentation/templates/torque-cluster/)
 3.	[Quickstart template: Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-opensource.md
-4.	[Tutorial: Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-cluster-hpcpack.md)
-5.	[Tutorial: Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
-=======
 4.	[Tutorial: Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md)
-5.	[Tutorial: Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
-<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-opensource.md
+5.	[Tutorial: Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
 6.	[Tutorial: Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md)
-=======
->>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-opensource-links.md
-6.	[Tutorial: Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-cluster-rdma.md)
->>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-opensource-links.md
 
 
 ## Devops, management, and optimization
