@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="02/12/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
 
-## Contents：
+This article answers some of the most common questions about Azure Billing and Subscription.
 
 **Billing**
 
@@ -77,9 +77,7 @@
 
 - Are Azure and SQL Database available through Microsoft Services Provider License Agreement (SPLA)?
 
-## FAQ
-
-### Billing
+## Billing
 
 **What payment options do I have in purchasing Azure?**
 
@@ -133,7 +131,7 @@ Azure SLA Credits are calculated on a per subscription basis as a percentage of 
 
 Azure Service Level Agreements are independent of our on-premises Microsoft licensing agreements. Our SLAs for Azure provide you a monthly uptime guarantee for those services you consume in the cloud, with SLA credits against what we have billed you in the event we fail to meet the guarantee.
 
-### Subscriptions
+## Subscriptions
 
 **How do I migrate data and services for my Azure subscription to a new subscription?**
 
