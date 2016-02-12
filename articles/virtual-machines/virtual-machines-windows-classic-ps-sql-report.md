@@ -47,19 +47,19 @@ This topic describes and walks you through the deployment and configuration of a
 
 1. Click **Virtual Machines** in the left pane.
 
-	![microsoft azure virtual machines](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC660124.gif)
+	![microsoft azure virtual machines](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
 
 1. Click **New**.
 
-	![new button](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692019.gif)
+	![new button](./media/virtual-machines-windows-classic-ps-sql-report/IC692019.gif)
 
 1. Click **From Gallery**.
 
-	![new vm from gallery](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692020.gif)
+	![new vm from gallery](./media/virtual-machines-windows-classic-ps-sql-report/IC692020.gif)
 
 1. Click **SQL Server 2014 RTM Standard – Windows Server 2012 R2** and then click the arrow to continue.
 
-	![next](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
+	![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 	If you need the Reporting Services data driven subscriptions feature, choose **SQL Server 2014 RTM Enterprise – Windows Server 2012 R2**. For more information on SQL Server editions and feature support, see [Features Supported by the Editions of SQL Server 2012](https://msdn.microsoft.com/library/cc645993.aspx#Reporting).
 
@@ -77,7 +77,7 @@ This topic describes and walks you through the deployment and configuration of a
 	
 	- **New Password** and **confirm**. This password is used for the new administrator account and it is recommended you use a strong password.
 	
-	- Click **Next**. ![next](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
+	- Click **Next**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 1. On the next page, edit the following fields:
 
@@ -97,11 +97,11 @@ This topic describes and walks you through the deployment and configuration of a
 
 		- **HTTPS**: The default public and private ports are **443**. A security best practice is to change the private port and configure your firewall and the report server to use the private port. For more information on endpoints, see [How to Set Up Communication with a Virtual Machine](virtual-machines-set-up-endpoints.md). Note that if you use a port other than 443, change the parameter **$HTTPsport = 443** in the HTTPS script.
 	
-	- Click next . ![next](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
+	- Click next . ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 1. On the last page of the wizard, keep the default **Install the VM agent** selected. The steps in this topic do not utilize the VM agent but if you plan to keep this VM, the VM agent and extensions will allow you to enhance he CM.  For more information on the VM agent, see [VM Agent and Extensions – Part 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). One of the default extensions installed ad running is the “BGINFO” extension that displays on the VM desktop, system information such as internal IP and free drive space.
 
-1. Click complete . ![ok](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC660122.gif)
+1. Click complete . ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 
 1. The **Status** of the VM displays as **Starting (Provisioning)** during the provision process and then displays as **Running** when the VM is provisioned and ready to use.
 
@@ -145,11 +145,11 @@ A self-signed certificate was created on the VM when the VM was provisioned. The
 
 	1. From the Azure classic portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
 	
-		![connect to azure virtual machine](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
+		![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
 	
 		For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
 		
-		![login inlcudes vm name](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC764111.png)
+		![login inlcudes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 	
 	1. Run mmc.exe. For more information, see [How to: View Certificates with the MMC Snap-in](https://msdn.microsoft.com/library/ms788967.aspx).
 	
@@ -195,11 +195,11 @@ To use the Windows PowerShell script to configure the report server, complete th
 
 1. From the Azure classic portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
 
-	![connect to azure virtual machine](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
+	![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
 
 	For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
 	
-	![login inlcudes vm name](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC764111.png)
+	![login inlcudes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 
 1. On the VM, open **Windows PowerShell ISE** with administrative privileges. The PowerShell ISE is installed by default on Windows server 2012. It is recommended you use the ISE instead of a standard Windows PowerShell window so that you can paste the script into the ISE, modify the script, and then run the script.
 
@@ -336,11 +336,11 @@ To use Windows PowerShell to configure the report server, complete the following
 
 1. From the Azure classic portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
 
-	![connect to azure virtual machine](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
+	![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
 
 	For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
 
-	![login inlcudes vm name](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC764111.png)
+	![login inlcudes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 
 1. On the VM, open **Windows PowerShell ISE** with administrative privileges. The PowerShell ISE is installed by default on Windows server 2012. It is recommended you use the ISE instead of a standard Windows PowerShell window so that you can paste the script into the ISE, modify the script, and then run the script.
 
@@ -559,7 +559,7 @@ If you do not want to run the PowerShell script to configure the report server, 
 
 1. From the Azure classic portal, select the VM and click connect. Use the user name and password you configured when you created the VM.
 
-	![connect to azure virtual machine](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif)
+	![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
 
 1. Run Windows update and install updates to the VM. If a restart of the VM is required, restart the VM and reconnect to the VM from the Azure classic portal.
 
@@ -677,7 +677,7 @@ The following table summarizes some of the options available to publish existing
 
 - **SQL Server Data Tools: Remote**:  On your local computer, create a Reporting Services project in SQL Server Data Tools that contains Reporting Services reports. Configure the project to connect to the web service URL.
 
-	![ssdt project properties for SSRS project](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650114.gif)
+	![ssdt project properties for SSRS project](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
 
 - **Use script**: Use script to copy report server content. For more information, see [Sample Reporting Services rs.exe Script to Migrate Content between Report Servers](https://msdn.microsoft.com/library/dn531017.aspx).
 
