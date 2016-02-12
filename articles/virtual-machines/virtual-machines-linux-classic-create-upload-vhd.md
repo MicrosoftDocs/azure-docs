@@ -42,7 +42,7 @@ This article assumes that you have the following items:
 
 	**Important**: The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
-	For a list of endorsed distributions, see [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distributions.md). For a general list of Linux distributions, see [Information for Non-Endorsed Distributions](virtual-machines-linux-create-upload-vhd-generic.md).
+	For a list of endorsed distributions, see [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distributions.md). For a general list of Linux distributions, see [Information for Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md).
 
 - **Azure Command-line Interface** - if you are using a Linux operating system to create your image, you use the [Azure Command-Line Interface](virtual-machines-command-line-tools.md) to upload the VHD.
 
@@ -59,9 +59,9 @@ Azure supports a variety of Linux distributions (see [Endorsed Distributions](vi
 - **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
 - **[SLES & openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
-- **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-vhd-generic.md)**
+- **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md)**
 
-Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-vhd-generic.md#linuxinstall)** for more tips on preparing Linux images for Azure.
+Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#linuxinstall)** for more tips on preparing Linux images for Azure.
 
 After following the steps in the guides above you should have a VHD file that is ready to upload to Azure.
 

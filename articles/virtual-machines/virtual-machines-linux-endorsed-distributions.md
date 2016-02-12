@@ -31,7 +31,7 @@ The Linux images in the Azure Gallery or Marketplace are provided by a number of
 
 The following table lists the Linux distributions and versions that are supported on Azure.
 
-The Linux Integration Services (LIS) drivers for Hyper-V and Azure are kernel modules that Microsoft contributes directly to the upstream Linux kernel.  The LIS drivers are either built into the distribution's kernel by default, or for older RHEL/CentOS-based distributions are available as a separate download [here](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409).  Please see [this article](virtual-machines-linux-create-upload-vhd-generic.md#linux-kernel-requirements) for more information about the LIS drivers.
+The Linux Integration Services (LIS) drivers for Hyper-V and Azure are kernel modules that Microsoft contributes directly to the upstream Linux kernel.  The LIS drivers are either built into the distribution's kernel by default, or for older RHEL/CentOS-based distributions are available as a separate download [here](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409).  Please see [this article](virtual-machines-linux-create-upload-generic.md#linux-kernel-requirements) for more information about the LIS drivers.
 
 The Azure Linux Agent is already pre-installed on the Azure Gallery images and are typically available from the distribution's package repository.  Source code can be found on [GitHub](https://github.com/azure/walinuxagent).
 
