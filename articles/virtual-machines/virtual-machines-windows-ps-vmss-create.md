@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-cli-vmss-create.md)
-- [Azure PowerShell](virtual-machines-vmss-walkthrough.md)
+- [Azure PowerShell](virtual-machines-windows-ps-vmss-create.md)
 
 <br>
 
