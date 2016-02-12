@@ -38,7 +38,7 @@ See [Miscellaneous considerations for Oracle virtual machine images](virtual-mac
 
 ## Oracle WebLogic Server 12c
 
-[Creating an Oracle WebLogic Server 12c virtual machine in Azure](virtual-machines-creating-oracle-weblogic-server-12c-virtual-machine.md) steps you through the creation of an Azure virtual machine based on the Oracle WebLogic Server 12c image running on Windows Server 2012.
+[Creating an Oracle WebLogic Server 12c virtual machine in Azure](virtual-machines-windows-create-oracle-weblogic-server-12c.md) steps you through the creation of an Azure virtual machine based on the Oracle WebLogic Server 12c image running on Windows Server 2012.
 
 ## Oracle WebLogic Server 12c and Oracle Database 12c
 

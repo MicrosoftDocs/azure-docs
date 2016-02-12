@@ -66,15 +66,15 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 7.	In the **Welcome** dialog, select **Create a new WebLogic domain** and then click **Next**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image10.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image10.png)
 
 8.	In the **Select Domain Source** dialog, accept the default values and then click **Next**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image11.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image11.png)
 
 9.	In the **Specify Domain Name and Location** dialog, accept the default values and then click **Next**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image12.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image12.png)
 
 10.	In the **Configure Administrator User Name and Password** dialog:
 
@@ -84,23 +84,23 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 	3.	Click **Next**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image13.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image13.png)
 
 11.	In the **Configure Server Start Mode and JDK** dialog, select **Production Mode**, select the available JDK (or browser to a JDK if desired), and then click **Next**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image14.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image14.png)
 
 12.	In the **Select Optional Configuration** dialog, do not select any options, and then click **Next**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image15.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image15.png)
 
 13.	In the **Configuration Summary** dialog, click **Create**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image16.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image16.png)
 
 14.	In the **Creating Domain** dialog, check **Start Admin Server** and then click **Done**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image17.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image17.png)
 
 15.	A command prompt for **startWebLogic.cmd** is started. When prompted, provide your WebLogic user name and password.
 
@@ -113,7 +113,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 4.	For **Path**, type **c:\mywar\shoppingcart.war.**
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image18.png)
+	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image18.png)
 
 	Click **Next**.
 
