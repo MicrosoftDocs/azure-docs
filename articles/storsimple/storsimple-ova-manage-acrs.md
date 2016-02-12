@@ -113,6 +113,3 @@ Perform the following steps to delete an access control record.
 ## Next steps
 
 - Learn more about [managing StorSimple volumes](storsimple-ova-manage-volumes.md).
-
-- Learn more about [using the StorSimple Manager service to administer your StorSimple Virtual Array](storsimple-manager-ova-service-administration.md).
- 
