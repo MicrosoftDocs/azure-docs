@@ -204,7 +204,7 @@ Next, create three VMs, including a WSFC cluster node and two SQL Server VMs. To
 
 <br/>
 
->[AZURE.NOTE] The previous configuration suggests STANDARD tier virtual machines, because BASIC tier machines do not support load-balanced endpoints required to later create an Availability Group listeners. Also, the machine sizes suggested here are meant for testing Availability Groups in Azure VMs. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md).
+>[AZURE.NOTE] The previous configuration suggests STANDARD tier virtual machines, because BASIC tier machines do not support load-balanced endpoints required to later create an Availability Group listeners. Also, the machine sizes suggested here are meant for testing Availability Groups in Azure VMs. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-perf.md).
 
 Once the three VMs are fully provisioned, you need to join them to the **corp.contoso.com** domain and grant CORP\Install administrative rights to the machines. To do this, use the following steps for each of the three VMs.
 
