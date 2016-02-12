@@ -90,7 +90,7 @@ file system in case an external Azure data disk wasn't mounted during the boot.
 
 ## Uploading a SUSE VM from on-premises to Azure
 
-[This article] (virtual-machines-linux-create-upload-vhd-suse.md) describes the steps for uploading a SUSE VM from on-premises to Azure.
+[This article] (virtual-machines-linux-suse-create-upload-vhd.md) describes the steps for uploading a SUSE VM from on-premises to Azure.
 
 If you want to upload a VM without the deprovision step at the end to keep, for example, an existing SAP
 installation as well as the hostname, check the following items:

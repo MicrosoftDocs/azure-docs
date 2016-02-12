@@ -88,7 +88,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduce
 
 9. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=OpenSUSE)
 11. \[Classic Deployment]: [How to: Install and Run MySQL](virtual-machines-linux-classic-mysql-on-opensuse.md)
-12. [How To: Prep a Custom SLES or openSUSE VM](virtual-machines-linux-create-upload-vhd-suse.md)  
+12. [How To: Prep a Custom SLES or openSUSE VM](virtual-machines-linux-suse-create-upload-vhd.md)  
 13. [[SUSE forum] How to: Move to a New Patch Server](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure)
 14. [Images: SUSE Linux Enterprise Server for SAP Cloud Appliance  Library](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver11sp3forsapcloudappliance/)
 
