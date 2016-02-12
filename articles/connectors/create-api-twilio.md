@@ -21,24 +21,20 @@ ms.author="deonhe"/>
 
 Twilio enables apps to send and receive global SMS, MMS and IP messages.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version of this connector, click [Twilio](../app-service-logic/app-service-logic-connector-Twilio.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Twilio](../app-service-logic/app-service-logic-connector-Twilio.md).
 
->[AZURE.TIP] "Connector" and "API" are used interchangeably.
-
-With the Twilio connector, you can:
+With Twilio, you can:
 
 * Use it to build logic apps
 
 
-This topic focuses on the Twilio triggers and actions available, creating a connection to the connector, and also lists the REST API parameters.
-
-Need help creating a logic app? See [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Let's talk about triggers and actions
 
-The Twilio connector can be used as an action; there are no triggers. All connectors support data in JSON and XML formats. 
+The Twilio API can be used as an action; there are no triggers. All APIs support data in JSON and XML formats. 
 
- The Twilio connector has the following action(s) and/or trigger(s) available:
+ The Twilio API has the following action(s) and/or trigger(s) available:
 
 ### Twilio actions
 You can take these action(s):
@@ -504,8 +500,6 @@ None of the properties are required.
 |is_user-deleted|boolean|
 
 
-## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 ## Object definition(s): 
 
  **SendMessageRequest**:Request model for Send Message operation
@@ -681,4 +675,4 @@ None of the properties are required.
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).

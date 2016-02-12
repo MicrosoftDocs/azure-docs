@@ -36,10 +36,12 @@ Reports are available 45 days after the close of the quarter and are calculated 
 
 1. Navigate to Dev Center at https://dev.windows.com/en-us.
 2. Click **Dashboard**.
+
     ![LandingPageDashboardHighlight][1]
 
 3. Click **Payout Summary**.
-  ![DashboardPayoutSummary][2]
+
+    ![DashboardPayoutSummary][2]
 
 
 ## View your payout reports in Dev Center
@@ -65,7 +67,8 @@ The payout report for each quarter records all transactions that occurred within
 1. Navigate to the publishing portal at https://publish.windowsazure.com.
 2. From the **Publishers** section, click **Payout Reports**.
 3. Click the drop-down to display all available quarterly payout reports.
-![accessingpayoutreport][5]
+
+    ![accessingpayoutreport][5]
 
 
 ### Read your payout reports
@@ -102,7 +105,7 @@ If you have a question related to your payouts, contact our support team.
 
 ## Next steps
 
-For other support queries, please log an issue at https://portal.azure.com.
+For other support queries, please log an issue at <https://portal.azure.com>.
 
 [1]: ./media/marketplace-publishing-report-payout/LandingPage-DashboardHighlight.png
 [2]: ./media/marketplace-publishing-report-payout/Dashboard-PayoutSummary.png

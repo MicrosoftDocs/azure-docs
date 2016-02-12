@@ -1,11 +1,12 @@
 <properties
-pageTitle="Add the Office 365 Users API to your Logic Apps | Microsoft Azure"
-description="Overview of Office 365 Users API with REST API parameters"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
-editor="" tags="connectors" />
+	pageTitle="Add the Office 365 Users API to your Logic Apps | Microsoft Azure"
+	description="Overview of Office 365 Users API with REST API parameters"
+	services=""	
+	documentationCenter="" 	
+	authors="msftman"	
+	manager="erikre"	
+	editor="" 
+	tags="connectors" />
 
 <tags
 ms.service="multiple"
@@ -20,27 +21,23 @@ ms.author="deonhe"/>
 
 Office 365 Users Connection provider lets you access user profiles in your organization using your Office 365 account. You can perform various actions such as get your profile, a user's profile, a user's manager or direct reports and also update a user profile.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version of this connector, click [Office 365 Users](../app-service-logic/app-service-logic-connector-Office 365 Users.md).   
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Office 365 API](../app-service-logic/app-service-logic-connector-office365.md).   
 
 
->[AZURE.TIP] "Connector" and "API" are used interchangeably.
-
-With the Office 365 Users connector, you can:
+With Office 365 Users, you can:
 
 * Use it to build logic apps
 * Use it to build power apps
 
-This topic focuses on the Office 365 Users triggers and actions available, creating a connection to the connector, and also lists the REST API parameters.
+For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](..powerapps-register-from-available-apis.md). 
-
-Need help creating a logic app? See [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Let's talk about triggers and actions
 
-The Office 365 Users connector can be used as an action; there are no triggers. All connectors support data in JSON and XML formats. 
+The Office 365 Users API can be used as an action; there are no triggers. All APIs support data in JSON and XML formats. 
 
- The Office 365 Users connector has the following action(s) and/or trigger(s) available:
+ The Office 365 Users API has the following action(s) and/or trigger(s) available:
 
 ### Office 365 Users actions
 You can take these action(s):
@@ -227,4 +224,6 @@ Id
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+After you add the Office 365 API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
+
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).

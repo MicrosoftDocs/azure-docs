@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/09/2016"
+   ms.date="02/11/2016"
    ms.author="mandia"/>
 
 # Get started with the SFTP API
@@ -22,7 +22,7 @@ Connect to an SFTP server to manage your files. You can do different tasks on th
 
 The SFTP API can be used from logic apps.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [SFTP connector](..app-service-logic-connector-sftp.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [SFTP connector](../app-service-logic/app-service-logic-connector-sftp.md).
 
 With SFTP, you can: 
 
@@ -30,7 +30,7 @@ With SFTP, you can:
 - Use a trigger when a file is updated.
 - Use actions that create files, delete files, and more. These actions get a response, and then make the output available for other actions. For example, you can get the content of a file, and then update a SQL database. 
 
-To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Triggers and actions
@@ -257,4 +257,4 @@ Triggers a flow when a file is modified in SFTP.
 
 
 ## Next steps
-[Create a logic app](..app-service-logic-create-a-logic-app.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).

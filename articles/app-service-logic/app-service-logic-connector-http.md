@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="02/11/2016"
    ms.author="prkumar"/>
 
 
@@ -74,7 +74,7 @@ Once your API app is created, you can now use the HTTP listener as a trigger for
 
 ## Using the HTTP action
 The HTTP action is natively supported by Logic Apps and doesn't require an API app to be created first to be able to use it. You can insert an HTTP action at any point in your Logic App and choose the URI, headers and body for the call.
-The HTTP action supports multiple options for client side security. See the [client side security options](../scheduler-outbound-authentication.md).
+The HTTP action supports multiple options for client side security. See the [client side security options](../scheduler/scheduler-outbound-authentication.md).
 
 The output of the HTTP action is headers and body, which can be used further downstream in the flow similar to how output of other actions and connectors is consumed.
 
@@ -85,7 +85,7 @@ View the Swagger REST API reference at [Connectors and API Apps Reference](http:
 
 You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 
-> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/09/2016"
+   ms.date="02/11/2016"
    ms.author="mandia"/>
 
 # Get started with the Azure blob storage API
@@ -22,7 +22,7 @@ Connect to an Azure Blob to manage files in a blob container, such as creating f
 
 The Azure blob storage API can be used from logic apps. 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Azure Storage Blob connector](..app-service-logic-connector-azurestorageblob.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Azure Storage Blob connector](../app-service-logic/app-service-logic-connector-azurestorageblob.md).
 
 With Azure blob storage, you can:
 
@@ -30,7 +30,7 @@ With Azure blob storage, you can:
 - Use a trigger for when a file is updated.
 - Use actions that let you create a file, get file content, and more. These actions get a response, and then make the output available for other actions. For example, you can search for "urgent" in a file in your blob, and then send all files with "urgent" in an email using Office 365. 
 
-To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 Azure blob includes the following trigger and actions. 
@@ -256,4 +256,4 @@ Updates a file in Azure Blob Storage.
 
 ## Next steps
 
-[Create a logic app](..app-service-logic-create-a-logic-app.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).

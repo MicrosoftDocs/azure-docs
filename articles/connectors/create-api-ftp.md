@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/09/2016"
+   ms.date="02/11/2016"
    ms.author="mandia"/>
 
 # Get started with the FTP API
@@ -22,7 +22,7 @@ Connect to an FTP server to manage your files. You can do different tasks on the
 
 The FTP API can be used from logic apps.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [FTP connector](..app-service-logic-connector-ftp.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [FTP connector](../app-service-logic/app-service-logic-connector-ftp.md).
 
 With FTP, you can: 
 
@@ -30,7 +30,7 @@ With FTP, you can:
 - Use a trigger when a file is updated.
 - Use actions that create files, get file content, and more. These actions get a response, and then make the output available for other actions. For example, you can get the content of a file, and then update a SQL database. 
 
-To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Triggers and actions
@@ -254,4 +254,4 @@ Updates a file in FTP server.
 
 ## Next steps
 
-[Create a logic app](..app-service-logic-create-a-logic-app.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).

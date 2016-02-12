@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/09/2016"
+   ms.date="02/11/2016"
    ms.author="mandia"/>
 
 # Get started with the SMTP API
@@ -22,14 +22,14 @@ Connect to an SMTP server to send email.
 
 The SMTP API can be used from logic apps.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [SMTP connector](..app-service-logic-connector-smtp.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [SMTP connector](../app-service-logic/app-service-logic-connector-smtp.md).
 
 With SMTP, you can:
 
 - Build your business flow that includes sending email using SMTP. 
 - Use an action to send email. This action gets a response, and then makes the output available for other actions. For example, when there is a new file on your FTP server, you can take that file and email it as an attachment using SMTP. 
 
-To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 The SMTP API has the following action available. There are no triggers.
@@ -92,4 +92,4 @@ Sends an email to one or more recipients.
 
 
 ## Next steps
-[Create a logic app](..app-service-logic-create-a-logic-app.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).

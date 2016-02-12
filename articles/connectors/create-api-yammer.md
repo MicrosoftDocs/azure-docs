@@ -1,6 +1,6 @@
 <properties
-pageTitle="Use the Yammer API in your Logic Apps | Microsoft Azure"
-description="Get started building Microsoft Azure App Service logic apps with Yammer API (connector)"
+pageTitle="Add the Yammer API in your Logic Apps | Microsoft Azure"
+description="Overview of the Yammer API with REST API parameters"
 services=""	
 documentationCenter="" 	
 authors="msftman"	
@@ -19,33 +19,27 @@ ms.author="deonhe"/>
 
 # Get started with the Yammer API
 
-Yammer is a social networking service for the enterprise.  Connect to Yammer to access conversations in your enterprise network.
+Connect to Yammer to access conversations in your enterprise network.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version of this connector, click [Yammer](../app-service-logic/app-service-logic-connector-Yammer.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Yammer](../app-service-logic/app-service-logic-connector-yammer.md).
 
->[AZURE.TIP] "Connector" and "API" are used interchangeably.
+With Yammer, you can:
 
-With the Yammer connector, you can:
+- Build your business flow based on the data you get from Yammer. 
+- Use triggers for when there is a new message in a group, or a feed your following.
+- Use actions to post a message, get all messages, and more. These actions get a response, and then make the output available for other actions. For example, when a new message appears, you can send an email using Office 365.
 
-* Use it to build logic apps
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-This topic focuses on the Yammer triggers and actions available, creating a connection to the connector, and also lists the REST API parameters.
+## Triggers and actions
+Yammer includes the following triggers and actions. 
 
-Need help creating a logic app? See [Create a logic app](..app-service-logic-create-a-logic-app.md).
+Trigger | Actions
+--- | ---
+<ul><li>When there is a new message in a group</li><li>When there is a new message in my Following feed</li></ul>| <ul><li>Get all messages</li><li>Gets messages in a group</li><li>Gets the messages from my Following feed</li><li>Post message</li><li>When there is a new message in a group</li><li>When there is a new message in my Following feed</li></ul>
 
-## Let's talk about triggers and actions
+All APIs support data in JSON and XML formats. 
 
-The Yammer connector can be used as an action; there are no triggers. All connectors support data in JSON and XML formats. 
-
- The Yammer connector has the following action(s) and/or trigger(s) available:
-
-### Yammer actions
-You can take these action(s):
-
-|Action|Description|
-|--- | ---|
-|GetMessages|Get all public messages in the logged in user's Yammer network. Corresponds to "All" conversations in the Yammer web interface.|
-|PostMessage|Post a Message to a Group or All Company Feed. If group ID is provided, message will be posted to the specified group else it will be posted in All Company Feed.|
 ## Create a connection to Yammer
 To use the Yammer API, you first create a **connection** then provide the details for these properties: 
 
@@ -57,12 +51,12 @@ To use the Yammer API, you first create a **connection** then provide the detail
 >[AZURE.TIP] You can use this connection in other logic apps.
 
 ## Yammer REST API reference
-#### This documentation is for version: 1.0
+This documentation is for version: 1.0
 
 
-### Get all public messages in the logged in user's Yammer network. Corresponds to "All" conversations in the Yammer web interface.
+### Get all public messages in the logged in user's Yammer network
+Corresponds to "All" conversations in the Yammer web interface.  
 **```GET: /messages.json```** 
-
 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -73,7 +67,7 @@ To use the Yammer API, you first create a **connection** then provide the detail
 |page|integer|no|query|none|Get the page specified. If returned data is greater than the limit, you can use this field to access subsequent pages|
 
 
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
@@ -81,15 +75,14 @@ To use the Yammer API, you first create a **connection** then provide the detail
 |400|Bad Request|
 |408|Request Timeout|
 |429|Too Many Requests|
-|500|Internal Server Error. Unknown error occured|
+|500|Internal Server Error. Unknown error occurred|
 |503|Yammer Service Unavailable|
 |504|Gateway Timeout|
 |default|Operation Failed.|
-------
 
 
-
-### Post a Message to a Group or All Company Feed. If group ID is provided, message will be posted to the specified group else it will be posted in All Company Feed.
+### Post a Message to a Group or All Company Feed
+If group ID is provided, message will be posted to the specified group else it will be posted in All Company Feed.  
 **```POST: /messages.json```** 
 
 
@@ -99,164 +92,102 @@ To use the Yammer API, you first create a **connection** then provide the detail
 |input| |yes|body|none|Post Message Request|
 
 
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
 |201|Created|
-------
 
 
 
-## Object definition(s): 
+## Object definitions
 
- **Message**:Yammer Message
+#### Message: Yammer Message
 
-Required properties for Message:
+| Name | Data Type | Required |
+|---|---| --- | 
+|id|integer|no|
+|content_excerpt|string|no|
+|sender_id|integer|no|
+|replied_to_id|integer|no|
+|created_at|string|no|
+|network_id|integer|no|
+|message_type|string|no|
+|sender_type|string|no|
+|url|string|no|
+|web_url|string|no|
+|group_id|integer|no|
+|body|not defined|no|
+|thread_id|integer|no|
+|direct_message|boolean|no|
+|client_type|string|no|
+|client_url|string|no|
+|language|string|no|
+|notified_user_ids|array|no|
+|privacy|string|no|
+|liked_by|not defined|no|
+|system_message|boolean|no|
 
+#### PostOperationRequest: Represents a post request for Yammer Connector to post to yammer
 
-None of the properties are required. 
+| Name | Data Type | Required |
+|---|---| --- | 
+|body|string|yes|
+|group_id|integer|no|
+|replied_to_id|integer|no|
+|direct_to_id|integer|no|
+|broadcast|boolean|no|
+|topic1|string|no|
+|topic2|string|no|
+|topic3|string|no|
+|topic4|string|no|
+|topic5|string|no|
+|topic6|string|no|
+|topic7|string|no|
+|topic8|string|no|
+|topic9|string|no|
+|topic10|string|no|
+|topic11|string|no|
+|topic12|string|no|
+|topic13|string|no|
+|topic14|string|no|
+|topic15|string|no|
+|topic16|string|no|
+|topic17|string|no|
+|topic18|string|no|
+|topic19|string|no|
+|topic20|string|no|
 
+#### MessageList: List of messages
 
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|id|integer|
-|content_excerpt|string|
-|sender_id|integer|
-|replied_to_id|integer|
-|created_at|string|
-|network_id|integer|
-|message_type|string|
-|sender_type|string|
-|url|string|
-|web_url|string|
-|group_id|integer|
-|body|not defined|
-|thread_id|integer|
-|direct_message|boolean|
-|client_type|string|
-|client_url|string|
-|language|string|
-|notified_user_ids|array|
-|privacy|string|
-|liked_by|not defined|
-|system_message|boolean|
-
-
-
- **PostOperationRequest**:Represents a post request for Yammer Connector to post to yammer
-
-Required properties for PostOperationRequest:
-
-body
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|body|string|
-|group_id|integer|
-|replied_to_id|integer|
-|direct_to_id|integer|
-|broadcast|boolean|
-|topic1|string|
-|topic2|string|
-|topic3|string|
-|topic4|string|
-|topic5|string|
-|topic6|string|
-|topic7|string|
-|topic8|string|
-|topic9|string|
-|topic10|string|
-|topic11|string|
-|topic12|string|
-|topic13|string|
-|topic14|string|
-|topic15|string|
-|topic16|string|
-|topic17|string|
-|topic18|string|
-|topic19|string|
-|topic20|string|
+| Name | Data Type | Required |
+|---|---| --- | 
+|messages|array|no|
 
 
+#### MessageBody: Message Body
 
- **MessageList**:List of messages
+| Name | Data Type | Required |
+|---|---| --- | 
+|parsed|string|no|
+|plain|string|no|
+|rich|string|no|
 
-Required properties for MessageList:
+#### LikedBy: Liked By
 
+| Name | Data Type | Required |
+|---|---| --- | 
+|count|integer|no|
+|names|array|no|
 
-None of the properties are required. 
+#### YammmerEntity: Liked By
 
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|messages|array|
-
-
-
- **MessageBody**:Message Body
-
-Required properties for MessageBody:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|parsed|string|
-|plain|string|
-|rich|string|
-
-
-
- **LikedBy**:Liked By
-
-Required properties for LikedBy:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|count|integer|
-|names|array|
-
-
-
- **YammmerEntity**:Liked By
-
-Required properties for YammmerEntity:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|type|string|
-|id|integer|
-|full_name|string|
+| Name | Data Type | Required |
+|---|---| --- | 
+|type|string|no|
+|id|integer|no|
+|full_name|string|no|
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).

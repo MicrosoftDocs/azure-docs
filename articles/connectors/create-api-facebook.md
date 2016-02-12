@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/09/2016"
+   ms.date="02/11/2016"
    ms.author="mandia"/>
 
 # Get started with the Facebook API
@@ -22,7 +22,7 @@ Connect to Facebook and post to a timeline, get a page feed, and more.
 
 The Facebook API can be used from logic apps. 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Facebook connector](..app-service-logic-connector-facebook.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Facebook connector](../app-service-logic/app-service-logic-connector-facebook.md).
 
 
 With Facebook, you can:
@@ -31,7 +31,7 @@ With Facebook, you can:
 - Use a trigger when a new post is received.
 - Use actions that post to your timeline, get a page feed, and more. These actions get a response, and then make the output available for other actions. For example, when there is a new post on your timeline, you can take that post and push it to your Twitter feed. 
 
-To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 The Facebook API includes the following trigger and actions. 
@@ -438,4 +438,4 @@ Anyone in these groups is more likely to see this post, others are less likely. 
 
 ## Next steps
 
-[Create a logic app](..app-service-logic-create-a-logic-app.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
