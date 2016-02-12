@@ -64,6 +64,6 @@ To connect virtual machines in a standalone cloud service:
 
 After you create a virtual machine, it's a good idea to add a data disk so your services and workloads have a location to store data. See one of the following:
 
-[How to Attach a Data Disk to a Linux Virtual Machine](virtual-machines-linux-how-to-attach-disk.md)
+[How to Attach a Data Disk to a Linux Virtual Machine](virtual-machines-linux-classic-attach-disk.md)
 
-[How to Attach a Data Disk to a Windows Virtual Machine](storage-windows-attach-disk.md)
+[How to Attach a Data Disk to a Windows Virtual Machine](virtual-machines-windows-classic-attach-disk.md)

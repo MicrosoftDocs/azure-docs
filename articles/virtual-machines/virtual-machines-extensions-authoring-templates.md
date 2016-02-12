@@ -81,7 +81,7 @@ The next step with authoring extension template is to identify the format for pr
 
 To look at sample configuration for Windows Extensions, click the documentation [Windows Extensions Samples](virtual-machines-windows-extensions-configuration-samples.md).
 
-To look at sample configuration for Linux Extensions, click the documentation for  [Linux Extensions Samples ](virtual-machines-extensions-configuration-samples-linux.md).
+To look at sample configuration for Linux Extensions, click the documentation for  [Linux Extensions Samples ](virtual-machines-linux-extensions-configuration-samples.md).
 
 Please refer to the following to the VM Templates to get a fully complete Template with VM Extensions.
 
