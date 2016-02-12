@@ -62,7 +62,7 @@ This section shows you how to generalize your Windows virtual machine. This remo
 
 	3. Click **OK**.
 
-	![Start Sysprep](./media/virtual-machines-upload-image-windows-resource-manager/sysprepgeneral.png)
+	![Start Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
 
 </br>
 ## Create or find an Azure storage account
