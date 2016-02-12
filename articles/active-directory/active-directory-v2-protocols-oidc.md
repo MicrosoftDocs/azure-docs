@@ -25,6 +25,11 @@ OpenID Connect is an authentication protocol built on top of OAuth 2.0that can b
     
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0*authorization* protocol for use as an *authentication* protocol, which allows you to perform single sign-on using OAuth.  It introduces the concept of an `id_token`, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.  Because it extends OAuth 2.0, it also enables apps to securely acquire **access_tokens** which can be used to access resources that are secured by an [authorization server](active-directory-v2-protocols.md#the-basics).  OpenID Connect is our recommendation if you are building a [web application](active-directory-v2-flows.md#web-apps) that is hosted on a server and accessed via a browser.
 
+## Protocol Diagram - Sign In
+The most basic sign-in flow contains the following steps - each of them is described in detail below.
+
+![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
+
 ## Send the sign-in request
 When your web app needs to authenticate the user, it can direct the user to the `/authorize` endpoint.  This request is similar to the first leg of the [OAuth 2.0Authorization Code Flow](active-directory-v2-protocols-oauth-code.md), with a few important distinctions:
 
@@ -135,13 +140,15 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 -->
 
-## Sign-in summary diagram
-The most basic sign-in flow contains the following steps:
+## Protocol Diagram - Token Acquisition
+Many web apps need to not only sign the user in, but also access a web service on behalf of that user using OAuth.  This scenario combines OpenID Connect for user authentication while simultaneously acquiring an authorization_code that can be used to get access_tokens using the OAuth Authorization Code Flow.
 
-![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
+The full OpenID Connect sign-in and token acquisition flow looks something like this - each step is described in detail below.
+
+![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
 ## Get access tokens
-Many web apps need to not only sign the user in, but also access a web service on behalf of that user using OAuth.  This scenario combines OpenID Connect for user authentication while simultaneously acquiring an authorization_code that can be used to get access_tokens using the OAuth Authorization Code Flow.  To acquire access tokens, you'll need to slightly modify the sign in request from above:
+To acquire access tokens, you'll need to slightly modify the sign in request from above:
 
 
 ```
@@ -197,10 +204,4 @@ error=access_denied
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
-Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get access tokens on their behalf.  To sign the user in, you must validate the `id_token` exactly as described [above](#validating-the-id-token).  To get access tokens, you can follow the steps described in our [OAuth protocol documentation](active-directory-v2-protocols-oidc.md#request-an-access-token).
-
-## Token acquisition summary diagram
-
-For reference, the full OpenID Connect sign-in and token acquisition flow looks something like this:
-
-![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
+Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get access tokens on their behalf.  To sign the user in, you must validate the `id_token` exactly as described [above](#validating-the-id-token).  To get access tokens, you can follow the steps described in our [OAuth protocol documentation](active-directory-v2-protocols-oauth-code.md#request-an-access-token).

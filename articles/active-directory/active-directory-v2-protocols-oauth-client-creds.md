@@ -26,6 +26,11 @@ The [OAuth 2.0client credentials grant](http://tools.ietf.org/html/rfc6749#secti
 
 In "three-legged OAuth," the client application is granted permission to access a resource on behalf of a particular user.  The permission is **delegated** from the user to the application, usually during the [consent](active-directory-v2-scopes.md) process.  However, in the client credentials flow, permissions are granted **directly** to the application itself.  When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform some action - not that some user has authorization.
 
+## Protocol diagram
+The entire client credentials flow looks something like this - each of the steps are described in detail below.
+
+![Client Credentials Flow](../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
+
 ## Get direct authorization 
 There are primarily two ways that an app can receive direct authorization to access a resource: through an access control list at the resource, or through direct application permission assignment in Azure AD.  There are several other ways a resource may choose to authorize its clients, and each resource server may choose the method that makes the most sense for its application.  These two methods are the most common in Azure AD and are reccommended for clients and resources that wish to perform the client credentials flow.
 
@@ -144,7 +149,7 @@ A successful response will take the form:
 ```
 {
   "token_type": "Bearer",
-  "expires_in": "3599",
+  "expires_in": 3599,
   "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBP..."
 }
 ```
@@ -196,7 +201,3 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
-
-## Summary diagram
-
-![Client Credentials Flow](../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)

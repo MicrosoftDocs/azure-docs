@@ -20,7 +20,7 @@
 With the v2.0 endpoint, you can sign users into your single page apps with both personal and work/school accounts from Microsoft.  Single page and other JavaScript apps that run primarily in a browser face a few interesting challenges when it comes to authentication:
 
 - The security characteristics of these apps are significantly different from traditional server based web applications.
-- Many authorization servers & identity providers do not support CORS requests for well-documented security reasons.
+- Many authorization servers & identity providers do not support CORS requests.
 - Full page browser redirects away from the app become particularly invasive to the user experience.
 
 For these applications (think: AngularJS, Ember.js, React.js, etc) Azure AD supports the OAuth 2.0Implicit Grant flow.  The implicit flow is described in the [OAuth 2.0Specification](http://tools.ietf.org/html/rfc6749#section-4.2).  Its primary benefit is that it allows the app to get tokens from Azure AD without performing a backend server credential exchange.  This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code.  There are a few important security considerations to take into account when using the implicit flow - specifically around [client](http://tools.ietf.org/html/rfc6749#section-10.3) and [user impersonation](http://tools.ietf.org/html/rfc6749#section-10.3).
@@ -31,6 +31,11 @@ However, if you would prefer not to use a library in your single page app and se
 
 > [AZURE.NOTE]
     This information applies to the v2.0 endpoint public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+
+## Protocol diagram
+The entire implicit sign in flow looks something like this - each of the steps are described in detail below.
+
+![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## Send the sign-in request
 
@@ -81,7 +86,6 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | scope | Included if `response_type` includes `token`.  Indicates the scope(s) for which the access_token will be valid. |
 | id_token | The id_token that the app requested. You can use the id_token to verify the user's identity and begin a session with the user.  More details on id_tokens and their contents is included in the [v2.0 endpoint token reference](active-directory-v2-tokens.md).  |
 | state | If a state parameter is included in the request, the same value should appear in the response. The  app should verify that the state values in the request and response are identical. |
-| id_token_expires_in | How long the id token is valid (in seconds). |
 
 
 #### Error response
@@ -149,7 +153,7 @@ GET https://localhost/myapp/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
 &token_type=Bearer
-&expires_in=3600
+&expires_in=3599
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
 ```
 
