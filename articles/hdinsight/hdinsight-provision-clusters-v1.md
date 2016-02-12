@@ -576,7 +576,7 @@ HDInsight uses an Azure Blob storage container as the default file system. An Az
 
 	When prompted for a location, select a location where an HDInsight cluster can be provisioned. The storage must be in the same location as the HDInsight cluster. Currently, only the **East Asia**, **Southeast Asia**, **North Europe**, **West Europe**, **East US**, **West US**, **North Central US**, and **South Central US** regions can host HDInsight clusters.  
 
-For information on creating an Azure Storage account by using the Azure Classic Portal, see [Create, manage, or delete a storage account](../storage-create-storage-account.md).
+For information on creating an Azure Storage account by using the Azure Classic Portal, see [Create, manage, or delete a storage account](../storage/storage-create-storage-account.md).
 
 If you already have a Storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
@@ -589,7 +589,7 @@ If you already have a Storage account but do not know the account name and accou
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-For details on getting the information by using the Azure Classic Portal, see the *How to: View, copy and regenerate storage access keys* section of [Create, manage, or delete a storage account](../storage-create-storage-account.md).
+For details on getting the information by using the Azure Classic Portal, see the *How to: View, copy and regenerate storage access keys* section of [Create, manage, or delete a storage account](../storage/storage-create-storage-account.md).
 
 An HDInsight cluster also requires a container within a Storage account. If the Storage account you provide does not already have a container, the *azure hdinsight cluster create* command prompts you for a container name and creates it as well. However, if you want to create the container beforehand, you can use the following command:
 

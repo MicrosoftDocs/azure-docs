@@ -44,7 +44,7 @@ For more information on using secondary Blob stores, see [Using Azure Blob Stora
 
 Spark enables you to define schema and Hive tables over raw data. You can save these schemas and table metadata to external metastores. Using the metastore helps you to retain your Hive metadata, so that you don't need to re-create Hive tables when you create a new cluster. By default, Hive uses an embedded database to store this information. The embedded database can't preserve the metadata when the cluster is deleted.
 
-For instructions on how to create a SQL database in Azure, see [Create your first Azure SQL Database](sql-database-get-started.md).
+For instructions on how to create a SQL database in Azure, see [Create your first Azure SQL Database](../sql-database/sql-database-get-started.md).
 
 ### Cluster customization
 

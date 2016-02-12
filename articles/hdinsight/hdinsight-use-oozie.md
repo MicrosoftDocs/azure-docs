@@ -173,7 +173,7 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
 The PowerShell script in this section performs the following steps:
 
 1. Connect to Azure.
-2. Create an Azure resource group. For more information, see [Use Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
+2. Create an Azure resource group. For more information, see [Use Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 3. Create an Azure SQL Database server, an Azure SQL database, and two tables. These are used by the Sqoop action in the workflow.
 
 	The table name is *log4jLogCount*.

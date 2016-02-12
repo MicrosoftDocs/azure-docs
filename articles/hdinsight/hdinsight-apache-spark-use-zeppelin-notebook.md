@@ -63,7 +63,7 @@ For instructions on how to use HDInsight .NET SDK to run script action to instal
 
 ### Using Azure PowerShell
 
-Use the following PowerShell snippet to create a Spark cluster on HDInsight Linux with Zeppelin installed. Make sure you have PowerShell installed before you proceed. See [Install and configure Azure PowerShell](pwoershell-install-configure.md) for instructions.
+Use the following PowerShell snippet to create a Spark cluster on HDInsight Linux with Zeppelin installed. Make sure you have PowerShell installed before you proceed. See [Install and configure Azure PowerShell](../powershell-install-configure.md) for instructions.
 
 	Login-AzureRMAccount
 	

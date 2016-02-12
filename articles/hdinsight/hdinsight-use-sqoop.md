@@ -93,7 +93,7 @@ mobile device data back to HDInsight by using the following path:
 The PowerShell sample in this section performs the following steps:
 
 1. Connect to Azure.
-2. Create an Azure resource group. For more information, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
+2. Create an Azure resource group. For more information, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
 3. Create an Azure SQL Database server, an Azure SQL database, and two tables. 
 
 	If you use SQL Server instead, use the following statements to create the tables:
