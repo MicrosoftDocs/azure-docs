@@ -18,7 +18,7 @@ ms.author="larryfr"/>
 
 #Add Hive libraries during HDInsight cluster creation
 
-If you have a library (stored in jar files,) that you use from Hive, you may have used the `ADD JAR` statement to load it into Hive and make it usable in queries. If you have libraries that you use frequently, the script in this document enables you to pre-load them during cluster creation.
+If you have a library (stored in jar files,) that you use from Hive, you may have used the `ADD JAR` statement to load it into Hive and make it usable in queries. If you have libraries that you use often, the script in this document enables you to pre-load them during cluster creation.
 
 The script enumerates the files during cluster creation, copies them to the `/usr/lib/customhivelibs/` directory on head and worker nodes, then adds them to the `hive.aux.jars.path` property in the `core-site.xml` file. 
 
