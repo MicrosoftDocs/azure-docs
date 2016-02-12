@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2015"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Deploy an application with Azure Resource Manager template
