@@ -91,7 +91,7 @@ You shouldn’t use the temporary disk (the D: drive by default for Windows or /
 
 ## How can I change the drive letter of the temporary disk?
 
-On a Windows virtual machine, you can change the drive letter by moving the page file and reassigning drive letters, but you’ll need to make sure you do the steps in a specific order. For instructions, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-change-drive-letter.md).
+On a Windows virtual machine, you can change the drive letter by moving the page file and reassigning drive letters, but you’ll need to make sure you do the steps in a specific order. For instructions, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md).
 
 ## How can I upgrade the guest operating system?
 

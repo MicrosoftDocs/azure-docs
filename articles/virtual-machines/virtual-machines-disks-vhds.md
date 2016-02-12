@@ -33,7 +33,7 @@ Every virtual machine has one attached operating system disk. It’s registered 
 
 The temporary disk is automatically created for you. On Windows virtual machines, this disk is labeled as the D: drive. On Linux virtual machines, the disk is typically /dev/sdb and is formatted and mounted to /mnt/resource by the Azure Linux Agent.
 
->[AZURE.WARNING] Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. To remap this disk for a Windows virtual machine, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-change-drive-letter.md).
+>[AZURE.WARNING] Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. To remap this disk for a Windows virtual machine, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md).
 
 ## Data disk
 
@@ -69,8 +69,15 @@ Linux virtual machines:
 
 Windows virtual machines:
 
+<<<<<<< HEAD
+-  [Attach a disks and prepare it for use](storage-windows-attach-disk.md)
+- [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md)
+-  [Capture a Windows virtual machine](virtual-machines-capture-image-windows-server.md)
+-  [Detach a disk](storage-windows-detach-disk.md)
+=======
 -  [Attach a disks and prepare it for use](virtual-machines-windows-classic-attach-disk.md)
 - [Change the drive letter of the Windows temporary disk](virtual-machines-windows-change-drive-letter.md)
 -  [Capture a Windows virtual machine](virtual-machines-windows-classic-capture-image.md)
 -  [Detach a disk](virtual-machines-windows-classic-detach-disk.md)
 
+>>>>>>> vm-refactor-staging
