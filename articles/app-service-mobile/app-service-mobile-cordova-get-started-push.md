@@ -181,7 +181,13 @@ device.
 Improve your development experience.  Screen sharing applications such as [Mobizen] can assist you in developing an Android application
 by projecting your Android screen on to a web browser on your PC.
 
+##<a name="next-steps"></a>Next Steps
+
+* Read about [Notification Hubs] to learn about push notifications.
+* If you have not already done so, continue the tutorial by [Adding Authentication] to your Apache Cordova app.
+
 <!-- URLs -->
+[Adding Authentication]: app-service-mobile-cordova-get-started-users.md
 [Apache Cordova quick start]: app-service-mobile-cordova-get-started.md
 [authentication]: app-service-mobile-cordova-get-started-users.md
 [Work with the .NET backend server SDK for Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
@@ -189,3 +195,6 @@ by projecting your Android screen on to a web browser on your PC.
 [Google Developer Console]: https://console.developers.google.com/home/dashboard
 [phonegap-plugin-push installation documentation]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [Mobizen]: https://www.mobizen.com/
+[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
+[Notification Hubs]: ../notification-hubs/notification-hubs-overview.md

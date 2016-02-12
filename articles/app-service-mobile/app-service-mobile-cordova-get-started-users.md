@@ -100,6 +100,13 @@ Next, you will update the app to authenticate users before requesting resources 
 4. Run your project.  When the project has finished initializing, your application will show the OAuth login page for the
    chosen authentication provider.
 
+##<a name="next-steps"></a>Next Steps
+
+* Learn more [About Authentication] with Azure App Service.
+* Continue the tutorial by adding [Push Notifications] to your Apache Cordova app.
+
 <!-- URLs. -->
 [Get started with Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Content-Security-Policy documentation]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
+[Push Notifications]: app-service-mobile-cordova-get-started-push.md
+[About Authentication]: app-service-mobile-auth.md
