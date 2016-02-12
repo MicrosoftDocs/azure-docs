@@ -49,7 +49,7 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
   This command creates a dual boot environment. From this point, you should boot into the upper boot option.
 
-7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/en-us/library/mt126134.aspx).
+7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/library/mt126134.aspx).
 
 8. Configure the BIOS to use Local Time instead of UTC.
 
