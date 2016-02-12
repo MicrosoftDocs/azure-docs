@@ -110,6 +110,6 @@ Automated Backup configures Managed Backup on Azure VMs. So it is important to [
 
 You can find additional backup and restore guidance for SQL Server on Azure VMs in the following topic: [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-br.md).
 
-A related feature for SQL Server VMs in Azure is [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-patching.md).
+A related feature for SQL Server VMs in Azure is [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-patch.md).
 
 Review other [resources for running SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).
