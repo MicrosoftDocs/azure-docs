@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resources for batch and HPC workloads in the cloud | Microsoft Azure"
-   description="Lists technical resources to help you run your large-scale parallel, batch, and high perforance computeing (HPC) workloads in Azure."
+   description="Lists technical resources to help you run your large-scale parallel, batch, and high performance computing (HPC) workloads in Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -10,7 +10,7 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="01/26/2016"
@@ -85,7 +85,6 @@ Use these Azure templates to deploy Linux HPC clusters.
 * [MS-MPI reference](https://msdn.microsoft.com/library/dn473458.aspx)
 
 * [MPI forum](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
-
 
 ## Compute intensive instances
 

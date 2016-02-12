@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Copy output data to an on-premises SQL Server database (Azure Classic Portal)" 
+	pageTitle="Walkthrough: Copy output data to SQL Server database (Azure Classic Portal)" 
 	description="This walkthrough extends the tutorial using Data Factory Editor in the Azure Classic Portal such that the pipeline copies output data to a SQL Server database."
 	services="data-factory" 
 	documentationCenter="" 
@@ -17,14 +17,14 @@
 	ms.author="spelluru"/>
 
 
-# Walkthrough: Copy campaign effectiveness data to an on-premises SQL Server database 
+# Walkthrough: Copy output data to an on-premises SQL Server database (Azure Classic Portal) 
 In this walkthrough, you will learn how to set up the environment to enable the pipeline to work with your on-premises data.
  
 In the last step of log processing scenario from the first walkthrough with Partition -> Enrich -> Analyze workflow, the marketing campaign effectiveness output was copied to an Azure SQL database. You could also move this data to on-premises SQL Server for analytics within your organization.
  
 In order to copy the marketing campaign effectiveness data from Azure Blob to on-premises SQL Server, you need to create additional on-premises Linked Service, Table and Pipeline using the same set of cmdlets introduced in the first walkthrough.
 
-## Pr-requisites
+## Pre-requisites
 
 You **must** perform the walkthrough in the [Tutorial: Move and process log files using Data Factory][datafactorytutorial] before performing the walkthrough in this article. 
 

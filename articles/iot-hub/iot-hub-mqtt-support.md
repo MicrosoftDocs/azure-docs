@@ -18,7 +18,7 @@
 
 # IoT Hub MQTT support
 
-IoT Hub enables devices to communicate with the IoT Hub device endpoints using the [MQTT v3.1.1][lnk-mqtt-org] protocol. 
+IoT Hub enables devices to communicate with the IoT Hub device endpoints using the [MQTT v3.1.1][lnk-mqtt-org] protocol on port 8883. IoT Hub requires all device communication to be secured using TLS/SSL.
 
 ## Connecting to IoT Hub
 

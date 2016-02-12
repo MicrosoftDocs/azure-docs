@@ -3,9 +3,9 @@
 	description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Azure Service Bus queues to monitor progress remotely."
 	services="virtual-machines"
 	documentationCenter=".net"
-	authors="wadepickett"
-	manager="wpickett"
-	editor="mollybos"
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
 	tags=“azure-service-management"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/25/2015"
-	ms.author="wpickett"/>
+	ms.author="davidmu"/>
 
 # How to run a compute-intensive task in .NET on an Azure virtual machine
 
