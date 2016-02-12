@@ -42,11 +42,8 @@ This article assumes that you have the following items:
 
 	**Important**: The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
-<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-create-upload-vhd.md
-	For a list of endorsed distributions, see [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md). For a general list of Linux distributions, see [Information for Non-Endorsed Distributions](virtual-machines-linux-create-upload-vhd-generic.md).
-=======
-	For a list of endorsed distributions, see [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distributions.md). For a general list of Linux distributions, see [Information for Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md).
->>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md
+	For a list of endorsed distributions, see [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md). For a general list of Linux distributions, see [Information for Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md).
+
 
 - **Azure Command-line Interface** - if you are using a Linux operating system to create your image, you use the [Azure Command-Line Interface](virtual-machines-command-line-tools.md) to upload the VHD.
 
@@ -57,11 +54,11 @@ This article assumes that you have the following items:
 
 Azure supports a variety of Linux distributions (see [Endorsed Distributions](virtual-machines-linux-endorsed-distros.md)). The following articles will guide you through how to prepare the various Linux distributions that are supported on Azure:
 
-- **[CentOS-based Distributions](virtual-machines-linux-create-upload-centos.md)**
+- **[CentOS-based Distributions](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
-- **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
-- **[SLES & openSUSE](virtual-machines-linux-create-upload-vhd-suse)**
+- **[SLES & openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 - **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-vhd-generic.md)**
 

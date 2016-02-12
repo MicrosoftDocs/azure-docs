@@ -102,7 +102,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 
 #### [Oracle Linux](https://azure.microsoft.com/marketplace/?term=Oracle+Linux)
-  2. [Prepare an Oracle Linux Virtual Machine for Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
+  2. [Prepare an Oracle Linux Virtual Machine for Azure](virtual-machines-linux-oracle-create-upload-vhd.md)
 
 ### FreeBSD
 
