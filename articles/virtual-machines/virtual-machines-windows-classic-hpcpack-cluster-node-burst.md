@@ -45,7 +45,7 @@ If you want to use the A8 or A9 compute intensive instance size, see
 ## Prerequisites
 
 * **HPC Pack head node deployed in an Azure VM** - See [Deploy an HPC
-Pack Head Node in an Azure VM](virtual-machines-hpcpack-cluster-headnode.md) for
+Pack Head Node in an Azure VM](virtual-machines-windows-hpcpack-cluster-headnode.md) for
 steps to create a cluster head node in the classic (Service Management) deployment model.
 
 * **Azure subscription** - To add Azure nodes, you can choose the same
@@ -118,7 +118,7 @@ Pack](http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
 
 * If you want a way to
 automatically grow or shrink the Azure computing resources according to
-the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
