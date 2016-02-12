@@ -182,4 +182,4 @@ This environment is now ready for you to deploy your web-based application on LO
 
 ## Next steps
 
-- Set up the [production environment](../virtual-machines/virtual-machines-workload-high-availability-LOB-application-overview.md).
+- Set up the [production environment](../virtual-machines/virtual-machines-windows-lob-overview.md).
