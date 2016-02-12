@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Classic portal](virtual-machines-windows-classic-portal-sql.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
-- [Azure Resource Manager portal](virtual-machines-sql-server-provision-resource-manager.md)
+- [Azure Resource Manager portal](virtual-machines-windows-portal-sql-server-provision.md)
 
 
 ## Overview
@@ -112,7 +112,7 @@ Finally, create the virtual machine with PowerShell:
 
 		New-AzureVM –ServiceName $svcname -VMs $vm1
 
->[AZURE.NOTE] For additional explanation and configuration options, see the **Build your command set** section in [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md).
+>[AZURE.NOTE] For additional explanation and configuration options, see the **Build your command set** section in [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-windows-classic-create-powershell.md).
 
 ## Example PowerShell script
 
@@ -167,9 +167,9 @@ After logging onto the machine with remote desktop, configure SQL Server based o
 
 ## Next steps
 
-You can find additional instructions for provisioning virtual machines with PowerShell in the [virtual machines documentation](virtual-machines-ps-create-preconfigure-windows-vms.md). For additional scripts related to SQL Server and Premium Storage, see [Use Azure Premium Storage with SQL Server on Virtual Machines](virtual-machines-sql-server-use-premium-storage.md).
+You can find additional instructions for provisioning virtual machines with PowerShell in the [virtual machines documentation](virtual-machines-windows-classic-create-powershell.md). For additional scripts related to SQL Server and Premium Storage, see [Use Azure Premium Storage with SQL Server on Virtual Machines](virtual-machines-windows-classic-sql-server-premium-storage.md).
 
-In many cases, the next step is to migrate your databases to this new SQL Server VM. For database migration guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md).
+In many cases, the next step is to migrate your databases to this new SQL Server VM. For database migration guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md).
 
 If you're also interested in seeing how to perform these steps from the Azure classic portal, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-portal-sql.md).
 
