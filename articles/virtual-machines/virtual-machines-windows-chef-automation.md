@@ -224,17 +224,17 @@ I hope this has been helpful! Go  and start your infrastructure as code journey 
 
 
 <!--Image references-->
-[2]: ./media/virtual-machines-automation-with-chef/2.png
-[3]: ./media/virtual-machines-automation-with-chef/3.png
-[4]: ./media/virtual-machines-automation-with-chef/4.png
-[5]: ./media/virtual-machines-automation-with-chef/5.png
-[6]: ./media/virtual-machines-automation-with-chef/6.png
-[7]: ./media/virtual-machines-automation-with-chef/7.png
-[8]: ./media/virtual-machines-automation-with-chef/8.png
-[9]: ./media/virtual-machines-automation-with-chef/9.png
-[10]: ./media/virtual-machines-automation-with-chef/10.png
-[11]: ./media/virtual-machines-automation-with-chef/11.png
-[13]: ./media/virtual-machines-automation-with-chef/13.png
+[2]: ./media/virtual-machines-windows-chef-automation/2.png
+[3]: ./media/virtual-machines-windows-chef-automation/3.png
+[4]: ./media/virtual-machines-windows-chef-automation/4.png
+[5]: ./media/virtual-machines-windows-chef-automation/5.png
+[6]: ./media/virtual-machines-windows-chef-automation/6.png
+[7]: ./media/virtual-machines-windows-chef-automation/7.png
+[8]: ./media/virtual-machines-windows-chef-automation/8.png
+[9]: ./media/virtual-machines-windows-chef-automation/9.png
+[10]: ./media/virtual-machines-windows-chef-automation/10.png
+[11]: ./media/virtual-machines-windows-chef-automation/11.png
+[13]: ./media/virtual-machines-windows-chef-automation/13.png
 
 
 <!--Link references-->

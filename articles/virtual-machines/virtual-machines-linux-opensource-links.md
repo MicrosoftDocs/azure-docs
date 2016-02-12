@@ -273,7 +273,7 @@ This section starts with a blog entry containing a series of videos on [Video: A
 	- [Third Party: Hudson Slave Plug-in for Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
 	- [Third Party: Hudson Storage Plug-in for Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
 10. Chef
-	- [Chef and Virtual Machines](virtual-machines-automation-with-chef.md)
+	- [Chef and Virtual Machines](virtual-machines-windows-chef-automation.md)
 	- [Video: What is Chef and How does it Work?](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
 
 12. Azure Automation
