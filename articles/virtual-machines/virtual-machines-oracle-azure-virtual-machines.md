@@ -30,11 +30,11 @@ See [List of Oracle virtual machine images](virtual-machines-oracle-list-oracle-
 
 ## Considerations for Windows-based virtual machines
 
-See [Miscellaneous considerations for Oracle virtual machine images](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md) to understand limitations for Oracle software on Windows Server-based Azure virtual machines.
+See [Miscellaneous considerations for Oracle virtual machine images](virtual-machines-windows-classic-oracle-considerations.md) to understand limitations for Oracle software on Windows Server-based Azure virtual machines.
 
 ## Oracle database virtual machine
 
-[Creating an Oracle database virtual machine in Azure](virtual-machines-creating-oracle-database-virtual-machine.md) steps you through virtual machine creation, database creation, and configuration of popular options.
+[Creating an Oracle database virtual machine in Azure](virtual-machines-windows-classic-create-oracle-database.md) steps you through virtual machine creation, database creation, and configuration of popular options.
 
 ## Oracle WebLogic Server 12c
 
@@ -46,12 +46,12 @@ See [Miscellaneous considerations for Oracle virtual machine images](virtual-mac
 
 ## Prepare an Oracle Linux virtual machine
 
-[Prepare an Oracle Linux virtual machine for Azure](virtual-machines-prepare-oracle-linux-virtual-machine.md) steps you through the prerequisites and virtual machine creation for Oracle Linux 6.4+ and Oracle Linux 7.0+.
+[Prepare an Oracle Linux virtual machine for Azure](virtual-machines-linux-prepare-oracle.md) steps you through the prerequisites and virtual machine creation for Oracle Linux 6.4+ and Oracle Linux 7.0+.
 
 ## Oracle Data Guard
 
-[Configuring Oracle Data Guard for Azure](virtual-machines-configuring-oracle-data-guard.md) steps you through configuration of the standby environment and the listener.
+[Configuring Oracle Data Guard for Azure](virtual-machines-windows-classic-configure-oracle-data-guard.md) steps you through configuration of the standby environment and the listener.
 
 ## Oracle GoldenGate
 
-[Configuring Oracle GoldenGate for Azure](virtual-machines-configuring-oracle-goldengate.md) steps you through database and replication setup.
+[Configuring Oracle GoldenGate for Azure](virtual-machines-windows-classic-configure-oracle-goldengate.md) steps you through database and replication setup.
