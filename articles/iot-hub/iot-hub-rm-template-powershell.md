@@ -33,8 +33,6 @@ In order to complete this tutorial you'll need the following:
 
 > [AZURE.TIP] The article [Using Azure PowerShell with Azure Resource Manager][lnk-powershell-arm] provides more information about how to use PowerShell scripts and ARM templates to create Azure resources. 
 
-[AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
-
 ## Connect to your Azure subscription
 
 In a PowerShell command prompt, enter the following command to sign in to your Azure subscription:
@@ -50,7 +48,7 @@ You can use the following commands to discover where you can deploy an IoT hub a
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).ApiVersions
 ```
 
-Create a resource group to contain your IoT hub using the following command in one of the supported locations for IoT Hub:
+Create a resource group to contain your IoT hub using the following command in one of the supported locations for IoT Hub. This example creates a resource group called **MyIoTRG1**:
 
 ```
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
@@ -98,7 +96,7 @@ Use a JSON template to create a new IoT hub in your resource group. You can also
 
 2. Save the template file on your local machine. This example assumes you save it in a folder called **c:\templates**.
 
-3. Run the following command to deploy your new IoT hub, passing the name of your IoT hub as a parameter:
+3. Run the following command to deploy your new IoT hub, passing the name of your IoT hub as a parameter. In this example, the name of the IoT hub is **myiothub**:
 
     ```
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName myiothub
