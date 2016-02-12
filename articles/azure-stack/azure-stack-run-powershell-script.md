@@ -43,11 +43,9 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 5. In File Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
 
-6. Open a Command Prompt window as an administrator and run the bcdboot command:
+6. Open a Command Prompt window as an administrator and run the bcdboot command below. This command creates a dual boot environment. From this point, you should boot into the upper boot option.
 
     	bcdboot <mounted drive letter>:\windows
-
-  This command creates a dual boot environment. From this point, you should boot into the upper boot option.
 
 7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/library/mt126134.aspx).
 
