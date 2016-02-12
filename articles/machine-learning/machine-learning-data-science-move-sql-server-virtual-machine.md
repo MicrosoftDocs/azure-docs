@@ -176,7 +176,7 @@ We describe each of these below:
 
 ### Deploy a SQL Server Database to a Microsoft Azure VM wizard
 
-The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-migrate-onpremises-database.md).
+The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md).
 
 ### <a name="export-flat-file"></a>Export to Flat File
 
@@ -220,7 +220,7 @@ A screenshot of the Database backup/restore options from SQL Server Management S
 
 ## Resources
 
-[Migrate a Database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+[Migrate a Database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)
 
 [SQL Server on Azure Virtual Machines overview](../virtual-machines/virtual-machines-windows-classic-sql-overview.md)
 
