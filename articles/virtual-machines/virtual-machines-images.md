@@ -42,7 +42,7 @@ For information about using these tools with Resource Manager deployments, see [
 For examples of using the tools in a classic deployment:
 
 - For CLI, see "Commands to manage your Azure virtual machine images" in [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](virtual-machines-command-line-tools.md)
-- For Azure PowerShell, see the following list of commands. For an example of finding an image to create a VM, see "Step 3: Determine the ImageFamily" in [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- For Azure PowerShell, see the following list of commands. For an example of finding an image to create a VM, see "Step 3: Determine the ImageFamily" in [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-windows-classic-create-powershell.md)
 
 -	**Get all images**:`Get-AzureVMImage`returns a list of all the images available in your current subscription: your images as well as those provided by Azure or partners. This means you might get a large list. The next examples show how to get a shorter list.
 -	**Get image families**:`Get-AzureVMImage | select ImageFamily` gets a list of image families by showing strings **ImageFamily** property.
@@ -56,6 +56,6 @@ For examples of using the tools in a classic deployment:
 
 ## Additional resources
 
-[Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-choices-create-vm.md)
+[Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-creation-choices.md)
 
-[Different ways to create a Windows virtual machine](virtual-machines-windows-choices-create-vm.md)
+[Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md)
