@@ -34,7 +34,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 These are the components involved in an RDP connection:
 
-![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_0.png)
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_0.png)
 
 Before proceeding, it might help to mentally review what has changed since the last successful Remote Desktop connection to the VM. For example:
 
@@ -67,7 +67,7 @@ The Remote Desktop client may not be able to reach the Remote Desktop service on
 
 Verify that your computer can make Remote Desktop connections to another on-premises, Windows-based computer.
 
-![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_1.png)
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_1.png)
 
 If you cannot, check for the following on your computer:
 
@@ -82,7 +82,7 @@ In all of these cases, temporarily disable the software and try to connect to an
 
 Verify that a computer directly connected to the Internet can make Remote Desktop connections to your Azure virtual machine.
 
-![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_2.png)
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_2.png)
 
 If you do not have a computer that is directly connected to the Internet, create and test with a new Azure virtual machine in a resource group or cloud service. For more information, see [Create a virtual machine running Windows in Azure](virtual-machines-windows-tutorial.md). You can delete the virtual machine and the resource group or the cloud service, after the test.
 
@@ -98,7 +98,7 @@ Work with your network administrator to correct the settings of your organizatio
 
 For virtual machines created using the classic deployment model, verify that another Azure virtual machine that is in the same cloud service or virtual network can make Remote Desktop connections to your Azure virtual machine.
 
-![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_3.png)
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [AZURE.NOTE] For virtual machines created in Resource Manager, skip to [Source 4: Network Security Groups](#nsgs).
 
@@ -119,7 +119,7 @@ For more information, see [What is a Network Security Group (NSG)?](../virtual-n
 
 ### Source 5: Windows-based Azure virtual machine
 
-![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_5.png)
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)
 
 Use the [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) to see if the failure is due to the Azure virtual machine itself. If this diagnostics package is unable to solve the **RDP connectivity to an Azure VM (Reboot Required)** issue, follow the instructions in [this article](virtual-machines-windows-reset-rdp.md) to reset the Remote Desktop service on the virtual machine. This will:
 

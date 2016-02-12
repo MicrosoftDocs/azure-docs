@@ -165,7 +165,7 @@ Make sure that the account you are using to connect has Remote Desktop logon rig
 
 ## Troubleshooting generic Remote Desktop errors
 
-If none of these errors occurred and you still could not connect to the VM via Remote Desktop, read [the detailed troubleshooting guide for Remote Desktop](virtual-machines-rdp-detailed-troubleshoot.md).
+If none of these errors occurred and you still could not connect to the VM via Remote Desktop, read [the detailed troubleshooting guide for Remote Desktop](virtual-machines-windows-detailed-troubleshoot-rdp.md).
 
 
 ## Additional resources
