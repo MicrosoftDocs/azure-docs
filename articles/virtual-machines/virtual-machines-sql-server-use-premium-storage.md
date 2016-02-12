@@ -280,7 +280,7 @@ This scenario demonstrates where you have existing customized images that reside
 
 
 #### Step 3: Use existing image
-You can use an existing image. Or, you can [take an image of an existing machine](virtual-machines-capture-image-windows-server.md). Note the machine you image does not have to be DS* machine. Once you have the image, the following steps show how to copy it to the Premium Storage account with the **Start-AzureStorageBlobCopy** PowerShell commandlet.
+You can use an existing image. Or, you can [take an image of an existing machine](virtual-machines-windows-classic-capture-image.md). Note the machine you image does not have to be DS* machine. Once you have the image, the following steps show how to copy it to the Premium Storage account with the **Start-AzureStorageBlobCopy** PowerShell commandlet.
 
     #Get storage account keys:
     #Standard Storage account
