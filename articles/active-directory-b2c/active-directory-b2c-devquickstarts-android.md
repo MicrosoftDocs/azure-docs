@@ -807,9 +807,9 @@ ADAL for Android represents the user in the form of a `UserIdentifier` object. T
 
 ### Write some helper methods
 
-We need to write some hepler methods that help us clear the cookies and provide an AuthenticationCallback. These are used purely for the sample in order to make sure we're in a clean state when calling our ToDo activity.
+Next, write some helper methods to help you clear cookies and provide `AuthenticationCallback`. These methods are used purely for the sample to make sure that you're in a clean state when you call your `ToDo` activity.
 
-**In the same file** called `ToDoActivity.java`
+**In the same file** called `ToDoActivity.java`, write the following.
 
 ```
 
@@ -830,15 +830,15 @@ We need to write some hepler methods that help us clear the cookies and provide 
 
 ```   
 
-### Step 14: Call the Task API
+## Call the task API
 
-Now that we have our Activity wired up and ready to go to do the heavy lifting of grabbing tokens, let's write our API to access the task server.
+After you have your activity ready to grab tokens, you can write your API to access the task server.
 
-Our `getTasks` provides an array that represents the tasks in our server
+`getTasks` provides an array that represents the tasks in your server.
 
-Let's write our `getTask` first:
+Start with `getTasks`.
 
-**In the same file** called `ToDoActivity.java`
+**In the same file** called `ToDoActivity.java`, write the following.
 
 ```
     private void getTasks() {
@@ -862,9 +862,9 @@ Let's write our `getTask` first:
 
 
 
- Let's also write a method that will initialize our tables on first run:
+Also write a method that will initialize your tables on first run.
 
- **In the same file** called `ToDoActivity.java`
+**In the same file** called `ToDoActivity.java`, write the following.
 
 ```
     private void initAppTables() {
@@ -880,13 +880,13 @@ Let's write our `getTask` first:
 
 ```
 
- You'll see that this code requires some additional methods to do it's work. Let's write those now.
+You can see that this code requires some additional methods to do its work. Write those next.
 
 ### Create endpoint URL generator
 
- We need to generate the endpoint URL that we'll be connecting to. Let's do that in the same class file:
+You need to generate the endpoint URL that you'll be connecting to. Do that in the same class file.
 
- **In the same file** called `ToDoActivity.java`
+**In the same file** called `ToDoActivity.java`, write the following.
 
  ```
     private URL getEndpointUrl() {
@@ -902,15 +902,13 @@ Let's write our `getTask` first:
  ```
 
 
-Note that we add the access token to the request in the following code:
+Note that you add the access token to the request in the code discussed in the next section.
 
-### Step 15: Let's write some UX methods
+## Write some UX methods
 
-Android requires us to handle some callbacks in order to operate the app. These are `createAndShowDialog` and `onResume()`. This is pretty simple and very familiar if you've written Android code before.
+Android requires you to handle some callbacks in order to operate the app. These are `createAndShowDialog` and `onResume()`. This is familiar to you if you've written Android code before.
 
-Let's write those now:
-
-**In the same file** called `ToDoActivity.java`
+**In the same file** called `ToDoActivity.java`, write the following.
 
 ```
     @Override
@@ -926,9 +924,9 @@ Let's write those now:
 
 ```
 
-And now manage our dialog callbacks:
+Next, manage your dialog callbacks.
 
-**In the same file** called `ToDoActivity.java`
+**In the same file** called `ToDoActivity.java`, write the following.
 
 
 ```
@@ -958,36 +956,33 @@ And now manage our dialog callbacks:
 
 ```
 
-That's it! You should have a `ToDoActivity.java` file that compiles. The entire project should compile at this point as well.
+You should now have a `ToDoActivity.java` file that compiles. The entire project should also compile at this point.
 
+## Run the sample app
 
+Finally, build and run the app in Android Studio or Eclipse. Sign up or sign in the app. Create tasks for the signed-in user. Sign out and sign back in as a different user, and then create tasks for that user.
 
-### Step 16: Run the sample app
+Notice that the tasks are stored per-user on the API, because the API extracts the user's identity from the access token it receives.
 
-Finally, build and run both the app in Android Studio or Eclipse.  Sign up or sign into the app, and create tasks for the signed in user.  Sign out, and sign back in as a different user, creating tasks for that user.
-
-Notice how the tasks are stored per-user on the API, since the API extracts the user's identity from the access token it receives.
-
-For reference, the completed sample [is provided as a .zip here](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip),
-or you can clone it from GitHub:
+For reference, the completed sample [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip). You can also clone it from GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
 
 
-### Important Information
+## Important information
 
 
-#### Encryption
+### Encryption
 
-ADAL encrypts the tokens and store in SharedPreferences by default. You can look at the StorageHelper class to see the details. Android introduced AndroidKeyStore for 4.3(API18) secure storage of private keys. ADAL uses that for API18 and above. If you want to use ADAL for lower SDK versions, you need to provide secret key at AuthenticationSettings.INSTANCE.setSecretKey
+ADAL encrypts the tokens and store in `SharedPreferences` by default. You can look at the `StorageHelper` class to see the details. Android introduced **AndroidKeyStore for 4.3(API18)** secure storage of private keys. ADAL uses that for API18 and above. If you want to use ADAL for lower SDK versions, you need to provide a secret key at `AuthenticationSettings.INSTANCE.setSecretKey`.
 
-#### Session cookies in Webview
+### Session cookies in web view
 
-Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
+Android web view does not clear session cookies after the app is closed. You can handle this with the following sample code.
 ```
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
 ```
-More about cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+[Learn more about cookies](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
