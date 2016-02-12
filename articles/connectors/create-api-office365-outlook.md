@@ -18,28 +18,24 @@ ms.author="deonhe"/>
 
 # Get started with the Office365 Outlook API
 
-Office 365 connector enables interaction with Office 365. For example: creating, editing, and updating contacts and calendar items.
+Office 365 API enables interaction with Office 365. For example: creating, editing, and updating contacts and calendar items.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version of this connector, click [Office365](../app-service-logic/app-service-logic-connector-Office365.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Office 365 API](../app-service-logic/app-service-logic-connector-Office365.md).
 
->[AZURE.TIP] "Connector" and "API" are used interchangeably.
-
-With the Office365 connector, you can:
+With the Office 365, you can:
 
 * Use it to build logic apps
 * Use it to build power apps
 
-This topic focuses on the Office365 triggers and actions available, creating a connection to the connector, and also lists the REST API parameters.
+For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](..powerapps-register-from-available-apis.md).
-
-Need help creating a logic app? See [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Let's talk about triggers and actions
 
-The Office365 connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+The Office365 API can be used as an action; it has trigger(s). All APIs support data in JSON and XML formats. 
 
- The Office365 connector has the following action(s) and/or trigger(s) available:
+ The Office365 API has the following action(s) and/or trigger(s) available:
 
 ### Office365 actions
 You can take these action(s):
@@ -1205,4 +1201,6 @@ None of the properties are required.
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+After you add the Office 365 API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
+
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).

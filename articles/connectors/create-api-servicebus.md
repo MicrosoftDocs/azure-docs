@@ -21,23 +21,19 @@ ms.author="deonhe"/>
 
 Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version of this connector, click [Azure Service Bus](../app-service-logic/app-service-logic-connector-Azure Service Bus.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Azure Service Bus](../app-service-logic/app-service-logic-connector-Azure Service Bus.md).
 
->[AZURE.TIP] "Connector" and "API" are used interchangeably.
-
-With the Azure Service Bus connector, you can:
+With Azure Service Bus, you can:
 
 * Use it to build logic apps  
 
-This topic focuses on the Azure Service Bus triggers and actions available, creating a connection to the connector, and also lists the REST API parameters.
-
-Need help creating a logic app? See [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Let's talk about triggers and actions
 
-The Azure Service Bus connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+The Azure Service Bus API can be used as an action; it has trigger(s). All APIs support data in JSON and XML formats. 
 
- The Azure Service Bus connector has the following action(s) and/or trigger(s) available:
+ The Azure Service Bus API has the following action(s) and/or trigger(s) available:
 
 ### Azure Service Bus actions
 You can take these action(s):
@@ -149,4 +145,4 @@ ContentTransferEncoding
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).

@@ -17,30 +17,30 @@ ms.workload="na"
 ms.date="02/18/2016"
 ms.author="deonhe"/>
 
-# Get started with the Salesforce Connector API
+# Get started with the Salesforce API
 
-The Salesforce Connector provides an API to work with Salesforce objects.
+The Salesforce API provides an API to work with Salesforce objects.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version of this connector, click [Salesforce Connector](../app-service-logic/app-service-logic-connector-Salesforce Connector.md).
+The Salesforce API can be be used from PowerApps Enterprise and logic apps. 
 
->[AZURE.TIP] "Connector" and "API" are used interchangeably.
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Salesforce API](../app-service-logic/app-service-logic-connector-Salesforce Connector.md).
 
-With the Salesforce Connector connector, you can:
+With Salesforce, you can:
 
 * Use it to build logic apps
 * Use it to build power apps  
 
-This topic focuses on the Salesforce Connector triggers and actions available, creating a connection to the connector, and also lists the REST API parameters.
+For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
-Need help creating a logic app? See [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Let's talk about triggers and actions
 
-The Salesforce Connector connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+The Salesforce API can be used as an action; it has trigger(s). All APIs support data in JSON and XML formats. 
 
- The Salesforce Connector connector has the following action(s) and/or trigger(s) available:
+ The Salesforce API has the following action(s) and/or trigger(s) available:
 
-### Salesforce Connector actions
+### Salesforce actions
 You can take these action(s):
 
 |Action|Description|
@@ -49,7 +49,7 @@ You can take these action(s):
 |GetItem|Retrieves a Salesforce object|
 |DeleteItem|Deletes a Salesforce object|
 |PatchItem|Updates a Salesforce object|
-### Salesforce Connector triggers
+### Salesforce triggers
 You can listen for these event(s):
 
 |Trigger | Description|
@@ -58,8 +58,8 @@ You can listen for these event(s):
 |GetOnUpdatedItems|Triggers a flow when an object is modified in Salesforce|
 
 
-## Create a connection to Salesforce Connector
-To use the Salesforce Connector API, you first create a **connection** then provide the details for these properties: 
+## Create a connection to Salesforce 
+To use the Salesforce API, you first create a **connection** then provide the details for these properties: 
 
 |Property| Required|Description|
 | ---|---|---|
@@ -67,7 +67,7 @@ To use the Salesforce Connector API, you first create a **connection** then prov
 
 >[AZURE.TIP] You can use this connection in other logic apps or power apps, or both.
 
-## Salesforce Connector REST API reference
+## Salesforce REST API reference
 #### This documentation is for version: 1.0
 
 
@@ -404,5 +404,6 @@ None of the properties are required.
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Create a power app](../power-apps/powerapps-get-started-azure-portal.md)  
+After you add the Salesforce API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
+
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).

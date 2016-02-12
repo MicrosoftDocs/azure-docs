@@ -21,24 +21,24 @@ ms.author="deonhe"/>
 
 Connect to OneDrive to manage your files. You can perform various actions such as upload, update, get, and delete on files in OneDrive.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version of this connector, click [OneDrive](../app-service-logic/app-service-logic-connector-OneDrive.md).
+The OneDrive API can be be used from PowerApps Enterprise and logic apps. 
 
->[AZURE.TIP] "Connector" and "API" are used interchangeably.
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [OneDrive API](../app-service-logic/app-service-logic-connector-onedrive.md).
 
-With the OneDrive connector, you can:
+With OneDrive, you can:
 
 * Use it to build logic apps
 * Use it to build power apps  
 
-This topic focuses on the OneDrive triggers and actions available, creating a connection to the connector, and also lists the REST API parameters.
+For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
-Need help creating a logic app? See [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Let's talk about triggers and actions
 
-The OneDrive connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+The OneDrive API can be used as an action; it has trigger(s). All APIs support data in JSON and XML formats. 
 
- The OneDrive connector has the following action(s) and/or trigger(s) available:
+ The OneDrive API has the following action(s) and/or trigger(s) available:
 
 ### OneDrive actions
 You can take these action(s):
@@ -389,5 +389,6 @@ None of the properties are required.
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Create a power app](../power-apps/powerapps-get-started-azure-portal.md)  
+After you add the Dropbox API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
+
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).

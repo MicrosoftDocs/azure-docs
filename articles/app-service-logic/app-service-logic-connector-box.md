@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="02/11/2016"
    ms.author="rajram"/>
 
 # Get started with the Box Connector and add it to your Logic App 
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Box API](..create-api-box.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Box API](../connectors/create-api-box.md).
 
 Connect to your Box to get, upload, delete. and more to your files. Connectors are used in Logic Apps as a part of a "workflow". 
 

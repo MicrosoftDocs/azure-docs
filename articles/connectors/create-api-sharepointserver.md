@@ -21,24 +21,20 @@ ms.author="deonhe"/>
 
 The SharePoint Connection Provider provides an API to work with Lists on SharePoint.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version of this connector, click [SharePoint](../app-service-logic/app-service-logic-connector-SharePoint.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [SharePoint](../app-service-logic/app-service-logic-connector-SharePoint.md).
 
->[AZURE.TIP] "Connector" and "API" are used interchangeably.
-
-With the SharePoint connector, you can:
+With SharePoint, you can:
 
 * Use it to build logic apps
 * Use it to build power apps  
 
-This topic focuses on the SharePoint triggers and actions available, creating a connection to the connector, and also lists the REST API parameters.
-
-Need help creating a logic app? See [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Let's talk about triggers and actions
 
-The SharePoint connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+The SharePoint API can be used as an action; it has trigger(s). All APIs support data in JSON and XML formats. 
 
-The SharePoint connector has the following action(s) and/or trigger(s) available:
+The SharePoint API has the following action(s) and/or trigger(s) available:
 
 ### SharePoint actions
 You can take these action(s):
