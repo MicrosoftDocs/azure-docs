@@ -20,7 +20,7 @@
 # Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI
 
 > [AZURE.SELECTOR]
-- [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell](virtual-machines-windows-ps-manage.md)
 - [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 This article shows you how to use Azure Resource Manager templates and the Azure CLI to do the following common tasks for deploying and managing Azure virtual machines. For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/) and [Application frameworks using templates](virtual-machines-app-frameworks.md).
@@ -691,9 +691,9 @@ Again, you will need to find the values you want to enter for the parameters tha
 
 Obviously, you'll need a .vhd for this. You can use one you already have in Azure, or you can upload one.
 
-For a Windows-based virtual machine, see [Create and upload a Windows Server VHD to Azure](virtual-machines-create-upload-vhd-windows-server.md).
+For a Windows-based virtual machine, see [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md).
 
-For a Linux-based virtual machine, see [Creating and uploading a virtual hard disk that contains the Linux operating system](virtual-machines-linux-create-upload-vhd.md).
+For a Linux-based virtual machine, see [Creating and uploading a virtual hard disk that contains the Linux operating system](virtual-machines-linux-classic-create-upload-vhd.md).
 
 ### Step 3: Create the virtual machine by using the template
 
@@ -1268,7 +1268,7 @@ And then, looking up myVM1:
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Task: Log on to a Linux-based virtual machine
 
-Typically Linux machines are connected to through SSH. For more information, see [How to use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
+Typically Linux machines are connected to through SSH. For more information, see [How to use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md).
 
 ## <a id="stop-a-virtual-machine"></a>Task: Stop a VM
 

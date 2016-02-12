@@ -119,8 +119,8 @@ Some deployments may achieve additional performance benefits using more advanced
 
 ## Next Steps
 
-If you are interested in exploring SQL Server and Premium Storage in more depth, see the article [Use Azure Premium Storage with SQL Server on Virtual Machines](virtual-machines-sql-server-use-premium-storage.md).
+If you are interested in exploring SQL Server and Premium Storage in more depth, see the article [Use Azure Premium Storage with SQL Server on Virtual Machines](virtual-machines-windows-classic-sql-server-premium-storage.md).
 
-For security best practices, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-security-considerations.md).
+For security best practices, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-security.md).
 
 Review other SQL Server Virtual Machine topics at [SQL Server on Azure Virtual Machines Overview](virtual-machines-sql-server-infrastructure-services.md).
