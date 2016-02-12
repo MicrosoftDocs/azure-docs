@@ -112,7 +112,7 @@ There are two main options for setting up your listener: external (public) or in
 
 If the Availability Group spans multiple Azure subnets (such as a deployment that crosses Azure regions), the client connection string must include "**MultisubnetFailover=True**". This results in parallel connection attempts to the replicas in the different subnets. For instructions on setting up a listener, see
 
-- [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+- [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 - [Configure an external listener for AlwaysOn Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
 You can still connect to each availability replica separately by connecting directly to the service instance. Also, since AlwaysOn Availability Groups are backward compatible with database mirroring clients, you can connect to the availability replicas like database mirroring partners as long as the replicas are configured similar to database mirroring:
