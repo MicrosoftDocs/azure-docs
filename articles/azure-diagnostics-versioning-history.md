@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/12/2016"
 	ms.author="robb"/>
 
 
@@ -26,7 +26,7 @@ Each version of Azure SDK typically ships with a new version of Azure Diagnostic
 
 
 Azure SDK version | Azure Diagnostics version | Model
---- | --- | --- 
+--- | --- | ---
 1.x      | 1.0 | plug-in
 2.0 to 2.4| 1.0 | "
 2.5      | 1.2 | extension

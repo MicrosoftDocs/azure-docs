@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/12/2016"
 	ms.author="robb"/>
 
 
@@ -21,9 +21,15 @@
 
 
 ## Azure Diagnostics is not Starting
-Diagnostics is comprised of two components: A guest agent plugin and the monitoring agent. Log files for the guest agent plugin are located in the file:
+Diagnostics is comprised of two components: A guest agent plugin and the monitoring agent.
 
-*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<DiagnosticsVersion>*\CommandExecution.log
+In a Cloud Service role, log files for the guest agent plugin are located in the file:
+
+	*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<DiagnosticsVersion>*\CommandExecution.log
+
+In an Azure Virtual Machine, log files for the guest agent plugin are located in the file:
+
+		C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\CommandExecution.log
 
 The following error codes are returned by the plugin:
 
@@ -50,19 +56,36 @@ Exit Code|Description
 -112|General error
 
 
-### Diagnostics Data is Not Logged to Storage
+## Diagnostics Data is Not Logged to Storage
+
 The most common cause of missing event data is incorrectly defined storage account information.
 
 Solution: Correct your Diagnostics configuration file and re-install Diagnostics.
-Before event data is uploaded to your storage account it is stored in the folder. See above for details on **LocalResourceDirectory**.
+If the issue persists after re-installing the diagnostics extension then you may have to debug further by looking through the any monitoring agent errors. Before event data is uploaded to your storage account it is stored in the LocalResourceDirectory.
 
-If there are no files in this folder the monitoring agent is unable to launch. This is typically caused by an invalid configuration file and should have been reported in the CommandExecution.log. If the Monitoring Agent is successfully collecting event data you will see .tsf files for each event defined in your configuration file.
+For Cloud Service Role the LocalResourceDirectory is:
 
-The Monitoring Agent logs any errors it experiences in the file MaEventTable.tsf. To inspect the contents of this file run the following command:
+	C:\Resources\Directory\<CloudServiceDeploymentID>.<RoleName>.DiagnosticStore\WAD<DiagnosticsMajorandMinorVersion>\Tables
 
-		%SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.[IaaS | PaaS]Diagnostics\1.3.0.0\Monitor\x64\table2csv maeventtable.tsf
+For Virtual Machines the LocalResourceDirectory is:
 
-The tool generates a file named maeventtable.csv that you may open and inspect the logs for failures.
+	C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD<DiagnosticsMajorandMinorVersion>\Tables
+
+If there are no files in the LocalResourceDirectory folder, the monitoring agent is unable to launch. This is typically caused by an invalid configuration file, an event that should be reported in the CommandExecution.log.
+
+If the Monitoring Agent is successfully collecting event data you will see .tsf files for each event defined in your configuration file. The Monitoring Agent logs its errors in the file MaEventTable.tsf. To inspect the contents of this file you can use the tabel2csv application to convert the .tsf file to a comma separated values(.csv) file:
+
+On a Cloud Service Role:
+
+	%SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
+
+*%SystemDrive%* on a Cloud Service Role is typically D:
+
+On a Virtual Machine:
+
+	C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
+
+The above commands generates the log file *maeventtable.csv*, which you can open and inspect for failure messages.
 
 
 ## Frequently Asked Questions

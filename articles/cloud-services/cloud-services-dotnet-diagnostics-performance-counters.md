@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="02/12/2016"
    ms.author="robb" />
 
 # Create and use performance counters in an Azure application

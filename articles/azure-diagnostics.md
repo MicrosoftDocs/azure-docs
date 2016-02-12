@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/12/2016"
 	ms.author="robb"/>
 
 
@@ -64,6 +64,7 @@ Pick which service you are trying to collect diagnostics on.
 - [Trace the flow of a Cloud Services application with Azure Diagnostics](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 - [Use Visual Studio to trace a Cloud Services application](./vs-azure-tools-debug-cloud-services-virtual-machines.md)
 - [Use PowerShell to set up diagnostics on Cloud Services](./virtual-machines-extensions-diagnostics-windows-powershell.md)
+- [Using Azure Diagnostics with Application Insights for Cloud Services](app-insights-cloudservices.md)
 
 ### Virtual Machines using Azure Diagnostics
 - [Set up Azure Diagnostics on an Azure Virtual Machine](./virtual-machines/virtual-machines-dotnet-diagnostics.md)
@@ -74,5 +75,6 @@ Pick which service you are trying to collect diagnostics on.
 ### Service Fabric using Azure Diagnostics
 - [Monitor a Service Fabric application](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/)
 
-### Web Apps (Not Azure diagnostics)
+### Web Apps
+(Note that Web Apps do not use Azure Diagnostics)
  - [Web Apps](./web-sites/web-sites-enable-diagnostic-log.md)
