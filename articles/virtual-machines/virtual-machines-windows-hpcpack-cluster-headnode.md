@@ -93,5 +93,5 @@ example, start HPC Cluster Manager, and complete the [Deployment To-do List](htt
 * Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
 
 <!--Image references-->
-[headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
-[marketplace]: ./media/virtual-machines-hpcpack-cluster-headnode/marketplace.png
+[headnode]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/headnode.png
+[marketplace]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/marketplace.png
