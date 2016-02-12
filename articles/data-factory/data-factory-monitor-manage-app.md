@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/25/2016" 
+	ms.date="02/12/2016" 
 	ms.author="spelluru"/>
 
 # Monitor and manage Azure Data Factory pipelines using new Monitoring and Management App
@@ -24,7 +24,11 @@
 This article describes how to monitor, manage and debug your pipelines using the **Monitoring and Management App**. It also provides information on how to create alerts and get notified on failures using the application.
       
 ## Launching the Monitoring and Management App 
-To launch the Monitor and Management App, click the URL for **Monitoring App** in the **DATA FACTORY** blade for your data factory. 
+To launch the Monitor and Management App, click **Monitoring App** tile on the **DATA FACTORY** blade for your data factory.
+
+![Monitoring tile on Data Factory home page](./media/data-factory-monitor-manage-app/MonitoringAppTile.png) 
+
+You should see the Monitoring and Management App launched in a separate tab/window.  
 
 ![Monitoring and Management App](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
@@ -42,7 +46,7 @@ You can see all resources (pipelines, datasets, linked services) in the data fac
 
 ![Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
-See  article for detailed conceptual information about activity window. 
+See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for detailed conceptual information about activity window. 
 
 ### Diagram View
 The Diagram View of a data factory provides a single pane of glass to monitor and manage the data factory and its assets. When you select a Data Factory entity (dataset/pipeline) in the diagram view, you will notice the following:
@@ -51,17 +55,17 @@ The Diagram View of a data factory provides a single pane of glass to monitor an
 - associated activity windows are highlighted in the Activity Windows list.
 - properties of the selected object in the Properties window
 
-When the pipeline is running, you will see it in green color as shown below:
+When the pipeline is enabled (i.e. not in paused state) then it is shown with a green line as shown below. 
 
 ![Pipeline Running](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-You notice that there are three command buttons for the pipeline in the diagram view. You can use the 2nd button to suspend but not terminate the currently running activities, 3rd button to suspend and terminate existing activities, and 1st button to resume the suspended pipeline. When you suspend a pipeline, you will notice the color change for the pipeline tile.
+You notice that there are three command buttons for the pipeline in the diagram view. You can use the 2nd button to pause the pipeline. This will not terminate the currently running activities and let them proceed to completion. 3rd button will pause the pipeline and terminate its existing executing activities. 1st button resumes the pipeline i.e. un-pauses it. When you pipeline is paused, you will notice the color change for the pipeline tile as follows.
 
-![Suspend/Resume on Tile](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
+![Pause/Resume on Tile](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
 
-You can multi-select two or more pipelines (using CTRL) and use command bar buttons to suspend/resume multiple pipelines at a time.
+You can multi-select two or more pipelines (using CTRL) and use command bar buttons to pause/resume multiple pipelines at a time.
 
-![Suspend/Resume on Command bar](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Pause/Resume on Command bar](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
 
 You can see all the activities in the pipeline, by right-clicking on the pipeline tile, and clicking **Open pipeline**.
 
@@ -201,13 +205,17 @@ Switch to the **Monitoring Views** tab on the left by clicking on it.
 
 There are three system views supported at this time. Select an option to see recent activity windows (or) failed activity windows (or) in-progress activity windows in the Activity Windows list (at the bottom of the middle pane). 
 
-For example, you can use the **Failed activity windows** view to see all failed activity windows in the list. Select a failed activity window in the list to see details about it in the **Properties** window (or) **Activity Window Explorer**. You can also download any logs for a failed activity window. 
+When you select **Recent activity windows** option, you see all recent activity windows in the descending order of **last attempt time**. 
+
+You can use the **Failed activity windows** view to see all failed activity windows in the list. Select a failed activity window in the list to see details about it in the **Properties** window (or) **Activity Window Explorer**. You can also download any logs for a failed activity window. 
 
 
 ## Sorting and filtering activity windows
 Change the **start time** and **end time** settings in the command bar to filter activity windows. After you change Start time and End time, click the button next to end-time to refresh the Activity Windows list.
 
 ![Start and End Times](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
+
+> [AZURE.NOTE] All times are in UTC format in the Monitoring and Management App at this time. 
 
 In the **Activity Windows list**, click on the name of a column (for example: Status). 
 
@@ -237,7 +245,7 @@ Select an activity window, click the down arrow for the first command bar button
 You can also select multiple activity windows in the list and rerun them at the same time. You may want to filter activity windows based on the status (for example: **Failed**) and then rerun the failed activity windows after correcting the issue that causes the activity windows to fail. See the following section for details about filtering activity windows in the list.  
 
 ### Pause/resume multiple pipelines
-You can multi-select two or more pipelines (using CTRL) and use command bar buttons (highlighted in red rectangle in the following image) to suspend/resume them at a time.
+You can multi-select two or more pipelines (using CTRL) and use command bar buttons (highlighted in red rectangle in the following image) to pause/resume them at a time.
 
 ![Suspend/Resume on Command bar](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
 
