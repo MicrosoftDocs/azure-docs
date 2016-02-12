@@ -46,7 +46,7 @@ You can take these action(s):
 
 |Action|Description|
 |--- | ---|
-|GetDataSets|undefined|
+|GetDataSets|Return the data sets|
 |GetItems|Get records for an entity|
 |PostItem|Create a new record in an entity|
 |GetItem|Used for getting a particular record present for a CRM entity|
@@ -67,10 +67,10 @@ To use the CRM API, you first create a **connection** then provide the details f
 #### This documentation is for version: 1.0
 
 
-### undefined 
+### Return the data sets 
 
 
- undefined
+ Return the data sets
 ```GET: /datasets``` 
 
 There are no parameters for this call
