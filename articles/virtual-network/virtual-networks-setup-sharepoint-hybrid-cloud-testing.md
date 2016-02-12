@@ -197,6 +197,6 @@ Your SharePoint intranet farm in a hybrid cloud environment is now ready for tes
 
 ## Next steps
 
-- Set up the [production workload](../virtual-machines/virtual-machines-workload-intranet-sharepoint-overview.md).
+- Set up the [production workload](../virtual-machines/virtual-machines-windows-sp-intranet-overview.md).
 
 
