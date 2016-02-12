@@ -88,7 +88,7 @@ To verify that the Symantec security extension has been installed and is up-to-d
 
 [Portal]: http://manage.windowsazure.com
 
-[Create]: virtual-machines-windows-tutorial-classic-portal.md
+[Create]: virtual-machines-windows-classic-tutorial.md
 
 [PS]: ../powershell-install-configure.md
 
