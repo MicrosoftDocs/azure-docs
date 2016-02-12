@@ -216,7 +216,7 @@ This section contains information about several different storage approaches and
 ### Relational database
 2. MySQL
     - [How to: Install and Run MySQL](virtual-machines-linux-classic-mysql-on-opensuse.md)
-    - [How to: Optimize Performance of MySQL on Azure](virtual-machines-linux-optimize-mysql-perf.md)
+    - [How to: Optimize Performance of MySQL on Azure](virtual-machines-linux-classic-optimize-mysql.md)
     - [How to: MySQL Clusters](virtual-machines-linux-mysql-cluster.md)
     - [How to: Create a MySQL Database using the Marketplace](store-php-create-mysql-database.md)
     - [How to: Django and MySQL on Azure Websites with Python and Visual Studio](../app-service-web/web-sites-python-ptvs-django-mysql.md)
