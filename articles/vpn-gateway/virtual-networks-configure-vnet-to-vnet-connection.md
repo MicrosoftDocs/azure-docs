@@ -216,7 +216,7 @@ Wait for the connections to initialize. Once the gateway has initialized, the ga
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [How to Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [How to Create a Virtual Machine](../virtual-machines/virtual-machines-windows-classic-tutorial.md) for steps.
 
 
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md

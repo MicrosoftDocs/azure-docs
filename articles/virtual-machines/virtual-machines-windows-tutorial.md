@@ -21,10 +21,10 @@
 
 > [AZURE.SELECTOR]
 - [Portal - Windows](virtual-machines-windows-tutorial.md)
-- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell](virtual-machines-windows-create-powershell.md)
 - [PowerShell - Template](virtual-machines-windows-ps-template.md)
 - [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [CLI](virtual-machines-linux-tutorial.md)
+- [CLI](virtual-machines-linux-cli-create.md)
 
 This tutorial shows you how easy it is to create a Windows virtual machine in just a few minutes in the Azure portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
 
@@ -34,7 +34,7 @@ This tutorial shows you how easy it is to create a Windows virtual machine in ju
 
 >[AZURE.TIP] When using the portal, if you want your VM to be part of an availability set, you need to create the availability set before or during the creation of the first VM in the set. For more information about creating and using availability sets, see [Manage the availability of virtual machines](virtual-machines-manage-availability.md).
 
-You can also create virtual machines using your own images, with Resource Manager templates, or with automation tools. To learn about the different methods, see [Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md).
+You can also create virtual machines using your own images, with Resource Manager templates, or with automation tools. To learn about the different methods, see [Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-creation-choices.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
