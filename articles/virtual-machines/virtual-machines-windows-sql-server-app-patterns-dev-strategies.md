@@ -292,7 +292,7 @@ In n-tier hybrid application pattern, you can implement the following workflow i
 
 	For information on how to connect to SQL Server in Azure, see [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-sql-server-connectivity.md).
 
-1. Set up scheduled jobs and alerts that would backup on-premises data in a virtual machine disk in Azure. For more information, see [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx) and [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-backup-and-restore.md).
+1. Set up scheduled jobs and alerts that would backup on-premises data in a virtual machine disk in Azure. For more information, see [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx) and [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-br.md).
 
 1. Depending on your application’s needs, you can implement one of the following three common scenarios:
 
