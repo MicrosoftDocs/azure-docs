@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/03/2016"
+   ms.date="02/10/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage access control records for the StorSimple Virtual Array
@@ -71,7 +71,7 @@ Perform the following steps to add an ACR.
 
 You use the **Configuration** page in the Azure classic portal to edit ACRs. 
 
-> [AZURE.NOTE] You can modify only those ACRs that are currently not in use. To edit an ACR associated with a volume that is currently in use, you must first take the volume offline.
+> [AZURE.NOTE] You should modify only those ACRs that are currently not in use. To edit an ACR associated with a volume that is currently in use, you should first take the volume offline.
 
 Perform the following steps to edit an ACR.
 
@@ -93,7 +93,7 @@ You use the **Configuration** page in the Azure classic portal to delete ACRs.
 
 > [AZURE.NOTE] 
 > 
-> - You can delete only those ACRs that are currently not in use. To delete an ACR associated with a volume that is currently in use, you must first take the volume offline.
+> - You should delete only those ACRs that are currently not in use. To delete an ACR associated with a volume that is currently in use, you should first take the volume offline.
 > - When deleting an ACR from a volume, make sure that the corresponding host is not accessing the volume because the deletion could result in a read-write disruption.
 
 Perform the following steps to delete an access control record.
