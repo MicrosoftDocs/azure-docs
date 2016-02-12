@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -212,7 +212,7 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 		http://hn0-myspar:9995
 
 	* **hn0** denotes headnode0
-	* **myspar** is the first five letters of the Spark cluster.
+	* **myspar** is the first six letters of the Spark cluster name.
 	* **9995** is the port where Zeppelin notebook is accessible.
 
 2. Create a new notebook. From the header pane, click **Notebook**, and then click **Create New Note**.
@@ -311,7 +311,9 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Extensions
+### Tools and extensions
+
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 

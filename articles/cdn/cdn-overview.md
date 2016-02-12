@@ -44,7 +44,7 @@ The Standard CDN tier includes these features:
 - [Custom domain name support](cdn-map-content-to-custom-domain.md)
 - [Country filtering](cdn-restrict-access-by-country.md)
 - [Core analytics](cdn-analyze-usage-patterns.md)
-- [Custom content origins](cdn-map-content-to-custom-domain.md)
+- [Custom content origins](cdn-how-to-use-cdn.md#caching-content-from-custom-origins)
 - [HTTPS support](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - Load balancing
 - DDOS protection

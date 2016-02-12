@@ -24,6 +24,9 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 >  
 > Please review the [Build your first pipeline tutorial](data-factory-build-your-first-pipeline.md) for detailed steps to create a data factory, linked services, datasets, and a pipeline. Use the JSON snippets with Data Factory Editor or Visual Studio or Azure PowerShell to create the Data Factory entities.
 
+The following sample(s) show how to copy data to and from Azure Data Lake Store and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+
+
 ## Sample: Copy data from Azure Blob to Azure Data Lake Store
 The sample below shows:
 

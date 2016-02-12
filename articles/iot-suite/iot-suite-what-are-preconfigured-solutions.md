@@ -11,7 +11,7 @@
 <tags
  ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="11/30/2015"
@@ -26,23 +26,20 @@ The Azure IoT Suite preconfigured solutions are implementations of common IoT so
 
 Each preconfigured solution implements a common IoT scenario and is a complete, end-to-end implementation using simulated devices to generate telemetry.
 
-In addition to deploying and running the preconfigured solutions in Azure, you can download the complete source code and then customize and extend the solution to meet your specific IoT requirements.
+In addition to deploying and running the solutions in Azure, you can download the complete source code and then customize and extend the solution to meet your specific IoT requirements.
 
-The available preconfigured solutions are:
+> [AZURE.NOTE] The article [Get started with the IoT preconfigured solutions][lnk-preconf-get-started] describes how to deploy and run one of the solutions.
 
-- [Remote monitoring][lnk-remote-monitoring]
-- [Predictive maintenance][lnk-predictive-maintenance]
-
-The following table shows how these preconfigured solutions map to specific IoT features:
+The following table shows how the solutions map to specific IoT features:
 
 | Solution | Data Ingestion | Device Identity | Command and Control | Rules and Actions | Predictive Analytics |
 |------------------------|-----|-----|-----|-----|-----|
-| Remote Monitoring      | Yes | Yes | Yes | Yes | -   |
-| Predictive Maintenance | Yes | Yes | Yes | Yes | Yes |
+| [Remote monitoring][lnk-remote-monitoring] | Yes | Yes | Yes | Yes | -   |
+| [Predictive maintenance][lnk-predictive-maintenance] | Yes | Yes | Yes | Yes | Yes |
 
 ## Remote Monitoring preconfigured solution overview
 
-This section describes some of the key elements of the remote monitoring preconfigured solution. Remote monitoring is the simplest of the preconfigured solutions and illustrates common design elements that the other preconfigured solutions share.
+We have chosen to discuss the remote monitoring preconfigured solution in this article because it is the simplest of the solutions and illustrates common design elements that the other solutions share.
 
 The following diagram illustrates the key elements of the remote monitoring solution. The sections below provide more information about these elements.
 
@@ -75,15 +72,17 @@ The preconfigured solution uses three [Azure Stream Analytics][lnk-asa] (ASA) jo
 - Job #2 filters the telemetry stream to identify command response messages and device status update messages from the devices and sends these specific messages to an Azure Event Hub endpoint.
 - Job #3 filters the telemetry stream for values that trigger alarms. When a value triggers an alarm, the solution displays the notification in the alarm history table in the dashboard view of the solution portal.
 
-In this preconfigured solution, the ASA jobs form part of to the *IoT solution backend* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
+In this preconfigured solution, the ASA jobs form part of to the *IoT solution back end* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
 ## Event processor
 
 An [EventPocessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], processes the command response and device status messages identified by ASA job #2, and then stores this information in an [Azure DocumentDB][lnk-document-db] database.
 
-In this preconfigured solution, the event processor forms part of the *IoT solution backend* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
+In this preconfigured solution, the event processor forms part of the *IoT solution back end* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
 ## Solution portal
+
+![Solution dashboard][img-dashboard]
 
 The solution portal is a web-based UI that is deployed to the cloud as part of the preconfigured solution. It enables you to:
 
@@ -95,16 +94,17 @@ The solution portal is a web-based UI that is deployed to the cloud as part of t
 
 > [AZURE.NOTE] The solution portal also keeps the IoT Hub [device identity registry][lnk-identity-registry] synchronized with the store of richer device state information in the solution's DocumentDB database.
 
-In this preconfigured solution, the solution portal forms part of the *IoT solution backend* and part of the *Processing and business connectivity* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
+In this preconfigured solution, the solution portal forms part of the *IoT solution back end* and part of the *Processing and business connectivity* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
 ## Next steps
 
 Explore these resources to learn more about IoT preconfigured solutions:
 
-- [Azure IoT preconfigured solutions overview][lnk-suite-overview]
 - [Get started with the IoT preconfigured solutions][lnk-preconf-get-started]
+- [Predictive maintenance preconfigured solution overview][lnk-predictive-maintenance]
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
+[img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
 [lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/

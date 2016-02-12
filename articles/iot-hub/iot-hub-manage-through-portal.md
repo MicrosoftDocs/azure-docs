@@ -72,13 +72,13 @@ Azure IoT Hub automatically shows the list of subscriptions to which the user ac
 
 ### Choose the location
 
-The location option provides a list of the regions in which IoT Hub is offered. For this preview release, IoT Hub is offered in only 3 locations: US East, Europe North, and East Asia.
+The location option provides a list of the regions in which IoT Hub is offered. IoT Hub is available to deploy in the following locations: US East, US West, Europe North, Europe West, East Asia, and South-East Asia.
 
 ### Create the IoT hub
 
-When all previous steps are complete, the IoT hub is ready to be created. Click **Create** to start the back end process of creating this IoT hub with the specific options, and to deploy it to the location specified.
+When all previous steps are complete, the IoT hub is ready to be created. Click **Create** to start the back-end process of creating this IoT hub with the specific options, and to deploy it to the location specified.
 
-Please note that it can take a few minutes for the IoT hub to be created as it takes time for the back end deployment to occur in the appropriate location servers.
+Please note that it can take a few minutes for the IoT hub to be created as it takes time for the back-end deployment to occur in the appropriate location servers.
 
 ## Change the settings of the IoT hub
 

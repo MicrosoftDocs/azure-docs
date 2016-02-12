@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="01/06/2016"
+   ms.date="01/28/2016"
    ms.author="tomfitz;rasquill"/>
 
 # Troubleshooting resource group deployments in Azure
@@ -25,7 +25,7 @@ issue and resume operations in your solution.
 
 This topic focuses primarily on using deployment commands to troubleshoot deployments. For information about using the audit logs to track all operations on your resources, see [Audit operations with Resource Manager](../resource-group-audit.md).
 
-This topic shows how to retrieve troubleshooting information through Azure PowerShell, Azure CLI and REST API. For information about using the preview portal to troubleshoot deployments, see [Using the Azure portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
+This topic shows how to retrieve troubleshooting information through Azure PowerShell, Azure CLI and REST API. For information about using the portal to troubleshoot deployments, see [Using the Azure portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
 
 Solutions to common errors that users encounter are also described in this topic.
 
@@ -162,7 +162,7 @@ The Resource Manager REST API provides URIs for retrieving information about a d
 
 Your deployment will fail if your Azure credentials have expired or if you have not signed into your Azure account. Your credentials can expire if your session is open too long. You can refresh your credentials with the following options:
 
-- For PowerShell, use the **Login-AzureRmAccount** cmdlet (or **Add-AzureAccount** for versions of PowerShell prior to 1.0 Preview). The credentials in a publish settings file are not sufficient for the cmdlets in the AzureResourceManager module.
+- For PowerShell, use the **Login-AzureRmAccount** cmdlet. The credentials in a publish settings file are not sufficient for the cmdlets in the AzureResourceManager module.
 - For Azure CLI, use **azure login**. For help with authentication errors, make sure that you have [configured the Azure CLI correctly](../xplat-cli-connect.md).
 
 ## Checking the format of templates and parameters
@@ -171,7 +171,7 @@ If your template or parameter file is not in the correct format, your deployment
 
 ### PowerShell
 
-For PowerShell, use **Test-AzureRmResourceGroupDeployment** (or **Test-AzureResourceGroupTemplate** for versions of PowerShell prior to 1.0 Preview).
+For PowerShell, use **Test-AzureRmResourceGroupDeployment**.
 
     PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
@@ -203,7 +203,7 @@ When specifying a location for a resource, you must use one of the locations tha
 
 ### PowerShell
 
-For versions of PowerShell prior to 1.0 Preview, you can see the full list of resources and locations with the **Get-AzureLocation** command.
+For versions of PowerShell prior to 1.0, you can see the full list of resources and locations with the **Get-AzureLocation** command.
 
     PS C:\> Get-AzureLocation
 
@@ -224,7 +224,7 @@ You can specify a particular type of resource with:
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
 
-For PowerShell 1.0 Preview, use **Get-AzureRmResourceProvider** to get supported locations.
+For PowerShell 1.0, use **Get-AzureRmResourceProvider** to get supported locations.
 
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
 
@@ -277,7 +277,7 @@ But Azure Active Directory enables you or your administrator to control which id
 
 You might also have issues when a deployment hits a default quota, which could be per resource group, subscriptions, accounts, and other scopes. Confirm to your satisfaction that you have the resources available to deploy correctly. For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
-To examine your own subscription's quotas for cores, you should use the `azure vm list-usage` command in the Azure CLI and the **Get-AzureVMUsage** cmdlet in PowerShell. The following shows the command in the Azure CLI, and illustrates that the core quota for a free trial account is 4:
+To examine your own subscription's quotas for cores, you should use the `azure vm list-usage` command in the Azure CLI and the **Get-AzureRmVMUsage** cmdlet in PowerShell. The following shows the command in the Azure CLI, and illustrates that the core quota for a free trial account is 4:
 
     azure vm list-usage
     info:    Executing command vm list-usage
@@ -322,7 +322,7 @@ Resources are managed by resource providers, and an account or subscription migh
 
 ### PowerShell
 
-To get a list of resource providers and your registration status, use **Get-AzureProvider** for versions of PowerShell prior to 1.0 Preview.
+To get a list of resource providers and your registration status, use **Get-AzureProvider** for versions of PowerShell prior to 1.0.
 
     PS C:\> Get-AzureProvider
 
@@ -335,7 +335,7 @@ To get a list of resource providers and your registration status, use **Get-Azur
 
 To register a provider, use **Register-AzureProvider**.
 
-For Powershell 1.0 Preview, use **Get-AzureRmResourceProvider**.
+For Powershell 1.0, use **Get-AzureRmResourceProvider**.
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
 

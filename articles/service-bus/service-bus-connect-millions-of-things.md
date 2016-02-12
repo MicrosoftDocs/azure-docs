@@ -22,7 +22,7 @@ Smart and connected "things" increasingly proliferate in modern technology ecosy
 
 ## Explore
 
-- [Event Hubs](event-hubs-overview.md)
+- [Event Hubs](../event-hubs/event-hubs-overview.md)
 - [Sharding Pattern](http://msdn.microsoft.com/library/dn589797.aspx)
 - [Service Bus and AMQP 1.0](service-bus-amqp-overview.md)
 - [Introduction to Service Bus](https://azure.microsoft.com/services/service-bus/)

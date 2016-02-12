@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli" />
 
 # Deploy the StorSimple Manager service for StorSimple Virtual Array
@@ -105,8 +105,8 @@ Perform the following steps to regenerate a service registration key.
 
 ## Next steps
 
-- Learn more about how to [get started](storsimple-ova-deploy1-portal-prep.md) to deploy a StorSimple virtual array.
+- Learn how to [get started](storsimple-ova-deploy1-portal-prep.md) with a StorSimple virtual array.
 	
-- Learn more about how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-ova-manager-service-administration.md).
+- Learn how to [administer your StorSimple device](storsimple-ova-web-ui-admin.md).
 
  

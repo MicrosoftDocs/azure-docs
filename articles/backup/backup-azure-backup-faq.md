@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure Backup FAQ | Microsoft Azure"
-   description="Frequently asked questions about the Azure Backup solution – backup agent, backup and retention, recovery, security and other common questions about the Azure Backup service."
+   description="Answers to frequently asked questions about the backup agent, backup and retention, recovery, security and other common questions about the Azure Backup solution."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
-   manager="shreeshd"
+   manager="jwhit"
    editor=""
    keywords="backup solution; backup service"/>
 
@@ -13,8 +13,8 @@
    ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="01/26/2016"
+	 ms.topic="get-started-article"
+	 ms.date="01/28/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure Backup service- FAQ

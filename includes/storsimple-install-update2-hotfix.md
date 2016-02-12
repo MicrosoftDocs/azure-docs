@@ -87,7 +87,7 @@ Perform the following steps to install and verify the regular hotfixes.
 
 	> [AZURE.NOTE] Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed. 
 	
-8. After the software update is complete, repeat steps 3-5 to install and monitor the SaaS agent and MDS agent using the `CisMdsAgentUpdateBundle.exe`. Ensure that `HcsMdsSoftwareUpdate.exe` is installed before `CisMdsAgentUpdateBundle.exe`. 
+8. After the software update is complete, repeat steps 3-5 to install and monitor the SaaS agent and MDS agent . Ensure that `all-hcsmdssoftwareupdate_0b438ddf0d5b686aada2378b754fac8c7f2160e9.exe` is installed before `all-cismdsagentupdatebundle_f98e62f4d56c79e2a6644d027af7a2393a93827a.exe`. 
 
 9. Verify the system software versions. Type:
 
@@ -103,13 +103,13 @@ Perform the following steps to install and verify the regular hotfixes.
     
 9. Repeat steps 3-5 to install and monitor the remaining regular hotfixes.
 
-	- The LSI driver using the `HcsLsiUpdate.exe` package (KB3121900).
-	- The Storport fix using the `Storport-KB3080728-x64.msu` package (KB3080728).
-	- The Spaceport fix using the `spaceport-KB3090322-x64.msu` package (KB3090322).
+	- The LSI driver using KB3121900.
+	- The Storport fix using KB3080728.
+	- The Spaceport fix using KB3090322.
 
 #### To install and verify maintenance mode hotfix
 
-Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console. 
+Use KB3121899 to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console. 
 
 Note that if your disk firmware is already up-to-date, you will not need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console. You will be notified if updates are available and whether the updates are disruptive (maintenance mode updates) or non-disruptive (regular).
  

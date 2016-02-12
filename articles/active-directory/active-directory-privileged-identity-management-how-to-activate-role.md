@@ -8,13 +8,13 @@
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="01/21/2016"
-   ms.author="inhenk"/>
+   ms.author="kgremban"/>
 
 # Azure Privileged Identity Management: How to activate or deactivate a role
 

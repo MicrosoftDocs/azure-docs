@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/02/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Get started with Elastic Database tools
@@ -76,7 +76,7 @@ For pricing information see [SQL Database Pricing Details](https://azure.microso
 ## Next steps
 For more information about the elastic database tools, see:
 
-* [Elastic database tools documentation map](sql-database-elastic-scale-documentation-map.md) 
+* [Elastic database tools documentation map](../learning-paths/sql-database-elastic-scale.md) 
 -    Code Samples: 
     -    [Elastic DB with Azure SQL - Getting Started](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Elastic DB with Azure SQL - Integrating with Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)

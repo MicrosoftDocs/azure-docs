@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -25,7 +25,7 @@
 4. Click **Enable** or **Disable** if you would like notifications about the activation sent to administrators or not.
 5. Click **Enable** or **Disable** to allow administrators to enter tickeing information into their activation request or not.
 6. Click **Enable** or **Disable** to require multi-factor authentication for an activation request or not.  For more information about using MFA with PIM see [How to Require MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
-7. Click **Enable** or **Disable** to allow Global Administrators to be temporary. 
+7. Click **Enable** or **Disable** to allow Global Administrators to be temporary.
 8. Click **Save**.
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->

@@ -30,15 +30,15 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
 2. To run the module, at the start window type **Microsoft Azure PowerShell**.
 3. If you have not already added your account to the machine, run the following cmdlet. (For more information, see [How to install and configure Azure PowerShell]():
 
-```
-Add-AzureAccount
-```
+	```
+	Login-AzureRmAccount
+	```
 
 3. Select your subscription for the database you want to suspend or resume. This selects the subscription named "MySubscription".
 
-```
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
-```
+	```
+	Select-AzureRmSubscription -SubscriptionName "MySubscription"
+	```
 
 ## Suspend-AzureRmSqlDatabase
 

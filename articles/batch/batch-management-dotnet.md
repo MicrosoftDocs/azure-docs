@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="11/10/2015"
-	ms.author="v-marsma"/>
+	ms.date="01/28/2016"
+	ms.author="marsma"/>
 
 # Manage Azure Batch accounts and quotas with Batch Management .NET
 
@@ -139,9 +139,17 @@ When you create Batch accounts with the Batch Management .NET library, you will 
 
 Check out the [AccountManagment][acct_mgmt_sample] sample project on GitHub to see the Batch Management .NET library in action. This console application shows the creation and usage of  [BatchManagementClient][net_mgmt_client] and [ResourceManagementClient][resman_client]. It also demonstrates the usage of the Azure [Active Directory Authentication Library][aad_adal] (ADAL), which is required by both clients.
 
-> [AZURE.IMPORTANT] To run the sample application successfully, you must first register it with Azure AD by using the Azure portal. Check out "Adding an Application" in [Integrating applications with Azure Active Directory][aad_integrate]. Then follow the steps in the article to register the sample application within your own account.
+To run the sample application successfully, you must first register it with Azure AD by using the Azure portal. Check out "Adding an Application" in [Integrating applications with Azure Active Directory][aad_integrate]. Then follow the steps in the article to register the sample application within your own account's Default Directory. Be sure to select "Native Client Application" for the type of application, and you may specify any valid URI (such as `http://myaccountmanagementsample`) for the "Redirect URI"--it does not need to be a real endpoint.
 
-The sample application demonstrates the following operations:
+After adding your application, delegate the "Access Azure Service Management as organization" permission to the *Windows Azure Service Management API* application in the application's settings in the portal:
+
+![Application permissions in Azure portal][2]
+
+Once you've added the application as described above, update `Program.cs` in the [AccountManagment][acct_mgmt_sample] sample project with your application's Redirect URI and Client ID. You can find these values in the "Configure" tab of your application:
+
+![Application configuration in Azure portal][3]
+
+The [AccountManagment][acct_mgmt_sample] sample application demonstrates the following operations:
 
 1. Acquire a security token from Azure AD by using [ADAL][aad_adal]. If the user is not already signed in, they will be prompted for their Azure credentials.
 2. By using the security token that was obtained from Azure AD, create [SubscriptionClient][resman_subclient] to query Azure for a list of subscriptions that are associated with the account. This allows the user to select one subscription if multiple are found.
@@ -191,3 +199,5 @@ Before deleting the newly created Batch account and resource group, you can insp
 [resman_overview]: ../resource-group-overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png
+[2]: ./media/batch-management-dotnet/portal-02.png
+[3]: ./media/batch-management-dotnet/portal-03.png
