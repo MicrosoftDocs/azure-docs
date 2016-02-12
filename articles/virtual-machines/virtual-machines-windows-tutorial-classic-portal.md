@@ -23,7 +23,7 @@
 - [Azure portal](virtual-machines-windows-tutorial.md)
 - [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [PowerShell: Classic deployment](virtual-machines-windows-classic-create-powershell.md)
 
 <!-- HHTML comment in to break between the selector and the note in the include below-->
 
@@ -31,7 +31,11 @@
 
 This tutorial shows you how easy it is to create an Azure virtual machine (VM) running Windows in the Azure classic portal. We'll use a Windows Server image as an example, but that's just one of the many images Azure offers. Note that your image choices depend on your subscription. For example, Windows desktop images may be available to MSDN subscribers.
 
-You can also create VMs using [your own images](virtual-machines-create-upload-vhd-windows-server.md). To learn about this and other methods, see [Different ways to create a Windows virtual machine](virtual-machines-windows-choices-create-vm.md).
+<<<<<<< HEAD
+You can also create VMs using [your own images](virtual-machines-windows-classic-createupload-vhd.md). To learn about this and other methods, see [Different ways to create a Windows virtual machine](virtual-machines-windows-choices-create-vm.md).
+=======
+You can also create VMs using [your own images](virtual-machines-create-upload-vhd-windows-server.md). To learn about this and other methods, see [Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md).
+>>>>>>> vm-refactor-staging
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -53,4 +57,4 @@ This section shows you how to use the **From Gallery** option in the Azure class
 
 - Log on to the virtual machine. For instructions, see [Log on to a virtual machine running Windows Server](virtual-machines-windows-classic-connect-logon.md).
 
-- Attach a disk to store data. You can attach both empty disks and disks that contain data. For instructions, see the [Attach a data disk to a Windows virtual machine created with the classic deployment model](storage-windows-attach-disk.md).
+- Attach a disk to store data. You can attach both empty disks and disks that contain data. For instructions, see the [Attach a data disk to a Windows virtual machine created with the classic deployment model](virtual-machines-windows-classic-attach-disk.md).

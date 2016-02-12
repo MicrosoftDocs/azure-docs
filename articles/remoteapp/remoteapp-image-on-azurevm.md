@@ -37,7 +37,7 @@ Use these steps to create an image based on an Azure VM.
 
 3. If you are using one of the Windows Server Remote Desktop Session Host images, there is an included validation script that will ensure your VM meets the RemoteApp pre-reqs. To run script, double-click **ValidateRemoteAppImage** on the desktop. Ensure that all errors reported by the script are fixed before proceeding to the next step.
 
-4. SYSPREP generalize and capture the image. See [How to Capture a Windows Virtual Machine to Use as a Template](../virtual-machines/virtual-machines-capture-image-windows-server.md) for instructions.
+4. SYSPREP generalize and capture the image. See [How to Capture a Windows Virtual Machine to Use as a Template](../virtual-machines/virtual-machines-windows-classic-capture-image.md) for instructions.
 
 
 
