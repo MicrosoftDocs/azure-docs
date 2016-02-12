@@ -50,7 +50,7 @@ See [Miscellaneous considerations for Oracle virtual machine images](virtual-mac
 
 ## Oracle Data Guard
 
-[Configuring Oracle Data Guard for Azure](virtual-machines-configuring-oracle-data-guard.md) steps you through configuration of the standby environment and the listener.
+[Configuring Oracle Data Guard for Azure](virtual-machines-windows-classic-configure-oracle-data-guard.md) steps you through configuration of the standby environment and the listener.
 
 ## Oracle GoldenGate
 
