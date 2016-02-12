@@ -37,9 +37,9 @@ For more information on licensing and current rates, see [Virtual Machines Licen
 
 The Microsoft Azure Virtual Machine gallery includes several images that contain Microsoft SQL Server. The software installed on the virtual machine images varies based on the version of the operating system and the version of SQL Server. The list of images available in the Azure virtual machine gallery changes frequently.
 
-![SQL image in azure VM gallery](./media/virtual-machines-sql-server-business-intelligence/IC741367.png)
+![SQL image in azure VM gallery](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)
 
-![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) The following PowerShell script returns the list of Azure images that contain “SQL-Server” in the ImageName:
+![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) The following PowerShell script returns the list of Azure images that contain “SQL-Server” in the ImageName:
 
 	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
 	
@@ -86,7 +86,7 @@ The following table summarizes the Business Intelligence features installed on t
 
 <sup>1</sup> For additional information on SharePoint and Azure virtual machines, see [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) and [SharePoint Deployment on Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
 
-![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) Run the following PowerShell command to get a list of installed services that contain “SQL” in the service name.
+![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) Run the following PowerShell command to get a list of installed services that contain “SQL” in the service name.
 
 	get-service | Where-Object{ $_.DisplayName -like '*SQL*' } | Select DisplayName, status, servicetype, dependentservices | format-Table -AutoSize
 
@@ -106,7 +106,7 @@ The following table summarizes the Business Intelligence features installed on t
 
 - Stop or uninstall services you do not plan to use. For example if the virtual machine is only used for Reporting Services, stop or uninstall Analysis Services and SQL Server Integration Services. The following image is an example of the services that are started by default.
 
-	![SQL Server services](./media/virtual-machines-sql-server-business-intelligence/IC650107.gif)
+	![SQL Server services](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
 
 	>[AZURE.NOTE] The SQL Server database engine is required in the supported BI scenarios. In a single server VM topology, the database engine is required to be running on the same VM.
 
@@ -122,7 +122,7 @@ The following are example deployments that use Microsoft Azure Virtual Machines.
 
 Analysis Services, Reporting Services, SQL Server Database Engine, and data sources on a single virtual machine.
 
-![bi iass scenario with 1 virtual machine](./media/virtual-machines-sql-server-business-intelligence/IC650108.gif)
+![bi iass scenario with 1 virtual machine](./media/virtual-machines-windows-classic-ps-sql-bi/IC650108.gif)
 
 ### Two Virtual Machines
 
@@ -130,7 +130,7 @@ Analysis Services, Reporting Services, SQL Server Database Engine, and data sour
 
 - Data sources on a second VM. The second VM includes SQL Server Database Engine as a data source.
 
-![bi  iaas scenario with 2 virtual machines](./media/virtual-machines-sql-server-business-intelligence/IC650109.gif)
+![bi  iaas scenario with 2 virtual machines](./media/virtual-machines-windows-classic-ps-sql-bi/IC650109.gif)
 
 ### Mixed Azure – data on Azure SQL database
 
@@ -138,7 +138,7 @@ Analysis Services, Reporting Services, SQL Server Database Engine, and data sour
 
 - Data source is Azure SQL database.
 
-![bi iaas scenarios vm and AzureSQL as data source](./media/virtual-machines-sql-server-business-intelligence/IC650110.gif)
+![bi iaas scenarios vm and AzureSQL as data source](./media/virtual-machines-windows-classic-ps-sql-bi/IC650110.gif)
 
 ### Hybrid –data on-premises
 
@@ -146,7 +146,7 @@ Analysis Services, Reporting Services, SQL Server Database Engine, and data sour
 
 - Data source is on-premises.
 
-![bi iaas scenarios vm and on premise data sources](./media/virtual-machines-sql-server-business-intelligence/IC654384.gif)
+![bi iaas scenarios vm and on premise data sources](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
 
 ## Reporting Services Native Mode Configuration
 
@@ -160,7 +160,7 @@ There are two common workflows for connecting to an Azure Virtual Machine:
 
 - To connect in the , click the name of the virtual machine and then click **Connect**. A Remote desktop connection opens and the computer name is automatically populated.
 
-	![connect to azure virtual machine](./media/virtual-machines-sql-server-business-intelligence/IC650112.gif)
+	![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-bi/IC650112.gif)
 
 - Connect to the virtual machine with Windows Remote Desktop Connection. In the user interface of the remote desktop:
 
@@ -198,7 +198,7 @@ Or
 
 1. Right-click **Reporting Services Configuration Manager** and click **Run as Administrator**.
 
-	![search for ssrs configuration manager](./media/virtual-machines-sql-server-business-intelligence/IC650113.gif)
+	![search for ssrs configuration manager](./media/virtual-machines-windows-classic-ps-sql-bi/IC650113.gif)
 
 ### Configure Reporting Services
 
@@ -291,7 +291,7 @@ The following table summarizes some of the options available to publish existing
 
 - **SQL Server Data Tools: Remote**:  On your local computer, create a Reporting Services project in SQL Server Data Tools that contains Reporting Services reports. Configure the project to connect to the web service URL.
 
-	![ssdt project properties for SSRS project](./media/virtual-machines-sql-server-business-intelligence/IC650114.gif)
+	![ssdt project properties for SSRS project](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
 
 - Create a .VHD hard drive that contains reports and then upload and attach the drive.
 
@@ -404,7 +404,7 @@ For more information on creating endpoints, see the following:
 
 The following diagram illustrates the ports to open in the VM firewall to allow remote access to features and components on the VM.
 
-![ports to open for bi applications in Azure VMs](./media/virtual-machines-sql-server-business-intelligence/IC654385.gif)
+![ports to open for bi applications in Azure VMs](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
 ## Resources
 
