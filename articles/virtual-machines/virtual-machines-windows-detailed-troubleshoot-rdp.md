@@ -189,7 +189,7 @@ Verify that the Remote Desktop endpoint for the Azure VM is also using TCP port 
 
 [How to reset a password or the Remote Desktop service for Windows virtual machines](virtual-machines-windows-reset-rdp.md)
 
-[How to install and configure Azure PowerShell](../install-configure-powershell.md)
+[How to install and configure Azure PowerShell](../powershell-install-configure.md)
 
 [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-linux-troubleshoot-ssh-connection.md)
 
