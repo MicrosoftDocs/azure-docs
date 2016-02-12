@@ -23,7 +23,7 @@
 > [AZURE.SELECTOR]
 - [Portal - Windows](virtual-machines-windows-tutorial.md)
 - [PowerShell](virtual-machines-windows-create-powershell.md)
-- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [PowerShell - Template](virtual-machines-windows-ps-template.md)
 - [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [CLI](virtual-machines-linux-cli-create.md)
 
