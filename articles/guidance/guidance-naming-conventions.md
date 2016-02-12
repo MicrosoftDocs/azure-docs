@@ -54,8 +54,9 @@ such as Dev, QA, or Prod.
 ## Resource Affixes
 
 When creating certain resources, Microsoft Azure will use some defaults to simplify management of the resources
-associated to these resources.  Although this will not present problems, it may be beneficial to identify types of resources that need an affix to identify that type. In addition, clearly specify whether the affix will be at the beginning of the name (prefix) or at the end (suffix).
-For instance, here are two possible names for a service hosting a calculation engine:
+associated to these resources.  Although this will not present problems, it may be beneficial to identify types of resources 
+that need an affix to identify that type. In addition, clearly specify whether the affix will be at the beginning of the name 
+(prefix) or at the end (suffix).  For instance, here are two possible names for a service hosting a calculation engine:
 
 - SvcCalculationEngine (prefix)
 - CalculationEngineSvc (suffix)
@@ -89,7 +90,8 @@ fail most validation rules.
 | Resource Group | Resource Group | Global | 1-64 | Case insensitive | Alphanumeric, underscore, and hyphen | `<service short name>-<environment>-rg` | `profx-prod-rg` |
 | Resource Group | Availability Set | Resource Group | 1-80 | Case insensitive | Alphanumeric, underscore, and hyphen | `<service-short-name>-<context>-as` | `profx-sql-as` |
 | General | Tag | Associated Entity | 512 (name), 256 (value) | Case insensitive | Alphanumeric | `"key" : "value"` | `"department" : "Central IT"` |
-| Storage | Storage account name | Global | 3-24 | Lower case | Alphanumeric | `<service short name><type><number>` | `awesomegamedata001` |
+| Compute | Virtual Machine | Resource Group | 1-15 | Case insensitive | Alphanumeric, underscore, and hyphen | `<name>-<role>-<instance>` | `profx-sql-001` |
+| Storage | Storage account name | Global | 3-24 | Lower case | Alphanumeric | `<service short name><type><number>` | `profxdata001` |
 | Storage | Container name | Storage account | 3-63 |	Lower case | Alphanumeric and dash | `<context>` | `logs` |
 | Storage | Blob name | Container | 1-1024 | Case sensitive | Any URL char | `<variable based on blob usage>` | `<variable based on blob usage>` |
 | Storage | Queue name | Storage account | 3-63 | Lower case | Alphanumeric and dash | `<service short name>-<context>-<num>` | `awesomeservice-messages-001` |
@@ -97,17 +99,19 @@ fail most validation rules.
 | Storage | File name | Storage account | 3-63 | Lower case | Alphanumeric | `<variable based on blob usage>` | `<variable based on blob usage>` |
 | Networking | Virtual Network (VNet) | Resource Group | 2-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<service short name>-[section]-vnet` | `profx-vnet` |
 | Networking | Subnet | Parent VNet | 2-80 | Case-insensitive | Alphanumeric, underscore, dash, and period | `<role>-subnet` | `gateway-subnet` |
-| Networking | Network Interface | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO |
-| Networking | Network Security Group | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO |
-| Networking | Network Security Group rule | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO |
-| Networking | Public IP Address | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO
-| Networking | Load Balancer | TODO | TODO | Case-insensitive | TODO | TODO | TODO
-| Networking | Azure Gateway | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO
-| Networking | Azure Gateway | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO
-| Networking | Azure Gateway Connection | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO
-| Networking | Load Balanced Rules Config | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO
-| Networking | Traffic Manager Profile | TODO | TODO | Case-insensitive | Alphanumeric and dash | TODO | TODO
- 	  
+| Networking | Network Interface | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<vmname>-<num>nic` | `profx-sql1-1nic` |
+| Networking | Network Security Group | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<service short name>-<context>-nsg` | `profx-app-nsg` |
+| Networking | Network Security Group Rule | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<descriptive context>` | `sql-allow` |
+| Networking | Public IP Address | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<vm or service name>-pip` | `profx-sql1-pip` |
+| Networking | Load Balancer | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<service or role>-lb` | `profx-lb` |
+| Networking | Load Balanced Rules Config | Load Balancer | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `descriptive context` | `http` |
+
+<!-- TODO fill in the rest of these resources
+| Networking | Azure Application Gateway | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<service or role>-aag` | `profx-aag`
+| Networking | Azure Application Gateway Connection | Azure Application Gateway | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `` | TODO
+| Networking | Traffic Manager Profile | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | TODO | TODO
+-->
+
 ## Azure Resource Manager (ARM) Tagging
 
 Aside from the name of any entity in Azure, the Azure Resource Manager supports tagging entities with arbitary
@@ -118,13 +122,20 @@ against them.  Tags should be used to augment and enhance context along side of 
 > [AZURE.TIP] One other advantage of tags is that tags span resource groups, allowing you to link and correlate entities across
 > disparate deployments.
 
-Each resource or resource group can have a maximum of 15 tags. The tag name is limited to 512 characters, and the tag value is limited to 256 characters.
+Each resource or resource group can have a maximum of **15** tags. The tag name is limited to 512 characters, and the tag 
+value is limited to 256 characters.
 
 For more information on resource tagging, please refer to [https://azure.microsoft.com/en-us/documentation/articles/resource-group-using-tags/](https://azure.microsoft.com/en-us/documentation/articles/resource-group-using-tags/).
 
+owned by
+created by
+
 TODO - example of using tagging
 
-## Tips and Gotchas
+## Tips and Tricks
+
+Depending on the type of application, certain types of resources may require additional care on naming and 
+conventions.  Additional details and context around these are listed below.
 
 ### Virtual Machines
 
@@ -200,3 +211,5 @@ From that baseline we can then map out the conventions for each of the resource 
 As seen in the diagram below:
 
 ![application topology diagram](media/guidance-naming-convention-example.png "Sample Application Topology")
+
+<!-- TODO; an Azure CLI script for deploying this topology set -->
