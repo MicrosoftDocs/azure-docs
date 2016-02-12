@@ -402,10 +402,10 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 
 
 <!--Image references-->
-[keygen]: ./media/virtual-machines-linux-cluster-hpcpack-namd/keygen.png
-[keys]: ./media/virtual-machines-linux-cluster-hpcpack-namd/keys.png
-[namd_job]: ./media/virtual-machines-linux-cluster-hpcpack-namd/namd_job.png
-[job_resources]: ./media/virtual-machines-linux-cluster-hpcpack-namd/job_resources.png
-[creds]: ./media/virtual-machines-linux-cluster-hpcpack-namd/creds.png
-[task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
-[vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
+[keygen]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/keygen.png
+[keys]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/keys.png
+[namd_job]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/namd_job.png
+[job_resources]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/job_resources.png
+[creds]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/creds.png
+[task_details]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/task_details.png
+[vmd_view]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/vmd_view.png
