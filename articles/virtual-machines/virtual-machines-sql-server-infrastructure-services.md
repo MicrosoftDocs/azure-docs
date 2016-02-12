@@ -67,7 +67,7 @@ If you want to manually configure your Availability Group and associated listene
 
 - [Configure AlwaysOn Availability Groups in Azure (GUI)](virtual-machines-windows-classic-portal-sql-availability.md)
 - [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md)
-- [Extend on-premises AlwaysOn Availability Groups to Azure](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
+- [Extend on-premises AlwaysOn Availability Groups to Azure](virtual-machines-windows-classic-sql-onprem-availability.md)
 
 For other high availability considerations, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
