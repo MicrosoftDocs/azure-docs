@@ -550,11 +550,11 @@ For both the solver and client applications, you can press Ctrl+C to exit if you
 ## Alternative to creating and deleting the queue with TSPSolver
 Instead of using TSPSolver to create or delete the queue, you can create or delete the queue using the [Azure classic portal](https://manage.windowsazure.com). Visit the Service Bus section of the Azure classic portal to access the user interfaces for creating or deleting a queue, as well as for retrieving the connection string, issuer, and access key. You can also view a dashboard of your Service Bus queues, allowing you to view metrics for your incoming and outgoing messages.
 
-[solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
-[client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png
-[create_service_bus]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ServiceBusCreateNew.png
-[create_namespace_dialog]: ./media/virtual-machines-dotnet-run-compute-intensive-task/CreateNameSpaceDialog.png
-[available_namespaces]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AvailableNamespaces.png
-[click_create]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ClickCreate.png
-[namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
-[access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
+[solver_output]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/WA_dotNetTSPSolver.png
+[client_output]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/WA_dotNetTSPClient.png
+[create_service_bus]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/ServiceBusCreateNew.png
+[create_namespace_dialog]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/CreateNameSpaceDialog.png
+[available_namespaces]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/AvailableNamespaces.png
+[click_create]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/ClickCreate.png
+[namespace_list]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/NamespaceList.png
+[access_key_button]: ./media/virtual-machines-windows-classic-run-compute-intensive-task/AccessKey.png
