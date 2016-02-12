@@ -46,7 +46,7 @@ For this template the data source used is generated from a desktop
 application that you will download and run locally after successful
 deployment. You will find the instructions to download and install this application in the properties bar when you select the first node called Energy Forecasting Data Simulator on the solution template diagram. This application feeds the [Azure Event Hub](#azure-event-hub) service
 with data points, or events, that will be used in the rest of the solution flow.
-
+ 
 The event generation application will populate the Azure Event Hub only
 while it's executing on your computer.
 
