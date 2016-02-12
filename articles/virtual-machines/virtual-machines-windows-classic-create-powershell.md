@@ -20,21 +20,30 @@
 # Create Windows virtual machines with Powershell and the classic deployment model 
 
 > [AZURE.SELECTOR]
+<<<<<<< HEAD:articles/virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md
+- [Azure classic portal - Windows](virtual-machines-windows-classic-tutorial.md)
+=======
 - [Azure classic portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+<<<<<<< HEAD:articles/virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md
+>>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md
+- [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [PowerShell - Linux](virtual-machines-linux-classic-createpowershell.md)
+=======
 - [Powershell - Windows](virtual-machines-windows-classic-create-powershell.md)
 - [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
+>>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md
 
 <br>
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-create-powershell.md).
 
 
 These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
-For the companion topic to configure Linux-based virtual machines, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](virtual-machines-ps-create-preconfigure-linux-vms.md).
+For the companion topic to configure Linux-based virtual machines, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](virtual-machines-linux-classic-createpowershell.md).
 
 
 ## Step 1: Install Azure PowerShell

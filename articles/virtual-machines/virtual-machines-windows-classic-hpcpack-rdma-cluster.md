@@ -23,7 +23,7 @@ ms.service="virtual-machines"
 
 This article shows you how to set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [size A8 and A9 compute-intensive instances](virtual-machines-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you set up size A8 and A9 Windows Server-based instances to run in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
-If you want to run MPI workloads on Linux VMs that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-cluster-rdma.md).
+If you want to run MPI workloads on Linux VMs that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md).
 
 ## HPC Pack cluster deployment options
 Microsoft HPC Pack is a recommended tool to create Windows Server–based HPC clusters in Azure. When used with A8 and A9 instances, HPC Pack provides an efficient way to run Windows-based MPI applications that access the RDMA network in Azure. HPC Pack includes a runtime environment for the Microsoft implementation of the Message Passing Interface for Windows (MSMPI).
@@ -149,7 +149,7 @@ automate most of this process.
 
 3. **Submit jobs to the cluster**
 
-    Connect to the head node to submit jobs, or set up an on-premises computer to do this. For information, see [Submit Jobs to an HPC cluster in Azure](virtual-machines-hpcpack-cluster-submit-jobs.md).
+    Connect to the head node to submit jobs, or set up an on-premises computer to do this. For information, see [Submit Jobs to an HPC cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).
 
 4. **Take the nodes offline and stop (deallocate) them**
 
@@ -263,7 +263,7 @@ instances added in a “burst to Azure” configuration).
 
 ## Next steps
 
-* If you want to run Linux MPI applications that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-cluster-rdma.md).
+* If you want to run Linux MPI applications that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/burst.png

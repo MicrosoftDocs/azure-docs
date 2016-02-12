@@ -56,9 +56,9 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 ### Tutorials
 
-* [Tutorial: Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-cluster-hpcpack.md)
+* [Tutorial: Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md)
 
-* [Tutorial: Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
+* [Tutorial: Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
 
 * [Tutorial: Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
@@ -68,16 +68,16 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 ### Manual deployment with the Azure portal
 
-* [Set up the head node of an HPC Pack cluster in an Azure VM](virtual-machines-hpcpack-cluster-headnode.md)
+* [Set up the head node of an HPC Pack cluster in an Azure VM](virtual-machines-windows-hpcpack-cluster-headnode.md)
 
 ### Cluster management
 
 * [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)
 
 
-* [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
+* [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)
 
-* [Submit jobs to an HPC Pack cluster in Azure](virtual-machines-hpcpack-cluster-submit-jobs.md)
+* [Submit jobs to an HPC Pack cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 
 
 ## Add worker role nodes to an HPC Pack cluster
@@ -89,7 +89,7 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 * [Add Azure "burst" nodes to an HPC Pack head node in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md)
 
-* [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
+* [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)
 
 ## Integrate with Azure Batch 
 
@@ -101,4 +101,4 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 * [Tutorial: Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
-* [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-cluster-rdma.md)
+* [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md)

@@ -33,7 +33,7 @@ If you have existing subscription from Trend Micro for an on-premises solution, 
 
 The [Azure classic portal](http://manage.windowsazure.com) lets you install the VM Agent and the Trend Micro security extension when you use the **From Gallery** option to create the virtual machine. Using this approach is an easy way to add protection from Trend Micro if you're creating a single virtual machine.
 
-This **From Gallery** option opens a wizard that helps you set up the virtual machine. You use the last page of the wizard to install the VM Agent and Trend Micro security extension. For general instructions, see [Create a virtual machine running Windows in the Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md). When you get to the last page of the wizard, do the following:
+This **From Gallery** option opens a wizard that helps you set up the virtual machine. You use the last page of the wizard to install the VM Agent and Trend Micro security extension. For general instructions, see [Create a virtual machine running Windows in the Azure classic portal](virtual-machines-windows-classic-tutorial.md). When you get to the last page of the wizard, do the following:
 
 1.	Under **VM Agent**, check **Install VM Agent**.
 
@@ -84,5 +84,5 @@ It takes a few minutes for the agent to start running when it is installed. Afte
 
 
 <!--Link references-->
-[How to log on to a virtual machine running Windows Server]: virtual-machines-log-on-windows-server.md
+[How to log on to a virtual machine running Windows Server]: virtual-machines-windows-classic-connect-logon.md
 [Azure VM Extensions and features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

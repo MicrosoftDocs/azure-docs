@@ -6,7 +6,8 @@
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"

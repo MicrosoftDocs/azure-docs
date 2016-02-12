@@ -64,17 +64,17 @@ Choose an image based on the operating system you want to run. Azure and its par
 
 [Equivalent Resource Manager and Service Management commands for virtual machine operations with the Azure CLI for Mac, Linux, and Windows]:xplat-cli-azure-manage-vm-asm-arm.md
 [Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI]: virtual-machines-deploy-rmtemplates-azure-cli.md
-[Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell]:  virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
-[Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
+[Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell]:  virtual-machines-windows-create-powershell.md
+[Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell]: virtual-machines-windows-ps-manage.md
 [Create a Windows VM with Resource Manager and PowerShell]: virtual-machines-windows-ps-create.md
-[Create a Windows virtual machine with a Resource Manager template and PowerShell]: virtual-machines-create-windows-powershell-resource-manager-template.md
+[Create a Windows virtual machine with a Resource Manager template and PowerShell]: virtual-machines-windows-ps-template.md
 
 
 [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI]: resource-groups-vm-searching.md
-[Deploy Azure resources using the Compute, Network, and Storage .NET libraries]: virtual-machines-arm-deployment.md
+[Deploy Azure resources using the Compute, Network, and Storage .NET libraries]: virtual-machines-windows-csharp.md
 
-[Sign in to the virtual machine]: virtual-machines-log-on-windows-server.md
+[Sign in to the virtual machine]: virtual-machines-windows-classic-connect-logon.md
 
-[Base configuration test environment]: virtual-machines-base-configuration-test-environment.md
+[Base configuration test environment]: virtual-machines-windows-classic-test-config-env.md
 
-[Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
+[Azure hybrid cloud test environments]: virtual-machines-windows-classic-hybrid-test-env.md

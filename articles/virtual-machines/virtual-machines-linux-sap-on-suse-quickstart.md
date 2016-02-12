@@ -74,7 +74,7 @@ information about installing it manually (e.g. when uploading a SLES OS VHD from
 
 - [OpenSUSE] (http://software.opensuse.org/package/WALinuxAgent)
 
-- [Azure] (virtual-machines-linux-endorsed-distributions.md)
+- [Azure] (virtual-machines-linux-endorsed-distros.md)
 
 - [SUSE] (https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
@@ -90,7 +90,7 @@ file system in case an external Azure data disk wasn't mounted during the boot.
 
 ## Uploading a SUSE VM from on-premises to Azure
 
-[This article] (virtual-machines-linux-create-upload-vhd-suse.md) describes the steps for uploading a SUSE VM from on-premises to Azure.
+[This article] (virtual-machines-linux-suse-create-upload-vhd.md) describes the steps for uploading a SUSE VM from on-premises to Azure.
 
 If you want to upload a VM without the deprovision step at the end to keep, for example, an existing SAP
 installation as well as the hostname, check the following items:
