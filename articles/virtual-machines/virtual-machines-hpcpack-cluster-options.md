@@ -77,7 +77,7 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 * [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)
 
-* [Submit jobs to an HPC Pack cluster in Azure](virtual-machines-hpcpack-cluster-submit-jobs.md)
+* [Submit jobs to an HPC Pack cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 
 
 ## Add worker role nodes to an HPC Pack cluster
