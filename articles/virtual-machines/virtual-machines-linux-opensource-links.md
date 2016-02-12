@@ -60,7 +60,7 @@ Ubuntu is a very popular and Azure-endorsed Linux distribution based on dpkg and
 1. [How to: Upload your own Ubuntu Image](virtual-machines-linux-create-upload-ubuntu.md)
 2. [How to: Ubuntu LAMP Stack](virtual-machines-linux-install-lamp-stack.md)
 3. \[Classic Deployment]: [How to: MySQL Clusters](virtual-machines-linux-mysql-cluster.md)
-4. \[Classic Deployment]: [How to: Node.js and Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
+4. \[Classic Deployment]: [How to: Node.js and Cassandra](virtual-machines-linux-classic-cassandra-nodejs.md)
 5. \[Resource Manager Deployment]: [How to: IPython Notebook](virtual-machines-python-ipython-notebook.md)
 6. \[Classic Deployment]: [Geeking out: Running ASP.NET 5 on Linux using Docker Containers](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 7. [Images: Redis Server](https://azure.microsoft.com/marketplace/partners/cognosys/redisserver269ubuntu1204lts/)
@@ -201,7 +201,7 @@ This section contains information about several different storage approaches and
 3. MongoDB
     - [How to: Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md)
 4. Cassandra
-    - [How to: Running Cassandra with Linux on Azure and Accessing it from Node.js](virtual-machines-linux-nodejs-running-cassandra.md)
+    - [How to: Running Cassandra with Linux on Azure and Accessing it from Node.js](virtual-machines-linux-classic-cassandra-nodejs.md)
 5. Redis
     - [Blog: Redis on Windows in the Azure Redis Cache Service](http://msopentech.com/blog/2014/05/12/redis-on-windows/)
     - [Blog: Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)
