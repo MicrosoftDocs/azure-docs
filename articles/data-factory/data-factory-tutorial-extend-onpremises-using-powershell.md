@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Copy output data to SQL Server database (Azure PowerShell)" 
+	pageTitle="Walkthrough: Copy output data to SQL Server database (Azure PowerShell)" 
 	description="This walkthrough extends the tutorial using Azure PowerShell such that the pipeline copies output data to a SQL Server database."
 	services="data-factory" 
 	documentationCenter="" 
