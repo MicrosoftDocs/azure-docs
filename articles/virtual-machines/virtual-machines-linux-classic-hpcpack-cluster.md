@@ -303,15 +303,15 @@ The HPC Pack **clusrun** tool can be used to execute commands on Linux nodes eit
 * Try an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/) with Azure Resource Manager to speed up deployments of HPC Pack with a larger number of  Linux compute nodes.
 
 <!--Image references-->
-[scenario]: ./media/virtual-machines-linux-cluster-hpcpack/scenario.png
-[validate]: ./media/virtual-machines-linux-cluster-hpcpack/validate.png
-[resources]: ./media/virtual-machines-linux-cluster-hpcpack/resources.png
-[deploy]: ./media/virtual-machines-linux-cluster-hpcpack/deploy.png
-[management]: ./media/virtual-machines-linux-cluster-hpcpack/management.png
-[heatmap]: ./media/virtual-machines-linux-cluster-hpcpack/heatmap.png
-[fileshareperms]: ./media/virtual-machines-linux-cluster-hpcpack/fileshare1.png
-[filesharing]: ./media/virtual-machines-linux-cluster-hpcpack/fileshare2.png
-[nfsauth]: ./media/virtual-machines-linux-cluster-hpcpack/nfsauth.png
-[nfsshare]: ./media/virtual-machines-linux-cluster-hpcpack/nfsshare.png
-[nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
-[nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
+[scenario]: ./media/virtual-machines-linux-classic-hpcpack-cluster/scenario.png
+[validate]: ./media/virtual-machines-linux-classic-hpcpack-cluster/validate.png
+[resources]: ./media/virtual-machines-linux-classic-hpcpack-cluster/resources.png
+[deploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster/deploy.png
+[management]: ./media/virtual-machines-linux-classic-hpcpack-cluster/management.png
+[heatmap]: ./media/virtual-machines-linux-classic-hpcpack-cluster/heatmap.png
+[fileshareperms]: ./media/virtual-machines-linux-classic-hpcpack-cluster/fileshare1.png
+[filesharing]: ./media/virtual-machines-linux-classic-hpcpack-cluster/fileshare2.png
+[nfsauth]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsauth.png
+[nfsshare]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsshare.png
+[nfsperm]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsperm.png
+[nfsmanage]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsmanage.png
