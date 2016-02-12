@@ -222,7 +222,7 @@ This section contains information about several different storage approaches and
     - [How to: Django and MySQL on Azure Websites with Python and Visual Studio](../app-service-web/web-sites-python-ptvs-django-mysql.md)
     - [MySQL High Availability Architecture in Microsoft Azure](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
-    - [How to: Create a Multi-Master cluster of MariaDbs](virtual-machines-mariadb-cluster.md)
+    - [How to: Create a Multi-Master cluster of MariaDbs](virtual-machines-linux-classic-mariadb-mysql-cluster.md)
 8. [Installing Postgres with corosync, pg_bouncer using ILB](https://github.com/chgeuer/postgres-azure)
 
 

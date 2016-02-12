@@ -35,7 +35,7 @@ This topic performs the following steps:
 4. Use the Azure Load Balancer to balance the load for the 3 nodes
 5. To minimize repetitive work, create a VM image containing MariaDB+Galera and use it to create the other cluster VMs.
 
-![Architecture](./media/virtual-machines-mariadb-cluster/Setup.png)
+![Architecture](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
 
 > [AZURE.NOTE]  This topic uses the [Azure CLI] tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, check out this link for the [Azure CLI command reference]. You will also need to [create an SSH key for authentication] and make note of the **.pem file location**.
 
@@ -231,8 +231,8 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
 
 	- Shutdown the machine through the portal
     - Click on Capture and specify the image name as **mariadb-galera-image** and provide a  description and check "I have run waagent".
-	![Capture the Virtual Machine](./media/virtual-machines-mariadb-cluster/Capture.png)
-	![Capture the Virtual Machine](./media/virtual-machines-mariadb-cluster/Capture2.PNG)
+	![Capture the Virtual Machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture.png)
+	![Capture the Virtual Machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
 
 ## Creating the cluster
 
@@ -280,7 +280,7 @@ and for MariaDB3
 
 3. You will need to get the internal IP address of each of the 3 VMs for the next step:
 
-	![Getting IP address](./media/virtual-machines-mariadb-cluster/IP.png)
+	![Getting IP address](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/IP.png)
 
 4. SSH into the 3 VMs and and edit the configuration file on each
 
@@ -313,15 +313,15 @@ The command parameters structure is: `azure vm endpoint create-multiple <Machine
 
 Finally, since the CLI sets the load-balancer probe interval to 15 seconds (which may be a bit too long), change it in the portal under **Endpoints** for any of the VMs
 
-![Edit endpoint](./media/virtual-machines-mariadb-cluster/Endpoint.PNG)
+![Edit endpoint](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint.PNG)
 
 then click on Reconfigure The Load-Balanced Set and go next
 
-![Reconfigure Load Balanced Set](./media/virtual-machines-mariadb-cluster/Endpoint2.PNG)
+![Reconfigure Load Balanced Set](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint2.PNG)
 
 then change the Probe Interval to 5 seconds and save
 
-![Change Probe Interval](./media/virtual-machines-mariadb-cluster/Endpoint3.PNG)
+![Change Probe Interval](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint3.PNG)
 
 ## Validating the cluster
 
