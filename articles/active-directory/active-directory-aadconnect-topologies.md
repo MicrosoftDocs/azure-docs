@@ -6,11 +6,9 @@
     authors="AndKjell"
     manager="stevenpo"
     editor=""/>
-
 <tags
     ms.service="active-directory"
     ms.devlang="na"
-    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="get-started-article"
