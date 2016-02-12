@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Resource Manager](virtual-machines-sql-server-connectivity-resource-manager.md)
-- [Classic](virtual-machines-sql-server-connectivity.md)
+- [Classic](virtual-machines-windows-classic-sql-connect.md)
 
 ## Overview
 

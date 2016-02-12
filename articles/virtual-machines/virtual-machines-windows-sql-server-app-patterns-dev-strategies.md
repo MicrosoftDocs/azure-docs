@@ -290,7 +290,7 @@ In n-tier hybrid application pattern, you can implement the following workflow i
 
 		- With secure point-to-site connection, you can establish network connectivity between your virtual network in Azure and your individual computers running anywhere. It is mostly recommended for development and test purposes.
 
-	For information on how to connect to SQL Server in Azure, see [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-sql-server-connectivity.md).
+	For information on how to connect to SQL Server in Azure, see [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-sql-connect.md).
 
 1. Set up scheduled jobs and alerts that would backup on-premises data in a virtual machine disk in Azure. For more information, see [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx) and [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-br.md).
 
