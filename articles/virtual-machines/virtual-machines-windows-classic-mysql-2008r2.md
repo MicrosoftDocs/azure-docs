@@ -25,7 +25,7 @@
 
 [MySQL](http://www.mysql.com) is a popular open source, SQL database. Using the [Azure classic portal](http://manage.windowsazure.com), you can create a virtual machine running Windows Server 2012 R2 from the Image Gallery. You can then install and configure it as a MySQL Server.
 
-For instructions on installing MySQL on Linux, refer to: [How to install MySQL on Azure](virtual-machines-linux-install-mysql.md).
+For instructions on installing MySQL on Linux, refer to: [How to install MySQL on Azure](virtual-machines-linux-mysql-install.md).
 
 This tutorial shows you how to:
 
@@ -42,7 +42,7 @@ This tutorial shows you how to:
 
 After the virtual machine is created, you can optionally attach an additional data disk. This is recommended for production workloads and to avoid running out of space on the OS drive (C:), which  includes the operating system.
 
-See [How to attach a data disk to a Windows virtual machine](storage-windows-attach-disk.md) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
+See [How to attach a data disk to a Windows virtual machine](virtual-machines-windows-classic-attach-disk.md) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
 
 ## Log on to the virtual machine
 

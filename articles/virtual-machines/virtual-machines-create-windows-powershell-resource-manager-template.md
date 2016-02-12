@@ -24,7 +24,7 @@
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 - [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
 - [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [CLI](virtual-machines-linux-tutorial.md)
+- [CLI](virtual-machines-linux-cli-create.md)
 
 <br>
 
