@@ -56,6 +56,6 @@ For examples of using the tools in a classic deployment:
 
 ## Additional resources
 
-[Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-choices-create-vm.md)
+[Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-creation-choices.md)
 
 [Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md)

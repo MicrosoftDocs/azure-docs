@@ -29,7 +29,7 @@ Azure offers you great cloud solutions, built on virtual machines&mdash;based on
 
 **But that's old news.** The *new* news is that Azure offers you even more Docker goodness:
 
-- [Many](virtual-machines-docker-with-xplat-cli-install.md) [different](virtual-machines-docker-with-portal.md) [ways](virtual-machines-docker-ubuntu-quickstart.md) to [create Docker hosts](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) for containers to suit your situation
+- [Many](virtual-machines-docker-with-xplat-cli-install.md) [different](virtual-machines-docker-with-portal.md) [ways](virtual-machines-linux-classic-docker-quickstart.md) to [create Docker hosts](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) for containers to suit your situation
 - [Azure Resource Manager](resource-group-overview.md) and [resource group templates](resource-group-authoring-templates.md) to simplify deploying and updating complex distributed applications
 - integration with a large array of both proprietary and open-source configuration management tools
 
@@ -80,7 +80,7 @@ In general, it's easy to see that container technology is a step forward, but th
 Developers take to Docker containers quickly, because above all it makes using Linux containers easy:
 
 - They can use simple, incremental commands to create a fixed image that is easy to deploy and can automate building those images using a dockerfile
-- They can share those images easily using simple, [git](https://git-scm.com/)-style push and pull commands to [public](https://registry.hub.docker.com/) or [private docker registries](virtual-machines-docker-registry-on-azure-blob-storage.md) 
+- They can share those images easily using simple, [git](https://git-scm.com/)-style push and pull commands to [public](https://registry.hub.docker.com/) or [private docker registries](virtual-machines-linux-docker-registry-in-blob-storage.md) 
 - They can think of isolated application components instead of computers
 - They can use a large number of tools that understand docker containers and different base images
 
@@ -138,7 +138,10 @@ More recently, Azure released the [Azure resource management](virtual-machines-a
 
 There are several popular systems that can deploy entire groups of VMs and install Docker (or other Linux container host systems) on them as an automatable group. For direct links, see the [containers and tools](#containers-and-vm-technologies) section, below. There are several systems that do this to a greater or lesser extent, and this list is not exhaustive. Depending upon your skill set and scenarios, they may or may not be useful. 
 
-Docker has its own set of VM-creation tools ([docker-machine](virtual-machines-docker-machine.md)) and a load-balancing, docker-container cluster management tool ([swarm](virtual-machines-docker-swarm.md)). In addition, the [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md) comes with default support for [`docker-compose`](https://docs.docker.com/compose/), which can deploy configured application containers across multiple containers.
+<<<<<<< HEAD
+Docker has its own set of VM-creation tools ([docker-machine](virtual-machines-docker-machine.md)) and a load-balancing, docker-container cluster management tool ([swarm](virtual-machines-linux-docker-swarm.md)). In addition, the [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md) comes with default support for [`docker-compose`](https://docs.docker.com/compose/), which can deploy configured application containers across multiple containers.
+=======
+Docker has its own set of VM-creation tools ([docker-machine](virtual-machines-linux-classic-docker-machine.md)) and a load-balancing, docker-container cluster management tool ([swarm](virtual-machines-docker-swarm.md)). In addition, the [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md) comes with default support for [`docker-compose`](https://docs.docker.com/compose/), which can deploy configured application containers across multiple containers.
 
 In addition, you can try out [Mesosphere's Data Center Operating System (DCOS)](http://docs.mesosphere.com/install/azurecluster/). DCOS is based on the open-source [mesos](http://mesos.apache.org/) "distributed systems kernel" that enables you to treat your datacenter as one addressable service. DCOS has built-in packages for several important systems such as [Spark](http://spark.apache.org/) and [Kafka](http://kafka.apache.org/) (and others) as well as built-in services such as [Marathon](https://mesosphere.github.io/marathon/) (a container control system) and [Chronos](https://mesosphere.github.io/chronos/) (a distributed scheduler). Mesos was derived from lessons learned at Twitter, AirBnb, and other web-scale businesses.
 
@@ -146,7 +149,7 @@ Also, [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-ku
 
 [Deis](http://deis.io/overview/) is an open source "Platform-as-a-Service" (PaaS) that makes it easy to deploy and manage applications on your own servers. Deis builds upon Docker and CoreOS to provide a lightweight PaaS with a Heroku-inspired workflow. You can easily [create a 3-Node Azure VM group and install Deis](virtual-machines-linux-deis-cluster.md) on Azure and then [install a Hello World Go application](virtual-machines-deis-cluster.md#deploy-and-scale-a-hello-world-application). 
 
-[CoreOS](virtual-machines-linux-coreos-how-to.md), a Linux distribution with an optimized footprint, Docker support, and their own container system called [rkt](https://github.com/coreos/rkt), also has a container group management tool called [fleet](virtual-machines-linux-coreos-fleet-get-started.md). 
+[CoreOS](virtual-machines-linux-classic-coreos-howto.md), a Linux distribution with an optimized footprint, Docker support, and their own container system called [rkt](https://github.com/coreos/rkt), also has a container group management tool called [fleet](virtual-machines-linux-classic-coreos-fleet-get-started.md). 
 
 Ubuntu, another very popular Linux distribution, supports Docker very well, but also supports [Linux (LXC-style) clusters](https://help.ubuntu.com/lts/serverguide/lxc.html). 
 
@@ -187,22 +190,22 @@ Docker on Microsoft Azure:
 - [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
 - [Azure Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-xplat-cli-install.md)
-- [Using the Docker VM Extension from the Azure portal](virtual-machines-docker-with-portal.md)
-- [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
-- [How to use docker-machine on Azure](virtual-machines-docker-machine.md)
-- [How to use docker with swarm on Azure](virtual-machines-docker-swarm.md)
-- [Get Started with Docker and Compose on Azure](virtual-machines-docker-compose-quickstart.md)
+- [Using the Docker VM Extension from the Azure portal](virtual-machines-linux-classic-portal-use-docker.md)
+- [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
+- [How to use docker-machine on Azure](virtual-machines-linux-classic-docker-machine.md)
+- [How to use docker with swarm on Azure](virtual-machines-linux-docker-swarm.md)
+- [Get Started with Docker and Compose on Azure](virtual-machines-linux-docker-compose-quickstart.md)
 - [Using an Azure resource group template to create a Docker host on Azure quickly](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 - [The built-in support for `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) for contained applications
-- [Implement a Docker private registry on Azure](virtual-machines-docker-registry-on-azure-blob-storage.md)
+- [Implement a Docker private registry on Azure](virtual-machines-linux-docker-registry-in-blob-storage.md)
 
 Linux distributions and Azure examples:
 
-- [CoreOS](virtual-machines-linux-coreos-how-to.md)
+- [CoreOS](virtual-machines-linux-classic-coreos-howto.md)
 
 Configuration, cluster management, and container orchestration:
 
-- [Fleet on CoreOS](virtual-machines-linux-coreos-fleet-get-started.md)
+- [Fleet on CoreOS](virtual-machines-linux-classic-coreos-fleet-get-started.md)
 
 -	Deis
 	- [Create a 3-Node Azure VM group, install Deis, and start a Hello World Go application](virtual-machines-linux-deis-cluster.md)

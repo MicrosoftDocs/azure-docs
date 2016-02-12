@@ -55,8 +55,8 @@ Here's a walkthrough of the steps in this tutorial.
 
 ## Additional resources
 
-[How to detach a disk from a Windows virtual machine](storage-windows-detach-disk.md)
+[How to detach a disk from a Windows virtual machine](virtual-machines-windows-classic-detach-disk.md)
 
 [About disks and VHDs for virtual machines](virtual-machines-disks-vhds.md)
 
-[logon]: virtual-machines-log-on-windows-server.md
+[logon]: virtual-machines-windows-classic-connect-logon.md

@@ -105,7 +105,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	- The IP address names and prefixes for the virtual network and subnets.
 	- The names and identifiers of the virtual network, load balancer, and network interfaces.
 	- Storage account names for the accounts associated with the machines in the scale set.
-	- Settings for the Diagnostics extension that is installed on the virtual machines. For more information about the Diagnostics extension, see [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](virtual-machines-extensions-diagnostics-windows-template.md).
+	- Settings for the Diagnostics extension that is installed on the virtual machines. For more information about the Diagnostics extension, see [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](virtual-machines-windows-extensions-diagnostics-template.md).
 
 	```
 	"apiVersion": "2015-06-15"
