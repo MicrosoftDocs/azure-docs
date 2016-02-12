@@ -20,18 +20,9 @@
 # Create Windows virtual machines with Powershell and the classic deployment model 
 
 > [AZURE.SELECTOR]
-<<<<<<< HEAD:articles/virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md
-- [Azure classic portal - Windows](virtual-machines-windows-classic-tutorial.md)
-=======
 - [Azure classic portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
-<<<<<<< HEAD:articles/virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md
->>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md
-- [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
-- [PowerShell - Linux](virtual-machines-linux-classic-createpowershell.md)
-=======
 - [Powershell - Windows](virtual-machines-windows-classic-create-powershell.md)
-- [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
->>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md
+- [PowerShell - Linux](virtual-machines-linux-classic-createpowershell.md)
 
 <br>
 
