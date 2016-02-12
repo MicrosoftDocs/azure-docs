@@ -121,7 +121,7 @@ For more information, see [What is a Network Security Group (NSG)?](../virtual-n
 
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Use the [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) to see if the failure is due to the Azure virtual machine itself. If this diagnostics package is unable to solve the **RDP connectivity to an Azure VM (Reboot Required)** issue, follow the instructions in [this article](virtual-machines-windows-reset-password.md) to reset the Remote Desktop service on the virtual machine. This will:
+Use the [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) to see if the failure is due to the Azure virtual machine itself. If this diagnostics package is unable to solve the **RDP connectivity to an Azure VM (Reboot Required)** issue, follow the instructions in [this article](virtual-machines-windows-reset-rdp.md) to reset the Remote Desktop service on the virtual machine. This will:
 
 - Enable the "Remote Desktop" Windows Firewall default rule (TCP port 3389).
 - Enable Remote Desktop connections by setting the HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections registry value to 0.
@@ -187,10 +187,10 @@ Verify that the Remote Desktop endpoint for the Azure VM is also using TCP port 
 
 [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 
-[How to reset a password or the Remote Desktop service for Windows virtual machines](virtual-machines-windows-reset-password.md)
+[How to reset a password or the Remote Desktop service for Windows virtual machines](virtual-machines-windows-reset-rdp.md)
 
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
 
-[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-troubleshoot-ssh-connections.md)
+[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-linux-troubleshoot-ssh-connection.md)
 
 [Troubleshoot access to an application running on an Azure virtual machine](virtual-machines-troubleshoot-access-application.md)

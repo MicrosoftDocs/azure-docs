@@ -24,7 +24,7 @@ The Remote Desktop (RDP) connection to your Windows-based Azure virtual machine 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-This article applies to Azure virtual machines running Windows. For Azure virtual machines running Linux, see [Troubleshoot SSH connection to an Azure VM](virtual-machines-troubleshoot-ssh-connections.md).
+This article applies to Azure virtual machines running Windows. For Azure virtual machines running Linux, see [Troubleshoot SSH connection to an Azure VM](virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
@@ -152,7 +152,7 @@ If you have promoted your VM to a domain controller in a new Active Directory fo
 
 Make sure that the account name is a name that the virtual machine can verify as a valid account, and that the password is correct.
 
-If you need to change the password of the local administrator account, see [How to reset a password or the Remote Desktop service for Windows virtual machines](virtual-machines-windows-reset-password.md).
+If you need to change the password of the local administrator account, see [How to reset a password or the Remote Desktop service for Windows virtual machines](virtual-machines-windows-reset-rdp.md).
 
 <a id="rdpconnect"></a>
 ### Remote Desktop connection error: This computer can't connect to the remote computer.
@@ -172,10 +172,10 @@ If none of these errors occurred and you still could not connect to the VM via R
 
 [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 
-[How to reset a password or the Remote Desktop service for Windows virtual machines](virtual-machines-windows-reset-password.md)
+[How to reset a password or the Remote Desktop service for Windows virtual machines](virtual-machines-windows-reset-rdp.md)
 
 [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 
-[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-troubleshoot-ssh-connections.md)
+[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-linux-troubleshoot-ssh-connection.md)
 
 [Troubleshoot access to an application running on an Azure virtual machine](virtual-machines-troubleshoot-access-application.md)
