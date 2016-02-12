@@ -259,8 +259,12 @@ Run HPC workloads on Linux VM clusters built with open-source tools or with Micr
 =======
 4.	[Tutorial: Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md)
 5.	[Tutorial: Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
+<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-opensource.md
+6.	[Tutorial: Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md)
+=======
 >>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-opensource-links.md
 6.	[Tutorial: Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-cluster-rdma.md)
+>>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-opensource-links.md
 
 
 ## Devops, management, and optimization
