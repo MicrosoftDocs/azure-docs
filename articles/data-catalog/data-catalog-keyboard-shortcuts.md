@@ -20,6 +20,8 @@
 
 ## General keyboard shortcuts
 
+The following are the keyboard shortcuts for Azure Data Catalog.
+
 |To do this|Press
 |---|---
 |Tab to each control on a page.|Tab
