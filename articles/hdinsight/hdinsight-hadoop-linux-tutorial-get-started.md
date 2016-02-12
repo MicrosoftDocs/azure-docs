@@ -35,7 +35,7 @@ Before you begin this tutorial, you must have:
 
 ## Create cluster
 
-Most of Hadoop jobs are batch jobs. You create a cluster and run some jobs. In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](resource-group-template-deploy.md). The Azure ARM template experience is not required for following this tutorial. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using ARM template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+Most of Hadoop jobs are batch jobs. You create a cluster and run some jobs. In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](../resource-group-template-deploy.md). The Azure ARM template experience is not required for following this tutorial. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using ARM template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
 1. Click the following image to open an ARM template in the Azure Portal. The ARM template is located in a public blob container. 
 
