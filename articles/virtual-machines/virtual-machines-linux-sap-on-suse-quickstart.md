@@ -74,7 +74,7 @@ information about installing it manually (e.g. when uploading a SLES OS VHD from
 
 - [OpenSUSE] (http://software.opensuse.org/package/WALinuxAgent)
 
-- [Azure] (virtual-machines-linux-endorsed-distributions.md)
+- [Azure] (virtual-machines-linux-endorsed-distros.md)
 
 - [SUSE] (https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 

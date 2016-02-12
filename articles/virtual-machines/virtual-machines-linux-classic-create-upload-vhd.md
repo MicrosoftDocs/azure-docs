@@ -30,7 +30,7 @@ An Azure virtual machine runs the operating system based on the image you choose
 
 When you create the virtual machine, you can customize some of the operating system settings so they're appropriate for the application you want to run. For instructions, see [How to Create a Custom Virtual Machine](virtual-machines-create-custom.md).
 
-**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distributions.md). All Linux distributions in the Azure image gallery are endorsed distributions with the required configuration.
+**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md). All Linux distributions in the Azure image gallery are endorsed distributions with the required configuration.
 
 
 ## Prerequisites
@@ -42,7 +42,11 @@ This article assumes that you have the following items:
 
 	**Important**: The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
+<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-create-upload-vhd.md
+	For a list of endorsed distributions, see [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md). For a general list of Linux distributions, see [Information for Non-Endorsed Distributions](virtual-machines-linux-create-upload-vhd-generic.md).
+=======
 	For a list of endorsed distributions, see [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distributions.md). For a general list of Linux distributions, see [Information for Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md).
+>>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md
 
 - **Azure Command-line Interface** - if you are using a Linux operating system to create your image, you use the [Azure Command-Line Interface](virtual-machines-command-line-tools.md) to upload the VHD.
 
@@ -51,7 +55,7 @@ This article assumes that you have the following items:
 <a id="prepimage"> </a>
 ## Step 1: Prepare the image to be uploaded
 
-Azure supports a variety of Linux distributions (see [Endorsed Distributions](virtual-machines-linux-endorsed-distributions.md)). The following articles will guide you through how to prepare the various Linux distributions that are supported on Azure:
+Azure supports a variety of Linux distributions (see [Endorsed Distributions](virtual-machines-linux-endorsed-distros.md)). The following articles will guide you through how to prepare the various Linux distributions that are supported on Azure:
 
 - **[CentOS-based Distributions](virtual-machines-linux-create-upload-centos.md)**
 - **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
