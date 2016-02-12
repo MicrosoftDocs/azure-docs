@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate Certify with Azur
 
 - You can control in Azure AD who has access to Certify
 - You can enable your users to automatically get signed-on to Certify (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure Active Directory classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -57,7 +57,7 @@ To configure the integration of Certify into Azure AD, you need to add Certify f
 
 **To add Certify from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. <br><br>
 ![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -72,6 +72,7 @@ To configure the integration of Certify into Azure AD, you need to add Certify f
 ![Creating an Azure AD test user](./media/active-directory-saas-certify-tutorial/tutorial_certify_01.png)<br>
 7. In the results pane, select **Certify**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-certify-tutorial/tutorial_certify_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Certify based on a test user called "Britta Simon".
@@ -89,13 +90,13 @@ To configure and test Azure AD single sign-on with Certify, you need to complete
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Certify application.
+The objective of this section is to enable Azure AD single sign-on in the Azure AD classic portal and to configure single sign-on in your Certify application.
 
 
 
 **To configure Azure AD single sign-on with Certify, perform the following steps:**
 
-1. In the Azure AD portal, on the **Certify** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure AD classic portal, on the **Certify** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to Certify** page, select **Azure AD Single Sign-On**, and then click **Next**.
@@ -119,7 +120,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 5. To get SSO configured for your application, contact your Certify support team via support@certify.com. Attach the downloaded certificate file to your mail and share the metadata urls (Entity ID, SSO Sign in URL and Sign Out URL) with Certify team to set up SSO on their side.
 
 
-6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. In the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  
@@ -134,7 +135,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 <br><br>![Creating an Azure AD test user](./media/active-directory-saas-certify-tutorial/create_aaduser_09.png) <br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
