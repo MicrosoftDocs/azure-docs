@@ -51,7 +51,7 @@ If you don't already have an Azure subscription, you can sign up for a free tria
 
 ## Phase 1: Configure the TestLab virtual network
 
-Use the instructions in the [Base Configuration Test Environment](virtual-machines-base-configuration-test-environment-resource-manager.md) to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
+Use the instructions in the [Base Configuration Test Environment](virtual-machines-windows-test-config-env.md) to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
 
 Next, start an Azure PowerShell prompt.
 

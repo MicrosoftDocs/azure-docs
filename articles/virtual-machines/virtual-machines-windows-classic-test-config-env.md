@@ -19,7 +19,7 @@
 
 # Base Configuration test environment
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-base-configuration-test-environment-resource-manager.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-test-config-env.md).
 
 This article provides you with step-by-step instructions to create the Base Configuration test environment in an Azure Virtual Network.
 
