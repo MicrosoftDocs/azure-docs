@@ -214,4 +214,4 @@ Your simulated hybrid cloud environment is now ready for testing.
 
 ## Next Steps
 
-- [Add a new virtual machine](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) to the TestVNET subnet, such as one running Microsoft SQL Server.
+- [Add a new virtual machine](virtual-machines-windows-create-powershell.md) to the TestVNET subnet, such as one running Microsoft SQL Server.
