@@ -24,7 +24,7 @@
  
 To access Azure Container Service, you will need an Azure subscription. If you don't have one then sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
  
-Select one of the following templates to deploy a Mesos or Docker Swarm cluster:
+Select one of the following templates to deploy a Mesos or Docker Swarm cluster. **Note** - Both of these templates are the same, with the exception of the default orchestrator selection.
  
 * Mesos: https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-mesos-full-template
 * Swarm: https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-swarm-full-template
@@ -62,7 +62,7 @@ Now sit back and relax while the cluster is created. Once complete, you will see
 
 To access Azure Container Service using the command line, you will need an Azure subscription. If you don't have one then you can sign up for a free trial. You will also need to have installed and configured the Azure CLI.
  
-Select one of the following templates to deploy a Mesos or Docker Swarm cluster:
+Select one of the following templates to deploy a Mesos or Docker Swarm cluster. **Note** - Both of these templates are the same, with the exception of the default orchestrator selection.
  
 * Mesos: https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-mesos-full-template
 * Swarm: https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-swarm-full-template
@@ -117,7 +117,7 @@ Alternativley you can provide a json formatted parameters file using the `-e` sw
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON'
  ```
  
-An example parameters file name `azuredeploy.parameters.json` can be found with the ACS templates in GitHub.
+An example parameters file named `azuredeploy.parameters.json` can be found with the ACS templates in GitHub.
  
 ## Creating a Service using PowerShell
 
@@ -138,12 +138,6 @@ If you need to log into Azure, use the `Login-AzureRMAccount` command.
 
 ```powershell
 Login-AzureRmAccount
-
-Environment           : AzureCloud
-Account               : azureuser@contoso.com
-TenantId              : 00000000-0000-0000-0000-000000000000
-SubscriptionId        : 00000000-0000-0000-0000-000000000000
-CurrentStorageAccount :
 ```
  
 If deploying to a new Resource Group, you must first create the Resource Group. To create a new Resource Group, use the `New-AzureRmResourceGroup` command, specifying a resource group name and destination region.
