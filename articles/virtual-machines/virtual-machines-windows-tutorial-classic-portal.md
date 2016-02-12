@@ -55,6 +55,6 @@ This section shows you how to use the **From Gallery** option in the Azure class
 
 ## Next steps
 
-- Log on to the virtual machine. For instructions, see [Log on to a virtual machine running Windows Server](virtual-machines-log-on-windows-server.md).
+- Log on to the virtual machine. For instructions, see [Log on to a virtual machine running Windows Server](virtual-machines-windows-classic-connect-logon.md).
 
 - Attach a disk to store data. You can attach both empty disks and disks that contain data. For instructions, see the [Attach a data disk to a Windows virtual machine created with the classic deployment model](virtual-machines-windows-classic-attach-disk.md).

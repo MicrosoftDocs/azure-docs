@@ -116,7 +116,7 @@ If you want to use an existing data disk, make sure you've also uploaded the VHD
 
 [VHD]: virtual-machines-windows-classic-createupload-vhd.md
 
-[Logon]: virtual-machines-log-on-windows-server.md
+[Logon]: virtual-machines-windows-classic-connect-logon.md
 
 [Detach]: virtual-machines-windows-classic-detach-disk.md
 

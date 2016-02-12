@@ -73,7 +73,7 @@ Choose an image based on the operating system you want to run. Azure and its par
 [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI]: resource-groups-vm-searching.md
 [Deploy Azure resources using the Compute, Network, and Storage .NET libraries]: virtual-machines-arm-deployment.md
 
-[Sign in to the virtual machine]: virtual-machines-log-on-windows-server.md
+[Sign in to the virtual machine]: virtual-machines-windows-classic-connect-logon.md
 
 [Base configuration test environment]: virtual-machines-base-configuration-test-environment.md
 

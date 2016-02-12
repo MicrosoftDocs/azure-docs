@@ -84,5 +84,5 @@ It takes a few minutes for the agent to start running when it is installed. Afte
 
 
 <!--Link references-->
-[How to log on to a virtual machine running Windows Server]: virtual-machines-log-on-windows-server.md
+[How to log on to a virtual machine running Windows Server]: virtual-machines-windows-classic-connect-logon.md
 [Azure VM Extensions and features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

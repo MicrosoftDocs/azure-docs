@@ -80,7 +80,7 @@ The image is ready to be used to create virtual machines. To do this, you'll cre
 
 
 
-[How to sign in to a virtual machine running Windows Server]: virtual-machines-log-on-windows-server.md
+[How to sign in to a virtual machine running Windows Server]: virtual-machines-windows-classic-connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx
 [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
 [Enter Sysprep.exe options]: ./media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png

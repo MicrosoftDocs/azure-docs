@@ -24,7 +24,7 @@
 In the Azure portal, you use the **Connect** button to start a Remote Desktop session and log on to a Windows VM.
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-log-on-windows-server.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-connect-logon.md).
 
 
 ## Connect to the virtual machine
