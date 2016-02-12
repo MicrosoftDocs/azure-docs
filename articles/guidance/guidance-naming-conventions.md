@@ -50,6 +50,7 @@ such as Dev, QA, or Prod.
 | Contoso | SocialGaming | AwesomeService | Dev | Contoso SocialGaming AwesomeService Dev |
 | Contoso | IT | InternalApps | Production | Contoso IT InternalApps Production |
 | Contoso | IT | InternalApps | Dev | Contoso IT InternalApps Dev |
+<!-- MM feedback - there are nuances to how very large corporations (with multiple divisions), ISVs using pod concepts for deployment, and GSIs who may have managed services that reflect individual customers of theirs - Contoso, Fabrikam, etc - that should be called out.)  I can get details on the first two for you, I'd ping Filo D'Souza for GSIs -->
 
 ## Resource Affixes
 
@@ -132,6 +133,7 @@ Some of the common tagging use cases are:
 - **Billing**; Grouping resources and associating them with billing or charge back codes.
 - **Service Context Identification**; Identify groups of resources across Resource Groups for common operations and grouping
 - **Access Control and Security Context**; Administrative role identification based on portfolio, system, service, app, instance, etc… 
+<!-- MM Feedback - Missing considerations team or division, directly responsible individual (DRI), project name, system name, and internal chargeback ID. Version (of the resource and/or release that the resource is incorporated into) might also be interesting. -->
 
 > [AZURE.TIP] Tag early - tag often.  Better to have a baseline tagging scheme in place and adjust over time rather than having
 > to retrofit after the fact.  
@@ -163,7 +165,7 @@ role and purpose of each machine, as well as enabling more predictable scripting
 > configured operating system with a hostname), and should be avoided.
 
 - [Naming conventions for Windows Server VMs](https://support.microsoft.com/en-us/kb/188997)
-
+<!-- MM Feedback - You’ve got a reference to Windows guidance, should include Linux too -->
 <!-- TODO - recommendations on naming VMs. -->
 
 ###	Storage accounts and storage entities
@@ -193,7 +195,7 @@ signatures will not match.
 
 It is not possible to modify the name of a storage account or container after it has been created.
 You must delete it and create a new one if you want to use a new name.
-
+<!-- MM Feedback - Customers will max out of storage accounts and need to scale horizontally. I think coverage of this in terms of something that should be considered would be good and incorporating it into the naming strategy should be added. --> 
 > [AZURE.TIP] We recommend that you establish a naming convention for all storage accounts and types
 before embarking on the development of a new service or application.
 
@@ -203,7 +205,7 @@ In this example, we'll define an N-tier service configuration, consisting of fro
 IIS servers (hosted in Windows Server VMs), with SQL Server (hosted in two Windows Server VMs), 
 an ElasticSearch cluster (hosted in 6 Linux VMs) and the associated storage accounts,
 virtual networks, resource group and load balancer.
-
+<!-- Would like to see this for the full scenario. Start from the subscription and flow all the way down. Would also like to see tags included. -->
 We'll start by defining the contextual conventions for this application:
 
 | Entity | Convention | Description  |
