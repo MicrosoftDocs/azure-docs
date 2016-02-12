@@ -6,4 +6,4 @@ A VNet-to-VNet connection can be configured in both deployment models and by usi
 |**Resource Manager**            | No | Yes+   | [Article](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)  |
 |**Classic to Resource Manager** | No | No   | [Article](../articles/virtual-network/virtual-networks-arm-asm-s2s.md) |
 
-"+" denotes only for VNets in the same subscription
+"+" denotes this deployment method is available only for VNets in the same subscription.
