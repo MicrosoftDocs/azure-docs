@@ -119,7 +119,7 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
 
 	![Assign permissions to group](./media/data-lake-store-secure-data/adl.acl.5.png "Assign permissions to group")
 
-	> [AZURE.IMPORTANT] In the current release, you can only have 12 entries under **Custom Access**. If you want to add more than 12 users, you should create security groups, add users to security groups, add provide access to those security groups for the Data Lake Store account.
+	> [AZURE.IMPORTANT] In the current release, you can only have 9 entries under **Custom Access**. If you want to add more than 9 users, you should create security groups, add users to security groups, add provide access to those security groups for the Data Lake Store account.
 
 7. If required, you can also modify the access permissions after you have added the group. Clear or select the check box for each permission type (Read, Write, Execute) based on whether you want to remove or assign that permission to the security group. Click **Save** to save the changes, or **Discard** to undo the changes.
 
