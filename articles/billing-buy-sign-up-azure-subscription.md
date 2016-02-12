@@ -25,7 +25,7 @@ Azure provides various offers to suite your business needs and get started using
 Following are details on common offers
 
 - **Free Trial**
-  - [Sign up - step by step guide](#SignupFreeTrial)
+  - [Sign-up - step by step guide](#SignupFreeTrial)
   - [Benefits](https://azure.microsoft.com/pricing/free-trial/)
   - [FAQ](https://azure.microsoft.com/pricing/free-trial-faq/)
   - [Upgrade Free Trial to Pay-As-You-Go](#UpgradeFreeToPYG)
