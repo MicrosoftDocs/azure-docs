@@ -23,7 +23,7 @@
 
 In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you build out the application and web tiers of the SharePoint farm and create the farm by using the SharePoint Configuration Wizard.
 
-You must complete this phase before moving on to [Phase 5](virtual-machines-windows-ps-sp-intranet-ph5.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md) for all of the phases.
+You must complete this phase before moving on to [Phase 5](virtual-machines-windows-ps-sp-intranet-ph5.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-windows-sp-intranet-overview.md) for all of the phases.
 
 ## Create the SharePoint server virtual machines in Azure
 
@@ -41,7 +41,7 @@ Specify the values for the variables, removing the < and > characters. Note that
 - Table ST, for your storage accounts
 - Table A, for your availability sets
 
-Recall that you defined Table M in [Phase 2: Configure domain controllers](virtual-machines-windows-ps-sp-intranet-ph2.md) and Tables V, S, ST, and A in [Phase 1: Configure Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
+Recall that you defined Table M in [Phase 2: Configure domain controllers](virtual-machines-workload-intranet-sharepoint-phase2.md) and Tables V, S, ST, and A in [Phase 1: Configure Azure](virtual-machines-windows-ps-sp-intranet-ph1.md).
 
 When you have supplied all the proper values, run the resulting block at the Azure PowerShell command prompt.
 
