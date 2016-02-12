@@ -57,9 +57,9 @@ Azure supports a variety of Linux distributions (see [Endorsed Distributions](vi
 - **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
-- **[SLES & openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
+- **[SLES & openSUSE](virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
-- **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md)**
+- **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-vhd-generic.md)**
 
 Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#linuxinstall)** for more tips on preparing Linux images for Azure.
 

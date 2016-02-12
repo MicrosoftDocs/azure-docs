@@ -59,7 +59,7 @@ There are tons of Linux distributions, usually broken down by the package manage
 
 Ubuntu is a very popular and Azure-endorsed Linux distribution based on dpkg and apt-get package management.
 
-1. [How to: Upload your own Ubuntu Image](virtual-machines-linux-create-upload-vhd-ubuntu.md)
+1. [How to: Upload your own Ubuntu Image](virtual-machines-linux-create-upload-ubuntu.md)
 2. [How to: Ubuntu LAMP Stack](virtual-machines-linux-install-lamp-stack.md)
 3. \[Classic Deployment]: [How to: MySQL Clusters](virtual-machines-linux-mysql-cluster.md)
 4. \[Classic Deployment]: [How to: Node.js and Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)

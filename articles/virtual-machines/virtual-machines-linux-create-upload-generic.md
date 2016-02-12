@@ -36,7 +36,7 @@ It is for this reason that we recommend that you start with one of our [Linux on
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
 - **[SLES & openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
-- **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
+- **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
 
 The rest of this article will focus on general guidance for running your Linux distribution on Azure.
 
