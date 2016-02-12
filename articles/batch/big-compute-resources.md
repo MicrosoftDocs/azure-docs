@@ -93,7 +93,7 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.
 
 * [Set up a Linux RDMA cluster to run MPI applications](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
 
-* [Set up a Windows RDMA cluster with Microsoft HPC Pack to run MPI applications](../virtual-machines/virtual-machines-windows-hpcpack-cluster-rdma.md)
+* [Set up a Windows RDMA cluster with Microsoft HPC Pack to run MPI applications](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
 ## Architecture blueprints
 

@@ -52,12 +52,12 @@ In order to determine the best virtual machine configuration settings for your S
 
 In addition to reviewing performance best practices, other initial tasks include the following:
 
-- [Review security best practices for SQL Server in Azure VMs](virtual-machines-sql-server-security-considerations.md)
+- [Review security best practices for SQL Server in Azure VMs](virtual-machines-windows-classic-sql-security.md)
 - [Set up connectivity](virtual-machines-sql-server-connectivity-resource-manager.md)
 
 ### Migrate your data
 
-After your SQL Server virtual machine is up and running, you might want to migrate existing databases to the machine. There are several techniques, but the deployment wizard in SQL Server Management Studio works well for most scenarios. For a discussion of the scenarios and a tutorial of the wizard, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md).
+After your SQL Server virtual machine is up and running, you might want to migrate existing databases to the machine. There are several techniques, but the deployment wizard in SQL Server Management Studio works well for most scenarios. For a discussion of the scenarios and a tutorial of the wizard, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md).
 
 ## High availability
 
@@ -122,7 +122,7 @@ The following database engine settings are configured. For more settings, examin
 |Feature|Configuration|
 |---|---|
 |Instance|Contains a default (unnamed) instance of the SQL Server Database Engine, listening only on the shared memory protocol|
-|Authentication|By default, Azure selects Windows Authentication during SQL Server virtual machine setup. If you want to use the sa login or create a new SQL Server account, you need to change the authentication mode. For more information, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-security-considerations.md).|
+|Authentication|By default, Azure selects Windows Authentication during SQL Server virtual machine setup. If you want to use the sa login or create a new SQL Server account, you need to change the authentication mode. For more information, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-security.md).|
 |sysadmin|The Azure user who installed the virtual machine is initially the only member of the SQL Server sysadmin fixed server role|
 |Memory|The Database Engine memory is set to dynamic memory configuration|
 |Contained database authentication|Off|
@@ -131,7 +131,7 @@ The following database engine settings are configured. For more settings, examin
 
 ### Customer Experience Improvement Program (CEIP)
 
-The [Customer Experience Improvement Program (CEIP)](https://technet.microsoft.com/library/cc730757.aspx) is enabled. You can disable the CEIP by using the SQL Server Error and Usage Reporting utility. To launch the SQL Server Error and Usage Reporting utility; on the Start menu, click All Programs, click Microsoft SQL Server version, click Configuration Tools, and then click SQL Server Error and Usage Reporting. If you do not want to use an instance of SQL Server with CEIP enabled, you might also consider deploying your own virtual machine image to Azure.  For more information, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](virtual-machines-create-upload-vhd-windows-server.md).
+The [Customer Experience Improvement Program (CEIP)](https://technet.microsoft.com/library/cc730757.aspx) is enabled. You can disable the CEIP by using the SQL Server Error and Usage Reporting utility. To launch the SQL Server Error and Usage Reporting utility; on the Start menu, click All Programs, click Microsoft SQL Server version, click Configuration Tools, and then click SQL Server Error and Usage Reporting. If you do not want to use an instance of SQL Server with CEIP enabled, you might also consider deploying your own virtual machine image to Azure.  For more information, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](virtual-machines-windows-classic-createupload-vhd.md).
 
 ## Run SQL Server setup from the platform-provided SQL Server image
 
@@ -142,7 +142,7 @@ If you create a virtual machine by using a platform-provided SQL Server image, y
 ## Resources
 
 - [Provisioning a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-sql-server-provision-resource-manager.md)
-- [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md)
+- [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md)
 - [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
 - [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure Virtual Machines](virtual-machines-about.md)

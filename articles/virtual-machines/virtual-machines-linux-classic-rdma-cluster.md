@@ -32,7 +32,7 @@ This article shows you how to set up a Linux RDMA cluster in Azure with [size A8
 
 Following are methods you can use to create a Linux RDMA cluster either with or without a job scheduler.
 
-* **HPC Pack** - Create a Microsoft HPC Pack cluster in Azure and add compute nodes that run supported Linux distributions. Certain Linux nodes can be configured to access the RDMA network. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-cluster-hpcpack.md).
+* **HPC Pack** - Create a Microsoft HPC Pack cluster in Azure and add compute nodes that run supported Linux distributions. Certain Linux nodes can be configured to access the RDMA network. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
 * **Azure CLI scripts** - As shown in the steps in the rest of this article, use the [Azure Command Line Interface](../xplat-cli-install.md) (CLI) for Mac, Linux, and Windows to script the deployment of a virtual network and the other necessary components to create a Linux cluster. The CLI in the classic (Service Management) deployment mode creates the cluster nodes serially, so if you are deploying many compute nodes it might take several minutes to complete the deployment.
 
@@ -100,7 +100,7 @@ where
 
 ### Customize the VM
 
-After the VM completes provisioning, SSH to the VM using the VM's external IP address (or DNS name) and the external port number you configured, and customize it. For connection details, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-how-to-log-on.md). You should perform commands as the user you configured on the VM, unless root access is required to complete a step.
+After the VM completes provisioning, SSH to the VM using the VM's external IP address (or DNS name) and the external port number you configured, and customize it. For connection details, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-classic-log-on.md). You should perform commands as the user you configured on the VM, unless root access is required to complete a step.
 
 >[AZURE.IMPORTANT]Microsoft Azure does not provide root access to Linux VMs. To gain administrative access when connected as a user to the VM, run commands using `sudo`.
 
@@ -176,7 +176,7 @@ To capture the image, first run the following command in the Linux VM. This depr
 sudo waagent -deprovision
 ```
 
-Then, from your client computer, run the following Azure CLI commands to capture the image. See [How to capture a classic Linux virtual machine as an image](virtual-machines-linux-capture-image.md) for details.  
+Then, from your client computer, run the following Azure CLI commands to capture the image. See [How to capture a classic Linux virtual machine as an image](virtual-machines-linux-classic-capture-image.md) for details.  
 
 ```
 azure vm shutdown <vm-name>
