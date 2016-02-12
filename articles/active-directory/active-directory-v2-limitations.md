@@ -32,6 +32,11 @@ With the v2.0 endpoint, you have the ability to [build a Web API that is secured
 
 To see how to build a Web API that accepts tokens from a well-known client with the same App Id, see the v2.0 endpoint Web API samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
+##### Daemons/Server Side Apps
+Apps that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the OAuth 2.0 client credentials flow.  
+
+This flow is not currently supported by the v2.0 endpoint - which is to say that apps can only get tokens after an interactive user sign-in flow has occurred.  The client credentials flow will be added in the near future.  If you would like to see the client credentials flow in the generally available Azure AD app model, check out the [Daemon sample on GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
+
 ##### Chained web APIs (on-behalf-of)
 Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 endpoint.  This scenario is common in native clients that have a Web API backend, which in turn calls a Microsoft Online service such as Office 365 or the Graph API.
 
