@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
 # Kernels available for Jupyter notebooks with Spark clusters on HDInsight (Linux)
 
-Apache Spark cluster on HDInsight (Linux) includes Jupyter notebooks that you can use to test your applications. By default Jupyter notebook comes with a **Python2** kernel. HDInsight Spark clusters provide two additional kernels that you can use with the Jupyter notebook. These are:
+Apache Spark cluster on HDInsight (Linux) includes Jupyter notebooks that you can use to test your applications. By default Jupyter notebook comes with a **Python2** kernel. A kernel is a program that runs and interprets your code. HDInsight Spark clusters provide two additional kernels that you can use with the Jupyter notebook. These are:
 
 1. **PySpark** (for applications written in Python)
 2. **Spark** (for applications written in Scala)
@@ -72,7 +72,7 @@ Here are a few benefits of using the new kernels.
 
 	Instead, you can directly use the preset contexts in your application.
 	
-2. **Cell magics**. With the **PySpark** kernel, you can directly use the different magics that are available through this kernel. Magics are commands that help to execute different operations remotely. Cell magics are represented by %% followed by the magic name (e.g. %%MAGIC ) and allow for multiple lines of code. The magic word should be the first word in the cell. Adding comments before the magic will cause an error. 
+2. **Cell magics**. The PySpark kernel provides some predefined “magics”, which are special commands that you can call with `%%` (e.g. `%%MAGIC` <args>). The magic command must be the first word in a code cell and allow for multiple lines of content. The magic word should be the first word in the cell. Adding anything before the magic, even comments, will cause an error. 	For more information on magics, see [here](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
 
 	The table below lists the different magics available through the kernels.
 
@@ -105,7 +105,7 @@ When you open a Jupyter notebook, you will see two folders available at the root
 * The **PySpark** folder has sample notebooks that use the new **Python** kernel.
 * The **Scala** folder has sample notebooks that use the new **Spark** kernel.
 
-You can open the **00 - [READ ME FIRST] SparkMagic Kernel Features** notebook from the **PySpark** folder to learn about the different magics available. You can also use the other sample notebooks available under the **PySpark** folder to learn how to achieve different scenarios using Jupyter notebooks with HDInsight Spark clusters.
+You can open the **00 - [READ ME FIRST] Spark Magic Kernel Features** notebook from the **PySpark** or **Spark** folder to learn about the different magics available. You can also use the other sample notebooks available under the two folders to learn how to achieve different scenarios using Jupyter notebooks with HDInsight Spark clusters.
 
 ## Feedback
 
