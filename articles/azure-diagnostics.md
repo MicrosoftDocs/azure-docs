@@ -59,12 +59,13 @@ Pick which service you are trying to collect diagnostics on.
 - [ToubleShooting Azure Diagnostics](./azure-diagnostics-troubleshooting.md)
 
 ### Cloud Services using Azure Diagnostics
+- [Using Azure Diagnostics with Application Insights for Cloud Services](./application-insights/app-insights-cloudservices.md)
 - [How to monitor Cloud services using Azure Diagnostics](./cloud-services/cloud-services-how-to-monitor.md)
 - [Set up Azure Diagnostics in a Cloud Services Application](./cloud-services/cloud-services-dotnet-diagnostics.md)
 - [Trace the flow of a Cloud Services application with Azure Diagnostics](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 - [Use Visual Studio to trace a Cloud Services application](./vs-azure-tools-debug-cloud-services-virtual-machines.md)
 - [Use PowerShell to set up diagnostics on Cloud Services](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
-- [Using Azure Diagnostics with Application Insights for Cloud Services](./application-insights/app-insights-cloudservices.md)
+
 
 ### Virtual Machines using Azure Diagnostics
 - [Set up Azure Diagnostics on an Azure Virtual Machine](./virtual-machines/virtual-machines-dotnet-diagnostics.md)
