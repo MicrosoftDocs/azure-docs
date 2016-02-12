@@ -146,7 +146,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 1. [Images](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
 2. [How to: Use Service Bus from Java with AMQP 1.0](http://msdn.microsoft.com/library/azure/jj841073.aspx)
-3. [How to: Set up Tomcat7 on Linux Using the Azure classic portal](virtual-machines-linux-setup-tomcat7-linux.md)
+3. [How to: Set up Tomcat7 on Linux Using the Azure classic portal](virtual-machines-linux-classic-setup-tomcat.md)
 4. [Video: Azure Java SDK for Service Management](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-157-The-Java-SDK-for-Azure-Management-with-Brady-Gaster)
 5. [Blog: Getting Started with Azure Management Libraries for Java](https://azure.microsoft.com/blog/2014/09/15/getting-started-with-the-azure-java-management-libraries/)
 5. [GitHub repo: Azure Toolkit for Eclipse with Java](https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava)
