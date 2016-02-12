@@ -64,6 +64,8 @@ Removing nodes is a two-step process:
 
     d. Click the **Delete** icon to delete the VM.
 
+>[AZURE.NOTE] Service Fabric clusters require a certain number of nodes to be up at all times in order to maintain availability and preserve state - referred to as "maintaining quorum". Consequently, it is typically not safe to shut down all of the machines in the cluster unless you have first performed a [full backup of your state](service-fabric-reliable-services-backup-restore.md).
+
 ## Auto-scale Service Fabric clusters
 
 At this time, Service Fabric clusters do not support auto-scaling. In the near future, clusters will be built on top of virtual machine scale sets, at which time auto-scaling will become possible and will behave similarly to the auto-scale behavior available in cloud services.
