@@ -31,7 +31,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 To configure Azure AD integration with Alcumus Info Exchange, you need the following items:
 
-- An [Azure AD](http://azure.microsoft.com/) subscription
+- An [Azure AD](https://azure.microsoft.com/) subscription
 - An [Alcumus Info Exchange](http://www.alcumusgroup.com/) single-sign on enabled subscription
 
 

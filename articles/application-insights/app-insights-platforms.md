@@ -17,8 +17,6 @@
 
 # Application Insights: languages, platforms and integrations
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
 These are implementations we've heard about, including some by third parties.
 
 ## Languages

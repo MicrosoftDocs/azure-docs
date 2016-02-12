@@ -13,7 +13,7 @@
 	ms.workload="multiple"
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/19/2016"
 	ms.author="danlep"/>
 
@@ -27,7 +27,7 @@
 
 This article describes how to create and manage Azure resources by using the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows in the Azure Resource Manager mode.
 
->[AZURE.NOTE] To create and manage Azure resources on the command line, you will need an Azure account ([free trial here](http://azure.microsoft.com/pricing/free-trial/)). You will also need to [install the Azure CLI](xplat-cli-install.md), and to [log on to use Azure resources associated with your account](xplat-cli-connect.md). If you've done these things, you're ready to go.
+>[AZURE.NOTE] To create and manage Azure resources on the command line, you will need an Azure account ([free trial here](https://azure.microsoft.com/pricing/free-trial/)). You will also need to [install the Azure CLI](xplat-cli-install.md), and to [log on to use Azure resources associated with your account](xplat-cli-connect.md). If you've done these things, you're ready to go.
 
 ## Azure resources
 

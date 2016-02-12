@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/29/2015"
+	ms.date="01/13/2016"
 	ms.author="mohisri"/>
 
 # App Service API Apps - What's changed
@@ -122,7 +122,7 @@ The previous API Apps model had APIs for discovering other API apps at runtime i
 The Logic Apps designer will be adding especially seamless integration with the new API Apps model in early 2016. That said, the HTTP connector built into Logic Apps can invoke any HTTP endpoint and supports service principal authentication, which is also supported natively by the App Service authentication services. Learn how to consume an App Service-hosted API in Logic Apps in [Using your custom API hosted on App Service with Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
 ### <a id="documentation"></a> Documentation for the previous API Apps model
-Some [azure.microsoft.com](https://azure.microsoft.com) articles that were written for the old API Apps model no longer apply to the new model and will be removed from the site. Their URLs will be redirected to the closest equivalent that works with the new model, but you can still see the old articles in the [GitHub documentation repository for azure.microsoft.com](https://github.com/Azure/azure-content). Most of the articles you might want will be found in the [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api) folder. Here are direct links to a few of the ones most likely to still be of use if you are supporting older API apps or if you create new connector API apps from the Marketplace.
+Some [azure.microsoft.com](https://azure.microsoft.com/) articles that were written for the old API Apps model no longer apply to the new model and will be removed from the site. Their URLs will be redirected to the closest equivalent that works with the new model, but you can still see the old articles in the [GitHub documentation repository for azure.microsoft.com](https://github.com/Azure/azure-content). Most of the articles you might want will be found in the [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api) folder. Here are direct links to a few of the ones most likely to still be of use if you are supporting older API apps or if you create new connector API apps from the Marketplace.
 
 * [Authentication overview](https://github.com/Azure/azure-content/tree/master/articles/app-service/app-service-authentication-overview.md)
 * [Protect an API app](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-add-authentication.md)

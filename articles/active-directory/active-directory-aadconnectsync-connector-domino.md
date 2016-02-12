@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect sync: Lotus Domino Connector"
+   pageTitle="Azure AD Connect sync: Lotus Domino Connector | Microsoft Azure"
    description="This article describes how to configure Microsoft's Lotus Domino Connector."
    services="active-directory"
    documentationCenter=""

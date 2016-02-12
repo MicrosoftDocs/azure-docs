@@ -146,7 +146,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 ![Video available](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how you can restore a failed over physical device to a virtual device in the cloud, click [here](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+To watch a video that demonstrates how you can restore a failed over physical device to a virtual device in the cloud, click [here](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Business continuity disaster recovery (BCDR)
 

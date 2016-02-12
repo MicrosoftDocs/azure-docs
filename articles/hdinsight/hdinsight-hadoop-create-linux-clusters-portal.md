@@ -26,7 +26,7 @@ The Azure preview portal is a web-based management tool for services and resourc
 
 ##Prerequisites
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __A modern web browser__. The Azure preview portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
 

@@ -29,11 +29,11 @@ You can configure the most commonly used settings for a cloud service in the Azu
 
 You can also enable a Remote Desktop connection to one or all roles running in your cloud service.  Remote Desktop allows you to access the desktop of your application while it is running and troubleshoot and diagnose problems.  You can enable a Remote Desktop connection to your role even if you did not configure the service definition file (.csdef) for Remote Desktop during application development.  There is no need to redeploy your application in order to enable a Remote Desktop connection.
 
-Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
+Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
 ## Change a cloud service
 
-1. In the [Azure portal](http://portal.azure.com/), navigate to your cloud service.
+1. In the [Azure portal](https://portal.azure.com/), navigate to your cloud service.
 
 2. Click on the **Settings** icon or the **Essentials/All settings** link to open up the **Settings** blade.
 
@@ -60,7 +60,7 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 
 1. First, download the existing cloud service configuration file (.cscfg).
 
-    1. In the [Azure portal](http://portal.azure.com/), navigate to your cloud service.
+    1. In the [Azure portal](https://portal.azure.com/), navigate to your cloud service.
 
     2. Click on the **Settings** icon or the **Essentials/All settings** link to open up the **Settings** blade.
 

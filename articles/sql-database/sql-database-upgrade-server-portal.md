@@ -55,7 +55,7 @@ After upgrading to V12, [service tier recommendations](sql-database-service-tier
 
 ## Start the upgrade
 
-1. In the [Azure portal](http://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE ALL** > **SQL servers**, and selecting the desired server.
+1. In the [Azure portal](https://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE ALL** > **SQL servers**, and selecting the desired server.
 2. Select **Latest SQL database update**, then select **Upgrade this server**.
 
       ![upgrade server][1]

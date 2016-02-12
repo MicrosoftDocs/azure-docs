@@ -32,7 +32,7 @@ In this tutorial, you will learn how to create an Azure Event Hub, how to ingest
 
 You must have the following:
 
-- An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - An Apache Spark cluster. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
 - An [Azure Event Hub](service-bus-event-hubs-csharp-ephcs-getstarted.md).
 - A workstation with Microsoft Visual Studio 2013. For instructions, see [Install Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).

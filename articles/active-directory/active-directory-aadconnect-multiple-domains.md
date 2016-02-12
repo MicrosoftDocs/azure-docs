@@ -51,8 +51,8 @@ So, in Powershell, if I add fabrikam.com using the SupportMultipleDomain paramet
 I will get the following configuration in Azure AD:
 
 - DomainName: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 
 Note that while the IssuerURI has been set to a value based on my domain, and therefore unique, the endpoint url values are still configured to point to my federation service on fs.contoso100.com, just like they are for the original contoso.com domain.  So all the domains will still point to the same AD FS system.
 
@@ -76,16 +76,16 @@ See below for all of the detailed steps to transition from single domain to mult
 Once we’ve done this, we will then have configuration for two domains in Azure AD:
 
 - DomainName: contoso.com
-- IssuerURI: http://contoso.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://contoso.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 - DomainName: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 
 Federated sign on for users from the contoso.com and the fabrikam.com domains will now be working.  There is only one remaining problem: sign on for users in sub domains.
 
 ##Sub domains
-Let’s say I add my sub domain sub.contoso.com to Azure AD.  Because of the way Azure AD manages domains, the sub domain will inherit the settings of the parent domain, in this case contoso.com.  This means the IssuerURI for user@sub.contoso.com will need to be http://contoso.com/adfs/services/trust.  However the standard rule implemented above for 
+Let’s say I add my sub domain sub.contoso.com to Azure AD.  Because of the way Azure AD manages domains, the sub domain will inherit the settings of the parent domain, in this case contoso.com.  This means the IssuerURI for user@sub.contoso.com will need to be http://contoso.com/adfs/services/trust.  However the standard rule implemented above for
 
 Azure AD, will generate a token with an issuer as http://sub.contoso.com/adfs/services/trust, which will not match the domain’s required value and authentication will fail.
 Luckily, we have a workaround for this as well, but it is not as well built in to our tools.  You have to update your AD FS relying party trust for Microsoft Online manually.  

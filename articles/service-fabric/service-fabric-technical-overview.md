@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/25/2015"
+   ms.date="02/09/2016"
    ms.author="mfussell"/>
 
 # Technical overview of Service Fabric

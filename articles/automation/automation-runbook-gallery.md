@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
+	ms.date="02/03/2016"
 	ms.author="bwren" />
 
 
@@ -108,7 +108,7 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 
 ## Requesting a runbook or module
 
-You can send requests to [User Voice](http://feedback.azure.com/forums/246290-azure-automation).  If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+You can send requests to [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## Related articles
 

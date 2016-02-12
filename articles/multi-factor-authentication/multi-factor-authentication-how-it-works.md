@@ -94,7 +94,7 @@ When using an Azure Multi-Factor Authentication Provider there are two usage mod
 - **Per User**. Generally for enterprises that want to enable multi-factor authentication for a fixed number of employees who regularly need authentication.
 - **Per Authentication**. Generally for enterprises that want to enable multi-factor authentication for a large group of external users who infrequently need authentication.
 
-For pricing details see [Azure MFA Pricing.](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)
+For pricing details see [Azure MFA Pricing.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
 Choose the per-seat or consumption-based model that works best for your organization.   Then to get started see [Getting Started](multi-factor-authentication-get-started.md)
 

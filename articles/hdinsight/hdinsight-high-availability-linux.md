@@ -136,7 +136,7 @@ From the Ambari Web UI, select the service you wish to view logs for (for exampl
 
 ## How to configure the size of the head node ##
 
-The size of the head node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight, including the core, memory, and local storage for each, on the [HDInsight pricing page](http://azure.microsoft.com/pricing/details/hdinsight/).
+The size of the head node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight, including the core, memory, and local storage for each, on the [HDInsight pricing page](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 When creating a new cluster, you can specify the size of the nodes. The following provide information on how to specify the size using the [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
 

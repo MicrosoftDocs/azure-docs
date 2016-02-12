@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016"    
+	ms.date="01/28/2016"    
 	ms.author="juliako"/>
 
 
@@ -758,7 +758,6 @@ In addition to defining a preset file, you also have to let Media Services know 
 	
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
-	  <Grid Enabled="true" />
 	  <Sources>
 	    <Source>
 	      <Streams />

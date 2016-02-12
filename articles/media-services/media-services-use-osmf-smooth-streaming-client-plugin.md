@@ -410,4 +410,4 @@ For more information on general OSMF development, please see the official [OSMF 
 
 ##See Also
 
-[Microsoft Adaptive Streaming Plugin for OSMF Update](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
+[Microsoft Adaptive Streaming Plugin for OSMF Update](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 

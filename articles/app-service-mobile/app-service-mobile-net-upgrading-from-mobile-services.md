@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Upgrade from Mobile Services to Azure App Service" 
 	description="Learn how to easily upgrade your Mobile Services application to an App Service Mobile App" 
 	services="app-service\mobile" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/09/2016" 
 	ms.author="mahender"/>
 
 # Upgrade your existing .NET Azure Mobile Service to App Service

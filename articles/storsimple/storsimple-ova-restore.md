@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/14/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli"/>
 
 # Restore from a backup of your StorSimple Virtual Array (Preview)
@@ -77,8 +77,6 @@ To restore from a backup, in the Azure classic portal, perform the following ste
 
 3.  Navigate back to the **Backup Catalog** tab and select a backup set.
 
-4.  Click **Restore as new** at the bottom of the page.
-
 5.  At the bottom of the page, click **Restore as new**. The **Restore as new volume** wizard will start.
 
 1.  On the **Specify name and location** page:
@@ -130,6 +128,11 @@ Every share has a *.backups* folder that contains the most recent backups. The u
 
 3.  Copy the file or the folder to the appropriate share on your StorSimple file server.
 
+![video_icon](./media/storsimple-ova-restore/video_icon.png) **Video available**
+
+Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
 
 ## Next steps
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Web App Sign In & Sign Out with Azure AD
@@ -177,4 +177,3 @@ You can now move onto more advanced topics.  You may want to try:
 [Secure a Web API with Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
- 

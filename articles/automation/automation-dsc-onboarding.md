@@ -20,16 +20,16 @@
 
 ## Why manage machines with Azure Automation DSC?
 
-Like [PowerShell Desired State Configuration](https://technet.microsoft.com/library/dn249912.aspx), Azure Automation Desired State Configuration is a simple, yet powerful, configuration management service for DSC nodes (physical and virtual machines) in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine’s compliance to the desired state you specified. The Azure Automation DSC management layer is to DSC what the Azure Automation management layer is to PowerShell scripting. In other words, in the same way that Azure Automation helps you manage Powershell scripts, it also helps you manage DSC configurations To learn more about the benefits of using Azure Automation DSC, see [Azure Automation DSC overview](automation-dsc-overview/). 
+Like [PowerShell Desired State Configuration](https://technet.microsoft.com/library/dn249912.aspx), Azure Automation Desired State Configuration is a simple, yet powerful, configuration management service for DSC nodes (physical and virtual machines) in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine’s compliance to the desired state you specified. The Azure Automation DSC management layer is to DSC what the Azure Automation management layer is to PowerShell scripting. In other words, in the same way that Azure Automation helps you manage PowerShell scripts, it also helps you manage DSC configurations. To learn more about the benefits of using Azure Automation DSC, see [Azure Automation DSC overview](automation-dsc-overview/). 
 
 Azure Automation DSC can be used to manage a variety of machines:
 
 *    Azure virtual machines (classic)
 *    Azure virtual machines
-*    Physical / virtual Windows machines on-premises, or in a cloud other than Azure
-*    Physical / virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
+*    Physical/virtual Windows machines on-premises, or in a cloud other than Azure
+*    Physical/virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
 
-In addition, a **DSC metaconfiguration** can be generated to generically onboard any combination of the above machines to Azure Automation DSC.
+In addition, if you are not ready to manage machine configuration from the cloud, Azure Automation DSC can also be used as a report-only endpoint. This allows you to set (push) desired configuration through DSC on-premises and view rich reporting details on node compliance with the desired state in Azure Automation.
 
 The following sections outline how you can onboard each type of machine to Azure Automation DSC.
 
@@ -40,7 +40,8 @@ With Azure Automation DSC, you can easily onboard Azure virtual machines (classi
 
 ### Azure portal
 
-In the [Azure preview portal](http://portal.azure.com/), click **Browse** -> **Virtual machines (classic)**. Select the Windows VM you want to onboard. On the virtual machine’s dashboard blade, click **All settings** -> **Extensions** -> **Add** -> **Azure Automation DSC** -> **Create**. Enter the [PowerShell DSC Local Configuration Manager values](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) required for your use case, your Automation account’s registration key and registration URL, and optionally a node configuration to assign to the VM.
+In the [Azure portal](http://portal.azure.com/), click **Browse** -> **Virtual machines (classic)**. Select the Windows VM you want to onboard. On the virtual machine’s dashboard blade, click **All settings** -> **Extensions** -> **Add** -> **Azure Automation DSC** -> **Create**. Enter the [PowerShell DSC Local Configuration Manager values](https://msdn.microsoft.com/powershell/dsc/metaconfig4) required for your use case, your Automation account’s registration key and registration URL, and optionally a node configuration to assign to the VM.
+
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
@@ -51,9 +52,9 @@ To find the registration URL and key for the Automation account to onboard the m
 
     # log in to both Azure Service Management and Azure Resource Manager
     Add-AzureAccount
-    Login-AzureRmAccount
+    Add-AzureRmAccount
     
-    # fill in correct values for your VM / Automation Account here
+    # fill in correct values for your VM/Automation account here
     $VMName = ""
     $ServiceName = ""
     $AutomationAccountName = ""
@@ -74,21 +75,21 @@ To find the registration URL and key for the Automation account to onboard the m
       ModulesUrl = "https://eus2oaasibizamarketprod1.blob.core.windows.net/automationdscpreview/RegistrationMetaConfigV2.zip"
       ConfigurationFunction = "RegistrationMetaConfigV2.ps1\RegistrationMetaConfigV2"
 
-    # update these DSC agent Local Configuration Manager defaults if they do not match your use case.
+    # update these PowerShell DSC Local Configuration Manager defaults if they do not match your use case.
     # See https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
-    Properties = @{
-       RegistrationKey = @{
-         UserName = 'notused'
-         Password = 'PrivateSettingsRef:RegistrationKey'
-    }
-      RegistrationUrl = $RegistrationInfo.Endpoint
-      NodeConfigurationName = $NodeConfigName
-      ConfigurationMode = "ApplyAndMonitor"
-      ConfigurationModeFrequencyMins = 15
-      RefreshFrequencyMins = 30
-      RebootNodeIfNeeded = $False
-      ActionAfterReboot = "ContinueConfiguration"
-      AllowModuleOverwrite = $False
+     Properties = @{
+        RegistrationKey = @{
+          UserName = 'notused'
+          Password = 'PrivateSettingsRef:RegistrationKey'
+        }
+        RegistrationUrl = $RegistrationInfo.Endpoint
+        NodeConfigurationName = $NodeConfigName
+        ConfigurationMode = "ApplyAndMonitor"
+        ConfigurationModeFrequencyMins = 15
+        RefreshFrequencyMins = 30
+        RebootNodeIfNeeded = $False
+        ActionAfterReboot = "ContinueConfiguration"
+        AllowModuleOverwrite = $False
       }
     }
 
@@ -102,7 +103,7 @@ To find the registration URL and key for the Automation account to onboard the m
      -VM $vm `
      -Publisher Microsoft.Powershell `
      -ExtensionName DSC `
-     -Version 2.6 `
+     -Version 2.13 `
      -PublicConfiguration $PublicConfiguration `
      -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
@@ -116,46 +117,46 @@ Azure Automation DSC lets you easily onboard Azure virtual machines for configur
 
 ### Azure portal
 
-In the [Azure preview portal](http://portal.azure.com/), navigate to the Azure Automation account where you want to onboard virtual machines. On the Automation account dashboard, click **DSC Nodes** -> **Add Azure VM**.
+In the [Azure portal](https://portal.azure.com/), navigate to the Azure Automation account where you want to onboard virtual machines. On the Automation account dashboard, click **DSC Nodes** -> **Add Azure VM**.
 
 Under **Select virtual machines to onboard**, select one or more Azure virtual machines to onboard.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_2.png)
 
 
-Under **Configure registration data**, enter the [PowerShell DSC Local Configuration Manager values](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) required for your use case, and optionally a node configuration to assign to the VM.
+Under **Configure registration data**, enter the [PowerShell DSC Local Configuration Manager values](https://msdn.microsoft.com/powershell/dsc/metaconfig4) required for your use case, and optionally a node configuration to assign to the VM.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_3.png)
 
  
 ### Azure Resource Manager templates
 
-Azure virtual machines can be deployed and onboarded to Azure Automation DSC via Azure Resource Manager templates. See [Configure a VM via DSC extension and Azure Automation DSC](http://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) for an example template that onboards an existing VM to Azure Automation DSC. To find the registration key and registration URL taken as input in this template, see the [**Secure registration**](#secure-registration) section below.
+Azure virtual machines can be deployed and onboarded to Azure Automation DSC via Azure Resource Manager templates. See [Configure a VM via DSC extension and Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) for an example template that onboards an existing VM to Azure Automation DSC. To find the registration key and registration URL taken as input in this template, see the [**Secure registration**](#secure-registration) section below.
 
 ### PowerShell
 
-The [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) cmdlet can be used to onboard virtual machines in the Azure preview portal via PowerShell.
+The [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
 
-## Physical / virtual Windows machines on-premises, or in a cloud other than Azure
+## Physical/virtual Windows machines on-premises, or in a cloud other than Azure
 
 On-premises Windows machines and Windows machines in non-Azure clouds (such as Amazon Web Services) can also be onboarded to Azure Automation DSC, as long as they have outbound access to the internet, via a few simple steps:
 
-1. Make sure the latest version of [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729) is installed on the machines you want to onboard to Azure Automation DSC.
+1. Make sure the latest version of [WMF 5](http://aka.ms/wmf5latest) is installed on the machines you want to onboard to Azure Automation DSC.
 2. Follow the directions in section [**Generating DSC metaconfigurations**](#generating-dsc-metaconfigurations) below to generate a folder containing the needed DSC metaconfigurations.
-3. Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard. **The machine this command is run from must have the latest version of [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729) installed**:
+3. Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard. **The machine this command is run from must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed**:
 
 	`Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2`
 
 4. If you cannot apply the PowerShell DSC metaconfigurations remotely, copy the metaconfigurations’ folder from step 2 onto each machine to onboard. Then call **Set-DscLocalConfigurationManager** locally on each machine to onboard.
 5. Using the Azure portal or cmdlets, check that the machines to onboard now show up as DSC nodes registered in your Azure Automation account.
 
-## Physical / virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
+## Physical/virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
 
 On-premises Linux machines, Linux machines in Azure, and Linux machines in non-Azure clouds can also be onboarded to Azure Automation DSC, as long as they have outbound access to the internet, via a few simple steps:
 
-1. Make sure the latest version of the [DSC Linux agent](http://www.microsoft.com/en-us/download/details.aspx?id=49150) is installed on the machines you want to onboard to Azure Automation DSC.
+1. Make sure the latest version of the [DSC Linux agent](http://www.microsoft.com/download/details.aspx?id=49150) is installed on the machines you want to onboard to Azure Automation DSC.
 
-2. If the [PowerShell DSC Local Configuration Manager defaults](hhttps://msdn.microsoft.com/powershell/dsc/metaconfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation DSC::
+2. If the [PowerShell DSC Local Configuration Manager defaults](https://msdn.microsoft.com/powershell/dsc/metaconfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation DSC:
 
 	*    On each Linux machine to onboard to Azure Automation DSC, use Register.py to onboard using the PowerShell DSC Local Configuration Manager defaults:
 
@@ -168,17 +169,17 @@ On-premises Linux machines, Linux machines in Azure, and Linux machines in non-A
 3.	Follow the directions in the [**Generating DSC metaconfigurations**](#generating-dsc-metaconfigurations) section below to generate a folder containing the needed DSC metaconfigurations.
 4.  Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard:
     	
-    	$SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
-        $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurPass
-        $Opt = New-CimSessionOption -UseSs1:$true -SkipCACheck:$true -SkipCNCheck:$true -SkipRevocationCheck:$true
+    	$SecurePass = ConvertTo-SecureString -String "<root password>" -AsPlainText -Force
+        $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurePass
+        $Opt = New-CimSessionOption -UseSsl -SkipCACheck -SkipCNCheck -SkipRevocationCheck
 
         # need a CimSession for each Linux machine to onboard
         
-        $Session = New-CimSession -Credential:$Cred -ComputerName:<your Linux machine> -Port:5986 -Authentication:basic -SessionOption:$Opt
+        $Session = New-CimSession -Credential $Cred -ComputerName <your Linux machine> -Port 5986 -Authentication basic -SessionOption $Opt
     	
     	Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
 	
-The machine this command is run from must have the latest version of [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729) installed.
+The machine this command is run from must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed.
 
 5.  If you cannot apply the PowerShell DSC metaconfigurations remotely, for each Linux machine to onboard, copy the metaconfiguration corresponding to that machine from the folder in step 5 onto the Linux machine. Then call `SetDscLocalConfigurationManager.py` locally on each Linux machine you want to onboard to Azure Automation DSC:
 
@@ -192,7 +193,7 @@ To generically onboard any machine to Azure Automation DSC, a DSC metaconfigurat
 **Note:** DSC metaconfigurations contain the secrets needed to onboard a machine to an Automation account for management. Make sure to properly protect any DSC metaconfigurations you create, or delete them after use.
 
 ###Using a DSC Configuration
-1.	Open the PowerShell ISE as an administrator in a machine in your local environment. The machine must have the latest version of [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729) installed.
+1.	Open the PowerShell ISE as an administrator in a machine in your local environment. The machine must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed.
 
 2.	Copy the following script locally. This script contains a PowerShell DSC configuration for creating metaconfigurations, and a command to kick off the metaconfiguration creation.
     
@@ -203,7 +204,7 @@ To generically onboard any machine to Azure Automation DSC, a DSC metaconfigurat
             param 
             ( 
                 [Parameter(Mandatory=$True)] 
-                $RegistrationUrl,
+                [String]$RegistrationUrl,
          
                 [Parameter(Mandatory=$True)] 
                 [String]$RegistrationKey,
@@ -279,11 +280,12 @@ To generically onboard any machine to Azure Automation DSC, a DSC metaconfigurat
 
                 ReportServerWeb AzureAutomationDSC 
                 { 
-                ServerUrl = $RegistrationUrl 
-                RegistrationKey = $RegistrationKey 
+                    ServerUrl = $RegistrationUrl 
+                    RegistrationKey = $RegistrationKey 
                 }
             } 
         }
+        
         # Create the metaconfigurations
         # TODO: edit the below as needed for your use case
         DscMetaConfigs `
@@ -337,18 +339,25 @@ Azure Automation DSC lets you easily onboard Azure Windows VMs for configuration
 
 >[AZURE.NOTE] Any method of onboarding an Azure Windows VM to Azure Automation DSC that uses the Azure VM Desired State Configuration extension could take up to an hour for the node to show up as registered in Azure Automation. This is due to the installation of Windows Management Framework 5.0 on the VM by the Azure VM DSC extension, which is required to onboard the VM to Azure Automation DSC.
 
-To troubleshoot or view the status of the Azure VM Desired State Configuration extension, in the Azure preview portal navigate to the VM being onboarded, then click -> **All settings** -> **Extensions** -> **DSC**. For more details, you can click **View detailed status**.
+To troubleshoot or view the status of the Azure VM Desired State Configuration extension, in the Azure portal navigate to the VM being onboarded, then click -> **All settings** -> **Extensions** -> **DSC**. For more details, you can click **View detailed status**.
 
 [![](./media/automation-dsc-onboarding/DSC_Onboarding_5.png)](https://technet.microsoft.com/library/dn249912.aspx)
 
 ## Certificate expiration and reregistration
 
-After registering, each node automatically negotiates a unique certificate for authentication that expires after one year. Currently, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to reregister the nodes after a year’s time. Before reregistering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node’s authentication certificate expires, and the node is not reregistered, the node will be unable to communicate with Azure Automation and will be marked ‘Unresponsive.’ Reregistration is performed in the same way you registered the node initially. Reregistration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.
+After registering a machine as a DSC node in Azure Automation DSC, there are a number of reasons why you may need to reregister that node in the future:
+
+* After registering, each node automatically negotiates a unique certificate for authentication that expires after one year. Currently, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to reregister the nodes after a year’s time. Before reregistering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node’s authentication certificate expires, and the node is not reregistered, the node will be unable to communicate with Azure Automation and will be marked ‘Unresponsive.’ Reregistration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.
+
+* To change any [PowerShell DSC Local Configuration Manager values](https://msdn.microsoft.com/powershell/dsc/metaconfig4) that were set during initial registration of the node, such as ConfigurationMode. Currently, these DSC agent values can only be changed through reregistration. The one exception is the Node Configuration assigned to the node -- this can be changed in Azure Automation DSC directly.
+
+Reregistration can be performed in the same way you registered the node initially, using any of the onboarding methods described in this document. You do not need to unregister a node from Azure Automation DSC before reregistering it.
+
 
 ## Related Articles
 * [Azure Automation DSC overview](automation-dsc-overview.md)
 * [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
-* [Azure Automation DSC pricing](http://azure.microsoft.com/pricing/details/automation/)
+* [Azure Automation DSC pricing](https://azure.microsoft.com/pricing/details/automation/)
 
 
 

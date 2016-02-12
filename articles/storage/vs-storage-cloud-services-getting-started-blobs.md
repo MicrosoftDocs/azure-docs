@@ -28,7 +28,7 @@ Just as files live in folders, storage blobs live in containers. After you have 
 
 - For more information on programmatically manipulating blobs, see [How to use blob storage from .NET](storage-dotnet-how-to-use-blobs.md).
 - For general information about Azure Storage,see [Storage documentation](https://azure.microsoft.com/documentation/services/storage/).
-- For general information about Azure Cloud Services, see [Cloud Services documentation](http://azure.microsoft.com/documentation/services/cloud-services/).
+- For general information about Azure Cloud Services, see [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/).
 - For more information about programming ASP.NET applications, see [ASP.NET](http://www.asp.net).
 
 ## Access blob containers in code

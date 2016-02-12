@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/15/2016"
+   ms.date="02/01/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL differences
@@ -53,7 +53,8 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 
 - Collation of system objects
 - Connection related: Endpoint statements, ORIGINAL_DB_NAME. Windows authentication is not available for logins or contained database users.
-- Cross database queries, cross database ownership chaining, TRUSTWORTHY setting
+- Cross database queries for INSERT, UPDATE, and DELETE operations. (Read-only cross-database queries are supported.)
+- Cross database ownership chaining, TRUSTWORTHY setting
 - Data Collector
 - Database Diagrams
 - Database Mail
@@ -93,6 +94,7 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - Transact-SQL debugging
 - Triggers: Server-scoped or logon triggers
 - USE statement
+
 
 ## Full Transact-SQL reference
 

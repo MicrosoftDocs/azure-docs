@@ -50,7 +50,7 @@ Azure | **Configuration server**: Standard A3 Azure VM that coordinates communic
 
 In this scenario communications can occur over a a VPN connection to internal ports on the Azure network (using Azure ExpressRoute or a site-to-site VPN), or over a secure internet connection to the mapped public endpoints on the Azure cloud service for the configuration and master target server VMs. 
 
-The Mobility service on protected machines sends replication data the process server, and sends replication metadata to the configuration server. The process server communicates with configuration server for management and control information. It sends replication information to the master target server and it optimizes and sends replicated data to the master target server.
+The Mobility service on protected machines sends replication data to the process server, and sends replication metadata to the configuration server. The process server communicates with the configuration server for management and control information. It sends replication information to the master target server and it optimizes and sends replicated data to the master target server.
 
 ## Replicating Hyper-V VMs to Azure (with VMM)
 

@@ -53,7 +53,7 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
 
 ### Prerequisites
 
-1.  **Azure subscription**. If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+1.  **Azure subscription**. If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 2.  **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account). The sample solution uses blob storage.
 
@@ -500,7 +500,7 @@ The following walkthrough provides additional details.
 
 ### Step 1: Create the data factory
 
-1.  After logging into the [Azure Portal](http://portal.azure.com/), do the following:
+1.  After logging into the [Azure Portal](https://portal.azure.com/), do the following:
 
     1.  Click **NEW** on the left menu.
 

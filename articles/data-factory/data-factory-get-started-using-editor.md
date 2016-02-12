@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015" 
+	ms.topic="article" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create a pipeline with Copy Activity using Data Factory Editor
@@ -25,7 +25,7 @@
 
 
 
-##In This Tutorial
+##In this tutorial
 This tutorial contains the following steps:
 
 Step | Description
@@ -37,7 +37,7 @@ Step | Description
 [Step 5: Monitor slices and pipeline](#MonitorDataSetsAndPipeline) | In this step, you will monitor slices of input and output tables by using Azure Portal.
  
 
-## <a name="CreateDataFactory"></a>Step 1: Create an Azure Data Factory
+## <a name="CreateDataFactory"></a>Step 1: Create an Azure data factory
 In this step, you use the Azure Portal to create an Azure data factory named **ADFTutorialDataFactory**.
 
 1.	After logging into the [Azure Portal][azure-portal], click **NEW** from the bottom-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** in the **Data analytics** blade. 
@@ -79,7 +79,6 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 	![Author and Deploy Tile][image-author-deploy-tile] 
 
-	See [Data Factory Editor][data-factory-editor] topic for detailed overview of the Data Factory editor. 
 	 
 5. In the **Editor**, click **New data store** button on the toolbar and select **Azure storage** from the drop down menu. You should see the JSON template for creating an Azure storage linked service in the right pane. 
 
@@ -400,7 +399,6 @@ To do this tutorial using Azure PowerShell, see [Create and monitor a data facto
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
 
-[data-factory-editor]: data-factory-editor.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md

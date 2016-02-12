@@ -115,7 +115,7 @@ Before you begin, make sure that:
 
 - You have your Microsoft Azure storage account with access credentials.
 
-- Your Microsoft Azure subscription is enabled for the StorSimple Manager service. Your subscription should be purchased through the [Enterprise Agreement](http://azure.microsoft.com/pricing/enterprise-agreement/).
+- Your Microsoft Azure subscription is enabled for the StorSimple Manager service. Your subscription should be purchased through the [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - You have access to terminal emulation software such as PuTTY.
 

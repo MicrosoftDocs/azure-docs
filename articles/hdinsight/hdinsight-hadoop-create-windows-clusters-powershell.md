@@ -28,7 +28,7 @@ Learn how to create HDInsight clusters using Azure PowerShell. Azure PowerShell 
 
 Before you begin the instructions in this article, you must have the following:
 
-- Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Azure PowerShell.  See [Install Azure PowerShell 1.0](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 

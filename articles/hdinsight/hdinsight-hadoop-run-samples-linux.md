@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 
@@ -28,7 +28,7 @@ Linux-based HDInsight clusters provide a set of MapReduce samples that can be us
 
 ##Prerequisites
 
-- **An Azure subscription**: See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+- **An Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
 
 - **A Linux-based HDInsight cluster**: See [Get started using Hadoop with Hive in HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -81,13 +81,13 @@ Linux-based HDInsight clusters provide a set of MapReduce samples that can be us
 
 2. From the `username@#######:~$` prompt, use the following command to list the samples:
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 
     This will generate the list of sample from the previous section of this document.
 
 3. Use the following command to get help on a specific sample. In this case, the **wordcount** sample:
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
 
     You should receive the following message:
 
@@ -97,7 +97,7 @@ Linux-based HDInsight clusters provide a set of MapReduce samples that can be us
 
 4. Use the following to count all words in the Notebooks of Leonardo Da Vinci, which are provided as sample data with your cluster:
 
-    	hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
+    	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
     Input for this job is read from **wasb:///example/data/gutenberg/davinci.txt**.
 
@@ -107,7 +107,7 @@ Linux-based HDInsight clusters provide a set of MapReduce samples that can be us
 
 5. Once the job completes, use the following command to view the output:
 
-        hadoop fs -cat /example/data/davinciwordcount/*
+        hdfs dfs -cat /example/data/davinciwordcount/*
 
     This will concatenate all the output files produced by the job, and display them. For this basic example there is only one file, however if there were more this command would iterate over all of them.
 
@@ -148,7 +148,7 @@ Now, there's a certain way to construct Sudoku puzzles in that you can't repeat 
 
 To run this through the Sudoku example, use the following command:
 
-    hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/2.2.9.1-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
 
 The results should appear similar to the following:
 
@@ -172,7 +172,7 @@ The reducer then accumulates points counted by the mappers and estimates the val
 
 Use the following command to run this sample. This uses 16 maps with 10,000,000 samples each to estimate the value of pi:
 
-    hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
 
 The value returned by this should be similar to **3.14159155000000000000**. For references, the first 10 decimal places of pi are 3.1415926535.
 
@@ -198,19 +198,19 @@ Use the following steps to generate data, sort, and then validate the output:
 
 1. Generate 10GB of data, which will be stored to the HDInsight cluster's default storage at **wasb:///example/data/10GB-sort-input**:
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
 	The `-Dmapred.map.tasks` tells Hadoop how many map tasks to use for this job. The final two parameters instruct the job to create 10GB worth of data and to store it at **wasb:///example/data/10GB-sort-input**.
 
 2. Use the following command to sort the data:
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
 
 	The `-Dmapred.reduce.tasks` tells Hadoop how many reduce tasks to use for the job. The final two parameters are just the input and output locations for data.
 
 3. Use the following to validate the data generated by the sort:
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
 
 ##Next steps ##
 

@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/21/2016"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Get started with your first Azure Search application in .NET
@@ -78,7 +78,7 @@ When you're finished creating the projects, your solution should look similar to
 
 4. Next, install the Azure Search .NET client library. Be sure to specify the search correctly or you won't easily find the package. Right-click **Manage NuGet Packages** again.
 
-5. Specify **Online** > **nuget.org** > **Include Prerelease**, and then search for *azure.search*. Click **Install** to install the library.
+5. Specify **Online** > **nuget.org** > **Stable Only**, and then search for *azure.search*. Click **Install** to install the library.
 
    ![][12]
 
@@ -653,7 +653,7 @@ This is the first Azure Search tutorial based on .NET and the USGS dataset. Over
 
 If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
-New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](search-video-demo-tutorial-list.md) to access more information.
+New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](search-video-demo-tutorial-list.md) to access more information.
 
 <!--Image references-->
 [1]: ./media/search-get-started-dotnet/create-search-portal-1.PNG

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/01/2015"
+   ms.date="02/03/2016"
    ms.author="bwren" />
 
 # Learning Windows PowerShell Workflow
@@ -129,7 +129,7 @@ You can pass values into an InlineScript block, but you must use **$Using** scop
 		$ServiceName = "MyService"
 	
 		$Output = InlineScript {
-			$Service = Get-Service -Name $Using:MyService
+			$Service = Get-Service -Name $Using:ServiceName
 			$Service.Stop()
 			$Service
 		}

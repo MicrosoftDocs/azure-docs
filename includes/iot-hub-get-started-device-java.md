@@ -16,7 +16,7 @@ In this section, you'll create a Java console app that simulates a device that s
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.0-preview.8</version>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -50,7 +50,7 @@ In this section, you'll create a Java console app that simulates a device that s
 
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.HTTPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
     private static boolean stopThread = false;
     ```
 

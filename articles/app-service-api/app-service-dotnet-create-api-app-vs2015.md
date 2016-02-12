@@ -183,7 +183,7 @@ To view the API test page, perform the following steps.
 
 ## Create an API app in Azure
 
-1. Create an API app in the [Azure preview portal](https://portal.azure.com). 
+1. Create an API app in the [Azure preview portal](https://portal.azure.com/). 
 
 	* Click **New > Web + Mobile > API App**.
 
@@ -265,7 +265,7 @@ API apps are essentially web apps for which Azure provides additional features f
 
 In this section, you navigate to the portal to view the API definition for the API app that you just created.
 
-1. In the [Azure preview portal](https://portal.azure.com), navigate to the **API app** blade for your API app:  click **Browse > Resource Groups > [the resource group you created] > [the API app you created]**.
+1. In the [Azure preview portal](https://portal.azure.com/), navigate to the **API app** blade for your API app:  click **Browse > Resource Groups > [the resource group you created] > [the API app you created]**.
 
 4. Click **API Definition**. 
 

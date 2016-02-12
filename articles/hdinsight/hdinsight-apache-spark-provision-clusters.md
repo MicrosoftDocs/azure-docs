@@ -28,7 +28,7 @@ For such and other scenarios, this article provides instructions on how to use t
 
 **Prerequisites:**
 
-Before you begin the instructions in this article, you must have an Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Before you begin the instructions in this article, you must have an Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ##<a id="configuration"></a>What are the different configuration options?
 
@@ -53,7 +53,7 @@ You can install additional components or customize cluster configuration by usin
 
 ### Virtual networking
 
-[Azure Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution. A virtual network allows you to:
+[Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution. A virtual network allows you to:
 
 * Connect cloud resources together in a private network (cloud-only).
 

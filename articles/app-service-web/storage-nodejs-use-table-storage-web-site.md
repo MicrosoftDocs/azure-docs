@@ -53,7 +53,7 @@ Before following the instructions in this article, ensure that you have the foll
 
 Create an Azure storage account. The app will use this account to store the to-do items.
 
-1.  Log into the [Azure Portal](https://portal.azure.com).
+1.  Log into the [Azure Portal](https://portal.azure.com/).
 
 2. Click the **New** icon on the bottom left of the portal, then click **Data + Storage** > **Storage**. Give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
 
@@ -478,7 +478,7 @@ Even though the application is running locally, it is storing the data in the Az
 
 The steps in this section use the Azure command-line tools to create a new web app in App Service, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
-> [AZURE.NOTE] These steps can also be performed by using the [Azure Portal](https://portal.azure.com). See [Build and deploy a Node.js web app in Azure App Service].
+> [AZURE.NOTE] These steps can also be performed by using the [Azure Portal](https://portal.azure.com/). See [Build and deploy a Node.js web app in Azure App Service].
 >
 > If this is the first web app you have created, you must use the Azure Portal to deploy this application.
 
@@ -548,7 +548,7 @@ From the command line, enter the following:
 
 Replace **<storage account name>** with the name of the storage account you created earlier, and replace **<storage access key>** with the primary access key for your storage account. (Use the same values as the config.json file that you created earlier.)
 
-Alternatively, you can set environment variables in the [Azure Portal](https://portal.azure.com):
+Alternatively, you can set environment variables in the [Azure Portal](https://portal.azure.com/):
 
 1.  Open the web app's blade by clicking **Browse** > **Web Apps** > your web app name.
 

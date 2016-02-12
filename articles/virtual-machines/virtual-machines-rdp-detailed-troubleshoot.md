@@ -27,7 +27,7 @@ This article provides detailed troubleshooting steps to diagnose and fix complex
 
 If you get a Remote Desktop error message that does not resemble any of the specific error messages covered in [the basic Remote Desktop troubleshooting guide](virtual-machines-troubleshoot-remote-desktop-connections.md), you can follow these steps and try to figure out why the Remote Desktop (or [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol)) client is unable to connect to the RDP service on the Azure VM.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
 
 ## Components of a Remote Desktop connection
@@ -39,7 +39,7 @@ These are the components involved in an RDP connection:
 Before proceeding, it might help to mentally review what has changed since the last successful Remote Desktop connection to the VM. For example:
 
 - If the public IP address of the VM or the cloud service containing the VM (also called the virtual IP address [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) has changed, then the RDP failure could be because your DNS client cache still has the *old IP address* registered for the DNS name. Flush your DNS client cache and try connecting the VM again. Or try connecting directly with the new VIP.
-- If you are using a third party application to manage your Remote Desktop connections instead of using any of the Azure portals, verify that the application configuration includes the correct TCP port for the Remote Desktop traffic. You can check this port for a classic virtual machine in the [Azure portal](portal.azure.com), by clicking the VM's Settings > Endpoints.
+- If you are using a third party application to manage your Remote Desktop connections instead of using any of the Azure portals, verify that the application configuration includes the correct TCP port for the Remote Desktop traffic. You can check this port for a classic virtual machine in the [Azure portal](https://portal.azure.com), by clicking the VM's Settings > Endpoints.
 
 
 ## Preliminary steps
@@ -135,7 +135,7 @@ Try the connection from your computer again. If you are still not able to connec
 
 For VMs created using the classic deployment model, you can use a remote Azure PowerShell session to the Azure virtual machine. First, you will need to install a certificate for the virtual machine's hosting cloud service. Go to [Configure Secure Remote PowerShell Access to Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) and download the **InstallWinRMCertAzureVM.ps1** script file to your local computer.
 
-Next, install Azure PowerShell if you haven't already. See [How to install and configure Azure PowerShell](../install-configure-powershell.md).
+Next, install Azure PowerShell if you haven't already. See [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 Next, open an Azure PowerShell command prompt and change the current folder to the location of the **InstallWinRMCertAzureVM.ps1** script file. To run an Azure PowerShell script, you must set the correct execution policy. Run the **Get-ExecutionPolicy** command to determine your current policy level. For information about setting the appropriate level, see [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 

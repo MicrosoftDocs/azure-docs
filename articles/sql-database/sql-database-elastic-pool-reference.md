@@ -1,31 +1,28 @@
-<properties 
-	pageTitle="Azure SQL elastic database pool reference" 
-	description="This reference provides links and details to elastic database pool articles and programmability information." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Elastic database pool reference for SQL Database | Microsoft Azure" 
+	description="This reference provides links and details to elastic database pool articles and programmability information."
+	keywords="eDTU"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="02/08/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
 # SQL Database elastic database pool reference
 
-For SaaS developers who have tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases. 
+This reference provides links and details to elastic database pool articles and programmability information. For SaaS developers who have tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases.
 
-This reference provides links and details to elastic database pool articles and programmability information.
-
-## Overview
-
-An elastic database pool is a collection of elastic database throughput units (eDTUs), and storage (GBs) that are shared by multiple databases. Elastic databases can be added to, and removed from the pool at any time. Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them. For assistance in determining if your databases would benefit in an elastic database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md). 
+An elastic database pool is a collection of elastic database throughput units (eDTUs), and storage (GBs) that are shared by multiple databases. Elastic databases can be added to, and removed from the pool at any time. Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them. For assistance in determining if your databases would benefit in an elastic database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
 
 
 
@@ -33,25 +30,8 @@ An elastic database pool is a collection of elastic database throughput units (e
 
 
 - Elastic database pools are only available in Azure SQL Database V12 servers. To upgrade to V12 and migrate your databases directly into a pool, see [Upgrade to Azure SQL Database V12](sql-database-upgrade-server-powershell.md).
-- Creating and managing elastic database pools is supported using the [Azure portal](https://portal.azure.com), PowerShell, and a .NET Client Library (wrapper for REST APIs) for Azure Resource Manager only; the [classic portal](https://manage.windowsazure.com/) and service management commands are not supported.
-- Additionally, creating new elastic databases, and moving existing databases in and out of elastic database pools is supported using Transact-SQL.
-
-
-
-## Current preview considerations
-
-
-- Each pool has a maximum number of databases and pool eDTUs:
-
-    | Service tier | Max databases per pool* | Max eDTUs per pool* |
-    | :-- | :-- | :-- |
-    | Basic | 200 | 1200 | 
-    | Standard | 200 | 1200 |
-    | Premium | 50 | 1500 |
-
-    ****The current limits for the number of databases per pool and number of pool eDTUs is expected to increase.***
-
-
+- Creating and managing elastic database pools is supported using the [Azure portal](https://portal.azure.com), [PowerShell](sql-database-elastic-pool-powershell.md), and a .NET Client Library (Azure Resource Manager only); the [classic portal](https://manage.windowsazure.com/) and service management commands are not supported.
+- Additionally, creating new elastic databases, and moving existing databases in and out of elastic database pools is supported using [Transact-SQL](#transact-sql).
 
 
 ## List of articles
@@ -93,41 +73,14 @@ An elastic database pool is an Azure Resource Manager resource of type “Elasti
 | elasticPoolName | Name of the pool.  The name is unique relative to its parent server. |
 | location | Data center location where the pool was created. |
 | state | State is “Disabled” if payment of the bill for subscription is delinquent, and “Ready” otherwise. |
-| storageMB | Storage limit in MB for the pool.  Any single database in the pool can use up to Standard Edition storage limit (250 GB), but the total of storage used by all databases in the pool cannot exceed this pool limit.   |
+| storageMB | Storage limit in MB for the pool. The total of storage used by all databases in the pool cannot exceed this pool limit.  |
 
 
 ## eDTU and storage limits for elastic pools and elastic databases
 
-The storage limit of the pool is determined by the amount of eDTUs of the pool.
 
-| property | Basic | Standard | Premium |
-| :-- | :-- | :-- | :-- |
-| dtu | **100**, 200, 400, 800, 1200 | **100**, 200, 400, 800, 1200 | **125**, 250, 500, 1000, 1500 |
-| databaseDtuMax | **5** | 10, 20, 50, **100** | **125**, 250, 500, 1000 |
-| databaseDtuMin | **0**, 5 | **0**, 10, 20, 50, 100 | **0**, 125, 250, 500, 1000 |
-| storageMB* | **10000 MB**, 20000 MB, 40000 MB, 80000 MB, 120000 MB | **100 GB**, 200 GB, 400 GB, 800 GB, 1200 GB | **62.5 GB**, 125 GB, 250 GB, 500 GB, 750 GB |
-| storage per DTU | 100 MB | 1 GB | .5 GB |
-| max databases per pool | 200 | 200 | 50 |
+[AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-Default values are **bold**.
-
-*units in API are MB, not GB.
-
-
-
-
-
-## Worker and session limits
-
-The maximum number of concurrent workers and concurrent sessions supported for all databases in an elastic pool depends on the eDTU setting for the pool: 
-
-| eDTUs | Max concurrent workers | Max concurrent sessions |
-| :-- | :-- | :-- |
-| 100 (Basic/Standard), 125 (Premium) | 200 | 2,400 |
-| 200 (Basic/Standard), 250 (Premium) | 400 | 4,800 |
-| 400 (Basic/Standard), 500 (Premium) | 800 | 9,600 |
-| 800 (Basic/Standard), 1,000 (Premium) | 1,600 | 19,200 |
-| 1,200 (Basic/Standard), 1,500 (Premium) | 2,400 | 28,800 |
 
 
 ## Azure Resource Manager limitations
@@ -140,8 +93,8 @@ Azure SQL Database V12 servers are located in resource groups.
 
 ## Latency of elastic pool operations
 
-- Changing the guaranteed eDTUs per database (databaseDtuMin) or maximum eDTUs per database (databaseDtuMax) typically completes in 5 minutes or less. 
-- Changing the eDTU / storage limit (storageMB) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less. 
+- Changing the guaranteed eDTUs per database (databaseDtuMin) or maximum eDTUs per database (databaseDtuMax) typically completes in 5 minutes or less.
+- Changing the eDTU / storage limit (storageMB) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less.
 
 
 
@@ -150,7 +103,7 @@ Azure SQL Database V12 servers are located in resource groups.
 Several PowerShell cmdlets and REST API commands are available for creating and managing elastic pools. For details and code examples, see [Create and manage a SQL Database elastic database pool using PowerShell](sql-database-elastic-pool-powershell.md), and [Create and manage SQL Database with C#](sql-database-client-library.md).
 
 
-| [PowerShell cmdlets](https://msdn.microsoft.com/library/mt163521.aspx) | [REST API commands](https://msdn.microsoft.com/library/mt163571.aspx) |
+| [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx) | [REST API commands](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
 | [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) | [Create an elastic database pool](https://msdn.microsoft.com/library/mt163596.aspx) |
 | [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) | [Set Performance Settings of an Elastic Database Pool](https://msdn.microsoft.com/library/mt163641.aspx) |
@@ -175,15 +128,15 @@ You can use Transact-SQL to do the following elastic database management tasks:
 
 Elastic database pools are billed per the following characteristics:
 
-- An elastic pool is billed upon its creation, even when there are no databases in the pool. 
-- An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases. 
-- If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of standalone databases. 
+- An elastic pool is billed upon its creation, even when there are no databases in the pool.
+- An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases.
+- If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of standalone databases.
 
 
 - The price of an elastic pool is based on the number of eDTUs of the pool. The price of an elastic pool is independent of the utilization of the elastic databases within it.
 - Price is computed by (number of pool eDTUs)x(unit price per eDTU).
 
-The unit eDTU price for an elastic pool is higher than the unit DTU price for a standalone database in the same service tier. For details, see [SQL Database pricing](http://azure.microsoft.com/pricing/details/sql-database/).  
+The unit eDTU price for an elastic pool is higher than the unit DTU price for a standalone database in the same service tier. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).  
 
 ## Elastic database pool errors
 
@@ -209,6 +162,3 @@ The unit eDTU price for an elastic pool is higher than the unit DTU price for a 
 | 40889 | EX_USER | The DTUs or storage limit for the elastic pool '%.*ls' cannot be decreased since that would not provide sufficient storage space for its databases. | Name of elastic pool. | Attempting to decrease the storage limit of the elastic pool below its storage usage. | Please consider reducing the storage usage of individual databases in the elastic pool or remove databases from the pool in order to reduce its DTUs or storage limit. |
 | 40891 | EX_USER | The DTU min per database (%d) cannot exceed the DTU max per database (%d). | DTU min per database; DTU max per database. | Attempting to set the DTU min per database higher than the DTU max per database. | Please ensure the DTU min per databases does not exceed the DTU max per database. |
 | TBD | EX_USER | The storage size for an individual database in a elastic pool cannot exceed the max size allowed by '%.*ls' service tier elastic pool. | elastic pool service tier | The max size for the database exceeds the max size allowed by the elastic pool service tier. | Please set the max size of the database within the limits of the max size allowed by the elastic pool service tier. |
-
-
-

@@ -42,7 +42,7 @@ In this tutorial, you will:
 
 ##<a id="Provision">Provision a SQL Server virtual machine from the gallery</a>
 
-1. Log in to the [Azure classic portal](http://manage.windowsazure.com) using your account. If you do not have an Azure account, visit [Azure free trial](http://azure.microsoft.com/pricing/free-trial/).
+1. Log in to the [Azure classic portal](http://manage.windowsazure.com) using your account. If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 2. On the Azure classic portal, at the bottom left of the web page, click **+NEW**, click **COMPUTE**, click **VIRTUAL MACHINE**, and then click **FROM GALLERY**.
 
@@ -55,7 +55,7 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 >[AZURE.NOTE] If you have a virtual machine created by using the platform image SQL Server Evaluation edition, you cannot upgrade it to a per-minute paid edition image in the gallery. You can choose one of the following two options:
 >
 > - You can create a new virtual machine by using the per-minute paid SQL Server edition from the gallery and migrate your database files to this new virtual machine by following the steps at [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database)
-> - Or, you can upgrade an existing instance of SQL Server Evaluation edition to a different edition of SQL Server under the [License Mobility through Software Assurance on Azure](http://azure.microsoft.com/pricing/license-mobility/) agreement by following the steps at [Upgrade to a Different Edition of SQL Server](https://msdn.microsoft.com/library/cc707783.aspx). For information on how to purchase the licensed copy of SQL Server, see [How to Buy SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
+> - Or, you can upgrade an existing instance of SQL Server Evaluation edition to a different edition of SQL Server under the [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/) agreement by following the steps at [Upgrade to a Different Edition of SQL Server](https://msdn.microsoft.com/library/cc707783.aspx). For information on how to purchase the licensed copy of SQL Server, see [How to Buy SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
 
 4. On the first **Virtual Machine Configuration** page, provide the following information:
 	- A **VERSION RELEASE DATE**. If multiple images are available, select the latest.

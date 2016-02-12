@@ -3,7 +3,7 @@
    description="Learn how to restore from a Windows Server or Windows Client."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
+   authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
 
@@ -13,8 +13,8 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="10/21/2015"
-	 ms.author="jimpark"; "aashishr"/>
+	 ms.date="01/25/2016"
+	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # Restore files to a Windows server or Windows client machine
 This article covers the steps required to perform two types of restore operations:

@@ -3,18 +3,18 @@
    description="Learn what roles are used for privileged identities with the Azure Privileged Identity Management extension."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="01/21/2016"
+   ms.author="kgremban"/>
 
 # Azure Privileged Identity Management: Roles
 
@@ -22,7 +22,7 @@
 
 ## Roles from Azure Active Directory, Office 365, and other sources
 
-Azure PIM uses the following roles as default administrator roles.
+Azure Privileged Identity Management (PIM) uses the following roles as default administrator roles:
 
 - Global Administrator
 - Billing Administrator
@@ -30,7 +30,7 @@ Azure PIM uses the following roles as default administrator roles.
 - User Administrator
 - Password Administrator
 
-For more information about roles from Office 365, Exchange Online, Sharepoint Online and Skype for Business click here.[Assigning admin roles in Office 365](https://support.office.com/en-us/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=en-US&rs=en-US&ad=US)
+For more information about roles from Office 365, Exchange Online, SharePoint Online and Skype for Business go to [Assigning admin roles in Office 365](https://support.office.com/en-us/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=en-US&rs=en-US&ad=US).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 
@@ -38,13 +38,13 @@ For more information about roles from Office 365, Exchange Online, Sharepoint On
 <!-- ## The PIM Security Administrator Role **PLACEHOLDER: Need description of the Security Administrator role.**-->
 
 ## User Roles and Logging In
-> [AZURE.NOTE]In order for a user to be able to log in to Azure PIM, they must have a license for Azure.
+> [AZURE.NOTE]In order for a user to be able to sign in to Azure PIM, they must have a license for Azure.
 
 ## Assigning a License to a User in Azure AD
 
 > [AZURE.NOTE] The license option will only show up if licenses actually exit for this subscription.
 
-1. With a global administrator account or a co-administrator account, log in to [http://manage.windowsazure.com] (http://manage.windowsazure.com).
+1. With a global administrator account or a co-administrator account, sign in to [http://manage.windowsazure.com] (http://manage.windowsazure.com).
 2. Click on **All Items** in the main menu.
 3. Select the directory you want to work with and that has licenses associated with it.
 4. Click on **Licenses**. The list of available licenses will appear.

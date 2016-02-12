@@ -72,7 +72,7 @@ Add the following code to the top of the **server.js** file in your application:
 
 The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
 
-For an example of setting the environment variables in the [Azure Portal](portal.azure.com) for an Azure Website, see [Node.js web application with Storage]
+For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure Website, see [Node.js web application with Storage]
 
 ## Create a table
 

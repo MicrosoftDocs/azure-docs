@@ -19,6 +19,7 @@
 # Use Fiddler to evaluate and test Azure Search REST APIs
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
+- [Search Explorer](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)

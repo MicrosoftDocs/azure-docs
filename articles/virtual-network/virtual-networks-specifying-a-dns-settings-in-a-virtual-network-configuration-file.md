@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"

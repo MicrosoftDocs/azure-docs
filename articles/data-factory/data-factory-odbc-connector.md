@@ -21,6 +21,7 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 Data factory currently supports only moving data from an on-premises ODBC data store to other data stores, but not for moving data from other data stores to an on-premises ODBC data store.
 
+
 ## Enabling connectivity
 Data Factory service supports connecting to on-premises ODBC sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. You need to leverage the gateway to connect to an ODBC data store even if it is hosted in an Azure IaaS VM. 
 
@@ -28,9 +29,13 @@ While you can install the gateway on the same on-premises machine or the Azure V
 
 Apart from the Data Management Gateway, you also need to install the ODBC driver for the data store on the gateway machine. 
 
+> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+
 ## Sample: Copy data from ODBC data store to Azure Blob
 
-The sample below shows:
+This sample shows how to copy data from an ODBC data store to Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+ 
+The sample has the following data factory entities:
 
 1.	A linked service of type [OnPremisesOdbc](#odbc-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -43,7 +48,7 @@ The sample copies data from a query result in an ODBC data store to a blob every
 As a first step, please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. 
 
 **ODBC linked service**
-This example uses the Windows authentication. See [ODBC linked service](#odbc-linked-service-properties) section for different types of authentication you can use. 
+This example uses the Basic authentication. See [ODBC linked service](#odbc-linked-service-properties) section for different types of authentication you can use. 
 
 	{
 	    "name": "OnPremOdbcLinkedService",
@@ -52,10 +57,10 @@ This example uses the Windows authentication. See [ODBC linked service](#odbc-li
 	        "type": "OnPremisesOdbc",
 	        "typeProperties":
 	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=<database>;",
-	            "userName": "<domain>\\<user>",
-	            "password": "<password>",
+	            "authenticationType": "Basic",
+	            "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
+	            "userName": "username",
+	            "password": "password",
 	            "gatewayName": "mygateway"
 	        }
 	    }
@@ -222,8 +227,8 @@ The following table provides description for JSON elements specific to ODBC link
 | type | The type property must be set to: **OnPremisesOdbc** | Yes |
 | connectionString | The non-access credential portion of the connection string as well as an optional encrypted credential. See examples below. | Yes
 | credential | The access credential portion of the connection string specified in driver-specific property-value format, e.g. “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. | No
-| authenticationType | Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous, Basic, and Windows. | Yes | 
-| username | Specify user name if you are using Basic or Windows authentication. | No | 
+| authenticationType | Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. | Yes | 
+| username | Specify user name if you are using Basic authentication. | No | 
 | password | Specify password for the user account you specified for the username. | No | 
 | gatewayName | Name of the gateway that the Data Factory service should use to connect to the ODBC data store. | Yes |
 
@@ -264,24 +269,6 @@ You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](h
 	        }
 	    }
 	}
-
-### Using Windows authentication
-
-	{
-	    "name": "odbc",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=TestDatabase;",
-	            "userName": "<domain>\\<user>",
-	            "password": "<password>",
-	            "gatewayName": "mygateway"
-	        }
-	    }
-	} 
 
 
 ### Using Anonymous authentication

@@ -26,7 +26,7 @@ The [Azure Code Sample Library](https://azure.microsoft.com/documentation/sample
 
 ## .NET samples
 
-To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from NuGet. The .NET storage client library is also available in the [Azure SDK for .NET](http://azure.microsoft.com/downloads/).
+To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from NuGet. The .NET storage client library is also available in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
 
 * [Get started with Azure blobs, tables, and queues in 5 minutes](storage-getting-started-guide.md)
 * [Managing concurrency using Azure Storage - sample application](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)

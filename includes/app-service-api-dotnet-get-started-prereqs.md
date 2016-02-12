@@ -8,7 +8,7 @@ The instructions and screen shots assume you're using Visual Studio 2015, but th
 
 ### Azure account
 
-You need an Azure account to complete the tutorial. You can:
+You do not need any prior knowledge of how to work with Microsoft Azure, but you do need an Azure account to complete the tutorial. You can:
 
 * [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
 * [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Your MSDN subscription gives you credits every month that you can use for paid Azure services.

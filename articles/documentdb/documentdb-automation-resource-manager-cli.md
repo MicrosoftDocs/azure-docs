@@ -46,7 +46,7 @@ If your version is not 0.9.11 or later, you need to either [install the Azure CL
 
 ### Set your Azure account and subscription
 
-If you don't already have an Azure subscription but you do have a Visual Studio subscription, you can activate your [Visual Studio subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+If you don't already have an Azure subscription but you do have a Visual Studio subscription, you can activate your [Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 You need to have a work or school account or a Microsoft account identity to use Azure resource management templates. If you have one of these accounts, type the following command.
 
@@ -349,4 +349,4 @@ To learn more about DocumentDB, explore these resources:
 -	[Learning path for DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[DocumentDB resource model and concepts](documentdb-resources.md)
 
-For more templates you can use, see [Azure Quickstart templates](http://azure.microsoft.com/documentation/templates/).
+For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/).

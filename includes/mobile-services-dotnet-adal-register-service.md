@@ -5,7 +5,7 @@ In this section you will register your mobile service with the Azure Active Dire
 
 1. Register your application with your Azure Active Directory by following the [How to Register with the Azure Active Directory] topic.
 
-2. In the [Azure clasic portal](https://manage.windowsazure.com/), go back to the Azure Active Directory extension and click on your active directory
+2. In the [Azure classic portal](https://manage.windowsazure.com/), go back to the Azure Active Directory extension and click on your active directory
 
 3. Click the **Applications** tab and then click your application.
 

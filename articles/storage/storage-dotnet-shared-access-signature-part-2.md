@@ -34,7 +34,7 @@ In this tutorial, we'll focus on creating shared access signatures for container
 
 ## Part 1: Create a Console Application to Generate Shared Access Signatures
 
-First, ensure that you have the Azure Storage Client Library for .NET installed. You can install the [NuGet package](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") containing the most up-to-date assemblies for the client library; this is the recommended method for ensuring that you have the most recent fixes. You can also download the client library as part of the most recent version of the [Azure SDK for .NET](http://azure.microsoft.com/downloads/).
+First, ensure that you have the Azure Storage Client Library for .NET installed. You can install the [NuGet package](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") containing the most up-to-date assemblies for the client library; this is the recommended method for ensuring that you have the most recent fixes. You can also download the client library as part of the most recent version of the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
 
 In Visual Studio, create a new Windows console application and name it **GenerateSharedAccessSignatures**. Add references to  **Microsoft.WindowsAzure.Configuration.dll** and **Microsoft.WindowsAzure.Storage.dll**, using either of the following approaches:
 

@@ -72,7 +72,7 @@ To enable remote debugging, you have to deploy a debug build to Azure.
 
 There may be times when you want to debug your API app locally; for example, if round-trips to the Azure server make debugging slow. This section illustrates how to debug your API app locally using the Swagger UI  as the test client.
 
-2. In your browser, navigate to the [Azure preview portal](https://portal.azure.com). 
+2. In your browser, navigate to the [Azure preview portal](https://portal.azure.com/). 
 
 3. Click the **Browse** button on the sidebar and select **API Apps**. 
 

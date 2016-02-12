@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Connect domain-joined devices to Azure AD for Windows 10 experiences | Microsoft Azure" 
 	description="Explains how administrators can configure group policies to enable devices to be domain-joined to the enterprise network." 
 	services="active-directory" 

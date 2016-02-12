@@ -21,7 +21,6 @@
 
 Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. Use one of the provided installer packages to install the Azure CLI on your operating system, install the CLI using Node.js and **npm**, or install the Azure CLI as a container in a Docker host. For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
 
 Once the Azure CLI has been installed, you will be able to [connect it with your Azure subscription](xplat-cli-connect.md) and run the **azure** commands from your command-line interface (Bash, Terminal, Command prompt, and so on) to work with your Azure resources.
 
@@ -41,7 +40,7 @@ The following installer packages are available:
 
 ## Install and use Node.js and npm
 
-If Node.js is already installed on your system, use the following command to install the Azure CLI:
+Alternatively, if Node.js is already installed on your system, use the following command to install the Azure CLI:
 
 	npm install azure-cli -g
 
@@ -138,7 +137,7 @@ Now you are ready! For access to all of the CLI commands to work with your own r
 Microsoft frequently releases updated versions of the Azure CLI. Reinstall the CLI using the installer for your operating system or, if Node.js and npm are installed, update by typing the following (on Linux distributions you might need to use **sudo**).
 
 ```
-npm upgrade -g azure-cli
+npm update -g azure-cli
 ```
 
 ## Additional resources

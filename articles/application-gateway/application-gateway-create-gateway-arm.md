@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 
@@ -39,7 +39,7 @@ This article walks you through the steps to create, configure, start, and delete
 
 ## Before you begin
 
-1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](http://azure.microsoft.com/downloads/).
+1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
 2. You will create a virtual network and subnet for Application Gateway. Make sure that no virtual machines or cloud deployments are using the subnet. The application gateway must be by itself in a virtual network subnet.
 3. The servers that you will configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
@@ -243,7 +243,7 @@ Once the application gateway is in a stopped state, use the **Remove-AzureRmAppl
 To verify that the service has been removed, you can use the **Get-AzureRmApplicationGateway** cmdlet. This step is not required.
 
 
-	Get-AzureRmApplicationGateway -Name appgwtest-ResourceGroupName appgw-rg
+	Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 
 ## Next steps

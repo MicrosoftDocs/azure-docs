@@ -19,8 +19,9 @@
 # Configure AlwaysOn Availability Groups in Azure VM (GUI)
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+- [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
+- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
 

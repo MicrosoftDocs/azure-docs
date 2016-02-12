@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Enabling Azure AD Application Proxy
@@ -30,7 +30,7 @@ Before you can enable and use Application Proxy services, you need to have:
 
 - A Microsoft Azure AD [basic or premium subscription](active-directory-editions.md) and an Azure AD directory for which you are a global administrator.
 - A server running Windows Server 2012 R2 or Windows 8.1 or higher on which you can install the Application Proxy Connector. The server must be able to send HTTPS requests to the Application Proxy services in the cloud, and it must have an HTTPS connection to the applications that you intend to publish.
-- If a firewall is placed in the path, make sure the firewall is open to allow HTTPS (TCP) requests that originate from the Connector to the Application Proxy. The Connector uses these ports together with subdomains that are part of the high level domain: msappproxy.net. Make sure to open **all** the following ports to **outbound** traffic:
+- If a firewall is placed in the path, make sure the firewall is open to allow HTTPS (TCP) requests that originate from the Connector to the Application Proxy. The Connector uses these ports together with subdomains that are part of the high level domains: msappproxy.net and servicebus.windows.net. Make sure to open **all** the following ports to **outbound** traffic:
 
 Port Number | Description
 --- | ---
@@ -91,6 +91,7 @@ There's a lot more you can do with Application Proxy:
 - [Watch our videos on Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Additional resources
-* [Sign up for Azure as an organization](sign-up-organization.md)
-* [Azure Identity](fundamentals-identity.md)
-* [Publish Applications with Application Proxy](active-directory-application-proxy-publish.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Sign up for Azure as an organization](sign-up-organization.md)
+- [Azure Identity](fundamentals-identity.md)
+- [Publish Applications with Application Proxy](active-directory-application-proxy-publish.md)

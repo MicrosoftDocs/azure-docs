@@ -34,7 +34,7 @@ There are 3 VPN Gateway SKUs:
 - High Performance
 
 The table below shows the gateway types and the estimated aggregate throughput. 
-Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](http://azure.microsoft.com/pricing/details/vpn-gateway/).
+Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 
 | SKU         | VPN Gateway and ExpressRoute coexist | ExpressRoute Gateway throughput | VPN Gateway throughput | VPN Gateway max IPsec tunnels |
 |-------------|-----------------------------------|---------------------------------|------------------------|-------------------------------|

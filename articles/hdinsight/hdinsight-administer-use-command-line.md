@@ -29,7 +29,7 @@ This article covers only using the Azure CLI with HDInsight. For a general guide
 
 Before you begin this article, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli-install.md) for installation and configuration information.
 - **Connect to Azure**, using the following command:
 

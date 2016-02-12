@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="12/01/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 # Target Stream Analytics data transformation outputs to analysis tools and data storage options
@@ -26,7 +26,7 @@ In order to enable a variety of application patterns, Azure Stream Analytics has
 
 ## SQL Database ##
 
-[Azure SQL Database](http://azure.microsoft.com/services/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs will write to an existing table in an Azure SQL Database.  Note that the table schema must exactly match the fields and their types being output from your job. The table below lists the property names and their description for creating a SQL Database output.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs will write to an existing table in an Azure SQL Database.  Note that the table schema must exactly match the fields and their types being output from your job. The table below lists the property names and their description for creating a SQL Database output.
 
 | Property Name | Description |
 |---------------|-------------|
@@ -210,7 +210,7 @@ The table below lists the property names and their description for creating a ta
 
 ## DocumentDB
 
-[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
+[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
 
 The table below lists the property names and their description for creating a DocumentDB output.
 

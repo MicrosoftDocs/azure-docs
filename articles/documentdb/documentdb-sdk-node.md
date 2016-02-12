@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="02/02/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -36,6 +36,21 @@
 </table></br>
 
 ##Release notes
+###<a name="1.5.5"/>1.5.5</a>
+
+- Fixed hashParitionResolver resolveForRead(): When no partition key supplied was throwing exception, instead of returning a list of all registered links.
+
+###<a name="1.5.4"/>1.5.4</a>
+
+- Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for DocumentDB purposes. Use a dedicated agent for all of the lib’s requests.
+
+###<a name="1.5.3"/>1.5.3</a>
+
+- Fixes issue [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - Properly handle dashes in media ids.
+
+###<a name="1.5.2"/>1.5.2</a>
+
+- Fixes issue [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter listener leak warning
 
 ###<a name="1.5.1"/>1.5.1</a>
 
@@ -105,6 +120,10 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.5.5](#1.5.5) | February 02, 2016 |---
+| [1.5.4](#1.5.4) | February 01, 2016 |---
+| [1.5.2](#1.5.2) | January 26, 2016 |---
+| [1.5.2](#1.5.2) | January 22, 2016 |---
 | [1.5.1](#1.5.1) | January 4, 2016 |---
 | [1.5.0](#1.5.0) | December 31, 2015 |---
 | [1.4.0](#1.4.0) | October 06, 2015 |---

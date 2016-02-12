@@ -16,7 +16,7 @@
  
 # Release Notes for Logging Adapters for .NET
 
-If you already use a logging framework such as log4net, NLog, or System.Diagnostics.Trace, you can capture those logs and send them to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can correlate log traces with user actions, exceptions and other events.
+If you already use a logging framework such as log4net, NLog, or System.Diagnostics.Trace, you can capture those logs and send them to [Application Insights](https://azure.microsoft.com/services/application-insights/), where you can correlate log traces with user actions, exceptions and other events.
 
 
 #### To get started

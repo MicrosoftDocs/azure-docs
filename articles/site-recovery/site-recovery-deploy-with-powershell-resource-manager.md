@@ -44,8 +44,8 @@ You don't need to be a PowerShell expert to use this article, but it does assume
 
 Make sure you have these prerequisites in place:
 
-- You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](http://azure.microsoft.com/pricing/details/site-recovery/).
-- You'll need Azure PowerShell 1.0. For information about this release and how to install it, see [Azure PowerShell 1.0.](http://azure.microsoft.com/)
+- You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
+- You'll need Azure PowerShell 1.0. For information about this release and how to install it, see [Azure PowerShell 1.0.](https://azure.microsoft.com/)
 - You'll need to have the [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) and [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) modules installed. You can get the latest versions of these modules from the [PowerShell gallery](https://www.powershellgallery.com/)
 
 This article illustrates how to use Azure Powershell with ARM to configure and manage protection of your servers with the help of an example. The example used in this articles shows you how to protect a virtual machine running on a Hyper-V host to Azure and the prerequisites that follow are specific to this example. For a more comprehensive set of requirements for the various ASR scenarios refer to the documentation pertaining to that scenario.

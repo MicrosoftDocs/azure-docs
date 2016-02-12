@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="01/06/2016"
 	ms.author="cephalin"/>
 
 # Enable diagnostics logging for web apps in Azure App Service
@@ -132,9 +132,9 @@ Visual Studio Application Insights provides tools for filtering and searching lo
 2. Add the Trace Listener package to your project.
  * Right click your project and choose Manage NuGet Packages. Select `Microsoft.ApplicationInsights.TraceListener` [Learn more](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Upload your project and run it to generate log data.
-4. In the [Azure Portal](http://portal.azure.com/), browse to your new Application Insights resource, and open **Search**. You'll see your log data, along with request, usage and other telemetry. Some telemetry might take a few minutes to arrive: click Refresh. [Learn more](../application-insights/app-insights-diagnostic-search.md)
+4. In the [Azure Portal](https://portal.azure.com/), browse to your new Application Insights resource, and open **Search**. You'll see your log data, along with request, usage and other telemetry. Some telemetry might take a few minutes to arrive: click Refresh. [Learn more](../application-insights/app-insights-diagnostic-search.md)
 
-[Learn more about performance tracking with Application Insights](../insights-perf-analytics.md)
+[Learn more about performance tracking with Application Insights](../azure-portal/insights-perf-analytics.md)
 
 ##<a name="streamlogs"></a> How to: Stream logs
 
@@ -146,7 +146,7 @@ While developing an application, it is often useful to see logging information i
 
 ### Streaming with Azure PowerShell
 
-To stream logging information, start a new of Azure PowerShell and use the following command:
+To stream logging information, start a new instance of Azure PowerShell and use the following command:
 
 	Get-AzureWebSiteLog -Name webappname -Tail
 
@@ -227,14 +227,14 @@ Property name|Value/format
 Date|The date and time that the event occurred
 Level|Event level (e.g. error, warning, information)
 ApplicationName|The web app name
-InstanceId|Instance of the web app that the even occurred on
+InstanceId|Instance of the web app that the event occurred on
 EventTickCount|The date and time that the event occurred, in Tick format (greater precision)
 EventId|The event ID of this event<p><p>Defaults to 0 if none specified
 Pid|Process ID
 Tid|The thread ID of the thread that produced the event
 Message|Event detail message
 
-The data stored in a blob would similar to the following:
+The data stored in a blob would look similar to the following:
 
 	date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
 	2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
@@ -267,5 +267,5 @@ The web server logs are formatted using the [W3C extended log file format](http:
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the Azure portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  

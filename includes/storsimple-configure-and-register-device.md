@@ -74,4 +74,4 @@ After the device is successfully registered and doesn't come online, you can run
 
 ![Video available](./media/storsimple-configure-and-register-device/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how to configure and register your device through Windows PowerShell for StorSimple, click [here](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
+To watch a video that demonstrates how to configure and register your device through Windows PowerShell for StorSimple, click [here](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).

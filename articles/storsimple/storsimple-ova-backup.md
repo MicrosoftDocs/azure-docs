@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # Back up your StorSimple Virtual Array (preview)
@@ -97,6 +97,12 @@ Perform the following steps in the Azure classic portal to view the existing bac
     4. Click the check icon ![](./media/storsimple-ova-backup/image3.png) to execute this query.
 
     The backups associated with the selected share or volume should appear in the list of backup sets.
+
+![video_icon](./media/storsimple-ova-backup/video_icon.png) **Video available**
+
+Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
 
 ## Next steps
 

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Deploy multi NIC VMs (classic) using PowerShell
@@ -31,7 +31,7 @@ Since at this point in time you cannot have VMs with a single NIC and VMs with m
 
 ## Prerequisites
 
-Before you can deploy the back end servers, you need to deploy the main cloud service with all the necessary resources for this scenario. At minimum, you need to create a virtual network with a subnet for the backend. Visit [Create a virtual network by using PowerShell](virtual-networks-create-vnet-classic-ps.md) to learn how to deploy a virtual network.
+Before you can deploy the back end servers, you need to deploy the main cloud service with all the necessary resources for this scenario. At minimum, you need to create a virtual network with a subnet for the backend. Visit [Create a virtual network by using PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md) to learn how to deploy a virtual network.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -45,7 +45,7 @@ The backend VMs depend on the creation of the resources listed below.
 
 ### Step 1 - Start your script
 
-You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.ps1). Follow the steps below to change the script to work in your environment.
+You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Follow the steps below to change the script to work in your environment.
 
 1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
 

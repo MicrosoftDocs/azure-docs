@@ -17,7 +17,7 @@ To begin using Service Bus topics and subscriptions in Azure, you must first cre
 
 To create a service namespace:
 
-1.  Log on to the [Azure portal][].
+1.  Log on to the [Azure classic portal][].
 
 2.  In the left navigation pane of the portal, click **Service Bus**.
 
@@ -53,7 +53,7 @@ In order to perform management operations, such as creating a topic or subscript
 4.  In the **Access connection information** dialog, find the connection string that contains the SAS key and key name. Make a note of these values, as you will use this information later to perform operations with the namespace. 
 
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure classic portal]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [2]: ./media/howto-service-bus-topics/sb-queues-04.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png

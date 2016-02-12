@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="01/25/2016"
    ms.author="hascipio"/>
 
 # Create a Microsoft Developer account
@@ -93,7 +93,7 @@ The Microsoft Developer Center is used to register the company information once.
 
 10. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info (or PayPal in supported markets). When you are finished, click **Next** to move on to the **"Review screen"**.
 
-11. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the **Microsoft Azure Marketplace Publisher Agreement**. Check the box to indicate you have read and accepted these terms.
+11. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the [Microsoft Azure Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560). Check the box to indicate you have read and accepted these terms.
 
 12. Click **Finish** to confirm your registration. We'll send a confirmation message to your developer email address.
 
@@ -145,7 +145,7 @@ The Azure publishing portal is used to publish and manage your offer(s). You wil
 
 3.	Sign in with your company registration Microsoft account (i.e., marketplace@example.com), and you can add co-admins as necessary.
 
-  > [AZURE.TIP] The participation policies are described on the [Azure website](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+  > [AZURE.TIP] The participation policies are described on the [Azure website](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
   > If you have issues with Developer Center registration, please log a support ticket as below:
   1. Contact [Support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=en-us&pesid=15635&ccsid=635847950577064286).

@@ -18,11 +18,17 @@
 	
 # Pre-load assets on an Azure CDN endpoint
 
+By default, assets are first cached as they are requested. This means that the first request from each region may take longer, since the edge servers will not have the content cached and will need to forward the request to the origin server. Pre-loading content avoids this first hit latency.
+
+In addition to providing a better customer experience, pre-loading your cached assets can also reduce network traffic on the origin server.
+
+> [AZURE.NOTE] Pre-loading assets is useful for  large events or content that becomes simultaneously available to a large number of users, such as a new movie release or a software update.
+
 This tutorial walks you through pre-loading cached content on all Azure CDN edge nodes.
 
 ## Walkthrough
 
-1. In the [Azure Portal](http://portal.azure.com), browse to the CDN profile containing the endpoint you wish to pre-load.  The profile blade opens.
+1. In the [Azure Portal](https://portal.azure.com), browse to the CDN profile containing the endpoint you wish to pre-load.  The profile blade opens.
 
 2. Click the endpoint in the list.  The endpoint blade opens.
 

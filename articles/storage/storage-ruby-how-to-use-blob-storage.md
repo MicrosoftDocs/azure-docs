@@ -61,7 +61,7 @@ for information required to connect to your Azure storage account. If these envi
 
 To obtain these values:
 
-1. Log in to the [Azure Portal](portal.azure.com).
+1. Log in to the [Azure Portal](https://portal.azure.com).
 2. Navigate to the storage account you want to use.
 3. Click **MANAGE KEYS** at the bottom of the navigation pane.
 4. In the pop up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one.

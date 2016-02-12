@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/27/2016" 
 	ms.author="spelluru"/>
 
 # Scheduling & Execution with Data Factory
@@ -22,7 +22,7 @@ This article explains the scheduling and execution aspects of Azure Data Factory
 
 ## Scheduling Activities
 
-With the **scheduler** section in the activity JSON, you can specify a recurring schedule for the activity. For example you can schedule activity runs every hour as follows:
+With the **scheduler** section in the activity JSON, you can specify a recurring schedule for the activity. For example you can schedule an activity every hour as follows:
 
 	"scheduler": {
 		"frequency": "Hour",
@@ -31,11 +31,11 @@ With the **scheduler** section in the activity JSON, you can specify a recurring
     
 ![Scheduler example](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
-As shown above, specifying an hourly schedule creates activity runs corresponding to a series of tumbling windows. Tumbling windows are series of fixed-sized, non-overlapping and contiguous time intervals.
+As shown above, specifying a schedule for the activity creates a series of tumbling windows. Tumbling windows are series of fixed-sized, non-overlapping and contiguous time intervals. These logical tumbling windows for the activity are called **activity windows**.
  
-For the currently executing activity run, the window time interval can be accessed with **WindowStart** and **WindowEnd** system variables in the activity JSON. You can use these variables for different purposes in your activity JSON and scripts associated with the activity including selecting data from input, output datasets representing time series data.
+For the currently executing activity window, the time interval associated with the activity window can be accessed with **WindowStart** and **WindowEnd** system variables in the activity JSON. You can use these variables for different purposes in your activity JSON and scripts associated with the activity including selecting data from input, output datasets representing time series data.
 
-For more information on different properties available for scheduler including scheduling at a specific time offset, setting the mode to align processing at the beginning of interval for the window or at the end please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article.
+The **scheduler** property supports the same sub-properties as the **availability** property in a dataset. For more information on different properties available for scheduler including scheduling at a specific time offset, setting the mode to align processing at the beginning of interval for the activity window or at the end please refer to the [Dataset availability](data-factory-create-datasets.md#Availability) article. 
 
 ## Time series Datasets and Data Slices
 
@@ -576,6 +576,8 @@ Text | Format(X) | X: String variable | Formats the text.
 	    "Day" : "$$Text.Format('{0:dd}',WindowStart)",
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
+
+See [Custom Date and Time Format Strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx) topic that describes different formatting options you can use (for example: yy vs. yyyy). 
 
 > [AZURE.NOTE] When using a function within another function, you do not need to use **$$** prefix for the inner function. For example: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In this example, notice that **$$** prefix is not used for the **Time.AddHours** function. 
   

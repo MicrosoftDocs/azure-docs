@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="ddove; sidneyh" />
+	ms.date="02/01/2016" 
+	ms.author="ddove;sidneyh" />
 
 # Elastic Database jobs overview
 
@@ -88,10 +88,10 @@ Custom groups, on the other hand, are rigidly defined. You must explicitly add o
 ## Components and pricing 
 The following components work together to create an Azure Cloud service that enables ad-hoc execution of administrative jobs. The components are installed and configured automatically during setup, in your subscription. You can identify the services as they all have the same auto-generated name. The name is unique, and consists of the prefix "edj" followed by 21 randomly generated characters.
 
-* **Azure Cloud Service**: elastic database jobs (preview) is delivered as a customer-hosted Azure Cloud service to perform execution of the requested tasks. From the portal, the service is deployed and hosted in your Microsoft Azure subscription. The default deployed service runs with the minimum of two worker roles for high availability. The default size of each worker role (ElasticDatabaseJobWorker) runs on an A0 instance. For pricing, see [Cloud services pricing](http://azure.microsoft.com/pricing/details/cloud-services/). 
-* **Azure SQL Database**: The service uses an Azure SQL Database known as the **control database** to store all of the job metadata. The default service tier is a S0. For pricing, see [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/).
-* **Azure Service Bus**: An Azure Service Bus is for coordination of the work within the Azure Cloud Service. See [Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/).
-* **Azure Storage**: An Azure Storage account is used to store diagnostic output logging in the event that an issue requires further debugging (a common practice for [Azure diagnostics](cloud-services-dotnet-diagnostics.md)). For pricing, see [Azure Storage Pricing](http://azure.microsoft.com/pricing/details/storage/).
+* **Azure Cloud Service**: elastic database jobs (preview) is delivered as a customer-hosted Azure Cloud service to perform execution of the requested tasks. From the portal, the service is deployed and hosted in your Microsoft Azure subscription. The default deployed service runs with the minimum of two worker roles for high availability. The default size of each worker role (ElasticDatabaseJobWorker) runs on an A0 instance. For pricing, see [Cloud services pricing](https://azure.microsoft.com/pricing/details/cloud-services/). 
+* **Azure SQL Database**: The service uses an Azure SQL Database known as the **control database** to store all of the job metadata. The default service tier is a S0. For pricing, see [SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+* **Azure Service Bus**: An Azure Service Bus is for coordination of the work within the Azure Cloud Service. See [Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/).
+* **Azure Storage**: An Azure Storage account is used to store diagnostic output logging in the event that an issue requires further debugging (see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../service-fabric/cloud-services-dotnet-diagnostics.md)). For pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 ## How Elastic Database jobs work
 1.	An Azure SQL Database is designated a control database which stores all meta-data and state data.

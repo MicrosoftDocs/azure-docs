@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/29/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # Create an Application Gateway with an Internal Load Balancer (ILB)
@@ -22,11 +22,11 @@
 - [Resource Manager Powershell steps](application-gateway-ilb-arm.md)
 
 
-Application Gateway can be configured with an internet facing VIP or with an internal end-point not exposed to the internet, also known as Internal Load Balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line of business applications not exposed to internet. It's also useful for services/tiers within a multi-tier application which sit in a security boundary not exposed to internet, but still require round robin load distribution, session stickiness, or SSL termination. This article will walk you through the steps to configure an application gateway with an ILB.
+Application Gateway can be configured with an internet facing virtual IP or with an internal end-point not exposed to the internet, also known as Internal Load Balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line of business applications not exposed to internet. It's also useful for services/tiers within a multi-tier application which sit in a security boundary not exposed to internet, but still require round robin load distribution, session stickiness, or SSL termination. This article will walk you through the steps to configure an application gateway with an ILB.
 
 ## Before you begin
 
-1. Install latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](http://azure.microsoft.com/downloads/).
+1. Install latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](https://azure.microsoft.com/downloads/).
 2. Verify that you have a working virtual network with valid subnet.
 3. Verify that you have backend servers either in the virtual network, or with a public IP/VIP assigned.
 
@@ -205,7 +205,7 @@ Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If 
 	VirtualIPs    : {10.0.0.10}
 	DnsName       : appgw-b2a11563-2b3a-4172-a4aa-226ee4c23eed.cloudapp.net
 
-## Next Steps
+## Next steps
 
 
 If you want more information about load balancing options in general, see:

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/22/2016"
 	ms.author="larryfr"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure Portal
@@ -41,7 +41,7 @@ There are also other tools available for administering HDInsight in addition to 
 
 Before you begin this article, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
 
 ## Provision HDInsight clusters
 
@@ -96,12 +96,13 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 	
 8. Select __Node Pricing Tiers__ to display information about the nodes that will be created for this cluster. By default, the number of worker nodes will be set to __4__. 
 
-
 	The estimated cost of the cluster will be shown at the bottom of this blade.
 
 	![Node pricing tiers blade](./media/hdinsight-administer-use-portal-linux/nodepricingtiers.png)
 
 	Use the __Select__ button to save the __Node Pricing Tiers__ information.
+    
+    > [AZURE.NOTE] The nodes used by your cluster do not count as Virtual Machines, as the Virtual Machines images used for the nodes are an implementation detail of the HDInsight service; however, the compute cores used by the nodes do count against the total number of compute cores available to your subscription. You can see the number of cores that will be used by the cluster, as well as the number of cores available, in the summary section of the Node Pricing Tiers blade when creating an HDInsight cluster.
 
 9. Select __Optional Configuration__. This blade allows you to configure the following items:
 
