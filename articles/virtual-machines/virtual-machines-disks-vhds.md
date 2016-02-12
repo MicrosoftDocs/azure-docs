@@ -72,4 +72,4 @@ Windows virtual machines:
 -  [Attach a disks and prepare it for use](virtual-machines-windows-classic-attach-disk.md)
 - [Change the drive letter of the Windows temporary disk](virtual-machines-windows-change-drive-letter.md)
 -  [Capture a Windows virtual machine](virtual-machines-capture-image-windows-server.md)
--  [Detach a disk](storage-windows-detach-disk.md)
+-  [Detach a disk](virtual-machines-windows-classic-detach-disk.md)
