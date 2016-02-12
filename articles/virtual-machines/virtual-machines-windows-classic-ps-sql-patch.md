@@ -89,6 +89,6 @@ The following products are compatible with the SQL Server IaaS Agent features 
 
 ## Next steps
 
-A related feature for SQL Server VMs in Azure is [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-backup.md).
+A related feature for SQL Server VMs in Azure is [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-backup.md).
 
 Review other [resources for running SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).
