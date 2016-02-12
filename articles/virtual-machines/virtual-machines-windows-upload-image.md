@@ -89,7 +89,7 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
 	5. Click **Create**. The account now appears under the **Storage accounts** panel.
 
-		![Enter storage account details](./media/virtual-machines-upload-image-windows-resource-manager/portal_create_storage_account.png)
+		![Enter storage account details](./media/virtual-machines-windows-upload-image/portal_create_storage_account.png)
 
 	6. This and the next steps show you how to create a blob container in this storage account. This is optional, as the PowerShell command to upload the image can also create a new blob container for your image. If you don't want to create it yourself, proceed to the [Upload VM image](#uploadvm) section. Else, click **Blobs** in the **Services** tile.
 
