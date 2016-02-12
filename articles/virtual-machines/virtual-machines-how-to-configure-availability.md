@@ -67,13 +67,9 @@ To use the Azure classic portal:
 
 To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see the following:
 
-<<<<<<< HEAD
-- [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
+
 - [Use Azure PowerShell to create and preconfigure Linux-based virtual machines](virtual-machines-linux-classic-createpowershell.md)
-=======
 - [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-windows-classic-create-powershell.md)
-- [Use Azure PowerShell to create and preconfigure Linux-based virtual machines](virtual-machines-ps-create-preconfigure-linux-vms.md)
->>>>>>> vm-refactor-staging
 
 ## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set##
 
