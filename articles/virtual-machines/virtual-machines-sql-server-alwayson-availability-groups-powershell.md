@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [Portal - Classic](virtual-machines-windows-classic-portal-sql-availability.md)
 - [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>

@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [Portal - Classic](virtual-machines-windows-classic-portal-sql-availability.md)
 - [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
@@ -46,7 +46,7 @@ At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will cons
 
 The figure below is a graphical representation of the solution.
 
-![Test Lab Architecture for AG in Azure](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC791912.png)
+![Test Lab Architecture for AG in Azure](./media/virtual-machines-windows-classic-portal-sql-availability/IC791912.png)
 
 Note that this is one possible configuration. For example, you can minimize the number of VMs for a two-replica availability group in order to save on compute hours in Azure by using the domain controller as the quorum file share witness in a 2-node WSFC cluster. This method reduces the VM count by one from the above configuration.
 
@@ -66,11 +66,11 @@ You begin with a new Azure trial account. Once you have finished your account se
 
 1. Click the **New** button at the lower-left corner of the page, as shown below.
 
-	![Click New in the portal](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665511.gif)
+	![Click New in the portal](./media/virtual-machines-windows-classic-portal-sql-availability/IC665511.gif)
 
 1. Click **Network Services**, then click **Virtual Network,** and then click **Custom Create**, as shown below.
 
-	![Create Virtual Network](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665512.gif)
+	![Create Virtual Network](./media/virtual-machines-windows-classic-portal-sql-availability/IC665512.gif)
 
 1. In the **CREATE A VIRTUAL NETWORK** dialog, create a new virtual network by stepping through the pages with the settings below. 
 
@@ -78,11 +78,11 @@ You begin with a new Azure trial account. Once you have finished your account se
 |---|---|
 |Virtual Network Details|**NAME = ContosoNET**<br/>**REGION = West US**|
 |DNS Servers and VPN Connectivity|None|
-|Virtual Network Address Spaces|Settings are shown in the screenshot below: ![Create Virtual Network](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784620.png)|
+|Virtual Network Address Spaces|Settings are shown in the screenshot below: ![Create Virtual Network](./media/virtual-machines-windows-classic-portal-sql-availability/IC784620.png)|
 
 1. Next, you create the VM you will use as the domain controller (DC). Click **New** again, then **Compute**, then **Virtual Machine**, and then **From Gallery**, as shown below.
 
-	![Create a VM](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784621.png)
+	![Create a VM](./media/virtual-machines-windows-classic-portal-sql-availability/IC784621.png)
 
 1. In the **CREATE A VIRTUAL MACHINE** dialog, configure a new VM by stepping through the pages with the settings below. 
 
@@ -103,7 +103,7 @@ In the following steps, you configure the ContosoDC machine as a domain controll
 
 1. In the portal, select the **ContosoDC** machine. On the **Dashboard** tab, click **Connect** to open an RDP file for remote desktop access.
 
-	![Connect to Vritual Machine](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784622.png)
+	![Connect to Vritual Machine](./media/virtual-machines-windows-classic-portal-sql-availability/IC784622.png)
 
 1. Log in with your configured administrator account (**\AzureAdmin**) and password (**Contoso!000**).
 
@@ -111,7 +111,7 @@ In the following steps, you configure the ContosoDC machine as a domain controll
 
 1. Click the **Add roles and features** link on the dashboard.
 
-	![Server Explorer Add Roles](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784623.png)
+	![Server Explorer Add Roles](./media/virtual-machines-windows-classic-portal-sql-availability/IC784623.png)
 
 1. Select **Next** until you get to the **Server Roles** section.
 
@@ -119,7 +119,7 @@ In the following steps, you configure the ContosoDC machine as a domain controll
 
 	>[AZURE.NOTE] You will get a validation warning that there is no static IP address. If you are testing the configuration, click continue. For production scenarios [use PowerShell to set the static IP address of the domain controller machine](./virtual-network/virtual-networks-reserved-private-ip.md).
 
-	![Add Roles Dialog](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784624.png)
+	![Add Roles Dialog](./media/virtual-machines-windows-classic-portal-sql-availability/IC784624.png)
 
 1. Click **Next** until you reach the **Confirmation** section. Select the **Restart the destination server automatically if required** checkbox.
 
@@ -131,7 +131,7 @@ In the following steps, you configure the ContosoDC machine as a domain controll
 
 1. Click the **More** link on the yellow warning bar.
 
-	![AD DS dialog on DNS Server VM](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784625.png)
+	![AD DS dialog on DNS Server VM](./media/virtual-machines-windows-classic-portal-sql-availability/IC784625.png)
 
 1. In the **Action** column of the **All Server Task Details** dialog, click **Promote this server to a domain controller**.
 
@@ -154,7 +154,7 @@ The next steps configure the Active Directory (AD) accounts for later use.
 
 1. In **Server Manager** select **Tools** and then click **Active Directory Administrative Center**.
 
-	![Active Directory Administrative Center](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784626.png)
+	![Active Directory Administrative Center](./media/virtual-machines-windows-classic-portal-sql-availability/IC784626.png)
 
 1. In the **Active Directory Administrative Center** select **corp (local)** from the left pane.
 
@@ -175,7 +175,7 @@ The next steps configure the Active Directory (AD) accounts for later use.
 
 1. In the **Active Directory Administrative Center**, select **corp (local)** in the left pane. Then in the right-hand **Tasks** pane, click **Properties**.
 
-	![CORP User Properties](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784627.png)
+	![CORP User Properties](./media/virtual-machines-windows-classic-portal-sql-availability/IC784627.png)
 
 1. Select **Extensions**, and then click the **Advanced** button on the **Security** tab.
 
@@ -185,7 +185,7 @@ The next steps configure the Active Directory (AD) accounts for later use.
 
 1. Select the **Read all properties** and **Create Computer objects** permissions.
 
-	![Corp User Permissions](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784628.png)
+	![Corp User Permissions](./media/virtual-machines-windows-classic-portal-sql-availability/IC784628.png)
 
 1. Click **OK**, and then click **OK** again. Close the corp properties window.
 
@@ -210,7 +210,7 @@ Once the three VMs are fully provisioned, you need to join them to the **corp.co
 
 1. First, change the preferred DNS server address. Start by downloading each VM's remote desktop (RDP) file to your local directory by selecting the VM in the list and clicking the **Connect** button. To select a VM, click anywhere but the first cell in the row, as shown below.
 
-	![Download the RDP File](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC664953.jpg)
+	![Download the RDP File](./media/virtual-machines-windows-classic-portal-sql-availability/IC664953.jpg)
 
 1. Launch the RDP file you downloaded and log into the VM using your configured administrator account (**BUILTIN\AzureAdmin**) and password (**Contoso!000**).
 
@@ -220,7 +220,7 @@ Once the three VMs are fully provisioned, you need to join them to the **corp.co
 
 1. In the **Network Connections** window, select the network icon.
 
-	![Change the VM Preferred DNS Server](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784629.png)
+	![Change the VM Preferred DNS Server](./media/virtual-machines-windows-classic-portal-sql-availability/IC784629.png)
 
 1. On the command bar, click **Change the settings of this connection** (depending on the size of your window, you might have to click the double right arrow to see this command).
 
@@ -230,7 +230,7 @@ Once the three VMs are fully provisioned, you need to join them to the **corp.co
 
 1. The address **10.10.2.4** is the address assigned to a VM in the 10.10.2.0/24 subnet in an Azure virtual network, and that VM is **ContosoDC**. To verify **ContosoDC**'s IP address, use the **nslookup contosodc** in the command prompt, as shown below.
 
-	![Use NSLOOKUP to find IP address for DC](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC664954.jpg)
+	![Use NSLOOKUP to find IP address for DC](./media/virtual-machines-windows-classic-portal-sql-availability/IC664954.jpg)
 
 1. Click O**K** and then **Close** to commit the changes. You are now able to join the VM to **corp.contoso.com**.
 
@@ -252,7 +252,7 @@ Once the three VMs are fully provisioned, you need to join them to the **corp.co
 
 1. In **Server Manager** select **Tools**, and then click **Computer Management**.
 
-	![Computer Management](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784630.png)
+	![Computer Management](./media/virtual-machines-windows-classic-portal-sql-availability/IC784630.png)
 
 1. In the **Computer Management** window, expand **Local Users and Groups**, and then select **Groups**.
 
@@ -272,7 +272,7 @@ Once the three VMs are fully provisioned, you need to join them to the **corp.co
 
 1. Select **Failover Clustering**. When prompted, add any other dependent features.
 
-	![Add Failover Clustering Feature to VM](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784631.png)
+	![Add Failover Clustering Feature to VM](./media/virtual-machines-windows-classic-portal-sql-availability/IC784631.png)
 
 1. Click **Next**, and then click **Install** on the **Confirmation** page.
 
@@ -316,7 +316,7 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 
 1. In the left pane, right-click **Failover Cluster Manager**, and then click **Create a Cluster**, as shown below.
 
-	![Create Cluster](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784632.png)
+	![Create Cluster](./media/virtual-machines-windows-classic-portal-sql-availability/IC784632.png)
 
 1. In the Create Cluster Wizard, create a one-node cluster by stepping through the pages with the settings below:
 
@@ -336,7 +336,7 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 
 1. Right-click the failed **IP Address** resource, and then click **Properties**.
 
-	![Cluster Properties](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784633.png)
+	![Cluster Properties](./media/virtual-machines-windows-classic-portal-sql-availability/IC784633.png)
 
 1. Select **Static IP Address** and specify **10.10.2.101** in the Address text box. Then, click **OK**.
 
@@ -344,7 +344,7 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 
 1. Finally, you add the remaining nodes to the cluster. In the browser tree, right-click **Cluster1.corp.contoso.com** and click **Add Node**, as shown below.
 
-	![Add Node to the Cluster](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784634.png)
+	![Add Node to the Cluster](./media/virtual-machines-windows-classic-portal-sql-availability/IC784634.png)
 
 1. In the **Add Node Wizard**, click **Next**. In the **Select Servers** page, add **ContosoSQL2** and **ContosoWSFCNode** to the list by typing the server name in **Enter server name** and then clicking **Add**. When you are done, click **Next**.
 
@@ -420,7 +420,7 @@ These actions can be performed in any order. Nevertheless, the steps below will 
 
 1. Click the **AlwaysOn High Availability** tab, then select **Enable AlwaysOn Availability Groups**, as shown below, and then click **Apply**. Click **OK** in the pop-up dialog, and do not close the properties window yet. You will restart the SQL Server service after you change the service account.
 
-	![Enable AlwaysOn Availability Groups](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665520.gif)
+	![Enable AlwaysOn Availability Groups](./media/virtual-machines-windows-classic-portal-sql-availability/IC665520.gif)
 
 1. Next, you change the SQL Server service account. Click the **Log On** tab, then type **CORP\SQLSvc1** (for **ContosoSQL1**) or **CORP\SQLSvc2** (for **ContosoSQL2**) in **Account Name**, then fill in and confirm the password, and then click **OK**.
 
@@ -450,11 +450,11 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. Right-click the new directory, point to **Share with**, and then click **Specific people**, as shown below.
 
-	![Create a Backup Folder](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665521.gif)
+	![Create a Backup Folder](./media/virtual-machines-windows-classic-portal-sql-availability/IC665521.gif)
 
 1. Add **CORP\SQLSvc1** and give it the **Read/Write** permission, then add **CORP\SQLSvc2** and give it the **Read** permission, as shown below, and then click **Share**. Once the file sharing process is complete, click **Done**.
 
-	![Grant Permissions For Backup Folder](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665522.gif)
+	![Grant Permissions For Backup Folder](./media/virtual-machines-windows-classic-portal-sql-availability/IC665522.gif)
 
 1. Next, you create the database. From the **Start** menu, launch **SQL Server Management Studio**, then click **Connect** to connect to the default SQL Server instance.
 
@@ -494,53 +494,53 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. Go back to the remote desktop session for **ContosoSQL1**. In the **Object Explorer** in SSMS, right-click **AlwaysOn High Availability** and click **New Availability Group Wizard**, as shown below.
 
-	![Launch New Availability Group Wizard](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665523.gif)
+	![Launch New Availability Group Wizard](./media/virtual-machines-windows-classic-portal-sql-availability/IC665523.gif)
 
 1. In the **Introduction** page, click **Next**. In the **Specify Availability Group Name** page, type **AG1** in **Availability group name**, then click **Next** again.
 
-	![New AG Wizard, Specify AG Name](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665524.gif)
+	![New AG Wizard, Specify AG Name](./media/virtual-machines-windows-classic-portal-sql-availability/IC665524.gif)
 
 1. In the **Select Databases** page, select **MyDB1** and click **Next**. The database meets the prerequisites for an availability group because you have taken at least one full backup on the intended primary replica.
 
-	![New AG Wizard, Select Databases](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665525.gif)
+	![New AG Wizard, Select Databases](./media/virtual-machines-windows-classic-portal-sql-availability/IC665525.gif)
 
 1. In the **Specify Replicas** page, click **Add Replica**.
 
-	![New AG Wizard, Specify Replicas](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665526.gif)
+	![New AG Wizard, Specify Replicas](./media/virtual-machines-windows-classic-portal-sql-availability/IC665526.gif)
 
 1. The **Connect to Server** dialog pops up. Type **ContosoSQL2** in **Server name**, then click **Connect**.
 
-	![New AG Wizard, Connect to Server](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665527.gif)
+	![New AG Wizard, Connect to Server](./media/virtual-machines-windows-classic-portal-sql-availability/IC665527.gif)
 
 1. Back in the **Specify Replicas** page, you should now see **ContosoSQL2** listed in **Available Replicas**. Configure the replicas as shown below. When you are finished, click **Next**.
 
-	![New AG Wizard, Specify Replicas (Complete)](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665528.gif)
+	![New AG Wizard, Specify Replicas (Complete)](./media/virtual-machines-windows-classic-portal-sql-availability/IC665528.gif)
 
 1. In the **Select Initial Data Synchronization** page, select **Join only** and click **Next**. You have already performed data synchronization manually when you took the full and transaction backups on **ContosoSQL1** and restored them on **ContosoSQL2**. You can instead choose not to perform the backup and restore operations on your database and select **Full** to let the New Availability Group Wizard perform data synchronization for you. However, this is not recommended for very large databases that are found in some enterprises.
 
-	![New AG Wizard, Select Initial Data Synchronization](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665529.gif)
+	![New AG Wizard, Select Initial Data Synchronization](./media/virtual-machines-windows-classic-portal-sql-availability/IC665529.gif)
 
 1. In the **Validation** page, click **Next**. This page should look similar to below. There is a warning for the listener configuration because you have not configured an availability group listener. You can ignore this warning, because this tutorial does not configure a listener. To configure the listener after completing this tutorial, see [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 
-	![New AG Wizard, Validation](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665530.gif)
+	![New AG Wizard, Validation](./media/virtual-machines-windows-classic-portal-sql-availability/IC665530.gif)
 
 1. In the **Summary** page, click **Finish**, then wait while the wizard configures the new availability group. In the **Progress** page, you can click **More details** to view the detailed progress. Once the wizard is finished, inspect the **Results** page to verify that the availability group is successfully created, as shown below, then click **Close** to exit the wizard.
 
-	![New AG Wizard, Results](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665531.gif)
+	![New AG Wizard, Results](./media/virtual-machines-windows-classic-portal-sql-availability/IC665531.gif)
 
 1. In the **Object Explorer**, expand **AlwaysOn High Availability**, then expand **Availability Groups**. You should now see the new availability group in this container. Right-click **AG1 (Primary)** and click **Show Dashboard**.
 
-	![Show AG Dashboard](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665532.gif)
+	![Show AG Dashboard](./media/virtual-machines-windows-classic-portal-sql-availability/IC665532.gif)
 
 1. Your **AlwaysOn Dashboard** should look similar to the one shown below. You can see the replicas, the failover mode of each replica and the synchronization state.
 
-	![AG Dashboard](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665533.gif)
+	![AG Dashboard](./media/virtual-machines-windows-classic-portal-sql-availability/IC665533.gif)
 
 1. Return to **Server Manager**, select **Tools**, and then launch **Failover Cluster Manager**.
 
 1. Expand **Cluster1.corp.contoso.com**, and then expand **Services and applications**. Select **Roles** and note that the **AG1** availability group role has been created. Note that AG1 does not have any IP address by which database clients can connect to the availability group, because you did not configure a listener. You can connect directly to the primary node for read-write operations and the secondary node for read-only queries.
 
-	![AG in Failover Cluster Manager](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665534.gif)
+	![AG in Failover Cluster Manager](./media/virtual-machines-windows-classic-portal-sql-availability/IC665534.gif)
 
 >[AZURE.WARNING] Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The WSFC Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx).
 
