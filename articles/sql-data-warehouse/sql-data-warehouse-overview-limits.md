@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL Data Warehouse capacity specifications | Microsoft Azure"
-   description="Minimum and maximum capacity specifications for SQL Data Warehouse."
+   pageTitle="SQL Data Warehouse maximum values | Microsoft Azure"
+   description="Maximum values for connections, queries, Transact-SQL DDL and DML, and system views for SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/10/2016"
+   ms.date="02/11/2016"
    ms.author="barbkess;jrj;sonyama"/>
 
-# SQL Data Warehouse capacity specifications
+# SQL Data Warehouse maximum values
 
-SQL Data Warehouse has limits for queries processing and system views that are very similar to SQL Server. Some limits are different because of the underlying parallel and scalable architecture. This is a summary of limits for SQL Data Warehouse.
+These are the maximum values that Azure SQL Data Warehouse has established to support the most demanding analytics workloads while also ensuring each individual query has the resources it needs for optimal performance.
 
 ## Connections
 
