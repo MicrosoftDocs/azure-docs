@@ -4,7 +4,7 @@
 	services="storage" 
 	documentationCenter="dotnet" 
 	authors="tamram" 
-	manager="adinah"/>
+	manager="carmonm"/>
 
 <tags 
 	ms.service="storage" 
@@ -36,7 +36,7 @@ To troubleshoot client applications using Microsoft Azure Storage, you can use a
 
 	- **Storage logging** logs each request to the Azure Storage services to a server-side log. The log tracks detailed data for each request, including the operation performed, the status of the operation, and latency information. See [Storage Analytics Log Format](http://msdn.microsoft.com/library/azure/hh343259.aspx) for more information about the request and response data that is written to the logs by Storage Analytics.
 
-- **Azure Classic Portal**. You can configure metrics and logging for your storage account in the [Azure Classic Portal](manage.windowsazure.com). You can also view charts and graphs that show how your application is performing over time, and configure alerts to notify you if your application performs differently than expected for a specified metric. 
+- **Azure Classic Portal**. You can configure metrics and logging for your storage account in the [Azure Classic Portal](https://manage.windowsazure.com). You can also view charts and graphs that show how your application is performing over time, and configure alerts to notify you if your application performs differently than expected for a specified metric. 
 	
 	See [How to monitor a storage account](storage-monitor-storage-account.md) for information about configuring monitoring in the Azure Classic Portal.
 
@@ -88,7 +88,7 @@ In this tutorial, we'll use Message Analyzer to work with three different types 
 
 ### Configure server-side logging and metrics
 
-First, we'll need to configure Azure Storage logging and metrics, so that we have data from the client application to analyze. You can configure logging and metrics in a variety of ways - via the [Azure Classic Portal](manage.windowsazure.com), by using PowerShell, or programmatically. See [Enabling Storage Metrics and Viewing Metrics Data](http://msdn.microsoft.com/library/azure/dn782843.aspx) and [Enabling Storage Logging and Accessing Log Data](http://msdn.microsoft.com/library/azure/dn782840.aspx) on MSDN for details about configuring logging and metrics.
+First, we'll need to configure Azure Storage logging and metrics, so that we have data from the client application to analyze. You can configure logging and metrics in a variety of ways - via the [Azure Classic Portal](https://manage.windowsazure.com), by using PowerShell, or programmatically. See [Enabling Storage Metrics and Viewing Metrics Data](http://msdn.microsoft.com/library/azure/dn782843.aspx) and [Enabling Storage Logging and Accessing Log Data](http://msdn.microsoft.com/library/azure/dn782840.aspx) on MSDN for details about configuring logging and metrics.
 
 **Via the Azure Classic Portal**
 
@@ -172,7 +172,7 @@ See [Using the Network Tracing Features](http://technet.microsoft.com/library/jj
 
 Once your application has been running for a period of time, you can review the metrics charts that appear in the Azure Classic Portal to observe how your service has been performing. First, we'll add the **Success Percentage** metric to the Monitoring page:
 
-1. Navigate to the Dashboard for your storage account in the [Azure Classic Portal](manage.windowsazure.com), then select **Monitor** to view the monitoring page.
+1. Navigate to the Dashboard for your storage account in the [Azure Classic Portal](https://manage.windowsazure.com), then select **Monitor** to view the monitoring page.
 2. Click **Add Metrics** to display the **Choose Metrics** dialog.
 3. Scroll down to find the **Success Percentage** group, expand it, then select **Aggregate**, as shown in the picture below. This metric aggregates success percentage data from all Blob operations.
 
@@ -194,7 +194,7 @@ You can use the AzCopy command-line tool to download these server-side log files
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-AzCopy is available for download on the [Azure Downloads](http://azure.microsoft.com/downloads/) page. For details about using AzCopy, see [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md).
+AzCopy is available for download on the [Azure Downloads](https://azure.microsoft.com/downloads/) page. For details about using AzCopy, see [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md).
 
 For additional information about downloading server-side logs, see [Enabling Storage Logging and Accessing Log Data](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata). 
 

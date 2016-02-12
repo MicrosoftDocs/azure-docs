@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Continous export of telemetry from Application Insights" 
+	pageTitle="Continuous export of telemetry from Application Insights" 
 	description="Export diagnostic and usage data to storage in Microsoft Azure, and download it from there." 
 	services="application-insights" 
     documentationCenter=""
@@ -19,7 +19,7 @@
 
 Want to do some customised analysis on your telemetry? Or maybe you'd like an email alert on events with specific properties? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
 
-Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](http://azure.microsoft.com/pricing/details/application-insights/).
+Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](https://azure.microsoft.com/pricing/details/application-insights/).
 
 (If you just want to do a [one-off export](app-insights-metrics-explorer.md#export-to-excel) of what you see on a metrics or search blade, click Export at the top of the blade. And if you'd like to see data in Power BI, use [the adapter](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) - which *doesn't* use Continuous Export.)
 
@@ -152,7 +152,7 @@ The continuous export will restart.
  * Note that this isn't the standard way to use Power BI. There's [an adaptor](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) which doesn't require Continuous Export.
 
 
-On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.
+On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.
 
 
 

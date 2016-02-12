@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="ms-prkhad"
     manager=""
-    editor=""/>
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="12/04/2015"
-    ms.author="robinsh"/>
+    ms.author="prkhad"/>
 
 # Azure Premium Storage: Design for High Performance
 
@@ -457,7 +457,7 @@ Note the follow key things that are in line with the design guidelines discussed
 -   Multiple threads performing random writes.
 
 Run the following command to kick off the FIO test for 30 seconds,  
-				
+
 	sudo fio --runtime 30 fiowrite.ini
 
 While the test runs, you will be able to see the number of write IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering its maximum write IOPS limit of 50,000 IOPS.  
@@ -567,6 +567,6 @@ Learn more about Azure Premium Storage:
 
 For SQL Server users, read articles on Performance Best Practices for SQL Server:
 
-- [Performance Best Practices for SQL Server in 
-- Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133149.aspx) 
+- [Performance Best Practices for SQL Server in
+- Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133149.aspx)
 - [Azure Premium Storage provides highest performance for SQL Server in Azure VM](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)  

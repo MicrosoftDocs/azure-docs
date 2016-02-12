@@ -1,47 +1,45 @@
 ## Send interactive messages from simulated device
 
-In this section, you'll modify the simulated device application to send interactive device-to-cloud messages to the IoT hub.
+In this section, you'll modify the simulated device application you created in the [Get started with IoT Hub] tutorial to send interactive device-to-cloud messages to the IoT hub.
 
 1. In Visual Studio, in the **SimulatedDevice** project, add the following method to the **Program** class.
-   
-        private static async void SendDeviceToCloudInteractiveMessagesAsync()
-        {
-            while (true)
-            {
-                var interactiveMessageString = "Alert message!";
-                var interactiveMessage = new Message(Encoding.ASCII.GetBytes(interactiveMessageString));
-                interactiveMessage.Properties["messageType"] = "interactive";
-                interactiveMessage.MessageId = Guid.NewGuid().ToString();
 
-                await deviceClient.SendEventAsync(interactiveMessage);
-                Console.WriteLine("{0} > Sending interactive message: {1}", DateTime.Now, interactiveMessageString);
+    ```
+    private static async void SendDeviceToCloudInteractiveMessagesAsync()
+    {
+      while (true)
+      {
+        var interactiveMessageString = "Alert message!";
+        var interactiveMessage = new Message(Encoding.ASCII.GetBytes(interactiveMessageString));
+        interactiveMessage.Properties["messageType"] = "interactive";
+        interactiveMessage.MessageId = Guid.NewGuid().ToString();
 
-                Thread.Sleep(10000);
-            }
-        }
+        await deviceClient.SendEventAsync(interactiveMessage);
+        Console.WriteLine("{0} > Sending interactive message: {1}", DateTime.Now, interactiveMessageString);
 
-    This method is very similar to the `SendDeviceToCloudMessagesAsync()` method that was created in the [Get started with IoT Hub], the only differences being that the `MessageId` system property, and a user property called `messageType` are now set.
-    The `MessageId` property is set to a globally unique id (guid), that will be used to deduplicate message receives. The `messageType` property is used to distinguish interactive from data point messages. This information is passed in message properties, instead that in the message body, so that the event processor in the back end does not have to deserialize the whole message just to perform routing.
+        Thread.Sleep(10000);
+      }
+    }
+    ```
 
-> [AZURE.NOTE] It is important that the `MessageId`, used to deduplicate interactive messages, be created in the device, as intermittent network communications (or other failures) could result in multiple retrasmissions of the same message from the device. A semantic message id (e.g. a hash of the relevant message data fields) could also be used, as opposed to a guid.
+    This method is very similar to the **SendDeviceToCloudMessagesAsync** method in **SimulatedDevice** project. The only differences are that you now set the **MessageId** system property, and a user property called **messageType**.
+    The code assigns a globally unique identifier (guid) to the **MessageId** property, that Service Bus can use to deduplicate the messages it receives. The sample uses the **messageType** property to distinguish interactive from data point messages. The application passes this information in message properties instead of in the message body, so that the event processor does not need to deserialize the message to perform message routing.
+
+    > [AZURE.NOTE] It is important to create the **MessageId** used to deduplicate interactive messages in the device code because intermittent network communications, or other failures, could result in multiple retransmissions of the same message from that device. You can also use a semantic message id - such as a hash of the relevant message data fields - in place of a guid.
 
 2. Add the following method in the **Main** method right before the `Console.ReadLine()` line:
 
-        SendDeviceToCloudInteractiveMessagesAsync();
+    ````
+    SendDeviceToCloudInteractiveMessagesAsync();
+    ````
 
-> [AZURE.NOTE] For simplicity's sake, this tutorial does not implement any retry policy. In production code, it is reccommended to implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
+    > [AZURE.NOTE] For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
 
 <!-- Links -->
+[Transient Fault Handling]: https://msdn.microsoft.com/en-us/library/hh675232.aspx
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
-<!-- Images -->
-[10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
-[12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-[20]: ./media/iot-hub-getstarted-cloud-csharp/create-storage1.png
-[21]: ./media/iot-hub-getstarted-cloud-csharp/create-storage2.png
-[22]: ./media/iot-hub-getstarted-cloud-csharp/create-storage3.png
 
 
 

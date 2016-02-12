@@ -34,7 +34,7 @@ Make sure you have everything in place before you begin.
 
 ### Azure prerequisites
 
-- You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/).
+- You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/).
 - You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/storage-introduction.md).
 - You'll need an Azure virtual network so that Azure virtual machines will be connected to a network when you fail over from your primary site.
 
@@ -62,7 +62,7 @@ As part of Azure Site Recovery deployment you’ll install the Azure Site Recove
 	- *.blob.core.windows.net
 	- *.store.core.windows.net
 	
-- In addition allow the IP addresses described in [Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.
+- In addition allow the IP addresses described in [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.
 
 
 This graphic shows the different communication channels and ports used by Site Recovery for orchestration and replication

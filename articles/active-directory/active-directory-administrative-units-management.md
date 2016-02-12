@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="01/05/2016"
    ms.author="curtand"/>
 
 # Administrative units management in Azure AD - Public Preview

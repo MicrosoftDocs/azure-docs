@@ -227,4 +227,4 @@ To continue learning about v2.0 apps, head back to our [v2.0 developer guide](ac
 
 - [Azure-Samples on GitHub >>](https://github.com/Azure-Samples)
 - [Azure AD on Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- Azure AD documentation on [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+- Azure AD documentation on [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)

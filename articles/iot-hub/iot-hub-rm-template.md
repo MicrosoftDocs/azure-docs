@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create an IoT Hub using a Resource Manager template | Microsoft Azure"
-	description="Follow this tutorial to get started using Resource Manager templates to create an IoT Hub."
+	description="Follow this tutorial to get started using Resource Manager templates to create an IoT Hub with a C# program or PowerShell."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="dominicbetts"
@@ -24,11 +24,15 @@
 
 You can use Azure Resource Manager to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use a resource manager template to create an IoT hub from a C# program.
 
+> [AZURE.NOTE] Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model.
+
 In order to complete this tutorial you'll need the following:
 
 - Microsoft Visual Studio 2015.
 - An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] or later.
+
+> [AZURE.TIP] This article describes how to create a new IoT hub using a C# program and an ARM template. You can also use the [ARM template](#submit-a-template-to-create-an-iot-hub) in the current article with a PowerShell script instead of a C# program. The article [Using Azure PowerShell with Azure Resource Manager][lnk-powershell-arm] describes how to write a PowerShell script that uses an ARM template to create an Azure resource such as an IoT hub. 
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -38,7 +42,7 @@ In order to complete this tutorial you'll need the following:
 
 2. In Solution Explorer, right-click on your project and then click **Manage NuGet Packages**.
 
-3. In NuGet Package Manager, check **Include prerelease** and search for **Microsoft.Azure.Management.Resources**. Select version **2.18.11-preview**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
+3. In NuGet Package Manager, search for **Microsoft.Azure.Management.Resources**. Select version **2.18.11-preview**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
 
 4. In NuGet Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**. Select version **2.19.208020213**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
 
@@ -187,4 +191,5 @@ You can now complete the application by calling the **CreateIoTHub** and **ShowI
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-powershell-install]: https://azure.microsoft.com/en-us/blog/azps-1-0-pre/
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
+[lnk-azure-rm-overview]: ./resource-group-overview.md
+[lnk-powershell-arm]: ./powershell-azure-resource-manager.md

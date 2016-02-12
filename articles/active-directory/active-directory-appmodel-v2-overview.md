@@ -35,10 +35,10 @@ Choose your favorite platform below to build a v2.0 app using our open source li
 ## What's New	
 The conceptual information here will be useful in understanding what is & what isn't possible with v2.0 apps.
 
-- Learn about the [different types of v2.0 apps you can build](active-directory-v2-flows.md).
-- Current [limitations, restrictions and constraints](active-directory-v2-limitations.md).
-- If you're already familiar with Azure Active Directory, you should check out the [updates to our protocols & differences in the v2.0 app model](active-directory-v2-compare.md).
-- If you've built a v2.0 application during the 2015 preview period, be sure to [read about these protocol changes](active-directory-v2-preview-oidc-changes.md) to make sure your app keeps working.
+- If you've built an app during the app model v2.0 2015 preview period, be sure to [read about these protocol changes](active-directory-v2-preview-oidc-changes.md) to make sure your app keeps working.
+- Learn about the [types of apps you can build with app model v2.0](active-directory-v2-flows.md).
+- For developers familiar with Azure Active Directory, you should check out the [updates to our protocols & differences in the v2.0 app model](active-directory-v2-compare.md).
+- Current [preview limitations, restrictions and constraints](active-directory-v2-limitations.md).
 
 ## Reference
 These links will be useful for exploring the platform in depth:

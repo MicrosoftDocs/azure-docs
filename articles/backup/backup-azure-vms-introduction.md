@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Plan your VM backup infrastructure in Azure
 This article covers the key considerations that you should keep in mind when planning your virtual machine (VM) backup infrastructure. If you've [prepared your environment](backup-azure-vms-prepare.md), this is the next step before you begin [backing up your VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -91,7 +91,7 @@ Azure Backup does not encrypt data as a part of the backup process. However, you
 
 
 ## How are protected instances calculated?
-Azure virtual machines that are backed up through Azure Backup are subject to [Azure Backup pricing](http://azure.microsoft.com/pricing/details/backup/). The Protected Instances calculation is based on the *actual* size of the virtual machine, which is the sum of all the data in the virtual machine--excluding the “resource disk”.
+Azure virtual machines that are backed up through Azure Backup are subject to [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/). The Protected Instances calculation is based on the *actual* size of the virtual machine, which is the sum of all the data in the virtual machine--excluding the “resource disk”.
 
 You are *not* billed based on the maximum size that is supported for each data disk attached to the virtual machine, but on the actual data stored in the data disk. Similarly, the backup storage bill is based on the amount of data that is stored with Azure Backup, which is the sum of the actual data in each recovery point.
 

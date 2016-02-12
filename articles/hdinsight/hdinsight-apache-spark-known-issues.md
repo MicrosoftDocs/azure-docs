@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
-	ms.author="jgao"/>
+	ms.date="02/01/2016" 
+	ms.author="nitinme"/>
 
 # Known issues of Apache Spark in Azure HDInsight (Linux)
 
-This document keeps track of all the known issues for the Spark public preview.  
+This document keeps track of all the known issues for the HDInsight Spark public preview.  
 
 ##Livy leaks interactive session
  
@@ -54,6 +54,23 @@ Spark History Server is not started automatically after a cluster is created.
 
 Manually start the history server from Ambari. 
 
+##Error while loading a Notebooks larger than 2MB
+
+**Symptom:**
+
+You might see an error **`Error loading notebook`** when you load notebooks that are larger than 2MB.  
+
+**Mitigation:**
+
+If you get this error, it does not mean your data is corrupt or lost.  Your notebooks are still on disk in `/var/lib/jupyter`, and you can SSH into the cluster to access them. You can copy your notebooks from your cluster to your local machine (using SCP or WinSCP) as a backup to prevent the loss of any important data in the notebook. You can then SSH tunnel into your headnode at port 8001 to access Jupyter without going through the gateway.  From there, you can clear the output of your notebook and re-save it to minimize the notebook’s size.
+
+To prevent this error from happening in the future, you must follow some best practices:
+
+* It is important to keep the notebook size small. Any output from your Spark jobs that is sent back to Jupyter is persisted in the notebook.  It is a best practice with Jupyter in general to avoid running `.collect()` on large RDD’s or dataframes; instead, if you want to peek at an RDD’s contents, consider running `.take()` or `.sample()` so that your output doesn’t get too big.
+* Also, when you save a notebook, clear all output cells to reduce the size.
+
+
+
 ##Notebook initial startup takes longer than expected 
 
 **Symptom:** 
@@ -63,16 +80,6 @@ First statement in Jupyter notebook using Spark Magic could take more than a min
 **Mitigation:**
  
 No workaround. It takes a minute sometimes. 
-
-##Cannot customize core/memory configurations
-
-**Symptom:**
- 
-You cannot specify different core/memory configurations than the default from the Spark/Pyspark kernels. 
-
-**Mitigation:**
- 
-This feature is coming. 
 
 ##Jupyter notebook timeout in creating the session
 
@@ -122,6 +129,16 @@ This issue will be addressed in a future release.
 
     The first cell fails to register the sc.stop() method to be called when the notebook exits.  Under certain circumstances this could cause Spark resources to leak.  You can avoid this by making sure to run import atexit; atexit.register(lambda: sc.stop()) in those notebooks before stopping them.  If you have accidentally leaked resources, then follow the instructions above to kill leaked YARN applications.
      
+##Cannot customize core/memory configurations
+
+**Symptom:**
+ 
+You cannot specify different core/memory configurations than the default from the Spark/Pyspark kernels. 
+
+**Mitigation:**
+ 
+This feature is coming. 
+
 ## Permission issue in Spark log directory 
 
 **Symptom:**

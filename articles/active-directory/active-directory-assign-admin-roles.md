@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 # Assigning administrator roles in Azure Active Directory (Azure AD)
@@ -82,6 +82,6 @@ The global administrator has access to all administrative features. By default, 
 
 ## What's next
 
-- [Manage users](../active-directory-manage-users.md)
+- [Manage users](../active-directory-create-users.md)
 - [Manage passwords](active-directory-manage-passwords.md)
 - [Manage groups](active-directory-manage-groups.md)

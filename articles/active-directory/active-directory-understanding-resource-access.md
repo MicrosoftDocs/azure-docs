@@ -1,20 +1,20 @@
 <properties 
-                pageTitle="Understanding resource access in Azure?" 
-                description="This topic explains concepts about using subscription administrators to control resource access in the full Azure portal." 
-                services="active-directory" 
-                documentationCenter="" 
-                authors="markusvi" 
-                manager="stevenpo" 
-                editor=""/>
+    pageTitle="Understanding resource access in Azure?" 
+    description="This topic explains concepts about using subscription administrators to control resource access in the full Azure portal." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="markusvi" 
+    manager="stevenpo" 
+    editor=""/>
 
 <tags 
-                ms.service="active-directory" 
-                ms.workload="identity" 
-                ms.tgt_pltfrm="na" 
-                ms.devlang="na" 
-                ms.topic="article" 
-                ms.date="10/30/2015" 
-                ms.author="markusvi"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="01/26/2016" 
+    ms.author="markusvi"/>
 
 
 # Understanding resource access in Azure

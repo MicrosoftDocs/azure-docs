@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prepare to publish or deploy an Azure application from Visual Studio"
+   pageTitle="Prepare to publish or deploy an Azure application from Visual Studio | Microsoft Azure"
    description="Learn the procedures to set up cloud and storage account services and configure your Azure application."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/28/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Prepare to Publish or Deploy an Azure Application from Visual Studio

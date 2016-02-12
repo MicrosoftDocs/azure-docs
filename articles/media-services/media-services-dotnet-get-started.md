@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/17/2015"
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 
 # Get started with delivering content on demand using .NET SDK
+
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -59,13 +60,13 @@ The following are required to complete the tutorial.
 
 ##Download sample
 
-Get and run a sample from [here](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Get and run a sample from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Create a Media Services account using the portal
 
 1. In the Azure Classic Portal, click **New**, click **Media Service**, and then click **Quick Create**.
 
-![Media Services Quick Create](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+	![Media Services Quick Create](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
 2. In **NAME**, enter the name of the new account. A Media Services account name is all lower-case numbers or letters with no spaces, and is 3 - 24 characters in length.
 
@@ -108,7 +109,7 @@ To change the number of streaming reserved units, do the following:
 
 3. To specify the number of streaming units, click the SCALE tab, and then move the **reserved capacity** slider.
 
-![Scale page](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
+	![Scale page](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
 
 4. Press **SAVE** to save your changes.
 
@@ -130,7 +131,7 @@ The allocation of any new units takes around 20 minutes to complete.
 
 4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. Set the values for your Azure Media Services account name and account key, as shown in the following example. To obtain the account name and key information, open the Azure Classic Portal, select your media services account, and then click the **MANAGE KEYS** button.
 
-<configuration>
+		<configuration>
 		...
 		  <appSettings>
 		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
@@ -150,7 +151,7 @@ The allocation of any new units takes around 20 minutes to complete.
 		using System.Threading;
 		using System.IO;
 		using Microsoft.WindowsAzure.MediaServices.Client;
-		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+		
 
 6. Create a new folder under the projects directory and copy an .mp4 or .wmv file that you want to encode and stream or progressively download. In this example, the "C:\VideoFiles" path is used.
 
@@ -256,7 +257,7 @@ To take advantage of dynamic packaging, you need to do the following:
 - Encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files.  
 - Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content.
 
-The following code shows how to submit an encoding job. The job contains one task that specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Azure Media Encoder**. The code submits the job and waits until it is completed.
+The following code shows how to submit an encoding job. The job contains one task that specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Media Encoder Standard**. The code submits the job and waits until it is completed.
 
 Once the job is completed, you would be able to stream your asset or progressively download MP4 files that were created as a result of transcoding.
 Note that you do not need to have more than 0 streaming units in order to progressively download MP4 files.

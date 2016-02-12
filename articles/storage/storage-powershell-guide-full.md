@@ -12,18 +12,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/24/2016"
 	ms.author="robinsh"/>
 
 # Using Azure PowerShell with Azure Storage
 
 ## Overview
 
-In this guide, we’ll explore how to use the [Azure Service Management Cmdlets for Storage](https://msdn.microsoft.com/library/azure/dn806401.aspx) to perform a variety of development and administration tasks with Azure Storage.
+Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. It is a task-based command-line shell and scripting language designed especially for system administration. With PowerShell, you can easily control and automate the administration of your Azure services and applications. For example, you can use the cmdlets to perform the same tasks that you can perform through the [Azure Portal](https://portal.azure.com).
 
-Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. It is a task-based command-line shell and scripting language designed especially for system administration. With PowerShell, you can easily control and automate the administration of your Azure services and applications. For example, you can use the cmdlets to perform the same tasks that you can perform through the [Azure Portal](portal.azure.com).
+In this guide, we’ll explore how to use the [Azure Storage Cmdlets](https://msdn.microsoft.com/library/azure/mt269418.aspx) to perform a variety of development and administration tasks with Azure Storage.
 
-This guide assumes that you have prior experience using [Azure Storage](http://azure.microsoft.com/documentation/services/storage/) and [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). The guide provides a number of scripts to demonstrate the usage of PowerShell with Azure Storage. You should update the script variables based on your configuration before running each script.
+This guide assumes that you have prior experience using [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) and [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). The guide provides a number of scripts to demonstrate the usage of PowerShell with Azure Storage. You should update the script variables based on your configuration before running each script.
 
 The first section in this guide provides a quick glance at Azure Storage and PowerShell. For detailed information and instructions, start from the [Prerequisites for using Azure PowerShell with Azure Storage](#prerequisites-for-using-azure-powershell-with-azure-storage).
 
@@ -32,7 +32,7 @@ The first section in this guide provides a quick glance at Azure Storage and Pow
 
 This section shows you how to access Azure Storage via PowerShell in 5 minutes.
 
-**New to Azure:** Get a Microsoft Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [Free Trial](http://azure.microsoft.com/pricing/free-trial/), [Purchase Options](http://azure.microsoft.com/pricing/purchase-options/), and [Member Offers](http://azure.microsoft.com/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs).
+**New to Azure:** Get a Microsoft Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [Free Trial](https://azure.microsoft.com/pricing/free-trial/), [Purchase Options](https://azure.microsoft.com/pricing/purchase-options/), and [Member Offers](https://azure.microsoft.com/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs).
 
 See [Manage Accounts, Subscriptions, and Administrative Roles](https://msdn.microsoft.com/library/azure/hh531793.aspx) for more information about Azure subscriptions.
 
@@ -106,7 +106,7 @@ See [Manage Accounts, Subscriptions, and Administrative Roles](https://msdn.micr
 			Add-AzureAccount
 				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
 		
-		b. To locate and copy your subscription name in the [Azure Portal](portal.azure.com), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
+		b. To locate and copy your subscription name in the [Azure Portal](https://portal.azure.com), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
 		
 		![Azure Portal][Image2]
 		  
@@ -455,7 +455,7 @@ The following example demonstrates how to add entities to a table. The example s
     Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row1 -Name Chris -Id 1
     Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Jessie -Id 2
     Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row1 -Name Christine -Id 3
-    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Steven -Id 4
+    Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row2 -Name Steven -Id 4
 
 #### How to query table entities
 To query a table, use the [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) class. The following example assumes that you’ve already run the script given in the How to add entities section of this guide. The example first establishes a connection to Azure Storage using the storage context, which includes the storage account name and its access key. Next, it tries to retrieve the previously created “Employees” table using the [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) cmdlet. Calling the [New-Object](http://technet.microsoft.com/library/hh849885.aspx) cmdlet on the Microsoft.WindowsAzure.Storage.Table.TableQuery class creates a new query object. The example looks for the entities that have an ‘ID’ column whose value is 1 as specified in a string filter. For detailed information, see [Querying Tables and Entities](http://msdn.microsoft.com/library/azure/dd894031.aspx). When you run this query, it returns all entities that match the filter criteria.
@@ -650,7 +650,7 @@ Use the Remove-AzureStorageTableStoredAccessPolicy cmdlet to delete a stored acc
 
 
 ## How to use Azure Storage for U.S. government and Azure China
-An Azure environment is an independent deployment of Microsoft Azure, such as [Azure Government for U.S. government](http://azure.microsoft.com/features/gov/), [AzureCloud for global Azure](https://manage.windowsazure.com), and [AzureChinaCloud for Azure operated by 21Vianet in China](http://www.windowsazure.cn/). You can deploy new Azure environments for U.S government and Azure China.
+An Azure environment is an independent deployment of Microsoft Azure, such as [Azure Government for U.S. government](https://azure.microsoft.com/features/gov/), [AzureCloud for global Azure](https://manage.windowsazure.com), and [AzureChinaCloud for Azure operated by 21Vianet in China](http://www.windowsazure.cn/). You can deploy new Azure environments for U.S government and Azure China.
 
 To use Azure Storage with AzureChinaCloud, you need to create a storage context that is associated with AzureChinaCloud. Follow these steps to get you started:
 
@@ -666,7 +666,7 @@ To use Azure Storage with AzureChinaCloud, you need to create a storage context 
 
     	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
 
-To use Azure Storage with [U.S. Azure Government](http://azure.microsoft.com/features/gov/), you should define a new environment and then create a new storage context with this environment:
+To use Azure Storage with [U.S. Azure Government](https://azure.microsoft.com/features/gov/), you should define a new environment and then create a new storage context with this environment:
 
 1. Call the [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) cmdlet to create a new Azure environment for your private datacenter.
 
@@ -684,7 +684,7 @@ For more information, see:
 ## Next Steps
 In this guide, you've learned how to manage Azure Storage with Azure PowerShell. Here are some related articles and resources for learning more about them.
 
-- [Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
+- [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 - [Azure Storage PowerShell Cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 - [Windows PowerShell Reference](https://msdn.microsoft.com/library/ms714469.aspx)
 

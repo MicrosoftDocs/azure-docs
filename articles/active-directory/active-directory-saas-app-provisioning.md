@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Automated SaaS App User Provisioning in Azure AD | Microsoft Azure"
-   description="An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Automated SaaS App User Provisioning in Azure AD | Microsoft Azure"
+    description="An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/08/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/09/2016"
+    ms.author="liviodlc"/>
 
 #Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory
 
@@ -69,7 +69,7 @@ For most SaaS apps, provisioning is outbound-only, which means that users are wr
 
 **How can I submit feedback to the engineering team?**
 
-Please contact us through the [Azure Active Directory feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory).
+Please contact us through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ##How Does Automated Provisioning Work?
 
@@ -104,6 +104,14 @@ Click on an app to see a tutorial on how to configure automated provisioning for
 
 In order for an application to support automated user provisioning, it must first provide the necessary endpoints that allow for external programs to automate the creation, maintenance, and removal of users. Therefore, not all SaaS apps are compatible with this feature. For apps that do support this, the Azure AD engineering team will then be able to build a provisioning connector to those apps, and this work is prioritized by the needs of current and prospective customers.
 
-To contact the Azure AD engineering team to request provisioning support for additional applications, please submit a message through the [Azure Active Directory feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory).
+To contact the Azure AD engineering team to request provisioning support for additional applications, please submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
+- [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
+- [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
+- [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
+- [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)

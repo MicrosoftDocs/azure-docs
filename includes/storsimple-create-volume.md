@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 11/16/15-->
+<!--author=SharS last changed: 02/04/2016-->
 
 #### To create a volume
 
@@ -9,9 +9,10 @@
    2. Specify the **Provisioned Capacity** for your volume in GB or TB. The volume capacity must be between 1 GB and 64 TB for a physical device.
    3. On the drop-down list, select the **Usage Type** for your volume. 
    4. If you are using this volume for archival data, select the **Use this volume for less frequently accessed archival data** check box. For all other use cases, simply select **Tiered Volume**. (Tiered volumes were formerly called primary volumes).
-   4. Click the arrow icon ![arrow-icon](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) to go to the next page.
 
-        ![Add volume](./media/storsimple-create-volume/AddVolume1-include.png)
+        ![Add volume](./media/storsimple-create-volume/ScreenshotUpdate1VolumeFlow.png)
+
+    4. Click the arrow icon ![arrow-icon](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) to go to the next page.
 
 3. In the **Additional Settings** dialog box, add a new access control record (ACR):
    1. Supply a **Name** for your ACR.
@@ -26,5 +27,5 @@
 
 ![Video available](./media/storsimple-create-volume/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how to create a StorSimple volume, click [here](http://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
+To watch a video that demonstrates how to create a StorSimple volume, click [here](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 

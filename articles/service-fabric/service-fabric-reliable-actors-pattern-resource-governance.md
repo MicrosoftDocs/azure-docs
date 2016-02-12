@@ -16,28 +16,29 @@
    ms.date="11/13/2015"
    ms.author="vturecek"/>
 
-# Reliable Actors design pattern: resource governance
+# Reliable Actors design pattern: Resource governance
 
-This pattern and related scenarios are easily recognizable by developers—enterprise or otherwise—who have constrained resources on-premises or in the cloud, which they cannot immediately scale or that wish to ship large scale applications and data to the cloud.
+This pattern and related scenarios are easily recognizable by developers--enterprise or otherwise--who have constrained resources on-premises or in the cloud that they cannot immediately scale. They are also familiar to developers who want to ship large-scale applications and data to the cloud.
 
-In the enterprise these constrained resources, such as databases, run on scale-up hardware. Anyone with a long enterprise history knows this is a common situation on-premises. Even at cloud scale, we have seen this situation occur when a cloud service has attempted to exceed the 64K TCP limit of connections between an address/port tuple, or when attempting to connect to a cloud-based database that limits the number of concurrent connections.
+In the enterprise, these constrained resources, such as databases, run on scale-up hardware. Anyone with a long enterprise history knows that this is a common situation on-premises. Even at cloud scale, developers see this situation occur when a cloud service attempts to exceed the 64,000 TCP limit of connections between an address/port tuple. This also occurs in attempts to connect to a cloud-based database that limits the number of concurrent connections.
 
-Typically in the past, this was solved by throttling through message-based middleware or by custom-built pooling and façade mechanisms. These are hard to get right, especially when we need to scale the middle tier but still maintain the correct connection counts. It’s just fragile and complex.
+In the past, this was typically solved by throttling through message-based middleware or by using custom-built pooling and façade mechanisms. These are hard to get right, though, especially when you need to scale the middle tier but still maintain the correct connection counts. It’s a fragile and complex solution.
 
-In fact, like the Smart Cache pattern, this pattern spans across multiple scenarios and customers who already have working systems with constrained resources. They are building systems where they need to scale-out not just the services, but their state in-memory as well as the persisted state in stable storage.
+Like the smart cache pattern, this pattern spans multiple scenarios and customers who already have working systems with constrained resources. Their systems need to scale out not just services, but also their state in-memory, as well as the persisted state in stable storage.
 
 The diagram below illustrates this scenario:
 
-![][1]
+![Stateless actors, partitioning, and constrained resources][1]
 
-## Modeling cache scenarios with actors
+## Model cache scenarios with actors
 
-Essentially we model access to resources as an actor or multiple actors that act as proxies (say connection, for example) to a resource or a group of resources. You can then either directly manage the resource through individual actors or use a coordination actor that manages the resource actors.
-To make this more concrete, we will address the common need of having to work against a partitioned (aka sharded) storage tier for performance and scalability reasons.
-Our first option is pretty basic: we can use a static function to map and resolve our actors to downstream resources. Such a function can return, for example, a connection string with given input. It is entirely up to us how to implement that function. Of course, this approach comes with its own drawbacks such as static affinity that makes repartitioning resources or remapping an actor to resources very difficult.
-Here is a very simple example—we do modulo arithmetic to determine the database name using userId and use region to identify the database server.
+You can model access to resources by using an actor or multiple actors that act as proxies to a resource or a group of resources (a connection, for example). You can then either manage the resource directly through individual actors or use a coordination actor that manages the resource actors.
 
-## Resource Governance code sample – static resolution
+To make this concept more concrete, we will address the common need to work against a partitioned (sharded) storage tier for reasons of performance and scalability. Your first option is fairly basic. You can use a static function to map and resolve your actors to downstream resources. Such a function can, for example, return a connection string with a given input. It is up to you how to implement that function. But this approach comes with drawbacks, such as static affinity that makes it difficult to repartition resources or remap actors to resources.
+
+Here is a simple example. We do modular arithmetic to determine the database name by using **userId**, and we use **region** to identify the database server.
+
+### Resource governance code sample: Static resolution
 
 ```csharp
 private static string _connectionString = "none";
@@ -53,16 +54,17 @@ private static string ResolveConnectionString(long userId, int region)
 }
 ```
 
-Simple yet not very flexible. Now let’s have a look at a more advanced and useful approach.
-First, we model the affinity between physical resources and actors. This is done through an actor called Resolver that understands the mapping between users, logical partitions, and physical resources. Resolver maintains its data in a persisted store, however it is cached for easy lookup. As we saw in the Exchange Rate sample earlier in the Smart Cache pattern, Resolver can proactively fetch the latest information using a timer. Once the user actor resolves the resource it needs to use, it caches it in a local variable called _resolution and uses it during its lifetime.
-We chose a look-up based resolution (illustrated below) over simple hashing or range hashing because of the flexibility it provides in operations such as scaling in/out or moving a user from one resource to another.
+This is simple, but it's not very flexible. Now let’s take a look at a more advanced and useful approach.
 
-![][2]
+First, model the affinity among physical resources and actors. This is done through an actor called a **resolver**. It understands the mapping among users, logical partitions, and physical resources. The resolver maintains its data in a persisted store, but it is cached so it can be looked up easily. As discussed in [the exchange rate sample in the smart cache pattern](service-fabric-reliable-actors-pattern-smart-cache.md), a resolver can proactively fetch the latest information by using a timer. Once the user actor resolves the resource it needs to use, it caches the resource in a local variable called **_resolution** and uses the resource during its lifetime.
 
-In the illustration above, we see that actor B23 is first resolving its resource (aka resolution) —DB1 and caches it. Subsequent operations can now use the cached resolution to access the constrained resource. Since the actors support single-threaded execution, developers no longer need to worry about concurrent access to the resource.
-The User and Resolver actors look like this:
+We chose a look-up-based resolution (illustrated below) over simple hashing or range hashing because of the flexibility it provides in operations. This can include scaling in or out and moving a user from one resource to another.
 
-## Resource Governance code sample – Resolver
+![A look-up resolver solution][2]
+
+In the illustration above, you can see that the actor B23 first resolves its resource (resolution) **DB1** and caches it. Subsequent operations can now use the cached resolution to access the constrained resource. Since the actors support single-threaded execution, developers no longer need to worry about concurrent access to the resource. See the following code sample for a look at the user and resolver actors.
+
+### Resource governance code sample: Resolver
 
 ```csharp
 public interface IUser : IActor
@@ -105,7 +107,7 @@ public class User : StatefulActor<UserState>, IUser
 }
 ```
 
-Resource Governance – Resolver Example
+#### Resource governance: Resolver example
 
 ```csharp
 public interface IResolver : IActor
@@ -147,17 +149,18 @@ public class Resolver : StatefulActor<ResolverState>, IResolver
 }
 ```
 
-## Accessing resources with finite capability
+## Access resources that have finite capability
 
-Now let’s look at another example; exclusive access to precious resources such as DB, storage accounts, and file systems with finite throughput capability.
-Our scenario is as follows: we would like to process events using an actor called EventProcessor, which is responsible for processing and persisting the event, in this case to a .CSV file for simplicity. While we can follow the partitioning approach discussed above to scale-out our resources, we will still have to deal with the concurrency issues. That is why we chose a file-based example to illustrate this particular point—writing to a single file from multiple actors will raise concurrency issues. To address the problem we introduce another actor called EventWriter that has exclusive ownership of the constrained resources. The scenario is illustrated below:
+Now let’s look at another example: exclusive access to precious resources, such as databases, storage accounts, and file systems that have finite throughput capability.
+In this scenario, we want to process events by using an actor called EventProcessor. This actor is responsible for processing and persisting the event, in this case to a .csv file for simplicity. We can follow the partitioning approach discussed above to scale out your resources, but we still have to deal with concurrency issues. We chose a file-based example to illustrate this point because writing to a single file from multiple actors will raise concurrency issues. To address this problem, we introduce another actor, called EventWriter, that has exclusive ownership of the constrained resources. The scenario is illustrated below:
 
-![][3]
+![Writing and processing events by using EventWriter and EventProcessor][3]
 
-We mark EventProcessor actors as “Stateless Workers,” which allows the runtime to scale them across the cluster as necessary. Hence we didn’t use any identifiers in the illustration above for these actors. In other words, stateless actors are a pool of workers maintained by the runtime.
-In the sample code below, the EventProcessor actor does two things: it first decides which EventWriter (therefore resource) to use, and invokes the chosen actor to write the processed event. For simplicity, we are choosing Event Type as the identifier for the EventWriter actor. In other words, there will be one and only one EventWriter for this Event Type providing single-threaded and exclusive access to the resource.
+We mark EventProcessor actors as stateless workers, which allows the runtime to scale them across the cluster as necessary. Note that we didn’t use any identifiers in the illustration above for these actors. Stateless actors constitute a pool of workers maintained by the runtime.
 
-## Resource Governance code sample – Event Processor
+In the sample code below, the EventProcessor actor does two things. First, it decides which EventWriter (and therefore resource) to use, and then it invokes the chosen actor to write the processed event. For simplicity, we chose the event type as the identifier for the EventWriter actor. Thus, there is only one EventWriter for this event type, and it provides single-threaded and exclusive access to the resource.
+
+### Resource governance code sample: EventProcessor
 
 ```csharp
 public interface IEventProcessor : IActor
@@ -184,8 +187,9 @@ public class EventProcessor : StatelessActor, IEventProcessor
 }
 ```
 
-Now let’s have a look at the EventWriter actor. It really doesn’t do much apart from control exclusive access to the constrained resource, in this case the file and writing events to it.
-## Resource Governance code sample – Event Writer
+Now let’s look at the EventWriter actor. It controls exclusive access to the constrained resource--in this case, the file and writing events to it--but it doesn't do much more.
+
+### Resource governance code sample: EventWriter
 
 ```csharp
 public interface IEventWriter : IActor
@@ -228,8 +232,9 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
  }
 ```
 
-Having a single actor responsible for the resource allows us to add capabilities such as buffering. We can buffer incoming events and write these events periodically using a timer or when our buffer is full. Here is a simple timer based example:
-## Resource Governance code sample – Event Writer with buffer
+By using a single actor responsible for the resource, you can add capabilities such as buffering. You can buffer incoming events and write those events periodically by using a timer or when the buffer is full. The following code sample provides a simple timer-based example.
+
+### Resource governance code sample: EventWriter with buffer
 
 ```csharp
 [DataMember]
@@ -290,9 +295,9 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 }
 ```
 
-While the code above will work fine, clients will not know whether their event made it to the underlying store. To allow buffering and let clients be aware what is happening to their request, we introduce the following approach to let clients wait until their event is written to the .CSV file:
+The code above will work well, but clients won't know whether their event made it to the underlying store. To allow buffering and provide clients with information about what is happening to their request, the following approach lets clients wait until their event is written to the .csv file.
 
-## Resource Governance code sample – Async batching
+### Resource governance code sample: Asynchronous batching
 
 ```csharp
 public class AsyncBatchExecutor
@@ -331,10 +336,11 @@ public class AsyncBatchExecutor
 }
 ```
 
-We will use this class to create and maintain a list of incomplete tasks (to block clients) and complete them in one go once we write the buffered events to storage.
-In the EventWriter class, we need to do three things: mark the actor class as Reentrant, return the result of SubmitNext(), and Flush our timer. The modified code is as follows:
+We will use this class to create and maintain a list of incomplete tasks (to block clients). We will complete them in one pass after we have written the buffered events to storage.
 
-## Resource Governance code sample – Buffering with async batching
+In the EventWriter class, we need to do three things: mark the actor class as reentrant, return the result of **SubmitNext()**, and flush our timer. See the modified code below.
+
+### Resource governance code sample: Buffering with asynchronous batching
 
 ```csharp
 public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
@@ -396,34 +402,34 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 }
 ```
 
-Seem easy? Well it is. But the ease belies the enterprise power. With this architecture we get:
+The ease of this approach belies the enterprise power. By using this architecture, you get:
 
-* Location independent resource addressing.
-* Tuneable pool size based simply on changing the number of actors that act on behalf a resource.
-* Client side coordinated pool usage (as depicted) or server side (just imagine a single actor in front of each of those pools in the picture).
-* Scalable pool addition (just add actors representing the new resource).
-* Actor (as we demonstrated earlier) can cache results from backend resource on demand or pre-cache using a timer reducing the need to hit the backend resource.
+* Location-independent resource addressing.
+* Tunable pool size based simply on changing the number of actors that act on behalf of a resource.
+* Client-side coordinated pool usage (as depicted) or server-side (imagine a single actor in front of each of those pools in the image).
+* Scalable pool addition (just add actors that represent the new resource).
+* Actors that can cache results from back-end resources on demand or pre-cache by using a timer, as demonstrated earlier. This reduces the need to hit back-end resources.
 * Efficient asynchronous dispatch.
-* A coding environment that will be familiar to any developer not just middleware specialists.
+* A coding environment that's familiar to any developer, not just middleware specialists.
 
-This pattern is very common in scenarios where developers either have constrained resources they need to develop against or building large scale-out systems.
+This pattern is common in scenarios where developers have constrained resources that they need to develop against. It is also common when developers build large scale-out systems.
 
 
-## Next Steps
+## Next steps
 
-[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
+[Pattern: Smart cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 
-[Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
+[Pattern: Distributed networks and graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
-[Pattern: Stateful Service Composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
+[Pattern: Stateful service composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
 [Pattern: Internet of Things](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
-[Pattern: Distributed Computation](service-fabric-reliable-actors-pattern-distributed-computation.md)
+[Pattern: Distributed computation](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
-[Some Anti-patterns](service-fabric-reliable-actors-anti-patterns.md)
+[Some antipatterns](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
+[Introduction to Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png

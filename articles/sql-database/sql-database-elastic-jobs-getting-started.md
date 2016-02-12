@@ -435,7 +435,7 @@ You can now use Excel’s powerful data functions. You can use the connection st
 ### Cost
 There is no additional charge for using the Elastic Database Query feature. However, at this time this feature is available only on premium databases as an end point, but the shards can be of any service tier.
 
-For pricing information see [SQL Database Pricing Details](http://azure.microsoft.com/pricing/details/sql-database/).
+For pricing information see [SQL Database Pricing Details](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

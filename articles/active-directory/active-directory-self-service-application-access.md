@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser"/>
 
 #Self-service application access and delegated management with Azure Active Directory
 
 Enabling self-service capabilities for end users is a common scenario for enterprise IT. Lots of users, lots of applications, and the person who is best-informed to make access grant decisions may not be the directory administrator. Often the best person to decide who can access an application is a team lead or other delegated administrator. But at the end of the day, it’s the user who uses the app, and the user knows what they need to be able to do their job.
 
-Self-service application access is a feature of [Azure Active Directory Premium](http://azure.microsoft.com/trial/get-started-active-directory/) that allow directory administrators to:
+Self-service application access is a feature of [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) that allow directory administrators to:
 
 * Enable users to request access to applications using a “Get more applications” tile in the [Azure AD access panel](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 * Set which applications users can request access to
 * Set whether or not an approval is required for users to be able to self-assign access to an application
 * Set who should approve the requests and manage access for each application
 
-Today this capability is supported for all pre-integrated and custom apps that support federated or password-based single sign-on in the [Azure Active Directory application gallery](http://azure.microsoft.com/marketplace/active-directory/all/), including apps like Salesforce, Dropbox, Google Apps, and more.
+Today this capability is supported for all pre-integrated and custom apps that support federated or password-based single sign-on in the [Azure Active Directory application gallery](https://azure.microsoft.com/marketplace/active-directory/all/), including apps like Salesforce, Dropbox, Google Apps, and more.
 This article describes how to:
 
 * Configure self-service application access for end users, including configuring an optional approval workflow 
@@ -101,6 +101,9 @@ The **Configure** tile is only shown if the application was configured by the IT
 * **Users are automatically signed in using separate accounts that I manage** – In this mode, the assigned users not be required to enter or know their app-specific credentials when signing into the application. Instead, the approver sets the credentials for each user after assigning access using the **Add User** tile. When the user clicks on the application in their access panel or Office 365, they will be automatically signed in using the credentials set by the approver. This corresponds to the password SSO case where the [administrators manage credentials](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
 * **Users are automatically signed in using a single account that I manage** -  This is a special case, and is appropriate to use when all assigned users need to be granted access using a single shared account. The most common use case for this is social media applications, where an organization has a single “company” account and multiple users need to make updates to that account. This also corresponds to the password SSO case where the [administrators manage credentials](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). However, after selecting this option, the approver will be prompted to enter the username and password for the single shared account. Once completed, all assigned users will be signed in using this account when clicking on the application in their Azure AD access panels or Office 365.
+
+##Additional Resources
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG

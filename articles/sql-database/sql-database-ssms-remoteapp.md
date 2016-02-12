@@ -1,19 +1,18 @@
 <properties 
 	pageTitle="Connect to SQL Database using SQL Server Management Studio in Azure RemoteApp | Microsoft Azure" 
-	description="Use this tutorial to learn how to use SQL Server Management Studio in Azure RemoteApp for security and performance when connecting to SQL Database" 
+	description="Use this tutorial to learn how to use SQL Server Management Studio in Azure RemoteApp for security and performance when connecting to SQL Database"
 	services="sql-database" 
-	documentationCenter="" 
+	documentationCenter=""
 	authors="adhurwit" 
-	manager=""
-	tags=""//>
+	manager=""/>
 
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/20/2016" 
 	ms.author="adhurwit"/>
 
 # Use SQL Server Management Studio in Azure RemoteApp to connect to SQL Database
@@ -145,7 +144,7 @@ When you go to a user in your Azure Active Directory, you can then go to the Act
 
 After completing all the above steps, you will be able to run the Azure RemoteApp client and log-in with an assigned user. You will be presented with SSMS as one of your applications, and you can run it as you would if it were installed on your computer with access to Azure SQL Server. 
 
-For more information on how to make the connection to SQL Database, see [Connect with SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+For more information on how to make the connection to SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md).
 
 
 That's everything for now. Enjoy!

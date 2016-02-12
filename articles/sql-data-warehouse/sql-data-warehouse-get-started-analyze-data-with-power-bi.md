@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Visualize SQL Data Warehouse data with Power BI | Microsoft Azure"
-    description="Visualize SQL Data Warehouse data with Power BI"
-    services="sql-data-warehouse"
-    documentationCenter="NA"
-    authors="lodipalm"
-    manager="barbkess"
-    editor=""/>
+   pageTitle="Visualize SQL Data Warehouse data with Power BI | Microsoft Azure"
+   description="Visualize SQL Data Warehouse data with Power BI"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""/>
 
 <tags
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/21/2015"
-    ms.author="lodipalm"/>
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Visualize data with Power BI
 

@@ -1,6 +1,6 @@
-<properties 
-   pageTitle="Create custom probe for Application Gateway using PowerShell in the classic deployment model | Microsoft Azure"
-   description="Learn how to create custom probe for Application Gateway using PowerShell in the classic deployment model"
+<properties
+   pageTitle="Create a custom probe for Application Gateway by using PowerShell in the classic deployment model | Microsoft Azure"
+   description="Learn how to create a custom probe for Application Gateway by using PowerShell in the classic deployment model"
    services="application-gateway"
    documentationCenter="na"
    authors="joaoma"
@@ -17,7 +17,7 @@
    ms.date="12/17/2015"
    ms.author="joaoma" />
 
-# Create custom probe for Application Gateway (classic) using PowerShell
+# Create a custom probe for Azure Application Gateway (classic) by using PowerShell
 
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
@@ -28,19 +28,19 @@
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 
-## Create a new application gateway 
+## Create a new application gateway
 
-There is an order of steps you will have to follow to create an Application Gateway:
+To create an application gateway:
 
-1. Create Application Gateway resource.
-2. Create configuration XML file or configuration object.
-3. Commit the configuration to newly created Application Gateway resource.
+1. Create an application gateway resource.
+2. Create a configuration XML file or a configuration object.
+3. Commit the configuration to the newly created application gateway resource.
 
-### Create an application gateway Resource
+### Create an application gateway resource
 
-To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
+To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
-The following example creates a new Application Gateway using a virtual network called "testvnet1" and a subnet called "subnet-1".
+The following example creates a new application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1".
 
 
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -55,7 +55,7 @@ The following example creates a new Application Gateway using a virtual network 
  *Description*, *InstanceCount*, and *GatewaySize* are optional parameters.
 
 
-**To validate** that the gateway was created, you can use the `Get-AzureApplicationGateway` cmdlet.
+To validate that the gateway was created, you can use the **Get-AzureApplicationGateway** cmdlet.
 
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
@@ -69,18 +69,18 @@ The following example creates a new Application Gateway using a virtual network 
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Small, Medium and Large.
+>[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Small, Medium, and Large.
 
 
- *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state.
+ *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state.
 
 ## Configure an application gateway
 
-You can configure Application Gateway using XML or a configuration object.
+You can configure the application gateway by using XML or a configuration object.
 
-## Configure an application gateway using XML
+## Configure an application gateway by using XML
 
-In the following example, you will use an XML file to configure all Application Gateway settings and commit them to the Application Gateway resource.  
+In the following example, you will use an XML file to configure all application gateway settings and commit them to the application gateway resource.  
 
 ### Step 1  
 
@@ -149,41 +149,41 @@ Copy the following text to Notepad.
 	</ApplicationGatewayConfiguration>
 
 
-Edit the values between the parenthesis for the configuration items. Save the file with extension .xml
+Edit the values between the parentheses for the configuration items. Save the file with extension .xml.
 
-The following example shows how to use a configuration file to set up the Application Gateway to load balance Http traffic on public port 80 and send network traffic to back end port 80 between 2 IP addresses using custom probe.
+The following example shows how to use a configuration file to set up the application gateway to load balance HTTP traffic on public port 80 and send network traffic to back-end port 80 between two IP addresses by using a custom probe.
 
->[AZURE.IMPORTANT] The protocol item Http or Https is case sensitive.
+>[AZURE.IMPORTANT] The protocol item Http or Https is case-sensitive.
 
 
-A new configuration item <Probe> is added to configure custom probes. 
+A new configuration item <Probe> is added to configure custom probes.
 
 The configuration parameters are:
 
-- **Name** - reference name for custom probe
-- **Protocol** - protocol used (possible values are Http or Https)
-- **Host** and **Path** - Complete URL path which is invoked by Application Gateway to determine health of the instance. For example: you have a web site http://contoso.com/ then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have successful HTTP response. 
-- **Interval** - configures the probe interval checks in seconds 
-- **Timeout** - defines the probe timeout for an HTTP response check
-- **UnhealthyThreshold** - the number of failed HTTP responses it's needed to flag the back end instance as *unhealthy*
+- **Name** - Reference name for custom probe.
+- **Protocol** - Protocol used (possible values are HTTP or HTTPS).
+- **Host** and **Path** - Complete URL path that is invoked by the application gateway to determine the health of the instance. For example, if you have a website http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.
+- **Interval** - Configures the probe interval checks in seconds.
+- **Timeout** - Defines the probe time-out for an HTTP response check.
+- **UnhealthyThreshold** - The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.
 
-The probe name is referenced in the <BackendHttpSettings> configuration to assign which back end pool will use custom probe settings.
+The probe name is referenced in the <BackendHttpSettings> configuration to assign which back-end pool will use custom probe settings.
 
-## Adding custom probe configuration to an existing application gateway
+## Add a custom probe configuration to an existing application gateway
 
-Changing the current configuration of an application gateway requires three steps: Get the current XML configuration file, modify to have custom probe and configure application gateway with the new XML settings.
+Changing the current configuration of an application gateway requires three steps: Get the current XML configuration file, modify to have a custom probe, and configure the application gateway with the new XML settings.
 
 ### Step 1
 
-Get the xml file using get-AzureApplicationGatewayConfig. This will export the configuration XML to be modified to add a probe setting
-	
+Get the XML file by using get-AzureApplicationGatewayConfig. This will export the configuration XML to be modified to add a probe setting.
+
 	get-AzureApplicationGatewayConfig -Name <application gateway name> -Exporttofile "<path to file>"
 
 
-### Step 2 
+### Step 2
 
-Open the XML file in a text editor. Add `<probe>` section after `<frontendport>`
-	
+Open the XML file in a text editor. Add a `<probe>` section after `<frontendport>`.
+
 	<Probes>
         <Probe>
             <Name>Probe01</Name>
@@ -195,8 +195,8 @@ Open the XML file in a text editor. Add `<probe>` section after `<frontendport>`
             <UnhealthyThreshold>5</UnhealthyThreshold>
         </Probe>
 
-On backendHttpSettings section of the XML, Add the probe name as it shows in the example below:
-    
+In the backendHttpSettings section of the XML, add the probe name as shown in the example below:
+
         <BackendHttpSettings>
             <Name>setting1</Name>
             <Port>80</Port>
@@ -206,20 +206,18 @@ On backendHttpSettings section of the XML, Add the probe name as it shows in the
             <Probe>Probe01</Probe>
         </BackendHttpSettings>
 
-Save XML file
+Save the XML file.
 
 
-### Step 3 
+### Step 3
 
-Update application gateway configuration with the new XML file using `Set-AzureApplicationGatewayConfig`. This will update your application gateway with the new configuration.
+Update the application gateway configuration with the new XML file by using **Set-AzureApplicationGatewayConfig**. This will update your application gateway with the new configuration.
 
 	set-AzureApplicationGatewayConfig -Name <application gateway name> -Configfile "<path to file>"
 
 
 ## Next steps
 
-If you want to configure SSL offload, see [Configure Application Gateway for SSL offload](application-gateway-ssl.md).
+If you want to configure Secure Sockets Layer (SSL) offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
 
-If you want to configure an Application Gateway to use with ILB, see [Create an Application Gateway with an Internal Load Balancer (ILB)](application-gateway-ilb.md).
-
-
+If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).

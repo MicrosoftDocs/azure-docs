@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Troubleshoot Database on server is not currently available for Azure SQL Database"
 	description="Steps to identify and resolve connection errors for Azure SQL Database."
 	services="sql-database"

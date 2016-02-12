@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/09/2015"
+    ms.date="01/06/2016"
     ms.author="torsteng;sidneyh" />
 
 # Elastic database query for cross-database queries (vertical partitioning)
 
 This document explains how to setup elastic query for cross-database querying scenarios (vertical partitioning) and how to perform your queries. For a definition of the vertical partitioning scenario, see [Azure SQL Database elastic database query overview (preview)](sql-database-elastic-query-overview.md).
+
+![Query across tables in different databases][1]
 
 ## Creating database objects
 
@@ -182,4 +184,7 @@ You can use regular SQL Server connection strings to connect your BI and data in
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png
+
+
 <!--anchors-->

@@ -41,13 +41,13 @@ If already have a static gateway connected to your virtual network, you can chan
 
 Before you begin configuration, verify that you have the following:
 
-- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 - Compatible VPN hardware for each on-premises location. Check [About VPN Devices for Virtual Network Connectivity](http://go.microsoft.com/fwlink/p/?linkid=615099) to verify if the device that you want to use is something that is known to be compatible.
 
 - An externally facing public IPv4 IP address for each VPN device. The IP address cannot be located behind a NAT. This is requirement.
 
-- The latest version of Azure PowerShell cmdlets. You can download and install the latest version from the Windows PowerShell section of the [Downloads](http://azure.microsoft.com/downloads/) page.
+- The latest version of Azure PowerShell cmdlets. You can download and install the latest version from the Windows PowerShell section of the [Downloads](https://azure.microsoft.com/downloads/) page.
 
 - Someone who is proficient at configuring your VPN hardware. You won't be able to use the auto-generated VPN scripts from the Azure Classic Portal to configure your VPN devices. This means you'll have to have a strong understanding of how to configure your VPN device, or work with someone who does.
 

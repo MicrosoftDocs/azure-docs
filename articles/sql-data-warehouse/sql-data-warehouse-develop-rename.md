@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/05/2015"
-   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Rename in SQL Data Warehouse
 While SQL Server supports database renaming via the stored procedure ```sp_renamedb```, SQL Data Warehouse uses DDL syntax to achieve the same goal.  The DDL command is ```RENAME OBJECT```.

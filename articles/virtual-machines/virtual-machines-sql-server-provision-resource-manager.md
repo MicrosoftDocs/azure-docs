@@ -45,11 +45,11 @@ In this tutorial, you will:
 
 - [Next steps](#Next)
 
-This tutorial assumes that you already have an Azure account. If you do not have an Azure account, visit [Azure free trial](http://azure.microsoft.com/pricing/free-trial/).
+This tutorial assumes that you already have an Azure account. If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a id="Provision">Provision a SQL VM image from the gallery with the resource manager deployment model
 
-1. Log in to the [Azure portal](http://portal.azure.com) using your account.
+1. Log in to the [Azure portal](https://portal.azure.com) using your account.
 1. On the Azure portal click **+New**. The portal will open the **New** blade. The SQL Server VM templates are in the **Compute** group of the Marketplace.
 
 1. In the **New** blade, click **Compute**.

@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/03/2015"
+   	ms.date="01/21/2016"
    	ms.author="nitinme"/>
 
 # Hadoop tutorial: Get started using Hadoop with Hive in HDInsight on Linux
@@ -31,7 +31,7 @@ This document gets you started quickly with Azure HDInsight on Linux by showing 
 
 Before you begin this Linux tutorial for Hadoop, you must have the following:
 
-- **An Azure subscription**: See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="provision"></a>Provision an HDInsight cluster on Linux
 
@@ -112,7 +112,7 @@ Ambari Views provide several utilities through a web page. In the following sect
 
 > [AZURE.NOTE] Ambari is a management and monitoring utility provided with Linux-based HDInsight clusters. Ambari has a lot of capabilities that won't be discussed in this document. For more information, see [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
-You can Ambari Views from the Azure Portal, select your HDInsight cluster and then select __Ambari Views__ from the __Quick Links__ section.
+To display Ambari Views from the Azure Portal, select your HDInsight cluster and then select __Ambari Views__ from the __Quick Links__ section
 
 ![quick links section](./media/hdinsight-hadoop-linux-tutorial-get-started/quicklinks.png)
 
@@ -186,9 +186,9 @@ Use the following steps from the Hive view to run a Hive query against data incl
     
     The other icons are as follows:
     
-        * Settings: The gear icon allows you to change Hive settings, such as setting `hive.execution.engine` or Tez parameters.
-        * Tez: Displays the Directed Acyclic Graph (DAG) that Tez used to perform the query. If you want to view the DAG for queries you've ran in the past, use the __Tez View__ instead.
-        * Notifications: Displays notifications, such as "Query has been submitted" or if an error occurs when running a query.
+    * **Settings**: The gear icon allows you to change Hive settings, such as setting `hive.execution.engine` or Tez parameters.
+    * **Tez**: Displays the Directed Acyclic Graph (DAG) that Tez used to perform the query. If you want to view the DAG for queries you've ran in the past, use the __Tez View__ instead.
+    * **Notifications**: Displays notifications, such as "Query has been submitted" or if an error occurs when running a query.
 
 5. Select the __SQL__ icon to switch back to the Query Editor, then create a new worksheet and enter the following query:
 

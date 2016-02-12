@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a site-to-site VPN connection using PowerShell
@@ -23,8 +23,7 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the Azure Resource Manager deployment model. If you are looking for a different deployment model for this configuration, use the tabs above to select the article you want. If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md).
-
+This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the **Azure Resource Manager** deployment model. Site-to-site connections can be used for cross-premises and hybrid configurations. If you want to create a site-to-site connection for the **classic** deployment model, see [Configure a site-to-site connection using the classic deployment model](vpn-gateway-site-to-site-create.md). If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection for the classic deployment model](virtual-networks-configure-vnet-to-vnet-connection.md) or [Configure a VNet-to-VNet connection for the Resource Manager deployment model](vpn-gateway-vnet-vnet-rm-ps.md).
 
 **About Azure deployment models**
 
@@ -38,7 +37,7 @@ Verify that you have the following items before beginning configuration.
 
 - An externally-facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 	
-- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Install the PowerShell modules
 
@@ -47,7 +46,6 @@ You'll need the latest version of the Azure Resource Manager PowerShell cmdlets 
 [AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
 
 ## 1. Connect to your subscription 
-
 
 Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
@@ -63,7 +61,6 @@ Specify the subscription that you want to use.
 
 	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-
 ## 2. Create a virtual network and a gateway subnet
 
 - If you already have a virtual network with a gateway subnet, you can jump ahead to **Step 3 - Add your local site**. 
@@ -74,7 +71,6 @@ Specify the subscription that you want to use.
 Use the sample below to create a virtual network and a gateway subnet. Substitute the values for your own. 
 
 First, create a resource group:
-
 	
 	New-AzureRmResourceGroup -Name testrg -Location 'West US'
 
@@ -130,6 +126,8 @@ Next, you'll request a public IP address to be allocated to your Azure VNet VPN 
 Use the PowerShell sample below. The Allocation Method for this address must be Dynamic. 
 
 	$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
+
+>[AZURE.NOTE] The Azure VPN gateway for the Resource Manager deployment model currently only supports public IP addresses by using the Dynamic Allocation method. However, this does not mean the IP address will change. The only time the Azure VPN gateway IP address changes is when the gateway is deleted and re-created. The gateway public IP address will not change across resizing, resetting, or other internal maintenance/upgrades of your Azure VPN gateway.
 
 ## 5. Create the gateway IP addressing configuration
 
@@ -213,7 +211,6 @@ If you need to change the prefixes for your local site, use the instructions bel
 
 ### Add or remove prefixes without a VPN gateway connection
 
-
 - **To add** additional address prefixes to a local site that you created, but that doesn't yet have a VPN gateway connection, use the example below.
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
@@ -228,7 +225,6 @@ If you need to change the prefixes for your local site, use the instructions bel
 ### Add or remove prefixes with a VPN gateway connection
 
 If you have created your VPN connection and want to add or remove the IP address prefixes contained in your local site, you'll need to do the following steps in order. This will result in some downtime for your VPN connection, as you will need to remove and rebuild the gateway.  However, because you have requested an IP address for the connection, you won't need to re-configure your on-premises VPN router unless you decide to change the values you previously used.
-
  
 1. Remove the gateway connection. 
 2. Modify the prefixes for your local site. 
@@ -236,17 +232,15 @@ If you have created your VPN connection and want to add or remove the IP address
 
 You can use the following sample as a guideline.
 
-
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
-	Remove-AzureRmVirtualNetworkGatewayConnection -Name vnetgw1 -ResourceGroupName testrg
+	Remove-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
 
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 	Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 	
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-
 
 ## Next steps
 

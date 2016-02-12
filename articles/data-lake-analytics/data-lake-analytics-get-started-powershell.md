@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="12/01/2015"
@@ -43,8 +43,8 @@ in the U-SQL script, and then save the output to either a Data Lake Store accoun
 Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **A workstation with Azure PowerShell**. See [Install Azure PowerShell 1.0 and greater](data-lake-analytics-manage-use-powershell.md#install-azure-powershell-10-and-greater).
-
+- **A workstation with Azure PowerShell**. See the Prerequisite section of [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md#prerequisites).
+	
 ##Create Data Lake Analytics account
 
 You must have a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:

@@ -13,116 +13,75 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/10/2016" 
 	ms.author="heidist"/>
 
 #What’s new in the latest update to Azure Search#
 
-Azure Search is cloud hosted search service on Microsoft Azure. It is generally available, offering a 99.9% availability service-level agreement (SLA) for supported configurations of the [2015-02-28 version of the API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Azure Search is cloud hosted search service on Microsoft Azure. It is generally available, offering a 99.9% availability service-level agreement (SLA) for configurations of the [2015-02-28 version of the Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) or the [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx).
+
+##New in 2016
+
+Feature|Released|Status|Details
+-------|--------|------|-------
+[.NET SDK 1.1](https://msdn.microsoft.com/library/azure/dn951165.aspx)|February 2016|GA|This is the first generally available release of the .NET client library, `Microsoft.Azure.Search.dll`. This version introduces breaking changes. See [Upgrading to the Azure Search .NET SDK version 1.1](search-dotnet-sdk-migration.md) for migration guidance.
+[Lucene query syntax support](https://msdn.microsoft.com/library/azure/mt589323.aspx)|February 2016|[GA](search-api-2015-02-28.md)|The Lucene query syntax is now generally available in both the REST API and .NET SDK. Set the `queryType` parameter to `full` in the REST API and the `SearchParameters.QueryType` property to `QueryType.Full` in the .NET SDK to enable the Lucene syntax.
+[Custom Analyzers](https://azure.microsoft.com/blog/custom-analyzers-in-azure-search/)|January 2016|[Preview](search-api-2015-02-28-preview.md)|User-defined configurations of tokenizers and token filters. See [Analysis in Azure Search](https://msdn.microsoft.com/library/azure/mt605304.aspx) on MSDN.
+[Azure Blob Storage Indexer](search-howto-indexing-azure-blob-storage.md)|January 2016|[Preview](search-api-2015-02-28-preview.md)|PDF, Office documents, XML, HTML, or even video and audio files can be merged or ingested into an Azure Search index.
+[Search Explorer](search-explorer.md)|January 2016|[Portal](https://portal.azure.com)|Built-in query tool for ad hoc queries against an index.
+[Power BI Content Pack for Azure Search](http://blogs.msdn.com/b/powerbi/archive/2016/01/19/visualizing-azure-search-data-with-power-bi.aspx)|January 2016|Tool|Visualization and analysis of service data using  a new Power BI content pack for Azure Search. Available via Search Analytics.
+[Search Analytics](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/)|January 2016|Portal|Enable data collection for insights into user's search activity.
+
+##New in 2015
+
+Feature|Released|Status|Details
+-------|--------|------|-------
+Lucene language analyzers|October 2015|GA|This feature is now GA, available in the service REST API and the .NET SDK.
+[Microsoft natural language processors](search-api-2015-02-28-Preview.md)|October 2015|GA|This feature is now GA, available in the service REST API and the .NET SDK. 
+[Lucene query syntax support](https://msdn.microsoft.com/library/azure/mt589323.aspx)|September 2015|[Preview](search-api-2015-02-28-preview.md)|Adds Lucene's query analyzer.To use the new syntax, you must specify the `queryType` in a Search Documents operation.
+[Natural language processors](search-language-support.md)|September 2015|[Preview](search-api-2015-02-28-preview.md)|Added Microsoft's language processors, increasing the number of overall languages and providing an alternative implementation for others.
+POST in search, suggestions, and lookup queries|September 2015|[Preview](search-api-2015-02-28-preview.md)|Applies to the Service REST API.
+[Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx)|September 2015|GA|Second version of the Management REST API. Includes checkNameAvailability checks whether a given service name is already in use, replica range was previously 1-6 and is now 1-12, SKU property was moved from the property bag to the top level of the service payload, response body of the Create Search Service operation was updated to accommodate the relocation of the SKU setting.
+.NET SDK 0.10.0-preview|August 2015|Preview|This is the second iteration of the .NET client library, Microsoft.Azure.Search.dll. This version adds support for creating, managing, and using [DataSource Class](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.datasource.aspx) and [Indexers Class](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) via .NET classes. Additionally, for Azure SQL Indexers, there is new support for indexing geography points.
+fieldMapping constructs|April 2015|Preview|Indexers now support fieldMapping constructs that provide field assignments when actual field names are different between the external database and the Azure Search index. See [Indexers](search-api-indexers-2015-02-28-Preview.md) for the `2015-02-28-preview` version of the indexers documentation..
+field type transformations|April 2015|Preview|Indexers now support field type transformations so that you can map a string field in a SQL table to a string collection field in a search index, assuming the source field represents a JSON array.
+[Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)|March 2015|GA|First generally available version of the Azure Search service REST API. This version includes previous features. It also includes [Indexers](http://go.microsoft.com/fwlink/p/?LinkID=528210). [Suggesters](https://msdn.microsoft.com/library/azure/dn798936.aspx) replaces the more limited, type-ahead query support of the previous implementation (it only matched on prefixes) by adding support for infix matching. This implementation can find matches anywhere in a term, and also supports fuzzy matching. [Tag boosting](http://go.microsoft.com/fwlink/p/?LinkId=528212) enables a new scenario for scoring profiles. In particular, it leverages persisted data (such as shopping preferences) so that you can boost search results for individual users, based on personalized information. 
+.NET SDK 0.9.6-preview|March 2015|Preview|This is the first public release of the .NET SDK for Azure Search. It includes a client library, Microsoft.Azure.Search.dll, with two namespaces:[Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx) and [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
+Management REST API|March 2015|GA|First version of the Management REST API belonging to the generally available release of Azure Search. There are no feature differences between the earlier preview and this one.
+[Microsoft natural language processors](search-api-2015-02-28-Preview.md)|March 2015|Preview|Adds more languages and expansive stemming for all the languages supported by Office and Bing.
+[moreLikeThis=](search-api-2015-02-28-Preview.md)|March 2015|Preview|A search parameter, mutually exclusive of `search=`, that triggers an alternate query execution path. Instead of full-text search of `search=` based on a search term input, `moreLikeThis=` finds documents that are similar to a given document by comparing their searchable fields.
+
+##New in 2014
+
+Feature|Released|Status|Details
+-------|--------|------|-------
+Lucene language analyzers|November 2014|Preview|Added to provide multi-lingual support for the custom language analyzers distributed with Lucene. 
+Portal support was introduced for building indexes|November 2014|[Portal](https://portal.azure.com)|Indexes, analyzers, and scoring profiles can be constructed in the portal.
+Management api-version 2014-07-31-Preview|October 2014|Preview|First public preview release of the management REST API. Documentation for this api-version is available upon request.
+Search Service REST API|August 2014|Preview|First public preview release of the service REST API (api-version-2014-07-31-Preview). This is the REST API for index and document operations, scoring profiles for tuning search results, geospatial support. This release supports service provisioning in the Azure Portal. Documentation for this api-version is available upon request. It is versioned independently of the service REST API.
 
 ##How features are versioned and rolled out
 
-Features are released separately or jointly through the [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216), or the service dashboard in the [Azure Classic Portal](https://portal.azure.com).
+Features are released separately or jointly through the [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216), or the service dashboard in the [Azure Portal](https://portal.azure.com). Both the .NET library and REST APIs have multiple versions. Older APIs remain operational as we roll out new features. You can visit [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) to learn more about our versioning policy.
 
-Both the .NET library and REST APIs have multiple versions. Older APIs remain operational as we roll out new features. You can visit [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) to learn more about our versioning policy.
+Preview and generally available (GA) features are tied to an API version of the same category.
+
+- Preview features are experimental and could change or even be abandoned before graduating to GA. Preview features are always available in the [preview version of the REST API](search-api-2015-02-28-preview.md), and sometimes in the [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216). Feature documentation will always explain how to access the feature in question.
+- GA features are stable and unlikely to change. Any change to a GA feature is announced as a breaking change.
+
+Features that are purely portal or tool-based are expected to change over time and are not classified as either preview or GA.
 
 
-##Api-version 2015-02-28-Preview
-**Re-released: 2015 September**
 
-This version adds new [Lucene query syntax support](https://msdn.microsoft.com/library/azure/mt589323.aspx) that can be used against the [preview version of the Azure Search Service REST API](search-api-2015-02-28-preview.md). To use the new syntax, you must specify the `queryType` in a Search Documents operation.
 
-Additionally, both of the following features are transitioned out of preview, and are now part of the official API on MSDN:
-- [Natural language processors](search-language-support.md)
-- POST in search, suggestions, and lookup queries
 
-##.NET SDK 0.10.0-preview
-**Released: 2015 August**
 
-This is the second iteration of the .NET client library, Microsoft.Azure.Search.dll. This version adds support for creating, managing, and using Indexers via .NET classes. Additionally, for Azure SQL Indexers, there is new support for indexing geography points.
 
-- [Indexers Class](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx)
-- [DataSource Class](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.datasource.aspx)
 
-##.NET SDK 0.9.6-preview
-**Released: 2015 March 5**
 
-This is the first public release of the .NET SDK for Azure Search. It includes a client library, Microsoft.Azure.Search.dll, with two namespaces:
 
-- [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
-- [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
 
-Excludes:
 
-- [Indexers](http://go.microsoft.com/fwlink/p/?LinkId=528173) (this feature is no longer excluded in the 0.10.0-preview version)
-- [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx)
-- [2015-02-28-Preview](search-api-2015-02-28-Preview.md) features (currently, preview-only features consist of Microsoft natural language processors and `moreLikeThis`).
-
-Visit [How to use Azure Search in .NET](http://go.microsoft.com/fwlink/p/?LinkId=528088) for guidance on installation and usage of the SDK.
-
-##Api-version 2015-02-28-Preview
-**Released: 2015 April 22**
-
-- Indexers now support fieldMapping constructs that provide field assignments when actual field names are different between the external database and the Azure Search index. See [Indexers](search-api-indexers-2015-02-28-Preview.md) for the `2015-02-28-preview` version of the indexers documentation..
-
-- Also in this preview update, indexers now support field type transformations so that you can map a string field in a SQL table to a string collection field in a search index, assuming the source field represents a JSON array.
-
-**Released: 2015 March 5**
-
-- [Microsoft natural language processors](search-api-2015-02-28-Preview.md) bring support for more languages and expansive stemming for all the languages supported by Office and Bing.
-
-- [moreLikeThis=](search-api-2015-02-28-Preview.md) is a search parameter, mutually exclusive of `search=`, that triggers an alternate query execution path. Instead of full-text search of `search=` based on a search term input, `moreLikeThis=` finds documents that are similar to a given document by comparing their searchable fields.
-
-##Api-version 2015-02-28
-**Released: 2015 March 5**
-
-- [Indexers](http://go.microsoft.com/fwlink/p/?LinkID=528210) is a new feature that vastly simplifies indexing from data sources on Azure SQL Database, Azure DocumentDB, and SQL Server on Azure VMs.
-
-- [Suggesters](https://msdn.microsoft.com/library/azure/dn798936.aspx) replaces the more limited, type-ahead query support of the previous implementation (it only matched on prefixes) by adding support for infix matching. This implementation can find matches anywhere in a term, and also supports fuzzy matching.
-
-- [Tag boosting](http://go.microsoft.com/fwlink/p/?LinkId=528212) enables a new scenario for scoring profiles. In particular, it leverages persisted data (such as shopping preferences) so that you can boost search results for individual users, based on personalized information. 
-
-Visit [Azure Search is now Generally Available](http://go.microsoft.com/fwlink/p/?LinkId=528211) for the service announcement on the Azure blog that discusses all of these features.
-
-##Api-version 2014-10-20-Preview
-**Released: 2014 November, 2015 January**
-
-- [Lucene language analyzers](search-api-2014-10-20-preview.md) was added to provide multi-lingual support for the custom language analyzers distributed with Lucene. 
-
-- Tool support was introduced for building indexes, including scoring profiles, in the [Azure Classic Portal](https://portal.azure.com).
-
-##Api-version 2014-07-31-Preview
-**Released: 2014 August 21**
-
-This version was the public preview release for Azure Search, providing the following core features:
-
-- REST API for index and document operations. The majority of this API version is intact in 2015-02-28. The documentation for version `2014-07-31-Preview` can be found at [Azure Search Service REST API Version 2014-07-31](search-api-2014-07-31-preview.md).
-
-- Scoring profiles for tuning search results. A scoring profile adds criteria used to compute search scores. The documentation for this feature can be found at [Azure Search Service Scoring Profiles REST API Version 2014-07-31](search-api-scoring-profiles-2014-07-31-preview.md).
-
-- Geospatial support has been available from the beginning, provided through the `Edm.GeographyPoint` data type that has been part of Azure Search since its inception.
-
-- Provisioning in the preview version of the [Azure Classic Portal](https://portal.azure.com ). Azure Search was one of the few services that has only been available in the new portal.
-
-##Management api-version 2015-08-19
-**Released: 2015 September 11**
-
-[Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) includes the following updates.
-
-- checkNameAvailability checks whether a given service name is already in use.
-- Replica range was previously 1-6 and is now 1-12.
-- SKU property was moved from the property bag to the top level of the service payload.
-- Response body of the Create Search Service operation was updated to accommodate the relocation of the SKU setting.
-
-##Management api-version 2015-02-28
-**Released: 2015 March 5**
-
-[Management REST API](search-management-api-2014-02-28.md) marks the first version of the management API belonging to the generally available release of Azure Search. There are no feature differences between the earlier preview and this one.
-
-##Management api-version 2014-07-31-Preview
-**Released: 2014 October**
-
-The preview release of [Management REST API](search-management-api-2014-07-31-preview.md) was added to support service administration programmatically. It is versioned independently of the service REST API.
 
 
  

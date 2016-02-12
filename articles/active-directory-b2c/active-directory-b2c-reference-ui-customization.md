@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: How to Customize the Azure AD B2C User Interface (UI)
@@ -21,7 +21,7 @@
 User experience is paramount in a consumer-facing application. It is the difference between a good application and a great one, and between merely active consumers and truly engaged ones. Azure Active Directory (AD) B2C allows you to customize consumer sign-up, sign-in (*see note below*) and profile editing pages with pixel-perfect control.
 
 > [AZURE.NOTE]
-Currently, local account sign-in pages, verification emails and self-service password reset pages are only customizable using the [company branding feature](./active-directory/active-directory-add-company-branding.md) and not by the mechanisms described in this article.
+Currently, local account sign-in pages, verification emails and self-service password reset pages are only customizable using the [company branding feature](../active-directory/active-directory-add-company-branding.md) and not by the mechanisms described in this article.
 
 In this article, you will read about:
 

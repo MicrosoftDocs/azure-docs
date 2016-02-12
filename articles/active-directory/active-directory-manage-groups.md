@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -23,7 +23,7 @@
 Azure Active Directory (Azure AD) is a comprehensive identity and access management solution that provides a robust set of capabilities to manage access to on-premises and cloud applications and resources including Microsoft online services like Office 365 and a world of non-Microsoft SaaS applications.
 
 
-> [AZURE.NOTE] To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 
 Within Azure Active Directory, one of the major features is the ability to manage access to resources. These resources can be part of the directory, as in the case of permissions to manage objects through roles in the directory, or resources that are external to the directory, such as SaaS applications, Azure services, and SharePoint sites or on premise resources. There are 4 ways a user can be assigned access rights to a resource:
@@ -94,6 +94,8 @@ Now that you have understood the basics of access management, here are some addi
 These articles provide additional information on Azure Active Directory.
 
 * [What is Azure Active Directory?](active-directory-whatis.md)
+
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 

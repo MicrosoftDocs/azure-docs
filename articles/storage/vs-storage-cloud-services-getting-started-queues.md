@@ -28,7 +28,7 @@ The **Add Connected Services** operation installs the appropriate NuGet packages
 
  - See [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md) for more information on manipulating queues in code.
  - See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.
- - See [Cloud Services documentation](http://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
+ - See [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
  - See [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.
 
 

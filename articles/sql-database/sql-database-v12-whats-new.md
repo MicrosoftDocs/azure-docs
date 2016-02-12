@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/05/2016" 
 	ms.author="genemi"/>
 
 
@@ -27,7 +27,7 @@ This topic describes the many advantages that the new V12 version of Azure SQL D
 We continue to add features to V12. So we encourage you to visit our Service Updates webpage for Azure, and to use its filters:
 
 
-- Filtered to the [SQL Database service](http://azure.microsoft.com/updates/?service=sql-database).
+- Filtered to the [SQL Database service](https://azure.microsoft.com/updates/?service=sql-database).
 - Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
 
@@ -133,7 +133,7 @@ There are many good reasons why customers should upgrade now to Azure SQL Databa
 One easy way to see if you have a database or logical server running on an earlier version of the SQL Database service is to do the following:
 
 
-1. Go to the [Azure Portal](http://portal.azure.com/).
+1. Go to the [Azure Portal](https://portal.azure.com/).
 2. Click **Browse**.
 3. Click **SQL Servers**.
 4. The icon next to your server or database tells the story:
@@ -160,4 +160,4 @@ If you are not yet running on V12, you can upgrade your logical server by follow
 - By July 31, 2015, all regions had been promoted to General Availability (GA).
 - V12 was released in December 2014, but only at the status of Preview.
 
-[Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

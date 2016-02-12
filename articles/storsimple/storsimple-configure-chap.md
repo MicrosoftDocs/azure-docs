@@ -189,4 +189,5 @@ You can verify that CHAP is being used by completing the following steps.
 ## Next steps
 
 - Learn more about [StorSimple security](storsimple-security.md).
+
 - Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

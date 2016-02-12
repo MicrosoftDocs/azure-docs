@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="1/11/2016"
+	ms.date="01/11/2016"
 	ms.author="dastrock"/>
 
 # V2.0 token reference
@@ -29,13 +29,13 @@ The v2.0 endpoint supports the [OAuth 2.0 authorization protocol](active-directo
 
 A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used by a malicious party to acquire the token and use it for an unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
-Many of the tokens issued by the v2.0 endpoint are implemented as Json Web Tokens, or JWTs.  A JWT is a compact, URL-safe means of transferring information between two parties.  The information contained in JWTs are known as "claims", or assertions of information about the bearer and subject of the token.  The claims in JWTs are JSON objects encoded and serialized for transmission.  Since the JWTs issued by the v2.0 endpoint are signed, but not encrypted, you can easily inspect the contents of a JWT for debugging purposes.  There are several tools available for doing so, such as [calebb.net](https://calebb.net). For more information on JWTs, you can refer to the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Many of the tokens issued by the v2.0 endpoint are implemented as Json Web Tokens, or JWTs.  A JWT is a compact, URL-safe means of transferring information between two parties.  The information contained in JWTs are known as "claims", or assertions of information about the bearer and subject of the token.  The claims in JWTs are JSON objects encoded and serialized for transmission.  Since the JWTs issued by the v2.0 endpoint are signed, but not encrypted, you can easily inspect the contents of a JWT for debugging purposes.  There are several tools available for doing so, such as [calebb.net](http://jwt.calebb.net). For more information on JWTs, you can refer to the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## Id_tokens
 
 Id_tokens are a form of sign-in security token that your app receives when performing authentication using [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  They are represented as [JWTs](#types-of-tokens), and contain claims that you can use for signing the user into your app.  You can use the claims in an id_token as you see fit - commonly they are used for displaying account information or making access control decisions in an app.  The v2.0 endpoint only issues one type of id_token, which has a consistent set of claims regardless of the type of user that has signed in.  That is to say that the format and content of the id_tokens will be the same for both personal Microsoft Account users and work or school accounts.
 
-Id_tokens are signed, but not encrypted at this time.  When your app receives an id_token, it must [validate the signature](#validating-tokens) to prove the token's authenticity and validate a few claims in the token to prove its validity.  The claims validated by an app vary depending on scenario requirements, but there are some [common claim validations](#validating-tokens) that your app must perform in every scenario.
+Id_tokens are signed, but not encrypted at this time.  When your app receivFs an id_token, it must [validate the signature](#validating-tokens) to prove the token's authenticity and validate a few claims in the token to prove its validity.  The claims validated by an app vary depending on scenario requirements, but there are some [common claim validations](#validating-tokens) that your app must perform in every scenario.
 
 Full details on the claims in id_tokens are provided below, as well as a sample id_token.  Note that the claims in id_tokens are not returned in any particular order.  In addition, new claims can be introduced into id_tokens at any point in time - your app should not break as new claims are introduced.  The list below includes the claims that your app can reliably interpret at the time of this writing.  If necessary, even more detail can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
 
@@ -67,12 +67,9 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | ObjectId | `oid` | `a1dbdde8-e4f9-4571-ad93-3059e3750d23` | The object Id of the work or school account in the Azure AD system.  This claim will not be issued for personal Microsoft accounts.  The `profile` scope is required in order to receive this claim. |
 
 
-
 ## Access tokens
 
-Access tokens issued by the v2.0 endpoint take two different formats.  Access tokens that are issued on behalf of work or school accounts are JWTs, similar to an id_token.  Access tokens that are issued on behalf of a personal Microsoft account are in a format known as "compact tickets".  For this reason, in development you may notice a different string format for access tokens issued by the v2.0 endpoint.  Over time, this difference in access tokens will be eliminated from the v2.0 endpoint.
-
-With that said, access tokens issued by the v2.0 endpoint are only consumable by Microsoft Services at this point in time.  Your apps should not need to perform any validation or inspection of access tokens for any of the currently supported scenarios.  You can treat access tokens as completely opaque - they are just strings which your app can pass to Microsoft in HTTP requests.
+Access tokens issued by the v2.0 endpoint are only consumable by Microsoft Services at this point in time.  Your apps should not need to perform any validation or inspection of access tokens for any of the currently supported scenarios.  You can treat access tokens as completely opaque - they are just strings which your app can pass to Microsoft in HTTP requests.
 
 In the near future, the v2.0 endpoint will introduce the ability for your app to receive access tokens from other clients.  At that time, this information will be updated with the information your app needs to perform access token validation and other similar tasks.
 
@@ -117,28 +114,27 @@ At any given point in time, the v2.0 endpoint may sign an id_token using any one
 You can acquire the signing key data necessary to validate the signature by using the OpenID Connect metadata document located at:
 
 ```
-https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ```
 
-This metadata document is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for performing OpenID Connect authentication.  It also includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens.  That location is provided below, but it is best to fetch that location dynamically by using the metadata document and parsing out the `jwks_uri`:
+> [AZURE.TIP] Try this URL in a browser!
 
-```
-https://login.microsoftonline.com/common/discovery/v2.0/keys`
-```
+This metadata document is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for performing OpenID Connect authentication.  
 
-The JSON document located at this url contains all of the public key information in use at that particular moment in time.  Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token.  It can then perform signature validation using the correct public key and the indicated algorithm.
-
-> [AZURE.TIP] Try these URLs in a browser!
+It also includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens.  The JSON document located at the `jwks_uri` contains all of the public key information in use at that particular moment in time.  Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token.  It can then perform signature validation using the correct public key and the indicated algorithm.
 
 Performing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.
 
 #### Validating the claims
-When your app receives an id_token upon user sign-in, it should also perform a few checks against the claims in the id_token.  These include:
+When your app receives an id_token upon user sign-in, it should also perform a few checks against the claims in the id_token.  These include but are not limited to:
 
 - The **Audience** claim - to verify that the id_token was intended to be given to your app.
 - The **Not Before** and **Expiration Time** claims - to verify that the id_token has not expired.
 - The **Issuer** claim - to verify that the token was indeed issued to your app by the v2.0 endpoint.
 - The **Nonce** -  as a token replay attack mitigation.
+- and more...
+
+For an full list of claim validations your app should perform, refer to the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
 
 Details of the expected values for these claims are included above in the [id_token section](#id_tokens).
 

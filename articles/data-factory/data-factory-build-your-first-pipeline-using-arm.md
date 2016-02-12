@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/15/2015"
+	ms.date="01/05/2016"
 	ms.author="spelluru"/>
 
-# Build your first Azure Data Factory pipeline using Azure PowerShell
+# Build your first Azure Data Factory pipeline using Azure Resource Manager template
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -213,6 +213,15 @@ Click **Using Data Factory Editor** tab to switch to the article with details ab
 	}
 
 
+Note the following: 
+
+- The Data Factory creates a **Windows-based** HDInsight cluster for you with the above JSON. You could also have it create a **Linux-based** HDInsight cluster. See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details. 
+- You could use **your own HDInsight cluster** instead of using an on-demand HDInsight cluster. See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details.
+- The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done.
+
+	As more and more slices are processed, you will see a lot of containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The name of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
+
+See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details. 
 
 ## Step 2: Deploy Data Factory entities using the ARM template
 
@@ -226,7 +235,7 @@ Click **Using Data Factory Editor** tab to switch to the article with details ab
 
 ## Monitor the pipeline
  
-1.	After logging into the [Azure Portal](http://portal.azure.com/), Click **Browse** and select **Data factories**.
+1.	After logging into the [Azure Portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
 		![Browse->Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	In the **Data Factories** blade, click the data factory (**TutorialFactoryARM**) you created.	
 2.	In the **Data Factory** blade for your data factory, click **Diagram**.

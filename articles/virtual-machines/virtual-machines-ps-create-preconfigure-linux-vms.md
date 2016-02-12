@@ -35,7 +35,7 @@ For the companion topic for Windows-based virtual machines, see [Use Azure Power
 
 ## Install Azure PowerShell
 
-If you haven't done so already, [install and configure Azure PowerShell](../install-configure-powershell.md). Then, open an Azure PowerShell command prompt.
+If you haven't done so already, [install and configure Azure PowerShell](powershell-install-configure.md). Then, open an Azure PowerShell command prompt.
 
 ## Set your subscription and storage account
 
@@ -268,13 +268,13 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 ## Additional resources
 
-[Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Virtual machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Azure virtual machines FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
 [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[How to install and configure Azure PowerShell](../install-configure-powershell.md)
+[How to install and configure Azure PowerShell](powershell-install-configure.md)
 
 [How to log on to a virtual machine running Linux](virtual-machines-linux-how-to-log-on.md)
 

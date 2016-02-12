@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Data Catalog frequently asked questions"
    description="Frequently asked questions about Azure Data Catalog preview, including capabilities for data source discovery, annotation, and management."
    services="data-catalog"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/04/2016"
    ms.author="maroche"/>
 
 # Azure Data Catalog frequently asked questions
@@ -41,10 +41,12 @@ A: Microsoft **Azure Data Catalog** is a fully managed service hosted in the Mic
 
 During preview, **Azure Data Catalog** services are available only in the following data centers:
 
-- US West
-- US East
-- Europe West
+- West US
+- East US
+- West Europe
+- North Europe
 - Australia East
+- Southeast Asia
 
 ## Q: What are the limits on the number of data assets in Azure Data Catalog?
 
@@ -54,32 +56,7 @@ The Standard Edition of **Azure Data Catalog** supports up to 100,000 registered
 
 ## Q: What are the supported data source and asset types?
 
-During preview, **Azure Data Catalog** currently supports the SQL Server relational (including Azure SQL DB) and SQL Server Analysis Services (multidimensional and tabular) databases as well as SQL Server Reporting Services (native mode only) and Oracle Database.
-
-During preview, **Azure Data Catalog** supports the registration and discovery of the following asset types:
-
-- SQL Server Table
-- SQL Server View
-- SQL Server Analysis Services Dimension
-- SQL Server Analysis Services Measure
-- SQL Server Analysis Services KPI
-- SQL Server Analysis Services Table
-- SQL Server Reporting Services Report  
-- Oracle Database Table
-- Oracle Database View
-- Azure Storage Blob
-- Azure Storage Directory
-- HDFS File
-- HDFS Directory
-- Teradata Table
-- Teradata View
-
-In addition to the assets listed above, **Azure Data Catalog** supports the discovery of the following data asset containers:
-
-- SQL Server Database
-- Oracle Database
-- HDFS Cluster
-- Teradata Database
+Please refer to [Data Catalog DSR](data-catalog-dsr.md) for the list of currently supported data sources.
 
 
 ## Q: How do I request support for another data source?

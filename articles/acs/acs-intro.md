@@ -44,7 +44,7 @@ portability, including at the orchestration layers.
 While the service is in preview, we ask that those interested in testing
 the service [self-nominate](http://aka.ms/acspreview). Once preview access has been provided, an email will be sent with further details including deployment templates and getting started instructions. In order to use the service, you will need an Azure subscription, if you don’t have one yet, then why not sign up for a
 [free
-trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AA4C1C935)?
+trial](https://azure.microsoft.com/en-us/pricing/free-trial/)?
 
 Using Azure Container Service
 -----------------------------
@@ -167,7 +167,7 @@ Gaining Access
 While the service is in preview we ask that those interested testing the
 service [self-nominate](http://aka.ms/acspreview). You will first need an Azure
 Subscription, if you don’t have one yet then why not sign up for a [free
-trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AA4C1C935)?
+trial](https://azure.microsoft.com/en-us/pricing/free-trial/)?
 
 Videos
 ------

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
+	ms.date="01/19/2015" 
 	ms.author="yuaxu"/>
 
 # Register the current user for push notifications by using a mobile service

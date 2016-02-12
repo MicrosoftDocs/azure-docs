@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/18/2015"
+   ms.date="01/19/2016"
    ms.author="juliako"/>
 
 
@@ -26,7 +26,7 @@ This document contains the release notes for the Azure SDK for .NET 2.7 release.
 
 The document also contain the release notes for the Azure SDK for .NET 2.7.1 release.
 
-Azure SDK 2.7 is only supported in Visual Studio 2015 and Visual Studio 2013. [Azure SDK 2.6](http://azure.microsoft.com/downloads/) is the last supported SDK for Visual Studio 2012.
+Azure SDK 2.7 is only supported in Visual Studio 2015 and Visual Studio 2013. [Azure SDK 2.6](https://azure.microsoft.com/downloads/) is the last supported SDK for Visual Studio 2012.
 
 For detailed information about this release, see [Azure SDK 2.7 announcement post](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) and [Azure SDK 2.7.1 announcement post](http://go.microsoft.com/fwlink/?LinkId=623850).
 

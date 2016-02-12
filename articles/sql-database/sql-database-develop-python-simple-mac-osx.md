@@ -21,10 +21,7 @@
 # Connect to SQL Database by using Python on Mac OS
 
 
-> [AZURE.SELECTOR]
-- [Node.js](sql-database-develop-nodejs-simple-mac.md)
-- [Python](sql-database-develop-python-simple-mac-osx.md)
-- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 
 This topic presents a code sample written in Python. The sample runs on a Mac computer. The sample and connects to Azure SQL Database by using the **pymssql** driver. Additionally, please use our [Getting Started with Python on Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) video to supplement this documentation.

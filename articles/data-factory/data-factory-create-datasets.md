@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Datasets
@@ -131,14 +131,14 @@ Daily slices that starts at 6 AM instead of the default midnight.
 
 	"availability":
 	{
-		"frequency": "Daily",
+		"frequency": "Day",
 		"interval": "1",
 		"offset": "06:00:00"
 	}
 
 In this case, SliceStart is shifted by 6 hours and will be 6 AM.
 
-For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 2nd or 3rd (60 days from the beginning of the year if style =  StartOfInterval), depending on the year being leap year or not.
+For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 1st or 2nd (60 days from the beginning of the year if style =  StartOfInterval), depending on the year being leap year or not.
 
 
 

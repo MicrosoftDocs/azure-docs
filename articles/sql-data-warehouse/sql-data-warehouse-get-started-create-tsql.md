@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Create a SQL Data Warehouse with TSQL | Microsoft Azure"
-	description="Learn how to create an Azure SQL Data Warehouse with TSQL"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Create a SQL Data Warehouse with TSQL | Microsoft Azure"
+   description="Learn how to create an Azure SQL Data Warehouse with TSQL"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 #Create SQL Data Warehouse with TSQL 
 

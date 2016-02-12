@@ -1,18 +1,18 @@
 <properties
    pageTitle="Azure Storage samples | Microsoft Azure"
-   description="View, download, and try samples for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET, Java, Node.js, and C++ storage client libraries."
+   description="View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET, Java, Node.js, and C++ storage client libraries."
    services="storage"
    documentationCenter="na"
    authors="tamram"
    manager="na"
-   editor="na" />
+   editor="tysonn" />
 <tags
    ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="09/01/2015"
+   ms.date="01/06/2016"
    ms.author="tamram" />
 
 # Azure Storage samples
@@ -20,9 +20,13 @@
 ## Overview
 Use the links below to view and download working Azure Storage samples.
 
+## Azure Code Sample Library
+
+The [Azure Code Sample Library](https://azure.microsoft.com/documentation/samples/?service=storage) includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
+
 ## .NET samples
 
-To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from NuGet. The .NET storage client library is also available in the [Azure SDK for .NET](http://azure.microsoft.com/downloads/).
+To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from NuGet. The .NET storage client library is also available in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
 
 * [Get started with Azure blobs, tables, and queues in 5 minutes](storage-getting-started-guide.md)
 * [Managing concurrency using Azure Storage - sample application](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)

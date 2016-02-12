@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To install regular updates via the Management Portal
+#### To install regular updates via the Azure classic portal
 
 1. On the **Devices** page, select the device on which you want to install updates.
 

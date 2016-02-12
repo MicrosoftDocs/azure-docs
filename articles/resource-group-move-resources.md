@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/18/2015" 
+	ms.date="01/28/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -53,24 +53,28 @@ For now, the services that support moving to both a new resource group and subsc
 - Operational Insights
 - Redis Cache
 - Search
-- SQL Database
+- SQL Database server (Moving a server also moves all of its databases. Databases cannot be moved separately from the server.)
 - Web Apps (some [limitations](app-service-web/app-service-move-resources.md) apply)
 
 The services that support moving to a new resource group but not a new subscription are:
 
 - Virtual Machines (classic)
 - Storage (classic)
+- Virtual Networks
+- Cloud Services
 
 The services that currently do not support moving a resource are:
 
 - Virtual Machines
-- Virtual Networks
 - Storage
+- Express Route
 
 When working with web apps, you cannot move only an App Service plan. To move web apps, your options are:
 
 - Move all of the resources from one resource group to a different resource group, if the destination resource group does not already have Microsoft.Web resources.
 - Move the web apps to a different resource group, but keep the App Service plan in the original resource group.
+
+You cannot move a SQL database separately from its server. The database and server must reside in the same resource group. When you move a SQL server, all of its databases are also moved. 
 
 ## Using PowerShell to move resources
 
@@ -111,6 +115,6 @@ In the request body, you specify the target resource group and the resources to 
 
 ## Next steps
 - [Using Azure PowerShell with Resource Manager](./powershell-azure-resource-manager.md)
-- [Using the Azure CLI with Resource Manager](./virtual-machines/xplat-cli-azure-resource-manager.md)
+- [Using the Azure CLI with Resource Manager](./xplat-cli-azure-resource-manager.md)
 - [Using the Azure Portal to manage resources](azure-portal/resource-group-portal.md)
 - [Using tags to organize your resources](./resource-group-using-tags.md)

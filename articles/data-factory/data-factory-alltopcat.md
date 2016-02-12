@@ -136,7 +136,6 @@ This topic lists every topic that applies directly to the data-factory service o
 
 | Title | Description |
 | :-- | :-- |
-| [Azure Data Factory Editor](data-factory-editor.md) | Describes the Azure Data Factory Editor, which allows you to create, edit, and deploy JSON definitions of linked services, tables, and pipelines using a light-weight web-based UI. |
 | [Azure Data Factory - Frequently Asked Questions](data-factory-faq.md) | Frequently asked questions about Azure Data Factory. |
 | [Azure Data Factory - Naming Rules](data-factory-naming-rules.md) | Describes naming rules for Data Factory entities. |
 | [Azure Data Factory release notes](data-factory-release-notes.md) | Data Factory release notes |
@@ -145,9 +144,9 @@ This topic lists every topic that applies directly to the data-factory service o
 
 #### Extras
 
-- [Learning Path graphic for Data Factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
-- [Search the documentation of Microsoft Azure](http://azure.microsoft.com/search/documentation/)
-- [Alternative search for the documentation of Microsoft Azure](http://azure.microsoft.com/searchresults/?query=)
-- [View the latest updates to the data-factory service](http://azure.microsoft.com/updates/?service=data-factory)
-- [Learning Path graphics for Microsoft Azure services](http://azure.microsoft.com/documentation/learning-paths/)
+- [Learning Path graphic for Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+- [Search the documentation of Microsoft Azure](https://azure.microsoft.com/search/documentation/)
+- [Alternative search for the documentation of Microsoft Azure](https://azure.microsoft.com/searchresults/?query=)
+- [View the latest updates to the data-factory service](https://azure.microsoft.com/updates/?service=data-factory)
+- [Learning Path graphics for Microsoft Azure services](https://azure.microsoft.com/documentation/learning-paths/)
 

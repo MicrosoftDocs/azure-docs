@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # Back up a web app in Azure App Service
@@ -42,7 +42,7 @@ This information is backed up to the Azure storage account and container that yo
 
 * The Backup and Restore feature requires the App Service plan to be in the Standard tier or higher. For more information about scaling your App Service plan to use a higher tier, see [Scale a web app in Azure App Service](web-sites-scale.md). Note that Premium tier allows a greater number of daily backups than Standard tier.
 
-* The Backup and Restore feature requires an Azure storage account and container that must belong to the same subscription as the web app that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage Account** in the **Backups** blade of the [Azure Portal](http://portal.azure.com), and then choosing the **Storage Account** and the **Container** from the **Destination** blade. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
+* The Backup and Restore feature requires an Azure storage account and container that must belong to the same subscription as the web app that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage Account** in the **Backups** blade of the [Azure Portal](https://portal.azure.com/), and then choosing the **Storage Account** and the **Container** from the **Destination** blade. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
 
 * The Backup and Restore feature supports up to 10GB of website and database content. An error will be indicated if the backup feature cannot proceed because the payload exceeds this limit. 
 
@@ -171,7 +171,8 @@ The database backup for the web app is stored in the root of the .zip file. For 
 
 <a name="nextsteps"></a>
 ## Next Steps
-For information on restoring web app from backup, see [Restore a web app in Azure App Service](web-sites-restore.md).
+For information on restoring web app from backup, see [Restore a web app in Azure App Service](web-sites-restore.md). You can also backup and restore App Service apps
+using REST API (see [Use REST to back up and restore App Service apps](websites-csm-backup.md)).
 
 To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/).
 
