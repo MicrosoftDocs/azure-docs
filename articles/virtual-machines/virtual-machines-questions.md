@@ -45,7 +45,7 @@ An Azure storage account provides storage for the operating system disk and any 
 
 Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDXyou want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines. 
 
-- For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](virtual-machines-linux-create-upload-vhd.md).
+- For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](virtual-machines-linux-classic-create-upload-vhd.md).
 
 - For Windows instructions, see [Create and upload a Windows Server VHD to Azure](virtual-machines-create-upload-vhd-windows-server.md).
 
@@ -68,7 +68,7 @@ You’ll need to specify the network that you want the virtual machine to belong
 You need to establish a remote connection to log on to the virtual machine, using Remote Desktop Connection for a Windows VM or a Secure Shell (SSH) for a Linux VM. For instructions, see:
 
 - [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md). A maximum of 2 concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
-- [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-how-to-log-on.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
+- [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-classic-log-on.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
 
 If you’re having problems with Remote Desktop or SSH, install and use the [VMAccess](virtual-machines-extensions-features.md) extension to help fix the problem. 
 
@@ -155,6 +155,6 @@ To provide redundancy, put two or more similarly configured VMs in the same avai
 
 [About Azure Virtual Machines](virtual-machines-about.md)
 
-[Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-choices-create-vm.md)
+[Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-creation-choices.md)
 
-[Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md)
+[Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-creation-choices.md)
