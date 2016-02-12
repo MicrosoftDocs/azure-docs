@@ -37,7 +37,7 @@ If you have network security groups defined on the subnet you are using for your
 You can add additional network security groups to the VMs deployed by you in the subnet for tighter control.
 
 ## Are you using your own DNS servers? And are they accessible from your VNET subnet? ##
->[AZURE.NOTE] You have to make sure the DNS servers in your VNET are always up and always able to resolve the virtual machines hosted in the VNET. Don't use google dns for this.
+>[AZURE.NOTE] You have to make sure the DNS servers in your VNET are always up and always able to resolve the virtual machines hosted in the VNET. Don't use Google DNS for this.
 
 
 For hybrid collections you use your own DNS servers. You specify them in your network configuration schema or through the management portal when you create your virtual network. DNS servers are used in the order that they are specified in a failover manner (as opposed to round robin).  
