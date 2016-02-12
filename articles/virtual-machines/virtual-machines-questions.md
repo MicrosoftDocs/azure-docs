@@ -47,7 +47,7 @@ Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDXyou 
 
 - For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](virtual-machines-linux-classic-create-upload-vhd.md).
 
-- For Windows instructions, see [Create and upload a Windows Server VHD to Azure](virtual-machines-create-upload-vhd-windows-server.md).
+- For Windows instructions, see [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md).
 
 ## Are these virtual machines the same as Hyper-V virtual machines?
 

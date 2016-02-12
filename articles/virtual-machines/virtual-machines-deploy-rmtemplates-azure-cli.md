@@ -691,7 +691,7 @@ Again, you will need to find the values you want to enter for the parameters tha
 
 Obviously, you'll need a .vhd for this. You can use one you already have in Azure, or you can upload one.
 
-For a Windows-based virtual machine, see [Create and upload a Windows Server VHD to Azure](virtual-machines-create-upload-vhd-windows-server.md).
+For a Windows-based virtual machine, see [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md).
 
 For a Linux-based virtual machine, see [Creating and uploading a virtual hard disk that contains the Linux operating system](virtual-machines-linux-classic-create-upload-vhd.md).
 
