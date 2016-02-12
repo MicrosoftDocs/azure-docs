@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="02/12/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Set up a Service Fabric cluster by using Visual Studio
