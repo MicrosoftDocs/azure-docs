@@ -89,9 +89,9 @@ This common scenario processes its computational workload in Azure Batch by usin
 
 1. Upload the **input files** and the **application** that will process those files to your Azure Storage account. The input files can be any data that your application will process, such as financial modeling data, or video files to be transcoded. The application files can be any application that is used for processing the data, such as a 3D rendering application or media transcoder.
 
-2. Programmatically create a **pool** of compute nodes in your Batch account--these are the virtual machines that will execute your tasks. You specify properties such as the [node size](./../cloud-services/cloud-services-sizes-specs.md), their operating system, and the location in Azure Storage of the application to install when the nodes join the pool (the application that you uploaded in step #1). You can also configure the pool to [automatically scale](batch-automatic-scaling.md)--dynamically adjust the number of compute nodes in the pool--in response to the workload that your tasks generate.
+2. Programmatically create a Batch **pool** of compute nodes in your Batch account--these are the virtual machines that will execute your tasks. You specify properties such as the [node size](./../cloud-services/cloud-services-sizes-specs.md), their operating system, and the location in Azure Storage of the application to install when the nodes join the pool (the application that you uploaded in step #1). You can also configure the pool to [automatically scale](batch-automatic-scaling.md)--dynamically adjust the number of compute nodes in the pool--in response to the workload that your tasks generate.
 
-3. Programmatically define a Batch **job** to run the workload on the pool of compute nodes. When you create a job, you associate it with a Batch pool.
+3. Programmatically create a Batch **job** to run the workload on the pool of compute nodes. When you create a job, you associate it with a Batch pool.
 
 4. Add **tasks** to the job. When you add tasks to a job, the Batch service automatically schedules each task for execution on one of the compute nodes in the pool. Each task uses the application that you uploaded to process the input files.
 
@@ -103,15 +103,19 @@ This common scenario processes its computational workload in Azure Batch by usin
 
 7. When your monitoring detects that the tasks in your job have completed, your client application or service can download the output data for further processing or evaluation.
 
+Keep in mind that this is just one way to use Batch, and this scenario describes only a few of its available features. For example, you can execute [multiple tasks in parallel](batch-parallel-node-tasks.md) on a each compute node, and you can use [job preparation and completion tasks](batch-job-prep-release.md) to prepare the nodes for your jobs, then clean up afterward.
+
 ## Next steps
 
-- [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md) to learn how to perform many of the techniques described in the scenario above. This should be one of your first stops while learning how to use the Batch service.
+Now that you've seen an example Batch scenario, it's time to dig deeper into the service to learn how you can use it to process your compute-intensive parallel workloads.
+
+- [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md) to learn how to use C# and the Batch .NET library to perform the techniques described above. This should be one of your first stops while learning how to use the Batch service.
 
 - Check out the [Batch feature overview](batch-api-basics.md) to get more in-depth information on the features that Batch provides for processing your compute intensive workloads.
 
-- In addition to the Batch Explorer, the other [code samples on GitHub][github_samples] show you how to use many of the Batch features with the Batch .NET library.
+- In addition to the Batch Explorer, the other [code samples on GitHub][github_samples] show you how to use many of the Batch features using the Batch .NET library.
 
-- Check out the [Batch Learning Path][learning_path] to get an idea of how to proceed while you learn how to work with Batch.
+- Check out the [Batch Learning Path][learning_path] to get an idea of the resources available to you as you learn to work with Batch.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
