@@ -77,4 +77,4 @@ Choose an image based on the operating system you want to run. Azure and its par
 
 [Base configuration test environment]: virtual-machines-windows-classic-test-config-env.md
 
-[Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
+[Azure hybrid cloud test environments]: virtual-machines-windows-classic-hybrid-test-env.md
