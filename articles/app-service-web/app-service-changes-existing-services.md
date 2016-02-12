@@ -51,7 +51,7 @@ The following table explains how existing Azure services map to App Service and 
 <td align="left">Web Apps</td>
 <td align="left"><li>For Azure Websites, App Service is strictly limited to changing the name  Websites to Web Apps.
 <p><li>All your existing instances of Websites are now Web Apps in App Service.</p>
-<p><li>You can access your existing websites via the [Azure Portal], where you will find all your existing sites under <em>Web Apps</em>.</p>
+<p><li>You can access your existing websites via the <a href="http://go.microsoft.com/fwlink/?LinkId=529715">Azure Portal</a>, where you will find all your existing sites under <em>Web Apps</em>.</p>
 <p><li><em>Web Hosting Plan</em> is now <em>App Service Plan</em>. An <em>App Service Plan</em> can host any app type of App Service, such as Web, Mobile, Logic, or API apps.</p>
 <p><li>Azure App Service Web Apps is in General Availability.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/web/">Learn more about Web Apps</a>.</p></td>
@@ -61,7 +61,7 @@ The following table explains how existing Azure services map to App Service and 
 <td align="left">Mobile Apps</td>
 <td align="left"><p><li>Mobile Services continue to be available as a standalone service and remain fully supported.</p>
 <p><li>Mobile Apps is an app type in App Service, which integrates all of the functionality of Mobile Services and more.</p>
-<p><li>It is easy to [Migrate from Mobile Services to Mobile Apps].</p>
+<p><li>It is easy to <a href="http://go.microsoft.com/fwlink/?LinkID=724279&clcid=0x409">migrate from Mobile Services to Mobile Apps</a>.</p>
 <p><li>As part of App Service, Mobile Apps get new capabilities beyond Mobile Services, such as  integration with on-premises and SaaS systems, staging slots, WebJobs, better scaling options, and more.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">Learn more about Mobile Apps</a>.</p>
 </tr>
@@ -91,7 +91,3 @@ The following table explains how existing Azure services map to App Service and 
 </table>
 
 To learn more, please visit [App Service documentation](https://azure.microsoft.com/documentation/services/app-service/).
-
-<!-- Links -->
-[Azure Portal]: http://go.microsoft.com/fwlink/?LinkId=529715
-[Migrate from Mobile Services to Mobile Apps]: ../app-service-mobile/app-service-mobile-migrating-from-mobile-services.md
