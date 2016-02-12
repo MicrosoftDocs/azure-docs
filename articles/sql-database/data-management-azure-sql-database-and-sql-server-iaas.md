@@ -82,7 +82,7 @@ The following table summarizes the main characteristics of SQL Database and SQL 
       <li type=round>SQL Server applications that require access to on-premises resources (such as Active Directory) from Azure via a secure tunnel.
       <li type=round>If you need a customized IT environment with full administrative rights.
       <li type=round>Rapid development and test scenarios when you do not want to buy on-premises non-production SQL Server hardware.
-      <li type=round>Disaster recovery for on-premises SQL Server applications using [backup to Azure Storage](http://msdn.microsoft.com/library/jj919148.aspx) or [AlwaysOn replicas with Azure VMs](../virtual-machines/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
+      <li type=round>Disaster recovery for on-premises SQL Server applications using [backup to Azure Storage](http://msdn.microsoft.com/library/jj919148.aspx) or [AlwaysOn replicas with Azure VMs](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).
       <li type=round>Large databases that are bigger than 1 TB in size.
       </ul></td>
 </tr>
@@ -105,7 +105,7 @@ The following table summarizes the main characteristics of SQL Database and SQL 
 <tr>
    <td valign="middle"><p><b>Business continuity</b></p></td>
    <td valign="middle"><ul><li type=round>In addition to built-in fault tolerance infrastructure capabilities, Azure SQL Database provides features, such as Point in Time Restore, Geo-Restore, and Geo-Replication to increase business continuity. For more information, see [SQL Database business continuity overview](sql-database-business-continuity.md).</ul></td>
-   <td valign="middle"><ul><li type=round>SQL Server on Azure VMs lets you to set up a high availability and disaster recovery solution for your database’s specific needs. Therefore, you can have a system that is highly optimized for your application. You can test and run failovers by yourself when needed. For more information, see [High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines]((../virtual-machines/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).</ul></td>
+   <td valign="middle"><ul><li type=round>SQL Server on Azure VMs lets you to set up a high availability and disaster recovery solution for your database’s specific needs. Therefore, you can have a system that is highly optimized for your application. You can test and run failovers by yourself when needed. For more information, see [High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines]((../virtual-machines/virtual-machines-windows-classic-sql-dr.md).</ul></td>
 
 </tr>
 <tr>
@@ -113,7 +113,7 @@ The following table summarizes the main characteristics of SQL Database and SQL 
    <td valign="middle"><ul><li type=round>Your on-premises application can access data in Azure SQL Database.</ul></td>
    <td valign="middle"><ul>
       <li type=round>With SQL Server on Azure VMs, you can have applications that run partly in the cloud and partly on-premises. For example, you can extend your on-premises network and Active Directory Domain to the cloud via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). In addition, you can store on-premises data files in Azure Storage using [SQL Server Data Files in Azure](http://msdn.microsoft.com/library/dn385720.aspx). For more information, see [Introduction to SQL Server 2014 Hybrid Cloud](http://msdn.microsoft.com/library/dn606154.aspx).
-      <li type=round>Supports disaster recovery for on-premises SQL Server applications  using [SQL Server Backup and Restore with Azure Blob Storage](http://msdn.microsoft.com/library/jj919148.aspx) or [AlwaysOn replicas in Azure VMs](../virtual-machines/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
+      <li type=round>Supports disaster recovery for on-premises SQL Server applications  using [SQL Server Backup and Restore with Azure Blob Storage](http://msdn.microsoft.com/library/jj919148.aspx) or [AlwaysOn replicas in Azure VMs](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).
       </ul></td>
 
 </tr>
@@ -195,6 +195,6 @@ Choose **SQL Server on Azure VMs** if:
 
 - You have existing IT resources, need full administrative rights over SQL Server, and require full compatibility with on-premises SQL Server. This approach lets you minimize costs for development or modifications of existing applications with the flexibility to run most applications. In addition, it provides full control of the VM, operating system, and database configuration.
 
-See [Provision a SQL Server virtual machine in Azure](virtual-machines-provision-sql-server.md) to get started.
+See [Provision a SQL Server virtual machine in Azure](virtual-machines-windows-classic-portal-sql.md) to get started.
 
 > [AZURE.NOTE] Want to try SQL Server 2016 CTP2? Sign up for Microsoft Azure, and then go [here](http://aka.ms/sql2016vm "here") to create a Virtual Machine with SQL Server 2016 CTP2 already installed.
