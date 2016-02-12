@@ -290,7 +290,7 @@ To see more development topics:
 - [Analyze weblogs using Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-- [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-suser-defined-operators.md)
+- [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
 ##Appx-A PowerShell sample for preparing the tutorial
 

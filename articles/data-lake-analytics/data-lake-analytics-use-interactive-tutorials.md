@@ -43,7 +43,7 @@ Before you begin this tutorial, you must have the following:
 
 You must have a Data Lake Analytics account before you can run any jobs.
 
-Each Data Lake Analytics account has an [Azure Data Lake Store](data-lake-store-overview.md) account dependency.  This account is referred
+Each Data Lake Analytics account has an [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) account dependency.  This account is referred
 as the default Data Lake Store account.  You can create the Data Lake Store account beforehand or when you create 
 your Data Lake Analytics account. In this tutorial, you will create the Data Lake Store account with the Analytics 
 account

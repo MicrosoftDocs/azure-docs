@@ -190,7 +190,7 @@ For information on creating Azure Active Directory users and security groups, Se
 3. From the **User** blade, click **Add**.
 4. Select a role and add a user, and then click **OK**.
 
-**Note: If this user or security group needs to submit jobs, they will need to be given permission on the Data Lake Store as well. For more details, see [Secure data stored in Data Lake Store](data-lake-store/data-lake-store-secure-data.md).**
+**Note: If this user or security group needs to submit jobs, they will need to be given permission on the Data Lake Store as well. For more details, see [Secure data stored in Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).**
 
 
 
