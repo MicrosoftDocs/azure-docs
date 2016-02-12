@@ -60,8 +60,13 @@ Ubuntu is a very popular and Azure-endorsed Linux distribution based on dpkg and
 1. [How to: Upload your own Ubuntu Image](virtual-machines-linux-create-upload-ubuntu.md)
 2. [How to: Ubuntu LAMP Stack](virtual-machines-linux-install-lamp-stack.md)
 3. \[Classic Deployment]: [How to: MySQL Clusters](virtual-machines-linux-mysql-cluster.md)
+<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-opensource.md
+4. \[Classic Deployment]: [How to: Node.js and Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
+5. \[Resource Manager Deployment]: [How to: IPython Notebook](virtual-machines-linux-jupyter-notebook.md)
+=======
 4. \[Classic Deployment]: [How to: Node.js and Cassandra](virtual-machines-linux-classic-cassandra-nodejs.md)
 5. \[Resource Manager Deployment]: [How to: IPython Notebook](virtual-machines-python-ipython-notebook.md)
+>>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-opensource-links.md
 6. \[Classic Deployment]: [Geeking out: Running ASP.NET 5 on Linux using Docker Containers](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 7. [Images: Redis Server](https://azure.microsoft.com/marketplace/partners/cognosys/redisserver269ubuntu1204lts/)
 8. [Images: Minecraft Server](https://azure.microsoft.com/marketplace/partners/bitnami/craftbukkitminecraft179r030ubuntu1210/)

@@ -21,7 +21,7 @@
 
 The [Jupyter project](http://jupyter.org), formerly the [IPython project](http://ipython.org), provides a collection of tools for scientific computing using powerful interactive shells that combine code execution with the creation of a live computational document. These notebook files can contain arbitrary text, mathematical formulas, input code, results, graphics, videos and any other kind of media that a modern web browser is capable of displaying. Whether you're absolutely new to Python and want to learn it in a fun, interactive environment or do some serious parallel/technical computing, the Jupyter Notebook is a great choice.
 
-![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png)
+![Screenshot](./media/virtual-machines-linux-jupyter-notebook/ipy-notebook-spectral.png)
 Using SciPy and Matplotlib packages to analyze the structure of a sound recording.
 
 
@@ -52,7 +52,7 @@ Follow the instructions given [here][portal-vm-linux] to create a virtual machin
 After the virtual machine deploys we need to open up a security rule on the network security group.  From the Azure portal, go to **Network Security Groups** and open the tab for the Security Group corresponding to your VM. You need to add an Inbound Security rule with the following settings:
 **TCP** for the protocol, **\*** for the source (public) port and **9999** for the destination (private) port.
 
-![Screenshot](./media/virtual-machines-python-ipython-notebook/azure-add-endpoint.png)
+![Screenshot](./media/virtual-machines-linux-jupyter-notebook/azure-add-endpoint.png)
 
 While in your Network Security Group, click on **Network Interfaces** and note the **Public IP Address** as it will be needed to connect to your VM in the next step.
 
@@ -106,7 +106,7 @@ As an example, this is how you can install Anaconda on Ubuntu
 	/anaconda3/bin/jupyter-notebook --generate-config
 
 
-![Screenshot](./media/virtual-machines-python-ipython-notebook/anaconda-install.png)
+![Screenshot](./media/virtual-machines-linux-jupyter-notebook/anaconda-install.png)
 
 
 ### Configuring Jupyter and using SSL
@@ -178,13 +178,13 @@ once you log in, you will see the "Jupyter Notebook Dashboard", which is the
 ontrol center for all notebook operations.  From this page you can create
 new notebooks and open existing ones.
 
-![Screenshot](./media/virtual-machines-python-ipython-notebook/jupyter-tree-view.png)
+![Screenshot](./media/virtual-machines-linux-jupyter-notebook/jupyter-tree-view.png)
 
 ### Using the Jupyter Notebook
 
 If you click the **New** button, you will see the following opening page.
 
-![Screenshot](./media/virtual-machines-python-ipython-notebook/jupyter-untitled-notebook.png)
+![Screenshot](./media/virtual-machines-linux-jupyter-notebook/jupyter-untitled-notebook.png)
 
 The area marked with an `In []:` prompt is the input area, and here you can
 type any valid Python code and it will execute when you hit `Shift-Enter` or
@@ -202,7 +202,7 @@ Jupyter is much more than a word processor as it allows the
 mixing of computation and rich media (text, graphics, video and virtually
 anything a modern web browser can display). You can mix, text, code, videos and more!
 
-![Screenshot](./media/virtual-machines-python-ipython-notebook/jupyter-editing-experience.png)
+![Screenshot](./media/virtual-machines-linux-jupyter-notebook/jupyter-editing-experience.png)
 
 And with the power of Python's many excellent libraries for scientific and
 technical computing, in the following screenshot, a simple calculation can be performed with the same ease
