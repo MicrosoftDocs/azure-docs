@@ -105,15 +105,13 @@ In this flow, the app receives tokens from the v2.0 authorize endpoint directly,
 
 To see this scenario in action, try out one of the single page app code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
-## Daemons/server side apps
-Apps that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the [OAuth 2.0 client credentials flow](active-directory-v2-protocols-client-creds.md).  This flow is also known as "two-legged OAuth".
-
- ![Implicit Flow Swimlanes Image](../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
-
-To see this scenario in action, try out one of the daemon code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
-
 ## Current limitations
 These types of apps are not currently supported by the v2.0 endpoint, but are on the roadmap.  Additional limitations and restrictions for the v2.0 endpoint are described in the [v2.0 limitations article](active-directory-v2-limitations.md).
+
+### Daemons/server side apps
+Apps that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the OAuth 2.0 client credentials flow.
+
+The client credentials flow is not currently supported in the v2.0 endpoint.  To see how this flow works in the generally available Azure AD service, check out the [daemon code sample on GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
 
 ### Chained web APIs (on-behalf-of)
 Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 endpoint.  This scenario is common in native clients that have a Web API backend, which in turn calls a Microsoft Online service such as Office 365 or the Graph API.

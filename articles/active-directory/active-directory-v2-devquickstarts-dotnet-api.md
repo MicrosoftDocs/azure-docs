@@ -157,7 +157,7 @@ For reference, the completed sample (without your configuration values) [is prov
 ## Next steps
 You can now move onto additional topics.  You may want to try:
 
-[Calling a Web API from a Web App >>](active-directory-devquickstarts-webapp-webapi-dotnet.md)
+[Calling a Web API from a Web App >>](active-directory-devquickstarts-v2-webapp-webapi-dotnet.md)
 
 For additional resources, check out:
 - [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)
