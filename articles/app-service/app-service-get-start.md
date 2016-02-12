@@ -130,7 +130,7 @@ You may have noticed in the **Authentication / Authorization** blade that you ca
 - Change the default behavior when users first navigate to your app
 
 App Service provides a turn-key solution for some of the common authentication needs so you don't need to provide the authentication logic yourself. 
-For more information, see [...](https://something).
+For more information, see [...](/services/app-service/).
 
 ## Scale your app up and out
 
