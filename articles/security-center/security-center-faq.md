@@ -56,7 +56,7 @@ For each region in which you have virtual machines running, you choose the stora
 
 You choose the storage account for a subscription in the security policy. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and then select **Security policy**.) When you click on a subscription, a new blade opens. Click **Choose storage accounts** to select a region.  Data that's collected is logically isolated from other customers’ data for security reasons.
 
-To learn more about Azure Storage and storage accounts, see [Storage Documentation](https://azure.microsoft.com/documentation/services/storage/) and [About Azure storage accounts](storage-create-storage-account.md).
+To learn more about Azure Storage and storage accounts, see [Storage Documentation](https://azure.microsoft.com/documentation/services/storage/) and [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 ## Using Security Center
 
@@ -74,7 +74,7 @@ To learn how to configure a security policy, see [Setting security policies in A
  Security Center analyzes the security state of your Azure resources. When potential security vulnerabilities are identified, Security Center creates recommendations. The recommendations guide you through the process of configuring the needed control. Examples are:
 
 - Provisioning antimalware programs to help identify and remove malicious software
-- Configuring [network security groups](virtual-networks-nsg.md) and rules to control traffic to virtual machines
+- Configuring [network security groups](../virtual-network/virtual-networks-nsg.md) and rules to control traffic to virtual machines
 - Provisioning web application firewalls to help defend against attacks targeting your web applications
 - Deploying missing system updates
 - Addressing OS configurations that do not match the recommended baselines
@@ -93,14 +93,14 @@ The **Resources health** tile on the **Security Center** blade shows the overall
 - Security alerts from integrated partner security solutions such as antimalware programs or web application firewalls.
 
 ### How are permissions handled in Security Center?
- Security Center supports role-based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory role-based access control](role-based-access-control-configure.md).
+ Security Center supports role-based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory role-based access control](../active-directory/role-based-access-control-configure.md).
 
 When users open Security Center, the only recommendations and alerts that they'll see are related to resources that they have access to. This means that users will only see items that are related to resources for which they are an owner, contributor, or reader for the subscription or resource group that a resource belongs to.
 
 To edit a security policy, you must be either the owner of the subscription or a contributor to it.
 
 ### What types of virtual machines are supported?
-Both [classic and Resource Manager](azure-classic-rm.md) virtual machines are supported, including virtual machines that are part of Azure Service Fabric clusters.
+Both [classic and Resource Manager](../azure-classic-rm.md) virtual machines are supported, including virtual machines that are part of Azure Service Fabric clusters.
 
 Access control list recommendations currently apply to classic virtual machines. Network security group rules, along with recommendations for the installation of web application firewalls, currently apply only to Resource Manager virtual machines.
 
