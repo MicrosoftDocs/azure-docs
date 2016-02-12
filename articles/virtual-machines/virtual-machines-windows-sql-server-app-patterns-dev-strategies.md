@@ -80,7 +80,7 @@ This application pattern is useful when:
 
 The following diagram demonstrates a simple on-premises scenario and how you can deploy its cloud enabled solution in a single virtual machine in Azure.
 
-![1-tier application pattern](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728008.png)
+![1-tier application pattern](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728008.png)
 
 Deploying the business layer (business logic and data access components) on the same physical tier as the presentation layer can maximize application performance, unless you must use a separate tier due to scalability or security concerns.
 
@@ -104,7 +104,7 @@ This application pattern is useful when:
 
 The following diagram demonstrates how you can place a simple 3-tier application in Azure by placing each application tier in a different virtual machine.
 
-![3-tier application pattern](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728009.png)
+![3-tier application pattern](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728009.png)
 
 In this application pattern, there is only one virtual machine (VM) in each tier. If you have multiple VMs in Azure, we recommend that you set up a virtual network. [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) creates a trusted security boundary and also allows VMs to communicate among themselves over the private IP address. In addition, always make sure that all Internet connections only go to the presentation tier. This means that you should open up a public endpoint on the presentation tier but not on the other tiers. When following this application pattern, you also need to set up the network access control list (ACL) on that public port to allow for access certain IP addresses. For more information, see [Manage the ACL on an endpoint](virtual-machines-set-up-endpoints.md/#manage-the-acl-on-an-endpoint).
 
@@ -130,7 +130,7 @@ This application pattern is useful when:
 
 The following diagram demonstrates how you can place the application tiers in multiple virtual machines in Azure by scaling out the presentation tier due to increased volume of incoming client requests. As seen in the diagram, Azure Load Balancer is responsible for distributing traffic across multiple virtual machines and also determining which web server to connect to. Having multiple instances of the web servers behind a load balancer ensures the high availability of the presentation tier.
 
-![Application pattern - presentation tier scale out](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728010.png)
+![Application pattern - presentation tier scale out](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728010.png)
 
 ### Best practices for 2-tier, 3-tier, or n-tier patterns that have multiple VMs in one tier
 
@@ -164,7 +164,7 @@ This application pattern is useful when:
 
 The following diagram demonstrates an on-premises scenario and its cloud enabled solution. In this scenario, you place the application tiers in multiple virtual machines in Azure by scaling out the business tier, which contains the business logic tier and data access components. As seen in the diagram, Azure Load Balancer is responsible for distributing traffic across multiple virtual machines and also determining which web server to connect to. Having multiple instances of the application servers behind a load balancer ensures the high availability of the business tier. For more information, see [Best practices for 2-tier, 3-tier, or n-tier application patterns that have multiple virtual machines in one tier](#best-practices-for-2-tier-3-tier-or-n-tier-patterns-that-have-multiple-vms-in-one-tier).
 
-![Application pattern with business tier scale out](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728011.png)
+![Application pattern with business tier scale out](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728011.png)
 
 ## 2-tier and 3-tier with presentation and business tiers scale-out and HADR
 
@@ -186,7 +186,7 @@ The following diagram demonstrates an on-premises scenario and its cloud enabled
 
 Running multiple copies of an application in different VMs make sure that you are load balancing requests across them. When you have multiple virtual machines, you need to make sure that all your VMs are accessible and running at one point in time. If you configure load balancing, Azure Load Balancer track the health of VMs and directs incoming calls to the healthy functioning VM nodes properly. For information on how to set up load balancing of the virtual machines, see [Load balancing for Azure infrastructure services](virtual-machines-load-balance.md). Having multiple instances of web and application servers behind a load balancer ensures the high availability of the presentation and business tiers.
 
-![Scale out and high availability](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728012.png)
+![Scale out and high availability](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728012.png)
 
 ### Best practices for application patterns requiring SQL HADR
 
@@ -220,11 +220,11 @@ The following diagram demonstrates an on-premises scenario and its cloud enabled
 
 As seen in the diagram, Azure Load Balancer distributes traffic across multiple virtual machines and also determines which web server or application server to connect to. Having multiple instances of the web and application servers behind a load balancer ensures the high availability of the presentation tier and the business tier. For more information, see [Best practices for application patterns requiring SQL HADR](#best-practices-for-application-patterns-requiring-sql-hadr).
 
-![Application patterns with Cloud Services](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728013.png)
+![Application patterns with Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
 Another approach to implement this application pattern is to use a consolidated web role that contains both presentation tier and business tier components as shown in the following diagram. This application pattern is useful for applications that require stateful design. Since Azure provides stateless compute nodes on web and worker roles, we recommend that you implement a logic to store session state using one of the following technologies: [Azure Caching](https://azure.microsoft.com/documentation/services/redis-cache/), [Azure Table Storage](../storage/storage-dotnet-how-to-use-tables.md) or [Azure SQL Database](../sql-database/sql-database-technical-overview.md).
 
-![Application patterns with Cloud Services](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728014.png)
+![Application patterns with Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 
 ## Pattern with Azure VMs, Azure SQL Database, and Azure Web Apps
 
@@ -244,7 +244,7 @@ This application pattern is useful when:
 
 The following diagram demonstrates an on-premises scenario and its cloud enabled solution. In this scenario, you place the application tiers in a single virtual machine in Azure and access data in Azure SQL Database.
 
-![Mixed application pattern](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728015.png)
+![Mixed application pattern](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728015.png)
 
 If you choose to implement a combined web and application tier by using Azure Web Apps, we recommend that you keep the middle-tier or application tier as dynamic-link libraries (DLLs) in the context of a web application.
 
@@ -270,7 +270,7 @@ This hybrid application pattern is useful when:
 
 The following diagram demonstrates an n-tier hybrid application pattern that spans across on-premises and Azure. As shown in the diagram, on-premises infrastructure includes [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) domain controller to support user authentication and authorization. Note that the diagram demonstrates a scenario, where some parts of the data tier live in an on-premises data center whereas some parts of the data tier live in Azure. Depending on your application’s needs, you can implement several other hybrid scenarios. For example, you might keep the presentation tier and the business tier in an on-premises environment but the data tier in Azure.
 
-![N-tier application pattern](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728016.png)
+![N-tier application pattern](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728016.png)
 
 In Azure, you can use Active Directory as a standalone cloud directory for your organization, or you can also integrate existing on-premises Active Directory with [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/). As seen in the diagram, the business tier components can access to multiple data sources, such as to [SQL Server in Azure](virtual-machines-sql-server-infrastructure-services.md) via a private internal IP address, to on-premises SQL Server via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md), or to [SQL Database](../sql-database/sql-database-technical-overview) using the .NET Framework data provider technologies. In this diagram, Azure SQL Database is an optional data storage service.
 
