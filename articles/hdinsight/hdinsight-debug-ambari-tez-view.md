@@ -13,7 +13,7 @@ ms.devlang=""
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="Use Ambari Tez View with HDInsight | Azure"
+ms.date="02/12/2016"
 ms.author="larryfr"/>
 
 # Use Ambari Views to debug Tez Jobs on HDInsight
