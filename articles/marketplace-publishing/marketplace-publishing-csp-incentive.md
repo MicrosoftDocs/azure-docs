@@ -20,7 +20,7 @@
 
 On March 15, 2016 we'll make the Cloud Solution Providers (CSPs) “Reseller Incentive” available to Marketplace publishers.  The default setting for this incentive value is **Yes**.  As a publisher you can decide to opt-out of the incentive program.  This article shows how to change the setting in your publisher profile so you can opt-out.
 
-## To view or change your “Reseller Incentive” status, follow these steps:
+To view or change your “Reseller Incentive” status, follow these steps:
 
 1.	Log in to your [Microsoft Azure Publishing account](https://publish.windowsazure.com/workspace)
 
