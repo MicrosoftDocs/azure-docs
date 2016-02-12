@@ -6,7 +6,7 @@
 	authors="MikeRayMSFT"
     editor=""
 	manager="jeffreyg"
-	tags="azure-service-management" />
+	tags="azure-resource-manager" />
 
 
 <tags
