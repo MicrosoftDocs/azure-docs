@@ -113,7 +113,7 @@ There are two main options for setting up your listener: external (public) or in
 If the Availability Group spans multiple Azure subnets (such as a deployment that crosses Azure regions), the client connection string must include "**MultisubnetFailover=True**". This results in parallel connection attempts to the replicas in the different subnets. For instructions on setting up a listener, see
 
 - [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
-- [Configure an external listener for AlwaysOn Availability Groups in Azure](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
+- [Configure an external listener for AlwaysOn Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
 You can still connect to each availability replica separately by connecting directly to the service instance. Also, since AlwaysOn Availability Groups are backward compatible with database mirroring clients, you can connect to the availability replicas like database mirroring partners as long as the replicas are configured similar to database mirroring:
 
@@ -143,7 +143,7 @@ Geo-replication in Azure disks does not support the data file and log file of th
 
 ## Next steps
 
-If you need to create an Azure virtual machine with SQL Server, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md).
+If you need to create an Azure virtual machine with SQL Server, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-portal-sql.md).
 
 To get the best performance from SQL Server running on an Azure VM, see the guidance in [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md).
 
