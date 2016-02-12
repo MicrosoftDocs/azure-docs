@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Copy output data to an on-premises SQL Server database (Azure Classic Portal)" 
+	pageTitle="Walkthrough: Copy output data to SQL Server database (Azure Classic Portal)" 
 	description="This walkthrough extends the tutorial using Data Factory Editor in the Azure Classic Portal such that the pipeline copies output data to a SQL Server database."
 	services="data-factory" 
 	documentationCenter="" 
