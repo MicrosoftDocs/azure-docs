@@ -60,9 +60,9 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 * [Tutorial: Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
 
-* [Tutorial: Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+* [Tutorial: Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
-* [Tutorial: Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](virtual-machines-excel-cluster-hpcpack.md)
+* [Tutorial: Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](virtual-machines-windows-excel-cluster-hpcpack.md)
 
 
 
@@ -72,7 +72,7 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 ### Cluster management
 
-* [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-hpcpack-cluster-node-manage.md)
+* [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)
 
 
 * [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
@@ -87,7 +87,7 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 * [Tutorial: Set up a hybrid cluster with HPC Pack in Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
-* [Add Azure "burst" nodes to an HPC Pack head node in Azure](virtual-machines-hpcpack-cluster-node-burst.md)
+* [Add Azure "burst" nodes to an HPC Pack head node in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md)
 
 * [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
@@ -97,8 +97,8 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 ## Create RDMA clusters for MPI workloads
 
-* [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-hpcpack-cluster-rdma.md)
+* [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
-* [Tutorial: Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+* [Tutorial: Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
 * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-cluster-rdma.md)
