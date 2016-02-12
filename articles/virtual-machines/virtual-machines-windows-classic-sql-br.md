@@ -90,4 +90,4 @@ If you are still planning your deployment of SQL Server in an Azure VM, you can 
 
 Although backup and restore can be used to migrate your data, there are potentially easier data migration paths to SQL Server on an Azure VM. For a full discussion of migration options and recommendations, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md).
 
-Review other [resources for running SQL Server in Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md).
+Review other [resources for running SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).

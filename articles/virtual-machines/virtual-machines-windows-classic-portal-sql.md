@@ -50,7 +50,7 @@ In this tutorial, you will:
 
 	![Choose an Image](./media/virtual-machines-windows-classic-portal-sql/choose-sql-vm.png)
 
-For the most up-to-date information on the supported SQL Server images on Azure, see [SQL Server on Azure Virtual Machines Overview](virtual-machines-sql-server-infrastructure-services.md).
+For the most up-to-date information on the supported SQL Server images on Azure, see [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-classic-sql-overview.md).
 
 >[AZURE.NOTE] If you have a virtual machine created by using the platform image SQL Server Evaluation edition, you cannot upgrade it to a per-minute paid edition image in the gallery. You can choose one of the following two options:
 >
@@ -155,7 +155,7 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 The following list provides additional resources for SQL Server in Azure virtual machines.
 
 ### Recommended resources for SQL Server on Azure VMs:
-- [SQL Server on Azure Virtual Machines Overview](virtual-machines-sql-server-infrastructure-services.md)
+- [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-classic-sql-overview.md)
 
 - [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-sql-connect.md)
 
