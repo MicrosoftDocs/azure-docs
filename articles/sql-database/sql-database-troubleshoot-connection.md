@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2015"
+	ms.date="02/12/2015"
 	ms.author="daleche"/>
 
 # Troubleshoot "Database on server is not currently available. Please retry the connection later." and other connection errors
-“Database <dbname> on server <servername> is not currently available...” is the most common transient connection error for Azure SQL Database. Transient connection errors are usually caused by a platform reconfiguration, because of planned (i.e. software upgrade) or unplanned (i.e. process crash) events, and are short-lived, from few seconds to at most one minute. If you are getting a different error, evaluate the [error message](sql-database-develop-error-messages.md) for clues about the cause, determine if the issue is transient or persistent, and use the guidance in this topic.
+“Database <dbname> on server <servername> is not currently available...” is the most common transient connection error for Azure SQL Database. Transient connection errors are typically that occurs because of a planned event (for example, a software upgrade) or an unplanned event (for example, a process crash). These are generally short-lived, ranging from a few seconds to one minute at most. If you receive a different error, evaluate the [error message](sql-database-develop-error-messages.md) for clues about the cause, determine if the issue is transient or persistent, and use the guidance in this topic.
 
 ## Steps to resolve transient connectivity issues
 1.	Check the [Microsoft Azure Service Dashboard](https://azure.microsoft.com/status) for any known outages.
