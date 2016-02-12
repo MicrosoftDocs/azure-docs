@@ -46,7 +46,7 @@ Try these steps to resolve the most common SSH connection failures:
 
 3. [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
 
-4. Follow the instructions in [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) on the virtual machine, to:
+4. Follow the instructions in [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-classic-reset-access.md) on the virtual machine, to:
 
 	- Reset the password or SSH key.
 	- Create a new _sudo_ user account.
@@ -137,7 +137,7 @@ Then run the Linux extension using the above file.
 	$azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
 	```
 
-Note that you can follow steps similar to [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) to try other variations. Remember to modify the Azure CLI instructions for the Resource Manager mode.
+Note that you can follow steps similar to [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-classic-reset-access.md) to try other variations. Remember to modify the Azure CLI instructions for the Resource Manager mode.
 
 
 **Using Azure PowerShell**:
@@ -269,7 +269,7 @@ The last source of possible problems is the Azure virtual machine itself.
 
 ![Diagram that highlights Linux-based Azure virtual machine](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-If you have not done so already, follow the instructions [to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) on the virtual machine.
+If you have not done so already, follow the instructions [to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-classic-reset-access.md) on the virtual machine.
 
 Try connecting from your computer again. If it still fails, these are some of the possible problems:
 
@@ -281,7 +281,7 @@ Try connecting from your computer again. If it still fails, these are some of th
 
 ## Additional resources
 
-For virtual machines in classic deployment model, [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
+For virtual machines in classic deployment model, [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-classic-reset-access.md)
 
 [Troubleshoot Windows Remote Desktop connections to a Windows-based Azure virtual machine](virtual-machines-windows-troubleshoot-rdp-connection.md)
 

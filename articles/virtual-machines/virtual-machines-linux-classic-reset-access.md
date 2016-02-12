@@ -28,11 +28,11 @@ If you can't connect to a Linux virtual machine on Azure because of a forgotten 
 
 To reset the SSH configuration in the [Azure portal](https://portal.azure.com), click **Browse** > **Virtual machines** > *your Linux virtual machine* > **Reset Remote Access**. Here is an example.
 
-![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-RDP-Reset-Linux.png)
+![](./media/virtual-machines-linux-classic-reset-access/Portal-RDP-Reset-Linux.png)
 
 To reset the name and password of the user account with sudo privileges or the SSH public key in the [Azure portal](https://portal.azure.com), click **Browse** > **Virtual machines** > *your Linux virtual machine* > **All settings** > **Password reset**. Here is an example.
 
-![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-PW-Reset-Linux.png)
+![](./media/virtual-machines-linux-classic-reset-access/Portal-PW-Reset-Linux.png)
 
 
 ## Azure CLI and PowerShell

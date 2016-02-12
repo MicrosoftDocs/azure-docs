@@ -120,7 +120,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 5. [The basics: Selecting Linux Usernames](virtual-machines-linux-usernames.md)
 6. \[Classic Deployment]: [The basics: Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-classic-log-on.md)
 7. [The basics: SSH](virtual-machines-linux-ssh-from-linux.md)
-8. \[Classic Deployment]: [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
+8. \[Classic Deployment]: [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-classic-reset-access.md)
 9. [The basics: Using Root](virtual-machines-linux-use-root-privileges.md)
 10. \[Classic Deployment]: [The basics: Attaching a Data Disk to a Linux VM](virtual-machines-linux-classic-attach-disk.md)
 11. \[Classic Deployment]: [The basics: Detaching a Data Disk from a Linux VM](virtual-machines-linux-classic-detach-disk.md)
@@ -231,8 +231,13 @@ This section contains information about several different storage approaches and
 Authentication and encryption are critical topics in software development, and there are many, many topics on the web that describe how to learn and use proper security techniques for both. We describe some of the basic usage to get up and running quickly with Linux and opensource workloads, as well pointing to tools to use to reset or remove remote security features on Azure. These are basic procedures, and we will be adding more complex scenarios soon.
 
 4. [The basics: Certificate Use and Management](http://msdn.microsoft.com/library/azure/gg981929.aspx)
+<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-opensource.md
+7. [The basics: SSH](virtual-machines-linux-use-ssh-key.md)
+8. [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-classic-reset-access.md)
+=======
 7. [The basics: SSH](virtual-machines-linux-ssh-from-linux.md)
 8. [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
+>>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-opensource-links.md
 9. [The basics: Using Root](virtual-machines-linux-use-root-privileges.md)
 
 ## Linux high performance computing (HPC)
