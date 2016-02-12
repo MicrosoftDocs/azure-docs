@@ -30,7 +30,7 @@ This tutorial assumes that you already have theoretical and practical knowledge 
 
 In addition, the tutorial assumes that you have already implemented the following prerequisites:
 
-- You’ve already reviewed the High Availability and Disaster Recovery Considerations section in the [Oracle Virtual Machine images - Miscellaneous Considerations](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md) topic. Note that Azure supports standalone Oracle Database instances but not Oracle Real Application Clusters (Oracle RAC) currently.
+- You’ve already reviewed the High Availability and Disaster Recovery Considerations section in the [Oracle Virtual Machine images - Miscellaneous Considerations](virtual-machines-windows-classic-oracle-considerations.md) topic. Note that Azure supports standalone Oracle Database instances but not Oracle Real Application Clusters (Oracle RAC) currently.
 
 - You’ve downloaded the Oracle GoldenGate software from the [Oracle Downloads](http://www.oracle.com/us/downloads/index.html) web site. You’ve selected the Product Pack Oracle Fusion Middleware – Data Integration. Then, you’ve selected Oracle GoldenGate on Oracle v11.2.1 Media Pack for Microsoft Windows x64 (64-bit) for an Oracle 11g database. Next, download Oracle GoldenGate V11.2.1.0.3 for Oracle 11g 64bit on Windows 2008 (64bit).
 
