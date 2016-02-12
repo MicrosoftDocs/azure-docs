@@ -336,4 +336,4 @@ In this article, you learned how to perform bulk operations against the device i
 
 - [Create an IoT hub programatically](iot-hub-rm-template.md)
 - [IoT Hub usage metrics](iot-hub-metrics.md)
-- [IoT Hub operations monitoring](iot-hub-operations-montoring.md)
+- [IoT Hub operations monitoring](iot-hub-operations-monitoring.md)
