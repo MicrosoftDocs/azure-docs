@@ -55,7 +55,7 @@ This article shows how to create a virtual machine based on a Microsoft-provided
 
 ##To create your database hosted in this virtual machine
 
-Follow the instructions in [Create an Oracle Database 12c virtual machine in Azure](virtual-machines-creating-oracle-database-virtual-machine.md), beginning with the **To create your database using the Oracle Database 12c virtual machine in Azure** section.
+Follow the instructions in [Create an Oracle Database 12c virtual machine in Azure](virtual-machines-windows-classic-create-oracle-database.md), beginning with the **To create your database using the Oracle Database 12c virtual machine in Azure** section.
 
 ##To configure your Oracle WebLogic Server 12c hosted in this virtual machine
 Follow the instructions in [Create an Oracle WebLogic Server 12c virtual machine in Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md), beginning with the **To configure your Oracle WebLogic Server 12c virtual machine in Azure** section. If you want to set up a WebLogic Server cluster, also see [Create an Oracle WebLogic Server 12c cluster in Azure](virtual-machines-creating-oracle-webLogic-server-12c-cluster.md).
