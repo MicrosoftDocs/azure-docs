@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="1/11/2016"
+	ms.date="02/12/2016"
 	ms.author="dastrock"/>
 
 # Add sign-in to an Android app using the v2.0 endpoint

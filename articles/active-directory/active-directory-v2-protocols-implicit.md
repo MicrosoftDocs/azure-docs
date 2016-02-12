@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/12/2016"
 	ms.author="dastrock"/>
 
 # v2.0 Protocols - SPAs using the implicit flow
@@ -23,15 +23,15 @@ With the v2.0 endpoint, you can sign users into your single page apps with both 
 - Many authorization servers & identity providers do not support CORS requests.
 - Full page browser redirects away from the app become particularly invasive to the user experience.
 
-For these applications (think: AngularJS, Ember.js, React.js, etc) Azure AD supports the OAuth 2.0Implicit Grant flow.  The implicit flow is described in the [OAuth 2.0Specification](http://tools.ietf.org/html/rfc6749#section-4.2).  Its primary benefit is that it allows the app to get tokens from Azure AD without performing a backend server credential exchange.  This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code.  There are a few important security considerations to take into account when using the implicit flow - specifically around [client](http://tools.ietf.org/html/rfc6749#section-10.3) and [user impersonation](http://tools.ietf.org/html/rfc6749#section-10.3).
+For these applications (think: AngularJS, Ember.js, React.js, etc) Azure AD supports the OAuth 2.0 Implicit Grant flow.  The implicit flow is described in the [OAuth 2.0 Specification](http://tools.ietf.org/html/rfc6749#section-4.2).  Its primary benefit is that it allows the app to get tokens from Azure AD without performing a backend server credential exchange.  This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code.  There are a few important security considerations to take into account when using the implicit flow - specifically around [client](http://tools.ietf.org/html/rfc6749#section-10.3) and [user impersonation](http://tools.ietf.org/html/rfc6749#section-10.3).
 
 If you want to use the implicit flow and Azure AD to add authentication to your JavaScript app, we recommend you use our open source JavaScript library, [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js).  There are few AngularJS tutorials available [here](active-directory-appmodel-v2-overview.md#getting-started) to help you get started.  
 
 However, if you would prefer not to use a library in your single page app and send protocol messages yourself, follow the general steps below.
 
 > [AZURE.NOTE]
-    This information applies to the v2.0 endpoint public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
-
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+    
 ## Protocol diagram
 The entire implicit sign in flow looks something like this - each of the steps are described in detail below.
 
@@ -188,7 +188,7 @@ Both `id_token`s and `access_token`s will expire after a short period of time, s
 
 ## Send a sign out request
 
-The OpenIdConnect `end_session_endpoint` is not currently supported by the v2.0 endpoint preview. This means your app cannot send a request to the v2.0 endpoint to end a user's session and clear cookies set by the v2.0 endpoint.
+The OpenIdConnect `end_session_endpoint` is not currently supported by the v2.0 endpoint. This means your app cannot send a request to the v2.0 endpoint to end a user's session and clear cookies set by the v2.0 endpoint.
 To sign a user out, your app can simply end its own session with the user, and leave the user's session with the v2.0 endpoint in-tact.  The next time the user tries to sign in, they will see a "choose account" page, with their actively signed-in accounts listed.
 On that page, the user can choose to sign out of any account, ending the session with the v2.0 endpoint.
 

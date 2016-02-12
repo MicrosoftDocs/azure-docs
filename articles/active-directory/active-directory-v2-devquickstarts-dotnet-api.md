@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="1/11/2016"
+	ms.date="02/12/2016"
 	ms.author="dastrock"/>
 
 # Secure an MVC web API
@@ -97,7 +97,7 @@ public void ConfigureAuth(IAppBuilder app)
 				ValidateIssuer = false,
 		};
 
-		// Set up the OWIN pipeline to use OAuth 2.0Bearer authentication.
+		// Set up the OWIN pipeline to use OAuth 2.0 Bearer authentication.
 		// The options provided here tell the middleware about the type of tokens
 		// that will be recieved, which are JWTs for the v2.0 endpoint.
 
@@ -113,7 +113,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
-- Now you can use `[Authorize]` attributes to protect your controllers and actions with OAuth 2.0bearer authentication.  Decorate the `Controllers\TodoListController.cs` class with an authorize tag.  This will force the user to sign in before accessing that page.
+- Now you can use `[Authorize]` attributes to protect your controllers and actions with OAuth 2.0 bearer authentication.  Decorate the `Controllers\TodoListController.cs` class with an authorize tag.  This will force the user to sign in before accessing that page.
 
 ```C#
 [Authorize]

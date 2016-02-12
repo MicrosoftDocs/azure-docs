@@ -1,7 +1,7 @@
 
 <properties
 	pageTitle="Azure AD v2.0 OAuth Authorization Code Flow | Microsoft Azure"
-	description="Building web applications using Azure AD's implementation of the OAuth 2.0authentication protocol."
+	description="Building web applications using Azure AD's implementation of the OAuth 2.0 authentication protocol."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -14,19 +14,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2015"
+	ms.date="02/12/2016"
 	ms.author="dastrock"/>
 
-# v2.0 Protocols - OAuth 2.0Authorization Code Flow
+# v2.0 Protocols - OAuth 2.0 Authorization Code Flow
 
-The OAuth 2.0authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs.  Using the app model v2.0 's implementation of OAuth 2.0, you can add sign in and API access to your mobile and desktop apps.  This guide is language-independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
+The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs.  Using the app model v2.0 's implementation of OAuth 2.0, you can add sign in and API access to your mobile and desktop apps.  This guide is language-independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
 
 <!-- TODO: Need link to libraries -->	
 
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAuth 2.0specification](http://tools.ietf.org/html/rfc6749).  It is used to perform authentication and authorization in the majority of app types, including [web apps](active-directory-v2-flows.md#web-apps) and [natively installed  apps](active-directory-v2-flows.md#mobile-and-native-apps).  It enables apps to securely acquire access_tokens which can be used to access resources that are secured using the v2.0 endpoint.  
+The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749).  It is used to perform authentication and authorization in the majority of app types, including [web apps](active-directory-v2-flows.md#web-apps) and [natively installed  apps](active-directory-v2-flows.md#mobile-and-native-apps).  It enables apps to securely acquire access_tokens which can be used to access resources that are secured using the v2.0 endpoint.  
 
 ## Protocol diagram
 At a high level, the entire authentication flow for a native/mobile application looks a bit like this:
@@ -139,7 +139,7 @@ A successful token response will look like:
 | token_type | Indicates the token type value. The only type that Azure AD supports is Bearer  |
 | expires_in | How long the access token is valid (in seconds). |
 | scope | The scopes that the access_token is valid for. |
-| refresh_token |  An OAuth 2.0refresh token. The  app can use this token acquire additional access tokens after the current access token expires.  Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time.  For more detail, refer to the [v2.0 token reference](active-directory-v2-tokens.md).  |
+| refresh_token |  An OAuth 2.0 refresh token. The  app can use this token acquire additional access tokens after the current access token expires.  Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time.  For more detail, refer to the [v2.0 token reference](active-directory-v2-tokens.md).  |
 | id_token | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 endpoint token reference](active-directory-v2-tokens.md). |
 
 #### Error response
@@ -234,7 +234,7 @@ A successful token response will look like:
 | token_type | Indicates the token type value. The only type that Azure AD supports is Bearer  |
 | expires_in | How long the access token is valid (in seconds). |
 | scope | The scopes that the access_token is valid for. |
-| refresh_token |  A new OAuth 2.0refresh token. You should replace the old refresh token with this newly acquired refresh token to ensure your refresh tokens remain valid for as long as possible.  |
+| refresh_token |  A new OAuth 2.0 refresh token. You should replace the old refresh token with this newly acquired refresh token to ensure your refresh tokens remain valid for as long as possible.  |
 | id_token | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 endpoint token reference](active-directory-v2-tokens.md). |
 
 #### Error response

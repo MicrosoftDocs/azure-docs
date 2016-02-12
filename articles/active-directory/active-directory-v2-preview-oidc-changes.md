@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/12/2016"
 	ms.author="dastrock"/>
 
 # Important Updates to the v2.0 Authentication Protocols
@@ -112,7 +112,7 @@ Or in a token response:
 ```
 { 
 	"token_type": "Bearer",
-	"id_token_expires_in": "3599",
+	"id_token_expires_in": 3599,
 	"scope": "openid",
 	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
@@ -211,9 +211,7 @@ If you have any further questions on the scope of the changes, please feel free 
 ## How often will protocol changes occur?
 We do not foresee any further breaking changes to the authentication protocols.  We are intentionally bundling these changes into one release so that you won`t have to go through this type of update process again any time soon.  Of course, we will continue to add features to the converged v2.0 authentication service that you can take advantage of, but those changes should be additive and not break existing code.
 
-With that said, the v2.0 endpoint is still in a preview state.  Which means you should be careful when releasing production apps that depend on it, and be ready to make changes when situations like these arise.  Only when the v2.0 endpoint reaches GA will we encourage developers to take dependencies on the current state of the service.
-
-Lastly, we would like to say thank you for trying things out during this preview period.  The insights and experiences of our early adopters have been invaluable thus far, and we hope you`ll continue to share your opinions and ideas.
+Lastly, we would like to say thank you for trying things out during the preview period.  The insights and experiences of our early adopters have been invaluable thus far, and we hope you`ll continue to share your opinions and ideas.
 
 Happy coding!
 

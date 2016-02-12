@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="1/11/2016"
+	ms.date="02/12/2016"
 	ms.author="dastrock"/>
 
 # v2.0 Protocols - OAuth 2.0& OpenID Connect
@@ -40,7 +40,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 In nearly all OAuth & OpenID Connect flows, there are four parties involved in the exchange:
 
-![OAuth 2.0Roles](../media/active-directory-v2-flows/protocols_roles.png)
+![OAuth 2.0 Roles](../media/active-directory-v2-flows/protocols_roles.png)
 
 - The **Authorization Server** is the v2.0 endpoint.  It is responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens.  It is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in an flow.
 - The **Resource Owner** is typically the end-user.  It is the party that owns the data, and has the power to allow third parties to access that data, or resource.
@@ -60,9 +60,9 @@ check out [the types of apps you can build with the v2.0](active-directory-v2-fl
 
 - [Build Mobile and Native Application with OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 - [Build Web Apps with Open ID Connect](active-directory-v2-protocols-oidc.md)
-- [Build Single Page Apps with the OAuth 2.0Implicit Flow](active-directory-v2-protocols-implicit.md)
-- [Build Daemons or Server Side Processes with the OAuth 2.0Client Credentials Flow](active-directory-v2-protocols-oauth-client-creds.md)
-- Get tokens in a Web API with the OAuth 2.0On Behalf Of Flow (coming soon)
+- [Build Single Page Apps with the OAuth 2.0 Implicit Flow](active-directory-v2-protocols-implicit.md)
+- [Build Daemons or Server Side Processes with the OAuth 2.0 Client Credentials Flow](active-directory-v2-protocols-oauth-client-creds.md)
+- Get tokens in a Web API with the OAuth 2.0 On Behalf Of Flow (coming soon)
 
-<!-- - Get tokens using a username & password with the OAuth 2.0Resource Owner Password Credentials Flow (coming soon) --> 
-<!-- [Call the Azure AD Graph API using the OAuth 2.0Client Credentials Flow](active-directory-reference-graph.md) -->
+<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
+<!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->

@@ -1,7 +1,7 @@
 
 <properties
 	pageTitle="Azure AD v2.0 OAuth Client Credentials Flow | Microsoft Azure"
-	description="Building web applications using Azure AD's implementation of the OAuth 2.0authentication protocol."
+	description="Building web applications using Azure AD's implementation of the OAuth 2.0 authentication protocol."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="1/11/2016"
+	ms.date="02/12/2016"
 	ms.author="dastrock"/>
 
-# v2.0 Protocols - OAuth 2.0Client Credentials Flow
+# v2.0 Protocols - OAuth 2.0 Client Credentials Flow
 
-The [OAuth 2.0client credentials grant](http://tools.ietf.org/html/rfc6749#section-4.4), sometimes referred to as "two-legged OAuth", can be used to access web hosted resources using the identity of an application.  It is commonly used for server to server interactions that must run in the background without the immediate precense of an end-user.  These types of applications are often referred to as **daemons** or **service accounts**.
+The [OAuth 2.0 client credentials grant](http://tools.ietf.org/html/rfc6749#section-4.4), sometimes referred to as "two-legged OAuth", can be used to access web hosted resources using the identity of an application.  It is commonly used for server to server interactions that must run in the background without the immediate precense of an end-user.  These types of applications are often referred to as **daemons** or **service accounts**.
 
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).

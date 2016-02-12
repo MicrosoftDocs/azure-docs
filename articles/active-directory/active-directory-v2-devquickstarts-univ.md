@@ -13,7 +13,7 @@
 	ms.topic="article"
   	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
-	ms.date="1/11/2016"
+	ms.date="02/12/2016"
 	ms.author="dastrock"/>
 
   # Add sign-in to a Windows Universal app using the v2.0 endpoint
