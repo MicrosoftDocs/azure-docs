@@ -86,7 +86,7 @@ For SQL Server Backup and Restore in SQL Server 2008, see [Backing up and Restor
 
 ## Next steps
 
-If you are still planning your deployment of SQL Server in an Azure VM, you can find provisioning guidance in the following tutorial: [Provisioning a SQL Server Virtual Machine on Azure with Azure Resource Manager](virtual-machines-sql-server-provision-resource-manager.md).
+If you are still planning your deployment of SQL Server in an Azure VM, you can find provisioning guidance in the following tutorial: [Provisioning a SQL Server Virtual Machine on Azure with Azure Resource Manager](virtual-machines-windows-portal-sql-server-provision.md).
 
 Although backup and restore can be used to migrate your data, there are potentially easier data migration paths to SQL Server on an Azure VM. For a full discussion of migration options and recommendations, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md).
 

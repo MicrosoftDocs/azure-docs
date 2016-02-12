@@ -28,7 +28,7 @@ To create a SQL Server virtual machine in Azure, you must first obtain an Azure 
 
 ### Deploy a SQL Server instance on a single VM
 
-After signing up for a subscription, the easiest way to deploy a SQL Server virtual machine in Azure is to [provision a SQL Server machine gallery image in the Azure](virtual-machines-sql-server-provision-resource-manager.md). Those images include licensing of SQL Server in the pricing for the VM.
+After signing up for a subscription, the easiest way to deploy a SQL Server virtual machine in Azure is to [provision a SQL Server machine gallery image in the Azure](virtual-machines-windows-portal-sql-server-provision.md). Those images include licensing of SQL Server in the pricing for the VM.
 
 It is important to note that there are two models for creating and managing Azure virtual machines: classic and Resource Manager. Microsoft recommends that most new deployments use the Resource Manager model. Some of the SQL Server documentation for Azure VMs still refers exclusively to the classic model. These topics are being updated over time to use the new Azure portal and the Resource Manager model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
 
@@ -141,7 +141,7 @@ If you create a virtual machine by using a platform-provided SQL Server image, y
 
 ## Resources
 
-- [Provisioning a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-sql-server-provision-resource-manager.md)
+- [Provisioning a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-portal-sql-server-provision.md)
 - [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md)
 - [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
 - [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)

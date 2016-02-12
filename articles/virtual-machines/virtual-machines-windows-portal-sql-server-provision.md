@@ -23,7 +23,7 @@
 > [AZURE.SELECTOR]
 - [Classic portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
-- [Azure Resource Manager portal](virtual-machines-sql-server-provision-resource-manager.md)
+- [Azure Resource Manager portal](virtual-machines-windows-portal-sql-server-provision.md)
 
 <br/>
 
@@ -55,13 +55,13 @@ This tutorial assumes that you already have an Azure account. If you do not have
 1. In the **New** blade, click **Compute**.
 1. To see all of the types of resources in the in the **Compute** blade, click **See all**.
 <br/>
-![Azure Compute Blade](./media/virtual-machines-sql-server-provision-resource-manager/azure-compute-blade.png)
+![Azure Compute Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
 <br/>
 1. Under **Database servers**, click **SQL Server** to see all of the templates available for SQL Server. You might have to scroll down to locate **Database servers**.
 1. 	Each template identifies a SQL Server version and an operating system. Select one of these images from the list to bring up a blade containing its details.
 1.	The details blade provides a description of this virtual machine image, and it allows you to select a deployment model. Under **Select a deployment model**, select **Resource Manager** and click **Create**.
 <br/>
-![Azure Compute Blade](./media/virtual-machines-sql-server-provision-resource-manager/azure-compute-sql-deployment-model.png)
+![Azure Compute Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 <br/>
 
 ## <a id="ConfigureVM"> Configure the VM
@@ -85,7 +85,7 @@ Verify that the **Location** is correct for your requirements.
 * Click **OK** to save the settings.
 <br/>
 
->![SQL ARM Basics](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-basic.png)
+>![SQL ARM Basics](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-basic.png)
 <br/>
 
 ## 2. Choose virtual machine size
@@ -118,7 +118,7 @@ On the **Create Virtual Machine** blade under **Configure SQL Server** configure
 
 ### Connectivity
 Under **SQL connectivity**, specify **Public (internet)** to allow connections to SQL Server from machines or services on the internet. With this option selected, Azure will automatically configure the firewall and the network security group to allow traffic on port 1433.  
-<br/>![SQL ARM Connectivity](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-connectivity-alt.png)
+<br/>![SQL ARM Connectivity](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
 <br/>
 
 In order to connect to SQL Server via the internet, you will also need to enable SQL Server Authentication.
@@ -138,7 +138,7 @@ For more information, see [Connect to a SQL Server Virtual Machine (Resource Man
 ### Authentication
 If you require SQL Server Authentication, click **Enable** under **SQL authentication**.
 
-<br/>![SQL ARM Authentication](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-authentication.png)
+<br/>![SQL ARM Authentication](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
 <br/>
 
 
@@ -156,7 +156,7 @@ By default, Azure optimizes the storage for 5000 IOPs, 200 MBs, and 1 TB of stor
 - **Data warehousing** optimizes the storage for analytic and reporting workloads.
 
 The following image shows the Storage configuration blade.
-<br/>![SQL ARM Storage](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-storage.png)
+<br/>![SQL ARM Storage](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
 <br/>
 
 >[AZURE.NOTE] Storage configuration limits depend on the virtual machine size. For more information see [Sizes for virtual machines](virtual-machines-size-specs.md)
@@ -164,7 +164,7 @@ The following image shows the Storage configuration blade.
 ### Patching
 **SQL automated patching** is enabled by default. Automated patching allows Azure to automatically patch SQL Server and the operating system. Specify a day of the week, time, and duration for a maintenance window. Azure will perform patching in the maintenance window. The maintenance window schedule uses the VM locale for time. If you do not want Azure to automatically patch SQL Server and the operating system click **Disable**.  
 
-<br/>![SQL ARM Patching](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-patching.png)
+<br/>![SQL ARM Patching](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 <br/>
 
 For more information, see [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-patching.md).
@@ -177,7 +177,7 @@ When you enable SQL automated backup you can configure the following:
 - What storage account to use for backups
 - Whether or not to encrypt the backup. To encrypt the backup, click **Enable**. If the automated backups are encrypted, specify a password. Azure creates a certificate to encrypt the backups and uses the specified password to protect that certificate.
 
-<br/>![SQL ARM Backup](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-autobackup.png)
+<br/>![SQL ARM Backup](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 <br/>
 
  For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-backup.md).
@@ -185,7 +185,7 @@ When you enable SQL automated backup you can configure the following:
 ### Key Vault Integration
 To store security secrets in Azure for encryption, click **Azure key vault integration** and click **Enable**.
 
-<br/>![SQL ARM Azure Key Vault Integration](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-akv.png)
+<br/>![SQL ARM Azure Key Vault Integration](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
 <br/>
 
 The following table lists the parameters required to configure Azure Key Vault Integration.
