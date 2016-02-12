@@ -41,20 +41,6 @@
 - [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 - [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
-## SQL Database Catalog views
-
-- [dbo.server_quotas (Azure SQL Database)](http://msdn.microsoft.com/library/dn308512.aspx)
-- [sys.bandwidth_usage (Azure SQL Database)](http://msdn.microsoft.com/library/dn269985.aspx)
-- [sys.database_connection_stats (Azure SQL Database)](http://msdn.microsoft.com/library/dn269986.aspx)
-- [sys.database_firewall_rules (Azure SQL Database)](http://msdn.microsoft.com/library/dn269982.aspx)
-- [sys.database_usage (Azure SQL Database)](https://msdn.microsoft.com/library/dn270020.aspx)
-- [sys.event_log (Azure SQL Database)](http://msdn.microsoft.com/library/dn270018.aspx)
-- [sys.database_firewall_rules (Azure SQL Database)](http://msdn.microsoft.com/library/dn269982.aspx)
-- [sys.firewall_rules (Azure SQL Database)](https://msdn.microsoft.com/library/dn269980.aspx)
-- [sys.resource_stats (Azure SQL Database)](http://msdn.microsoft.com/library/dn269979.aspx)
-- [sys.resource_usage (Azure SQL Database)](https://msdn.microsoft.com/library/dn270016.aspx)
-
-
 ## SQL Data Warehouse dynamic management views (DMVs)
 
 - [sys.dm_pdw_diag_processing_stats](http://msdn.microsoft.com/library/mt203914.aspx)
@@ -67,9 +53,8 @@
 - [sys.dm_pdw_network_credentials](http://msdn.microsoft.com/library/mt203915.aspx)
 - [sys.dm_pdw_nodes](http://msdn.microsoft.com/library/mt203907.aspx)
 - [sys.dm_pdw_nodes_database_encryption_keys](http://msdn.microsoft.com/library/mt203922.aspx)
-- [sys.dm_pdw_node_status](http://msdn.microsoft.com/library/mt203905.aspx)
 - [sys.dm_pdw_os_event_logs](http://msdn.microsoft.com/library/mt203910.aspx)
-- [sys.dm_pdw_or_performance_counters](http://msdn.microsoft.com/library/mt203875.aspx)
+- [sys.dm_pdw_os_performance_counters](http://msdn.microsoft.com/library/mt203875.aspx)
 - [sys.dm_pdw_os_threads](http://msdn.microsoft.com/library/mt203917.aspx)
 - [sys.dm_pdw_query_stats_xe](http://msdn.microsoft.com/library/mt203898.aspx)
 - [sys.dm_pdw_query_stats_xe_file](http://msdn.microsoft.com/library/mt203919.aspx)
@@ -111,7 +96,6 @@
 - [sys.index_columns](http://msdn.microsoft.com/library/ms175105.aspx)
 - [sys.indexes](http://msdn.microsoft.com/library/ms173760.aspx)
 - [sys.key_constraints](http://msdn.microsoft.com/library/ms174321.aspx)
-- [sys.master_files](http://msdn.microsoft.com/library/ms186782.aspx)
 - [sys.numbered_procedures](http://msdn.microsoft.com/library/ms179865.aspx)
 - [sys.objects](http://msdn.microsoft.com/library/ms190324.aspx)
 - [sys.partition_functions](http://msdn.microsoft.com/library/ms187381.aspx)
@@ -123,11 +107,7 @@
 - [sys.procedures](http://msdn.microsoft.com/library/ms188737.aspx)
 - [sys.schemas](http://msdn.microsoft.com/library/ms176011.aspx)
 - [sys.securable_classes](http://msdn.microsoft.com/library/ms408301.aspx)
-- [sys.server_role_members](http://msdn.microsoft.com/library/ms190331.aspx)
-- [sys.server_permissions](http://msdn.microsoft.com/library/ms186260.aspx)
-- [sys.server_principals](http://msdn.microsoft.com/library/ms188786.aspx)
 - [sys.sql_expression_dependencies](http://msdn.microsoft.com/library/bb677315.aspx)
-- [sys.sql_logins](http://msdn.microsoft.com/ms174355.aspx)
 - [sys.sql_modules](http://msdn.microsoft.com/library/ms175081.aspx)
 - [sys.stats](http://msdn.microsoft.com/library/ms177623.aspx)
 - [sys.stats_columns](http://msdn.microsoft.com/library/ms187340.aspx)

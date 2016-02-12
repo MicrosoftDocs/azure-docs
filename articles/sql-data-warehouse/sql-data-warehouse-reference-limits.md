@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL Data Warehouse Limits | Microsoft Azure"
-   description="Limits for SQL Data Warehouse."
+   pageTitle="SQL Data Warehouse capacity specifications | Microsoft Azure"
+   description="Minimum and maximum capacity specifications for SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,30 +13,43 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/09/2016"
+   ms.date="02/10/2016"
    ms.author="barbkess;jrj;sonyama"/>
 
-# SQL Data Warehouse limits
+# SQL Data Warehouse capacity specifications
 
 SQL Data Warehouse has limits for queries processing and system views that are very similar to SQL Server. Some limits are different because of the underlying parallel and scalable architecture. This is a summary of limits for SQL Data Warehouse.
 
-## Query processing limits
+## Connections
 
 | Category          | Description                                  | Maximum            |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Query             | Concurrent queries on user tables.           | 32                 |
+| Session           | Concurrent open sessions                     | 1024<br/><br/>We support 1024 concurrent connections which can all submit concurrent requests to the data warehouse. Note, there are limits on the number of queries that can execute concurrently. When a limit is exceeded the request goes into an internal queue where it waits to be processed.|
+| Session           | Maximum memory for prepared statements       | 20 MB              |
+| Logins            | Logins per server.                           | 500,000            |
+
+
+## Query Processing
+
+| Category          | Description                                  | Maximum            |
+| :---------------- | :------------------------------------------- | :----------------- |
+| Query             | Concurrent queries on user tables.           | 32<br/><br/>Additional queries will go to an internal queue where they will wait to be processed. Regardless of the number of queries executing at the same time, each query is optimized to make full use of the massively parallel processing architecture.|
 | Query             | Queued queries on user tables.               | 1000               |
 | Query             | Concurrent queries on system views.          | 100                |
 | Query             | Queued queries on system views               | 1000               |
 | Query             | Maximum parameters                           | 2098               |
 | Batch             | Maximum size                                 | 65,536*4096        |
-| Session           | Open sessions                                | 1024               |
-| Session           | Maximum memory for prepared statements       | 20 MB              |
+
+
+## Data Definition Language (DDL)
+
+| Category          | Description                                  | Maximum            |
+| :---------------- | :------------------------------------------- | :----------------- |
 | Table             | Tables per database                          | 2 billion          |
 | Table             | Columns per table                            | 1024 columns       |
 | Table             | Bytes per column                             | 8000 bytes         |
 | Table             | Bytes per row, defined size                  | 8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page commpression on. It cannot be more than 8060 bytes. To estimate the row size, see the row size calculations in [Estimate the Size of a Clustered Index](https://msdn.microsoft.com/library/ms178085.aspx) on MSDN.<br/><br/>For a list of the SQL Data Warehouse data type sizes, see [CREATE TABLE (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt203953.aspx). |
-| Table             | Bytes per row, internal buffer size for moving data    | 32,768<br/><br/>SQL Data Warehouse uses an internal buffer to move rows within the distributed SQL Data Warehouse system. The service that moves rows is called Data Movement Service (DMS) and it stores rows in a format that is different from SQL Server.<br/><br/>If a row does not fit into the internal buffer you will get a query compilation error, or an internal data movement error. To avoid this problem, see [Details about the DMS buffer size](#Details about the DMS buffer size).|
+| Table             | Bytes per row, internal buffer size for moving data    | 32,768<br/><br/>SQL Data Warehouse uses an internal buffer to move rows within the distributed SQL Data Warehouse system. The service that moves rows is called Data Movement Service (DMS) and it stores rows in a format that is different from SQL Server.<br/><br/>If a row does not fit into the internal buffer you will get a query compilation error, or an internal data movement error. To avoid this problem, see [Details about the DMS buffer size](#details-about-the-dms-buffer-size).|
 | Table             | Partitions per table                    | 15,000<br/><br/>For high performance, we recommend minimizing the number of partitions you need while still supporting your business requirements. As the number of partitions grows, the overhead for DDL and DML operations grows and causes slower performance.|
 | Table             | Characters per partition boundary value.| 4000 |
 | Index             | Non-clustered indexes per table.        | 999<br/><br/>Applies to rowstore tables only.|
@@ -50,7 +63,12 @@ SQL Data Warehouse has limits for queries processing and system views that are v
 | Statistics        | Statistics created on columns per table. | 30,000            |
 | Stored Procedures | Maximum levels of nesting.               | 8                 |
 | View              | Columns per view                         | 1,024             |
-| Logins            | Logins per server.                       | 500,000           |
+
+
+## Data Manipulation Language (DML)
+
+| Category          | Description                                  | Maximum            |
+| :---------------- | :------------------------------------------- | :----------------- |
 | SELECT results    | Columns per row                          | 4096<br/><br/>You can never have more than 4096 columns per row in the SELECT result. There is no guarantee that you can always have 4096. If the query plan requires a temporary table, the 1024 columns per table maximum might apply.|
 | SELECT results    | Bytes per row                            | >8060<br/><br/>The number of bytes per row in the SELECT result can be more than the 8060 byte maximum that is allowed for table rows. If the query plan for the SELECT statement requires a temporary table, the 8060 byte table maximum might apply.|
 | SELECT results    | Bytes per column                         | >8000<br/><br/>The number of bytes per column in the SELECT result can be more than the 8000 byte maximum that is allowed for table columns. If the query plan for the SELECT statement requires a temporary table, the 8000 byte table maximum might apply.|
@@ -63,7 +81,7 @@ SQL Data Warehouse has limits for queries processing and system views that are v
 | UPDATE            | Bytes per column, fixed and variable width. | 8000 bytes. Attempts to update a column to a value requiring more bytes than defined for the column will result in an error.|
 | Identifiers and constants per statement | Number of referenced identifiers and constants. | 65,535<br/><br/>SQL Data Warehouse limits the number of identifiers and constants that can be contained in a single expression of a query. This limit is 65,535. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached](http://support.microsoft.com/kb/913050/).|
 
-## System view limits
+## System views
 
 | System view                        | Maximum rows |
 | :--------------------------------- | :------------|
