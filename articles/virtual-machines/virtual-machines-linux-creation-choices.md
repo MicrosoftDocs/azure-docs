@@ -97,7 +97,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 
 [Attach a Data Disk]: virtual-machines-linux-classic-attach-disk.md
 
-[Base Configuration Test Environment]: virtual-machines-base-configuration-test-environment.md
+[Base Configuration Test Environment]: virtual-machines-windows-classic-test-config-env.md
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
 [Create a Virtual Machine Running Linux]: virtual-machines-linux-cli-create.md

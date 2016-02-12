@@ -31,7 +31,7 @@ You can use the resulting test environment:
 
 The Base Configuration test environment consists of the Corpnet subnet in a cloud-only virtual network named TestLab that simulates a simplified, private intranet connected to the Internet.
 
-![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
+![](./media/virtual-machines-windows-classic-test-config-env/BC_TLG04.png)
 
 It contains:
 
@@ -106,7 +106,7 @@ If this command returns "False", your proposed name is unique. Then, create the 
 
 This is your current configuration.
 
-![](./media/virtual-machines-base-configuration-test-environment/BC_TLG01.png)
+![](./media/virtual-machines-windows-classic-test-config-env/BC_TLG01.png)
 
 ## Phase 2: Configure DC1
 
@@ -179,7 +179,7 @@ Next, to allow traffic for the Ping tool, run this command at an administrator-l
 
 This is your current configuration.
 
-![](./media/virtual-machines-base-configuration-test-environment/BC_TLG02.png)
+![](./media/virtual-machines-windows-classic-test-config-env/BC_TLG02.png)
 
 ## Phase 3: Configure APP1
 
@@ -212,7 +212,7 @@ Next, create a shared folder and a text file within the folder on APP1 with thes
 
 This is your current configuration.
 
-![](./media/virtual-machines-base-configuration-test-environment/BC_TLG03.png)
+![](./media/virtual-machines-windows-classic-test-config-env/BC_TLG03.png)
 
 ## Phase 4: Configure CLIENT1
 
@@ -248,7 +248,7 @@ Next, verify that you can access web and file share resources on APP1 from CLIEN
 
 This is your final configuration.
 
-![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
+![](./media/virtual-machines-windows-classic-test-config-env/BC_TLG04.png)
 
 Your base configuration in Azure is now ready for application development and testing or for additional test environments.
 
