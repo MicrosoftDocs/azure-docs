@@ -97,7 +97,7 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
 	7. Once the blob panel shows up, click **+ Container** to create a new blob storage container. Enter the name of the container and the access type.
 
-		![Create new blob](./media/virtual-machines-upload-image-windows-resource-manager/portal_create_container.png)
+		![Create new blob](./media/virtual-machines-windows-upload-image/portal_create_container.png)
 
   		> [AZURE.NOTE] By default, the container is private and can be accessed only by the account owner. To allow public read access to the blobs in the container, but not the container properties and metadata, use the **Blob** option. To allow full public read access for the container and blobs, use the **Container** option.
 
