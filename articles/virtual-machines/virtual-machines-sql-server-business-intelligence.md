@@ -400,7 +400,7 @@ For more information on creating endpoints, see the following:
 
 - Create Endpoints:[How to Set Up Endpoints to a Virtual Machine](virtual-machines-set-up-endpoints.md).
 
-- SQL Server: See the “Complete Configuration steps to connect to the virtual machine Using SQL Server Management Studio” section of [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md).
+- SQL Server: See the “Complete Configuration steps to connect to the virtual machine Using SQL Server Management Studio” section of [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-portal-sql.md).
 
 The following diagram illustrates the ports to open in the VM firewall to allow remote access to features and components on the VM.
 
@@ -414,7 +414,7 @@ The following diagram illustrates the ports to open in the VM firewall to allow 
 
 - [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-- [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md)
+- [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-portal-sql.md)
 
 - [How to Attach a Data Disk to a Virtual Machine](virtual-machines-windows-classic-attach-disk.md)
 

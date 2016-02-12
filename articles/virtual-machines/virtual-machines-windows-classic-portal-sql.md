@@ -20,7 +20,7 @@
 # Provision a SQL Server virtual machine in Azure
 
 > [AZURE.SELECTOR]
-- [Classic portal](virtual-machines-provision-sql-server.md)
+- [Classic portal](virtual-machines-windows-classic-portal-sql.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 - [Azure Resource Manager portal](virtual-machines-windows-portal-sql-server-provision.md)
 
@@ -48,7 +48,7 @@ In this tutorial, you will:
 
 3. On the **Choose an Image** page, click **SQL SERVER**. Then select a SQL Server image. Click the next arrow at the bottom right of the page.
 
-	![Choose an Image](./media/virtual-machines-provision-sql-server/choose-sql-vm.png)
+	![Choose an Image](./media/virtual-machines-windows-classic-portal-sql/choose-sql-vm.png)
 
 For the most up-to-date information on the supported SQL Server images on Azure, see [SQL Server on Azure Virtual Machines Overview](virtual-machines-sql-server-infrastructure-services.md).
 
@@ -65,7 +65,7 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 	- In the **CONFIRM PASSWORD** box, retype the password.
 	- Select the appropriate **SIZE** from the drop down list.
 
-	![VM Configuration](./media/virtual-machines-provision-sql-server/4VM-Config.png)
+	![VM Configuration](./media/virtual-machines-windows-classic-portal-sql/4VM-Config.png)
 
 	>[AZURE.NOTE] The size of the virtual machine is specified during provisioning:
  	>
@@ -104,11 +104,11 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 
 2. Click the **Open** button.
 
-	![Click the Open button](./media/virtual-machines-provision-sql-server/click-open-to-connect.png)
+	![Click the Open button](./media/virtual-machines-windows-classic-portal-sql/click-open-to-connect.png)
 
 3. At the **Windows Security** dialog box, click **Use another account**.
 
-	![Click Use another account](./media/virtual-machines-provision-sql-server/credentials.png)
+	![Click Use another account](./media/virtual-machines-windows-classic-portal-sql/credentials.png)
 
 4. Use the name of the machine as the domain name, followed by your administrator name in this format: `machinename\username`. Type your password and connect to the machine.
 

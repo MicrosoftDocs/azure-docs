@@ -19,7 +19,7 @@
 # Create a SQL Server Virtual Machine in Azure (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Classic portal](virtual-machines-provision-sql-server.md)
+- [Classic portal](virtual-machines-windows-classic-portal-sql.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 - [Azure Resource Manager portal](virtual-machines-windows-portal-sql-server-provision.md)
 
@@ -171,6 +171,6 @@ You can find additional instructions for provisioning virtual machines with Powe
 
 In many cases, the next step is to migrate your databases to this new SQL Server VM. For database migration guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md).
 
-If you're also interested in seeing how to perform these steps from the Azure classic portal, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md).
+If you're also interested in seeing how to perform these steps from the Azure classic portal, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-portal-sql.md).
 
 In addition to these resources, we recommend that you review [other topics related to running SQL Server in Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md).
