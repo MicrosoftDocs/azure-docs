@@ -194,7 +194,7 @@ Outside corpnet|For browser flows, multi-factor authentication required.|For bro
 
 ### To enable Trusted IPs
 
-1. Sign-in to the Azure .
+1. Sign-in to the Azure classic portal.
 2. On the left, click Active Directory.
 3. Under, Directory click on the directory you wish to setup Trusted IPsing on.
 4. On the Directory you have selected, click Configure.
