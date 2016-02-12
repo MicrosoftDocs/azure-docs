@@ -170,9 +170,9 @@ Here you will enter the specific servers that you want to install AD FS on. You 
 Here you will enter the specific servers that you want as your Web Application proxy servers. The web application proxy server is deployed in your DMZ (extranet facing) and supports authentication requests from the extranet. You can add one or more servers based on your capacity planning needs. We recommend installing a single Web Application proxy server for test and pilot deployments and deploying additional servers by opening up Azure AD Connect and deploying Web Application Proxy to additional servers. We typically recommend having an equivalent number of proxy servers to satisfy authentication from the intranet.
 
 > [AZURE.NOTE]
-- If the account you are using to install Azure AD Connect is not a local admin on the AD FS server(s) then you will be prompted for credentials for an account that has sufficient permissions.
-- Ensure that there is HTTP/HTTPS connectivity between the Azure AD Connect server and the Web Application Proxy server prior to configuring this step.
-- In addition, ensure that there is HTTP/HTTPS connectivity between the Web Application Server and the AD FS server to allow authentication requests to flow through.
+<li> If the account you are using to install Azure AD Connect is not a local admin on the AD FS server(s) then you will be prompted for credentials for an account that has sufficient permissions.</li>
+<li> Ensure that there is HTTP/HTTPS connectivity between the Azure AD Connect server and the Web Application Proxy server prior to configuring this step.</li>
+<li> In addition, ensure that there is HTTP/HTTPS connectivity between the Web Application Server and the AD FS server to allow authentication requests to flow through.</li>
 
 
 ![Web App](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
@@ -215,7 +215,7 @@ You can customize the illustration and logo image for your AD FS login pages by 
 ## Configure and verify pages
 On this page the configuration will actually happen.
 
-![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/readytoconfigure.png)
+![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
 ### Staging mode
 With staging mode the process to setup a new sync server in parallel with an existing server is possible. It is only supported to have one sync server exporting to one directory in the cloud. But if you want to move from another server, for example one running DirSync, then you can enable Azure AD Connect in staging mode. When enabled, the sync engine will import and synchronize data as normal, but it will not export anything to Azure AD and will turn off password sync and password writeback.
