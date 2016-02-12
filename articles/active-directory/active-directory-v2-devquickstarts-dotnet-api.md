@@ -18,10 +18,10 @@
 
 # Secure an MVC web API
 
-With Azure Active Directory v2.0 apps, you can protect a Web API using [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) access tokens, enabling users with both personal Microsoft account and work or school accounts to securely access your Web API.
+With Azure Active Directory the v2.0 endpoint, you can protect a Web API using [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) access tokens, enabling users with both personal Microsoft account and work or school accounts to securely access your Web API.
 
 > [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 In ASP.NET web APIs, you can accomplish this using Microsoft’s OWIN middleware included in .NET Framework 4.5.  Here we’ll use OWIN to build a "To Do List" MVC Web API that allows clients to create and read tasks from a user's To-Do list.  The web API will validate that incoming requests contain a valid access token and reject any requests that do not pass validation on a protected route.
 
@@ -97,7 +97,7 @@ public void ConfigureAuth(IAppBuilder app)
 				ValidateIssuer = false,
 		};
 
-		// Set up the OWIN pipeline to use OAuth 2.0 Bearer authentication.
+		// Set up the OWIN pipeline to use OAuth 2.0Bearer authentication.
 		// The options provided here tell the middleware about the type of tokens
 		// that will be recieved, which are JWTs for the v2.0 endpoint.
 
@@ -113,7 +113,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
-- Now you can use `[Authorize]` attributes to protect your controllers and actions with OAuth 2.0 bearer authentication.  Decorate the `Controllers\TodoListController.cs` class with an authorize tag.  This will force the user to sign in before accessing that page.
+- Now you can use `[Authorize]` attributes to protect your controllers and actions with OAuth 2.0bearer authentication.  Decorate the `Controllers\TodoListController.cs` class with an authorize tag.  This will force the user to sign in before accessing that page.
 
 ```C#
 [Authorize]
@@ -157,7 +157,7 @@ For reference, the completed sample (without your configuration values) [is prov
 ## Next steps
 You can now move onto additional topics.  You may want to try:
 
-[Calling a Web API from a v2.0 Web App >>](active-directory-devquickstarts-webapp-webapi-dotnet.md)
+[Calling a Web API from a Web App >>](active-directory-devquickstarts-webapp-webapi-dotnet.md)
 
 For additional resources, check out:
 - [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)

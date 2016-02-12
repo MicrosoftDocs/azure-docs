@@ -18,15 +18,15 @@
 	ms.author="dastrock"/>
 
 # v2.0 Protocols - OpenID Connect
-OpenID Connect is an authentication protocol built on top of OAuth 2.0 that can be used to securely sign users into web applications.  Using the app model v2.0's implementation of OpenID Connect, you can add sign in and API access to your web based applications.  This guide will show you how to do so in a language-independent manner, describing how to send and receive HTTP messages without using any of our open-source libraries.
+OpenID Connect is an authentication protocol built on top of OAuth 2.0that can be used to securely sign users into web applications.  Using the v2.0 endpoint's implementation of OpenID Connect, you can add sign in and API access to your web based applications.  This guide will show you how to do so in a language-independent manner, describing how to send and receive HTTP messages without using any of our open-source libraries.
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
     
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol, which allows you to perform single sign-on using OAuth.  It introduces the concept of an `id_token`, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.  Because it extends OAuth 2.0, it also enables apps to securely acquire **access_tokens** which can be used to access resources that are secured by an [authorization server](active-directory-v2-protocols.md#the-basics).  OpenID Connect is our recommendation if you are building a [web application](active-directory-v2-flows.md#web-apps) that is hosted on a server and accessed via a browser.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0*authorization* protocol for use as an *authentication* protocol, which allows you to perform single sign-on using OAuth.  It introduces the concept of an `id_token`, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.  Because it extends OAuth 2.0, it also enables apps to securely acquire **access_tokens** which can be used to access resources that are secured by an [authorization server](active-directory-v2-protocols.md#the-basics).  OpenID Connect is our recommendation if you are building a [web application](active-directory-v2-flows.md#web-apps) that is hosted on a server and accessed via a browser.
 
 ## Send the sign-in request
-When your web app needs to authenticate the user, it can direct the user to the `/authorize` endpoint.  This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](active-directory-v2-protocols-oauth-code.md), with a few important distinctions:
+When your web app needs to authenticate the user, it can direct the user to the `/authorize` endpoint.  This request is similar to the first leg of the [OAuth 2.0Authorization Code Flow](active-directory-v2-protocols-oauth-code.md), with a few important distinctions:
 
 - The request must include the scope `openid` in the `scope` parameter.
 - The `response_type` parameter must include `id_token`
@@ -108,19 +108,19 @@ You may also wish to validate additional claims depending on your scenario.  Som
 - Ensuring the user has proper authorization/privileges
 - Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
 
-For more information on the claims in an id_token, see the [v2.0 app model token reference](active-directory-v2-tokens.md).
+For more information on the claims in an id_token, see the [v2.0 endpoint token reference](active-directory-v2-tokens.md).
 
 Once you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app.  This information can be used for display, records, authorizations, etc.
 
 ## Send a sign out request
 
-The OpenIdConnect `end_session_endpoint` is not currently supported by the v2.0 app model preview. This means your app cannot send a request to the v2.0 endpoint to end a user's session and clear cookies set by the v2.0 endpoint.
+The OpenIdConnect `end_session_endpoint` is not currently supported by the v2.0 endpoint preview. This means your app cannot send a request to the v2.0 endpoint to end a user's session and clear cookies set by the v2.0 endpoint.
 To sign a user out, your app can simply end its own session with the user, and leave the user's session with the v2.0 endpoint in-tact.  The next time the user tries to sign in, they will see a "choose account" page, with their actively signed-in accounts listed.
 On that page, the user can choose to sign out of any account, ending the session with the v2.0 endpoint.
 
 <!--
 
-When you wish to sign the user out of the  app, it is not sufficient to clear your app's cookies or otherwise end the session with the user.  You must also redirect the user to the v2.0 endpoint for sign out.  If you fail to do so, the user will be able to re-authenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the v2.0 endpoint.
+When you wish to sign the user out of the app, it is not sufficient to clear your app's cookies or otherwise end the session with the user.  You must also redirect the user to the v2.0 endpoint for sign out.  If you fail to do so, the user will be able to re-authenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the v2.0 endpoint.
 
 You can simply redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
 
@@ -179,7 +179,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q... 	/
 
 | Parameter | Description |
 | ----------------------- | ------------------------------- |
-| id_token | The id_token that the  app requested. You can use the id_token to verify the user's identity and begin a session with the user.  More details on id_tokens and their contents is included in the [v2.0 app model token reference](active-directory-v2-tokens.md).  |
+| id_token | The id_token that the  app requested. You can use the id_token to verify the user's identity and begin a session with the user.  More details on id_tokens and their contents is included in the [v2.0 endpoint token reference](active-directory-v2-tokens.md).  |
 | code | The authorization_code that the  app requested. The  app can use the authorization code to request an access token for the target resource.  Authorization_codes are very short lived, typically they expire after about 10 minutes. |
 | state | If a state parameter is included in the request, the same value should appear in the response. The  app should verify that the state values in the request and response are identical. |
 

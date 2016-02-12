@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Changes to the Azure AD v2.0 app model | Microsoft Azure"
+	pageTitle="Changes to the Azure AD v2.0 endpoint | Microsoft Azure"
 	description="A description of changes that are being made to the app model v2.0 public preview protocols."
 	services="active-directory"
 	documentationCenter=""
@@ -144,7 +144,7 @@ In this update, we are changing the information that the `openid` scope affords 
 ```
 { 
 	"aud": "580e250c-8f26-49d0-bee8-1c078add1609",
-	"iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0",
+	"iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0 ",
 	"iat": 1449520283,
 	"nbf": 1449520283,
 	"exp": 1449524183,
@@ -185,7 +185,7 @@ https://login.microsoftonline.com/{some-guid}/v2.0/
 Where the guid was the tenantId of the Azure AD tenant which issued the token.  With these changes, the issuer value becomes
 
 ```
-https://login.microsoftonline.com/{some-guid}/v2.0
+https://login.microsoftonline.com/{some-guid}/v2.0 
 ```
 
 in both tokens and in the OpenID Connect discovery document.

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD v2.0 Scopes, permissions, & consent | Microsoft Azure"
-	description="A description of authorization in the Azure AD v2.0 app model, including scopes, permissions, and consent."
+	description="A description of authorization in the Azure AD v2.0 endpoint, including scopes, permissions, and consent."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -16,12 +16,12 @@
 	ms.date="11/1/2016"
 	ms.author="dastrock"/>
 
-# Scopes, permissions, & consent in v2.0 apps
+# Scopes, permissions, & consent in the v2.0 endpoint
 
 Apps that integrate with Azure AD follow a particular authorization model that allows users to control how an app can access their data.  The v2.0 implementation of this authorization model has been updated, changing how an app must interact with Azure AD.  This topic covers the basic concepts of this authorization model, including scopes, permissions, and consent.
 
 > [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## Scopes & permissions
 
@@ -186,7 +186,7 @@ Content-Type: application/json
 
 The resulting access token can then be used in HTTP requests to the resource - it will reliably indicate to the resource that your app has the proper permission to perform a given task.  
 
-For more detail on the OAuth 2.0 protocol and how to acquire access tokens, see the [app model v2.0 protocol reference](active-directory-v2-protocols.md).
+For more detail on the OAuth 2.0 protocol and how to acquire access tokens, see the [v2.0 endpoint protocol reference](active-directory-v2-protocols.md).
 
 ## OpenId Connect scopes
 
@@ -208,6 +208,6 @@ The `profile` scope can be included along with the `openid` scope and any others
 
 The [`offline_access` scope](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) allows your app to access resources on behalf of the user for an extended period of time.  In the work account consent screen, this scope will appear as the "Access your data anytime" permission.  In the personal Microsoft account consent screen, it will appear as the "Access your info anytime" permission.  When a user approves the `offline_access` scope, your app will be enabled to receive refresh tokens from the v2.0 token endpoint.  Refresh tokens are long-lived and allow your app to acquire new access tokens as older ones expire.
 
-If your app does not request the `offline_access` scope, it will not receive refresh_tokens.  This means that when you redeem an authorization_code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow), you will only receive back an access_token from the `/token` endpoint.  That access_token will remain valid for a short period of time (typically one hour), but will eventually expire.  At that point in time, your app will need to redirect the user back to the `/authorize` endpoint to retrieve a new authorization_code.  During this redirect, the user may or may not need to enter their credentials again or re-consent to permissions, depending on the the type of app.
+If your app does not request the `offline_access` scope, it will not receive refresh_tokens.  This means that when you redeem an authorization_code in the [OAuth 2.0authorization code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow), you will only receive back an access_token from the `/token` endpoint.  That access_token will remain valid for a short period of time (typically one hour), but will eventually expire.  At that point in time, your app will need to redirect the user back to the `/authorize` endpoint to retrieve a new authorization_code.  During this redirect, the user may or may not need to enter their credentials again or re-consent to permissions, depending on the the type of app.
 
 For more information on how to get and use refresh tokens, refer to the [v2.0 protocol reference](active-directory-v2-protocols.md).

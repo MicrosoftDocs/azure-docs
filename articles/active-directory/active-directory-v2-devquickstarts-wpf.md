@@ -18,14 +18,14 @@
 
 # Add sign-in to a Windows Desktop app
 
-With the v2.0 apps, you can quickly add authentication to your desktop apps with support for both personal Microsoft accounts and work or school accounts.  It also enables your app to securely communicate with a backend web api, as well as [the Microsoft Graph](https://graph.microsoft.io) and a few of the [Office 365 Unified APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
+With the the v2.0 endpoint, you can quickly add authentication to your desktop apps with support for both personal Microsoft accounts and work or school accounts.  It also enables your app to securely communicate with a backend web api, as well as [the Microsoft Graph](https://graph.microsoft.io) and a few of the [Office 365 Unified APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
 
 > [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 For [.NET native apps that run on a device](active-directory-v2-flows.md#mobile-and-native-apps), Azure AD provides the Active Directory Authentication Library, or ADAL.  ADAL's sole purpose in life is to make it easy for your app to get tokens for calling web services.  To demonstrate just how easy it is, here we'll build a .NET WPF To-Do List app that:
 
--	Signs the user in & gets access tokens using the [OAuth 2.0 authentication protocol](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+-	Signs the user in & gets access tokens using the [OAuth 2.0authentication protocol](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
 -	Securely calls a backend To-Do List web service, which is also secured by OAuth 2.0.
 -	Signs users out.
 
@@ -247,7 +247,7 @@ For reference, the completed sample (without your configuration values) [is prov
 
 You can now move onto more advanced topics.  You may want to try:
 
-- [Securing the v2.0 TodoListService Web API >>](active-directory-v2-devquickstarts-dotnet-api.md)
+- [Securing the TodoListService Web API with the v2.0 endpoint >>](active-directory-v2-devquickstarts-dotnet-api.md)
 
 For additional resources, check out:
 - [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)

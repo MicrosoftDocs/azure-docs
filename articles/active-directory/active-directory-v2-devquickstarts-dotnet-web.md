@@ -18,10 +18,10 @@
 
 # Add sign-in to an .NET MVC web app
 
-With v2.0 apps, you can quickly add authentication to your web apps with support for both personal Microsoft accounts and work or school accounts.  In ASP.NET web apps, you can accomplish this using Microsoft's OWIN middleware included in .NET Framework 4.5.
+With the v2.0 endpoint, you can quickly add authentication to your web apps with support for both personal Microsoft accounts and work or school accounts.  In ASP.NET web apps, you can accomplish this using Microsoft's OWIN middleware included in .NET Framework 4.5.
 
 > [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
  Here we'll build an web app that uses OWIN to sign the user in, display some information about the user, and sign the user out of the app.
  
@@ -83,12 +83,12 @@ public void ConfigureAuth(IAppBuilder app)
 					 app.UseOpenIdConnectAuthentication(
 							 new OpenIdConnectAuthenticationOptions
 							 {
-									 // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
+									 // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0 
 									 // The `Scope` describes the permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
 									 // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
 
 									 ClientId = clientId,
-									 Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
+									 Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0 "),
 									 RedirectUri = redirectUri,
 									 Scope = "openid email profile",
 									 ResponseType = "id_token",
@@ -202,7 +202,7 @@ For reference, the completed sample (without your configuration values) [is prov
 
 You can now move onto more advanced topics.  You may want to try:
 
-[Secure a Web API with the v2.0 apps >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Secure a Web API with the the v2.0 endpoint >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 For additional resources, check out:
 - [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)

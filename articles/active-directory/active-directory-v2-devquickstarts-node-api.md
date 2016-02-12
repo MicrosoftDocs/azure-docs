@@ -19,9 +19,9 @@
 # Secure a Web API using node.js
 
 > [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-With Azure Active Directory v2.0 apps, you can protect a Web API using [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) access tokens, enabling users with both personal Microsoft account and work or school accounts to securely access your Web API.
+With Azure Active Directory the v2.0 endpoint, you can protect a Web API using [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) access tokens, enabling users with both personal Microsoft account and work or school accounts to securely access your Web API.
 
 **Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory. We will install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
 
@@ -121,7 +121,7 @@ The output of this command should appear similar to the following:
 	├── verror@1.3.6 (extsprintf@1.0.2)
 	├── csv@0.3.6
 	├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
-	└── bunyan@0.22.0 (mv@0.0.5)
+	└── bunyan@0.22.0(mv@0.0.5)
 
 
 ## 5: Install Passport.js into your Web API
@@ -651,7 +651,7 @@ Then, change to the directory and start curling..
 `$ curl -isS http://127.0.0.1:8080 | json`
 
 ```Shell
-HTTP/1.1 200 OK
+HTTP/1.1 2.0OK
 Connection: close
 Content-Type: application/json
 Content-Length: 171
@@ -849,7 +849,7 @@ For reference, the completed sample (without your configuration values) [is prov
 
 You can now move onto more advanced topics.  You may want to try:
 
-[Secure a v2.0 Web App with the in Node.js >>](active-directory-v2-devquickstarts-node-web.md)
+[Secure a Node.js web app using the v2.0 endpoint >>](active-directory-v2-devquickstarts-node-web.md)
 
 For additional resources, check out:
 - [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)

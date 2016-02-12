@@ -19,12 +19,12 @@
 
 # Add sign-in to an AngularJS single page app - .NET
 
-In this article we'll add sign in with Microsoft powered accounts to an AngularJS app using an Azure Active Directory v2.0 app.  v2.0 apps enable you to perform a single integration in your app and authenticate users with both personal and work/school accounts.
+In this article we'll add sign in with Microsoft powered accounts to an AngularJS app using the Azure Active Directory v2.0 endpoint.  The v2.0 endpoint enables you to perform a single integration in your app and authenticate users with both personal and work/school accounts.
 
 This sample is a simple To-Do List single page app that stores tasks in a backend REST API, written using the .NET 4.5 MVC framework and secured using OAuth bearer tokens from Azure AD.  The AngularJS app will use our open source JavaScript authentication library [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) to handle the entire sign in process and acquire tokens for calling the REST API.  The same pattern can be applied to authenticate to other REST APIs, like the [Microsoft Graph](https://graph.microsoft.com).
 
 > [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## Download
 
@@ -223,7 +223,7 @@ return $http.get('/api/tasks');
 
 Congratulations!  Your Azure AD integrated single page app is now complete.  Go ahead, take a bow.  It can authenticate users, securely call its backend REST API using OpenID Connect, and get basic information about the user.  Out of the box, it supports any user with a personal Microsoft Account or a work/school account from Azure AD.  Run the app, and in a browser navigate to `https://localhost:44326/`.  Sign in using either a personal Microsoft account or a work/school account.  Add tasks to the user's to-do list, and sign out.  Try signing in with the other type of account. If you need an Azure AD tenant to create work/school users, [learn how to get one here](active-directory-howto-tenant.md) (it's free).
 
-To continue learning about v2.0 apps, head back to our [v2.0 developer guide](active-directory-appmodel-v2-overview.md).  For additional resources, check out:
+To continue learning about the v2.0 endpoint, head back to our [v2.0 developer guide](active-directory-appmodel-v2-overview.md).  For additional resources, check out:
 
 - [Azure-Samples on GitHub >>](https://github.com/Azure-Samples)
 - [Azure AD on Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD v2.0 token reference | Microsoft Azure"
-	description="The types of tokens and claims emitted by the v2.0 Endpoint"
+	description="The types of tokens and claims emitted by the v2.0 endpoint"
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -16,12 +16,12 @@
 	ms.date="01/11/2016"
 	ms.author="dastrock"/>
 
-# V2.0 token reference
+# v2.0 token reference
 
 The v2.0 endpoint emits several types of security tokens in the processing of each [authentication flow](active-directory-v2-flows.md). This document describes the format, security characteristics, and contents of each type of token.
 
 > [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## Types of tokens
 
@@ -51,14 +51,14 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Name | Claim | Example Value | Description |
 | ----------------------- | ------------------------------- | ------------ | --------------------------------- |
 | Audience | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | Identifies the intended recipient of the token.  In id_tokens, the audience is your app's Application Id, as assigned to your app in the app registration portal.  Your app should validate this value and reject the token if it does not match. |
-| Issuer | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0` | Identifies the security token service (STS) that constructs and returns the token, as well as the Azure AD tenant in which the user was authenticated.  Your app should validate the issuer claim to ensure that the token came from the v2.0 endpoint.  It can also use the guid portion of the claim to restrict the set of tenants that are allowed to sign into the app. |
+| Issuer | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` | Identifies the security token service (STS) that constructs and returns the token, as well as the Azure AD tenant in which the user was authenticated.  Your app should validate the issuer claim to ensure that the token came from the v2.0 endpoint.  It can also use the guid portion of the claim to restrict the set of tenants that are allowed to sign into the app. |
 | Issued At | `iat` | `1452285331` | The time at which the token was issued, represented in epoch time. |
 | Expiration Time | `exp` | `1452289231` | The time at which the token becomes invalid, represented in epoch time.  Your app should use this claim to verify the validity of the token lifetime.  |
 | Not Before | `nbf` | `1452285331` |  The time at which the token becomes valid, represented in epoch time. It is usually the same as the issuance time.  Your app should use this claim to verify the validity of the token lifetime.  |
-| Version | `ver` | `2.0` | The version of the id_token, as defined by Azure AD.  For app model v2.0, The value will be `2.0`. |
+| Version | `ver` | `2.0` | The version of the id_token, as defined by Azure AD.  For the v2.0 endpoint, The value will be `2.0`. |
 | Tenant Id | `tid` | `b9419818-09af-49c2-b0c3-653adc1f376e` | A guid representing the Azure AD tenant which the user is from.  For work and school accounts, the guid will be the immutable tenant ID of the organization that the user belongs to.  For personal accounts, the value will be `9188040d-6c67-4c5b-b112-36a304b66dad`.  The `profile` scope is required in order to receive this claim. |
-| Code Hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | The code hash is included in id_tokens only when the id_token is issued alongside an OAuth 2.0 authorization code.  It can be used to validate the authenticity of an authorization code.  See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on performing this validation. |
-| Access Token Hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | The access token hash is included in id_tokens only when the id_token is issued alongside an OAuth 2.0 access token.  It can be used to validate the authenticity of an access token.  See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on performing this validation. |
+| Code Hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | The code hash is included in id_tokens only when the id_token is issued alongside an OAuth 2.0authorization code.  It can be used to validate the authenticity of an authorization code.  See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on performing this validation. |
+| Access Token Hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | The access token hash is included in id_tokens only when the id_token is issued alongside an OAuth 2.0access token.  It can be used to validate the authenticity of an access token.  See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on performing this validation. |
 | Nonce | `nonce` | `12345` | The nonce is a strategy for mitigating token replay attacks.  Your app can specify a nonce in an authorization request by using the `nonce` query parameter.  The value you provide in the request will be emitted in the id_token's `nonce` claim, unmodified.  This allows your app to verify the value against the value it specified on the request, which associates the app's session with a given id_token.  Your app should perform this validation during the id_token validation process. |
 | Name | `name` | `Babe Ruth` | The name claim provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique, is mutable, and is designed to be used only for display purposes.  The `profile` scope is required in order to receive this claim. |
 | Email | `email` | `thegreatbambino@nyy.onmicrosoft.com` | The primary email address associated with the user account, if one exists.  Its value is mutable and may change for a given user over time.  The `email` scope is required in order to receive this claim. |
@@ -77,7 +77,7 @@ When you request an access token from the v2.0 endpoint, the v2.0 endpoint also 
 
 ## Refresh tokens
 
-Refresh tokens are security tokens which your app can use to acquire new access tokens in an OAuth 2.0 flow.  It allows your app to achieve long-term access to resources on behalf of a user without requiring interaction by the user.
+Refresh tokens are security tokens which your app can use to acquire new access tokens in an OAuth 2.0flow.  It allows your app to achieve long-term access to resources on behalf of a user without requiring interaction by the user.
 
 Refresh tokens are multi-resource.  That is to say that a refresh token received during a token request for one resource can be redeemed for access tokens to a completely different resource.
 

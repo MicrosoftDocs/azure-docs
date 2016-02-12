@@ -20,12 +20,12 @@
 
 
 > [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 
 Here we'll use Passport to:
 
-- Sign the user into the app using Azure AD and the v2.0 app model.
+- Sign the user into the app using Azure AD and the v2.0 endpoint.
 - Display some information about the user.
 - Sign the user out of the app.
 
@@ -414,7 +414,7 @@ For reference, the completed sample (without your configuration values) [is prov
 
 You can now move onto more advanced topics.  You may want to try:
 
-[Secure a v2.0 Web API in node.js >>](active-directory-v2-devquickstarts-webapi-nodejs.md)
+[Secure a node.js web api using the v2.0 endpoint >>](active-directory-v2-devquickstarts-webapi-nodejs.md)
 
 For additional resources, check out:
 - [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="v2.0 app registration | Microsoft Azure"
-	description="How to register a v2.0 app with Microsoft for enabling sign-in and accessing Microsoft services"
+	description="How to register an app with Microsoft for enabling sign-in and accessing Microsoft services using the v2.0 endpoint"
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -16,12 +16,12 @@
 	ms.date="1/11/2016"
 	ms.author="dastrock"/>
 
-# How to register a v2.0 app
+# How to register an app with the v2.0 endpoint
 
-To build an app that accepts both MSA & Azure AD sign-in, you'll first need to register a v2.0 app with Microsoft.  At this time, you won't be able to use any existing apps you may have with Azure AD or MSA - you'll need to create a brand new one.
+To build an app that accepts both MSA & Azure AD sign-in, you'll first need to register an app with Microsoft.  At this time, you won't be able to use any existing apps you may have with Azure AD or MSA - you'll need to create a brand new one.
 
 > [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## Visit the Microsoft app registration portal
 First things first - navigate to [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).  This is a new app registration portal where you can manage your Microsoft apps.

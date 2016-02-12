@@ -18,10 +18,10 @@
 
 # Calling a web API from a .NET web app
 
-With v2.0 apps, you can quickly add authentication to your web apps and web APIs with support for both personal Microsoft accounts and work or school accounts.  Here, we'll build an MVC web app that signs users in using OpenID Connect, with some help from Microsoft's OWIN middleware.  The web app will get OAuth 2.0 access tokens for a web api secured by OAuth 2.0 that allows create, read, and delete on a given user's "To-Do List".
+With the v2.0 endpoint, you can quickly add authentication to your web apps and web APIs with support for both personal Microsoft accounts and work or school accounts.  Here, we'll build an MVC web app that signs users in using OpenID Connect, with some help from Microsoft's OWIN middleware.  The web app will get OAuth 2.0access tokens for a web api secured by OAuth 2.0that allows create, read, and delete on a given user's "To-Do List".
 
 > [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 This tutorial will focus primarily on using ADAL to acquire and use access tokens in a web app, described in full [here](active-directory-v2-flows.md#web-apps).  As prerequisites, you may want to first learn how to [add basic sign-in to a web app](active-directory-v2-devquickstarts-dotnet-web.md) or how to [properly secure a web API](active-directory-v2-devquickstarts-dotnet-api.md).
 
@@ -77,12 +77,12 @@ public void ConfigureAuth(IAppBuilder app)
         new OpenIdConnectAuthenticationOptions
         {
 
-					// The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
+					// The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0 
 					// The `Scope` describes the permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
 					// In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
 
 					ClientId = clientId,
-					Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
+					Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0 "),
 					Scope = "openid email profile offline_access",
 					RedirectUri = redirectUri,
 					PostLogoutRedirectUri = redirectUri,
@@ -105,7 +105,7 @@ public void ConfigureAuth(IAppBuilder app)
 ```
 
 ## Use ADAL to get access tokens
-In the `AuthorizationCodeReceived` notification, we want to use [OAuth 2.0 in tandem with OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) to redeem the authorization_code for an access token to the To-Do List Service.  ADAL can make this process easy for you:
+In the `AuthorizationCodeReceived` notification, we want to use [OAuth 2.0in tandem with OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) to redeem the authorization_code for an access token to the To-Do List Service.  ADAL can make this process easy for you:
 
 - First, install the preview version of ADAL:
 
@@ -187,7 +187,7 @@ catch (AdalException ee)
 
 - The exact same `AcquireTokenSilentAsync` call is implementd in the `Create` and `Delete` actions.  In web apps, you can use this ADAL method to get access_tokens whenever you need them in your app.  ADAL will take care of acquiring, caching, and refreshing tokens for you.
 
-Finally, build and run your app!  Sign in with either a Microsoft Account or an Azure AD Account, and notice how the user's identity is reflected in the top navigation bar.  Add and delete some items from the user's To-Do List to see the OAuth 2.0 secured API calls in action.  You now have a web app & web API, both secured using industry standard protocols, that can authenticate users with both their personal and work/school accounts.
+Finally, build and run your app!  Sign in with either a Microsoft Account or an Azure AD Account, and notice how the user's identity is reflected in the top navigation bar.  Add and delete some items from the user's To-Do List to see the OAuth 2.0secured API calls in action.  You now have a web app & web API, both secured using industry standard protocols, that can authenticate users with both their personal and work/school accounts.
 
 For reference, the completed sample (without your configuration values) [is provided here](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip).  
 
