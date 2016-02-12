@@ -124,7 +124,7 @@ There are many good reasons why customers should upgrade now to Azure SQL Databa
 
 - SQL Database V12 has a long list of features beyond those of V11.
 - We continue to add new features to V12, but no new features will be added to V11.
-- Most new features are released on SQL Database V12 before they being released for Microsoft SQL Server.
+- Most new features are released on SQL Database V12 before they are being released for Microsoft SQL Server.
 
 
 ## Are you using V12 already?
