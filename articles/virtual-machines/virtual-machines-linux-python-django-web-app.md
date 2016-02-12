@@ -20,8 +20,9 @@
 # Django Hello World web application on a Linux VM
 
 > [AZURE.SELECTOR]
+<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-python-django-web-app.md
 - [Windows](virtual-machines-windows-classic-python-django-web-app.md)
-- [Mac/Linux](virtual-machines-python-django-web-app-linux.md)
+- [Mac/Linux](virtual-machines-linux-python-django-web-app.md)
 
 <br>
 
@@ -41,7 +42,7 @@ application. The application will be hosted in an Azure virtual machine.
 
 A screenshot of the completed application is below:
 
-![A browser window displaying the hello world page on Azure](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png)
+![A browser window displaying the hello world page on Azure](./media/virtual-machines-linux-python-django-web-app/mac-linux-django-helloworld-browser.png)
 
 [AZURE.INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
@@ -124,7 +125,7 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 
 1.  Finally, load the web page in your browser:
 
-	![A browser window displaying the hello world page on Azure](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png)
+	![A browser window displaying the hello world page on Azure](./media/virtual-machines-linux-python-django-web-app/mac-linux-django-helloworld-browser.png)
 
 
 ## Shutting down your Azure virtual machine

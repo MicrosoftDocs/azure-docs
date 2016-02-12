@@ -167,7 +167,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 5. [Azure Service Management SDK: Ruby](https://github.com/MSOpenTech/azure-sdk-for-ruby)
     - [How to: Install Ruby on Rails](virtual-machines-ruby-rails-web-app-linux.md)
 6. [Azure Service Management SDK: Python](https://github.com/Azure/azure-sdk-for-python)
-    - [How to: Django Hello World Web Application (Mac-Linux)](virtual-machines-python-django-web-app-linux.md)
+    - [How to: Django Hello World Web Application (Mac-Linux)](virtual-machines-linux-python-django-web-app.md)
 7. [Azure Service Management SDK: Node.js](https://github.com/MSOpenTech/azure-sdk-for-node)
 8. [Azure Service Management SDK: PHP](https://github.com/MSOpenTech/azure-sdk-for-php)
     - [How to: Install the LAMP Stack on an Azure VM](virtual-machines-linux-install-lamp-stack.md)
