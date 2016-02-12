@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/10/2016"
+   ms.date="02/12/2016"
    ms.author="alkohli" />
 
 # Deploy and manage a StorSimple virtual device in Azure (Update 2)
@@ -44,20 +44,23 @@ The StorSimple virtual device is available in two models, a standard 8010 (forme
 
 #### Supported regions for 8020
 
-The Premium Storage regions that are currently supported for 8020 and those that will be supported in the near future are tabulated below. This list will be continuously updated as Premium Storage becomes available in more regions. 
+The Premium Storage regions that are currently supported for 8020 are tabulated below. This list will be continuously updated as Premium Storage becomes available in more regions. 
 
-| S. no.                                                  | Currently supported in regions | Coming soon in regions* |
-|---------------------------------------------------------|--------------------------------|-------------------------|
-| 1                                                       | Central US                     | Australia Southeast     |
-| 2                                                       |  East US                       | East Asia               |
-| 3                                                       |  East US 2                     | South Central US        |
-| 4                                                       | West US                        |                         |
-| 5                                                       | North Europe                   |                         |
-| 6                                                       | West Europe                    |                         |
-| 7                                                       | Southeast Asia                 |                         |
-| 8                                                       | Japan East                     |                         |
-| 9                                                       | Japan West                     |                         |
-| 10                                                      | Australia East                 |                         |
+| S. no.                                                  | Currently supported in regions |
+|---------------------------------------------------------|--------------------------------|
+| 1                                                       | Central US                     |
+| 2                                                       |  East US                       |
+| 3                                                       |  East US 2                     |
+| 4                                                       | West US                        |
+| 5                                                       | North Europe                   |
+| 6                                                       | West Europe                    |
+| 7                                                       | Southeast Asia                 |
+| 8                                                       | Japan East                     |
+| 9                                                       | Japan West                     |
+| 10                                                      | Australia East                 |
+| 11                                                      | Australia Southeast*           |
+| 12                                                      | East Asia*                     |
+| 13                                                      | South Central US*              |
 
 *Premium Storage was launched recently in these geos.
 
