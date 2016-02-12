@@ -297,7 +297,7 @@ Before deploying the extension please check the latest extension version and rep
 
 ### Azure Diagnostics
 
-For more details about how to configure diagnostics, see [Azure Diagnostics Extension](virtual-machines-extensions-diagnostics-windows-template.md)
+For more details about how to configure diagnostics, see [Azure Diagnostics Extension](virtual-machines-windows-extensions-diagnostics-template.md)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
