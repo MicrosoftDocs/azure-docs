@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="02/03/2015"
+	ms.date="02/03/2016"
     ms.author="donnam"/>
 
 #Connect to Azure Storage in your Xamarin.Forms app
@@ -93,7 +93,11 @@ To complete this tutorial, you need the following:
             return base.DeleteFileAsync(id, name);
         }
 
-6. Publish your server project to your mobile app backend.
+6. Update the Web API configuration to set up attribute routing. In **Startup.MobileApp.cs**, add the following line to the `ConfigureMobileApp()` method, after the definition of the `config` variable:
+
+        config.MapHttpAttributeRoutes();
+
+7. Publish your server project to your mobile app backend.
 
 ###Routes registered by the storage controller
 

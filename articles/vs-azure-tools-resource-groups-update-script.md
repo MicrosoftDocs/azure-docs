@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
-	editor="tlee" />
+	editor="" />
 
  <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/03/2016"
+	ms.date="02/04/2016"
 	ms.author="tarcher" />
 
 # Update the Azure Resource Group project PowerShell script
@@ -101,7 +101,7 @@ These instructions refer to line numbers. To enable line numbering in Visual Stu
 		@OptionalParameters `
 		-ErrorAction Stop 	
 
-	New-AzureRMResourceGroupDeployment
+	New-AzureRMResourceGroupDeployment `
 		-Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
 	    -ResourceGroupName $ResourceGroupName `
 	    -TemplateFile $TemplateFile `

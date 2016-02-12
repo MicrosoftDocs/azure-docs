@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/21/2016"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Get started with your first Azure Search application in .NET
@@ -78,7 +78,7 @@ When you're finished creating the projects, your solution should look similar to
 
 4. Next, install the Azure Search .NET client library. Be sure to specify the search correctly or you won't easily find the package. Right-click **Manage NuGet Packages** again.
 
-5. Specify **Online** > **nuget.org** > **Include Prerelease**, and then search for *azure.search*. Click **Install** to install the library.
+5. Specify **Online** > **nuget.org** > **Stable Only**, and then search for *azure.search*. Click **Install** to install the library.
 
    ![][12]
 

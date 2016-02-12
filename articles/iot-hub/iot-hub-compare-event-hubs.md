@@ -24,8 +24,10 @@ However, the services have many differences, which are detailed in the following
 
 | Area | IoT Hub | Event Hubs |
 | ---- | ------- | ---------- |
-| Communication patterns | Enables device-to-cloud event ingress and cloud-to-device messaging. | Only enables event ingress (usually considered for device-to-cloud scenarios). |
-| Security | Provides per-device identity and revocable access control. See the [Security section of the IoT Hub developer guide]. | Provides Event Hubs-wide [shared access policies][Event Hub - security], with limited revocation support through [publisher's policies][Event Hub publisher policies]. In the context of IoT solutions, you are often required to implement a custom solution to support per-device credentials and anti-spoofing measures. |
+| Communication patterns | Enables device-to-cloud and cloud-to-device messaging. | Only enables event ingress (usually considered for device-to-cloud scenarios). |
+| Device protocol support | Supports AMQP, AMQP over WebSockets, MQTT, and HTTP/1. Additionally IoT Hub works with the [Azure IoT Protocol Gateway][lnk-azure-protocol-gateway], a customizable protocol gateway implementation to support custom protocols. | Supports AMQP, AMQP over WebSockets, and HTTP/1. |
+| Security | Provides per-device identity and revocable access control. See the [Security section of the IoT Hub developer guide]. | Provides Event Hubs-wide [shared access policies][Event Hub - security], with limited revocation support through [publisher's policies][Event Hub publisher policies]. IoT solutions are often required to implement a custom solution to support per-device credentials and anti-spoofing measures. |
+| Operations monitoring | Enables IoT solutions to subscribe to a rich set of device identity management and connectivity events such as individual device authentication errors, throttling, and bad format exceptions. These events enable you to quickly identify connectivity problems at the individual device level. | Exposes only aggregate metrics. |
 | Scale | Is optimized to support millions of simultaneously connected devices. | Can support a more limited number of simultaneous connections--up to 5,000 AMQP connections, as per [Azure Service Bus quotas][]. On the other hand, Event Hubs enables you to specify the partition for each message sent. |
 | Device SDKs | Provides [device SDKs][Azure IoT Hub SDKs] for a large variety of platforms and languages. | Is supported on .NET, and C. Also provides AMQP and HTTP send interfaces. |
 
@@ -48,3 +50,4 @@ Follow these links to learn more about Azure IoT Hub:
 [Azure IoT Hub SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
+[lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md

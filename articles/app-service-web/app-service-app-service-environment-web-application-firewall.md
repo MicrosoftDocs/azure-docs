@@ -29,7 +29,7 @@ For this document we will configure our App Service Environment behind multiple 
 ![Architecture][Architecture] 
 
 ## Configuring your App Service Environment ##
-To configure an App Service Environment refer to [our documentation](app-service-web-how-to-create-an-app-service-environment.md) on the subject. Once you have an App Service Environment created, you can create [Web Apps](app-service-web-overview.md), [API Apps](app-service-api-apps-why-best-platform.md) and [Mobile Apps](app-service-mobile-value-prop-preview.md) in this environment that will all be protected behind the WAF we configure in the next section.
+To configure an App Service Environment refer to [our documentation](app-service-web-how-to-create-an-app-service-environment.md) on the subject. Once you have an App Service Environment created, you can create [Web Apps](app-service-web-overview.md), [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) and [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) in this environment that will all be protected behind the WAF we configure in the next section.
 
 ## Configuring your Barracuda WAF Cloud Service ##
 Barracuda has a [detailed article](https://techlib.barracuda.com/WAF/AzureDeploy) on deploying its WAF on a virtual machine in Azure. But because we want redundancy and not introduce a single point of failure, you want to deploy at least 2 WAF instance VMs into the same Cloud Service when following these instructions.
@@ -66,7 +66,7 @@ Clicking on the Services tab will let you configure your WAF for services it is 
 > Note: Depending on how your applications are configured and what features are being used in your App Service Environment, you will need to forward traffic for TCP ports other than 80 and 443, e.g. if you have IP SSL setup for a Web App. For a list of network ports used in App Service Environments, please refer to [Control Inbound Traffic documentation's](app-service-app-service-environment-control-inbound-traffic.md) Network Ports section.
 
 ## Configuring Microsoft Azure Traffic Manager (OPTIONAL) ##
-If your application is available in multiple regions, then you would want to load balance them behind [Azure Traffic Manager](traffic-manager.md). To do so you can add an endpoint in the [Azure classic portal](https://manage.azure.com) using the Cloud Service name for your WAF in the Traffic Manager profile as shown in the image below. 
+If your application is available in multiple regions, then you would want to load balance them behind [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). To do so you can add an endpoint in the [Azure classic portal](https://manage.azure.com) using the Cloud Service name for your WAF in the Traffic Manager profile as shown in the image below. 
 
 ![Traffic Manager Endpoint][TrafficManagerEndpoint]
 

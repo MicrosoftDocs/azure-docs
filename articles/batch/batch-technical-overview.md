@@ -40,7 +40,7 @@ Examples include:
 
 Batch can also perform parallel calculations with a reduce step at the end, and more complex HPC workloads such as message passing interface (MPI) applications.
 
->[AZURE.NOTE]At this time Batch only supports workloads that run on Windows Server-based virtual machines. 
+>[AZURE.NOTE]At this time Batch only supports workloads that run on Windows Server-based virtual machines.
 
 For a comparison of Batch with other HPC solution options in Azure, see [Batch and HPC solutions](batch-hpc-solutions.md).
 

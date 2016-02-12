@@ -38,8 +38,8 @@ Media Encoder Premium Workflow|Lets you run encoding tasks using Media Encoder P
 Azure Media Indexer| Enables you to make media files and content searchable, as well as generate closed captioning tracks and keywords.|[Indexing Media Files with Azure Media Indexer](media-services-index-content.md).
 Azure Media Hyperlapse (preview)|Enables you to smooth out the "bumps" in your video with video stabilization. Also allows you to speed up your content into a consumable clip.|		[Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
 Storage Decryption| Lets you decrypt media assets that were encrypted using storage encryption.|N/A
-Windows  Azure Media Packager|Lets you convert media assets from .mp4 to smooth streaming format. Also, lets you convert media assets from smooth streaming to the Apple HTTP Live Streaming (HLS) format.|[Task Preset Strings for the Azure Media Packager](http://msdn.microsoft.com/library/hh973635.aspx)
-Windows  Azure Media Encryptor|Lets you encrypt media assets using PlayReady Protection.|[Task Preset Strings for the Azure Media Packager](http://msdn.microsoft.com/library/hh973610.aspx)
+Microsoft Azure Media Packager|Lets you convert media assets from .mp4 to smooth streaming format. Also, lets you convert media assets from smooth streaming to the Apple HTTP Live Streaming (HLS) format.|[Task Preset Strings for the Azure Media Packager](http://msdn.microsoft.com/library/hh973635.aspx)
+Microsoft Azure Media Encryptor|Lets you encrypt media assets using PlayReady Protection.|[Task Preset Strings for the Azure Media Packager](http://msdn.microsoft.com/library/hh973610.aspx)
 
 ##Get MediaProcessor
 

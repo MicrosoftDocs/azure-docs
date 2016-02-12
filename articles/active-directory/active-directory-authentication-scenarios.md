@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="02/09/2016"
    ms.author="mbaldwin"/>
 
 # Authentication Scenarios for Azure AD
@@ -138,7 +138,7 @@ Each scenario listed in this document includes a sub-section that describes its 
 
 ## Application Types and Scenarios
 
-Each of the scenarios described in this document can be developed using various languages and platforms, and there are [complete code samples available on GitHub](https://github.com/AzureADSamples) for each of them. In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API. The following diagram illustrates these scenarios and application types, and how different components can be added:
+Each of the scenarios described in this document can be developed using various languages and platforms. They are all backed by complete code samples which are available in our [Code Samples guide](active-directory-code-samples.md), or directly from the corresponding [Github sample repositories](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=active-directory). In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API. The following diagram illustrates these scenarios and application types, and how different components can be added:
 
 ![Application Types and scenarios](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 

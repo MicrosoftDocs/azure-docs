@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Overview and Comparison of Azure On Demand Media Encoders
@@ -34,9 +34,9 @@ To take advantage of [dynamic packaging](media-services-dynamic-packaging-overvi
 
 Media Services supports the following on demand encoders that are described in this article:
 
-- **Media Encoder Standard**
-- **Azure Media Encoder**
-- **Media Encoder Premium Workflow**
+- [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
+- [Azure Media Encoder](media-services-encode-asset.md#azure-media-encoder)
+- [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 This article gives a brief overview of on demand media encoders and provides links to articles that give more detailed information. The topic also provides comparison of the encoders.
 
@@ -140,6 +140,11 @@ The encoders output metadata is described [here](http://msdn.microsoft.com/libra
 Media Encoder Premium Workflow is configured using complex workflows. Workflow files could be created and updated using the [Workflow Designer](media-services-workflow-designer.md) tool.
 
 [How to Use Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
+
+###Known issues
+
+If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file. 
+
 
 ##<a id="compare_encoders"></a>Compare Encoders
 
