@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="11/26/2015"
+   ms.date="02/12/2016"
    ms.author="hermannd"/>
 
 # Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs
@@ -95,7 +95,7 @@ as described in the following section.
 
 There might be situations where a SUSE VM on Azure hangs in the boot process ( e.g. mistake related to
 mounting of disks ). The issue can be verified e.g. by the boot diagnostics feature in the portal for
-v2 VMs ( [see this blog] (https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)
+v2 VMs ( [see this blog] (https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) ).
 
 An option to solve the problem is to attach the OS disk from the damaged VM to another SUSE VM on Azure
 and then make appropriate changes like editing /etc/fstab or removing network udev rules as described in
