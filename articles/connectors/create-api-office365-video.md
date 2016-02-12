@@ -17,29 +17,25 @@ ms.workload="na"
 ms.date="02/18/2016"
 ms.author="deonhe"/>
 
-# Get started with the Office365 Video Connector API
+# Get started with the Office365 Video API
 
-The Office365 Video Connector provides an API to work with office365 channels and videos.
+The Office 365 Video API provides an API to work with Office 365 channels and videos.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version of this connector, click [Office365 Video Connector](../app-service-logic/app-service-logic-connector-Office365 Video Connector.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Office365 Video Connector](../app-service-logic/app-service-logic-connector-Office365 Video Connector.md).
 
->[AZURE.TIP] "Connector" and "API" are used interchangeably.
-
-With the Office365 Video Connector connector, you can:
+With the Office365 Video, you can:
 
 * Use it to build logic apps
 
-This topic focuses on the Office365 Video Connector triggers and actions available, creating a connection to the connector, and also lists the REST API parameters.
-
-Need help creating a logic app? See [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Let's talk about triggers and actions
 
-The Office365 Video Connector connector can be used as an action; there are no triggers. All connectors support data in JSON and XML formats. 
+The Office365 Video API can be used as an action; there are no triggers. All APIs support data in JSON and XML formats. 
 
- The Office365 Video Connector connector has the following action(s) and/or trigger(s) available:
+ The Office365 Video API has the following action(s) and/or trigger(s) available:
 
-### Office365 Video Connector actions
+### Office365 Video API actions
 You can take these action(s):
 
 |Action|Description|
@@ -50,8 +46,8 @@ You can take these action(s):
 |GetVideo|Gets information about a particular office365 video|
 |GetPlaybackUrl|Get playback url of the Azure Media Services manifest for a video|
 |GetStreamingKeyAccessToken|Get the bearer token to get access to decrypt the video|
-ActionsTableReplaceMeLater## Create a connection to Office365 Video Connector
-To use the Office365 Video Connector API, you first create a **connection** then provide the details for these properties: 
+ActionsTableReplaceMeLater## Create a connection to Office365 Video API
+To use the Office365 Video API, you first create a **connection** then provide the details for these properties: 
 
 |Property| Required|Description|
 | ---|---|---|
@@ -60,7 +56,7 @@ To use the Office365 Video Connector API, you first create a **connection** then
 
 >[AZURE.TIP] You can use this connection in other logic apps.
 
-## Office365 Video Connector REST API reference
+## Office365 Video REST API reference
 #### This documentation is for version: 1.0
 
 
@@ -263,4 +259,4 @@ None of the properties are required.
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).

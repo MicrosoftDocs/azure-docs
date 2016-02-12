@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/09/2016"
+   ms.date="02/11/2016"
    ms.author="mandia"/>
 
 # Get started with the Box API
@@ -22,7 +22,7 @@ Connect to Box and create files, delete files, and more.
 
 The Box API can be used from logic apps. 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Box connector](..app-service-logic-connector-box.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Box connector](../app-service-logic/app-service-logic-connector-box.md).
 
 With Box, you can:
 
@@ -30,7 +30,7 @@ With Box, you can:
 - Use triggers when a file is created or updated.
 - Use actions that copy a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a file is changed on Box, you can take that file and email it using Office 365.
 
-To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 Box includes the following trigger and actions.
@@ -270,4 +270,4 @@ Triggers a flow when a file is modified in a Box folder.
 
 ## Next steps
 
-[Create a logic app](..app-service-logic-create-a-logic-app.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
