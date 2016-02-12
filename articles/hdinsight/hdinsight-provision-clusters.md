@@ -162,7 +162,7 @@ The following are the basic configuration options for creating an HDInsight clus
 
 	>[AZURE.WARNING] Don't share one Blob storage container for multiple clusters. This is not supported.
 
-	For more information on using secondary Blob stores, see [Using Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
+	For more information on using secondary Blob stores, see [Using Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 - **Hive/Oozie metastore**
 
