@@ -20,7 +20,7 @@
 
 # How to capture a Linux virtual machine to use as a Resource Manager template
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-linux-capture-image.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-linux-classic-capture-image.md).
 
 
 This article shows you how to use the Azure Command-Line Interface (CLI) to capture an Azure virtual machine running Linux so you can use it as an Azure Resource Manager template to create other virtual machines. This template specifies the OS disk and data disks attached to the virtual machine. It doesn't include the virtual network resources you'll need to create an Azure Resource Manager VM, so in most cases you'll need to set those up separately before you create another virtual machine that uses the template.
@@ -35,9 +35,9 @@ For example, you might create a resource group named *MyResourceGroup* in the Ce
 
  	azure vm quick-create -g MyResourceGroup -n <your-virtual-machine-name> "centralus" -y Linux -Q canonical:ubuntuserver:14.04.2-LTS:14.04.201507060 -u <your-user-name> -p <your-password>
 
-After the VM is provisioned and running, you might want to attach and mount a data disk. See instructions [here](virtual-machines-linux-tutorial.md#attach-and-mount-a-disk).
+After the VM is provisioned and running, you might want to attach and mount a data disk. See instructions [here](virtual-machines-linux-cli-create.md#attach-and-mount-a-disk).
 
-To perform other customizations, you'll need to connect to the VM using an SSH client of your choice. For details, see [Connect to your Azure Linux VM using ssh](virtual-machines-linux-tutorial-portal-rm.md#connect-to-your-azure-linux-vm-using-strongsshstrong).
+To perform other customizations, you'll need to connect to the VM using an SSH client of your choice. For details, see [Connect to your Azure Linux VM using ssh](virtual-machines-linux-portal-create.md#connect-to-your-azure-linux-vm-using-strongsshstrong).
 
 
 ## Capture the VM

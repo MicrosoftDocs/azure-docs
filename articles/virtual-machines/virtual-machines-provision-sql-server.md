@@ -150,7 +150,7 @@ For more information, see [How to Troubleshoot Connecting to the SQL Server Data
 
 ##<a id="Optional">Next Steps</a>
 
-You've seen how to create and configure a SQL Server on an Azure virtual machine using the platform image. In many cases, the next step is to migrate your databases to this new SQL Server VM. For database migration guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md).
+You've seen how to create and configure a SQL Server on an Azure virtual machine using the platform image. In many cases, the next step is to migrate your databases to this new SQL Server VM. For database migration guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md).
 
 The following list provides additional resources for SQL Server in Azure virtual machines.
 
@@ -161,7 +161,7 @@ The following list provides additional resources for SQL Server in Azure virtual
 
 - [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md)
 
-- [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-security-considerations.md)
+- [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-security.md)
 
 ### High Availability and Disaster Recovery:
 - [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
