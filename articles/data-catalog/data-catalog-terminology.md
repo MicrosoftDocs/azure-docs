@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Data Catalog terminology"
    description="An introduction to concepts and terms used in Azure Data Catalog documentation."
    services="data-catalog"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/04/2016"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 # Azure Data Catalog terminology

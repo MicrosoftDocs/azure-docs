@@ -39,26 +39,26 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 	**Important**: You must have at least 128GB of free space on the physical boot volume.
 
-4. Copy WindowsServer2016Datacenter.vhdx and call it MicrosoftAzureStackPOCBoot.vhdx.
+4. Copy WindowsServer2016Datacenter.vhdx to the C:\ drive and rename it MicrosoftAzureStackPOCBoot.vhdx.
 
 5. In File Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
 
-6. Run the bcdboot command:
+6. Open a Command Prompt window as an administrator and run the bcdboot command below. This command creates a dual boot environment. From this point, you should boot into the upper boot option.
 
     	bcdboot <mounted drive letter>:\windows
 
-7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared.
+7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/library/mt126134.aspx).
 
 8. Configure the BIOS to use Local Time instead of UTC.
 
-9. Verify that four drives for Azure Stack POC data:
+9. Log in using a local account with administrator permissions.
+
+10. Verify that four drives for Azure Stack POC data:
   - Are visible in disk management
   - Are not in use
   - Show as Online, RAW
 
-10. Verify that the host is not joined to a domain.
-
-11. Log in using a local account with administrator permissions.
+11. Verify that the host is not joined to a domain.
 
 12. Verify network connectivity to Azure.com.
 
@@ -129,6 +129,24 @@ For example, `.\DeployAzureStack.ps1 –verbose –PublicVLan 305`
 **TIPTenantAdminCredential** (PSCredential) - Sets the credentials of an existing tenant administrator Azure Active Directory account. This account is used by TiP (Test in Production). If this parameter is not provided, an account is automatically created.
 
 **UseAADChina**(Boolean) - Set this Boolean parameter to $true if you want to deploy the Microsoft Azure Stack POC with Azure China (Mooncake).
+
+## Turn off automated TiP tests
+
+Microsoft Azure Stack Technical Preview 1 includes a set of validation tests used during the deployment process and on a recurring daily schedule. They simulate actions taken by an Azure Stack tenant, and Test-in-POC (TiP) user accounts are created in your Azure Active Directory in order to run the tests. After a successful deployment, you can turn off these TiP tests. 
+
+**To turn off TiP automated tests**
+
+1. On the ClientVM, run the following cmdlet:
+
+  `Disable-ScheduledTask -TaskName AzureStackSystemvalidationTask`
+
+**To view the test results**
+
+1. On the ClientVM, run the following cmdlet:
+
+  `Get-AzureStackTiPTestsResult`
+
+
 
 ## Turn off telemetry for Microsoft Azure Stack POC (optional)
 
