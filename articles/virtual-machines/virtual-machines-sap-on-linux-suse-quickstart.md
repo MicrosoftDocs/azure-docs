@@ -107,7 +107,7 @@ OS disk from a different VM by UUID which was deployed using the same Azure gall
 result in two identical UUIDs. This causes problems and could mean that the VM meant for troubleshooting
 will in fact boot from the attached and damaged OS disk instead the original one. 
 
-There are two possibilities to avoid this :
+There are two possibilities to avoid this:
 
 * use a different Azure gallery image for the troubleshooting VM ( e.g. SLES 12 instead of SLES 11 SP4 )
 * don't attach the damaged OS disk from another VM via UUID but use something else
