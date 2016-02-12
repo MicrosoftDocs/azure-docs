@@ -22,7 +22,7 @@
    
 Mesos provides an environment for deploying and scaling clustered workload while abstracting the underlying hardware. On top of Mesos, a framework manages scheduling and executing compute workload. While frameworks are available for many popular workloads, this document will detail creating and scaling container deployments with Marathon. Before working through these examples, you will need a Mesos cluster configured in ACS and have remote connectivity to this cluster. For more information in these items see the following articles.
 
-- [Deploying an Azure Container Service Cluster](./contianer-service-deployment.md) 
+- [Deploying an Azure Container Service Cluster](./container-service-deployment.md) 
 - [Connecting to an ACS Cluster](./container-service-connect.md)
 
 ## Exploring the Mesos UI
@@ -42,3 +42,9 @@ Mesos provides an environment for deploying and scaling clustered workload while
 ![Create deployment](media/ui5.png)
 
 ## Scaling out a Docker Container
+
+![Create deployment](media/ui6.png)
+
+![Create deployment](media/ui7.png)
+
+![Create deployment](media/ui8.png)

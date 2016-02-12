@@ -29,7 +29,7 @@ The Mesos and Swarm clusters deployed by Azure Container Service expose REST end
 
 First thing is to locate the public DNS name of load balanced cluster masters. To do this, expand the resource group such that each resource is being displayed. Locate and select the public IP address of the master. This will open up a blade container information about the public IP address, which will include the DNS name. Save this name for later use.
 
-<insert image>
+![Putty Connection](media/pubdns.png)
 
 Now open a shell and run the following command where:
 
