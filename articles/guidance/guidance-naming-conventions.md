@@ -127,10 +127,24 @@ value is limited to 256 characters.
 
 For more information on resource tagging, please refer to [https://azure.microsoft.com/en-us/documentation/articles/resource-group-using-tags/](https://azure.microsoft.com/en-us/documentation/articles/resource-group-using-tags/).
 
-owned by
-created by
+Some of the common tagging use cases are:
 
-TODO - example of using tagging
+- **Billing**; Grouping resources and associating them with billing or charge back codes.
+- **Service Context Identification**; Identify groups of resources across Resource Groups for common operations and grouping
+- **Access Control and Security Context**; Administrative role identification based on portfolio, system, service, app, instance, etc… 
+
+> [AZURE.TIP] Tag early - tag often.  Better to have a baseline tagging scheme in place and adjust over time rather than having
+> to retrofit after the fact.  
+
+An example of some common tagging approaches:
+
+| Tag Name | Key | Value Convention | Example | Comment |
+| -------- | --- | ---------------- | ------- | ------- |
+| Bill To  | billTo | billing token | `IT-Chargeback-1234` | An internal I/O or billing code |
+| Operator | managedBy | `joe@contoso.com`  | Alias or email address |
+| Environment | environment | `<Production | Staging | QA >` | Environmental identifier | 
+| Tier | tier | '<Front End, Back End, Data>' | Tier or role/context identification |
+| Data Profile | dataProfile | '<Public | Confidential | Restricted | Internal>` | Sensitivity of data stored in the resource
 
 ## Tips and Tricks
 
@@ -150,7 +164,7 @@ role and purpose of each machine, as well as enabling more predictable scripting
 
 - [Naming conventions for Windows Server VMs](https://support.microsoft.com/en-us/kb/188997)
 
-TODO - recommendations on naming VMs.
+<!-- TODO - recommendations on naming VMs. -->
 
 ###	Storage accounts and storage entities
 
