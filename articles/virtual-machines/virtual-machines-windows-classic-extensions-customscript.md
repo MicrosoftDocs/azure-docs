@@ -91,4 +91,4 @@ Custom Script Extension can be uninstalled from the VM using the following comma
 To learn about using Custom Script extension with Azure Resource Manager templates, see the documentation [here](virtual-machines-extensions-customscript%20-with%20template.md).
 
 <!--Image references-->
-[5]: ./media/virtual-machines-extensions-customscript/addcse.png
+[5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
