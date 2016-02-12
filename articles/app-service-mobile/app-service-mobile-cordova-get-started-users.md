@@ -102,4 +102,4 @@ Next, you will update the app to authenticate users before requesting resources 
 
 <!-- URLs. -->
 [Get started with Mobile Apps]: app-service-mobile-cordova-get-started.md
-[Content-Security-Policy documentation]: http://content-security-policy.com/
+[Content-Security-Policy documentation]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
