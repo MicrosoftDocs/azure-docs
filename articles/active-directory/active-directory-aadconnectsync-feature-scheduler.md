@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="02/12/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Scheduler
@@ -62,7 +62,7 @@ A delta sync cycle includes the following steps:
 - Delta sync on all Connectors
 - Export on all Connectors
 
-It could be that you have an urgent change which must be synchronized immediately which is why you need to manually run a cycle. If you need to manually run a cycle, then from PowerShell run `Start-ADSyncSyncCycle -PolicyType Delta`. 
+It could be that you have an urgent change which must be synchronized immediately which is why you need to manually run a cycle. If you need to manually run a cycle, then from PowerShell run `Start-ADSyncSyncCycle -PolicyType Delta`.
 
 **Full sync cycle**  
 If you have made one of the following configuration changes, you need to run a full sync cycle (a.k.a. Initial):

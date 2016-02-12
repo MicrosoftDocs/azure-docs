@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="02/12/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -27,7 +27,7 @@ Related links:
 - For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
-## 1.1.100.0
+## 1.1.105.0
 Released: 2016 February
 
 **New features:**
