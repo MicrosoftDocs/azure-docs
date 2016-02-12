@@ -45,7 +45,7 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 6. Open a Command Prompt window as an administrator and run the bcdboot command:
 
-    	`bcdboot <mounted drive letter>:\windows`
+    	bcdboot <mounted drive letter>:\windows
 
   This command creates a dual boot environment. From this point, you should boot into the upper boot option.
 
