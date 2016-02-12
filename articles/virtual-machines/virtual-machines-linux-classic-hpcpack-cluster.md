@@ -125,7 +125,7 @@ Here are brief descriptions of the elements in the configuration file.
 
 * Linux images that support RDMA connectivity for size A8 and A9 VMs are available. If you specify an image with Linux RDMA drivers installed and enabled, the HPC Pack IaaS deployment script will deploy them. For example, specify the image name `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` for the current SUSE Linux Enterprise Server 12 – Optimized for High Performance Compute image in the Marketplace.
 
-* To enable Linux RDMA on the Linux VMs created from supported images to run MPI jobs, install and configure a specific MPI library on the Linux nodes after cluster deployment according to your application needs. For an example, see [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md).
+* To enable Linux RDMA on the Linux VMs created from supported images to run MPI jobs, install and configure a specific MPI library on the Linux nodes after cluster deployment according to your application needs. For an example, see [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
 
 * Make sure you deploy all the Linux RDMA nodes within one service so that the RDMA network connection works between the nodes.
 
@@ -266,7 +266,7 @@ There are several ways to submit jobs to the HPC Pack cluster
 
 * REST API
 
-Job submission to the cluster in Azure via HPC Pack GUI tools and the HPC web portal are the same as for Windows compute nodes. See [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) and [How to Submit Jobs from and On-premises Client](virtual-machines-hpcpack-cluster-submit-jobs.md).
+Job submission to the cluster in Azure via HPC Pack GUI tools and the HPC web portal are the same as for Windows compute nodes. See [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) and [How to Submit Jobs from and On-premises Client](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).
 
 To submit jobs via the REST API, refer to [Creating and Submitting Jobs by Using the REST API in Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Also refer to the Python sample in the [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756) to submit jobs from a Linux client.
 
@@ -298,7 +298,7 @@ The HPC Pack **clusrun** tool can be used to execute commands on Linux nodes eit
 
 * Try scaling up the cluster to a larger number of nodes, or try running a Linux workload on the cluster. For an example, see [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md).
 
-* Try a cluster with size [A8 or A9](virtual-machines-a8-a9-a10-a11-specs.md) compute nodes to run MPI workloads. For an example, see [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md).
+* Try a cluster with size [A8 or A9](virtual-machines-a8-a9-a10-a11-specs.md) compute nodes to run MPI workloads. For an example, see [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
 
 * Try an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/) with Azure Resource Manager to speed up deployments of HPC Pack with a larger number of  Linux compute nodes.
 

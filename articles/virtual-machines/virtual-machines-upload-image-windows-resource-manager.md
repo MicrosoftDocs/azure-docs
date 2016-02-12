@@ -19,7 +19,7 @@
 
 # Upload a Windows VM image to Microsoft Azure for Resource Manager deployments
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-create-upload-vhd-windows-server.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-createupload-vhd.md).
 
 
 This article shows you how to upload a virtual hard disk (VHD) with a Windows based operating system, so you can use it to create new Windows virtual machines using the Resource Manager deployment model. For more details about disks and VHDs in Microsoft Azure, see [About Disks and VHDs for Virtual Machines](virtual-machines-disks-vhds.md).

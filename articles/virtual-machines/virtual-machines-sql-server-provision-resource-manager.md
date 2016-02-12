@@ -197,7 +197,7 @@ The following table lists the parameters required to configure Azure Key Vault I
 | **AKV Principal Secret**|AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
 |**Credential name**|Choose a name to identify this credential.| mycred1|
 
-For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-sql-server-azure-key-vault-integration.md).
+For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-classic-ps-sql-keyvault.md).
 
 ## 5. Review the Summary
 Review the summary and click **OK** to create SQL Server, resource group, and resources specified for this VM.
