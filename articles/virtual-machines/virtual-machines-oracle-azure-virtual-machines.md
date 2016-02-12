@@ -30,7 +30,7 @@ See [List of Oracle virtual machine images](virtual-machines-oracle-list-oracle-
 
 ## Considerations for Windows-based virtual machines
 
-See [Miscellaneous considerations for Oracle virtual machine images](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md) to understand limitations for Oracle software on Windows Server-based Azure virtual machines.
+See [Miscellaneous considerations for Oracle virtual machine images](virtual-machines-windows-classic-oracle-considerations.md) to understand limitations for Oracle software on Windows Server-based Azure virtual machines.
 
 ## Oracle database virtual machine
 
@@ -46,7 +46,7 @@ See [Miscellaneous considerations for Oracle virtual machine images](virtual-mac
 
 ## Prepare an Oracle Linux virtual machine
 
-[Prepare an Oracle Linux virtual machine for Azure](virtual-machines-prepare-oracle-linux-virtual-machine.md) steps you through the prerequisites and virtual machine creation for Oracle Linux 6.4+ and Oracle Linux 7.0+.
+[Prepare an Oracle Linux virtual machine for Azure](virtual-machines-linux-prepare-oracle.md) steps you through the prerequisites and virtual machine creation for Oracle Linux 6.4+ and Oracle Linux 7.0+.
 
 ## Oracle Data Guard
 
