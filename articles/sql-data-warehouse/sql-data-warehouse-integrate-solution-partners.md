@@ -96,7 +96,7 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 [redpoint_global_more]:http://www.redpoint.net/
 [sisense_more]:http://www.sisense.com/
 [snaplogic_more]:http://www.snaplogic.com/
-[sql_sentry_more]:www.sqlsentry.com/solutions/business-analytics/
+[sql_sentry_more]:http://www.sqlsentry.com/solutions/business-analytics/
 [tableau_more]:http://www.tableau.com/
 [targit_more]:http://www.targit.com/en/
 [yellowfin_more]:http://www.yellowfinbi.com/
