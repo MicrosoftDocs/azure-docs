@@ -3,7 +3,7 @@
    description="Learn how to connect to and communicate with services in Service Fabric applications."
    services="service-fabric"
    documentationCenter=".net"
-   authors="kunaldsingh"
+   authors="mfussell"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/21/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="mfussell"/>
 
 
 # Communicate with services
