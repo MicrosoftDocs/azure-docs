@@ -35,7 +35,7 @@ A basic ssh setup for Azure includes an **ssh-rsa** public and private key pair 
 Here are the deployment scenarios, and the types of files you use in each:
 
 1. **ssh-rsa** keys are required for any deployment using the [Azure portal](https://portal.azure.com), regardless of the deployment model.
-2. .pem file are required to create VMs using the [classic portal](https://manage.windowsazure.com). .pem files are also supported in classic deployments that use the [Azure CLI](xplat-cli-install.md). 
+2. .pem file are required to create VMs using the [classic portal](https://manage.windowsazure.com). .pem files are also supported in classic deployments that use the [Azure CLI](../xplat-cli-install.md). 
 
 ## Create keys for use with SSH
 

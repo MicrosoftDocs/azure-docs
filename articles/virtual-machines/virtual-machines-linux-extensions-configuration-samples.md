@@ -20,13 +20,8 @@
 # Linux VM extension configuration samples
 
 > [AZURE.SELECTOR]
-<<<<<<< HEAD:articles/virtual-machines/virtual-machines-extensions-configuration-samples-linux.md
 - [PowerShell - Template](virtual-machines-windows-extensions-configuration-samples.md)
-- [CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
-=======
-- [PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
 - [CLI - Template](virtual-machines-linux-extensions-configuration-samples.md)
->>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-extensions-configuration-samples.md
 
 <br> 
 

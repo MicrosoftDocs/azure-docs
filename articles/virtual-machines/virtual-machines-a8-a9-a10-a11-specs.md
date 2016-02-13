@@ -127,10 +127,5 @@ MPI | MS-MPI 2012 R2 or later, either stand-alone or installed via HPC Pack 2012
 ## Next steps
 
 * For details about availability and pricing of the A8, A9, A10, and A11 instances, see [Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) and [Cloud Services pricing](https://azure.microsoft.com/pricing/details/cloud-services/).
-<<<<<<< HEAD
 * To deploy and configure a Linux-based cluster with A8 and A9 instances to access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md).
-* To get started deploying and using A8 and A9 instances with HPC Pack on Windows, see [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-hpcpack-cluster-rdma.md).
-=======
-* To deploy and configure a Linux-based cluster with A8 and A9 instances to access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-cluster-rdma.md).
-* To get started deploying and using A8 and A9 instances with HPC Pack on Windows, see [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-classic-hpcpack-rdma-cluster.md).
->>>>>>> vm-refactor-staging
+* To get started deploying and using A8 and A9 instances with HPC Pack on Windows, see [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-classic-hpcpack-cluster-rdma.md).

@@ -153,7 +153,7 @@ Next, for each virtual machine, join them to the appropriate Active Directory do
 
 Note that you must supply domain account credentials after entering the **Add-Computer** command.
 
-After they restart, use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-windows-ps-sp-intranet-ph2.md#logon) four times, once for each SharePoint server, to log on by using the [Domain]\sp_farm_db account credentials. You created these credentials in [Phase 2: Configure domain controllers](virtual-machines-workload-intranet-sharepoint-phase2.md).
+After they restart, use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-windows-ps-sp-intranet-ph2.md#logon) four times, once for each SharePoint server, to log on by using the [Domain]\sp_farm_db account credentials. You created these credentials in [Phase 2: Configure domain controllers](virtual-machines-windows-ps-sp-intranet-ph2.md).
 
 Use the [To test connectivity procedure](virtual-machines-windows-ps-sp-intranet-ph2.md#testconn) four times, once for each SharePoint server, to test connectivity to locations on your organization network.
 

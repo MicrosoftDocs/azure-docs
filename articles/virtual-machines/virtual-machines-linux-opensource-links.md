@@ -215,15 +215,9 @@ This section contains information about several different storage approaches and
 
 ### Relational database
 2. MySQL
-<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-opensource.md
-    - [How to: Install and Run MySQL](virtual-machines-linux-mysql-use-opensuse.md)
-    - [How to: Optimize Performance of MySQL on Azure](virtual-machines-linux-optimize-mysql-perf.md)
-    - [How to: MySQL Clusters](virtual-machines-linux-classic-mysql-cluster.md)
-=======
     - [How to: Install and Run MySQL](virtual-machines-linux-classic-mysql-on-opensuse.md)
     - [How to: Optimize Performance of MySQL on Azure](virtual-machines-linux-classic-optimize-mysql.md)
     - [How to: MySQL Clusters](virtual-machines-linux-mysql-cluster.md)
->>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-opensource-links.md
     - [How to: Create a MySQL Database using the Marketplace](store-php-create-mysql-database.md)
     - [How to: Django and MySQL on Azure Websites with Python and Visual Studio](../app-service-web/web-sites-python-ptvs-django-mysql.md)
     - [MySQL High Availability Architecture in Microsoft Azure](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
@@ -306,10 +300,5 @@ This section starts with a blog entry containing a series of videos on [Video: A
 [Support, Troubleshooting, and "It Just Doesn't Work"]: #supportdebug
 
 <!--Link references--In actual articles, you only need a single period before the slash. -->
-<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-opensource.md
-[How to use docker-machine on Azure]: virtual-machines-docker-machine.md
-[How to use docker with swarm on Azure]: virtual-machines-linux-docker-swarm.md
-=======
 [How to use docker-machine on Azure]: virtual-machines-linux-classic-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
->>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-linux-opensource-links.md
