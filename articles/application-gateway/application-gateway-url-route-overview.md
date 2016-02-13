@@ -17,8 +17,8 @@
 
 # URL Path Based Routing load balancing 
 
-URL Path Based Routing allows you to route traffic to backend server pools based on URL Paths of the request. One of the scenario is to route requests for different content types to different backend server pools.
-In the following example, Application Gateway is serving traffic for contoso.com from three back-end server pools i.e. VideoServerPool, ImageServerPool and DefaultServerPool.
+URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. One of the scenario is to route requests for different content types to different backend server pools.
+In the following example, Application Gateway is serving traffic for contoso.com from three back-end server pools for example: VideoServerPool, ImageServerPool and DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
@@ -26,7 +26,7 @@ Requests for http://contoso.com/video* will be routed to VideoServerPool, and ht
 
 ## UrlPathMap configuration element
 
-urlPathMap element is used to specify Path patterns to Backend Server Pool mappings. As in earlier cases, oneBelow is the snippet of urlPathMap element from template file.
+UrlPathMap element is used to specify Path patterns to back-end server pool mappings. As in earlier cases, oneBelow is the snippet of urlPathMap element from template file.
 
 	"urlPathMaps": [
 	{
