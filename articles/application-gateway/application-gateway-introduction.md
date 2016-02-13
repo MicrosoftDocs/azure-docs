@@ -72,3 +72,5 @@ You can create and manage an application gateway by using REST APIs and by using
 
 After learning about Application gateway, you can [create an application gateway](application-gateway-create-gateway.md) or you can [create an application gateway SSL offload](application-gateway-ssl.md) to load-balance HTTPS connections.
 
+To learn how to create an application gateway using URL based content routing, go to [Create an application gateway using URL based routing](application-gateway-create-url-route-arm-ps.md) for more information.
+
