@@ -18,11 +18,13 @@
    ms.date="12/02/2015"
    ms.author="rogardle"/>
    
-# Deploying an Azure Container Service Cluster
+# Deploy an Azure Container Service Cluster
+
+The Azure Container Server provides rapid deployment of popular open source container clustering and orchestration solutions. Using Azure Container Service, Marathon Mesos and Docker Swarm clusters can be deployed using Azure Resource Manager templates. These clusters are deployed to Azure Virtual machines, Azure Virtual Machine Scale Sets, and take advantage of Azure networking and storage offerings. To access Azure Container Service, you will need an Azure subscription. If you don't have one then sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+
+This documents steps through deploying and Azure Container Service cluster using the Azure Portal, Azure CLI, and Azure PowerShell module.  
    
 ## Creating a Service using the Azure Portal
- 
-To access Azure Container Service, you will need an Azure subscription. If you don't have one then sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
  
 Select one of the following templates to deploy a Mesos or Docker Swarm cluster. **Note** - Both of these templates are the same, with the exception of the default orchestrator selection.
  
