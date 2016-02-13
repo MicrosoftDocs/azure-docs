@@ -23,7 +23,7 @@
 
 In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you configure two domain controllers in the Azure virtual network. Client web requests for SharePoint farm resources can then be authenticated in the Azure virtual network, rather than sending that authentication traffic across the site-to-site VPN or Azure ExpressRoute connection to your on-premises network.
 
-You must complete this phase before moving on to [Phase 3](virtual-machines-windows-ps-sp-intranet-ph3.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md) for all of the phases.
+You must complete this phase before moving on to [Phase 3](virtual-machines-windows-ps-sp-intranet-ph3.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-windows-sp-intranet-overview.md) for all of the phases.
 
 ## Create the domain controller virtual machines in Azure
 
