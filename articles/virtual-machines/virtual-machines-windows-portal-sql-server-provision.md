@@ -123,7 +123,7 @@ Under **SQL connectivity**, specify **Public (internet)** to allow connections t
 
 In order to connect to SQL Server via the internet, you will also need to enable SQL Server Authentication.
 
->[AZURE.NOTE]For security, restrict the source port using the Network Security Group. For more information, see [What is a Network Security Group (NSG)?](virtual-networks-nsg.md)
+>[AZURE.NOTE]For security, restrict the source port using the Network Security Group. For more information, see [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
 
 If you would prefer to not enable connections to the Database Engine via the internet automatically choose one of the following options:
 - **Local (inside VM only)** to allow connections to SQL Server only from within the VM.
@@ -226,4 +226,4 @@ The following steps are not required if you only need to access your Virtual Mac
 > [AZURE.INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ##<a id="Next"> Next Steps
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).
