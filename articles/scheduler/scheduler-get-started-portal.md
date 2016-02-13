@@ -161,7 +161,7 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 [job-properties]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png
 [job-overview]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png
 [job-action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
-[job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
+[job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
 [job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
 [job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png 
 
