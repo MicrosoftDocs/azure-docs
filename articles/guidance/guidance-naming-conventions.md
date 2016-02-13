@@ -50,7 +50,8 @@ such as Dev, QA, or Prod.
 | Contoso | SocialGaming | AwesomeService | Dev | Contoso SocialGaming AwesomeService Dev |
 | Contoso | IT | InternalApps | Production | Contoso IT InternalApps Production |
 | Contoso | IT | InternalApps | Dev | Contoso IT InternalApps Dev |
-<!-- MM feedback - there are nuances to how very large corporations (with multiple divisions), ISVs using pod concepts for deployment, and GSIs who may have managed services that reflect individual customers of theirs - Contoso, Fabrikam, etc - that should be called out.)  I can get details on the first two for you, I'd ping Filo D'Souza for GSIs -->
+
+<!-- TODO; include more information about organizing subscriptions for application deployment, pods, etc -->
 
 ## Resource Affixes
 
@@ -133,7 +134,6 @@ Some of the common tagging use cases are:
 - **Billing**; Grouping resources and associating them with billing or charge back codes.
 - **Service Context Identification**; Identify groups of resources across Resource Groups for common operations and grouping
 - **Access Control and Security Context**; Administrative role identification based on portfolio, system, service, app, instance, etc… 
-<!-- MM Feedback - Missing considerations team or division, directly responsible individual (DRI), project name, system name, and internal chargeback ID. Version (of the resource and/or release that the resource is incorporated into) might also be interesting. -->
 
 > [AZURE.TIP] Tag early - tag often.  Better to have a baseline tagging scheme in place and adjust over time rather than having
 > to retrofit after the fact.  
@@ -142,12 +142,14 @@ An example of some common tagging approaches:
 
 | Tag Name | Key | Value Convention | Example | Comment |
 | -------- | --- | ---------------- | ------- | ------- |
-| Bill To  | billTo | billing token | `IT-Chargeback-1234` | An internal I/O or billing code |
-| Operator | managedBy | `joe@contoso.com`  | Alias or email address |
+| Bill To / Internal Chargeback ID | billTo | billing token | `IT-Chargeback-1234` | An internal I/O or billing code |
+| Operator or Directly Responsible Individual (DRI) | managedBy | `joe@contoso.com`  | Alias or email address |
+| Project Name | project-name | `myproject`  | Name of the project or product line |
+| Project Version | project-version | `3.4`  | Version of the project or product line |
 | Environment | environment | `<Production | Staging | QA >` | Environmental identifier | 
 | Tier | tier | '<Front End, Back End, Data>' | Tier or role/context identification |
 | Data Profile | dataProfile | '<Public | Confidential | Restricted | Internal>` | Sensitivity of data stored in the resource
-
+ 
 ## Tips and Tricks
 
 Depending on the type of application, certain types of resources may require additional care on naming and 
@@ -165,10 +167,18 @@ role and purpose of each machine, as well as enabling more predictable scripting
 > configured operating system with a hostname), and should be avoided.
 
 - [Naming conventions for Windows Server VMs](https://support.microsoft.com/en-us/kb/188997)
-<!-- MM Feedback - You’ve got a reference to Windows guidance, should include Linux too -->
+
 <!-- TODO - recommendations on naming VMs. -->
 
 ###	Storage accounts and storage entities
+
+There are two primary use cases for storage accounts - backing disks for VMs, and storing 
+data in blobs, queues and tables.  Storage accounts used for VM disks should follow the naming
+convention of associating them with the parent VM name (and with the potential need for multiple 
+storage accounts for high-end VM SKUs, also leverage a number suffix).
+
+> [AZURE.TIP] Storage accounts - whether for data or disks - should follow a naming onvention that 
+> allows for multiple storage acccounts to be leveraged (i.e. always using a numeric suffix).
 
 It possible to configure a custom domain name for accessing blob data in your Azure Storage account.
 The default endpoint for the Blob service is `https://mystorage.blob.core.windows.net`.
@@ -195,7 +205,7 @@ signatures will not match.
 
 It is not possible to modify the name of a storage account or container after it has been created.
 You must delete it and create a new one if you want to use a new name.
-<!-- MM Feedback - Customers will max out of storage accounts and need to scale horizontally. I think coverage of this in terms of something that should be considered would be good and incorporating it into the naming strategy should be added. --> 
+
 > [AZURE.TIP] We recommend that you establish a naming convention for all storage accounts and types
 before embarking on the development of a new service or application.
 
@@ -205,7 +215,7 @@ In this example, we'll define an N-tier service configuration, consisting of fro
 IIS servers (hosted in Windows Server VMs), with SQL Server (hosted in two Windows Server VMs), 
 an ElasticSearch cluster (hosted in 6 Linux VMs) and the associated storage accounts,
 virtual networks, resource group and load balancer.
-<!-- Would like to see this for the full scenario. Start from the subscription and flow all the way down. Would also like to see tags included. -->
+
 We'll start by defining the contextual conventions for this application:
 
 | Entity | Convention | Description  |
@@ -217,6 +227,7 @@ From that baseline we can then map out the conventions for each of the resource 
 
 | Resource Type | Convention Base | Example | 
 | ------------- | --------------- | ------- |
+| Subscription | `<Company> <Department (optional)> <Product Line (optional)> <Environment>` | Contoso IT InternalApps Profx Production |
 | Resource Group | `servicename-rg` | `profx-rg` |
 | Virtual Network | `servicename-vnet` | `profx-vnet` |
 | Subnet | `role-subnet` | `sql-vnet` |
