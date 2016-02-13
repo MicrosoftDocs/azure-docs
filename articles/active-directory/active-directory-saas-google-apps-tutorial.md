@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="02/12/2016"
     ms.author="liviodlc"/>
 
 #Tutorial: How to integrate Google Apps with Azure Active Directory
