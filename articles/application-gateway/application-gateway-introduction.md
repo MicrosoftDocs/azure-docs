@@ -15,8 +15,7 @@
    ms.date="01/21/2016"
    ms.author="joaoma"/>
 
-# What is Application Gateway?
-
+# Application Gateway overview
 
 Microsoft Azure Application Gateway provides an Azure-managed HTTP load-balancing solution based on layer-7 load balancing.
 
