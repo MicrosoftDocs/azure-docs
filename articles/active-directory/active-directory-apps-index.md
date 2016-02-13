@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="02/12/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Article Index for Application Management in Azure Active Directory
