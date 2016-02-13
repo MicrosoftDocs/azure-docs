@@ -24,12 +24,11 @@ With the Batch service, you programmatically define Azure compute resources to e
 
 ## Use cases for Batch
 
-Batch is a managed Azure service that is used for *batch processing* or *batch computing*--running a large volume of similar tasks to get some desired result. Batch computing is most commonly used by organizations that process, transform, and analyze large volumes of data.
+Batch is a managed Azure service that is used for *batch processing* or *batch computing*--running a large volume of similar tasks to get some desired result. Batch computing is most commonly used by organizations that regularly process, transform, and analyze large volumes of data.
 
 Batch works best with intrinsically parallel (also known as "embarrassingly parallel") applications and workloads, but other types of parallel workloads can be processed using Batch. Intrinsically parallel workloads are easily split into multiple tasks that perform work simultaneously on many computers.
 
 ![Parallel tasks][1]<br/>
-*Parallel task processing on multiple computers*
 
 Some examples of workloads that are commonly processed using this technique are:
 
@@ -53,17 +52,17 @@ When you build solutions that use Azure Batch for parallel workload processing, 
 
 When you are ready to dig in to the Batch API and get a more in-depth understanding of the features it provides, check out the [Azure Batch feature overview](batch-api-basics.md).
 
-### Accounts you'll need
+### Azure accounts you'll need
 
 - **Azure account and subscription** - If you don't already have an Azure account, you can activate your [MSDN subscriber benefit][msdn_benefits], or sign up for a [free trial][free_trial]. When you create an account, a default subscription will be created for you.
 
-- **Batch account** - When your applications interact with the Batch service, the account name, the URL of the account, and an access key are used as credentials. All of your Batch resources such as pools, compute nodes, jobs, and tasks are associated with a Batch account. The easiest way to create an account and manage its access keys is to use the [Azure portal](batch-account-create-portal.md).
+- **Batch account** - When your applications interact with the Batch service, the account name, the URL of the account, and an access key are used as credentials. All of your Batch resources such as pools, compute nodes, jobs, and tasks are associated with a Batch account. You can [create and manage a Batch account](batch-account-create-portal.md) in the Azure portal.
 
-- **Azure Storage account** - Nearly every Batch scenario will use [Azure Storage][azure_storage] for file staging--for the programs that your tasks run, and for the data that they process--and for the storage of output data that your tasks generate. To create a Storage account, see [About Azure storage accounts](./../storage/storage-create-storage-account.md).
+- **Storage account** - Nearly every Batch scenario will use [Azure Storage][azure_storage] for file staging--for the programs that your tasks run, and for the data that they process--and for the storage of output data that your tasks generate. To create a Storage account, see [About Azure storage accounts](./../storage/storage-create-storage-account.md).
 
 ### Batch development libraries and tools
 
-To build solutions using Azure Batch, you can use the Batch .NET client libraries, PowerShell, or even issue direct API calls with the REST API. Use any or all of these tools to develop client applications and services that run jobs in Batch.
+To build solutions using Azure Batch, you can use the Batch .NET client libraries, PowerShell, or even issue direct REST API calls. Use any or all of these tools to develop client applications and services that run jobs in Batch.
 
 - [Batch .NET][api_net] client library - Most Batch solutions are built using the Batch .NET client library, which is [available via NuGet][api_net_nuget].
 
@@ -71,15 +70,15 @@ To build solutions using Azure Batch, you can use the Batch .NET client librarie
 
 - [Batch REST][batch_rest] API - The Batch REST APIs provide all of the same functionality as the Batch .NET client library. In fact, the Batch .NET library itself uses the Batch REST API under the hood to interact with the Batch service.
 
-- [Batch PowerShell cmdlets][batch_ps] - The Azure Batch cmdlets in the [Azure PowerShell](./../powershell-install-configure.md) module enable you to manage Batch resources by using PowerShell.
+- [Batch PowerShell cmdlets][batch_ps] - The Azure Batch cmdlets in the [Azure PowerShell](./../powershell-install-configure.md) module enable you to manage Batch resources with PowerShell.
 
-- [Azure Batch Explorer][batch_explorer] - One of the Batch .NET sample applications [available on GitHub][github_samples]. Build this Windows Presentation Foundation (WPF) application with Visual Studio 2013 or 2015, and use it to browse and manage the resources in your Batch account while you are developing and debugging your Batch solutions. View job, pool, and task details, download files from compute nodes, or even connect to nodes remotely by using Remote Desktop (RDP) files that you obtain with just a few clicks in the Batch Explorer interface.
+- [Azure Batch Explorer][batch_explorer] - Batch Explorer is one of the Batch .NET sample applications [available on GitHub][github_samples]. Build this Windows Presentation Foundation (WPF) application with Visual Studio 2013 or 2015, and use it to browse and manage the resources in your Batch account while you are developing and debugging your Batch solutions. View job, pool, and task details, download files from compute nodes, or even connect to nodes remotely by using Remote Desktop (RDP) files that you obtain with just a few clicks in the Batch Explorer interface.
 
-- [Microsoft Azure Storage Explorer][storage_explorer] - While not strictly an Azure Batch tool, the Storage Explorer is also a valuable tool to use while you are developing and debugging your Batch solutions.
+- [Microsoft Azure Storage Explorer][storage_explorer] - While not strictly an Azure Batch tool, the Storage Explorer is another valuable tool to have while you are developing and debugging your Batch solutions.
 
 ## Scenario: Scale out a parallel workload
 
-A common solution that uses the Batch APIs to interact with the Batch service involves scaling out intrinsically parallel work--such image rendering of 3D scenes--on a pool of compute nodes. This pool of compute nodes can be your "render farm" that provides tens, hundreds, or even thousands of cores to your rendering job, for example.
+A common solution that uses the Batch APIs to interact with the Batch service involves scaling out intrinsically parallel work--such as the rendering of images for 3D scenes--on a pool of compute nodes. This pool of compute nodes can be your "render farm" that provides tens, hundreds, or even thousands of cores to your rendering job, for example.
 
 The following diagram shows a common Batch workflow, with a client application or hosted service using Batch to run a parallel workload.
 
@@ -99,7 +98,7 @@ This common scenario processes its computational workload in Azure Batch by usin
 
 5. As the tasks run, you can query Batch to monitor the progress of the job and its tasks. Your client application or service communicates with the Batch service over HTTPS, and because you might be monitoring thousands of tasks running on thousands of compute nodes, be sure to [query the Batch service efficiently](batch-efficient-list-queries.md).
 
-6. As the tasks complete, they can upload their result data to Azure Storage.
+6. As the tasks complete, they can upload their result data to Azure Storage. You can also retrieve files directly from compute nodes.
 
 7. When your monitoring detects that the tasks in your job have completed, your client application or service can download the output data for further processing or evaluation.
 
@@ -111,7 +110,7 @@ Now that you've seen an example Batch scenario, it's time to dig deeper into the
 
 - [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md) to learn how to use C# and the Batch .NET library to perform the techniques described above. This should be one of your first stops while learning how to use the Batch service.
 
-- Check out the [Batch feature overview](batch-api-basics.md) to get more in-depth information on the features that Batch provides for processing your compute intensive workloads.
+- Check out the [Batch feature overview](batch-api-basics.md) to get more in-depth information on the API features that Batch provides for processing your compute intensive workloads.
 
 - In addition to the Batch Explorer, the other [code samples on GitHub][github_samples] show you how to use many of the Batch features using the Batch .NET library.
 
