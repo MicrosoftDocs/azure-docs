@@ -23,7 +23,7 @@
 
 In this phase of deploying a high availability line of business application in Azure infrastructure services, you build out the web servers and load your line of business application on them.
 
-You must complete this phase before moving on to [Phase 5](virtual-machines-windows-ps-lob-ph5.md). See [Deploy a high-availability line of business application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) for all of the phases.
+You must complete this phase before moving on to [Phase 5](virtual-machines-windows-ps-lob-ph5.md). See [Deploy a high-availability line of business application in Azure](virtual-machines-windows-lob-overview.md) for all of the phases.
 
 ## Create the web server virtual machines in Azure
 
