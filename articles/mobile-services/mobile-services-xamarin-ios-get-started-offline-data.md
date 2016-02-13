@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/21/2016"
 	ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
@@ -116,7 +116,7 @@ In this section, you will modify the app so that it does not sync on app launch 
 
     - `InsertTodoItemAsync`
     - `CompleteItemAsync`
-    - `RefreshAsync`
+    - `RefreshDataAsync`
 
     Now, `RefreshAsync()` will only load data from the local store, but will not connect to the app backend.
 
@@ -151,9 +151,9 @@ In this section you will reconnect the app to the mobile service. This simulates
 
 2. Rebuild and run the app. Notice that the data looks the same as the offline scenario even though the app is now connected to the mobile service. This is because this app always uses the `IMobileServiceSyncTable` that is pointed to the local store.
 
-3. Log into the Microsoft Azure Management portal and look at the database for your mobile service. If your service uses the JavaScript backend, you can browse the data from the **Data** tab of the mobile service.
+3. Log into the [Azure classic portal] and look at the database for your mobile service. If your service uses the JavaScript backend, you can browse the data from the **Data** tab of the mobile service.
 
-    If you are using the .NET backend for your mobile service, in Visual Studio go to **Server Explorer** -> **Azure** -> **SQL Databases**. Right click your database and select **Open in SQL Server Object Explorer**.
+    If you are using the .NET backend for your mobile service, in Visual Studio go to **Server Explorer** > **Azure** > **SQL Databases**. Right click your database and select **Open in SQL Server Object Explorer**.
 
     Notice the data has *not* been synchronized between the database and the local store.
 
@@ -167,8 +167,6 @@ In this section you will reconnect the app to the mobile service. This simulates
 
 ## Next steps
 
-* [Handling conflicts with offline support for Mobile Services]
-
 * [How to use the Xamarin Component client for Azure Mobile Services]
 
 <!-- Anchors. -->
@@ -179,11 +177,11 @@ In this section you will reconnect the app to the mobile service. This simulates
 <!-- Images -->
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
+[Handling conflicts with offline support for Mobile Services]: mobile-services-xamarin-ios-handling-conflicts-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio
-
+[Azure classic portal]: https://manage.windowsazure.com

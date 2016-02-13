@@ -18,6 +18,10 @@
 
 #Release notes
 
+##3.2.1 (12/11/2015)
+
+-   Fixed the delay when a new app instance is triggered by a notification with deep links 
+
 ##3.2.0 (10/08/2015)
 
 -   Enabled Bitcode in the SDK to make it work with **Xcode 7**.

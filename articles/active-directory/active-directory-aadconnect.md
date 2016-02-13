@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Azure AD Connect: Integrating your on-premises identities with Azure Active Directory. | Microsoft Azure"
-	description="This is the Azure AD Connect that describes what it is and why you would use it."
+	description="Azure AD Connect is the tool to integrate your on-premises identity system such as Windows Server Active Directory with Azure Active Directory and connect your users to Office 365, Azure and thousands of SaaS applications. This topic explains the features of Azure AD Connect and provides information about how Azure AD Connect works, how to install, configure, and customize."
+    keywords="introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory"
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/02/2015"
+	ms.date="01/25/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
@@ -78,7 +79,7 @@ You also want to prepare for [operational](active-directory-aadconnectsync-opera
 | Design concepts | [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md) |
 | Accounts used for installation | [More about Azure AD Connect credentials and permissions](active-directory-aadconnect-accounts-permissions.md) |
 | Operational planning | [Azure AD Connect sync: Operational tasks and considerations](active-directory-aadconnectsync-operations.md) |
-| User sign-in options | [Azure AD Connect User sign-in options](active-directory-aadconnt-user-signin.md) |
+| User sign-in options | [Azure AD Connect User sign-in options](active-directory-aadconnect-user-signin.md) |
 
 ## Configure features
 Azure AD Connect comes with several features you can optionally turn on or are enabled by default. Some features might in some cases require additional configuration in certain scenarios and topologies.
@@ -121,7 +122,7 @@ The configuration model in sync is called [declarative provisioning](active-dire
 | Understanding users and contacts | [Azure AD Connect sync: Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | Declarative provisioning | [Azure AD Connect Sync: Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Declarative provisioning functions reference | [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md) |
-| Best practices | [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
+| Change the default configuration | [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
 
 ## More information and references
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # Submit Hadoop jobs in HDInsight
@@ -27,7 +27,7 @@ Learn how to use Azure PowerShell to submit MapReduce and Hive jobs, and how to 
 > - [Use Pig with HDInsight](hdinsight-use-pig.md)
 > - [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
-##Prerequisites
+###Prerequisites
 
 Before you begin this article, you must have the following:
 
@@ -212,7 +212,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 						return null;
 					}
 		
-					return string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
+					return "&define=" + string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
 				}
 				private static string ConvertArgsToString(List<string> args)
 				{

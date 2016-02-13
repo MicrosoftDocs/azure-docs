@@ -14,17 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="12/17/2015"
    ms.author="guayan"/>
 
 # Register an API from Swagger 2.0 API Definition  
 Many organizations already have some existing APIs that users can use and consume within their apps. To use these APIs in your apps, you must "register" the APIs in the Azure portal. The following options are available: 
 
-- Register a [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md)
-- Register an API hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md)
-- Register using a Swagger 2.0 API definition
+- Register a pre-built [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md).
+- Register a web app, API app, and mobile app hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md).
+- Register one of your own Swagger APIs using a Swagger 2.0 API definition (in this topic).
 
-This article shows you how to **register a Swagger 2.0 API definition** that you created from an existing API. 
+This article shows you how to **register one of your own APIs using Swagger 2.0 API definition** that you created from an existing API. 
 
 #### Prerequisites to get started
 
@@ -41,8 +41,8 @@ It's very easy to register these existing APIs. Steps include:
 	- The ``basePath`` property should list the sub paths of your existing API endpoint, if there is any. Start with a forward slash ``/``. For example,  enter ``/purchaseorderapi``.
 
 2. Make sure your existing API is accessible by your app service environment securely:  <br/><br/>
-	a) If you are comfortable with making your API accessible using the internet, you can set up HTTP basic access authentication between your app service environment and your existing API. Go [here](powerapps-configure-apis.md) to see how.  <br/><br/>
-	b) If you want to keep your API within your organization's network, you can set up a virtual network on the app service environment to access your organization's network securely. Go [here](../app-service-app-service-environment-intro.md) to see how.
+	a) If you are comfortable with making your API accessible using the internet, you can set up HTTP basic access authentication between your app service environment and your existing API. [Update an existing API](powerapps-configure-apis.md) to see how.  <br/><br/>
+	b) If you want to keep your API within your organization's network, you can set up a virtual network on the app service environment to access your organization's network securely. Learn more about [app service environments](../app-service-app-service-environment-intro.md).
 
 3. In the [Azure portal](https://portal.azure.com/), select **PowerApps**, and then select **Manage APIs**:  
 ![][11]
@@ -63,8 +63,9 @@ It's very easy to register these existing APIs. Steps include:
 
 In this topic, you've seen how to register an API from Swagger 2.0 API definition. Here are some related topics and resources for learning more about PowerApps:  
 
-- [Configure APIs](powerapps-configure-apis.md)
-- [Add a new API](powerapps-register-from-available-apis.md)
+- [Configure the API properties](powerapps-configure-apis.md)
+- [Give users access to the APIs](powerapps-manage-api-connection-user-access.md)
+- [Start creating your apps in PowerApps](https://powerapps.microsoft.com/tutorials/)
 
 <!--References-->
 [11]: ./media/powerapps-register-existing-api-from-api-definition/registered-apis-part.png

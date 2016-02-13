@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Install an Active Directory forest on an Azure virtual network | Microsoft Azure" 
 	description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network." 
-	services="active-directory, virtual-network" 
+	services="active-directory, virtual-network"
+    keywords="active directory virtual machine, install active directory forest, azure active directory videos "
 	documentationCenter="" 
 	authors="markusvi" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="10/20/2015" 
+	ms.date="01/25/2016" 
 	ms.author="markusvi"/>
 
 
@@ -31,7 +32,7 @@ You might also be interested in these related topics:
 
 In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the VMs that run domain controllers are installed installed in their own cloud service in an Azure virtual network. They are also included within an availability set for improved fault tolerance.
 
-![][1]
+![Active Directory forest on a virtual machines in Azure Virtual Network ][1]
 7
 ## How does this differ from on-premises?
 

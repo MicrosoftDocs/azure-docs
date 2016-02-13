@@ -2,15 +2,16 @@
  pageTitle="Predictive maintenance preconfigured solution | Microsoft Azure"
  description="A description of the Azure IoT predictive maintenance preconfigured solution."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="stevehob"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="12/01/2015"
@@ -35,7 +36,7 @@ By predicting the point when maintenance is required, Fabrikam can optimize its 
 
 To understand how [Azure IoT Suite][lnk_iot_suite] provides the capabilities customers need to realize the potential of predictive maintenance, please review this [infographic][lnk_infographic].
 
-To show these capabilities working from device telemetry collected through IoT Suite services, and surfaced to users in a web application, the solution leverages an existing Azure Machine Learning model available as a template. Microsoft has built a regression model and published the complete template, data<sup>\[1\]</sup>, and step-by-step guidance [here][lnk_regression_model].
+To show these capabilities working from device telemetry collected through IoT Suite services, and surfaced to users in a web application, the solution leverages an existing Azure Machine Learning model available as a template. Microsoft has built a [regression model][lnk_regression_model] and published the complete template, data<sup>\[1\]</sup>, and step-by-step guidance.
 
 The Azure IoT predictive maintenance preconfigured solution uses the regression model created from this template; it is deployed into your Azure subscription and exposed via a published API. The solution includes a subset of the testing data representing 4 (of 100 total) engines and the 4 (of 21 total) sensor data streams which provide an accurate result from the trained model.
 
@@ -45,9 +46,12 @@ The Azure IoT predictive maintenance preconfigured solution uses the regression 
 
 To learn more about how Azure IoT enables predictive maintenance scenarios, read [Capture value from the Internet of Things][lnk_capture_value].
 
+Take a [walkthrough][lnk-predictive-walkthrough] of the predictive maintenance preconfigured solution.
+
+[lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk_iot_suite]: iot-suite-overview.md
 [lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
-[lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
+[lnk_infographic]: https://www.microsoft.com/en-us/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF

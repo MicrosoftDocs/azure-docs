@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="12/02/2015" 
+	 ms.date="01/20/2016" 
 	 ms.author="casoper"/>
 
 
@@ -24,6 +24,11 @@ CDN can be enabled for your origin via Azure Management Portal. Several types of
 ## Create a new CDN profile
 
 A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria.
+
+> [AZURE.NOTE] By default, a single Azure subscription is limited to four CDN profiles. Each CDN profile is limited to ten CDN endpoints.
+>
+> CDN pricing is applied at the CDN profile level. If you wish to use a mix of Standard and Premium CDN features, you will need multiple CDN profiles.
+
 
 **To create a new CDN profile**
 
@@ -86,7 +91,8 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
     > [AZURE.NOTE] The endpoint will not immediately be available for use.  It can take up to 90 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 404 until the content is available via the CDN.
 
 ##See Also
-[How to Map Content Delivery Network (CDN) Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
+- [How to Map Content Delivery Network (CDN) Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
+- [Purge an Azure CDN Endpoint](cdn-purge-endpoint.md)
 
 [new-cdn-profile]: ./media/cdn-create-new-endpoint/cdn-new-profile.png
 [cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png

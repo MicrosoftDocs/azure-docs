@@ -25,7 +25,7 @@ This tutorial shows how to create a Java application and deploy it to Azure App 
 ## Prerequisites
 
 1. [Java Developer's Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (or later)
-1. A paid or [free trial](https://azure.microsoft.com/pricing/free-trial/) subscription to [Microsoft Azure](https://azure.microsoft.com)
+1. A paid or [free trial](https://azure.microsoft.com/pricing/free-trial/) subscription to [Microsoft Azure](https://azure.microsoft.com/)
 1. [Maven](https://maven.apache.org/) installed on your development machine
 1. Git installed on your development machine. 
 
@@ -150,7 +150,7 @@ This demonstration will begin with a Swagger JSON body that will be pasted into 
 ## Edit the Code to add API Implementation
 In this section you'll replace the generated code's server-side implementation with your custom code. The new code will return an ArrayList of Contact entities to the calling client. 
 
-1. Open the *Contact.java* model file, located in the *src/gen/java/swagger/model* folder, using [Visual Studio Code](https://code.visualstudio.com) or in your favorite text editor. 
+1. Open the *Contact.java* model file, located in the *src/gen/java/io/swagger/model* folder, using [Visual Studio Code](https://code.visualstudio.com) or in your favorite text editor. 
 
     ![Open Contact Model File](media/app-service-api-java-api-app/open-contact-model-file.png)
 
@@ -163,7 +163,7 @@ In this section you'll replace the generated code's server-side implementation w
 			this.emailAddress = email;
 		}
 
-1. Open the *ContactsApiServiceImpl.java* service implementation file, located in the *src/main/java/swagger/api/impl* folder, using [Visual Studio Code](https://code.visualstudio.com) or in your favorite text editor.
+1. Open the *ContactsApiServiceImpl.java* service implementation file, located in the *src/main/java/io/swagger/api/impl* folder, using [Visual Studio Code](https://code.visualstudio.com) or in your favorite text editor.
 
     ![Open Contact Service Code File](media/app-service-api-java-api-app/open-contact-service-code-file.png)
 
@@ -254,7 +254,7 @@ In this section you'll replace the generated code's server-side implementation w
 ## Publish the output to Azure App Service
 In this section you'll learn how to create a new API App using the Azure Portal, prepare that API App for hosting Java applications, and deploy the newly-created WAR file to Azure App Service to run your new API App. 
 
-1. Create a new API app in the [Azure portal](http://portal.azure.com), by clicking on the **New -> Web + Mobile -> API app** menu item.
+1. Create a new API app in the [Azure portal](https://portal.azure.com/), by clicking on the **New -> Web + Mobile -> API app** menu item.
 	
 	![Create a new API App](media/app-service-api-java-api-app/create-api-app.png)
 
@@ -289,7 +289,8 @@ In this section you'll learn how to create a new API App using the Azure Portal,
 	![Using your Java Contacts REST API live in Azure](media/app-service-api-java-api-app/postman-calling-azure-contacts.png)
 	
 ## Next steps
-In this article you were able to start with a Swagger JSON file and some scaffolded Java code obtained from the Swagger.io editor. From there, your simple changes and a Git deploy process resulted in having a functional API app written in Java. Now, you can go back and learn more about the [Storage SDK for Java](../storage/storage-java-how-to-use-blob-storage.md) to persist the JSON blobs. Or, you could use the [Document DB Java SDK](../documentdb/documentdb-java-application.md) to save your Contact data to Azure Document DB. 
+In this article you were able to start with a Swagger JSON file and some scaffolded Java code obtained from the Swagger.io editor. From there, your simple changes and a Git deploy process resulted in having a functional API app written in Java. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
+
+To build on this sample, you can learn more about the [Storage SDK for Java](../storage/storage-java-how-to-use-blob-storage.md) to persist the JSON blobs. Or, you could use the [Document DB Java SDK](../documentdb/documentdb-java-application.md) to save your Contact data to Azure Document DB. 
 
 For more information about using Java in Azure, see the [Java Developer Center](/develop/java/).
-

@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/22/2015"
-   ms.author="twounder;barbkess"/>
+   ms.date="02/01/2016"
+   ms.author="mausher;barbkess;sonyama"/>
 
 # Connect to SQL Data Warehouse with Visual Studio
 
@@ -26,7 +26,7 @@ This walkthrough shows how to get connected to an Azure SQL Data Warehouse datab
 
 ## Prerequisites
 
-+ AdventureWorksDW sample database in SQL Data Warehouse. To create this, see [Create a SQL Data Warehouse database](sql-data-warehouse-get-started-create.md). 
++ AdventureWorksDW sample database in SQL Data Warehouse. To create this, see [Create a SQL Data Warehouse database](sql-data-warehouse-get-started-provision.md). 
 + SQL Server Data Tools for Visual Studio. For installation instructions and options, see [Install Visual Studio and/OR SSDT](sql-data-warehouse-install-visual-studio.md)
 
 ## Step 1: Find the fully qualified Azure SQL server name
@@ -35,7 +35,7 @@ Your database is associated with an Azure SQL server. To connect to your databas
 
 To find the fully qualified server name.
 
-1. Go to the [Azure preview portal](https://portal.azure.com).
+1. Go to the [Azure Portal](https://portal.azure.com).
 2. Click **SQL databases** and click the database you want to connect to. This example uses the AdventureWorksDW sample database.
 3. Locate the full server name.
 

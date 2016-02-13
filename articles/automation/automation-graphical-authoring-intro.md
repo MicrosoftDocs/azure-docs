@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="01/19/2016"
    ms.author="bwren" />
 
 # Graphical authoring in Azure Automation
@@ -40,6 +40,10 @@ The following sections describe the controls in the graphical editor.
 
 ### Canvas
 The Canvas is where you design your runbook.  You add activities from the nodes in the Library control to the runbook and connect them with links to define the logic of the runbook.
+
+You can use the controls at the bottom of the canvas to zoom in and out.
+
+![Graphical workspace](media/automation-graphical-authoring-intro/canvas-zoom.png)
 
 ### Library control
 
@@ -141,6 +145,38 @@ When you specify a value for a parameter, you select a data source to determine 
 
 All cmdlets will have the option to provide additional parameters.  These are PowerShell common parameters or other custom parameters.  You are presented with a text box where you can provide parameters using PowerShell syntax.  For example, to use the **Verbose** common parameter, you would specify **"-Verbose:$True"**.
 
+### Retry activity
+
+**Retry Behavior** allows an activity to be run multiple times until a particular condition is met.  You can use this feature for activities that should run multiple times or that are error prone and may need more than one attempt for success.
+
+When you enable retry for an activity, you can set a delay and a condition.  The delay is the time (measured in seconds or minutes) that the runbook will wait before it runs the activity again.  If no delay is specified, then the activity will run again immediately after it completes. 
+
+![Activity retry delay](media/automation-graphical-authoring-intro/retry-delay.png)
+
+The retry condition is a PowerShell expression that is evaluated after each time the activity runs.  If the expression resolves to True, then the activity runs again.  If the expression resolves to False then the activity does not run again, and the runbook moves on to the next activity. 
+
+![Activity retry delay](media/automation-graphical-authoring-intro/retry-condition.png)
+
+The retry condition can use a variable called $RetryData that provides access to information about the activity retries.  This variable has the properties in the following table.
+
+| Property | Description |
+|:--|:--|
+| NumberOfAttempts | Number of times that the activity has been run.              |
+| Output           | Output from the last run of the activity.                    |
+| TotalDuration    | Timed elapsed since the activity was started the first time. |
+| StartedAt        | Time in UTC format the activity was first started.           |
+
+Following are examples of activity retry conditions.
+
+	# Run the activity exactly 10 times.
+	$RetryData.NumberOfAttempts -ge 10 
+
+	# Run the activity repeatedly until it produces any output.
+	$RetryData.Output.Count -ge 1 
+
+	# Run the activity repeatedly until 2 minutes has elapsed. 
+	$RetryData.TotalDuration.TotalMinutes -ge 2
+
 ### Workflow Script control
 
 A Workflow Script control is a special activity that accepts PowerShell Workflow code in order to provide functionality that may otherwise not be available.  This is not a complete workflow but must contain valid lines of PowerShell Workflow code.  It cannot accept parameters, but it can use variables for activity output and runbook input parameters.  Any output of the activity is added to the databus unless it has no outgoing link in which case it is added to the output of the runbook.
@@ -239,7 +275,11 @@ You can also retrieve the output of an activity in a **PowerShell Expression** d
 
 ### Checkpoints
 
-The same guidance for setting [checkpoints](automation-powershell-workflow/#checkpoints) in your runbook applies to graphical runbooks.  You can add an activity for the Checkpoint-Workflow cmdlet where you need to set a checkpoint.  You should then follow this activity with an Add-AzureAccount in case the runbook starts from this checkpoint on a different worker. 
+You can set [checkpoints](automation-powershell-workflow/#checkpoints) in a graphical runbook by selecting *Checkpoint runbook* on any activity.  This causes a checkpoint to be set after the activity runs.
+
+![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
+
+The same guidance for setting checkpoints in your runbook applies to graphical runbooks.  If the runbook uses Azure cmdlets, you should follow any checkpointed activity with an Add-AzureRMAccount in case the runbook is suspended and restarts from this checkpoint on a different worker. 
 
 
 ## Authenticating to Azure resources

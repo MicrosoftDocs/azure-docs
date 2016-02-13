@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 9/17/15-->
+<!--author=alkohli last changed: 12/01/15-->
 
 
 #### To configure and register the device
@@ -61,7 +61,7 @@
 
 13. Exit the serial console.
 
-14. Return to the Management Portal, and complete the following steps:
+14. Return to the Azure classic portal, and complete the following steps:
   1. Double-click your StorSimple Manager service to access the **Quick Start** page.
   2. Click **View connected devices**.
   3. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**. If the device status is **Offline**, wait for a couple of minutes for the device to come online.
@@ -74,4 +74,4 @@ After the device is successfully registered and doesn't come online, you can run
 
 ![Video available](./media/storsimple-configure-and-register-device/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how to configure and register your device through Windows PowerShell for StorSimple, click [here](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
+To watch a video that demonstrates how to configure and register your device through Windows PowerShell for StorSimple, click [here](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).

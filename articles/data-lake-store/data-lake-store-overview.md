@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Overview of Azure Data Lake Store | Azure" 
    description="Understand what is Azure Data Lake Store and the value it provides over other data stores" 
    services="data-lake-store" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="01/22/2016"
    ms.author="nitinme"/>
 
 # Overview of Azure Data Lake Store
@@ -55,6 +55,8 @@ Data Lake Store also provides enterprise-grade security for the stored data. For
 
 Azure Data Lake Store can store any data in their native format, as is, without requiring any prior transformations. Data Lake Store does not require a schema to be defined before the data is loaded, leaving it up to the individual analytic framework to interpret the data and define a schema at the time of the analysis. Being able to store files of arbitrary sizes and formats makes it possible for Data Lake Store to handle structured, semi-structured, and unstructured data.
 
+Azure Data Lake Store containers for data are essentially folders and files. You operate on the stored data using SDKs, Azure Portal, and Azure Powershell. As long as you put your data into the store using these interfaces and using the appropriate containers, you can store any type of data. Data Lake Store does not perform any special handling of data based on the type of data it stores.
+
 
 ## <a name="DataLakeStoreSecurity"></a>Securing data in Azure Data Lake Store
 
@@ -79,7 +81,7 @@ You can access your data in the Data Lake Store using `adl://<data_lake_store_na
 
 ## How do I start using Azure Data Lake Store?
 
-See [Get Started with Data Lake Store using the Azure Preview Portal](data-lake-store-get-started-portal.md), on how to provision a Data Lake Store using the Azure Preview portal. Once you have provisioned Azure Data Lake, you can learn how to use big data offerings such as Azure Data Lake Analytics or Azure HDInsight with Data Lake Store. You can also create a .NET application to create an Azure Data Lake Store account and perform operations such as upload data, download data, etc.
+See [Get Started with Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md), on how to provision a Data Lake Store using the Azure Portal. Once you have provisioned Azure Data Lake, you can learn how to use big data offerings such as Azure Data Lake Analytics or Azure HDInsight with Data Lake Store. You can also create a .NET application to create an Azure Data Lake Store account and perform operations such as upload data, download data, etc.
 
 - [Get Started with Azure Data Lake Analytics](data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

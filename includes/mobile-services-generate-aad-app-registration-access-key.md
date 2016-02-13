@@ -1,4 +1,4 @@
-1. Click **Applications** tab on your directory page in the [Azure Management Portal](https://manage.windowsazure.com/).
+1. Click **Applications** tab on your directory page in the [Azure classic portal](https://manage.windowsazure.com/).
   
 2. Click your integrated application registration.
 
@@ -13,7 +13,7 @@
     ![](./media/mobile-services-generate-aad-app-registration-access-key/app-perms.png)
 
 
-7. In the [Azure Management Portal](https://manage.windowsazure.com/) navigate back to your mobile service and click the **Configure** tab. Scroll down to the **app settings** section and add the following app settings and click **Save**. 
+7. In the [Azure classic portal](https://manage.windowsazure.com/), navigate back to your mobile service and click the **Configure** tab. Scroll down to the **app settings** section and add the following app settings and click **Save**. 
 
     <table border="1">
     <tr>

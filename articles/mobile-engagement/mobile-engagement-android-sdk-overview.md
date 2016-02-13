@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/01/2016"
 	ms.author="piyushjo" />
 
 
@@ -35,11 +35,7 @@ Click to see the [SDK Content](mobile-engagement-android-sdk-content.md).
 
 ##Release notes
 
-##4.1.2 (11/25/2015)
-
-- Stability improvements.
-
-##4.1.1 (11/04/2015)
+##4.1.5 (02/01/2016)
 
 - Stability improvements.
 

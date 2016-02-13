@@ -13,22 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="12/07/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
 
 # View your access and usage reports
 
-## Reporting Documentation Articles
-
- - [Reporting API](active-directory-reporting-api-getting-started.md)
- - [Audit Events](active-directory-reporting-audit-events.md)
- - [Retention](active-directory-reporting-retention.md)
- - [Previews](active-directory-reporting-previews.md)
- - [Search](active-directory-reporting-search.md)
- - [Backfill](active-directory-reporting-backfill.md)
- - [Latencies](active-directory-reporting-latencies.md)
- - ["Unknown Actor" event](active-directory-reporting-unknown-actor.md)
+*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
@@ -43,7 +34,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 > [AZURE.NOTE]
 >
 - Some advanced anomaly and resource usage reports are only available when you enable [Azure Active Directory Premium](active-directory-get-started-premium.md). Advanced reports help you improve access security, respond to potential threats and get access to analytics on device access and application usage.
-- Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
+- Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Reports
 
@@ -238,7 +229,7 @@ Only certain types of sign in events will appear in the User Activity report.
 | ----------------------								| ---------		|
 | Sign ins to the [Access Panel](http://myapps.microsoft.com/)				| Yes			|
 | Sign ins to the [Azure Management Portal](https://manage.windowsazure.com/)		| Yes			|
-| Sign ins to the [Microsoft Azure Portal](http://portal.azure.com/)			| Yes			|
+| Sign ins to the [Microsoft Azure Portal](https://portal.azure.com/)			| Yes			|
 | Sign ins to the [Office 365 portal](http://portal.office.com/)			| Yes			|
 | Sign ins to a native application, like Outlook (see exception below)			| Yes			|
 | Sign ins to a federated/provisioned app through the Access Panel, like Salesforce	| Yes			|

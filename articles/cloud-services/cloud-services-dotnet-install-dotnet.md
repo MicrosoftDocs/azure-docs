@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="12/11/2015"
    ms.author="saurabh"/>
 
 # Install .NET on a Cloud Service Role 
@@ -26,6 +26,7 @@ The  process of installing .NET on your web and worker roles involves including 
 1. Download the the web installer for the .NET framework you want to install
 	- [.NET 4.5.2 Web Installer](http://go.microsoft.com/fwlink/p/?LinkId=397703)
 	- [.NET 4.6 Web Installer](http://go.microsoft.com/fwlink/?LinkId=528259)
+	- [.NET 4.6.1 Web Installer](http://go.microsoft.com/fwlink/?LinkId=671729)
 2. For a Web Role
   1. In **Solution Explorer**, under In **Roles** in the cloud service project right click on your role and select **Add>New Folder**. Create a folder named *bin*
   2. Right click on the **bin** folder and select **Add>Existing Item**. Select the .NET installer and add it to the bin folder.
@@ -43,20 +44,20 @@ Startup tasks allow you to perform operations before a role starts. Installing t
 	
 	```xml
 	 <LocalResources>
-	    <LocalStorage name="InstallLogs" sizeInMB="5" cleanOnRoleRecycle="false" />
-	 </LocalResources>
-	 <Startup>
-	    <Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
-	        <Environment>
-	        <Variable name="PathToInstallLogs">
-	        <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='InstallLogs']/@path" />
-	        </Variable>
-	        </Environment>
-	    </Task>
-	 </Startup>
+      <LocalStorage name="NETFXInstall" sizeInMB="1024" cleanOnRoleRecycle="false" />
+    </LocalResources>
+    <Startup>
+      <Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
+        <Environment>
+          <Variable name="PathToNETFXInstall">
+            <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='NETFXInstall']/@path" />
+          </Variable>
+        </Environment>
+      </Task>
+    </Startup>
 	```
 
-	The above configuration will run the console command *install.cmd* with administrator privileges so it can install the .NET framework. The configuration also creates a LocalStorage with the name *InstallLogs* to store any log information created by the install script. For more see: [Use local storage to store files during startup](https://msdn.microsoft.com/library/azure/hh974419.aspx) 
+	The above configuration will run the console command *install.cmd* with administrator privileges so it can install the .NET framework. The configuration also creates a LocalStorage with the name *NETFXInstall*. The startup script will set the temp folder to use this local storage resource so that the .NET framework installer will be downloaded and installed from this resource. It is important to set the size of this resource to at least 1024MB to ensure the framework will install correctly. For more see: [Use local storage to store files during startup](https://msdn.microsoft.com/library/azure/hh974419.aspx) 
 
 2. Create a file **install.cmd** and add it to all roles by right click on the role and selecting **Add>Existing Item...**. So all roles should now have the .NET installer file as well as the install.cmd file.
 	
@@ -70,38 +71,58 @@ Startup tasks allow you to perform operations before a role starts. Installing t
 	REM Set the value of netfx to install appropriate .NET Framework. 
 	REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
 	REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
-	set netfx="NDP452"
+	REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
+	set netfx="NDP46"
+		
 	
+	REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
+	set TMP=%PathToNETFXInstall%
+	set TEMP=%PathToNETFXInstall%
+	
+		
 	REM ***** Setup .NET filenames and registry keys *****
+	if %netfx%=="NDP461" goto NDP461
 	if %netfx%=="NDP46" goto NDP46
-		set netfxinstallfile="NDP452-KB2901954-Web.exe"
-		set netfxregkey="0x5cbf5"
-		goto logtimestamp
+	    set netfxinstallfile="NDP452-KB2901954-Web.exe"
+	    set netfxregkey="0x5cbf5"
+	    goto logtimestamp
+		
 	:NDP46
 	set netfxinstallfile="NDP46-KB3045560-Web.exe"
 	set netfxregkey="0x60051"
-	
+	goto logtimestamp
+		
+	:NDP461
+	set netfxinstallfile="NDP461-KB3102438-Web.exe"
+	set netfxregkey="0x6041f"
+		
 	:logtimestamp
 	REM ***** Setup LogFile with timestamp *****
 	set timehour=%time:~0,2%
 	set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
-	set startuptasklog=%PathToInstallLogs%startuptasklog-%timestamp%.txt
-	set netfxinstallerlog=%PathToInstallLogs%NetFXInstallerLog-%timestamp%
+	md "%PathToNETFXInstall%\log"
+	set startuptasklog="%PathToNETFXInstall%log\startuptasklog-%timestamp%.txt"
+	set netfxinstallerlog="%PathToNETFXInstall%log\NetFXInstallerLog-%timestamp%"
+	
 	echo Logfile generated at: %startuptasklog% >> %startuptasklog%
+	echo TMP set to: %TMP% >> %startuptasklog%
+	echo TEMP set to: %TEMP% >> %startuptasklog%
 	
 	REM ***** Check if .NET is installed *****
 	echo Checking if .NET (%netfx%) is installed >> %startuptasklog%
 	reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release | Find %netfxregkey%
 	if %ERRORLEVEL%== 0 goto end
-	
+		
 	REM ***** Installing .NET *****
-	echo Installing .NET. Logfile: %netfxinstallerlog% >> %startuptasklog%
+	echo Installing .NET: start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog% >> %startuptasklog%
 	start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog% >> %startuptasklog% 2>>&1
-	
+		
 	:end
 	echo install.cmd completed: %date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2% >> %startuptasklog%
+
 	```
-	> [AZURE.IMPORTANT] Update the value of the *netfx* variable in the script to match the framework version you want to install. To install .NET 4.5.2 the *netfx* variable should be set to *"NDP452"* and to install .NET 4.6 the *netfx* variable should be set to *"NDP46"*
+	
+	> [AZURE.IMPORTANT] Update the value of the *netfx* variable in the script to match the framework version you want to install. To install .NET 4.5.2 the *netfx* variable should be set to *"NDP452"*, to install .NET 4.6 the *netfx* variable should be set to *"NDP46"* and to install .NET 4.6.1 the *netfx* variable should be set to *"NDP461"*
 		
 	The install script checks whether the specified .NET framework version is already installed on the machine by querying the registry. If the .NET version is not installed then the .Net Web Installer is launched. To help troubleshoot with any issues the script will log all activity to a file named *startuptasklog-(currentdatetime).txt* stored in *InstallLogs* local storage.
  
@@ -114,13 +135,13 @@ To configure diagnostics open the *diagnostics.wadcfgx* and add the following un
 
 ```xml 
 <DataSources>
-    <DirectoryConfiguration containerName="netfx-install">
-    <LocalResource name="InstallLogs" relativePath="."/>
-    </DirectoryConfiguration>
+ <DirectoryConfiguration containerName="netfx-install">
+  <LocalResource name="NETFXInstall" relativePath="log"/>
+ </DirectoryConfiguration>
 </DataSources>
 ```
 
-This will configure azure diagnostics to transfer all files in the *InstallLogs* resource to the diagnostics storage account in the *netfx-install* blob container.
+This will configure azure diagnostics to transfer all files in the *log* directory under the *NETFXInstall* resource to the diagnostics storage account in the *netfx-install* blob container.
 
 ## Deploying your service 
 When you deploy your service the startup tasks will run and install the .NET framework if it is not already installed. Your roles will be in the busy state while the framework is installing and may even restart if the framework install requires it. 

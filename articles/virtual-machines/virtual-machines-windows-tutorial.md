@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Create a virtual machine running Windows in the Azure portal | Microsoft Azure"
-	description="Learn how to create an Azure VM or virtual computer running Windows by using the Azure Marketplace in the Azure portal"
-	keywords="azure vm,create a virtual machine,virtual computer,setting up a virtual machine"
+	pageTitle="Create a Windows virtual machine in the Azure portal | Microsoft Azure"
+	description="Learn how to create a Windows virtual machine or virtual computer by using the Azure Marketplace in the Azure portal"
+	keywords="Windows virtual machine,create a virtual machine,virtual computer,setting up a virtual machine"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,22 +14,25 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/14/2015"
+	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
-# Create a virtual machine running Windows in the Azure portal#
+# Create a Windows virtual machine in the Azure portal#
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
+
+This tutorial shows you how easy it is to create a Windows virtual machine in just a few minutes in the Azure portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. 
 
 <br>
 
-This tutorial shows you how easy it is to create an Azure virtual machine in just a few minutes in the Azure portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. For details about Resource Manager, see [Azure Resource Manager Overview](resource-group-overview.md).
+>[AZURE.TIP] When using the portal, if you want your VM to be part of an availability set, you need to create the availability set before or during the creation of the first VM in the set. For more information about creating and using availability sets, see [Manage the availability of virtual machines](virtual-machines-manage-availability.md).
 
 You can also create virtual machines using your own images, with Resource Manager templates, or with automation tools. To learn about the different methods, see [Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md).
 
@@ -41,7 +44,7 @@ Here's a walkthrough of this tutorial.
 
 [AZURE.VIDEO create-a-virtual-machine-running-windows-in-the-azure-preview-portal]
 
-## Select the virtual machine image
+## Select the Windows virtual machine image
 
 1. Sign in to the Azure portal.
 
@@ -55,16 +58,21 @@ Here's a walkthrough of this tutorial.
 
 	![Screenshot that shows the deployment model to select for an Azure VM](./media/virtual-machines-windows-tutorial/marketplace_search_select.png)
 
-## Create a virtual machine
+## Create the Windows virtual machine
 
 After you select the image, you can use Azure's default settings for most of the configuration and quickly create the virtual machine.
 
-1. On the **Create virtual machine** blade, click **Basics**. Enter a **Name** you want for the virtual machine, the administrative **User name**, and a strong **Password**. If you have more than one subscription, specify the one for the new virtual machine, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
+1. On the **Create virtual machine** blade, click **Basics**.
+
+2. Enter a **Name** you want for the virtual machine. The name cannot contain special characters.
+
+3. Enter administrative **User name**, and a strong **Password**. The password must be at 8-123 characters long and have at least 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. **You'll need the user name and password to log on to the virtual machine**.
+
+4. If you have more than one subscription, specify the one for the new virtual machine, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
 
 	![Screenshot that shows the basic settings to configure for an Azure VM](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>[AZURE.NOTE]**User name** refers to the administrative account that you'll use to manage the server. Create a password that's hard for others to guess but that you can remember. **You'll need the user name and password to log on to the virtual machine**.
-
+	
 2. Click **Size** and select an appropriate virtual machine size for your needs. Each size specifies the number of compute cores, memory, and other features, such as support for Premium Storage, which will affect the price. Azure recommends certain sizes automatically depending on the image you choose.
 
 	![Screenshot that shows the Azure VM sizes that you can select](./media/virtual-machines-windows-tutorial/create_vm_size.PNG)
@@ -79,9 +87,9 @@ After you select the image, you can use Azure's default settings for most of the
 
 	![Screenshot that shows the summary of the configuration choices made for the Azure VM](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
-8. While Azure creates the virtual machine, you can track the progress in **Notifications**, in the Hub menu. After Azure creates the virtual machine, you'll see it on your Startboard unless you cleared **Pin to Startboard** in the **Create virtual machine** blade.
+8. While Azure creates the virtual machine, you can track the progress under **Virtual Machines** in the hub menu. 
 
-## Log on to the virtual machine
+## Log on to the Windows virtual machine
 
 After you create the virtual machine, you'll want to log on to it so you can manage its settings and the applications that you'll run on it.
 
@@ -89,7 +97,7 @@ After you create the virtual machine, you'll want to log on to it so you can man
 
 1. If you haven't already done so, sign in to the Azure portal.
 
-2. Click your virtual machine on the Startboard. If you need to find it, click **Browse All** > **Recent** or **Browse All** > **Virtual machines**. Then, select your virtual machine from the list.
+2. Click your virtual machine on the dashboard or click on Virtual Machines and select it from the list.
 
 3. On the virtual machine blade, click **Connect**.
 
@@ -103,9 +111,9 @@ After you create the virtual machine, you'll want to log on to it so you can man
 
 7. Click **Yes** to verify the identity of the virtual machine.
 
-	You can now work with the virtual machine just as you would with any other server.
+You can now work with the virtual machine just as you would with any other server.
 
 ## Next steps
 
 * Use Azure PowerShell and the Azure CLI to [find and select virtual machine images](resource-groups-vm-searching.md).
-* Automate virtual machine and workload deployment and management using [Azure Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md) and [Azure Resource Manager templates](http://azure.microsoft.com/documentation/templates/).
+* Automate virtual machine and workload deployment and management using [Azure Resource Manager templates](https://azure.microsoft.com/documentation/templates/).

@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 #Advanced encoding with Media Encoder Premium Workflow
 
-**Note** Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
+>[AZURE.NOTE]For premium encoder questions, email mepd at Microsoft.com.
+>
+>Media Encoder Premium Workflow media processor discussed in this topic is not available in China.
 
 ##Overview
 
@@ -28,11 +30,13 @@ The following topics outline details related to **Media Encoder Premium Workflow
 
 - [Formats Supported by the Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) – Discusses the file formats and codecs supported by **Media Encoder Premium Workflow**.
 
-- The [compare encoders](media-services-encode-asset.md#compare_encoders) section compares the encoding capabilities of **Media Encoder Premium Workflow** and **Azure Media Encoder**.
+- The [compare encoders](media-services-encode-asset.md#compare_encoders) section compares the encoding capabilities of **Media Encoder Premium Workflow**, **Media Encoder Standard** and **Azure Media Encoder**.
 
 This topic demonstrates how to encode with **Media Encoder Premium Workflow** using .NET.
 
 Encoding tasks for the **Media Encoder Premium Workflow** require a separate configuration file, called a Workflow file. These files have a .workflow extension and are created using the [Workflow Designer](media-services-workflow-designer.md) tool.
+
+>[AZURE.NOTE]For premium encoder questions, email mepd at Microsoft.com.
 
 ##Encode
 
@@ -50,7 +54,9 @@ The following steps are performed:
 1. Create an asset and upload a workflow file. 
 2. Create an asset and upload a source media file.
 3. Get the “Media Encoder Premium Workflow” media processor.
-4. Create a job and a task.
+4. Create a job and a task. 
+
+	In most cases, the configuration string for the task is empty (like in the following example). There are some advanced scenarios (that require you to to set runtime properties dynamically) in which case you would provide an XML string to the encoding task. Examples of such scenarios are: creating an overlay, parallel or sequential media stitching, subtitling.
 5. Add two input assets to the task.
 	
 	a. 1st – the workflow asset.
@@ -264,10 +270,6 @@ The following is a complete example. For information on how to set up with Media
 	    }
 	}
 
-
-##Known issues
-
-If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file. 
 
 
 ##Media Services learning paths

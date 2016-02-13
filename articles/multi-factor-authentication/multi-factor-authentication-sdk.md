@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Building Multi-Factor Authentication into Custom Apps (SDK)
@@ -33,7 +33,7 @@ Because the APIs do not have access to users registered in Azure Active Director
 
 ## Download the Azure Multi-Factor Authentication SDK 
 
-There are two different ways that you can download the Azure Multi-Factor Authentication SDK. Both are done via the Azure portal.  The first is by managing the Multi-Factor Auth Provider directly.  The second is via the service settings.  The second option requires either a Multi-Factor Auth Provider or an Azure AD Premium license.
+There are two different ways that you can download the Azure Multi-Factor Authentication SDK. Both are done via the Azure portal. The first is by managing the Multi-Factor Auth Provider directly. The second is via the service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium or Enterprise Mobility Suite license.
 
 
 ### To download the Azure Multi-Factor Authentication SDK from the Azure portal
@@ -60,7 +60,7 @@ There are two different ways that you can download the Azure Multi-Factor Authen
 5. Under multi-factor authentication select **Manage service settings**
 ![Download](./media/multi-factor-authentication-sdk/download2.png)
 6. On the services settings page, at the bottom of the screen click **Go to the portal**.
-![Download](./media/multi-factor-authentication-sdk/download3.png)
+![Download](./media/multi-factor-authentication-sdk/download3a.png)
 7. This will open a new page.  On the left, at the bottom, click SDK.
 8. Select the language you want and click on one the associated download links.
 9. Save the download.

@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure Active Directory hybrid identity design considerations- determine access control requirements| Microsoft Azure"
+	pageTitle="Azure Active Directory hybrid identity design considerations - determine access control requirements| Microsoft Azure"
 	description="Covers the pillars of identity, and identifying access requirements for resources for users in a hybrid environment."
 	documentationCenter=""
 	services="active-directory"
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="yuridio"/>
 
 # Determine access control requirements for your hybrid identity solution

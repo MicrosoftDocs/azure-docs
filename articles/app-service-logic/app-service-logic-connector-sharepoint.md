@@ -58,7 +58,7 @@ Authentication Mode | Yes | Enter the authentication mode to connect to SharePoi
 User Name | No | Enter a valid user name to connect to SharePoint site, if Authentication mode is not Default.
 Password | No | Enter a valid password to connect to SharePoint site, if Authentication mode is not Default.
 Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. For example, enter: *Lists/Task, Shared Documents*.
-Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/)
+Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
 
 5. When complete, the Package Settings look similar to the following:  
 ![][2]

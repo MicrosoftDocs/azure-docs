@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="01/21/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute workflows for circuit provisioning and circuit states
@@ -34,12 +34,11 @@ The figure and corresponding steps below show the tasks you must follow in order
 	-  Enable Azure public peering - You must enable Azure public peering if you wish to connect to Azure services hosted on public IP addresses. This is a requirement to access Azure resources if you have chosen to enable default routing for Azure private peering.
 	-  Enable Microsoft peering - You must enable this to access Office 365 and CRM online services. 
 	
-	>[AZURE.IMPORTANT] If you are enabling Microsoft peering, ensure that Azure public peering is also enabled to access Azure AD. You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
-
+	>[AZURE.IMPORTANT] You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
-5. Linking virtual networks to ExpressRoute circuits - You can link virtual networks to your ExpressRoute circuit. Follow instructions [to link VNets](expressroute-howto-linkvnets-classic.md) to your circuit. These VNets can either be in the same Azure subscription as the ExpressRoute circuit, or can be in a different subscription.
+5. Linking virtual networks to ExpressRoute circuits - You can link virtual networks to your ExpressRoute circuit. Follow instructions [to link VNets](expressroute-howto-linkvnet-arm.md) to your circuit. These VNets can either be in the same Azure subscription as the ExpressRoute circuit, or can be in a different subscription.
 
 
 ## ExpressRoute circuit provisioning states
@@ -86,7 +85,7 @@ Provisioned and Enabled is the only state the circuit can be in for you to be ab
 
 You will see the ExpressRoute circuit in the state described below as soon as you run the PowerShell cmdlet to delete the ExpressRoute circuit.
 
-	ServiceProviderProvisioningState : Provisioning
+	ServiceProviderProvisioningState : Provisioned
 	Status                           : Disabling
 
 You must reach out to your connectivity provider to deprovision the ExpressRoute circuit. **Important:** Microsoft will continue to bill the circuit until you run the PowerShell cmdlet to deprovision the circuit.
@@ -117,6 +116,6 @@ If the advertised public prefix state is set to a *validation needed* state, the
 
 - Configure your ExpressRoute connection.
 
-	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-	- [Configure routing](expressroute-howto-routing-classic.md)
-	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+	- [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md)
+	- [Configure routing](expressroute-howto-routing-arm.md)
+	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)

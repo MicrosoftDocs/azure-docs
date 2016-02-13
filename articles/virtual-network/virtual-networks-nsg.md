@@ -12,41 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/11/2016"
    ms.author="telmos" />
 
 # What is a Network Security Group (NSG)?
 
-You are probably familiar with the use of firewalls and access control lists (ACLs) to filter the flow of network traffic to network segments, individual computers, and even network interface cards (NICs) within a computer. You can also filter the flow of network traffic in Azure in similar ways, as listed below.
+Network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
 
-- **Endpoint ACLs**
-	- Can only filter inbound traffic.
-	- Can only be used on endpoints exposed to the Internet, or through an internal load balancer.
-	- Limited to 50 ACL rules per endpoint.
-	- Does **NOT** require a VNet (classic deployments).
-- **Network Security Groups (NSGs)**
-	- Allow or deny traffic based on direction, protocol, source address and port, and destination address and port.
-	- Can control inbound and outbound traffic on VMs or role instances (classic deployments), NICs (Resource Manager deployments) and subnets (all deployments). This includes any resources connected to subnets, such as cloud services and AppService environments.
-	- Can only be applied to resources connected to a regional VNet.
-	- Do **NOT** require management of a firewall appliance.
-	- Limited to 100 NSGs, each with 200 rules, per region.
-- **Firewall appliances**
-	- Implemented as VMs in your Azure network.
-	- Allow or deny traffic based on direction, protocol, source address and port, and destination address and port.
-	- Provides extra functionality, depending on the firewall appliance used.
-
-This article focuses on NSGs. For more information on the other traffic filtering choices, visit the links provided below.
-
-- [ACL documentation](./virtual-networks-acl.md).
-- [Build a DMZ using NSGs and Firewall appliances](virtual-networks-dmz-nsg-fw-udr-asm.md).
-
-## How does an NSG work?
-
-An NSG contains two types of rules, **Inbound** and **Outbound**. When traffic flows into an Azure server hosting VMs or role instances, the host loads all inbound or outbound NSG rules, based on the direction of traffic. Then the hosts inspects each rule in order of priority. If a rule matches the packet the host is analyzing, the action for the rule (allow or deny) is applied. If no rules match the packet, the packet is dropped. The figure below shows this decision flow. 
-
-![NSG ACLs](./media/virtual-network-nsg-overview/figure3.png)
-
->[AZURE.NOTE] The rules applied to a given VM or role instance can come from multiple NSGs, since you can associate an NSG to a VM (classic deployments), a NIC (Resource Manager deployments), or a subnet (all deployments). The [Associating NSGs](#Associating-NSGs) section covers how rules from multiple NSGs are applied depending on the direction of traffic.
+## NSG resource
 
 NSGs contain the following properties.
 
@@ -74,6 +47,12 @@ NSG rules contain the following properties.
 |**Direction**|Direction of traffic to match for the rule|inbound or outbound|Inbound and outbound rules are processed separately, based on direction|
 |**Priority**|Rules are checked in the order of priority, once a rule applies, no more rules are tested for matching|Number between 100 and 65535|Consider creating rules jumping priorities by 100 for each rule, to leave space for new rules to come between existing rules|
 |**Access**|Type of access to apply if the rule matches|allow or deny|Keep in mind that if an allow rule is not found for a packet, the packet is dropped|
+
+NSGs contain two sets of rules: inbound and outbound. The priority for a rule must be unique within each set. 
+
+![NSG rule processing](./media/virtual-network-nsg-overview/figure3.png) 
+
+The figure above shows how NSG rules are processed.
 
 ### Default Tags
 
@@ -126,11 +105,25 @@ You can associate different NSGs to a VM (or NIC, depending on the deployment mo
 	2. NSG applied to NIC (Resource Manager) or VM (classic).
 - **Outbound traffic**
 	1. NSG applied to NIC (Resource Manager) or VM (classic).
-	3. NSG applied to subnet.
+	2. NSG applied to subnet.
 
 ![NSG ACLs](./media/virtual-network-nsg-overview/figure2.png)
 
 >[AZURE.NOTE] Although you can only associate a single NSG to a subnet, VM, or NIC; you can associate the same NSG to as many resources as you want.
+
+## Implementation
+You can implement NSGs in the classic or Resource Manager deployment models using the different tools listed below.
+
+|Deployment tool|Classic|Resource Manager|
+|---|---|---|
+|Classic portal|![No][red]|![No][red]|
+|Azure portal|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Yes][green]</a>|
+|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Yes][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Yes][green]</a>|
+|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Yes][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Yes][green]</a>|
+|ARM template|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Yes][green]</a>|
+
+|**Key**|![Yes][green] Supported. Click for article.|![No][red] Not Supported.|
+|---|---|---|
 
 ## Planning
 
@@ -140,7 +133,7 @@ Before implementing NSGs, you need to answer the questions below:
 
 2. Are the resources you want to filter traffic to/from connected to subnets in existing VNets or will they be connected to new VNets or subnets?
  
-For more information on planning for network security in Azure, read the [best practices for colud services and network security](best-practices-network-security.md). 
+For more information on planning for network security in Azure, read the [best practices for cloud services and network security](../best-practices-network-security.md). 
 
 ## Design considerations
 
@@ -276,3 +269,7 @@ Since some of the NSGs above need to be associated to individual NICs, you need 
 - [Deploy NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
 - [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 - [Manage NSG logs](virtual-network-nsg-manage-log.md).
+
+[green]: ./media/virtual-network-nsg-overview/green.png
+[yellow]: ./media/virtual-network-nsg-overview/yellow.png
+[red]: ./media/virtual-network-nsg-overview/red.png

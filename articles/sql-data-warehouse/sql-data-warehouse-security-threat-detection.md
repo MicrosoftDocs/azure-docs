@@ -4,8 +4,8 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="lodipalm"
-   manager="mausher"
-   editor="barbkess"/>
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/24/2015"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;sonyama;barbkess"/>
 
 
 # Get started with SQL Data Warehouse threat detection
@@ -31,7 +31,7 @@ For example, Threat Detection detects certain anomalous database activities indi
 
 ## Set up threat detection for your database
 
-1. Launch the Azure Preview portal at [https://portal.azure.com](https://portal.azure.com).
+1. Launch the Azure Portal at [https://portal.azure.com](https://portal.azure.com).
 
 2. Navigate to the configuration blade of the SQL Data Warehouse you want to monitor. In the Settings blade, select **Auditing & Threat Detection**.
 
@@ -57,7 +57,7 @@ The email will provide information on the suspicious security event including th
 
 	![Navigation pane][4]
 
-2. In the email, click on the **Azure SQL Auditing Log** link, which will launch the Azure portal and show the relevant Auditing records around the time of the suspicious event.
+2. In the email, click on the **Azure SQL Auditing Log** link, which will launch the Azure Classic Portal and show the relevant Auditing records around the time of the suspicious event.
 
 	![Navigation pane][5]
 

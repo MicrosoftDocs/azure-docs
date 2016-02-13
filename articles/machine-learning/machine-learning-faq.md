@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
 # Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
@@ -47,7 +47,7 @@ See [Connect to a Machine Learning web service](machine-learning-connect-to-azur
 
 **How does Machine Learning billing work?**
 
-For billing and pricing information, see [Machine Learning Pricing](http://azure.microsoft.com/pricing/details/machine-learning/).
+For billing and pricing information, see [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 **Does Machine Learning have a free trial?**
 
@@ -165,7 +165,7 @@ Currently new custom modules can only be created in R.
 
 **What R packages are available in Machine Learning Studio?**
 
-Machine Learning Studio supports 400+ R packages today, and this list is constantly growing. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
+Machine Learning Studio supports 400+ CRAN R packages today, and this list is constantly growing. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **Is it possible to build a custom R module?**
 
@@ -216,7 +216,7 @@ You can also use the Retraining APIs. The sample code is available [here](https:
 
 **How do I monitor my Web service deployed in production?**
 
-Once a predictive model has been put into production, you can monitor it from the Azure portal. Each deployed service has its own dashboard, where you can see monitoring information for that service.
+Once a predictive model has been put into production, you can monitor it from the Azure Classic Portal. Each deployed service has its own dashboard, where you can see monitoring information for that service.
 
 **Is there a place where I can see the output of my RRS/BES?**
 
@@ -224,6 +224,9 @@ For RRS, the web service response is typically where you see the result. You can
 
  **Can I create web services only from models created in the Studio?
  No. You can also create web services directly from Jupyter Notebooks, and RStudio.
+ 
+ **Where can I find information about error codes?
+ Error codes are described [here.] (https://msdn.microsoft.com/library/azure/dn905910.aspx)
 
 ## Scalability
 
@@ -271,7 +274,7 @@ No.
 
 **Who has access to the http end point for the web service deployed in production by default? How do I restrict access to the end point?**
 
-After a web service is deployed, we create a default endpoint for that service. That default endpoint is deployed to production and can be called using its API Key. Additional endpoints can be added with their own keys from the Azure Portal or programmatically using the Web Service Management APIs. Access keys are needed to make calls to the web service in production and staging. For more information, see [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md).
+After a web service is deployed, we create a default endpoint for that service. That default endpoint is deployed to production and can be called using its API Key. Additional endpoints can be added with their own keys from the Azure Classic Portal or programmatically using the Web Service Management APIs. Access keys are needed to make calls to the web service in production and staging. For more information, see [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
 
 **What happens if my Storage Account cannot be found?**
@@ -284,7 +287,7 @@ If you accidentally deleted the Storage Account, the only way to recover from it
 **What happens if my Storage Account Access Key is out of sync?**
 Machine Learning Studio relies on a user supplied Azure Storage Account to save intermediary data when executing the workflow. This Storage Account is provided to Machine Learning Studio at the time a workspace is created and the Access Keys are associated with that workspace. After the workspace is created, if the Access keys are changed, that workspace can no longer access the Storage Account, and it will stop functioning and all experiments in that workspace will fail.
 
-If you have changed Storage Account Access Keys, please ensure to resync the Access Keys in the workspace setting in the Azure portal  
+If you have changed Storage Account Access Keys, please ensure to resync the Access Keys in the workspace setting in the Azure Classic Portal  
 
 
 ## Azure Marketplace

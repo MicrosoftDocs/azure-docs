@@ -34,9 +34,9 @@ The steps above download the Split-Merge files to the current directory. The fil
 
     ![Allowed services][1]
 
-3. Create an Azure Storage account that will be used for diagnostics output. Go to the Azure preview portal. In the left bar, click **New**, click **Data + Storage**, then **Storage**.
+3. Create an Azure Storage account that will be used for diagnostics output. Go to the Azure Portal. In the left bar, click **New**, click **Data + Storage**, then **Storage**.
 
-4. Create an Azure Cloud Service that will contain your Split-Merge service.  Go to the Azure preview portal. In the left bar, click **New**, then **Compute**, **Cloud Service**, and **Create**. 
+4. Create an Azure Cloud Service that will contain your Split-Merge service.  Go to the Azure Portal. In the left bar, click **New**, then **Compute**, **Cloud Service**, and **Create**. 
 
 
 ## Configuring your Split-Merge service
@@ -92,7 +92,7 @@ Execute the following command from the same window where makecert was executed; 
 
 ### Upload the PFX file to the cloud service
 
-Go to the [Azure preview portal](https://portal.azure.com).
+Go to the [Azure Portal](https://portal.azure.com).
 
 1. Select **Cloud Services**.
 2. Select the cloud service you created above for the Split/Merge service.
@@ -156,7 +156,7 @@ If your worker role fails to come online, but your web role succeeds, it is most
 
 ### Connecting with a web browser
 
-Determine the web endpoint of your Split-Merge service. You can find this in the Azure Management Portal by going to the **Dashboard** of your cloud service and looking under **Site URL** on the right side. Replace **http://** with **https://** since the default security settings disable the HTTP endpoint. Load the page for this URL into your browser.
+Determine the web endpoint of your Split-Merge service. You can find this in the Azure Classic Portal by going to the **Dashboard** of your cloud service and looking under **Site URL** on the right side. Replace **http://** with **https://** since the default security settings disable the HTTP endpoint. Load the page for this URL into your browser.
 
 ### Testing with PowerShell scripts
 

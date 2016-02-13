@@ -20,16 +20,6 @@
 
 # Azure Container Service Introduction
 
-<!---
-\[FIXME:Video 1: short introduction:
-<https://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/915>\]
-
-[AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
-
-\[FIXME: Video 3: CI/CD using Azure Container Service post to Channel 9
-and link here\]
--->
-
 Azure Container Service (ACS) provides a way to simplify the creation,
 configuration, and management of a cluster of virtual machines that are
 preconfigured to run containerized applications. Using an optimized
@@ -38,7 +28,9 @@ ACS enables you to use your existing skills or draw upon a large and
 growing body of community expertise to deploy and manage container-based
 applications on Microsoft Azure.
 
+<br />
 ![ACS provides a means to manage containerize applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
+<br /><br />
 
 ACS leverages Docker to ensure that your application containers are
 fully portable. It also supports your choice of Marathon, Chronos and
@@ -52,7 +44,7 @@ portability, including at the orchestration layers.
 While the service is in preview, we ask that those interested in testing
 the service [self-nominate](http://aka.ms/acspreview). Once preview access has been provided, an email will be sent with further details including deployment templates and getting started instructions. In order to use the service, you will need an Azure subscription, if you don’t have one yet, then why not sign up for a
 [free
-trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AA4C1C935)?
+trial](https://azure.microsoft.com/en-us/pricing/free-trial/)?
 
 Using Azure Container Service
 -----------------------------
@@ -175,4 +167,14 @@ Gaining Access
 While the service is in preview we ask that those interested testing the
 service [self-nominate](http://aka.ms/acspreview). You will first need an Azure
 Subscription, if you don’t have one yet then why not sign up for a [free
-trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AA4C1C935)?
+trial](https://azure.microsoft.com/en-us/pricing/free-trial/)?
+
+Videos
+------
+AzureCon Announcement:
+
+> [AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]  
+
+Getting Started with ACS:  
+
+> [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]

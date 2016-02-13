@@ -22,6 +22,11 @@ If you already have integrated an older version of Engagement into your applicat
 
 You may have to follow several procedures if you missed several versions of the SDK. For example if you migrate from 0.10.1 to 0.11.0 you have to first follow the "from 0.9.0 to 0.10.1" procedure then the "from 0.10.1 to 0.11.0" procedure.
 
+##From 3.2.0 to 3.3.0
+
+### Resources
+This step concerns customized resources only. If you have customized the resources provided by the SDK (html, images, overlay) then you have to backup them before upgrading and reapply your customization on upgraded resources.
+
 ##From 3.1.0 to 3.2.0
 
 ### Resources
@@ -272,7 +277,7 @@ If you want to specify it at runtime instead, you can call the following method 
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-The connection string for your application is displayed on the Azure Management Portal.
+The connection string for your application is displayed on the Azure Classic Portal.
 
 ### Items name change
 

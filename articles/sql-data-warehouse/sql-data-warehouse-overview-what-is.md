@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,25 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/18/2015"
-   ms.author="lodipalm;barbkess;twounder;JRJ@BigBangData.co.uk;"/>
+   ms.date="02/09/2016"
+   ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
 # What is Azure SQL Data Warehouse?
 
-Azure SQL Data Warehouse is an enterprise-class, distributed database capable of processing massive volumes of relational and non-relational data. It is the industry's first cloud data warehouse that combines proven SQL capabilities with the ability to grow, shrink, and pause in seconds. SQL Data Warehouse is also deeply ingrained into Azure, it easily deploys in seconds. In addition to this, the service is fully managed and removes the hassle of spending time on software patching, maintenance, and back-ups. SQL Data Warehouse's automatic, built-in backups support fault-tolerance and self-service restore. In creating SQL Data Warehouse, we focused on a few key attributes in order to ensure that we were fully taking advantage of Azure and creating a data warehouse that could meet any enterprise workload.
+Azure SQL Data Warehouse is an enterprise-class, distributed database capable of processing massive volumes of relational and non-relational data. It is the industry's first cloud data warehouse that combines proven SQL capabilities with the ability to grow, shrink, and pause in seconds. SQL Data Warehouse is also deeply ingrained into Azure, and it easily deploys in seconds. In addition to this, the service is fully managed and removes the hassle of spending time on software patching, maintenance, and back-ups. SQL Data Warehouse's automatic, built-in backups support fault-tolerance and self-service restore. 
+
+In creating SQL Data Warehouse, we focused on a few key attributes in order to ensure that we were fully taking advantage of Azure and creating a data warehouse that could meet any enterprise workload.
 
 ## Optimized
 
 ### Data Warehouse architecture
 
-At it's core, SQL Data Warehouse runs using Microsoft’s massive parallel processing (MPP) architecture, originally designed to run some of the largest on-premise enterprise data warehouses. This architecture takes advantage of built-in data warehousing performance improvements and also allows SQL Data Warehouse to easily scale-out and parallelize computation of complex SQL queries. In addition, SQL Data Warehouse's architecture is designed to take advantage of it's presence in Azure.  Combining these two aspects, the architecture breaks up into 4 key components:
+At its core, SQL Data Warehouse uses Microsoft’s massive parallel processing (MPP) architecture, originally designed to run some of the largest on-premises enterprise data warehouses. This architecture takes advantage of built-in data warehousing performance improvements and also allows SQL Data Warehouse to easily scale-out and parallelize computation of complex SQL queries. In addition, SQL Data Warehouse's architecture is designed to take advantage of its presence in Azure.  Combining these two aspects, the architecture breaks up into 4 key components:
 
 ![SQL Data Warehouse Architecture][1]
 
-- **Control Node:**  You connect to the control node when using SQL Data Warehouse with any development, loading, or business intelligence tools. In SQL Data Warehouse, the compute node is a SQL Database, and when connecting it looks and feels like a standard SQL Database.  However, under the surface, it coordinates all of the data movement and computation that takes place in the system. When a command is issued to the control node, it breaks it down into a set of queries that will be passed onto the compute nodes of the service.
+- **Control node:** You connect to the Control node when using SQL Data Warehouse with any development, loading, or business intelligence tools. In SQL Data Warehouse, the Control node is a SQL Database, and connecting it looks and feels like a standard SQL Database. However, under the surface, it coordinates all of the data movement and computation that takes place in the system. When a command is issued to the Control node, it breaks it down into a set of queries that will be passed onto the compute nodes of the service.
 
-- **Compute Nodes:** Like the control node, the compute nodes of SQL Data Warehouse are powered using using SQL Databases.  Their job is to serve as the compute power of the service.  Behind the scenes, any time data is loaded into SQL Data Warehouse, it is distributed across the nodes of the service.  Then, any time the control node receives a command it breaks it into pieces for each compute node, and the compute nodes operate over their corresponding data.  After completing their computation, compute nodes pass partial results to the control node which then aggregates results before returning an answer.
+- **Compute Nodes:** Like the control node, the compute nodes of SQL Data Warehouse are powered using SQL Databases. Their job is to serve as the compute power of the service. Behind the scenes, any time data is loaded into SQL Data Warehouse, it is distributed across the nodes of the service. Then, any time the control node receives a command it breaks it into pieces for each compute node, and the compute nodes operate over their corresponding data. After completing their computation, compute nodes pass partial results to the control node which then aggregates results before returning an answer.
 
 - **Storage:** All storage for SQL Data Warehouse is standard Azure Storage Blobs. This means that when interacting with data, compute nodes are writing and reading directly to/from Blobs. Azure Storage's ability to expand transparently and nearly limitlessly allows us to automatically scale storage, and to do so separately from compute. Azure Storage also allows us to persist storage while scaling or paused, streamline our back-up and restore process, and have safer, more fault tolerant storage.
 
@@ -49,7 +51,7 @@ This MPP approach allows SQL Data Warehouse to take a divide and conquer approac
 
 ## Scalable
 
-The architecture of SQL Data Warehouse introduces separated storage and compute, allowing each to scale independently. SQL Database's quick and simple deployment structure allows for additional compute to be available at a moment's notice. Complementing this is the use of Azure Storage Blobs. Blobs not only gives us stable, replicated storage, but also provide the infrastructure for effortless expansion at low cost.  Using this combination of cloud-scale storage and Azure compute, SQL Data Warehouse allows you to pay for query performance storage as you need it when you need it. Changing the amount of compute is as simple as moving a slider in the Azure Portal to the left or right, but can also be scheduled or added to a workload with T-SQL and PowerShell.
+The architecture of SQL Data Warehouse introduces separated storage and compute, allowing each to scale independently. SQL Database's quick and simple deployment structure allows for additional compute to be available at a moment's notice. Complementing this is the use of Azure Storage Blobs. Blobs not only gives us stable, replicated storage, but also provide the infrastructure for effortless expansion at low cost.  Using this combination of cloud-scale storage and Azure compute, SQL Data Warehouse allows you to pay for query performance storage as you need it when you need it. Changing the amount of compute is as simple as moving a slider in the Azure Classic Portal to the left or right, but can also be scheduled or added to a workload with T-SQL and PowerShell.
 
 Along with the ability to fully control the amount of compute independently of storage, SQL Data Warehouse allows you to fully pause your data warehouse. While keeping your storage in place all compute is released into Azure's main pool, saving you money immediately. When needed, simply resume the compute and have your data and compute available for your workload.
 
@@ -115,7 +117,7 @@ Polybase is easy to use and allows you to leverage your data from different sour
 
 - PolyBase uses external tables to access non-relational data. The table definitions are stored in SQL Data Warehouse, and can be acessed by SQL and tools like you would access normal relational data.
 
-- Polybase is agnostic in it's integration. It exposes the same features and functionality to all the sources that it supports. The data read by Polybase can be in a variety of formats, including delimited files or ORC files.
+- Polybase is agnostic in its integration. It exposes the same features and functionality to all the sources that it supports. The data read by Polybase can be in a variety of formats, including delimited files or ORC files.
 
 - PolyBase can be used to access blob storage that is also being used as storage for an HD Insight cluster, giving you cutting edge access to the same data with relational and non-relational tools.
 

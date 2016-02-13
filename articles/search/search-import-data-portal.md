@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="Azure portal"/>
+    tags="Azure Portal"/>
 
 <tags
 	ms.service="search"
@@ -39,7 +39,7 @@ You can only import from a single table, view, or equivalent data structure. You
 
 ##Configure data import
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 
 2. Open the service dashboard of your Azure Search service. Here are a few ways to find the dashboard.
 	- In the Jumpbar, click **Home**. The home page has tiles for every service in your subscription. Click the tile to open the service dashboard.

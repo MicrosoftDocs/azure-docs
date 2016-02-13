@@ -2,15 +2,16 @@
  pageTitle="Remote Monitoring preconfigured solution walkthrough | Microsoft Azure"
  description="A description of the Azure IoT preconfigured solution remote monitoring and its architecture."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="stevehob"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="10/21/2015"
@@ -108,7 +109,7 @@ This web app enables you to:
 - View the command history for a device.
 
 ### Observing the behavior of the cloud solution
-You can view your provisioned resources by going to [Azure portal](https://portal.azure.com) and navigating to the resource group with the solution name you specified.
+You can view your provisioned resources by going to the [Azure portal](https://portal.azure.com) and navigating to the resource group with the solution name you specified.
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/azureportal_01.png)
 

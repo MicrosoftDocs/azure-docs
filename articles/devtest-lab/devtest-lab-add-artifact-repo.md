@@ -1,6 +1,6 @@
-    <properties
+<properties
 	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure"
-	description="Add a GitHub or Visual Studio Online Git repository for your custom artifacts to your lab"
+	description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts to your lab"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Add a Git artifact repository to your DevTest Lab
 
 ## Overview
 
-By default, a DevTest Lab includes artifacts from the official Azure DevTest Lab artifact repository. You can add a Git artifact repository to your lab to include the artifacts that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Online (VSO)](https://visualstudio.com).
+By default, a DevTest Lab includes artifacts from the official Azure DevTest Lab artifact repository. You can add a Git artifact repository to your lab to include the artifacts that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
 - To learn how to create a GitHub repository, see [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-- To learn how to create a VSO project with a Git Repository, see [Connect to Visual Studio Online](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+- To learn how to create a Team Services project with a Git Repository, see [Connect to Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 The following screen shot shows an example of how a repository containing artifacts might look in GitHub:  
 ![Sample GitHub artifacts repo](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
@@ -50,7 +50,7 @@ To add a GitHub artifacts repository to your lab, you first get the HTTPS clone 
 
 ###Connect your lab to the GitHub repository
 
-1. Sign in to the [Azure preview portal](http://portal.azure.com).
+1. Sign in to the [Azure preview portal](https://portal.azure.com).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 

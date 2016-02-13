@@ -24,7 +24,7 @@ The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans
 
 Please note that up to 24 hours of latent usage from your prior billing period can be reported in your current billing period.
 
-For more information about consumption and rate plans, see the [Microsoft Azure Purchase Options page](http://azure.microsoft.com/pricing/purchase-options/).
+For more information about consumption and rate plans, see the [Microsoft Azure Purchase Options page](https://azure.microsoft.com/pricing/purchase-options/).
 
 The below links cover a complete list of all Microsoft Azure services.
 

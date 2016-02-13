@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to manage a cloud service | Microsoft Azure" 
+	pageTitle="Common cloud service management tasks (classic) | Microsoft Azure" 
 	description="Learn how to manage cloud services in the Azure classic portal." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/20/2016"
 	ms.author="adegeo"/>
 
 

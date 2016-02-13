@@ -3,9 +3,9 @@
 	description="A checklist of proven practices for use with Azure Storage in developing performant applications."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="carolz"
-	editor=""/>
+	authors="robinsh"
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 # Microsoft Azure Storage Performance and Scalability Checklist
 
@@ -105,7 +105,7 @@ If your application is approaching the scalability targets for a single storage 
 The following links provide additional detail on scalability targets:
 -	See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for information about scalability targets.
 -	See [Azure Storage replication](storage-redundancy.md) and the blog post [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) for information about storage redundancy options.
--	For current information about pricing for Azure services, see [Azure pricing](http://azure.microsoft.com/pricing/overview/).  
+-	For current information about pricing for Azure services, see [Azure pricing](https://azure.microsoft.com/pricing/overview/).  
 
 ###Networking
 While the API calls matter, often the physical network constraints of the application have a significant impact on performance. The following describe some of limitations users may encounter.  
@@ -128,7 +128,7 @@ If your client applications are not hosted within Azure (such as mobile device a
 ###<a name="subheading5"></a>Content Distribution
 Sometimes, an application needs to serve the same content to many users (e.g. a product demo video used in the home page of a website), located in either the same or multiple regions. In this scenario, you should use a Content Delivery Network (CDN) such as Azure CDN, and the CDN would use Azure storage as the origin of the data. Unlike an Azure Storage account that exists in a single region and that cannot deliver content with low latency to other regions, Azure CDN uses servers in multiple data centers around the world. Additionally, a CDN can typically supports much higher egress limits than a single storage account.  
 
-For more information about Azure CDN, see [Azure CDN](http://azure.microsoft.com/services/cdn/).  
+For more information about Azure CDN, see [Azure CDN](https://azure.microsoft.com/services/cdn/).  
 
 ###<a name="subheading6"></a>Using SAS and CORS
 When you need to authorize code such as JavaScript in a user’s web browser or a mobile phone app to access data in Azure Storage, one approach is to use an application in web role as a proxy: the user’s device authenticates with the web role, which in turn authenticates with the storage service. In this way, you can avoid exposing your storage account keys on insecure devices. However, this places a big overhead on the web role because all the data transferred between the user’s device and the storage service must pass through the web role. You can avoid using a web role as a proxy for the storage service by using Shared Access Signatures (SAS), sometimes in conjunction with Cross-Origin Resource Sharing headers (CORS). Using SAS, you can allow your user’s device to make requests directly to a storage service by means of a limited access token. For example, if a user wants to upload a photo to your application, your web role can generate and send to the user’s device a SAS token that grants permission to write to a specific blob or container for the next 30 minutes (after which the SAS token expires).
@@ -368,7 +368,7 @@ You can retrieve up to 32 messages from a queue in a single operation. This can 
 ###<a name=subheading43"></a>Queue Polling Interval
 Most applications poll for messages from a queue, which can be one of the largest sources of transactions for that application. Select your polling interval wisely: polling too frequently could cause your application to approach the scalability targets for the queue. However, at 200,000 transactions for $0.01 (at the time of writing), a single processor polling once every second for a month would cost less than 15 cents so cost is not typically a factor that affects your choice of polling interval.  
 
-For up to date cost information, see [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/).  
+For up to date cost information, see [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/).  
 
 ###<a name=subheading44"></a>UpdateMessage
 You can use **UpdateMessage** to increase the invisibility timeout or to update state information of a message. While this is powerful, remember that each **UpdateMessage** operation counts towards the scalability target. However, this can be a much more efficient approach than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Using the **UpdateMessage** operation allows your application to save the job state to the message and then continue working, instead of re-queuing the message for the next step of the job every time a step completes.  

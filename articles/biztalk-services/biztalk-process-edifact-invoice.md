@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="12/02/2015"
    ms.author="Deonhe"/>
 
 # Tutorial: Process EDIFACT Invoices Using Azure BizTalk Services
@@ -48,7 +48,7 @@ To complete the scenario, we use Service Bus queues to send invoice from Contoso
 
 *   You must have a Service Bus namespace. For instructions on creating a namespace, see [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/hh690931.aspx). Let us assume that you already have a Service Bus namespace provisioned, called **edifactbts**.
 
-*   You must have a BizTalk Services subscription. For instructions, see [Create a BizTalk Service using Azure management portal](http://go.microsoft.com/fwlink/?LinkID=302280). For this tutorial, let us assume you have a BizTalk Services subscription, called **contosowabs**.
+*   You must have a BizTalk Services subscription. For instructions, see [Create a BizTalk Service using Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=302280). For this tutorial, let us assume you have a BizTalk Services subscription, called **contosowabs**.
 
 *   Register your BizTalk Services subscription on the BizTalk Services Portal. For instructions, see [Registering a BizTalk Service Deployment on the BizTalk Services Portal](https://msdn.microsoft.com/library/hh689837.aspx)
 
@@ -240,7 +240,7 @@ The BizTalk Services project, **InvoiceProcessingBridge**, that transforms the m
 
 2.  In Visual Studio Solution Explorer, right-click the **InvoiceProcessingBridge** project, and then click **Deploy**.
 
-3.  Provide the values as shown in the image, and then click **Deploy**. You can get the ACS credentials for BizTalk Services by clicking **Connection Information** from the BizTalk Services dashboard on the .
+3.  Provide the values as shown in the image, and then click **Deploy**. You can get the ACS credentials for BizTalk Services by clicking **Connection Information** from the BizTalk Services dashboard.
 
     ![][11]  
 

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create a Trading Partner Agreement in Microsoft Azure App Service" 
+   pageTitle="Create a Trading Partner Agreement in Azure App Service | Microsoft Azure" 
    description="Create Trading Partner Agreements" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="10/01/2015"
+   ms.date="12/07/2015"
    ms.author="rajram"/>
 
 
@@ -73,7 +73,7 @@ To create trading partner agreements:
 ![][3]
 
 <!--Image references-->
-[1]: ./media/app-service-logic-create-a-trading-partner-agreement/TPMResourceView.jpg
-[2]: ./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.jpg
-[3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
+[1]: ./media/app-service-logic-create-a-trading-partner-agreement/TPMResourceView.png
+[2]: ./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.png
+[3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="01/19/2016" 
 	ms.author="juliako"/>
 
 
@@ -65,7 +65,7 @@ This topic contains links to Azure SDK for .NET Release Notes.
 
 ##Related topics
 
-[Azure SDK for .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
+[Azure SDK for .NET](https://azure.microsoft.com/downloads/archive-net-downloads/)
 
 [Azure SDK Release Notes on MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  

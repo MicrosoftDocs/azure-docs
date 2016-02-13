@@ -2,7 +2,7 @@
 
 Follow these steps to create a new mobile service.
 
-1.	Log into the [Management Portal]. At the bottom of the navigation pane, click **+NEW**. Expand **Compute** and **Mobile Service**, then click **Create**.
+1.	Log into the [Azure classic portal](https://manage.windowsazure.com/). At the bottom of the navigation pane, click **+NEW**. Expand **Compute** and **Mobile Service**, then click **Create**.
 
 	![](./media/mobile-services-create-new-service/mobile-create.png)
 
@@ -21,7 +21,3 @@ Follow these steps to create a new mobile service.
 
 You have now created a new mobile service that can be used by your mobile apps.
 
-
-
-<!-- URLs. -->
-[Management Portal]: https://manage.windowsazure.com/

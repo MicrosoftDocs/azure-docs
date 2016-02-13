@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/06/2015"
+	ms.date="01/18/2016"
 	ms.author="dastrock"/>
 
 # App model v2.0 preview: Sign-in Microsoft Account & Azure AD users in a single app
@@ -23,7 +23,7 @@
 
 In the past, an app developer who wanted to support both Microsoft accounts and Azure Active Directory was required to integrate with two separate systems. With the v2.0 app model, you can now sign users in with both types of accounts. One simple integration allows you to reach an audience that spans millions of users with both personal and work/school accounts.
 
-Your apps can also consume a [set of Office 365 REST APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) using either type of account.  Currently, these APIs include Outlook's Mail, Contacts, and Calendars APIs.  Additional services will be added in the near future.
+Your apps can also consume a [set of Office 365 REST APIs](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) using either type of account.  Currently, these APIs include Outlook's Mail, Contacts, and Calendars APIs.  Additional services will be added in the near future.
 <!-- TODO: customer reference article -->
 <!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
 
@@ -39,6 +39,7 @@ There are two ways to get your own app up & running with the v2.0 app model.  Yo
 ## What's New
 Check back here often to learn about future changes to the v2.0 app model public preview.  We'll also tweet about any updates using @AzureAD.
 
+- If you've built an app during the app model v2.0 2015 preview period, be sure to [read about these protocol changes](active-directory-v2-preview-oidc-changes.md) to make sure your app keeps working.
 - Learn about the [types of apps you can build with app model v2.0](active-directory-v2-flows.md).
 - For developers familiar with Azure Active Directory, you should check out the [updates to our protocols & differences in the v2.0 app model](active-directory-v2-compare.md).
 - Current [preview limitations, restrictions and constraints](active-directory-v2-limitations.md).
@@ -47,10 +48,10 @@ Check back here often to learn about future changes to the v2.0 app model public
 These links will be useful for exploring the platform in depth:
 
 - Get help on Stack Overflow using the [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) or [adal](http://stackoverflow.com/questions/tagged/adal) tags.
-- Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
+- Give us your thoughts on the preview using [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
 - [App Model v2.0 Protocol Reference](active-directory-v2-protocols.md)
 - [App Model v2.0 Token Reference](active-directory-v2-tokens.md)
-- [Office 365 REST API Reference](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
+- [Office 365 REST API Reference](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Scopes and Consent in the v2 endpoint](active-directory-v2-scopes.md)
 
 <!-- TODO: These articles

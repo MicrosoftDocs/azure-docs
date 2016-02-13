@@ -32,6 +32,7 @@ The following steps are enough to activate the report of logs needed to compute 
 
 ##Embed the Engagement SDK into your iOS project
 
+Download the iOS SDK from [here](http://aka.ms/qk2rnj).
 Add the Engagement SDK to your iOS project: in Xcode, right click on your project and select **"Add files to ..."** and choose the `EngagementSDK` folder.
 
 Engagement requires additional frameworks to work: in the project explorer, open your project pane and select the correct target. Then, open the **"Build phases"** tab and in the **"Link Binary With Libraries"** menu, add these frameworks:

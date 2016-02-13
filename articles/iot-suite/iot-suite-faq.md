@@ -1,22 +1,23 @@
 <properties
   pageTitle="Azure IoT Suite FAQ | Microsoft Azure"
-  description="FAQ for IoT Suite."
+  description="Frequently asked questions for IoT Suite"
   services=""
+  suite="iot-suite"
   documentationCenter=""
   authors="aguilaaj"
   manager="timlt"
   editor=""/>
 
 <tags
-  ms.service="na"
+  ms.service="iot-suite"
   ms.devlang="na"
-  ms.topic="hero-article"
+  ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
   ms.date="11/17/2015"
   ms.author="araguila"/>
    
-# Frequently asked questions
+# Frequently asked questions for IoT Suite
 
 ### How many DocumentDB instances can I provision in a subscription?
 
@@ -26,11 +27,11 @@ Five. You can create a support ticket to raise this limit, but by default, you c
 
 Two. You can create only two Free Bing Maps APIs in a subscription. The remote monitoring solution is provisioned by default with a Free Bing Maps API. As a result, you can only provision up to two remote monitoring solutions in a subscription with no modifications.
 
-### What's the difference between deleting a resource group in the Azure preview portal and clicking delete on a preconfigured solution in azureiotsuite.com?
+### What's the difference between deleting a resource group in the Azure portal and clicking delete on a preconfigured solution in azureiotsuite.com?
 
 - If you delete the preconfigured solution in [azureiotsuite.com][lnk-azureiotsuite], you delete all the resources that were provisioned when you created the preconfigured solution; if you added additional resources to the resource group, these are also deleted. 
 
-- If you delete the resource group in the [Azure preview portal][lnk-azure-portal], you only delete the resources in that resource group; you will also need to delete the Azure Active Directory application associated with the preconfigured solution in the [Azure management portal][lnk-classic-portal].
+- If you delete the resource group in the [Azure portal][lnk-azure-portal], you only delete the resources in that resource group; you will also need to delete the Azure Active Directory application associated with the preconfigured solution in the [Azure classic portal][lnk-classic-portal].
 
 ### How do I delete an AAD tenant?
 

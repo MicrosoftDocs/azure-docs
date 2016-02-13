@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Starting a runbook in Azure Automation"
+   pageTitle="Starting a runbook in Azure Automation | Microsoft Azure"
    description="Summarizes the different methods that can be used to start a runbook in Azure Automation and provides details on using both the Azure portal and Windows PowerShell."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/13/2015"
+   ms.date="01/19/2016"
    ms.author="bwren;sngun"/>
 
 # Starting a runbook in Azure Automation
@@ -106,6 +106,9 @@ The following table will help you determine the method to start a runbook in Azu
 <br>
 
 
+The following image illustrates detailed step-by-step process in the life cycle of a runbook It includes different ways a runbook is started in Azure Automation, components required for an on-premises machine to execute Azure Automation runbooks and interactions between different components. To learn about executing Automation runbooks in your datacenter, refer to [hybrid runbook workers](automation-hybrid-runbook-worker.md)
+
+![Runbook Architecture](media/automation-starting-runbook/runbooks-architecture.png)
 
 ## Starting a runbook with the Azure portal
 
@@ -236,6 +239,6 @@ Assuming the username in the credential was *jsmith*, this results in the follow
 
 	jsmith
 
-## Related articles
+## Next Steps
 
-- [Child runbooks in Azure Automation](automation-child-runbooks.md) 
+- The runbook architecture in current article provides a high-level description about the hybrid runbooks, to know more details, see [Child runbooks in Azure Automation](automation-child-runbooks.md) 

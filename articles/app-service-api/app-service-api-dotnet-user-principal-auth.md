@@ -13,100 +13,98 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/30/2015"
+	ms.date="01/26/2016"
 	ms.author="tdykstra"/>
 
 # User authentication for API Apps in Azure App Service
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
 
 ## Overview
 
-This tutorial shows how to use the Authentication and Authorization features of Azure App Service to protect an API app, and how to consume the API app on behalf of end users. The authentication provider shown in the tutorial is Azure Active Directory, and the sample client is an AngularJS single page application running in a browser.
+In this article you'll learn:
 
-![](./media/app-service-api-dotnet-user-principal-auth/contactspageazure.png)
+* How to protect an App Service API app so that only authenticated users can call it.
+* How to configure an authentication provider, with details for Azure Active Directory (Azure AD).
+* How to consume a protected API app by using the [Active Directory Authentication Library (ADAL) for JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js).
+
+The article contains two sections:
+
+* The [How to configure user authentication in Azure App Service](#authconfig) section explains in general how to configure user authentication for any API app and applies equally to all frameworks supported by App Service, including .NET, Node.js, and Java.
+
+* The [remainder of the article](#tutorialstart) guides you through configuring a .NET sample application running in App Service so that it uses Azure Active Directory for user authentication. 
+
+## <a id="authconfig"></a> How to configure user authentication in Azure App Service
+
+This section provides general instructions that apply to any API app. For steps specific to the To Do List .NET sample application, go to [Continuing the .NET getting-started tutorials](#tutorialstart).
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to the **API App** blade of the API app that you want to protect, and then click **Settings**
+
+2. In the **Settings** blade, find the **Features** section, and then click **Authentication/ Authorization**.
+
+	![](./media/app-service-api-dotnet-user-principal-auth/features.png)
+
+3. In the **Authentication / Authorization** blade, click **On**.
+
+4. Select one of the options from the **Action to take when request is not authenticated** drop-down list.
+
+	* If you want only authenticated calls to reach your API app, choose one of the **Log in with ...** options. This option enables you to protect the API app without writing any code that runs in it.
+
+	* If you want all calls to reach your API app, choose **Allow request (no action)**. You can use this option to direct unauthenticated callers to a choice of authentication providers. With this option you have to write code to handle authorization.
+
+	For more information, see [Authentication and authorization for API Apps in Azure App Service](app-service-api-authentication.md#multiple-protection-options).
+
+5. Select one or more of the **Authentication Providers**.
+
+	The image shows	choices that require all callers to be authenticated by Azure AD.
  
-This is the third in a series of tutorials that show how to work with API apps in Azure App Service. For information about the series, see [Get started with API Apps and ASP.NET in Azure App Service](app-service-api-dotnet-get-started.md).
+	![](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
 
-## Authentication and Authorization in Azure App Service
+	When you choose an authentication provider, the portal displays a configuration blade for that provider. 
 
-Azure App Service offers built-in services for authentication and authorization. You're free to handle authentication in your own code, but App Service offers a turnkey solution if you want to minimize the amount of code you have to write and maintain. 
+	For detailed instructions that explain how to configure the authentication provider configuration blades, see [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). (The link goes to an article about Azure AD, but the article itself contains tabs that link to articles for the other authentication providers.)
 
-You can use any of five authentication providers supported by App Service: Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account. And you can protect an API written in any language supported by App Service: without writing any code in your API, you can require user log-in or a token to access it.
+7. When you're done with the authentication provider configuration blade, click **OK**.
 
-Azure App Service handles authentication and leaves authorization to be handled by your code. You can configure App Service to only allow authenticated users to call your API, or you can allow all callers. In either case, App Service passes authentication information to your app in the HTTP headers, and your code can use that information to make authorization choices. 
+7. In the **Authentication / Authorization** blade, click **Save**.
 
-* In a .NET API, you can use the `Authorize` attribute, and for fine-grained authorization you can easily write code based on claims. Claims information is populated for you in .NET classes.
+When this is done, App Service authenticates all API calls before they reach the API app. The authentication services work the same for all languages that App service supports, including .NET, Node.js, and Java. 
 
-* For APIs written in other languages, App Service passes on the JWT token in the Authorization header of an HTTP request. In addition, Azure sets some special headers (for example, `x-ms-client-principal-id`) to give you easier access to the most important claims.
+To make authenticated API calls, the caller includes the authentication provider's OAuth 2.0 bearer token in the Authorization header of HTTP requests. The token can be acquired by using the authentication provider's SDK.
 
-For more information about authentication and authorization services in Azure App Service, see [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/) and [App Service API Apps - What's changed](app-service-api-whats-changed.md).
+## <a id="tutorialstart"></a> Continuing the .NET getting-started tutorials
 
-## The ContactsList.Angular.AAD sample project
+If you are following the Node.js or Java getting-started series for API apps, skip to the next article, [service principal authentication for API apps](app-service-api-dotnet-service-principal-auth.md). 
 
-In this tutorial you use the sample projects that you downloaded in the [first tutorial in this series](app-service-api-dotnet-get-started.md) and the Azure resources (API app and web app) that you created in the first tutorial.
+If you are following the .NET getting-started series for API apps and have already deployed the sample application as directed in the [first](app-service-api-dotnet-get-started.md) and [second](app-service-api-cors-consume-javascript.md) tutorials, skip to the [Configure authentication](#azureauth) section.
 
-The ContactsList.Angular.AAD project is an AngularJS client that includes code for working with Azure Active Directory. The code is based on an AAD sample that can be found in the [Azure-Samples/active-directory-angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) repository.
+If you didn't do the the first and second tutorials and you want to follow this one, use the **Deploy to Azure** button in the [To Do List sample repository readme file](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) to deploy the API apps and the web app.
 
-The code in the ContactsList.Angular.AAD project is structured differently than the simpler ContactsLists.Angular project. The code that calls the API is in the *app/scripts/contactsSvc.js* file in the ContactsList.Angular.AAD project. 
+When deployment is finished, an HTTP link to the web app is shown.  To run the application and verify that it's operational, change that URL to HTTPS. 
 
-		angular.module('contactsListApp')
-		.factory('contactsSvc', ['$http', function ($http) {
-		    //var apiEndpoint = "https://{your api app name}.azurewebsites.net";
-		    var apiEndpoint = "https://localhost:44300";
-		
-		    $http.defaults.useXDomain = true;
-		    delete $http.defaults.headers.common['X-Requested-With']; 
-		
-		    return {
-		        getItems: function () {
-		            return $http.get(apiEndpoint + '/api/contacts');
-		        },
-		        getItem : function(id){
-		            return $http.get(apiEndpoint + '/api/contacts/' + id);
-		        },
-		        postItem : function(item){
-		            return $http.post(apiEndpoint + '/api/contacts', item);
-		        },
-		        putItem : function(item){
-		            return $http.put(apiEndpoint + '/api/contacts/', item);
-		        },
-		        deleteItem : function(id){
-		            return $http({
-		                method: 'DELETE',
-		                url: apiEndpoint + '/api/contacts/' + id
-		            });
-		        }
-		    };
-		}]);
+## <a id="azureauth"></a> Set up authentication in Azure
 
-Here, the `Get` method is labeled `getItems`, and in the controller (*app/scripts/contactsCtrl.js*) `getItems` is wired up to `$scope.populate`.
+At this point you have the application running in Azure App Service without requiring that users be authenticated. In this section you add authentication by doing the following tasks:
 
-		$scope.populate = function () {
-		    contactsSvc.getItems().then(function (results) {
-		        $scope.contactsList = results.data;
-		        $scope.loadingMessage = "";
-		    }, function (err) {
-		        $scope.loadingMessage = "";
-		        $scope.error = "Error: " + err;
-		    });
-		};
+* Configure App Service to require Azure Active Directory (Azure AD) authentication for calling the middle tier API app.
+* Create an Azure AD application.
+* Configure the Azure AD application to send the bearer token after logon to the AngularJS front end. 
 
-In the view (*app/views/Contacts.html*), $scope.populate is called on initialization.
+### Configure authentication in App Service
 
-		<div ng-init="populate()">
+1. In the [Azure portal](https://portal.azure.com/), navigate to the **API App** blade of the API app that you created for the ToDoListAPI project.
 
-## Set up authentication and authorization in Azure
+2. Click **Settings**
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to the **API App** blade of the API app that you created in the first tutorial, and then click **Settings**.
-
-2. Find the **Features** section, and then click **Authentication/ Authorization**.
+2. In the **Settings** blade, find the **Features** section, and then click **Authentication / Authorization**.
 
 	![](./media/app-service-api-dotnet-user-principal-auth/features.png)
 
 3. In the **Authentication / Authorization** blade, click **On**.
 
 4. In the **Action to take when request is not authenticated** drop-down list, select **Log in with Azure Active Directory**.
+
+	This option ensures that no unauathenticated requests will reach the API app. 
 
 5. Under **Authentication Providers**, click **Azure Active Directory**.
 
@@ -116,25 +114,53 @@ In the view (*app/views/Contacts.html*), $scope.populate is called on initializa
 
 	![](./media/app-service-api-dotnet-user-principal-auth/aadsettings.png)
 
-	Azure will automatically create an AAD application in your AAD tenant. Make a note of the name of the new AAD application, as you'll select it later when you go to the Azure classic portal to get the client ID of the new AAD application.
+	With the **Express** option, App Service can automatically create an Azure AD application in your Azure AD [tenant](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). 
 
+	You don't have to create a tenant, because every Azure account automatically has one.
+
+7. Under **Management mode**, click **Create New AD App**.
+
+	The portal plugs the **Create App** input box with a default value. 
+	
+	![](./media/app-service-api-dotnet-user-principal-auth/aadsettings2.png)
+
+8. Make a note of the value that is in the **Create App** input box; you'll look up this AAD application in the Azure classic portal later.
+
+	Azure will automatically create an Azure AD application in your Azure AD tenant. By default, the Azure AD application is named the same as the API app. If you prefer, you can enter a different name.
+ 
 7. Click **OK**.
 
-10. In the **Authentication / Authorization** blade, click **Save**.
+7. In the **Authentication / Authorization** blade, click **Save**.
 
-8. To verify that the API app is now protected, go to the API app's URL + `/swagger` as you did in the first tutorial to use the Swagger UI. 
+Now only users in your Azure AD tenant can call the API app.
 
-	This time you are redirected to a logon page.
+### Optional: Test the API app
 
-	![](./media/app-service-api-dotnet-user-principal-auth/loginpage.png)
+1. In a browser go to the URL of the API app: in the **API app** blade in the Azure portal, click the link under **URL**.  
+
+	You are redirected to a login screen because unauthenticated requests are not allowed to reach the API app.
+
+	If your browser goes to the "successfully created" page, the browser might already be logged on -- in that case, open an InPrivate or Incognito window and go to the API app's URL.
+
+2. Log on using credentials for a user in your Azure AD tenant.
+
+	When you're logged on, the "successfully created" page appears in the browser.
+
+9. Close the browser.
+
+### Configure the Azure AD application
+
+When you configured Azure AD authentication, App Service created an Azure AD application for you. By default the new Azure AD application was configured to provide the bearer token to the API app's URL. In this section you configure the Azure AD application to provide the bearer token to the AngularJS front end instead of directly to the middle tier API app. The AngularJS front end will send the token to the API app when it calls the API app.
 
 11. In the [Azure classic portal](https://manage.windowsazure.com/), go to **Azure Active Directory**.
 
-12. On the Directory tab, click your AAD tenant.
+	You have to use the classic portal because certain Azure Active Directory settings that you need access to are not yet available in the current Azure portal.
+
+12. On the **Directory** tab, click your AAD tenant.
 
 	![](./media/app-service-api-dotnet-user-principal-auth/selecttenant.png)
 
-14. Click **Applications > Application my company owns**, and then click the check mark.
+14. Click **Applications > Applications my company owns**, and then click the check mark.
 
 	You might also have to refresh the page to see the new application.
 
@@ -146,48 +172,66 @@ In the view (*app/views/Contacts.html*), $scope.populate is called on initializa
 
 	![](./media/app-service-api-dotnet-user-principal-auth/configure.png)
 
-15. At the bottom of the page, click **Manage manifest > Download manifest**, and save the file in a location where you can edit it.
+17. Set **Sign-on URL** to the URL for your AngularJS web app, no trailing slash.
+
+	For example: https://todolistangular.azurewebsites.net
+
+	![](./media/app-service-api-dotnet-user-principal-auth/signonurlazure.png)
+
+17. Set **Reply URL** to the URL for your web app, no trailing slash.
+
+	For example: https://todolistsangular.azurewebsites.net
+
+16. Click **Save**.
+
+	![](./media/app-service-api-dotnet-user-principal-auth/replyurlazure.png)
+
+15. At the bottom of the page, click **Manage manifest > Download manifest**.
+
+	![](./media/app-service-api-dotnet-user-principal-auth/downloadmanifest.png)
+
+17. Download the file to a location where you can edit it.
 
 16. In the downloaded manifest file, search for the  `oauth2AllowImplicitFlow` property. Change the value of this property from `false` to `true`, and then save the file.
 
+	This setting is required for access from a JavaScript single-page application. It enables the Oauth 2.0 bearer token to be returned in the URL fragment.
+
 16. Click **Manage manifest > Upload manifest**, and upload the file that you updated in the preceding step.
 
-17. Keep this page open so you can copy and paste values from it and update values on the page in later steps of the tutorial.
+17. Copy the **Client ID** value and save it somewhere you can get it from later.
 
-## Set up the Visual Studio projects for https
+## Configure the ToDoListAngular project to use authentication
 
-1. In **Solution Explorer**, click the ContactList.API project and then in the **Properties** window change **SSL Enabled** to **True**.
+In this section you change the AngularJS front end so that it uses Active Directory Authentication Library (ADAL) for JS to acquire a bearer token for the logged-on user from Azure AD. The code will include the token in HTTP requests sent to the middle tier, as shown in the following diagram. 
 
-2. Copy the SSL URL.
+![](./media/app-service-api-dotnet-user-principal-auth/appdiagram.png)
 
-	![](./media/app-service-api-dotnet-user-principal-auth/enablessl.png)
+Make the following changes to files in the ToDoListAngular project.
 
-3. Right-click the ContactsList.API project, and then click **Properties**.
+1. Open the *index.html* file.
 
-5. Click the **Web** tab, paste the SSL URL into the **Project Url** field, and then save your changes.
+2. Uncomment the lines that reference the Active Directory Authentication Library (ADAL) for JS scripts.
 
-	![](./media/app-service-api-dotnet-user-principal-auth/setprojecturl.png)
+		<script src="app/scripts/adal.js"></script>
+		<script src="app/scripts/adal-angular.js"></script>
 
-1. Follow the same procedure to enable SSL for the ContactsList.Angular.AAD project.
+1. Open the *app/scripts/app.js* file.
 
-2. Set the ContactsList.API project and the ContactsList.Angular.AAD projects as startup projects, and set the ContactsList.API project to start first.
+2. Comment out the block of code marked for "without authentication" and uncomment the block of code marked for "with authentication".
 
-## Update endpoint URL and AAD settings in the ContactsList.Angular.AAD project
+	This change references the ADAL JS authentication provider and provides configuration values to it. In the following steps you set the configuration values for your API app and Azure AD application.
 
-7. In the ContactsList.Angular.AAD project, open the *app/scripts/app.js* file.
+8. In the code that sets the `endpoints` variable, set the API URL to the URL of the API app that you created for the ToDoListAPI project, and set the Azure AD application ID to the client ID that you copied from the Azure classic portal.
 
-8. In the code that sets the `endpoints` variable, make sure that it has the right SSL URL for the ContactsList.API project, and replace both instances of "yourclientid" with the actual value of the AAD application's client ID from the classic portal's **Configure** tab for the AAD application. Make sure the endpoint URL ends with a slash.
-
-	The code will look similar to the following example:
+	The code is now similar to the following example.
 
 		var endpoints = {
-		    //"https://{your api app name}.azurewebsites.net/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
-		    "https://localhost:44300/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
+		    "https://todolistapi0121.azurewebsites.net/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
 		};
 
-9. Also in *app.js*, in the `adalProvider.init` code, replace "{your tenant url}" and "{your client id}" with the actual values.
+9. In the call to `adalProvider.init`, set `tenant` to your tenant name and `clientId` to same value you used in the previous step.
 
-	The code will look similar to the following example:
+	The code is now similar to the following example.
 
 		adalProvider.init(
 		    {
@@ -200,147 +244,96 @@ In the view (*app/views/Contacts.html*), $scope.populate is called on initializa
 		    $httpProvider
 		    );
 
-10. In *app/scripts/contactsSvc.js*, make sure that apiEndpoint is set to the correct SSL URL for the ContactsList.API project.
+	These changes to `app.js` specify that the calling code and the called API are in the same Azure AD application.
 
-		//var apiEndpoint = "https://{your api app name}.azurewebsites.net";
-		var apiEndpoint = "https://localhost:44300";
+1. Open the *app/scripts/homeCtrl.js* file.
 
-## Update AAD settings in the ContactsList.API project
+2. Comment out the block of code marked for "without authentication" and uncomment the block of code marked for "with authentication".
 
-1. In the ContactsList.API project, open the application *Web.config* file.
+1. Open the *app/scripts/indexCtrl.js* file.
 
-2. In the appSettings element, set ida:Authority to the value "https://login.windows.net/{your tenant url}", and set ida:ClientId to your AAD application's client ID, as shown in the following example.
+2. Comment out the block of code marked for "without authentication" and uncomment the block of code marked for "with authentication".
 
-		<appSettings>
-		  <add key="ida:Authority" value="https://login.windows.net/contoso.onmicrosoft.com" />
-		  <add key="ida:ClientId" value="1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3" />
-		</appSettings>
+### Deploy the ToDoListAngular project to Azure
 
-## Configure the AAD application for localhost 
+8. In **Solution Explorer**, right-click the ToDoListAngular project, and then click **Publish**.
 
-1. In the **Configure** tab for the AAD application in the classic portal, in the **Sign-on URL** field, paste the ContactsList.Angular.AAD project SSL URL and remove the trailing slash.
+9. Click **Publish**.
 
-	![](./media/app-service-api-dotnet-user-principal-auth/signonurl.png)
+	Visual Studio deploys the project and opens a browser to the web app's base URL.
 
-3. Near the bottom of the **Configure** tab, in the **Reply URL** field, paste the ContactsList.Angular.AAD project SSL URL, replacing the value already there and leaving the trailing slash in place. 
+	You still have to make a change to the middle tier API app before you can test the application.
 
-	![](./media/app-service-api-dotnet-user-principal-auth/replyurl.png)
+10. Close the browser.
 
-4. Click **Save**.
+## Configure the ToDoListAPI project to use authentication
 
-## Run the API and client projects locally
+Currently the ToDoListAPI project sends "*" as the `owner` value to ToDoListDataAPI. In this section you change the code to send the ID of the logged-on user.
 
-When running HTTPS locally, you will receive warning messages about the IIS Express SSL certificate for localhost. To run locally you can click past these messages. If you prefer, you can skip this section and go directly to the next section where you prepare to run the application and API in Azure.
+Make the following changes in the ToDoListAPI project.
 
-If you have trouble logging on, try using a different browser or opening an Incognito or InPrivate window to the URL of the AngularJS project, e.g., `https://localhost:44301`.
+1. Open the *Controllers/ToDoListController.cs* file, and uncomment the line in each action method that sets `owner` to the Azure AD `NameIdentifier` claim value. For example:
 
-5. In Visual Studio, press F5 to run the API and AngularJS projects locally.
+		owner = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier).Value;
 
-	The AngularJS application's home tab appears.
+### Deploy the ToDoListAPI project to Azure
 
-10. Click the **Login** tab.
+8. In **Solution Explorer**, right-click the ToDoListAPI project, and then click **Publish**.
 
-	You are prompted to log in.
+9. Click **Publish**.
 
-7. Log in with user credentials for a user in your AAD tenant.
+	Visual Studio deploys the project and opens a browser to the API app's base URL.
 
-10. Click the **Contacts** tab.
+10. Close the browser.
 
-	The **Contacts** page appears.
+### Test the application
 
-	![](./media/app-service-api-dotnet-user-principal-auth/contactspagelocal.png)
+9. Go to the URL of the web app, **using HTTPS, not HTTP**.
 
-11. Close the browser windows.
-
-The ContactsList.Angular.AAD project code requires you to be logged on before it will call the API and display contacts. However, there is nothing to prevent unauthenticated callers from calling the API. You could verify that by running the Swagger UI in the browser window that is opened to the ContactsList.API project SSL URL. The API will be protected from unauthenticated callers only when it runs in Azure App Service.
-
-In the following sections you'll configure the projects and AAD for running the client and API in Azure App Service, deploy the projects to Azure, and test them in Azure. 
-
-## Configure the ContactsList.Angular.AAD project to call the Azure API app
-
-1. In the ContactsList.Angular.AAD project, open the *app/scripts/app.js* file.
-
-2. Comment out the localhost endpoint, uncomment the Azure endpoint, and replace "{your api app name}" with your API app name.
-
-	The code is now similar to the following example.
-
-		var endpoints = {
-		    "https://contactslistapi.azurewebsites.net/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
-		    //"https://localhost:44300/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
-		};
-
-1. Make the same endpoint URL change in the *app/scripts/contactsSvc.js* file.
-
-	The code is now similar to the following example.
-
-		var apiEndpoint = "https://contactslistapi.azurewebsites.net";
-		//var apiEndpoint = "https://localhost:44300";
-
-
-## Configure the AAD application for the Azure web app
-
-1. In the **Configure** tab for the AAD application in the classic portal, in the **Sign-on URL** field, delete the ContactsList.Angular.AAD project SSL URL and replace it with the web app's base URL without the trailing slash. (Note that this is the web app's URL, not the API app's URL.)
-
-	![](./media/app-service-api-dotnet-user-principal-auth/signonurlazure.png)
-
-3. In the **Reply URL** field, replace the ContactsList.Angular.AAD project SSL URL with the web app's base URL, leaving the trailing slash in place. 
-
-	![](./media/app-service-api-dotnet-user-principal-auth/replyurlazure.png)
-
-4. Click **Save**.
-
-## Deploy the ContactsList.API project to Azure
-
-8. In **Solution Explorer**, right-click the ContactsList.API project, and then click **Publish**.
-
-	The **Publish Web** wizard opens to the last used publish profile for this project, which is for deploying to the API app you created earlier.
-
-7. Click **Publish**.
-
-8. Close the browser window that opens automatically.
-
-## Deploy the ContactsList.Angular.AAD project to Azure
-
-8. In **Solution Explorer**, right-click the ContactsList.Angular.API project, and then click **Publish**.
-
-9. Click **Microsoft Azure App Service**.
-
-10. In the **App Service** dialog box, in the **Subscription** drop-down list, choose your subscription.
-
-11. Expand the resource group that you created for this tutorial, and select the web app that you created in the second tutorial.
-
-	![](./media/app-service-api-dotnet-user-principal-auth/deploytowebapp.png)
-
-12. Click **OK**.
-
-12. In the **Publish Web** wizard, click the **Connection** tab, and then in the **Destination URL** box change `http://` to `https://`
-
-	![](./media/app-service-api-dotnet-user-principal-auth/httpsinconntab.png)
-
-12. In the **Publish Web** wizard, click the **Settings** tab, expand **File Publish Options**, and select the **Remove additional files at destination** check box.
-
-7. Click **Publish**.
-
-	Visual Studio deploys the project and opens a browser to the app's home page.
-
-## Test the AngularJS web app in Azure
-
-8. Click the **Contacts** tab.
+8. Click the **To Do List** tab.
 
 	You are prompted to log in.
 
 9. Log in with the credentials of a user in your AAD tenant.
 
-10. The **Contacts** page appears.
+10. The **To Do List** page appears.
 
-	![](./media/app-service-api-dotnet-user-principal-auth/contactspageazure.png)
+	![](./media/app-service-api-dotnet-user-principal-auth/webappindex.png)
 
-11. To verify that the API app is protected, go to its Swagger UI URL in an InPrivate or Incognito browser window.
+	No to-do items are displayed because until now they have all been for owner "*". Now the middle tier is requesting items for the logged-on user, and none have been created yet.
 
-	You get redirected to a logon page. 
+11. Add new to-do items to verify that the application is working.
 
-	The front-end can now call the API on behalf of an authenticated user, but unauthenticated users can't call the API.
+12. In another browser window, go to the Swagger UI URL for the ToDoListDataAPI API app and click **ToDoList > Get**. Enter an asterisk for the `owner` parameter, and then click **Try it out**.
+
+	The response shows that the new to-do items have the actual Azure AD user ID in the Owner property.
+
+	![](./media/app-service-api-dotnet-user-principal-auth/todolistapiauth.png)
+
+
+## Building the projects from scratch
+
+The two Web API projects were created by using the **Azure API App** project template and replacing the default Values controller with a ToDoList controller. 
+
+For information about how to  create an AngularJS single-page application with a Web API 2 back end, see  [Hands On Lab: Build a Single Page Application (SPA) with ASP.NET Web API and Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). For information about how to add Azure AD authentication code, see the following resources:
+
+* [Securing AngularJS Single Page Apps with Azure AD](../active-directory/active-directory-devquickstarts-angular.md).
+* [Introducing ADAL JS v1](http://www.cloudidentity.com/blog/2015/02/19/introducing-adal-js-v1/)
+
+## Troubleshooting
+
+If you successfully run the application without authentication, and then it doesn't work when you implement authentication, most of the time the problem will be incorrect or inconsistent configuration settings.  Start by double-checking all settings in Azure App Service and Azure Active Directory. Here are some specific suggestions:
+
+* In the Azure AD **Configure** tab, double-check **Reply URL**.
+* In Azure AD, download the manifest and make sure that `oauth2AllowImplicitFlow` was successfully changed to `true`. 
+* In the AngularJS source code, double-check the middle tier API app URL and the Azure AD client ID.
+* After configuring code in a project, make sure that you redeployed that project and not one of the other ones.
+* Make sure that you are going to HTTPS URLs in your browser, not HTTP URLs.
+* Make sure that CORS is still enabled on the middle tier API app, allowing calls to the middle tier from the front end HTTPS URL.  If in doubt about whether the problem is CORS-related, try "*" as the allowed origin URL. 
+* Make sure you are getting as much information in error messages as possible by setting [customErrors mode to Off](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
+* Your browser's Developer Tools Console tab often has more error information, and you can examine HTTP requests on the Network tab.
 
 ## Next steps
 
-In this tutorial you used App Service Authentication/Authorization to restrict access to an API app so that only authenticated users can call it. In the next tutorial in the series you'll learn how to [restrict access to your API app for service-to-service scenarios](app-service-api-dotnet-service-principal-auth.md).
+In this tutorial you learned how to use App Service authentication for an API app and how to call the API app by using the ADAL JS library. In the next tutorial you'll learn how to [secure access to your API app for service-to-service scenarios](app-service-api-dotnet-service-principal-auth.md).
+

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 # Overview of the Azure Content Delivery Network (CDN)
 
 The Azure Content Delivery Network (CDN) caches Azure blobs and static content used by cloud services at strategically placed locations to provide maximum bandwidth for delivering content to users. 
 
-If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Management Portal](https://portal.azure.com). 
+If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Portal](https://portal.azure.com). 
 
 
 The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. For a current list of CDN node locations, see [Azure Content Delivery Network (CDN) POP Locations](cdn-pop-locations.md).
@@ -44,17 +44,19 @@ The Standard CDN tier includes these features:
 - [Custom domain name support](cdn-map-content-to-custom-domain.md)
 - [Country filtering](cdn-restrict-access-by-country.md)
 - [Core analytics](cdn-analyze-usage-patterns.md)
-- [Custom content origins](cdn-map-content-to-custom-domain.md)
+- [Custom content origins](cdn-how-to-use-cdn.md#caching-content-from-custom-origins)
 - [HTTPS support](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - Load balancing
 - DDOS protection
-- Fast purge
+- [Fast purge](cdn-purge-endpoint.md)
+- [Asset pre-loading](cdn-preload-endpoint.md)
+- [Management via REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
- 
+
 ## Premium features
 
-The Premium CDN tier includes all of the features of the Standard tier, plus adds these additional features:
+The Premium CDN tier includes all of the features of the Standard tier, plus these additional features:
 
 - [Customizable, rule-based content delivery engine](cdn-rules-engine.md)
 - [Advanced HTTP reports](cdn-advanced-http-reports.md)
-- [Real-time stats](cdn-read-time-stats.md)
+- [Real-time stats](cdn-real-time-stats.md)

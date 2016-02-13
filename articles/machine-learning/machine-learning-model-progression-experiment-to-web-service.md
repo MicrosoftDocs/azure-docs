@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="How a Machine Learning model progresses from an experiment to an operationalized web service | Microsoft Azure"
 	description="An overview of the mechanics of how your Azure Machine Learning model progresses from a development experiment to an operationalized web service."
 	services="machine-learning"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
@@ -130,8 +130,8 @@ service remain connected, and you can go back-and-forth between them:
 | ------------------- | --------------- | ---------------------- |
 |experiment canvas in Studio|**Go to web service**|web service configuration in Studio|
 |web service configuration in Studio|**View latest**|experiment canvas in Studio|
-|web service configuration in Studio|**Manage endpoints…**|endpoint management in Azure portal|
-|endpoint management in Azure portal|**Edit in Studio**|experiment canvas in Studio|
+|web service configuration in Studio|**Manage endpoints…**|endpoint management in Azure Classic Portal|
+|endpoint management in Azure Classic Portal|**Edit in Studio**|experiment canvas in Studio|
 
 ![](media\machine-learning-model-progression-experiment-to-web-service\connections-between-experiment-and-web-service.png)
 

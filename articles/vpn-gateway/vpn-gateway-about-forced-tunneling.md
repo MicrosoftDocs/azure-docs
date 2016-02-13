@@ -18,7 +18,11 @@
 
 # Configure forced tunneling
 
-This article applies to VNets and VPN Gateways created using the classic deployment model. If you want to configure forced tunneling for VNets and VPN Gateways created using the Resource Manager deployment model, see [Configure forced tunneling using PowerShell and Azure Resource Manager](vpn-gateway-forced-tunneling-rm.md). 
+> [AZURE.SELECTOR]
+- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+
+This article applies to VNets and VPN Gateways created using the classic deployment model (also known as Service Management). If you want to configure forced tunneling for VNets and VPN Gateways created using the Resource Manager deployment model, see [Configure forced tunneling using PowerShell and Azure Resource Manager](vpn-gateway-forced-tunneling-rm.md). 
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
 
@@ -102,7 +106,7 @@ In the example, the virtual network "MultiTier-VNet" has 3 subnets: *Frontend*, 
 
 - A configured virtual network. 
 
-- The latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](http://azure.microsoft.com/downloads/).
+- The latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](https://azure.microsoft.com/downloads/).
 
 ## Configure forced tunneling
 

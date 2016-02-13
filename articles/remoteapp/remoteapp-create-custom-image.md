@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/12/2015" 
+	ms.date="02/02/2016" 
 	ms.author="elizapo"/>
 
 # How to create a custom template image for Azure RemoteApp
@@ -43,10 +43,10 @@ The requirements for the image that can be uploaded for use with Azure RemoteApp
 
 You need to do the following before creating the service:
 
-- [Sign up](http://azure.microsoft.com/services/remoteapp/) for RemoteApp.
+- [Sign up](https://azure.microsoft.com/services/remoteapp/) for RemoteApp.
 - Create a user account in Active Directory to use as the RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain. See [Configure Azure Active Directory for RemoteApp](remoteapp-ad.md) for more information.
 - Gather information about your on-premises network: IP address information and VPN device details.
-- Install the [Azure PowerShell](../install-configure-powershell.md) module.
+- Install the [Azure PowerShell](../powershell-install-configure.md) module.
 - Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information for users.
 
 

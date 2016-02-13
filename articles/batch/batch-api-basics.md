@@ -10,17 +10,17 @@
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="11/19/2015"
+	ms.date="01/21/2016"
 	ms.author="yidingz;v-marsma"/>
 
 # Overview of Azure Batch features
 
 This article provides a basic overview of the core API features of the Azure Batch service. Whether developing a distributed computational solution using the [Batch REST][batch_rest_api] or [Batch .NET][batch_net_api] APIs, you will use many of the entities and features discussed below.
 
-> [AZURE.TIP] For a higher level technical overview of Batch, please see the [Azure Batch basics](batch-technical-overview.md).
+> [AZURE.TIP] For a higher level technical overview of Batch, please see [Azure Batch basics](batch-technical-overview.md).
 
 ## <a name="workflow"></a>Workflow of the Batch service
 
@@ -61,6 +61,8 @@ When you use the Azure Batch service, you will take advantage of the following r
 	- [Job ManagerTask](#jobmanagertask)
 
 	- [Job preparation and release tasks](#jobpreprelease)
+
+	- [Multi-instance tasks](#multiinstance)
 
 - [JobSchedule](#jobschedule)
 
@@ -145,10 +147,9 @@ A task is a unit of computation that is associated with a job and runs on a node
 In addition to tasks that you define to perform computation on a node, the following special tasks are also provided by the Batch service:
 
 - [Start task](#starttask)
-
 - [Job manager task](#jobmanagertask)
-
 - [Job preparation and release tasks](#jobmanagertask)
+- [Multi-instance tasks](#multiinstance)
 
 #### <a name="starttask"></a>Start task
 
@@ -188,6 +189,18 @@ Batch provides the job preparation task for pre-job execution setup, and the job
 Both job preparation and release tasks allow you to specify a command line to run when the task is invoked, and offer features such as file download, elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
 
 For more information on job preparation and release tasks, see [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
+
+#### <a name="multiinstance"></a>Multi-instance tasks
+
+A [multi-instance task][rest_multiinstance] is a task that is configured to run on more than one compute node simultaneously. With multi-instance tasks, you can enable high performance computing scenarios like Message Passing Interface (MPI) that require a group of compute nodes allocated together to process a single workload.
+
+In Batch, you create a multi-instance task by specifying multi-instance settings for a normal [task](#task). These settings include the number of compute nodes to execute the task, a command line for the main task (the "application command"), a coordination command, and a list of common resource files for each task.
+
+When you submit a task with multi-instance settings to a job, the Batch service performs the following:
+
+1. Automatically creates one primary task and enough subtasks that together will execute on the total number of nodes you specified. Batch then schedules these tasks for execution on the nodes, which first download the common resource files you specified.
+2. After the common resource files have been downloaded, the coordination command is executed by the primary and subtasks. This coordination command typically launches a background service (such as [MS-MPI][msmpi]'s `smpd.exe`) and verifies that the nodes are ready to process inter-node messages.
+3. When the coordination command has been successfully completed by the primary and all subtasks, the task's command line (the "application command") is executed only by the primary task, which typically initiates a custom MPI-enabled application that processes your workload on the nodes. For example, in a Windows MPI scenario, you would typically execute your MPI-enabled application with [MS-MPI][msmpi]'s `mpiexec.exe` using the application command.
 
 ### <a name="jobschedule"></a>Scheduled jobs
 
@@ -333,6 +346,7 @@ Each node in a pool is given a unique ID, and the node on which a task runs is i
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
+[msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -343,6 +357,7 @@ Each node in a pool is given a unique ID, and the node on which a task runs is i
 [net_create_user]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.createcomputenodeuser.aspx
 [net_getfile_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getnodefile.aspx
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
+[net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
@@ -352,5 +367,7 @@ Each node in a pool is given a unique ID, and the node on which a task runs is i
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/en-us/library/azure/mt637905.aspx
+[rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx

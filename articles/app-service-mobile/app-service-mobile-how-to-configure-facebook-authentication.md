@@ -3,7 +3,7 @@
 	description="Learn how to configure Facebook authentication for your App Services application."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Facebook login
 
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
-&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to configure Azure App Service to use Facebook as an authentication provider.
 
@@ -33,8 +30,8 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 
 ## <a name="register"> </a>Register your application with Facebook
 
-1. Log on to the [Azure Management Portal], and navigate to your application. Copy your **URL**. You will use this to configure your Facebook app.
- 
+1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Facebook app.
+
 2. In another browser window, navigate to the [Facebook Developers] website and sign-in with your Facebook account credentials.
 
 3. (Optional) If you have not already registered, click **Apps** > **Register as a Developer**, then accept the policy and follow the registration steps.
@@ -48,7 +45,7 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 	> [AZURE.NOTE] **Security Note**
 	The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
 
-9. On the left navigation bar, click **Settings**, type the **URL** of your Mobile App in **App Domains**, and enter a **Contact Email**. 
+9. On the left navigation bar, click **Settings**, type the **URL** of your Mobile App in **App Domains**, and enter a **Contact Email**.
 
     ![][0]
 
@@ -70,17 +67,17 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Facebook**. Paste in the values you obtained earlier and click **Save**.
 
 
-13. Back in the [Azure Management Portal], navigate to your application. Click **Settings** > **Authentication/Authorization**, and make sure that **App Service Authentication** is **On**.
+13. Back in the [Azure portal], navigate to your application. Click **Settings** > **Authentication/Authorization**, and make sure that **App Service Authentication** is **On**.
 
 15. Click **Facebook**, paste in the App ID and App Secret values which you obtained previously, optionally enable any scopes needed by your application, then click **OK**.
 
     ![][1]
-	
-	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
+
+	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
 17. (Optional) To restrict access to your site to only users authenticated by Facebook, set **Action to take when request is not authenticated** to **Facebook**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Facebook for authentication.
 
-17. Click **Save**. 
+17. Click **Save**.
 
 You are now ready to use Facebook for authentication in your app.
 
@@ -96,4 +93,4 @@ You are now ready to use Facebook for authentication in your app.
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Azure Management Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

@@ -7,14 +7,15 @@
 	manager="sendgrid"
 	editor=""/>
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/31/2015"
-	ms.author="Erikre"/>
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/30/2015" 
+	ms.author="glenga"/>
 
 
 # Send email from Mobile Services with SendGrid
@@ -42,9 +43,9 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## <a name="add-script"></a>Register a new script that sends emails
 
-1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+1. Log on to the [Azure classic portal], click **Mobile Services**, and then click your mobile service.
 
-2. In the Management Portal, click the **Data** tab and then click the **TodoItem** table.
+2. In the Azure classic portal, click the **Data** tab and then click the **TodoItem** table.
 
 	![][1]
 
@@ -138,7 +139,7 @@ these links to learn more about SendGrid.
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started
 [sign up page]: https://sendgrid.com/windowsazure.html
 [Multiple User Credentials page]: https://sendgrid.com/credentials
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [cloud-based email service]: https://sendgrid.com/email-solutions
 [transactional email delivery]: https://sendgrid.com/transactional-email
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Disaster recovery with SQL Server and Azure Site Recovery | Microsoft Azure" 
+	pageTitle="Protect SQL Server with SQL Server disaster recovery and Azure Site Recovery | Microsoft Azure" 
 	description="Azure Site Recovery coordinates the replication, failover and recovery of SQL Server to a secondary on-premises site or Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 
-# Disaster recovery with SQL Server and Azure Site Recovery 
+# Protect SQL Server with SQL Server disaster recovery and Azure Site Recovery 
 
 Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Site Recovery supports a number of replication mechanisms to consistently protection, replicate and fail over of machines to Azure, or to a secondary datacenter. Get an overview of all the deployment scenarios in the [Azure Site Recovery overview](site-recovery-overview.md).
 
@@ -126,14 +126,14 @@ Below are the steps to integrate SQL AlwaysOn with ASR.
 - SQL Availability Group setup between on-premises SQL Server and SQL Server running in Azure
 - PowerShell remoting should be enabled on on-premises SQL Server. VMM Server should be able to make remote PowerShell calls to SQL Server
 - On on-premises SQL Server a user account should be added in SQL user groups with at least following permissions
-	- ALTER AVAILABILITY GROUP  - [reference 1](https://msdn.microsoft.com/en-us/library/hh231018.aspx), [reference 2](https://msdn.microsoft.com/en-us/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE - [reference 1](https://msdn.microsoft.com/en-us/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP  - [reference 1](https://msdn.microsoft.com/library/hh231018.aspx), [reference 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [reference 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 - A run as account should be created on VMM Server for the account in the previous step
 - SQL PS module should be installed on SQL Servers running on-premises and on Azure virtual machines
 - VM Agent should be installed virtual machines running on Azure
 - NTAUTHORITY\System should have following permissions on SQL Server running on virtual machines in Azure
-	- ALTER AVAILABILITY GROUP  - [reference 1](https://msdn.microsoft.com/en-us/library/hh231018.aspx), [reference 2](https://msdn.microsoft.com/en-us/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE - [reference 1](https://msdn.microsoft.com/en-us/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP  - [reference 1](https://msdn.microsoft.com/library/hh231018.aspx), [reference 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [reference 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
 ##### 1. Adding a SQL Server
 
