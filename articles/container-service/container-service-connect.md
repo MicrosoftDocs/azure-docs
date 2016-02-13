@@ -25,7 +25,7 @@ The Mesos and Swarm clusters deployed by Azure Container Service expose REST end
 
 **NOTE** - you can create an SSH session with a cluster management system, however this is not recommended. Working directly on a management system exposes risk for inadvertent configuration change.   
 
-## SSH on Linux and OSX
+## SSH Tunnel on Linux / OSX
 
 First thing is to locate the public DNS name of load balanced masters. To do this, expand the resource group such that each resource is being displayed. Locate and select the public IP address of the master. This will open up a blade containing information about the public IP address, which will include the DNS name. Save this name for later use.
 
@@ -80,3 +80,11 @@ When complete, save the connection configuration, and connect the putty session.
 ![Putty Connection](media/putty4.png)
 
 The Mesos endpoint and UI can now be accessed at `http://localhost:5050` and the Marathon endpoint and UI can be accessed at `http://localhost:8080`.
+
+## Next Steps
+ 
+Deploy and manage containers with Mesos or Swarm. 
+ 
+- [Working with ACS and Mesos](./container-service-mesos-marathon-rest.md)
+- [Working with ACS and Docker Swarm](./container-service-docker-swarm.md)
+

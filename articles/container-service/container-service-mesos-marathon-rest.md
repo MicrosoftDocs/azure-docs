@@ -89,7 +89,7 @@ Now if you query Marathon for running application, this new application will sho
 curl localhost:8080/v2/apps
 ```
 
-## Scaling a Docker Container
+## Scale a Docker Container
 
 The Marathon API can also be used to scale application deployments out or in. In the previous example one instance of an application was deployed, let's scale this out to three instances. To do so, create a json file with the following json text, and store it in an accessible location.
 

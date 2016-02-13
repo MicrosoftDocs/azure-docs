@@ -166,7 +166,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
  
 ## Next Steps
  
-Now that you have a cluster up and running you can take one of two recommended paths:
+Now that you have a functioning cluster, visit these documents for connection and management details.
  
 - [Connect with the ACS cluster](./container-service-connect.md)
 - [Working with ACS and Mesos](./container-service-mesos-marathon-rest.md)

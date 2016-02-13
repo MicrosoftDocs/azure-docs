@@ -25,15 +25,15 @@ Mesos provides an environment for deploying and scaling clustered workload while
 - [Deploying an Azure Container Service Cluster](./container-service-deployment.md) 
 - [Connecting to an ACS Cluster](./container-service-connect.md)
 
-## Exploring the Mesos UI
+## Explore the Mesos UI
 
 ![Create deployment](media/ui1.png)
 
-## Exploring the Marathon UI
+## Explore the Marathon UI
 
 ![Create deployment](media/ui2.png)
 
-## Deploying a Docker Container
+## Deploy a Docker Container
 
 ![Create deployment](media/ui3.png)
 
@@ -41,7 +41,7 @@ Mesos provides an environment for deploying and scaling clustered workload while
 
 ![Create deployment](media/ui5.png)
 
-## Scaling out a Docker Container
+## Scale a Docker Container
 
 ![Create deployment](media/ui6.png)
 
