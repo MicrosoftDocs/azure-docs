@@ -318,12 +318,15 @@ If the PowerShell DSC Local Configuration Manager defaults match your use case, 
 
 3.	Download the PowerShell DSC metaconfigurations for the machines you want to onboard from the Automation account to which you want to onboard nodes:
 
+        ### Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
         $MetaConfig = @{
             ResourceGroupName = 'MyResourceGroup'; # The name of the ARM Resource Group that contains your Azure Automation Account
             AutomationAccountName = ''; # The name of the Azure Automation Account where you want a node on-boarded to
             ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
-            OutputFolder = '{0}\Desktop\AADSC-MetaConfigs' -f $env:UserProfile;
-            }
+            OutputFolder = "$env:UserProfile\Desktop\";
+        }
+        
+        ### Invoke the command to generate DSC LCM meta configurations
         Get-AzureRmAutomationDscOnboardingMetaconfig @MetaConfig
 
 You should now have a folder called ***DscMetaConfigs***, containing the PowerShell DSC metaconfigurations for the machines to onboard.
