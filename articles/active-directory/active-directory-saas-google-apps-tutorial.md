@@ -32,6 +32,20 @@ How to Enable Single Sign-On to Google Apps in 2 Minutes:
 
 > [AZURE.VIDEO enable-single-sign-on-to-google-apps-in-2-minutes-with-azure-ad]
 
+##Frequently Asked Questions
+
+1. **Q: Are Chromebooks and other Chrome devices compatible with Azure AD single sign-on?**
+	A: Yes, users will be able to sign into their Chromebook devices using their Azure AD credentials. See this [Google Apps support article](https://support.google.com/chrome/a/answer/6060880) for information on why users may get prompted for credentials twice.
+
+2. **Q: If I enable single sign-on, will users be able to their Azure AD credentials to sign into any Google product, such as Google Classroom, GMail, Google Drive, YouTube, etc?**
+	A: Yes, depending on [which Google apps](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) you choose to enable or disable for your organization.
+
+3. **Q: Can I enable single sign-on for only a subset of my Google Apps users?**
+	A: No, turning on single sign-on will immediately require all of your Google Apps users to authenticate with their Azure AD credentials. Because Google Apps doesn't support having multiple identity providers, the identity provider for your Google Apps environment can either be Azure AD or Google -- but not both at the same time.
+
+4. **Q: If a user is signed in through Windows, will they automatically authenticate to Google Apps without getting prompted for a password?**
+	A: There are two options for enabling this scenario. First, users could sign into Windows 10 devices via [Azure Active Directory Join](active-directory-azureadjoin-overview.md). Alternatively, users could sign into Windows devices that are domain-joined to an on-premises Active Directory that has been enabled for single sign-on to Azure AD via an [Active Directory Federation Services (AD FS)](active-directory-aadconnect-user-signin.md) deployment. Of course, both options require that you follow the tutorial below to enable single sign-on between Azure AD and Google Apps.
+
 ##Step 1: Add Google Apps to your Directory
 
 1. In the [Azure Management Portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**.
