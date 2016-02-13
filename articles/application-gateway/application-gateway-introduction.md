@@ -27,6 +27,7 @@ Application Gateway currently supports layer-7 application delivery for the foll
 - HTTP load balancing
 - Cookie-based session affinity
 - Secure Sockets Layer (SSL) offload
+- [URL based content routing](application-gateway-url-route-overview.md) 
 
 ## HTTP layer 7 load balancing
 
@@ -40,13 +41,6 @@ HTTP layer 7 load balancing is useful for:
 - Applications that want to free web server farms from SSL termination overhead.
 - Applications, such as a content delivery network, that require multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 
-## Application Gateway rules 
-
-A rule defines how the network traffic will be routed to the back-end servers from a specific listener. There are 2 rule types:
-
-- [Basic](application-gateway-create-gateway-arm.md) - round-robin rule to route traffic to all back-end server pools.
-
-- [PathBasedRouting](application-gateway-create-url-route-arm-ps.md) - URL path based routing rule, which allows you to route traffic based on url path mapped to a specific back-end server pool.  
  
 ## Gateway sizes and instances
 
