@@ -16,25 +16,27 @@
    ms.date="02/12/2016"
    ms.author="mfussell"/>
 
-
 # Communicate with services
 In the microservices world, the overall solution is composed of many different services, where each service performs a specialized task. These microservices communicate with each other to enable the end-to-end workflow. There are also client applications that connect to and communicate with services. This document discusses how Azure Service Fabric makes it easy for you to set up communication with services that you write with Service Fabric.
 
 ## Key concepts
 These are some of the key concepts that you need to be aware of as you set up communication to services.
+
 ### Communication is represented as client-server
 Service Fabric Communication APIs represent client-server types of interactions, even when the interaction is between two services running in the same cluster. A target service, which will be connected to from a client or another service, acts as a server and listens for incoming requests. The client, which can be just another service in the cluster, connects to the server and makes calls to it.
+
 ### Movement of services
-In a distributed system, the service instances that you run may move from one machine to another over time. This can happen for various reasons, including load balancing when configured with load metrics for resource balancing, upgrades, failovers, scale-out. The impact of this is that the endpoint addresses of a service instance can change. To set up communication with the service instance, the following loop needs to be executed. These details are abstracted from you if you use the Communication APIs provided by Service Fabric.
+In a distributed system, the service instances that you run may move from one machine to another over time. This can happen for various reasons, including resource balancing when configured with load metrics for resource balancing, upgrades, failovers, scale-out. The impact of this is that the endpoint addresses of a service instance can change. To set up communication with the service instance, the following loop needs to be executed. These details are abstracted from you if you use the communication APIs provided by Service Fabric.
 
-* **Resolve**: All service instances in Service Fabric have unique URIs. For example, "fabric:/MyApplication/MyService" and its URIs do not change over time. Each service instance also exposes endpoints that can change when service instances are moved. This is analogous to websites that have constant URLs but where the IP address may change. And similar to the DNS on the web, which resolves website URLs to IP addresses, the Service Fabric platform also has a system service that resolves the URIs to the endpoints. This step involves resolving the URI of the service instance to an endpoint.
+* **Resolve**: All named service instances in Service Fabric have unique names as URIs. For example, `"fabric:/MyApplication/MyService"` remains fixed for the named service. Each named service instance also exposes endpoints that can change when the named service instances are moved. This is analogous to websites that have constant URLs but where the IP address may change. And similar to the DNS on the web, which resolves website URLs to IP addresses, the Service Fabric has a system service called the Naming Service, that resolves the URIs to the endpoints. This step involves resolving the URI of the service instance to an endpoint.
 
-* **Connect**: Once the Service URI has been resolved to an endpoint address, the next step is to attempt a connection with that service. This connection may fail if the endpoint address has changed due to a service movement, which, for example, may have been caused by a machine failure or load balancing.
+* **Connect**: Once the named service URI has been resolved to an endpoint address, the next step is to attempt a connection with that service. This connection may fail if the endpoint address has changed due to a service movement, which, for example, may have been caused by a machine failure or resource balancing.
 
 * **Retry**: If the connection attempt fails, the preceding resolve and connect steps need to be retried, and this cycle is repeated until the connection succeeds.
 
 ## Communication API options
 As part of Service Fabric, we provide a few different options for Communication APIs. The decision about which one will work best for you depends on the choice of the programming model, the communication framework, and the programming language that your services are written in.
+
 ### Communication for Reliable Actors
 For services written using the Reliable Actors API, all the communication details are abstracted. The communication happens as method calls on the ActorProxy, so you can stop reading here.
 
