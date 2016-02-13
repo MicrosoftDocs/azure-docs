@@ -93,7 +93,8 @@ fail most validation rules.
 | Resource Group | Availability Set | Resource Group | 1-80 | Case insensitive | Alphanumeric, underscore, and hyphen | `<service-short-name>-<context>-as` | `profx-sql-as` |
 | General | Tag | Associated Entity | 512 (name), 256 (value) | Case insensitive | Alphanumeric | `"key" : "value"` | `"department" : "Central IT"` |
 | Compute | Virtual Machine | Resource Group | 1-15 | Case insensitive | Alphanumeric, underscore, and hyphen | `<name>-<role>-<instance>` | `profx-sql-001` |
-| Storage | Storage account name | Global | 3-24 | Lower case | Alphanumeric | `<service short name><type><number>` | `profxdata001` |
+| Storage | Storage account name (data) | Global | 3-24 | Lower case | Alphanumeric | `<service short name><type><number>` | `profxdata001` |
+| Storage | Storage account name (disks) | Global | 3-24 | Lower case | Alphanumeric | `<vm name without dashes>st<number>` | `profxsql001st0` |
 | Storage | Container name | Storage account | 3-63 |	Lower case | Alphanumeric and dash | `<context>` | `logs` |
 | Storage | Blob name | Container | 1-1024 | Case sensitive | Any URL char | `<variable based on blob usage>` | `<variable based on blob usage>` |
 | Storage | Queue name | Storage account | 3-63 | Lower case | Alphanumeric and dash | `<service short name>-<context>-<num>` | `awesomeservice-messages-001` |
@@ -233,7 +234,7 @@ From that baseline we can then map out the conventions for each of the resource 
 | Subnet | `role-subnet` | `sql-vnet` |
 | Load Balancer | `servicename-lb` | `profx-lb` |
 | Virtual Machine | `servicename-role[number]` | `profx-sql0` |
-| Storage Account | `vmname-storage` | `profx-sql0-storage` |
+| Storage Account | `<vmnamenodashes>st<num>` | `profxsql0st0` |
 
 As seen in the diagram below:
 
