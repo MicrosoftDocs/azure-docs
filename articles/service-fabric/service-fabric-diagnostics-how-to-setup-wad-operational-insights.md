@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="02/12/2016"
-   ms.author="kunalds"/>
+   ms.author="toddabel"/>
 
 
 # Collect logs from a Service Fabric cluster by using Azure Diagnostics and Operational Insights

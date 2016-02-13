@@ -22,7 +22,7 @@ Service Fabric is a distributed systems platform that makes it easy to package, 
 ## Applications composed of microservices
 Service Fabric enables you to build and manage scalable and reliable applications composed of microservices running at very high density on a shared pool of machines (commonly referred to as a Service Fabric cluster). It provides a sophisticated runtime for building distributed, scalable stateless and stateful microservices. It also provides comprehensive application management capabilities for provisioning, deploying, monitoring, upgrading/patching, and deleting deployed applications.
 
-Why are stateful microservices important? Two maim reasons
+Why is a microservices approach important? The two main reasons are:
 
 1. They enable you to scale different parts of your application depending on its needs
 
@@ -36,7 +36,7 @@ Today's Internet-scale services are built using microservices. Examples of micro
 
 Service Fabric provides comprehensive runtime and lifecycle management capabilities to applications composed of these microservices. It hosts microservices inside containers that are deployed and activated across the Service Fabric cluster. Just as an order-of-magnitude increase in density is made possible by moving from VMs to containers, a similar order of magnitude in density becomes possible by moving from containers to microservices. For example, a single Azure SQL Database cluster, which is built on Service Fabric, comprises hundreds of machines running tens of thousands of containers hosting a total of hundreds of thousands of databases. (Each database is a Service Fabric stateful microservice.) The same is true of Event Hubs and the other services mentioned above. This is why the term "hyperscale" can be used to describe Service Fabric capabilities. If containers give you high density, then microservices give you hyperscale.
 
-For more on the microservices approach read [Why a microservices approach to building applications](service-fabric-overview-microservices.md)
+For more on the microservices approach read the article [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
 
 ![Service Fabric platform][Image1]
 
@@ -44,7 +44,7 @@ For more on the microservices approach read [Why a microservices approach to bui
 
 Stateless microservices (protocol gateways, web proxies, etc.) do not maintain a mutable state outside of any given request and its response from the service. Azure Cloud Services worker roles are an example of a stateless service. Stateful microservices (user accounts, databases, devices, shopping carts, queues, etc.) maintain a mutable, authoritative state beyond the request and its response. Today's Internet-scale applications consist of a combination of stateless and stateful microservices.
 
-Why not simply use stateless services for everything? Two reasons:
+Why not simply use stateless services for everything? The two main reasons are:
 
 1. The ability to build high-throughput, low-latency, failure-tolerant online transaction processing (OLTP) services such as interactive storefronts, search, Internet of Things (IoT) systems, trading systems, credit card processing and fraud detection systems, personal record management, etc., by keeping code and data close on the same machine.
 

@@ -188,7 +188,7 @@ If you now change the the MySetup.ps1 file to write an **Echo** command, this wi
 Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to" 
 ~~~
 
-**Once debugged you script successfully, immediately remove this console redirection policy from the entry point**
+**Once you have debugged your script, immediately remove this console redirection policy**
 
 ## Apply RunAsPolicy to services
 In the steps above, you saw how to apply RunAs policy to SetupEntryPoint. Let's look a little deeper into how to create different principals that can be applied as service policies.
