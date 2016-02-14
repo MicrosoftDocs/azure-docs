@@ -81,8 +81,7 @@ You can create a new notebook by clicking on the Jupyter Icon (left top corner) 
 Once you have built and validated your model the next step is usually to deploy it into production. 
 This allows your client applications to invoke the model predictions on a real time or a batch basis. Azure Machine Learning provides a mechanism to operationalize the model built in either R or Python. 
 When you operationalize your model in Azure Machine Learning, a web service is exposed that allows clients to make REST calls that pass in input parameters and receive predictions from the model as outputs. 
-If you have not yet signed up for AzureML, you can obtain a free 8-hour guest access or a free workspace by visiting the 
-[AzureML Studio](https://studio.azureml.net/) home page and clicking on "Get Started".  
+If you have not yet signed up for AzureML, you can obtain a free 8-hour guest access or a free workspace by visiting the [AzureML Studio](https://studio.azureml.net/) home page and clicking on "Get Started".  
 
 ### Build and Operationalizing models built using Python  
 
@@ -96,10 +95,9 @@ Upload the notebook entitled "IrisClassifierPyMLWebService" to your Jupyter. Her
 	iris = datasets.load_iris()
 	X, y = iris.data, iris.target
 	clf.fit(X, y) 
-```
  
 The method used to deploy your python models to AzureML is to wrap the prediction of a model into a function 
-and decorate it with attributes provided by the ```azureml``` library denoting your AzureML workspace ID, API Key, the input parameters and return parameters.  
+and decorate it with attributes provided by the AzureML library denoting your AzureML workspace ID, API Key, the input parameters and return parameters.  
 
 	python
 	from azureml import services
