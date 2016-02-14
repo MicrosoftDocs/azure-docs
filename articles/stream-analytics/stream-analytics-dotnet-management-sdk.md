@@ -151,7 +151,7 @@ Add the following code to the beginning of the **Main** method:
 
 The **resourceGroupName** variable's value should be the same as the name of the resource group you created or picked in the prerequisite steps.
 
-To automate the credential presentation aspect of job creation, refer to [Authenticating a service principal with Azure Resource Manager](./articles/resource-group-authenticate-service-principal.md).
+To automate the credential presentation aspect of job creation, refer to [Authenticating a service principal with Azure Resource Manager](../articles/resource-group-authenticate-service-principal.md).
 
 The remaining sections of this article assume that this code is at the beginning of the **Main** method.
 
