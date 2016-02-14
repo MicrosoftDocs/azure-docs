@@ -65,7 +65,7 @@ Now you are set up to open a project and begin working!
 The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. 
 You can use Python 2, Python 3 or R (both Open Source and Microsoft R Server). 
 To launch the Jupyter notebook click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM you can also browse to "https://localhost:9999/" to access the Jupiter notebook. If it prompts you for a password, please use instructions found on the 
-[DSVM documentation page](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-provision-vm/#how-to-create-a-strong-password-on-the-jupyter-notebook-server) 
+[DSVM documentation page](machine-learning-data-science-provision-vm/#how-to-create-a-strong-password-on-the-jupyter-notebook-server.md) 
 to create a strong password to access the Jupyter notebook. 
 
 
@@ -259,7 +259,7 @@ You can find more information on using Git to work with your Github repository b
 ![Create_Azure_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
 
-- **Make sure the pre-installed AzCopy tool found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` is added to your environment variable. For more info on AzCopy please refer to [AzCopy documentation](https://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/)
+- **Make sure the pre-installed AzCopy tool found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` is added to your environment variable. For more info on AzCopy please refer to [AzCopy documentation](storage-use-azcopy.md)
 
 
 - **Start the Azure Storage Explorer from [here](https://azurestorageexplorer.codeplex.com/).**
@@ -349,12 +349,12 @@ You can see the data is read in as a data frame:
 ![Azure_Data_Lake_Create_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
 
-- The  **Azure Data Lake Tools** in **Visual Studio** found at this  [link](https://www.microsoft.com/en-us/download/details.aspx?id=49504) is already installed on the Visual Studio Community Edition which is on the virtual machione. After starting Visual Studio and logging in your Azure subscription, you will see your Azure Data Analytics account and storage in the left panel of Visual Studio. 
+- The  **Azure Data Lake Tools** in **Visual Studio** found at this  [link](https://www.microsoft.com/download/details.aspx?id=49504) is already installed on the Visual Studio Community Edition which is on the virtual machione. After starting Visual Studio and logging in your Azure subscription, you will see your Azure Data Analytics account and storage in the left panel of Visual Studio. 
 
 ![Azure_Data_Lake_PlugIn_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
 
-- Install **Data Management Gateway** following this [document](https://azure.microsoft.com/en-us/documentation/articles/data-factory-move-data-between-onprem-and-cloud/).
+- Install **Data Management Gateway** following this [document](data-factory-move-data-between-onprem-and-cloud.md).
 
 ![Azure_Data_Gateway_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Gateway_v2.PNG)
 
@@ -373,7 +373,7 @@ You can use **Azure Data Lake Explorer** to upload data from the local files in 
 
 **Move data from VM to Data Lake: Azure Data Factory**
 
-Azure Data Factory is service to create, schedule, and manage data pipelines. We can use Azure Data Factory to move data between different storage. Create [Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/) in [Azure Portal](http://portal.azure.com):
+Azure Data Factory is service to create, schedule, and manage data pipelines. We can use Azure Data Factory to move data between different storage. Create [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) in [Azure Portal](http://portal.azure.com):
 
 ![Azure_Data_Factory_Create](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Factory_Create.PNG)
 
@@ -382,7 +382,7 @@ Once it is created, you can build pipelines to move data between different stora
 ![Azure_Data_Factory_Overview_v4](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Factory_Overview_v4.PNG)
 
 
-The major steps to move data from Virtual Machine to Azure Data Lake are as follows. Details about moving data using Azure Data Factory can be found [here](https://azure.microsoft.com/en-us/documentation/articles/data-factory-data-movement-activities/). The JSON files below will be in your Data Science VM.
+The major steps to move data from Virtual Machine to Azure Data Lake are as follows. Details about moving data using Azure Data Factory can be found [here](data-factory-data-movement-activities.md). The JSON files below will be in your Data Science VM.
 
 1. **Create Linked Services**
 	- Click **New Data Store** then choose **Azure Data Lake Storage**, plug in your credentials and parameters in the JSON file.
@@ -688,7 +688,7 @@ After your query is submitted to the server, a diagram showing the status of you
 
 **Query data in Data Lake: U-SQL**
 
-After the dataset is ingested into Azure Data Lake, you can use **[U-SQL language](https://azure.microsoft.com/en-us/documentation/articles/data-lake-analytics-u-sql-get-started/)** to query and explore the data. U-SQL language is similar to T-SQL, but combines some features from C# so that users can write customized modules, User Defined Functions, and etc. You can use the scripts in the previous step. 
+After the dataset is ingested into Azure Data Lake, you can use [U-SQL language](data-lake-analytics-u-sql-get-started.md) to query and explore the data. U-SQL language is similar to T-SQL, but combines some features from C# so that users can write customized modules, User Defined Functions, and etc. You can use the scripts in the previous step. 
 
 After the query is submitted to server, tripdata_summary.CSV can be found shortly in **Azure Data Lake Explorer**, you may preview the data by right click the file.
 
@@ -707,7 +707,7 @@ To see the file information:
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
-- Customize Azure HDInsight Hadoop Clusters from [Azure Portal](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-customize-hadoop-cluster/)
+- Customize Azure HDInsight Hadoop Clusters from [Azure Portal](machine-learning-data-science-customize-hadoop-cluster.md)
 
 	- You must link the storage account created with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
 	
@@ -818,7 +818,7 @@ To see the file information:
 		    cursor.execute(queryString)
 
 
-- Or you can follow this [walkthrough](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-process-hive-walkthrough/) to upload NYC Taxi data to HDI cluster. Major steps include:
+- Or you can follow this [walkthrough](machine-learning-data-science-process-hive-walkthrough.md) to upload NYC Taxi data to HDI cluster. Major steps include:
 
 	- AzCopy: download zipped CSV's from public blob to your local folder
 	- AzCopy: upload unzipped CSV's from local folder to HDI cluster
@@ -1074,12 +1074,12 @@ You need to do the following per-requisites steps to access DocumentDB from the 
 
 <code>/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1</code>
 
-Once you import the data, you can go to Jupyter and open the notebook titled ```DocumentDBSample``` which contains python code to access DocumentDB and do some basic querying. You can learn more about DocumentDB by visiting the service [documentation page](https://azure.microsoft.com/en-us/documentation/learning-paths/documentdb/)
+Once you import the data, you can go to Jupyter and open the notebook titled ```DocumentDBSample``` which contains python code to access DocumentDB and do some basic querying. You can learn more about DocumentDB by visiting the service [documentation page](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
 ## 8. Build reports and dashboard using the Power BI Desktop 
 
-Let us visualize the Volcano JSON file we saw in the DocumentDB example above in Power BI to gain visual insights into the data. Detailed steps are found in the Power BI article [here](https://azure.microsoft.com/en-us/documentation/articles/documentdb-powerbi-visualize/). The high level steps are below :
+Let us visualize the Volcano JSON file we saw in the DocumentDB example above in Power BI to gain visual insights into the data. Detailed steps are found in the Power BI article [here](documentdb-powerbi-visualize/). The high level steps are below :
 
 1. Open Power BI Desktop and do "Get Data". Specify the URL as: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. You will see the JSON records imported as a list
@@ -1108,15 +1108,16 @@ You now have the data in your Power BI data model. Your Power BI desktop should 
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
-You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](https://azure.microsoft.com/en-us/documentation/articles/documentdb-powerbi-visualize/#build-the-reports) to build a report. The end result will be a report that looks like the following.
+You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](documentdb-powerbi-visualize/#build-the-reports.md) to build a report. The end result will be a report that looks like the following.
 
-![Volcano Map Report](https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/documentdb-powerbi-visualize/20160125060413/power_bi_connector_pbireportview2.png)
+
+TBD: Volcano Map Report image URL missing - not correct.
 
 ## 9. Dynamically scale your DSVM to meet your project needs
 
 You can scale up and down the DSVM to meet your project needs. If you dont need to use the VM in the evening or weekends, you can just shutdown the VM from the [Azure Portal](https://portal.azure.com). NOTE:  that you will incur compute charges if you use just the Operating system shutdown button on the VM.  
 
-If you need to handle some large scale analysis and need more CPU and/or memory and/or disk capacity you can find a large choice of VM sizes in terms of CPU cores, memory capacity and disk types (including Solid state drives) that meet your compute  and budgetary needs. The full list of VMs along with their hourly compute pricing is available on the [Azure Virtual Machines Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/) page. 
+If you need to handle some large scale analysis and need more CPU and/or memory and/or disk capacity you can find a large choice of VM sizes in terms of CPU cores, memory capacity and disk types (including Solid state drives) that meet your compute  and budgetary needs. The full list of VMs along with their hourly compute pricing is available on the [Azure Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) page. 
 
 Similarly, if your needs for VM processing capacity reduces (for example: you moved a major workload to a Hadoop or a Spark cluster), you can scale down the cluster from the [Azure Portal](https://portal.azure.com) and going to the settings of your VM instance. Here is a screenshot.
 
