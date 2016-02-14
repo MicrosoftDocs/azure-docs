@@ -37,7 +37,7 @@ Storage Analytics logs detailed information about successful and failed requests
 
 Log entries are created only if there is storage service activity. For example, if a storage account has activity in its Blob service but not in its Table or Queue services, only logs pertaining to the Blob service will be created.
 
-Storage Analytics logging is not available for the Azure File Service.
+Storage Analytics Logging is not available for the Azure File Service.
 
 ### Logging authenticated requests
 
@@ -64,7 +64,7 @@ The following types of anonymous requests are logged:
 
 - Failed GET requests with error code 304 (Not Modified).
 
-All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx) and [Storage Analytics Log Format](https://msdn.microsoft.com/library/hh343259.aspx)) topics.
+All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx) and [Storage Analytics Log Format](https://msdn.microsoft.com/library/hh343259.aspx) topics.
 
 ### How logs are stored
 All logs are stored in block blobs in a container named $logs, which is automatically created when Storage Analytics is enabled for a storage account. The $logs container is located in the blob namespace of the storage account, for example: `http://<accountname>.blob.core.windows.net/$logs`. This container cannot be deleted once Storage Analytics has been enabled, though its contents can be deleted.
@@ -181,7 +181,10 @@ Storage Analytics is enabled by a storage account owner; it is not enabled by de
 
 The following actions performed by Storage Analytics are billable:
 
-- Requests to create blobs for logging.
+- Requests to create blobs for 
+- 
+- 
+- .
 
 - Requests to create table entities for metrics.
 
