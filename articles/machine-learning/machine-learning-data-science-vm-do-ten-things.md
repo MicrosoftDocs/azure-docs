@@ -186,7 +186,7 @@ The DSVM not only allows you to build your analytics solution locally on the vir
 To administer your Azure subscription and cloud resources you can use your browser and point to the 
 [Azure Portal](portal.azure.com). You can also use Azure Powershell to adminster your Azure subscription and resources via a script. 
 You can run Azure Powershell from a shortcut on the desktop or from the start menu titled "Microsoft Azure Powershell". Refer to 
-[Microsoft Azure Powershell documentation](./powershell-azure-resource-manager.md) for more information on how you can administer your Azure subscription and resources using Windows Powershell scripts.
+[Microsoft Azure Powershell documentation](../powershell-azure-resource-manager.md) for more information on how you can administer your Azure subscription and resources using Windows Powershell scripts.
 
 
 ## 5. Extend your storage space with a shared file system
@@ -256,7 +256,7 @@ You can find more information on using Git to work with your Github repository b
 ![Create_Azure_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
 
-- **Make sure the pre-installed AzCopy tool found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` is added to your environment variable. For more info on AzCopy please refer to [AzCopy documentation](./storage/storage-use-azcopy.md)
+- **Make sure the pre-installed AzCopy tool found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` is added to your environment variable. For more info on AzCopy please refer to [AzCopy documentation](../storage/storage-use-azcopy.md)
 
 
 - **Start the Azure Storage Explorer from [here](https://azurestorageexplorer.codeplex.com/).**
@@ -351,7 +351,7 @@ You can see the data is read in as a data frame:
 ![Azure_Data_Lake_PlugIn_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
 
-- Install **Data Management Gateway** following this [document](./data-factory-move-data-between-onprem-and-cloud.md).
+- Install **Data Management Gateway** following this [document](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
 ![Azure_Data_Gateway_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Gateway_v2.PNG)
 
@@ -379,7 +379,7 @@ Once it is created, you can build pipelines to move data between different stora
 ![Azure_Data_Factory_Overview_v4](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Factory_Overview_v4.PNG)
 
 
-The major steps to move data from Virtual Machine to Azure Data Lake are as follows. Details about moving data using Azure Data Factory can be found [here](./data-factory-data-movement-activities.md). The JSON files below will be in your Data Science VM.
+The major steps to move data from Virtual Machine to Azure Data Lake are as follows. Details about moving data using Azure Data Factory can be found [here](../data-factory/data-factory-data-movement-activities.md). The JSON files below will be in your Data Science VM.
 
 1. **Create Linked Services**
 	- Click **New Data Store** then choose **Azure Data Lake Storage**, plug in your credentials and parameters in the JSON file.
@@ -685,7 +685,7 @@ After your query is submitted to the server, a diagram showing the status of you
 
 **Query data in Data Lake: U-SQL**
 
-After the dataset is ingested into Azure Data Lake, you can use [U-SQL language](./data-lake-analytics-u-sql-get-started.md) to query and explore the data. U-SQL language is similar to T-SQL, but combines some features from C# so that users can write customized modules, User Defined Functions, and etc. You can use the scripts in the previous step. 
+After the dataset is ingested into Azure Data Lake, you can use [U-SQL language](../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) to query and explore the data. U-SQL language is similar to T-SQL, but combines some features from C# so that users can write customized modules, User Defined Functions, and etc. You can use the scripts in the previous step. 
 
 After the query is submitted to server, tripdata_summary.CSV can be found shortly in **Azure Data Lake Explorer**, you may preview the data by right click the file.
 
@@ -1105,7 +1105,7 @@ You now have the data in your Power BI data model. Your Power BI desktop should 
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
-You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](documentdb-powerbi-visualize/#build-the-reports.md) to build a report. The end result will be a report that looks like the following.
+You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](../documentdb/documentdb-powerbi-visualize/#build-the-reports.md) to build a report. The end result will be a report that looks like the following.
 
 
 TBD: Volcano Map Report image URL missing - not correct.
