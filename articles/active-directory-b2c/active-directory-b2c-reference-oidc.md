@@ -165,10 +165,9 @@ For more information on the claims in an id_token, see the [Azure AD B2C token r
 After you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, authorization, and so on.
 
 ## Get a token
-If all that your web app needs to do is execute policies, you can skip the next few sections. These sections are only applicable to web apps that need to need to make authenticated calls to a web API that are also protected by Azure AD B2C.
+If all that your web app needs to do is execute policies, you can skip the next few sections. These sections are only applicable to web apps that need to make authenticated calls to a web API and are also protected by Azure AD B2C.
 
-You can redeem the authorization_code you acquired (using `response_type=code+id_token`) for a token to the desired resource, by sending a `POST` request to the `/token` endpoint.  In the Azure AD B2C preview, the only resource you can request a token for is
-your app's own backend web API.  The convention used for requesting a token to yourself is to use the scope `openid`:
+You can redeem the authorization_code that you acquired (by using `response_type=code+id_token`) for a token to the desired resource by sending a `POST` request to the `/token` endpoint. In the Azure AD B2C preview, the only resource that you can request a token for is your app's own backend web API. The convention for requesting a token to yourself is to use the scope `openid`:
 
 ```
 POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
@@ -187,13 +186,13 @@ Content-Type: application/json
 
 | Parameter | Required? | Description |
 | ----------------------- | ------------------------------- | --------------------- |
-| p | Required | The policy that was used to acquire the authorization code.  You may not use a different policy in this request.  **Note that this parameter is added to the query string**, not in the POST body.  |
-| client_id | Required | The Application Id that the [Azure portal](https://portal.azure.com/) assigned your app. |
-| grant_type | Required | Must be `authorization_code` for the authorization code flow. |
-| scope | Required | A space-separated list of scopes.  A single scope value indicates to Azure AD both the permissions being requested.  The `openid` scope indicates a permission to sign the user in and get data about the user in the form of **id_tokens**.  It can be used to get tokens to your app's own backend web API, represented by the same Application Id as the client.  The `offline_access` scope indicates that your app will need a **refresh_token** for long-lived access to resources.  |
-| code | Required | The authorization_code that you acquired in the first leg of the flow.   |
-| redirect_uri | Required | The redirect_uri of the application where you received the authorization_code.   |
-| client_secret | Required | The application secret that you generated in the [Azure portal](https://portal.azure.com/).  This application secret is an important security artifact, and should be stored securely on your server.  You should also take care to rotate this client secret on a periodic basis. |
+| p | Required | The policy that was used to acquire the authorization code. You cannot use a different policy in this request. Note that you add this parameter to the **query string**, not in the POST body.  |
+| client_id | Required | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your app. |
+| grant_type | Required | The type of grant, which must be `authorization_code` for the authorization code flow. |
+| scope | Required | A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of **id_tokens**. It can be used to get tokens to your app's own backend web API, which is represented by the same application ID as the client. The `offline_access` scope indicates that your app will need a **refresh_token** for long-lived access to resources. |
+| code | Required | The authorization_code that you acquired in the first leg of the flow. |
+| redirect_uri | Required | The redirect_uri of the application where you received the authorization_code. |
+| client_secret | Required | The application secret that you generated in the [Azure portal](https://portal.azure.com/). This application secret is an important security artifact. You should store it securely on your server. You should also take care to rotate this client secret on a periodic basis. |
 
 A successful token response will look like:
 
@@ -211,17 +210,17 @@ A successful token response will look like:
 ```
 | Parameter | Description |
 | ----------------------- | ------------------------------- |
-| not_before | The time at which the token is considered valid, in epoch time.  |
-| token_type | Indicates the token type value. The only type that Azure AD supports is Bearer.  |
-| id_token | The signed JWT token that you requested.  |
+| not_before | The time at which the token is considered valid, in epoch time. |
+| token_type | The token type value. The only type that Azure AD supports is Bearer. |
+| id_token | The signed JWT token that you requested. |
 | scope | The scopes that the token is valid for, which can be used for caching tokens for later use. |
-| id_token_expires_in | How long the id_token is valid (in seconds). |
-| profile_info | A base-64 encoded JSON string that may contain useful information about the user for display in your native application.  Its exact contents will depend on the application claims you configured in your policy  |
-| refresh_token |  An OAuth 2.0 refresh token. The  app can use this token acquire additional tokens after the current token expires.  Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time.  For more detail, refer to the [B2C token reference](active-directory-b2c-reference-tokens.md).  Note that you must have used the scope `offline_access` in both the authorization and token requests in order to receive a refresh token.  |
-| refresh_token_expires_in | The maximum time a refresh token may be valid for (in seconds).  The refresh token may however become invalid at any point in time. |
+| id_token_expires_in | The length of time that the id_token is valid (in seconds). |
+| profile_info | A Base64-encoded JSON string that may contain useful information about the user for display in your native application. Its exact contents will depend on the application claims that you configured in your policy. |
+| refresh_token | An OAuth 2.0 refresh token. The app can use this token to acquire additional tokens after the current token expires.  Refresh_tokens are long lived, and can be used to retain access to resources for extended periods of time. For more detail, refer to the [B2C token reference](active-directory-b2c-reference-tokens.md). Note that you must have used the scope `offline_access` in both the authorization and token requests in order to receive a refresh token. |
+| refresh_token_expires_in | The maximum time that a refresh token can be valid for (in seconds). The refresh token can, however, become invalid at any point in time. |
 
 > [AZURE.NOTE]
-	If at this point you're thinking: "Where's the access_token?", consider the following.  When you request the `openid` scope, Azure AD will issue a JWT `id_token` in the response.  While this `id_token` is not technically an OAuth 2.0 access_token, it can be used as such when communcating with your app's own backend service, represented by the same client_id as the client.  The `id_token` is still a signed JWT Bearer token that can be sent to a resource in an HTTP authorization header and used to authenticate requests.  The difference is that an `id_token` does not have a mechanism for scoping down the access that a particular client application may have.  However, when your client application is the only client that is able to communicate with your backend service (as is the case with the current Azure AD B2C preview), there is no need for such a scoping mechanism.  When the Azure AD B2C preview adds the capability for clients to communicate with additional 1st and 3rd party resources, access_tokens will be introduced.  However, even at that time, using `id_tokens` to communicate with your app's own backend service will still be the reccomended pattern.  For more info on the types of applications you can build with the Azure AD B2C preview, see [this article](active-directory-b2c-apps.md).
+	If at this point you're thinking: "Where's the access_token?", consider the following. When you request the `openid` scope, Azure AD will issue a JWT `id_token` in the response. While this `id_token` is not technically an OAuth 2.0 access_token, it can be used as such when it communicates with your app's own backend service, which is represented by the same client_id as the client. The `id_token` is still a signed JWT Bearer token that can be sent to a resource in an HTTP authorization header and used to authenticate requests. The difference is that an `id_token` does not have a mechanism for scoping down the access that a particular client application may have. However, when your client application is the only client that is able to communicate with your backend service (as is the case with the current Azure AD B2C preview), there is no need for such a scoping mechanism. When the Azure AD B2C preview adds the capability for clients to communicate with additional first-party and third-party resources, access_tokens will be introduced. However, even at that time, using `id_tokens` to communicate with your app's own backend service will still be the pattern that we recommend. For more information, see the [types of applications](active-directory-b2c-apps.md) that you can build with the Azure AD B2C preview.
 
 Error responses will look like:
 
@@ -238,7 +237,7 @@ Error responses will look like:
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
 ## Use the token
-Now that you've successfully acquired an `id_token`, you can use the token in requests to you backend Web APIs by including it in the `Authorization` header:
+Now that you've successfully acquired an `id_token`, you can use the token in requests to your backend Web APIs by including it in the `Authorization` header:
 
 ```
 GET /tasks
@@ -247,7 +246,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ## Refresh the token
-The id_tokens are short lived, and you must refresh them after they expire to continue accessing resources.  You can do so by submitting another `POST` request to the `/token` endpoint, this time providing the `refresh_token` instead of the `code`:
+The id_tokens are short lived. You must refresh them after they expire to continue being able to access resources. You can do so by submitting another `POST` request to the `/token` endpoint. This time, provide the `refresh_token` instead of the `code`:
 
 ```
 POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
@@ -266,13 +265,13 @@ Content-Type: application/json
 
 | Parameter | Required | Description |
 | ----------------------- | ------------------------------- | -------- |
-| p | Required | The policy that was used to acquire the original refresh token.  You may not use a different policy in this request.  **Note that this parameter is added to the query string**, not in the POST body.  |
-| client_id | Required | The Application Id that the [Azure portal](https://portal.azure.com/) assigned your app. |
-| grant_type | Required | Must be `refresh_token` for this leg of the authorization code flow. |
-| scope | Required | A space-separated list of scopes.  A single scope value indicates to Azure AD both thethe permissions being requested.  The `openid` scope indicates a permission to sign the user in and get data about the user in the form of **id_tokens**.  It can be used to get tokens to your app's own backend web API, represented by the same Application Id as the client.  The `offline_access` scope indicates that your app will need a **refresh_token** for long-lived access to resources.  |
+| p | Required | The policy that was used to acquire the original refresh token. You cannot use a different policy in this request.  Note that you add this parameter to the **query string**, not in the POST body.  |
+| client_id | Required | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your app. |
+| grant_type | Required | The type of grant, which must be `refresh_token` for this leg of the authorization code flow. |
+| scope | Required | A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of **id_tokens**. It can be used to get tokens to your app's own backend web API, which is represented by the same application ID as the client. The `offline_access` scope indicates that your app will need a **refresh_token** for long-lived access to resources. |
 | redirect_uri | Required | The redirect_uri of the application where you received the authorization_code.   |
-| refresh_token | Required | The original refresh_token that you acquired in the second leg of the flow.  Note that you must have used the scope `offline_access` in both the authorization and token requests in order to receive a refresh token.   |
-| client_secret | Required | The application secret that you generated in the [Azure portal](https://portal.azure.com/).  This application secret is an important security artifact, and should be stored securely on your server.  You should also take care to rotate this client secret on a periodic basis. |
+| refresh_token | Required | The original refresh_token that you acquired in the second leg of the flow. Note that you must have used the scope `offline_access` in both the authorization and token requests in order to receive a refresh token. |
+| client_secret | Required | The application secret that you generated in the [Azure portal](https://portal.azure.com/). This application secret is an important security artifact. You should store it securely on your server. You should also take care to rotate this client secret on a periodic basis. |
 
 A successful token response will look like:
 
@@ -291,13 +290,13 @@ A successful token response will look like:
 | Parameter | Description |
 | ----------------------- | ------------------------------- |
 | not_before | The time at which the token is considered valid, in epoch time.  |
-| token_type | Indicates the token type value. The only type that Azure AD supports is Bearer.  |
-| id_token | The signed JWT token that you requested.  |
+| token_type | The token type value. The only type that Azure AD supports is Bearer.  |
+| id_token | The signed JWT token that you requested. |
 | scope | The scopes that the token is valid for, which can be used for caching tokens for later use. |
-| id_token_expires_in | How long the id_token is valid (in seconds). |
-| profile_info | A base-64 encoded JSON string that may contain useful information about the user for display in your native application.  Its exact contents will depend on the application claims you configured in your policy.  |
-| refresh_token |  An OAuth 2.0 refresh token. The  app can use this token acquire additional tokens after the current token expires.  Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time.  For more detail, refer to the [B2C token reference](active-directory-b2c-reference-tokens.md).  |
-| refresh_token_expires_in | The maximum time a refresh token may be valid for (in seconds).  The refresh token may however become invalid at any point in time. |
+| id_token_expires_in | The length of time that the id_token is valid (in seconds). |
+| profile_info | A Base64-encoded JSON string that may contain useful information about the user for display in your native application. Its exact contents will depend on the application claims that you configured in your policy. |
+| refresh_token | An OAuth 2.0 refresh token. The app can use this token to acquire additional tokens after the current token expires.  Refresh_tokens are long lived, and can be used to retain access to resources for extended periods of time. For more detail, refer to the [B2C token reference](active-directory-b2c-reference-tokens.md).  |
+| refresh_token_expires_in | The maximum time that a refresh token may be valid for (in seconds).  The refresh token can, however, become invalid at any point in time. |
 
 Error responses will look like:
 
@@ -311,7 +310,7 @@ Error responses will look like:
 | Parameter | Description |
 | ----------------------- | ------------------------------- |
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
-| error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
+| error_description | A specific error message that can help a developer identify the root cause of an authentication error. |
 
 
 <!--
@@ -324,9 +323,9 @@ Here is the entire flow for a native  app; each request is detailed in the secti
 
 ## Send a sign-out request
 
-When you want to sign the user out of the  app, it is not sufficient to clear your app's cookies or otherwise end the session with the user.  You must also redirect the user to Azure AD for sign out.  If you fail to do so, the user may be able to re-authenticate to your app without entering their credentials again, because they will have a valid single sign-on session with Azure AD.
+When you want to sign the user out of the app, it is not enough to clear your app's cookies or otherwise end the session with the user. You must also redirect the user to Azure AD to sign out. If you fail to do so, the user might be able to reauthenticate to your app without entering their credentials again. This is because they will have a valid single sign-on session with Azure AD.
 
-You can simply redirect the user to the `end_session_endpoint` listed in the same OpenID Connect metadata document described [above](#validate-the-id-token):
+You can simply redirect the user to the `end_session_endpoint` that is listed in the same OpenID Connect metadata document described [above](#validate-the-id-token):
 
 ```
 GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
@@ -336,18 +335,18 @@ p=b2c_1_sign_in
 
 | Parameter | Required? | Description |
 | ----------------------- | ------------------------------- | ------------ |
-| p | Required | The policy which the user most recently used to sign into your application.  |
-| post_logout_redirect_uri | Recommended | The URL which the user should be redirected to after successful logout.  If not included, the user will be shown a generic message by Azure AD B2C.  |
+| p | Required | The policy that the user most recently used to sign in to your application. |
+| post_logout_redirect_uri | Recommended | The URL that the user should be redirected to after successful sign-out. If it is not included, the user will be shown a generic message by Azure AD B2C.  |
 
 > [AZURE.NOTE]
-	While directing the user to the `end_session_endpoint` will clear some of the users single sign-on state with Azure AD, it will currently not effectively sign the user out.  Instead, the user will select the IDP in which they want to sign in with, and then they will be re-authenticated without entering their credentials.  In the case of social IDPs, this is the expected behavior.  If a user wishes to sign out of your B2C directory, it does not necessarily mean they want to sign out of their Facebook account entirely.  However, in the case of local accounts, it should be possible to end the user's session properly.  It is a known [limitation](active-directory-b2c-limitations.md) of the Azure AD preview that local account sign-out does not work properly.  A workaround for the immediate term is to send the `&prompt=login` parameter in each authentication request, which will have the appearance of the desired behavior, but will break single sign-on between applications in your B2C directory.
+	While directing the user to the `end_session_endpoint` will clear some of the user's single sign-on state with Azure AD, currently, it will not effectively sign out the user. Instead, the user will select the IDP that they want to sign in with. Then they will be reauthenticated without entering their credentials. In the case of social IDPs, this is the expected behavior. If a user wants to sign out of your B2C directory, it does not necessarily mean that they want to sign out of their Facebook account entirely. However, in the case of local accounts, it should be possible to end the user's session properly. It is a known [limitation](active-directory-b2c-limitations.md) of the Azure AD preview that local account sign-out does not work properly.  A workaround for the immediate term is to send the `&prompt=login` parameter in each authentication request. This will have the appearance of the desired behavior, but it will break single sign-on between applications in your B2C directory.
 
 ## Use your own B2C directory
 
-If you want to try these requests for yourself, you must first perform these three steps, then replace the example values above with your own:
+If you want to try these requests for yourself, you must first perform these three steps, and then replace the example values above with your own:
 
-- [Create a B2C directory](active-directory-b2c-get-started.md), and use the name of your directory in the requests.
-- [Create an application](active-directory-b2c-app-registration.md) to obtain an Application Id and a redirect_uri.  You will want to include a **web app/web api** in your app, and optionally create an **application secret**.
+- [Create a B2C directory](active-directory-b2c-get-started.md) and use the name of your directory in the requests.
+- [Create an application](active-directory-b2c-app-registration.md) to obtain an application ID and a redirect_uri. You will want to include a **web app/web api** in your app, and optionally create an **application secret**.
 - [Create your policies](active-directory-b2c-reference-policies.md) to obtain your policy names.
 
 <!--
