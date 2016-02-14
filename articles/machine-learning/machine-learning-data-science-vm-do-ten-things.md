@@ -615,7 +615,7 @@ After the pipeline is built, you can look at the pipeline in the **Diagram** in 
 
 Click the **Diagram** box to see the pipeline:
 
-![](./media/machine-learning-data-science-vm-do-ten-things//Azure_Data_Factory_PipeLine_Diagram.PNG)
+![](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Factory_PipeLine_Diagram.PNG)
 
 You can monitor the data pipeline in **Contents**->**Datasets**->**Monitoring** 
 
