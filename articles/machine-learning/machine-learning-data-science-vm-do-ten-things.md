@@ -296,9 +296,7 @@ Once you run your AzCopy command to copy to an Azure blob you see your file show
 
 You can also upload data from the local file in your VM using Azure Storage Explorer: 
 
-![ ][AzureStorageExplorer_upload_v2]
-
-[AzureStorageExplorer_upload_v2]:./media/TenThings/AzureStorageExplorer_upload_v2.png
+![](./media/machine-learning-data-science-vm-do-ten-things/AzureStorageExplorer_upload_v2.png)
 
 
 **Read data from Azure Blob: AML reader module**
