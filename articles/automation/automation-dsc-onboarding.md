@@ -300,7 +300,10 @@ To generically onboard any machine to Azure Automation DSC, a DSC metaconfigurat
              ConfigurationMode = 'ApplyAndMonitor';
              ActionAfterReboot = 'ContinueConfiguration';
              ReportOnly = $False;  # Set to $True to have machines only report to AA DSC but not pull from it
-             }
+        }
+        
+        ### Use PowerShell Splatting to invoke the DSC configuration.
+        ### For more info, run: Get-Help -Name about_Splatting
         DscMetaConfigs @MetaConfig
 
 3.	Fill in the registration key and URL for your Automation account, as well as the names of the machines to onboard. All other parameters are optional. To find the registration key and registration URL for your Automation account, see the [**Secure registration**](#secure-registration) section below.
@@ -327,6 +330,7 @@ If the PowerShell DSC Local Configuration Manager defaults match your use case, 
         }
         
         ### Invoke the command to generate DSC LCM meta configurations
+        ### For more info, run: Get-Help -Name about_Splatting
         Get-AzureRmAutomationDscOnboardingMetaconfig @MetaConfig
 
 You should now have a folder called ***DscMetaConfigs***, containing the PowerShell DSC metaconfigurations for the machines to onboard.
