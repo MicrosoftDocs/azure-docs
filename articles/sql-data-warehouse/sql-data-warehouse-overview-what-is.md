@@ -47,7 +47,7 @@ This MPP approach allows SQL Data Warehouse to take a divide and conquer approac
 
 - In addition to creating optimal query plans, SQL Data Warehouse incorporates advanced algorithms and techniques that efficiently move data among the computing resources as necessary to perform the query. These operations are built into the Data Movement Services of the data warehouse, and optimizations happen automatically.
 
-- The inclusion of clustered columnstore indexes to the appliance is also key to achieving fast query performance. By using column-based storage, SQL Data Warehouse can get up to 5x compression gains over traditional row-oriented storage, and up to 10x query performance gains. Data warehouse queries work great on columnstore indexes because they often scan the entire table or entire partition of a table and they minimize the impact of moving data for query steps.
+- The inclusion of clustered columnstore indexes to SQL Data Warehouse is also key to achieving fast query performance. By using column-based storage, SQL Data Warehouse can get up to 5x compression gains over traditional row-oriented storage, and up to 10x query performance gains. Data warehouse queries work great on columnstore indexes because they often scan the entire table or entire partition of a table and they minimize the impact of moving data for query steps.
 
 ## Scalable
 
