@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/10/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma"/>
 
 # How to manage DNS Zones using CLI
@@ -76,6 +76,4 @@ This operation has an optional ‘-q’ switch which suppresses the prompt to co
 ## Next Steps
 
 
-[Manage DNS records](dns-operations-recordsets-cli.md)
-
-[Automate operations using .NET SDK](dns-sdk.md) 
+Learn [how to manage DNS records](dns-operations-recordsets-cli.md)and [automate operations using .NET SDK](dns-sdk.md) 

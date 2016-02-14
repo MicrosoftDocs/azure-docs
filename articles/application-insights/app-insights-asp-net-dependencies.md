@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 
@@ -36,6 +36,7 @@ The out-of-the-box dependency monitor currently reports calls to these  types of
  * Azure DocumentDb, table, blob storage, and queue
 * Java
  * Calls to a database through a [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) driver, such as MySQL, SQL Server, PostgreSQL or SQLite.
+* JavaScript in web pages - the [web page SDK](app-insights-javascript.md) automatically logs Ajax calls as dependencies.
 
 You can write your own SDK calls to monitor other dependencies using the [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
 
