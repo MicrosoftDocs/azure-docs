@@ -613,11 +613,11 @@ After the pipeline is built, you can look at the pipeline in the **Diagram** in 
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Factory_Find_Diagram.PNG)
 
+Click the **Diagram** box to see the pipeline:
 
 ![](./media/machine-learning-data-science-vm-do-ten-things//Azure_Data_Factory_PipeLine_Diagram.PNG)
 
 You can monitor the data pipeline in **Contents**->**Datasets**->**Monitoring** 
-
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Factory_Monitor_v2.PNG)
 
@@ -694,6 +694,7 @@ After the query is submitted to server, tripdata_summary.CSV can be found shortl
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/USQL_create_summary.png)
 
+To see the file information:
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/USQL_tripdata_summary.png)
 
@@ -710,21 +711,22 @@ After the query is submitted to server, tripdata_summary.CSV can be found shortl
 
 	- You must link the storage account created with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
 	
-	- You must enable Remote Access to the head node of the cluster after it is created. Remember the remote access credentials you specify here (different from those specified for the cluster at its creation): you will need them below.
-
 ![](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_v4.PNG)
 
+	- You must enable **Remote Access** to the head node of the cluster after it is created. Remember the remote access credentials you specify here (different from those specified for the cluster at its creation): you will need them below.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
-- Create an Azure ML workspace. Your Machine Learning Experiments will be stored in this ML workspace.
+	- Create an Azure ML workspace. Your Machine Learning Experiments will be stored in this ML workspace.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space.PNG)
 
 
+	- Then select the Remote Desktop:
+
 ![](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
 
-- Upload data using IPython Notebook. First import required packages, plug in credentials, create a db in your storage account, then load data to HDI clusters. 
+	- Upload data using IPython Notebook. First import required packages, plug in credentials, create a db in your storage account, then load data to HDI clusters. 
 
 
 		#Import required Packages
@@ -1048,10 +1050,11 @@ After a while, you can see the data has been loaded in Hadoop clusters:
 
 **Read data from HDI using AML: reader module**
 
-You may also use the **reader** module in AML studio to access the database in Hadoop cluster. Plug in the credentials of your HDI clusters and Azure Storage Accoun and you will be able to build machine learning models using database in HDI clusters. 
+You may also use the **reader** module in AML studio to access the database in Hadoop cluster. Plug in the credentials of your HDI clusters and Azure Storage Account and you will be able to build machine learning models using database in HDI clusters. 
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/AML_Reader_Hive.PNG)
 
+The scored dataset can then be viewed:
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/AML_Model_Results.PNG)
 
