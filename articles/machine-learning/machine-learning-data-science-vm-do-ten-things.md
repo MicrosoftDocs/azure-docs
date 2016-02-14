@@ -1076,7 +1076,7 @@ Once you import the data, you can go to Jupyter and open the notebook titled ```
 
 ## 8. Build reports and dashboard using the Power BI Desktop 
 
-Let us visualize the Volcano JSON file we saw in the DocumentDB example above in Power BI to gain visual insights into the data. Detailed steps are found in the Power BI article [here](./documentdb-powerbi-visualize/). The high level steps are below :
+Let us visualize the Volcano JSON file we saw in the DocumentDB example above in Power BI to gain visual insights into the data. Detailed steps are found in the Power BI article [here](./documentdb/documentdb-powerbi-visualize.md). The high level steps are below :
 
 1. Open Power BI Desktop and do "Get Data". Specify the URL as: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. You will see the JSON records imported as a list
@@ -1105,7 +1105,7 @@ You now have the data in your Power BI data model. Your Power BI desktop should 
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
-You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](../documentdb/documentdb-powerbi-visualize/#build-the-reports.md) to build a report. The end result will be a report that looks like the following.
+You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](../documentdb/documentdb-powerbi-visualize.md#build-the-reports) to build a report. The end result will be a report that looks like the following.
 
 
 TBD: Volcano Map Report image URL missing - not correct.
