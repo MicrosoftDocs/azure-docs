@@ -256,7 +256,7 @@ You can find more information on using Git to work with your Github repository b
 ![Create_Azure_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
 
-- **Make sure the pre-installed AzCopy tool found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` is added to your environment variable. For more info on AzCopy please refer to [AzCopy documentation](./storage-use-azcopy.md)
+- **Make sure the pre-installed AzCopy tool found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` is added to your environment variable. For more info on AzCopy please refer to [AzCopy documentation](./storage/storage-use-azcopy.md)
 
 
 - **Start the Azure Storage Explorer from [here](https://azurestorageexplorer.codeplex.com/).**
