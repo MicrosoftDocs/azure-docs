@@ -161,7 +161,7 @@ Here is a code snippet that can be used to publish a model as a web service in A
 
 #### Consume the model deployed in Azure ML
 
-To consume the model from a client application, we use the AzureML library to lookup the published web service by name using the ```services``` API call to determine the endpoint. Then you just call the ```consume``` function and pass in the data frame to be predicted. 
+To consume the model from a client application, we use the AzureML library to lookup the published web service by name using the `services` API call to determine the endpoint. Then you just call the `consume` function and pass in the data frame to be predicted. 
 The following code is used to consume the model published as an AzureML web service. 
 
 
@@ -186,7 +186,7 @@ The DSVM not only allows you to build your analytics solution locally on the vir
 To administer your Azure subscription and cloud resources you can use your browser and point to the 
 [Azure Portal](portal.azure.com). You can also use Azure Powershell to adminster your Azure subscription and resources via a script. 
 You can run Azure Powershell from a shortcut on the desktop or from the start menu titled "Microsoft Azure Powershell". Refer to 
-[Microsoft Azure Powershell documentation](https://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/) for more information on how you can administer your Azure subscription and resources using Windows Powershell scripts.
+[Microsoft Azure Powershell documentation](../powershell-azure-resource-manager.md) for more information on how you can administer your Azure subscription and resources using Windows Powershell scripts.
 
 
 ## 5. Extend your storage space with a shared file system
@@ -256,7 +256,7 @@ You can find more information on using Git to work with your Github repository b
 ![Create_Azure_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
 
-- **Make sure the pre-installed AzCopy tool found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` is added to your environment variable. For more info on AzCopy please refer to [AzCopy documentation](storage-use-azcopy.md)
+- **Make sure the pre-installed AzCopy tool found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` is added to your environment variable. For more info on AzCopy please refer to [AzCopy documentation](../storage-use-azcopy.md)
 
 
 - **Start the Azure Storage Explorer from [here](https://azurestorageexplorer.codeplex.com/).**
@@ -351,7 +351,7 @@ You can see the data is read in as a data frame:
 ![Azure_Data_Lake_PlugIn_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
 
-- Install **Data Management Gateway** following this [document](data-factory-move-data-between-onprem-and-cloud.md).
+- Install **Data Management Gateway** following this [document](../data-factory-move-data-between-onprem-and-cloud.md).
 
 ![Azure_Data_Gateway_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Gateway_v2.PNG)
 
@@ -379,7 +379,7 @@ Once it is created, you can build pipelines to move data between different stora
 ![Azure_Data_Factory_Overview_v4](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Factory_Overview_v4.PNG)
 
 
-The major steps to move data from Virtual Machine to Azure Data Lake are as follows. Details about moving data using Azure Data Factory can be found [here](data-factory-data-movement-activities.md). The JSON files below will be in your Data Science VM.
+The major steps to move data from Virtual Machine to Azure Data Lake are as follows. Details about moving data using Azure Data Factory can be found [here](../data-factory-data-movement-activities.md). The JSON files below will be in your Data Science VM.
 
 1. **Create Linked Services**
 	- Click **New Data Store** then choose **Azure Data Lake Storage**, plug in your credentials and parameters in the JSON file.
@@ -685,7 +685,7 @@ After your query is submitted to the server, a diagram showing the status of you
 
 **Query data in Data Lake: U-SQL**
 
-After the dataset is ingested into Azure Data Lake, you can use [U-SQL language](data-lake-analytics-u-sql-get-started.md) to query and explore the data. U-SQL language is similar to T-SQL, but combines some features from C# so that users can write customized modules, User Defined Functions, and etc. You can use the scripts in the previous step. 
+After the dataset is ingested into Azure Data Lake, you can use [U-SQL language](../data-lake-analytics-u-sql-get-started.md) to query and explore the data. U-SQL language is similar to T-SQL, but combines some features from C# so that users can write customized modules, User Defined Functions, and etc. You can use the scripts in the previous step. 
 
 After the query is submitted to server, tripdata_summary.CSV can be found shortly in **Azure Data Lake Explorer**, you may preview the data by right click the file.
 
@@ -1069,14 +1069,14 @@ You need to do the following per-requisites steps to access DocumentDB from the 
 1. Download "DocumentDB Migration tool" from [here](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) and extract to a directory of your choice
 1. Import JSON data (volcano data) stored on a [public blob](https://cahandson.blob.core.windows.net/samples/volcano.json) into DocumentDB with following command parameters to the migration tool (dtui.exe from the directory where you installed the DocumentDB migration tool). Enter the source and target location parameters from below. 
 
-<code>/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1</code>
+	/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
 Once you import the data, you can go to Jupyter and open the notebook titled ```DocumentDBSample``` which contains python code to access DocumentDB and do some basic querying. You can learn more about DocumentDB by visiting the service [documentation page](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
 ## 8. Build reports and dashboard using the Power BI Desktop 
 
-Let us visualize the Volcano JSON file we saw in the DocumentDB example above in Power BI to gain visual insights into the data. Detailed steps are found in the Power BI article [here](documentdb-powerbi-visualize/). The high level steps are below :
+Let us visualize the Volcano JSON file we saw in the DocumentDB example above in Power BI to gain visual insights into the data. Detailed steps are found in the Power BI article [here](../documentdb-powerbi-visualize/). The high level steps are below :
 
 1. Open Power BI Desktop and do "Get Data". Specify the URL as: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. You will see the JSON records imported as a list
