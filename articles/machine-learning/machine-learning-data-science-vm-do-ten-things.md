@@ -65,11 +65,10 @@ Now you are set up to open a project and begin working!
 The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. 
 You can use Python 2, Python 3 or R (both Open Source and Microsoft R Server). 
 To launch the Jupyter notebook click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM you can also browse to "https://localhost:9999/" to access the Jupiter notebook. If it prompts you for a password, please use instructions found on the 
-[DSVM documentation page](machine-learning-data-science-provision-vm/#how-to-create-a-strong-password-on-the-jupyter-notebook-server.md) 
+[DSVM documentation page](machine-learning-data-science-provision-vm.md/#how-to-create-a-strong-password-on-the-jupyter-notebook-server) 
 to create a strong password to access the Jupyter notebook. 
 
-
-{ SCREEN SHOT }
+TBD: SCREEN SHOT
 
 Once you are on the notebook, you will see a directory that contains a few example notebooks that are pre-packaged into the DSVM. You can click on the notebook and see the code. You can execute each cell by pressing **SHIFT-ENTER**. 
 You can run the entire notebook by clicking on **Cell** -> **Run**.
