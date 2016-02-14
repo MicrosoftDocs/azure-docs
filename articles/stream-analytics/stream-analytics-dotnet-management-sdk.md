@@ -151,7 +151,7 @@ Add the following code to the beginning of the **Main** method:
 
 The **resourceGroupName** variable's value should be the same as the name of the resource group you created or picked in the prerequisite steps.
 
-To automate the credential presentation aspect of job creation, refer to [Authenticating a service principal with Azure Resource Manager](../articles/resource-group-authenticate-service-principal.md).
+To automate the credential presentation aspect of job creation, refer to [Authenticating a service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md).
 
 The remaining sections of this article assume that this code is at the beginning of the **Main** method.
 
@@ -361,7 +361,7 @@ You've learning the basics of using a .NET SDK to create and run analytics jobs.
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
+[stream.analytics.developer.guide]: stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
