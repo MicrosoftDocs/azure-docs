@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="02/14/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
@@ -25,11 +25,11 @@ This article answers some of the most common questions about Azure Billing and S
 
 - What payment options do I have in purchasing Azure?
 
+- How can I request the invoice method of payment?
+
 - How do I check the status of a payment made by credit card?
 
 - How do I get a copy of my invoice?
-
-- How can I request the invoice method of payment?
 
 - How do I remove a credit card that I no longer use as an Azure payment method?
 
@@ -89,6 +89,10 @@ You can purchase Azure using a credit or debit card or choose to be invoiced.
 - Please note that we do not accept prepaid and virtual credit cards.
 - You are solely responsible for any credit card interest or other credit card charges that may result.
 
+**How can I request the invoice method of payment?**
+
+Follow the steps in [Azure Invoicing](https://azure.microsoft.com//pricing/invoicing/) to submit a request to pay by invoice. Once your request has been approved, you will be provided instructions on how to set up your subscription for the invoice payment method.
+
 **How do I check the status of a payment made by credit card?**
 
 You must submit a support ticket to request assistance. To create a support ticket to check the status of a payment made by credit card see [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
@@ -96,10 +100,6 @@ You must submit a support ticket to request assistance. To create a support tick
 **How do I get a copy of my invoice?**
 
 As the Azure Account Administrator, you can view the current bill at the Azure Account Center and download statements for the previous six billing periods as well. For more detail, see [How to download your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
-
-**How can I request the invoice method of payment?**
-
-Follow the steps in [Azure Invoicing](https://azure.microsoft.com//pricing/invoicing/) to submit a request to pay by invoice. Once your request has been approved, you will be provided instructions on how to set up your subscription for the invoice payment method.
 
 **How do I remove a credit card that I no longer use as an Azure payment method?**
 
@@ -113,7 +113,7 @@ For instructions about how to use a different credit card as a payment method, o
 
 Our Service Level Agreement for availability applies to customer applications which use a minimum of two role instances.  There is no SLA for single instances. Please refer to your [SLA page](https://azure.microsoft.com/support/legal/sla/) for complete details.
 
-**Planned maintenance**: For both single- and multi-instance configurations, Azure sends email communications in advance to alert you of upcoming planned maintenance (one week in advance for single-instance and 48 hours in advance for multi-instance). The email will be sent to the Account Administrator and Co-administrator email accounts provided in the subscription.
+**Planned maintenance (Classic Portal)**: For both single- and multi-instance configurations, Azure sends email communications in advance to alert you of upcoming planned maintenance (one week in advance for single-instance and 48 hours in advance for multi-instance). The email will be sent to the Account Administrator, Service Administrator and Co-administrator email accounts provided in the subscription.
 
 **NOTE:** For more information specific to Virtual Machines see the article [Planned maintenance for Azure virtual machines](./virtual-machines/virtual-machines-planned-maintenance.md).
 
@@ -143,7 +143,7 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 
 **How do I transfer ownership of my subscriptions?**
 
-You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscriptions. We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscription that you own. Note that the recipient’s user account must be in the same country.
+You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscriptions. We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscription that you own. Note that the recipient’s user account must be in the same country and that you cannot transfer subscriptions that are associated with a marketplace purchase.
 For details, see the article [How to transfer an Azure subscription](billing-subscription-transfer.md).
 
 **I have server licenses. Can I transfer them to Azure and run them on Virtual Machines?**
@@ -162,10 +162,8 @@ You can switch your Pay-As-You-Go subscription to the [12-Month Prepay Offer](ht
 
 Yes. If you would like to specify a different email address to receive notifications, please follow these directions:
 
-1.	Go to My Account in the top right corner of the Azure homepage.
-2.	Click on **Usage and Billing**.
-3.	Click on the **Profile** tab.
-4.	In the right corner under **Communication preferences**, click **here** to update your email address in which you would like to receive notifications.
+1.	Go to the [Profile tab](https://account.windowsazure.com/Profile) in the Azure Accounts Portal.
+2.	Click **Edit Details** to update your email address to receive notifications.
 
 **How can I edit my payment information for my Azure Subscription/s?**
 
