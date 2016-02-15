@@ -3,7 +3,7 @@
 	description="How to enable storage metrics for the Blob, Queue, Table, and File services" 
 	services="storage" 
 	documentationCenter="" 
-	authors="tamram" 
+	authors="robinsh" 
 	manager="carmonm" 
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="02/14/2016" 
+	ms.author="robinsh"/>
 
 # Enabling Storage metrics and viewing metrics data
 
