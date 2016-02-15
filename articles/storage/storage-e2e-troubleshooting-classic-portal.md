@@ -100,7 +100,7 @@ To configure logging and metrics for your storage account using the portal, foll
 
 **Via PowerShell**
 
-To get started with PowerShell for Azure, see [How to install and configure Azure PowerShell](../install-configure-powershell.md).
+To get started with PowerShell for Azure, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 1. Use the [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) cmdlet to add your Azure user account to the PowerShell window:
 
