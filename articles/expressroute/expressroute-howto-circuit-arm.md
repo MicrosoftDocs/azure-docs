@@ -78,7 +78,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 	You must first create a resource group if you don't already have one before you create your ExpressRoute circuit. You can do so by running the following command.
 
-		New-AzureRmResourceGroup -Name “ExpressRouteResourceGroup” -Location "West US"
+		New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 
 	The example below shows how to create a 200 Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you are using a different provider and different settings, substitute that information when making your request.
 
