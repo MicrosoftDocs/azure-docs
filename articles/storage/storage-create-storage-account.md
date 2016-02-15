@@ -61,7 +61,8 @@ For example, if your storage account is named *mystorageaccount*, then the defau
 
 The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-You can also configure a custom domain name to use with your storage account. See [Configure a Custom Domain Name for your Blob Storage Endpoint](storage-custom-domain-name.md) for details.
+You can also configure a custom domain name to use with your storage account. For Classic storage accounts, see [Configure a custom domain Name for your Blob Storage Endpoint](storage-custom-domain-name.md) for details. For ARM storage accounts, this capability has not been added to the [Azure Portal](https://portal.azure.com) yet, but you can configure it with PowerShell. For more information, see the [Set-AzureRmStorageAccount](https://msdn.microsoft.com/en-us/library/mt607146.aspx) cmdlet. 
+
 
 ## Create a storage account
 
@@ -137,7 +138,7 @@ To delete a storage account that is associated with an Azure virtual machine, yo
 
     Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-To remove the virtual machine disk, follow these steps in the Azure Classic Portal:
+If the storage account uses the Classic deployment model, you can remove the virtual machine disk by following these steps in the [Classic Azure Portal](https://manage.windowsazure.com):
 
 1. Navigate to the [Azure Classic Portal](https://manage.windowsazure.com).
 2. Navigate to the Virtual Machines tab.
