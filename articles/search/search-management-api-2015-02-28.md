@@ -1,6 +1,20 @@
-<properties pageTitle="Azure Search Management REST API Version 2015-02-28 | Microsoft Azure | Hosted cloud search service" description="Azure Search Management REST API: Version 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties
+	pageTitle="Azure Search Management REST API Version 2015-02-28 | Microsoft Azure | Hosted cloud search service"
+	description="Azure Search Management REST API: Version 2015-02-28"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.date="11/04/2015"
+	ms.author="heidist" />
 
 # Management API: Version 2015-02-28
 
