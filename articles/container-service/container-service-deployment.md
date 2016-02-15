@@ -39,16 +39,20 @@ Complete the form using this guidance.
 
 Field           | Description
 ----------------|-----------
-ADMINUSERNAME   | This is the username that will be used for an account on each of the Virtual Machines and virtual machine scale sets in the ACS cluster.
-ADMINPASSWORD   | This is the password used for the user account on each Virtual Machine created. It is recommended that you use SSH keys for production environments. See below.
 DNSNAMEPREFIX   | This must be a world unique value. It will be used to create DNS names for each of the key parts of the service. More information below.
 AGENTCOUNT      | This is the number of virtual machines that will be created in the ACS agent scale set.
+AGENTVMSIZE     | Specifies the size of your agent virtual machines. Be careful to select a size that provides enough resources to host your largest containers.
+LINUXADMINUSERNAME   | This is the username that will be used for an account on each of the virtual vachines and virtual machine scale sets in the ACS cluster.
+ADMINPASSWORD   | This is the password used for the user account on each Virtual Machine created. It is recommended that you use SSH keys for production environments. See below.
+ORCHESTRATORTYPE| Select the orchestrator you would like to use in your ACS cluster.
 MASTERCOUNT     | This is the number of Virtual Machines to configure as masters for your cluster. You can select 1, but this will not provide any resilience in your cluster and is only recommended for testing. The recommended number for a production cluster would be 3 or 5. 
-SSHRSAPUBLICKEY	| It is required that you use SSH for authentication against the Virtual Machines. This is where you add your public key. If you need to create an SSH key, you can find guidance for [windows](../articles/virtual-machines-windows-use-ssh-key.md) and [Linux](../articles/virtual-machines-linux-use-ssh-key.md) on the Azure documentation site.
+SSHRSAPUBLICKEY	| It is required that you use SSH for authentication against the Virtual Machines. This is where you add your public key. Ensure that the SSH key has no line breaks and that is includes the ‘ssh-rsa’ prefix, and the ‘username@domain’ postfix. It will look similar to 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'. If you need to create an SSH key, you can find guidance for [windows](../articles/virtual-machines-windows-use-ssh-key.md) and [Linux](../articles/virtual-machines-linux-use-ssh-key.md) on the Azure documentation site.
   
 Once you have configure your parameters, click OK. The parameters blade will disappear.
  
-Next we need to provide a resource group name, select a region, and review and agree to the legal terms. 
+Next we need to provide a resource group name, select a region, and review and agree to the legal terms.
+
+> You must review and agree to the Legal terms by opening the Legal Terms blade and clicking "Create". During preview, there is no charge for the Azure Container Service, only standard compute charges such as virtual machine, storage, networking etc. 
  
 ![Select resource group](media/resourcegroup.png) 
  
@@ -62,7 +66,7 @@ Now sit back and relax while the cluster is created. Once complete, you will see
 
 ## Creating a Service using the Azure CLI
 
-To access Azure Container Service using the command line, you will need an Azure subscription. If you don't have one then you can sign up for a free trial. You will also need to have installed and configured the Azure CLI.
+To create an instance of the Azure Container Service using the command line, you will need an Azure subscription. If you don't have one then you can sign up for a free trial. You will also need to have installed and configured the Azure CLI.
  
 Select one of the following templates to deploy a Mesos or Docker Swarm cluster. **Note** - Both of these templates are the same, with the exception of the default orchestrator selection.
  
@@ -125,7 +129,7 @@ An example parameters file named `azuredeploy.parameters.json` can be found with
 
 An ACS cluster can also be deployed with PowerShell. This document is based on the version 1.0 and greater Azure [PowerShell module](https://azure.microsoft.com/blog/azps-1-0/). 
 
-Select one of the following templates to deploy a Mesos or Docker Swarm cluster:
+Select one of the following templates to deploy a Mesos or Docker Swarm cluster. **Note** - Both of these templates are the same, with the exception of the default orchestrator selection.
  
 * Mesos: https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-mesos-full-template
 * Swarm: https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-swarm-full-template
