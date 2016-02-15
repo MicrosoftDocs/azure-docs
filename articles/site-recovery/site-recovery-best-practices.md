@@ -83,7 +83,7 @@ Use the following tips to help you optimize and scale your deployment.
 - **Data disk size**: If you're replicating to Azure you can have up to 32 data disks on a virtual machine, each with a maximum of 1 TB. You can effectively replicate and fail over a ~32 TB virtual machine.
 - **Recovery plan limits**: Site Recovery can scale to thousands of virtual machines. Recovery plans are designed as a model for applications that should fail over together so we limit the number of machines in a recovery plan to 50.
 - **Azure service limits**: Every Azure subscription comes with a set of default limits on cores, cloud services etc. We recommend that you run a test failover to validate the availability of resources in your subscription. You can modify these limits via Azure support.
-- **Capacity planning**: Read the [capacity planner](http://www.microsoft.com/download/details.aspx?id=39057) if you're replicating Hyper-V VMs.
+- **Capacity planning**: Read about [capacity planning](site-recovery-capacity-planner.md) for Site Recovery.
 - **Replication bandwidth**: If you're short on replication bandwidth note that:
 	- **ExpressRoute**: Site Recovery works with Azure ExpressRoute and WAN optimizers such as Riverbed. [Read more](http://blogs.technet.com/b/virtualization/archive/2014/07/20/expressroute-and-azure-site-recovery.aspx) about ExpressRoute.
 	- **Replication traffic**: Site Recovery uses performs a smart initial replication using only data blocks and not the entire VHD. Only changes are replicated during ongoing replication.
