@@ -238,9 +238,7 @@ From that baseline we can then map out the conventions for each of the resource 
 
 As seen in the diagram below:
 
-![application topology diagram](media/guidance-naming-convention-example.png "Sample Application Topology")
-
-<!-- TODO; an Azure CLI script for deploying this topology set -->
+![application topology diagram](media/guidance-naming-conventions/guidance-naming-convention-example.png "Sample Application Topology")
 
 ## Sample - Azure CLI script for deploying the sample above
 
