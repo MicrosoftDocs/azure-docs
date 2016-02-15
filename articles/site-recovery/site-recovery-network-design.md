@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Network infrastructure considerations for Site Recovery | Microsoft Azure"
-	description="This article discusses practical network design considerations for failover with Site Recovery"
+	pageTitle="Deployment considerations for VMM and Site Recovery | Microsoft Azure"
+	description="This article discusses practical design considerations for integrating VMM with Azure Site Recovery"
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
