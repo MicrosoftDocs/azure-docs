@@ -160,15 +160,15 @@ Some of the common tagging use cases are:
 
 An example of some common tagging approaches:
 
-| Tag Name | Key | Value Convention | Example | Comment |
-| -------- | --- | ---------------- | ------- | ------- |
-| Bill To / Internal Chargeback ID | billTo | billing token | `IT-Chargeback-1234` | An internal I/O or billing code |
+| Tag Name | Key | Example | Comment |
+| -------- | --- | ------- | ------- |
+| Bill To / Internal Chargeback ID | billTo  | `IT-Chargeback-1234` | An internal I/O or billing code |
 | Operator or Directly Responsible Individual (DRI) | managedBy | `joe@contoso.com`  | Alias or email address |
 | Project Name | project-name | `myproject`  | Name of the project or product line |
 | Project Version | project-version | `3.4`  | Version of the project or product line |
-| Environment | environment | `<Production | Staging | QA >` | Environmental identifier | 
-| Tier | tier | '<Front End, Back End, Data>' | Tier or role/context identification |
-| Data Profile | dataProfile | '<Public, Confidential, Restricted, Internal>` | Sensitivity of data stored in the resource
+| Environment | environment | `<Production, Staging, QA >` | Environmental identifier | 
+| Tier | tier | 'Front End, Back End, Data' | Tier or role/context identification |
+| Data Profile | dataProfile | 'Public, Confidential, Restricted, Internal` | Sensitivity of data stored in the resource |
  
 ## Tips and Tricks
 
@@ -242,9 +242,9 @@ We'll start by defining the contextual conventions for this application:
 | Service Name | `profx` | The short name of the application or service being deployed |
 | Environment | `prod` | This is for the production deployment (as opposed to qa, test, etc) |
 
-From that baseline we can then map out the conventions for each of the resource types
+From that baseline we can then map out the conventions for each of the resource types:
 
-| Resource Type | Convention Base | Example | 
+| Resource Type | Convention Base | Example |
 | ------------- | --------------- | ------- |
 | Subscription | `<Company> <Department (optional)> <Product Line (optional)> <Environment>` | Contoso IT InternalApps Profx Production |
 | Resource Group | `servicename-rg` | `profx-rg` |
