@@ -256,12 +256,12 @@ As seen in the diagram below:
 #####################################################################
 
 # Set up variables to build out the naming conventions for deploying
-# the cluster
+# the cluster  
 LOCATION=eastus2
 APP_NAME=profx
 ENVIRONMENT=prod
 USERNAME=testuser
-PASSWORD="AweS0me@PW"
+PASSWORD="testpass"
 
 # Set up the tags to associate with items in the application
 TAG_BILLTO="InternalApp-ProFX-12345"
