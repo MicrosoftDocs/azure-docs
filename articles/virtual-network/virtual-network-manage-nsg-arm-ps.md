@@ -19,7 +19,7 @@
 
 # Manage NSGs using PowerShell
 
-[AZURE.INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-arm-selectors-include.md)]
+[AZURE.INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-manage-intro-include.md](../../includes/virtual-network-manage-intro-include.md)]
 

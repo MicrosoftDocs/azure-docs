@@ -19,7 +19,7 @@
 
 # Manage NSGs (classic) using the preview portal
 
-[AZURE.INCLUDE [virtual-network-manage-classic-selectors-include.md](../../includes/virtual-network-manage-classic-selectors-include.md)]
+[AZURE.INCLUDE [virtual-network-manage-classic-selectors-include.md](../../includes/virtual-network-manage-nsg-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-manage-intro-include.md](../../includes/virtual-network-manage-intro-include.md)]
 
