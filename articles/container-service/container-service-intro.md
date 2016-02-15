@@ -18,7 +18,7 @@
    ms.date="12/02/2015"
    ms.author="rogardle"/>
 
-# Azure Container Service Introduction
+# Azure Container Service introduction
 
 Azure Container Service (ACS) provides a way to simplify the creation,
 configuration, and management of a cluster of virtual machines that are
@@ -41,11 +41,6 @@ The Azure Container Service enables you to take advantage of the
 enterprise grade features of Azure while still maintaining application
 portability, including at the orchestration layers.
 
-While the service is in preview, we ask that those interested in testing
-the service [self-nominate](http://aka.ms/acspreview). Once preview access has been provided, an email will be sent with further details including deployment templates and getting started instructions. In order to use the service, you will need an Azure subscription, if you don’t have one yet, then why not sign up for a
-[free
-trial](https://azure.microsoft.com/en-us/pricing/free-trial/)?
-
 Using Azure Container Service
 -----------------------------
 
@@ -61,22 +56,7 @@ choose to use the DCOS CLI.
 Creating a Docker Cluster Using Azure Container Service
 -------------------------------------------------------
 
-Once you have [requested](http://aka.ms/acspreview) and been granted access to
-the preview, you can use one of a number of Azure Resource Manager
-templates that allow you to deploy your first cluster through the Azure
-Portal. Using these templates, you can quickly create a service and
-start deploying applications to it straight away. To get started you
-only need to decide on the size of your cluster and whether you want to
-use Docker Swarm or Apache Mesos to manage your applications.
-
-You can also [use the command line](/documentation/articles/resource-group-template-deploy/)
-to create Azure Container Services using these same templates. Once you
-are familiar with the structure of these templates you will be able to
-write your own and fully automate the creation of an Azure Container
-Service cluster.
-
-Full documentation and support will be provided to preview participants
-and will be published here once the service is opened to the public.
+To begin using Azure Container Service, an ACS cluster will be deployed using an Azure Resource Manager template. This deployment can be configured with different size and availability options, and will be configured with either Apache Mesos Mesos or Docker Swarm. Azure Resource Manager Templates can be deployed through the Azure port, using the Azure CLI, or with PowerShell. The templates can also be modified to include additional or advanced Azure configuration. For more information on deploying and ACS cluster, see [Deploy an Azure container Service Cluster](./container-service-deployment.md).
 
 Deploying an Application
 ------------------------
@@ -126,17 +106,14 @@ Marathon and Chronos provide a Web UI from which you can deploy your
 applications. You will access this at an URL that looks something like
 `http://DNS\_PREFIX.REGION.cloudapp.azure.com`
 where DNS\_PREFIX and REGION are both defined at deployment time. Of
-course, you can also provide your own DNS name.
+course, you can also provide your own DNS name. For more information on running a container using the Marathon web UI, see [Container management through the web UI](./container-service-mesos-marathon-ui.md).
 
 You can also use the REST APIs for communicating with Marathon and
 Chronos. There are a number of client libraries available for each tool,
 covering a variety of languages and, of course, you can use the HTTP
 protocol in any language. In addition, many popular DevOps tools provide
 support for these schedulers. This provides maximum flexibility for your
-operations team when working with an ACS cluster.
-
-Full documentation and support will be provided to preview participants
-and will be published here once the service is opened to the public.
+operations team when working with an ACS cluster. For more information on running a container using the Marathon REST API, see [Container management with the REST API](./container-service-mesos-marathon-rest.md).
 
 ### Using Docker Swarm
 
@@ -157,17 +134,6 @@ to, the following:
 -   Krane
 
 -   Jenkins
-
-Full documentation and support will be provided to preview participants
-and will be published here once the service is opened to the public.
-
-Gaining Access
---------------
-
-While the service is in preview we ask that those interested testing the
-service [self-nominate](http://aka.ms/acspreview). You will first need an Azure
-Subscription, if you don’t have one yet then why not sign up for a [free
-trial](https://azure.microsoft.com/en-us/pricing/free-trial/)?
 
 Videos
 ------

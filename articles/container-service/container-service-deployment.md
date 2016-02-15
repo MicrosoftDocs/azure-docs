@@ -18,7 +18,7 @@
    ms.date="12/02/2015"
    ms.author="rogardle"/>
    
-# Deploy an Azure Container Service Cluster
+# Deploy an Azure Container Service cluster
 
 The Azure Container Server provides rapid deployment of popular open source container clustering and orchestration solutions. Using Azure Container Service, Marathon Mesos and Docker Swarm clusters can be deployed using Azure Resource Manager templates. These clusters are deployed to Azure Virtual machines, Azure Virtual Machine Scale Sets, and take advantage of Azure networking and storage offerings. To access Azure Container Service, you will need an Azure subscription. If you don't have one then sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
@@ -46,13 +46,13 @@ LINUXADMINUSERNAME   | This is the username that will be used for an account on 
 ADMINPASSWORD   | This is the password used for the user account on each Virtual Machine created. It is recommended that you use SSH keys for production environments. See below.
 ORCHESTRATORTYPE| Select the orchestrator you would like to use in your ACS cluster.
 MASTERCOUNT     | This is the number of Virtual Machines to configure as masters for your cluster. You can select 1, but this will not provide any resilience in your cluster and is only recommended for testing. The recommended number for a production cluster would be 3 or 5. 
-SSHRSAPUBLICKEY	| It is required that you use SSH for authentication against the Virtual Machines. This is where you add your public key. Ensure that the SSH key has no line breaks and that is includes the ‘ssh-rsa’ prefix, and the ‘username@domain’ postfix. It will look similar to 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'. If you need to create an SSH key, you can find guidance for [windows](../articles/virtual-machines-windows-use-ssh-key.md) and [Linux](../articles/virtual-machines-linux-use-ssh-key.md) on the Azure documentation site.
+SSHRSAPUBLICKEY	| It is required that you use SSH for authentication against the Virtual Machines. This is where you add your public key. Ensure that the SSH key has no line breaks, and that it includes the ‘ssh-rsa’ prefix, and the ‘username@domain’ postfix. It will look similar to 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'. If you need to create an SSH key, you can find guidance for [windows](../articles/virtual-machines/virtual-machines-windows-use-ssh-key.md) and [Linux](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md) on the Azure documentation site.
   
 Once you have configure your parameters, click OK. The parameters blade will disappear.
  
-Next we need to provide a resource group name, select a region, and review and agree to the legal terms.
+Next, provide a resource group name, select a region, and review and agree to the legal terms.
 
-> You must review and agree to the Legal terms by opening the Legal Terms blade and clicking "Create". During preview, there is no charge for the Azure Container Service, only standard compute charges such as virtual machine, storage, networking etc. 
+> During preview, there is no charge for the Azure Container Service, only standard compute charges such as virtual machine, storage, networking etc. 
  
 ![Select resource group](media/resourcegroup.png) 
  

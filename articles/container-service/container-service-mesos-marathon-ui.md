@@ -18,7 +18,7 @@
    ms.date="12/02/2015"
    ms.author="rogardle"/>
    
-# Application Management through the UI
+# Container management through the web UI
    
 Mesos provides an environment for deploying and scaling clustered workload while abstracting the underlying hardware. On top of Mesos, a framework manages scheduling and executing compute workload. While frameworks are available for many popular workloads, this document will detail creating and scaling container deployments with Marathon. Before working through these examples, you will need a Mesos cluster configured in ACS and have remote connectivity to this cluster. For more information in these items see the following articles.
 
