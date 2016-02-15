@@ -1,3 +1,22 @@
+<properties
+   pageTitle=" Naming Conventions for Azure Services | Guidance | Microsoft Azure"
+   description="How to name Azure services and entities"
+   services="virtual-machines, storage, virtual-network, load-balancer"
+   documentationCenter="na"
+   authors="masimms"
+   manager="marksou"
+   editor=""
+   tags=""/>
+
+<tags
+   ms.service="guidance"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="02/15/2016"
+   ms.author="masimms"/>
+   
 # Naming conventions
 
 The choice of a name for any asset, service or entity in Microsoft Azure is an important choice because:
