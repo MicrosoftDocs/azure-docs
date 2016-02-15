@@ -1,4 +1,4 @@
-****<properties
+<properties
 	pageTitle="Get started with Azure Blob storage using .NET | Microsoft Azure"
 	description="Store file data in the cloud with Azure Blob (object) storage. Get started with simple Blob storage operations, including creating a container and uploading, downloading, listing, and deleting blob content."
 	services="storage"
