@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/12/2016"
+   ms.date="02/15/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -32,7 +32,7 @@ Released: 2016 February
 
 **New features:**
 
-- [Automatic upgrade](active-directory-aadconnect-feature-auto-upgrade.md) feature for Express settings customers.
+- [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) feature for Express settings customers.
 - Support for the global admin using MFA and PIM in the installation wizard.
     - You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use MFA.
     - You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for MFA to properly work.

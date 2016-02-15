@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/12/2016"
+   ms.date="02/15/2016"
    ms.author="andkjell;billmath"/>
 
 # More details about features in preview
@@ -38,7 +38,7 @@ This group will be represented as a distribution group in on-premises AD DS. You
 ## User writeback
 > [AZURE.IMPORTANT] The user writeback preview feature was temporarily removed in the August 2015 update to Azure AD Connect. If you have enabled it, then you should disable this feature.
 
-User writeback is in early preview. It can only be used when Azure AD is the source for all user objects and on-premises Active Directory is empty before you enable the feature (green-field deployment).
+User writeback is in early preview. It can only be used when Azure AD is the source for all user objects and on-premises Active Directory is empty before you enable the feature (greenfield deployment).
 
 >[AZURE.WARNING] This feature should only be evaluated in a test environment and should not be used in an Azure AD directory used for production usage.
 

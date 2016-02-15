@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="02/15/2016"
 	ms.author="billmath"/>
 
 # Azure AD Connect FAQ
@@ -33,7 +33,7 @@ With the builds from February 2016, this is supported.
 All networking software, physical devices, or anything else that limits the maximum time connections can remain open should use a threshold of at least 5 minutes (300 seconds) for connectivity between the server where the Azure AD Connect client is installed and Azure Active Directory. This also applies to all previously released Microsoft Identity synchronization tools.
 
 **Q: What do I do if I receive an email that asking me to renew my Office 365 certificate**  
-Use the guidance that is outlined in the article here to resolve to [here](active-directory-aadconnect-o365-certs.md) renew the certificate.
+Use the guidance that is outlined in the [renew certificates](active-directory-aadconnect-o365-certs.md) topic on how to renew the certificate.
 
 **Q: Are SLDs (Single Label Domains) supported?**  
 No, Azure AD Connect does not support on-premises forests/domains using SLDs.
@@ -56,7 +56,7 @@ See these articles:
 **Q: Where are the PowerShell cmdlets for Azure AD Connect documented?**  
 With the exception of the cmdlets documented on this site, other PowerShell cmdlets found in Azure AD Connect are not supported for customer use.
 
-**Q: Can I use "Server export/server import" found in service manager to move configuration between servers?**  
+**Q: Can I use "Server export/server import" found in *Synchronization Service Manager* to move configuration between servers?**  
 No. This option will not retrieve all configuration settings and should not be used. You should instead use the wizard to create the base configuration on the second server and use the sync rule editor to generate PowerShell scripts to move any custom rule between servers.
 
 ## Troubleshooting

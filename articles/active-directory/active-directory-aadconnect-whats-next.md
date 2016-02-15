@@ -13,11 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/15/2016"
 	ms.author="billmath"/>
 
 # Next steps and how to manage Azure AD Connect
 The following are advanced operational topics that allow you to customize Azure Active Directory Connect to meet your organization's needs and requirements.  
+
+## Optional configuration on your AD FS service
+You can customize the illustration and logo image for your AD FS login pages by logging into the AD FS and using PSH to make this configuration.
+
+	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
+
+See [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/en-us/library/dn280950.aspx) for a full description on configuration possibilities.
 
 ## Assigning licenses to Azure AD Premium and Enterprise Mobility users
 

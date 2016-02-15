@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/12/2016"
+   ms.date="02/15/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Scheduler
 This topic describes the built-in scheduler in Azure AD Connect sync (a.k.a. sync engine).
 
-This feature was introduced with builds 1.1.x.0 (released first time February 2016).
+This feature was introduced with builds 1.1.105.0 (released first time February 2016).
 
 ## Overview
 Azure AD Connect sync will synchronize changes happening in your on-premises directory using a scheduler. There are two scheduler processes, one for password sync and another for object/attribute sync, and maintenance tasks. This topic will cover the latter.
@@ -29,7 +29,7 @@ In earlier releases the scheduler for objects and attributes was external to the
 The scheduler is responsible for two tasks:
 
 - **Synchronization cycle**. The process to import, sync, and export changes.
-- **Maintenance tasks**. Renew keys and certificates (for Password reset and DRS). Purge old entries in the operations log.
+- **Maintenance tasks**. Renew keys and certificates for Password reset and Device Registration Service (DRS). Purge old entries in the operations log.
 
 The scheduler itself is always running, but it can be configured to only run one or none of these tasks. For example if you need to have your own synchronization cycle process, you can disable this task in the scheduler but still run the maintenance task.
 

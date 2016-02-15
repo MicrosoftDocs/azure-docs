@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/12/2016"
+   ms.date="02/15/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -36,7 +36,7 @@ If you did not read the documentation on [Integrating your on-premises identitie
 
 
 ## Express settings installation
-In Express settings the installation wizard will ask for Enterprise Admin credentials so your on-premises Active Directory can be configured with required permissions for Azure AD Connect. If you are upgrading from DirSync the Enterprise Admins credentials are used to reset the password for the account used by DirSync.
+In Express settings the installation wizard will ask for AD DS Enterprise Admin credentials so your on-premises Active Directory can be configured with required permissions for Azure AD Connect. If you are upgrading from DirSync the AD DS Enterprise Admins credentials are used to reset the password for the account used by DirSync. You will also need Azure AD Global Administrator credentials.
 
 Wizard Page  | Credentials Collected | Permissions Required| Used For
 ------------- | ------------- |------------- |------------- |
@@ -107,7 +107,7 @@ If you use express settings, then an account will be created in Active Directory
 ![AD account](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Azure AD Connect sync service accounts
-A local service account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed **AAD_** and used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the account is created in the domain. If you use a SQL server on a remote server, the **AAD_** service account must be located in the domain.
+A local service account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed **AAD_** and used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the account is created in the domain. If you use a remote server running SQL server, the **AAD_** service account must be located in the domain.
 
 ![Sync Service Account](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 

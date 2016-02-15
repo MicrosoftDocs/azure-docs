@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="02/15/2016"
 	ms.author="andkjell"/>
 
 # Troubleshoot connectivity issues with Azure AD Connect
 This article explains how connectivity between Azure AD Connect and Azure AD works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment with a proxy server.
 
 ## Troubleshoot connectivity issues in the installation wizard
-Azure AD Connect is using Modern Authentication (using the ADAL library) for authentication. The installation wizard and the sync engine proper require machine.config to be properly configured since these are .Net applications.
+Azure AD Connect is using Modern Authentication (using the ADAL library) for authentication. The installation wizard and the sync engine proper require machine.config to be properly configured since these are .NET applications.
 
 In this article we will show how Fabrikam connects to Azure AD through its proxy. The proxy server is named fabrikamproxy and is using port 8080.
 
@@ -54,7 +54,7 @@ This error will appear when the wizard itself cannot reach the proxy.
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
 
 - If you see this, verify the [machine.config](active-directory-aadconnect-prerequisites.md#connectivity) has been correctly configured.
-- If that looks ok, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
+- If that looks correct, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
 
 ### The MFA endpoint cannot be reached
 This error will appear if the endpoint https://secure.aadcdn.microsoftonline-p.com cannot be reached and your global admin has MFA enabled.  
@@ -146,7 +146,7 @@ This error appear when the Sign-in assistant cannot reach the proxy or the proxy
 
 - If you see this, look at the proxy configuration in [netsh](active-directory-aadconnect-prerequisites.md#connectivity) and verify it is correct.
 ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
-- If that looks ok, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
+- If that looks correct, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
