@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/18/2015" 
+	ms.date="02/09/2016" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>ASP.NET MVC Tutorial: Web application development with DocumentDB
