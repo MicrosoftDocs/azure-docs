@@ -19,7 +19,7 @@
 # Azure AD Connect sync: Scheduler
 This topic describes the built-in scheduler in Azure AD Connect sync (a.k.a. sync engine).
 
-This feature was introduced with builds 1.1.105.0 (released first time February 2016).
+This feature was introduced with build 1.1.105.0 (released February 2016).
 
 ## Overview
 Azure AD Connect sync will synchronize changes happening in your on-premises directory using a scheduler. There are two scheduler processes, one for password sync and another for object/attribute sync, and maintenance tasks. This topic will cover the latter.
@@ -50,9 +50,7 @@ To see your current configuration settings, go to PowerShell and run `Get-ADSync
 
 You can modify all these settings with `Set-ADSyncScheduler`. The parameter IsStagingModeEnabled can only be set by the installation wizard.
 
-## Operate the scheduler
-
-### Start the scheduler
+## Start the scheduler
 The scheduler will by default run every 30 minutes. In some cases you might want to run a sync cycle in between the scheduled cycles or you need to run a different type.
 
 **Delta sync cycle**  
@@ -79,7 +77,7 @@ If you have made one of these changes, then you need to run a full sync cycle so
 
 To initiate a full sync cycle, run `Start-ADSyncSyncCycle -PolicyType Initial` from a PowerShell prompt. This will start a full sync cycle.
 
-### Stop the scheduler
+## Stop the scheduler
 If the scheduler is currently running a synchronization cycle you might need to stop it. For example if you start the installation wizard and you get this error:
 
 ![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
@@ -93,7 +91,7 @@ When a sync cycle is running, you cannot make configuration changes. You could w
 
 The scheduler is still active and will start again on next opportunity.
 
-### Scheduler and installation wizard
+## Scheduler and installation wizard
 If you start the installation wizard, then the scheduler will be temporarily suspended. This is because it is assumed you will make configuration changes and these cannot be applied if the sync engine is actively running. For this reason, do not leave the installation wizard open since it will stop the sync engine from performing any synchronization actions.
 
 ## Next steps

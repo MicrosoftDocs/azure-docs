@@ -113,14 +113,14 @@ A local service account is created by the installation wizard (unless you specif
 
 The account is created with a long complex password which does not expire.
 
-For the sync engine service account, this account will be used by Windows to store the encryption keys so the password for this account should not be reset or changed.
+This account will be used by Windows to store the encryption keys so the password for this account should not be reset or changed.
 
 If you use a full SQL Server then the service account will be the DBO of the created database for the sync engine. The service will not function as intended with any other permissions. A SQL login will also be created.
 
 The account is also granted permissions to files, registry keys, and other objects related to the Sync Engine.
 
 ### Azure AD service account
-An account in Azure AD will be created for the sync service's use. This account can be identified with its display name.
+An account in Azure AD will be created for the sync service's use. This account can be identified by its display name.
 
 ![AD account](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
 

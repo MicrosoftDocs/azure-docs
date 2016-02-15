@@ -57,7 +57,7 @@ This error will appear when the wizard itself cannot reach the proxy.
 - If that looks correct, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
 
 ### The MFA endpoint cannot be reached
-This error will appear if the endpoint https://secure.aadcdn.microsoftonline-p.com cannot be reached and your global admin has MFA enabled.  
+This error will appear if the endpoint **https://secure.aadcdn.microsoftonline-p.com** cannot be reached and your global admin has MFA enabled.  
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 - If you see this, verify that the endpoint secure.aadcdn.microsoftonline-p.com has been added to the proxy.
@@ -135,7 +135,7 @@ Time | URL
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
 ## Troubleshooting steps for previous releases.
-With releases starting with build number 1.1.100.0 (initially released February 2016) the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.
+With releases starting with build number 1.1.105.0 (released February 2016) the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.
 
 For the single-sign in assistant to work, winhttp must be configured. This can be done with [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
 ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)

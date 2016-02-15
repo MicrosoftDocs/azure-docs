@@ -17,7 +17,7 @@
    ms.author="andkjell"/>
 
 # Azure AD Connect: Automatic upgrade
-This feature was introduced with builds 1.1.105.0 (released first time February 2016).
+This feature was introduced with build 1.1.105.0 (released February 2016).
 
 ## Overview
 Making sure your Azure AD Connect installation is always up to date has never been easier with the Automatic upgrade feature. This feature is enabled by default for express installations and will make sure that when a new version is released, your installation is automatically upgraded.
@@ -33,7 +33,7 @@ The current state of automatic upgrade can be viewed with the PowerShell cmdlet 
 
 | State | Comment |
 | ---- | ---- |
-| Enabled | Automatic upgrade is enabled |
+| Enabled | Automatic upgrade is enabled. |
 | Suspended | Set by the system only. The system is no longer eligible to receive automatic upgrades. |
 | Disabled | Automatic upgrade is disabled. |
 
@@ -41,7 +41,7 @@ You can change between **Enabled** and **Disabled** with `Set-ADSyncAutoUpgrade`
 
 Automatic upgrade is using Azure AD Connect Health as the upgrade infrastructure. For automatic upgrade to correctly work, make sure you have opened the URLs in the proxy for **Azure AD Connect Health** as documented in [Office 365 URLs and IP address ranges ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-If the synchronization service manager UI is running on the server, then the upgrade will be suspended until the UI is closed.
+If the **Synchronization Service Manager** UI is running on the server, then the upgrade will be suspended until the UI is closed.
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

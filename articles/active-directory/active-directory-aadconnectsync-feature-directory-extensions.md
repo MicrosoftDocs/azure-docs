@@ -25,6 +25,7 @@ You configure which additional attributes you want to synchronize in the custom 
 ![Schema Extension Wizard](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png)
 The installation will show the following attributes, which are valid candidates:
 
+- User and Group object types
 - Single-valued attributes
 - Strings, Integer, Binary
 

@@ -24,7 +24,7 @@ You can customize the illustration and logo image for your AD FS login pages by 
 
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-See [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/en-us/library/dn280950.aspx) for a full description on configuration possibilities.
+See [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx) for a full description on configuration possibilities.
 
 ## Assigning licenses to Azure AD Premium and Enterprise Mobility users
 

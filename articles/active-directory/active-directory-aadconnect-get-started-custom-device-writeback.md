@@ -18,17 +18,17 @@
 
 # Azure AD Connect: Enabling device writeback
 
+>[AZURE.NOTE] A subscription to Azure AD Premium is required for device writeback.
+
 The following documentation provides information on how to enable the device writeback feature in Azure AD Connect. Device Writeback is used in the following scenarios:
 
-Enable conditional access based on devices to ADFS (2012 R2 or higher) protected applications (relying party trusts).
+- Enable conditional access based on devices to ADFS (2012 R2 or higher) protected applications (relying party trusts).
 
 This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on conditional access, see [Managing Risk with Conditional Access](active-directory-conditional-access.md) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](https://msdn.microsoft.com/library/azure/dn788908.aspx).
 
->[AZURE.NOTE] A subscription to Azure AD Premium is required for device writeback.
-
-.
-
->[AZURE.IMPORTANT] Devices must be located in the same forest as the users. Since devices must be written back to a single forest, this feature does not currently support a deployment with multiple user forests.
+>[AZURE.IMPORTANT]
+<li>Devices must be located in the same forest as the users. Since devices must be written back to a single forest, this feature does not currently support a deployment with multiple user forests.</li>
+<li>Only one device registration configuration object can be added to the on-premises Active Directory forest. This feature is not compatible with a topology where the on-premises Active Directory is synchronized to multiple Azure AD directories.</li>
 
 ## Part 1: Install Azure AD Connect
 1. Install Azure AD Connect using Custom or Express settings. The recommendation is to start with having all users and groups successfully synchronized before you enable device writeback.
@@ -38,11 +38,13 @@ Use the following steps to prepare for using device writeback.
 
 1.	From the machine where Azure AD Connect is installed, launch PowerShell in elevated mode.
 
-2.	If the Active Directory PowerShell module is NOT installed. Install it using the following command:
+2.	If the Active Directory PowerShell module is NOT installed, install it using the following command:
 
-	`Install-WindowsFeature –Name AD-DOMAIN-Services –IncludeManagementTools`
+	`Install-WindowsFeature –Name AD-Domain-Services –IncludeManagementTools`
 
-3.	With enterprise admin credentials, run the following commands and then exit PowerShell.
+3. If the Azure Active Directory PowerShell module is NOT installed, then download and install it from [Azure Active Directory Module for Windows PowerShell (64-bit version)](http://go.microsoft.com/fwlink/p/?linkid=236297). This component has a dependency on the sign-in assistant, which is installed with Azure AD Connect.
+
+4.	With enterprise admin credentials, run the following commands and then exit PowerShell.
 
 	`Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
 
