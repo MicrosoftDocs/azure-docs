@@ -149,7 +149,7 @@ An example of some common tagging approaches:
 | Project Version | project-version | `3.4`  | Version of the project or product line |
 | Environment | environment | `<Production | Staging | QA >` | Environmental identifier | 
 | Tier | tier | '<Front End, Back End, Data>' | Tier or role/context identification |
-| Data Profile | dataProfile | '<Public | Confidential | Restricted | Internal>` | Sensitivity of data stored in the resource
+| Data Profile | dataProfile | '<Public, Confidential, Restricted, Internal>` | Sensitivity of data stored in the resource
  
 ## Tips and Tricks
 
