@@ -147,7 +147,7 @@ against them.  Tags should be used to augment and enhance context along side of 
 Each resource or resource group can have a maximum of **15** tags. The tag name is limited to 512 characters, and the tag 
 value is limited to 256 characters.
 
-For more information on resource tagging, please refer to [https://azure.microsoft.com/en-us/documentation/articles/resource-group-using-tags/](https://azure.microsoft.com/en-us/documentation/articles/resource-group-using-tags/).
+For more information on resource tagging, please refer to [Using tags to organize your Azure resources](../resource-group-using-tags.md).
 
 Some of the common tagging use cases are:
 
@@ -208,14 +208,13 @@ you can also access blob data in your storage account by using that domain. For 
 domain name, `http://mystorage.blob.core.windows.net/mycontainer/myblob` could be accessed as
 `http://www.contoso.com/mycontainer/myblob`.
 
-For more information about configuring this feature, please refer to [http://azure.microsoft.com/en-us/documentation/articles/storage-custom-domain-name
-](http://azure.microsoft.com/en-us/documentation/articles/storage-custom-domain-name).
+For more information about configuring this feature, please refer to [Configure a custom domain name for your Blob storage endpoint](../storage/storage-custom-domain-name.md).
 
 For more information on naming blobs, containers and tables:
 
-- [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/en-us/library/dd135715.aspx)
-- [Naming Queues and Metadata](https://msdn.microsoft.com/en-us/library/dd179349.aspx)
-- [Naming Tables](https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx)
+- [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/dd135715.aspx)
+- [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx)
+- [Naming Tables](https://msdn.microsoft.com/library/azure/dd179338.aspx)
 
 A blob name can contain any combination of characters, but reserved URL characters must be properly
 escaped. Avoid blob names that end with a period (.), a forward slash (/), or a sequence or combination
