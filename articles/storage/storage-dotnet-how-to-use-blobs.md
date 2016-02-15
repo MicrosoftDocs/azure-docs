@@ -1,4 +1,4 @@
-<properties
+****<properties
 	pageTitle="Get started with Azure Blob storage using .NET | Microsoft Azure"
 	description="Store file data in the cloud with Azure Blob (object) storage. Get started with simple Blob storage operations, including creating a container and uploading, downloading, listing, and deleting blob content."
 	services="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/22/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -377,8 +377,8 @@ to learn more.
 - [Get started with Table storage for .NET](storage-dotnet-how-to-use-tables.md)
 - [Get started with Queue storage for .NET](storage-dotnet-how-to-use-queues.md)
 - [Get started with File storage for .NET](storage-dotnet-how-to-use-files.md)
-- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
-- [Use SQL Database to store relational data](../sql-database/articles/sql-database-dotnet-how-to-use.md)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
+- [How to use Azure SQL Database in .NET applications](../sql-database/articles/sql-database-dotnet-how-to-use.md)
 - [How to use Azure blob storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
