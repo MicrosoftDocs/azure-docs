@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="2016-02-16"
+   ms.date="02/16/2016"
    ms.author="barbkess;sonyama"/>
 
 # System Views
