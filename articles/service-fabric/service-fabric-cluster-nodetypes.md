@@ -36,15 +36,16 @@ When you scale up a VMSS, then a new instance is created, the new VMSS instance 
 
 If you have deployed your cluster from the portal or have used the sample ARM template that we provided, then when you get a list of all resources under a Resource Group, then you will see the LoadBalancers for each of your VMSS/Node Type.
 
-The name would something like this  **LB-**&lt;Cluster Name&gt;**-**&lt;NodeType name&gt;
+The name would something like this  **LB-&lt;NodeType name&gt;**
 
 
 ![Resources][Resources]
 
 
-## RDP into a Virtual Machine Scale Set (VMSS) instance or a Cluster Nodes."
+## RDP into a Virtual Machine Scale Set (VMSS) instance or a Cluster Nodes.
 Every Node type that is defined in a cluster, is setup as a separate VMSS, so that the Node Types can be scaled up or down independently and can be made of different VM SKUs. Unlike single instance VMs, the VMSS instances do not get a VIP of their own, so it can be a bit challenging when you are looking for an IP address and port that you can use to RDP into a specific instance. 
 
+Here are the steps you can follow to discover them.
 
 ####Step 1 : Find out the VIP for the Node type and then Inbound NAT rules for RDP.
 
@@ -55,7 +56,7 @@ In order to get that, you need to get the "inboundNatPools" values that were def
 ![LBBlade][LBBlade]
 
 
-**Step 1.2** once you are on the Settings blade, click on the "Inbound NAT Rules". you should now see something like this.
+**Step 1.2** once you are on the Settings blade, click on the "Inbound NAT rules". you should now see something like this.
 
 This now gives you the IP address and Port that you can use to RDP in to the first VMSS instance. In the screenshot below, it is **104.42.106.156** and **3389**
 
@@ -65,7 +66,7 @@ This now gives you the IP address and Port that you can use to RDP in to the fir
 
 Earlier in this document, I talked about how the VMSS Instances map to the Nodes. We will use that to figure out the exact port. 
 
-The ports are allocated in ascending order of the VMSS instance. so in my example for by FrontEnd node type, the ports for each of the five instances will be the following. you now need to do the same mapping for your VMSS instance.
+The ports are allocated in ascending order of the VMSS instance. so in my example for the FrontEnd node type, the ports for each of the five instances will be the following. you now need to do the same mapping for your VMSS instance.
 
 |**VMSS Instance**|**Port**|
 |-----------------------|--------------------------|
@@ -86,16 +87,21 @@ In the screenshot below I am RDPing into the FrontEnd_1
  
 
 
-## How to change the range of the RDP port range
+## How to change the RDP port range values
 
-**At Creation time** When you are setting up the cluster using an ARM template, you can just specify the range in the inboundNatPools.
+####Before Cluster deployment 
 
-Go to the resource definition for **Microsoft.Network/loadBalancers** . under that you will find the description for "inboundNatPools"
+When you are setting up the cluster using an ARM template, you can just specify the range in the inboundNatPools.
+
+Go to the resource definition for **Microsoft.Network/loadBalancers** . under that you will find the description for "inboundNatPools".  
+
+replace the "frontendPortRangeStart" and "frontendPortRangeEnd" values.
 
 ![InboundNatPools][InboundNatPools]
 
 
-**After Cluster deployment** You will now have to set new values using Azure powershell. Make sure that Azure PowerShell 1.0+ is installed on your machine. If you have not done this before, I strongly suggest that you follow the steps outlined in [How to install and configure Azure PowerShell.](../powershell-install-configure.md)
+####After Cluster deployment
+This is a bit more involved and may result in the VMs getting recycled. You will now have to set new values using Azure powershell. Make sure that Azure PowerShell 1.0+ is installed on your machine. If you have not done this before, I strongly suggest that you follow the steps outlined in [How to install and configure Azure PowerShell.](../powershell-install-configure.md)
 
 
 Sign in to your Azure account. If this PowerShell command fails for some reason, you should check whether you have Azure PowerShell installed correctly.
