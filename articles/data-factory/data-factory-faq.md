@@ -132,9 +132,9 @@ In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 repres
 You can rerun a slice in one of the following ways: 
 
 - Click **Run** in the command bar on the **DATA SLICE** blade for the slice in the portal. 
-- Run **Set-AzureRmDataFactorySliceStatus** cmdlet with Status set to **PendingExecution** for the slice.   
+- Run **Set-AzureRmDataFactorySliceStatus** cmdlet with Status set to **Waiting** for the slice.   
 	
-		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
 See [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] for details about the cmdlet. 
 
