@@ -108,10 +108,10 @@ See these resources to learn more about Azure Storage:
 * [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md)
 * [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md)
 * [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
-* [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
+* [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
-* [Azure Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
