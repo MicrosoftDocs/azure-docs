@@ -64,7 +64,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 For more details about the policy framework, see this [blog post](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
-## How to create a sign-up policy
+## Create a sign-up policy
 
 To enable sign-up on your application, you will need to create a sign-up policy. This policy describes the experiences that consumers will go through during sign-up and the contents of tokens that the application will receive on successful sign-ups.
 
@@ -83,7 +83,7 @@ To enable sign-up on your application, you will need to create a sign-up policy.
     > [AZURE.NOTE]
     It takes up to a minute for policy creation and updates to take effect.
 
-## How to create a sign-in policy
+## Create a sign-in policy
 
 To enable sign-in on your application, you will need to create a sign-in policy. This policy describes the experiences that consumers will go through during sign-in and the contents of tokens that the application will receive on successful sign-ins.
 
@@ -101,7 +101,7 @@ To enable sign-in on your application, you will need to create a sign-in policy.
     > [AZURE.NOTE]
     It takes up to a minute for policy creation and updates to take effect.
 
-## How to create a profile editing policy
+## Create a profile editing policy
 
 To enable profile editing on your application, you will need to create a profile editing policy. This policy describes the experiences that consumers will go through during profile editing and the contents of tokens that the application will receive on successful completion.
 
