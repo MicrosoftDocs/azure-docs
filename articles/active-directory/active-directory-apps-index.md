@@ -227,4 +227,3 @@ To see which reports are included with different editions of Azure Active Direct
 [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
-
