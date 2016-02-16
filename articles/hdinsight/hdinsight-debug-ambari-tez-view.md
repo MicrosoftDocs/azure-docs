@@ -20,7 +20,7 @@ ms.author="larryfr"/>
 
 The Ambari Web UI for HDInsight contains a Tez view that can be used to understand and debug jobs that use Tez as the execution engine. The Tez view allows you to visualize the job as a graph of connected items, drill into each item, and retrieve statistics and logging information.
 
-> [AZURE.NOTE] The information in this document is specific to Linux-based HDInsight clusters. For information on debugging Tez jobs using Windows-based HDInsight, see [Use the Tez UI to debug Tez jobs on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
+> [AZURE.NOTE] The information in this document is specific to Linux-based HDInsight clusters. For information on debugging Tez jobs using Windows-based HDInsight, see [Use the Tez UI to debug Tez jobs on Windows-based HDInsight](hdinsight-debug-tez-ui.md).
 
 ##Prerequisites
 
