@@ -167,8 +167,8 @@ An example of some common tagging approaches:
 | Project Name | project-name | `myproject`  | Name of the project or product line |
 | Project Version | project-version | `3.4`  | Version of the project or product line |
 | Environment | environment | `<Production, Staging, QA >` | Environmental identifier | 
-| Tier | tier | 'Front End, Back End, Data' | Tier or role/context identification |
-| Data Profile | dataProfile | 'Public, Confidential, Restricted, Internal` | Sensitivity of data stored in the resource |
+| Tier | tier | `Front End, Back End, Data` | Tier or role/context identification |
+| Data Profile | dataProfile | `Public, Confidential, Restricted, Internal` | Sensitivity of data stored in the resource |
  
 ## Tips and Tricks
 
@@ -246,7 +246,7 @@ From that baseline we can then map out the conventions for each of the resource 
 
 | Resource Type | Convention Base | Example |
 | ------------- | --------------- | ------- |
-| Subscription | `<Company> <Department (optional)> <Product Line (optional)> <Environment>` | Contoso IT InternalApps Profx Production |
+| Subscription | `<Company> <Department (optional)> <Product Line (optional)> <Environment>` | `Contoso IT InternalApps Profx Production` |
 | Resource Group | `servicename-rg` | `profx-rg` |
 | Virtual Network | `servicename-vnet` | `profx-vnet` |
 | Subnet | `role-subnet` | `sql-vnet` |
