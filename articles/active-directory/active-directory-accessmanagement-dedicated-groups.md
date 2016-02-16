@@ -40,7 +40,7 @@ This article explains more about how to create a rule to manage members on a gro
 
 These articles provide additional information on Azure Active Directory.
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manageoups.md)
+* [Managing access to resources with Azure Active Directory groups](active-directory-managegroups.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [What is Azure Active Directory?](active-directory-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
