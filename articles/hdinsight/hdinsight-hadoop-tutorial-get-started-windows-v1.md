@@ -22,7 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows](../hdinsight-hadoop-tutorial-get-started-windows-v1.md)
-- [Linux](../hdinsight-hadoop-linux-get-started.md)
+- [Linux](../hdinsight-hadoop-linux-tutorial-get-started.md)
 
 To help you learn Hadoop on Windows and start using HDInsight, this tutorial shows you how to run a Hive query on unstructured data in a Hadoop cluster and then analyze the results in Microsoft Excel.
 

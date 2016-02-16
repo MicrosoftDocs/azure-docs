@@ -56,7 +56,7 @@ The following are the basic configuration options for creating an HDInsight clus
 
 	You can create HDInsight clusters on one of the following two operating systems:
 	- **HDInsight on Windows (Windows Server 2012 R2 Datacenter)**:
-	- **HDInsight on Linux (Ubuntu 12.04 LTS for Linux)**: HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
+	- **HDInsight on Linux (Ubuntu 12.04 LTS for Linux)**: HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 - **Cluster type** and **cluster size (a.k.a. data nodes)**
 
