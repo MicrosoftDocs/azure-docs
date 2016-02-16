@@ -3,7 +3,7 @@
    description="Deploy containers to an Azure Container Service cluster service using the Marathon REST API."
    services="container-service"
    documentationCenter=""
-   authors="neilpeterson"
+   authors="rgardler"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/15/2016"
-   ms.author="nepeters"/>
+   ms.author="rogardle"/>
    
 # Container management with the REST API
 
@@ -27,6 +27,7 @@ Before working through these examples, you will need a Mesos cluster configured 
 - [Connecting to an ACS Cluster](./container-service-connect.md)
 
 Your Mesos cluster in ACS will be accessible through several endpoints depending on the desired request.
+
 - Mesos – http://master:5050
 - Marathon – http://master:8080
 

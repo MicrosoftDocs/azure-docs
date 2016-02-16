@@ -3,7 +3,7 @@
    description="Deploy containers to an Azure Container Service cluster service using the Marathon Web UI."
    services="container-service"
    documentationCenter=""
-   authors="neilpeterson"
+   authors="rgardler"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/15/2016"
-   ms.author="nepeters"/>
+   ms.author="rogardle"/>
    
 # Container management through the web UI
    
@@ -50,8 +50,6 @@ Network         | Bridged
 Container Port  | 80
 Host Port       | 80
 Protocol        | TCP
-
-Click  create` when completed. 
 
 ![Create deployment](media/ui3.png)
 

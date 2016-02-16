@@ -3,7 +3,7 @@
    description="Deploy an Azure Container Service cluster using the Azure Portal, Azure CLI, or PowerShell."
    services="container-service"
    documentationCenter=""
-   authors="neilpeterson"
+   authors="rgardler"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/15/2016"
-   ms.author="nepeters"/>
+   ms.author="rogardle"/>
    
 # Deploy an Azure Container Service cluster
 
