@@ -1,10 +1,10 @@
 <properties
-   pageTitle=""
-   description=""
+   pageTitle="ACS container management with the REST API | Microsoft Azure"
+   description="Deploy containers to an Azure Container Service cluster service using the Marathon REST API."
    services="container-service"
    documentationCenter=""
-   authors="rgardler"
-   manager="nepeters"
+   authors="nepeters"
+   manager="timlt"
    editor=""
    tags="acs, azure-container-service"
    keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
@@ -12,11 +12,11 @@
 <tags
    ms.service="container-service"
    ms.devlang="na"
-   ms.topic="home-page"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
-   ms.author="rogardle"/>
+   ms.date="2/15/2016"
+   ms.author="nepeters"/>
    
 # Container management with the REST API
 

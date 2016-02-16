@@ -1,10 +1,10 @@
 <properties
-   pageTitle=""
-   description=""
+   pageTitle="ACS container management through the web UI"
+   description="Deploy containers to an Azure Container Service cluster service using the Marathon Web UI."
    services="container-service"
    documentationCenter=""
-   authors="rgardler"
-   manager="nepeters"
+   authors="nepeters"
+   manager="timlt"
    editor=""
    tags="acs, azure-container-service"
    keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
@@ -12,11 +12,11 @@
 <tags
    ms.service="container-service"
    ms.devlang="na"
-   ms.topic="home-page"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
-   ms.author="rogardle"/>
+   ms.date="2/15/2016"
+   ms.author="nepeters"/>
    
 # Container management through the web UI
    
@@ -50,22 +50,24 @@ Container Port  | 80
 Host Port       | 80
 Protocol        | TCP
 
-Click create application when completed. 
+Click  create` when completed. 
 
 ![Create deployment](media/ui3.png)
 
-Back on the Marathon main page, status about the new Nginx deployment can be seen.
+Back on the Marathon main page, deployment status for the container can be seen.
 
 ![Create deployment](media/ui4.png)
 
-If you switch back to the Mesos app (http://localhost:5050), you will now see that a task (in this case a Docker container) is running on the Mesos cluster. You can also see the cluster node that the task is running on.
+If you switch back to the Mesos app (http://localhost:5050), you will now see that a task, in this case a Docker container, is running on the Mesos cluster. You can also see the cluster node that the task is running on.
 
 ![Create deployment](media/ui5.png)
 
 ## Scale a Docker Container
 
+The Marathon Web UI can also be used to scale the instance count of a container. To do so navigate to the Marathon page, select the container that you would like to scale, and click the `scale` button. On the Scale Application window, enter the number of container instance that you would like and select `Scale Application`.
+
 ![Create deployment](media/ui6.png)
 
-![Create deployment](media/ui7.png)
+Once the scale operation has completed, you will see multiple instance of the same task spread across Mesos agents.
 
 ![Create deployment](media/ui8.png)
