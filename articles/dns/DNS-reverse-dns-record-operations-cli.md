@@ -47,4 +47,4 @@ You can remove a reverse DNS property from an existing Public IP Address azure n
 
 	azure network public-ip set -n PublicIp3 -g NRP-DemoRG-PS –f “” 
 
-[FAQ](../../includes/DNS-reverse-dns-record-operations-faq-include.md)
+[[AZURE.INCLUDE [azure-FAQ](../../includes/DNS-reverse-dns-record-operations-faq-include.md)]

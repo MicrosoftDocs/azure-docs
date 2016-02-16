@@ -46,4 +46,4 @@ You can view the configured value for an existing Cloud Service using the “Get
 You can remove a reverse DNS property from an existing Cloud Service using the “Set-AzureService” cmdlet. This is done by setting the reverse DNS property value to blank:
 PS C:\> Set-AzureService –ServiceName “contosoapp1” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “”
 
-[FAQ](../../includes/DNS-reverse-dns-record-operations-faq-include.md)
+[[AZURE.INCLUDE [azure-FAQ](../../includes/DNS-reverse-dns-record-operations-faq-include.md)]

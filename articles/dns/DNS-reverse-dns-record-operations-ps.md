@@ -52,4 +52,4 @@ You can remove a reverse DNS property from an existing Public IP Address using t
 	PS C:\> $pip.DnsSettings.ReverseFqdn = ""
 	PS C:\> Set-AzureRmPublicIpAddress -PublicIpAddress $pip 
 
-[FAQ](../../includes/DNS-reverse-dns-record-operations-faq-include.md)
+[[AZURE.INCLUDE [azure-FAQ](../../includes/DNS-reverse-dns-record-operations-faq-include.md)]
