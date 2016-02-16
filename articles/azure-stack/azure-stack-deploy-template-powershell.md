@@ -22,19 +22,19 @@ Use PowerShell to deploy Azure Resource Manager (ARM) templates to the Azure Sta
 
 ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
 
+> [AZURE.NOTE] If you work on the Client VM, you’ll need to first **uninstall** the existing Azure PowerShell module and then [download]( http://aka.ms/webpi-azps) the latest Azure PowerShell SDK. 
+
 ## Authenticate PowerShell with Microsoft Azure Stack (required)
 
-1.  Run the following PowerShell cmdlet to get your tenant GUID, configure the environment, and authenticate a user.
+1.  Run the following PowerShell cmdlet to configure the environment, and authenticate a user.
 
-	- Replace *EMAIL* with a tenant account in the Azure Active Directory (this email must end in <directoryname>.onmicrosoft.com).
-
+    - Replace *DIRECTORY_TENANT_NAME* with the fully qualified name of your directory tenant. Typically a directory tenant name will look like mydirectorytenant.onmicrosoft.com.
 	- Replace *SUBSCRIPTION_NAME* with the default provider subscription name.
 
 ```
-
 # Add the Microsoft Azure Stack environment
-		[net.mail.mailaddress]$AadFullMailAddress="EMAIL"
-		$AadTenantId=(Invoke-WebRequest -Uri ('https://login.windows.net/'+($AadFullMailAddress.Host)+'/.well-known/openid-configuration')|ConvertFrom-Json).token_endpoint.Split('/')[3]
+		
+		$AadTenantId="DIRECTORY_TENANT_NAME"
 
 # Configure the environment with the Add-AzureRmEnvironment cmdlt
 		Add-AzureRmEnvironment -Name 'Azure Stack' `
@@ -51,7 +51,6 @@ ARM templates deploy and provision all of the resources for your application in 
 
 		# Select an existing subscription where the deployment will take place
 		Get-AzureRmSubscription -SubscriptionName "SUBSCRIPTION_NAME"  | Select-AzureRmSubscription
-
 ```
 
 
