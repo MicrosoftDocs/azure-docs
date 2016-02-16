@@ -15,7 +15,7 @@
    ms.date="02/16/2016"
    ms.author="v-sharos" />
 
-# Use the StorSimple Manager service to administer your StorSimple Virtual Array
+# Use the StorSimple Manager service to administer your StorSimple Virtual Array (preview)
 
 ![setup process flow](./media/storsimple-ova-manager-service-administration/manage4.png)
 
