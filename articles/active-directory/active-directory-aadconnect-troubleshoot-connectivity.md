@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/15/2016"
+	ms.date="02/16/2016"
 	ms.author="andkjell"/>
 
 # Troubleshoot connectivity issues with Azure AD Connect
@@ -40,7 +40,7 @@ Of these, the following table is the absolute bare minimum to be able to connect
 | mscrl.microsoft.com | HTTP/80 | Used to download CRL lists. |
 | *.verisign.com | HTTP/80 | Used to download CRL lists. |
 | *.trust.com | HTTP/80 | Used to download CRL lists for MFA. |
-| *.windows.net | HTTPS/443 | Used to login to Azure AD. |
+| *.windows.net | HTTPS/443 | Used to sign in to Azure AD. |
 | secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Used for MFA. |
 | *.microsoftonline.com | HTTPS/443 | Used to configure your Azure AD directory and import/export data. |
 
@@ -66,7 +66,7 @@ This error will appear if the endpoint **https://secure.aadcdn.microsoftonline-p
 If the installation wizard is successful in connecting to Azure AD, but the password itself cannot be verified you will see this:
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-- Is the password a temporary password and must be changed? Is it actually the correct password? Try to login to https://login.microsoftonline.com (on another server than the Azure AD Connect server) and verify the account is usable.
+- Is the password a temporary password and must be changed? Is it actually the correct password? Try to sign in to https://login.microsoftonline.com (on another computer than the Azure AD Connect server) and verify the account is usable.
 
 ### Verify proxy connectivity
 To verify if the Azure AD Connect server has actual connectivity with the Proxy and Internet we will use some PowerShell to see if the proxy is allowing web requests or not. In a PowerShell prompt, run `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technically the first call is to https://login.microsoftonline.com and this will work as well, but the other URI is faster to respond.)
@@ -86,7 +86,7 @@ If the proxy is not correctly configured, we will get an error:
 | Error | Error Text | Comment |
 | ---- | ---- | ---- |
 | 403 | Forbidden | The proxy has not been opened for the requested URL. Revisit the proxy configuration and make sure the [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) have been opened. |
-| 407 | Proxy Authentication Required | The proxy server required login and none was provided. If your proxy server requires authentication, make sure to have this configured in the machine.config. Also make sure you are using domain accounts for the user running the wizard as well as for the service account. |
+| 407 | Proxy Authentication Required | The proxy server required sign in and none was provided. If your proxy server requires authentication, make sure to have this configured in the machine.config. Also make sure you are using domain accounts for the user running the wizard as well as for the service account. |
 
 ## The communication pattern between Azure AD Connect and Azure AD
 If you have followed all these steps above and still cannot connect you might at this point start looking at network logs. This section is documenting a normal and successful connectivity pattern. It is also listing common red herrings which can be ignored if you are reading the network logs.

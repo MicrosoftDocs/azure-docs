@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/15/2016"
+	ms.date="02/16/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
@@ -40,7 +40,7 @@ Azure Active Directory Connect is made up of three primary parts.  They are the 
 </center>
 
 - Synchronization - This part is made up of the components and functionality previously released as [Dirsync and Azure AD Sync](active-directory-aadconnect-get-started-tools-comparison.md).  This is the part that is responsible for creating users and groups.  It is also responsible for making sure that the information on users and groups in your on-premises environment, matches the cloud.
-- AD FS - This is an optional part of Azure AD Connect and can be used to setup a hybrid environment using an on-premises AD FS infrastructure.  This part can be used by organizations to address complex deployments that include such things as domain join SSO, enforcement of AD login policy and smart card or 3rd party MFA.
+- AD FS - This is an optional part of Azure AD Connect and can be used to setup a hybrid environment using an on-premises AD FS infrastructure.  This part can be used by organizations to address complex deployments that include such things as domain join SSO, enforcement of AD sign-in policy and smart card or 3rd party MFA.
 - Health Monitoring - Azure AD Connect Health can provide robust monitoring of your AD FS servers and provide a central location in the Azure portal to view this activity.  For additional information see [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
 
 ## Install Azure AD Connect
@@ -90,7 +90,7 @@ Azure AD Connect comes with several features you can optionally turn on or are e
 
 [Password writeback](active-directory-passwords-getting-started.md) will allow your users to change and reset their passwords in the cloud and have your on-premises password policy applied.
 
-[Device writeback](active-directory-aadconnect-get-started-custom-device-writeback.md) will allow a device registered in Azure AD to be written back to on-premises Active Directory so it can be used for conditional access.
+[Device writeback](active-directory-aadconnect-feature-device-writeback.md) will allow a device registered in Azure AD to be written back to on-premises Active Directory so it can be used for conditional access.
 
 The [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) feature is turned on by default and will protect your cloud directory from a lot of deletes at the same time. By default it will allow 500 deletes per run and this can be changed depending on your organization’s size.
 
@@ -103,7 +103,7 @@ The [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent
 | Configure filtering | [Azure AD Connect sync: Configure filtering](active-directory-aadconnectsync-configure-filtering.md) |
 | Password synchronization | [Azure AD Connect sync: Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) |
 | Password writeback | [Getting started with password management](active-directory-passwords-getting-started.md) |
-| Device writeback | [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md) |
+| Device writeback | [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md) |
 | Prevent accidental deletes | [Azure AD Connect sync: Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |
 | Automatic upgrade | [Azure AD Connect: Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)|
 

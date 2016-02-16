@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/15/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell;billmath"/>
 
 # Prerequisites for Azure AD Connect
@@ -49,6 +49,7 @@ Before you install Azure AD Connect, there are a few things that you will need.
 - If your global administrators have MFA enabled, then the URL **https://secure.aadcdn.microsoftonline-p.com** must be in the trusted sites list. You will be prompted to add this to the trusted sites list if it is not added before you are prompted for an MFA challenge. You can use Internet Explorer to add it to your trusted sites.
 
 ### Connectivity
+- The Azure AD Connect server needs DNS resolution for both intranet and internet. The DNS server must be able to resolve names both to your on-premises Active Directory as well as the Azure AD endpoints.
 - If you have firewalls on your Intranet and you need to open ports between the Azure AD Connect servers and your domain controllers then see [Azure AD Connect Ports](active-directory-aadconnect-ports.md) for more information.
 - If your proxy limits which URLs which can be accessed then the URLs documented in [Office 365 URLs and IP address ranges ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened in the proxy.
 - If you are using an outbound proxy for connecting to the Internet, the following setting in the **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** file must be added for the installation wizard and Azure AD Connect sync to be able to connect to the Internet and Azure AD. This text must be entered at the bottom of the file.  In this code, &lt;PROXYADRESS&gt; represents the actual proxy IP address or host name.

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/15/2016"
+   ms.date="02/16/2016"
    ms.author="shoatman;billmath"/>
 
 # Azure AD Connect: Upgrade Windows Azure Active Directory sync (DirSync)

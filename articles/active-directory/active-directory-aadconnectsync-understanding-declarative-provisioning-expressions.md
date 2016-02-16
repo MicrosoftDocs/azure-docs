@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/15/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -88,7 +88,7 @@ String attributes are by default set to be indexable and the maximum length is 4
 
 ### Changing the userPrincipalSuffix
 
-The userPrincipalName attribute in Active Directory is not always known by the users and might not be suitable as the login ID. The Azure AD Connect sync installation wizard allows picking a different attribute, e.g. mail. But in some cases the attribute must be calculated. For example the company Contoso has two Azure AD directories, one for production and one for testing. They want the users in their test tenant to just change the suffix in the login ID.
+The userPrincipalName attribute in Active Directory is not always known by the users and might not be suitable as the sign-in ID. The Azure AD Connect sync installation wizard allows picking a different attribute, e.g. mail. But in some cases the attribute must be calculated. For example the company Contoso has two Azure AD directories, one for production and one for testing. They want the users in their test tenant to just change the suffix in the sign-in ID.
 
 `userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
 

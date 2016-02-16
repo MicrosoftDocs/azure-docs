@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/15/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -42,7 +42,7 @@ Released: 2016 February
 
 **Features promoted from preview to GA:**
 
-- [Device writeback](active-directory-aadconnect-get-started-custom-device-writeback.md).
+- [Device writeback](active-directory-aadconnect-feature-device-writeback.md).
 - [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **New preview features:**
@@ -142,7 +142,7 @@ Changed name from Azure AD Sync to Azure AD Connect.
 
 - [User writeback](active-directory-aadconnect-feature-preview.md#user-writeback)
 - [Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback)
-- [Device writeback](active-directory-aadconnect-get-started-custom-device-writeback.md)
+- [Device writeback](active-directory-aadconnect-feature-device-writeback.md)
 - [Directory extensions](active-directory-aadconnect-feature-preview.md#directory-extensions)
 
 

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/15/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Automatic upgrade
 This feature was introduced with build 1.1.105.0 (released February 2016).
 
 ## Overview
-Making sure your Azure AD Connect installation is always up to date has never been easier with the Automatic upgrade feature. This feature is enabled by default for express installations and will make sure that when a new version is released, your installation is automatically upgraded.
+Making sure your Azure AD Connect installation is always up to date has never been easier with the **automatic upgrade** feature. This feature is enabled by default for express installations and will make sure that when a new version is released, your installation is automatically upgraded.
 
 Automatic upgrade is enabled by default for the following:
 

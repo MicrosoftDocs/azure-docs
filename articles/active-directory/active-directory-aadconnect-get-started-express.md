@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/15/2016"
+	ms.date="02/16/2016"
 	ms.author="billmath;andkjell"/>
 
 # Getting started with Azure AD Connect using express settings
@@ -39,7 +39,7 @@ Selecting Express Settings is the default option and is one of the most common s
 
 ### To install Azure AD Connect using express settings
 
-1. Login to the server you wish to install Azure AD Connect on a local Administrator.  This should be the server you wish to be the sync server.
+1. Sign in to the server you wish to install Azure AD Connect on a local Administrator.  This should be the server you wish to be the sync server.
 2. Navigate to and double-click on AzureADConnect.msi
 3. On the Welcome screen, select the box agreeing to the licensing terms and click **Continue**.
 4. On the Express settings screen, click **Use express settings**.
@@ -54,7 +54,7 @@ If you receive an error and have problems with connectivity, please see [Trouble
 	- Also optionally you can choose to configure sync services for **Exchange Hybrid deployment** by checking the corresponding checkbox.  If you don’t plan to have Exchange mailboxes both in the cloud and on premises, you do not need this.
 ![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 8. Once the installation completes, click **Exit**.
-9. After the installation has completed, Logoff and Login again before you use Synchronization Service Manager or Synchronization Rule Editor.
+9. After the installation has completed, sign off and sign in again before you use Synchronization Service Manager or Synchronization Rule Editor.
 
 For a video on using the express installation check out the following:
 
