@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="01/07/2016" 
+    ms.date="02/02/2016" 
     ms.author="elizapo" />
 
 
@@ -80,7 +80,7 @@ If you want to use Azure AD accounts, you need to make sure that your Azure AD t
 
 Using Azure AD + on-premises Active Directory is a prerequisite for a hybrid collection. You need to use AD Connect to integrate the two directories. But you do have some choice when it comes to how you configure AD Connect. 
 
-There are 2 AD Connect scenarios - using password synchronization or using AD federation. Check out the [AD Connect information](active-directory-aadconnect.md) to figure out which of these works best for you.
+There are 2 AD Connect scenarios - using password synchronization or using AD federation. Check out the [AD Connect information](../active-directory/active-directory-aadconnect.md) to figure out which of these works best for you.
 
 You can also use Azure AD + AD with a cloud collection. Make sure you follow the same set up steps.
 

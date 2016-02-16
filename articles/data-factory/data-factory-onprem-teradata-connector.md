@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Move data from Teradata using Azure Data Factory
@@ -220,7 +220,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	}
 
 
-## Teradata Linked Service properties
+## Teradata linked service properties
 
 The following table provides description for JSON elements specific to Teradata linked service. 
 
@@ -237,7 +237,7 @@ gatewayName | Name of the gateway that the Data Factory service should use to co
 
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises Teradata data source.
 
-## Teradata Dataset type properties
+## Teradata dataset type properties
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
@@ -247,7 +247,7 @@ Property | Description | Required
 -------- | ----------- | --------
 tableName | Name of the table in the Teradata Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) 
 
-## Teradata Copy Activity type properties
+## Teradata copy activity type properties
 
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
 
@@ -261,7 +261,7 @@ query | Use the custom query to read data. | SQL query string. For example: sele
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-## Type Mapping for Teradata
+## Type mapping for Teradata
 
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, the Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 

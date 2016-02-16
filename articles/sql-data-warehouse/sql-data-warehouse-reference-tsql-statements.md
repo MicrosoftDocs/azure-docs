@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/21/2016"
+   ms.date="02/01/2016"
    ms.author="barbkess;sonyama"/>
 
 #Transact-SQL topics
@@ -27,6 +27,7 @@
 - [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)
 - [CREATE COLUMNSTORE INDEX](https://msdn.microsoft.com/library/gg492153.aspx)
 - [CREATE DATABASE](https://msdn.microsoft.com/library/mt204021.aspx)
+- [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 - [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 - [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/dn935026.aspx)
 - [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
@@ -95,7 +96,6 @@
 - [ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)
 - [ALTER MASTER KEY](https://msdn.microsoft.com/library/ms186937.aspx)
 - [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx)
-- [ALTER SERVER ROLE](https://msdn.microsoft.com/library/ee677634.aspx)
 - [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
 - [BACKUP CERTIFICATE](https://msdn.microsoft.com/library/ms178578.aspx)
 - [CLOSE MASTER KEY](https://msdn.microsoft.com/library/ms188387.aspx)
@@ -104,14 +104,12 @@
 - [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx)
 - [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 - [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx)
-- [CREATE SERVER ROLE](https://msdn.microsoft.com/library/ee677610.aspx)
 - [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx)
 - [DROP CERTIFICATE](https://msdn.microsoft.com/library/ms179906.aspx)
 - [DROP DATABASE ENCRYPTION KEY](https://msdn.microsoft.com/library/bb630256.aspx)
 - [DROP LOGIN](https://msdn.microsoft.com/library/ms188012.aspx)
 - [DROP MASTER KEY](https://msdn.microsoft.com/library/ms180071.aspx)
 - [DROP ROLE](https://msdn.microsoft.com/library/ms174988.aspx)
-- [DROP SERVER ROLE](https://msdn.microsoft.com/library/ee677643.aspx)
 - [DROP USER](https://msdn.microsoft.com/library/ms189438.aspx)
 - [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 

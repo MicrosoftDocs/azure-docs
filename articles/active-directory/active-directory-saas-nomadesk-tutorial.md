@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -72,7 +72,7 @@ To configure the integration of Nomadesk into Azure AD, you need to add Nomadesk
 ![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_01.png)<br>
 7. In the results pane, select **Nomadesk**, and then click **Complete** to add the application.
 <br><br>
-
+![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Nomadesk based on a test user called "Britta Simon".
@@ -84,7 +84,7 @@ To configure and test Azure AD single sign-on with Nomadesk, you need to complet
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Nomadesk test user](#creating-a-Nomadesk-test-user)** - to have a counterpart of Britta Simon in Nomadesk that is linked to the Azure AD representation of her.
+4. **[Creating a Nomadesk test user](#creating-a-nomadesk-test-user)** - to have a counterpart of Britta Simon in Nomadesk that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 

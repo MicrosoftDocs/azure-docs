@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="01/25/2016" 
+	ms.date="02/01/2016" 
 	ms.author="raynew"/>
 
 # Create recovery plans
@@ -53,7 +53,7 @@ Note the following:
 		- VMM cmdlets are delivered in a Windows PowerShell module. The VMM Windows PowerShell module is installed when you install the VMM console. The VMM module can be loaded into your script using the following command in the script: Import-Module -Name virtualmachinemanager. [Get more details](hhttps://technet.microsoft.com/library/hh875013.aspx).
 		- Ensure you have at least one library server in your VMM deployment. By default the library share path for a VMM server is located locally on the VMM server with the folder name MSCVMMLibrary.
 		- If your library share path is remote (or local but not shared with MSCVMMLibrary, configure the share as follows (using \\libserver2.contoso.com\share\ as an example):
-			- Open the Registry Editor and navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration.
+			- Open the Registry Editor and navigate to HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration.
 			-  Edit the value ScriptLibraryPath and place the value as \\libserver2.contoso.com\share\. Specify the full FQDN. Provide permissions to the share location.
 			-  Ensure that you test the script with a user account that has the same permissions as the VMM service account, to ensure that stand-alone tested scripts run in the same way that they will in recovery plans. On the VMM server, set the execution policy to bypass as follows:
 				-  Open the 64-bit Windows PowerShell console using elevated privileges.

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Continous export of telemetry from Application Insights" 
+	pageTitle="Continuous export of telemetry from Application Insights" 
 	description="Export diagnostic and usage data to storage in Microsoft Azure, and download it from there." 
 	services="application-insights" 
     documentationCenter=""

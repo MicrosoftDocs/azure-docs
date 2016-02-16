@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/26/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # Get started with API Apps and ASP.NET in Azure App Service
@@ -340,6 +340,8 @@ To do that, you set the `apiDefinition` property on the `Microsoft.Web/sites/con
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
 		}
 
+To see an example of an Azure Resource Manager template that includes JSON for setting the API definition property, open the [azuredeploy.json file in the sample application repository](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json).
+
 ## <a id="codegen"></a> Consume from a .NET client by using generated client code
 
 One of the advantages of integrating Swagger into Azure API apps is automatic code generation. Generated client classes make it easier to write code that calls an API app.
@@ -392,25 +394,23 @@ The ToDoListAPI project already has the generated client code, but you'll delete
 
 	The following snippet shows how the code instantiates the client object and calls the Get method.
 
-		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri("http://localhost:45914"));
+		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
 
-	This code passes in the local IIS Express URL of thet API project to the client class constructor so that you can run the the application locally. If you omit the constructor parameter, the default endpoint is the URL that you generated the code from.
+	The constructor parameter gets the endpoint URL from  the `toDoListDataAPIURL` app setting. In the Web.config file, that value is set to the local IIS Express URL of the API project in the `toDoListDataAPIURL` setting so that you can run the the application locally. If you omit the constructor parameter, the default endpoint is the URL that you generated the code from.
 
-6. Your client class will be generated with a different name based on your API app name; change this code so that the type name matches what was generated in your project, and remove the URL. For example, if you named your API App ToDoListDataAPI0121, the code would look like the following example:
+6. Your client class will be generated with a different name based on your API app name; change this code so that the type name matches what was generated in your project. For example, if you named your API App ToDoListDataAPI0121, the code would look like the following example:
 
-		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121();
+		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
-
-	The default target URL is your ToDoListDataAPI API app because you generated the code from there; if you used a different method to generate the code you might have to specify the Azure API app URL the same way you specified the local URL. 
 
 #### Create an API app to host the middle tier
 
@@ -433,6 +433,22 @@ The ToDoListAPI project already has the generated client code, but you'll delete
 7. Click **Create**.
 
 	Visual Studio creates the API app, creates a publish profile for it, and displays the **Connection** step of the **Publish Web** wizard.
+
+### Set the data tier URL in middle tier app settings
+
+1. Go to the [Azure portal](https://portal.azure.com/), and then navigate to the **API App** blade for the API app that you created to host the TodoListAPI (middle tier) project.
+
+2. Click **Settings > Application Settings**.
+
+3. In the **App settings** section, add the following key and value:
+
+	|Key|Value|Example
+	|---|---|---|
+	|toDoListDataAPIURL|https://{your data tier API app name}.azurewebsites.net|https://todolistdataapi0121.azurewebsites.net|
+
+4. Click **Save**.
+
+	When the code runs in Azure, this value will now override the localhost URL that is in the Web.config file. 
 
 ### Deploy the ToDoListAPI project to the new API app
 

@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Data Catalog release notes"
    description="Release notes for the 28 August 2015 public preview release of Azure Data Catalog."
    services="data-catalog"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 # Azure Data Catalog release notes
@@ -37,14 +37,6 @@ When connecting to Teradata data sources users must have installed the correct T
 
 As of this ADC release date, the most recent [Teradata ODBC driver for windows ( version 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) is compatible with Office 2013, but not with Office 2016.
 
-## Notes for the November 6, 2015 release of Azure Data Catalog
-
-### Users may encounter errors when launching the data source registration tool
-
-When launching the **Azure Data Catalog** data source registration tool from the **Azure Data Catalog** portal, users who have previously installed an older version of the tool may receive this message: "Application cannot be started. Contact the application vendor."
-
-Users who receive this message should use Windows control panel to remove the existing "Azure Data Catalog" application, and then re-launch the tool from the **Azure Data Catalog** portal.
-
 ## Notes for the July 13, 2015 release of Azure Data Catalog
 
 ### Registering and connecting to Oracle Database
@@ -64,7 +56,7 @@ Support for SQL Server Reporting Services (SSRS) data sources in the initial pre
 
 When opening data assets in Microsoft Excel from the **Azure Data Catalog** portal, users may be prompted with a **Microsoft Excel Security Notice** dialog box. This is standard, expected behavior, and users can select **Enable** to continue.
 
-For more information, see [Enable or disable security alerts about links and files from suspicious websites](https://support.office.com/en-us/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+For more information, see [Enable or disable security alerts about links and files from suspicious websites](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ### BLOB and UDT columns missing in previews
 
@@ -81,7 +73,7 @@ The data source registration tool uses Forms Authentication to validate user log
 
 In some situations, this error behavior may occur only when the user is on the company network, or only when the user is connecting from outside the company network. The Global Authentication Policy allows authentication methods to be enabled separately for intranet and extranet connections. Logon errors may occur if Forms Authentication is not enabled for the network from which the user is connecting.
 
-For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/en-us/library/dn486781.aspx).
+For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/library/dn486781.aspx).
 
 **Cause 2: Network proxy configuration**
 If the corporate network uses a proxy server, the registration tool may not be able to connect to Azure Active Directory through the proxy. Users can ensure that the registration tool by editing the tool’s configuration file, adding this section to the file:

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="02/07/2016"
    ms.author="curtand"/>
 
 # Azure classic portal keyboard shortcuts
@@ -49,4 +49,3 @@
 ## Next steps
 
 Get to know the Azure classic portal better: http://azure.microsoft.com.
-

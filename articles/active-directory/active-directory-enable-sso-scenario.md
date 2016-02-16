@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/16/2015"
+      ms.date="02/09/2016"
       ms.author="inhenk"/>
 
 # Managing Applications with Azure Active Directory (AD)
@@ -123,3 +123,7 @@ With Azure AD you can secure your applications with granular access policies and
 ## Getting started
 
 To get started integrating applications with Azure AD, take a look at the [Integrating Azure Active Directory with applications getting started guide](active-directory-integrating-applications-getting-started.md).
+
+## See also
+
+[Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="02/02/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory editions
@@ -93,7 +93,6 @@ In addition to the generally available features of the Free, Basic, and Premium 
 **Available preview features:**
 
 - [B2B collaboration](active-directory-b2b-collaboration-overview.md)
-- PIM
 - Conditional Access
 - [Administrative Units](active-directory-administrative-units-management.md)
 - Privileged Identity Management
