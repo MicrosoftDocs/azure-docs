@@ -37,7 +37,7 @@ To configure your connection string in the Azure service configuration:
 
 	> [AZURE.NOTE] You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.
 
-	If you are targeting a storage account in the cloud, then enter the primary access key for that storage account. To learn how to copy your primary access key via the Azure Management Portal, see [View and copy storage access keys](../articles/storage/storage-create-storage-account.md/#view-and-copy-storage-access-keys).
+	If you are targeting a storage account in the cloud, then enter the primary access key for that storage account. To learn how to copy your primary access key via the Azure Management Portal, see [View and copy storage access keys](storage-create-storage-account.md/#view-and-copy-storage-access-keys).
 
 	> [AZURE.NOTE] Your storage account key is similar to the root password for your storage account. Be sure to protect your key. Avoid distributing it to other users or saving it in a plain-text file that is accessible to others. Regenerate your key using the Management Portal if you believe it may have been compromised.
 	
