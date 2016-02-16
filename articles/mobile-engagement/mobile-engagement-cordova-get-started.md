@@ -64,7 +64,7 @@ We will create a basic app with Cordova to demonstrate the integration:
 		$ cordova platform add ios 
 		$ cordova run ios
 
-3. Execute the following to configure your project for **Android** and run it in the Android emulator:
+3. Execute the following to configure your project for **Android** and run it in the Android emulator. Make sure that your Android SDK Emulator settings have its Target as Google APIs (Google Inc.) with the CPU / ABI as Google APIs ARM.  
 
 		$ cordova platform add android
 		$ cordova run android

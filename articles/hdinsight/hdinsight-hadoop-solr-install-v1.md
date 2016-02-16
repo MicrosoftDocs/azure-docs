@@ -191,7 +191,7 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 - [Install R on HDInsight clusters][hdinsight-install-r]: Script Action sample about installing R
 - [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md): Script Action sample about installing Giraph
 
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md

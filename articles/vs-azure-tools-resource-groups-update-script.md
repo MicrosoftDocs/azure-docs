@@ -94,19 +94,12 @@ These instructions refer to line numbers. To enable line numbering in Visual Stu
 		-Location $ResourceGroupLocation `
 		-Verbose -Force -ErrorAction Stop
 
-	Test-AzureRmResourceGroupDeployment `
+	New-AzureRMResourceGroupDeployment `
+		-Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
 		-ResourceGroupName $ResourceGroupName `
 		-TemplateFile $TemplateFile `
 		-TemplateParameterFile $TemplateParametersFile `
 		@OptionalParameters `
-		-ErrorAction Stop 	
-
-	New-AzureRMResourceGroupDeployment `
-		-Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
-	    -ResourceGroupName $ResourceGroupName `
-	    -TemplateFile $TemplateFile `
-	    -TemplateParameterFile $TemplateParametersFile `
-	    @OptionalParameters `
 		-Verbose -Force
 	```
 
@@ -212,19 +205,12 @@ New-AzureRMResourceGroup `
 	-Location $ResourceGroupLocation `
 	-Verbose -Force -ErrorAction Stop
 
-Test-AzureRmResourceGroupDeployment `
+New-AzureRMResourceGroupDeployment `
+	-Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
 	-ResourceGroupName $ResourceGroupName `
 	-TemplateFile $TemplateFile `
 	-TemplateParameterFile $TemplateParametersFile `
 	@OptionalParameters `
-	-ErrorAction Stop 	
-
-New-AzureRMResourceGroupDeployment `
-	-Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
-    -ResourceGroupName $ResourceGroupName `
-    -TemplateFile $TemplateFile `
-    -TemplateParameterFile $TemplateParametersFile `
-    @OptionalParameters `
 	-Verbose -Force
 
 ```
