@@ -14,22 +14,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="02/17/2016"
    ms.author="mikewasson"/>
 
-# Azure Blueprints: Running a Virtual Machine (Windows) on Azure
+# Running a Single Windows VM on Azure
 
-This article outlines a set of proven practices for running a single VM on Azure, paying attention to scalability, resiliency, manageability, and security.  
+This article outlines a set of proven practices for running a single Windows VM on Azure, paying attention to scalability, resiliency, manageability, and security.  
 
-Please note that there is no up-time SLA for single VMs on Azure. Use this configuration for development and test, but not as a production deployment.
+> [AZURE.WARNING] There is no up-time SLA for single VMs on Azure. Use this configuration for development and test, but not as a production deployment.
 
-> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments. There are several ways to use Resource Manager, including the [Azure Portal][azure-portal], [Azure PowerShell][azure-powershell], [Azure CLI][azure-cli] commands, or [Resource Manager templates][arm-templates]. This article includes an example using the Azure CLI.
+> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments. There are several ways to use Resource Manager, including the [Azure Portal][azure-portal], [Azure PowerShell][azure-powershell], [Azure CLI][azure-cli] commands, or [Resource Manager templates][arm-templates]. This article includes an example using the Azure CLI.
 
-## Architecture blueprint
+![IaaS: single VM](media/guidance-compute-single-vm.png)
 
 Provisioning a single VM in Azure involves more moving parts than the core VM itself. There are compute, networking, and storage elements.  
-
-![IaaS: single VM](arch-iaas-single-vm.png)
 
 - **Resource group.** Create a [resource group][resource-manager-overview] to hold the resources for this VM. A _resource group_ is a container that holds related resources.
 
@@ -50,7 +48,6 @@ Provisioning a single VM in Azure involves more moving parts than the core VM it
 - **Network interface card (NIC)**. The NIC enables the VM to communicate with the virtual network.
 
 - **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
-
 
 ## VM recommendations
 
@@ -82,11 +79,11 @@ We recommend [Premium Storage][premium-storage], for the best disk I/O performan
 
 - For a single VM, create one VNet with one subnet. Also create an NSG and public IP address.
 
-- The public IP address can be static or dynamic.
+- The public IP address can be dynamic or static. The default is dynamic.
 
-    - Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be whitelisted.
+    - Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be whitelisted. .
 
-    - Otherwise, a dynamic address is sufficient. (This is the default.)
+    - By default, the IP address does not have a fully qualified domain name (FQDN). For more information, see [Create a Fully Qualified Domain Name in the Azure portal][fqdn].
 
 - Allocate a NIC and associate it with the IP address, subnet, and NSG.
 
@@ -164,79 +161,104 @@ To scale to a size that is not listed, you must delete the VM instance and creat
 
 ## Azure CLI commands (example)
 
-The following [Azure CLI][azure-cli] commands deploy a single VM instance and the related network and storage resources. Parameter values in `<< >>` are placeholders.
+The following Windows batch script executes the  [Azure CLI][azure-cli] commands to deploy a single VM instance and the related network and storage resources, as shown in the previous diagrm.
 
-When you create resources, give them meaningful names, and use [tags][tags] to organize them.
+```
+ECHO OFF
+SETLOCAL
 
-    azure config mode arm
+IF "%~1"=="" (
+    ECHO Usage: %0 subscription-id
+    EXIT /B
+    )
 
-    // Login to your Azure account
-    azure login
+:: Set up variables to build out the naming conventions for deploying
+:: the cluster
 
-    // Set the Azure subscription. To list your subscriptions, use 'azure account list'
-    azure account set <<subscription-id>>
+SET LOCATION=eastus2
+SET APP_NAME=app1
+SET ENVIRONMENT=dev
+SET USERNAME=testuser
+SET PASSWORD=AweS0me@PW
 
-    // Create resource group
-    azure group create -n <<resource-group>> -l <<location>>
+:: Explicitly set the subscription to avoid confusion as to which subscription
+:: is active/default
+SET SUBSCRIPTION=%1
 
-    // Create VNet
-    azure network vnet create --address-prefixes 172.17.0.0/16
-      <<resource-group>> <<vnet-name>> <<location>>
+:: Set up the names of things using recommended conventions
+SET RESOURCE_GROUP=%APP_NAME%-%ENVIRONMENT%-rg
+SET VM_NAME=%APP_NAME%-vm0
 
-    // Create subnet
-    azure network vnet subnet create --vnet-name <<vnet-name>>
-      --address-prefix 172.17.0.0/24 <<resource-group>> <<subnet-name>>
+SET IP_NAME=%APP_NAME%-pip
+SET NIC_NAME=%VM_NAME%-0nic
+SET NSG_NAME=%APP_NAME%-nsg
+SET SUBNET_NAME=%APP_NAME%-subnet
+SET VNET_NAME=%APP_NAME%-vnet
+SET VHD_STORAGE=%VM_NAME:-=%st0
+SET DIAGNOSTICS_STORAGE=%VM_NAME:-=%diag
 
-    // Create IP address (dynamic)
-    azure network public-ip create <<resource-group>> <<ip-name>> <<location>>
+:: For Windows, use the following command to get the list of URNs:
+:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
+SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
 
-    // Create NSG
-    azure network nsg create <<resource-group>> <<nsg-name>> <<location>>
+:: For a list of VM sizes see...
+SET VM_SIZE=Standard_DS1
 
-    // Create NIC
-    azure network nic create --network-security-group-name <<nsg-name>>
-      --public-ip-name <<ip-name>> --subnet-name <<subnet-name>>
-      --subnet-vnet-name <<vnet-name>> <<resource-group>> <<nic-name>>
-      <<location>>
+:: Set up the postfix variables attached to most CLI commands
+SET POSTFIX=--resource-group %RESOURCE_GROUP% --location %LOCATION% ^
+  --subscription %SUBSCRIPTION%
 
-    // Create storage account for OS VHD
-    azure storage account create -g <<resource-group>> -l <<location>>
-      --type PLRS <<storage-account-name>>
-    // PLRS = Premium LRS
+call azure config mode arm
 
-    // List images for Windows Server 2012 R2.
-    // Use this command to get the Uniform Resource Name (URN), which is
-    // needed to create a VM from a published image.
-    azure vm image list <<location>> MicrosoftWindowsServer WindowsServer
-        2012-R2-Datacenter
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Create resources
 
-    // Create a VM from a published image.
-    // This example creates a DS1
-    azure vm create -g <<resource-group>> -l <<location>> --os-type Windows
-      --image-urn <<image-urn>> --vm-size Standard_DS1
-      --vnet-subnet-name <<subnet-name>>  --nic-name <<nic-name>>
-      --vnet-name <<vnet-name>> --storage-account-name <<storage-account-name>>
-      <<vm-name>>
+:: Create the enclosing resource group
+call azure group create --name %RESOURCE_GROUP% --location %LOCATION%
 
-    // ... or create a VM from a VHD that was uploaded to Azure storage.
-    azure vm create -g <<resource-group>> -l <<location>> --os-type Windows
-      -d myimage.vhd --vm-size Standard_DS1 --vnet-name <<vnet-name>>
-      --vnet-subnet-name <<subnet-name>> --nic-name <<nic-name>>
-      --storage-account-name <<storage-account-name>> <<vm-name>>
+:: Create the VNet
+call azure network vnet create --address-prefixes 172.17.0.0/16 ^
+  --name %VNET_NAME% %POSTFIX%
 
-    // Attach data disk
-    azure vm disk attach-new -g <<resource-group>> --vm-name <<vm-name>>
-      --size-in-gb 128 --vhd-name <<vhd-name>>
-      --storage-account-name <<storage-account-name>>
+:: Create the subnet
+call azure network vnet subnet create --vnet-name %VNET_NAME% --address-prefix ^
+  172.17.0.0/24 --name %SUBNET_NAME% --resource-group %RESOURCE_GROUP% ^
+  --subscription %SUBSCRIPTION%
 
-    // Allow RDP
-    azure network nsg rule create -g <<resource-group>> --nsg-name <<nsg-name>>
-      --direction Inbound --protocol Tcp --destination-port-range 3389
-      --source-port-range * --priority 100 --access Allow RDPAllow
+:: Create the public IP address (dynamic)
+call azure network public-ip create --name %IP_NAME% %POSTFIX%
 
-## Next steps
+:: Create the network security group
+call azure network nsg create --name %NSG_NAME% %POSTFIX%
 
-- Multiple VMs deployed in an availability set. [TBD]
+:: Create the NIC
+call azure network nic create --network-security-group-name %NSG_NAME% ^
+  --public-ip-name %IP_NAME% --subnet-name %SUBNET_NAME% --subnet-vnet-name ^
+  %VNET_NAME%  --name %NIC_NAME% %POSTFIX%
+
+:: Create the storage account for the OS VHD
+call azure storage account create --type PLRS %POSTFIX% %VHD_STORAGE%
+
+:: Create the storage account for diagnostics logs
+call azure storage account create --type LRS %POSTFIX% %DIAGNOSTICS_STORAGE%
+
+:: Create the VM
+call azure vm create --name %VM_NAME% --os-type Windows --image-urn ^
+  %WINDOWS_BASE_IMAGE% --vm-size %VM_SIZE%   --vnet-subnet-name %SUBNET_NAME% ^
+  --nic-name %NIC_NAME% --vnet-name %VNET_NAME% --storage-account-name ^
+  %VHD_STORAGE% --os-disk-vhd "%VM_NAME%-osdisk.vhd" --admin-username ^
+  "%USERNAME%" --admin-password "%PASSWORD%" --boot-diagnostics-storage-uri ^
+  "https://%DIAGNOSTICS_STORAGE%.blob.core.windows.net/" %POSTFIX%
+
+:: Attach a data disk
+call azure vm disk attach-new -g %RESOURCE_GROUP% --vm-name %VM_NAME% ^
+  --size-in-gb 128 --vhd-name data1.vhd --storage-account-name %VHD_STORAGE%
+
+:: Allow RDP
+call azure network nsg rule create -g %RESOURCE_GROUP% --nsg-name %NSG_NAME% ^
+  --direction Inbound --protocol Tcp --destination-port-range 3389 ^
+  --source-port-range * --priority 100 --access Allow RDPAllow
+```
 
 <!-- links -->
 
@@ -252,6 +274,7 @@ When you create resources, give them meaningful names, and use [tags][tags] to o
 [data-disk]: ../virtual-machines/virtual-machines-disks-vhds.md
 [disk-encryption]: ../azure-security-disk-encryption.md
 [enable-monitoring]: ../azure-portal/insights-how-to-use-diagnostics.md
+[fqdn]: ../virtual-machines/virtual-machines-create-fqdn-on-portal.md
 [log-collector]: https://azure.microsoft.com/en-us/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: ../virtual-machines/virtual-machines-manage-availability.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
@@ -268,7 +291,6 @@ When you create resources, give them meaningful names, and use [tags][tags] to o
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [static-ip]: ../virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
-[tags]: ../resource-group-using-tags.md
 [virtual-machine-sizes]: ../virtual-machines/virtual-machines-size-specs.md
 [vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-faq]: ../virtual-machines/virtual-machines-questions.md
