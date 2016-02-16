@@ -22,7 +22,7 @@
 
 ## Create a Facebook application
 
-To use Facebook as an identity provider in Azure Active Directory (Azure AD) B2C, you will first need to create a Facebook application and supply it with the right parameters. You will need a Facebook account to do this; if you don’t have one, you can get it at [https://www.facebook.com/](https://www.facebook.com/).
+To use Facebook as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create a Facebook application and supply it with the right parameters. You need a Facebook account to do this. If you don’t have one, you can get it at [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Go to the [Facebook for developers](https://developers.facebook.com/) website and sign in with your Facebook account credentials.
 2. If you have not already done so, you need to register as a Facebook developer. To do this, click **Register** (on the upper-right corner of the page), accept Facebook's policies, and complete the registration steps.
@@ -34,7 +34,9 @@ To use Facebook as an identity provider in Azure Active Directory (Azure AD) B2C
 
     ![Facebook - Create App ID](./media/active-directory-b2c-setup-fb-app/fb-new-app-skip.png)
 
-4. On the form, provide a **Display Name**, choose the appropriate **Category**, and click **Create App ID**. Note: This requires you to accept Facebook platform policies and complete an online security check.
+4. On the form, provide a **Display Name**, choose the appropriate **Category**, and click **Create App ID**.
+
+	>[AZURE.NOTE] This requires you to accept Facebook platform policies and complete an online security check.
 
     ![Facebook - Create a New App ID](./media/active-directory-b2c-setup-fb-app/fb-create-app-id.png)
 
@@ -46,11 +48,13 @@ To use Facebook as an identity provider in Azure Active Directory (Azure AD) B2C
     ![Facebook - Settings - Website](./media/active-directory-b2c-setup-fb-app/fb-website.png)
 
 7. Enter [https://login.microsoftonline.com/](https://login.microsoftonline.com/) in the **Site URL** field and then click **Save Changes**.
-8. Copy the value of **App ID**. Click **Show** and copy the value of **App Secret**. You will need both of them to configure Facebook as an identity provider in your tenant. Note: **App Secret** is an important security credential.
+8. Copy the value of **App ID**. Click **Show** and copy the value of **App Secret**. You will need both of them to configure Facebook as an identity provider in your tenant.
+
+	>[AZURE.NOTE] **App Secret** is an important security credential.
 
     ![Facebook - Site URL](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
 
-9. Click the **Advanced** tab at the top, and then enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Valid OAuth redirect URIs** field (in the **Security** section), where **{tenant}** is to be replaced with your tenant's name (for example, contosob2c.onmicrosoft.com). Click **Save Changes** at the bottom of the page.
+9. Click the **Advanced** tab at the top, and then enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Valid OAuth redirect URIs** field in the **Security** section. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). Click **Save Changes** at the bottom of the page.
 
     ![Facebook - OAuth Redirect URI](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)
 
@@ -62,10 +66,10 @@ To use Facebook as an identity provider in Azure Active Directory (Azure AD) B2C
 
 ## Configure Facebook as an identity provider in your tenant
 
-1. Follow these steps to [Navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
 2. On the B2C features blade, click **Identity providers**.
 3. Click **+Add** at the top of the blade.
 4. Provide a friendly **Name** for the identity provider configuration. For example, enter "FB".
 5. Click **Identity provider type**, select **Facebook**, and click **OK**.
-6. Click **Set up this identity provider** and enter the **App ID** and **App secret** (of the Facebook application that you created earlier) in the **Client ID** and **Client secret** fields respectively.
+6. Click **Set up this identity provider** and enter the app ID and app secret (of the Facebook application that you created earlier) in the **Client ID** and **Client secret** fields respectively.
 7. Click **OK**, and then click **Create** to save your Facebook configuration.
