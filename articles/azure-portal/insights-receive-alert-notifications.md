@@ -42,8 +42,6 @@ You can use the [REST API](https://msdn.microsoft.com/library/azure/dn931945.asp
 
 6. You can also choose **Events**, and get a notification when a certain event happens. 
     ![Events](./media/insights-receive-alert-notifications/Insights_Events.png)
-    
->[AZURE.NOTE] At this time Events are only supported for Web Apps. 
 
 7. Finally, you can choose to send email notification to responsible administrators.
 
