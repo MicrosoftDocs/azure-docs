@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/22/2016"
+   ms.date="02/16/2016"
    ms.author="rickbyh"/>
 
 # How to configure an Azure SQL database firewall
