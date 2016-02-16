@@ -35,7 +35,7 @@ You can view your existing NSGs, retrieve rules for an existing NSG, and find ou
 
 ### View existing NSGs
 
-To view the list of NSGs in a specific resource group, run the `azure network nsg list` as shown below. 
+To view the list of NSGs in a specific resource group, run the `azure network nsg list` command as shown below. 
 
 	azure network nsg list --resource-group RG-NSG
 
@@ -51,7 +51,7 @@ Expected output:
 		 
 ### List all rules for an NSG
 
-To view the rules of an NSG named **NSG-FrontEnd**, run the `azure network nsg show` as shown below. 
+To view the rules of an NSG named **NSG-FrontEnd**, run the `azure network nsg show` command as shown below. 
 
 	azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd
 
@@ -82,7 +82,7 @@ Expected output:
 
 ### View NSGs associations
 
-To view what resources the **NSG-FrontEnd** NSG is associate with, run the `azure network nsg show` as shown below. Notice that the only difference is the use of the **--json** parameter.
+To view what resources the **NSG-FrontEnd** NSG is associate with, run the `azure network nsg show` command as shown below. Notice that the only difference is the use of the **--json** parameter.
 
 	azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json
 
@@ -143,7 +143,7 @@ Expected output:
 
 ### Change a rule
 
-To change the rule created above to allow inbound traffic from the **Internet** only, run the `azure network nsg rule set` as shown below.
+To change the rule created above to allow inbound traffic from the **Internet** only, run the `azure network nsg rule set` command as shown below.
 
 	azure network nsg rule set --resource-group RG-NSG \
 		--nsg-name NSG-FrontEnd \
@@ -173,7 +173,7 @@ Expected output:
 
 ### Delete a rule
 
-To delete the rule created above, run the `azure network nsg rule delete` as shown below.
+To delete the rule created above, run the `azure network nsg rule delete` command as shown below.
 
 	azure network nsg rule delete --resource-group RG-NSG \
 		--nsg-name NSG-FrontEnd \
@@ -195,7 +195,7 @@ You can associate an NSG to subnets and NICs. You can also dissociate an NSG fro
 
 ### Associate an NSG to a NIC
 
-To associate the **NSG-FrontEnd** NSG to the **TestNICWeb1** NIC, run the `azure network nic set` command, as shown below.
+To associate the **NSG-FrontEnd** NSG to the **TestNICWeb1** NIC, run the `azure network nic set` command as shown below.
 
 	azure network nic set --resource-group RG-NSG \
 		--name TestNICWeb1 \
