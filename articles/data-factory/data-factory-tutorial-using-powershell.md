@@ -392,7 +392,7 @@ To specify the active period for the pipeline, you can use the cmdlet Set-AzureR
 
 	![RawGameEventsTable DATA SLICE blade][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	If there was an error, you would see a **Failed **status here.  You might also see either both slices with status **Ready**, or both with status **PendingValidation**, depending on how quickly the slices are processed.
+	If there was an error, you would see a **Failed **status here.  You might also see either both slices with status **Ready**, or both with status **Waiting**, depending on how quickly the slices are processed.
  
 	Refer to the [Azure Data Factory Developer Reference][developer-reference] to get an understanding of all possible slice statuses.
 
