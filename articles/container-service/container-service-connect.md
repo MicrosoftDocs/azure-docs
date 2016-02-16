@@ -58,7 +58,7 @@ The Mesos related endpoints can now be accessed at:
 - Marathon - `http://localhost/marathon`
 - Chronos -`http://localhost/chronos`. 
 
-Similarly the rest APIs for each application can be reached through this tunnel: Marathon - `http://localhost/marathon/v2`. For more information on the
+Similarly, the rest APIs for each application can be reached through this tunnel: Marathon - `http://localhost/marathon/v2`. For more information on the
 various APIs available see the Mesosphere documentation for the
 [Marathon
 API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the
@@ -68,17 +68,15 @@ API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
 
 ### Swarm Tunnel
 
-To open a tunnel to the Swarm endpoint execute something that looks
-similar to the following command (here we map the Mesos API endpoints
-to port 8080 on the local client, but you can choose any port you
-prefer).
+To open a tunnel to the Swarm endpoint execute a command that looks
+similar to the following command.
 
 ```
 ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 Now you can set your DOCKER_HOST environment variable as follows and
-contninue to use your Docker CLI as normal.
+continue to use your Docker CLI as normal.
 
 ```
 export DOCKER_HOST=:2375
