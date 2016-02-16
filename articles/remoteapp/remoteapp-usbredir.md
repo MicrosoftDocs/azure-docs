@@ -73,7 +73,7 @@ The hardest part of this method is finding the USB device instance ID. You'll ne
 
 Now, use the instance ID in the following cmdlet:
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB\<Device InstanceID value>"
+	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "usbdevicestoredirect:s: USB\<Device InstanceID value>"
 
 
 
