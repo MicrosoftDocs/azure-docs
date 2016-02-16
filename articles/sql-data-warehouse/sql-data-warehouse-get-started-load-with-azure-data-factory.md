@@ -35,11 +35,11 @@
 
 For this tutorial, you will need the following resources:
 
-   + **Azure Storage Blob**:  Your Azure Storage Blob will be the source of data for the pipeline.  You can use an existing blob or [provision a new one](../storage/storage-create-storage-account/).
+   + **Azure Storage Blob**:  Your Azure Storage Blob will be the source of data for the pipeline.  You can use an existing blob or [provision a new one](../storage/storage-create-storage-account.md).
 
    + **SQL Data Warehouse**: In this tutorial you will be moving data to SQL Data Warehouse.  If you do not already have an instance set-up, you can learn how  [here](sql-data-warehouse-get-started-provision.md).  In addition, your instance will need to be set-up with our AdventureWorks DW dataset.  If you didn't provision your data warehouse with the sample data, you can [load it manually](sql-data-warehouse-get-started-manually-load-samples.md).
 
-   + **Azure Data Factory**: Azure Data Factory will complete the actual load and if you need more information on setting Azure Data Factory or creating pipelines then you can see that [here](../data-factory/data-factory-build-your-first-pipeline-using-editor/).
+   + **Azure Data Factory**: Azure Data Factory will complete the actual load and if you need more information on setting Azure Data Factory or creating pipelines then you can see that [here](../data-factory/data-factory-build-your-first-pipeline-using-editor.md).
 
 Once you have all of the pieces ready you can move on to preparing your data and creating your Azure Data Factory pipeline.
 
@@ -53,13 +53,13 @@ In addition to the different pieces of the pipeline, we will also need some samp
 
         AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core.windows.net/<container name> /DestKey:<storage key> /Pattern:FactInternetSales.csv
 
-	See the [AZCopy documentation](../storage/storage-use-azcopy/) for additional information on how to install and work with AZCopy.
+	See the [AZCopy documentation](../storage/storage-use-azcopy.md) for additional information on how to install and work with AZCopy.
 
 Now that we have our data in place we can move to your data factory to create the pipeline that will move data from your storage account to your SQL Data Warehouse.  
 
 ## Using Azure Data Factory
 
-Now that we've set up all the pieces, we can start to set-up the pipeline by navigating to your Azure Data Factory instance in the Azure Portal.  This can be done by going to the [Azure Classic Portal](portal.azure.com) and selecting your data factory from the left-hand menu.
+Now that we've set up all the pieces, we can start to set-up the pipeline by navigating to your Azure Data Factory instance in the Azure Portal.  This can be done by going to the [Azure Classic Portal](https://portal.azure.com/) and selecting your data factory from the left-hand menu.
 
 From here there will be three steps to setting up a Azure Data Factory pipeline to transfer data to your data warehouse: linking your services, defining your datasets, and creating your pipeline.
 
@@ -155,7 +155,7 @@ After creating the linked services, we will have to define the data sets.  Here 
 
 ### Setting up your pipeline
 
-Finally, we will set-up and run the pipeline in Azure Data Factory.  This is the operation that will complete the actual data movement.  You can find a full view of the operations that you can complete with SQL Data Warehouse and Azure Data Factory [here](../data-factory/data-factory-azure-sql-data-warehouse-connector/).
+Finally, we will set-up and run the pipeline in Azure Data Factory.  This is the operation that will complete the actual data movement.  You can find a full view of the operations that you can complete with SQL Data Warehouse and Azure Data Factory [here](../data-factory/data-factory-azure-sql-data-warehouse-connector.md).
 
 In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipeline'.  After you create the pipeline, you can use the below code to transfer the data to your data warehouse:
 
