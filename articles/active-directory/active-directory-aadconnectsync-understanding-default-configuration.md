@@ -1,20 +1,19 @@
 <properties
-   pageTitle="Azure AD Connect sync: Understanding the default configuration | Microsoft Azure"
-   description="This article describes the default configuration in Azure AD Connect sync."
-   services="active-directory"
-   documentationCenter=""
-   authors="andkjell"
-   manager="stevenpo"
-   editor=""/>
-
+    pageTitle="Azure AD Connect sync: Understanding the default configuration | Microsoft Azure"
+    description="This article describes the default configuration in Azure AD Connect sync."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="01/21/2016"
-   ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+	ms.topic="get-started-article"
+    ms.date="02/12/2016"
+    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Understanding the default configuration
 
