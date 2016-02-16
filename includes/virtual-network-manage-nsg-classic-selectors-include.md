@@ -1,4 +1,4 @@
 > [AZURE.SELECTOR]
-[Preview Portal](virtual-network-manage-classic-portal.md)
-[PowerShell](virtual-network-manage-classic-ps.md)
-[Azure CLI](virtual-network-manage-classic-cli.md)
+[Preview Portal](..\articles\virtual-network\virtual-network-manage-classic-portal.md)
+[PowerShell](..\articles\virtual-network\virtual-network-manage-classic-ps.md)
+[Azure CLI](..\articles\virtual-network\virtual-network-manage-classic-cli.md)

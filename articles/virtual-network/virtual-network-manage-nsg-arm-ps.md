@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
 
-[AZURE.INCLUDE [virtual-network-manage-intro-include.md](../../includes/virtual-network-manage-intro-include.md)]
+[AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-manage-classic-ps.md).
 
