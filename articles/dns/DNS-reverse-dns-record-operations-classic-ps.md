@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="How to create reverse DNS records for your services using PowerShell in the classic deployment model | Microsoft Azure"
-   description="How to create reverse DNS records for Azure services  using PowerShell in the classic deployment model"
+   pageTitle="How to manage reverse DNS records for your services using PowerShell in the classic deployment model | Microsoft Azure"
+   description=How to manage reverse DNS records for your services using PowerShell in the classic deployment model"
    services="DNS"
    documentationCenter="na"
    authors="joaoma"

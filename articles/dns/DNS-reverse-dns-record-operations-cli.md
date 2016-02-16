@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="How to create reverse DNS records for your services using the Azure CLI in Resource Manager | Microsoft Azure"
-   description="How to create reverse DNS records for Azure services  using the Azure CLI in Resource Manager"
+   pageTitle="How to manage reverse DNS records for your services using the Azure CLI in Resource Manager | Microsoft Azure"
+   description="How to manage reverse DNS records for your services  using the Azure CLI in Resource Manager"
    services="DNS"
    documentationCenter="na"
    authors="joaoma"
