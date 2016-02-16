@@ -26,7 +26,7 @@ With the Batch service, you programmatically define Azure compute resources to e
 
 Batch is a managed Azure service that is used for *batch processing* or *batch computing*--running a large volume of similar tasks to get some desired result. Batch computing is most commonly used by organizations that regularly process, transform, and analyze large volumes of data.
 
-Batch works best with intrinsically parallel (also known as "embarrassingly parallel") applications and workloads, but other types of parallel workloads can be processed using Batch. Intrinsically parallel workloads are easily split into multiple tasks that perform work simultaneously on many computers.
+Batch works well with intrinsically parallel (also known as "embarrassingly parallel") applications and workloads. Intrinsically parallel workloads are easily split into multiple tasks that perform work simultaneously on many computers.
 
 ![Parallel tasks][1]<br/>
 
