@@ -372,7 +372,7 @@ The new certificate is now saved to the desktop on the **portalvm** virtual mach
 
 3. In the **Register resource provider** blade, type a **Display Name**, like *WebApps*.
 
-4. In the **Manifest endpoint** box, type the location of the manifest file, like *htts://management.azurestack.local/*.
+4. In the **Manifest endpoint** box, type the location of the manifest file, like *https://management.azurestack.local/*.
 
 5. Type the admin credentials for **Username** and **Password**.
 

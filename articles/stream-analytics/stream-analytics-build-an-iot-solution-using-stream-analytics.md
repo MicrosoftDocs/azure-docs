@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="02/16/2016" 
 	ms.author="jeffstok"
 />
 
@@ -37,7 +37,7 @@ After completing this tutorial, you will be able to:
 
 You will need the following pre-requisites to successfully complete this tutorial.
 
--   Latest [Azure PowerShell](../install-configure-powershell.md)
+-   Latest [Azure PowerShell](../powershell-install-configure.md)
 -   Visual Studio 2015 or the free [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 -   [Azure Subscription](https://azure.microsoft.com/pricing/free-trial/)
 -   Administrative Privileges on the computer
@@ -150,7 +150,7 @@ The Setup.ps1 script in the TollApp folder on GitHub can be used to create all r
 
 Download and save the supporting [TollApp](https://github.com/streamanalytics/samples/releases) folder and files. Make sure you download the latest release.
 
-Open a “Microsoft Azure PowerShell” window **AS AN ADMINISTRATOR**. If you do not yet have Azure PowerShell, follow the instructions here to install it: [Install and configure Azure PowerShell](../install-configure-powershell.md)
+Open a “Microsoft Azure PowerShell” window **AS AN ADMINISTRATOR**. If you do not yet have Azure PowerShell, follow the instructions here to install it: [Install and configure Azure PowerShell](../powershell-install-configure.md)
 
 Windows automatically blocks ps1, dll and exe files downloaded from the Internet. We need to set the Execution Policy before running the script. Make sure the Azure PowerShell window is running as an administrator. Run “Set-ExecutionPolicy unrestricted”. When prompted, type “Y”.
 
