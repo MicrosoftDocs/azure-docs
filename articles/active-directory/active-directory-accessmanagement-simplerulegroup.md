@@ -29,6 +29,10 @@ To enable dynamic membership for a particular group, perform the following steps
 
 4. Note that you can set up a rule for dynamic membership on security groups or Office groups.  Dynamic Memberships for Groups require an Azure AD Premium license.
 
+Here you can learn more about complex rules for dynamic group membership:
+
+* [Using attributes to create advanced rules](active-directory-accessmanagement-groups-with-advanced-rules.md)
+
 These articles provide additional information on Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
