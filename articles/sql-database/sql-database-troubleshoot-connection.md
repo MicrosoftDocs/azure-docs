@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2015"
+	ms.date="02/12/2016"
 	ms.author="daleche"/>
 
 # Troubleshoot "Database on server is not currently available. Please retry the connection later." and other connection errors
