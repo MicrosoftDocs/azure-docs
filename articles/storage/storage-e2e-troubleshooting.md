@@ -3,7 +3,7 @@
 	description="A tutorial demonstrating end-to-end troubleshooting with Azure Storage Analytics, AzCopy, and Microsoft Message Analyzer"
 	services="storage"
 	documentationCenter="dotnet"
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="02/14/2016"
-	ms.author="tamram"/>
+	ms.author="robinsh"/>
 
 # End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer
 
@@ -38,7 +38,7 @@ To troubleshoot client applications using Microsoft Azure Storage, you can use a
 
 - **Azure Portal**. You can configure metrics and logging for your storage account in the [Azure Portal](https://portal.azure.com). You can also view charts and graphs that show how your application is performing over time, and configure alerts to notify you if your application performs differently than expected for a specified metric.
 
-	See [How to monitor a storage account](storage-monitor-storage-account.md) for information about configuring monitoring in the Azure Portal.
+	See [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md) for information about configuring monitoring in the Azure Portal.
 
 - **AzCopy**. Server logs for Azure Storage are stored as blobs, so you can use AzCopy to copy the log blobs to a local directory for analysis using Microsoft Message Analyzer. See [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) for more information about AzCopy.
 
@@ -92,7 +92,7 @@ First, we'll need to configure Azure Storage logging and metrics, so that we hav
 
 **Via the Azure Portal**
 
-To configure logging and metrics for your storage account using the [Azure Portal](https://portal.azure.com), follow the instructions at [How to monitor a storage account](storage-monitor-storage-account.md).
+To configure logging and metrics for your storage account using the [Azure Portal](https://portal.azure.com), follow the instructions at [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md).
 
 > [AZURE.NOTE] It's not possible to set minute metrics using the Azure Portal. However, we recommend that you do set them for the purposes of this tutorial, and for investigating performance issues with your application. You can set minute metrics using PowerShell as shown below, or programmatically using the storage client library.
 >
@@ -130,7 +130,7 @@ To get started with PowerShell for Azure, see [How to install and configure Azur
 
 ### Configure .NET client-side logging
 
-To configure client-side logging for a .NET application, enable .NET diagnostics in the application's configuration file (web.config or app.config). See [Client-side Logging using the Storage Client Library](http://msdn.microsoft.com/library/azure/dn782839.aspx) and [Client-side Logging with the Microsoft Azure Storage SDK for Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) on MSDN for details.
+To configure client-side logging for a .NET application, enable .NET diagnostics in the application's configuration file (web.config or app.config). See [Client-side Logging with the .NET Storage Client Library](http://msdn.microsoft.com/library/azure/dn782839.aspx) and [Client-side Logging with the Microsoft Azure Storage SDK for Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) on MSDN for details.
 
 The client-side log includes detailed information about how the client prepares the request and receives and processes the response.
 
@@ -361,5 +361,5 @@ For more information about troubleshooting end-to-end scenarios in Azure Storage
 - [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
 - [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md)
-- [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
+- [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
 - [Microsoft Message Analyzer Operating Guide](http://technet.microsoft.com/library/jj649776.aspx)
