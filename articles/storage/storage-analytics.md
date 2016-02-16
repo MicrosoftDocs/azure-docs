@@ -181,10 +181,7 @@ Storage Analytics is enabled by a storage account owner; it is not enabled by de
 
 The following actions performed by Storage Analytics are billable:
 
-- Requests to create blobs for 
-- 
-- 
-- .
+- Requests to create blobs for logging. 
 
 - Requests to create table entities for metrics.
 
