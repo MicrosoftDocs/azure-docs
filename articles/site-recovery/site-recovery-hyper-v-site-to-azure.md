@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Replicate between on-premises Hyper-V virtual machines and Azure (without VMM) with Site Recovery | Microsoft Azure"
-	description="This articles describes how to replicate Hyper-V virtual machines to Azure with Azure Site Recovery when machines aren't managed in VMM clouds."
+	description="This article describes how to replicate Hyper-V virtual machines to Azure with Azure Site Recovery when machines aren't managed in VMM clouds."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -277,7 +277,7 @@ Run the test failover as follows:
 5. After  failover you'll be able to see the virtual machine test replica in the Azure portal. If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine.
 
 	1. Verify that the virtual machines start successfully.
-    2. If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover. You will also need to add an RDP endpoint on the virtual machine. You can leverage an [Azure automation runbooks](site-recovery-runbook-automation.md) to do that.
+    2. If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover. You will also need to add an RDP endpoint on the virtual machine. You can leverage an [Azure automation runbook](site-recovery-runbook-automation.md) to do that.
     3. After failover if you use a public IP address to connect to the virtual machine in Azure using Remote Desktop, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
 
 6. After the testing is complete do the following:
