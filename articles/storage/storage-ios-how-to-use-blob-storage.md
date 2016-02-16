@@ -21,7 +21,7 @@
 
 ## Overview
 
-This article will show you how to perform common scenarios using Microsoft Azure Blob storage. The samples are written in Objective-C and use the [Azure Storage iOS Library](https://github.com/Azure/azure-storage-ios). The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#next-steps) section. You can also download the [sample app](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) to quickly see the use of Azure Storage in an iOS application.
+This article will show you how to perform common scenarios using Microsoft Azure Blob storage. The samples are written in Objective-C and use the [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios). The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#next-steps) section. You can also download the [sample app](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) to quickly see the use of Azure Storage in an iOS application.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -350,8 +350,8 @@ The following example shows how to delete a container.
 
 Now that you've learned the basics of Blob storage, follow these links to learn about more complex storage tasks.
 
-- [Azure Storage iOS Library](https://github.com/azure/azure-storage-ios)
-- [Azure Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Azure Storage Client Library for iOS](https://github.com/azure/azure-storage-ios)
+- [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
 - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage)
 
