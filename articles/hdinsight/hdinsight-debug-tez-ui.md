@@ -13,7 +13,7 @@ ms.devlang=""
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="02/12/2016"
+ms.date="02/16/2016"
 ms.author="larryfr"/>
 
 # Use the Tez UI to debug Tez Jobs on Windows-based HDInsight
@@ -25,6 +25,8 @@ The Tez UI is a web page that can be used to understand and debug jobs that use 
 ##Prerequisites
 
 * A Windows-based HDInsight cluster. For steps on creating a new cluster, see [Get started using Windows-based HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md).
+
+    > [AZURE.IMPORTANT] The Tez UI is only available on Windows-based HDInsight clusters created after February 8th, 2016.
 
 * A Windows-based Remote Desktop client.
 
