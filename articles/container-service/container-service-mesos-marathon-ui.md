@@ -27,13 +27,13 @@ Mesos provides an environment for deploying and scaling clustered workload while
 
 ## Explore the Mesos UI
 
-With an SSH Tunnel established, browse to http://localhost:5050. This will load the Mesos web UI. From the page you can gather information about the Mesos cluster such as activated agents, task status, and resource availability.
+With an SSH Tunnel established, browse to http://localhost/Mesos. This will load the Mesos web UI. From the page you can gather information about the Mesos cluster such as activated agents, task status, and resource availability.
 
 ![Create deployment](media/ui1.png)
 
 ## Explore the Marathon UI
 
-To see the Marathon UI, browse to http://localhost:8080. From this screen you can start new container or other application on the ACS Mesos cluster, as well see information about running containers and application.  
+To see the Marathon UI, browse to http://localhost/Marathon. From this screen you can start new container or other application on the ACS Mesos cluster, as well see information about running containers and application.  
 
 ![Create deployment](media/ui2.png)
 
@@ -57,7 +57,7 @@ Back on the Marathon main page, deployment status for the container can be seen.
 
 ![Create deployment](media/ui4.png)
 
-If you switch back to the Mesos app (http://localhost:5050), you will now see that a task, in this case a Docker container, is running on the Mesos cluster. You can also see the cluster node that the task is running on.
+If you switch back to the Mesos app (http://localhost/Mesos), you will now see that a task, in this case a Docker container, is running on the Mesos cluster. You can also see the cluster node that the task is running on.
 
 ![Create deployment](media/ui5.png)
 

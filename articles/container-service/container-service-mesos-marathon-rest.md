@@ -26,26 +26,30 @@ Before working through these examples, you will need a Mesos cluster configured 
 - [Deploying an Azure Container Service Cluster](./container-service-deployment.md) 
 - [Connecting to an ACS Cluster](./container-service-connect.md)
 
-Your Mesos cluster in ACS will be accessible through several endpoints depending on the desired request.
 
-- Mesos – http://master:5050
-- Marathon – http://master:8080
-
-For more information on the Mesos REST endpoint see [Mesos Endpoint on mesos.apache.org](http://mesos.apache.org/documentation/latest/endpoints/).  
-For more information on Marathon REST API see [Marathon REST API on mesosphere.github.io]( mesosphere.github.io).
+Once you have your SSH tunnel setup you will be able to access the
+Mesos related rest APIs through `http://localhost:LOCAL_PORT`. In the
+examples below we assume you are tunenling on port 80,
+e.g. `http://localhost/marathon/v2` will be the endpoint for the
+Marathon API. For more information on the various APIs available see
+the Mesosphere documentation for the [Marathon
+API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the
+[Chronos API](https://mesos.github.io/chronos/docs/api.html) and the
+Apache focumentation for the [Mesos Scheduler
+API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
 
 ## Gather information from Mesos and Marathon
 
 Before deploying containers to the Mesos cluster, gather some information about the Mesos cluster such as the name and current status of the Mesos agents. To do so, query the `master/slaves` endpoint on a Mesos master. If everything goes well, you will see a list of Mesos agents and several properties for each.   
 
 ```bash
-curl http://localhost:5050/master/slaves
+curl http://localhost/master/slaves
 ```
 
 Now, use the Marathon `/apps` endpoint to check for and current Marathon deployments to the Mesos cluster. If this is a new cluster, you will see an empty array for apps.
 
 ```
-curl localhost:8080/v2/apps
+curl localhost/marathon/v2/apps
 
 {"apps":[]}
 ```
@@ -76,7 +80,7 @@ Docker containers are deployed through Marathon using a json file that describes
 In order to deploy a Docker container, create your own json file, or use the sample provided here - [Azure ACS Demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json), and store it in an accessible location. Next, run the following command, specifying the name of the json file, to deploy the container.
 
 ```
-curl -X POST http://localhost:8080/v2/groups -d @marathon.json -H "Content-type: application/json"
+curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-type: application/json"
 ```
 
 The output will be similar the following:
@@ -88,7 +92,7 @@ The output will be similar the following:
 Now if you query Marathon for running application, this new application will show in the output.
 
 ```
-curl localhost:8080/v2/apps
+curl localhost/marathon/v2/apps
 ```
 
 ## Scale a Docker Container
@@ -101,16 +105,16 @@ The Marathon API can also be used to scale application deployments out or in. In
 
 Run the following command to scale the application out.
 
-> Note – the URI will be http://loclahost:8080/v2/apps/ and then the ID of the application to scale. If using the nginx sample provided here, the URI would be http://localhost:8080/v2/nginx.
+> Note – the URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If using the nginx sample provided here, the URI would be http://localhost:8080/v2/nginx.
 
 ```json
-curl http://localhost:8080/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
+curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
 Finally, query the Marathon endpoint for application instance. You will notice that there are now three.
 
 ```
-curl localhost:8080/v2/apps
+curl localhost/marathon/v2/apps
 ```
 
 ## Marathon REST API PowerShell
@@ -120,7 +124,7 @@ These same action can be performed using PowerShell on a Windows system. This qu
 To gather information about the Mesos cluster such as agent names and agent status run the following command. 
 
 ```powershell
-Invoke-WebRequest -Uri http://localhost:5050/master/slaves
+Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
 Docker containers are deployed through Marathon using a json file that describes the intended deployment. The following sample will deploy the nginx container, binding port 80 of the Mesos agent to port 80 of the container.
@@ -147,7 +151,7 @@ Docker containers are deployed through Marathon using a json file that describes
 Create your own json file, or use the sample provided here - [Azure ACS Demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json), and store it in an accessible location. Next, run the following command, specifying the name of the json file, to deploy the container.
 
 ```powershell
-Invoke-WebRequest -Method Post -Uri http://localhost:8080/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
+Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
 The Marathon API can also be used to scale application deployments out or in. In the previous example one instance of an application was deployed, let's scale this out to three instances. To do so, create a json file with the following json text and store it in an accessible location.
@@ -158,9 +162,11 @@ The Marathon API can also be used to scale application deployments out or in. In
 
 Run the following command to scale the application out.
 
-> Note – the URI will be http://loclahost:8080/v2/apps/ and then the ID of the application to scale. If using the nginx sample provided here, the URI would be http://localhost:8080/v2/nginx.
+> Note – the URI will be http://loclahost/marathon/v2/apps/ and then the ID of the application to scale. If using the nginx sample provided here, the URI would be http://localhost:8080/v2/nginx.
 
 ```powershell
-Invoke-WebRequest -Method Put -Uri http://localhost:8080/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
+Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
+
+
 

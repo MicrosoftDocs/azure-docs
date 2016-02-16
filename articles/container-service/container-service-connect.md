@@ -23,7 +23,7 @@
 
 The Mesos and Swarm clusters deployed by Azure Container Service expose REST endpoints, however these endpoints are not open to the outside world. In order to manage these endpoints, an SSH tunnel must be created. Once an SSH tunnel has been established, you can run commands against the cluster endpoints and view the cluster UI through a browser on your own system. This document will walk through creating an SSH tunnel from Linux, OSX, and Windows.
 
-**NOTE** - you can create an SSH session with a cluster management system, however this is not recommended. Working directly on a management system exposes risk for inadvertent configuration change.   
+> You can create an SSH session with a cluster management system, however this is not recommended. Working directly on a management system exposes risk for inadvertent configuration change.   
 
 ## SSH Tunnel on Linux / OSX
 
@@ -33,24 +33,56 @@ First thing is to locate the public DNS name of load balanced masters. To do thi
 
 Now open a shell and run the following command where:
 
-**PORT** is the port of the endpoint you want to expose.  
+**PORT** is the port of the endpoint you want to expose. For Swarm this is 2375, for Mesos use port 80.   
 **USERNAME** is the username provided when you deployed the cluster.  
 **DNSPREFIX** is the DNS prefix you provided when you deployed the cluster.  
 **REGION** is the region in which your resource group is located.  
-**SSH_PORT** is either 2200, 2201 … 2204 for master0, master1 … master4 REST API's respectively.  
-
 
 ```
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p SSH_PORT
+ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
+```
+### Mesos tunnel
+
+To open a tunnel to the Mesos related endpoints execute sometihng that
+looks similar to the following command (here we map the Mesos API
+endpoints to port 8080 on the local client, but you can choose any
+port you prefer).
+
+```
+ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-An example of this would look similar to the following.
+The Mesos related endpoints can now be accessed at:
+
+- Mesos -  `http://localhost/mesos`
+- Marathon - `http://localhost/marathon`
+- Chronos -`http://localhost/chronos`. 
+
+Similarly the rest APIs for each application can be reached through this tunnel: Marathon - `http://localhost/marathon/v2`. For more information on the
+various APIs available see the Mesosphere documentation for the
+[Marathon
+API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the
+[Chronos API](https://mesos.github.io/chronos/docs/api.html) and the
+Apache focumentation for the [Mesos Scheduler
+API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
+
+### Swarm Tunnel
+
+To open a tunnel to the Swarm endpoint execute something that looks
+similar to the following command (here we map the Mesos API endpoints
+to port 8080 on the local client, but you can choose any port you
+prefer).
 
 ```
-ssh -L 8080:localhost:8080 -n azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-The Mesos endpoint and UI can now be accessed at `http://localhost:5050` and the Marathon endpoint and UI can be accessed at `http://localhost:8080`.
+Now you can set your DOCKER_HOST environment variable as follows and
+contninue to use your Docker CLI as normal.
+
+```
+export DOCKER_HOST=:2375
+```
 
 ## SSH Tunnel on Windows
 
@@ -67,11 +99,10 @@ Select `SSH` and `Authentication`, add your private key file for authentication.
 ![Putty Connection](media/putty2.png)
 
 Select `Tunnels` and `configure` the following forwarded ports:
-- **Source Port:** 5050
-- **Destination:** Master VM Name:5050 – the VM name can be found in Azure 
+- **Source Port:** Your preference (80 for Mesos and 2375 for Swarm)
+- **Destination:** localhost:80 (for Mesos) or localhost:2375 (for Swarm)
 
-- **Source Port:** 8080
-- **Destination:** Master VM Name:8080 – the VM name can be found in Azure 
+The following example is configured for Mesos, but would look similar for Docker Swarm.
 
 ![Putty Connection](media/putty3.png)
 
@@ -79,7 +110,13 @@ When complete, save the connection configuration, and connect the putty session.
 
 ![Putty Connection](media/putty4.png)
 
-The Mesos endpoint and UI can now be accessed at `http://localhost:5050` and the Marathon endpoint and UI can be accessed at `http://localhost:8080`.
+When the tunnel has been configured for Mesos, the related endpoint can be accessed at:
+
+- Mesos -  `http://localhost/mesos`
+- Marathon - `http://localhost/marathon`
+- Chronos -`http://localhost/chronos`. 
+
+When the tunnel has been configured for Docker Swarm, the Swarm cluster can be accessed through the Docker CLI. You will first need to configure a Windows Environmental variable named `DOCKER_HOST` with a value of ` :2375`.
 
 ## Next Steps
  
@@ -87,4 +124,6 @@ Deploy and manage containers with Mesos or Swarm.
  
 - [Working with ACS and Mesos](./container-service-mesos-marathon-rest.md)
 - [Working with ACS and Docker Swarm](./container-service-docker-swarm.md)
+
+
 
