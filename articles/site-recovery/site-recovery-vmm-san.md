@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Replicate Hyper-V VMs (in a VMM cloud) to a secondary site with Azure Site Recovery using SAN | Microsoft Azure"
-	description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines between on-premises sites using SAN replication."
+	pageTitle="Replicate Hyper-V VMs in a VMM cloud to a secondary site with Azure Site Recovery using SAN | Microsoft Azure"
+	description="This articles describes how to replicate Hyper-V virtual machines between two sites with Azure Site Recovery using SAN replication."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
-# Replicate Hyper-V VMs (in a VMM cloud) to a secondary site with Azure Site Recovery using SAN
+# Replicate Hyper-V VMs in a VMM cloud to a secondary site with Azure Site Recovery using SAN
 
 The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md).
 
@@ -26,18 +26,18 @@ This article describes how to deploy Site Recovery to orchestrate and automate p
 
 The article includes an overview and deployment prerequisites. It walks you through configuring and enable replication in VMM and the Site Recovery vault. You'll discover and classify SAN storage in VMM, provision LUNs, and allocate storage to Hyper-V clusters. It finishes up by testing failover to make sure everything's working as expected.
 
-Post any questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-The business advantages for this scenario include:
+## Why replicate with SAN?
 
-- Provide an enterprise scalable replication solution automated by Site Recovery.
+Here's what this scenario provides:
+
+- Provides an enterprise scalable replication solution automated by Site Recovery.
 - Takes advantage of SAN replication capabilities provided by enterprise storage partners across both fibre channel and iSCSI storage. See our [SAN storage partners](http://go.microsoft.com/fwlink/?LinkId=518669).
-- Leverage your existing SAN infrastructure to protect mission-critical applications deployed in Hyper-V clusters.
-- Provide support for guest clusters.
-- Ensure replication consistency across different tiers of an application with synchronized replication for low RTO and RPO, and asynchronized replication for high flexibility, depending on storage array capabilities.  
-- Integration with VMM provides SAN management within the VMM console and SMI-S in VMM discovers existing storage.  
-
-
+- Leverages your existing SAN infrastructure to protect mission-critical applications deployed in Hyper-V clusters.
+- Provides support for guest clusters.
+- Ensures replication consistency across different tiers of an application with synchronized replication for low RTO and RPO, and asynchronized replication for high flexibility, depending on storage array capabilities.  
+- Integrates with VMM provides SAN management within the VMM console and SMI-S in VMM discovers existing storage.  
 
 ## Architecture
 
@@ -78,10 +78,7 @@ To prepare your VMM infrastructure you need to:
 
 ### Ensure VMM clouds are set up
 
-Site Recovery orchestrates protection for virtual machines located on Hyper-V host servers in VMM clouds. You'll need to ensure that those clouds are set up properly before you begin Site Recovery deployment. A couple of good sources include:
-
-- [Configuring the VMM cloud fabric](https://msdn.microsoft.com/library/azure/dn883636.aspx#BKMK_Fabric)
-- [Creating private clouds](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) in Keith Mayer's blog.
+Site Recovery orchestrates protection for virtual machines located on Hyper-V host servers in VMM clouds. You'll need to ensure that those clouds are set up properly before you begin Site Recovery deployment. Learn more in [Creating private clouds](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) on Keith Mayer's blog.
 
 ### Integrate and classify SAN storage in VMM
 
