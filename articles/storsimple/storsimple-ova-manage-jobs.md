@@ -62,4 +62,4 @@ Perform the following steps to view the details of any job.
 
 ## Next steps
 
-Learn how to [use the local web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+[Learn how to use the local web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
