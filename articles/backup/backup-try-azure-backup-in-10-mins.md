@@ -20,11 +20,11 @@
 It is extremely easy to setup Azure Backup and the following how-to videos will help you get started.
 
 ## Step 1: Get an Azure subscription
-- If you don't have an Azure subscription, you can get started with a free trial offer that lets you access any Azure service. Visit the following link [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial) to learn more.
+- If you don't have an Azure subscription, you can get started with a free trial offer that lets you access any Azure service. Visit the following link [http://azure.microsoft.com/pricing/free-trial/](https://azure.microsoft.com/pricing/free-trial/) to learn more.
 - You can skip this step you have an Azure subscription.
 
 ## Step 2: Configure the Azure Backup service
-Go through the steps mentioned in the video  [Getting Started with Azure Backup 1 of 3 - Set up a backup vault on Azure](http://azure.microsoft.com/documentation/videos/getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure/) to:
+Go through the steps mentioned in the video  [Getting Started with Azure Backup 1 of 3 - Set up a backup vault on Azure](https://azure.microsoft.com/documentation/videos/getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure/) to:
 
 - Create a backup vault
 - Download the "vault credentials"
@@ -33,7 +33,7 @@ Go through the steps mentioned in the video  [Getting Started with Azure Backup 
 > [AZURE.VIDEO getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure]
 
 ## Step 3: Prepare your on-premises machine
-Go through the steps mentioned in the video [Getting Started with Azure Backup 2 of 3 - Prepare your production server for Azure Backup](http://azure.microsoft.com/documentation/videos/getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup/) to:
+Go through the steps mentioned in the video [Getting Started with Azure Backup 2 of 3 - Prepare your production server for Azure Backup](https://azure.microsoft.com/documentation/videos/getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup/) to:
 
 - Install the Azure Backup agent on your Windows Server/client or DPM server.
 - Register the machine against the backup vault
@@ -41,7 +41,7 @@ Go through the steps mentioned in the video [Getting Started with Azure Backup 2
 > [AZURE.VIDEO getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup]
 
 ## Step 4: Backup and restore data
-Go through the steps mentioned in the video [Getting Started with Azure Backup 3 of 3 - Start backing up your production server](http://azure.microsoft.com/documentation/videos/getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server/) to:
+Go through the steps mentioned in the video [Getting Started with Azure Backup 3 of 3 - Start backing up your production server](https://azure.microsoft.com/documentation/videos/getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server/) to:
 
 - Backup data from a server
 - Restore backed up data from Azure

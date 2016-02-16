@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,19 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Get started with Azure Blob Storage and Visual Studio connected services (cloud services projects)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-cloud-services-getting-started-blobs.md)
-> - [What happened](vs-storage-cloud-services-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-cloud-services-getting-started-blobs.md)
-> - [Queues](vs-storage-cloud-services-getting-started-queues.md)
-> - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
 ## Overview
 
@@ -37,7 +28,7 @@ Just as files live in folders, storage blobs live in containers. After you have 
 
 - For more information on programmatically manipulating blobs, see [How to use blob storage from .NET](storage-dotnet-how-to-use-blobs.md).
 - For general information about Azure Storage,see [Storage documentation](https://azure.microsoft.com/documentation/services/storage/).
-- For general information about Azure Cloud Services, see [Cloud Services documentation](http://azure.microsoft.com/documentation/services/cloud-services/).
+- For general information about Azure Cloud Services, see [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/).
 - For more information about programming ASP.NET applications, see [ASP.NET](http://www.asp.net).
 
 ## Access blob containers in code

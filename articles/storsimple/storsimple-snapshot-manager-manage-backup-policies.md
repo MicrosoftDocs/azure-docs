@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/28/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to create and manage backup policies
 
 ## Overview
 
-A backup policy creates a schedule for backing up volume data locally or in the cloud. When you create a backup policy, you can also specify a retention policy. (You can retain a maximum of 64 snapshots.) For more information about backup policies, see [Backup types and backup policies](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies).
+A backup policy creates a schedule for backing up volume data locally or in the cloud. When you create a backup policy, you can also specify a retention policy. (You can retain a maximum of 64 snapshots.) For more information about backup policies, see [Backup types](storsimple-what-is-snapshot-manager.md#backup-type) in [StorSimple 8000 series: a hybrid cloud solution](storsimple-overview.md).
 
 This tutorial explains how to:
 
@@ -47,7 +47,7 @@ Use the following procedure to create a new backup policy.
 
    1. In the **Name** text box, type a name for the policy.
 
-   2. In the** Volume group **text box, type the name of the volume group associated with the policy.
+   2. In the **Volume group** text box, type the name of the volume group associated with the policy.
 
    3. Select either **Local Snapshot** or **Cloud Snapshot**.
 
@@ -109,8 +109,8 @@ Use the following procedure to delete a backup policy.
 
 2. In the **Scope** pane, click the **Backup Policies** node. All the backup policies appear in the **Results** pane. 
 
-3. Right-click the backup policy that you want to delete, and then click **Delete**. 
-e
+3. Right-click the backup policy that you want to delete, and then click **Delete**.
+
 4. When the confirmation message appears, click **Yes**.
 
     ![Delete backup policy confirmation](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)

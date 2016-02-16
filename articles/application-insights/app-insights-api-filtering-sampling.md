@@ -161,7 +161,7 @@ You can pass string values from the .config file by providing public named prope
 
 ```C#
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
@@ -358,7 +358,7 @@ Insert a telemetry initializer immediately after the initialization code that yo
     </script>
 ```
 
-For a summary of the non-custom properties available on the telemetryItem, see the [data model](app-insights-export-data-model.md/#lttelemetrytypegt).
+For a summary of the non-custom properties available on the telemetryItem, see the [data model](app-insights-export-data-model.md#lttelemetrytypegt).
 
 You can add as many initializers as you like. 
 

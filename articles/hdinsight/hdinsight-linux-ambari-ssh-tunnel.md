@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="11/02/2015"
+ms.date="01/12/2016"
 ms.author="larryfr"/>
 
 #Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's
@@ -32,7 +32,6 @@ The following are services that Ambari web UI uses, that cannot be accessed with
 * Thread Stacks,
 * Oozie web UI
 * HBase Master and Logs UI
-* Storm UI
 
 If you use Script Actions to customize your cluster, any services or utilities that you install that expose a web UI will require an SSH tunnel. For example, if you install Hue using a Script Action, you must use an SSH tunnel to access the Hue web UI.
 

@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
+
 # Monitor and manage Azure Data Factory pipelines
+> [AZURE.SELECTOR]
+- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+
 The Data Factory service provides reliable and complete view of your storage, processing, and data movement services. It helps you quickly assess end-to-end data pipeline health, pinpoint issues, and take corrective action if needed. You can also visually track data lineage and the relationships between your data across any of your sources, and see a full historical accounting of job execution, system health, and dependencies from a single monitoring dashboard.
 
 This article describes how to monitor, manage and debug your pipelines. It also provides information on how to create alerts and get notified on failures.
@@ -25,7 +30,7 @@ This article describes how to monitor, manage and debug your pipelines. It also 
 Using the Azure Portal, you can view your data factory as a diagram, view activities in a pipeline, view input and output datasets, and more. This section also provides how a slice transitions from one state to another state.   
 
 ### Navigate to your data factory
-1.	Sign-in to the [Azure Portal](http://portal.azure.com).
+1.	Sign-in to the [Azure Portal](https://portal.azure.com).
 2.	Click **Browse All** and select **Data Factories**.
 	
 	![Browse All -> Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -208,9 +213,6 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
 
 #### Use the PowerShell to debug an error
 1.	Launch **Azure PowerShell**.
-2.	Switch to **AzureResourceManager** mode as the Data Factory cmdlets are available only in this mode.
-
-		switch-azuremode AzureResourceManager
 3.	Run **Get-AzureRmDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status: **Failed**.
 
 		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -275,16 +277,14 @@ In case the slice has failed validation due to a policy failure (for ex: data no
 
 ### Using Azure PowerShell
 
-You can re-run failures by using the ‘Set-AzureRmDataFactorySliceStatus’ cmdlet.
-
-	Set-AzureRmDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+You can re-run failures by using the Set-AzureRmDataFactorySliceStatus cmdlet. See [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) topic for syntax and other details about the cmdlet. 
 
 **Example:**
-The following example sets the status of all slices for the table 'DAWikiAggregatedData' to 'PendingExecution' in the Azure data factory 'WikiADF'.
+The following example sets the status of all slices for the table 'DAWikiAggregatedData' to 'Waiting' in the Azure data factory 'WikiADF'.
 
-**Note:** The UpdateType is set to UpstreamInPipeline, which means that status of each slice for the table and all the dependent (upstream) tables which are used as input tables for activities in the pipeline is set to "PendingExecution". Other possible value for this parameter is "Individual".
+**Note:** The UpdateType is set to UpstreamInPipeline, which means that status of each slice for the table and all the dependent (upstream) tables which are used as input tables for activities in the pipeline is set to "Waiting". Other possible value for this parameter is "Individual".
 
-	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## Create alerts
@@ -351,8 +351,6 @@ Operation name | Status | Sub status
 -------------- | ------ | ----------
 RunStarted | Started | Starting
 RunFinished | Failed / Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
-SliceOnTime | In Progress | Ontime
-SliceDelayed | In Progress | Late
 OnDemandClusterCreateStarted | Started
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
@@ -360,9 +358,9 @@ OnDemandClusterDeleted | Succeeded
 See [Create Alert Rule](https://msdn.microsoft.com/library/azure/dn510366.aspx) for details about JSON elements used in the above example. 
 
 #### Deploying the Alert 
-To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureResourceGroupDeployment**, as shown in the following example:
+To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureRmResourceGroupDeployment**, as shown in the following example:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 Once the resource group deployment has completed successfully, you will see the following messages:
 
@@ -382,9 +380,9 @@ Once the resource group deployment has completed successfully, you will see the 
 	Outputs           :
 
 #### Retrieving the list of Azure Resource Group Deployments
-To retrieve the list of deployed Azure Resource Group deployments, use the cmdlet: **Get-AzureResourceGroupDeployment**, as shown in the following example:
+To retrieve the list of deployed Azure Resource Group deployments, use the cmdlet: **Get-AzureRmResourceGroupDeployment**, as shown in the following example:
 
-	Get-AzureResourceGroupDeployment -ResourceGroupName adf
+	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
 	DeploymentName    : ADFAlertFailedSlice
 	ResourceGroupName : adf
@@ -555,9 +553,9 @@ Replace subscriptionId, resourceGroupName, and dataFactoryName in the above samp
 
 **Deploying the alert:**
 
-To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureResourceGroupDeployment**, as shown in the following example:
+To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureRmResourceGroupDeployment**, as shown in the following example:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
 You should see following message after successful deployment:
 
@@ -576,3 +574,4 @@ You should see following message after successful deployment:
 	Outputs           
 
 
+You can also the **Add-AlertRule** cmdlet to deploy an alert rule. See [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) topic for details and examples.  

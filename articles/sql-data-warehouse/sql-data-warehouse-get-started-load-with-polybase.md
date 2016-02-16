@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="sahaj08"
    manager="barbkess"
-   editor="jrowlandjones"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
-   ms.author="sahaj08;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
 # Load data with PolyBase in SQL Data Warehouse
@@ -250,9 +250,8 @@ See the [PolyBase guide][] for further information you should know as you develo
 [1]:./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png
 
 <!--Article references-->
-[PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-load-with-polybase.md
+[PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-get-started-load-with-polybase.md
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[Load with PolyBase]: sql-data-warehouse-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [Statistics]: sql-data-warehouse-develop-statistics.md

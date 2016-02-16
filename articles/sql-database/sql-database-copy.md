@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Copy an Azure SQL database"
+	pageTitle="Copy an Azure SQL database | Microsoft Azure"
 	description="Create a copy of an Azure SQL database"
 	services="sql-database"
 	documentationCenter=""
@@ -10,11 +10,12 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/16/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
+
 
 
 # Copy an Azure SQL Database
@@ -84,7 +85,7 @@ Open the SQL database blade for the database you want to copy:
 
 ## Next steps
 
-- [Connect with SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
 - [Export the database to a BACPAC](sql-database-export.md)
 
 

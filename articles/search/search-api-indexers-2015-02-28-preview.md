@@ -10,7 +10,8 @@ editor="" />
 <tags 
 ms.service="search" 
 ms.devlang="rest-api" 
-ms.workload="search" ms.topic="article"  
+ms.workload="search" 
+ms.topic="article"  
 ms.tgt_pltfrm="na" 
 ms.date="11/04/2015" 
 ms.author="heidist" />
@@ -38,7 +39,7 @@ The following data sources are currently supported:
 - Azure SQL Database and SQL Server on Azure VMs
 - Azure DocumentDB 
 
-We're considering adding support for additional data sources in the future. To help us prioritize these decisions, please provide your feedback on the [Azure Search feedback forum](http://feedback.azure.com/forums/263029-azure-search).
+We're considering adding support for additional data sources in the future. To help us prioritize these decisions, please provide your feedback on the [Azure Search feedback forum](https://feedback.azure.com/forums/263029-azure-search/).
 
 See [Service Limits](search-limits-quotas-capacity.md) for maximum limits related to indexer and data source resources.
 

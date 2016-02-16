@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="User Profile data in Azure RemoteApp | Microsoft Azure"
-	description="Learn how user data is stored and accessed in Azure RemoteApp"
+    pageTitle="How to use Azure RemoteApp with Office 365 user accounts | Microsoft Azure"
+	description="Learn how to use Azure RemoteApp with my Office 365 user accounts"
 	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
@@ -15,8 +15,6 @@
     ms.topic="article" 
     ms.date="12/04/2015" 
     ms.author="elizapo" />
-
-
 
 # How does Azure RemoteApp save user data and settings?
 

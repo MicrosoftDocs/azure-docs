@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
 # Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
@@ -47,7 +47,7 @@ See [Connect to a Machine Learning web service](machine-learning-connect-to-azur
 
 **How does Machine Learning billing work?**
 
-For billing and pricing information, see [Machine Learning Pricing](http://azure.microsoft.com/pricing/details/machine-learning/).
+For billing and pricing information, see [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 **Does Machine Learning have a free trial?**
 
@@ -165,7 +165,7 @@ Currently new custom modules can only be created in R.
 
 **What R packages are available in Machine Learning Studio?**
 
-Machine Learning Studio supports 400+ R packages today, and this list is constantly growing. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
+Machine Learning Studio supports 400+ CRAN R packages today, and this list is constantly growing. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **Is it possible to build a custom R module?**
 
@@ -224,6 +224,9 @@ For RRS, the web service response is typically where you see the result. You can
 
  **Can I create web services only from models created in the Studio?
  No. You can also create web services directly from Jupyter Notebooks, and RStudio.
+ 
+ **Where can I find information about error codes?
+ Error codes are described [here.] (https://msdn.microsoft.com/library/azure/dn905910.aspx)
 
 ## Scalability
 

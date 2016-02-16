@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # Transform and analyze using Azure Data Factory
@@ -29,7 +29,7 @@ Transformation activity |  Compute environment
 [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
 [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop]
 [Machine Learning activites: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) | Azure VM 
-[Stored Procedure](data-factory-stored-proc-activity.md) | Azure SQL |
+[Stored Procedure](data-factory-stored-proc-activity.md) | Azure SQL, Azure SQL Data Warehouse, or SQL Server |
 [Data Lake Analytics U-SQL](data-factory-usql-activity.md) | Azure Data Lake Analytics 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] or Azure Batch
    

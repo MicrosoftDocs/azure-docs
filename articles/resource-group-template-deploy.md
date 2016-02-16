@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Deploy an application with Azure Resource Manager template
 
 This topic explains how to use Azure Resource Manager templates to deploy your application to Azure. It shows how deploy your application by using either Azure PowerShell, Azure CLI, REST API, or the Azure portal.
 
-For an introduction to Resource Manager, see [Azure Resource Manager overview](../resource-group-overview.md). To learn about creating templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+For an introduction to Resource Manager, see [Azure Resource Manager overview](./resource-group-overview.md). To learn about creating templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
 When deploying an application with a template, you can provide parameter values to customize how the resources are created.  You specify values for these parameters either inline or in a parameter file.
 
@@ -38,7 +38,7 @@ Through Azure PowerShell or the REST API, you can specify a complete update to t
 - **adds** resources that are specified in the template but do not exist in the resource group 
 - **does not re-provision** resources that exist in the resource group in the same condition defined in the template
  
-You specify the type of deployment through the **Mode** property.
+You specify the type of deployment through the **Mode** property, as shown in the examples below for PowerShell and REST API.
 
 ## Deploy with PowerShell
 
@@ -100,9 +100,9 @@ You specify the type of deployment through the **Mode** property.
           Mode              : Incremental
           ...
 
-     To run a complete deployment, set **Mode** to **Complete**.
+     To run a complete deployment, set **Mode** to **Complete**. Notice you are asked to confirm that you want to use the Complete mode which may involve deleting resources. 
 
-          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
+          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -Mode Complete -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> 
           Confirm
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
@@ -203,7 +203,7 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
              }
            }
    
-3. Create a new resource group deployment. Provide your subscription id, the name of the resource group to deploy, the name of the deployment, and the location of your template. For information about the template file, see [Parameter file](./#parameter-file). For more information about the REST API to create a resource group, see [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx). To run a complete deployment, set **mode** to **Complete**.
+3. Create a new resource group deployment. Provide your subscription id, the name of the resource group to deploy, the name of the deployment, and the location of your template. For information about the template file, see [Parameter file](./#parameter-file). For more information about the REST API to create a resource group, see [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx). Notice the **mode** is set to **Incremental**. To run a complete deployment, set **mode** to **Complete**.
     
          PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
             <common headers>
@@ -258,16 +258,28 @@ If you use a parameter file to pass the parameter values to your template during
             },
             "webSiteLocation": {
                 "value": "West US"
+            },
+            "adminPassword": {
+                "reference": {
+                   "keyVault": {
+                      "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+                   }, 
+                   "secretName": "sqlAdminPassword" 
+                }   
             }
        }
     }
 
 The size of the parameter file cannot be more than 64 KB.
 
+For how to define parameters in template, see [Authoring templates](../resource-group-authoring-templates/#parameters)
+For details about KeyVault reference to pass secure values, see [Pass secure values during deployment
+](resource-manager-keyvault-parameter.md)
+
 ## Next steps
-- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](arm-template-deployment.md)
+- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](./virtual-machines/arm-template-deployment.md)
 - For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md).
 - To learn about the sections of the Azure Resource Manager template, see [Authoring templates](resource-group-authoring-templates.md)
 - For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](resource-group-template-functions.md)
 

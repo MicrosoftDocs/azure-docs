@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/30/2015"
-   ms.author="sahajs;twounder"/>
+   ms.date="01/07/2016"
+   ms.author="sahajs;mausher;barbkess;sonyama"/>
 
 # Use Azure Stream Analytics with SQL Data Warehouse
 

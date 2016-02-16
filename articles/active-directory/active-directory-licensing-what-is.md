@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="12/01/2015"
+    ms.date="02/01/2016"
     ms.author="curtand"/>
 
 # What is Microsoft Azure Active Directory licensing?
@@ -24,10 +24,10 @@ Azure Active Directory (Azure AD) is Microsoft's Identity as a Service (IDaaS) s
 
 [Try Azure AD premium now.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
-> [AZURE.NOTE] Azure AD administration portal is a part of the Azure classic portal. While using Azure AD does not require any Azure purchases, accessing this portal requires an active Azure subscription or an [Azure trial subscription](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Azure AD administration portal is a part of the Azure classic portal. While using Azure AD does not require any Azure purchases, accessing this portal requires an active Azure subscription or an [Azure trial subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 For a broad overview of Azure AD service capabilities, see [What is Azure AD](active-directory-whatis.md).
-[Learn more about Azure AD service levels](http://azure.microsoft.com/support/legal/sla/)
+[Learn more about Azure AD service levels](https://azure.microsoft.com/support/legal/sla/)
 
 > [AZURE.NOTE]  Azure pay as you go subscriptions are different: while also represented in your directory, these subscriptions enable creation of Azure resources and map them to your payment method. In this case there are NO license counts associated with the subscription. Users' association with the subscription, the users' access to managing subscription resources, is achieved by granting them permissions to operate on Azure resources mapped to the subscription.
 
@@ -44,7 +44,7 @@ In general, Azure AD subscription information is managed through the Azure class
 
 > [AZURE.IMPORTANT] Azure AD Premium and Basic, as well as Enterprise Mobility Suite subscriptions, are confined to their provisioned directory/tenant. Subscriptions cannot be split between directories or used to entitle users in other directories. Moving a subscription between directories is possible but requires submitting a support ticket or cancellation and re-purchase in the case of direct purchases.
 
-> [AZURE.IMPORTANT] When purchasing Azure AD or Enterprise Mobility Suite through Volume Licensing subscription activation will happen automatically when the agreement includes other Microsoft Online services, e.g. Office 365.
+> When purchasing Azure AD or Enterprise Mobility Suite through Volume Licensing subscription activation will happen automatically when the agreement includes other Microsoft Online services, e.g. Office 365.
 
 Paid Azure AD features span the breadth of the directory. Examples include:
 - Group-based assignment to applications, which is enabled under the specific application you are managing.
@@ -138,5 +138,5 @@ Now you might be ready to configure and use some Azure AD Premium features.
 - [Self-service group management](active-directory-accessmanagement-self-service-group-management.md)
 - [Azure AD Connect heath](active-directory-aadconnect-health.md)
 - [Group assignment to applications](active-directory-manage-groups.md)
-- [Azure Multi-Factor Authentication](multi-factor-authentication.md)
+- [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Direct purchase of Azure AD Premium licenses](http://aka.ms/buyaadp)

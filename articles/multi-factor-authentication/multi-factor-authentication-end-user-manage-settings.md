@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Having trouble with Azure Multi-Factor Authentication | Microsoft Azure" 
 	description="This document will provide users information on what to do if they run into an issue with Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords = "multifactor authentication client, authentication problem, correlation ID"
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Having trouble with Azure Multi-Factor Authentication
@@ -24,13 +25,13 @@ The following information is provided to help you with some of the common issues
 
 
 - [Correlation ID Errors](#correlation-id-errors)
-- [I have lost my phone or it was stolen](#i-have-lost-my-phone-or-it-was-stolen?)
+- [I have lost my phone or it was stolen](#i-have-lost-my-phone-or-it-was-stolen)
 - [I want to change my phone number](#i-want-to-change-my-phone-number)
 - [I have a new phone and need to change my phone number](#i-have-a-new-phone-and-need-to-change-my-phone-number)
-- [I am not receiving a code on my phone](#i-am-not-receiving-a-code-on-my-phone)
+- [I am not receiving a code on my phone](#i-am-not-receiving-a-code-or-a-call-on-my-phone)
 - [App passwords are not working](#app-passwords-are-not-working)
 - [How do I clean up Azure Authenticator from my old device and move to a new one?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
-- [I didn't find an answer to my problem](#i-didn't-find-an-answer-to-my-problem)
+- [I didn't find an answer to my problem](#i-didnt-find-an-answer-to-my-problem)
 
 ##Correlation ID Errors
 If you've tried the troubleshooting steps below and are still running into problems, you can post a question on the [Azure AD Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Search the Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) or [contact support](https://support.microsoft.com/en-us) and we'll take a look at your problem as soon as we can.
@@ -157,7 +158,7 @@ First, you need to ensure the following:
 - If you selected to receive verification codes by text message to your mobile phone, make sure your service plan and device supports text message delivery. Your delivery speed and availability may vary by location and service provider. Also make sure that you have an adequate cell signal when trying to receive these codes.
 - If you chose to receive a verification via the mobile app, ensure that you have a significant cell signal.  Also remember that delivery speed and availability may vary by location and service provider. 
 
-If you have a smartphone, we recommend you use the [Azure Authenticator app](multi-factor-authentication-azure-authenticator).
+If you have a smartphone, we recommend you use the [Azure Authenticator app](multi-factor-authentication-azure-authenticator.md).
 
 You can switch between receiving your verification codes via text messages through the mobile app by choosing **Use a different verification option** when you sign-in. 
 

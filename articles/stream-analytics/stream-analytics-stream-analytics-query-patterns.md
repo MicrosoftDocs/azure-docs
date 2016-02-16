@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/04/2015"
+	ms.date="02/16/2016"
 	ms.author="jeffstok"/>
 
 
@@ -22,7 +22,7 @@
 
 ## Introduction ##
 
-Queries in Azure Stream Analytics are expressed in a SQL-like query language, which is documented [here](https://msdn.microsoft.com/library/azure/dn834998.aspx).  This document outlines solutions to several common query patterns based on real world scenarios.  It is a work in progress and will continue to be updated with new patterns on an ongoing basis.
+Queries in Azure Stream Analytics are expressed in a SQL-like query language, which is documented in the [Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) guide.  This article outlines solutions to several common query patterns based on real world scenarios.  It is a work in progress and will continue to be updated with new patterns on an ongoing basis.
 
 ## Query example: Data type conversions ##
 **Description**: Define the types of the properties on the input stream.
@@ -404,6 +404,36 @@ e.g. Have 2 consecutive cars from the same make entered the toll road within 90 
 **Explanation**:
 Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are the same and use LAG to get data about the previous car.
 
+## Query example: Detect duration between events
+**Description**: Find the duration of a given event. e.g. Given a web clickstream determine time spent on a feature.
+
+**Input**:  
+  
+| User | Feature | Event | Time |
+| --- | --- | --- | --- |
+| user@location.com | RightMenu | Start | 2015-01-01T00:00:01.0000000Z |
+| user@location.com | RightMenu | End | 2015-01-01T00:00:08.0000000Z |
+  
+**Output**:  
+  
+| User | Feature | Duration |
+| --- | --- | --- |
+| user@location.com | RightMenu | 7 |
+  
+
+**Solution**
+
+````
+    SELECT
+    	[user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+    FROM input TIMESTAMP BY Time
+    WHERE
+    	Event = 'end'
+````
+
+**Explanation**:
+Use LAST function to retrieve last Time value when event type was ‘Start’. Note that LAST function uses PARTITION BY [user] to indicate that result shall be computed per unique user.  The query has a 1 hour maximum threshold for time difference between ‘Start’ and ‘Stop’ events but is configurable as needed (LIMIT DURATION(hour, 1).
+
 ## Query example: Detect duration of a condition ##
 **Description**: Find out how long a condition occurred for.
 e.g. Suppose that a bug that resulted in all cars having an incorrect (above 20,000 pounds) – we want to compute the duration of the bug.
@@ -434,33 +464,18 @@ e.g. Suppose that a bug that resulted in all cars having an incorrect (above 20,
 
 **Solution**:
 
-	SELECT
-	    PrevGood.Time AS StartFault,
-	    ThisGood.Time AS Endfault,
-	    DATEDIFF(second, PrevGood.Time, ThisGood.Time) AS FaultDuraitonSeconds
-	FROM
-	    Input AS ThisGood TIMESTAMP BY Time
-	    INNER JOIN Input AS PrevGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, ThisGood) BETWEEN 1 AND 3600
-	    AND PrevGood.Weight < 20000
-	    INNER JOIN Input AS Bad TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, Bad) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, Bad, ThisGood) BETWEEN 1 AND 3600
-	    AND Bad.Weight >= 20000
-	    LEFT JOIN Input AS MidGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, MidGood) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, MidGood, ThisGood) BETWEEN 1 AND 3600
-	    AND MidGood.Weight < 20000
-	WHERE
-	    ThisGood.Weight < 20000
-	    AND MidGood.Weight IS NULL
+````
+SELECT 
+    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN weight < 20000 ) [StartFault],
+    [time] [EndFault]
+FROM input
+WHERE
+    [weight] < 20000
+    AND LAG(weight) OVER (LIMIT DURATION(hour, 24)) > 20000
+````
 
 **Explanation**:
-We are looking for 2 good events with a bad event in between and without a good event in between which means the 2 events are the first events before and after at least 1 bad event. Getting 2 good events with 1 bad event in the middle is simple using 2 JOINs and validating that we get good -> bad -> good by checking the weight and comparing the time stamps. 
-
-Using what we learned on “LEFT Outer Join to include NULLs or to do absence of events” we know how to check that no good event has occurred between the 2 good events we picked up.
-
-Composing those together and we get good -> bad -> good with no other good event in between. We can now compute the duration between the beginning and end good events which gives us the duration of the bug.
+Use LAG to view the input stream for 24 hours and look for instances where StartFault and StopFault are spanned by weight < 20000.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
@@ -468,7 +483,7 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 ## Next steps
 
 - [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-- [Get started using Azure Stream Analytics](../stream.analytics.get.started.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

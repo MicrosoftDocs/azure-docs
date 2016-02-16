@@ -49,7 +49,7 @@ In both collection modes, additional data collection folders can be specified by
 ## Prerequisites
 
 - You need to have a storage account for extension to save generated zip files.
-- You must make sure that you are using Azure PowerShell Cmdlets V0.8.0 or above. For more information, see [Azure Downloads](http://azure.microsoft.com/downloads/).
+- You must make sure that you are using Azure PowerShell Cmdlets V0.8.0 or above. For more information, see [Azure Downloads](https://azure.microsoft.com/downloads/).
 
 ## Add the extension
 

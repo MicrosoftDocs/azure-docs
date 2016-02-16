@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Use Case - Product Recommendations 
@@ -36,7 +36,7 @@ Third, the recommendations must be immediately deliverable to the user to provid
 
 ## Solution Overview
 
-This example use case has been solved and implemented by real Azure users with Azure Data Factory and other Cortana Analytics component services, including [HDInsight](http://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/) to ingest, prepare, transform, analyze, and publish the final data.
+This example use case has been solved and implemented by real Azure users with Azure Data Factory and other Cortana Analytics component services, including [HDInsight](https://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/) to ingest, prepare, transform, analyze, and publish the final data.
 
 The online retailer uses an Azure Blob store, an on-premises SQL server, Azure SQL DB, and a relational data mart as their data storage options throughout the workflow.  The blob store contains customer information, customer behavior data, and product information data. The product information data includes product brand information and a product catalog stored on-premises in a SQL data warehouse. 
 
@@ -44,9 +44,9 @@ As depicted in the following figure, all of the data is combined and fed into a 
 
 ![use case diagram](./media/data-factory-product-reco-usecase/diagram-1.png)
 
-Gigabytes of raw web log files are generated daily from the online retailer’s website as semi-structured files. The raw web log files and the customer and product catalog information is ingested on a regular basis into an Azure Blob storage account using Data Factory’s globally deployed data movement as a service. The raw log files for the day are partitioned (by year and month) in blob storage for long term storage.  [Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) (Hadoop as a service) is used to partition the raw log files (for better manageability, availability and performance) in the blob store and process the ingested logs at scale using both Hive and Pig scripts The partitioned web logs data is then processed to extract the needed inputs for a machine learning recommendation system to generate the personalized product recommendations.
+Gigabytes of raw web log files are generated daily from the online retailer’s website as semi-structured files. The raw web log files and the customer and product catalog information is ingested on a regular basis into an Azure Blob storage account using Data Factory’s globally deployed data movement as a service. The raw log files for the day are partitioned (by year and month) in blob storage for long term storage.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) (Hadoop as a service) is used to partition the raw log files (for better manageability, availability and performance) in the blob store and process the ingested logs at scale using both Hive and Pig scripts The partitioned web logs data is then processed to extract the needed inputs for a machine learning recommendation system to generate the personalized product recommendations.
 
-The recommendation system used for the machine learning in this example is an open source machine learning recommendation platform from [Apache Mahout](http://mahout.apache.org/).  Note that any [Azure Machine Learning](http://azure.microsoft.com/services/machine-learning/) or custom model can be applied.  The Mahout model is used to predict the similarity between items on the retailer website based on overall usage patterns, and to generate the personalized recommendations based on the individual user.
+The recommendation system used for the machine learning in this example is an open source machine learning recommendation platform from [Apache Mahout](http://mahout.apache.org/).  Note that any [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) or custom model can be applied.  The Mahout model is used to predict the similarity between items on the retailer website based on overall usage patterns, and to generate the personalized recommendations based on the individual user.
 
 Finally, the result set of personalized product recommendations is moved to a relational data mart for consumption by the retailer website.  The result set could also be accessed directly from blob storage by another application, or moved to additional stores for other consumers and use cases.
 

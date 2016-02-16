@@ -13,19 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # How to use the Azure Mobile Apps Node.js SDK
 
 [AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
-&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This article provides detailed information and examples showing how to work with a Node.js backend in Azure App Service Mobile Apps.
-
-> [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples in this document use v2.0.0-beta1 of [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduction
 
@@ -83,12 +78,13 @@ This application creates a simple mobile-optimized WebAPI with a single endpoint
 unauthenticated access to an underlying SQL data store using a dynamic schema.  It is suitable for following the
 client library quick starts:
 
+- [Android Client QuickStart]
 - [iOS Client QuickStart]
+- [Windows Store Client QuickStart]
 - [Xamarin.iOS Client QuickStart]
 - [Xamarin.Android Client QuickStart]
 - [Xamarin.Forms Client QuickStart]
-- [Windows Store Client QuickStart]
-- [HTML/Javascript Client QuickStart]
+
 
 You can find the code for this basic application in the [basicapp sample on GitHub].
 
@@ -167,6 +163,16 @@ Azure App Service has specific advice for Node.js application that you should re
 
 - How to [specify the Node Version]
 - How to [use Node modules]
+
+### <a name="howto-enable-homepage"></a>How to: Enable a Home Page for your application
+
+Many applications are a combination of web and mobile apps and the ExpressJS framework allows you to combine the two facets.  Sometimes, however, you
+may wish to only implement a mobile interface.  It is useful to provide a landing page to ensure the app service is up and running.  You can either
+provide your own home page or enable a temporary home page.  To enable a temporary home page, adjust the Mobile App constructor to the following:
+
+    var mobile = azureMobileApps({ homePage: true });
+
+You can add this setting to your `azureMobile.js` file if you only want this option available when developing locally.
 
 ## <a name="TableOperations"></a>Table operations
 
@@ -331,6 +337,34 @@ An example _azureMobile.js_ file implementing the database settings given above 
 
 We recommend that you add _azureMobile.js_ to your _.gitignore_ file (or other source code control ignore file) to prevent passwords from
 being stored in the cloud.  Always configure production settings in App Settings within the [Azure Portal].
+
+### <a name="howto-appsettings"></a>App Settings for configuring your Mobile App
+
+Most settings in the _azureMobile.js_ file have an equivalent App Setting in the [Azure Portal].  Use the following list to configure your
+app in App Settings:
+
+| App Setting                 | _azureMobile.js_ Setting  | Description                               | Valid Values                                |
+| :-------------------------- | :------------------------ | :---------------------------------------- | :------------------------------------------ |
+| **MS_MobileAppName**        | name                      | The name of the app                       | string                                      |
+| **MS_MobileLoggingLevel**   | logging.level             | Minimum log level of messages to log      | error, warning, info, verbose, debug, silly |
+| **MS_DebugMode**            | debug                     | Enable or Disable debug mode              | true, false                                 |
+| **MS_TableSchema**          | data.schema               | Default schema name for SQL tables        | string (default: dbo)                       |
+| **MS_DynamicSchema**        | data.dynamicSchema        | Enable or Disable debug mode              | true, false                                 |
+| **MS_DisableVersionHeader** | version (set to undefined)| Disables the X-ZUMO-Server-Version header | true, false                                 |
+| **MS_SkipVersionCheck**     | skipversioncheck          | Disables the client API version check     | true, false                                 |
+
+To set an App Setting:
+
+1. Log into the [Azure Portal].
+2. Select **All resources** or **App Services** then click on the name of your Mobile App.
+3. The Settings blade will open by default - if it doesn't, click on **Settings**.
+4. Click on **Application settings** in the GENERAL menu.
+5. Scroll to the App Settings section.
+6. If your app setting already exists, click on the value of the app setting to edit the value.
+7. If you app setting does not exist, enter the App Setting in the Key box and the value in the Value box.
+8. Once you are complete, click on **Save**.
+
+Changing most app settings will require a service restart.
 
 ### <a name="howto-use-sqlazure"></a>How to: Use SQL Database as your production data store
 
@@ -533,6 +567,27 @@ the seeded data.
 
 We recommend that you explicitly call the initialize() method to create the table when the service starts running.
 
+### <a name="Swagger"></a>Enable Swagger Support
+
+Azure App Service Mobile Apps comes with built-in [Swagger] support.  To enable Swagger support, first install the swagger-ui as a dependency:
+
+    npm install --save swagger-ui
+
+Once installed, you can enable Swagger support in the Azure Mobile Apps constructor:
+
+    var mobile = azureMobileApps({ swagger: true });
+
+You probably only want to enable Swagger support in development editions.  You can do this by utilizing the `NODE_ENV` app setting:
+
+    var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
+
+The swagger endpoint will be located at http://_yoursite_.azurewebsites.net/swagger.  You can access the Swagger UI via the `/swagger/ui` endpoint.
+Note that Swagger produces an error for the / endpoint if you choose to require authentication across your entire application.  For best
+results, choose to allow unauthenticated requests through in the Azure App Service Authentication / Authorization settings, then control
+authentication using the `table.access` property.
+
+You can also add the Swagger option to your `azureMobile.js` file if you only want Swagger support when developing locally.
+
 ## <a name="CustomAPI"></a>Custom APIs
 
 In addition to the data access API via the /tables endpoint, Azure Mobile Apps can provide custom API coverage.  Custom APIs are defined in
@@ -615,6 +670,34 @@ You can also specify authentication on specific operations:
 
 The same token that is used for the tables endpoint must be used for custom APIs requiring authentication.
 
+### <a name="howto-customapi-auth"></a>How to: Handle Large File Uploads
+
+Azure Mobile Apps SDK uses the [body-parser middleware](https://github.com/expressjs/body-parser) to accept and decode body content in your submission.  You can pre-configure
+body-parser to accept larger file uploads:
+
+	var express = require('express'),
+        bodyParser = require('body-parser'),
+		azureMobileApps = require('azure-mobile-apps');
+
+	var app = express(),
+		mobile = azureMobileApps();
+
+    // Set up large body content handling
+    app.use(bodyParser.json({ limit: '50mb' }));
+    app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
+	// Import the Custom API
+	mobile.api.import('./api');
+
+	// Add the mobile API so it is accessible as a Web API
+	app.use(mobile);
+
+	// Start listening on HTTP
+	app.listen(process.env.PORT || 3000);
+
+You can adjust the 50Mb limit we have shown above.  Note that the file will be base-64 encoded before transmission, which will
+increase the size of the actual upload.
+
 ## <a name="Debugging"></a>Debugging and troubleshooting
 
 The Azure App Service provides several debugging and troubleshooting techniques for Node.js applications.
@@ -678,6 +761,7 @@ From the editor, you can also execute the code on the site
 [6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
 
 <!-- URLs -->
+[Android Client QuickStart]: app-service-mobile-android-get-started.md
 [iOS Client QuickStart]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS Client QuickStart]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
@@ -690,15 +774,16 @@ From the editor, you can also execute the code on the site
 [How to configure Google Authentication]: app-service-mobile-how-to-configure-google-authentication.md
 [How to configure Microsoft Authentication]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [How to configure Twitter Authentication]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Azure App Service Deployment Guide]: ../app-service-web/web-site-deploy.md
+[Azure App Service Deployment Guide]: ../app-service-web/web-sites-deploy.md
 [Monitoring an Azure App Service]: ../app-service-web/web-sites-monitor.md
 [Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Toubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
-[use Node modules]: ../nodejs-use-node-mobiles-azure-apps.md
+[use Node modules]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
+[Swagger]: http://swagger.io/
 
 [Azure Portal]: https://portal.azure.com/
 [OData]: http://www.odata.org

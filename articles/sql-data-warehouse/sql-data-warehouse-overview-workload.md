@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="barbkess;twounder;JRJ@BigBangData.co.uk"/>
+   ms.date="01/07/2016"
+   ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
 # Data warehouse workload
@@ -28,7 +28,7 @@ Data warehouses are characterized by queries that scan larger numbers of rows, l
 
 - A data warehouse performs best when the data is stored in a way that optimizes queries that need to scan large numbers of rows or large ranges of data. This type of scanning works best when the data is stored and searched by columns, instead of by rows. 
 
->[AZURE.NOTE] The in-memory columnstore index, which uses column storage, provides up to 5x compression gains and 10x query performance gains over traditional binary trees for reporting and analytics queries. We consider columnstore indexes as the standard for storing and scanning large data in a data warehouse.
+>[AZURE.NOTE] The in-memory columnstore index, which uses column storage, provides up to 10x compression gains and 100x query performance gains over traditional binary trees for reporting and analytics queries. We consider columnstore indexes as the standard for storing and scanning large data in a data warehouse.
 
 - A data warehouse has different requirements than a system that optimizes for online transaction processing (OLTP). The OLTP system has many insert, update, and delete operations. These operations seek to specific rows in the table. Table seeks perform best when the data is stored in a row-by-row manner. The data can be sorted and quickly searched with a divide and conquer approach called a binary tree or btree search.
 

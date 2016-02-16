@@ -54,7 +54,7 @@ User Name | Yes | Enter a user name that can log into the SQL Server. If connect
 Password | Yes | Enter the user name password.
 Database Name | Yes | Enter the database you are connecting. For example, you can enter *Customers* or *dbo/orders*.
 On-Premises | Yes | Default is False. Enter False if connecting to an Azure SQL database. Enter True if connecting to an on-premises SQL Server.
-Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/)
+Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
 Partner Server Name | No | If the primary server is unavailable, you can enter a partner server as an alternate or backup server.
 Tables | No | List the database tables that can be updated by the connector. For example, enter *OrdersTable* or *EmployeeTable*. If no tables are entered, all tables can be used. Valid tables and/or Stored Procedures are required to use this connector as an action.
 Stored Procedures | No | Enter an existing stored procedure that can be called by the connector. For example, enter *sp_IsEmployeeEligible* or *sp_CalculateOrderDiscount*. Valid tables and/or Stored Procedures are required to use this connector as an action.

@@ -28,7 +28,7 @@ To accelerate developers building solutions with Azure App Service, the Azure te
 
 In Azure App Service, there are different Service "Tiers" available. All Tiers include all the connectors and API Apps, including their full functionality.  
 
-[App Service Pricing](http://azure.microsoft.com/pricing/details/app-service/) describes these Services Tiers and also lists what is included in these tiers. The following sections describe the various categories of BizTalk API Apps and Connectors.
+[App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/) describes these Services Tiers and also lists what is included in these tiers. The following sections describe the various categories of BizTalk API Apps and Connectors.
 
 
 ## Standard Connectors

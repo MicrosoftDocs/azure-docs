@@ -5,7 +5,7 @@
 	documentationCenter="ruby" 
 	authors="tfitzmac" 
 	manager="wpickett" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="12/16/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -65,7 +65,7 @@ you must specify the account information before using **Azure::QueueService** wi
 
 To obtain these values:
 
-1. Log into the [Azure Portal](portal.azure.com).
+1. Log into the [Azure Portal](https://portal.azure.com).
 2. Navigate to the storage account you want to use
 3. Click **MANAGE KEYS** at the bottom of the navigation pane.
 4. In the pop up dialog, you will see the storage account name, primary access key and secondary access key. For access key, you can select either the primary one or the secondary one.

@@ -233,7 +233,7 @@ You cannot remove a static private IP address from a NIC in Azure CLI for Resour
 ## How to add a static private IP address to an existing VM
 To add a static private IP address to the NIC used by teh VM created using the script above, run the following command:
 
-	azure netwrok nic set -g TestRG -n TestNIC2 -a 192.168.1.101
+	azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
 
 Expected output:
 

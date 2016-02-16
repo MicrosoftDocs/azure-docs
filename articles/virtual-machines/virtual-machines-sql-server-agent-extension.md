@@ -27,7 +27,7 @@ This extension enables SQL Server in Azure Virtual Machines to use certain servi
 ## Prerequisites
 Requirements for using Powershell cmdlets:
 
-- Latest Azure command-line SDK [available here](http://azure.microsoft.com/downloads/)
+- Latest Azure command-line SDK [available here](https://azure.microsoft.com/downloads/)
 
 Requirements to use the extension on your VM:
 

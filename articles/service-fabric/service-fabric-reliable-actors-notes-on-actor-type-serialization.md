@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actors Notes on Actor type serialization"
-   description="Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actor state and interfaces"
+   pageTitle="Reliable Actors notes on actor type serialization | Microsoft Azure"
+   description="Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actors states and interfaces"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -18,11 +18,11 @@
 
 # Notes on Service Fabric Reliable Actors type serialization
 
-There are few important aspects that needs to be kept in mind while defining the Actor's interface(s) and State: types need to be Data Contract serializable. More information about Data Contracts can be found on [MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
+You should keep a few important aspects in mind when you define an actor's interface(s) and state. Types need to be data contract serializable. More information about data contracts [can be found on MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
 
-## Types used in Actor Interface(s)
+## Actor interface types
 
-The arguments of all the methods and the result type of the task returned by each method defined in the [actor interface](service-fabric-reliable-actors-introduction.md#actors) need to be data contract serializable. This also applies to the arguments of methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md#actor-events). (Actor event interface methods always return void).
+The arguments of all the methods, as well as the result types of the tasks returned by each method as defined in the [actor interface](service-fabric-reliable-actors-introduction.md#actors), need to be data contract serializable. This also applies to the arguments of the methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md#actor-events). (Actor event interface methods always return void.)
 For instance, if the `IVoiceMail` interface defines a method as:
 
 ```csharp
@@ -31,7 +31,7 @@ Task<List<Voicemail>> GetMessagesAsync();
 
 ```
 
-`List<T>` is a standard .NET type that is already Data Contract serializable. The `Voicemail` type needs to be Data Contract serializable.
+`List<T>` is a standard .NET type that is already data contract serializable. The `Voicemail` type also needs to be data contract serializable.
 
 ```csharp
 
@@ -50,9 +50,9 @@ public class Voicemail
 
 ```
 
-## Actor State class
+## Actor state class
 
-The actor state needs to be data contract serializable. For instance if we have an Actor class definition that looks like:
+The actor's state needs to be data contract serializable. For example, an actor class definition can look like this:
 
 ```csharp
 
@@ -62,7 +62,7 @@ public class VoiceMailActor : StatefulActor<VoicemailBox>, IVoiceMail
 
 ```
 
-The state class is going to be defined with the class and its members annotated with the DataContract and DataMember attributes respectively.
+The state class is going to be defined with the class, and its members will be annotated with the **DataContract** and **DataMember** attributes, respectively.
 
 ```csharp
 

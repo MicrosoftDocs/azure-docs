@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="MightyPen"/>
 
 
@@ -13,8 +13,8 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.topic="article"
+	ms.date="02/11/2016"
 	ms.author="jodebrui"/>
 
 
@@ -52,7 +52,7 @@ Export your production database to a bacpac by using either:
 
 Import the bacpac into a new Premium database.
 
-1. In the Azure [portal](http://portal.azure.com/),
+1. In the Azure [portal](https://portal.azure.com/),
  - Navigate to the server.
  - Select the [Import Database](sql-database-import.md) option.
  - Select a Premium pricing tier.
@@ -223,7 +223,7 @@ To minimize network latency, run your test in the same Azure geographic region w
 
 Consider monitoring the performance effects of your In-Memory implementations in production:
 
-- [Monitor In-Memory Storage](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/).
+- [Monitor In-Memory Storage](sql-database-in-memory-oltp-monitoring.md).
 
 - [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
 

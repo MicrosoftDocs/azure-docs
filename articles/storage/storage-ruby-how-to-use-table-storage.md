@@ -5,7 +5,7 @@
 	documentationCenter="ruby"
 	authors="tfitzmac"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 
@@ -59,7 +59,7 @@ The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT**
 
 To obtain these values:
 
-1. Log in to the [Azure Portal](portal.azure.com).
+1. Log in to the [Azure Portal](https://portal.azure.com).
 
 2. Navigate to your storage account.
 

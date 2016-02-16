@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="01/21/2016"
 	ms.author="cynthn"/>
 
 # How to log on to a virtual machine running Windows Server 
@@ -27,15 +27,11 @@ You'll use the **Connect** button in the Azure portal to start a Remote Desktop 
 
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
 
-2.	On the Hub menu, click **Browse**.  
+2.	On the Hub menu, click **Virtual Machines**.
 
-3.	On the search blade, scroll down and click **Virtual Machines**.
+3.	Select the virtual machine from the list.
 
-	![Search for virtual machines](./media/virtual-machines-log-on-windows-server-preview/search-blade-preview-portal.png)
-
-4.	Select the virtual machine from the list.
-
-5. On the blade for the virtual machine, click **Connect**.
+4. On the blade for the virtual machine, click **Connect**.
 
 	![Connect to the virtual machine](./media/virtual-machines-log-on-windows-server-preview/preview-portal-connect.png)
 

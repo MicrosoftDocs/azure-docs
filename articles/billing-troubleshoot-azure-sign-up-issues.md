@@ -78,7 +78,7 @@ Suggestions:
 The Azure Terms of Use agreement has a limit of only one available free trial activation for any user that never used Azure before. If you have had any other type of Azure subscription, you will not be able to activate a free trial.
 
 Suggestions:
-- If you already activated an Azure subscription in the past and free trial activation fails, please consider purchasing a Pay-As-You-Go subscription. You may also be eligible for a benefit offer. Learn more at the [Microsoft Azure offer details page](http://azure.microsoft.com/support/legal/offer-details/) instead of Azure Free Trial plan. Please note that benefit plans require specific prerequisites.
+- If you already activated an Azure subscription in the past and free trial activation fails, please consider purchasing a Pay-As-You-Go subscription. You may also be eligible for a benefit offer. Learn more at the [Microsoft Azure offer details page](https://azure.microsoft.com/support/legal/offer-details/) instead of Azure Free Trial plan. Please note that benefit plans require specific prerequisites.
 
 ## Still unable to sign up?
 Please [contact Azure Support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) for support if you still experience sign-up issues or if your issue is not covered in this article.

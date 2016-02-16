@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/16/2016"
 	ms.author="billmath"/>
 
 # Directory integration tools comparison
@@ -27,10 +27,9 @@ Over the years the directory integration tools have grown and evolved.  This doc
 
 Use the following key for each of the tables.
 
-●  = Available Now</br>
-FR = Future Release</br>
-PP = Public Preview</br>
-
+●  = Available Now  
+FR = Future Release  
+PP = Public Preview  
 
 ## On-Premises to Cloud Synchronization
 
@@ -74,7 +73,7 @@ PP = Public Preview</br>
 | Supports installation on a Domain Controller | ● | ● | ● |  |
 | Supports installation using SQL Express | ● | ● | ● |  |
 | Easy upgrade from DirSync |● |  |  |  |
-| Localization Windows Server languages | FR | ● | ● |  |
+| Localization Windows Server languages | ● | ● | ● |  |
 | Support for Windows Server 2008 and Windows Server 2008 R2 | ● for Sync, No for federation| ● | ●  | ● |
 | Support for Windows Server 2012 and Windows Server 2012 R2 | ● | ● | ● | Only 2012 |
 

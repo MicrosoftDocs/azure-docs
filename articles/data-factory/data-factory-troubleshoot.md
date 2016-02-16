@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
@@ -52,9 +52,9 @@ Verify that the SQL Server is reachable from the machine where the gateway is in
 2. Try connecting to the SQL Server instance using the credentials you specified on the Azure Classic Portal using SQL Server Management Studio (SSMS).
 
 
-## Problem: Input slices are in PendingExecution or PendingValidation state for ever
+## Problem: Input slices are in Waiting state for ever
 
-The slices could be in **PendingExecution** or **PendingValidation** state due to a number of reasons and one of the common reasons is that the **external** property is not set to **true**. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **external** property . This indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
+The slices could be in **Waiting** state due to a number of reasons and one of the common reasons is that the **external** property is not set to **true**. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **external** property . This indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
 
 See the following example for the usage of the **external** property. You can optionally specify **externalData*** when you set external to true.. 
 
@@ -97,7 +97,7 @@ To learn more details:
 1. Launch Data Management Gateway Configuration Manager on the machine on which gateway was installed. Verify that the **Gateway name** is set to the logical gateway name on the **Azure Classic Portal**, **Gateway key status** is **registered** and **Service status** is **Started**. 
 2. Launch **Event Viewer**. Expand **Applications and Services Logs** and click **Data Management Gateway**. See if there are any errors related to Data Management Gateway. 
 
-## Problem: On Demand HDInsight Provisioning Fails with Error
+## Problem: On Demand HDInsight provisioning fails with Error
 
 When using a linked service of type HDInsightOnDemandLinkedService, you should specify a linkedServiceName that points to  Azure Blob Storage. This storage account will be used to copy all the logs and supporting files for your on-demand HDInsight cluster.  Sometimes the activity that does the on-demand provisioning on HDInsight may fail with the following error:
 
@@ -109,7 +109,7 @@ Additionally, there is a second JSON property additionalLinkedServiceNames where
 
 
 
-## Problem: Custom Activity Fails
+## Problem: Custom activity fails
 When using a Custom Activity in Azure Data Factory (pipeline activity type CustomActivity), the custom application runs in the specified linked service to HDInsight as a Map only streaming MapReduce job. 
 
 When the custom activity runs, Azure Data Factory will be able to capture that output from the HDInsight cluster, and save it in the *adfjobs* storage container in your Azure Blob Storage account. In case of an error, you can read the text from **stderr** output text file after a failure has occurred. The files are accessible and readable from the Azure Classic Portal itself in the web browser, or by using storage explorer tools to access the files kept in the storage container in Azure Blob Storage directly. 

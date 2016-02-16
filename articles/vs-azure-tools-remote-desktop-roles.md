@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Using Remote Desktop with Azure Roles"
+   pageTitle="Using Remote Desktop with Azure Roles | Microsoft Azure"
    description="Using Remote Desktop with Azure Roles"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.date="12/18/2015"
+   ms.author="tarcher" />
 
 # Using Remote Desktop with Azure Roles
 
@@ -37,7 +37,7 @@ By using the Azure SDK and Remote Desktop Services, you can access Azure roles a
  
     This displays a dropdown list box that lets you create or choose a certificate so that you can encrypt credentials information when connecting via remote desktop.
 
-1. In the dropdown list, choose **<Create>**, or choose an existing one from the list. 
+1. In the dropdown list, choose **&lt;Create>**, or choose an existing one from the list. 
 
     If you choose an existing certificate, skip the following steps.
 

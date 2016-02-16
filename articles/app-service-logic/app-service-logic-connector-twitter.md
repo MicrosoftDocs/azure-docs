@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="sameerch"/>
 
 
@@ -54,7 +54,7 @@ A connector can be created within a logic app or be created directly from the Az
 5. Enter other required settings around connector Name, App Service, and Resource Group.
 6.	Click **Create**.
 
-> [AZURE.NOTE] If you want to further secure your Twitter API with the redirect URL, you can see details on how to do that [here](app-service-logic-oauth-security.md)
+> [AZURE.NOTE] If you want to further secure your Twitter API with the redirect URL, you can use [OAUTH security](app-service-logic-oauth-security.md).
 
 
 ## Using the Twitter Connector in your Logic App

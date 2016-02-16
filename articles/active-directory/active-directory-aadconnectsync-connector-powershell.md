@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect sync: PowerShell Connector"
+   pageTitle="Azure AD Connect sync: PowerShell Connector | Microsoft Azure"
    description="This article describes how to configure Microsoft's Windows PowerShell Connector."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/11/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # WIndows PowerShell Connector technical reference
@@ -194,7 +194,7 @@ The begin import script receives the following parameters from the connector:
 | --- | --- | --- |
 | ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector. |
 | Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab. |
-| OpenImportConnectionRunStep | OpenImportConnectionRunStep[oicrs] | Informs the script about the type of import run (delta or full), partition, hierarchy, watermark, and expected page size.
+| OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informs the script about the type of import run (delta or full), partition, hierarchy, watermark, and expected page size.
 | Types | [Schema][schema] | Schema for the connector space that will be imported. |
 
 The script must return a single [OpenImportConnectionResults][oicres] object to the pipeline. The sample code below demonstrates how to return an OpenImportConnectionResults object to the pipeline:
