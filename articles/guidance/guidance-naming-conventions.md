@@ -1,7 +1,7 @@
 <properties
-   pageTitle=" Naming Conventions for Azure Services | Guidance | Microsoft Azure"
-   description="How to name Azure services and entities"
-   services="virtual-machines, storage, virtual-network, load-balancer"
+   pageTitle="Naming Conventions for Azure Services | Guidance | Microsoft Azure"
+   description="Recommended naming conventions for Azure services and resources.  How to name virtual machines, storage accounts, networks, virtual networks, subnets and other Azure entities"
+   services=""
    documentationCenter="na"
    authors="masimms"
    manager="marksou"
