@@ -85,7 +85,7 @@ For more information about each workflow, click the appropriate procedure in the
 |Modify the device administrator password|StorSimple Manager service → Devices → Configure|[Change the StorSimple Virtual Array device administrator password](storsimple-ova-change-device-admin-password.md)|
 |Install software updates|StorSimple Manager service → Devices → Maintenance|[Update your Virtual Array](storsimple-ova-update.md)|
 
->[AZURE.NOTE] You must use the [local web UI](storsimple-ova-web-ui-admin) for the following tasks:
+>[AZURE.NOTE] You must use the [local web UI](storsimple-ova-web-ui-admin.md) for the following tasks:
 >
 >- [Retrieve the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)
 >- [Create a support package](storsimple-ova-web-ui-admin.md#generate-a-log-package)
