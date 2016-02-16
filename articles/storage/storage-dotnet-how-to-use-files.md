@@ -134,7 +134,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 
 > [AZURE.NOTE] It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
 
-Open an Azure PowerShell window by clicking **Start** and typing **Azure PowerShell**. The Azure PowerShell window loads the Azure Powershell module for you.
+Open an Azure PowerShell window by clicking **Start** and typing **Windows PowerShell**. The PowerShell window loads the Azure Powershell module for you.
 
 ### Create a context for your storage account and key
 
