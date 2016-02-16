@@ -1,4 +1,4 @@
-## FAQ
+## FAQ 
 ### How much do reverse DNS records cost?
 They’re free!  There is no additional cost for reverse DNS records or queries.
 ### Will my reverse DNS records resolve from the internet?
