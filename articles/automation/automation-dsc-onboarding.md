@@ -288,7 +288,7 @@ To generically onboard any machine to Azure Automation DSC, a DSC metaconfigurat
         
         # Create the metaconfigurations
         # TODO: edit the below as needed for your use case
-        $MetaConfig = @{
+        $Params = @{
              RegistrationUrl = '<fill me in>';
              RegistrationKey = '<fill me in>';
              ComputerName = @('<some VM to onboard>', '<some other VM to onboard>');
@@ -302,9 +302,9 @@ To generically onboard any machine to Azure Automation DSC, a DSC metaconfigurat
              ReportOnly = $False;  # Set to $True to have machines only report to AA DSC but not pull from it
         }
         
-        ### Use PowerShell Splatting to invoke the DSC configuration.
-        ### For more info, run: Get-Help -Name about_Splatting
-        DscMetaConfigs @MetaConfig
+        # Use PowerShell splatting to pass parameters to the DSC configuration being invoked
+        # For more info about splatting, run: Get-Help -Name about_Splatting
+        DscMetaConfigs @Params
 
 3.	Fill in the registration key and URL for your Automation account, as well as the names of the machines to onboard. All other parameters are optional. To find the registration key and registration URL for your Automation account, see the [**Secure registration**](#secure-registration) section below.
 
@@ -322,16 +322,16 @@ If the PowerShell DSC Local Configuration Manager defaults match your use case, 
 3.	Download the PowerShell DSC metaconfigurations for the machines you want to onboard from the Automation account to which you want to onboard nodes:
 
         ### Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
-        $MetaConfig = @{
+        $Params = @{
             ResourceGroupName = 'MyResourceGroup'; # The name of the ARM Resource Group that contains your Azure Automation Account
             AutomationAccountName = ''; # The name of the Azure Automation Account where you want a node on-boarded to
             ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
             OutputFolder = "$env:UserProfile\Desktop\";
         }
         
-        ### Invoke the command to generate DSC LCM meta configurations
-        ### For more info, run: Get-Help -Name about_Splatting
-        Get-AzureRmAutomationDscOnboardingMetaconfig @MetaConfig
+        # Use PowerShell splatting to pass parameters to the DSC configuration being invoked
+        # For more info about splatting, run: Get-Help -Name about_Splatting
+        Get-AzureRmAutomationDscOnboardingMetaconfig @Params
 
 You should now have a folder called ***DscMetaConfigs***, containing the PowerShell DSC metaconfigurations for the machines to onboard.
 
