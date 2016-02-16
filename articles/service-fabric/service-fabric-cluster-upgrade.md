@@ -38,8 +38,6 @@ We try to execute the same upgrade a few more times in case any upgrades failed 
 
 If the cluster health policies are met, the upgrade is considered successful and marked complete. This can happen during the initial upgrade or any of the upgrade reruns in this phase. There is no email confirmation of a successful run. This is to avoid sending you too many emails; receiving an email should be seen as an exception to normal. We expect most of the cluster upgrades to succeed without impacting your application availability.
 
-For details on how to set custom health policies for your cluster, refer to  [Cluster upgrade and health parameters](service-fabric-cluster-health-parameters.md).
-
 ### Phase 2: Upgrade is performed using default health policies only
 
 The health policies are set in such a way that the number of applications that were healthy at the beginning of the upgrade remains the same for the duration of the upgrade process. During Phase 2, as in Phase 1, the upgrades proceed one upgrade domain at a time, and the applications that were running in the cluster continue to run without any downtime. The cluster health policies (a combination of node health and the health all of the applications running in the cluster) are adhered to for the duration of the upgrade.
