@@ -33,9 +33,14 @@ For a group that excludes all Guests, use a rule like
 
 (user.userType -ne "Guest")
 
+This article explains more about how to create a rule to manage members on a group in Azure Active Directory:
+
+* [Creating a simple rule to configure dynamic memberships for a group](active-directory-accessmanagement-simplerulegroup.md)
+
+
 These articles provide additional information on Azure Active Directory.
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Managing access to resources with Azure Active Directory groups](active-directory-manageoups.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [What is Azure Active Directory?](active-directory-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
