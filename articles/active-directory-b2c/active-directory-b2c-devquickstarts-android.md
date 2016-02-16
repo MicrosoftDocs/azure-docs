@@ -22,26 +22,23 @@ By using Azure Active Directory (Azure AD) B2C, you can add powerful self-servic
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]
-	This Quickstart requires that you have a web API protected by Azure AD with B2C in order to work fully. We have built one for both .NET and Node.js for you to use. This walk-through assumes that the Node.js web API sample is configured. For more, see the [Azure AD B2C web API for Node.js tutorial](active-directory-b2c-devquickstarts-api-node.md).
+> [AZURE.NOTE] This Quickstart requires that you have a web API protected by Azure AD with B2C in order to work fully. We have built one for both .NET and Node.js for you to use. This walk-through assumes that the Node.js web API sample is configured. For more, see the [Azure AD B2C web API for Node.js tutorial](active-directory-b2c-devquickstarts-api-node.md).
 
-
-> [AZURE.NOTE]
-	This article does not cover how to implement sign-in, sign-up and profile management by using Azure AD B2C. It focuses on how to call web APIs after the user is authenticated. If you haven't already, you should start with the [.NET web app getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md) to learn about the basics of Azure AD B2C.
+> [AZURE.NOTE] This article doesn't cover how to implement sign-in, sign-up and profile management by using Azure AD B2C. It focuses on how to call web APIs after the user is authenticated. If you haven't already, you should start with the [.NET web app getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md) to learn about the basics of Azure AD B2C.
 
 For Android clients that need to access protected resources, Azure AD provides the Active Directory Authentication Library (ADAL). The sole purpose of ADAL is to make it easy for your app to get access tokens. To demonstrate how easy it is, in this guide we’ll build an Android to-do list application that:
 
--	Gets access tokens that call a to-do list API by using the [OAuth 2.0 authentication protocol](https://msdn.microsoft.com/library/azure/dn645545.aspx).
--	Gets users' to-do lists.
--	Signs out users.
+- Gets access tokens that call a to-do list API by using the [OAuth 2.0 authentication protocol](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+- Gets users' to-do lists.
+- Signs out users.
 
 ## Get an Azure AD B2C directory
 
-Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more.  If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
+Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
 
 ## Create an application
 
-Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. Both the app and web API are represented by a single **Application ID** in this case, because they comprise one logical app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
+Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to communicate securely with your app. Both the app and web API are represented by a single **Application ID** in this case, because they comprise one logical app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
 
 - Include a **web app**/**web API** in the application.
 - Enter `urn:ietf:wg:oauth:2.0:oob` as a **Reply URL**. It is the default URL for this code sample.
@@ -54,8 +51,7 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md).  This app contains three
-identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). When you create your three policies, be sure to:
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains three identity experiences: sign up, sign in, and sign in by using Facebook.  You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). When you create your three policies, be sure to:
 
 - Choose the **Display name** and other sign-up attributes in your sign-up policy.
 - Choose the **Display name** and **Object ID** application claims in every policy. You can choose other claims as well.
@@ -65,24 +61,23 @@ identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will ne
 
 After you create the three policies, you're ready to build your app.
 
-Note that this article does not cover how to use the policies you just created. To learn about how policies work in Azure AD B2C,
-start with the [.NET web app getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md).
+Note that this article doesn't cover how to use the policies you just created. To learn about how policies work in Azure AD B2C, start with the [.NET web app getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Download the code
 
-The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android). To build the sample as you go, you can [download a skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/skeleton.zip). You can also clone the skeleton:
+The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android). To build the sample as you go, you can [download the skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/skeleton.zip). You can also clone the skeleton:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-Android.git
 ```
 
-> [AZURE.NOTE] **You are required to downloading the skeleton to complete this tutorial.** Because of the complexity of implementing a fully functioning application on Android, the skeleton has UX code that will run after you have completed this tutorial. This is a time-saving measure for the developer. The UX code is not germane to the topic of how to add B2C to an Android application.
+> [AZURE.NOTE] **You are required to download the skeleton to complete this tutorial.** Because of the complexity of implementing a fully functional Android application, the skeleton has UX code that will run after you have completed this tutorial. This is a time-saving measure for developers. The UX code is not germane to the topic of how to add B2C to an Android application.
 
 The completed app is also [available as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip) or on the `complete` branch of the same repository.
 
 To build with Maven, you can use `pom.xml` at the top level.
 
-  1. Follow the steps in [the prerequisites section to set up Maven for android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android).
+  1. Follow the steps in [the prerequisites section to set up Maven for Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android).
   2. Set up an emulator with SDK 21.
   3. Go to the root folder where you cloned the repo.
   4. Run the command `mvn clean install`.
@@ -142,7 +137,7 @@ To get the source code of the SDK via Git, enter:
     git clone git@github.com:AzureAD/azure-activedirectory-library-for-android.git
     cd ./azure-activedirectory-library-for-android/src
 
-Use the branch "convergence."
+Use the branch **convergence.**
 
 ## Set up your configuration file
 
@@ -191,8 +186,8 @@ public class Constants {
 
 
 ```
-- `SCOPES`: The scopes that you pass to the server that you want to request from the server when a user signs in. For B2C preview, you pass `client_id`. However, this is expected to change to `read scopes` in the future. This document will be updated when that occurs.
-- `ADDITIONAL_SCOPES`: Additional scopes you may want to use for your application. They are expected to be used in the future.
+- `SCOPES`: The scopes that you pass to the server that you want to request back from the server when a user signs in. For the B2C preview, you pass `client_id`. However, this is expected to change to `read scopes` in the future. This document will be updated when that occurs.
+- `ADDITIONAL_SCOPES`: Additional scopes that you may want to use for your application. They are expected to be used in the future.
 - `CLIENT_ID`: The Application ID you got from the portal.
 - `REDIRECT_URL`: The redirect where you expect the token to be posted back.
 - `EXTRA_QP`: Anything extra you want to pass to the server in a URL-encoded format.
@@ -265,15 +260,11 @@ Update your project's `AndroidManifest.xml` file to include all of your intents:
 
 As you can see, you define five activities. You will use all of these.
 
-`AuthenticationActivity`: This comes from ADAL, and it provides the sign-in web view.
-
-`LoginActivity`: This displays your sign-in policies and the buttons for each policy.
-
-`SettingsActivity`: You change the app settings at runtime by using this.
-
-`AddTaskActivity`: You add tasks to your REST API protected by Azure AD by using this.
-
-`ToDoActivity`: This is the main activity that displays tasks.
+- `AuthenticationActivity`: This comes from ADAL, and it provides the sign-in web view.
+- `LoginActivity`: This displays your sign-in policies and the buttons for each policy.
+- `SettingsActivity`: You use this to change the app settings at runtime.
+- `AddTaskActivity`: You use this to add tasks to your REST API that are protected by Azure AD.
+- `ToDoActivity`: This is the main activity that displays tasks.
 
 ## Create the sign-in activity
 
@@ -488,7 +479,7 @@ public class SettingsActivity extends Activity {
 
 ## Create the add-task activity
 
-By using this, you can add a task to your REST API endpoint.
+You can use this activity to add a task to your REST API endpoint.
 
 Create a file called `AddTaskActivity.java` and write the following.
 
@@ -539,7 +530,7 @@ public class AddTaskActivity extends Activity {
 
 ## Create the to-do list activity
 
-This is the most important activity. By employing it, you can get a token from Azure AD for a policy, and then use that token to call the task REST API server.
+This is the most important activity. You can employ it to get a token from Azure AD for a policy, and then use that token to call the task REST API server.
 
 Create a file called `ToDoActivity.java` and write the following. (The calls will be explained later.)
 
@@ -739,11 +730,11 @@ Explanation of the parameters:
   - `redirectUri`: Can be set up as your package name. It is not required to be provided for the `acquireToken` call.
   - `getUserInfo()`: The way to look up whether a user is already in the cache. The parameter also describes how to prompt a user if that user is not found or if the user's access token is invalid. This method will be written later in this guide.
   - `PromptBehavior.always`: Helps to ask for credentials to skip the cache and cookie.
-  - `Callback`: Called after an authorization code is exchanged for a token. It will have an object `AuthenticationResult`, which contains access token, expiration date date, and ID token information.
+  - `Callback`: Called after an authorization code is exchanged for a token. It will have an object `AuthenticationResult`, which contains access token, expiration date, and ID token information.
 
 > [AZURE.NOTE]	The Microsoft Intune company portal app provides the broker component, and it may be installed on the user's device. The app provides single sign-on (SSO) access across all applications on the device. Developers should be prepared to allow for Intune. ADAL for Android will use the broker account if there is one user account created in the authenticator. To use the broker, the developer needs to register a special `redirectUri` for the broker to use. `redirectUri` is in the format of msauth://packagename/Base64UrlencodedSignature. You can get `redirectUri` for your app by using the script `brokerRedirectPrint.ps1` or by using the API call `mContext.getBrokerRedirectUri()`. The signature is related to your signing certificates from the Google Play store.
 
- A developer can skip the broker user by using:
+ You can skip the broker user by using:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -766,7 +757,7 @@ In the same `ToDoActivity.java` file, write the following.
     }
 ```
 
-Also add methods that will "set" and "get" `AuthenticationResult` (which has your token) to the global `Constants`. Even though `ToDoActivity.java` uses `sResult` in its flows, you need to add these methods because your other activities won't otherwise have access to the token to do work (such as adding a task in `AddTaskActivity.java`).
+Also add methods that will "set" and "get" `AuthenticationResult` (which has your token) to the global `Constants`. Even though `ToDoActivity.java` uses `sResult` in its flows, you need to add these methods. If you don't, your other activities won't have access to the token to do work (such as adding a task in `AddTaskActivity.java`).
 
 ```
 
@@ -784,7 +775,7 @@ Also add methods that will "set" and "get" `AuthenticationResult` (which has you
 ```
 ## Create a method to return a user identifier
 
-ADAL for Android represents the user in the form of a `UserIdentifier` object. This manages the user. You can use the object to identify whether the same user is being used in your calls. By using this information, you can rely on the cache, rather than make a new call to the server. To make this easier, we created `getUserInfo()` method that will return `UserIdentifier`. You can use this with `acquireToken()`. We also created a `getUniqueId()` method that will return the ID of `UserIdentifier` in the cache.
+ADAL for Android represents the user in the form of a `UserIdentifier` object. This manages the user. You can use the object to identify whether the same user is being used in your calls. By using this information, you can rely on the cache, rather than make a new call to the server. To make this easier, we created the `getUserInfo()` method that returns `UserIdentifier`. You can use this with `acquireToken()`. We also created a `getUniqueId()` method that returns the ID of `UserIdentifier` in the cache.
 
 ```
   private String getUniqueId() {
@@ -805,11 +796,11 @@ ADAL for Android represents the user in the form of a `UserIdentifier` object. T
 
 ```
 
-### Write some helper methods
+### Write helper methods
 
 Next, write some helper methods to help you clear cookies and provide `AuthenticationCallback`. These methods are used purely for the sample to make sure that you're in a clean state when you call your `ToDo` activity.
 
-**In the same file** called `ToDoActivity.java`, write the following.
+In the same file called `ToDoActivity.java`, write the following.
 
 ```
 
@@ -838,7 +829,7 @@ After you have your activity ready to grab tokens, you can write your API to acc
 
 Start with `getTasks`.
 
-**In the same file** called `ToDoActivity.java`, write the following.
+In the same file called `ToDoActivity.java`, write the following.
 
 ```
     private void getTasks() {
@@ -860,11 +851,9 @@ Start with `getTasks`.
 
 ```
 
-
-
 Also write a method that will initialize your tables on first run.
 
-**In the same file** called `ToDoActivity.java`, write the following.
+In the same file called `ToDoActivity.java`, write the following.
 
 ```
     private void initAppTables() {
@@ -882,7 +871,7 @@ Also write a method that will initialize your tables on first run.
 
 You can see that this code requires some additional methods to do its work. Write those next.
 
-### Create endpoint URL generator
+### Create an endpoint URL generator
 
 You need to generate the endpoint URL that you'll be connecting to. Do that in the same class file.
 
@@ -906,9 +895,9 @@ Note that you add the access token to the request in the code discussed in the n
 
 ## Write some UX methods
 
-Android requires you to handle some callbacks in order to operate the app. These are `createAndShowDialog` and `onResume()`. This is familiar to you if you've written Android code before.
+Android requires you to handle some callbacks to operate the app. These are `createAndShowDialog` and `onResume()`. This is familiar to you if you've written Android code before.
 
-**In the same file** called `ToDoActivity.java`, write the following.
+In the same file called `ToDoActivity.java`, write the following.
 
 ```
     @Override
@@ -926,8 +915,7 @@ Android requires you to handle some callbacks in order to operate the app. These
 
 Next, manage your dialog callbacks.
 
-**In the same file** called `ToDoActivity.java`, write the following.
-
+In the same file called `ToDoActivity.java`, write the following.
 
 ```
     /**
