@@ -3,7 +3,7 @@
    description="Deploy containers to an Azure Container Service cluster service using the Marathon REST API."
    services="container-service"
    documentationCenter=""
-   authors="rgardler"
+   authors="neilpeterson"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
@@ -15,8 +15,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/15/2016"
-   ms.author="rogardle"/>
+   ms.date="02/16/2016"
+   ms.author="nepeters"/>
    
 # Container management with the REST API
 
@@ -105,7 +105,7 @@ The Marathon API can also be used to scale application deployments out or in. In
 
 Run the following command to scale the application out.
 
-> Note – the URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If using the nginx sample provided here, the URI would be http://localhost:8080/v2/nginx.
+> Note – the URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If using the nginx sample provided here, the URI would be http://localhost/v2/nginx.
 
 ```json
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -162,7 +162,7 @@ The Marathon API can also be used to scale application deployments out or in. In
 
 Run the following command to scale the application out.
 
-> Note – the URI will be http://loclahost/marathon/v2/apps/ and then the ID of the application to scale. If using the nginx sample provided here, the URI would be http://localhost:8080/v2/nginx.
+> Note – the URI will be http://loclahost/marathon/v2/apps/ and then the ID of the application to scale. If using the nginx sample provided here, the URI would be http://localhost/v2/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'

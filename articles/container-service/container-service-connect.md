@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/15/2016"
+   ms.date="02/16/2016"
    ms.author="rogardle"/>
    
 
@@ -43,10 +43,7 @@ ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.
 ```
 ### Mesos tunnel
 
-To open a tunnel to the Mesos related endpoints execute sometihng that
-looks similar to the following command (here we map the Mesos API
-endpoints to port 8080 on the local client, but you can choose any
-port you prefer).
+To open a tunnel to the Mesos related endpoints execute a command similar to the following.
 
 ```
 ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200

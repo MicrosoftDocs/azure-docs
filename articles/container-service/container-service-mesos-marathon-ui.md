@@ -3,7 +3,7 @@
    description="Deploy containers to an Azure Container Service cluster service using the Marathon Web UI."
    services="container-service"
    documentationCenter=""
-   authors="rgardler"
+   authors="neilpeterson"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
@@ -15,8 +15,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/15/2016"
-   ms.author="rogardle"/>
+   ms.date="02/16/2016"
+   ms.author="nepeters"/>
    
 # Container management through the web UI
    

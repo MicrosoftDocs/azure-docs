@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/15/2016"
+   ms.date="02/16/2016"
    ms.author="rogardle"/>
    
 # Deploy an Azure Container Service cluster
