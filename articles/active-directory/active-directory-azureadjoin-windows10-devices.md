@@ -29,11 +29,11 @@ The following table presents a snapshot of capabilities for users and IT adminis
 
 |                                                                                                                                                                 | Domain join     | Azure AD Join | Personal device |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|---------------|-----------------|
-| Windows device sign-in using work or school accounts.                                                                                                                      | Yes             | Yes           | No              |
+| Windows device sign-in for work or school accounts.                                                                                                                      | Yes             | Yes           | No              |
 | User single-sign-on (SSO) to Office 365 and Azure AD apps. SSO is the ability to sign in just once to access organizational resources. | Yes             | Yes           | Yes             |
 | User SSO to Kerberos/NTLM apps.                                                                                                                                  | Yes             | Limited       | Yes, via VPN         |
 | Strong authorization and convenient sign-in for work or school accounts with Microsoft Passport and Windows Hello.                                                                   | Yes             | Yes           | Yes             |
-| Access to enterprise Windows Store using a work or school account (not a Microsoft Account).                                                                                    | Yes             | Yes           | Yes             |
+| Access to enterprise Windows Store with a work or school account (not a Microsoft account).                                                                                    | Yes             | Yes           | Yes             |
 | Enterprise-compliant roaming of user settings across devices with work or school accounts.                                                                                 | Yes             | Yes           | Yes             |
 | The ability to restrict access to organizational apps to devices that are compliant with organizational device policies.                                                      | Yes             | Yes           | Yes             |
 | User self-service provisioning of devices for "work from anywhere."                                                                                                | No              | Yes           | Yes             |
@@ -50,7 +50,7 @@ Windows 10 offers two ways for work-owned devices to access work resources:
 
 ## When to use Azure Active Directory Join
 
-Azure AD Join is a new self-service work provisioning experience in Windows 10.  It is targeted at workers who access work resources such as Office 365 primarily in the cloud. It is a lightweight way to configure computers, tablets, and phones for the enterprise. Devices are managed via mobile device management, using consistent controls across Windows platforms.
+Azure AD Join is a new self-service work provisioning experience in Windows 10.  It is targeted at workers who access work resources such as Office 365 primarily in the cloud. It is a lightweight way to configure computers, tablets, and phones for the enterprise. Devices are managed via mobile device management, by using consistent controls across Windows platforms.
 
 **Use Azure AD Join for any of these reasons**:
 
@@ -76,7 +76,7 @@ For more information about Azure AD Join, see [Extending cloud capabilities to W
 
 For the last 15 years, many organizations have used domain join to connect work devices. It enables users to sign in to their devices with their Active Directory work or school accounts. Domain join also allows IT to centrally and fully manage these devices. Organizations typically rely on imaging methods to provision devices, and often use System Center Configuration Manager (SCCM) or Group Policy (GP) to manage them.
 
-**Your enterprise should use domain join (or continue using it) for any of these reasons**:
+**Your enterprise should use domain join (or keep using it) for any of these reasons**:
 
 - You have Win32 apps deployed to these devices that use NTLM/Kerberos.
 - You require GP or SCCM/DCM to manage devices.
