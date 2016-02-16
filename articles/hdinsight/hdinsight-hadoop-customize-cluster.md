@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/30/2015"
+	ms.date="02/16/2015"
 	ms.author="nitinme"/>
 
 # Customize Windows-based HDInsight clusters using Script Action
@@ -70,7 +70,7 @@ Name | Script
 **Install R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. See [Install and use R on HDInsight clusters][hdinsight-install-r].
 **Install Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
 - **Install Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. See [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
-
+| **Pre-load Hive libraries** | https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. See [Add Hive libraries on HDInsight clusters](hdinsight-hadoop-add-hive-libraries.md) |
 
 
 ## Call scripts using the Azure Portal

@@ -59,9 +59,9 @@ __Requirements__
 
 ##Create a cluster using the script
 
-The following steps use the Azure portal to create a new Linux-based HDInsight cluster using the script action.
-
-> [AZURE.NOTE] You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] The following steps create a new Linux-based HDInsight cluster. To create a new Windows-based cluster, select __Windows__ as the cluster OS when creating the cluster, and use the Windows (PowerShell) script instead of the bash script.
+> 
+> You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
 
