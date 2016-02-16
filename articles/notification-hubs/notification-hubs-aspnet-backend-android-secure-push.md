@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015" 
+	ms.date="02/15/2016" 
 	ms.author="wesmc"/>
 
 #Sending Secure Push Notifications with Azure Notification Hubs

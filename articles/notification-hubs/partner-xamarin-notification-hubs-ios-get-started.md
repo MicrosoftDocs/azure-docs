@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
+	ms.date="02/15/2016"
 	ms.author="yuaxu"/>
 
 # iOS Push Notifications with Notification Hubs for Xamarin apps
