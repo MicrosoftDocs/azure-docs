@@ -20,18 +20,18 @@
    
 # Deploy an Azure Container Service cluster
 
-The Azure Container Server provides rapid deployment of popular open source container clustering and orchestration solutions. Using Azure Container Service, Marathon Mesos and Docker Swarm clusters can be deployed using Azure Resource Manager templates. These clusters are deployed to Azure Virtual machines, Azure Virtual Machine Scale Sets, and take advantage of Azure networking and storage offerings. To access Azure Container Service, you will need an Azure subscription. If you don't have one then sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+The Azure Container Service provides rapid deployment of popular open source container clustering and orchestration solutions. Using Azure Container Service, Marathon Mesos and Docker Swarm clusters can be deployed with Azure Resource Manager templates or the portal. These clusters are deployed using Azure Virtual Machine Scale Sets, and take advantage of Azure networking and storage offerings. To access Azure Container Service, you will need an Azure subscription. If you don't have one then sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
-This documents steps through deploying and Azure Container Service cluster using the Azure Portal, Azure CLI, and Azure PowerShell module.  
+This documents steps through deploying and Azure Container Service cluster using the [Azure Portal](#creating-a-service-using-the-azure-portal), [Azure CLI](#creating-a-service-using-the-azure-cli), and [Azure PowerShell module](#creating-a-service-using-powershell).  
    
 ## Creating a Service using the Azure Portal
  
 Select one of the following templates to deploy a Mesos or Docker Swarm cluster. **Note** - Both of these templates are the same, with the exception of the default orchestrator selection.
  
-* Mesos: [https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-mesos-full-template](https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-mesos-full-template)
-* Swarm: [https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-swarm-full-template](https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-mesos-full-template)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/master/acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/acs/acs-swarm](https://github.com/Azure/azure-quickstart-templates/master/acs-swarm)
  
-Each template will have a 'deploy to Azure' button, selecting this button will launch the Azure portal and a form that looks something like this. <br /> 
+Each template page has a 'deploy to Azure' button, clicking this button will launch the Azure portal with a form that looks something like this. <br /> 
 
 ![Create deployment](media/create-mesos-params.png)  <br /> 
 
@@ -42,13 +42,14 @@ Field           | Description
 DNSNAMEPREFIX   | This must be a world unique value. It will be used to create DNS names for each of the key parts of the service. More information below.
 AGENTCOUNT      | This is the number of virtual machines that will be created in the ACS agent scale set.
 AGENTVMSIZE     | Specifies the size of your agent virtual machines. Be careful to select a size that provides enough resources to host your largest containers.
-LINUXADMINUSERNAME   | This is the username that will be used for an account on each of the virtual vachines and virtual machine scale sets in the ACS cluster.
-ADMINPASSWORD   | This is the password used for the user account on each Virtual Machine created. It is recommended that you use SSH keys for production environments. See below.
+ADMINUSERNAME   | This is the username that will be used for an account on each of the virtual vachines and virtual machine scale sets in the ACS cluster.
 ORCHESTRATORTYPE| Select the orchestrator you would like to use in your ACS cluster.
 MASTERCOUNT     | This is the number of Virtual Machines to configure as masters for your cluster. You can select 1, but this will not provide any resilience in your cluster and is only recommended for testing. The recommended number for a production cluster would be 3 or 5. 
-SSHRSAPUBLICKEY	| It is required that you use SSH for authentication against the Virtual Machines. This is where you add your public key. Ensure that the SSH key has no line breaks, and that it includes the ‘ssh-rsa’ prefix, and the ‘username@domain’ postfix. It will look similar to 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'. If you need to create an SSH key, you can find guidance for [windows](../virtual-machines/virtual-machines-windows-use-ssh-key.md) and [Linux](../virtual-machines/virtual-machines-linux-use-ssh-key.md) on the Azure documentation site.
+SSHRSAPUBLICKEY	| It is required that you use SSH for authentication against the Virtual Machines. This is where you add your public key. It is very important that you are careful when pasting your key value into this box. Some editors will insert line-breaks into the content, this will break the key. Verify that your key has no line breaks and that it includes the 'ssh-rsa' prefix and the 'username@domain' postfix. It should loke something like 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm' If you need to create an SSH key you can find guidance for [windows](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-use-ssh-key/) and [Linux](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/) on the Azure documentation site.
   
-Next, provide a resource group name, select a region, and review and agree to the legal terms.
+Once you have set appropriate values for your parameters, click
+OK. Next, provide a resource group name, select a region, and review
+and agree to the legal terms.
 
 > During preview, there is no charge for the Azure Container Service, only standard compute charges such as virtual machine, storage, networking etc. 
  
@@ -68,8 +69,8 @@ To create an instance of the Azure Container Service using the command line, you
  
 Select one of the following templates to deploy a Mesos or Docker Swarm cluster. **Note** - Both of these templates are the same, with the exception of the default orchestrator selection.
  
-* Mesos: [https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-mesos-full-template](https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-mesos-full-template)
-* Swarm: [https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-swarm-full-template](https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-mesos-full-template)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/master/acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/acs/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/acs/acs-swarm)
  
 Next, make sure that the Azure CLI has been connected to an Azure subscription. This can be done using the following command.
 
@@ -128,8 +129,8 @@ An ACS cluster can also be deployed with PowerShell. This document is based on t
 
 Select one of the following templates to deploy a Mesos or Docker Swarm cluster. **Note** - Both of these templates are the same, with the exception of the default orchestrator selection.
  
-* Mesos: [https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-mesos-full-template](https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-mesos-full-template)
-* Swarm: [https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-swarm-full-template](https://github.com/rgardler/azure-quickstart-templates/tree/acs/acs-mesos-full-template)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/master/acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/acs/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/acs/acs-swarm)
 
 Before creating a cluster in your Azure subscription, verify that your PowerShell session has been logged into Azure. This can be completed with the `Get-AzureRMSubscription` command.
 
