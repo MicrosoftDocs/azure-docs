@@ -323,13 +323,13 @@ If the PowerShell DSC Local Configuration Manager defaults match your use case, 
 
         ### Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
         $Params = @{
-            ResourceGroupName = 'MyResourceGroup'; # The name of the ARM Resource Group that contains your Azure Automation Account
-            AutomationAccountName = ''; # The name of the Azure Automation Account where you want a node on-boarded to
+            ResourceGroupName = 'ContosoResources'; # The name of the ARM Resource Group that contains your Azure Automation Account
+            AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
             ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
             OutputFolder = "$env:UserProfile\Desktop\";
         }
         
-        # Use PowerShell splatting to pass parameters to the DSC configuration being invoked
+        # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
         # For more info about splatting, run: Get-Help -Name about_Splatting
         Get-AzureRmAutomationDscOnboardingMetaconfig @Params
 
