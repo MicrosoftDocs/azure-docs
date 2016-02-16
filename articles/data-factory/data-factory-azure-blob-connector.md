@@ -591,7 +591,7 @@ Each file contains an array of objects.
 	]
 
 #### Supported JSON data structure
--	Each “object” mentioned above, with a collection of name/value pairs, will be mapped to one line of data in rectangular world; object can be nested and we allow customer to define how to flatten it in dataset with dot–notation by default. 
+-	Each object mentioned above, with a collection of name/value pairs, will be mapped to one line of data in rectangular world; object can be nested and we allow customer to define how to flatten it in dataset with dot–notation by default. 
 -	If there is array inside, customer can choose to skip it by using column mapping (filtering) or default we’ll convert the whole array into a string.
 -	If there are dup names in the same layer, the copy activity will pick the LAST one.
 -	Property name is case sensitive.
