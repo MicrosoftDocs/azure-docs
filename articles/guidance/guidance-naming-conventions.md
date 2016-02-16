@@ -17,32 +17,30 @@
    ms.date="02/15/2016"
    ms.author="masimms"/>
    
-# Naming conventions
+# Recommended Naming Conventions for Azure Resources
 
-The choice of a name for any asset, service or entity in Microsoft Azure is an important choice because:
+The choice of a name for any resource in Microsoft Azure is an important because:
 
-- It is difficult (though not impossible) to change that name at a later time.
-- There are certain constraints and requirements that must be met when choosing a name.
-- Good naming conventions can provide "at a glance" context and understanding to how and where a
-service fits into the landscape or an application or larger service.
+- It is difficult to change a name at a later time.
+- Names must meet the requirements of their specific resource type.
 
-This article provides a summary of the naming rules and restrictions for Azure entities and services,
-as well as providing a baseline set of recommendations for naming conventions.  These conventions are
-intended to provide a starting point to then customize to the needs and standards of your own 
-development process, rather than being strict guidelines.  
+Likewise, consistent naming conventions make resources easiler to locate. They also assist in understanding the role of
+a resource in a solution.
 
-Ultimately, the key to success with naming conventions is establishing and following them across 
-your applications and organizations, adapting them as you deploy more applications and services
-across the Azure platform. 
+This article provides a summary of the naming rules and restrictions for Azure resources,
+as well as providing a baseline set of recommendations for naming conventions.  You can use these recommendations 
+as a starting point for your own conventions specific to your needs.  
 
-## Subscriptions
+The key to success with naming conventions is establishing and following them across your applications and organizations, 
+adapting them as you deploy more applications and services across the Azure platform. 
 
-When naming Microsoft Azure subscriptions, verbose names make understanding the context
-and purpose of each subscription clear by convention.  When working in an environment which
-can contain a number of subscriptions, following a common and shared naming convention across
-the company can greatly improve clarity.
+## Naming Subscriptions
 
-One common recommended pattern for naming subscriptions follows the pattern
+When naming Azure subscriptions, verbose names make understanding the context
+and purpose of each subscription clear.  When working in an environment which
+can contain a number of subscriptions, following a shared naming convention can greatly improve clarity.
+
+A recommended pattern for naming subscriptions is:
 
 `<Company> <Department (optional)> <Product Line (optional)> <Environment>`
 
@@ -72,12 +70,15 @@ such as Dev, QA, or Prod.
 
 <!-- TODO; include more information about organizing subscriptions for application deployment, pods, etc -->
 
-## Resource Affixes
+## Use Affixes to Avoid Ambiguity
 
-When creating certain resources, Microsoft Azure will use some defaults to simplify management of the resources
-associated to these resources.  Although this will not present problems, it may be beneficial to identify types of resources 
-that need an affix to identify that type. In addition, clearly specify whether the affix will be at the beginning of the name 
-(prefix) or at the end (suffix).  For instance, here are two possible names for a service hosting a calculation engine:
+When naming resources in Azure, it is recommended to use common prefixes or suffixes to identify the type and
+context of the resource.  While all of the information about type, metadata, context, is available programatically,
+leveraging common affixes simplifies visual identification.  When incorporating affixes into your naming convention,
+it is important to clearly specify whether the affix will be at the beginning of the name 
+(prefix) or at the end (suffix).  
+
+For instance, here are two possible names for a service hosting a calculation engine:
 
 - SvcCalculationEngine (prefix)
 - CalculationEngineSvc (suffix)
@@ -106,7 +107,7 @@ it is created within.
 In general, avoid having any special characters (`-` or `_`) as the first or last character in any name, as these will
 fail most validation rules.
 
-| Service Group | Service or Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
+| Category | Service or Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | ------------- | ----------------- | ----- | ------ | ------ | ---------------- | ----------------- | ------- |
 | Resource Group | Resource Group | Global | 1-64 | Case insensitive | Alphanumeric, underscore, and hyphen | `<service short name>-<environment>-rg` | `profx-prod-rg` |
 | Resource Group | Availability Set | Resource Group | 1-80 | Case insensitive | Alphanumeric, underscore, and hyphen | `<service-short-name>-<context>-as` | `profx-sql-as` |
@@ -134,10 +135,10 @@ fail most validation rules.
 | Networking | Traffic Manager Profile | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | TODO | TODO
 -->
 
-## Azure Resource Manager (ARM) Tagging
+## Organizing Resources with Tags
 
-Aside from the name of any entity in Azure, the Azure Resource Manager supports tagging entities with arbitary
-text strings to identify context and streamline automation.  For example, a tag such as "sql2014ee" could identify 
+The Azure Resource Manager supports tagging entities with arbitary
+text strings to identify context and streamline automation.  For example, a tag such as `"sqlVersion: "sql2014ee"` could identify 
 any VMs in a deployment running SQL Server 2014 Enterprise Edition for the purposes of running an automated script
 against them.  Tags should be used to augment and enhance context along side of the naming conventions chosen.
 
