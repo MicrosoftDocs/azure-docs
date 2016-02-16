@@ -21,7 +21,7 @@
 
 
 
-# Azure AD Connect Health Agent Installation 
+# Azure AD Connect Health Agent Installation
 
 This document will walk you through installing and configuring the Azure AD Connect Health Agent for AD FS and sync.
 
@@ -123,10 +123,10 @@ To verify the agent has been installed, open services and look for the following
 
 - Azure AD Connect Health AadSync Insights Service
 - Azure AD Connect Health AadSync Monitoring Service
- 
+
 ![Verify Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE] Remember that using Azure AD Connect Health requires Azure AD Premium.  If you do not have Azure AD Premium you will not be able to complete the configuration in the Azure portal.  For more information see the requirements [here](active-directory-aadconnect-health.md#requirements). 
+>[Azure.NOTE] Remember that using Azure AD Connect Health requires Azure AD Premium.  If you do not have Azure AD Premium you will not be able to complete the configuration in the Azure portal.  For more information see the requirements [here](active-directory-aadconnect-health.md#requirements).
 
 
 
