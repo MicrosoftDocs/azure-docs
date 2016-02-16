@@ -3,7 +3,7 @@
    description="Connect to an Azure Container Service cluster using an SSH Tunnel."
    services="container-service"
    documentationCenter=""
-   authors="nepeters"
+   authors="neilpeterson"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"

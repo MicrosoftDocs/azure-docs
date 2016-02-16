@@ -3,7 +3,7 @@
    description="Deploy containers to an Azure Container Service cluster service using the Marathon REST API."
    services="container-service"
    documentationCenter=""
-   authors="nepeters"
+   authors="neilpeterson"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"

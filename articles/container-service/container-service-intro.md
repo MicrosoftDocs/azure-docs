@@ -3,7 +3,7 @@
    description="Azure Container Service (ACS) provides a way to simplify the creation, configuration, and management of a cluster of virtual machines that are preconfigured to run containerized applications."
    services="container-service"
    documentationCenter=""
-   authors="nepeters"
+   authors="neilpeterson"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
