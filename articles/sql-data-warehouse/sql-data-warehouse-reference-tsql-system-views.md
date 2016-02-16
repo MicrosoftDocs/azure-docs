@@ -16,7 +16,7 @@
    ms.date="02/16/2016"
    ms.author="barbkess;sonyama"/>
 
-# System Views
+# System views
 
 ## SQL Data Warehouse catalog views
 
