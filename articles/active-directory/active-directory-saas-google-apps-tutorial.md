@@ -22,7 +22,7 @@ This tutorial will show you how to connect your Google Apps environment to your 
 
 ##Prerequisites
 
-1. To access Azure Active Directory through the [Azure Management Portal](https://manage.windowsazure.com), you must first have a valid Azure subscription.
+1. To access Azure Active Directory through the [Azure classic portal](https://manage.windowsazure.com), you must first have a valid Azure subscription.
 
 2. You must have a valid tenant for [Google Apps for Work](https://www.google.com/work/apps/) or [Google Apps for Education](https://www.google.com/edu/products/productivity-tools/). You may use a free trial account for either service.
 
@@ -52,7 +52,7 @@ How to Enable Single Sign-On to Google Apps in 2 Minutes:
 
 ##Step 1: Add Google Apps to your Directory
 
-1. In the [Azure Management Portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**.
+1. In the [Azure classic portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**.
 
 	![Select Active Directory from the left navigation pane.][0]
 
@@ -194,7 +194,7 @@ If you prefer to set up single sign-on manually, complete the following steps:
 
 4. If you haven't added a custom domain name to your Azure Active Directory yet, then follow the steps below:
 
-	- In the [Azure Management Portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**. In the directory list, select your directory. 
+	- In the [Azure classic portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**. In the directory list, select your directory. 
 
 	- Click on **Domains** from the top-level menu, and then click on **Add a custom domain**.
 
