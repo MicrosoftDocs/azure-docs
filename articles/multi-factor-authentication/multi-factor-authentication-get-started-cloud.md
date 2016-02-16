@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Getting started with Azure Multi-Factor Authentication in the cloud
@@ -89,7 +89,7 @@ If you have purchased Azure MFA, Azure AD Premium or Enterprise Mobility Suite l
 
 User accounts in Azure Multi-Factor Authentication have the following three distinct states:
 
-State | Description |Non-browser apss affected| Notes 
+State | Description |Non-browser apps affected| Notes 
 :-------------: | :-------------: |:-------------: |:-------------: |
 Disabled | The default state for a new user not enrolled in multi-factor authentication.|No|The user is currently not using multi-factor authentication.
 Enabled |The user has been enrolled in multi-factor authentication.|No.  They will continue to work until the registration process is completed.|The user is enabled but has not completed the registration process. They will be prompted to complete the process at next sign-in.
@@ -120,7 +120,7 @@ To change the user's state using Windows PowerShell, you can use the following. 
 
 ## Send email to end users
 
-Once you have enabled your users, it is advised that you send your users an email that informs them that they will need to provide there contact information. The following is an email template that can be used which includes a link to a video that the users can watch.
+Once you have enabled your users, it is advised that you send your users an email that informs them that they will need to provide their contact information. The following is an email template that can be used which includes a link to a video that the users can watch.
 
 		Subject: ACTION REQUIRED: Your password for Outlook and other apps needs updated
 

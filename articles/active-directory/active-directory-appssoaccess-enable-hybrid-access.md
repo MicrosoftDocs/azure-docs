@@ -3,6 +3,7 @@
 	description="Enable access to apps that are running inside your private network from outside your network though Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
+	keywords="application access,app Proxy, hybrid access"
 	authors="femila"
 	manager="stevenpo"
 	editor=""/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/10/2016"
 	ms.author="femila"/>
 
 # Enabling hybrid access with App Proxy
@@ -39,5 +40,6 @@ There is only one requirement for enabling access to a web application: the web 
 7. The response is sent through the application proxy to the user.
 
 ## Related articles
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 - [Enabling Azure AD Application Proxy](active-directory-application-proxy-enable.md#step-1-enable-application-proxy-in-azure-ad)
 - [Publishing applications through Azure AD App Proxy](active-directory-application-proxy-publish.md)
