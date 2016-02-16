@@ -102,6 +102,8 @@ Select `Tunnels` and `configure` the following forwarded ports:
 
 The following example is configured for Mesos, but would look similar for Docker Swarm.
 
+> Port 80 must not be in use when creating this tunnel.
+
 ![Putty Connection](media/putty3.png)
 
 When complete, save the connection configuration, and connect the putty session. When connected, the port configuration can be seen in the Putty event log.
