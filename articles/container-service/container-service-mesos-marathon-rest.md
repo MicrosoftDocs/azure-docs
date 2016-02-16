@@ -52,6 +52,7 @@ curl localhost:8080/v2/apps
 ## Deploying a Docker Container
 
 Docker containers are deployed through Marathon using a json file that describes the intended deployment. The following sample will deploy the nginx container, binding port 80 of the Mesos agent to port 80 of the container.
+
 ```json
 {
   "id": "nginx",

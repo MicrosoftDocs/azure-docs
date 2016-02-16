@@ -27,7 +27,7 @@ The Mesos and Swarm clusters deployed by Azure Container Service expose REST end
 
 ## SSH Tunnel on Linux / OSX
 
-First thing is to locate the public DNS name of load balanced masters. To do this, expand the resource group such that each resource is being displayed. Locate and select the public IP address of the master. This will open up a blade containing information about the public IP address, which will include the DNS name. Save this name for later use.
+First thing is to locate the public DNS name of load balanced masters. To do this, expand the resource group such that each resource is being displayed. Locate and select the public IP address of the master. This will open up a blade containing information about the public IP address, which will include the DNS name. Save this name for later use. <br />
 
 ![Putty Connection](media/pubdns.png)
 

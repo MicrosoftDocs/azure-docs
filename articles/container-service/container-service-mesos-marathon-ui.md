@@ -40,7 +40,8 @@ To see the Marathon UI, browse to http://localhost:8080. From this screen you ca
 ## Deploy a Docker Container
 
 To use Marathon to start a new container on the Mesos cluster, click the `Create Application` button. The New Application form is used to define the application or container parameters. For this example, a simple Nginx container will be deployed. Enter the following information.
-
+ Click  create` when completed. 
+ 
 Field           | Value
 ----------------|-----------
 ID              | nginx
