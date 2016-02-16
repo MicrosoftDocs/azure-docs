@@ -321,7 +321,7 @@ If the PowerShell DSC Local Configuration Manager defaults match your use case, 
 
 3.	Download the PowerShell DSC metaconfigurations for the machines you want to onboard from the Automation account to which you want to onboard nodes:
 
-        ### Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
+        # Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
         $Params = @{
             ResourceGroupName = 'ContosoResources'; # The name of the ARM Resource Group that contains your Azure Automation Account
             AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
