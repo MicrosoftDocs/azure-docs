@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="02/16/2016"
    ms.author="v-sharos" />
 
-# Use the StorSimple Manager service dashboard for the StorSimple Virtual Array (Preview)
+# Use the StorSimple Manager service dashboard for the StorSimple Virtual Array (preview)
 
 ## Overview
 
