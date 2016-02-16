@@ -22,7 +22,7 @@
 
 ## Create an Amazon application
 
-To use Amazon as an identity provider in Azure Active Directory (Azure AD) B2C, you will first need to create an Amazon application and supply it with the right parameters. You will need an Amazon account to do this; if you don’t have one, you can get it at [http://www.amazon.com/](http://www.amazon.com/).
+To use Amazon as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an Amazon application and supply it with the right parameters. You need an Amazon account to do this. If you don’t have one, you can get it at [http://www.amazon.com/](http://www.amazon.com/).
 
 1. Go to the [Amazon Developer Center](https://login.amazon.com/) and sign in with your Amazon account credentials.
 2. If you have not already done so, click **Sign Up**, follow the developer registration steps, and accept the policy.
@@ -34,20 +34,24 @@ To use Amazon as an identity provider in Azure Active Directory (Azure AD) B2C, 
 
     ![Providing application information for registering a new application at Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-register-app.png)
 
-5. In the **Web Settings** section, copy the values of **Client ID** and **Client Secret**. (You will need to click the **Show Secret** button to see this). You will need both of them to configure Amazon as an identity provider in your tenant. Click **Edit** at the bottom of the section. Note: Client secret is an important security credential.
+5. In the **Web Settings** section, copy the values of **Client ID** and **Client Secret**. (You need to click the **Show Secret** button to see this.) You need both of them to configure Amazon as an identity provider in your tenant. Click **Edit** at the bottom of the section.
 
-    ![Providing Client ID and Client secret for your new application at Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
+	>[AZURE.NOTE] Client secret is an important security credential.
 
-6. Enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Allowed JavaScript Origins** field and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Allowed Return URLs** field, where **{tenant}** is to be replaced with your tenant's name (for example, contoso.onmicrosoft.com). Click **Save**. Note: The **{tenant}** value is case-sensitive.
+	![Providing Client ID and Client Secret for your new application at Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
+
+6. Enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Allowed JavaScript Origins** field and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Allowed Return URLs** field. Replace **{tenant}** with your tenant's name (for example, contoso.onmicrosoft.com). Click **Save**.
+
+>[AZURE.NOTE] The **{tenant}** value is case-sensitive.
 
     ![Providing JavaScript Origins and Return URLs for your new application at Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 
 ## Configure Amazon as an identity provider in your tenant
 
-1. Follow these steps to [Navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
 2. On the B2C features blade, click **Identity providers**.
 3. Click **+Add** at the top of the blade.
 4. Provide a friendly **Name** for the identity provider configuration. For example, enter "Amzn".
 5. Click **Identity provider type**, select **Amazon**, and click **OK**.
-6. Click **Set up this identity provider** and enter the Client ID and Client secret of the Amazon application that you created earlier.
+6. Click **Set up this identity provider** and enter the client ID and client secret of the Amazon application that you created earlier.
 7. Click **OK** and then click **Create** to save your Amazon configuration.
