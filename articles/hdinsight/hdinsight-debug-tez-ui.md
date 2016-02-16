@@ -9,7 +9,7 @@ editor="cgronlun"/>
 
 <tags
 ms.service="hdinsight"
-ms.devlang=""
+ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
