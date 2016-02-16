@@ -48,7 +48,7 @@ The logs from that WAF are now fully integrated. Security Center can start autom
 
 This document showed you how to implement the Security Center recommendation "Add a web application." To learn more about configuring a web application firewall, see the following:
 
-- [Configuring a Web Application Firewall (WAF) for App Service Environment](../articles/app-service-web/app-service-app-service-environment-web-application-firewall/)
+- [Configuring a Web Application Firewall (WAF) for App Service Environment](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
 
 To learn more about Security Center, see the following:
 
