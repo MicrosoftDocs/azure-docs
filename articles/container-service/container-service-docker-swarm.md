@@ -18,4 +18,4 @@
    ms.date="02/15/2016"
    ms.author="rogardle"/>
    
-   # Add content on docker swarm
+   # Add content on Docker Swarm
