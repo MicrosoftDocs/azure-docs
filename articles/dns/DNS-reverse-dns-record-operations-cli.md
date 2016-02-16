@@ -25,8 +25,6 @@
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](DNS-reverse-dns-record-operations-classic-ps.md).
 
-[AZURE.INCLUDE [DNS-reverse-dns-record-operations-scenario-include.md](../../includes/DNS-reverse-dns-record-operations-scenario-include.md)]
-
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
 ## Add a reverse DNS record to an existing Public IP address
