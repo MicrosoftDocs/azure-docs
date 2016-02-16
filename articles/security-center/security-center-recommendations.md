@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/16/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -70,9 +70,9 @@ Use the table below as a reference to help you understand the available recommen
 |Resolve mismatch baseline rules|Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved.|
 |Apply system updates|Recommends that you deploy missing system security and critical updates to VMs (Windows VMs only).|
 |Configure ACLs for endpoints|Recommends that you configure access control lists to restrict inbound access to VMs (classic VMs only).|
-|Add a web application firewall|Recommends that you deploy a web application firewall (WAF) for web endpoints (Resource Manager VMs only).|
+|[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints (Resource Manager VMs only).|
 |Finalize web application firewall setup|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
-|Enable Antimalware|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
+|[Enable Antimalware](security-center-enable-antimalware.md)|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
 |Enable Network Security Groups on subnets/network interfaces|Recommends that you enable network security groups (NSGs) on subnets and network interfaces (Resource Manager VMs only).|
 |Restrict access through public external endpoints|Recommends that you configure inbound traffic rules for NSGs.|
 |Enable server SQL Auditing|Recommends that you turn on auditing for Azure SQL servers (Azure SQL service only; doesn't include SQL running on your virtual machines).|
