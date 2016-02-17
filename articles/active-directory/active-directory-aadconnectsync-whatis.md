@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -39,6 +39,7 @@ This topic is the home for **Azure AD Connect sync** (also called **sync engine*
 | **Features** ||
 | [Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) | Describes how password synchronization works, how to implement, and how to operate and troubleshoot. |
 | [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) | Describes the *prevent accidental deletes* feature and how to configure it. |
+| [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) | Describes the built-in scheduler which is importing, synchronizing, and exporting data. |
 | **Operations** ||
 | [Operational tasks and considerations](active-directory-aadconnectsync-operations.md) | Describes operational concerns, such as disaster recovery. |
 | **More information and references** ||

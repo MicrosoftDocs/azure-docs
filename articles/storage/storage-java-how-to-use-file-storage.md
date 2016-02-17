@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="02/03/2016"
-	ms.author="jutang"/>
+	ms.author="rmcmurray"/>
 
 # How to use File Storage from Java
 

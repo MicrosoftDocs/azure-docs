@@ -122,6 +122,8 @@ Once your deployment is complete, you can inspect your cluster in the portal:
 
   The **Node Monitor** section on the cluster's dashboard blade indicates the number of VMs that are healthy and not healthy. You can find more details about the cluster's health at [Service Fabric health model introduction](service-fabric-health-introduction.md).
 
+>[AZURE.NOTE] Service Fabric clusters require a certain number of nodes to be up at all times in order to maintain availability and preserve state - referred to as "maintaining quorum". Consequently, it is typically not safe to shut down all of the machines in the cluster unless you have first performed a [full backup of your state](service-fabric-reliable-services-backup-restore.md).
+
 ## Connect to the cluster and deploy an application
 
 With the cluster setup completed, you can now connect and begin deploying applications. Start by starting Windows PowerShell on a machine that has the Service Fabric SDK installed. Then, to connect to the cluster, run one of the following sets of PowerShell commands depending on whether you created a secure or unsecure cluster:
