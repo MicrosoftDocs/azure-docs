@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Load Data with Azure Data Factory
@@ -23,7 +23,7 @@
 - [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
- Following this tutorial will show you how to create a pipeline in Azure Data Factory that will move data from Azure Storage Blobs to a SQL Data Warehouse. With the following steps you will:
+ This tutorial shows you how to create a JSON pipeline in Azure Data Factory that will move data from Azure Storage Blob to SQL Data Warehouse. In the following steps you will use JSON to:
 
 + Set-up sample data in an Azure Storage Blob.
 + Connect resources to Azure Data Factory.
@@ -31,7 +31,10 @@
 
 >[AZURE.VIDEO loading-azure-sql-data-warehouse-with-azure-data-factory]
 
+
 ## Resources
+
+To familiarize yourself with Azure Data Factory, see [Introduction to Azure Data Factory](../data-factory/data-factory-introduction.md).
 
 For this tutorial, you will need the following resources:
 
@@ -205,3 +208,21 @@ In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipel
 	}
 	}
 	
+## Next steps
+
+To learn more, start by viewing:
+
+- [Azure Data Factory learning path](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
+- [Azure SQL Data Warehouse Connector](../data-factory/data-factory-azure-sql-data-warehouse-connector.md). This is the core reference topic for using Azure Data Factory with Azure SQL Data Warehouse.
+
+
+These topics provide detailed information about Azure Data Factory. They discuss Azure SQL Database or HDinsight, but the information also applies to Azure SQL Data Warehouse.
+
+- [Tutorial: Get started with Azure Data Factory](../data-factory/data-factory-build-your-first-pipeline.md). This is the core tutorial for processing data with Azure Data Factory. In this tutorial you will build your first pipeline that uses HDInsight to transform and analyze web logs on a monthly basis. Note, there is no copy activity in this tutorial.
+- [Tutorial: Copy data from Azure Storage Blob to Azure SQL Database](../data-factory/data-factory-get-started.md). In this tutorial, you will create a pipeline in Azure Data Factory to copy data from Azure Storage Blob to Azure SQL Database.
+- [Real-world scenario tutorial](../data-factory/data-factory-tutorial.md). This is an in-depth tutorial for using Azure Data Factory.
+
+
+
+
+
