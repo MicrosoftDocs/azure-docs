@@ -55,7 +55,7 @@ HPC Pack is Microsoft's free HPC solution built on Microsoft Azure and Windows S
 * [Documentation](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
+* [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
 
 * [Burst to Azure worker instances with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
