@@ -138,7 +138,7 @@ To enable Microsoft Passport, you will need the following:
 
 - A public key infrastructure (PKI) for certificate-based authentication support that uses Microsoft Passport.
 - An Intune subscription for certificate-based authentication support that uses Microsoft Passport for Azure AD Join and work or school accounts.
-- System Center Configuration Manager version 1509 for Technical Preview (please see TechNet documentation and blog post) for certificate-based authentication support that uses Microsoft Passport for domain join.
+- System Center Configuration Manager version 1509 for Technical Preview (see the TechNet documentation and blog post) for certificate-based authentication support that uses Microsoft Passport for domain join.
 - A policy for enabling Microsoft Passport in the organization.
 
 As an alternative to using a PKI, you can enable key-based Microsoft Passport by doing the following:
