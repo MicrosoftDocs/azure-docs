@@ -122,8 +122,6 @@ configure the scripts.
 On the JMeter master machine where you will run the tests, open a Git desktop window (Git BASH) 
 and clone the repository that contains the scripts, as follows:
 
-<!-- TODO - this needs to be a github repo -->
-
 ```Shell
 git clone https://github.com/mspnp/azure-guidance.git
 ```
