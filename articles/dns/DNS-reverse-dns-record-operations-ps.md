@@ -19,11 +19,11 @@
 
 # How to manage reverse DNS records for your services using PowerShell
 
-[AZURE.INCLUDE [DNS-reverse-dns-record-operations-arm-selectors-include.md](../../includes/DNS-reverse-dns-record-operations-arm-selectors-include.md)]
+[AZURE.INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
 
-[AZURE.INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/DNS-reverse-dns-record-operations-intro-include.md)]
+[AZURE.INCLUDE [dns-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](DNS-reverse-dns-record-operations-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](dns-reverse-dns-record-operations-classic-ps.md).
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -52,4 +52,4 @@ You can remove a reverse DNS property from an existing Public IP Address using t
 	PS C:\> $pip.DnsSettings.ReverseFqdn = ""
 	PS C:\> Set-AzureRmPublicIpAddress -PublicIpAddress $pip 
 
-[[AZURE.INCLUDE [azure-FAQ](../../includes/DNS-reverse-dns-record-operations-faq-include.md)]
+[[AZURE.INCLUDE [azure-FAQ](../../includes/dns-reverse-dns-record-operations-faq-include.md)]
