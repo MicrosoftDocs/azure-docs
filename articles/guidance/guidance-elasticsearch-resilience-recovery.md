@@ -184,7 +184,7 @@ This value should be set to the lowest majority of the number of nodes that are 
 
 If you are performing a software upgrade to nodes yourself (such as migrating to a newer release or performing a patch), you may need to work on individual nodes that requires taking them offline while keeping the remainder of the cluster available. In this situation, consider implementing the following process:
 
-1.  Ensure that shard reallocation is delayed sufficiently to prevent the elected master from rebalancing shards from a missing node across the remainder of the cluster. By default, shard reallocation is delayed for 1 minute, but you can increase the duration if a node is likely to be unavailable for a longer period. The following example increases the delay to 5 minutes:
+Ensure that shard reallocation is delayed sufficiently to prevent the elected master from rebalancing shards from a missing node across the remainder of the cluster. By default, shard reallocation is delayed for 1 minute, but you can increase the duration if a node is likely to be unavailable for a longer period. The following example increases the delay to 5 minutes:
 
 ```http
 PUT /_all/_settings
@@ -197,23 +197,21 @@ PUT /_all/_settings
 
 > [AZURE.IMPORTANT] You can also disable shard reallocation completely by setting the *cluster.routing.allocation.enable* of the cluster to *none*. However, you should avoid using this approach if new indexes are likely to be created while the node is offline as this can cause index allocation to fail resulting in a cluster with red status.
 
-2.  Stop Elasticsearch on the node to be maintained. If Elasticsearch is running as a service, you may be able to halt the process in a controlled manner by using an operating system command. The following example shows how to halt the Elasticsearch service on a single node running on Ubuntu:
+Stop Elasticsearch on the node to be maintained. If Elasticsearch is running as a service, you may be able to halt the process in a controlled manner by using an operating system command. The following example shows how to halt the Elasticsearch service on a single node running on Ubuntu:
 
 ```bash
 service elasticsearch stop
 ```
 
-3.  Alternatively, you can use the Shutdown API directly on the node:
+Alternatively, you can use the Shutdown API directly on the node:
 
 ```http
 POST /_cluster/nodes/_local/_shutdown
 ```
 
-4.  Perform the necessary maintenance on the node.
+Perform the necessary maintenance on the node, then restart the node and wait for it to join the cluster.
 
-5.  Restart the node and wait for it to join the cluster.
-
-6.  Re-enable shard allocation:
+Re-enable shard allocation:
 
 ```http
 PUT /_cluster/settings

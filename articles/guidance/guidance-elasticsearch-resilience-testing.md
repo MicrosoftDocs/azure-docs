@@ -3,7 +3,7 @@
    description="Description of how you can run the resiliency tests in your own environment."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
+   authors="masimms"
    manager="marksou"
    editor=""
    tags=""/>
@@ -15,21 +15,34 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="01/29/2016"
-   ms.author="mabsimms"/>
+   ms.author="masimms"/>
    
 # Running the Automated Elasticsearch Resiliency Tests
    
-The document [Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery](TODO) describes a series of tests that were performed against a sample Elasticsearch cluster to determine how well the system responded to some common forms of failure and how well it recovered. Four scenarios were tested:
+The document [Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery](TODO) describes 
+a series of tests that were performed against a sample Elasticsearch cluster to determine how well the 
+system responded to some common forms of failure and how well it recovered. Four scenarios were tested:
 
-- **Node failure and restart with no data loss**. A data node is stopped and restarted after 5 minutes. Elasticsearch was configured not to reallocate missing shards in this interval, so no additional I/O is incurred in moving shards around. When the node restarts, the recovery process brings the shards on that node back up to date.
+- **Node failure and restart with no data loss**. A data node is stopped and restarted after 5 minutes. 
+Elasticsearch was configured not to reallocate missing shards in this interval, so no additional I/O 
+is incurred in moving shards around. When the node restarts, the recovery process brings the shards 
+on that node back up to date.
 
-- **Node failure with catastrophic data loss**. A data node is stopped and the data that it holds is erased to simulate catastrophic disk failure. The node is then restarted (after 5 minutes), effectively acting as a replacement for the original node. The recovery process requires rebuilding the missing data for this node, and may involve relocating shards held on other nodes.
+- **Node failure with catastrophic data loss**. A data node is stopped and the data that it holds 
+is erased to simulate catastrophic disk failure. The node is then restarted (after 5 minutes), 
+effectively acting as a replacement for the original node. The recovery process requires 
+rebuilding the missing data for this node, and may involve relocating shards held on other nodes.
 
-- **Node failure and restart with no data loss, but with shard reallocation**. A data node is stopped and the shards that it holds are reallocated to other nodes. The node is then restarted and more reallocation occurs to rebalance the cluster.
+- **Node failure and restart with no data loss, but with shard reallocation**. A data node is 
+stopped and the shards that it holds are reallocated to other nodes. The node is then restarted 
+and more reallocation occurs to rebalance the cluster.
 
-- **Rolling updates**. Each node in the cluster is stopped and restarted after a short interval to simulate machines being rebooted after a software update. Only one node is stopped at any one time. Shards are not reallocated while a node is down.
+- **Rolling updates**. Each node in the cluster is stopped and restarted after a short interval 
+to simulate machines being rebooted after a software update. Only one node is stopped at any one time. 
+Shards are not reallocated while a node is down.
 
-These tests were scripted to enable them to be run in an automated manner. This document describes how you can repeat the tests in your own environment.
+These tests were scripted to enable them to be run in an automated manner. This document describes 
+how you can repeat the tests in your own environment.
 
 ## Prerequisites
 
@@ -37,19 +50,21 @@ The automated tests require the following items:
 
 - An Elasticsearch cluster.
 
-- A JMeter environment setup as described by the document How-To Create a Performance Testing Environment for Elasticsearch.
+- A JMeter environment setup as described by the document 
+[How-To Create a Performance Testing Environment for Elasticsearch](TODO).
 
-- The following additions installed on the JMeter Master VM only. See the README file for more information on downloading and installing these items.
+- The following additions installed on the JMeter Master VM only. 
 
-- Java Runtime 7.
+    - Java Runtime 7.
 
-- Nodejs 4.x.x or later.
+    - Nodejs 4.x.x or later.
 
-- The Git command line tools.
+    - The Git command line tools.
 
 ## How the Scripts Work
 
-The test scripts are intended to run on the JMeter Master VM. When you select a test to run, the scripts perform the following sequence of operations:
+The test scripts are intended to run on the JMeter Master VM. When you select a test to run, the scripts 
+perform the following sequence of operations:
 
 1.  Start a JMeter test plan passing the parameters that you have specified.
 
@@ -67,23 +82,34 @@ Before running the Resilience Tests you should compile and deploy the JUnit test
 
 There are two versions of the JUnit tests held in the following folders:
 
-- **Elasticsearch17.** The project in this folder generates the file Elasticsearch17.jar. Use this JAR for testing Elasticsearch versions 1.7.x
+- **Elasticsearch17.** The project in this folder generates the file Elasticsearch17.jar. Use this 
+JAR for testing Elasticsearch versions 1.7.x
 
-- **Elasticsearch20**. The project in this folder generates the file Elasticsearch20.jar. Use this JAR for testing Elasticsearch version 2.0.0 and later
+- **Elasticsearch20**. The project in this folder generates the file Elasticsearch20.jar. Use this 
+JAR for testing Elasticsearch version 2.0.0 and later
   
-Copy the appropriate JAR file along with the rest of the dependencies to your JMeter machines. The process is described by the procedure Deploying a JUnit Test to JMeter in the document How-To Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance.
+Copy the appropriate JAR file along with the rest of the dependencies to your JMeter machines. The 
+process is described by the procedure Deploying a JUnit Test to JMeter in the document 
+[How-To Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance](TODO).
 
 ## Configuring VM Security for Each Node
 
-The test scripts require an authentication certificate to be installed on each Elasticsearch node in the cluster. This enables the scripts to run automatically without prompting for a username of password as they connect to the various VMs.
+The test scripts require an authentication certificate to be installed on each Elasticsearch node 
+in the cluster. This enables the scripts to run automatically without prompting for a username or 
+password as they connect to the various VMs.
 
-Start by logging in to one of the nodes in the Elasticsearch cluster (or the Jumpbox VM) and then run the following command to generate an authentication key:
+Start by logging in to one of the nodes in the Elasticsearch cluster (or the Jumpbox VM) and then 
+run the following command to generate an authentication key:
 
 ```Shell
 ssh-keygen -t rsa
 ```
 
-While connected to the Elasticsearch node (or Jumpbox), run the following commands for every node in the Elasticsearch cluster. Replace <username> with the name of a valid user on each VM, and replace <nodename> with the DNS name of IP address of the VM hosting the Elasticsearch node. Note that you will be prompted for the password of the user when running these commands. For more information see [SSH login without password](http://www.linuxproblem.org/art_9.html):
+While connected to the Elasticsearch node (or Jumpbox), run the following commands for every node in 
+he Elasticsearch cluster. Replace `<username>` with the name of a valid user on each VM, and 
+replace `<nodename>` with the DNS name of IP address of the VM hosting the Elasticsearch node. 
+Note that you will be prompted for the password of the user when running these commands. 
+For more information see [SSH login without password](http://www.linuxproblem.org/art_9.html):
 
 ```Shell
 ssh <username>@<nodename> mkdir -p .ssh (
@@ -91,50 +117,55 @@ cat .ssh/id\_rsa.pub | ssh <username>*@<nodename> 'cat &gt;&gt; .ssh/authorized\
 ```
 
 ## Downloading and Configuring the Test Scripts
-============================================
 
-The test scripts are provided in a Git repository. Use the following procedure to download and configure the scripts.
+The test scripts are provided in a Git repository. Use the following procedure to download and 
+configure the scripts.
 
-1.  On the JMeter master machine where you will run the tests, open a Git desktop window (Git BASH) and clone the repository that contains the scripts, as follows:
+On the JMeter master machine where you will run the tests, open a Git desktop window (Git BASH) 
+and clone the repository that contains the scripts, as follows:
 
-TODO - this needs to be a github repo
+<!-- TODO - this needs to be a github repo -->
 
 ```Shell
 git clone https://pnp.visualstudio.com/defaultcollection/\_git/ElasticSearch
 ```
 
-2.  Move to the *resiliency* folder and run the following command to install the dependencies required to run the tests:
+Move to the *resiliency* folder and run the following command to install the dependencies required 
+to run the tests:
 
 ```Shell
 npm install
 ```
 
-3.  If the JMeter Master is running on Windows, [Download PLINK](http://the.earth.li/~sgtatham/putty/latest/x86/plink.exe) and copy it to the *resiliency/lib* folder
+If the JMeter Master is running on Windows, 
+[Download PLINK](http://the.earth.li/~sgtatham/putty/latest/x86/plink.exe) and copy it to the 
+*resiliency/lib* folder
 
-4.  If the JMeter Master is running on Linux, you don’t need to download PLINK but you will need to configure password-less SSH between the JMeter Master and the Elasticsearch node or Jumpbox you used by following the steps outlined in the procedure [Configure VM Security for Each Node](#configuring-vm-security-for-each-node).
+If the JMeter Master is running on Linux, you don’t need to download PLINK but you will need to 
+configure password-less SSH between the JMeter Master and the Elasticsearch node or Jumpbox 
+you used by following the steps outlined in the procedure 
+[Configure VM Security for Each Node](#configuring-vm-security-for-each-node).
 
-5.  Edit the file *config.js* and edit the following configuration parameters to match your test environment and Elasticsearch cluster. There parameters are common to all of the tests:
+Edit the file `config.js` and edit the following configuration parameters to match your test 
+environment and Elasticsearch cluster. There parameters are common to all of the tests:
 
-TODO - fix formatting here.  Does this need to be a table?
+| Name                      | Description                                                              | Default Value                      |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `jmeterPath`                | Local path where jmeter is located                                        | `C:/apache-jmeter-2.13`             |
+| `resultsPath`               | Relative directory where the script dumps the results                     | `results`                           |
+| `verbose`                   | Indicates whether the script outputs in verbose mode or not.              | `true`                              |
+| `remote`                    | Indicates whether the jmeter tests run locally or on the remote servers   | `true`                              |
+| `cluster.clusterName`       | The name of the Elasticsearch’s cluster.                                  | `elasticsearch`                    |
+| `cluster.jumpboxIp`         | The IP address of the jumpbox machine.                                    |-|
+| `cluster.username`          | The admin user you created while deploying the cluster                    |-|
+| `cluster.password`          | The password for the admin user                                           |-|
+| `cluster.loadBalancer.ip`   | The IP address of the Elasticsearch’s load balancer                       |-|
+| `cluster.loadBalancer.url`  | Base URL of the load balancer                                             |-|
 
-```Text
-  Name                       Description                                                                                                                                                                       Default Value
-  -------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -----------------------
-  jmeterPath                 Local path where jmeter is located                                                                                                                                                C:/apache-jmeter-2.13
-  resultsPath                Relative directory where the script dumps the results                                                                                                                             results
-  verbose                    Indicates whether the script outputs in verbose mode or not.                                                                                                                      true
-  remote                     Indicates whether the jmeter tests run locally or on the remote servers                                                                                                           true
-  cluster.clusterName        The name of the Elasticsearch’s cluster.                                                                                                                                          elasticsearch
-  cluster.jumpboxIp          The IP address of the jumpbox machine. Jumpbox machine is created during Elasticsearch’s cluster deploy and is used as a proxy to execute scripts against Elasticsearch’s nodes   -
-  cluster.username           The admin user you created while deploying the cluster                                                                                                                            -
-  cluster.password           The password for the admin user                                                                                                                                                   -
-  cluster.loadBalancer.ip    The IP address of the Elasticsearch’s load balancer                                                                                                                               -
-  cluster.loadBalancer.url   Base URL of the load balancer                                                                                                                                                     -
-```
 
 ## Running the Tests
 
-1.  Move to the *resiliency* folder and run the following command:
+Move to the *resiliency* folder and run the following command:
 
 ```Shell
 node app.js
@@ -144,6 +175,8 @@ The following menu should appear:
 
 ![](./media/guidance-elasticsearch/resilience-testing2.png)
 
-2.  Enter the number of the scenario you want to run: [11, 12, 13 or 21].
+Enter the number of the scenario you want to run: `11`, `12`, `13` or `21`.
 
-3.  Once you select a scenario, the test will run automatically. The results are stored as a set of CSV filed in a folder created under the *results* directory. Each run has its own results folder. You can use Excel to analyze and graph this data.
+Once you select a scenario, the test will run automatically. The results are stored as a set of CSV 
+files in a folder created under the *results* directory. Each run has its own results folder. 
+You can use Excel to analyze and graph this data.

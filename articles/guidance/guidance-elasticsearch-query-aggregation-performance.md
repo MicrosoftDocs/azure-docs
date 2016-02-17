@@ -247,11 +247,11 @@ The tests were performed to understand the effects of the following variables:
 
 - **Machine size - scaling up**. The test was performed on a 6-node cluster comprising DS3 VMs (designated as the *small* cluster), repeated on a cluster of DS4 VMs (the *medium* cluster), and repeated again on a cluster of DS14 machines (the *large* cluster). The following table summarizes the key characteristics of each VM SKU:
 
-  Cluster   |VM SKU          |Number of Cores   |Number of Data Disks   |RAM (GB)|
-  --------- |--------------- |----------------- |---------------------- |--------|
-  Small     |Standard DS3    |4                 |8                      |14      |
-  Medium    |Standard DS4    |8                 |16                     |28      |
-  Large     |Standard DS14   |16                |32                     |112     |
+Cluster   |VM SKU          |Number of Cores   |Number of Data Disks   |RAM (GB)|
+--------- |--------------- |----------------- |---------------------- |--------|
+Small     |Standard DS3    |4                 |8                      |14      |
+Medium    |Standard DS4    |8                 |16                     |28      |
+Large     |Standard DS14   |16                |32                     |112     |
 
 <!--
 - **Cluster size - scaling out**. The test was performed on clusters of DS14 VMs comprising 1, 3, and 6 nodes.
@@ -296,39 +296,78 @@ The table below summarizes the response times of the work performed by running t
             |Unique IP Count              |841                       |
             |Total Hits Counts            |236                       |
 
-At first glance, it would appear that the DS4 cluster performed queries less well than the D4 cluster, at times doubling (or worse) the response time. This does not tell the whole story though. The next table shows the number of ingestion operations performed by each cluster (remember that each operation loads 1000 documents):
+At first glance, it would appear that the DS4 cluster performed queries less well than the D4 cluster, 
+at times doubling (or worse) the response time. This does not tell the whole story though. The next 
+table shows the number of ingestion operations performed by each cluster (remember that each operation 
+loads 1000 documents):
 
  Cluster   | Ingestion Operations
  ----------|---------------------
   D4       | 264769              
   DS4      | 503157              
 
-The DS4 cluster was able to load nearly twice as much data than the D4 cluster during the test. Therefore, when analyzing the response times for each operation, you also need to consider how many documents each query has to scan, and how many documents are returned. These are dynamic figures as the volume of documents in the index is continually growing. You cannot simply divide 503137 by 264769 (the number of ingestion operations performed by each cluster) and then multiply the result by the average response time for each query performed by the D4 cluster to give a comparative figure as this ignores the amount of I/O being performed concurrently by the ingestion operation. Instead, you should measure the physical amount of data being written to and read from disk as the test proceeds. The JMeter test plan captures this information for each node. The summarized results were:
+The DS4 cluster was able to load nearly twice as much data than the D4 cluster during the test. Therefore, 
+when analyzing the response times for each operation, you also need to consider how many documents each 
+query has to scan, and how many documents are returned. 
+
+These are dynamic figures as the volume of 
+documents in the index is continually growing. You cannot simply divide 503137 by 264769 (the number of 
+ingestion operations performed by each cluster) and then multiply the result by the average response 
+time for each query performed by the D4 cluster to give a comparative figure as this ignores the amount 
+of I/O being performed concurrently by the ingestion operation. 
+
+Instead, you should measure the physical 
+amount of data being written to and read from disk as the test proceeds. The JMeter test plan captures 
+this information for each node. The summarized results were:
 
   Cluster   |Average bytes written/read by each operation|
   --------- |--------------------------------------------|
   D4        |13471557                                    |
   DS4       |24643470                                    |
 
-These figures show that the DS4 cluster was able to sustain an I/O rate approximately 1.8 times that of the D4 cluster. Given that, apart from nature of the disks, all other resources are the same, the difference must be due to using SSDs rather HDDs.
+These figures show that the DS4 cluster was able to sustain an I/O rate approximately 1.8 times that 
+of the D4 cluster. Given that, apart from nature of the disks, all other resources are the same, 
+the difference must be due to using SSDs rather HDDs.
 
-To help justify this conclusion, the following graphs illustrate the how the I/O was performed over time by each cluster:
+To help justify this conclusion, the following graphs illustrate the how the I/O was performed over 
+time by each cluster:
 
 ![](./media/guidance-elasticsearch/query-performance2.png)
 
-The graph for the D4 cluster shows significant variation, especially during the first half of the test. This was likely due to throttling to reduce the I/O rate. In the initial stages of the test, the queries are able to run quickly as there is little data to analyze. The disks in the D4 cluster are therefore likely to be operating close to their IOPS capacity, although each I/O operation might not be returning much data. The DS4 cluster is able to support a higher IOPS rate and does not suffer the same degree of throttling; the I/O rates are more regular. To illustrate this theory, the next pair of graphs show how the CPU was blocked by disk I/O over time (the disk wait times shown in the graphs are the proportion of the time that the CPU spent waiting for I/O):
+The graph for the D4 cluster shows significant variation, especially during the first half of the test. 
+This was likely due to throttling to reduce the I/O rate. In the initial stages of the test, the 
+queries are able to run quickly as there is little data to analyze. The disks in the D4 cluster are 
+therefore likely to be operating close to their IOPS capacity, although each I/O operation might not 
+be returning much data. The DS4 cluster is able to support a higher IOPS rate and does not suffer 
+the same degree of throttling; the I/O rates are more regular. 
+
+To illustrate this theory, the next pair of graphs show how the CPU was blocked by disk I/O over 
+time (the disk wait times shown in the graphs are the proportion of the time that the CPU spent 
+waiting for I/O):
 
 ![](./media/guidance-elasticsearch/query-performance3.png)
 
-It is important to understand that in this test scenario, there are two predominant reasons for I/O operations to block the CPU:
+It is important to understand that in this test scenario, there are two predominant reasons for 
+I/O operations to block the CPU:
 
 - The I/O subsystem could be reading or writing data to or from disk.
 
-- The I/O subsystem could be throttled by the host environment. Azure disks implemented by using HDDs have a maximum throughput of 500 IOPS, and SSDs have a maximum throughput of 5000 IOPS.
+- The I/O subsystem could be throttled by the host environment. Azure disks backed by 
+standard storage have a maximum throughput of 500 IOPS, while those backed by premium storage 
+have a maximum throughput of 5000 IOPS.
 
-For the D4 cluster, the amount of time spent waiting for I/O during the first half of the test correlates closely in an inverted manner with the graph showing the I/O rates; periods of low I/O correspond to periods of significant time the CPU spends blocked; this indicates that I/O is being throttled. As more data is added to the cluster the situation changes, and in the second half of the test peaks in I/O wait times correspond with peaks in I/O throughput. At this point, the CPU is blocked while performing real I/O. Again, with the DS4 cluster, the time spent waiting for I/O is much more even, and each peak matches an equivalent peak in I/O performance rather than a trough; this implies that there is little or no throttling occurring.
+For the D4 cluster, the amount of time spent waiting for I/O during the first half of the test 
+correlates closely in an inverted manner with the graph showing the I/O rates; periods of low I/O 
+correspond to periods of significant time the CPU spends blocked.  
 
-There is one other factor to consider. During the test, the D4 cluster generated 10584 ingestion errors, and 21 query errors. The test on the DS4 cluster produced no errors.
+This indicates that I/O is being throttled. As more data is added to the cluster the situation 
+changes, and in the second half of the test peaks in I/O wait times correspond with peaks in 
+I/O throughput. At this point, the CPU is blocked while performing real I/O. Again, with the DS4 cluster, 
+the time spent waiting for I/O is much more even, and each peak matches an equivalent peak in 
+I/O performance rather than a trough; this implies that there is little or no throttling occurring.
+
+There is one other factor to consider. During the test, the D4 cluster generated 10584 ingestion errors, 
+and 21 query errors. The test on the DS4 cluster produced no errors.
 
 ### Performance Results – Scaling Up
 
@@ -356,7 +395,8 @@ The table below summarizes the results of running the tests on the medium (DS4),
 <!-- 
 DISCUSSION POINTS:
 
-Similar volume of data ingested – same disk configuration for each cluster, and ingestion rate is constrained by I/O performance?
+Similar volume of data ingested – same disk configuration for each cluster, and ingestion rate is 
+constrained by I/O performance?
 
 Average response time for queries decreases with SKU.
 
@@ -454,14 +494,19 @@ The ingestion and query tests were run against an index with a single replica. T
 |         |   Total Hits Counts         |   200                       |               221             |                          +11%
 
 
-NEED \## OF DOCUMENTS RETURNED TO JUSTIFY THIS DATA, OTHERWISE PERF FOR 2 REPLICAS LOOKS POOR!
+NEED \## OF DOCUMENTS RETURNED TO JUSTIFY THIS DATA, OTHERWISE PERF FOR 2 REPLICAS LOOKS OFF!
 
 PRESENT QUERY-ONLY TEST RESULTS TO SHOW BETTER RESULTS
 -->
 
 ### Performance Results – Doc Values
 
-The ingestion and query tests were conducted with doc values enabled, causing Elasticsearch to store data used for sorting fields on disk. The tests were repeated with doc values disabled, so Elasticsearch constructed fielddata dynamically and cached it in memory. All tests ran for 24 hours. The table below compares the response times for tests run against clusters of 6 nodes built using D4, DS4, and DS14 VMs.
+The ingestion and query tests were conducted with doc values enabled, causing Elasticsearch to store 
+data used for sorting fields on disk. The tests were repeated with doc values disabled, so Elasticsearch
+ constructed fielddata dynamically and cached it in memory. All tests ran for 24 hours. 
+ 
+ The table below compares the response times for tests run against clusters of 6 nodes built using 
+ D4, DS4, and DS14 VMs.
 
 |  Cluster   |Operation/Query            |Doc Values Enabled (ms) |  Doc Values Disabled (ms)  | % Difference       |
 |  --------- |---------------------------| -----------------------|--------------------------  |--------------------|

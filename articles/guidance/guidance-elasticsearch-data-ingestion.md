@@ -23,139 +23,282 @@ This article is [part of a series](guidance-elasticsearch-introduction.md).
 
 ## Overview
 
-An important aspect when creating any search database is to determine the best way to structure the system to ingest searchable data quickly and efficiently. The considerations surrounding this requirement concern not only the choice of infrastructure on which you implement the system, but also the various optimizations that you can use to help ensure that the system can keep up with the expected levels of data influx. This document describes the deployment and configuration options that you should consider for implementing an Elasticsearch cluster that expects a high rate of data ingestion. To provide solid data for illustrative purposes, this document also shows the results of benchmarking various configurations using a simple high-volume data ingestion workload. The details of the workload are described in the [Appendix](#appendix-the-bulk-load-data-ingestion-performance-test) at the end of this document.
+An important aspect when creating any search database is to determine the best way to structure the
+system to ingest searchable data quickly and efficiently. The considerations surrounding this requirement
+concern not only the choice of infrastructure on which you implement the system, but also the various
+optimizations that you can use to help ensure that the system can keep up with the expected levels of
+data influx. 
 
-The purpose of the benchmarks was not to generate absolute performance figures for running Elasticsearch or even to recommend a particular topology, but rather to illustrate methods that you can use for assessing performance, sizing data nodes, and implementing clusters that can meet your own performance requirements. When sizing your own systems, it is important to test performance thoroughly based on your own workloads. Gather telemetry that enables you to obtain information about the optimal hardware configuration to use, and the horizontal scaling factors that you should consider. In particular, you should:
+This document describes the deployment and configuration options that you should consider
+for implementing an Elasticsearch cluster that expects a high rate of data ingestion. To provide solid
+data for illustrative purposes, this document also shows the results of benchmarking various
+configurations using a simple high-volume data ingestion workload. The details of the workload are
+described in the [Appendix](#appendix-the-bulk-load-data-ingestion-performance-test) at the end of this
+document.
 
-* Consider the overall size of the payload sent and not just the number of items in each bulk insert request. A smaller number of large bulk items in each request could be more optimal than a larger number, depending on the resource available to process each request.
+The purpose of the benchmarks was not to generate absolute performance figures for running Elasticsearch
+or even to recommend a particular topology, but rather to illustrate methods that you can use for
+assessing performance, sizing data nodes, and implementing clusters that can meet your own performance
+requirements. 
 
-  > [AZURE.NOTE] You can monitor the effects of varying the bulk insert request by using Marvel, using the *readbytes*/*writebytes* I/O counters with JMeter, and operating system tools such as *iostat* and *vmstat* on Ubuntu.
+When sizing your own systems, it is important to test performance thoroughly based on your
+own workloads. Gather telemetry that enables you to obtain information about the optimal hardware
+configuration to use, and the horizontal scaling factors that you should consider. In particular, you
+should:
 
-* Conduct performance testing and gather telemetry to measure CPU processing and I/O wait times, disk latency, throughput and response times. This information can help to identify potential bottlenecks and assess the costs and benefits of using premium storage. Bear in mind that CPU and disk utilization might not be even across all nodes depending on the way in which shards and replicas are distributed across the cluster (some nodes can contain more shards than others).
+- Consider the overall size of the payload sent and not just the number of items in each bulk insert
+request. A smaller number of large bulk items in each request could be more optimal than a larger number,
+depending on the resource available to process each request.
 
-* Consider how the number of concurrent requests for your workload will be distributed across the cluster and assess the impact of using different numbers of nodes to handle this workload.
+You can monitor the effects of varying the bulk insert request by using Marvel, using the
+*readbytes*/*writebytes* I/O counters with JMeter, and operating system tools such as *iostat* and
+*vmstat* on Ubuntu.
 
-* Consider how workloads might grow as the business expands. Assess the impact of this growth on the costs of the VMs and storage used by the nodes.
+- Conduct performance testing and gather telemetry to measure CPU processing and I/O wait times, disk
+latency, throughput and response times. This information can help to identify potential bottlenecks and
+assess the costs and benefits of using premium storage. Bear in mind that CPU and disk utilization might
+not be even across all nodes depending on the way in which shards and replicas are distributed across the
+cluster (some nodes can contain more shards than others).
 
-* Recognize that using a cluster with a larger number of nodes with regular disks might be more economical if your scenario requires a high number of requests and the disk infrastructure maintains throughput that satisfies your SLAS. However, increasing the number of nodes can introduce overhead in the form of additional inter-node communications and synchronization.
+- Consider how the number of concurrent requests for your workload will be distributed across the cluster
+and assess the impact of using different numbers of nodes to handle this workload.
 
-* Understand that a higher number of cores per node may generate more disk traffic as more documents can be processed. In this case, measure disk utilization to assess whether the I/O subsystem might become a bottleneck and determine the benefits of using premium storage.
+- Consider how workloads might grow as the business expands. Assess the impact of this growth on the
+costs of the VMs and storage used by the nodes.
 
-* Test and analyze the trade-offs with higher number of nodes with fewer cores versus fewer nodes with more cores. Bear in mind that the increasing the number of replicas escalates the demands on the cluster and may require you to add nodes.
+- Recognize that using a cluster with a larger number of nodes with regular disks might be more
+economical if your scenario requires a high number of requests and the disk infrastructure maintains
+throughput that satisfies your SLAS. However, increasing the number of nodes can introduce overhead in
+the form of additional inter-node communications and synchronization.
 
-* Consider that using ephemeral disks might require that indexes have to be recovered more frequently.
+- Understand that a higher number of cores per node may generate more disk traffic as more documents can
+be processed. In this case, measure disk utilization to assess whether the I/O subsystem might become a
+bottleneck and determine the benefits of using premium storage.
 
-* Measure storage volume usage to assess capacity and underutilization of storage. For example, in our scenario we stored 1.5 billion documents using 350GB storage.
+- Test and analyze the trade-offs with higher number of nodes with fewer cores versus fewer nodes with
+more cores. Bear in mind that the increasing the number of replicas escalates the demands on the cluster
+and may require you to add nodes.
 
-* Measure the transfer rates for your workloads and consider how close you are likely to get to the total I/O rate transfer limit for any given storage account in which you have created virtual disks.
+- Consider that using ephemeral disks might require that indexes have to be recovered more frequently.
 
-The latter part of this document describes these issues in more detail.
+- Measure storage volume usage to assess capacity and underutilization of storage. For example, in our
+scenario we stored 1.5 billion documents using 350GB storage.
+
+- Measure the transfer rates for your workloads and consider how close you are likely to get to the total
+I/O rate transfer limit for any given storage account in which you have created virtual disks.
 
 ## Node and Index Design Considerations
 
 In a system that must support large-scale data ingestion, you ask the following questions:
 
-* **Is the data fast-moving or relatively static?** The more dynamic the data, the greater the maintenance overhead for Elasticsearch. If the data is replicated, each replica is maintained synchronously. Fast-moving data that has only a limited lifespan or that can easily be reconstructed might benefit from disabling replication altogether. This option is considered further in the section [Considerations for Tuning Large-Scale Data Ingestion.](#_Considerations_for_Tuning)
+- **Is the data fast-moving or relatively static?** The more dynamic the data, the greater the
+maintenance overhead for Elasticsearch. If the data is replicated, each replica is maintained
+synchronously. Fast-moving data that has only a limited lifespan or that can easily be reconstructed
+might benefit from disabling replication altogether. This option is considered further in the section
+[Considerations for Tuning Large-Scale Data Ingestion.](#_Considerations_for_Tuning)
 
-* **How up-to-date do you require the data discovered by searching to be?** To maintain performance, Elasticsearch buffers as much data in memory as it can. This means that not all changes are immediately available for search requests. The process by which Elasticsearch persists changes and makes them visible is described online in the document [Making Changes Persistent](https://www.elastic.co/guide/en/elasticsearch/guide/current/translog.html#translog). The rate at which data becomes visible is governed by the *refresh\_interval* setting of the relevant index. By default, this interval is set at 1 second. However, not every situation requires refreshes to occur this quickly. For example, indexes recording log data might need to cope with a rapid and continual influx of information which needs to be ingested quickly, but does not require the information to be immediately available for querying. In this case, consider reducing the frequency of refreshes. This feature is also described in the section [Considerations for Tuning Large-Scale Data Ingestion.](#_Considerations_for_Tuning)
+- **How up-to-date do you require the data discovered by searching to be?** To maintain performance,
+Elasticsearch buffers as much data in memory as it can. This means that not all changes are immediately
+available for search requests. The process by which Elasticsearch persists changes and makes them visible
+is described online in the document [Making Changes Persistent](https://www.elastic.co/guide/en/elasticsearch/guide/current/translog.html#translog). 
 
-* **How quickly is the data likely to grow?** Index capacity is determined by the number of shards specified when the index is created. To allow for growth, specify an adequate number of shards (the default is five). If the index is initially created on a single node, all five shards will be located on that node, but as the volume of data grows additional nodes can be added and Elasticsearch will dynamically distribute shards across nodes. However, each shard has an overhead; all searches in an index will query all shards, so creating a large number of shards for a small amount of data can slow data retrievals (avoid the [Kagillion shards](https://www.elastic.co/guide/en/elasticsearch/guide/current/kagillion-shards.html) scenario).
+    The rate at which data becomes visible is governed by the *refresh\_interval* setting of the relevant
+index. By default, this interval is set at 1 second. However, not every situation requires refreshes to
+occur this quickly. For example, indexes recording log data might need to cope with a rapid and continual
+influx of information which needs to be ingested quickly, but does not require the information to be
+immediately available for querying. In this case, consider reducing the frequency of refreshes. This
+feature is also described in the section [Considerations for Tuning Large-Scale Data Ingestion.](#_Considerations_for_Tuning)
 
-    Some workloads (such as logging) might create a new index each day, and if you observe that the number of shards is insufficient for the volume of data, you should change it prior to creating the next index (existing indexes will be unaffected). If you must distribute existing data across more shards, then one option is to reindex the information; create a new index with the appropriate configuration and copy the data into it. This process can be made transparent to applications by using [index aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html).
+- **How quickly is the data likely to grow?** Index capacity is determined by the number of shards
+specified when the index is created. To allow for growth, specify an adequate number of shards (the
+default is five). If the index is initially created on a single node, all five shards will be located on
+that node, but as the volume of data grows additional nodes can be added and Elasticsearch will
+dynamically distribute shards across nodes. However, each shard has an overhead; all searches in an index
+will query all shards, so creating a large number of shards for a small amount of data can slow data
+retrievals (avoid the [Kagillion shards](https://www.elastic.co/guide/en/elasticsearch/guide/current/kagillion-shards.html) scenario).
 
-* **Does data need to be partitioned between users in a multitenancy scenario?** You can create separate indexes for each user, but this can be expensive if each user only has a moderate amount of data. Instead, consider creating [shared indexes](https://www.elastic.co/guide/en/elasticsearch/guide/current/shared-index.html) and use [aliases based on filters](https://www.elastic.co/guide/en/elasticsearch/guide/current/faking-it.html) to direct requests to the per-user data. To keep the data for a user together in the same shard, override the default routing configuration for the index and route data based on some identifying attribute of the user.
+    Some workloads (such as logging) might create a new index each day, and if you observe that the number of
+shards is insufficient for the volume of data, you should change it prior to creating the next index
+(existing indexes will be unaffected). If you must distribute existing data across more shards, then one
+option is to reindex the information; create a new index with the appropriate configuration and copy the
+data into it. This process can be made transparent to applications by using [index aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html).
 
-* **Is data long or short-lived?** If you are using a set of Azure VMs to implement an Elasticsearch cluster, you can store ephemeral data on a local resource system disk rather than an attached drive. Using a VM SKU that utilizes an SSD for the resource disk can improve I/O performance. However, any information held on the resource disk is temporary and may be lost if the VM restarts (see the section When Will the Data on a Temporary Drive Be Lost in the document [Understanding the temporary drive on Microsoft Azure Virtual Machines](http://blogs.msdn.com/b/mast/archive/2013/12/07/understanding-the-temporary-drive-on-windows-azure-virtual-machines.aspx) for more details). If you need to retain data between restarts, create persistent virtual hard drives (VHDs) to hold this information and attach them to the VM.
+- **Does data need to be partitioned between users in a multitenancy scenario?** You can create separate
+indexes for each user, but this can be expensive if each user only has a moderate amount of data. Instead,
+consider creating [shared indexes](https://www.elastic.co/guide/en/elasticsearch/guide/current/shared-index.html) and use [aliases based on filters](https://www.elastic.co/guide/en/elasticsearch/guide/current/faking-it.html) to direct requests 
+to the per-user data. To keep the data for a user together in the same shard, override the default
+routing configuration for the index and route data based on some identifying attribute of the user.
 
-* **How active is the data?** Azure VHDs are subject to throttling if the amount of read/write activity exceeds specified parameters (currently 500 IOPS for a disk attached to a Standard Tier VM, and 5000 IOPs for a Premium Storage disk). To reduce the chances of throttling and increase I/O performance, consider creating multiple data VHDs for each VM and configure Elasticsearch to stripe data across these VHDs as described in the Disk and [File System Requirements](#disk-and-file-system-requirements) section of the document Implementing Elasticsearch on Azure.
+- **Is data long or short-lived?** If you are using a set of Azure VMs to implement an Elasticsearch
+cluster, you can store ephemeral data on a local resource system disk rather than an attached drive.
+Using a VM SKU that utilizes an SSD for the resource disk can improve I/O performance. However, any
+information held on the resource disk is temporary and may be lost if the VM restarts (see the section
+When Will the Data on a Temporary Drive Be Lost in the document [Understanding the temporary drive on Microsoft Azure Virtual Machines](http://blogs.msdn.com/b/mast/archive/2013/12/07/understanding-the-temporary-drive-on-windows-azure-virtual-machines.aspx) for more details). If you need to retain data between restarts, create data disks to hold this information and attach them to the VM.
 
-    > [AZURE.NOTE] You should select a hardware configuration that helps to minimize the number of disk I/O read operations by ensuring that sufficient memory is available to cache frequently accessed data. This is described in [Memory Requirements](#memory-requirements) section of the document Implementing Elasticsearch on Azure.
+- **How active is the data?** Azure VHDs are subject to throttling if the amount of read/write activity
+exceeds specified parameters (currently 500 IOPS for a disk attached to a Standard Tier VM, and 5000 IOPs
+for a Premium Storage disk). 
 
-* **What type of workload will each node need to support?** Elasticsearch benefits from having memory available in which to cache data (in the form of the file system cache) and for the JVM heap as described in the [Memory Requirements](#memory-requirements) section of the document Implementing Elasticsearch on Azure. Additionally, the threading model implemented by Elasticsearch makes it more efficient to use multicore CPUs over more powerful CPUs with fewer cores.
+    To reduce the chances of throttling and increase I/O performance, consider creating multiple data disks
+for each VM and configure Elasticsearch to stripe data across these disks as described in the [Disk and [File System Requirements](#TODO).
 
-    > [AZURE.NOTE] The amount of memory, number of CPU cores, and quantity of available disks are limited by the SKU of the virtual machine. For more information, see the [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/) page on the Azure website.
+    You should select a hardware configuration that helps to minimize the number of disk I/O
+read operations by ensuring that sufficient memory is available to cache frequently accessed data. This
+is described in [Memory Requirements](TODO) section of the document Implementing
+Elasticsearch on Azure.
+
+- **What type of workload will each node need to support?** Elasticsearch benefits from having memory
+available in which to cache data (in the form of the file system cache) and for the JVM heap as described
+in the [Memory Requirements](#memory-requirements) section of the document Implementing Elasticsearch on
+Azure. 
+
+    The amount of memory, number of CPU cores, and quantity of available disks are set by the
+SKU of the virtual machine. For more information, see the [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/) page on the Azure website.
 
 ### Virtual Machine Options
 
-You can provision VMs in Azure using a number of different SKUs. The resources available to an Azure VM depend on SKU selected. Each SKU offers a different mix of cores, memory, and storage. You need to select an appropriate size of VM that will handle the expected workload but that will also prove cost-effective. Start with a configuration that will meet your current requirements (perform benchmarking to test, as described later in this document). You can scale a cluster later by adding more VMs running Elasticsearch nodes.
+You can provision VMs in Azure using a number of different SKUs. The resources available to an Azure VM
+depend on SKU selected. Each SKU offers a different mix of cores, memory, and storage. You need to select
+an appropriate size of VM that will handle the expected workload but that will also prove cost-effective.
+Start with a configuration that will meet your current requirements (perform benchmarking to test, as
+described later in this document). You can scale a cluster later by adding more VMs running Elasticsearch
+nodes.
 
-The page [Sizes for Virtual Machines](virtual-machines-size-specs/) on the Azure web site documents the various options and SKUs available for VMs.
+The page [Sizes for Virtual Machines](virtual-machines-size-specs/) on the Azure web site documents the
+various options and SKUs available for VMs.
 
 You should match the size and resources of a VM to the role that nodes running on the VM will perform.
 
 For a data node:
 
-* Allocate up to 30 GB or 50% of the available RAM memory to the Java heap, whichever is the lower. Leave the remainder to the operating system to use for caching files. If you are using Linux, you can specify the amount of memory to allocate to the Java heap by setting the ES\_HEAP\_SIZE environment variable before running Elasticsearch. Alternatively, if you are using Windows or Linux, you can stipulate memory size with the *Xmx* and *Xms* parameters when you start Elasticsearch.
+- Allocate up to 30 GB or 50% of the available RAM memory to the Java heap, whichever is the lower. Leave
+the remainder to the operating system to use for caching files. If you are using Linux, you can specify
+the amount of memory to allocate to the Java heap by setting the ES\_HEAP\_SIZE environment variable
+before running Elasticsearch. Alternatively, if you are using Windows or Linux, you can stipulate memory
+size with the *Xmx* and *Xms* parameters when you start Elasticsearch.
 
-    > [AZURE.NOTE]  Depending on the workload, fewer large VMs may not be as effective for performance as using a larger number of moderately sized VMs; you should conduct tests that can measure the tradeoffs between the additional network traffic and maintenance involved versus the costs of increasing the number of cores available and the reduced disk contention on each node.
+    Depending on the workload, fewer large VMs may not be as effective for performance as using a larger
+number of moderately sized VMs; you should conduct tests that can measure the tradeoffs between the
+additional network traffic and maintenance involved versus the costs of increasing the number of cores
+available and the reduced disk contention on each node.
 
-* Use fast disks, ideally SSDs with low latency, for storing Elasticsearch data. This is discussed in more detail in the [Storage Options](#storage-options) section.
+- Use premium storage for storing Elasticsearch data. This is discussed in more detail in the [Storage Options](#storage-options) section.
 
-* Use multiple disks (of the same size) and stripe data across these disks. The SKU of your VMs will dictate the maximum number of data disks that you can attach. For more information, see [Disk and File System Requirements](#disk-and-file-system-requirements).
+- Use multiple disks (of the same size) and stripe data across these disks. The SKU of your VMs will dictate the maximum number of data disks that you can attach. For more information, see [Disk and File System Requirements](#disk-and-file-system-requirements).
 
-* Use a multi-core CPU; at least 2 cores, preferably 4 or more. Select CPUs based on the number of cores rather than raw power. The threading model used by Elasticsearch to handle concurrent requests is more efficient when used with multiple cores rather than high-powered CPUs with fewer cores.
+- Use a multi-core CPU SKU; at least 2 cores, preferably 4 or more. 
 
 For a client node:
 
-* Do not allocate disk storage for Elasticsearch data; dedicated clients do not store data on disk.
+- Do not allocate disk storage for Elasticsearch data; dedicated clients do not store data on disk.
 
-* Ensure that adequate memory is available to handle workloads. Bulk insert requests are read into memory prior to the data being sent to the various data nodes, and the results of aggregations and queries are accumulated in memory before being returned to the client application. Benchmark your own workloads and monitor memory use by using a tool such as Marvel or the [JVM information](https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_jvm_section) returned by using the *node/stats* API to assess the optimal requirements:
+- Ensure that adequate memory is available to handle workloads. Bulk insert requests are read into memory
+prior to the data being sent to the various data nodes, and the results of aggregations and queries are
+accumulated in memory before being returned to the client application. Benchmark your own workloads and
+monitor memory use by using a tool such as Marvel or the [JVM information](https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_jvm_section) returned by using the *node/stats* API (`GET _nodes/stats`) to assess the optimal requirements.  In particular, monitor the *heap\_used\_percent* metric for each node and aim to keep the
+heap size below 75% of the space available.
 
-    ```http
-    GET _nodes/stats
-    ```
+- Ensure that sufficient CPU cores are available to receive and process the expected volume of requests.
+Requests are queued as they are received prior to processing, and the volume of items that can be queued
+is a function of the number of CPU cores on each node. You can monitor the queue lengths by using the
+data in the [Threadpool information](https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_threadpool_section) returned by using the node/stats API. 
 
-    In particular, monitor the *heap\_used\_percent* metric for each node and aim to keep the heap size below 75% of the space available.
+    If the *rejected* count for a queue indicates that requests are being refused, then this indicates
+    that the cluster is starting to bottleneck. This may be due to CPU bandwidth, but may also be due to
+    other factors such as lack of memory or slow I/O performance, so use this information in conjunction
+    with other statistics to help determine the root cause.
 
-* Ensure that sufficient CPU cores are available to receive and process the expected volume of requests. Requests are queued as they are received prior to processing, and the volume of items that can be queued is a function of the number of CPU cores on each node. You can monitor the queue lengths by using the data in the [Threadpool information](https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_threadpool_section) returned by using the node/stats API. If the *rejected* count for a queue indicates that requests are being refused, then this indicates that the cluster is starting to bottleneck. This may be due to CPU bandwidth, but may also be due to other factors such as lack of memory or slow I/O performance, so use this information in conjunction with other statistics to help determine the root cause.
+    Client nodes may or may not be necessary, depending on your workloads. Data ingestion workloads tend
+    not to benefit from using dedicated clients, whereas some searches and aggregations can run more
+    quickly; be prepared to benchmark your own scenarios.
 
-    > [AZURE.NOTE]  Client nodes may or may not be necessary, depending on your workloads. Data ingestion workloads tend not to benefit from using dedicated clients, whereas some searches and aggregations can run more quickly; be prepared to benchmark your own scenarios.
-
-    > Client nodes are primarily useful for applications that use the Transport Client API to connect to the cluster. You can also use the Node Client API, which dynamically creates a dedicated client for the application, using the resources of the application host environment. If your applications use the Node Client API, then it may not be necessary for your cluster to contain preconfigured dedicated client nodes. However, be aware that a node created using the Client Node API is a first-class member of the cluster and as such participates in the network chatter with other nodes; frequently starting and stopping client nodes can create unnecessary noise across the entire cluster.
+    Client nodes are primarily useful for applications that use the Transport Client API to connect to
+    the cluster. You can also use the Node Client API, which dynamically creates a dedicated client for
+    the application, using the resources of the application host environment. If your applications use
+    the Node Client API, then it may not be necessary for your cluster to contain preconfigured dedicated
+    client nodes. 
+    
+    However, be aware that a node created using the Client Node API is a first-class member
+    of the cluster and as such participates in the network chatter with other nodes; frequently starting
+    and stopping client nodes can create unnecessary noise across the entire cluster.
 
 For a master node:
 
-* Do not allocate disk storage for Elasticsearch data; dedicated master nodes do not store data on disk.
+- Do not allocate disk storage for Elasticsearch data; dedicated master nodes do not store data on disk.
 
-* CPU requirements should be minimal.
+- CPU requirements should be minimal.
 
-* Memory requirements depend on the size of the cluster. Information about the state of the cluster is retained in memory. For small clusters the amount of memory required is minimal, but for a large, highly active cluster where indexes are being created frequently and shards moving around, the amount of state information can grow appreciably. Monitor the JVM heap size to determine whether you need to add more memory.
+- Memory requirements depend on the size of the cluster. Information about the state of the cluster is 
+retained in memory. For small clusters the amount of memory required is minimal, but for a large, highly
+active cluster where indexes are being created frequently and shards moving around, the amount of state
+information can grow appreciably. Monitor the JVM heap size to determine whether you need to add more
+memory.
 
-    > [AZURE.NOTE]  For cluster reliability, always create multiple master nodes to and configure the remaining nodes to avoid the possibility of a split brain from occurring. Ideally, there should be an odd number of master nodes. This topic is described in more detail in the document Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery.
+> [AZURE.NOTE]  For cluster reliability, always create multiple master nodes to and configure the
+> remaining nodes to avoid the possibility of a split brain from occurring. Ideally, there should be an
+> odd number of master nodes. This topic is described in more detail in the document [Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery](TODO).
 
 ### Storage Options
 
 There are a number of storage options available on Azure VMs with different trade-offs affecting cost, performance, availability, and recovery that you need to consider carefully.
 
-Note that you should store Elasticsearch data on different disks than those used by the operating system software. This will help to reduce contention with the operating system and ensure that large volumes of Elasticsearch I/O do not compete with operating system functions for I/O resources.
+Note that you should store Elasticsearch data on dedicated data disks.  This will help to reduce
+contention with the operating system and ensure that large volumes of Elasticsearch I/O do not compete
+with operating system functions for I/O resources.
 
-Azure disks are subject to performance constraints. If you find that a cluster undergoes periodic bursts of activity then I/O requests may be throttled. To help prevent this, tune your design to balance the document size in Elasticsearch against the volume of requests likely to be received by each disk.
+Azure disks are subject to performance constraints. If you find that a cluster undergoes periodic bursts
+of activity then I/O requests may be throttled. To help prevent this, tune your design to balance the
+document size in Elasticsearch against the volume of requests likely to be received by each disk.
 
-Disks based on standard storage support a maximum request rate of 500 IOPS whereas disks based on premium storage can operate at up to 5,000 IOPS (standard storage uses "spinning" media whereas premium storage uses SSDs which have lower latency and higher throughput). Premium storage disks are only available for the DS and GS series of VMs. Maximum disk IOPS rates for [Azure VMs are documented online](virtual-machines-size-specs/).
-
-> [AZURE.NOTE] Depending on the amount of data returned by requests, you might not achieve the maximum IOPS advertised for a disk as each VM is also throttled to a maximum disk bandwidth, depending on the size of the VM. For example, a data disk on a Standard\_GS5 VM can operate at up to 5,000 IOPS per disk but only if the total data transfer bandwidth does not exceed 2000 MB/s across all disks attached to the VM.
+Disks based on standard storage support a maximum request rate of 500 IOPS whereas disks based on premium
+storage can operate at up to 5,000 IOPS. Premium storage disks are only available for the DS and GS
+series of VMs. Maximum disk IOPS rates for [Azure VMs are documented online](virtual-machines-size-specs/).
 
 **Persistent Data Disks**
 
-Persistent data disks are VHDs that are backed by Azure Storage. If the VM needs to be recreated after a major failure, existing VHDs can be easily attached to the new VM. VHDs can be created based on standard storage (spinning media) or premium storage (SSDs). If you wish to use SSDs you must create VMs using the DS series or better. DS machines cost the same as the equivalent D-series VMs, but you are charged extra for using premium storage.
+Persistent data disks are VHDs that are backed by Azure Storage. If the VM needs to be recreated after a
+major failure, existing VHDs can be easily attached to the new VM. VHDs can be created based on standard
+storage (spinning media) or premium storage (SSDs). If you wish to use SSDs you must create VMs using the
+DS series or better. DS machines cost the same as the equivalent D-series VMs, but you are charged extra
+for using premium storage.
 
-In cases where the maximum transfer rate per disk is insufficient to support the expected workload, consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](virtual-machines-linux-configure-raid/).
+In cases where the maximum transfer rate per disk is insufficient to support the expected workload,
+consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](virtual-machines-linux-configure-raid/).
 
-> [AZURE.NOTE] Experience within Microsoft has shown that using RAID 0 is particularly beneficial for smoothing out the I/O effects of *spiky* workloads that generate frequent bursts of activity.
+> [AZURE.NOTE] Experience within Microsoft has shown that using RAID 0 is particularly beneficial for
+> smoothing out the I/O effects of *spiky* workloads that generate frequent bursts of activity.
 
-Use locally redundant (or premium locally redundant) replicas for the storage account holding the disks; replicating across geographies and zones is not required for Elasticsearch HA.
+Use premium locally redundant (or locally redundant for low-end or QA workloads) storage for the 
+storage account holding the disks; replicating across geographies and zones is not required for
+Elasticsearch HA.
 
 **Ephemeral Disks**
 
-Using persistent disks based on SSDs requires creating VMs that support premium storage. This has a price implication. Using the local ephemeral disk to hold Elasticsearch data can be a cost effective solution for moderately sized nodes requiring up to approximately 800GB of storage. On the Standard-D series of VMs, ephemeral disks are implemented using SSDs which provide far greater performance and much lower latency than ordinary disks; when using Elasticsearch, the performance can be equivalent to using premium storage without incurring the cost – see the section [Addressing Disk Latency Issues](#addressing-disk-latency-issues) for more information.
+Using persistent disks based on SSDs requires creating VMs that support premium storage. This has a price
+implication. Using the local ephemeral disk to hold Elasticsearch data can be a cost effective solution
+for moderately sized nodes requiring up to approximately 800GB of storage. On the Standard-D series of
+VMs, ephemeral disks are implemented using SSDs which provide far greater performance and much lower
+latency than ordinary disks
 
-The size of the VM limits the amount of space available in ephemeral storage as described by the document [D-Series Performance Expectations](https://azure.microsoft.com/blog/d-series-performance-expectations/). For example, a Standard\_D1 VM provides 50GB of ephemeral storage, a Standard\_D2 VM has 100GB of ephemeral storage, and a Standard\_D14 VM provides 800GB of ephemeral space. For clusters where nodes only require this amount of space, using a D-series VM with ephemeral storage can be cost effective: at the time of writing the estimated cost of a D4 VM running Linux is $458/month. The equivalent DS4 VM also running Linux with a single P30 SSD offering 1024GB costs $645/month ($509 for the VM and $136 for the SSD). To store 1024GB of data in ephemeral storage requires 3 D4 VMS, costing $1374/month. However, your calculations should not be based on storage capacity alone. A single DS4 machine provides 8 CPU cores and 28GB of memory, while 3 D4 VMs have 24 CPU cores and 84GB of memory. If your workloads are processor intensive, then distributing the load across 3 VMs can result in better performance than running on a single VM. Additionally, using a single VM (or a small number of VMs) can affect the resiliency and recoverability of the cluster.
+When using Elasticsearch, the performance can be equivalent to using premium storage without incurring
+the cost – see the section [Addressing Disk Latency Issues](#addressing-disk-latency-issues) for more
+information.
 
-> [AZURE.NOTE] The figures quoted above are for illustrative purposes only. These charges may have changed by the time you read this document. For current pricing visit the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) page.
+The size of the VM limits the amount of space available in ephemeral storage as described by the document
+[D-Series Performance Expectations](https://azure.microsoft.com/blog/d-series-performance-expectations/).
 
-You must balance the increased throughput available with ephemeral storage against the time and costs involved in recovering this data after a machine restart. The contents of the ephemeral disk are lost if the VM is moved to a different host server, if the host is updated, or if the host experiences a hardware failure. If the data itself has a limited lifespan then this data loss might be tolerable. For longer-lived data, it may be possible to rebuild an index or recover the missing information from a backup. It is possible to minimize the potential for loss by using replicas held on other VMs.
+For example, a Standard\_D1 VM provides 50GB of ephemeral storage, a Standard\_D2 VM has 100GB of ephemeral storage, and a Standard\_D14 VM provides 800GB of ephemeral space. For clusters where nodes only require this amount of space, using a D-series VM with ephemeral storage can be cost effective.
 
-> [AZURE.NOTE] Do not consider using a **single** VM to hold critical production data. If the node fails, all of the data is unavailable. For critical information, ensure that data is replicated on at least one other node.
+You must balance the increased throughput available with ephemeral storage against the time and costs
+involved in recovering this data after a machine restart. The contents of the ephemeral disk are lost if
+the VM is moved to a different host server, if the host is updated, or if the host experiences a hardware
+failure. If the data itself has a limited lifespan then this data loss might be tolerable. For
+longer-lived data, it may be possible to rebuild an index or recover the missing information from a
+backup. It is possible to minimize the potential for loss by using replicas held on other VMs.
+
+> [AZURE.NOTE] Do not consider using a **single** VM to hold critical production data. If the node fails,
+> all of the data is unavailable. For critical information, ensure that data is replicated on at least
+> one other node.
 
 **Azure Files**
 
@@ -169,9 +312,19 @@ Azure implements a shared networking scheme. VMs utilizing the same hardware rac
 
 ## Considerations for Scaling-Up Nodes to Support Large-Scale Data Ingestion
 
-You can build Elasticsearch clusters using reasonably moderate hardware, and then scale up or scale out as the volume of data grows and the number of requests increases. With Azure, you scale-up by running on bigger and more expensive VMs, or you can scale-out by using additional smaller and cheaper VMs. You might also perform a combination of both strategies. There is no one-size-fits-all solution for all scenarios, so to assess the best approach for any given situation you need to be prepared to undertake a series performance tests.
+You can build Elasticsearch clusters using reasonably moderate hardware, and then scale up or scale out
+as the volume of data grows and the number of requests increases. With Azure, you scale-up by running on
+bigger and more expensive VMs, or you can scale-out by using additional smaller and cheaper VMs. 
 
-This section is concerned with the scale-up approach; scaling out is discussed in the section [Considerations for Scaling-Out Clusters to Support Large-Scale Data Ingestion](#scaling-out-clusters). This section describes the results of a series of benchmarks that were performed against a set of Elasticsearch clusters comprising VMs with varying sizes. The clusters were designated as small, medium, and large. The following table summarizes the resources allocated to the VMs in each cluster.
+You might also perform a combination of both strategies. There is no one-size-fits-all solution for all
+scenarios, so to assess the best approach for any given situation you need to be prepared to undertake a
+series performance tests.
+
+This section is concerned with the scale-up approach; scaling out is discussed in the section
+[Considerations for Scaling-Out Clusters to Support Large-Scale Data Ingestion](#scaling-out-clusters).
+This section describes the results of a series of benchmarks that were performed against a set of
+Elasticsearch clusters comprising VMs with varying sizes. The clusters were designated as small, medium,
+and large. The following table summarizes the resources allocated to the VMs in each cluster.
 
 | Cluster | VM SKU      | Number of Cores | Number of Data Disks | RAM  |
 |---------|-------------|-----------------|----------------------|------|
@@ -179,11 +332,25 @@ This section is concerned with the scale-up approach; scaling out is discussed i
 | Medium  | Standard D3 | 4               | 8                    | 14GB |
 | Large   | Standard D4 | 8               | 16                   | 28GB |
 
-Each Elasticsearch cluster contained 3 data nodes. These data nodes handled client requests as well as handling data processing; separate client nodes were not used because they offered little benefit to the data ingestion scenario used by the tests. The cluster also contained three master nodes, one of which was elected by Elasticsearch to coordinate the cluster.
+Each Elasticsearch cluster contained 3 data nodes. These data nodes handled client requests as well as
+handling data processing; separate client nodes were not used because they offered little benefit to the
+data ingestion scenario used by the tests. The cluster also contained three master nodes, one of which
+was elected by Elasticsearch to coordinate the cluster.
 
-The tests were performed using ElasticSearch 1.7.3. The tests were initially performed on clusters running Ubuntu Linux 14.0.4, and then repeated using Windows Server 2012. The details of the workload performed by the tests are described in the [Appendix](#appendix-the-bulk-load-data-ingestion-performance-test).
+The tests were performed using ElasticSearch 1.7.3. The tests were initially performed on clusters
+running Ubuntu Linux 14.0.4, and then repeated using Windows Server 2012. The details of the workload
+performed by the tests are described in the [Appendix](#appendix-the-bulk-load-data-ingestion-performance-test).
 
-> [AZURE.IMPORTANT] As described in the Network Options section, the performance statistics of distributed services running in a cloud environment will be heavily influenced by the network bandwidth available for physically transmitting and receiving data to and from these services. When you build and deploy a system such as an Elasticsearch cluster, you have a large degree of control over the CPU, memory, and disk resources available simply by selecting the VM size and SKU. You have far less control over the network resources available as these are shared by VMs physically located in the same hardware rack, and also by the volume of traffic entering and exiting the datacenter. Therefore, it is important when running comparative performance tests, to run these tests using the same datacenter at roughly the same time of day during the business week. The results of tests run against VMs hosted at different datacenters or running at different times could diverge significantly.
+> [AZURE.IMPORTANT] As described in the Network Options section, the performance statistics of
+> distributed services running in a cloud environment will be heavily influenced by the network bandwidth
+> available for physically transmitting and receiving data to and from these services. When you build and
+> deploy a system such as an Elasticsearch cluster, you have a large degree of control over the CPU,
+> memory, and disk resources available simply by selecting the VM size and SKU. You have far less control
+> over the network resources available as these are shared by VMs physically located in the same hardware
+> rack, and also by the volume of traffic entering and exiting the datacenter. Therefore, it is important
+> when running comparative performance tests, to run these tests using the same datacenter at roughly the
+> same time of day during the business week. The results of tests run against VMs hosted at different
+> datacenters or running at different times could diverge significantly.
 
 ### Data Ingestion Performance – Ubuntu Linux 14.0.4
 
@@ -195,27 +362,52 @@ The following table summarizes the overall results of running the tests for two 
 | Medium        | 123482    | 692                        | 17.2                      |
 | Large         | 197085    | 839                        | 27.4                      |
 
-The throughput and number of samples processed for the three configurations are in the approximate ratio 1:2:3. However, the resources available in terms of memory, CPU cores, and disks have the ratio 1:2:4. It was felt to be worth investigating the low-level performance details of the nodes in the cluster to assess why this might be the case. This information can help to determine whether there are limits to scaling-up and when it may be better to consider scaling-out.
+The throughput and number of samples processed for the three configurations are in the approximate ratio
+1:2:3. However, the resources available in terms of memory, CPU cores, and disks have the ratio 1:2:4. It
+was felt to be worth investigating the low-level performance details of the nodes in the cluster to
+assess why this might be the case. This information can help to determine whether there are limits to
+scaling-up and when it may be better to consider scaling-out.
 
 ### Determining Limiting Factors: Network Utilization
 
-Elasticsearch is dependent on having sufficient network bandwidth to support the influx of client requests as well as the synchronization information that flows between nodes in the cluster. As highlighted earlier, you have limited control over the bandwidth availability which depends on many variables such as the datacenter in use, and the current network load of other VMs sharing the same network infrastructure. However, it is still worth examining the network activity for each cluster if only to verify that the volume of traffic is not excessive. The graph below shows a comparison of the network traffic received by node 2 in each of the clusters (the volumes for the other nodes in each cluster was very similar).
+Elasticsearch is dependent on having sufficient network bandwidth to support the influx of client
+requests as well as the synchronization information that flows between nodes in the cluster. As
+highlighted earlier, you have limited control over the bandwidth availability which depends on many
+variables such as the datacenter in use, and the current network load of other VMs sharing the same
+network infrastructure. However, it is still worth examining the network activity for each cluster if
+only to verify that the volume of traffic is not excessive. The graph below shows a comparison of the
+network traffic received by node 2 in each of the clusters (the volumes for the other nodes in each
+cluster was very similar).
 
 ![](media/guidance-elasticsearch/data-ingestion-image1.png)
 
-The average bytes received per second for node 2 in each cluster configuration over the two-hour period were as follows:
+The average bytes received per second for node 2 in each cluster configuration over the two-hour period
+were as follows:
 
 | Configuration | Average Number of Bytes Received/sec |
 |---------------|--------------------------------------|
-| Small         | 3993640.346                          |
-| Medium        | 7311689.897                          |
-| Large         | 11893874.2                           |
+| Small         | 3993640.3                          |
+| Medium        | 7311689.9                          |
+| Large         | 11893874.2                          |
 
-> [AZURE.NOTE] The tests were conducted while the system was running in steady state. In situations where index rebalancing or node recovering is occurring, data transmissions between nodes holding primary and replica shards can generate significant network traffic. The effects of this process are described more in the document Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery.
+The tests were conducted while the system was running in **steady state**. In situations where index
+rebalancing or node recovering is occurring, data transmissions between nodes holding primary and replica
+shards can generate significant network traffic. The effects of this process are described more in the
+document [Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery](TODO).
 
 ### Determining Limiting Factors: CPU Utilization
 
-The rate at which requests are handled is at least partially governed by the available processing capacity. Elasticsearch accepts bulk insert requests on the bulk insert queue. Each node has a set of bulk insert queues determined by the number of available processors. By default, there is one queue for each processor and each queue can hold up to 50 outstanding requests before they will start to be rejected. Applications should send requests at a rate which does not cause the queues to overspill. The number of items in each queue at any one time is going to be a function of the rate at which requests are sent by client applications and the rate at which these same requests are retrieved and processed by Elasticsearch. For this reason, one important statistic captured concerns the error rate summarized in the following table.
+The rate at which requests are handled is at least partially governed by the available processing
+capacity. Elasticsearch accepts bulk insert requests on the bulk insert queue. Each node has a set of
+bulk insert queues determined by the number of available processors. By default, there is one queue for
+each processor and each queue can hold up to 50 outstanding requests before they will start to be
+rejected. 
+
+Applications should send requests at a rate which does not cause the queues to overspill. The
+number of items in each queue at any one time is going to be a function of the rate at which requests are
+sent by client applications and the rate at which these same requests are retrieved and processed by
+Elasticsearch. For this reason, one important statistic captured concerns the error rate summarized in
+the following table.
 
 | Configuration | Total Samples | \# Errors | Error Rate |
 |---------------|---------------|-----------|------------|
@@ -230,11 +422,17 @@ org.elasticsearch.action.support.replication.TransportShardReplicationOperationA
 [219]: index [systembase], type [logs], id [AVEAioKb2TRSNcPa_8YG], message [RemoteTransportException[[esdatavm2][inet[/10.0.1.5:9300]][indices:data/write/bulk[s]]]; nested: EsRejectedExecutionException[rejected execution (queue capacity 50)
 ```
 
-Increasing the number of queues and/or the length of each queue might reduce the number of errors, but this approach can only cope with bursts of short duration. Doing this while running a sustained series of data ingestion tasks will simply delay the point at which errors start occurring. Furthermore, this change will not improve the throughput and will likely harm the response time of client applications as requests will be queued for longer before being processed.
+Increasing the number of queues and/or the length of each queue might reduce the number of errors, but
+this approach can only cope with bursts of short duration. Doing this while running a sustained series of
+data ingestion tasks will simply delay the point at which errors start occurring. Furthermore, this
+change will not improve the throughput and will likely harm the response time of client applications as
+requests will be queued for longer before being processed.
+
+The default index structure of 5 shards with 1 replica (10 shards in all), results in a modest imbalance
+in load between the nodes in a cluster; two nodes will contain three shards while the other node will contain four. The busiest node is most likely to be the item that restricts throughput the most, hence
+the reason that this node has been selected in each case.
 
 The following set of graphs illustrate the CPU utilization for the busiest node in each cluster.
-
-> [AZURE.NOTE] The default index structure of 5 shards with 1 replica (10 shards in all), results in a modest imbalance in load between the nodes in a cluster; two nodes will contain 3 shards while the other node will contain 4. The busiest node is most likely to be the item that restricts throughput the most, hence the reason that this node has been selected in each case:
 
 ![](media/guidance-elasticsearch/data-ingestion-image2.png)
 
@@ -242,17 +440,21 @@ The following set of graphs illustrate the CPU utilization for the busiest node 
 
 ![](media/guidance-elasticsearch/data-ingestion-image4.png)
 
-For the small, medium, and large clusters, the average CPU utilization for these nodes was 75.01%, 64.93%., and 64.64%. Rarely does utilization actually hit 100%, and utilization drops as the size of the nodes and the available CPU power available increases. CPU power is therefore unlikely to be a factor limiting the performance of the large cluster.
+For the small, medium, and large clusters, the average CPU utilization for these nodes was 75.01%,
+64.93%., and 64.64%. Rarely does utilization actually hit 100%, and utilization drops as the size of the
+nodes and the available CPU power available increases. CPU power is therefore unlikely to be a factor
+limiting the performance of the large cluster.
 
 ### Determining Limiting Factors: Memory
 
-Memory use is another important aspect that can influence performance. For the tests, Elasticsearch was allocated 50% of the available memory; this is in line with [documented recommendations](https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#_give_half_your_memory_to_lucene). While the tests were running, the JVM was monitored for excess garbage collection activity (an indication of lack of heap memory). In all cases, the heap size was stable and the JVM exhibited low garbage collection activity. The screenshot in figure 1 shows a snapshot of Marvel, highlighting the key JVM statistics for a short period while the test was running on the large cluster.
+Memory use is another important aspect that can influence performance. For the tests, Elasticsearch was allocated 50% of the available memory; this is in line with [documented recommendations](https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#_give_half_your_memory_to_lucene). While the tests were running, the JVM was monitored for excess garbage collection activity (an indication of lack of heap memory). In all cases, the heap size was stable and the JVM exhibited low garbage collection activity. The screenshot below shows a snapshot of Marvel, highlighting the key JVM statistics for a short period while the test was running on the large cluster.
 
 ![](media/guidance-elasticsearch/data-ingestion-image5.png)
 
-***Figure 1. JVM memory and garbage collection activity on the large cluster.***
+*** JVM memory and garbage collection activity on the large cluster.***
 
 ### Determining Limiting Factors: Disk I/O Rates
+
 The remaining physical feature on the server side that might constrain performance is the performance of the disk I/O subsystem. The graph below compares the disk activity in terms of bytes written for the busiest nodes in each cluster.
 
 ![](media/guidance-elasticsearch/data-ingestion-image6.png)
@@ -267,7 +469,8 @@ The following table shows the average bytes written per second for node 2 in eac
 
 The volume of data written increases with the number of requests being processed by a cluster, but the I/O rates are within the limits of Azure storage (disks created by using Azure storage can support a sustained rates 10s to 100s of MB/s, depending on whether Standard or Premium storage is used). Examining the amount of time spent waiting for disk I/O helps to explain why the disk throughput is well below the theoretical maximum. The graphs and table below show these statistics for the same three nodes:
 
-> [AZURE.NOTE] The disk wait time is measured by monitoring the percentage of CPU time during which processors are blocked waiting for I/O operations to complete.
+> [AZURE.NOTE] The disk wait time is measured by monitoring the percentage of CPU time during which 
+> processors are blocked waiting for I/O operations to complete.
 
 ![](media/guidance-elasticsearch/data-ingestion-image7.png)
 
@@ -283,11 +486,15 @@ The volume of data written increases with the number of requests being processed
 
 This data indicates that a significant proportion of CPU time (between nearly 16% and 21%) is spent waiting for disk I/O to complete. This is restricting the ability of Elasticsearch to process requests and store data.
 
-> [AZURE.NOTE]  During the test run, the large cluster inserted in excess of five hundred million documents. Allowing the test to continue showed that wait times increased significantly when the database contained over six hundred million documents. The reasons for this behavior were not fully investigated, but may be due to disk fragmentation causing increased disk latency. Increasing the size of the cluster over more nodes might help to alleviate the effects of this behavior. In extreme cases it may be necessary to defragment a disk which is showing excessive I/O times. However, defragmenting a large disk might take a considerable time (possibly more than 48 hours for a 2TB VHD drive), and simply reformatting the drive and allowing Elasticsearch to recover the missing data from replica shards could be a more cost-effective approach.
+During the test run, the large cluster inserted in excess of **five hundred million documents**. Allowing the test to continue showed that wait times increased significantly when the database contained over six hundred million documents. The reasons for this behavior were not fully investigated, but may be due to disk fragmentation causing increased disk latency. 
+
+Increasing the size of the cluster over more nodes might help to alleviate the effects of this behavior. In extreme cases it may be necessary to defragment a disk which is showing excessive I/O times. However, defragmenting a large disk might take a considerable time (possibly more than 48 hours for a 2TB VHD drive), and simply reformatting the drive and allowing Elasticsearch to recover the missing data from replica shards could be a more cost-effective approach.
 
 ### Addressing Disk Latency Issues
 
-The tests were initially performed using VMs configured with standard disks. A standard disk is based on spinning media and as a result is subject to rotational latency and other bottlenecks that can constrain I/O rates. Azure provides also premium storage in which disks are created using SSD devices. These devices have no rotational latency and as a result should provide improved I/O speeds. The table below compares the results of replacing standard disks with premium disks in the large cluster (the Standard D4 VMs in the large cluster were replaced with Standard DS4 VMs; the number of cores, memory and disks was the same in both cases, the only difference being that the DS4 VMs used SSDs).
+The tests were initially performed using VMs configured with standard disks. A standard disk is based on spinning media and as a result is subject to rotational latency and other bottlenecks that can constrain I/O rates. Azure provides also premium storage in which disks are created using SSD devices. These devices have no rotational latency and as a result should provide improved I/O speeds. 
+
+The table below compares the results of replacing standard disks with premium disks in the large cluster (the Standard D4 VMs in the large cluster were replaced with Standard DS4 VMs; the number of cores, memory and disks was the same in both cases, the only difference being that the DS4 VMs used SSDs).
 
 | Configuration    | \#Samples | Average Response Time (ms) | Throughput (Operations/s) |
 |------------------|-----------|----------------------------|---------------------------|
@@ -352,13 +559,17 @@ The CPU utilization reported by the Windows monitoring tools was marginally high
 
 ### Scaling-Up: Conclusions
 
-Elasticsearch performance for a well-tuned cluster is likely to be equivalent on Windows and Ubuntu, and that it scales-up in a similar pattern on both operating systems. For best performance, use SSDs for holding Elasticsearch data.
+Elasticsearch performance for a well-tuned cluster is likely to be equivalent on Windows and Ubuntu, and that it scales-up in a similar pattern on both operating systems. For best performance, **use premium storage for holding Elasticsearch data**.
 
-## <a name="scaling-out-clusters"></a> Considerations for Scaling-Out Clusters to Support Large-Scale Data Ingestion
+## Considerations for Scaling Out Clusters to Support Large-Scale Data Ingestion
 
-Scaling-out is the complimentary approach to scaling-up investigated I the previous section. An important feature of Elasticsearch is the inherent horizontal scalability built into the software. Increasing the size of a cluster is simply a matter of adding more nodes. You do not need to perform any manual operations to redistribute indexes or shards as these tasks are handled automatically, although there are a number of configuration options available that you can use to influence this process. Adding more nodes helps to improve performance by spreading the load across more machinery. As you add more nodes, you may also need to consider reindexing data to increase the number of shards available. You can pre-empt this process to some extent by creating indexes that have more shards than there are available nodes initially. When further nodes are added, the shards can be distributed.
+Scaling out is the complimentary approach to scaling up investigated in the previous section. An important feature of Elasticsearch is the inherent horizontal scalability built into the software. Increasing the size of a cluster is simply a matter of adding more nodes. You do not need to perform any manual operations to redistribute indexes or shards as these tasks are handled automatically, although there are a number of configuration options available that you can use to influence this process. 
 
-Besides taking advantage of the horizontal scalability of Elasticsearch, there are other reasons for implementing indexes that have more shards than nodes. Each shard is implemented as a separate data structure (a [Lucene](https://lucene.apache.org/) index), and has its own internal mechanisms for maintaining consistency and handling concurrency. Creating multiple shards helps to increase parallelism within a node and can improve performance. But maintaining performance while scaling is a balancing act. The more nodes and shards a cluster contains, the more effort is required to synchronize the work performed by the cluster, which can decrease throughput. For any given workload there will be a sweet spot that maximizes ingestion performance while minimizing the maintenance overhead. This sweet spot will be heavily dependent on the nature of the workload and the cluster; specifically, the volume, size, and content of the documents, the rate at which ingestion occurs, and the hardware on which the system runs.  
+Adding more nodes helps to improve performance by spreading the load across more machinery. As you add more nodes, you may also need to consider reindexing data to increase the number of shards available. You can pre-empt this process to some extent by creating indexes that have more shards than there are available nodes initially. When further nodes are added, the shards can be distributed.
+
+Besides taking advantage of the horizontal scalability of Elasticsearch, there are other reasons for implementing indexes that have more shards than nodes. Each shard is implemented as a separate data structure (a [Lucene](https://lucene.apache.org/) index), and has its own internal mechanisms for maintaining consistency and handling concurrency. Creating multiple shards helps to increase parallelism within a node and can improve performance. 
+
+However, maintaining performance while scaling is a balancing act. The more nodes and shards a cluster contains, the more effort is required to synchronize the work performed by the cluster, which can decrease throughput. For any given workload there will be a sweet spot that maximizes ingestion performance while minimizing the maintenance overhead. This sweet spot will be heavily dependent on the nature of the workload and the cluster; specifically, the volume, size, and content of the documents, the rate at which ingestion occurs, and the hardware on which the system runs.  
 
 This section summarizes the results of investigations into sizing clusters intended to support the workload used by the performance tests described previously. The same test was performed on clusters with VMs based on the large VM size (Standard D4 with 8 CPU cores, 16 data disks, and 28GB of RAM) running Ubuntu Linux 14.0.4, but configured with different numbers of nodes and shards. The results are not intended to be definitive as they apply only to one specific scenario, but they can act as a good starting point to help you to analyze the horizontal scalability of your clusters, and generate numbers for the optimal ratio of shards to nodes that best meet your own requirements.
 
@@ -424,11 +635,11 @@ These results showed a similar pattern, with a tipping point around 37 shards.
 
 Using a crude extrapolation, the results of the 6-node and 9-node tests indicated that, for this specific scenario, the ideal number of shards to maximize performance was 4n+/-1, where n is the number of nodes. This *may* be a function of the number of bulk insert threads available, which in turn is dependent on the number of CPU cores, the rationale being as follows (see [Multidocument Patterns](https://www.elastic.co/guide/en/elasticsearch/guide/current/distrib-multi-doc.html#distrib-multi-doc) for details):
 
-* Each bulk insert request sent by the client application is received by a single data node.
+- Each bulk insert request sent by the client application is received by a single data node.
 
-* The data node builds a new bulk insert request for each primary shard affected by the original request and forwards them to the other nodes, in parallel.
+- The data node builds a new bulk insert request for each primary shard affected by the original request and forwards them to the other nodes, in parallel.
 
-* As each primary shard is written, another request is sent to each replica for that shard. The primary shard waits for the request sent to the replica to complete before finishing.
+- As each primary shard is written, another request is sent to each replica for that shard. The primary shard waits for the request sent to the replica to complete before finishing.
 
 By default, Elasticsearch creates one bulk insert thread for each available CPU core in a VM. In the case of the D4 VMs used by this test, each CPU contained 8 cores, so 8 bulk insert threads were created. The index used spanned 4 (in one case 5) primary shards on each node, but there were also 4 (5) replicas on each node. Inserting data into these shards and replicas could consume up to 8 threads on each node per request, matching the number available. Increasing or reducing the number of shards might cause threading inefficiencies as threads are possibly left unoccupied or requests are queued. However, without further experimentation this is just a theory and it is not possible to be definitive.
 
@@ -440,7 +651,6 @@ The tests also illustrated one other important point. In this scenario, increasi
 
 > The important point of this exercise is to understand the method used rather than the results obtained. You should be prepared to perform your own scalability assessment based on your own workloads to obtain information that is most applicable to your own scenario.
 
-<span id="_Considerations_for_Tuning" class="anchor"></span>
 ## Considerations for Tuning Large-Scale Data Ingestion
 
 Elasticsearch is highly configurable, with many switches and settings that you can use to optimize the performance for specific use-cases and scenarios. This section describes some common examples. Be aware that the flexibility that Elasticsearch provides in this respect comes with a warning; it is very easy to detune Elasticsearch and make performance worse. When tuning, only make one change at a time, and always measure the effects of any changes to ensure that they are not detrimental to your system.
@@ -486,11 +696,11 @@ The following list describes some points you should consider when tuning an Elas
 	}
 	```
 
-  > [AZURE.IMPORTANT] Set the throttle type of the cluster back to *"merge"* when ingestion has completed. Also note that disabling throttling may lead to instability in the cluster, so ensure that you have procedures in place that can recover the cluster if necessary.
+    Set the throttle type of the cluster back to *"merge"* when ingestion has completed. Also note that disabling throttling may lead to instability in the cluster, so ensure that you have procedures in place that can recover the cluster if necessary.
 
 * Elasticsearch reserves a proportion of the heap memory for indexing operations; the remainder is mostly used by queries and searches. The purpose of these buffers is to reduce the number of disk I/O operations, with the aim of performing fewer, larger writes than more, smaller writes. The default proportion of heap memory allocated is 10%. If you are indexing a large volume of data then this value might be insufficient. For systems that support high-volume data ingestion, you should allow up to 512MB of memory for each active shard in the node. For example, if you are running Elasticsearch on D4 VMs (28GB RAM) and have allocated 50% of the available memory to the JVM (14GB), then 1.4GB will be available for use by indexing operations. If a node contains 3 active shards, then this configuration is probably sufficient. However, if a node contains more shards than this, consider increasing the value of the *indices.memory.index\_buffer\_size* parameter in the elasticsearch.yml configuration file. For more information, see [Performance Considerations for Elasticsearch Indexing](https://www.elastic.co/blog/performance-considerations-elasticsearch-indexing).
 
-  > [AZURE.NOTE] Allocating more than 512MB per active shard will most likely not improve indexing performance but may actually be detrimental as less memory is available for performing other tasks. Also be aware that allocating more heap space for index buffers removes memory for other operations such as searching and aggregating data, and can slow the performance of query operations.
+    Allocating more than 512MB per active shard will most likely not improve indexing performance but may actually be detrimental as less memory is available for performing other tasks. Also be aware that allocating more heap space for index buffers removes memory for other operations such as searching and aggregating data, and can slow the performance of query operations.
 
 * Elasticsearch restricts the number of threads (the default value is 8) that can concurrently perform indexing operations in a shard. If a node only contains a small number of shards, then consider increasing the *index\_concurrency* setting for an index that is subject to a large volume of indexing operations, or is the target of a bulk insert, as follows:
 
@@ -518,15 +728,17 @@ In this test, the refresh rate was set to the default value of 1 second. The fol
 | 1 second     | 93755      | 460                                                | 26.0                                              |
 | 30 seconds   | 117758     | 365                                                | 32.7                                              |
 
-In this test, dropping the refresh rate resulted in an 18% improvement in throughput, and a 21% reduction in average response time. The following graphs generated by using Marvel illustrate the primary reason for this difference. Figure 2 below shows the index merge activity that occurred with the refresh interval set to 1 second, and figure 3 illustrates the level of activity with the refresh interval set to 30 seconds. Index merges are performed to prevent the number of in-memory index segments from becoming too numerous. A 1 second refresh interval generates a large number of small segments which have to be merged frequently, whereas a 30 second refresh interval generates fewer large segments which can be merged more optimally.
+In this test, dropping the refresh rate resulted in an 18% improvement in throughput, and a 21% reduction in average response time. The following graphs generated by using Marvel illustrate the primary reason for this difference. The figures below show the index merge activity that occurred with the refresh interval set to 1 second and 30 seconds. 
+
+Index merges are performed to prevent the number of in-memory index segments from becoming too numerous. A 1 second refresh interval generates a large number of small segments which have to be merged frequently, whereas a 30 second refresh interval generates fewer large segments which can be merged more optimally.
 
 ![](media/guidance-elasticsearch/data-ingestion-image15.png)
 
-***Figure 2. Index merge activity for an index refresh rate of 1 second***
+***Index merge activity for an index refresh rate of 1 second***
 
 ![](media/guidance-elasticsearch/data-ingestion-image16.png)
 
-***Figure 3. Index merge activity for an index refresh rate of 30 seconds***
+***Index merge activity for an index refresh rate of 30 seconds***
 
 ### The Impact of Replicas on Data Ingestion Performance
 
@@ -569,23 +781,25 @@ With 2 replicas, the most populated response time range was 200ms to 1500ms, but
 
 ![](media/guidance-elasticsearch/data-ingestion-image19.png)
 
-<span id="_The_Impact_of_1" class="anchor"><span id="_Impact_of_Increasing" class="anchor"></span></span>Using Marvel, you can see the effect of the number of replicas on the bulk index queue. Figure 4 shows the data from Marvel which depicts how the bulk insert queue filled during the test. The average queue length was around 40 requests, but periodic bursts caused it to overflow and requests were rejected as a result:
+<span id="_The_Impact_of_1" class="anchor"><span id="_Impact_of_Increasing" class="anchor"></span></span>Using Marvel, you can see the effect of the number of replicas on the bulk index queue. The figure below shows the data from Marvel which depicts how the bulk insert queue filled during the test. The average queue length was around 40 requests, but periodic bursts caused it to overflow and requests were rejected as a result:
 
 ![](media/guidance-elasticsearch/data-ingestion-image20.png)
 
-***Figure 4. Bulk index queue size and number of requests rejected with 2 replicas.***
+***Bulk index queue size and number of requests rejected with 2 replicas.***
 
-You should compare this with figure 5 below which shows the results for a single replica. The Elasticsearch engine was able to process requests quickly enough to keep the average queue length at around 25, and at no point did the queue length exceed 50 requests so no work was rejected.
+You should compare this with the figure below which shows the results for a single replica. The Elasticsearch engine was able to process requests quickly enough to keep the average queue length at around 25, and at no point did the queue length exceed 50 requests so no work was rejected.
 
 ![](media/guidance-elasticsearch/data-ingestion-image21.png)
 
-***Figure 5. Bulk index queue size and number of requests rejected with 1 replica.***
+***Bulk index queue size and number of requests rejected with 1 replica.***
 
 ## Best Practices for Clients Sending Data to Elasticsearch
 
-Many aspects of performance are concerned not only internally within the system but with how the system is used by client applications. Elasticsearch provides many features that can be utilized by the data ingestion process; generating unique identifiers for documents, performing document analysis, and even using scripting to transform the data as it is stored are some examples. However, these functions all add to the load on the Elasticsearch engine, and in many cases can be performed more efficiently by client applications prior to transmission. Additionally, consider implementing the following practices where appropriate:
+Many aspects of performance are concerned not only internally within the system but with how the system is used by client applications. Elasticsearch provides many features that can be utilized by the data ingestion process; generating unique identifiers for documents, performing document analysis, and even using scripting to transform the data as it is stored are some examples. However, these functions all add to the load on the Elasticsearch engine, and in many cases can be performed more efficiently by client applications prior to transmission. 
 
 > [AZURE.NOTE] This list of best practices is primarily concerned with ingesting new data rather modifying existing data already stored in an index. Ingestion workloads are performed as append operations by Elasticsearch whereas data modifications are performed as delete/append operations. This is because documents in an index are immutable, so modifying a document involves replacing the entire document with a new version. You can either perform an HTTP PUT request to overwrite an existing document, or you can use the Elasticsearch *update* API which abstracts a query to fetch an existing document, merges the changes, and then performs a PUT to store the new document.
+
+Additionally, consider implementing the following practices where appropriate:
 
 * Disable text analysis for index fields that do not need to be analyzed. Analysis involves tokenizing text to enable queries that can search for specific terms. However, it can be a CPU-intensive task, so be selective. If you are using Elasticsearch to store log data it, might be useful to tokenize the detailed log messages to allow complex searches. Other fields, such as those containing error codes or identifiers should probably not be tokenized (how frequently are you likely to request the details of all messages whose error code contains a "3", for example?) The following code disable analysis for the *name* and *hostip* fields in the *logs* type of the *systembase* index:
 
