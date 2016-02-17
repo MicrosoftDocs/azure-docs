@@ -17,7 +17,7 @@
 	ms.date="02/14/2016"
 	ms.author="genli"/>
 
-#  Azure Billing and Subscription FAQ
+#  Azure Billing and Subscription FAQ test 12
 
 This article answers some of the most common questions about Azure Billing and Subscription.
 
