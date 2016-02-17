@@ -1,7 +1,23 @@
+<properties
+   pageTitle="Migrating Web and Worker Roles to Service Fabric stateless services | Microsoft Azure"
+   description="This guide compares Cloud Services Web and Worker Roles and Service Fabric stateless services to help migrate from Cloud Services to Service Fabric."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="vturecek"
+   manager="timlt"
+   editor=""/>
 
+<tags
+   ms.service="service-fabric"
+   ms.devlang="dotNet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="02/17/2016"
+   ms.author="vturecek"/>
  
 #Convert a Web or Worker Role to a Service Fabric stateless service
-This document focuses on the simplest migration from Cloud Services to Service Fabric in which Web and Worker Roles are converted to Service Fabric stateless services.  
+This document provides a reference guide for converting Web and Worker Roles to Service Fabric stateless services. This is the simplest migration path from Cloud Services to Service Fabric in which the overall architecture of an application stays roughly the same.
 
 ## Cloud Service project to Service Fabric application project
  
@@ -11,13 +27,13 @@ The difference is that the Cloud Service project couples the application deploym
 
 ![Service Fabric and Cloud Services project comparison][3]
  
-## Worker Role to Stateless Service 
+## Worker Role to stateless service 
 
 Conceptually, a Worker Role represents a stateless workload, meaning every instance of the workload is identical and requests can be routed to any instance at any time; each instance is not expected to remember the previous request. State that the workload operates on is managed by an external state store, such as Azure Table Storage or Azure Document DB. In Service Fabric, this type of workload is represented by a Stateless Service. The simplest approach to migrating a Worker Role to Service Fabric can be done by converting Worker Role code to a Stateless Service.
 
 ![Worker Role to Stateless Service][4]
 
-## Web Role to Stateless Service
+## Web Role to stateless service
 
 Similar to Worker Role, a Web Role also represents a stateless workload, and so conceptually it too can be mapped to a Service Fabric stateless service. However, unlike Web Roles, Service Fabric does not support IIS. To migrate a web application from a Web Role to a stateless service requires first moving to a web framework that can be self-hosted and does not depend on IIS or System.Web, such as ASP.NET Core 1.
 
@@ -95,7 +111,7 @@ Both have a primary "Run" override in which to begin processing. An important di
 
 Service Fabric provides an optional communication setup entry point for services that listen for client requests. Both the RunAsync and communication entry point are optional overrides in Service Fabric services - your service may choose to only listen to client requests, or only run a processing loop, or both - which is why the RunAsync method is allowed to exit without restarting the service instance, because it may continue to listen for client requests.
 
-The main difference between Worker Roles and Service Fabric services is lifecycle. A Worker Role is a VM and so its lifecycle is tied to the VM, which includes events for when the VM starts and stops. A Service Fabric service has a lifecycle that is separate from the VM lifecycle, so it does not include events for when the host VM or machine starts and stop, as they are not related.
+The main difference between Worker Roles and Service Fabric services is their lifecycle. A Worker Role is a VM and so its lifecycle is tied to the VM, which includes events for when the VM starts and stops. A Service Fabric service has a lifecycle that is separate from the VM lifecycle, so it does not include events for when the host VM or machine starts and stop, as they are not related.
 
 ## Application API and environment
 
@@ -239,11 +255,15 @@ In Service Fabric a startup entry point is configured per service in ServiceMani
 
 ``` 
 
-## A note on development environment
+## A note about development environment
 
 Both Cloud Services and Service Fabric are integrated with Visual Studio with project templates and support for debugging, configuring, and deploying both locally and to Azure. Both Cloud Services and Service Fabric also provide a local development runtime environment. The difference is that while the Cloud Service development runtime emulates the Azure environment on which it runs, Service Fabric does not use an emulator - it uses the complete Service Fabric runtime. The Service Fabric environment you run on your local development machine is the same environment that runs in production.
 
 ##Next Steps
+
+ - [Migrating Cloud Services to Service Fabric: conceptual overview](./service-fabric-cloud-services-migration-conceptual.md)
+
+ - [Getting started with Service Fabric Reliable Services](./service-fabric-reliable-services-quick-start.md)
 
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration/service-fabric-cloud-service-projects.png
