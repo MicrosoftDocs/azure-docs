@@ -30,7 +30,7 @@ Azure stores the image under **My Images**. This is the same place where any ima
 
 These steps assume that you've already created an Azure virtual machine and configured the operating system, including attaching any data disks. If you haven't done this yet, see these instructions:
 
-- [Create a virtual machine from an image](virtual-machines-create-custom.md)
+- [Create a virtual machine from an image](virtual-machines-windows-classic-createportal.md)
 - [How to attach a data disk to a virtual machine](virtual-machines-windows-classic-attach-disk.md)
 
 > [AZURE.WARNING] This process deletes the original virtual machine after it's captured. 
@@ -76,7 +76,7 @@ Prior to caputuring an image of an Azure virtual machine, it is recommended the 
 
 ##Next steps
 
-The image is ready to be used to create virtual machines. To do this, you'll create a virtual machine by using the **From Gallery** menu item and selecting the image you just created. For instructions, see [Create a virtual machine from an image](virtual-machines-create-custom.md).
+The image is ready to be used to create virtual machines. To do this, you'll create a virtual machine by using the **From Gallery** menu item and selecting the image you just created. For instructions, see [Create a virtual machine from an image](virtual-machines-windows-classic-createportal.md).
 
 
 
