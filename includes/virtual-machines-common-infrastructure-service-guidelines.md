@@ -108,19 +108,19 @@ In order to work with Azure, you need one or more Azure subscriptions. Resources
 
 Due to the limit of two hierarchy levels on the Account/Subscription relationship, it is important to align the naming convention of accounts and subscriptions to the billing needs. For instance, if a global company uses Azure, they might choose to have one account per region, and have subscriptions managed at the region level.
 
-![](./media/virtual-machines-infrastructure-services-implementation-guidelines/sub01.png)
+![](././media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
 
 For instance, you might use this structure.
 
-![](./media/virtual-machines-infrastructure-services-implementation-guidelines/sub02.png)
+![](././media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
 
 Following the same example, if a region decides to have more than one subscription associated to a particular group, then the naming convention should incorporate a way to encode the extra on either the account or the subscription name. This organization allows massaging billing data to generate the new levels of hierarchy during billing reports.
 
-![](./media/virtual-machines-infrastructure-services-implementation-guidelines/sub03.png)
+![](././media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
 The organization could look like this.
 
-![](./media/virtual-machines-infrastructure-services-implementation-guidelines/sub04.png)
+![](././media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
 Microsoft provides detailed billing via a downloadable file for a single account or for all accounts in an enterprise agreement. You can process this file, for example, by using Microsoft Excel. This process would ingest the data, partition the resources that encode more than one level of the hierarchy into separate columns, and use a pivot table or PowerPivot to provide dynamic reporting capabilities.
 
@@ -222,7 +222,7 @@ Virtual networks are a container for virtual machines for which you can also spe
 ### Site connectivity
 If on-premises users and computers do not require ongoing connectivity to virtual machines in an Azure virtual network, create a cloud-only virtual network.
 
-![](./media/virtual-machines-infrastructure-services-implementation-guidelines/vnet01.png)
+![](././media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
 
 This is typically for Internet-facing workloads, such as an Internet-based web server. You can manage these virtual machines using Remote Desktop connections, remote PowerShell sessions, Secure Shell (SSH) connections, and point-to-site VPN connections.
 
@@ -230,7 +230,7 @@ Because they do not connect to your on-premises network, cloud-only virtual netw
 
 If on-premises users and computers require ongoing connectivity to virtual machines in an Azure virtual network, create a cross-premises virtual network and connect it to your on-premises network with an ExpressRoute or site-to-site VPN connection.
 
-![](./media/virtual-machines-infrastructure-services-implementation-guidelines/vnet02.png)
+![](././media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
 In this configuration, the Azure virtual network is essentially a cloud-based extension of your on-premises network.
 
@@ -320,7 +320,7 @@ The Contoso Corporation has developed a next-generation financial analysis engin
 - Two Active Directory domain controllers for a self-contained forest and domain in the authentication tier, which is required by SQL Server clustering
 - All of the servers are located on two subnets; a front end subnet for the web servers and a back end subnet for the application servers, a SQL Server 2014 cluster, and domain controllers
 
-![](./media/virtual-machines-infrastructure-services-implementation-guidelines/example-tiers.png)
+![](././media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
 Incoming secure web traffic from the Contoso clients on the Internet needs to be load-balanced among the web servers. Calculation request traffic in the form of HTTP requests from the web servers needs to be balanced among the application servers. Additionally, the engine must be designed for high availability.
 
@@ -395,7 +395,7 @@ Contoso decided on the following names for their Azure virtual machines:
 
 Here is the resulting configuration.
 
-![](./media/virtual-machines-infrastructure-services-implementation-guidelines/example-config.png)
+![](././media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
 
 This configuration incorporates:
 
