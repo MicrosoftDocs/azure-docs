@@ -25,11 +25,11 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [What payment options do I have in purchasing Azure?](#what-payment-options-do-i-have-in-purchasing-azure)
 
-- [How can I request the invoice method of payment?](#how-can-I-request-the-invoice-method-of-payment?)
+- [How can I request the invoice method of payment?](#how-can-i-request-the-invoice-method-of-payment)
 
-- [How do I check the status of a payment made by credit card?](#how-do--check-the-status-of-a-payment-made-by-credit-card)
+- [How do I check the status of a payment made by credit card?](#how-do-check-the-status-of-a-payment-made-by-credit-card)
 
-- [How do I get a copy of my invoice?](#how-do-I-get-a-copy-of-my-invoice)
+- [How do I get a copy of my invoice?](#how-do-i-get-a-copy-of-my-invoice)
 
 - How do I remove a credit card that I no longer use as an Azure payment method?
 
@@ -91,11 +91,11 @@ You can purchase Azure using a credit or debit card or choose to be invoiced.
 
 Follow the steps in [Azure Invoicing](https://azure.microsoft.com//pricing/invoicing/) to submit a request to pay by invoice. Once your request has been approved, you will be provided instructions on how to set up your subscription for the invoice payment method.
 
-### How do I check the status of a payment made by credit card
+### How do I check the status of a payment made by credit card?
 
 You must submit a support ticket to request assistance. To create a support ticket to check the status of a payment made by credit card see [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
 
-### How do I get a copy of my invoice
+### How do I get a copy of my invoice?
 
 As the Azure Account Administrator, you can view the current bill at the Azure Account Center and download statements for the previous six billing periods as well. For more detail, see [How to download your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
 
