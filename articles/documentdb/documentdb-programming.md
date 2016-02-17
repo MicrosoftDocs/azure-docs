@@ -5,7 +5,7 @@
 	services="documentdb" 
 	documentationCenter="" 
 	authors="aliuy" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="mimig"/>
 
 <tags 
@@ -50,7 +50,7 @@ This approach of *“JavaScript as a modern day T-SQL”* frees application deve
 	-	It adds an abstraction layer on top of the raw data, which enables data architects to evolve their applications independently from the data. This is particularly advantageous when the data is schema-less, due to the brittle assumptions that may need to be baked into the application if they have to deal with data directly.  
 	-	This abstraction lets enterprises keep their data secure by streamlining the access from the scripts.  
 
-The creation and execution of database triggers, stored procedure and custom query operators is supported through the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), and [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) in many platforms including .NET, Node.js and JavaScript.
+The creation and execution of database triggers, stored procedure and custom query operators is supported through the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), and [client SDKs](documentdb-sdk-dotnet.md) in many platforms including .NET, Node.js and JavaScript.
 
 **This tutorial uses the [Node.js SDK with Q Promises](http://azure.github.io/azure-documentdb-node-q/)** to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
 
@@ -762,7 +762,7 @@ JavaScript stored procedures and triggers are sandboxed so that the effects of o
 Stored procedures, triggers and UDFs are implicitly precompiled to the byte code format in order to avoid compilation cost at the time of each script invocation. This ensures invocations of stored procedures are fast and have a low footprint.
 
 ## Client SDK support
-In addition to the [Node.js](http://azure.github.io/azure-documentdb-node/) client, DocumentDB supports [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), [Java](http://azure.github.io/azure-documentdb-java/), [JavaScript](http://azure.github.io/azure-documentdb-js/), and [Python SDKs](http://azure.github.io/azure-documentdb-python/). Stored procedures, triggers and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
+In addition to the [Node.js](documentdb-sdk-node.md) client, DocumentDB supports [.NET](documentdb-sdk-dotnet.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/), and [Python SDKs](documentdb-sdk-python.md). Stored procedures, triggers and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
