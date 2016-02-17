@@ -21,9 +21,12 @@
 
 This article answers some of the most common questions about Azure Billing and Subscription.
 
+[hello-test](#hello-test)
+
 [Hello test test test test](#Hello-test-test-test-test)
 
-[Hello-test2]()
+[Hello test test test](#Hello-test-test-test)
+
 
 ## Billing
 
@@ -48,6 +51,11 @@ This article answers some of the most common questions about Azure Billing and S
 - How will Azure Service Level Agreements work with current on-premises Microsoft licensing agreements?
 
 ### Hello test test test test
+3
+
+4
+5
+6
 
 ## Subscriptions
 
@@ -82,6 +90,17 @@ This article answers some of the most common questions about Azure Billing and S
 - Do we restrict resale of Azure based service into countries under embargo?
 
 - Are Azure and SQL Database available through Microsoft Services Provider License Agreement (SPLA)?
+
+
+### Hello test test test
+
+1
+23
+
+321
+3
+21
+31
 
 **Billing**
 
