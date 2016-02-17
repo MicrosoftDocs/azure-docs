@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="02/17/2016"
+   ms.author="dhanyahk"/>
 
 # Azure Active Directory All User Sign In Activity report
 
