@@ -265,9 +265,9 @@ public void ConfigureServices(IServiceCollection services)
 [part of a series]: guidance-multitenant-identity.md
 [Tailspin Surveys]: guidance-multitenant-identity-tailspin.md
 [IdentityServer3]: https://github.com/IdentityServer/IdentityServer3
-[Register the web API in Azure AD]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/README.md#register-the-surveys-web-api
-[Update the application manifests]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/README.md#update-the-application-manifests
-[Give the web application permission to call the web API]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/README.md#give-the-web-app-permissions-to-call-the-web-api
+[Register the web API in Azure AD]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md#register-the-surveys-web-api
+[Update the application manifests]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md#update-the-application-manifests
+[Give the web application permission to call the web API]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md#give-the-web-app-permissions-to-call-the-web-api
 [Token caching]: guidance-multitenant-identity-token-cache.md
 [HttpClientExtensions.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Common/HttpClientExtensions.cs
 [Startup.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.WebAPI/Startup.cs

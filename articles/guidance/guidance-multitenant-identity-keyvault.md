@@ -412,7 +412,7 @@ Replace the entries in [square brackets] and save the secrets.json file.
 [key-tags]: https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_Keytags
 [Microsoft.Azure.KeyVault]: https://www.nuget.org/packages/Microsoft.Azure.KeyVault/
 [options]: https://docs.asp.net/en/latest/fundamentals/configuration.html#using-options-and-configuration-objects
-[readme]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/README.md
+[readme]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
 [Setup-KeyVault]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/scripts/Setup-KeyVault.ps1
 [Surveys]: guidance-multitenant-identity-tailspin.md
 [user-secrets]: http://go.microsoft.com/fwlink/?LinkID=532709

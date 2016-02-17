@@ -61,5 +61,5 @@ The web application uses Azure Active Directory (Azure AD) to authenticate users
 
 <!-- Links -->
 [part of a series]: guidance-multitenant-identity.md
-[Running the Surveys application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/README.md
+[Running the Surveys application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
 [ASP.NET Core 1.0]: https://docs.asp.net/en/latest/
