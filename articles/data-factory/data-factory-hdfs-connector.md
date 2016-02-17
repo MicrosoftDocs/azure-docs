@@ -267,7 +267,7 @@ fileName | Specify the name of the file in the **folderPath** if you want the ta
 partitionedBy | partitionedBy can be leveraged to specify a dynamic folderPath, filename for time series data. For example folderPath parameterized for every hour of data. | No
 fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <p>Allowed values are: * (multiple characters) and ? (single character).</p><p>Examples 1: "fileFilter": "*.log"</p>Example 2: "fileFilter": 2014-1-?.txt"</p><p>**Note**: fileFilter is applicable for an input FileShare dataset</p> | No
 | compression | Specify the type and level of compression for the data. Supported types are: GZip, Deflate, and BZip2 and supported levels are: Optimal and Fastest. See [Compression support](#compression-support) section for more details.  | No |
-| format | Three format types are supported: **TextFormat**, **AvroFormat**, and **JsonFormat**. You need to set the type property under format to either of these values. When the format is TextFormat you can specify additional optional properties for format. See the [Specifying TextFormat](#specifying-textformat) section below for more details. See [Specifying JsonFormat](#specifying-jsonformat) section if you are using JsonFormat. | No
+| format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either of these values. When the format is TextFormat you can specify additional optional properties for format. See the [Specifying TextFormat](#specifying-textformat) section below for more details. | No
 
 
 > [AZURE.NOTE] filename and fileFilter cannot be used simultaneously.
@@ -316,7 +316,7 @@ If the format is set to **TextFormat**, you can specify the following **optional
 | nullValue | <p>The character(s) used to represent null value in blob file content. This tag is optional. The default value is “\N”.</p><p>For example, based on above sample, “NaN” in blob will be translated as null value while copied into e.g. SQL Server.</p> | No |
 | encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). For example: windows-1250 or shift_jis. The default value is: UTF-8. | No | 
 
-#### TextFormat example
+#### Samples
 The following sample shows some of the format properties for TextFormat.
 
 	"typeProperties":
@@ -346,130 +346,6 @@ If the format is set to AvroFormat, you do not need to specify any properties in
 	}
 
 To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
-
-### Specifying JsonFormat
-
-If the format is set to **JsonFormat**, you can specify the following **optional** properties in the **Format** section.
-
-| Property | Description | Required |
-| -------- | ----------- | -------- |
-| filePattern | Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is: **setOfObjects**. See sections below for details about these patterns.| No |
-| encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. | No | 
-| nestingSeparator | Character that is used to separate nesting levels. The **default** value is **. (dot)**. | No | 
-
-#### setOfObjects file pattern
-
-Each file contains single object, or line-delimited/concatenated multiple objects. When this option is chosen in an output dataset, copy will produce a single JSON file with each object per line (line-delimited).
-
-**single object** 
-
-	{
-		"time": "2015-04-29T07:12:20.9100000Z",
-		"callingimsi": "466920403025604",
-		"callingnum1": "678948008",
-		"callingnum2": "567834760",
-		"switch1": "China",
-		"switch2": "Germany"
-	}
-
-**line-delimited JSON** 
-
-	{"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
-	{"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
-	{"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
-	{"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"789037573","callingnum2":"789044691","switch1":"UK","switch2":"Australia"}
-	{"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789044691","switch1":"US","switch2":"Australia"}
-
-**concatenated JSON**
-
-	{
-		"time": "2015-04-29T07:12:20.9100000Z",
-		"callingimsi": "466920403025604",
-		"callingnum1": "678948008",
-		"callingnum2": "567834760",
-		"switch1": "China",
-		"switch2": "Germany"
-	}
-	{
-		"time": "2015-04-29T07:13:21.0220000Z",
-		"callingimsi": "466922202613463",
-		"callingnum1": "123436380",
-		"callingnum2": "789037573",
-		"switch1": "US",
-		"switch2": "UK"
-	}
-	{
-		"time": "2015-04-29T07:13:21.4370000Z",
-		"callingimsi": "466923101048691",
-		"callingnum1": "678901578",
-		"callingnum2": "345626404",
-		"switch1": "Germany",
-		"switch2": "UK"
-	}
-
-
-#### arrayOfObjects file pattern. 
-
-Each file contains an array of objects. 
-
-	[
-	    {
-	        "time": "2015-04-29T07:12:20.9100000Z",
-	        "callingimsi": "466920403025604",
-	        "callingnum1": "678948008",
-	        "callingnum2": "567834760",
-	        "switch1": "China",
-	        "switch2": "Germany"
-	    },
-	    {
-	        "time": "2015-04-29T07:13:21.0220000Z",
-	        "callingimsi": "466922202613463",
-	        "callingnum1": "123436380",
-	        "callingnum2": "789037573",
-	        "switch1": "US",
-	        "switch2": "UK"
-	    },
-	    {
-	        "time": "2015-04-29T07:13:21.4370000Z",
-	        "callingimsi": "466923101048691",
-	        "callingnum1": "678901578",
-	        "callingnum2": "345626404",
-	        "switch1": "Germany",
-	        "switch2": "UK"
-	    },
-	    {
-	        "time": "2015-04-29T07:13:22.0960000Z",
-	        "callingimsi": "466922202613463",
-	        "callingnum1": "789037573",
-	        "callingnum2": "789044691",
-	        "switch1": "UK",
-	        "switch2": "Australia"
-	    },
-	    {
-	        "time": "2015-04-29T07:13:22.0960000Z",
-	        "callingimsi": "466922202613463",
-	        "callingnum1": "123436380",
-	        "callingnum2": "789044691",
-	        "switch1": "US",
-	        "switch2": "Australia"
-	    },
-	    {
-	        "time": "2015-04-29T07:13:24.2120000Z",
-	        "callingimsi": "466922201102759",
-	        "callingnum1": "345698602",
-	        "callingnum2": "789097900",
-	        "switch1": "UK",
-	        "switch2": "Australia"
-	    },
-	    {
-	        "time": "2015-04-29T07:13:25.6320000Z",
-	        "callingimsi": "466923300236137",
-	        "callingnum1": "567850552",
-	        "callingnum2": "789086133",
-	        "switch1": "China",
-	        "switch2": "Germany"
-	    }
-	]
 
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
