@@ -67,7 +67,7 @@ Using Notepad or another text editor, add the following to the top of the **serv
 
 The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING`, for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
-For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure web app, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure web app, see [Node.js web app using the Azure Table Service]
 
 ## Create a container
 
@@ -364,12 +364,12 @@ For more information, see the following resources.
 -   [Azure Storage Team Blog][]
 -   [Azure Storage SDK for Node][] repository on GitHub
 -   [Node.js Developer Center](/develop/nodejs/)
--   [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
+-   [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-[Node.js Web Application with Storage]: ../storage-nodejs-use-table-storage-web-site.md
+[Node.js web app using the Azure Table Service]: ../storage-nodejs-use-table-storage-web-site.md
 [Web app with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: portal.azure.com
