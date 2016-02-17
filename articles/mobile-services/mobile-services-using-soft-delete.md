@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/11/2016"
 	ms.author="wesmc"/>
 
 # Using soft delete in Mobile Services
@@ -27,7 +27,7 @@
 
 Tables created with either the JavaScript or .NET backend can optionally have soft delete enabled. When using soft delete, a new column called *\__deleted* of [SQL bit type] is added to the database. With soft delete enabled, a delete operation does not physically delete rows from the database, but rather sets the value of the deleted column to TRUE.
 
-When querying records on a table with soft delete enabled, deleted rows are not returned in the query by default. In order to request these rows, you must pass a query parameter *\__includeDeleted=true* in your [REST Query operaation](http://msdn.microsoft.com/library/azure/jj677199.aspx). In the .NET client SDK, you can also use the helper method `IMobileServiceTable.IncludeDeleted()`.
+When querying records on a table with soft delete enabled, deleted rows are not returned in the query by default. In order to request these rows, you must pass a query parameter *\__includeDeleted=true* in your [REST Query operation](http://msdn.microsoft.com/library/azure/jj677199.aspx). In the .NET client SDK, you can also use the helper method `IMobileServiceTable.IncludeDeleted()`.
 
 Soft delete support for the .NET backend first released with version 1.0.402 of the Microsoft Azure Mobile Services .NET Backend. The latest NuGet packages are available here, [Microsoft Azure Mobile Services .NET Backend](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -37,7 +37,7 @@ Some of the potential benefits of using soft delete:
 * When using the [Offline data Sync for Mobile Services] feature, the client SDK automatically queries for deleted records and removes them from the local database. Without soft delete enabled, you need to write additional code on the backend so that the client SDK knows which records to remove from the local store. Otherwise, the client local store and backend will be inconsistent with regard to these deleted records and the client method `PurgeAsync()` must be called to clear the local store.
 * Some applications have a business requirement to never physically delete data, or to delete data only after it has been audited. The soft delete feature can be useful in this scenario.
 * Soft delete can be used to implement an "undelete" feature, so that data deleted by accident can be recovered.
-However, soft deleted records take up space in the database, so you should consider creating a scheduled job to periodically hard delete the soft deleted records. For an example of this, see [Using soft delete with the .NET backend] and [Using soft delete with the JavaScript backend]. Your client code should also periodically call `PurgeAsync()` so that these hard deleted records do not remain in the device's local data store.
+However, soft deleted records take up space in the database, so you should consider creating a scheduled job to periodically hard delete the soft deleted records. For an example of this, see [Using soft delete with the .NET backend](#using-with-dotnet) and [Using soft delete with the JavaScript backend](#using-with-javascript). Your client code should also periodically call `PurgeAsync()` so that these hard deleted records do not remain in the device's local data store.
 
 
 
@@ -114,7 +114,7 @@ To learn more about schedule jobs with .NET backend Mobile Services, see: [Sched
 
 
 
-##Using soft delete with the JavaScript backend
+## <a name="using-with-javascript"></a> Using soft delete with the JavaScript backend
 
 You use table scripts to add logic around the soft delete feature with JavaScript backend mobile services.
 
