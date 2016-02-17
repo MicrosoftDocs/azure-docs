@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/02/2016"
+	ms.date="02/17/2016"
 	ms.author="daleche"/>
 
 
@@ -249,8 +249,10 @@ If your program uses ADO.NET classes like **System.Data.SqlClient.SqlConnection*
 
 
 ADO.NET 4.6.1:
-- Adds support the TDS 7.4 protocol. This includes connection enhancements beyond those in 4.0.
+
+- For Azure SQL Database, there is improved reliability when you open a connection by using the **SqlConnection.Open** method. The **Open** method now incorporates best effort retry mechanisms in response to transient faults, for certain errors within the Connection Timeout period.
 - Supports connection pooling. This includes an efficient verification that the connection object it gives your program is functioning.
+
 
 
 When you use a connection object from a connection pool, we recommend that your program temporarily close the connection when not immediately using it. Re-opening a connection is not expensive the way creating a new connection is.
