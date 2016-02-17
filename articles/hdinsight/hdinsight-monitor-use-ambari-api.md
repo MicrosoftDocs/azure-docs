@@ -44,11 +44,11 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure HDInsight cluster**. For instructions about cluster provisioning, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
 
-Cluster property|Azure PowerShell variable name|Value|Description
----|---|---|---
-HDInsight cluster name|$clusterName||The name of your HDInsight cluster.
-Cluster username|$clusterUsername||Cluster user name specified at provisioning.
-Cluster password|$clusterPassword||Cluster user password.
+    Cluster property|Azure PowerShell variable name|Value|Description
+    ---|---|---|---
+    HDInsight cluster name|$clusterName||The name of your HDInsight cluster.
+    Cluster username|$clusterUsername||Cluster user name specified at provisioning.
+    Cluster password|$clusterPassword||Cluster user password.
 
     >[AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
 
