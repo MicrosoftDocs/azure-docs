@@ -112,7 +112,7 @@ To get started do one of the following:
 
 
 - To get started using Azure AD Connect Health for AD FS you can download the latest version of the agent here:  [Download Azure AD Connect Health Agent for AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973) Ensure that you’ve added the service from Marketplace before installing the agents.
-- To get started using Azure AD Connect Health for sync, download and install the latest version of Azure AD Connect.  The health agent will be installed as part of the Azure AD Connect installation.  Azure AD Connect supports an in-place upgrade from previous versions.
+- To get started using Azure AD Connect Health for sync, download and install the [latest version of Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771).  The health agent will be installed as part of the Azure AD Connect installation.  Azure AD Connect supports an in-place upgrade from previous versions.
 
 
 ## Related links
