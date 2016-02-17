@@ -37,23 +37,23 @@ Conceptually, a Worker Role represents a stateless workload, meaning every insta
 
 Similar to Worker Role, a Web Role also represents a stateless workload, and so conceptually it too can be mapped to a Service Fabric stateless service. However, unlike Web Roles, Service Fabric does not support IIS. To migrate a web application from a Web Role to a stateless service requires first moving to a web framework that can be self-hosted and does not depend on IIS or System.Web, such as ASP.NET Core 1.
 
-Application | Supported | Migration path
+**Application ** | **Supported** | **Migration path**
 --- | --- | ---
 ASP.NET Web Forms | No | Convert to ASP.NET Core 1 MVC
 ASP.NET MVC | With Migration | Upgrade to ASP.NET Core 1
 ASP.NET Web API | With Migration | Use self-hosted server or ASP.NET Core 1
-ASP.NET Core | Yes | N/A
+ASP.NET Core 1 | Yes | N/A
 
 ## Entry point API and lifecycle
 
-The Worker Role and a Service Fabric service APIs offer similar entry points: 
+Worker Role and Service Fabric service APIs offer similar entry points: 
 
-Entry Point | Worker Role | Service Fabric service
+**Entry Point** | **Worker Role** | **Service Fabric service**
 --- | --- | ---
-Processing | Run() | RunAsync()
-VM start | OnStart() | N/A
-VM stop | OnStop() | N/A
-Open listener for client requests | N/A | CreateServiceInstanceListener()
+Processing | ```Run()``` | ```RunAsync()```
+VM start | ```OnStart()``` | N/A
+VM stop | ```OnStop()``` | N/A
+Open listener for client requests | N/A | <ul><li> ```CreateServiceInstanceListener()``` for stateless</li><li>```CreateServiceReplicaListener()``` for stateful</li></ul>
 
 ### Worker Role
 
@@ -117,13 +117,13 @@ The main difference between Worker Roles and Service Fabric services is their li
 
 The Cloud Services environment API provides information and functionality for the current VM instance as well as information about other VM role instances. Service Fabric provides information related to its runtime and some information about the node a service is currently running on. 
 
-Environment Task | Cloud Services | Service Fabric
+**Environment Task** | **Cloud Services** | **Service Fabric**
 --- | --- | ---
-Configuration Settings and change notification | RoleEnvironment | CodePackageActivationContext
-Local Storage | RoleEnvironment | CodePackageActivationContext
-Endpoint Information | RoleInstance <ul><li>Current instance: RoleEnvironment.CurrentRoleInstance</li><li>Other roles and instance: RoleEnvironment.Roles</li> | <ul><li>NodeContext for current Node address</li><li>FabricClient for service endpoint discovery</li> 
-Environment Emulation | RoleEnvironment.IsEmulated | N/A
-Simultaneous change event | RoleEnvironment | N/A
+Configuration Settings and change notification | ```RoleEnvironment``` | ```CodePackageActivationContext```
+Local Storage | ```RoleEnvironment``` | ```CodePackageActivationContext```
+Endpoint Information | ```RoleInstance``` <ul><li>Current instance: ```RoleEnvironment.CurrentRoleInstance```</li><li>Other roles and instance: ```RoleEnvironment.Roles```</li> | <ul><li>```NodeContext``` for current Node address</li><li>```FabricClient``` and ```ServicePartitionResolver``` for service endpoint discovery</li> 
+Environment Emulation | ```RoleEnvironment.IsEmulated``` | N/A
+Simultaneous change event | ```RoleEnvironment``` | N/A
 
 ## Configuration settings
 
