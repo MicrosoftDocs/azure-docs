@@ -42,7 +42,7 @@ The way a client connects to SQL Server running on a Virtual Machine differs dep
 
 ### Connect to SQL Server in the same cloud service
 
-Multiple virtual machines can be created in the same cloud service. To understand this virtual machines scenario, see [How to connect virtual machines with a virtual network or cloud service](cloud-services-connect-virtual-machine.md).
+Multiple virtual machines can be created in the same cloud service. To understand this virtual machines scenario, see [How to connect virtual machines with a virtual network or cloud service](virtual-machines-linux-classic-connect-vms.md).
 
 First, follow the [steps in this article to configure connectivity](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm). Note that you do not have to setup a public endpoint if you are going to be connecting between machines in the same cloud service. 
 
