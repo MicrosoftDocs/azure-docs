@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/05/2016" 
 	ms.author="fashah;garye;bradsev" /> 
 
 #Create features for Azure blob storage data using Panda
 
-This **menu** links to topics that describe how to engineer features for data in various environments. This task is a step in the Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
 ##Introduction
 
 This document covers how to create features for data that is stored in Azure blob container using [Pandas](http://pandas.pydata.org/) Python package. After outlining how to load into a Panda data frame, it shows how to generate categorical features with indicator values and binning features, both using Python scripts.
+
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## Prerequisites
 This article assumes that you have:

@@ -47,7 +47,7 @@ This **From Gallery** option opens a wizard that helps you set up the virtual ma
 
 To do this, you'll need the following:
 
-- The Azure PowerShell module, version 0.8.2 or newer, installed on your local computer. You can check the version of Azure PowerShell that you have installed by using the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to install and configure Azure PowerShell](../install-configure-powershell.md).
+- The Azure PowerShell module, version 0.8.2 or newer, installed on your local computer. You can check the version of Azure PowerShell that you have installed by using the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 - The VM Agent installed on the target virtual machine.
 

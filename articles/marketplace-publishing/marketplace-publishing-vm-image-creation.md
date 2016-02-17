@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="02/02/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guide to create a virtual machine image for the Azure Marketplace
@@ -583,12 +583,9 @@ After you have created your offer and SKU, you should enter the image details as
 2. Select the **VM images** tab.
 3. The identifier listed at the top of the page is actually the offer identifier and not the SKU identifier.
 4. Fill out the properties under the **SKUs** section.
-
-    ![drawing][img-pubportal-vm-skus]
-
 5. Under **Operating system family**, click the operating system type associated with the operating system VHD.
 6. In the **Operating system** box, describe the operating system. Consider a format such as operating system family, type, version, and updates. An example is "Windows Server Datacenter 2014 R2."
-7. Select three recommended virtual machine sizes. These are recommendations that get displayed to the customer in the Pricing tier blade in the Azure portal when they decide to purchase and deploy your image.
+7. Select up to six recommended recommended virtual machine sizes. These are recommendations that get displayed to the customer in the Pricing tier blade in the Azure portal when they decide to purchase and deploy your image.
 
   > [AZURE.NOTE] These are only recommendations. The customer is able to select any VM size that accommodates the disks specified in your image.
 
@@ -599,14 +596,11 @@ After you have created your offer and SKU, you should enter the image details as
 9. In the **OS VHD URL** box, enter the shared access signature URI created for the operating system VHD.
 10. If there are data disks associated with this SKU, select the logical unit number (LUN) to which you would like this data disk to be mounted upon deployment.
 11. In the **LUN X VHD URL** box, enter the shared access signature URI created for the first data VHD.
-12.	Click **Upload test results**.
-13.	Click **Request certification.**
-14.	Repeat Steps 11, 12, and 13 for every additional data disk VHD.
 
     ![drawing][img-pubportal-vm-skus-2]
 
 ## Next step
-After you submit your virtual machine image SKUs for certification, you can move forward to the [Azure Marketplace marketing content guide][link-pushstaging]. In that step of the publishing process, you provide the marketing content, pricing, and other information necessary prior to **Step 3: Testing your VM offer in staging**, where you test various use-case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  
+After you are done with the SKU details, you can move forward to the [Azure Marketplace marketing content guide][link-pushstaging]. In that step of the publishing process, you provide the marketing content, pricing, and other information necessary prior to **Step 3: Testing your VM offer in staging**, where you test various use-case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  
 
 ## See also
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 # Name Resolution for VMs and Role Instances
@@ -45,7 +45,7 @@ The type of name resolution you use depends on how your VMs and role instances n
 Along with resolution of public DNS names, Azure provides internal name resolution for VMs and role instances that reside within the same virtual network or cloud service.  VMs/instances in a cloud service share the same DNS suffix, so the hostname alone is sufficient but, in classic virtual networks, different cloud services have different DNS suffixes, so the FQDN is needed to resolve names between different cloud services.  In ARM-based virtual networks, the DNS suffix is the same across the virtual network so the FQDN is not needed, and the DNS name can be assigned to either the NIC or the virtual machine. 
 Although Azure-provided name resolution does not require any configuration, it is not the appropriate choice for all deployment scenarios, as seen on the table above.
 
-> [AZURE.NOTE] In the case of web and worker roles, you can also access the internal IP addresses of role instances based on the role name and instance number using the Azure Service Management REST API. For more information, see [Service Management REST API Reference](https://msdn.microsoft.com/library/azure/ee460799.aspx).
+> [AZURE.NOTE] In the case of web and worker roles, you can also access the internal IP addresses of role instances based on the role name and instance number using the Azure Service Management REST API. For more information, see [Service Management REST API Reference](https://msdn.microsoft.com/library/azure/ee460799.aspx).
 
 ### Features and Considerations
 
@@ -131,7 +131,7 @@ The resolv.conf file is usually auto-generated and should not be edited.  The sp
 
 If your name resolution requirements go beyond the features provided by Azure, you have the option of using your own DNS servers. When you use your own DNS servers, you are responsible for managing the DNS records.
 
-> [AZURE.NOTE] It is recommended to avoid the use of an external DNS server, unless your deployment scenario requires it.
+> [AZURE.NOTE] It is recommended to avoid the use of an external DNS server, unless your deployment scenario requires it.
 
 ## DNS server requirements
 
@@ -147,17 +147,19 @@ If you plan to use name resolution that is not provided by Azure, the DNS server
 
 - It is also recommended to secure the DNS server against access from the internet as many bots scan for open recursive DNS resolvers.
 
-- For best performance, when using Azure VMs as DNS servers, IPv6 should be disabled and an [Instance-Level Public IP](virtual-networks-instance-level-public-ip.mp) should be assigned to each DNS server VM.
+- For best performance, when using Azure VMs as DNS servers, IPv6 should be disabled and an [Instance-Level Public IP](virtual-networks-instance-level-public-ip.mp) should be assigned to each DNS server VM.  
+	- If you choose to use Windows Server as your DNS server, [this article](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) provides additional performance analysis and optimizations.
+
 
 ## Specifying DNS servers
 
 You can specify multiple DNS servers to be used by your VMs and role instances.  For each DNS query, the client will first try the preferred DNS server and only try the alternate servers if the preferred one doesn't respond, i.e. DNS queries are not load-balanced across the different DNS servers. For this reason, verify that you have your DNS servers listed in the correct order for your environment.
 
-> [AZURE.NOTE] If you change the DNS settings on a network configuration file for virtual network that is already deployed, you need to restart each VM for the changes to take effect.
+> [AZURE.NOTE] If you change the DNS settings on a network configuration file for virtual network that is already deployed, you need to restart each VM for the changes to take effect.
 
 ### Specifying a DNS server in the Management Portal
 
-When you create a virtual network in the Management Portal, you can specify the IP address and name of the DNS server(s) that you want to use. Once the virtual network is created, the virtual machines and role instances that you deploy to the virtual network are automatically configured with the specified DNS settings.  DNS servers specified for a specific cloud service (Azure classic) or a network interface card (ARM-based deployments) take precedence over those specificed for the virtual network.  See [About Configuring a Virtual Network in the Management Portal](virtual-networks-settings.md).
+When you create a virtual network in the Management Portal, you can specify the IP address and name of the DNS server(s) that you want to use. Once the virtual network is created, the virtual machines and role instances that you deploy to the virtual network are automatically configured with the specified DNS settings.  DNS servers specified for a specific cloud service (Azure classic) or a network interface card (ARM-based deployments) take precedence over those specificed for the virtual network.
 
 ### Specifying a DNS server by using configuration files (Azure classic)
 
@@ -167,7 +169,7 @@ The network configuration file describes the virtual networks in your subscripio
 
 The service configuration file is created for each cloud service that you add to Azure. When you add role instances or VMs to the cloud service, the DNS settings from your service configuration file are applied to each role instance or VM.
 
-> [AZURE.NOTE] DNS servers in the service configuration file override settings in the network configuration file. 
+> [AZURE.NOTE] DNS servers in the service configuration file override settings in the network configuration file. 
 
 
 ## Next steps
@@ -176,8 +178,7 @@ The service configuration file is created for each cloud service that you add to
 
 [Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
 
-[About Configuring Virtual Network Settings in the Management Portal](virtual-networks-settings.md) 
-
 [Configure a Virtual Network by Using a Network Configuration File](virtual-networks-using-network-configuration-file.md) 
+
 
 
