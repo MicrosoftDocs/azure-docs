@@ -83,7 +83,7 @@ For instance, NSGs can be used to provide security on your VNet. However, NSGs p
 Virtual appliances depend on [user defined routes and IP forwarding](virtual-networks-udr-overview.md).
 
 ## Limits
-There are limits on the number of Virtual Networks allowed in a subscription, please refer to [Azure Networking limits](..\azure-subscription-service-limits.md#networking-limits) for more information.
+There are limits on the number of Virtual Networks allowed in a subscription, please refer to [Azure Networking limits](../azure-subscription-service-limits.md#networking-limits) for more information.
 
 ## Pricing
 There is no extra cost for using Virtual Networks in Azure. The compute instances launched within the Vnet will be charged the standard rates as described in [Azure VM Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/). The [VPN Gateways](https://azure.microsoft.com/pricing/details/vpn-gateway/) and [Public IP Addresses] (https://azure.microsoft.com/pricing/details/ip-addresses/) used in the VNet will also be charged standard rates.
