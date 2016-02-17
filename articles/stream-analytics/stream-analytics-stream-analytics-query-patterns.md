@@ -18,13 +18,13 @@
 	ms.author="jeffstok"/>
 
 
-# Query examples for common Stream Analytics usage patterns #
+# Query examples for common Stream Analytics usage patterns
 
-## Introduction ##
+## Introduction
 
 Queries in Azure Stream Analytics are expressed in a SQL-like query language, which is documented in the [Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) guide.  This article outlines solutions to several common query patterns based on real world scenarios.  It is a work in progress and will continue to be updated with new patterns on an ongoing basis.
 
-## Query example: Data type conversions ##
+## Query example: Data type conversions
 **Description**: Define the types of the properties on the input stream.
 e.g. Car weight is coming on the input stream as strings and needs to be converted to INT to perform SUM it up.
 
@@ -270,7 +270,7 @@ e.g. Is the previous car on the Toll Road the same make as the current car?
 **Explanation**:
 Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are different.
 
-## Query example: Find first event in a window ##
+## Query example: Find first event in a window
 **Description**: Find first car in every 10 minute interval?
 
 **Input**:
@@ -370,7 +370,7 @@ Now let’s change the problem and find first car of particular Make in every 10
 **Explanation**:
 There are two steps in the query – the first one finds latest timestamp in 10 minute windows. The second step joins results of the first query with original stream to find events matching last timestamps in each window. 
 
-## Query example: Detect the absence of events ##
+## Query example: Detect the absence of events
 **Description**: Check that a stream has no value that matches a certain criteria.
 e.g. Have 2 consecutive cars from the same make entered the toll road within 90 seconds?
 
@@ -435,7 +435,7 @@ Use LAG to peek into the input stream one event back and get the Make value. The
 **Explanation**:
 Use LAST function to retrieve last Time value when event type was ‘Start’. Note that LAST function uses PARTITION BY [user] to indicate that result shall be computed per unique user.  The query has a 1 hour maximum threshold for time difference between ‘Start’ and ‘Stop’ events but is configurable as needed (LIMIT DURATION(hour, 1).
 
-## Query example: Detect duration of a condition ##
+## Query example: Detect duration of a condition
 **Description**: Find out how long a condition occurred for.
 e.g. Suppose that a bug that resulted in all cars having an incorrect (above 20,000 pounds) – we want to compute the duration of the bug.
 
@@ -478,7 +478,7 @@ WHERE
 **Explanation**:
 Use LAG to view the input stream for 24 hours and look for instances where StartFault and StopFault are spanned by weight < 20000.
 
-## Query example: Fill missing values ##
+## Query example: Fill missing values
 **Description**: For the stream of events that have missing values, produce a stream of events with regular intervals.
 For example, generate event every 5 seconds that will report the most recently seen data point.
 
