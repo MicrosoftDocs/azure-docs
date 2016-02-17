@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="02/17/2016"
 	ms.author="jgao"/>
 
 # Monitor Hadoop clusters in HDInsight using the Ambari API
@@ -50,9 +50,7 @@ HDInsight cluster name|$clusterName||The name of your HDInsight cluster.
 Cluster username|$clusterUsername||Cluster user name specified at provisioning.
 Cluster password|$clusterPassword||Cluster user password.
 
-	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
-
-
+    >[AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
 
 ## Jump start
 
