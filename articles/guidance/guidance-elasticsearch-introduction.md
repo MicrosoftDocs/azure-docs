@@ -4,7 +4,7 @@
    description="Elasticsearch on Azure Guidance."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
+   authors="masimms"
    manager="marksou"
    editor=""
    tags=""/>
@@ -16,26 +16,29 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/05/2016"
-   ms.author="mabsimms"/>
+   ms.author="masimms"/>
 
 # Elasticsearch on Azure Guidance
 
 Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in big datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster: 
 
-- **[General guidance][]** provides a brief introduction to the general structure of Elasticsearch, and  describes how to implement an Elasticsearch cluster using Azure.
-- **[Data ingestion guidance][]** describes the deployment and configuration options to consider for an Elasticsearch cluster that expects a high rate of data ingestion.
-- **[Performance testing guidance][]** describes how to set up an environment for testing the performance of an Elasticsearch cluster.
-- **[JMeter guidance][]** describes how to create and use a JUnit sampler that can generate and upload data to an Elasticsearch cluster.
-- **[Considerations for JMeter][]** summarizes the key experiences gained from constructing and running data ingestion and query test plans. 
-- **[Query aggregation and performance][]** summarizes options that you can consider when determining the best way to optimize your system for query and search performance.
-- **[Resilience and Recovery][]** summarizes the resiliency and recovery options available with Elasticsearch when hosted in Azure.
+- **[Running Elasticsearch on Azure][]** provides a brief introduction to the general structure of Elasticsearch, and  describes how to implement an Elasticsearch cluster using Azure.
+- **[Tuning Data Ingestion Performance for Elasticsearch on Azure][]** describes the deployment and configuration options to consider for an Elasticsearch cluster that expects a high rate of data ingestion.
+- **[Create a Performance Testing Environment for Elasticsearch on Azure][]** describes how to set up an environment for testing the performance of an Elasticsearch cluster.
+- **[Implementing a JMeter Test Plan for Elasticsearch][]** describes how to create and use a JUnit sampler that can generate and upload data to an Elasticsearch cluster.
+- **[Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance][]** summarizes the key experiences gained from constructing and running data ingestion and query test plans. 
+- **[Tuning Data Aggregation and Query Performance for Elasticsearch on Azure][]** summarizes options that you can consider when determining the best way to optimize your system for query and search performance.
+- **[Configuring Resilience and Recovery on ElasticSearch on Azure][]** summarizes the resiliency and recovery options available with Elasticsearch when hosted in Azure.
+- **[Running the Automated Elasticsearch Resiliency Tests][]** summarizes running the resiliency tests used in the article above.
+  
+> [AZURE.NOTE] This guidance assumes some basic familiarity with Elasticsearch. For more 
+> detailed information, visit the [Elasticsearch website](https://www.elastic.co/products/elasticsearch).
 
-  > [AZURE.NOTE] This guidance assumes some basic familiarity with Elasticsearch. For more detailed information, visit the [Elasticsearch website](https://www.elastic.co/products/elasticsearch).
-
-[General guidance]: guidance-elasticsearch.md
-[Data ingestion guidance]: guidance-elasticsearch-data-ingestion.md
-[Performance testing guidance]: guidance-elasticsearch-performance-testing-environment.md
-[JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md
-[Considerations for JMeter]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md
-[Query aggregation and performance]: guidance-elasticsearch-query-aggregation-performance.md
-[Resilience and Recovery]: guidance-elasticsearch-resilience-recovery.md
+[Running Elasticsearch on Azure]: guidance-elasticsearch.md
+[Tuning Data Ingestion Performance for Elasticsearch on Azure]: guidance-elasticsearch-data-ingestion.md
+[Create a Performance Testing Environment for Elasticsearch on Azure]: guidance-elasticsearch-performance-testing-environment.md
+[Implementing a JMeter Test Plan for Elasticsearch]: guidance-elasticsearch-implementing-jmeter.md
+[Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md
+[Tuning Data Aggregation and Query Performance for Elasticsearch on Azure]: guidance-elasticsearch-query-aggregation-performance.md
+[Configuring Resilience and Recovery on ElasticSearch on Azure]: guidance-elasticsearch-resilience-recovery.md
+[Running the Automated Elasticsearch Resiliency Tests]: guidance-elasticsearch-resilience-testing.md

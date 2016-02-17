@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Maximizing Data Aggregation and Query Performance with Elasticsearch on Azure | Microsoft Azure"
+   pageTitle="Tuning Data Aggregation and Query Performance with Elasticsearch on Azure | Microsoft Azure"
    description="A summary of considerations when optimizing query and search performance for Elasticsearch."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
+   authors="masimms"
    manager="marksou"
    editor=""
    tags=""/>
@@ -15,9 +15,9 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="01/29/2016"
-   ms.author="mabsimms"/>
+   ms.author="masimms"/>
    
-# Maximizing Data Aggregation and Query Performance with Elasticsearch on Azure
+# Tuning Data Aggregation and Query Performance for Elasticsearch on Azure
 
 This article is [part of a series](guidance-elasticsearch-introduction.md). 
 
@@ -29,7 +29,8 @@ All performance recommendations depend largely on the scenarios that apply to yo
 
 ## Index and Query Performance Considerations
 
-This section describes some common factors that you should think about when designing indexes that need to support fast querying and searching.
+This section describes some common factors that you should think about when designing 
+indexes that need to support fast querying and searching.
 
 ### Storing Multiple Types in an Index
 
@@ -249,7 +250,7 @@ Large     |Standard DS14   |16                |32                     |112     |
 
 - **Doc values**. Initially the tests were performed with the index setting *doc\_values* set to *true*. Selected tests were repeated with *doc_values* set to *false*.
 
-### Performance Results – Disk Type
+## Performance Results – Disk Type
 
 The table below summarizes the response times of the work performed by running the test on the 6-node cluster of D4 VMs (using HDDs), and on the 6-node cluster of DS4 VMs (using SSDs). The configuration of Elasticsearch in both clusters was the same. The data was spread across 16 disks on each node, and each node had 14GB of RAM allocated to the JVM running Elasticsearch; the remaining memory (also 14GB) was left for operating system use. Each test ran for 24 hours. This period was selected to enable the effects of the increasing volume of data to become apparent and to allow the system to stabilize:
 
@@ -345,7 +346,7 @@ I/O performance rather than a trough; this implies that there is little or no th
 There is one other factor to consider. During the test, the D4 cluster generated 10584 ingestion errors, 
 and 21 query errors. The test on the DS4 cluster produced no errors.
 
-### Performance Results – Scaling Up
+## Performance Results – Scaling Up
 
 The table below summarizes the results of running the tests on the medium (DS4), and large (DS14) clusters. Each VM used SSDs to hold the data. Each test ran for 24 hours:
 
@@ -475,7 +476,7 @@ NEED \## OF DOCUMENTS RETURNED TO JUSTIFY THIS DATA, OTHERWISE PERF FOR 2 REPLIC
 PRESENT QUERY-ONLY TEST RESULTS TO SHOW BETTER RESULTS
 -->
 
-### Performance Results – Doc Values
+## Performance Results – Doc Values
 
 The ingestion and query tests were conducted with doc values enabled, causing Elasticsearch to store 
 data used for sorting fields on disk. The tests were repeated with doc values disabled, so Elasticsearch

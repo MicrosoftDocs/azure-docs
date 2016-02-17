@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/05/2016"
-   ms.author="mabsimms"/>
+   ms.author="masimms"/>
 
 # Running Elasticsearch on Azure
 
@@ -136,7 +136,7 @@ node.master: false
 ```
 
 ```yaml
-# Configuration for a master node**
+# Configuration for a master node
 node.data: false
 node.master: true
 ```
@@ -332,6 +332,7 @@ available the better the performance. The following sections summarize the basic
 requirements for running Elasticsearch.
 
 ### Memory Requirements
+
 Elasticsearch attempts to store data in-memory for speed. A production server hosting a node for a
 typical enterprise or moderate-sized commercial deployment on Azure should have between 14GB and 28GB of
 RAM (D3 or D4 VMs). **Spread the load across more nodes rather than creating nodes with more memory**
@@ -450,7 +451,7 @@ chances of errors.
 
 - Using scripts which can be automated or run unattended. Scripts that can create and deploy an Elasticsearch cluster are available on the [Azure Quickstart Templates][] site.
 
-## Cluster and Node Sizing and Scalability Considerations
+## Cluster and Node Sizing and Scalability 
 
 Elasticsearch enables a number of deployment topologies, designed to support differing requirements and levels of scale. This section discusses some common topologies, and describes the considerations for implementing clusters based on these topologies.
 
@@ -539,7 +540,7 @@ they can cause contention unless your development machine has a significant amou
 fast disks. Additionally, they do not provide any high availability guarantees; if the machine fails, all
 nodes are lost.
 
-### Considerations for Scaling a Cluster and Data Nodes
+### Scaling a Cluster and Data Nodes
 
 Elasticsearch can scale in two dimensions: vertically (using bigger, more powerful machines) and
 horizontally (spreading the load across machines).
@@ -699,7 +700,7 @@ crippling the performance of the node.
 > default algorithm that Elasticsearch uses for routing documents to shards produces a more even spread
 > in this case.
 
-### Security Considerations
+### Security
 
 By default, Elasticsearch implements minimal security and does not provide any means of authentication
 and authorization. These aspects require configuring the underlying operating system and network, and
@@ -868,7 +869,7 @@ protected robustly to prevent tampering of audit information.
 
 - Safely archive audit data.
 
-### Monitoring Considerations
+### Monitoring
 
 Monitoring is important both at the operating system level and at the Elasticsearch level.
 
@@ -1003,10 +1004,8 @@ guidance. [JMeter guidance] describes in detail how JMeter was configured and us
 
 - [Elasticsearch: The Definitive Guide](https://www.elastic.co/guide/en/elasticsearch/guide/master/index.html)
 
-[Maximizing Data Ingestion Performance with Elasticsearch on Azure](guidance-elasticsearch-data-ingestion.md)
-[How to use a JUnit sampler to generate and upload data to an Elasticsearch cluster](guidance-elasticsearch-deploy-jmeter-junit-sampler.md)
-[Considerations for Implementing a JMeter Test Plan for Elasticsearch](guidance-elasticsearch-implementing-jmeter.md)
-
+<!-- TODO; add next steps -->
+ 
 [Apache JMeter]: http://jmeter.apache.org/
 [Apache Lucene]: https://lucene.apache.org/
 [Automatically scale machines in a Virtual Machine Scale Set]: virtual-machines-vmss-walkthrough/

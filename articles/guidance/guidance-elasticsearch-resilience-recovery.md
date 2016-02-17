@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery | Microsoft Azure"
+   pageTitle="Configuring Resilience and Recovery on ElasticSearch on Azure"
    description="Considerations related to resiliency and recovery for Elasticsearch."
    services=""
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="01/29/2016"
    ms.author="masimms"/>
    
-# Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery on Azure
+# Configuring Resilience and Recovery on ElasticSearch on Azure
 
 This article is [part of a series](guidance-elasticsearch-introduction.md). 
 
@@ -86,7 +86,7 @@ You can use shard allocation awareness in conjunction with [Shard Allocation Fil
 
 If you need to scale beyond the number of FDs and UDs in an AS, you can create VMs in additional ASs. However, you need to understand that nodes in different ASs can be taken down for maintenance simultaneously. Try to ensure that each shard and at least one of its replicas are contained within the same AS.
 
-> [AZURE.NOTE] There is currently a limit of 100 VMs per AS. For more information, see [Azure Subscription and Service Limits, Quotas, and Constraints](../articles/azure-subscription-service-limits.md).
+> [AZURE.NOTE] There is currently a limit of 100 VMs per AS. For more information, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md).
 
 ### Backup and Restore
 

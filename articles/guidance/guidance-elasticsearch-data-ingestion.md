@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Maximizing Data Ingestion Performance with Elasticsearch on Azure | Microsoft Azure"
+   pageTitle="Tuning Data Ingestion Performance for Elasticsearch on Azure | Microsoft Azure"
    description="How to maximize data ingestion performance with Elasticsearch on Azure."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
+   authors="masimms"
    manager="marksou"
    editor=""
    tags=""/>
@@ -15,9 +15,9 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/05/2016"
-   ms.author="mabsimms"/>
+   ms.author="masimms"/>
 
-# Maximizing Data Ingestion Performance with Elasticsearch on Azure
+# Tuning Data Ingestion Performance for Elasticsearch on Azure
 
 This article is [part of a series](guidance-elasticsearch-introduction.md). 
 
@@ -87,7 +87,7 @@ scenario we stored 1.5 billion documents using 350GB storage.
 - Measure the transfer rates for your workloads and consider how close you are likely to get to the total
 I/O rate transfer limit for any given storage account in which you have created virtual disks.
 
-## Node and Index Design Considerations
+## Node and Index Design
 
 In a system that must support large-scale data ingestion, you ask the following questions:
 
@@ -295,7 +295,7 @@ failure. If the data itself has a limited lifespan then this data loss might be 
 longer-lived data, it may be possible to rebuild an index or recover the missing information from a
 backup. It is possible to minimize the potential for loss by using replicas held on other VMs.
 
-> [AZURE.NOTE] Do not consider using a **single** VM to hold critical production data. If the node fails,
+> [AZURE.NOTE] Do not use a **single** VM to hold critical production data. If the node fails,
 > all of the data is unavailable. For critical information, ensure that data is replicated on at least
 > one other node.
 
@@ -309,7 +309,7 @@ For performance reasons, it is not recommended that you use file shares for hold
 
 Azure implements a shared networking scheme. VMs utilizing the same hardware racks compete for network resources. Therefore available network bandwidth can vary according to the time of day and the daily cycle of work running on VMs sharing the same physical network infrastructure. You have little control over these factors. It is important to understand that network performance is likely to fluctuate over time, so set user expectations accordingly.
 
-## Considerations for Scaling-Up Nodes to Support Large-Scale Data Ingestion
+## Scaling-Up Nodes to Support Large-Scale Data Ingestion
 
 You can build Elasticsearch clusters using reasonably moderate hardware, and then scale up or scale out
 as the volume of data grows and the number of requests increases. With Azure, you scale-up by running on
@@ -339,17 +339,6 @@ was elected by Elasticsearch to coordinate the cluster.
 The tests were performed using ElasticSearch 1.7.3. The tests were initially performed on clusters
 running Ubuntu Linux 14.0.4, and then repeated using Windows Server 2012. The details of the workload
 performed by the tests are described in the [Appendix](#appendix-the-bulk-load-data-ingestion-performance-test).
-
-> [AZURE.IMPORTANT] As described in the Network Options section, the performance statistics of
-> distributed services running in a cloud environment will be heavily influenced by the network bandwidth
-> available for physically transmitting and receiving data to and from these services. When you build and
-> deploy a system such as an Elasticsearch cluster, you have a large degree of control over the CPU,
-> memory, and disk resources available simply by selecting the VM size and SKU. You have far less control
-> over the network resources available as these are shared by VMs physically located in the same hardware
-> rack, and also by the volume of traffic entering and exiting the datacenter. Therefore, it is important
-> when running comparative performance tests, to run these tests using the same datacenter at roughly the
-> same time of day during the business week. The results of tests run against VMs hosted at different
-> datacenters or running at different times could diverge significantly.
 
 ### Data Ingestion Performance – Ubuntu Linux 14.0.4
 
@@ -559,7 +548,7 @@ The CPU utilization reported by the Windows monitoring tools was marginally high
 
 Elasticsearch performance for a well-tuned cluster is likely to be equivalent on Windows and Ubuntu, and that it scales-up in a similar pattern on both operating systems. For best performance, **use premium storage for holding Elasticsearch data**.
 
-## Considerations for Scaling Out Clusters to Support Large-Scale Data Ingestion
+## Scaling Out Clusters to Support Large-Scale Data Ingestion
 
 Scaling out is the complimentary approach to scaling up investigated in the previous section. An important feature of Elasticsearch is the inherent horizontal scalability built into the software. Increasing the size of a cluster is simply a matter of adding more nodes. You do not need to perform any manual operations to redistribute indexes or shards as these tasks are handled automatically, although there are a number of configuration options available that you can use to influence this process. 
 
@@ -649,7 +638,7 @@ The tests also illustrated one other important point. In this scenario, increasi
 
 > The important point of this exercise is to understand the method used rather than the results obtained. You should be prepared to perform your own scalability assessment based on your own workloads to obtain information that is most applicable to your own scenario.
 
-## Considerations for Tuning Large-Scale Data Ingestion
+## Tuning Large-Scale Data Ingestion
 
 Elasticsearch is highly configurable, with many switches and settings that you can use to optimize the performance for specific use-cases and scenarios. This section describes some common examples. Be aware that the flexibility that Elasticsearch provides in this respect comes with a warning; it is very easy to detune Elasticsearch and make performance worse. When tuning, only make one change at a time, and always measure the effects of any changes to ensure that they are not detrimental to your system.
 

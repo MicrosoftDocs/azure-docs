@@ -3,7 +3,7 @@
    description="How to use a JUnit sampler to generate and upload data to an Elasticsearch cluster."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
+   authors="masimms"
    manager="marksou"
    editor=""
    tags=""/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/05/2016"
-   ms.author="mabsimms"/>
+   ms.author="masimms"/>
    
 # Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance
 

@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Considerations for Implementing a JMeter Test Plan for Elasticsearch | Microsoft Azure"
+   pageTitle="Implementing a JMeter Test Plan for Elasticsearch | Microsoft Azure"
    description="How to run performance tests for Elasticsearch with JMeter."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
+   authors="masimms"
    manager="marksou"
    editor=""
    tags=""/>
@@ -15,9 +15,9 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/05/2016"
-   ms.author="mabsimms"/>
+   ms.author="masimms"/>
    
-# Considerations for Implementing a JMeter Test Plan for Elasticsearch
+# Implementing a JMeter Test Plan for Elasticsearch
 
 This article is [part of a series](guidance-elasticsearch-introduction.md). 
 

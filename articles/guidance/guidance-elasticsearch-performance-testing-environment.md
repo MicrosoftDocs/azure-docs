@@ -15,9 +15,9 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="01/29/2016"
-   ms.author="mabsimms"/>
+   ms.author="masimms"/>
    
-# Create a Performance Testing Environment for Elasticsearch
+# Create a Performance Testing Environment for Elasticsearch on Azure
 
 This article is [part of a series](guidance-elasticsearch-introduction.md). 
 
