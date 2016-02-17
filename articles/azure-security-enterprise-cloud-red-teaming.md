@@ -89,7 +89,9 @@ While Prevent Breach security processes, such as threat modeling, code reviews a
 
 With Assume Breach, security focus changes to identifying and addressing gaps in:
 
-- Detection of attack and penetration  Response to attack and penetration
+- Detection of attack and penetration
+
+- Response to attack and penetration
 
 - Recovery from data leakage, tampering or compromise
 
@@ -331,7 +333,7 @@ The following resources are available to provide more general information about 
 
 - [Microsoft Security Response Center](http://www.microsoft.com/security/msrc/default.aspx)
 
-	> Microsoft Azure or Office 365, can be reported\] o [*http://www.microsoft.com/security/msrc/default.aspx*](http://www.microsoft.com/security/msrc/default.aspx)[ ](http://www.microsoft.com/security/msrc/default.aspx) or via email to *secure@microsoft.com*
+- Microsoft Azure or Office 365, can be reported\] o [*http://www.microsoft.com/security/msrc/default.aspx*](http://www.microsoft.com/security/msrc/default.aspx)[ ](http://www.microsoft.com/security/msrc/default.aspx) or via email to *secure@microsoft.com*
 
 - [Interview with Mark Russinovich on Microsoft Azure & Security - Update on Penetration Testing](http://blogs.technet.com/b/matthewms/archive/2013/07/02/an-interview-with-mark-russinovich-on-windows-azure-amp-security-update-on-penetration-testing.aspx)
 
