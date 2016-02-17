@@ -71,12 +71,12 @@ Subnets rely on system routes until a route table is associated to the subnet. O
 1. BGP route (when ExpressRoute is used)
 1. System route
 
-To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](../virtual-networks-udr-how-to#How-to-manage-routes).
+To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](virtual-networks-udr-how-to.md#How-to-manage-routes).
 
 >[AZURE.IMPORTANT] User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forward all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.
 
 ## BGP Routes
-If you have an ExpressRoute connection between your on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure. These BGP routes are used in the same way as system routes and user defined routes in each Azure subnet. For more information see [ExpressRoute Introduction](../expressroute-introduction).
+If you have an ExpressRoute connection between your on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure. These BGP routes are used in the same way as system routes and user defined routes in each Azure subnet. For more information see [ExpressRoute Introduction](..\articles\expressroute\expressroute-introduction.md).
 
 >[AZURE.IMPORTANT] You can configure your Azure environment to use force tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop. However, this only works if you are using a VPN gateway, not ExpressRoute. For ExpressRoute, forced tunneling is configured through BGP.
 
@@ -87,5 +87,5 @@ This virtual appliance VM must be able to receive incoming traffic that is not a
 
 ## Next Steps
 
-- Learn how to [create routes in the Resource Manager deployment model](../virtual-network-create-udr-arm-template) and associate them to subnets. 
-- Learn how to [create routes in the classic deployment model](../virtual-network-create-udr-classic-ps) and associate them to subnets.
+- Learn how to [create routes in the Resource Manager deployment model](virtual-network-create-udr-arm-template.md) and associate them to subnets. 
+- Learn how to [create routes in the classic deployment model](virtual-network-create-udr-classic-ps.md) and associate them to subnets.

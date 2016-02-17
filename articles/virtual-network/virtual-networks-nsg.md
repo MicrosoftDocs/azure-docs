@@ -149,7 +149,7 @@ You need to consider the following limits when designing your NSGs.
 |NSGs per region per subscription|100|By default, a new NSG is created for each VM you create in the Azure portal. If you allow this default behavior, you will run out of NSGs quickly. Make sure you keep this limit in mind during your design, and separate your resources into multiple regions or subscriptions if necessary. |
 |NSG rules per NSG|200|Use a broad range of IP and ports to ensure you do not go over this limit. |
 
->[AZURE.IMPORTANT] Make sure you view all the [limits related to networking services in Azure](../azure-subscription-service-limits/#networking-limits) before designing your solution. Some limits can be increased by opening a support ticket.
+>[AZURE.IMPORTANT] Make sure you view all the [limits related to networking services in Azure](..\azure-subscription-service-limits.md/#networking-limits) before designing your solution. Some limits can be increased by opening a support ticket.
 
 ### VNet and subnet design
 
