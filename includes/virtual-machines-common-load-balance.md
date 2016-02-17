@@ -21,7 +21,7 @@ For more information, see [About Traffic Manager Load Balancing Methods](../traf
 
 The following diagram shows an example of the Round Robin load balancing method for distributing traffic between different cloud services.
 
-![loadbalancing](./media/virtual-machines-load-balance/TMSummary.png)
+![loadbalancing](././media/virtual-machines-common-load-balance/TMSummary.png)
 
 The basic process is the following:
 
@@ -40,7 +40,7 @@ The Azure Load Balancer randomly distributes a specific type of incoming traffic
 
 The following diagram shows a load-balanced endpoint for standard (unencrypted) web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
 
-![loadbalancing](./media/virtual-machines-load-balance/LoadBalancing.png)
+![loadbalancing](././media/virtual-machines-common-load-balance/LoadBalancing.png)
 
 For more information, see [Azure Load Balancer](../load-balancer/load-balancer-overview.md). For the steps to create a load-balanced set, see [Configure a load-balanced set](../load-balancer/load-balancer-internet-getstarted.md).
 
@@ -54,7 +54,7 @@ Similar to Azure load balancing, internal load balancing is facilitated by confi
 
 The following diagram shows an example of an internal load-balanced endpoint for a line of business (LOB) application that is shared among three virtual machines in a cross-premises virtual network.
 
-![loadbalancing](./media/virtual-machines-load-balance/LOBServers.png)
+![loadbalancing](././media/virtual-machines-common-load-balance/LOBServers.png)
 
 ## Load balancer considerations
 
