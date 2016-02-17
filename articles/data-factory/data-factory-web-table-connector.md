@@ -39,7 +39,7 @@ The following sample shows how to copy data from a Web table to an Azure blob . 
 This example uses the Web linked service with anonymous authentication. See [Web linked service](#web-linked-service-properties) section for different types of authentication you can use. 
 
 	{
-	    "name": "web",
+	    "name": "WebLinkedService",
 	    "properties":
 	    {
 	        "type": "Web",
@@ -71,10 +71,10 @@ Setting **external**  to **true** and specifying **externalData** policy (option
 
 	
 	{
-	    "name": "input",
+	    "name": "WebTableInput",
 	    "properties": {
 	        "type": "WebTable",
-	        "linkedServiceName": "web",
+	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
 	            "index": 4,
 	            "path": "hp?s=MSFT+Historical+Prices"
@@ -94,11 +94,11 @@ Setting **external**  to **true** and specifying **externalData** policy (option
 Data is written to a new blob every hour (frequency: hour, interval: 1). 
 
 	{
-	    "name": "output",
+	    "name": "AzureBlobOutput",
 	    "properties":
 	    {
 	        "type": "AzureBlob",
-	        "linkedServiceName": "blob",
+	        "linkedServiceName": "AzureStorageLinkedService",
 	        "typeProperties":
 	        {
 	            "folderPath": "MSFTHistoricalPrices"
@@ -120,41 +120,49 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 
 See [WebSource type properties](#websource-copy-activity-type-properties) for the list of properties supported by the WebSource. 
 	
-	{
-	    "name": "pipeline",
-	    "properties":
-	    {
-	        "activities":
-	        [
-	            {
-	                "name": "WebSourceToBlobCopy",
-	                "inputs": [ {name: "input"} ],
-	                "outputs": [ {name: "output"} ],
-	                "type": "Copy",
-	                "typeProperties":
-	                {
-	                    "source":
-	                    {
-	                        "type": "WebSource"
-	                    },
-	                    "sink":
-	                    {
-	                        "type": "BlobSink"
-	                    }
-	                },
-	                "policy":
-	                {
-	                    "concurrency": 1,
-	                    "executionPriorityOrder": "NewestFirst",
-	                    "retry": 1,
-	                    "timeout": "00:05:00"
-	                }
-	            }
-	        ]
-	    }
+	{  
+	    "name":"SamplePipeline",
+	    "properties":{  
+	    "start":"2014-06-01T18:00:00",
+	    "end":"2014-06-01T19:00:00",
+	    "description":"pipeline with copy activity",
+	    "activities":[  
+	      {
+	        "name": "WebTableToAzureBlob",
+	        "description": "Copy from a Web table to an Azure blob",
+	        "type": "Copy",
+	        "inputs": [
+	          {
+	            "name": "WebTableInput"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "AzureBlobOutput"
+	          }
+	        ],
+	        "typeProperties": {
+	          "source": {
+	            "type": "WebSource"
+	          },
+	          "sink": {
+	            "type": "BlobSink"
+	          }
+	        },
+	       "scheduler": {
+	          "frequency": "Hour",
+	          "interval": 1
+	        },
+	        "policy": {
+	          "concurrency": 1,
+	          "executionPriorityOrder": "OldestFirst",
+	          "retry": 0,
+	          "timeout": "01:00:00"
+	        }
+	      }
+	      ]
+	   }
 	}
-
-
 
 
 ## Web Linked Service properties
@@ -220,10 +228,10 @@ index | The index of the table in the resource. See [Get index of a table in an 
 **Example:**
 
 	{
-	    "name": "input",
+	    "name": "WebTableInput",
 	    "properties": {
 	        "type": "WebTable",
-	        "linkedServiceName": "web",
+	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
 	            "index": 4,
 	            "path": "hp?s=MSFT+Historical+Prices"
