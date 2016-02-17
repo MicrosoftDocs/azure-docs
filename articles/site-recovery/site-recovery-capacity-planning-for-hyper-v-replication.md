@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Plan capacity for Hyper-V virtual machine replication"
-	description="This article contains instructions on how to use the Hyper-V Capacity Planner tool for Azure Site Recovery"
+	pageTitle="Run the Hyper-V capacity planner tool for Site Recovery | Microsoft Azure"
+	description="This article contains instructions for using the Hyper-V capacity planner tool for Azure Site Recovery"
 	services="site-recovery"
 	documentationCenter="na"
 	authors="rayne-wiselman"
@@ -12,12 +12,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="02/15/2016"
 	ms.author="raynew" />
 
-# Plan capacity for Hyper-V virtual machine replication
+# Run the Hyper-V capacity planner tool for Site Recovery
 
-Azure Site Recovery uses Hyper-V Replica to replicate Hyper-V virtual machines from an on-premises site to Azure, or to a secondary datacenter. The Capacity Planner tool for Site Recovery helps you to figure out your replication and bandwidth requirements for Hyper-V virtual machine replication.
+As part of your Azure Site Recovery deployment you'll need to figure out your replication and bandwidth requirements. The Hyper-V capacity planner tool for Site Recovery helps you to figure out your replication and bandwidth requirements for Hyper-V virtual machine replication.
+
+
+This article describes how to run the Hyper-V capacity planner tool. This tool should be used together with the other capacity planning tools and information described in [capacity planning for Site Recovery](site-recovery-capacity-planner.md).
+
 
 ## Before you start
 
@@ -127,12 +131,16 @@ Here are the important metrics. You can ignore metrics which aren't listed here.
 
 - For detailed information about the tool read the document that accompanies the tool download.
 - Watch a walkthrough of the tool on Keith Mayer’s [TechNet blog](http://blogs.technet.com/b/keithmayer/archive/2014/02/27/guided-hands-on-lab-capacity-planner-for-windows-server-2012-hyper-v-replica.aspx).
-- [Get the results](http://blogs.technet.com/b/keithmayer/archive/2014/02/27/guided-hands-on-lab-capacity-planner-for-windows-server-2012-hyper-v-replica.aspx) of our performance testing for on-premises to on-premises Hyper-V replication
+- [Get the results](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md) of our performance testing for on-premises to on-premises Hyper-V replication
 
 
 
 ## Next steps
 
+After you've finished capacity planning you can start deploying Site Recovery:
+
 - [Set up protection between an on-premises VMM site and Azure](site-recovery-vmm-to-azure.md)
 - [Set up protection between an on-premises Hyper-V site and Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm.md)
+- [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san.md)
+- [Set up protection with a single VMM server](site-recovery-single-vmm.md)
