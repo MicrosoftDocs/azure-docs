@@ -36,7 +36,7 @@ To use the Azure classic portal:
 
 	4. Create the default endpoints and add more endpoints if needed. You also can add endpoints later.
 
-	![Create an availability set for a new virtual machine](././media/virtual-machines-common-classic-configure-availability/VMavailabilityset.png)
+	![Create an availability set for a new virtual machine](./media/virtual-machines-common-classic-configure-availability/VMavailabilityset.png)
 
 6. On the fourth screen, click the extensions that you want to install. Extensions provide features that make it easier to manage the virtual machine, such as running antimalware or resetting passwords. For details, see [Azure VM Agent and VM Extensions](virtual-machines-extensions-agent-about.md).
 
@@ -69,7 +69,7 @@ In the Azure classic portal, you can add existing virtual machines to an existin
 
 	B. Select **Select an availability set**, and then select a set from the list.
 
-	![Create an availability set for an existing virtual machine](././media/virtual-machines-common-classic-configure-availability/VMavailabilityExistingVM.png)
+	![Create an availability set for an existing virtual machine](./media/virtual-machines-common-classic-configure-availability/VMavailabilityExistingVM.png)
 
 6. Click **Save**.
 
