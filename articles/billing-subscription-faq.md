@@ -21,9 +21,9 @@
 
 This article answers some of the most common questions about Azure Billing and Subscription.
 
-[hello test](#hello-test)
+[Hello test](#hello-test)
 
-[hello test test](#hello-test-test)
+[Hello test test](#hello-test-test)
 
 [Hello test test test test](#Hello-test-test-test-test)
 
