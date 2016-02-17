@@ -1,6 +1,6 @@
 <properties
    pageTitle="Using client assertion to get access tokens from Azure AD | Microsoft Azure"
-   description="How a use client assertion to get access tokens from Azure AD."
+   description="How to use client assertion to get access tokens from Azure AD."
    services=""
    documentationCenter="na"
    authors="MikeWasson"
@@ -19,7 +19,7 @@
 
 # Using client assertion to get access tokens from Azure AD
 
-This article is [part of a series].
+This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 ## Background
 
@@ -168,3 +168,4 @@ At run time, the web application reads the certificate from the certificate stor
 [Surveys]: guidance-multitenant-identity-tailspin.md
 [using-certs-in-websites]: https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/
 [part of a series]: guidance-multitenant-identity.md
+[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

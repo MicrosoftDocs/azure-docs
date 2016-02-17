@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Authorization in Multitenant Application | Microsoft Azure"
-   description="How a perform Authorization in Multitenant Application."
+   pageTitle="Authorization in multitenant applications | Microsoft Azure"
+   description="How to perform authorization in a multitenant application"
    services=""
    documentationCenter="na"
    authors="MikeWasson"
@@ -19,7 +19,7 @@
 
 # Authorization in multitenant applications
 
-This article is [part of a series].
+This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 In this article we'll look at two general approaches to authorization.
 
@@ -262,3 +262,4 @@ static readonly Dictionary<OperationAuthorizationRequirement, Func<List<UserPerm
 [Startup.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Startup.cs
 [Configuring the authentication middleware]: guidance-multitenant-identity-authenticate.md#configuring-the-authentication-middleware
 [SurveyAuthorizationHandler.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Security/Policy/SurveyAuthorizationHandler.cs
+[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

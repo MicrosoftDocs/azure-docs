@@ -1,6 +1,6 @@
 <properties
    pageTitle="Federating with a customer's AD FS | Microsoft Azure"
-   description="How a federate with a customer's AD FS in a multi-tenant application"
+   description="How to federate with a customer's AD FS in a multitenant application"
    services=""
    documentationCenter="na"
    authors="MikeWasson"
@@ -19,7 +19,7 @@
 
 # Federating with a customer's AD FS
 
-This article is [part of a series].
+This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 This article describes how a multi-tenant SaaS application can support authentication via Active Directory Federation Services (AD FS), in order to federate with a customer's AD FS.
 
@@ -201,3 +201,4 @@ The customer must do the following:
 [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
 [blog post]: http://www.cloudidentity.com/blog/2015/08/21/OPENID-CONNECT-WEB-SIGN-ON-WITH-ADFS-IN-WINDOWS-SERVER-2016-TP3/
 [Customizing the AD FS Sign-in Pages]: https://technet.microsoft.com/library/dn280950.aspx
+[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

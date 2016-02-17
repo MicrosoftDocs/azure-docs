@@ -1,6 +1,6 @@
 <properties
    pageTitle="Using Key Vault to protect application secrets | Microsoft Azure"
-   description="How a use the Key Vault service to store application secrets."
+   description="How a use the Key Vault service to store application secrets"
    services=""
    documentationCenter="na"
    authors="MikeWasson"
@@ -19,7 +19,7 @@
 
 # Using Azure Key Vault to protect application secrets
 
-This article is [part of a series].
+This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 ## Overview
 
@@ -420,3 +420,4 @@ Replace the entries in [square brackets] and save the secrets.json file.
 [web-api-startup]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.WebAPI/Startup.cs
 [part of a series]: guidance-multitenant-identity.md
 [KeyVaultConfigurationProvider.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Configuration.KeyVault/KeyVaultConfigurationProvider.cs
+[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

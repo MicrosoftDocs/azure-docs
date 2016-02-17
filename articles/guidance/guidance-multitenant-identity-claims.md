@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Working with claims in Multitenant Application | Microsoft Azure"
-   description="How a use claims for Issuer validation and authorization."
+   pageTitle="Working with claim-based identities in multitenant applications | Microsoft Azure"
+   description="How a use claims for issuer validation and authorization"
    services=""
    documentationCenter="na"
    authors="MikeWasson"
@@ -19,7 +19,7 @@
 
 # Working with claims-based identities in multitenant applications
 
-This article is [part of a series].
+This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 ## Claims in Azure AD
 
@@ -134,3 +134,4 @@ For more details about using claims in authorization, see [Authorization].
 [Sign-up and tenant onboarding]: guidance-multitenant-identity-signup.md
 [Authorization]: guidance-multitenant-identity-authorize.md
 [Claims-Based Authorization]: https://docs.asp.net/en/latest/security/authorization/claims.html
+[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Authentication in multitenant apps | Microsoft Azure"
-   description="How a multitenant application can authenticate users from Azure AD."
+   pageTitle="Authentication in multitenant applications | Microsoft Azure"
+   description="How a multitenant application can authenticate users from Azure AD"
    services=""
    documentationCenter="na"
    authors="MikeWasson"
@@ -19,7 +19,7 @@
 
 # Authentication in multitenant applications
 
-This article is [part of a series](guidance-multitenant-identity.md).
+This article is [part of a series](guidance-multitenant-identity.md). There is also a complete [sample application] that accompanies this series.
 
 This article describes how a multitenant application can authenticate users from Azure Active Directory (Azure AD), using OpenID Connect (OIDC) to authenticate.
 
@@ -258,3 +258,4 @@ app.UseOpenIdConnectAuthentication(options =>
 
 [cookie-options]: https://docs.asp.net/en/latest/security/authentication/cookie.html#controlling-cookie-options
 [session-cookie]: https://en.wikipedia.org/wiki/HTTP_cookie#Session_cookie
+[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

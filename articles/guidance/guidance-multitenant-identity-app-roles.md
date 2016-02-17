@@ -19,7 +19,7 @@
 
 #  Application roles in multitenant applications
 
-This article is [part of a series].
+This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 Application roles are used to assign permissions to users. For example, the [Tailspin Surveys][Tailspin] application defines the following roles:
 
@@ -175,3 +175,4 @@ There are many existing examples for this approach. For example, see [Create an 
 [Supported Token and Claim Types]: ../active-directory/active-directory-token-and-claims.md
 [Roles based access control in cloud applications using Azure AD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [Authorization in a web app using Azure AD application roles & role claims]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims
+[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

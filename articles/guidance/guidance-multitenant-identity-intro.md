@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Identity Management for Multitenant Applications in Microsoft Azure | Microsoft Azure"
-   description="Introduction to identity management in Multitenant Applications."
+   pageTitle="Identity management for multitenant applications | Microsoft Azure"
+   description="Introduction to identity management in multitenant applications"
    services=""
    documentationCenter="na"
    authors="MikeWasson"
@@ -19,7 +19,7 @@
 
 # Identity management for multitenant applications: Introduction
 
-This article is [part of a series].
+This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 Let's say you're writing an enterprise SaaS application to be hosted in the cloud. Of course, the application will have users:
 
@@ -87,3 +87,4 @@ This guidance does not consider other aspects of multitenancy such as data parti
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 [part of a series]: guidance-multitenant-identity.md
 [Federating with a customer's AD FS]: guidance-multitenant-identity-adfs.md
+[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

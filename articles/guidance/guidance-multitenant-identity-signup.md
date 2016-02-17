@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Sign-up and tenant onboarding in a multitenant application | Microsoft Azure"
-   description="How to onboard tenants in a multitenant application."
+   pageTitle="Sign-up and tenant onboarding in multitenant applications | Microsoft Azure"
+   description="How to onboard tenants in a multitenant application"
    services=""
    documentationCenter="na"
    authors="MikeWasson"
@@ -19,7 +19,7 @@
 
 # Sign-up and tenant onboarding in a multitenant application
 
-This article is [part of a series].
+This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 This article describes how to implement a _sign-up_ process in a multi-tenant application, which allows a customer to sign up their organization for your application.
 There are several reasons to implement a sign-up process:
@@ -294,3 +294,4 @@ Here is a summary of the entire sign-up flow in the Surveys application:
 [BaseControlContextExtensions.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Security/BaseControlContextExtensions.cs
 [Authentication]: guidance-multitenant-identity-authenticate.md
 [SignUpTenantAsync]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Security/SurveyAuthenticationEvents.cs
+[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

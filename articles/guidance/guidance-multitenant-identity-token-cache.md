@@ -20,7 +20,7 @@
 
 # Caching access tokens in a multitenant application
 
-This article is [part of a series].
+This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 It's relatively expensive to get an OAuth access token, because it requires an HTTP request to the token endpoint. Therefore, it's good to cache tokens whenever possible. The [Azure AD Authentication Library][ADAL] (ADAL)  automatically caches tokens obtained from Azure AD, including refresh tokens.
 
@@ -153,3 +153,4 @@ In our case, we decided not to handle these two events.
 [tokencache-class]: https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory.tokencache.aspx
 [x509-cert-encryption]: https://docs.asp.net/en/latest/security/data-protection/implementation/key-encryption-at-rest.html#x-509-certificate
 [part of a series]: guidance-multitenant-identity.md
+[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

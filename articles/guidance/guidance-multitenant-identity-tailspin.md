@@ -19,7 +19,7 @@
 
 # About the Tailspin Surveys application
 
-This article is [part of a series].
+This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 Tailspin is a fictitious company that is developing a SaaS application named Surveys. This application enables organizations to create and publish online surveys.
 
@@ -63,3 +63,4 @@ The web application uses Azure Active Directory (Azure AD) to authenticate users
 [part of a series]: guidance-multitenant-identity.md
 [Running the Surveys application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
 [ASP.NET Core 1.0]: https://docs.asp.net/en/latest/
+[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

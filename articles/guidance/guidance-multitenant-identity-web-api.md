@@ -1,6 +1,6 @@
 <properties
    pageTitle="Securing a backend web API in a multitenant application | Microsoft Azure"
-   description="How to securing a backend web API"
+   description="How to secure a backend web API"
    services=""
    documentationCenter="na"
    authors="MikeWasson"
@@ -19,7 +19,7 @@
 
 # Securing a backend web API in a multitenant application
 
-This article is [part of a series].
+This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 The [Tailspin Surveys] application uses a backend web API to manage CRUD operations on surveys. For example, when a user clicks "My Surveys", the web application sends an HTTP request to the web API:
 
@@ -275,3 +275,4 @@ public void ConfigureServices(IServiceCollection services)
 [SurveysJwtBearerEvents.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.WebAPI/SurveyJwtBearerEvents.cs
 [claims transformation]: guidance-multitenant-identity-claims.md#claims-transformations
 [Authorization]: guidance-multitenant-identity-authorize.md
+[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
