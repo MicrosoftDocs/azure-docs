@@ -339,6 +339,6 @@ Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/
 - Please see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:
 
  - [Ubuntu Wiki: Configure Swap Partitions](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
- - [Injecting Custom Data into an Azure Virtual Machine](virtual-machines-how-to-inject-custom-data.md)
+ - [Injecting Custom Data into an Azure Virtual Machine](virtual-machines-windows-classic-inject-custom-data.md)
 
  
