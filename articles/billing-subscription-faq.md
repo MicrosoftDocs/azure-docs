@@ -23,7 +23,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 **Billing**
 
-- [What payment options do I have in purchasing Azure?](#What-payment-options-do-I-have-in-purchasing-Azure?)
+- [What payment options do I have in purchasing Azure?](#What-payment-options)
 
 - How can I request the invoice method of payment?
 
@@ -79,7 +79,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 ## Billing
 
-### What payment options do I have in purchasing Azure?
+### What payment options
 
 You can purchase Azure using a credit or debit card or choose to be invoiced.
 
