@@ -1,4 +1,4 @@
-The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/) even in the face of transient hardware failures. 
+The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the [SLA for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of transient hardware failures. 
 When you create a storage account, you must select one of the following replication options:  
 
 - **Locally redundant storage (LRS).** Locally redundant storage maintains three copies of your data. LRS is replicated three times within a single facility in a single region. LRS protects your data from normal hardware failures, but not from the failure of a single facility.  
