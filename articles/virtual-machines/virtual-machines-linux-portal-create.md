@@ -122,7 +122,7 @@ Now you can **ssh** into your Azure VM, and you're ready to go.
 	ops@ubuntuvm:~$
 
 
-> [AZURE.NOTE] You can also configure a fully qualified domain name (FQDN) for your virtual machine in the portal. Read more about [creating FQDNs in the portal](virtual-machines-create-fqdn-on-portal.md).
+> [AZURE.NOTE] You can also configure a fully qualified domain name (FQDN) for your virtual machine in the portal. Read more about [creating FQDNs in the portal](virtual-machines-linux-portal-create-fqdn.md).
 
 ## Next Steps
 
