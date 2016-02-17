@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/17/2016"
 	ms.author="micurd"/>
 
 
@@ -115,7 +115,7 @@ To add an entity, first create an object that defines your entity properties. Al
 
 * **RowKey** - uniquely identifies the entity within the partition
 
-Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table service data model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 The following is an example of defining an entity. Note that **dueDate** is defined as a type of **Edm.DateTime**. Specifying the type is optional, and types will be inferred if not specified.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/17/2016"
 	ms.author="micurd"/>
 
 
@@ -67,7 +67,7 @@ Using Notepad or another text editor, add the following to the top of the **serv
 
 The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING`, for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
-For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure web app, see [Node.js web app using the Azure Table Service]
+For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure web app, see [Node.js web app using the Azure Table Service].
 
 ## Create a container
 
