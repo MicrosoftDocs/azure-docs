@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="02/12/2016"
+   ms.date="02/17/2016"
    ms.author="tarcher" />
 
 # Modify a live ASP.NET 5 Web Application running in a local Docker container using Edit and Refresh
@@ -23,7 +23,7 @@ The Visual Studio Tools for Docker provides a convenient way to develop and test
 ## Prerequisites
 The following tools need to be installed.
 
-- [Visual Studio 2015 Update 1](https://go.microsoft.com/fwlink/?LinkId=691979&clcid=0x409)
+- [Visual Studio 2015 Update 1](https://go.microsoft.com/fwlink/?LinkId=691979)
 - [Microsoft ASP .NET and Web Tools 2015 RC](https://go.microsoft.com/fwlink/?LinkId=627627)
 - [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)
 - [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)
