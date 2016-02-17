@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="02/12/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Set up a Service Fabric cluster by using Visual Studio
@@ -111,6 +111,8 @@ After you hit the Deploy button, Visual Studio will prompt you to confirm the te
 You can monitor the progress of the deployment process in the Visual Studio output window. Once the template deployment is completed, your new cluster is ready to use!
 
 If there are any errors, go to the [Azure portal](https://portal.azure.com/) and check **Notifications**. A failed resource-group deployment will leave detailed diagnostic information there.
+
+>[AZURE.NOTE] Service Fabric clusters require a certain number of nodes to be up at all times in order to maintain availability and preserve state - referred to as "maintaining quorum". Consequently, it is typically not safe to shut down all of the machines in the cluster unless you have first performed a [full backup of your state](service-fabric-reliable-services-backup-restore.md).
 
 ## Next steps
 - [Learn about setting up Service Fabric cluster using the Azure portal](service-fabric-cluster-creation-via-portal.md)

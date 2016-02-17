@@ -93,7 +93,7 @@ mobile device data back to HDInsight by using the following path:
 The PowerShell sample in this section performs the following steps:
 
 1. Connect to Azure.
-2. Create an Azure resource group. For more information, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
+2. Create an Azure resource group. For more information, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
 3. Create an Azure SQL Database server, an Azure SQL database, and two tables. 
 
 	If you use SQL Server instead, use the following statements to create the tables:
@@ -622,8 +622,8 @@ Now you have learned how to use Sqoop. To learn more, see:
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -633,7 +633,7 @@ Now you have learned how to use Sqoop. To learn more, see:
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
