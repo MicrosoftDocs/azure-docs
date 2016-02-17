@@ -24,7 +24,7 @@ Azure Active Directory Join (Azure AD Join) is the functionality that registers 
 
 Azure AD Join is intended for enterprises that are cloud-first/cloud-only--typically small- and medium-sized businesses that do not have an on-premises Windows Server Active Directory infrastructure. That said, Azure AD Join can and will also be used by large organizations on devices that are incapable of doing a traditional domain join (mobile devices, for example), or for users who primarily need to access Office 365 or other Azure AD SaaS apps.
 
-Although the traditional domain join still offers the best on-premises experience on devices that are capable of domain joining, Azure AD Join is suitable for devices that cannot domain join. Azure AD Join is also suitable for managing users in the cloud by using mobile device management capabilities instead of by using traditional domain management tools like Group Policy and System Center Configuration Manager (SCCM).
+Although the traditional domain join still offers the best on-premises experience on devices that are capable of domain joining, Azure AD Join is suitable for devices that cannot domain join. Azure AD Join is also suitable for managing users in the cloud. It does so by using mobile device management capabilities instead of by using traditional domain management tools like Group Policy and System Center Configuration Manager (SCCM).
 
 ![Overview of corporate devices and personal devices with on-premises Active Directory and Azure AD](./media/active-directory-azureadjoin/active-directory-azureadjoin-overview.png)
 
