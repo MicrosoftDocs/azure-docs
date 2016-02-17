@@ -141,7 +141,7 @@ In addition, Azure App Service has a new preview feature for REST APIs:  API app
 The following table compares the capabilities of App Service, Cloud Services, and Virtual Machines to help you make the best choice. For current information about the SLA for each option, see [Azure Service Level Agreements](/support/legal/sla/).
 
 Feature|App Service (web apps)|Cloud Services (web roles)|Virtual Machines|Service Fabric|Notes
----|---|---|---|---
+---|---|---|---|---|---
 Near-instant deployment|X||||Deploying an application or an application update to a Cloud Service, or creating a VM, takes several minutes at least; deploying an application to a web app takes seconds.
 Scale up to larger machines without redeploy|X||||
 Web server instances share content and configuration, which means you don't have to redeploy or reconfigure as you scale.|X||||
