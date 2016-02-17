@@ -125,10 +125,10 @@ and clone the repository that contains the scripts, as follows:
 <!-- TODO - this needs to be a github repo -->
 
 ```Shell
-git clone https://pnp.visualstudio.com/defaultcollection/\_git/ElasticSearch
+git clone https://github.com/mspnp/azure-guidance.git
 ```
 
-Move to the *resiliency* folder and run the following command to install the dependencies required 
+Move to the *resiliency-tests* folder and run the following command to install the dependencies required 
 to run the tests:
 
 ```Shell
@@ -137,7 +137,7 @@ npm install
 
 If the JMeter Master is running on Windows, 
 [Download PLINK](http://the.earth.li/~sgtatham/putty/latest/x86/plink.exe) and copy it to the 
-*resiliency/lib* folder
+*resiliency-tests/lib* folder
 
 If the JMeter Master is running on Linux, you don’t need to download PLINK but you will need to 
 configure password-less SSH between the JMeter Master and the Elasticsearch node or Jumpbox 
@@ -163,7 +163,7 @@ environment and Elasticsearch cluster. There parameters are common to all of the
 
 ## Running the Tests
 
-Move to the *resiliency* folder and run the following command:
+Move to the *resiliency-tests* folder and run the following command:
 
 ```Shell
 node app.js
