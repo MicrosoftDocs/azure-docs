@@ -63,7 +63,7 @@ Now sit back and relax while the cluster is created. Once complete, you will see
  
 ![Finished](media/final.png) 
 
-## Creating a service using the Azure CLI
+## Create a service using the Azure CLI
 
 To create an instance of the Azure Container Service using the command line, you will need an Azure subscription. If you don't have one then you can sign up for a free trial. You will also need to have installed and configured the Azure CLI.
  
@@ -107,7 +107,7 @@ Once you have a Resource Group you can create your cluster with this command, wh
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI
 ```
  
-### Providing template parameters
+### Provide template parameters
  
 This version of the command requires the user to define parameters interactively. If you want to provide parameters as a json formatted string you can do so with the `-p` switch. For example:
  
@@ -123,7 +123,7 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
  
 An example parameters file named `azuredeploy.parameters.json` can be found with the ACS templates in GitHub.
  
-## Creating a service using PowerShell
+## Create a service using PowerShell
 
 An ACS cluster can also be deployed with PowerShell. This document is based on the version 1.0 and greater Azure [PowerShell module](https://azure.microsoft.com/blog/azps-1-0/). 
 
@@ -156,7 +156,7 @@ Once you have a Resource Group, you can create your cluster with the following c
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
  ```
  
-### Providing Template Parameters
+### Provide template parameters
  
 If you are familiar with PowerShell, you know that you can cycle through the available parameters for a cmdlet by typing a minus sign (-) and then pressing the TAB key. This same functionality also works with parameters that you define in your template. As soon as you type the template name, the cmdlet fetches the template, parses the parameters, and adds the template parameters to the command dynamically. This makes it very easy to specify the template parameter values. And, if you forget a required parameter value, PowerShell prompts you for the value.
  
