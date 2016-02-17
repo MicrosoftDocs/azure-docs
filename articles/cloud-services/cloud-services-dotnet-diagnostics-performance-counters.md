@@ -318,9 +318,4 @@ Entities map to C# objects using a custom class derived from **TableEntity**. T
 
 
 ## Next Steps
-
-Now that you've learned the basics of collecting performance counters, follow these links to learn how to implement more complex troubleshooting scenarios.
-
-[Troubleshooting Best Practices for Developing Azure Applications](https://msdn.microsoft.com/library/azure/hh771389.aspx)
-
-[How to Monitor Cloud Services](./how-to-monitor-a-cloud-service.md)
+[View additional articles on Azure Diagnostics] (../azure-diagnostics.md)
