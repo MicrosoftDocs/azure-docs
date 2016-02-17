@@ -86,7 +86,7 @@ Open a command window and navigate to the AzCopy installation directory on your 
 
 >You must have read-access geo-redundant storage enabled.
 
-### Upload all files and subfolders to a blob container
+### Upload all files to a blob container
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /S
 
@@ -106,7 +106,7 @@ After the copy operation, the container will include the following files:
 	subfolder\a.txt
 	subfolder\abcd.txt
 
-If you do not specify option `/S` on the command line, AzCopy will not copy recursively. After the copy operation, the container will include the following files:
+If you do not specify option `/S`, AzCopy will not copy recursively. After the copy operation, the container will include the following files:
 
 	abc.txt
 	abc1.txt
@@ -132,13 +132,13 @@ After the copy operation, the directory `C:\myfolder` will include the following
 	C:\myfolder\vd1\a.txt
 	C:\myfolder\vd1\abcd.txt
 
-If you do not specify option `/S` on the command line, AzCopy will will only copy blobs that don't reside in a virtual directory:
+If you do not specify option `/S`, AzCopy will will only copy blobs that don't reside in a virtual directory:
 
 	C:\myfolder\abc.txt
 	C:\myfolder\abc1.txt
 	C:\myfolder\abc2.txt
 
-### Download blobs in a virtual blob directory to a directory in the file system, recursively
+### Download all blobs from a blob container virtual directory
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer/vd1/ /Dest:C:\myfolder /SourceKey:key /S
 
@@ -155,7 +155,7 @@ After the copy operation, the directory `C:\myfolder` will include the following
 	C:\myfolder\a.txt
 	C:\myfolder\abcd.txt
 
-### Upload files matching the specified file pattern to a container, recursively
+### Upload files matching the specified file pattern to a blob container
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
 
@@ -176,6 +176,12 @@ After the copy operation, the container will include the following files:
 	subfolder\a.txt
 	subfolder\abcd.txt
 
+If you do not specify option `/S`, AzCopy will will only copy blobs that don't reside in a virtual directory:
+
+	C:\myfolder\abc.txt
+	C:\myfolder\abc1.txt
+	C:\myfolder\abc2.txt
+
 ### Download blobs with the specified prefix to the file system, recursively
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:a /S
@@ -195,7 +201,7 @@ After the copy operation, the folder `C:\myfolder` will include the following fi
 	C:\myfolder\abc1.txt
 	C:\myfolder\abc2.txt
 
-Note that the prefix applies to the virtual directory, which forms the first part of the blob name. In the example shown above, the virtual directory does not match the specified prefix, so it is not copied.
+Note that the prefix applies to the virtual directory, which forms the first part of the blob name. In the example shown above, the virtual directory does not match the specified prefix, so it is not copied. In addition, if the option `\S` is not specified, AzCopy will not copy any blobs.
 
 
 ### Copy a blob and its snapshots to another storage account
