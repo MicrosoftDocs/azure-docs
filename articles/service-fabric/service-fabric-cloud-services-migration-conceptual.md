@@ -1,3 +1,21 @@
+<properties
+   pageTitle="Migrating Cloud Services to Service Fabric Conceptual Overview | Microsoft Azure"
+   description="A conceptual overview for migrating applications from Cloud Services to Service Fabric."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="vturecek"
+   manager="timlt"
+   editor=""/>
+
+<tags
+   ms.service="service-fabric"
+   ms.devlang="dotNet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="02/17/2016"
+   ms.author="vturecek"/>
+
 # Migrating Cloud Services to Service Fabric: Conceptual overview
 This is an introductory guide for migrating applications from Cloud Services to Service Fabric. It focuses primarily on architectural and design differences between Cloud Services and Service Fabric.
  
@@ -64,6 +82,8 @@ The same communication model can be used in Service Fabric. This can be useful w
 ![Service Fabric direct communication][8]
  
 ## Next Steps
+
+The simplest migration path from Cloud Services to Service Fabric is to replace only the Cloud Services deployment with a Service Fabric application, keeping the overall architecture of your application roughly the same. The following article provides a guide to help convert a Web or Worker Role to a Service Fabric stateless service.
 
  - [Simple migration: convert a Web or Worker Role to a Service Fabric stateless service](./service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 
