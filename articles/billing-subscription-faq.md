@@ -25,7 +25,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [What payment options do I have in purchasing Azure?](#what-payment-options-do-i-have-in-purchasing-azure)
 
-- [How can I request the invoice method of payment?](#how-can-I-request-the-invoice-method-of-payment-?)
+- [How can I request the invoice method of payment?](#how-can-I-request-the-invoice-method-of-payment?)
 
 - [How do I check the status of a payment made by credit card?](#how-do--check-the-status-of-a-payment-made-by-credit-card)
 
