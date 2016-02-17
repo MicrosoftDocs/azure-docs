@@ -22,7 +22,7 @@
 
 	>[AZURE.NOTE] If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the VM. For more information, see [Azure Virtual Network Overview](virtual-networks-overview.md).
 	>
-	> For details about configuring endpoints, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-set-up-endpoints.md).
+	> For details about configuring endpoints, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md).
 
 7. The fourth configuration screen lets you install the VM Agent and configure some of the available extensions.
 
