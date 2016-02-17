@@ -23,7 +23,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 ## Billing
 
-- [What payment options do I have in purchasing Azure?](#what-payment-options-do-i-have-in-purchasing-azure?)
+- [What payment options do I have in purchasing Azure?](#what-payment-options-do-i-have-in-purchasing-azure)
 
 - [How can I request the invoice method of payment?](#how-can-I-request-the-invoice-method-of-payment-?)
 
