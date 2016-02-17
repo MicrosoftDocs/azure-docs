@@ -33,7 +33,7 @@ This topic describes and walks you through the deployment and configuration of a
 	
 	- To verify the core limit of your subscription, in the Azure classic portal, click SETTINGS in the left pane and then Click USAGE in the top menu.
 	
-	- To increase the core quota, contact [Azure Support](https://azure.microsoft.com/support/options/). For VM size information, see [Virtual Machine Sizes for Azure](virtual-machines-size-specs.md).
+	- To increase the core quota, contact [Azure Support](https://azure.microsoft.com/support/options/). For VM size information, see [Virtual Machine Sizes for Azure](virtual-machines-linux-sizes.md).
 
 - **Windows PowerShell Scripting**: The topic assumes that you have a basic working knowledge of Windows PowerShell. For more information about using Windows PowerShell, see the following:
 

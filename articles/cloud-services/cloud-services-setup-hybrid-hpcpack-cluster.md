@@ -27,7 +27,7 @@ This tutorial shows one approach, sometimes called cluster "burst to the cloud,"
 
 This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid compute cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493). For other scenarios with HPC Pack, including automated cluster deployment in Azure virtual machines, see [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
 
->[AZURE.NOTE] Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.md) for your compute resources, suitable for different workloads. For example, the A8 and A9 instances combine high performance and access to a low latency, high throughput application network needed for certain HPC applications. See [About the A8, A9, A10, and A11 Compute Intensive Instances](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
+>[AZURE.NOTE] Azure offers a [range of sizes](../virtual-machines/virtual-machines-linux-sizes.md) for your compute resources, suitable for different workloads. For example, the A8 and A9 instances combine high performance and access to a low latency, high throughput application network needed for certain HPC applications. See [About the A8, A9, A10, and A11 Compute Intensive Instances](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
 
 ## Prerequisites
 

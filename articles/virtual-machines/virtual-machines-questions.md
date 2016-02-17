@@ -37,7 +37,7 @@ For Windows client images, certain versions of Windows 7 and Windows 8.1 are ava
 
 ## How much storage can I use with a virtual machine?
 
-Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](virtual-machines-size-specs.md).
+Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](virtual-machines-linux-sizes.md).
 
 An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](http://go.microsoft.com/fwlink/p/?LinkId=396819).
 
@@ -54,7 +54,7 @@ Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDXyou 
 In many ways they’re similar to “Generation 1” Hyper-V VMs, but they’re not exactly the same. Both types provide virtualized hardware, and the VHD-format virtual hard disks are compatible. This means you can move them between Hyper-V and Azure. Three key differences that sometimes surprise Hyper-V users are:
 
 - Azure doesn’t provide console access to a virtual machine. There is no way to access a VM until it is done booting.
-- Azure VMs in most [sizes](virtual-machines-size-specs.md) have only 1 virtual network adapter, which means that they also can have only 1 external IP address. (The A8 and A9 sizes use a second network adapter for application communication between instances in limited scenarios.)
+- Azure VMs in most [sizes](virtual-machines-linux-sizes.md) have only 1 virtual network adapter, which means that they also can have only 1 external IP address. (The A8 and A9 sizes use a second network adapter for application communication between instances in limited scenarios.)
 - Azure VMs don't support Generation 2 Hyper-V VM features. For details about these features, see [Virtual Machine Specifications for Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) and [Generation 2 Virtual Machine Overview] (https://technet.microsoft.com/library/dn282285.aspx).
 
 ## Can these virtual machines use my existing, on-premises networking infrastructure?
