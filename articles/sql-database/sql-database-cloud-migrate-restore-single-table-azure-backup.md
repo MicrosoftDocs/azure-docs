@@ -31,7 +31,7 @@ This article describes the steps about how to restore a single table in a databa
 
 	**Notes**:
 	- The restore process restores the database that uses DBName+TimeStamp as database name, for example, **MyTestdb_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is part of safety measure, and the intention is to verify the restored database before user drops their current database and rename the restored DB for their production use.
-	- This step will create a new database in the server where your current database is. Microsoft maintains PITR for every Performance tier from Basic to Premier. The restore point varies between each tiers.
+	- This step will create a new database in the server where your current database is. Microsoft maintains Point In Time Restore (PITR) for every performance tier from Basic to Premier. The restore point varies between each tiers.
 
 | DB Restore | Basic tier | Standard tiers | Premium tiers |
 | :-- | :-- | :-- | :-- |
