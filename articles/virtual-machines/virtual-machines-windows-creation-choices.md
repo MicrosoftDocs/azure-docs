@@ -63,7 +63,7 @@ Choose an image based on the operating system you want to run. Azure and its par
 [Create a virtual machine running Windows]: virtual-machines-windows-tutorial.md
 
 [Equivalent Resource Manager and Service Management commands for virtual machine operations with the Azure CLI for Mac, Linux, and Windows]:xplat-cli-azure-manage-vm-asm-arm.md
-[Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI]: virtual-machines-deploy-rmtemplates-azure-cli.md
+[Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI]: virtual-machines-linux-cli-deploy-templates.md
 [Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell]:  virtual-machines-windows-create-powershell.md
 [Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell]: virtual-machines-windows-ps-manage.md
 [Create a Windows VM with Resource Manager and PowerShell]: virtual-machines-windows-ps-create.md
