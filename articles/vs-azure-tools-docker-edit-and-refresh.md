@@ -59,7 +59,7 @@ This section will guide you through making sure that the default instance of Doc
  
 > [AZURE.NOTE] Each time you reboot your development machine, you’ll need to restart your local docker host. To do this, issue the following command at a command prompt: `docker-machine start default`
 
-## Using the Edit and Refresh feature to edit apps in a local Docker container
+## Editing an app running in a local Docker container
 Visual Studio 2015 Tools for Docker enables ASP .NET 5 Web app developers to test and run their application in a Docker container, make changes to the application in Visual Studio and refresh the browser to see changes applied to the app running inside of the container. 
 
 1. From the Visual Studio menu, select **File > New > Project**. 
