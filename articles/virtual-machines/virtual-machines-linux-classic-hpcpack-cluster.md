@@ -31,7 +31,7 @@ At a high level the following diagram shows the HPC Pack cluster you'll create.
 
 You'll use the Microsoft HPC Pack IaaS deployment script (**New-HpcIaaSCluster.ps1**) to automate the cluster deployment in Azure infrastructure services (IaaS). This Azure PowerShell script uses an HPC Pack VM image in the Azure Marketplace for fast deployment and provides a comprehensive set of configuration parameters to make the deployment easy and flexible. The script deploys the Azure virtual network, storage accounts, cloud services, domain controller, optional separate SQL Server database server, cluster head node, compute nodes, broker nodes, Azure PaaS (“burst”) nodes, and Linux compute nodes (Linux support introduced in [HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx)).
 
-For an overview of HPC Pack cluster deployment options, see the [Getting started guide for HPC Pack 2012 R2 and HPC Pack 2012](https://technet.microsoft.com/library/jj884144.aspx) and [Options to create and manage a high peformance computing (HPC) cluster in Azure with Microsoft HPC Pack](virtual-machines-hpcpack-cluster-options.md).
+For an overview of HPC Pack cluster deployment options, see the [Getting started guide for HPC Pack 2012 R2 and HPC Pack 2012](https://technet.microsoft.com/library/jj884144.aspx) and [Options to create and manage a high peformance computing (HPC) cluster in Azure with Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
 
 ### Prerequisites
 

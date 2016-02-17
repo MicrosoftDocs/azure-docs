@@ -111,7 +111,7 @@ in an Azure VM.
 
 ## Scenario 2. Deploy compute nodes in compute-intensive VMs (IaaS)
 
-In this scenario, you deploy the HPC Pack head node and cluster compute nodes on VMs joined to an Active Directory domain in an Azure virtual network. HPC Pack provides a number of [deployment options in Azure VMs](virtual-machines-hpcpack-cluster-options.md), including automated deployment scripts and Azure quickstart templates. As an example, the considerations and steps below guide you to use
+In this scenario, you deploy the HPC Pack head node and cluster compute nodes on VMs joined to an Active Directory domain in an Azure virtual network. HPC Pack provides a number of [deployment options in Azure VMs](virtual-machines-linux-hpcpack-cluster-options.md), including automated deployment scripts and Azure quickstart templates. As an example, the considerations and steps below guide you to use
 the [HPC Pack IaaS deployment
 script](virtual-machines-hpcpack-cluster-powershell-script.md) to
 automate most of this process.
