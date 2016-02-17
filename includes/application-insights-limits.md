@@ -19,4 +19,4 @@ Metric name length |  100 | 100
 
 <sup>2</sup> You can purchase additional capacity beyond 50 million.
  
-[About pricing and quotas in Application Insights](app-insights-pricing.md)
+[About pricing and quotas in Application Insights](../articles/application-insights/app-insights-pricing.md)

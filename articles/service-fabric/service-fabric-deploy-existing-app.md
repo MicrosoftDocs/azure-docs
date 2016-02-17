@@ -1,40 +1,41 @@
 <properties
-   pageTitle="Deploy a custom application to Azure Service Fabric | Microsoft Azure"
+   pageTitle="Deploy an existing executable to Azure Service Fabric | Microsoft Azure"
    description="Walkthrough on how to package an existing application so it can be deployed on an Azure Service Fabric cluster"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
    manager="timlt"
    editor=""/>
-
+   
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
-# Deploy a custom application to Service Fabric
+# Deploy a guest executable to Service Fabric
 
-You can run any type of existing application, such as Node.js, Java, or native applications in Azure Service Fabric. Service Fabric treats those applications like stateless services and places them on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy an existing application to a Service Fabric cluster.
+You can run any type of application, such as Node.js, Java, or native applications in Azure Service Fabric. Service Fabric terminologie refers to those types of applications as guest executables. 
+Guest executables are treated by Service Fabric like stateless services. As a result they will be placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster.
 
-## Benefits of running a custom application in Service Fabric
+## Benefits of running a guest executable in Service Fabric
 
-There are several advantages that come with running an application in a Service Fabric cluster:
+There are several advantages that come with running a guest executable in a Service Fabric cluster:
 
 - High availability. Applications that are run in Service Fabric are highly available out of the box. Service Fabric makes sure that one instance of an application is always up and running.
 - Health monitoring. Out of the box, Service Fabric health monitoring detects if an application is up and running and provides diagnostics information in case of failure.   
 - Application lifecycle management. Besides providing upgrades with no downtime, Service Fabric also allows you to roll back to the previous version if there is an issue during an upgrade.    
 - Density. You can run multiple applications in a cluster, which eliminates the need for each application to run on its own hardware.
 
-In this article, we cover the basic steps to package an existing application and deploy it to Service Fabric.  
+In this article, we cover the basic steps to package a guest executable and deploy it to Service Fabric.  
 
 
 ## Quick overview of application and service manifest files
 
-Before you get into the details of deploying an existing application, it is useful to understand the Service Fabric packaging and deployment model. The Service Fabric packaging deployment model relies mainly on two files:
+Before you get into the details of deploying a guest executable, it is useful to understand the Service Fabric packaging and deployment model. The Service Fabric packaging deployment model relies mainly on two files:
 
 
 * **Application manifest**
@@ -48,7 +49,7 @@ Before you get into the details of deploying an existing application, it is usef
 
   The service manifest describes the components of a service. It includes data, such as the name and type of service (which is information that Service Fabric uses to manage the service), and its code, configuration, and data components. The service manifest also includes some additional parameters that can be used to configure the service once it is deployed.
 
-  We are not going into the details of all the different parameters that are available in the service manifest. We will go through the subset that is required to make an existing application run on Service Fabric.
+  We are not going into the details of all the different parameters that are available in the service manifest. We will go through the subset that is required to make an guest executable run on Service Fabric.
 
 
 ## Application package file structure
@@ -75,7 +76,7 @@ Note: You don't have to create the `config` and `data` directories if you don't 
 
 ## Process of packaging an existing app
 
-The process of packaging an existing application is based on the following steps:
+The process of packaging a guest executable is based on the following steps:
 
 1. Create the package directory structure.
 2. Add the application's code and configuration files.
@@ -220,7 +221,7 @@ In the `ServiceManifestImport` element, you can specify one or more services tha
 ```
 
 ### Set up logging
-For existing applications, it is very useful to be able to see console logs to find out if the application and configuration scripts show any errors.
+For guest executables, it is very useful to be able to see console logs to find out if the application and configuration scripts show any errors.
 Console redirection can be configured in the `ServiceManifest.xml` file using the `ConsoleRedirection` element.
 
 ```xml
@@ -286,8 +287,8 @@ If you browse to the directory by using Server Explorer, you can find the workin
 
 
 ## Next steps
-In this article, you have learned how to package an existing application and deploy it to Service Fabric. As a next step, you can check out additional content for this topic.
+In this article, you have learned how to package a guest executable and deploy it to Service Fabric. As a next step, you can check out additional content for this topic.
 
-- [Sample for packaging and deploying a custom application on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), including a link to the prerelease of the packaging tool
-- [Deploy multiple custom applications](service-fabric-deploy-multiple-apps.md)
+- [Sample for packaging and deploying a guest executable on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), including a link to the prerelease of the packaging tool
+- [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
 - [Create your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
