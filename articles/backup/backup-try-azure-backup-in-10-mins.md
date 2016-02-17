@@ -39,6 +39,10 @@ To back up files and data from a Windows machine to Azure, you need to create a 
 
 2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault** and choose **Quick Create**.
 
+    If you use the Ibiza portal to access your backup vaults, when you click Backup, you will be automatically taken to the Classic portal. All editing or creation of backup vaults is done through the Classic portal.
+
+    ![how to access the backup vaults](./media/backup-configure-vault/new-portal.png)
+
     ![Create vault](./media/backup-configure-vault/createvault1.png)
 
     For **Name**, enter a friendly name to identify the backup vault.
