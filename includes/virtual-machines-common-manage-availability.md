@@ -23,7 +23,7 @@ Each virtual machine in your Availability Set is assigned an Update Domain (UD) 
 FDs define the group of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your Availability Set are separated across two FDs. While placing your virtual machines into an Availability Set does not protect your application from operating system or application-specific failures, it does limit the impact of potential physical hardware failures, network outages, or power interruptions.
 
 <!--Image reference-->
-   ![UD FD configuration](././media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+   ![UD FD configuration](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 >[AZURE.NOTE] For instructions, see [How to Configure an Availability Set for virtual machines] [].
 
@@ -33,11 +33,11 @@ If the virtual machines in your Availability Set are all nearly identical and se
 For example, you could put all the virtual machines in the front-end of your application running IIS, Apache, Nginx, etc., in a single Availability Set. Make sure that only front-end virtual machines are placed in the same Availability Set. Similarly, make sure that only data-tier virtual machines are placed in their own Availability Set, like your replicated SQL Server virtual machines or your MySQL virtual machines.
 
 <!--Image reference-->
-   ![Application tiers](././media/virtual-machines-common-manage-availability/application-tiers.png)
+   ![Application tiers](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 
 ### Combine the Load Balancer with Availability Sets
-Combine the Azure Load Balancer with an Availability Set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Note that not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, read [Load Balancing virtual machines](../load-balance-virtual-machines.md).
+Combine the Azure Load Balancer with an Availability Set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Note that not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, read [Load Balancing virtual machines](virtual-machines-load-balance.md).
 
 If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event will affect the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and Availability Set enables traffic to be continuously served by at least one instance.
 
