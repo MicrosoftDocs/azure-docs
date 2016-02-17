@@ -28,7 +28,7 @@ run job submission tools.
 ## Prerequisites
 
 * **HPC Pack head node deployed in an Azure VM** - We recommend that you use
-automated tools such as an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/) or an [Azure PowerShell script](virtual-machines-hpcpack-cluster-powershell-script.md)
+automated tools such as an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/) or an [Azure PowerShell script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)
 to deploy the head node and cluster. You will need the DNS
 name of the head node and the credentials of a cluster administrator to
 complete the steps in this article.
@@ -55,7 +55,7 @@ configure the components by running the HPC PowerShell script
 For detailed procedures, see [Install the Microsoft HPC Pack Web
 Components](http://technet.microsoft.com/library/hh314627.aspx).
 
->[AZURE.TIP] Certain Azure quickstart templates install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md) to create the cluster,
+>[AZURE.TIP] Certain Azure quickstart templates install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to create the cluster,
 you can optionally install and configure the web web components as part of the deployment.
 
 **To install the web components**
