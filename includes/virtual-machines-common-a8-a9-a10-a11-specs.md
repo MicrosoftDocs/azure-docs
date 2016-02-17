@@ -1,24 +1,4 @@
-<properties
- pageTitle="About the A8, A9, A10, and A11 instances | Microsoft Azure"
- description="Get background information and considerations for using the Azure A8, A9, A10, and A11 compute-intensive sizes for virtual machines and cloud services."
- services="virtual-machines, cloud-services"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""
- tags="azure-resource-manager,azure-service-management"/>
-<tags
-ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-multiple"
- ms.workload="infrastructure-services"
- ms.date="01/26/2016"
- ms.author="danlep"/>
 
-# About the A8, A9, A10, and A11 compute-intensive instances
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 This article provides background information and considerations for using the Azure A8, A9, A10, and A11 instances, also known as *compute-intensive* instances. Key features of these instances include:
@@ -128,4 +108,4 @@ MPI | MS-MPI 2012 R2 or later, either stand-alone or installed via HPC Pack 2012
 
 * For details about availability and pricing of the A8, A9, A10, and A11 instances, see [Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) and [Cloud Services pricing](https://azure.microsoft.com/pricing/details/cloud-services/).
 * To deploy and configure a Linux-based cluster with A8 and A9 instances to access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md).
-* To get started deploying and using A8 and A9 instances with HPC Pack on Windows, see [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-classic-hpcpack-cluster-rdma.md).
+* To get started deploying and using A8 and A9 instances with HPC Pack on Windows, see [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-classic-hpcpack-cluster-rdma.md).
