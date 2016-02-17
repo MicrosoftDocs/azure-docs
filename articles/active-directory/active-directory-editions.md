@@ -206,7 +206,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 **More details:**
 
-- [Integrating your on-premises identities with Azure Active Directory](articles/active-directory-aadconnect.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
 <br>
 <hr>
