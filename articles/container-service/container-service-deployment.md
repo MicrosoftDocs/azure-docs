@@ -172,6 +172,5 @@ Now that you have a functioning cluster, visit these documents for connection an
  
 - [Connect with the ACS cluster](./container-service-connect.md)
 - [Working with ACS and Mesos](./container-service-mesos-marathon-rest.md)
-- [Working with ACS and Docker Swarm](./container-service-docker-swarm.md)
 
  
