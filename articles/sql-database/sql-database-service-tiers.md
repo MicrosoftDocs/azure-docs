@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/03/2016"
+	ms.date="02/17/2016"
 	ms.author="jeffreyg"/>
 
 # SQL Database options and performance: Understand what's available in each service tier
