@@ -1,25 +1,4 @@
-<properties
-	pageTitle="Oracle on Azure VMs | Microsoft Azure"
-	description="Find the articles that describe how to set up Oracle software on Windows-based or Linux-based Azure virtual machines."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="bbenz"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
 
-<tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
-	ms.devlang="na"
-	ms.topic="index-page"
-	ms.date="01/12/2016"
-	ms.author="bbenz"/>
-
-# Oracle software hosted on Azure virtual machines
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
  
 
 Set up your first or next dev/test or production Oracle database running on a virtual machine in Azure infrastructure services. Take advantage of ease of configuration and the ability to quickly expand the Oracle database workload to include new capacity.
