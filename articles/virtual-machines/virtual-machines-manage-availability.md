@@ -70,4 +70,4 @@ Avoid leaving a single instance virtual machine in an Availability Set by itself
 [Configure each application tier into separate Availability Sets]: #configure-each-application-tier-into-separate-availability-sets
 [Combine the Load Balancer with Availability Sets]: #combine-the-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in Availability Sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[How to Configure An Availability Set for virtual machines]: virtual-machines-how-to-configure-availability.md
+[How to Configure An Availability Set for virtual machines]: virtual-machines-windows-classic-configure-availability.md
