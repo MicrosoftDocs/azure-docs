@@ -140,6 +140,7 @@ Each of these packages can be independently versioned and upgraded. Similar to C
 #### Cloud Services
 
 Configuration settings from ServiceConfiguration.*.cscfg can be accessed through ```RoleEnvironment```. These settings are globally available to all role instances in the same Cloud Service deployment.
+
 ```C#
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
