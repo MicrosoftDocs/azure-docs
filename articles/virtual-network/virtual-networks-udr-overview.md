@@ -1,6 +1,6 @@
 <properties 
    pageTitle="What are User Defined Routes and IP Forwarding?"
-   description="Understanding UDR and IP Forwarding"
+   description="Learn how to use User Defined Routes (UDR) and IP Forwarding to forward traffic to network virtual appliances in Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"

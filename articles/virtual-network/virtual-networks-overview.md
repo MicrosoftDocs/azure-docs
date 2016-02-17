@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Virtual Network (VNet) Overview"
-   description="Learn about virtual networks (VNets) in Azure"
+   description="Learn about virtual networks (VNets) in Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
