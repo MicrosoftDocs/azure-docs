@@ -68,7 +68,7 @@ Pick which service you are trying to collect diagnostics on.
 
 
 ## Virtual Machines using Azure Diagnostics
-- [Set up Azure Diagnostics on an Azure Virtual Machine](./virtual-machines/virtual-machines-dotnet-diagnostics.md)
+- [Set up Azure Diagnostics on an Azure Virtual Machine](./virtual-machines-dotnet-diagnostics.md)
 - [Use Visual Studio to trace Azure Virtual Machines](./vs-azure-tools-debug-cloud-services-virtual-machines.md)
 - [Use PowerShell to set up diagnostics on Azure Virtual Machines](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
 - [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](./virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md)
