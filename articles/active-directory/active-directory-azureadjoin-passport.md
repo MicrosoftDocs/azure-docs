@@ -53,7 +53,7 @@ By enabling Microsoft Passport, enterprises can make their resources even more s
 
 The preceding diagram illustrates the private/public key pair and the validation by the identity provider. Each of these steps is explained in detail here:
 
-1. The user proves their identity through multiple built-in proofing methods (gestures, physical smart cards, multi-factor authentication) and sends this information to an Identity Provider (IDP) like Azure Active Directory or Active Directory.
+1. The user proves their identity through multiple built-in proofing methods (gestures, physical smart cards, multi-factor authentication) and sends this information to an Identity Provider (IDP) like Azure Active Directory or on-premises Active Directory.
 
 2. The device then creates the key, attests the key, takes the public portion of this key, attaches it with station statements, signs in, and sends it to the IDP to register the key.
 
