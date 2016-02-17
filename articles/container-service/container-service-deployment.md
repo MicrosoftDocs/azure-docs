@@ -24,12 +24,12 @@ The Azure Container Service provides rapid deployment of popular open source con
 
 This documents steps through deploying and Azure Container Service cluster using the [Azure Portal](#creating-a-service-using-the-azure-portal), [Azure CLI](#creating-a-service-using-the-azure-cli), and [Azure PowerShell module](#creating-a-service-using-powershell).  
    
-## Creating a Service using the Azure Portal
+## Creating a service using the Azure Portal
  
 Select one of the following templates to deploy a Mesos or Docker Swarm cluster. **Note** - Both of these templates are the same, with the exception of the default orchestrator selection.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/acs/acs-swarm](https://github.com/Azure/azure-quickstart-templates/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
  
 Each template page has a 'deploy to Azure' button, clicking this button will launch the Azure portal with a form that looks something like this. <br /> 
 
@@ -63,14 +63,14 @@ Now sit back and relax while the cluster is created. Once complete, you will see
  
 ![Finished](media/final.png) 
 
-## Creating a Service using the Azure CLI
+## Creating a service using the Azure CLI
 
 To create an instance of the Azure Container Service using the command line, you will need an Azure subscription. If you don't have one then you can sign up for a free trial. You will also need to have installed and configured the Azure CLI.
  
 Select one of the following templates to deploy a Mesos or Docker Swarm cluster. **Note** - Both of these templates are the same, with the exception of the default orchestrator selection.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/acs/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/acs/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
  
 Next, make sure that the Azure CLI has been connected to an Azure subscription. This can be done using the following command.
 
@@ -107,7 +107,7 @@ Once you have a Resource Group you can create your cluster with this command, wh
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI
 ```
  
-### Providing Template Parameters
+### Providing template parameters
  
 This version of the command requires the user to define parameters interactively. If you want to provide parameters as a json formatted string you can do so with the `-p` switch. For example:
  
@@ -123,14 +123,14 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
  
 An example parameters file named `azuredeploy.parameters.json` can be found with the ACS templates in GitHub.
  
-## Creating a Service using PowerShell
+## Creating a service using PowerShell
 
 An ACS cluster can also be deployed with PowerShell. This document is based on the version 1.0 and greater Azure [PowerShell module](https://azure.microsoft.com/blog/azps-1-0/). 
 
 Select one of the following templates to deploy a Mesos or Docker Swarm cluster. **Note** - Both of these templates are the same, with the exception of the default orchestrator selection.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/acs/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/acs/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
 
 Before creating a cluster in your Azure subscription, verify that your PowerShell session has been logged into Azure. This can be completed with the `Get-AzureRMSubscription` command.
 
@@ -166,7 +166,7 @@ Below is the full command with parameters included. You can provide your own val
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
  
-## Next Steps
+## Next steps
  
 Now that you have a functioning cluster, visit these documents for connection and management details.
  
