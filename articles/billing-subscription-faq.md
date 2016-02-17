@@ -25,9 +25,9 @@ This article answers some of the most common questions about Azure Billing and S
 
 [Hello test test](#hello-test-test)
 
-[Hello test test test test](#Hello-test-test-test-test)
+[Hello test test test test](#hello-test-test-test-test)
 
-[Hello test test test](#Hello-test-test-test)
+[Hello test test test](#hello-test-test-test)
 
 
 ## Billing
