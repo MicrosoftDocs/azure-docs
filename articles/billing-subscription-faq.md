@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/14/2016"
+	ms.date="02/16/2016"
 	ms.author="genli"/>
 
-#  Azure Billing and Subscription FAQ test 33
+#  Azure Billing and Subscription FAQ
 
 This article answers some of the most common questions about Azure Billing and Subscription.
 
