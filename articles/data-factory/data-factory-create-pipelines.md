@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creating pipelines" 
+	pageTitle="Pipelines and Activities in Azure Data Factory | Microsoft Azure" 
 	description="Understand Azure Data Factory pipelines and learn how to create them to move and transform data to produce information that can be used to gain insights" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="12/08/2015" 
 	ms.author="spelluru"/>
 
-# Understanding Pipelines & Activities
+# Pipelines and Activities in Azure Data Factory
 This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. This article assumes you have gone through the [Overview](data-factory-introduction.md) and [Creating Datasets](data-factory-create-datasets.md) articles prior to this.
 
 ## What is a pipeline?

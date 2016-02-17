@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="02/16/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Article Index for Application Management in Azure Active Directory
@@ -101,6 +101,7 @@ If your organization maintains a Windows Server Active Directory on premises alo
 | General guidance for managing environments with both on-premises Active Directory and Azure Active Directory | [Azure AD Hybrid Identity Design Considerations](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrating your On-Premises Identities with Azure Active Directory](active-directory-aadconnect.md) |
 | Guidance on using Password Sync to enable SSO | [Implement Password Synchronization with Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Troubleshoot Password Synchronization](https://support.microsoft.com/en-us/kb/2855271) |
 | Guidance on using Password Writeback to enable SSO | [Getting Started with Password Management in Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Troubleshoot Password Writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Guidance on using third party identity providers to enable SSO | [List of Compatible Third-Party Identity Providers That Can Be Used to Enable Single Sign-On](https://aka.ms/ssoproviders) | 
 | How Windows 10 users can enjoy the benefits of single sign-on via Azure AD Join | [Extending Cloud Capabilities to Windows 10 Devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md) |
 
 Azure AD Connect is available for [all editions of Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Azure AD Self-Service Password Reset is available for [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Password Writeback to on-prem AD is an [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) feature. 

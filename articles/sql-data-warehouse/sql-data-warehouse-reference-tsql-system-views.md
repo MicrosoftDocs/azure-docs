@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/16/2016"
+   ms.date="02/17/2016"
    ms.author="barbkess;sonyama"/>
 
 # System views
@@ -182,7 +182,7 @@ This is why each of these DMV's has a specific column called pdw_node_id. This i
 | sys.dm_pdw_nodes_tran_session_transactions | [sys.dm_tran_session_transactions (Transact-SQL)](http://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators | [sys.dm_tran_top_version_generators (Transact-SQL)](http://msdn.microsoft.com/library/ms188778.aspx) |
 
-## SQL Server 2016 PolyBase dmvs available in SQL Data Warehouse
+## SQL Server 2016 PolyBase DMVs available in SQL Data Warehouse
 
 - [sys.dm_exec_compute_node_errors (Transact-SQL)](http://msdn.microsoft.com/library/mt146380.aspx)
 - [sys.dm_exec_compute_node_status (Transact-SQL)](http://msdn.microsoft.com/library/mt146382.aspx)
