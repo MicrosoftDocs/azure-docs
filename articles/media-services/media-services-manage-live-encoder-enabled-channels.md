@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="02/14/2016" 
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services
@@ -32,6 +32,9 @@ Starting with the Media Services 2.10 release, when you create a Channel, you ca
 - **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges.
 
 >[AZURE.NOTE]This topic discusses attributes of channels that are enabled to perform live encoding (**Standard** encoding type). For information about working with channels that are not enabled to perform live encoding, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md).
+>
+>Make sure to review the [Considerations](media-services-manage-live-encoder-enabled-channels.md#Considerations) section.
+
 
 
 ##Billing Implications
@@ -440,6 +443,7 @@ Stopped|Stopped|No
 - Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived at Microsoft.com if you need to run a Channel for longer periods of time.
 - Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 - When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-manage-channels-overview.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
+- The encoding preset uses the notion of "max frame rate" of 30 fps. So if the input is 60fps/59.97i, the input frames are dropped/de-interlaced to 30/29.97 fps. If the input is 50fps/50i, the input frames are dropped/de-interlaced to 25 fps. If the input is 25 fps, output remains at 25 fps.
 - Don't forget to STOP YOUR CHANNELS when done. If you don't, billing will continue. 
 
 ##Known Issues
