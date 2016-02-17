@@ -32,7 +32,7 @@ This article shows you how to perform common scenarios using Blob storage. The s
 
 ## Create a Node.js application
 
-For instructions on how to create a Node.js application, see [Create a Node.js web app in Azure App Service], [Build and deploy a Node.js application to an Azure Cloud Service] (using Windows PowerShell), or [Build and deploy a Node.js web app to Azure using Web Matrix].
+For instructions on how to create a Node.js application, see [Create a Node.js web app in Azure App Service], [Build and deploy a Node.js application to an Azure Cloud Service] -- using Windows PowerShell, or [Build and deploy a Node.js web app to Azure using Web Matrix].
 
 ## Configure your application to access storage
 
