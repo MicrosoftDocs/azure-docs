@@ -359,7 +359,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 **More details:**
 
-- [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
+- [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
 <br>
 <hr>
