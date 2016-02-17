@@ -18,8 +18,6 @@
 
 # Managing Applications with Azure Active Directory
 
-## Overview
-
 Beyond the actual workflow or content, businesses have two basic requirements for all applications:
 
 1. To increase productivity, applications should be easy to discover and access
