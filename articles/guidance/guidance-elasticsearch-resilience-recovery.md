@@ -3,7 +3,7 @@
    description="Considerations related to resiliency and recovery for Elasticsearch."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
+   authors="masimms"
    manager="marksou"
    editor=""
    tags=""/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="01/29/2016"
-   ms.author="mabsimms"/>
+   ms.author="masimms"/>
    
 # Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery on Azure
 
@@ -23,15 +23,13 @@ This article is [part of a series](guidance-elasticsearch-introduction.md).
 
 A key feature of Elasticsearch is the support that it provides for resiliency in the event of node failures and/or network partition events. Replication is the most obvious way in which you can improve the resiliency of any cluster, enabling Elasticsearch to ensure that more than one copy of any data item is available on different nodes in case one node should become inaccessible. If a node becomes temporarily unavailable, other nodes containing replicas of data from the missing node can serve the missing data until the problem is resolved. In the event of a longer-term issue, the missing node can be replaced with a new one, and Elasticsearch can restore the data to the new node from the replicas.
 
-This document summarizes the resiliency and recovery options available with Elasticsearch when hosted in Azure, and describes some important aspects of an Elasticsearch cluster that you should consider to minimize the chances of data loss and extended data recovery times.
+Herein we summarize the resiliency and recovery options available with Elasticsearch when hosted in Azure, and describe some important aspects of an Elasticsearch cluster that you should consider to minimize the chances of data loss and extended data recovery times.
 
-This document also illustrates some sample tests that were performed to show the effects of different types of failures on an Elasticsearch cluster, and how the system responds as it recovers.
-
-## Cluster Resilience and Recovery Considerations
+This article also illustrates some sample tests that were performed to show the effects of different types of failures on an Elasticsearch cluster, and how the system responds as it recovers.
 
 An Elasticsearch cluster uses replicas to maintain availability and improve read performance. Replicas should be stored on different VMs from the primary shards that they replicate. The intention is that if the VM hosting a data node fails or becomes unavailable, the system can continue functioning using the VMs holding the replicas.
 
-### Using Dedicated Master Nodes
+## Using Dedicated Master Nodes
 
 One node in an Elasticsearch cluster is elected as the master node. The purpose of this node is to perform cluster management operations such as:
 
@@ -43,7 +41,7 @@ One node in an Elasticsearch cluster is elected as the master node. The purpose 
 
 You should consider using dedicated master nodes in critical clusters, and ensure that there are 3 dedicated nodes whose only role is to be master. This configuration reduces the amount of resource intensive work that these nodes have to perform (they do not store data or handle queries) and helps to improve cluster stability. Only one of these nodes will be elected, but the others will contain a copy of the system state and can take over should the elected master fail.
 
-### Controlling High Availability with Azure – Update Domains and Fault Domains 
+## Controlling High Availability with Azure – Update Domains and Fault Domains 
 
 Different VMs can share the same physical hardware. In an Azure datacenter, a single rack can host a number of VMs, and all of these VMs share a common power source and network switch. A single rack-level failure can therefore impact a number of VMs. Azure uses the concept of Fault Domains (FDs) to try and spread this risk. An FD roughly corresponds to a group of VMs that share the same rack. To ensure that a rack-level failure does not crash a node and the nodes holding all of its replicas simultaneously, you should ensure that the VMs are distributed across FDs.
 
@@ -107,7 +105,7 @@ You should consider the following points when selecting the snapshot storage mec
 - The HDFS plugin supports any HDFS-compatible file system provided that the correct Hadoop configuration is used with Elasticsearch.
 
   
-### Handling Intermittent Connectivity Between Nodes
+## Handling Intermittent Connectivity Between Nodes
 
 Intermittent network glitches, VM reboots after routine maintenance at the datacenter, and other similar events can cause nodes to become temporarily inaccessible. In these situations, where the event is likely to be short-lived, the overhead of rebalancing the shards occurs twice in quick succession (once when the failure is detected and again when the node become visible to the master) can become a significant overhead that impacts performance. You can prevent temporary node inaccessibility from causing the master to rebalance the cluster by setting the *delayed\_timeout* property of an index, or for all indexes. The example below sets the delay to 5 minutes:
 
@@ -128,7 +126,7 @@ In a network that is prone to interruptions, you can also modify the parameters 
 discovery.zen.fd.ping_retries: 6
 ```
 
-### Controlling Recovery
+## Controlling Recovery
 
 When connectivity to a node is restored after a failure, any shards on that node will need to be recovered to bring them up to date. By default, Elasticsearch recovers shards in the following order:
 
@@ -166,7 +164,7 @@ For more information, see [Indices Recovery](https://www.elastic.co/guide/en/ela
 
 > [AZURE.NOTE] A cluster with shards that require recovery will have a status of *yellow* to indicate that not all shards are currently available. When all the shards are available, the cluster status should revert to *green*. A cluster with a status of *red* indicates that one or more shards are physically missing; it may be necessary to restore data from a backup.
 
-### Preventing a Split Brain 
+## Preventing Split Brain 
 
 A split brain can occur if the connections between nodes fail. If a master node becomes unreachable to part of the cluster, an election will take place in the network segment that remains contactable and another node will become the master. In an ill-configured cluster, it is possible for each part of the cluster to have different masters resulting in data inconsistencies or corruption. This phenomenon is known as a *split brain*.
 
@@ -180,7 +178,7 @@ This value should be set to the lowest majority of the number of nodes that are 
 
 **Note:** It is possible for a split brain to occur if multiple master nodes in the same cluster are started simultaneously. While this occurrence is rare, you can prevent it by starting nodes serially with a short delay (5 seconds) between each one.
 
-### Handling Rolling Updates
+## Handling Rolling Updates
 
 If you are performing a software upgrade to nodes yourself (such as migrating to a newer release or performing a patch), you may need to work on individual nodes that requires taking them offline while keeping the remainder of the cluster available. In this situation, consider implementing the following process:
 
@@ -228,7 +226,7 @@ If you can, stop indexing new data during this process. This will help to minimi
 
 Beware of automated updates to items such as the JVM (ideally, disable automatic updates for these items), especially when running Elasticsearch under Windows. The Java Update agent can download the most recent version of Java automatically, but may require Elasticsearch to be restarted for the update to take effect. This can result in uncoordinated temporary loss of nodes, depending on how the Java Update agent is configured. This can also result in different instances of Elasticsearch in the same cluster running different versions of the JVM which may cause compatibility issues.
 
-### Testing and Analyzing Elasticsearch Resilience and Recovery
+## Testing and Analyzing Elasticsearch Resilience and Recovery
 
 This section describes a series of tests that were performed to evaluate the resilience and recovery of an Elasticsearch cluster comprising three data nodes and three master nodes.
 
@@ -248,9 +246,9 @@ The following sections summarize the results of these tests, noting any degradat
 
 > [AZURE.NOTE] The test harnesses used to perform these tests are available online. You can adapt and use these harnesses to verify the resilience and recoverability of your own cluster configurations. For more information, see the document How-To: Run the Automated Elasticsearch Resilience Tests.
 
-### Node Failure and Restart with No Data Loss: Results
+## Node Failure and Restart with No Data Loss: Results
 
-<!-- TODO -->
+<!-- TODO; reformat this pdf for display inline -->
 
 The results of this test are shown in the file [ElasticsearchRecoveryScenario1.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario1.pdf). The graphs show performance profile of the workload and physical resources for each node in the cluster. The initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes before being restarted. The statistics for a further 20 minutes are illustrated; the system takes approximately 10 minutes to recover and stabilize. This is illustrated by the transaction rates and response times for the different workloads.
 
@@ -267,9 +265,9 @@ Note the following points:
 - The shards for the indexes are not distributed exactly equally across all nodes; there are two indexes comprising 5 shards and 1 replica each, making a total of 20 shards. Two nodes will therefore contain 6 shards while the other two hold 7 each. This is evident in the CPU utilization graphs during the initial 20-minute period; node 0 is less busy than the other two. After recovery is complete, some switching seems to occur as node 2 appears to become the more lightly loaded node.
 
     
-### Node Failure with Catastrophic Data Loss: Results
+## Node Failure with Catastrophic Data Loss: Results
 
-<!-- TODO -->
+<!-- TODO; reformat this pdf for display inline -->
 
 The results of this test are depicted in the file [ElasticsearchRecoveryScenario2.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario2.pdf). As with the first test, the initial part of the graphs shows the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. During this interval, the Elasticsearch data on this node is removed, simulating catastrophic data loss, before being restarted. Full recovery appears to take 12-15 minutes before the levels of performance seen before the test are restored.
 
@@ -287,9 +285,9 @@ Note the following points:
 
 - The network activity for all three nodes indicate bursts of activity as data is transmitted and received between nodes. In scenario 1, only node 0 exhibited as much network activity, but this activity seemed to be sustained for a longer period. Again, this difference could be due to the efficiencies of transmitting the entire data for a shard as a single request rather than the series of smaller requests received when recovering a shard.
 
-### Node Failure and Restart with Shard Reallocation: Results
+## Node Failure and Restart with Shard Reallocation: Results
 
-<!-- TODO -->
+<!-- TODO; reformat this pdf for display inline -->
 
 The file [ElasticsearchRecoveryScenario3.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario3.pdf) illustrates the results of this test. As with the first test, the initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. At this point, the Elasticsearch cluster attempts to recreate the missing shards and rebalance the shards across the remaining nodes. After 5 minutes node 0 is brought back online, and once again the cluster has to rebalance the shards. Performance is restored after 12-15 minutes.
 
@@ -303,9 +301,10 @@ Note the following points:
 
 - The CPU utilization and disk activity graphs for node 0 shows very reduced initial action during the recovery phase. This is because at this point, node 0 is not serving any data. After a period of approximately 5 minutes, the node bursts into action shown by the sudden increase in network, disk, and CPU activity. This is most likely caused by the cluster redistributing shards across nodes. Node 0 then shows normal activity.
   
-### Rolling Updates: Results
+## Rolling Updates: Results
 
-<!-- TODO -->
+<!-- TODO; reformat this pdf for display inline -->
+
 The results of this test, in the file [ElasticsearchRecoveryScenario4.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario4.pdf), show how each node is taken offline and then brought back up again in succession. Each node is shut down for 5 minutes before being restarted at which point the next node in sequence is stopped.
 
 Note the following points:
