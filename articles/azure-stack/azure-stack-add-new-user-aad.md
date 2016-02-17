@@ -20,20 +20,6 @@
 
 After [deploying Azure Stack POC](azure-stack-run-powershell-script.md), create at least one tenant user account so you can explore the tenant portal.
 
-## Create an Azure Stack tenant account using  PowerShell
-
-No Azure subscription is required when using PowerShell to create an account.
-
-1.  Install the [Microsoft Online Services Sign-In Assistant for IT Professionals RTW](http://go.microsoft.com/fwlink/?LinkID=286152).
-
-2.  Install the [Azure Active Directory Module for Windows PowerShell (64-bit version)](http://go.microsoft.com/fwlink/p/?linkid=236297) and run it.
-
-3.  Run the following cmdlets:
-
-	    $msolcred = get-credential (Now input the AAD account and password you used to deploy Azure Stack.
-	    connect-msolservice -credential $msolcred
-	    $user = new-msoluser -DisplayName "Tenant Admin" -UserPrincipalName \<username\>@\<yourdomainname\> -Password \<password\>
-		Add-MsolRoleMember -RoleName "Company Administrator" -RoleMemberType User -RoleMemberObjectId $user.ObjectId
 
 ## Create an Azure Stack tenant account using the Azure portal
 
@@ -71,6 +57,6 @@ You must have an Azure subscription to use the Azure portal.
 
 16. Log in to `https://portal.azurestack.local` with the new account to see the tenant portal.
 
-## Next Steps
+## Next steps
 
 [Enable multiple concurrent user connections](azure-stack-enable-multiple-concurrent-users.md)

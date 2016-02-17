@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/11/2015" 
+	ms.date="02/05/2016" 
 	ms.author="awills"/>
 
 # How do I ... in Application Insights?
@@ -36,7 +36,7 @@ If you want to set an alert on **Server exceptions**, you might have to do [some
 ### Email on exceptions
 
 1. [Set up exception monitoring](app-insights-asp-net-exceptions.md)
-2. [Set an alert](app-insights-alert.md) on the Exception count metric
+2. [Set an alert](app-insights-alerts.md) on the Exception count metric
 
 
 ### Email on an event in my app
@@ -57,7 +57,7 @@ Because alerts have two states, you have to send a low value when you consider t
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Create a chart in [metric explorer](app-insights-metric-explorer.md) to see your alarm:
+Create a chart in [metric explorer](app-insights-metrics-explorer.md) to see your alarm:
 
 ![](./media/app-insights-how-do-i/010-alarm.png)
 
@@ -201,6 +201,7 @@ If you want a list of users with data such as what pages they look at or how oft
 
 * In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), disable any modules you don't need, such the performance counter collector.
 * Use [Sampling and filtering](app-insights-api-filtering-sampling.md) at the SDK.
+* In your web pages, Limit the number of Ajax calls reported for every page view. In the script snippet after `instrumentationKey:...` , insert: `,maxAjaxCallsPerView:3` (or a suitable number).
 * If you're using [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), compute the aggregate of batches of metric values before sending the result. There's an overload of TrackMetric() that provides for that.
 
 

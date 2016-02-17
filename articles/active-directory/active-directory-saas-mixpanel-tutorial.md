@@ -3,7 +3,7 @@
 	description="Learn how to configure single sign-on between Azure Active Directory and Mixpanel."
 	services="active-directory"
 	documentationCenter=""
-	authors="ashimaabrol"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="v-aabrol"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with Mixpanel

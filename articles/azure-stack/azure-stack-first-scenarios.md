@@ -33,6 +33,6 @@ Then, sign in as a tenant and:
 
 2.  [Use the services](azure-stack-subscribe-plan-provision-vm.md#provision-a-virtual-machine) provided by the offer’s plan to create a virtual machine.
 
-## Next Steps
+## Next steps
 
 [Create a plan](azure-stack-create-plan.md)

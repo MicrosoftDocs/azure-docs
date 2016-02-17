@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="01/07/2016"
+   ms.date="02/02/2016"
    ms.author="elizapo"/>
 
 # SQL Azure with Azure RemoteApp
@@ -22,7 +22,7 @@ Often when customers choose to host their Windows applications in the cloud with
 
 ## Migrate your SQL data
 
-Start with [Migrating a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md), this article explains how to do this. 
+Start with [Migrating a SQL Server database to Azure SQL Database](../sql-database/sql-database-cloud-migrate.md). 
 
 ## Configure Azure RemoteApp
 Host your Windows application in Azure RemoteApp. Below is a very high level step-by-step:
@@ -37,11 +37,11 @@ Host your Windows application in Azure RemoteApp. Below is a very high level ste
 ## App and SQL configuration considerations:
 There are a few points to consider when using Azure SQL with RemoteApp:
 
-Learn [how to configure an Azure SQL database firewall](sql-database-firewall-configure.md). An excerpt from the article states, “Initially, all access to your Azure SQL Database server is blocked by the firewall. In order to begin using your Azure SQL Database server, you must go to the Classic Portal and specify one or more server-level firewall rules that enable access to your Azure SQL Database server. Use the firewall rules to specify which IP address ranges from the Internet are allowed, and whether or not Azure applications can attempt to connect to your Azure SQL Database server.”
+Learn [how to configure an Azure SQL database firewall](../sql-database/sql-database-firewall-configure.md). An excerpt from the article states, “Initially, all access to your Azure SQL Database server is blocked by the firewall. In order to begin using your Azure SQL Database server, you must go to the Classic Portal and specify one or more server-level firewall rules that enable access to your Azure SQL Database server. Use the firewall rules to specify which IP address ranges from the Internet are allowed, and whether or not Azure applications can attempt to connect to your Azure SQL Database server.”
 
 Also, when a computer attempts to connect to your database server from the Internet, the firewall checks the originating IP address of the request against the full set of server-level and (if required) database-level firewall rules. “If the IP address of the request is within one of the ranges specified in the server-level firewall rules, the connection is granted to your Azure SQL Database server.” Hence, we can make use of IP Ranges and not just individual source IP addresses.
 
-Follow the step by step instructions in [How to: Configure firewall settings on SQL Database using the Azure Portal](sql-database-configure-firewall-settings.md) to specify the IP range. When you are configuring the SQL Firewall rules, please provide the IP range of the subnet that is specified for the Azure RemoteApp collection. This should allow the ARA servers to connect to the SQL DB even though they will have dynamically-assigned IP Addresses.
+Follow the step by step instructions in [How to: Configure firewall settings on SQL Database using the Azure Portal](../sql-database/sql-database-configure-firewall-settings.md) to specify the IP range. When you are configuring the SQL Firewall rules, please provide the IP range of the subnet that is specified for the Azure RemoteApp collection. This should allow the ARA servers to connect to the SQL DB even though they will have dynamically-assigned IP Addresses.
 
 ## Troubleshooting
 If the experience of using a client application hosted in Azure RemoteApp that connects to a SQL database where hosted on Azure or on-premises is slow there could be a few reasons why.  

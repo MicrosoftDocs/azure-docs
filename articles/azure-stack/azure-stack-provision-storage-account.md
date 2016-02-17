@@ -32,10 +32,10 @@ Storage accounts include Blob and Table services, and the unique namespace for y
 
 6.  Click **Create**.
 
-## Next Steps
+## Next steps
 
 [Use Azure Resource Manager templates](azure-stack-arm-templates.md)
 
 [Learn about Azure storage accounts](../storage/storage-create-storage-account.md)
 
-[Download the Azure Stack Azure-consistent Storage Validation Guide](http://download.microsoft.com/download/A/3/0/A301E0CF-06D3-47BD-AA65-4B3108D5974D/Azure)
+[Download the Azure Stack Azure-consistent Storage Validation Guide](http://download.microsoft.com/download/A/3/0/A301E0CF-06D3-47BD-AA65-4B3108D5974D/Azure Stack Azure-consistent Storage Validation Guide.docx)

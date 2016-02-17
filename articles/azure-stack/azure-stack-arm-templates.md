@@ -82,7 +82,7 @@ Deploy a simple Windows VM that includes a virtual network (with DNS), public IP
 
 To cancel a running template deployment, use the `Stop-AzureRmResourceGroupDeployment` PowerShell cmdlt.
 
-## Next Steps
+## Next steps
 
 [Deploy templates with the portal](azure-stack-deploy-template-portal.md)
 

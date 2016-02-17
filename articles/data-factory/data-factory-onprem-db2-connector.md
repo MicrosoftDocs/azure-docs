@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Move data from DB2 using Azure Data Factory
@@ -214,7 +214,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	}
 
 
-## DB2 Linked Service properties
+## DB2 linked service properties
 
 The following table provides description for JSON elements specific to DB2 linked service. 
 
@@ -232,7 +232,7 @@ The following table provides description for JSON elements specific to DB2 linke
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises DB2 data source. 
 
 
-## DB2 Dataset type properties
+## DB2 dataset type properties
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
@@ -242,7 +242,7 @@ The typeProperties section is different for each type of dataset and provides in
 | -------- | ----------- | -------- | 
 | tableName | Name of the table in the DB2 Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) |
 
-## DB2 Copy Activity type properties
+## DB2 copy activity type properties
 
 For a full list of sections & properties available for defining activities please see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
 

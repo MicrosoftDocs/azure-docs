@@ -135,7 +135,18 @@ Multi-phase swap is available to simplify validation in the context of configura
 
 <a name="Rollback"></a>
 ## To rollback a production app after swap ##
+
 If any errors are identified in production after a slot swap, roll the slots back to their pre-swap states by swapping the same two slots immediately.
+
+<a name="Warm-up"></a>
+## Custom warm-up before swap ##
+
+Some apps may require custom warm-up actions. The applicationInitialization configuration element in web.config allows you to specify custom initialization actions to be performed before a request is received. The swap operation will wait for this custom warm-up to complete. Here is a sample web.config fragment.
+
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[web app hostname]" />
+        <add initializationPage="/Home/About" hostname="[web app hostname]" />
+    </applicationInitialization>
 
 <a name="Delete"></a>
 ## To delete a deployment slot##
@@ -151,7 +162,7 @@ In the blade for a deployment slot, click **Delete** in the command bar.
 
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing web app deployment slots in Azure App Service.
 
-- For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](../install-configure-powershell.md).  
+- For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](../powershell-install-configure.md).  
 
 - In order to use the new Azure Resource Manager mode for PowerShell cmdlets start with the following: `Switch-AzureMode -Name AzureResourceManager`.
 

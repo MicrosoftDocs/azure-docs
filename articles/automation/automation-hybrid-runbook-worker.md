@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/25/2016"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Azure Automation Hybrid Runbook Workers
@@ -60,7 +60,7 @@ Firewall requirements:
 The procedure below describes how to install and configure Hybrid Runbook Worker.  Perform the first two steps once for your Automation environment and then repeat the remaining steps for each worker computer.
 
 ### 1. Create Operations Management Suite workspace
-If you do not already have an Operations Management Suite workspace, then create one using instructions at  [Set up your Operational Insights workspace](../operational-insights/operational-insights-onboard-in-minutes.md). You can use an existing workspace if you already have one.
+If you do not already have an Operations Management Suite workspace, then create one using instructions at  [Set up your workspace](https://technet.microsoft.com/library/mt484119.aspx). You can use an existing workspace if you already have one.
 
 ### 2. Add Automation solution to Operations Management Suite workspace
 Solutions add functionality to Operations Management Suite.  The Automation solution adds functionality for Azure Automation including support for Hybrid Runbook Worker.  When you add the solution to your workspace, it will automatically push down worker components to the agent computer that you will install in the next step.

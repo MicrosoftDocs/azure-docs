@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="01/22/2016"
+  ms.date="02/04/2016"
   ms.author="jimpark; trinadhk;"/>
 
 # Preparing to back up workloads using Azure Backup Server
@@ -152,7 +152,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
     ![Azure Backup Server](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 
-When the installation step is completely, the product's desktop icons would have been created as well. Just double-click the icon to launch the product.
+When the installation step has completed, the product's desktop icons will have been created as well. Just double-click the icon to launch the product.
 
 ### Add backup storage
 

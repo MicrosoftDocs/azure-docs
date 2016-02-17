@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/05/2016"
 	ms.author="nitinme"/>
 
 # Install and use Spark on HDInsight Hadoop clusters using Script Action
@@ -318,4 +318,4 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md

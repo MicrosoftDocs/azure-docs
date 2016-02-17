@@ -5,7 +5,7 @@
 	keywords="c# database query, c# query, connect to database, SQL C#"
 	documentationCenter=""
 	authors="MightyPen"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="02/05/2016"
 	ms.author="genemi"/>
 
 

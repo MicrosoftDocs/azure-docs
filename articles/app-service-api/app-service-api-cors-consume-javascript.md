@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # Consume an API app from JavaScript using CORS
-
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 ## Overview
 
@@ -78,6 +76,8 @@ In these tools, set the `cors` property on the Microsoft.Web/sites/config resour
 		    ]
 		}
 
+To see an example of an Azure Resource Manager template that includes JSON for configuring CORS, open the [azuredeploy.json file in the sample application repository](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json).
+
 ## <a id="tutorialstart"></a> Continuing the .NET getting-started tutorial
 
 If you are following the Node.js or Java getting-started series for API apps, skip to the next article, [authentication for App Service API apps](app-service-api-authentication.md).
@@ -110,19 +110,6 @@ In the [ToDoList sample application](https://github.com/Azure-Samples/app-servic
 		    };
 		}]);
 
-### Configure the ToDoListAngular project to call the ToDoListAPI API app 
-
-Before deploying the front end to Azure you have to change the API endpoint in the AngularJS project so that the code calls the ToDoListAPI Azure API app that you created in the preceding tutorial.
-
-1. In the ToDoListAngular project, open the *app/scripts/todoListSvc.js* file.
-
-2. Comment out the line that sets `apiEndpoint` to the localhost URL, uncomment the line that sets `apiEndPoint` to an azurewebsites.net URL, and replace the placeholder with the actual name of the API app you created earlier.  If you named the API app ToDoListAPI0125, the code now looks like the following example.
-
-		var apiEndPoint = 'https://todolistapi0125.azurewebsites.net';
-		//var apiEndPoint = 'http://localhost:45914';
-
-3. Save your changes.
-
 ### Create a new web app for the ToDoListAngular project
 
 The procedure to create a new web app and deploy a project to it is the same as you saw in the first tutorial in this series, except that you don't change the type from **Web App** to **API App**.
@@ -147,11 +134,59 @@ The procedure to create a new web app and deploy a project to it is the same as 
 
 	Visual Studio creates the web app, creates a publish profile for it, and displays the **Connection** step of the **Publish Web** wizard.
 
+	Before you click **Publish** in the **Publish Web** wizard, you'll configure the new web app to call the middle tier API app that is running in App Service. 
+
+### Set the middle tier URL in web app settings
+
+1. Go to the [Azure portal](https://portal.azure.com/), and then navigate to the **Web App** blade for the web app that you created to host the TodoListAngular (front end) project.
+
+2. Click **Settings > Application Settings**.
+
+3. In the **App settings** section, add the following key and value:
+
+	|Key|Value|Example
+	|---|---|---|
+	|toDoListAPIURL|https://{your middle tier API app name}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
+
+4. Click **Save**.
+
+	When the code runs in Azure, this value will now override the localhost URL that is in the Web.config file. 
+
+	The code that gets the setting value is in *index.cshtml*:
+
+		<script type="text/javascript">
+		    var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
+		</script>
+		<script src="app/scripts/todoListSvc.js"></script>
+
+	The code in *todoListSvc.js* uses the setting:
+
+		return {
+		    getItems : function(){
+		        return $http.get(apiEndpoint + '/api/TodoList');
+		    },
+		    getItem : function(id){
+		        return $http.get(apiEndpoint + '/api/TodoList/' + id);
+		    },
+		    postItem : function(item){
+		        return $http.post(apiEndpoint + '/api/TodoList', item);
+		    },
+		    putItem : function(item){
+		        return $http.put(apiEndpoint + '/api/TodoList/', item);
+		    },
+		    deleteItem : function(id){
+		        return $http({
+		            method: 'DELETE',
+		            url: apiEndpoint + '/api/TodoList/' + id
+		        });
+		    }
+		};
+
 ### Deploy the ToDoListAngular web project to the new web app
 
-*  In the **Connection** step of the **Publish Web** wizard, click **Publish**.
+*  In Visual Studio, in the **Connection** step of the **Publish Web** wizard, click **Publish**.
 
-	Visual Studio deploys the ToDoListAngular project to the web app and opens a browser to the URL of the web app. 
+	Visual Studio deploys the ToDoListAngular project to the new web app and opens a browser to the URL of the web app. 
 
 ### Test the application without CORS enabled 
 
@@ -204,31 +239,33 @@ Web API CORS support is more flexible than App Service CORS support. For example
 
 The following steps summarize the process for enabling Web API CORS support. For more information, see [Enabling Cross-Origin Requests in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
-1. In a Web API project, include a `config.EnableCors()` line of code in the **Register** method of the **WebApiConfig** class, as in the following example. 
+1. In a Web API project, install the [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet package.
+
+1. Include a `config.EnableCors()` line of code in the **Register** method of the **WebApiConfig** class, as in the following example. 
 
 		public static class WebApiConfig
-	    {
-	        public static void Register(HttpConfiguration config)
-	        {
-	            // Web API configuration and services
+		{
+		    public static void Register(HttpConfiguration config)
+		    {
+		        // Web API configuration and services
 	            
 		        // The following line enables you to control CORS by using Web API code
-				config.EnableCors();
+		        config.EnableCors();
 	
-	            // Web API routes
-	            config.MapHttpAttributeRoutes();
+		        // Web API routes
+		        config.MapHttpAttributeRoutes();
 	
-	            config.Routes.MapHttpRoute(
-	                name: "DefaultApi",
-	                routeTemplate: "api/{controller}/{id}",
-	                defaults: new { id = RouteParameter.Optional }
-	            );
-	        }
-	    }
+		        config.Routes.MapHttpRoute(
+		            name: "DefaultApi",
+		            routeTemplate: "api/{controller}/{id}",
+		            defaults: new { id = RouteParameter.Optional }
+		        );
+		    }
+		}
 
-1. In your Web API controller, add the `EnableCors` attribute to the controller class or to individual action methods. In the following example, CORS support applies to the entire controller.
+1. In your Web API controller, add a `using` statement for the `System.Web.Http.Cors` namespace, and add the `EnableCors` attribute to the controller class or to individual action methods. In the following example, CORS support applies to the entire controller.
 
-		namespace ToDoListAPI.Controllers
+		namespace ToDoListAPI.Controllers 
 		{
 		    [HttpOperationExceptionFilterAttribute]
 		    [EnableCors(origins:"*", headers:"*", methods: "*")]

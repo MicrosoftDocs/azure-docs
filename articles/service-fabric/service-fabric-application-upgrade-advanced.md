@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 # Service Fabric application upgrade: advanced topics
@@ -49,10 +49,13 @@ Occasions when using a diff package would be a good choice:
 
 ## Next steps
 
-[Upgrade tutorial](service-fabric-application-upgrade-tutorial.md)
+[Uprading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
-[Upgrade parameters](service-fabric-application-upgrade-parameters.md)
+[Uprading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
-[Data serialization](service-fabric-application-upgrade-data-serialization.md)
+Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
 
-[Troubleshooting application upgrades](service-fabric-application-upgrade-troubleshooting.md)
+Make your application upgrades compatible by learning how to use [Data Serialization](service-fabric-application-upgrade-data-serialization.md).
+
+Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades ](service-fabric-application-upgrade-troubleshooting.md).
+ 

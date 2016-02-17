@@ -13,11 +13,11 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/04/2016"
+      ms.date="01/28/2016"
       ms.author="hascipio; avikova" />
 
 # Data Service Publishing Guide for the Azure Marketplace
-After completing the step 1, [Account Creation and Registration][link-acct-creation], we guided you through the [General Non-Technical](marketplace-publishing-prerequisites.md) and [Technical Requirements](marketplace-publishing-data-service-creation-prerequisites.md) of a Data Service offer on Azure Marketplace. Now we will walk you through the steps for creating a Data Service offer on the [Publishing Portal][link-pubportal] for the Azure Marketplace.
+After completing the step 1, [Account Creation and Registration][link-acct-creation], we guided you through the [General Non-Technical](marketplace-publishing-pre-requisites.md) and [Technical Requirements](marketplace-publishing-data-service-creation-prerequisites.md) of a Data Service offer on Azure Marketplace. Now we will walk you through the steps for creating a Data Service offer on the [Publishing Portal][link-pubportal] for the Azure Marketplace.
 
 ## 1.	Login to the Publishing Portal.
 

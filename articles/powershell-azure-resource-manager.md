@@ -12,7 +12,7 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 

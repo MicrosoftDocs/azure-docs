@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/06/2016"
+	ms.date="02/02/2016"
 	ms.author="daleche"/>
 
 
@@ -437,7 +437,7 @@ Here are links to information about EntLib60:
 
 - Free [Book Download: Developer's Guide to Microsoft Enterprise Library, 2nd Edition](http://www.microsoft.com/download/details.aspx?id=41145)
 
-- Best practices: [Retry general guidance](best-practices-retry-general.md) has an excellent in-depth discussion of retry logic.
+- Best practices: [Retry general guidance](../best-practices-retry-general.md) has an excellent in-depth discussion of retry logic.
 
 - NuGet download of [Enterprise Library - Transient Fault Handling application block 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
