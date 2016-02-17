@@ -314,17 +314,15 @@ eoc
 Replace `<username>` with your login name.
 
 You can now either repeat this entire process for every other node in the Elasticsearch cluster, or 
-you can use the `rcp` (remote copy) command to copy the server-agent folder and contents to every 
-other node and use the *rsh* command start the JMeter Server Agent as shown below. 
+you can use the `scp` command to copy the server-agent folder and contents to every 
+other node and use the `ssh` command start the JMeter Server Agent as shown below. 
 Replace `<username>` with your username, and `<nodename>` with the name of the node to which you 
 wish to copy and run the software (you may be asked to provide your password as you run each command):
 
-<!-- TODO - replace with secure shell -->
-
 ```bash
-rcp -r \~/server-agent <username>@<nodename>:\~
-rsh <nodename> sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 4444 -j ACCEPT
-rsh <nodename> -n -f 'nohup \~/server-agent/startAgent.sh'
+scp -r \~/server-agent <username>@<nodename>:\~
+ssh <nodename> sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 4444 -j ACCEPT
+ssh <nodename> -n -f 'nohup \~/server-agent/startAgent.sh'
 ```
 
 ## Installing and Configuring JMeter on the JMeter Master VM

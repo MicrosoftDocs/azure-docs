@@ -90,10 +90,6 @@ The number of shards available to an index ultimately determines the capacity of
 
 Re-indexing effectively involves creating a new index from the data in an old one, and then removing the old index. If an index is large, this process can take time, and you may need to ensure that the data remains searchable during this period. For this reason, you should create an [alias for each index](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html), and queries should retrieve data through these aliases. While re-indexing, keep the alias pointing at the old index, and then switch it to reference the new index once re-indexing is complete. This approach is also useful for accessing time-based data which creates a new index each day; to access the current data use an alias that rolls over to the new index as it is created.
 
-<!-- TODO - internal link to query tuning -->
-
-<span id="_Query_Tuning" class="anchor"><span id="_Optimizing_Resources_for" class="anchor"></span></span>
-
 ### Managing Mappings
 
 Elasticsearch uses mappings to determine how to interpret the data that occurs in each field in a document. Each type has its own mapping, which effectively defines a schema for that type. Elasticsearch uses this information to generate inverted indexes for each field in the documents in a type. In any document, each field has a datatype (such as *string*, *date*, or *long*) and a value. You can specify the mappings for an index when the index is first created, or they can be inferred by Elasticsearch when new documents are added to a type. However, consider the following points:
