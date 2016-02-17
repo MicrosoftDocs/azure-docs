@@ -21,7 +21,9 @@
 
 This article answers some of the most common questions about Azure Billing and Subscription.
 
-[hello-test](#hello-test)
+[Hello test test test test](#Hello-test-test-test-test)
+
+[Hello-test2]()
 
 ## Billing
 
@@ -44,6 +46,8 @@ This article answers some of the most common questions about Azure Billing and S
 - What are the Azure SLA Credits?
 
 - How will Azure Service Level Agreements work with current on-premises Microsoft licensing agreements?
+
+### Hello test test test test
 
 ## Subscriptions
 
