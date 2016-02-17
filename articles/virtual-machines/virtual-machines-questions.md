@@ -158,7 +158,7 @@ To provide redundancy, put two or more similarly configured VMs in the same avai
 
 ## Additional resources
 
-[About Azure Virtual Machines](virtual-machines-about.md)
+[About Azure Virtual Machines](virtual-machines-linux-about.md)
 
 [Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-creation-choices.md)
 
