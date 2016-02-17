@@ -21,9 +21,11 @@
 
 This article answers some of the most common questions about Azure Billing and Subscription.
 
+[hello-test](#hello-test)
+
 ## Billing
 
-- [What payment options do I have in purchasing Azure?](#What-payment-options)
+- [What payment options do I have in purchasing Azure?](#what-payment-options)
 
 - [How can I request the invoice method of payment?](#subscriptions)
 
@@ -217,3 +219,11 @@ Yes.
 **Are Azure and SQL Database available through Microsoft Services Provider License Agreement (SPLA)?**
 
 There are currently no plans to offer Azure or SQL Database through SPLA.
+
+### Hello test
+
+
+1
+2
+3
+4
