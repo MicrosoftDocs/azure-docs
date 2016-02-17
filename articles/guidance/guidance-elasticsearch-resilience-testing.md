@@ -19,7 +19,7 @@
    
 # Running the Automated Elasticsearch Resiliency Tests
    
-The document [Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery](TODO) describes 
+[Resilience and Recovery Testing] describes 
 a series of tests that were performed against a sample Elasticsearch cluster to determine how well the 
 system responded to some common forms of failure and how well it recovered. Four scenarios were tested:
 
@@ -50,8 +50,7 @@ The automated tests require the following items:
 
 - An Elasticsearch cluster.
 
-- A JMeter environment setup as described by the document 
-[How-To Create a Performance Testing Environment for Elasticsearch](TODO).
+- A JMeter environment setup as described by the [Performance testing guidance].
 
 - The following additions installed on the JMeter Master VM only. 
 
@@ -89,8 +88,7 @@ JAR for testing Elasticsearch versions 1.7.x
 JAR for testing Elasticsearch version 2.0.0 and later
   
 Copy the appropriate JAR file along with the rest of the dependencies to your JMeter machines. The 
-process is described by the procedure Deploying a JUnit Test to JMeter in the document 
-[How-To Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance](TODO).
+process is described by the procedure Deploying a JUnit Test to JMeter in [Considerations for JMeter].
 
 ## Configuring VM Security for Each Node
 
@@ -180,3 +178,12 @@ Enter the number of the scenario you want to run: `11`, `12`, `13` or `21`.
 Once you select a scenario, the test will run automatically. The results are stored as a set of CSV 
 files in a folder created under the *results* directory. Each run has its own results folder. 
 You can use Excel to analyze and graph this data.
+
+[General guidance]: guidance-elasticsearch.md
+[Data ingestion guidance]: guidance-elasticsearch-data-ingestion.md
+[Performance testing guidance]: guidance-elasticsearch-performance-testing-environment.md
+[JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md
+[Considerations for JMeter]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md
+[Query aggregation and performance]: guidance-elasticsearch-query-aggregation-performance.md
+[Resilience and Recovery]: guidance-elasticsearch-resilience-recovery.md
+[Resilience and Recovery Testing]: guidance-elasticsearch-resilience-testing.md

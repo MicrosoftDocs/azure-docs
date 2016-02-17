@@ -235,8 +235,6 @@ The following queries were performed as a batch by each iteration of the test (t
 
 - How many different *SourceIp* values occur in documents added in the last 15 minutes (*Unique IP Count*)?
 
-<!-- The definition of the index and the details of the queries are outlined in the [appendix](#appendix-the-query-and-aggregation-performance-test).
--->
 The tests were performed to understand the effects of the following variables:
 
 - **Disk type**. The test was performed on a 6-node cluster of D4 VMs using standard storage (HDDs) and repeated on a 6-node cluster of DS4 VMs using premium storage (SSDs).
@@ -249,25 +247,7 @@ Small     |Standard DS3    |4                 |8                      |14      |
 Medium    |Standard DS4    |8                 |16                     |28      |
 Large     |Standard DS14   |16                |32                     |112     |
 
-<!--
-- **Cluster size - scaling out**. The test was performed on clusters of DS14 VMs comprising 1, 3, and 6 nodes.
-
-- **Number of index replicas**. The test was performed using indexes configured with 1 and 2 replicas.
--->
-
 - **Doc values**. Initially the tests were performed with the index setting *doc\_values* set to *true*. Selected tests were repeated with *doc_values* set to *false*.
-
-<!--
-- **Caching**. The test was conducted with the shard request cache enabled on the index.
-
-- **Dedicated client nodes**. The test was performed by using a pool of dedicated client nodes to connect applications performing queries to the cluster.
-
-- **Number of shards**. The test was repeated using varying numbers of shards to establish whether queries ran more efficiently across indexes containing fewer, larger shards or more, smaller shards.
--->
-
-<!--
-> [AZURE.NOTE] You can repeat the tests yourself. The test plans and scripts are available online, and the document [How-To: Run the Automated Elasticsearch Query Tests](TODO) describes how to use these assets to conduct your own testing.
--->
 
 ### Performance Results – Disk Type
 
@@ -1063,3 +1043,11 @@ GET /sample/ctip/_search
 
 ```
 -->
+
+[General guidance]: guidance-elasticsearch.md
+[Data ingestion guidance]: guidance-elasticsearch-data-ingestion.md
+[Performance testing guidance]: guidance-elasticsearch-performance-testing-environment.md
+[JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md
+[Considerations for JMeter]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md
+[Query aggregation and performance]: guidance-elasticsearch-query-aggregation-performance.md
+[Resilience and Recovery]: guidance-elasticsearch-resilience-recovery.md
