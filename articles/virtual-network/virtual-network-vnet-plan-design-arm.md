@@ -31,7 +31,7 @@ Before answering the planning questions below, consider the following:
 - You create resources within an [Azure region](https://azure.microsoft.com/regions/#services) and subscription. And resources can only be connected to a VNet that exists in the same region and subscription they are in. 
 - You can connect VNets to each other by using an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md). You can also connect VNets across regions and subscriptions this way.
 - You can connect VNets to your on-premises network by using one of the [connectivity options](../vpn-gateway/vpn-gateway-cross-premises-options.md) available in Azure. 
-- Different resources can be grouped together in [resource groups](../resource-group-overview.md/#resource-groups), making it easier to manage the resource as a unit. A resource group can contain resources from multiple regions, as long as the resources belong to the same subscription.
+- Different resources can be grouped together in [resource groups](../resource-group-overview.md#resource-groups), making it easier to manage the resource as a unit. A resource group can contain resources from multiple regions, as long as the resources belong to the same subscription.
 
 ### Define requirements
 
@@ -73,7 +73,7 @@ Subnets contain the following properties.
 |**addressPrefix**|Single address prefix that make up the subnet in CIDR notation|Must be a single CIDR block that is part of one of the VNet's address spaces.|
 |**networkSecurityGroup**|NSG applied to the subnet|see [NSGs](resource-groups-networking.md#Network-Security-Group)|
 |**routeTable**|Route table applied to the subnet|see [UDR](resource-groups-networking.md#Route-table)|
-|**ipConfigurations**|Collection of IP configuration objects used by NICs connected to the subnet|see [IP configuration](../resource-groups-networking.md/#IP-configurations)|
+|**ipConfigurations**|Collection of IP configuration objects used by NICs connected to the subnet|see [IP configuration](../resource-groups-networking.md#IP-configurations)|
 
 ### Name resolution
 
