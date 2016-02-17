@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Getting Started with Azure Mobile Engagement Authentication APIs"
-	description="This is a migration guide to heko customer who were using authentication with Capptain APIs and now need to authentication using the Azure Mobile Enagagement APIs." 
+	description="This is a migration guide to help customers who were using authentication with Capptain APIs and now need to authenticate using the new Azure Mobile Enagagement APIs." 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="wesmc7777"
