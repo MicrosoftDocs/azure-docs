@@ -19,7 +19,7 @@
 
 # Analyze HDInsight logs
 
-Each Hadoop cluster in Azure HDInsight has an designated  Azure storage account to be used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Hadoop clusters in HDInsight](hdinsight-administer-use-management-portal.md#find-the-default-storage-account). The logs retain in the Storage account even after the cluster is deleted.
+Each Hadoop cluster in Azure HDInsight has an Azure storage account used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Hadoop clusters in HDInsight](hdinsight-administer-use-management-portal.md#find-the-default-storage-account). The logs retain in the Storage account even after the cluster is deleted.
 
 ##Logs written to Azure Tables
 
@@ -119,7 +119,9 @@ For more information about application logs, see [Simplifying user-logs manageme
  
 ## View cluster health and job logs
 
-* **Access the Hadoop UI**. From the Azure Portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**.
+###Access Hadoop UI
+
+From the Azure Portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**.
 
 	![Launch cluster dashboard](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
   
@@ -127,7 +129,10 @@ For more information about application logs, see [Simplifying user-logs manageme
 
 	![Start Hadoop UI](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
-* **Access the Yarn UI**. From the Azure Portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **YARN UI**.
+
+###Access the Yarn UI
+
+From the Azure Portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **YARN UI**.
 
 	You can use the YARN UI to do the following:
 
@@ -139,7 +144,9 @@ For more information about application logs, see [Simplifying user-logs manageme
 
 	* **Monitor job status**. From the left pane, expand **Cluster**, and then click **Applications** to list all the jobs in the cluster. If you want to look at jobs in a specific state (such as new, submitted, running, etc.), click the appropriate link under **Applications**. You can further click the job name to find out more about the job such including the output, logs, etc.
 
-* **Access the HBase UI**. From the Azure Portal, click an HDInsight HBase cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **HBase UI**
+###Access the HBase UI
+
+From the Azure Portal, click an HDInsight HBase cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **HBase UI**.
 
 ## HDInsight error codes
 
@@ -328,10 +335,8 @@ Some of these error messages could also be seen in the Azure Portal when it is u
 - **Description**: Invalid cluster configuration. Required WASB account configuration not found in external accounts.  
 - **Mitigation**: Verify that the account exists and is properly specified in configuration and retry the operation.
 
-## <a id="resources"></a>Additional Debugging Resources
+## Next steps
 
-* [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
-
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn469975.aspx
-
-[image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
+[Use Ambari Views to debug Tez Jobs on HDInsight](hdinsight-debug-ambari-tez-view.md)
+[Enable heap dumps for Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+[Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
