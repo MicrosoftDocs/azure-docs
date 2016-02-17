@@ -17,28 +17,19 @@
 	ms.date="02/14/2016"
 	ms.author="genli"/>
 
-#  Azure Billing and Subscription FAQ test 12
+#  Azure Billing and Subscription FAQ test 21
 
 This article answers some of the most common questions about Azure Billing and Subscription.
 
-[Hello test](#hello-test)
-
-[Hello test test](#hello-test-test)
-
-[Hello test test test test](#hello-test-test-test-test)
-
-[Hello test test test](#hello-test-test-test)
-
-
 ## Billing
 
-- [What payment options do I have in purchasing Azure?](#what-payment-options)
+- [What payment options do I have in purchasing Azure?](#what-payment-options-do-i-have-in-purchasing-azure?)
 
-- [How can I request the invoice method of payment?](#subscriptions)
+- [How can I request the invoice method of payment?](#how-can-I-request-the-invoice-method-of-payment?)
 
-- [How do I check the status of a payment made by credit card?](#How-can-I-request-the-invoice-method-of-payment?)
+- [How do I check the status of a payment made by credit card?]
 
-- [How do I get a copy of my invoice?](#How-do-I-check-the-status-of-a-payment-made-by-credit-card)
+- [How do I get a copy of my invoice?]
 
 - How do I remove a credit card that I no longer use as an Azure payment method?
 
