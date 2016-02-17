@@ -17,7 +17,7 @@
 	ms.date="02/14/2016"
 	ms.author="genli"/>
 
-#  Azure Billing and Subscription FAQ test 21
+#  Azure Billing and Subscription FAQ test 33
 
 This article answers some of the most common questions about Azure Billing and Subscription.
 
@@ -42,13 +42,6 @@ This article answers some of the most common questions about Azure Billing and S
 - What are the Azure SLA Credits?
 
 - How will Azure Service Level Agreements work with current on-premises Microsoft licensing agreements?
-
-### Hello test test test test
-3
-
-4
-5
-6
 
 ## Subscriptions
 
@@ -84,32 +77,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - Are Azure and SQL Database available through Microsoft Services Provider License Agreement (SPLA)?
 
-
-### Hello test test test
-
-1
-23
-
-321
-3
-21
-31
-
-**Billing**
-
-### hello test test
-
-1rasda
-
-dada
-
-dadada
-
-dadada
-
-dada
-### What payment options
-
+### What payment options do I have in purchasing Azure?
 
 You can purchase Azure using a credit or debit card or choose to be invoiced.
 
