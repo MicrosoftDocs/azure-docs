@@ -52,5 +52,4 @@ Before you remove a domain name, we recommend that you read the following inform
 - [Add company branding to your Sign In and Access Panel pages ](active-directory-add-company-branding.md)
 - [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md)
 - [Assign users to a custom domain](active-directory-add-domain-add-users.md)
-- [Built-in domain name reference for Azure Active Directory](active-directory-add-domain-builtin-domains.md)
 - [Change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.md)
