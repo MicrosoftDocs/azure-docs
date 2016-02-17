@@ -149,7 +149,6 @@ As an alternative to using a PKI, you can enable key-based Microsoft Passport by
 For more information about Microsoft Passport and Windows Hello in Windows 10, see <link-to-MS-Passport-and-Windows-Hello-document>.
 
 ## Frequently asked questions
-
 ### Which partner mobile device management products integrate with Azure AD?
 
 The following vendor products integrate with Azure AD for unified enrollment and conditional access in Windows 10:
@@ -157,10 +156,11 @@ The following vendor products integrate with Azure AD for unified enrollment and
 - AirWatch by VMware
 - Citrix Xenmobile
 - Lightspeed Mobile Manager
-- SOTI on-premises MDM
+- SOTI on-premises mobile device management
 
 ### What about Workplace Join in Windows 10?
-Workplace Join in Windows 8.1 was used to enable BYOD. In Windows 10, BYOD is enabled via "Add a work or school account" as explained earlier in this document. For organizations that don’t integrate their mobile device management with Azure AD, users can enroll the device into management manually via **Settings** > **Accounts** > **Work access**.
+Workplace Join was used in Windows 8.1 to enable BYOD. In Windows 10, BYOD is enabled via "Add a work or school account" as explained earlier in this document. For organizations that don’t integrate their mobile device management with Azure AD, users can enroll the device into management manually via **Settings** > **Accounts** > **Work access**.
+
 
 ### Can users connect their Microsoft account to their domain account in Windows 10?
 Not in Windows 10. In Windows 8.1, users of domain-joined devices could “connect” their Microsoft account (for example, Hotmail, Live, Outlook, Xbox, etc.) to their domain account to enable certain experiences like SSO to Live services, use of the Windows Store, and roaming of user settings across devices. In Windows 10, the Microsoft account "connect" functionality has been retired. The user can add one or more Microsoft accounts as additional accounts to enable SSO to consumer services such as the Windows Store. This is done in **Settings** > **Accounts** > **Your account**.

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
+   ms.date="02/16/2016"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a site-to-site VPN connection using PowerShell
@@ -38,12 +38,9 @@ Verify that you have the following items before beginning configuration.
 - An externally-facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 	
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-## Install the PowerShell modules
-
-You'll need the latest version of the Azure Resource Manager PowerShell cmdlets to configure your connection.
 	
-[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
+- You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+
 
 ## 1. Connect to your subscription 
 
@@ -63,8 +60,7 @@ Specify the subscription that you want to use.
 
 ## 2. Create a virtual network and a gateway subnet
 
-- If you already have a virtual network with a gateway subnet, you can jump ahead to **Step 3 - Add your local site**. 
-- If you already have a virtual network and you want to add a gateway subnet to your VNet, see [Add a gateway subnet to a VNet](#gatewaysubnet).
+Our examples below show a gateway subnet of /28. While it's possible to create a gateway subnet as small as /29, we don't recommend this. We do recommend creating a gateway subnet /27 or larger (/26, /25 etc.) in order to accommodate additional feature requirements. If you already have a virtual network with a gateway subnet that is /29 or larger, you can jump ahead to **Step 3 - Add your local site**. 
 
 ### To create a virtual network and a gateway subnet
 
@@ -82,11 +78,11 @@ The sample below creates a virtual network named *testvnet* and two subnets, one
 	$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
 	New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
-### <a name="gatewaysubnet"></a>To add a gateway subnet to a VNet (optional)
+### <a name="gatewaysubnet"></a>To add a gateway subnet to a virtual network you have already created
 
 This step is required only if you need to add a gateway subnet to a VNet that you previously created.
 
-If you already have an existing virtual network and you want to add a gateway subnet to it, you can create your gateway subnet by using the sample below. Be sure to name the gateway subnet 'GatewaySubnet'. If you name it something else, you'll create a subnet, but it won't be seen by Azure as a gateway subnet.
+You can create your gateway subnet by using the sample below. Be sure to name the gateway subnet 'GatewaySubnet'. If you name it something else, you'll create a subnet, but it won't be seen by Azure as a gateway subnet.
 
 	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
@@ -143,8 +139,8 @@ In this step, you'll create the virtual network gateway. Note that that creating
 
 Use the following values:
 
-- The Gateway Type is *Vpn*.
-- The VpnType can be RouteBased* (referred to as a Dynamic Gateway in some documentation), or *Policy Based* (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateways](vpn-gateway-about-vpngateways.md). 	
+- The **-GatewayType** for a Site-to-Site configuration is **Vpn**. The gateway type is always specific to the configuration that you are implementing. For example, other gateway configurations may require -GatewayType ExpressRoute, or -GatewayType VNet2VNet. **Site-to-Site requires Vpn**.
+- The **-VpnType** can be **RouteBased** (referred to as a Dynamic Gateway in some documentation), or **PolicyBased** (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateways](vpn-gateway-about-vpngateways.md). 	
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 

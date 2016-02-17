@@ -10,12 +10,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/18/2015" 
+    ms.date="02/09/2016" 
     ms.author="asmalser" />
 
 #Configuring single sign-on to applications that are not in the Azure Active Directory application gallery
 
-This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. This feature was released from technial preview on November 18th, 2015 and is included in [Azure Active Directory Premium](active-directory-editions.md). If you are instead looking For developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
+This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. This feature was released from technical preview on November 18th, 2015 and is included in [Azure Active Directory Premium](active-directory-editions.md). If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 
 The Azure Active Directory application gallery provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory, as described in [this article](active-directory-appssoaccess-whatis.md). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by follow the step-by-step instructions presented in the Azure management portal to enable single sign-on.
 
@@ -111,7 +111,13 @@ Select this option to add a link to an application to your organization's Azure 
 
 After selecting **Next**, you will be prompted to enter the URL of the application to link to. Once completed, users and groups may be assigned to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users) for those users.
 
-Note: You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application. 
+Note: You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application.
+
+## Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md)
+- [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-custom-apps/customapp1.png

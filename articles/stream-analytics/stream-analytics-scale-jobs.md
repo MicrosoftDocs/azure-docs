@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="02/16/2016"
 	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs to increase stream data processing throughput
@@ -24,7 +24,7 @@ Learn how to tune analytics jobs and calculate *streaming units* for Stream Anal
 ## What are the parts of a Stream Analytics job?
 A Stream Analytics job definition includes inputs, a query, and output. Inputs are from where the job reads the data stream, the query is used to transform the data input stream, and the output is where the job sends the job results to.  
 
-A job requires at least one input source for data streaming. The data stream input source can be stored in an Azure Service Bus Event Hub or in Azure Blob storage. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md), [Get started using Azure Stream Analytics](stream-analytics-get-started.md), and [Azure Stream Analytics developer guide](../stream-analytics-developer-guide.md).
+A job requires at least one input source for data streaming. The data stream input source can be stored in an Azure Service Bus Event Hub or in Azure Blob storage. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md) and [Get started using Azure Stream Analytics](stream-analytics-get-started.md).
 
 ## Configuring streaming units
 Streaming units (SUs) represent the resources and power to execute an Azure Stream Analytics job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. Each streaming unit corresponds to roughly 1MB/second of throughput. 
@@ -154,7 +154,7 @@ The previous query has two steps.
 
 Partitioning a step requires the following conditions:
 
-- The input source must be partitioned. For more information, see [Azure Stream Analytics developer guide](../stream-analytics-developer-guide.md) and [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md).
+- The input source must be partitioned. For more information see the [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md).
 - The **SELECT** statement of the query must read from a partitioned input source.
 - The query within the step must have the **Partition By** keyword
 
@@ -351,7 +351,6 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
