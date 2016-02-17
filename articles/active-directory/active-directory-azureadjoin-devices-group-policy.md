@@ -26,7 +26,7 @@ Domain join is the traditional way organizations have connected devices for work
 Domain join in Windows 10 will provide the following benefits after you connect devices to Azure Active Directory (Azure AD):
 
 - SSO (single sign-on) to Azure AD resources from anywhere
-- Access to enterprise Windows Store using work or school accounts (no Microsoft account required)
+- Access to the enterprise Windows Store using work or school accounts (no Microsoft account required)
 - Enterprise-compliant roaming of user settings across devices using work or school accounts (no Microsoft account required)
 - Strong authentication and convenient sign-in for work or school accounts with Microsoft Passport and Windows Hello.
 - Ability to restrict access to devices that are compliant with organizational device policies
