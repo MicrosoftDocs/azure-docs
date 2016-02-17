@@ -27,7 +27,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How can I request the invoice method of payment?](#how-can-I-request-the-invoice-method-of-payment?)
 
-- [How do I check the status of a payment made by credit card?]
+- [How do I check the status of a payment made by credit card?](#how-do-i-check-the-status-of-a-payment-made-by-credit-card)
 
 - [How do I get a copy of my invoice?]
 
