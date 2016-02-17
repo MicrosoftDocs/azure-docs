@@ -190,9 +190,9 @@ After everything is filled in and the ***Create*** button is clicked, the VMs wi
 This AzureStackAppServiceTemplate.json template can also be deployed via PowerShell, an example deployment is as follows:
 
 ```
-New-AzureRmResourceGroupDeployment -Name "WebAppsDeploy01" -ResourceGroupName "WebsitesSQL" -TemplateFile C:\templates\AzureStackAppServiceTemplate.json `  
--storageAccountNameParameter "webappsstorage" -adminUsername "admin" -adminPassword "myPassword1!" -environmentDnsSuffix webapps.azurestack.local `  
--sqlservername 10.0.2.4 -sqlsysadmin sa -sqlsysadminpwd "SQLServerPassword"   
+New-AzureRmResourceGroupDeployment -Name "WebAppsDeploy01" -ResourceGroupName "WebsitesSQL" -TemplateFile C:\templates\AzureStackAppServiceTemplate.json `
+-storageAccountNameParameter "webappsstorage" -adminUsername "admin" -adminPassword (ConvertTo-SecureString -force -AsPlaintext "myPassword1!") -environmentDnsSuffix webapps.azurestack.local `
+-sqlservername 10.0.2.4 -sqlsysadmin sa -sqlsysadminpwd (ConvertTo-SecureString -force -AsPlaintext -String "SQLServerPassword") -Verbose
 ```
 
 In the **Microsoft Azure Stack App Service TP1** dialog box, click **Exit**.
