@@ -46,7 +46,7 @@ The Azure diagnostics extension can transfer this data to an Azure storage accou
 
 
 ## Versioning
-See [Azure Diagnostics Versioning History](azure-diagnostics-versioning-history).
+See [Azure Diagnostics Versioning History](azure-diagnostics-versioning-history.md).
 
 ## Next Steps
 Pick which service you are trying to collect diagnostics on.
@@ -74,7 +74,7 @@ Pick which service you are trying to collect diagnostics on.
 - [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](./virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md)
 
 ## Service Fabric using Azure Diagnostics
-- [Monitor a Service Fabric application](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/)
+- [Monitor a Service Fabric application](./service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 ## Web Apps
 (Note that Web Apps do not use Azure Diagnostics)
