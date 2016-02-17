@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="02/16/2016"
+	ms.date="02/17/2016"
 	ms.author="jeffstok"/>
 
 
@@ -54,6 +54,7 @@ e.g. Car weight is coming on the input stream as strings and needs to be convert
 
 **Explanation**:
 Use a CAST statement on the Weight field to specify its type (see the list of supported Data Types [here](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
+
 
 ## Query example: Using Like/Not like to do pattern matching ##
 **Description**: Check that a field value on the event matches a certain pattern
@@ -476,6 +477,51 @@ WHERE
 
 **Explanation**:
 Use LAG to view the input stream for 24 hours and look for instances where StartFault and StopFault are spanned by weight < 20000.
+
+## Query example: Fill missing values ##
+**Description**: For the stream of events that have missing values, produce a stream of events with regular intervals.
+For example, generate event every 5 seconds that will report the most recently seen data point.
+
+**Input**:
+
+| t | value |
+|--------------------------|-------|
+| "2014-01-01T06:01:00" | 1 |
+| "2014-01-01T06:01:05" | 2 |
+| "2014-01-01T06:01:10" | 3 |
+| "2014-01-01T06:01:15" | 4 |
+| "2014-01-01T06:01:30" | 5 |
+| "2014-01-01T06:01:35" | 6 |
+
+**Output (first 10 rows)**:
+
+| windowend | lastevent.t | lastevent.value |
+|--------------------------|--------------------------|--------|
+| 2014-01-01T14:01:00.000Z | 2014-01-01T14:01:00.000Z | 1 |
+| 2014-01-01T14:01:05.000Z | 2014-01-01T14:01:05.000Z | 2 |
+| 2014-01-01T14:01:10.000Z | 2014-01-01T14:01:10.000Z | 3 |
+| 2014-01-01T14:01:15.000Z | 2014-01-01T14:01:15.000Z | 4 |
+| 2014-01-01T14:01:20.000Z | 2014-01-01T14:01:15.000Z | 4 |
+| 2014-01-01T14:01:25.000Z | 2014-01-01T14:01:15.000Z | 4 |
+| 2014-01-01T14:01:30.000Z | 2014-01-01T14:01:30.000Z | 5 |
+| 2014-01-01T14:01:35.000Z | 2014-01-01T14:01:35.000Z | 6 |
+| 2014-01-01T14:01:40.000Z | 2014-01-01T14:01:35.000Z | 6 |
+| 2014-01-01T14:01:45.000Z | 2014-01-01T14:01:35.000Z | 6 |
+
+    
+**Solution**:
+
+    SELECT
+    	System.Timestamp AS windowEnd,
+    	TopOne() OVER (ORDER BY t DESC) AS lastEvent
+    FROM
+    	input TIMESTAMP BY t
+    GROUP BY HOPPINGWINDOW(second, 300, 5)
+
+
+**Explanation**:
+This query will generate events every 5 second and will output the last event that was received before. [Hopping Window](https://msdn.microsoft.com/library/dn835041.aspx "Hopping Window - Azure Stream Analytics") duration determines how far back the query will look to find the latest event (300 seconds in this example).
+
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
