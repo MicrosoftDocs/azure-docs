@@ -35,7 +35,7 @@ deleting queues**.
 
 ## Create a Node.js Application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create a Node.js web app in Azure App Service], [Build and deploy a Node.js application to an Azure Cloud Service] (using Windows PowerShell), or [Build and deploy a Node.js web app to Azure using Web Matrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create a Node.js web app in Azure App Service], [Build and deploy a Node.js application to an Azure Cloud Service] using Windows PowerShell, or [Build and deploy a Node.js web app to Azure using Web Matrix].
 
 ## Configure Your Application to Access Storage
 
