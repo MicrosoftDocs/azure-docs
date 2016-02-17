@@ -37,7 +37,6 @@ This tutorial requires the following:
 + An iOS 7.0 (or later version) compatible device
 + iOS Developer Program membership
 + [Xamarin.iOS]
-+ [Azure Mobile Services Component]
 
    > [AZURE.NOTE] Because of configuration requirements for iOS push notifications, you must deploy and test the sample application on a physical iOS device (iPhone or iPad) instead of in the simulator.
 
