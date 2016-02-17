@@ -372,6 +372,8 @@ When you enter the command, you are prompted for the missing mandatory parameter
     (Type !? for Help.)
     administratorLoginPassword: ********
 
+If the template includes a parameter with a name that matches one of the parameters in the command to deploy the template (such as including a parameter named **ResourceGroupName** in your template which is the same as the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet), you will be prompted to provide a value for a parameter with the postfix **FromTemplate** (such as **ResourceGroupNameFromTemplate**). In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
+
 The command runs and returns messages as the resources are created. Ultimately, you see the result of your deployment.
 
     DeploymentName    : azuredeploy

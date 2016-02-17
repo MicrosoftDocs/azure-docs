@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -63,7 +63,7 @@ Examples of templates:
 
 [Azure Networking Cmdlets](https://msdn.microsoft.com/library/azure/mt163510.aspx) can be used to create a Load Balancer. Get started with ARM cmdlets and REST APIs
 
-- [How to create a load balancer using Azure Resource Manager](../load-balancer-arm-powershell)
+- [How to create a load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md)
 
 - [Using the Azure CLI with Azure Resource Management](../xplat-cli-azure-resource-manager)
 
