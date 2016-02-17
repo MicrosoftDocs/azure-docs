@@ -21,7 +21,7 @@
 
 This article answers some of the most common questions about Azure Billing and Subscription.
 
-**Billing**
+## Billing
 
 - [What payment options do I have in purchasing Azure?](#What-payment-options)
 
@@ -77,7 +77,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - Are Azure and SQL Database available through Microsoft Services Provider License Agreement (SPLA)?
 
-## Billing
+**Billing**
 
 ### What payment options
 
