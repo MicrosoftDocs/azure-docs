@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="User Defined Routes and IP Forwarding Overview"
+   pageTitle="What are User Defined Routes and IP Forwarding?"
    description="Understanding UDR and IP Forwarding"
    services="virtual-network"
    documentationCenter="na"
@@ -9,13 +9,13 @@
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-# User Defined Routes and IP Forwarding
+# What are User Defined Routes and IP Forwarding?
 When you add virtual machines (VMs) to a virtual network (VNet) in Azure, you will notice that the VMs are able to communicate with each other over the network, automatically. You do not need to specify a gateway, even though the VMs are in different subnets. The same is true for communication from the VMs to the public Internet, and even to your on-premises network when a hybrid connection from Azure to your own datacenter is present.
 
 This flow of communication is possible because Azure uses a series of system routes to define how IP traffic flows. System routes control the flow of communication in the following scenarios:
