@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # How to use blob storage from PHP
