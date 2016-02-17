@@ -42,7 +42,7 @@ We will use the default endpoint 3389 for Remote Desktop in this doc. So set up 
 ![image](./media/virtual-machines-linux-classic-remote-desktop/no1.png)
 
 
-if you didn't know how to set up endpoint to your VM, see [guidance](virtual-machines-windows-classic-setup-endpoints.md).
+if you didn't know how to set up endpoint to your VM, see [guidance](virtual-machines-linux-classic-setup-endpoints.md).
 
 
 ##Install Gnome Desktop
