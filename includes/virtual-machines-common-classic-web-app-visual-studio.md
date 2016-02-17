@@ -43,9 +43,9 @@ To create a virtual machine when you create a web application, follow these step
 
 If you want to customize the published scripts you created, read more in-depth information at [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](http://msdn.microsoft.com/library/dn642480.aspx).
 
-[0]: ././media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_NewProject.PNG
+[0]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_NewProject.PNG
 [1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SignIn.PNG
-[2]: ././media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_CreateVM.PNG
-[3]: ././media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_Provisioning.png
-[4]: ././media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_SolutionExplorer.png
-[5]: ././media/virtual-machines-common-classic-web-app-visual-studio/VS_Create_VM_Connect.png
+[2]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_CreateVM.PNG
+[3]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_Provisioning.png
+[4]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_SolutionExplorer.png
+[5]: ./media/virtual-machines-common-classic-web-app-visual-studio/VS_Create_VM_Connect.png
