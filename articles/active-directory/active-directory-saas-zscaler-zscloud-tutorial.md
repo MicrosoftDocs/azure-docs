@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory Integration with Zscaler ZSCloud | Microsoft Azure" description="Learn how to use Zscaler ZSCloud with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
+    pageTitle="Tutorial: Azure Active Directory Integration with Zscaler ZSCloud | Microsoft Azure"
+    description="Learn how to use Zscaler ZSCloud with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
