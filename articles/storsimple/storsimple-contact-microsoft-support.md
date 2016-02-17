@@ -30,7 +30,7 @@ Perform the following steps to create a support request:
 
 #### To create a support request
 
-1. In the [Azure classic portal](https://manage.windowsazure.com/), in the upper right corner, click your **Account Name** and then click **Contact Microsoft Support**.
+1. In the [Azure classic portal](https://manage.windowsazure.com/), in the upper right corner, click your account name and then click **Contact Microsoft Support**.
 
 	![Contact MS Support via ManagementPortal](./media/storsimple-contact-microsoft-support/Ibiza1.png)
 
@@ -62,7 +62,7 @@ Perform the following steps to create a support request:
     6.  Under **File upload**, click the folder icon to browse to your support package.
     7.  Select the **Share diagnostic information** check box.
 
-6. Click **Next**. The Contact information dialog box appears.
+6. Click **Next**. The **Contact information** dialog box appears.
 
 	![New support request pane](./media/storsimple-contact-microsoft-support/Ibiza6a.png) 
 
