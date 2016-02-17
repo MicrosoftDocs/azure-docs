@@ -20,7 +20,7 @@
 
 # Enabling Diagnostics in Azure Virtual Machines
 
-See [Azure Diagnostics Overview](../azure-diagnostics.md) for a background on Azure Diagnostics.
+See [Azure Diagnostics Overview](azure-diagnostics.md) for a background on Azure Diagnostics.
 
 ## How to Enable Diagnostics in a Virtual Machine
 
@@ -179,27 +179,16 @@ The Diagnostics configuration file defines values that are used to initialize di
 
 ## Troubleshooting and FAQ
 
-See [Troubleshooting Azure Diagnostics](../azure-diagnostics-troubleshooting.md) for more information.
+See [Troubleshooting Azure Diagnostics](azure-diagnostics-troubleshooting.md) for more information.
 
 
 ## Additional Resources
+- [Azure Diagnostics Topics](azure-diagnostics.md)
 
-- [Configuring Diagnostics for Azure Cloud Services][]
-- [Collect Logging Data by Using Azure Diagnostics][]
-- [Azure Diagnostics 1.2 Configuration Schema](http://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-[Overview]: #overview
-[How to Enable Diagnostics in a Worker Role]: #worker-role
-[How to Enable Diagnostics in a Virtual Machine]: #virtual-machine
-[Sample Configuration File and Schema]: #configuration-file-schema
-[Troubleshooting]: #troubleshooting
-[Frequently Asked Questions]: #faq
-[Comparing Azure Diagnostics Versions]: #comparing
-[Additional Resources]: #additional
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 
-[Configuring Diagnostics for Azure Cloud Services]: http://msdn.microsoft.com/library/windowsazure/dn186185.aspx
 [Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: http://azure.microsoft.com/pricing/free-trial/
-	[Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
