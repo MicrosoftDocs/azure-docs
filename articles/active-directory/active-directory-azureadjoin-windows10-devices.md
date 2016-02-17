@@ -148,15 +148,6 @@ As an alternative to having a PKI infrastructure you can enable key-based Micros
 
 ## Frequently asked questions
 
-###What 3rd party MDM vendor products integrate with Azure AD?
-
-The following vendor products integrate with Azure AD for unified enrollment and conditional access in Windows 10:
-
-- AirWatch by VMware
-- Citrix Xenmobile
-- Lightspeed Mobile Manager
-- SOTI On-premises MDM
-
 ###What about Workplace Join in Windows 10?
 Workplace Join in Windows 8.1 was used to enable BYOD. In Windows 10, BYOD is enabled via Add a work account as explained earlier in this document. For organizations that don’t integrate their MDM with Azure AD, users can enroll the device into management manually via **Settings** > **Accounts** > **Work access**.
 
