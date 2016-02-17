@@ -20,17 +20,22 @@
 
 ## Overview
 
-This document is a companion guide for customers migrating from Capptain to Azure Mobile Engagement, who had been using the APIs. This describes how to get the authentication mechanism working for the new APIs in more detail.
+This document is a companion guide for customers migrating from Capptain to Azure Mobile Engagement, who had been using the APIs. This describes in more detail how to get the authentication mechanism working for the new APIs.
 
-The assumption here is that you have a valid Azure subscription and you have created a Mobile Engagement app using one of our [Developer Tutorials](mobile-engagement-windows-store-dotnet-get-started.md).
+It is assumed that you have a valid Azure subscription and you have created a Mobile Engagement app using one of our [Developer Tutorials](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## Authentication
 
-When migrating from Capptain APIs to the new Azure Mobile Engagement APIs, the main differences will be regarding authentication. Previously Basic Authentication was available. Now a Microsoft Azure Active Directory based OAuth token. must be used for authentication. In order to access the API, an authorization header must be added to every request, it look must look as follows:
+When migrating from Capptain APIs to the new Azure Mobile Engagement APIs, the main differences will be regarding authentication. Previously, the APIs supported Basic Authentication. Now a Microsoft Azure Active Directory based OAuth token must be used for authentication. 
+
+In order to authentication an API request, an authorization header must be added to every request. It must be of the following form:
 
 	Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGmJlNmV2ZWJPamg2TTNXR1E...
 
-There are several ways to get a token and, a token normally expires in 1 hour. Since the APIs are generally called from a cloud service, you probably want to use an API key. An API key in Azure terminology is called a Service principal password. The following procedure describes one way to setting it up manually.
+
+>[AZURE.NOTE] Azure Active Directory tokens expire in 1 hour.
+
+There are several ways to get a token. Since the APIs are generally called from a cloud service, you probably want to use an API key. An API key in Azure terminology is called a Service principal password. The following procedure describes one way to setting it up manually.
 
 > [AZURE.WARNING] The key displayed in Azure Active Directory is NOT the Mobile Engagement API key shown in Portal. The concept of Mobile Engagement API key is deprecated and has been replaced by AAD authentication described in this document.
 
@@ -133,7 +138,7 @@ This is an alternative way to accomplish the steps mentioned previously using a 
 
 #### Steps to get a valid token
 
-To get a new token, usually valid for 1 hour, call this API: 
+To get a new token, call this API: 
 
 	https://login.microsoftonline.com/{TENANT_ID}/oauth2/token 
 
