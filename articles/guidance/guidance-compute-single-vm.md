@@ -23,7 +23,7 @@ This article outlines a set of proven practices for running a single Windows VM 
 
 > [AZURE.WARNING] There is no up-time SLA for single VMs on Azure. Use this configuration for development and test, but not as a production deployment.
 
-> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments. There are several ways to use Resource Manager, including the [Azure Portal][azure-portal], [Azure PowerShell][azure-powershell], [Azure CLI][azure-cli] commands, or [Resource Manager templates][arm-templates]. This article includes an example using the Azure CLI.
+Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments. There are several ways to use Resource Manager, including the [Azure Portal][azure-portal], [Azure PowerShell][azure-powershell], [Azure CLI][azure-cli] commands, or [Resource Manager templates][arm-templates]. This article includes an example using the Azure CLI.
 
 ![IaaS: single VM](media/guidance-compute-single-vm.png)
 
@@ -93,14 +93,18 @@ We recommend [Premium Storage][premium-storage], for the best disk I/O performan
 
 You can scale a VM up or down by changing the VM size. The following Azure CLI command resizes a VM:
 
-    azure vm set -g <<resource-group>> --vm-size <<new-vm-size>
-      --boot-diagnostics-storage-uri <<storage-account-uri>> <<vm-name>>
+```text
+azure vm set -g <<resource-group>> --vm-size <<new-vm-size>
+    --boot-diagnostics-storage-uri <<storage-account-uri>> <<vm-name>>
+```
 
 Resizing the VM will trigger a system restart, and remap your existing OS and data disks after the restart. Anything on the temporary disk will be lost. The `--boot-diagnostics-storage-uri` option enables [boot diagnostics][boot-diagnostics] to log any errors related to startup.
 
 You might not be able to scale from one SKU family to another (for example, from A series to G series). Use the following CLI command to get a list of available sizes for an existing VM:
 
-    azure vm sizes -g <<resource-group>> --vm-name <<vm-name>>
+```text
+azure vm sizes -g <<resource-group>> --vm-name <<vm-name>>
+```
 
 To scale to a size that is not listed, you must delete the VM instance and create a new one. Deleting a VM does not delete the VHDs.
 
@@ -119,9 +123,11 @@ To scale to a size that is not listed, you must delete the VM instance and creat
 ## Manageability
 
 - Run the following CLI command to enable VM diagnostics:
-
-        azure vm enable-diag <<resource-group>> <<vm-name>>
-
+    
+    ```text
+    azure vm enable-diag <<resource-group>> <<vm-name>>
+    ```
+    
     This command enables basic health metrics, diagnostics infrastructure logs, and boot diagnostics. For more information, see [Enable monitoring and diagnostics][enable-monitoring].
 
 - Use the [Azure Log Collection][log-collector] extension to collect logs and upload them to Azure storage.
@@ -129,9 +135,11 @@ To scale to a size that is not listed, you must delete the VM instance and creat
 - Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM de-allocated. (See the [Azure VM FAQ][vm-faq].)
 
     Use the following CLI command to de-allocate a VM:
-
-        azure vm deallocate <<resource-group>> <<vm-name>>
-
+    
+    ```text
+    azure vm deallocate <<resource-group>> <<vm-name>>
+    ```
+    
     Note: The **Stop** button in the Azure portal also deallocates the VM. However, if you shut down from inside Windows (via RDP), the VM is stopped but _not_ de-allocated, so you will still be charged.
 
 - If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [blob storage][blog-storage].
@@ -152,18 +160,20 @@ To scale to a size that is not listed, you must delete the VM instance and creat
 ## Troubleshooting
 
 - To reset the local admin password, run the `vm reset-access` Azure CLI command.
-
-        azure vm reset-access -u <<user>> -p <<new-password>> <<resource-group>> <<vm-name>>
-
+    
+    ```text
+    azure vm reset-access -u <<user>> -p <<new-password>> <<resource-group>> <<vm-name>>
+    ```
+    
 - If your VM gets into a non-bootable state, use [Boot Diagnostics][boot-diagnostics] to diagnose boot failures.
 
 - Look at [audit logs][audit-logs] to see provisioning actions and other VM events.
 
 ## Azure CLI commands (example)
 
-The following Windows batch script executes the  [Azure CLI][azure-cli] commands to deploy a single VM instance and the related network and storage resources, as shown in the previous diagrm.
+The following Windows batch script executes the [Azure CLI][azure-cli] commands to deploy a single VM instance and the related network and storage resources, as shown in the previous diagrm.
 
-```
+```bat
 ECHO OFF
 SETLOCAL
 
@@ -208,42 +218,42 @@ SET VM_SIZE=Standard_DS1
 SET POSTFIX=--resource-group %RESOURCE_GROUP% --location %LOCATION% ^
   --subscription %SUBSCRIPTION%
 
-call azure config mode arm
+CALL azure config mode arm
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Create resources
 
 :: Create the enclosing resource group
-call azure group create --name %RESOURCE_GROUP% --location %LOCATION%
+CALL azure group create --name %RESOURCE_GROUP% --location %LOCATION%
 
 :: Create the VNet
-call azure network vnet create --address-prefixes 172.17.0.0/16 ^
+CALL azure network vnet create --address-prefixes 172.17.0.0/16 ^
   --name %VNET_NAME% %POSTFIX%
 
 :: Create the subnet
-call azure network vnet subnet create --vnet-name %VNET_NAME% --address-prefix ^
+CALL azure network vnet subnet create --vnet-name %VNET_NAME% --address-prefix ^
   172.17.0.0/24 --name %SUBNET_NAME% --resource-group %RESOURCE_GROUP% ^
   --subscription %SUBSCRIPTION%
 
 :: Create the public IP address (dynamic)
-call azure network public-ip create --name %IP_NAME% %POSTFIX%
+CALL azure network public-ip create --name %IP_NAME% %POSTFIX%
 
 :: Create the network security group
-call azure network nsg create --name %NSG_NAME% %POSTFIX%
+CALL azure network nsg create --name %NSG_NAME% %POSTFIX%
 
 :: Create the NIC
-call azure network nic create --network-security-group-name %NSG_NAME% ^
+CALL azure network nic create --network-security-group-name %NSG_NAME% ^
   --public-ip-name %IP_NAME% --subnet-name %SUBNET_NAME% --subnet-vnet-name ^
   %VNET_NAME%  --name %NIC_NAME% %POSTFIX%
 
 :: Create the storage account for the OS VHD
-call azure storage account create --type PLRS %POSTFIX% %VHD_STORAGE%
+CALL azure storage account create --type PLRS %POSTFIX% %VHD_STORAGE%
 
 :: Create the storage account for diagnostics logs
-call azure storage account create --type LRS %POSTFIX% %DIAGNOSTICS_STORAGE%
+CALL azure storage account create --type LRS %POSTFIX% %DIAGNOSTICS_STORAGE%
 
 :: Create the VM
-call azure vm create --name %VM_NAME% --os-type Windows --image-urn ^
+CALL azure vm create --name %VM_NAME% --os-type Windows --image-urn ^
   %WINDOWS_BASE_IMAGE% --vm-size %VM_SIZE%   --vnet-subnet-name %SUBNET_NAME% ^
   --nic-name %NIC_NAME% --vnet-name %VNET_NAME% --storage-account-name ^
   %VHD_STORAGE% --os-disk-vhd "%VM_NAME%-osdisk.vhd" --admin-username ^
@@ -251,11 +261,11 @@ call azure vm create --name %VM_NAME% --os-type Windows --image-urn ^
   "https://%DIAGNOSTICS_STORAGE%.blob.core.windows.net/" %POSTFIX%
 
 :: Attach a data disk
-call azure vm disk attach-new -g %RESOURCE_GROUP% --vm-name %VM_NAME% ^
+CALL azure vm disk attach-new -g %RESOURCE_GROUP% --vm-name %VM_NAME% ^
   --size-in-gb 128 --vhd-name data1.vhd --storage-account-name %VHD_STORAGE%
 
 :: Allow RDP
-call azure network nsg rule create -g %RESOURCE_GROUP% --nsg-name %NSG_NAME% ^
+CALL azure network nsg rule create -g %RESOURCE_GROUP% --nsg-name %NSG_NAME% ^
   --direction Inbound --protocol Tcp --destination-port-range 3389 ^
   --source-port-range * --priority 100 --access Allow RDPAllow
 ```
