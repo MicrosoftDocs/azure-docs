@@ -26,7 +26,7 @@ This article shows you how to create and upload a virtual hard disk (VHD) so you
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-An Azure virtual machine runs the operating system based on the image you choose during creation. These images are stored in VHD format, in .vhd files in a storage account. For details, see [Disks in Azure](virtual-machines-disks-vhds.md) and [Images in Azure](virtual-machines-images.md).
+An Azure virtual machine runs the operating system based on the image you choose during creation. These images are stored in VHD format, in .vhd files in a storage account. For details, see [Disks in Azure](virtual-machines-disks-vhds.md) and [Images in Azure](virtual-machines-linux-classic-about-images.md).
 
 When you create the virtual machine, you can customize some of the operating system settings so they're appropriate for the application you want to run. For instructions, see [How to Create a Custom Virtual Machine](virtual-machines-create-custom.md).
 
