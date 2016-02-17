@@ -66,4 +66,4 @@ cmdlet to list all available role VM extensions.
 
 ##Find, Add, Update, and Remove VM Extensions  
 
-For details on these tasks, see [Add, Find, Update, and Remove Azure VM Extensions](virtual-machines-extensions-install.md).
+For details on these tasks, see [Add, Find, Update, and Remove Azure VM Extensions](virtual-machines-windows-classic-manage-extensions.md).

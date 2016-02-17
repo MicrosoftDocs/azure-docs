@@ -113,7 +113,7 @@ Operating system | Windows Server 2012 R2 or Windows Server 2012 | Windows Serve
 MPI | MS-MPI 2012 R2 or later, either stand-alone or installed via HPC Pack 2012 R2 or later<br/><br/>Intel MPI Library 5 | MS-MPI 2012 R2 or later, installed via HPC Pack 2012 R2 or later<br/><br/>Intel MPI Library 5
 
 
->[AZURE.NOTE]For IaaS scenarios, the HpcVmDrivers extension must be added to the VMs to install Windows network device drivers that are needed for RDMA connectivity. Depending on your deployment method, the HpcVmDrivers extension might by added to a size A8 or A9 VM automatically, or you might need to add it yourself. To add the extension, see [Manage VM extensions](virtual-machines-extensions-install.md).
+>[AZURE.NOTE]For IaaS scenarios, the HpcVmDrivers extension must be added to the VMs to install Windows network device drivers that are needed for RDMA connectivity. Depending on your deployment method, the HpcVmDrivers extension might by added to a size A8 or A9 VM automatically, or you might need to add it yourself. To add the extension, see [Manage VM extensions](virtual-machines-windows-classic-manage-extensions.md).
 
 
 ## Additional things to know
