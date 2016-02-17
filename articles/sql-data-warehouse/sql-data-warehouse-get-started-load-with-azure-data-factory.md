@@ -23,7 +23,7 @@
 - [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
- This tutorial shows you how to create a JSON pipeline in Azure Data Factory that will move data from Azure Storage Blob to SQL Data Warehouse. In the following steps you will use JSON to:
+ This tutorial shows you how to create a JSON pipeline in Azure Data Factory that will move data from Azure Storage Blob to SQL Data Warehouse. With the following steps you will:
 
 + Set-up sample data in an Azure Storage Blob.
 + Connect resources to Azure Data Factory.
@@ -32,9 +32,11 @@
 >[AZURE.VIDEO loading-azure-sql-data-warehouse-with-azure-data-factory]
 
 
-## Resources
+## Before you begin
 
 To familiarize yourself with Azure Data Factory, see [Introduction to Azure Data Factory](../data-factory/data-factory-introduction.md).
+
+### Resources
 
 For this tutorial, you will need the following resources:
 
@@ -46,7 +48,7 @@ For this tutorial, you will need the following resources:
 
 Once you have all of the pieces ready you can move on to preparing your data and creating your Azure Data Factory pipeline.
 
-## Sample Data
+### Prepare sample data
 
 In addition to the different pieces of the pipeline, we will also need some sample data that can use to practice loading data in Azure Data Factory.  
 
@@ -60,13 +62,13 @@ In addition to the different pieces of the pipeline, we will also need some samp
 
 Now that we have our data in place we can move to your data factory to create the pipeline that will move data from your storage account to your SQL Data Warehouse.  
 
-## Using Azure Data Factory
+## Step 1: Open Azure Data Factory
 
 Now that we've set up all the pieces, we can start to set-up the pipeline by navigating to your Azure Data Factory instance in the Azure Portal.  This can be done by going to the [Azure Classic Portal](https://portal.azure.com/) and selecting your data factory from the left-hand menu.
 
 From here there will be three steps to setting up a Azure Data Factory pipeline to transfer data to your data warehouse: linking your services, defining your datasets, and creating your pipeline.
 
-### Creating linked services
+## Step 2: Create linked services
 
 The first step is to link your Azure storage account and SQL Data Warehouse to your data factory.  
 
@@ -85,7 +87,7 @@ The first step is to link your Azure storage account and SQL Data Warehouse to y
 		    }
 		}
 
-### Registering datasets
+## Step 3: Register a dataset
 
 After creating the linked services, we will have to define the data sets.  Here this means defining the structure of the data that is being moved from your storage to your data warehouse.  You can read more about creating
 
@@ -156,7 +158,7 @@ After creating the linked services, we will have to define the data sets.  Here 
 		  }
 		}
 
-### Setting up your pipeline
+## Step 4: Set up and run your pipeline
 
 Finally, we will set-up and run the pipeline in Azure Data Factory.  This is the operation that will complete the actual data movement.  You can find a full view of the operations that you can complete with SQL Data Warehouse and Azure Data Factory [here](../data-factory/data-factory-azure-sql-data-warehouse-connector.md).
 
