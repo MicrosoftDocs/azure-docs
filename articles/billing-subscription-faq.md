@@ -49,7 +49,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How do I manage Administrator accounts in the new Azure portal?](#how-do-i-manage-administrator-accounts-in-the-new-azure-portal)
 
-- [How do I transfer ownership of my subscriptions?](#how-do-i-transfer-ownership-of-my-subscription)
+- [How do I transfer ownership of my subscriptions?](#how-do-i-transfer-ownership-of-my-subscriptions)
 
 - [Can I transfer server licenses to Azure and run them on Virtual Machines?](#can-i-transfer-server-licenses-to-azure-and-run-them-on-virtual-machines)
 
@@ -59,9 +59,9 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [Can notifications be sent to a different email address other than the Account Owner email address associated with my account?](#can-notifications-be-sent-to-a-different-email-address-other-than-the-account-owner-email-address-associated-with-my-account)
 
-- [How can I edit my payment information for my Azure subscriptions?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions?)
+- [How can I edit my payment information for my Azure subscriptions?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
 
-- [Why I cannot edit or add details to my subscription?](#why-I-cannot-edit-or-add-details-to-my-subscription)
+- [Why I cannot edit or add details to my subscription?](#why-i-cannot-edit-or-add-details-to-my-subscription)
 
 - [Who can purchase Azure services?](#who-can-purchase-azure-services)
 
