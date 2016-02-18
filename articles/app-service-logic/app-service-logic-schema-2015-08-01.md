@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/31/2016"
+	ms.date="02/17/2016"
 	ms.author="stepsic"/>
 	
 # New schema version 2015-08-01-preview
 
 The new schema and API version for Logic apps has a number of improvements which improve the reliability and ease-of-use of Logic apps. There are 4 key differences:
-1. The **APIApp** action type has been removed and replaced with a new **APIConnection** action type.
+
+1. The **APIApp** action type has been updated to a new **APIConnection** action type.
 2. **Repeat** has been renamed to **Foreach**.
-3. The **HTTP Listener** API app is no longer required. Along with this all workflows **must** have a trigger defined.
+3. The **HTTP Listener** API app is no longer required.
 4. Calling child workflows uses a new schema.
 
 ## 1. Moving to API connections
@@ -71,22 +72,123 @@ The portion of the inputs that is unique to API connections is the `host` object
 
 The `api` has the runtime URL of where that managed API is hosted. You can see all of the available managed APIs for you by calling `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
 
-When you use an API, it may or may not have any **connection parameters** defined. If it doesn't then no **connection** is required. If it does, then you will have to create a connection. When you create that connection it'll have the name you choose, and then you reference that in the `connection` object inside the `host` object. To create a connection in a resource group, call `PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview` with the following body:
+When you use an API, it may or may not have any **connection parameters** defined. If it doesn't then no **connection** is required. If it does, then you will have to create a connection. When you create that connection it'll have the name you choose, and then you reference that in the `connection` object inside the `host` object. To create a connection in a resource group, call:
+
+```
+PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
+```
+
+With the following body:
+
+
 ```
 {
   "properties": {
     "api": {
-      "id": "/subscriptions/{subid}/providers/Microsoft.Web/managedApis/bingsearch"
+      "id": "/subscriptions/{subid}/providers/Microsoft.Web/managedApis/azureblob"
     },
-    << Connection prameters here>> 
-  }
+	"parameterValues" : {
+		"accountName" : "{The name of the storage account -- the set of parameters is different for each API}"
+	}
+  },
+  "location" : "{Logic app's location}"
 }
 ```
 
 ### Deploying managed API's in an Azure Resource manager template
 
 You can create a full application in an ARM template as long as it doesn’t require interactive sign-in. If it requires sign-in, you can set everything up with the ARM template, but will still have to visit the portal to authorize the connections. 
-**TODO** 
+
+```
+	"resources": [{
+		"apiVersion": "2015-08-01-preview",
+		"name": "azureblob",
+		"type": "Microsoft.Web/connections",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"api": {
+				"id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
+			},
+			"parameterValues": {
+				"accountName": "[parameters('storageAccountName')]",
+				"accessKey": "[parameters('storageAccountKey')]"
+			}
+		}
+	}, {
+		"type": "Microsoft.Logic/workflows",
+		"apiVersion": "2015-08-01-preview",
+		"name": "[parameters('logicAppName')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[resourceId('Microsoft.Web/connections', 'azureblob')]"
+		],
+		"properties": {
+			"sku": {
+				"name": "[parameters('sku')]",
+				"plan": {
+					"id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('svcPlanName'))]"
+				}
+			},
+			"definition": {
+				"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+				"actions": {
+					"Create_file": {
+						"type": "apiconnection",
+						"inputs": {
+							"host": {
+								"api": {
+									"runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
+								},
+								"connection": {
+									"name": "@parameters('$connections')['azureblob']['connectionId']"
+								}
+							},
+							"method": "post",
+							"queries": {
+								"folderPath": "[concat('/',parameters('containerName'))]",
+								"name": "helloworld.txt"
+							},
+							"body": "@decodeDataUri('data:,Hello+world!')",
+							"path": "/datasets/default/files"
+						},
+						"conditions": []
+					}
+				},
+				"contentVersion": "1.0.0.0",
+				"outputs": {},
+				"parameters": {
+					"$connections": {
+						"defaultValue": {},
+						"type": "Object"
+					}
+				},
+				"triggers": {
+					"recurrence": {
+						"type": "Recurrence",
+						"recurrence": {
+							"frequency": "Day",
+							"interval": 1
+						}
+					}
+				}
+			},
+			"parameters": {
+				"$connections": {
+					"value": {
+						"azureblob": {
+							"connectionId": "[concat(resourceGroup().id,'/providers/Microsoft.Web/connections/azureblob')]",
+							"connectionName": "azureblob",
+							"id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
+						}
+
+					}
+				}
+			}
+		}
+	}]
+```
+
+You can see in this example that the connections are just normal resources that live in your resource group. They reference the managedAPIs available to you in your subscription.
 
 ### Your custom Web API's
 
@@ -157,6 +259,7 @@ For example, if you use Dropbox to list files, you may have something like this 
 ```
 
 You can construct the equivalent HTTP action like below (the parameters section of the Logic app definition remains unchanged):
+
 ```
 {
     "actions": {
@@ -181,7 +284,9 @@ You can construct the equivalent HTTP action like below (the parameters section 
     }
 }
 ```
+
 Walking through these properties one-by-one:
+
 | Action property |  Description |
 | --------------- | -----------  |
 | `type` | `Http` instead of `APIapp` |
@@ -196,6 +301,7 @@ This approach should work for all API app actions. However, please keep in mind 
 ## 2. Repeat renamed to Foreach
 
 For the previous schema version we received a lot of customer feedback that **Repeat** was confusing and didn't properly capture that it was really a for each loop. As a result, we have renamed it to **Foreach**. For example:
+
 ```
 {
     "actions": {
@@ -212,6 +318,7 @@ For the previous schema version we received a lot of customer feedback that **Re
 ```
 
 Would now be written as:
+
 ```
 {
     "actions": {
@@ -252,6 +359,7 @@ To further simplify, the outputs of **Foreach** actions will not be wrapped in a
 ```
 
 Now it will be:
+
 ```
 [
     {
@@ -270,6 +378,7 @@ Now it will be:
 ```
 
 When referencing these outputs, to get to the body of the action you'd have to do:
+
 ```
 {
     "actions": {
@@ -287,6 +396,7 @@ When referencing these outputs, to get to the body of the action you'd have to d
 ```
 
 Now you can do instead:
+
 ```
 {
     "actions": {
@@ -306,7 +416,7 @@ Now you can do instead:
 With these changes, the functions `@repeatItem()`, `@repeatBody()` and `@repeatOutputs()` are removed.
 
 ## 3. Native HTTP listener 
-The HTTP Listener capabilities are now built-in, so you no longer need to deploy an HTTP Listener API app. Read about the full details for how to make your Logic app endpoint callable here: (**link needed**). 
+The HTTP Listener capabilities are now built-in, so you no longer need to deploy an HTTP Listener API app. Read about [the full details for how to make your Logic app endpoint callable here](app-service-logic-http-endpoint.md). 
 
 With these changes, the function `@accessKeys()` is removed and has been replaced with the `@listCallbackURL()` function for the purposes of getting the endpoint (when needed). In addition, you now must define at least one trigger in your Logic app now. If you want to `/run` the workflow, you'll need to have one of a `manual`, `apiConnectionWebhook` or `httpWebhook` triggers. 
 
@@ -319,7 +429,8 @@ Previously, calling child workflows required going to that workflow, getting the
     "type" : "workflow",
     "inputs" : {
         "host" : {
-            "triggerId" : "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Logic/mywf001/triggers/myendpointtrigger"
+            "id" : "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Logic/mywf001",
+            "triggerName" : "myendpointtrigger"
         },
         "queries" : {
             "extrafield" : "specialValue"
@@ -337,9 +448,9 @@ Previously, calling child workflows required going to that workflow, getting the
 }
 ```
 
-A second improvement is we will be giving the child workflows full access to the incoming request. That means that you can pass parameters in the queries section and in the headers object and that you can fully define the entire body.
+A second improvement is we will be giving the child workflows full access to the incoming request. That means that you can pass parameters in the *queries* section and in the *headers* object and that you can fully define the entire body.
 
-Finally, there are required changes to the child workflow. Whereas before you could just call a child workflow directly; now, you’ll need to define a trigger endpoint in the workflow for the parent to call. Generally, this means you’ll add a trigger of type **manual** and then use that in the parent definition. Note that the `host` property specifically uses a `triggerId`, because you must always specify which trigger you are invoking.
+Finally, there are required changes to the child workflow. Whereas before you could just call a child workflow directly; now, you’ll need to define a trigger endpoint in the workflow for the parent to call. Generally, this means you’ll add a trigger of type **manual** and then use that in the parent definition. Note that the `host` property specifically has a `triggerName`, because you must always specify which trigger you are invoking.
 
 ## Other changes
 

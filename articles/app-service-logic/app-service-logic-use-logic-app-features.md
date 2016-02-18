@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/17/2016"
 	ms.author="stepsic"/> 
 	
 # Use Logic Apps features
 
-In the [previous topic][Create a new logic app], you created your first logic app. Now we will show you how to build a more complete process using App Services Logic Apps. This topic introduces the following new Logic Apps concepts:
+In the [previous topic](app-service-logic-create-a-logic-app.md), you created your first logic app. Now we will show you how to build a more complete process using App Services Logic Apps. This topic introduces the following new Logic Apps concepts:
 
 - Conditional logic, which executes an action only when a certain condition is met.
 - Code view to edit an existing logic app.
 - Options for starting a workflow.
 
-Before you complete this topic, you should complete the steps in [Create a new logic app]. In the [Azure portal], browse to your logic app and click **Triggers and Actions** in the summary to edit the logic app definition.
+Before you complete this topic, you should complete the steps in [Create a new logic app](app-service-logic-create-a-logic-app.md). In the [Azure portal], browse to your logic app and click **Triggers and Actions** in the summary to edit the logic app definition.
 
 ## Reference material
 
@@ -106,5 +106,4 @@ A recurrence trigger runs at an interval that you specify. When the trigger has 
 Services can call a logic app endpoint to start a workflow. See [Logic apps as callable endpoints](app-service-logic-connector-http.md) for more information. To start that kind of logic app on-demand, click the **Run now** button on the command bar. 
 
 <!-- Shared links -->
-[Create a new logic app]: app-service-logic-create-a-logic-app.md
 [Azure portal]: https://portal.azure.com 

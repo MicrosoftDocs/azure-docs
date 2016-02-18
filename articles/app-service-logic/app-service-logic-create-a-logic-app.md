@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/31/2016"
+	ms.date="02/17/2016"
 	ms.author="stepsic"/>
 
 # Create a new logic app connecting SaaS services

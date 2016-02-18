@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/31/2016"
+   ms.date="02/17/2016"
    ms.author="stepsic"/>
 
 
 # Logic apps as callable endpoints
+
 The previous schema version of Logic apps (*2014-12-01-preview*) required an API app called **HTTP Listener** to expose an HTTP endpoint that could be synchronously called. With the latest schema (*2015-08-01-preview*) Logic apps natively can expose a synchronous HTTP endpoint.
 
 ## Adding a trigger to your definition
@@ -39,10 +40,17 @@ For the remainder of the article, we will use **manual** as the example, but all
 }
 ```
 
-This will create an endpoint that you can call at a URL that is like: `https://prod-03.brazilsouth.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?...`
+This will create an endpoint that you can call at a URL that is like:
+ 
+```
+https://prod-03.brazilsouth.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?...
+```
 
 You can get this endpoint in the user interface, or, by calling:
-`POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview`
+
+```
+POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
+```
 
 ## Calling the Logic app trigger's endpoint
 Once you have the endpoint of your trigger, you can save that in your backend system and call it via a `POST` to the full URL. You can include additional query parameters, headers, and any content in your body.
@@ -51,6 +59,7 @@ If the content-type is `application/json` then you will be able to reference pro
 
 ## Referencing the content of the incoming request
 The `@triggerOutputs()` function will output the contents of the incoming request. For example, it would look like:
+
 ```
 {
     "headers" : {
@@ -61,12 +70,13 @@ The `@triggerOutputs()` function will output the contents of the incoming reques
     }
 }
 ```
+
 You can use the `@triggerBody()` shortcut to access the `body` property specifically. 
 
 This is a slight difference from the *2014-12-01-preview* version where you would access the body of an HTTP Listener via a function like: `@triggerOutputs().body.Content`. 
 
 ## Responding to the request
-For some requests that start a Logic app, you may want to respond with some content to the caller. There is a new action type called **response** that can be used to construct the status code, body and headers for your response. Note that if no **response** shape is present, the Logic app endpoint will *immediately* respond with **204 No Content (TODO: verify this is the actual code not 202)** (this in the equivalent of *Send response automatically* in the HTTP Listener). 
+For some requests that start a Logic app, you may want to respond with some content to the caller. There is a new action type called **response** that can be used to construct the status code, body and headers for your response. Note that if no **response** shape is present, the Logic app endpoint will *immediately* respond with **202 Accepted** (this in the equivalent of *Send response automatically* in the HTTP Listener).
 
 ```
 "myresponse" : {
@@ -87,6 +97,7 @@ For some requests that start a Logic app, you may want to respond with some cont
 ```
 
 Responses have the following:
+
 | property | Description |
 | -------- | ----------- |
 | statusCode | The HTTP status code to respond to the incoming request. It can be any valid status code that starts with 2xx, 4xx, or 5xx. 3xx status codes are not permitted. | 
@@ -105,6 +116,7 @@ This functionality is available through **API management**:
 * Set up policy to check for Basic authentication (**link needed**)
 
 ## Summary of migration from 2014-12-01-preview
+
 |  2014-12-01-preview | 2015-08-01-preview |
 |---------------------|--------------------|
 | Click on **HTTP Listener** API app | Click on **Manual trigger** (no API app required) |
