@@ -57,3 +57,4 @@ After the virtual machine is created, it's started automatically. When the porta
 
 - [How to Log on to a Virtual Machine Running Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md)
 - [How to Log on to a Virtual Machine Running Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md)
+

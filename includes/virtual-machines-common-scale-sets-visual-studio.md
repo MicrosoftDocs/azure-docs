@@ -1,24 +1,4 @@
-<properties
-	pageTitle="Deploying Virtual Machine Scale Set Templates in Visual Studio | Microsoft Azure"
-	description="How to deploy Virtual Machine Scale Set using a Visual Studio Resource Group Deployment"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="gbowerman"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
 
-<tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/11/2015"
-	ms.author="guybo"/>
-
-# Deploying Virtual Machine Scale Set Templates in Visual Studio
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-create-windows-powershell-service-manager.md).
 
 This article shows you how to deploy an Azure Virtual Machine Scale Set using a Visual Studio Resource Group Deployment.
 
@@ -96,14 +76,14 @@ Once the deployment completes, you can view the new VM Scale Set in the Visual S
 
 Once you’ve successfully deployed VM Scale Sets through Visual Studio you can further customize your project to suit your application requirements. For example setting up autoscale by adding an Insights resource, adding infrastructure to your Template like standalone VMs, or deploying applications using the custom script extension. A good source of example Templates can be found in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) GitHub repository (search for "vmss").
 
-[file_new]: ./media/virtual-machines-vmss-vstemplates/1-FileNew.png
-[create_project]: ./media/virtual-machines-vmss-vstemplates/2-CreateProject.png
-[select_Template]: ./media/virtual-machines-vmss-vstemplates/3b-SelectTemplateLin.png
-[solution_explorer]: ./media/virtual-machines-vmss-vstemplates/4-SolutionExplorer.png
-[json_explorer]: ./media/virtual-machines-vmss-vstemplates/10-JsonExplorer.png
-[5deploy_Template]: ./media/virtual-machines-vmss-vstemplates/5-DeployTemplate.png
-[6deploy_Template]: ./media/virtual-machines-vmss-vstemplates/6-DeployTemplate.png
-[new_resource]: ./media/virtual-machines-vmss-vstemplates/7-NewResourceGroup.png
-[edit_parameters]: ./media/virtual-machines-vmss-vstemplates/8-EditParameter.png
-[output_window]: ./media/virtual-machines-vmss-vstemplates/9-Output.png
-[cloud_explorer]: ./media/virtual-machines-vmss-vstemplates/12-CloudExplorer.png
+[file_new]: ././media/virtual-machines-common-scale-sets-visual-studio/1-FileNew.png
+[create_project]: ././media/virtual-machines-common-scale-sets-visual-studio/2-CreateProject.png
+[select_Template]: ././media/virtual-machines-common-scale-sets-visual-studio/3b-SelectTemplateLin.png
+[solution_explorer]: ././media/virtual-machines-common-scale-sets-visual-studio/4-SolutionExplorer.png
+[json_explorer]: ././media/virtual-machines-common-scale-sets-visual-studio/10-JsonExplorer.png
+[5deploy_Template]: ././media/virtual-machines-common-scale-sets-visual-studio/5-DeployTemplate.png
+[6deploy_Template]: ././media/virtual-machines-common-scale-sets-visual-studio/6-DeployTemplate.png
+[new_resource]: ././media/virtual-machines-common-scale-sets-visual-studio/7-NewResourceGroup.png
+[edit_parameters]: ././media/virtual-machines-common-scale-sets-visual-studio/8-EditParameter.png
+[output_window]: ././media/virtual-machines-common-scale-sets-visual-studio/9-Output.png
+[cloud_explorer]: ././media/virtual-machines-common-scale-sets-visual-studio/12-CloudExplorer.png

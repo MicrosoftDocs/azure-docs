@@ -110,7 +110,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	Add these variables under the variables parent element that you added to the template:
 
 	- DNS names that are used by the network interfaces.
-	- The size of the virtual machines used in the scale set. For more information about virtual machine sizes see, [Sizes for virtual machines](virtual-machines-size-specs.md).
+	- The size of the virtual machines used in the scale set. For more information about virtual machine sizes see, [Sizes for virtual machines](virtual-machines-linux-sizes.md).
 	- The platform image information for defining the operating system that will run on the virtual machines in the scale set. For more information about selecting images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](resource-groups-vm-searching.md).
 	- The IP address names and prefixes for the virtual network and subnets.
 	- The names and identifiers of the virtual network, load balancer, and network interfaces.

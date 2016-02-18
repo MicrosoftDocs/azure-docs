@@ -5,7 +5,7 @@ Set up your first or next dev/test or production Oracle database running on a vi
 
 ## Oracle virtual machine images
 
-See [List of Oracle virtual machine images](virtual-machines-oracle-list-oracle-virtual-machine-images.md) for the latest set of Windows-based and Linux-based virtual machine images.
+See [List of Oracle virtual machine images](virtual-machines-linux-classic-oracle-images.md) for the latest set of Windows-based and Linux-based virtual machine images.
 
 ## Considerations for Windows-based virtual machines
 
