@@ -1,6 +1,6 @@
 <properties 
    pageTitle="What is a Network Security Group (NSG)"
-   description="Learn about Network Security Groups (NSG)"
+   description="Learn about the distributed firewall in Azure using Network Security Groups (NSGs), and how to use NSGs to isolate and control traffic flow within your virtual networks (VNets)."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -9,15 +9,17 @@
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/11/2016"
    ms.author="telmos" />
 
 # What is a Network Security Group (NSG)?
 
-Network security group (NSG) contains a list of Access control List (ACL) rules that allow\deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.  In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
+Network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
+
+## NSG resource
 
 NSGs contain the following properties.
 
@@ -45,6 +47,12 @@ NSG rules contain the following properties.
 |**Direction**|Direction of traffic to match for the rule|inbound or outbound|Inbound and outbound rules are processed separately, based on direction|
 |**Priority**|Rules are checked in the order of priority, once a rule applies, no more rules are tested for matching|Number between 100 and 65535|Consider creating rules jumping priorities by 100 for each rule, to leave space for new rules to come between existing rules|
 |**Access**|Type of access to apply if the rule matches|allow or deny|Keep in mind that if an allow rule is not found for a packet, the packet is dropped|
+
+NSGs contain two sets of rules: inbound and outbound. The priority for a rule must be unique within each set. 
+
+![NSG rule processing](./media/virtual-network-nsg-overview/figure3.png) 
+
+The figure above shows how NSG rules are processed.
 
 ### Default Tags
 
@@ -97,11 +105,25 @@ You can associate different NSGs to a VM (or NIC, depending on the deployment mo
 	2. NSG applied to NIC (Resource Manager) or VM (classic).
 - **Outbound traffic**
 	1. NSG applied to NIC (Resource Manager) or VM (classic).
-	3. NSG applied to subnet.
+	2. NSG applied to subnet.
 
 ![NSG ACLs](./media/virtual-network-nsg-overview/figure2.png)
 
 >[AZURE.NOTE] Although you can only associate a single NSG to a subnet, VM, or NIC; you can associate the same NSG to as many resources as you want.
+
+## Implementation
+You can implement NSGs in the classic or Resource Manager deployment models using the different tools listed below.
+
+|Deployment tool|Classic|Resource Manager|
+|---|---|---|
+|Classic portal|![No][red]|![No][red]|
+|Azure portal|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Yes][green]</a>|
+|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Yes][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Yes][green]</a>|
+|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Yes][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Yes][green]</a>|
+|ARM template|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Yes][green]</a>|
+
+|**Key**|![Yes][green] Supported. Click for article.|![No][red] Not Supported.|
+|---|---|---|
 
 ## Planning
 
@@ -111,7 +133,7 @@ Before implementing NSGs, you need to answer the questions below:
 
 2. Are the resources you want to filter traffic to/from connected to subnets in existing VNets or will they be connected to new VNets or subnets?
  
-For more information on planning for network security in Azure, read the [best practices for colud services and network security](best-practices-network-security.md). 
+For more information on planning for network security in Azure, read the [best practices for cloud services and network security](../best-practices-network-security.md). 
 
 ## Design considerations
 
@@ -127,7 +149,7 @@ You need to consider the following limits when designing your NSGs.
 |NSGs per region per subscription|100|By default, a new NSG is created for each VM you create in the Azure portal. If you allow this default behavior, you will run out of NSGs quickly. Make sure you keep this limit in mind during your design, and separate your resources into multiple regions or subscriptions if necessary. |
 |NSG rules per NSG|200|Use a broad range of IP and ports to ensure you do not go over this limit. |
 
->[AZURE.IMPORTANT] Make sure you view all the [limits related to networking services in Azure](../azure-subscription-service-limits/#networking-limits) before designing your solution. Some limits can be increased by opening a support ticket.
+>[AZURE.IMPORTANT] Make sure you view all the [limits related to networking services in Azure](../azure-subscription-service-limits.md#networking-limits) before designing your solution. Some limits can be increased by opening a support ticket.
 
 ### VNet and subnet design
 
@@ -247,3 +269,7 @@ Since some of the NSGs above need to be associated to individual NICs, you need 
 - [Deploy NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
 - [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 - [Manage NSG logs](virtual-network-nsg-manage-log.md).
+
+[green]: ./media/virtual-network-nsg-overview/green.png
+[yellow]: ./media/virtual-network-nsg-overview/yellow.png
+[red]: ./media/virtual-network-nsg-overview/red.png

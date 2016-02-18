@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/05/2016"
+   ms.date="02/08/2016"
    ms.author="cherylmc"/>
 
 
@@ -103,7 +103,8 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 
 **Note:** Advertising default routes will break Windows and other VM license activation. Follow instructions [here](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
 
-## Support for BGP communities
+## Support for BGP communities (Coming Soon)
+
 
 This section provides an overview of how BGP communities will be used with ExpressRoute. Microsoft will advertise routes in the public and Microsoft peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
 
