@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/18/2016"
-   ms.author="mgoedtel;bwren;sngun"/>
+   ms.author="magoedte;bwren;sngun"/>
 
 # Azure Automation webhooks
 

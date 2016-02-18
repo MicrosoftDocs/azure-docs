@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
     ms.date="02/18/2016"
-    ms.author="mgoedtel;sngun" />
+    ms.author="magoedte;sngun" />
 
 # Source control integration in Azure Automation
 

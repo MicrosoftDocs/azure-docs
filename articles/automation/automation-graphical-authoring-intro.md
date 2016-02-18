@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
-   ms.author="mgoedtel;bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Graphical authoring in Azure Automation
 

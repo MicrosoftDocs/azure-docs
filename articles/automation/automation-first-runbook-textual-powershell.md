@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="2/18/2016"
-    ms.author="mgoedtel;sngun"/>
+    ms.date="02/18/2016"
+    ms.author="magoedte;sngun"/>
 
 # My first PowerShell runbook
 

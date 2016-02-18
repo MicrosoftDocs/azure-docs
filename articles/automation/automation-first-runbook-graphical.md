@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="02/18/2016"
-    ms.author="mgoedtel;bwren"/>
+    ms.author="magoedte;bwren"/>
 
 # My first graphical runbook
 
