@@ -109,6 +109,7 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 
 - Download and expand the [WebAppsDeployment.zip](http://go.microsoft.com/fwlink/?LinkId=723982) to the client machine. 
 - Run the **Deploy-SqlServerDSC.ps1** script to provision a new VM and install SQL server.
+
 **NOTE** Make sure to remember the resource group used in the script to provision the SQL virtual machine. When prompted to create a user account on the VM, the username admin will be auto-populated and you will be asked to submit a password. Make sure to record this password for as you’ll need it again when you deploy the Web App Azure Resource Manager template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime SQL database located on this SQL server.
 
 **NOTE** Make a note of the resource group used in the script to provision the SQL VM, as it should be the same resource group used during the WebApps deployment in the next step. The script default for the Resource Group is: WebsitesSQL. 
@@ -251,7 +252,7 @@ DNS entries need to be made for the Front End and Management Server VIPs.  To do
 
 **Set up the wildcard certificates**
 
-**NOTE** You may not need to go through this step if you have already created a wildcart certificate for another resource provider, like the SQL Server Resource Provider.
+**NOTE** You may not need to go through this step if you have already created a wildcard certificate for another resource provider, like the SQL Server Resource Provider.
 
 To configure your Azure Stack Web Apps deployment with wildcard certificates you need to first get the wildcard certificate to configure the system with.  To do this: 
 
@@ -275,7 +276,7 @@ To configure your Azure Stack Web Apps deployment with wildcard certificates you
 
 **Export wildcard certificate**
 
-**NOTE** You may not need to go through this step if you have already created a wildcart certificate for another resource provider, like the SQL Server Resource Provider.
+**NOTE** You may not need to go through this step if you have already created a wildcard certificate for another resource provider, like the SQL Server Resource Provider.
 
 1. Open Microsoft Management Console (MMC), click **File**, and then click **Add/Remove Snap-in**.
 
