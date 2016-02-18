@@ -63,7 +63,7 @@ API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the
 Apache focumentation for the [Mesos Scheduler
 API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
 
-### Swarm Tunnel
+### Swarm tunnel
 
 To open a tunnel to the Swarm endpoint execute a command that looks
 similar to the following command.
@@ -79,7 +79,7 @@ continue to use your Docker CLI as normal.
 export DOCKER_HOST=:2375
 ```
 
-## SSH Tunnel on Windows
+## SSH tunnel on Windows
 
 Multiple options are available for creating SSH tunnels on Windows, this document will detail using Putty.
 
@@ -115,12 +115,11 @@ When the tunnel has been configured for Mesos, the related endpoint can be acces
 
 When the tunnel has been configured for Docker Swarm, the Swarm cluster can be accessed through the Docker CLI. You will first need to configure a Windows Environmental variable named `DOCKER_HOST` with a value of ` :2375`.
 
-## Next Steps
+## Next steps
  
 Deploy and manage containers with Mesos or Swarm. 
  
 - [Working with ACS and Mesos](./container-service-mesos-marathon-rest.md)
-- [Working with ACS and Docker Swarm](./container-service-docker-swarm.md)
 
 
 
