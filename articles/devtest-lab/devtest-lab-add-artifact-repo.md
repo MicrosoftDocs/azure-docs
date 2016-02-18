@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Add a Git artifact repository to your DevTest Lab
@@ -115,3 +115,7 @@ To add a Visual Studio Git artifact repository to your lab, you first get the HT
     2. Enter the **Folder Path** in the artifacts repository that contains the artifacts.
     3. Enter the saved **Personal Access Token** to the artifacts repository.
     4. Tap **Save**.
+
+## Next steps
+
+- (Video) [How to add your private Artifacts Repository in a DevTest Lab](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab/)
