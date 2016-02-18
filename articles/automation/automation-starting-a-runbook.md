@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
-   ms.author="bwren;sngun"/>
+   ms.date="02/18/2016"
+   ms.author="mgoedtel;bwren"/>
 
 # Starting a runbook in Azure Automation
 
@@ -118,7 +118,7 @@ The following image illustrates detailed step-by-step process in the life cycle 
 1. If the runbook has parameters, you will be prompted to provide values with a text box for each parameter. See [Runbook Parameters](#Runbook-parameters) below for further details on parameters.
 1. Either select **View Job** next to the **Starting** runbook message or select the **Jobs** tab for the runbook to view the runbook job’s status.
 
-## Starting a runbook with the Azure preview portal
+## Starting a runbook with the Azure portal
 
 1. From your automation account, click the **Runbooks** part to open the **Runbooks** blade.
 1. Click a runbook to open its **Runbook** blade.

@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="2/18/2016"
+   ms.author="mgoedtel;bwren" />
 
 # Certificate assets in Azure Automation
 

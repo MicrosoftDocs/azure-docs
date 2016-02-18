@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="mgoedtel;bwren" />
 
 # Variable assets in Azure Automation
 
@@ -67,7 +67,7 @@ The workflow activities in the following table are used to access Automation var
 1. Complete the wizard and click the checkbox to save the new variable.
 
 
-### To create a new variable with the Azure preview portal
+### To create a new variable with the Azure portal
 
 1. From your automation account, click the **Assets** part to open the **Assets** blade.
 1. Click the **Variables** part to open the **Variables** blade.

@@ -12,8 +12,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="bwren" />
+	ms.date="02/18/2016"
+	ms.author="mgoedtel;bwren" />
 
 
 # Runbook and module galleries for Azure Automation
@@ -24,13 +24,13 @@ You can get runbooks from the [Runbook Gallery](#runbooks-in-runbook-gallery) an
 
 ## Runbooks in Runbook Gallery
 
-The [Runbook Gallery](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=RootCategory&f[0].Value=WindowsAzure&f[1].Type=SubCategory&f[1].Value=WindowsAzure_automation&f[1].Text=Automation) provides a variety of runbooks from Microsoft and the community that you can import into Azure Automation. You can either download a runbook from the gallery which is hosted in the [TechNet Script Center](http://gallery.technet.microsoft.com/), or you can directly import runbooks from the gallery from the Azure portal and Azure preview portal.
+The [Runbook Gallery](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=RootCategory&f[0].Value=WindowsAzure&f[1].Type=SubCategory&f[1].Value=WindowsAzure_automation&f[1].Text=Automation) provides a variety of runbooks from Microsoft and the community that you can import into Azure Automation. You can either download a runbook from the gallery which is hosted in the [TechNet Script Center](http://gallery.technet.microsoft.com/), or you can directly import runbooks from the gallery from either the Azure classic portal or Azure portal.
 
-You can only import directly from the Runbook Gallery using the Azure portal or Azure preview portal. You cannot perform this function using Windows PowerShell.
+You can only import directly from the Runbook Gallery using the Azure classic portal or Azure portal. You cannot perform this function using Windows PowerShell.
 
 >[AZURE.NOTE] You should validate the contents of any runbooks that you get from the Runbook Gallery and use extreme caution in installing and running them in a production environment.|
 
-### To import a runbook from the Runbook Gallery with the Azure portal
+### To import a runbook from the Runbook Gallery with the Azure classic portal
 
 1. In the Azure Management portal, click, **New**, **App Services**, **Automation**, **Runbook**, **From Gallery**.
 2. Select a category to view related runbooks, and select a runbook to view its details. When you select the runbook you want, click the right arrow button.<br>
@@ -39,9 +39,9 @@ You can only import directly from the Runbook Gallery using the Azure portal or 
 4. Enter the runbook details and then click the checkmark button. The runbook name will already be filled in.
 5. The runbook will appear on the **Runbooks** tab for the Automation Account.
 
-### To import a runbook from the Runbook Gallery with the Azure preview portal
+### To import a runbook from the Runbook Gallery with the Azure portal
 
-1. In the Azure Preview Portal, open your Automation account. 
+1. In the Azure Portal, open your Automation account. 
 2. Click on the **Runbooks** tile to open the list of runbooks.
 3. Click **Browse gallery** button. <br>
 ![Browse gallery button](media/automation-runbook-gallery/browse-gallery-button.png)
@@ -85,11 +85,11 @@ Microsoft encourages you to add runbooks to the Runbook Gallery that you think w
 
 ## Modules in PowerShell Gallery
 
-PowerShell modules contain cmdlets that you can use in your runbooks, and existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](http://www.powershellgallery.com).  You can launch this gallery from the Azure preview portal and install them directly into Azure Automation or you can download them and install them manually.  You cannot install the modules directly from the Azure portal, but you can download them install them as you would any other module.
+PowerShell modules contain cmdlets that you can use in your runbooks, and existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](http://www.powershellgallery.com).  You can launch this gallery from the Azure portal and install them directly into Azure Automation or you can download them and install them manually.  You cannot install the modules directly from the Azure classic portal, but you can download them install them as you would any other module.
 
-### To import a module from the PowerShell Gallery with the Azure preview portal
+### To import a module from the PowerShell Gallery with the Azure portal
 
-1. In the Azure Preview Portal, open your Automation account. 
+1. In the Azure Portal, open your Automation account. 
 2. Click on the **Assets** tile to open the list of assets.
 3. Click on the **Modules** tile to open the list of modules.
 3. Click on the **PowerShell gallery** button to launch the PowerShell Gallery in another browser window. <br>
@@ -99,7 +99,7 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 4. Locate a module that you're interested in and select it to view its details.
 5. To install the module directly into Azure Automation, click the **Deploy to Azure Automation** button.<br>
 ![PowerShell gallery button](media/automation-runbook-gallery/powershell-gallery-detail.png)
-6. You are returned to the Azure preview portal in a **Custom deployment** pane.  Specify whether you will install the module in a **New or Existing Automation Account** and the **Automation Account Name**.  The **Automation Account Location** is ignored if you use an existing account. 
+6. You are returned to the Azure portal in a **Custom deployment** pane.  Specify whether you will install the module in a **New or Existing Automation Account** and the **Automation Account Name**.  The **Automation Account Location** is ignored if you use an existing account. 
 7. Select **Resource group** and either specify a existing resource group or create a new one for the module.
 6. You must select **Legal terms** and click **Buy**.  Note that despite the name of this button you are not actually charged for installing a module.
 7. Click **Create** to import the module.  This may take a couple of minutes since each activity needs to be extracted.  

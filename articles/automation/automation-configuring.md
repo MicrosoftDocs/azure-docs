@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
-   ms.author="bwren;sngun" />
+   ms.date="02/18/2016"
+   ms.author="mgoedtel;bwren" />
 
 # Configuring Azure Automation
 
