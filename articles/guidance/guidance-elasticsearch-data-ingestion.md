@@ -438,7 +438,7 @@ Memory use is another important aspect that can influence performance. For the t
 
 ![](media/guidance-elasticsearch/data-ingestion-image5.png)
 
-*** JVM memory and garbage collection activity on the large cluster.***
+***JVM memory and garbage collection activity on the large cluster.***
 
 ### Determining Limiting Factors: Disk I/O Rates
 
