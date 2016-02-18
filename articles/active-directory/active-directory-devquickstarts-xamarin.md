@@ -41,14 +41,14 @@ To build the complete working application, you’ll need to:
 To get started, [download a skeleton project](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip).  Each is a Visual Studio 2013 solution.  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
 ## *0. Set up your Xamarin Development Environment*
-There are several different ways you might want to set up Xamarin, depending on the specific platforms you wish to target.  Since this tutorial includes projects for iOS, Android, and Windows, we'll elect to use Visual Studio 2013 and the [Xamarin.iOS Build Host](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/), which will require:
-- A windows machine to run Visual Studio & the Windows apps
-- An OSX machine (if you want to be able to run the iOS app)
-- A Xamarin Business subscription (a [free trial](http://developer.xamarin.com/guides/cross-platform/getting_started/beginning_a_xamarin_trial/) is sufficient)
-- [Xamarin for Windows](https://xamarin.com/download), which includes Xamarin.iOS, Xamarin.Android, and the Visual Studio Integration (recommended for this sample).
-- [Xamarin for OS X](https://xamarin.com/download), which includes Xamarin.iOS (and the Xamarin.iOS Build Host), Xamarin.Android, Xamarin.Mac, and Xamarin Studio.
+Because this tutorial includes projects for iOS, Android, and Windows, you'll need Visual Studio 2015 and Xamarin together. This requires:
+- A Windows machine to run Visual Studio and the Android/Windows apps
+- An Mac OS X machine, if you want to run the iOS app
+- A Xamarin Business license (free 30-day trial)
+- Xamarin for Windows, which includes Xamarin.iOS, Xamarin.Android, and the Visual Studio Integration (recommended for this sample).
+- Xamarin for OS X, which includes Xamarin.iOS (and the Xamarin.iOS Build Host), Xamarin.Android, Xamarin.Mac, and Xamarin Studio.
 
-We recommend you begin with the [Xamarin Download Page](https://xamarin.com/download), installing Xamarin on both your Mac and PC.  If you don't have both machines available, you can still run the sample, but certain projects will have to be omitted.  Follow the [detailed installation guides](http://developer.xamarin.com/guides/cross-platform/getting_started/installation/) for iOS and Android, and if you would like to understand more about the options available to you for development, have a look at the [Building Cross Platform Applications](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/part_1_-_understanding_the_xamarin_mobile_platform/) guide.  You do not need to setup a device for development at this time, nor do you need a Apple Developer Program subscription (unless, of course, you want to run the iOS app on a device).
+To create this environment, follow the complete instructions on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx) on MSDN. Those instructions include material you can review to learn more about Xamarin while you're waiting for the installers to complete.
 
 Once you've completed the necessary setup, open the solution in Visual Studio to get started.  You will find six projects: five platform-specific projects and one portable class library that will be shared across all platforms, `DirectorySearcher.cs`
 
