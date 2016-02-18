@@ -2,7 +2,7 @@
 	pageTitle="What are Logic Apps?" 
 	description="Learn more about App Service Logic Apps" 
 	authors="kevinlam1" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,30 +13,33 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/18/2016"
 	ms.author="klam"/>
 
-#What are Logic Apps?
+# What are Logic Apps?
+
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [connectors list](app-service-logic-connectors-list.md).
 
 | Quick Reference |
 | --------------- |
-| [Logic Apps Definition Language](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Logic Apps Connector Documentation](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
+| [Logic Apps Definition Language](https://msdn.microsoft.com/library/azure/dn948512.aspx) |
+| [Logic Apps API List](../connectors/apis-list.md) |
 | [Logic Apps Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
+
 
 Azure App Service is a fully managed PaaS (Platform as a Service) for developers that makes it easier to build web, mobile, and integration apps. Logic Apps are a part of this suite and allow any technical user or developer to automate business process execution and workflow using an easy-to-use visual designer.
 
-Best of all, Logic Apps can be combined with [Connectors][connectors] from our Marketplace to help solve even tricky integration scenarios with ease: 
+Best of all, Logic Apps can be combined with [APIs][connectors] from our Marketplace to help solve even tricky integration scenarios with ease: 
 
 ![Flow app designer](./media/app-service-logic-what-are-logic-apps/Designer.png)
 
 You can automatically replicate new records in your SQL DB and mail the front desk. Or automatically find negative tweets and send them to a slack channel.
 
-##Why Logic Apps?
+## Why Logic Apps?
 
 Logic Apps allow developers to design workflows that start from a trigger and then execute a series of steps. Each step invokes an App Service API app whilst securely taking care of authentication and best practices, like checkpointing and durable execution.
 
-If you want to automate any business process (e.g. find negative tweets and post to your internal slack channel or replicate new customer records from SQL, as they arrive, into your CRM system), Logic Apps makes integrating disparate data sources, from cloud to on-premises easy. Check out our [connectors][connectors] for more inspiration and [get started][create] now to see what you can do. 
+If you want to automate any business process (e.g. find negative tweets and post to your internal slack channel or replicate new customer records from SQL, as they arrive, into your CRM system), Logic Apps makes integrating disparate data sources, from cloud to on-premises easy. Check out our [APIs][connectors] for more inspiration and [create a logic app][create] now to see what you can do. 
 
 What's more, with our [BizTalk API Apps][biztalk] you can scale to mature integration scenarios with the power of a [rules engine][rules], [trader partner management][tpm], and more.
 
@@ -69,7 +72,7 @@ For more information on Azure App Service platform, see [Azure App Service][apps
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
-[connectors]: app-service-logic-connectors-list.md
+[connectors]: ../connectors/apis-list.md
 [tpm]: app-service-logic-create-a-trading-partner-agreement.md
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
