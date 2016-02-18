@@ -260,4 +260,4 @@ Also, find out how to do more with your deployed app. Here's a partial list:
 - [Backup your app](../app-service-web/web-sites-backup.md)
 - [Enable diagnostic logs](../app-service-web/web-sites-enable-diagnostic-log.md)
 - [Access on-premises resources](../app-service-web/web-sites-hybrid-connection-get-started.md)
-- [Learn how App Service works](app-service-how-works-readme.md)
+- [Learn how App Service works](app-service-how-works-readme.md) 
