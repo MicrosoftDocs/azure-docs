@@ -49,7 +49,7 @@ You can get more information about load balancer components with Azure resource 
 
 ## Setup CLI to use Resource Manager
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
 
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
@@ -335,7 +335,7 @@ Where **nrprg** is the resource group and **nrplb** the load balancer name.
 
 ## Next steps
 
-[Get started configuring an internal load balancer](load-balancer-internal-getstarted.md)
+[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-cli.md)
 
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
