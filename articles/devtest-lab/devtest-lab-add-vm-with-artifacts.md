@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Add a VM with artifacts to an Azure DevTest Lab
@@ -98,3 +98,5 @@ Follow these steps to view or modify the parameters of your selected artifacts:
 ## Next steps
 
 Learn how to [author custom artifacts for your VM](devtest-lab-artifact-author.md).
+
+(Video) [How to create VMs with Artifacts in a DevTest Lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/)
