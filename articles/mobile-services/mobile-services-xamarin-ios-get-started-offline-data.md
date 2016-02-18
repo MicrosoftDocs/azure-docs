@@ -46,7 +46,7 @@ This tutorial walks you through these basic steps:
 
 This tutorial requires the following:
 
-* Visual Studio with the [Xamarin extension] **or** [Xamarin Studio] on OS X
+* Visual Studio with Xamarin; see [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx). You can also use [Xamarin Studio] on OS X.
 * XCode 4.5 and iOS 6.0 (or later versions)
 * Completion of the [Get started with Mobile Services] tutorial
 
