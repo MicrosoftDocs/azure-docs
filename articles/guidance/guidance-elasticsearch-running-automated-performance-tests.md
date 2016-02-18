@@ -80,19 +80,18 @@ Copy the following test script parameter files to the JMeter server machine:
 
 * [run.properties](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/run.properties). This file specifies the number of JMeter test threads to use, the duration of the test (in seconds), the IP address of a node (or a load balancer) in the Elasticsearch cluster, and the name of the cluster:
 
-  ##### run.properties
-  ```
+  ```ini
   nthreads=3
   duration=300
   elasticip=<IP Address or DNS Name Here>
   clustername=<Cluster Name Here>
   ```
+  
   Edit this file and specify the appropriate values for your test and cluster.
 
 * [query-config-win.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-win.ini) and [query-config-nix.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-nix.ini). These two files contain the same information; the *win* file is formatted for Windows filenames and paths, and the *nix* file is formatted for Linux filenames and paths:
 
-  ##### query-config-win.ini
-  ```
+  ```ini
   [DEFAULT]
   debug=true #if true shows console logs.
 
@@ -115,8 +114,7 @@ Copy the following test script parameter files to the JMeter server machine:
 
 * Run the *query-test.py* script from the command line to perform the tests:
 
-  #### Command Line
-  ```
+  ```cmd
   py query-test.py
   ```
 
