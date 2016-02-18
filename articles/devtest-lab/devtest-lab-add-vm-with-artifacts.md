@@ -97,6 +97,5 @@ Follow these steps to view or modify the parameters of your selected artifacts:
 
 ## Next steps
 
-Learn how to [author custom artifacts for your VM](devtest-lab-artifact-author.md).
-
-(Video) [How to create VMs with Artifacts in a DevTest Lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/)
+- Learn how to [author custom artifacts for your VM](devtest-lab-artifact-author.md).
+- (Video) [How to create VMs with Artifacts in a DevTest Lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/)
