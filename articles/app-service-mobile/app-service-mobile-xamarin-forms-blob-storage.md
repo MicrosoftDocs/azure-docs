@@ -34,9 +34,9 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* [Visual Studio Community 2013] or later.
+* Visual Studio 2013 with Xamarin. See [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx) for instructions.
 
-* A Mac with [Xcode](https://go.microsoft.com/fwLink/?LinkID=266532) v7.0 or later and [Xamarin Studio](http://xamarin.com/download) installed.
+* A Mac with [Xcode](https://go.microsoft.com/fwLink/?LinkID=266532) v7.0 or later and [Xamarin Studio](http://xamarin.com/download) installed. You can also run Visual Studio on the Mac as described on [Setup, Install, and Verifications for Mac Users with Xamarin](https://msdn.microsoft.com/en-US/library/mt488770.aspx).
 
 * Completion of the tutorial [Create a Xamarin.Forms app]. This article uses the completed app from that tutorial.
 
