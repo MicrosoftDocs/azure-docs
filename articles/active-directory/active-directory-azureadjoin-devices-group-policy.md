@@ -60,12 +60,12 @@ To enable conditional access, you can create policies that allow access to ‘do
 
 Azure AD Connect will enable you to provision computers on-premises as device objects in the cloud. To deploy Azure AD Connect, please refer to Enabling your directory for hybrid management with Azure AD Connect.
 
- - If you followed a [custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (not the Express installation), you must follow the procedure, **Create a service connection point (SCP) in the on-premises Active Directory**, described in this step.
- - If you have a federated configuration with Azure AD before installing Azure AD Connect (for example, if you have deployed Active Directory Federation Services (AD FS) before), you must follow the **Configure AD FS claim rules** procedure in this step.
+ - If you followed a [custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (not the Express installation), you must follow the procedure, **Create a service connection point (SCP) in the on-premises Active Directory**, later in this step.
+ - If you have a federated configuration with Azure AD before installing Azure AD Connect (for example, if you have deployed Active Directory Federation Services (AD FS) before), you must follow the **Configure AD FS claim rules** procedure, later in this step.
 
 #### Create a service connection point (SCP) in the on-premises Active Directory
 
-Domain-joined devices will use this object to discover Azure AD tenant information at the time of auto-registration with the Azure device registration service.
+Domain-joined devices will use this object to discover Azure AD tenant information at the time of automatic registration with the Azure device registration service.
 
 On the Azure AD Connect server, run the following PowerShell commands:
 
@@ -120,10 +120,10 @@ On the AD FS server (or on a session connected to the AD FS server), run the fol
     Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString
 
 >[AZURE.NOTE]
-Windows 10 computers will authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, ensure also that this endpoint is published through the proxy. You can do this by checking that the adfs/services/trust/13/windowstransport shows as enabled in the AD FS management console under Service > Endpoints.
+Windows 10 computers will authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, ensure also that this endpoint is published through the proxy. You can do this by checking that the adfs/services/trust/13/windowstransport shows as enabled in the AD FS management console under **Service** > **Endpoints**.
 
 
-## Step 2: Configure automatic device registration via Group Policy in Active Directory
+### Step 2: Configure automatic device registration via Group Policy in Active Directory
 
 You can use an Active Directory Group Policy to configure your Windows 10 domain-joined devices to automatically register with Azure AD. To do this, use the following step-by-step instructions:
 
@@ -141,7 +141,7 @@ You can use an Active Directory Group Policy to configure your Windows 10 domain
 >[AZURE.NOTE]
 This Group Policy template has been renamed in Windows 10. If you are running the Group Policy tool from a Windows 10 computer, the policy will appear as: <br>
 **Register domain joined computers as devices**
-The policy will be located in the following location:<br>
+The policy is in the following location:<br>
 ***Computer Configuration/Policies/Administrative Templates/Windows Components/Device Registration***
 
 
