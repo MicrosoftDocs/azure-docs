@@ -30,7 +30,7 @@ The [iOS simulator does not support push notifications](https://developer.apple.
 
 ##Prerequisites
 
-* Complete the [Create a Xamarin.Forms app](app-service-mobile-xamarin-forms-get-started.md) tutorial , which lists other prerequisites. This article uses the completed app from that tutorial.
+* Complete the [Create a Xamarin.Forms app](app-service-mobile-xamarin-forms-get-started.md) tutorial, which lists other prerequisites. This article uses the completed app from that tutorial.
 
 * A physical iOS device. Push notifications are not supported by the iOS simulator.
 
