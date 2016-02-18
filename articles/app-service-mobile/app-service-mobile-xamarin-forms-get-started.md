@@ -32,10 +32,10 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* [Visual Studio Community 2013] or later.  If you install Visual Studio Community 2013, install [Xamarin] separately.  You can install the Xamarin tools when you install Visual Studio 2015.
+* [Visual Studio Community 2013] or later.  If you install Visual Studio Community 2013, install [Xamarin] separately.  You can install the Xamarin tools when you install Visual Studio 2015. Complete instructions can be found on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx) (MSDN).
 
-* A Mac with [Xcode] v7.0 or later and [Xamarin Studio] installed. If you plan to build your app on a Windows computer by using Visual Studio, you'll still need access to a networked Mac to do it.
-
+* A Mac with [Xcode] v7.0 or later and [Xamarin Studio] installed. If you plan to build your app on a Windows computer by using Visual Studio, you'll still need access to a networked Mac to do it. Instructions for setting up a Mac are also included on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx) (MSDN).
+ 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
 
 ## Create a new Azure Mobile App backend
