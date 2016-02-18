@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Define lab policies
@@ -100,3 +100,6 @@ The auto-shutdown policy helps to minimize lab waste by allowing you to specify 
 
 1. Tap **Save**.
 
+## Next steps
+
+- (Video) [How to set VM policies in a DevTest Lab](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab/)
