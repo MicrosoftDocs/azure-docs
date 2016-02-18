@@ -161,6 +161,54 @@ ModuleName.Zip **->** ModuleName or Version Number **->** (ModuleName.psm1, Modu
 
   <br/>
 
+## Troubleshoot common errors when working with Desired State Configuration (DSC)  
+
+### Scenario:  Node is in failed status with a “Not found” error
+
+**Error:** 
+The node has a report of status ‘Failed’ containing the error "The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.”
+
+**Reason for the error:** 
+This failure typically occurs because the node is assigned to a configuration name (e.g. ABC) instead of a node configuration name (e.g. ABC.WebServer).  
+
+**Troubleshooting tips:**
+Double check that the node configuration name is being used and that you are not using the configuration name. You can use the “assign node configuration” button on the node blade in the portal or the Set-AzureRMAutomationDscNode cmdlet to map the node to a valid node configuration.
+
+### Scenario:  No node configurations (mof files) were produced when a configuration compilation is performed
+
+**Error:** 
+Your DSC compilation job was suspended with the following error: “Compilation completed successfully, but no node configuration .mofs were generated”.
+
+**Reason for the error:** 
+When the expression next to “Node” in the DSC configuration evaluates to $null, no node configurations will be produced.    
+
+**Troubleshooting tips:**
+Check that the expression next to Node is not evaluating to $null.  If you are passing in ConfigurationData, ensure that you are passing in the expected values the configuration requires from configuration data. From example, “$AllNodes. Please see https://azure.microsoft.com/en-us/documentation/articles/automation-dsc-compile/#configurationdata for more info.
+
+### Scenario:  DSC node report becomes stuck “in progress” state
+
+**Error:** 
+DSC Agent outputs “No instance found with given property values.”
+
+**Reason for the error:** 
+You have upgraded your WMF version and have corrupted WMI.  
+
+**Troubleshooting tips:**
+Follow the instructions in this post to fix the issue: https://msdn.microsoft.com/en-us/powershell/wmf/limitation_dsc
+
+### Scenario:  Unable to use a credential in a DSC configuration 
+
+**Error:** 
+Your DSC compilation job was suspended with the following error: “System.InvalidOperationException error processing property 'Credential' OF TYPE '<some resource name>': Converting and storing an encrypted password as plaintext is allowed only if PSDscAllowPlainTextPassword is set to true”.
+
+**Reason for the error:** 
+You tried to use a credential in a configuration but didn’t pass in proper ConfigurationData to set PSAllowPlainTextPassword to true for each node configuration.  
+
+**Troubleshooting tips:**
+Make sure to pass in the proper ConfigurationData to set PSAllowPlainTextPassword to true for each node configuration mentioned in the configuration. Please see https://azure.microsoft.com/en-us/documentation/articles/automation-dsc-compile/#assets for more info.
+
+  <br/>
+
 ## Next steps
 
 If you have followed the troubleshooting steps above and need additional help at any point in this article, you can:
