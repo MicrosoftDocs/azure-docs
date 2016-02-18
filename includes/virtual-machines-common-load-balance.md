@@ -1,25 +1,4 @@
-<properties
-	pageTitle="Load balancing for infrastructure services | Microsoft Azure"
-	description="Describes the two different types of load balancing supported by Azure: Load balancer for cloud services and Azure Traffic Manager for client traffic."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="joaoma"
-	manager="carmonm"
-	editor=""/>
 
-<tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/02/2016"
-	ms.author="joaoma"/>
-
-
-# Load balancing for Azure infrastructure services#
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 There are two levels of load balancing available for Azure infrastructure services:
 
@@ -42,7 +21,7 @@ For more information, see [About Traffic Manager Load Balancing Methods](../traf
 
 The following diagram shows an example of the Round Robin load balancing method for distributing traffic between different cloud services.
 
-![loadbalancing](./media/virtual-machines-load-balance/TMSummary.png)
+![loadbalancing](././media/virtual-machines-common-load-balance/TMSummary.png)
 
 The basic process is the following:
 
@@ -61,7 +40,7 @@ The Azure Load Balancer randomly distributes a specific type of incoming traffic
 
 The following diagram shows a load-balanced endpoint for standard (unencrypted) web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
 
-![loadbalancing](./media/virtual-machines-load-balance/LoadBalancing.png)
+![loadbalancing](././media/virtual-machines-common-load-balance/LoadBalancing.png)
 
 For more information, see [Azure Load Balancer](../load-balancer/load-balancer-overview.md). For the steps to create a load-balanced set, see [Configure a load-balanced set](../load-balancer/load-balancer-internet-getstarted.md).
 
@@ -75,7 +54,7 @@ Similar to Azure load balancing, internal load balancing is facilitated by confi
 
 The following diagram shows an example of an internal load-balanced endpoint for a line of business (LOB) application that is shared among three virtual machines in a cross-premises virtual network.
 
-![loadbalancing](./media/virtual-machines-load-balance/LOBServers.png)
+![loadbalancing](././media/virtual-machines-common-load-balance/LOBServers.png)
 
 ## Load balancer considerations
 
@@ -90,4 +69,4 @@ For the steps to create a load-balanced set, see [Configure an internal load-bal
 
 For more information about load balancer, see [Internal load balancing](../load-balancer/load-balancer-internal-overview.md).
 
-
+

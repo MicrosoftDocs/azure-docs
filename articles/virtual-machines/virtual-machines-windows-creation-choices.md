@@ -63,14 +63,15 @@ Choose an image based on the operating system you want to run. Azure and its par
 [Create a virtual machine running Windows]: virtual-machines-windows-tutorial.md
 
 [Equivalent Resource Manager and Service Management commands for virtual machine operations with the Azure CLI for Mac, Linux, and Windows]:virtual-machines-linux-cli-manage.md
-[Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI]: virtual-machines-deploy-rmtemplates-azure-cli.md
+[Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI]: virtual-machines-linux-cli-deploy-templates.md
+
 [Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell]:  virtual-machines-windows-create-powershell.md
 [Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell]: virtual-machines-windows-ps-manage.md
 [Create a Windows VM with Resource Manager and PowerShell]: virtual-machines-windows-ps-create.md
 [Create a Windows virtual machine with a Resource Manager template and PowerShell]: virtual-machines-windows-ps-template.md
 
 
-[Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI]: resource-groups-vm-searching.md
+[Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI]: virtual-machines-linux-cli-ps-findimage.md
 [Deploy Azure resources using the Compute, Network, and Storage .NET libraries]: virtual-machines-windows-csharp.md
 
 [Sign in to the virtual machine]: virtual-machines-windows-classic-connect-logon.md

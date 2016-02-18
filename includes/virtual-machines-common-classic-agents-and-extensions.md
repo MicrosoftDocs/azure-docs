@@ -9,7 +9,7 @@ VM extensions can help you:
 -   Reset or install connectivity features, such as RDP and SSH
 -   Diagnose, monitor, and manage your VMs
 
-There are many other features as well; new VM Extension features are released regularly. This article describes the Azure VM Agents for Windows and Linux, and how they support VM Extension functionality. For a listing of VM Extensions by feature category, see [Azure VM Extensions and Features](virtual-machines-extensions-features.md).
+There are many other features as well; new VM Extension features are released regularly. This article describes the Azure VM Agents for Windows and Linux, and how they support VM Extension functionality. For a listing of VM Extensions by feature category, see [Azure VM Extensions and Features](virtual-machines-windows-extensions-features.md).
 
 ##Azure VM Agents for Windows and Linux
 

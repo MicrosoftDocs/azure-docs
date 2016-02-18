@@ -106,8 +106,8 @@ These abilities are often then migrated to tools like [Puppet](https://puppetlab
 More recently, Azure released the [Azure resource management](virtual-machines-windows-compare-deployment-models.md) REST API, and updated PowerShell and Azure CLI tools to use it easily. You can deploy, modify, or redeploy entire application topologies using [Azure Resource Manager templates](../resource-group-authoring-templates.md) with the Azure resource management API using:
 
 - the [Azure portal using templates](https://github.com/Azure/azure-quickstart-templates)&mdash;hint, use the "DeployToAzure" button
-- the [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
-- the [Azure PowerShell modules](virtual-machines-deploy-rmtemplates-azure-cli.md)
+- the [Azure CLI](virtual-machines-linux-cli-deploy-templates.md)
+- the [Azure PowerShell modules](virtual-machines-linux-cli-deploy-templates.md)
 
 
 ### Deployment and management of entire groups of Azure VMs and containers
