@@ -31,7 +31,7 @@ Elasticsearch is a highly scalable open-source search engine and database. It is
 - **[Configuring Resilience and Recovery on ElasticSearch on Azure][]** summarizes the resiliency and recovery options available with Elasticsearch when hosted in Azure.
 - **[Running the Automated Elasticsearch Resiliency Tests][]** summarizes running the resiliency tests used in the article above.
 - **[Running the Automated Elasticsearch Performance Tests][]** summarizes running the performance tests used in the article above.
-- 
+
 > [AZURE.NOTE] This guidance assumes some basic familiarity with Elasticsearch. For more 
 > detailed information, visit the [Elasticsearch website](https://www.elastic.co/products/elasticsearch).
 
@@ -42,5 +42,5 @@ Elasticsearch is a highly scalable open-source search engine and database. It is
 [Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 [Tuning Data Aggregation and Query Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-aggregation-and-query-performance.md
 [Configuring Resilience and Recovery on ElasticSearch on Azure]: guidance-elasticsearch-configuring-resilience-and-recovery.md
-[Running the Automated Elasticsearch Resiliency Tests]: guidance-elasticsearch-running-automated-resiliency-tests.md
+[Running the Automated Elasticsearch Resiliency Tests]: guidance-elasticsearch-running-automated-resilience-tests.md
 [Running the Automated Elasticsearch Performance Tests]: guidance-elasticsearch-running-automated-performance-tests.md
