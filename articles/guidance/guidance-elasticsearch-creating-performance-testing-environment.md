@@ -17,7 +17,7 @@
    ms.date="01/29/2016"
    ms.author="masimms"/>
    
-# Create a Performance Testing Environment for Elasticsearch on Azure
+# Creating a Performance Testing Environment for Elasticsearch on Azure
 
 This article is [part of a series](guidance-elasticsearch-introduction.md). 
 

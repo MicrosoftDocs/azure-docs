@@ -17,7 +17,7 @@
    ms.date="02/05/2016"
    ms.author="masimms"/>
    
-# Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance
+# Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance
 
 This article is [part of a series](guidance-elasticsearch-introduction.md). 
 
