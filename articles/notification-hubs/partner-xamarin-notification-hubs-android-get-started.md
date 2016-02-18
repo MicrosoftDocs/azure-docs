@@ -40,7 +40,7 @@ The completed code for this tutorial can be found on GitHub [here](https://githu
 
 This tutorial requires the following:
 
-+ [Xamarin.Android]
++ [Xamarin.Android] using Xamarin Studio on a Mac OS X machine, or [Visual Studio with Xamarin on Windows](https://msdn.microsoft.com/en-US/library/mt613162.aspx).
 + Active Google account
 + [Azure Messaging Component]
 + [Google Cloud Messaging Client Component]
