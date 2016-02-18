@@ -37,7 +37,7 @@ A screenshot from the completed app is below:
 
 ![][0]
 
-Completing this tutorial requires [Xamarin.Android], which installs Xamarin Studio and a Visual Studio plug-in (on Windows) as well as the latest Android platform. Android 4.2 SDK or a later version is required.
+Completing this tutorial requires [Xamarin.Android] with either Visual Studio or Xamarin Studio and Android SDK 4.2 or later. For instructions on setting up Visual Studio, see [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx).
 
 The downloaded quickstart project contains the Azure Mobile services component for Xamarin.Android. While this project targets Android 4.2 or a later version, the Mobile Services SDK requires only Android 2.2 or a later version.
 
