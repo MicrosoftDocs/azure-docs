@@ -19,7 +19,7 @@
 
 # The relationship between Service Fabric node types and Virtual Machine Scale Sets
 
-Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is setup as a separate VM Scale Set. Each node types can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
+Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is setup as a separate VM Scale Set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
 
 The following screen shot shows a cluster that has two node types: FrontEnd and BackEnd.  Each node type has five nodes each.
 
