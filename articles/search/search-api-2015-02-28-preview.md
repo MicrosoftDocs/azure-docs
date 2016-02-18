@@ -20,9 +20,9 @@
 
 This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current generally available version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
 
-- [Lucene query syntax](https://msdn.microsoft.com/library/mt589323.aspx) can now be used for queries in Azure Search. To use the Lucene query parser, specify `queryType` in Search operations.- `moreLikeThis` is a a query parameter used in [Search operations](#SearchDocs) that finds other documents that are relevant to another specific document.
+- `moreLikeThis` query parameter in [Search Documents](#SearchDocs) API. It finds other documents that are relevant to another specific document.
 
-A few additional features in `2015-02-28-Preview` are documented separately. These include:
+A few additional parts of the `2015-02-28-Preview` REST API are documented separately. These include:
 
 - [Scoring Profiles](search-api-scoring-profiles-2015-02-28-preview.md)
 - [Indexers](search-api-indexers-2015-02-28-preview.md)

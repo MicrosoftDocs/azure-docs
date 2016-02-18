@@ -167,7 +167,7 @@ Stopping or starting the service does not turn off billing. You must delete the 
 <a id="sub-8"></a>
 ## Set roles on administrative access
 
-Azure provides a global role-based authorization model for all services managed through the Portal, or in the Azure Resource Manager API if you're using a custom administration tool. Owner, Contributor, and Reader roles set the level of service administration for the Active Directory users, groups, and security principals you assign to each role. See [Role-based access control in Azure Classic Portal](../role-based-access-control-configure.md) for details about role membership.
+Azure provides a global role-based authorization model for all services managed through the Portal, or in the Azure Resource Manager API if you're using a custom administration tool. Owner, Contributor, and Reader roles set the level of service administration for the Active Directory users, groups, and security principals you assign to each role. See [Role-based access control in Azure Classic Portal](../active-directory/role-based-access-control-configure.md) for details about role membership.
 
 In terms of Azure Search, role-based access controls determine the following administrative tasks:
 
