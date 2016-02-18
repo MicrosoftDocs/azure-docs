@@ -78,6 +78,8 @@ myCloudPool.StartTask = startTask;
 await myCloudPool.CommitAsync();
 ```
 
+> [AZURE.NOTE] You are not limited to using MS-MPI when implementing an MPI solution with multi-instance tasks in Batch. You may use any implementation of the MPI standard that is compatible with the operating system you specify for the compute nodes in your pool.
+
 ## Create a multi-instance task with Batch .NET
 
 Now that we've covered the pool requirements and MPI package installation, let's create the multi-instance task. In this snippet, we create a standard [CloudTask][net_task], then configure its [MultiInstanceSettings][net_multiinstance_prop] property. As mentioned above, the multi-instance task is not a distinct task type, but a standard Batch task configured with multi-instance settings.
@@ -133,8 +135,6 @@ The **application command**, the command line specified for the multi-instance t
 ```
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
-
-> [AZURE.NOTE] You are not limited to using MS-MPI when implementing an MPI solution with multi-instance tasks in Batch. You may use any implementation of the MPI standard that is compatible with the operating system you specify for the compute nodes in your pool.
 
 ## Resource files
 
