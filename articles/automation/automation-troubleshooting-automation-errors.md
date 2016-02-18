@@ -171,11 +171,12 @@ The node has a report with **Failed** status and containing the error "The attem
 **Reason for the error:** 
 This error typically occurs when the node is assigned to a configuration name (e.g. ABC) instead of a node configuration name (e.g. ABC.WebServer).  
 
-**Troubleshooting tips:**
+**Troubleshooting tips:**  
+
 - Make sure that you are assigning the node with "node configuration name" and not the "configuration name".  
 
 - You can assign a node configuration to a node using Azure portal or with a PowerShell cmdlet. 
-    - In order to assign a node configuration to a node using Azure portal, open the **DSC Nodes** blade, then select a node and click on **Assign node configuration** button. 
+    - In order to assign a node configuration to a node using Azure portal, open the **DSC Nodes** blade, then select a node and click on **Assign node configuration** button.  
     - In order to assign a node configuration to a node using PowerShell cmdlet, use **Set-AzureRmAutomationDscNode** cmdlet
 
 
@@ -187,8 +188,10 @@ Your DSC compilation job suspends with the error: “Compilation completed succe
 **Reason for the error:** 
 When the expression following the **Node** keyword in the DSC configuration evaluates to $null then no node configurations will be produced.    
 
-**Troubleshooting tips:**
-- Make sure that the expression next to the **Node** keyword in the configuration definition is not evaluating to $null.
+**Troubleshooting tips:**  
+Any of the following solutions will fix the problem:  
+
+- Make sure that the expression next to the **Node** keyword in the configuration definition is not evaluating to $null.  
 - If you are passing ConfigurationData when compiling the congifuration, make sure that you are passing the expected values that the configuration requires from [configurationData](automation-dsc-compile.md#configurationdata).
 
 
@@ -211,7 +214,7 @@ Your DSC compilation job was suspended with the error: “System.InvalidOperatio
 **Reason for the error:** 
 You have used a credential in a configuration but didn’t provide proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration.  
 
-**Troubleshooting tips:**
+**Troubleshooting tips:**  
 - Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration mentioned in the configuration. For more information, refer to [assets in Azure Automation DSC](automation-dsc-compile.md#assets).
 
 
