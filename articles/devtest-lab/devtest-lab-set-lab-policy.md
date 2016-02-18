@@ -22,6 +22,8 @@
 
 DevTest Lab allows you to specify key policies that govern how your lab and its VMs are used. These policies include cost thresholds, allowed VM sizes, maximum number of VMs per user, and an auto-shutdown for the VMs in your lab.
 
+[AZURE.VIDEO how-to-set-vm-policies-in-a-devtest-lab]
+
 ## Accessing a lab's policies
 
 In order to view (and change) the policies for a lab, follow these steps:
