@@ -28,6 +28,8 @@ By default, a DevTest Lab includes artifacts from the official Azure DevTest Lab
 The following screen shot shows an example of how a repository containing artifacts might look in GitHub:  
 ![Sample GitHub artifacts repo](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
 
+[AZURE.VIDEO how-to-add-your-private-artifacts-repository-in-a-devtest-lab]
+
 ## Add a GitHub artifacts repository to your lab
 
 To add a GitHub artifacts repository to your lab, you first get the HTTPS clone URL and Personal Access Token from the artifacts repository, then you enter that information in your lab
@@ -115,7 +117,3 @@ To add a Visual Studio Git artifact repository to your lab, you first get the HT
     2. Enter the **Folder Path** in the artifacts repository that contains the artifacts.
     3. Enter the saved **Personal Access Token** to the artifacts repository.
     4. Tap **Save**.
-
-## Next steps
-
-- (Video) [How to add your private Artifacts Repository in a DevTest Lab](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab/)

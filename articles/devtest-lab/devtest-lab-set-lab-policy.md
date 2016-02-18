@@ -101,7 +101,3 @@ The auto-shutdown policy helps to minimize lab waste by allowing you to specify 
 1. If you enabled this policy, specify a time to shut down all VMs in the current lab.
 
 1. Tap **Save**.
-
-## Next steps
-
-- (Video) [How to set VM policies in a DevTest Lab](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab/)

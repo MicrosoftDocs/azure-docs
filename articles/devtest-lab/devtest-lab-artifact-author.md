@@ -20,6 +20,8 @@
 
 **Artifacts** are used to deploy and configure your application after a VM is provisioned. An artifact consists of an artifact definition file and other script files that are stored in a folder in a git repository. Artifact definition files consist of JSON and expressions that you can use to specify what you want to install on a VM. For example, you can define the name of artifact, command to run, and parameters that are made available when the command is run. You can refer to other script files within the artifact definition file by name.
 
+[AZURE.VIDEO how-to-author-custom-artifacts]
+
 ##Artifact definition file format
 The following example shows the sections that make up the basic structure of a definition file.
 
@@ -122,4 +124,3 @@ Create your custom artifact by following steps below:
 ## Next steps
 
 - Learn how to [add a Git artifact repository to your DevTest Lab](devtest-lab-add-artifact-repo.md).
-- (Video) [How to author custom artifacts in a DevTest Lab](/documentation/videos/how-to-author-custom-artifacts)

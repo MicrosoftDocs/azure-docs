@@ -34,6 +34,8 @@ You grant access to your DevTest Lab through two roles:
 	For example, a **DevTest Lab User** cannot create a virtual machine using the Virtual Machine service of the subscription. Creating a virtual machine is only allowed from the DevTest Lab account.
 	- *External* users must have an account in one of the Microsoft account domains (i.e. @hotmail.com, @live.com, @msn.com, @passport.com, @outlook.com, or any variant for a specific country).
 
+[AZURE.VIDEO how-to-set-security-in-your-devtest-lab]
+
 ## Add an owner to your lab
 
 DevTest Lab considers the owner(s) of an Azure subscription that contains labs to be owner(s) of those labs. While you can add additional owners to a DevTest Lab via the lab's blade in the Azure preview portal, this is not currently supported. 
@@ -101,7 +103,3 @@ To add a DevTest Lab user to your lab, follow these steps:
 	1. Tap **OK** to close the **Add access** blade.
 
 	1. The **Users** blade displays the added roles and users.
-
-## Next steps
-
-- (Video) [How to set security in your DevTest Lab](/documentation/videos/how-to-set-security-in-your-devtest-lab)

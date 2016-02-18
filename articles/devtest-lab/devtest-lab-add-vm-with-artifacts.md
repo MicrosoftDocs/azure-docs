@@ -28,6 +28,8 @@ Your lab includes artifacts from the Public DevTest Lab Artifact Repository as w
 
 This article shows you how create a VM in your lab using artifacts.
 
+[AZURE.VIDEO how-to-create-vms-with-artifacts-in-a-devtest-lab]
+
 ## Add a VM with artifacts
 
 1. Sign in to the [Azure preview portal](https://portal.azure.com).
@@ -98,4 +100,3 @@ Follow these steps to view or modify the parameters of your selected artifacts:
 ## Next steps
 
 - Learn how to [author custom artifacts for your VM](devtest-lab-artifact-author.md).
-- (Video) [How to create VMs with Artifacts in a DevTest Lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/)
