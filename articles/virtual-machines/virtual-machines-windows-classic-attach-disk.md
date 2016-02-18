@@ -57,6 +57,6 @@ Here's a walkthrough of the steps in this tutorial.
 
 [How to detach a disk from a Windows virtual machine](virtual-machines-windows-classic-detach-disk.md)
 
-[About disks and VHDs for virtual machines](virtual-machines-disks-vhds.md)
+[About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md)
 
 [logon]: virtual-machines-windows-classic-connect-logon.md
