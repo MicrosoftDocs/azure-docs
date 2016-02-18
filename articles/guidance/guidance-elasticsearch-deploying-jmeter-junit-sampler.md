@@ -27,7 +27,7 @@ This document describes how to create and use a JUnit sampler that can generate 
 
 For testing data ingestion performance, the JUnit code was developing using Eclipse (Mars), and dependencies were resolved using Maven. The following procedures describe the step by step process for installing Eclipse, configuring Maven, creating a JUnit test, and deploying this test as a JUnit Request sampler in a JMeter test.
 
-> [AZURE.NOTE] For detailed information on the structure and configuration of the test environment, see the document How-To: Create a Performance Testing Environment for Elasticsearch.
+> [AZURE.NOTE] For detailed information on the structure and configuration of the test environment, see [Creating a Performance Testing Environment for Elasticsearch on Azure][].
 
 ## Installing Prerequisites
 

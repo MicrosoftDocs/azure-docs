@@ -64,7 +64,7 @@ There are two versions of the JUnit tests:
 - [Elasticsearch1.73](https://github.com/mspnp/azure-guidance/tree/master/ingestion-and-query-tests/junitcode/elasticsearch1.73). Use this code for performing the ingestion tests. These tests use Elasticsearch 1.73
 - [Elasticsearch2](https://github.com/mspnp/azure-guidance/tree/master/ingestion-and-query-tests/junitcode/elasticsearch2). Use this code for performing the query tests. These tests use Elasticsearch 2.1 and later.
 
-Copy the appropriate JAR file along with the rest of the dependencies to your JMeter machines. The process is described by the procedure Deploying a JUnit Test to JMeter in the document [How-To Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance].
+Copy the appropriate JAR file along with the rest of the dependencies to your JMeter machines. The process is described in [Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance][].
 
 > **Important** After deploying a JUnit test, use JMeter to load and configure the test plans that reference this JUnit test and ensure that the *BulkInsertLarge* thread group references the correct JAR file, JUnit class name, and test method:
 > 

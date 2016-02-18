@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/18/2016"
    ms.author="masimms"/>
    
 # Configuring Resilience and Recovery on ElasticSearch on Azure
@@ -244,7 +244,7 @@ Each scenario was subject to the same workload comprising a mixture of data inge
 
 The following sections summarize the results of these tests, noting any degradation in performance while a node is offline or being recovered, and any errors that were reported. The results are presented graphically, highlighting the points at which one or more nodes are missing and estimating the time taken for the system to fully recover and achieve a similar level of performance that was present prior to the nodes being taken offline.
 
-> [AZURE.NOTE] The test harnesses used to perform these tests are available online. You can adapt and use these harnesses to verify the resilience and recoverability of your own cluster configurations. For more information, see the document How-To: Run the Automated Elasticsearch Resilience Tests.
+> [AZURE.NOTE] The test harnesses used to perform these tests are available online. You can adapt and use these harnesses to verify the resilience and recoverability of your own cluster configurations. For more information, see [Running the Automated Elasticsearch Resiliency Tests][].
 
 ## Node Failure and Restart with No Data Loss: Results
 
@@ -341,3 +341,4 @@ The tests performed indicated that:
 - The results of test 4 also show that if you are performing planned maintenance of the nodes in a cluster, performance will benefit if you allow several minutes between cycling one node and the next. In an unplanned situation (such as the datacenter recycling nodes after performing an operating system update), you have less control over how and when nodes are taken down and restarted. The contention that arises when Elasticsearch attempts to recover the state of the cluster after sequential node outages can result in timeouts and errors. 
 
 [Manage the Availability of Virtual Machines]: ../articles/virtual-machines/virtual-machines-manage-availability.md
+[Running the Automated Elasticsearch Resiliency Tests]: guidance-elasticsearch-running-automated-resilience-tests.md

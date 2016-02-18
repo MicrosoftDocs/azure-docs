@@ -79,7 +79,7 @@ The following image shows the structure of the test environment and Elasticsearc
 
 ## Setting up the JMeter tests
 
-Before running the Resilience Tests you should compile and deploy the JUnit tests located in the *resiliency/jmeter/tests* folder. These tests are referenced by the JMeter test plan. For more information, see the procedure Importing an Existing JUnit Test Project into Eclipse in the document How-To: Create and Deploy a JMeter JUnit Sample for Testing Elasticsearch Performance.
+Before running the Resilience Tests you should compile and deploy the JUnit tests located in the *resiliency/jmeter/tests* folder. These tests are referenced by the JMeter test plan. For more information, see the procedure Importing an Existing JUnit Test Project into Eclipse in [Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance][].
 
 There are two versions of the JUnit tests held in the following folders:
 
@@ -187,3 +187,4 @@ You can use Excel to analyze and graph this data.
 [Query aggregation and performance]: guidance-elasticsearch-query-aggregation-performance.md
 [Resilience and Recovery]: guidance-elasticsearch-resilience-recovery.md
 [Resilience and Recovery Testing]: guidance-elasticsearch-resilience-testing.md
+[Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
