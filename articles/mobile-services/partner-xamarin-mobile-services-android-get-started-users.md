@@ -35,7 +35,7 @@ This tutorial walks you through these basic steps to enable authentication in yo
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services].
 
-Completing this tutorial requires Xamarin.Android and Android SDK 4.2 or a later version.
+Completing this tutorial requires Xamarin.Android and Android SDK 4.2 or a later version. See  [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx) or install [Xamarin Studio](https://xamarin.com/platform).
 
 ##<a name="register"></a>Register your app for authentication and configure Mobile Services
 
