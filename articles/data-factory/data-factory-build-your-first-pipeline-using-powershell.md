@@ -6,7 +6,6 @@
 	authors="spelluru"
 	manager="jhubbard"
 	editor="monicar"
-	services="data-factory"
 />
 
 <tags
