@@ -32,7 +32,7 @@ This tutorial requires the following:
 
 + [Google Cloud Messaging Client Component](http://components.xamarin.com/view/GCMClient/). You will add this component during the tutorial.
 
-+ Completed [Xamarin.Android quickstart] tutorial.
++ Complete the [Create a Xamarin.Android app] tutorial.
 
 
 ##<a name="create-hub"></a>Create a Notification Hub
@@ -78,6 +78,7 @@ You can test the app by using a virtual device in the emulator. There are additi
 
 <!-- URLs. -->
 [Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
+[Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
 
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
