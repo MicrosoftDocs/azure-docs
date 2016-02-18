@@ -28,11 +28,12 @@ If either Windows 10 Professional or Windows 10 Enterprise editions are installe
 1. After the **Getting Ready** stage, you are prompted to set up your device.
 2. Start by customizing your region and language. Then accept the EULA.
 
-![Customize for your region](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png) </center>
+![Customize for your region](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
+
 3. Select the network you want to use for connecting to the Internet.
 4. Select whether you're using a personal device or a company-owned device. If it's company-owned, click **This device belongs to my organization**. This starts the Azure AD Join experience. Following is a screen that you'll see if you're using Windows 10 Professional.
 <center>
-![Who owns this PC screen](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png) </center>
+![Who owns this PC screen](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png) 
 
 5.	Enter the credentials that were provided to you by your organization.
 <center>
