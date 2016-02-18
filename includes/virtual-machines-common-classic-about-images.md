@@ -16,7 +16,7 @@ You can create your own images, based on a virtual machine in Azure, or a virtua
 
 You can use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows or Azure PowerShell module to manage the images available to your Azure subscription. You also can use the Azure classic portal for some image tasks, but the command line gives you more options.
 
-For information about using these tools with Resource Manager deployments, see [Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI](resource-groups-vm-searching.md).
+For information about using these tools with Resource Manager deployments, see [Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md).
 
 For examples of using the tools in a classic deployment:
 
@@ -37,4 +37,4 @@ For examples of using the tools in a classic deployment:
 
 [Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-creation-choices.md)
 
-[Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md)
+[Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md)
