@@ -40,10 +40,10 @@ Domain join continues to be useful. However, to get the Azure AD benefits of SSO
 - Policy that is set to connect domain-joined devices to Azure AD
 - Windows 10 build (build 10551 or newer) for devices
 
-To enable Microsoft Passport for Work and Windows Hello you will also need the following:
+To enable Microsoft Passport for Work and Windows Hello, you will also need the following:
 
 - Public key infrastructure (PKI) for user certificates issuance.
-- System Center Configuration Manager, version 1509, for Technical Preview. For more information, see [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) and [System Center Configuration Manager Team Blog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx). This is required to deploy user certificates based on Microsoft Passport keys.
+- System Center Configuration Manager version 1509 for Technical Preview. For more information, see [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) and [System Center Configuration Manager Team Blog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx). This is required to deploy user certificates based on Microsoft Passport keys.
 
 As an alternative to the PKI deployment requirement, you can do the following:
 
@@ -60,8 +60,8 @@ To enable conditional access, you can create policies that allow access to ‘do
 
 Azure AD Connect will enable you to provision computers on-premises as device objects in the cloud. To deploy Azure AD Connect, please refer to Enabling your directory for hybrid management with Azure AD Connect.
 
- - If you followed a [custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (not the Express installation), you must follow the procedure, **Create a service connection point (SCP) in the on-premises Active Directory**, later in this step.
- - If you have a federated configuration with Azure AD before installing Azure AD Connect (for example, if you have deployed Active Directory Federation Services (AD FS) before), you must follow the **Configure AD FS claim rules** procedure, later in this step.
+ - If you followed a [custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (not the Express installation), then follow the procedure **Create a service connection point (SCP) in the on-premises Active Directory**, later in this step.
+ - If you have a federated configuration with Azure AD before installing Azure AD Connect (for example, if you have deployed Active Directory Federation Services (AD FS) before), then follow the **Configure AD FS claim rules** procedure, later in this step.
 
 #### Create a service connection point (SCP) in the on-premises Active Directory
 
@@ -76,10 +76,10 @@ On the Azure AD Connect server, run the following PowerShell commands:
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
 >[AZURE.NOTE]
-Replace [*connector account name*] with the domain account used as the Active Directory connector account.
+Replace [*connector account name*] with the domain account that is used as the Active Directory connector account.<br>
 
 >[AZURE.NOTE]
-The username of the credential, entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
+The username of the credential that is entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
 
 #### Configure AD FS claim rules
 This enables instantaneous registration of a computer with Azure Device Registration Service (DRS) by allowing computers to authenticate using Kerberos/NTLM via AD FS. Without this step, computers will get to Azure AD in a delayed manner (subject to Azure AD Connect sync times).
@@ -120,7 +120,7 @@ On the AD FS server (or on a session connected to the AD FS server), run the fol
     Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString
 
 >[AZURE.NOTE]
-Windows 10 computers will authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, ensure also that this endpoint is published through the proxy. You can do this by checking that the adfs/services/trust/13/windowstransport shows as enabled in the AD FS management console under **Service** > **Endpoints**.
+Windows 10 computers will authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. You can do this by checking that the adfs/services/trust/13/windowstransport shows as enabled in the AD FS management console under **Service** > **Endpoints**.
 
 
 ### Step 2: Configure automatic device registration via Group Policy in Active Directory
@@ -129,7 +129,7 @@ You can use an Active Directory Group Policy to configure your Windows 10 domain
 
 1. 	Open Server Manager and navigate to **Tools** > **Group Policy Management**.
 2.	From Group Policy Management, navigate to the domain node that corresponds to the domain in which you would like to enable Azure AD Join.
-3.	Right-click **Group Policy Objects** and select **New**. Give your Group Policy object a name, for example, Automatic Azure AD Join. Click **OK**.
+3.	Right-click **Group Policy Objects**, and then select **New**. Give your Group Policy object a name, for example, Automatic Azure AD Join. Click **OK**.
 4.	Right-click your new Group Policy object, and then select **Edit**.
 5.	Navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Workplace Join**.
 6.	Right-click **Automatically workplace join client computers**, and then select **Edit**.
@@ -140,7 +140,7 @@ You can use an Active Directory Group Policy to configure your Windows 10 domain
 
 >[AZURE.NOTE]
 This Group Policy template has been renamed in Windows 10. If you are running the Group Policy tool from a Windows 10 computer, the policy will appear as: <br>
-**Register domain joined computers as devices**
+**Register domain joined computers as devices**<br>
 The policy is in the following location:<br>
 ***Computer Configuration/Policies/Administrative Templates/Windows Components/Device Registration***
 
