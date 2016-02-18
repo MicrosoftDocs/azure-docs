@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/27/2016"
+   ms.date="02/17/2016"
    ms.author="alkohli" />
 
 # StorSimple system limits
@@ -34,7 +34,7 @@ StorSimple provides scalable and flexible storage for your datacenter. However, 
 | Maximum number of iSCSI connections from initiators | 512 | |
 | Maximum number of access control records per device | 64 | |
 | Maximum number of volumes per backup policy | 24 | |
-| Maximum number of backups retained per backup policy | 64 | |
+| Maximum number of backups retained per schedule (in a backup policy) | 64 | |
 | Maximum number of schedules per backup policy | 10 | |
 | Maximum number of snapshots of any type that can be retained per volume | 256 | This includes local snapshots and cloud snapshots. |
 | Maximum number of snapshots that can be present in any device | 10,000 | |

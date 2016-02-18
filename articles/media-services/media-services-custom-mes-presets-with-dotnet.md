@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"    
+	ms.date="02/16/2016"    
 	ms.author="juliako"/>
 
 
@@ -353,7 +353,6 @@ Make sure to review the [Considerations](media-services-custom-mes-presets-with-
 	          <MaxBitrate>4500</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <AACAudio>
 	      <Profile>AACLC</Profile>
@@ -426,8 +425,8 @@ The following considerations apply:
 
 This section talks about modifying the encoder presets to clip or trim the input video where the input is a so-called mezzanine file or on-demand file. The encoder can also be used to clip or trim an asset which is captured or archived from a live stream – the details for this are available in [this blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below). Note that **Sources** should be placed at the top of the schema.
-
+To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below). The value of StartTime needs to match the absolute timestamps of the input video. For example, if the first frame of the input video has a timestamp of 12:00:10.000, then StartTime should be at least 12:00:10.000 and greater. In the example below, we assume that the input video has a starting timestamp of zero. Note that **Sources** should be placed at the top of the schema. 
+ 
 ###<a id="json"></a>JSON preset
 	
 	{
@@ -652,7 +651,6 @@ To trim your videos, you can take any of the MES presets documented [here](https
 	          <MaxBitrate>400</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <AACAudio>
 	      <Profile>AACLC</Profile>
@@ -737,7 +735,6 @@ In addition to defining a preset file, you also have to let Media Services know 
 	          "FrameRate": "0/1"
 	        }
 	      ],
-	      "Chapters": [],
 	      "Type": "H264Video"
 	    },
 	    {
@@ -807,7 +804,6 @@ In addition to defining a preset file, you also have to let Media Services know 
 	          <MaxBitrate>1045</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <CopyAudio />
 	  </Encoding>
