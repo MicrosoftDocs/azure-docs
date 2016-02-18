@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="02/18/2016"
 	ms.author="brandwe"/>
 
 # B2C Preview: Add sign-in to a nodeJS Web App
@@ -424,7 +424,7 @@ For reference, the completed sample (without your configuration values) [is prov
 
 You can now move onto more advanced topics.  You may want to try:
 
-[Secure a Web API with B2C model in node.js >>](active-directory-b2c-devquickstarts-webapi-nodejs.md)
+[Secure a Web API with B2C model in node.js >>](active-directory-b2c-devquickstarts-api-node.md)
 
 <!--
 
