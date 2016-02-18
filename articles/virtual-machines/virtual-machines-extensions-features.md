@@ -51,7 +51,7 @@ The following extensions support different kinds of deployment and configuration
 |**CentosChefClient**|||
 |**ChefClient**|Creates a Chef client on Windows. (Can also use the DSC extension, below.)|[Chef and Microsoft Azure](https://www.getchef.com/solutions/azure/)|
 |**LinuxChefClient**|||
-|**DockerExtension**|Installs the Docker daemon to support remote Docker commands.|[How to Use the Docker Virtual Machine Extension](virtual-machines-docker-vm-extension.md)For more extensive information, see the [Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)|
+|**DockerExtension**|Installs the Docker daemon to support remote Docker commands.|[How to Use the Docker Virtual Machine Extension](virtual-machines-linux-dockerextension.md)For more extensive information, see the [Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)|
 |**DSC**|PowerShell DSC (Desired State Configuration) extension.|[Azure PowerShell DSC (Desired State Configuration) extension](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)|
 |**PuppetEnterpriseAgent**|Implements the features of Puppet Enterprise. |[Puppet on Azure](http://puppetlabs.com/solutions/microsoft)|
 |**CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux)|Invokes custom scripts on the VM at any time: startup or during lifetime.|[Custom Script Extension](virtual-machines-windows-classic-extensions-customscript.md) | [Linux](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript)|

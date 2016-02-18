@@ -324,4 +324,4 @@ To learn more about Linux on Azure, see:
 
 - [Deploy a LAMP app using the Azure CustomScript Extension for Linux](virtual-machines-linux-classic-lamp-script.md)
 
-- [The Docker Virtual Machine Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
+- [The Docker Virtual Machine Extension for Linux on Azure](virtual-machines-linux-dockerextension.md)

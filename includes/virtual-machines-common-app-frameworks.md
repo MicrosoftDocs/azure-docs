@@ -1,25 +1,4 @@
-<properties
-   pageTitle="Deploy popular application frameworks using templates | Microsoft Azure"
-   description="Create popular application frameworks by using Azure Resource Manager templates to install Active Directory, Docker, and many more."
-   services="virtual-machines"
-   documentationCenter="virtual-machines"
-   authors="squillace"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager" />
 
-<tags
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="infrastructure"
-   ms.date="02/03/2016"
-   ms.author="rasquill"/>
-
-# Deploy popular application frameworks by using Azure Resource Manager templates
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 Workloads usually require many resources to function according to design. Azure Resource Manager templates make it possible for you to not only define how applications are configured, but also how the resources are deployed to support configured applications. This article introduces you to the most popular templates in the gallery and gives you information for using the Azure portal, Azure PowerShell, or Azure CLI to deploy them.
 
@@ -95,4 +74,4 @@ When you run the **azure group deployment create** command, you are prompted to 
 
 Discover all the templates at your disposal on [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Learn more about [Azure Resource Manager](../resource-group-template-deploy.md).
+Learn more about [Azure Resource Manager](../resource-group-template-deploy.md).

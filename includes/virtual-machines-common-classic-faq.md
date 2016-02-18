@@ -1,26 +1,4 @@
-<properties
-	pageTitle="Frequently asked questions for VMs | Microsoft Azure"
-	description="Provides answers to some of the common questions about Azure virtual machines created with the classic deployment model."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
 
-<tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/16/2015"
-	ms.author="cynthn"/>
-
-	
-# Frequently asked question about Azure Virtual Machines created with the classic deployment model
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
 This article addresses some common questions users ask about Azure virtual machines created with the classic deployment model.
@@ -66,7 +44,6 @@ You’ll need to specify the network that you want the virtual machine to belong
 ## How can I access  my virtual machine?
 
 You need to establish a remote connection to log on to the virtual machine, using Remote Desktop Connection for a Windows VM or a Secure Shell (SSH) for a Linux VM. For instructions, see:
-
 
 - [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-windows-classic-connect-logon.md). A maximum of 2 concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
 - [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-classic-log-on.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
