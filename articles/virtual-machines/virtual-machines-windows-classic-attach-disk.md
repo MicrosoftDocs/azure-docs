@@ -51,7 +51,7 @@ Here's a walkthrough of the steps in this tutorial.
 
 	![Volume successfully initialized](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE] The size of the VM determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-size-specs.md).
+> [AZURE.NOTE] The size of the VM determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
 
 ## Additional resources
 

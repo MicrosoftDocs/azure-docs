@@ -93,7 +93,7 @@ The Windows Server installation in the platform image contains the following con
 |Guest Account|Disabled|
 |Windows Firewall with Advanced Security|On|
 |.NET Framework|Version 4|
-|Disks|The size-selected limits the number of data disks you can configure. See [Virtual Machine Sizes for Azure](virtual-machines-size-specs.md)|
+|Disks|The size-selected limits the number of data disks you can configure. See [Virtual Machine Sizes for Azure](virtual-machines-linux-sizes.md)|
 
 ### SQL Server
 
