@@ -48,7 +48,7 @@ Because this tutorial includes projects for iOS, Android, and Windows, you'll ne
 - Xamarin for Windows, which includes Xamarin.iOS, Xamarin.Android, and the Visual Studio Integration (recommended for this sample).
 - Xamarin for OS X, which includes Xamarin.iOS (and the Xamarin.iOS Build Host), Xamarin.Android, Xamarin.Mac, and Xamarin Studio.
 
-To create this environment, follow the complete instructions on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx) on MSDN. Those instructions include material you can review to learn more about Xamarin while you're waiting for the installers to complete.
+To create this environment, follow the complete instructions on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx).
 
 Once you've completed the necessary setup, open the solution in Visual Studio to get started.  You will find six projects: five platform-specific projects and one portable class library that will be shared across all platforms, `DirectorySearcher.cs`
 
