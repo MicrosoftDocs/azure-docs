@@ -42,6 +42,7 @@ You will need the following pre-requisites to successfully complete this tutoria
 -   [Azure Subscription](https://azure.microsoft.com/pricing/free-trial/)
 -   Administrative Privileges on the computer
 -   Download [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) from the Microsoft Download Center
+-   Optional: Source code for TollApp event generator in [GitHub](https://github.com/streamanalytics/samples/tree/master/TollApp)
 
 ## Scenario Introduction - “Hello, Toll!” ##
 
@@ -148,7 +149,7 @@ This tutorial will require 2 Azure Event Hubs to receive “Entry” and “Exit
 
 The Setup.ps1 script in the TollApp folder on GitHub can be used to create all required resources. In the interest of time, we recommend that you run it. If you would like to learn more about configuring these resources in Azure portal, please refer to the appendix “Configuring Tutorial resources in Azure Portal”
 
-Download and save the supporting [TollApp](https://github.com/streamanalytics/samples/releases) folder and files. Make sure you download the latest release.
+Download and save the supporting [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) folder and files.
 
 Open a “Microsoft Azure PowerShell” window **AS AN ADMINISTRATOR**. If you do not yet have Azure PowerShell, follow the instructions here to install it: [Install and configure Azure PowerShell](../powershell-install-configure.md)
 
@@ -236,7 +237,7 @@ Connect to the Azure database (the destination) from Visual Studio:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)  
 
-3)  In the Server Name field paste the name of the SQL Server copied inthe previous section from Azure Portal (i.e. *servername*.database.windows.net)
+3)  In the Server Name field paste the name of the SQL Server copied in the previous section from Azure Portal (i.e. *servername*.database.windows.net)
 
 4)  In the Authentication field choose SQL Server Authentication
 
@@ -354,7 +355,7 @@ Choose “Sql Database”.
 
 Select the server name that was used in “Connect to Database from Visual Studio”. The database name should be TollDataDB.
 
-Enter “tolladmin” as the user name and “123toll!” as the password. The table name should be set to “TollDataRefJoin”
+Enter “tolladmin” as the user name and “123toll!” as the password. The table name should be set to “TollDataRefJoin”.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.jpg)
 
