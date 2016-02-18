@@ -66,7 +66,7 @@ When a stream is requested by a player, Media Services uses the specified key to
 
 >[AZURE.NOTE]To take advantage of dynamic encryption, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your encrypted content. For more information, see [How to Scale Media Services](media-services-manage-origins.md#scale_streaming_endpoints).
 
-###Keys delivery service
+###Licenses and keys delivery service
 
 Media Services provides a service for delivering DRM (PlayReady and Widevine) licenses and AES clear keys to authorized clients. You can use the Azure Classic Portal, REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.
 
