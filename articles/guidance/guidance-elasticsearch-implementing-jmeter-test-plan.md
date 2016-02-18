@@ -114,7 +114,7 @@ private String clusterName = "";
 private int itemsPerBatch = 0;
 
 /\* JUnit test class constructor \*/
-public ElasticSearchLoadTest2(String params) {
+public ElasticsearchLoadTest2(String params) {
 	/* params is a string containing a set of comma separated values for:
 		hostName
 		indexName

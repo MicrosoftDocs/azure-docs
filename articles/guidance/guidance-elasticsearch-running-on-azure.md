@@ -151,7 +151,7 @@ node.master: true
 > elected masters, resulting in a "split brain" problem which can lead to data corruption and other
 > issues. 
 > 
-> The document [Configuring Resilience and Recovery on ElasticSearch on Azure][]
+> The document [Configuring Resilience and Recovery on Elasticsearch on Azure][]
 > describes how you should configure the cluster to reduce the chances of this from occurring. However,
 > ultimately it is a good strategy in a moderate to large cluster to use dedicated master nodes that 
 > takes no responsibility for managing data.
@@ -1010,7 +1010,7 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 [Implementing a JMeter Test Plan for Elasticsearch]: guidance-elasticsearch-implementing-jmeter-test-plan.md
 [Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 [Tuning Data Aggregation and Query Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-aggregation-and-query-performance.md
-[Configuring Resilience and Recovery on ElasticSearch on Azure]: guidance-elasticsearch-configuring-resilience-and-recovery.md
+[Configuring Resilience and Recovery on Elasticsearch on Azure]: guidance-elasticsearch-configuring-resilience-and-recovery.md
 [Running the Automated Elasticsearch Resiliency Tests]: guidance-elasticsearch-configuring-resilience-and-recovery
 
 [Apache JMeter]: http://jmeter.apache.org/

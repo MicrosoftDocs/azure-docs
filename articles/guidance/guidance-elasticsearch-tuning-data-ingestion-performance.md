@@ -236,7 +236,7 @@ memory.
 
 > [AZURE.NOTE]  For cluster reliability, always create multiple master nodes to and configure the
 > remaining nodes to avoid the possibility of a split brain from occurring. Ideally, there should be an
-> odd number of master nodes. This topic is described in more detail in the document [Configuring Resilience and Recovery on ElasticSearch on Azure][].
+> odd number of master nodes. This topic is described in more detail in the document [Configuring Resilience and Recovery on Elasticsearch on Azure][].
 
 ### Storage Options
 
@@ -337,7 +337,7 @@ handling data processing; separate client nodes were not used because they offer
 data ingestion scenario used by the tests. The cluster also contained three master nodes, one of which
 was elected by Elasticsearch to coordinate the cluster.
 
-The tests were performed using ElasticSearch 1.7.3. The tests were initially performed on clusters
+The tests were performed using Elasticsearch 1.7.3. The tests were initially performed on clusters
 running Ubuntu Linux 14.0.4, and then repeated using Windows Server 2012. The details of the workload
 performed by the tests are described in the [Appendix](#appendix-the-bulk-load-data-ingestion-performance-test).
 
@@ -382,7 +382,7 @@ were as follows:
 The tests were conducted while the system was running in **steady state**. In situations where index
 rebalancing or node recovering is occurring, data transmissions between nodes holding primary and replica
 shards can generate significant network traffic. The effects of this process are described more in the
-document [Configuring Resilience and Recovery on ElasticSearch on Azure][].
+document [Configuring Resilience and Recovery on Elasticsearch on Azure][].
 
 ### Determining Limiting Factors: CPU Utilization
 
@@ -1054,7 +1054,7 @@ The data was generated dynamically by using a custom JUnit Request sampler that 
 
 > [AZURE.NOTE] For information on how to create a JUnit test for JMeter, see [Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance][].
 
-The following snippet shows the Java code for testing Elasticsearch 1.7.3. Note that the JUnit test class in this example is named *ElasticSearchLoadTest2*:
+The following snippet shows the Java code for testing Elasticsearch 1.7.3. Note that the JUnit test class in this example is named *ElasticsearchLoadTest2*:
 
 ```java
 /* Java */
@@ -1074,7 +1074,7 @@ package elasticsearchtest2;
 	import org.elasticsearch.common.settings.*;
 	import org.elasticsearch.common.xcontent.*;
 
-	public class ElasticSearchLoadTest2 {
+	public class ElasticsearchLoadTest2 {
 
 		private String [] names={"checkout","order","search","payment"};
 		private String [] messages={"Incoming request from code","incoming operation succeeded with code","Operation completed time","transaction performed"};
@@ -1093,7 +1093,7 @@ package elasticsearchtest2;
 		public void setUp() throws Exception {
 		}
 
-		public ElasticSearchLoadTest2(String paras) {
+		public ElasticsearchLoadTest2(String paras) {
 		\* Paras is a string containing a set of comma separated values for:
 			hostname
 			indexstr
@@ -1247,7 +1247,7 @@ The *BulkInsertTest* and *BigBulkInsertTest* methods perform the actual work of 
 
 > [AZURE.NOTE] The sample code presented here uses the Elasticsearch 1.7.3 Transport Client library. If you are using Elasticsearch 2.0.0 or later, you must use the appropriate library for the version selected. For more information about the Elasticsearch 2.0.0 Transport Client library, see the [Transport Client](https://www.elastic.co/guide/en/elasticsearch/client/java-api/2.0/transport-client.html) page on the Elasticsearch website.
 
-[Configuring Resilience and Recovery on ElasticSearch on Azure]: guidance-elasticsearch-configuring-resilience-and-recovery.md
+[Configuring Resilience and Recovery on Elasticsearch on Azure]: guidance-elasticsearch-configuring-resilience-and-recovery.md
 [Creating a Performance Testing Environment for Elasticsearch on Azure]: guidance-elasticsearch-creating-performance-testing-environment.md
 [Running the Automated Elasticsearch Performance Tests]: guidance-elasticsearch-running-automated-performance-tests.md
 [Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
