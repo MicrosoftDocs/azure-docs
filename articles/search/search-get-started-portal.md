@@ -22,9 +22,9 @@
 - [Portal](search-get-started-portal.md)
 - [.NET](search-get-started-dotnet.md)
 
-This code-free introduction gets you started with Microsoft Azure Search (a cloud service for adding search features to custom apps) using capabilities built right into the portal. This tutorial assumes a [sample Azure DocumentDB database](#apdx-sampledata) that's simple to create using our data and instructions, but you can also apply this workflow to your existing data in either DocumentDB or SQL Database.
+This code-free introduction gets you started with Microsoft Azure Search using capabilities built right into the portal. 
 
-Alternatively, you can also get started in code with a [.NET SDK](search-get-started-dotnet.md) or [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx). 
+The tutorial assumes a [sample Azure DocumentDB database](#apdx-sampledata) that's simple to create using our data and instructions, but you can also adapt these steps to your existing data in either DocumentDB or SQL Database.
 
 > [AZURE.NOTE] This Get Started tutorial requires an [Azure subscription](../../includes/free-trial-note.md) and an [Azure Search service](search-create-service-portal.md). If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for [Try Azure App Service](search-tryappservice.md) instead. This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.
  
