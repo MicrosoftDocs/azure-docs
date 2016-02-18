@@ -1,27 +1,4 @@
-<properties
- pageTitle="Azure VM agent and extensions | Microsoft Azure"
- description="Gives an overview of the agent and extensions, and how to install the agent, using the classic deployment model."
- services="virtual-machines"
- documentationCenter=""
- authors="squillace"
- manager="timlt"
- editor=""
- tags="azure-service-management"/>
 
-<tags
- ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-multiple"
- ms.workload="infrastructure-services"
- ms.date="01/04/2016"
- ms.author="rasquill"/>
-
-#About the virtual machine agent and extensions
-
-The Azure Virtual Machine Agent (VM Agent) is used to install, configure, manage and run Azure Virtual Machine Extensions (VM Extensions). VM Extensions provide dynamic features that Microsoft and other third parties provide. The agent and extensions are added primarily through the Management Portal, but you can also use the [Powershell](../powershell-install-configure.md) cmdlets or the [Azure CLI](../xplat-cli-install.md) to add and configure either when you create a VM or with existing VMs.
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
 
@@ -32,7 +9,7 @@ VM extensions can help you:
 -   Reset or install connectivity features, such as RDP and SSH
 -   Diagnose, monitor, and manage your VMs
 
-There are many other features as well; new VM Extension features are released regularly. This article describes the Azure VM Agents for Windows and Linux, and how they support VM Extension functionality. For a listing of VM Extensions by feature category, see [Azure VM Extensions and Features](virtual-machines-extensions-features.md).
+There are many other features as well; new VM Extension features are released regularly. This article describes the Azure VM Agents for Windows and Linux, and how they support VM Extension functionality. For a listing of VM Extensions by feature category, see [Azure VM Extensions and Features](virtual-machines-windows-extensions-features.md).
 
 ##Azure VM Agents for Windows and Linux
 
@@ -46,7 +23,7 @@ The VM Agent is enabled in the following situations:
 
 -   When you create an instance of a Virtual Machine by using the **Quick Create** method in the Management Portal, or by using the **Custom Create** method in the Management Portal and making sure that the **Install the VM Agent** checkbox is selected (as shown in the image below). For more information, see [How to Create a Custom Virtual Machine](virtual-machines-windows-classic-createportal.md).
 
-    ![VM Agent Checkbox](media/virtual-machines-extensions-agent-about/IC719409.png)
+    ![VM Agent Checkbox](./media/virtual-machines-common-classic-agents-and-extensions/IC719409.png)
 
 -   When you create an instance of a Virtual Machine by using the [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) or the [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx) cmdlet. You can create a VM without the VM Agent installed by adding the **–DisableGuestAgent** parameter to the [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx) cmdlet.
 

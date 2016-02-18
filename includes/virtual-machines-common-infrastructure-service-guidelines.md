@@ -149,7 +149,7 @@ Operating system disks and data disks have a maximum size of 1023 gigabytes (GB)
 ### Striped disks
 Besides providing the ability to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
 
-Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see [Sizes for virtual machines](virtual-machines-size-specs.md).
+Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
 
 If you are using disk striping for Azure data disks, consider the following guidelines:
 
@@ -411,7 +411,7 @@ This configuration incorporates:
 
 [Microsoft Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#storage-limits)
 
-[Sizes for virtual machines](virtual-machines-size-specs.md)
+[Sizes for virtual machines](virtual-machines-linux-sizes.md)
 
 [Azure storage scalability and performance targets](../storage-scalability-targets.md)
 

@@ -32,7 +32,7 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 ### PowerShell deployment script
 
-* [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md)
+* [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)
 
 ### Tutorials
 
@@ -81,4 +81,4 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 * [Tutorial: Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
-* [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md)
+* [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md)

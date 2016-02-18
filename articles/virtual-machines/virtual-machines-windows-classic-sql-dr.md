@@ -79,7 +79,7 @@ Azure VMs, storage, and networking have different operational characteristics th
 
 ### High availability nodes in an availability set
 
-Availability sets in Azure enable you to place the high availability nodes into separate Fault Domains (FDs) and Update Domains (UDs). For Azure VMs to be placed in the same availability set, you must deploy them in the same cloud service. Only nodes in the same cloud service can participate in the same availability set. For more information, see [Manage the Availability of Virtual Machines](virtual-machines-manage-availability.md).
+Availability sets in Azure enable you to place the high availability nodes into separate Fault Domains (FDs) and Update Domains (UDs). For Azure VMs to be placed in the same availability set, you must deploy them in the same cloud service. Only nodes in the same cloud service can participate in the same availability set. For more information, see [Manage the Availability of Virtual Machines](virtual-machines-windows-manage-availability.md).
 
 ### WSFC cluster behavior in Azure networking
 

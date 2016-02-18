@@ -29,8 +29,8 @@ Pack 2012 R2 Update 3 pre-installed. Use this head node for a proof of concept
 
 ![HPC Pack head node][headnode]
 
->[AZURE.TIP]For a production deployment of a complete HPC Pack cluster in Azure, we recommend that you use an automated  method, such as the [HPC Pack IaaS deployment
-script](virtual-machines-hpcpack-cluster-powershell-script.md) or a Resource Manager template such as the [HPC Pack cluster for Windows workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/) template. See [HPC Pack cluster options in Azure](virtual-machines-linux-hpcpack-cluster-options.md) for additional templates. 
+>[AZURE.TIP]For a production deployment of a complete HPC Pack cluster in Azure, we recommend that you use an automated  method, such as the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) or a Resource Manager template such as the [HPC Pack cluster for Windows workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/) template. See [HPC Pack cluster options in Azure](virtual-machines-hpcpack-cluster-options.md) for additional templates. 
+
 
 ## Planning considerations
 
