@@ -398,7 +398,7 @@ This section summarizes Microsoft Azure Virtual Machine Endpoints to create and 
 
 For more information on creating endpoints, see the following:
 
-- Create Endpoints:[How to Set Up Endpoints to a Virtual Machine](virtual-machines-set-up-endpoints.md).
+- Create Endpoints:[How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md).
 
 - SQL Server: See the “Complete Configuration steps to connect to the virtual machine Using SQL Server Management Studio” section of [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-portal-sql.md).
 
