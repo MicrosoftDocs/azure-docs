@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="02/18/2016" 
 	ms.author="jeffstok"
 />
 
@@ -41,7 +41,7 @@ You will need the following pre-requisites to successfully complete this tutoria
 -   Visual Studio 2015 or the free [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 -   [Azure Subscription](https://azure.microsoft.com/pricing/free-trial/)
 -   Administrative Privileges on the computer
--   Download the latest release TollApp.zip from [GitHub](https://github.com/streamanalytics/samples/releases)
+-   Download [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) from the Microsoft Download Center
 
 ## Scenario Introduction - “Hello, Toll!” ##
 
