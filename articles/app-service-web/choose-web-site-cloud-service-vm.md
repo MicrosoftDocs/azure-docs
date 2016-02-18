@@ -165,7 +165,7 @@ Network isolation with [Azure Virtual Network](/services/virtual-network/)|X|X|X
 Support for [Azure Traffic Manager](/services/traffic-manager/)|X|X|X|X|
 Integrated Endpoint Monitoring|X|X|X||
 Remote desktop access to servers||X|X|X|
-Install any custom MSI||X|X||
+Install any custom MSI||X|X||Service Fabric allows you to host any executable file as a [guest executable](../articles/service-fabric-deploy-existing-app.md).
 Ability to define/execute start-up tasks||X|X|X|
 Can listen to ETW events||X|X|X|
 
