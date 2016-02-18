@@ -68,7 +68,7 @@ For more details about the policy framework, see this [blog post](http://blogs.t
 
 To enable sign-up on your application, you will need to create a sign-up policy. This policy describes the experiences that consumers will go through during sign-up and the contents of tokens that the application will receive on successful sign-ups.
 
-1. [Navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Sign-up policies**.
 3. Click **+Add** at the top of the blade.
 4. The **Name** determines the sign-up policy name used by your application. For example, enter "SiUp".
@@ -87,7 +87,7 @@ To enable sign-up on your application, you will need to create a sign-up policy.
 
 To enable sign-in on your application, you will need to create a sign-in policy. This policy describes the experiences that consumers will go through during sign-in and the contents of tokens that the application will receive on successful sign-ins.
 
-1. [Navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Sign-in policies**.
 3. Click **+Add** at the top of the blade.
 4. The **Name** determines the sign-in policy name used by your application. For example, enter "SiIn".
@@ -105,7 +105,7 @@ To enable sign-in on your application, you will need to create a sign-in policy.
 
 To enable profile editing on your application, you will need to create a profile editing policy. This policy describes the experiences that consumers will go through during profile editing and the contents of tokens that the application will receive on successful completion.
 
-1. [Navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Profile editing policies**.
 3. Click **+Add** at the top of the blade.
 4. The **Name** determines the profile editing policy name used by your application. For example, enter "SiPe".

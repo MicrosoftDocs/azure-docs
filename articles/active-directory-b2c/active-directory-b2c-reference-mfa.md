@@ -32,7 +32,7 @@ This feature helps applications handle scenarios such as the following:
 
 ## Modify your sign-up policy to enable Multi-Factor Authentication
 
-1. [Navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Sign-up policies**.
 3. Click your sign-up policy (for example, "B2C_1_SiUp") to open it.
 4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
@@ -44,7 +44,7 @@ A consumer account gets created in your directory before the Multi-Factor Authen
 
 ## Modify your sign-in policy to enable Multi-Factor Authentication
 
-1. [Navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Sign-in policies**.
 3. Click your sign-in policy (for example, "B2C_1_SiIn") to open it. Click **Edit** at the top of the blade.
 4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.

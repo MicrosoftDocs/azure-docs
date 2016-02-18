@@ -27,7 +27,7 @@ Custom attributes use [Azure AD Graph API Directory Schema Extensions](https://m
 
 ## Create a custom attribute
 
-1. [Navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **User attributes**.
 3. Click **+Add** at the top of the blade.
 4. Provide a **Name** for the custom attribute (for example, "ShoeSize") and optionally, a **Description**. Click **Create**.
@@ -39,7 +39,7 @@ The custom attribute is now available in the list of **User attributes**, and fo
 
 ## Use a custom attribute in your sign-up policy
 
-1. [Navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Sign-up policies**.
 3. Click your sign-up policy (for example, "B2C_1_SiUp") to open it. Click **Edit** at the top of the blade.
 4. Click **Sign-up attributes** and select the custom attribute (for example, "ShoeSize"). Click **OK**.
