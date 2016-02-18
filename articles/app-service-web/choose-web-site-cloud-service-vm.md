@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure App Service, Cloud Services and Virtual Machines comparison"
-	description="Learn when to use Azure App Service, Cloud Services, and Virtual Machines for hosting web applications."
+	pageTitle="Azure App Service, Cloud Services, Virtual Machines, and Service Fabric comparison"
+	description="Learn when to use Azure App Service, Cloud Services, Virtual Machines, Service Fabric for hosting web applications."
 	services="app-service\web, virtual-machines, cloud-services"
 	documentationCenter=""
 	authors="tdykstra"
@@ -16,7 +16,7 @@
 	ms.date="02/16/2016"
 	ms.author="tdykstra"/>
 
-# Azure App Service, Cloud Services, and Virtual Machines comparison
+# Azure App Service, Cloud Services, Virtual Machines, and Service Fabric comparison
 
 ## Overview
 
