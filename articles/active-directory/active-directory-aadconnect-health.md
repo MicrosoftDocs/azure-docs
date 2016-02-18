@@ -122,5 +122,5 @@ To get started do one of the following:
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
-* [Azure AD Connect Health Version History](active-directory-addconnect-health-version-history.md)
+* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
 

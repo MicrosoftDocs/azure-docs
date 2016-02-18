@@ -73,5 +73,5 @@ By selecting the Filter option at the top of the blade, you can filter by server
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
-* [Azure AD Connect Health Version History](active-directory-addconnect-health-version-history.md)
+* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
 

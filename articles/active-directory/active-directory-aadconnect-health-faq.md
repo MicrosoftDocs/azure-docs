@@ -102,5 +102,5 @@ You will need to have TCP/UDP ports 80, 443 and 5671 open for the Azure AD Conne
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
-* [Azure AD Connect Health Version History](active-directory-addconnect-health-version-history.md)
+* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
 
