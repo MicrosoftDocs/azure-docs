@@ -249,7 +249,7 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
-query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No (if **tableName** of **dataset** is specified)
+query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | Yes
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
