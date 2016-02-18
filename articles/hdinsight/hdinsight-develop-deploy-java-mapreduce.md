@@ -304,7 +304,7 @@ You have now developed a word-counting MapReduce job and tested it successfully 
 
 
 ##<a id="upload"></a>Upload data and application to Azure Blob storage
-Azure HDInsight uses Azure Blob storage for data storage. When an HDInsight cluster is provisioned, an Azure Blob storage container is used to store the system files. You can use either this default container or a different container (either on the same Azure Storage account or on a different Storage account located in the same datacenter as the cluster) for storing the data files.
+Azure HDInsight uses Azure Blob storage for data storage. When an HDInsight cluster is provisioned, an Azure Blob storage container is used to store the system files. You can use either this default container or a different container (either on the same Azure Storage account or on a different Storage account located in the same region as the cluster) for storing the data files.
 
 In this tutorial, you will create a container on a separate Storage account for the data files and the MapReduce application. The data files are the text files in the **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common** directory on your emulator workstation.
 
@@ -316,7 +316,7 @@ In this tutorial, you will create a container on a separate Storage account for 
 		$subscriptionName = "<AzureSubscriptionName>"
 		$storageAccountName_Data = "<AzureStorageAccountName>"  
 		$containerName_Data = "<ContainerName>"
-		$location = "<MicrosoftDataCenter>"  # For example, "East US"
+		$location = "<Region>"  # For example, "East US"
 
 	The **$subscripionName** variable is associated with your Azure subscription. You must name **$storageAccountName\_Data** and **$containerName\_Data**. For the naming restrictions, see [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
 
@@ -455,7 +455,7 @@ In this section, you will create an Azure PowerShell script that performs the fo
 		# The Storage account and the HDInsight cluster variables
 		$subscriptionName = "<AzureSubscriptionName>"
 		$stringPrefix = "<StringForPrefix>"
-		$location = "<MicrosoftDataCenter>"     ### Must match the data Storage account location
+		$location = "<Region>"     ### Must match the data Storage account location
 		$clusterNodes = <NumberOFNodesInTheCluster>
 
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
