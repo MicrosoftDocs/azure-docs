@@ -19,7 +19,7 @@
    
 # Configuring Resilience and Recovery on ElasticSearch on Azure
 
-This article is [part of a series](guidance-elasticsearch-introduction.md). 
+This article is [part of a series](guidance-elasticsearch.md). 
 
 A key feature of Elasticsearch is the support that it provides for resiliency in the event of node failures and/or network partition events. Replication is the most obvious way in which you can improve the resiliency of any cluster, enabling Elasticsearch to ensure that more than one copy of any data item is available on different nodes in case one node should become inaccessible. If a node becomes temporarily unavailable, other nodes containing replicas of data from the missing node can serve the missing data until the problem is resolved. In the event of a longer-term issue, the missing node can be replaced with a new one, and Elasticsearch can restore the data to the new node from the replicas.
 

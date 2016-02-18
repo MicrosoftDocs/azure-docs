@@ -19,7 +19,7 @@
    
 # Implementing a JMeter Test Plan for Elasticsearch
 
-This article is [part of a series](guidance-elasticsearch-introduction.md). 
+This article is [part of a series](guidance-elasticsearch.md). 
 
 The performance tests conducted against Elasticsearch were implemented by using JMeter test plans 
 together with Java code incorporated as a JUnit test for performing tasks such as uploading data into 
@@ -170,7 +170,7 @@ public void bulkInsertTest() throws IOException {
 }
 ```
 
-[General guidance]: guidance-elasticsearch.md
+[Running Elasticsearch on Azure]: guidance-elasticsearch-running-on-azure.md
 [Data ingestion guidance]: guidance-elasticsearch-data-ingestion.md
 [Performance testing guidance]: guidance-elasticsearch-performance-testing-environment.md
 [JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md

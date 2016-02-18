@@ -177,7 +177,7 @@ Once you select a scenario, the test will run automatically. The results are sto
 files in a folder created under the *results* directory. Each run has its own results folder. 
 You can use Excel to analyze and graph this data.
 
-[General guidance]: guidance-elasticsearch.md
+[Running Elasticsearch on Azure]: guidance-elasticsearch-running-on-azure.md
 [Data ingestion guidance]: guidance-elasticsearch-data-ingestion.md
 [Performance testing guidance]: guidance-elasticsearch-performance-testing-environment.md
 [JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md

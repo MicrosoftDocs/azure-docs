@@ -19,7 +19,7 @@
 
 # Tuning Data Ingestion Performance for Elasticsearch on Azure
 
-This article is [part of a series](guidance-elasticsearch-introduction.md). 
+This article is [part of a series](guidance-elasticsearch.md). 
 
 ## Overview
 

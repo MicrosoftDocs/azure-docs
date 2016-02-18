@@ -19,7 +19,7 @@
    
 # Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance
 
-This article is [part of a series](guidance-elasticsearch-introduction.md). 
+This article is [part of a series](guidance-elasticsearch.md). 
 
 This document describes how to create and use a JUnit sampler that can generate and upload data to an Elasticsearch cluster as part of a JMeter test plan. This approach provides a highly flexible approach to load testing that can generate large quantities of test data without depending on external data files.
 
@@ -34,7 +34,7 @@ For testing data ingestion performance, the JUnit code was developing using Ecli
 You will need the [Java Runtime Environment](http://www.java.com/en/download/ie_manual.jsp) on your development machine.
 You will also need to install the [Eclipse IDE for Java Developers](https://www.eclipse.org/downloads/index.php?show_instructions=TRUE).
 
-> [AZURE.NOTE] If you are using the JMeter Master VM described in the section [Configuring the Performance Testing Environment](#overview) as your development environment, then download the Windows 32 Bit version of the Eclipse Installer.
+> [AZURE.NOTE] If you are using the JMeter Master VM described in [Creating a Performance Testing Environment for Elasticsearch on Azure][] as your development environment, then download the Windows 32 Bit version of the Eclipse Installer.
 
 ## Creating a JUnit Test Project for Load Testing Elasticsearch
 
@@ -140,8 +140,7 @@ pom.xml file), click *Select All*, and then click *Finish*.
 
 In the *Package Explorer* window, expand the node corresponding to your project. Verify that the project 
 contains a folder named *src*. This folder contains the source code for the JUnit test. The project can 
-be compiled and deployed following the instructions in the procedure 
-[Deploying a JUnit Test to JMeter](#deploying-a-junit-test-to-jmeter).
+be compiled and deployed following the instructions below.
 
 ![](./media/guidance-elasticsearch/jmeter-deploy25.png)
 
@@ -169,7 +168,7 @@ for the JAR (it should be given the .jar file extension), and then click *Finish
 
 Using Windows Explorer, copy the JAR file you have just created to the JMeter Master JVM and save it 
 in the *apache-jmeter-2.13\\lib\\junit* folder underneath the folder where you have installed JMeter 
-(see the procedure [Installing and Configuring JMeter on the JMeter Master VM](#_Installing_and_Configuring) for more information.)
+(see the procedure [Creating the JMeter Master Virtual Machine](guidance-elasticsearch-creating-performance-testing-environment.md#creating-the-jmeter-master-virtual-machine) for more information.)
 
 Return to Eclipse, expand the Package Explorer window and make a note of all the JAR files and their 
 locations listed in the *Maven Dependencies* folder for the project. Note that the files displayed 
@@ -213,10 +212,12 @@ verify that you have copied all of the dependent JARs listed by Maven to the *li
 Close JMeter. There is no need to save the test plan.  Copy the JAR file containing the JUnit test class 
 to the */home/&lt;username&gt;/apache-jmeter-2.13/lib/junit* folder on each of the JMeter subordinate 
 VMs (*&lt;username&gt;* is the name of the administrative user you specified when you created the VM; 
-see [Creating the JMeter Subordinate Virtual Machines](#_Creating_the_JMeter_2) for more information.)
+see [Creating the JMeter Subordinate Virtual Machines](guidance-elasticsearch-creating-performance-testing-environment.md#creating-the-jmeter-subordinate-virtual-machines) for more information.)
 
 Copy the dependent JAR files required by the JUnit test class to the 
 `/home/[username]/apache-jmeter-2.13/lib/junit` folder on each of the JMeter subordinate VMs. 
 Make sure to remove any older versions of JAR files from this folder first.
 
 You can use the `pscp` utility to copy files from a Windows computer to Linux.
+
+[Creating a Performance Testing Environment for Elasticsearch on Azure]: guidance-elasticsearch-creating-performance-testing-environment.md

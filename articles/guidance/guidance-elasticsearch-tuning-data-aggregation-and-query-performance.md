@@ -19,7 +19,7 @@
    
 # Tuning Data Aggregation and Query Performance for Elasticsearch on Azure
 
-This article is [part of a series](guidance-elasticsearch-introduction.md). 
+This article is [part of a series](guidance-elasticsearch.md). 
 
 A primary reason for using Elasticsearch is to support searches through data. Users should be able to quickly locate the information for which they are looking. Additionally, the system must enable users to ask questions of the data, seek correlations, and come to conclusions that can drive business decisions; this processing is what differentiates data from information.
 
@@ -1045,7 +1045,7 @@ GET /sample/ctip/_search
 ```
 -->
 
-[General guidance]: guidance-elasticsearch.md
+[Running Elasticsearch on Azure]: guidance-elasticsearch-running-on-azure.md
 [Data ingestion guidance]: guidance-elasticsearch-data-ingestion.md
 [Performance testing guidance]: guidance-elasticsearch-performance-testing-environment.md
 [JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md

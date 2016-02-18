@@ -19,11 +19,11 @@
    
 # Creating a Performance Testing Environment for Elasticsearch on Azure
 
-This article is [part of a series](guidance-elasticsearch-introduction.md). 
+This article is [part of a series](guidance-elasticsearch.md). 
 
 This document describes how to set up an environment for testing the performance of an Elasticsearch 
 cluster. This configuration was used to test the performance of data ingestion and query workloads, 
-as described in [Maximizing Data Ingestion Performance with Elasticsearch on Azure][].
+as described in [Tuning Data Ingestion Performance for Elasticsearch on Azure][].
 
 The performance testing process used [Apache JMeter](http://jmeter.apache.org/), with the 
 [Standard Set](http://jmeter-plugins.org/wiki/StandardSet/) of plugins installed in a master/subordinate 
@@ -219,7 +219,7 @@ You will need to repeat these steps for each JMeter Subordinate VM.
 
 This procedure assumes that you have login access to the Elasticsearch nodes. If you have created the
 cluster by using the ARM template, you can connect to each node through the Jump Box VM, as illustrated 
-in the [Azure Production Topology](#_Azure_Production_Topology) section. You can connect to the Jump Box 
+in the [Azure Production Topology](guidance-elasticsearch-running-on-azure.md#elasticsearch-topologies) section. You can connect to the Jump Box 
 by using PuTTY as well. 
 
 From there, you can use the *ssh* command to log in to each of the nodes in the Elasticsearch cluster.
@@ -353,27 +353,27 @@ Move to the apache-jmeter-*xxx*/bin folder and edit the jmeter.properties file u
 `jmeter.properties` file, find the section labelled *Remote hosts and RMI configuration*.  In this 
 section of the file, find the following line:
 
-```
+```yaml
 remote_hosts=127.0.0.1
 ```
 
 Change this line and replace the IP address 127.0.0.1 with a comma separated list of IP addresses or 
 host names for each of the JMeter Subordinate servers. For example:
 
-```
+```yaml
 remote_hosts=JMeterSub1,JMeterSub2
 ```
 
 Find the following line, then remove the `#` character at the start of this line, and modify the value 
 of the client.rmi.localport settings from:
 
-```
+```yaml
 #client.rmi.localport=0
 ```
 
 to:
 
-```
+```yaml
 client.rmi.localport=4440
 ```
 
@@ -421,13 +421,13 @@ is `/usr/share/elasticsearch`.
 
 -  Run the following command to download and install the Marvel plugin for Elasticsearch:
 
-```
+```bash
 sudo bin/plugin -i elasticsearch/marvel/latest
 ```
 
 - Stop and restart Elasticsearch on the node:
 
-```
+```bash
 sudo service elasticsearch restart
 ```
 
@@ -452,7 +452,7 @@ sudo bin/plugin install marvel-agent
 
 Stop and restart Elasticsearch on the node:
 
-```
+```bash
 sudo service elasticsearch restart
 ```
 
@@ -481,20 +481,20 @@ Move to the kibana config folder (`kibana-<kibana-version>-linux-x64/config`), e
 file, and add the following line. Replace `<server>` with the name or IP address of an Elasticsearch 
 server in the cluster:
 
-```
+```yaml
 elasticsearch.url: "http://<server>:9200"
 ```
 
 Move to the kibana bin folder (`kibana-<kibana-version>-linux-x64/bin`), and run the following 
 command to integrate the Marvel plugin into Kibana:
 
-```
+```bash
 sudo ./kibana plugin --install elasticsearch/marvel/<marvel-version>
 ```
 
 Start Kibana:
 
-```
+```bash
 sudo nohup ./kibana &
 ```
 
@@ -512,4 +512,4 @@ similar to that shown below should appear:
 
 ![](./media/guidance-elasticsearch/performance-image22.png)
 
-[Maximizing Data Ingestion Performance with Elasticsearch on Azure]: guidance-elasticsearch-data-ingestion.md
+[Tuning Data Ingestion Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-ingestion-performance.md
