@@ -66,9 +66,9 @@ To run MPI applications with a multi-instance task, you first need to get your M
 // the nodes as they join the pool (or when they are restarted).
 StartTask startTask = new StartTask
 {
-    CommandLine    = "cmd /c set & MSMpiSetup.exe -unattend -force",
-    ResourceFiles  = new List<ResourceFile> { new ResourceFile("https://mystorageaccount.blob.core.windows.net/mycontainer/MSMpiSetup.exe", "MSMpiSetup.exe") },
-    RunElevated    = true,
+    CommandLine = "cmd /c MSMpiSetup.exe -unattend -force",
+    ResourceFiles = new List<ResourceFile> { new ResourceFile("https://mystorageaccount.blob.core.windows.net/mycontainer/MSMpiSetup.exe", "MSMpiSetup.exe") },
+    RunElevated = true,
     WaitForSuccess = true
 };
 myCloudPool.StartTask = startTask;
@@ -166,7 +166,7 @@ A compute node's recent task list will reflect the id of a subtask if the recent
 
 To obtain information on subtasks by using the Batch .NET library, call the [CloudTask.ListSubtasks][net_task_listsubtasks] method. This method returns information on all subtasks, and information about the compute node that executed the tasks. From this information, you can determine the each subtask's root directory, the pool id, its current state, exit code, and more. You can use this information in combination with the [PoolOperations.GetNodeFile][poolops_getnodefile] method to obtain the subtask's files. Note that this method does not return information for the primary task (id 0).
 
-Unless otherwise stated, Batch .NET methods that operate on the multi-instance [CloudTask][net_task] itself apply only to the primary task. For example, when you call the [CloudTask.ListNodeFiles][net_task_listnodefiles] method on a multi-instance task, only the primary task's files are returned.
+> [AZURE.NOTE] Unless otherwise stated, Batch .NET methods that operate on the multi-instance [CloudTask][net_task] itself apply *only* to the primary task. For example, when you call the [CloudTask.ListNodeFiles][net_task_listnodefiles] method on a multi-instance task, only the primary task's files are returned.
 
 The following code snippet shows how to obtain subtask information, as well as request file contents from the nodes on which they executed.
 
@@ -233,6 +233,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 [net_pool_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
 [net_resourcefile]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.aspx
 [net_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.aspx
+[net_starttask_cmdline]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.commandline.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 [net_taskconstraints]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskconstraints.aspx
 [net_taskconstraint_maxretry]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskconstraints.maxtaskretrycount.aspx
