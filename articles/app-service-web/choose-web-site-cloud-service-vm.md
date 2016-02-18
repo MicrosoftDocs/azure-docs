@@ -143,31 +143,31 @@ The following table compares the capabilities of App Service, Cloud Services, an
 Feature|App Service (web apps)|Cloud Services (web roles)|Virtual Machines|Service Fabric|Notes
 ---|---|---|---|---|---
 Near-instant deployment|X||||Deploying an application or an application update to a Cloud Service, or creating a VM, takes several minutes at least; deploying an application to a web app takes seconds.
-Scale up to larger machines without redeploy|X||||
-Web server instances share content and configuration, which means you don't have to redeploy or reconfigure as you scale.|X||||
+Scale up to larger machines without redeploy|X|||X|
+Web server instances share content and configuration, which means you don't have to redeploy or reconfigure as you scale.|X|||X|
 Multiple deployment environments (production and staging)|X|X|||
-Automatic OS update management|X|X|||
+Automatic OS update management|X|X|||Automatic OS updates are planned for a future Service Fabric release.
 Seamless platform switching (easily move between 32 bit and 64 bit)|X|X|||
 Deploy code with GIT, FTP|X||X||
 Deploy code with Web Deploy|X||X||Cloud Services supports the use of Web Deploy to deploy updates to individual role instances. However, you can't use it for initial deployment of a role, and if you use Web Deploy for an update you have to deploy separately to each instance of a role. Multiple instances are required in order to qualify for the Cloud Service SLA for production environments.
 WebMatrix support|X||X||
-Access to services like Service Bus, Storage, SQL Database|X|X|X||
-Host web or web services tier of a multi-tier architecture|X|X|X||
-Host middle tier of a multi-tier architecture|X|X|X||App Service web apps can easily host a REST API middle tier, and the [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. The preview [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) feature provides even more features for hosting REST services.
+Access to services like Service Bus, Storage, SQL Database|X|X|X|X|
+Host web or web services tier of a multi-tier architecture|X|X|X|X|
+Host middle tier of a multi-tier architecture|X|X|X|X|App Service web apps can easily host a REST API middle tier, and the [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. The preview [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) feature provides even more features for hosting REST services.
 Integrated MySQL-as-a-service support|X|X|X||Cloud Services can integrate MySQL-as-a-service through ClearDB's offerings, but not as part of the Azure Portal workflow.
-Support for ASP.NET, classic ASP, Node.js, PHP, Python|X|X|X||
-Scale out to multiple instances without redeploy|X|X|X||Virtual Machines can scale out to multiple instances, but the services running on them must be written to handle this scale-out. You have to configure a load balancer to route requests across the machines, and create an Affinity Group to prevent simultaneous restarts of all instances due to maintenance or hardware failures.
-Support for SSL|X|X|X||For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see [Configuring an SSL certificate for an Azure Website](../app-service-web/web-sites-configure-ssl-certificate.md).
-Visual Studio integration|X|X|X||
+Support for ASP.NET, classic ASP, Node.js, PHP, Python|X|X|X|X|Service Fabric supports the creation of a web front-end using [ASP.NET 5](../articles/service-fabric-add-a-web-frontend.md) or you can deploy any type of application (Node.js, Java, etc) as a [guest executable](../articles/service-fabric-deploy-existing-app.md).
+Scale out to multiple instances without redeploy|X|X|X|X|Virtual Machines can scale out to multiple instances, but the services running on them must be written to handle this scale-out. You have to configure a load balancer to route requests across the machines, and create an Affinity Group to prevent simultaneous restarts of all instances due to maintenance or hardware failures.
+Support for SSL|X|X|X|X|For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see [Configuring an SSL certificate for an Azure Website](../app-service-web/web-sites-configure-ssl-certificate.md).
+Visual Studio integration|X|X|X|X|
 Remote Debugging|X|X|X||
-Deploy code with TFS|X|X|X||
-Network isolation with [Azure Virtual Network](/services/virtual-network/)|X|X|X||See also [Azure Websites Virtual Network Integration](/blog/2014/09/15/azure-websites-virtual-network-integration/)
-Support for [Azure Traffic Manager](/services/traffic-manager/)|X|X|X||
+Deploy code with TFS|X|X|X|X|
+Network isolation with [Azure Virtual Network](/services/virtual-network/)|X|X|X|X|See also [Azure Websites Virtual Network Integration](/blog/2014/09/15/azure-websites-virtual-network-integration/)
+Support for [Azure Traffic Manager](/services/traffic-manager/)|X|X|X|X|
 Integrated Endpoint Monitoring|X|X|X||
-Remote desktop access to servers||X|X||
+Remote desktop access to servers||X|X|X|
 Install any custom MSI||X|X||
-Ability to define/execute start-up tasks||X|X||
-Can listen to ETW events||X|X||
+Ability to define/execute start-up tasks||X|X|X|
+Can listen to ETW events||X|X|X|
 
 
 > [AZURE.NOTE]
