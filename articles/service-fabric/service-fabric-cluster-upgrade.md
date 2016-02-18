@@ -16,6 +16,7 @@
    ms.date="02/16/2016"
    ms.author="chackdan"/>
 
+
 # Upgrade a Service Fabric cluster
 
 An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft. This article describes what is managed automatically and what you can configure yourself.
