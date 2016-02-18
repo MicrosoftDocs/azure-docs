@@ -6,7 +6,7 @@
 Azure Resource Manager Template allows you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources.
 
 
-Click the article  [Authoring Extension Templates](virtual-machines-extensions-authoring-templates.md) to learn more about authoring templates for using Extensions.
+Click the article  [Authoring Extension Templates](virtual-machines-windows-extensions-authoring-templates.md) to learn more about authoring templates for using Extensions.
 
 In this article we'll learn about troubleshooting some of the common VM Extension failures.
 
@@ -65,4 +65,4 @@ and name is the name of the extension resource from the template
 
     Remove-AzureVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
-Once the extension has been removed, the template can be re-executed to run the scripts on the VM.
+Once the extension has been removed, the template can be re-executed to run the scripts on the VM.

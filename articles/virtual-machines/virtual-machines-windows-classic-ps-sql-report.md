@@ -95,7 +95,7 @@ This topic describes and walks you through the deployment and configuration of a
 
 		- **HTTP**: The default public and private ports are **80**. Note that if you use a private port other than 80, modify **$HTTPport = 80** in the http script.
 
-		- **HTTPS**: The default public and private ports are **443**. A security best practice is to change the private port and configure your firewall and the report server to use the private port. For more information on endpoints, see [How to Set Up Communication with a Virtual Machine](virtual-machines-set-up-endpoints.md). Note that if you use a port other than 443, change the parameter **$HTTPsport = 443** in the HTTPS script.
+		- **HTTPS**: The default public and private ports are **443**. A security best practice is to change the private port and configure your firewall and the report server to use the private port. For more information on endpoints, see [How to Set Up Communication with a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md). Note that if you use a port other than 443, change the parameter **$HTTPsport = 443** in the HTTPS script.
 	
 	- Click next . ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
