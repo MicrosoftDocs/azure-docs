@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Connect domain-joined devices to Azure AD for Windows 10 experiences | Microsoft Azure"
-	description="Explains how administrators can configure group policies to enable devices to be domain-joined to the enterprise network."
+	description="Explains how administrators can configure Group Policy settings to enable devices to be domain-joined to the enterprise network."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -21,23 +21,23 @@
 
 # Connect domain-joined devices to Azure AD for Windows 10 experiences
 
-Domain join is the traditional way organizations have connected devices for work for the last 15 years and more. It has enabled users to sign in to their devices using their Windows Server Active Directory (Active Directory) work or school accounts and allowed IT to fully manage these devices. Organizations typically rely on imaging methods to provision devices to users and generally use System Center Configuration Manager (SCCM) or Group Policy to manage them.
+Domain join is the traditional way organizations have connected devices for work for the last 15 years and more. It has enabled users to sign in to their devices by using their Windows Server Active Directory (Active Directory) work or school accounts and allowed IT to fully manage these devices. Organizations typically rely on imaging methods to provision devices to users and generally use System Center Configuration Manager (SCCM) or Group Policy to manage them.
 
 Domain join in Windows 10 will provide the following benefits after you connect devices to Azure Active Directory (Azure AD):
 
-- SSO (single sign-on) to Azure AD resources from anywhere
-- Access to the enterprise Windows Store using work or school accounts (no Microsoft account required)
-- Enterprise-compliant roaming of user settings across devices using work or school accounts (no Microsoft account required)
-- Strong authentication and convenient sign-in for work or school accounts with Microsoft Passport and Windows Hello.
-- Ability to restrict access to devices that are compliant with organizational device policies
+- Single sign-on (SSO) to Azure AD resources from anywhere
+- Access to the enterprise Windows Store by using work or school accounts (no Microsoft account required)
+- Enterprise-compliant roaming of user settings across devices by using work or school accounts (no Microsoft account required)
+Strong authentication and convenient sign-in for work or school accounts with Microsoft Passport and Windows Hello
+- Ability to restrict access to devices that comply with organizational device Group Policy settings
 
 ## Prerequisites
 
 Domain join continues to be useful. However, to get the Azure AD benefits of SSO, roaming of settings with work or school accounts, and access to Windows Store with work or school accounts, you will need the following:
 
-- An Azure AD subscription
+- Azure AD subscription
 - Azure AD Connect to extend the on-premises directory to Azure AD
-- Policy that is set to connect domain-joined devices to Azure AD
+- Policy that's set to connect domain-joined devices to Azure AD
 - Windows 10 build (build 10551 or newer) for devices
 
 To enable Microsoft Passport for Work and Windows Hello, you will also need the following:
@@ -49,7 +49,7 @@ As an alternative to the PKI deployment requirement, you can do the following:
 
 - Have a few domain controllers with Windows Server 2016 Active Directory Domain Services.
 
-To enable conditional access, you can create policies that allow access to ‘domain-joined’ devices with no additional deployments. To manage access control based on compliance of the device, you will need the following:
+To enable conditional access, you can create Group Policy settings that allow access to domain-joined devices with no additional deployments. To manage access control based on compliance of the device, you will need the following:
 
 - System Center Configuration Manager version 1509 for Technical Preview for Passport scenarios
 
@@ -58,14 +58,14 @@ To enable conditional access, you can create policies that allow access to ‘do
 
 ### Step 1: Deploy Azure Active Directory Connect
 
-Azure AD Connect will enable you to provision computers on-premises as device objects in the cloud. To deploy Azure AD Connect, please refer to Enabling your directory for hybrid management with Azure AD Connect.
+Azure AD Connect will enable you to provision computers on-premises as device objects in the cloud. To deploy Azure AD Connect, refer to Enabling your directory for hybrid management with Azure AD Connect.
 
- - If you followed a [custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (not the Express installation), then follow the procedure **Create a service connection point (SCP) in the on-premises Active Directory**, later in this step.
+ - If you followed a [custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (not the Express installation), then follow the procedure **Create a service connection point in on-premises Active Directory**, later in this step.
  - If you have a federated configuration with Azure AD before installing Azure AD Connect (for example, if you have deployed Active Directory Federation Services (AD FS) before), then follow the **Configure AD FS claim rules** procedure, later in this step.
 
-#### Create a service connection point (SCP) in the on-premises Active Directory
+#### Create a service connection point in on-premises Active Directory
 
-Domain-joined devices will use this object to discover Azure AD tenant information at the time of automatic registration with the Azure device registration service.
+Domain-joined devices will use the service connection point to discover Azure AD tenant information at the time of automatic registration with the Azure device registration service.
 
 On the Azure AD Connect server, run the following PowerShell commands:
 
@@ -75,14 +75,102 @@ On the Azure AD Connect server, run the following PowerShell commands:
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
->[AZURE.NOTE]
-Replace [*connector account name*] with the domain account that is used as the Active Directory connector account.<br>
+##-------TEST SECTION----
+***CHANGE: Separate notes by two blank lines***
+text text text
 
 >[AZURE.NOTE]
-The username of the credential that is entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
+Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
+
+
+>[AZURE.NOTE]
+The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
+
+***CHANGE: Reverse order of notes***
+text text text
+
+>[AZURE.NOTE]
+The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
+
+>[AZURE.NOTE]
+Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
+
+***CHANGE: Indent note line of note 2***
+text text text
+
+>[AZURE.NOTE]
+Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
+
+ >[AZURE.NOTE]
+The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
+
+***CHANGE: Indent text line  of note 2***
+text text text
+
+>[AZURE.NOTE]
+ Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.<br>
+
+>[AZURE.NOTE]
+  The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
+
+  ***CHANGE: Indent both lines of note 2 2 spaces***
+  text text text
+
+  >[AZURE.NOTE]
+  Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
+
+    >[AZURE.NOTE]
+    The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
+
+	***CHANGE: Indent both lines of note 2 4 spaces***
+	text text text
+
+    >[AZURE.NOTE]
+    Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
+
+        >[AZURE.NOTE]
+        The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
+
+***CHANGE: Stack of three notes***
+text text text
+
+>[AZURE.NOTE]
+Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
+
+>[AZURE.NOTE]
+Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
+
+>[AZURE.NOTE]
+The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
+
+***CHANGE: Put second note on one line with added spaces***
+text text text
+
+>[AZURE.NOTE]
+Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
+
+>[AZURE.NOTE]     Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
+
+***CHANGE: Put second note on one line ***
+text text text
+
+>[AZURE.NOTE]
+Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
+
+>[AZURE.NOTE]<br>Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
+
+***CHANGE: Put both notes on one line***
+text text text
+
+>[AZURE.NOTE] Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
+
+>[AZURE.NOTE] The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
+
+text text text
+## ------------ END TEXT SECTION ----------
 
 #### Configure AD FS claim rules
-This enables instantaneous registration of a computer with Azure Device Registration Service (DRS) by allowing computers to authenticate using Kerberos/NTLM via AD FS. Without this step, computers will get to Azure AD in a delayed manner (subject to Azure AD Connect sync times).
+Configuring the AD FS claim rules enables instantaneous registration of a computer with Azure Device Registration Service by allowing computers to authenticate by using Kerberos/NTLM via AD FS. Without this step, computers will get to Azure AD in a delayed manner (subject to Azure AD Connect sync times).
 
 >[AZURE.NOTE]
 If you don’t have AD FS as the federation server on-premises, follow the instructions of your vendor to create the claim rules.
@@ -120,12 +208,12 @@ On the AD FS server (or on a session connected to the AD FS server), run the fol
     Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString
 
 >[AZURE.NOTE]
-Windows 10 computers will authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. You can do this by checking that the adfs/services/trust/13/windowstransport shows as enabled in the AD FS management console under **Service** > **Endpoints**.
+Windows 10 computers will authenticate by using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. You can do this by checking that the adfs/services/trust/13/windowstransport shows as enabled in the AD FS management console under **Service** > **Endpoints**.
 
 
 ### Step 2: Configure automatic device registration via Group Policy in Active Directory
 
-You can use an Active Directory Group Policy to configure your Windows 10 domain-joined devices to automatically register with Azure AD. To do this, use the following step-by-step instructions:
+You can use Group Policy in Active Directory to configure your Windows 10 domain-joined devices to automatically register with Azure AD. To do this, use the following step-by-step instructions:
 
 1. 	Open Server Manager and navigate to **Tools** > **Group Policy Management**.
 2.	From Group Policy Management, navigate to the domain node that corresponds to the domain in which you would like to enable Azure AD Join.
@@ -134,7 +222,7 @@ You can use an Active Directory Group Policy to configure your Windows 10 domain
 5.	Navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Workplace Join**.
 6.	Right-click **Automatically workplace join client computers**, and then select **Edit**.
 7.	Select the **Enabled** option button, and then click **Apply**. Click **OK**.
-8.	Link the Group Policy object to a location of your choice. To enable this policy for all of the domain-joined Windows 10 devices at your organization, link the Group Policy to the domain. For example:
+8.	Link the Group Policy object to a location of your choice. To enable this policy for all of the domain-joined Windows 10 devices at your organization, link the Group Policy object to the domain. For example:
  - A specific organizational unit (OU) in Active Directory where Windows 10 domain-joined computers will be located
  - A specific security group containing Windows 10 domain-joined computers that will be auto-registered with Azure AD
 
@@ -145,7 +233,7 @@ The policy is in the following location:<br>
 ***Computer Configuration/Policies/Administrative Templates/Windows Components/Device Registration***
 
 
-## Additional Information
+## Additional information
 * [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
