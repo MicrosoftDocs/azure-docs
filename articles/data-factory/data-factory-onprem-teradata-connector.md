@@ -90,7 +90,6 @@ Setting “external”: true and specifying externalData policy tells data facto
 	        "type": "RelationalTable",
 	        "linkedServiceName": "OnPremTeradataLinkedService",
 	        "typeProperties": {
-	            "tableName": "MyTable"
 	        },
 	        "availability": {
 	            "frequency": "Hour",
@@ -237,11 +236,8 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for dataset of type **RelationalTable** (which includes Teradata dataset) has the following properties.
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type properties supported for the Teradata dataset at this time. 
 
-Property | Description | Required
--------- | ----------- | --------
-tableName | Name of the table in the Teradata Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) 
 
 ## Teradata copy activity type properties
 
