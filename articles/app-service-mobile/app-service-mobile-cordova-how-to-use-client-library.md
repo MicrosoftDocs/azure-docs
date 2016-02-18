@@ -34,6 +34,8 @@ Cordova plugin to your project on the command-line:
 cordova plugin add ms-azure-mobile-apps
 ```
 
+For more information on creating [your first Apache Cordova app], see their documentation.
+
 ##<a name="create-client"></a>How to: Create Client
 
 Create a client connection by creating a `WindowsAzure.MobileServicesClient` object.  Replace `appUrl` with the URL to your Mobile App.
@@ -50,11 +52,17 @@ To access or update data, create a reference to the backend table. Replace `tabl
 var table = client.getTable(tableName);
 ```
 
-##<a name="querying"></a>How to: Query Data
+##<a name="querying"></a>How to: Query a Table Reference
 
-##<a name="filtering"></a>How to: Filter Returned Data
+### Filtering Data on the server
 
-## <a name="sorting"></a>How to: Sort Returned Data
+### Paging through data
+
+##<a name="working-with-data"></a>How to: Work with received data
+
+### Filtering Data on the client
+
+### Sorting Data on the client
 
 ##<a name="inserting"></a>How to: Insert Data
 
@@ -66,10 +74,17 @@ var table = client.getTable(tableName);
 
 ##<a name="client-auth"></a>How to: Authenticate with a Provider (Client Flow)
 
+##<a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
+
 ##<a name="templates"></a>How to: Register push templates to send cross-platform notifications
 
 ##<a name="errors"></a>How to: Handle Errors
 
 <!-- URLs. -->
 [Azure Mobile Apps Quick Start]: app-service-mobile-cordova-get-started.md
+
+[Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
+[your first Apache Cordova app]: http://cordova.apache.org/#getstarted
+[phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
+
 
