@@ -25,7 +25,7 @@
 1.	From the **Start** menu, select **Settings**.
 2.	Select **Accounts**, and then click **Your account**.
 3.	Click **Add Work or School account**, and then type in your organizational account.
-4.	On the sign-in page for your organization, enter your username and password, and then click **OK**.
+4.	On the sign-in page for your organization, enter your user name and password, and then click **OK**.
 5.	You will be prompted for a multi-factor authentication challenge. (This challenge is configurable by an IT administrator.)
 6.	Azure Active Directory (Azure AD) checks whether the device requires mobile device management enrollment.
 7.	Windows registers the device in the organization’s directory in Azure AD and enrolls it in mobile device management, if appropriate.
