@@ -56,8 +56,6 @@ As a first step, setup the data management gateway as per the instructions in th
 	        "type": "OnPremisesTeradata",
 	        "typeProperties": {
 	            "server": "<server>",
-	            "database": "<database>",
-	            "schema": "<schema>",
 	            "authenticationType": "<authentication type>",
 	            "username": "<username>",
 	            "password": "<password>",
@@ -228,8 +226,6 @@ Property | Description | Required
 -------- | ----------- | --------
 type | The type property must be set to: **OnPremisesTeradata** | Yes
 server | Name of the Teradata server. | Yes
-database | Name of the Teradata database. | Yes 
-schema  | Name of the schema in the database. | No
 authenticationType | Type of authentication used to connect to the Teradata database. Possible values are: Anonymous, Basic, and Windows. | Yes
 username | Specify user name if you are using Basic or Windows authentication. | No 
 password | Specify password for the user account you specified for the username. | No 
