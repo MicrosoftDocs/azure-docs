@@ -1,26 +1,4 @@
-<properties
-	pageTitle="Planned maintenance for Azure VMs | Microsoft Azure"
-	description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="drewm"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
 
-<tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/05/2016"
-	ms.author="drewm"/>
-
-
-# Planned maintenance for Azure virtual machines
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Why Azure performs planned maintenance
 
@@ -114,10 +92,10 @@ Australia Southeast | Australia East
 US Gov Iowa | US Gov Virginia
 
 <!--Anchors-->
-[image1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png
-[image2]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
+[image1]: ././media/virtual-machines-common-planned-maintenance/vmplanned1.png
+[image2]: ././media/virtual-machines-common-planned-maintenance/EventViewerPostReboot.png
 [image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
-[image4]: ./media/virtual-machines-planned-maintenance/AvailabilitySetExample.png
+[image4]: ././media/virtual-machines-common-planned-maintenance/AvailabilitySetExample.png
 
 
 <!--Link references-->
