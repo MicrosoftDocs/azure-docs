@@ -27,9 +27,9 @@ AzCopy is a Windows command-line utility designed for copying data to and from M
 ## Download and install AzCopy
 
 ### Windows
-1. Download the [latest version of AzCopy](http://aka.ms/downloadazcopy)
-2. Run the installation. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` (64-bit Windows) or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy` (32-bit Windows).
-3. If desired, you can add the AzCopy installation location to your system path.
+1. Download the [latest version of AzCopy](http://aka.ms/downloadazcopy).
+2. Run the installation.
+3. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` (64-bit Windows) or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy` (32-bit Windows).
 
 ### Mac/Linux
 AzCopy is not available for Mac/Linux OSs. However, Azure CLI is a suitable alternative for copying data to and from Azure Storage. Read [Using the Azure CLI with Azure Storage](storage-azure-cli.md) to learn more.
@@ -42,7 +42,7 @@ The basic syntax for AzCopy commands is:
 
 ## AzCopy Blob Samples
 
-Open a command window and navigate to the AzCopy installation directory on your computer, where the `AzCopy.exe` executable is located. The examples below demonstrate a variety of scenarios for copying blobs with AzCopy. Look at the [AzCopy Options](#azcopy-options) section for a detailed explanation of the options used in each sample.
+Open a command window and navigate to the AzCopy installation directory on your computer, where the `AzCopy.exe` executable is located. The examples below demonstrate a variety of scenarios for copying blobs with AzCopy. Look at the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
 
 ### Upload a single file to a blob container
 
@@ -55,36 +55,6 @@ Open a command window and navigate to the AzCopy installation directory on your 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 
 >If the specified virtual directory does not exist, AzCopy will upload the file to include the virtual directory in its name (*e.g.*, `vd/abc.txt` in the example above).
-
-### Download a single blob
-
-	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
-
->If the folder `C:\myfolder` does not exist, AzCopy will create it and download `abc.txt ` into the new folder.
-
-### Copy a blob within a Storage account
-
-	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt
-
->When you copy a blob within a Storage account, a [server-side copy]((http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)) operation is performed.
-
-### Copy a blob across Storage accounts
-
-	AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
-
->When you copy a blob across Storage accounts, a [server-side copy]((http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)) operation is performed.
-
-### Copy a blob from secondary region to primary region
-
-	AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
-
->You must have read-access geo-redundant storage enabled.
-
-### Download a blob from a secondary region
-
-	AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
-
->You must have read-access geo-redundant storage enabled.
 
 ### Upload all files to a blob container
 
@@ -111,6 +81,45 @@ If you do not specify option `/S`, AzCopy will not copy recursively. After the c
 	abc.txt
 	abc1.txt
 	abc2.txt
+
+### Upload files matching the specified file pattern to a blob container
+
+	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
+
+Assume the following files reside in folder `C:\myfolder`:
+
+	C:\myfolder\abc.txt
+	C:\myfolder\abc1.txt
+	C:\myfolder\abc2.txt
+	C:\myfolder\xyz.txt
+	C:\myfolder\subfolder\a.txt
+	C:\myfolder\subfolder\abcd.txt
+
+After the copy operation, the container will include the following files:
+
+	abc.txt
+	abc1.txt
+	abc2.txt
+	subfolder\a.txt
+	subfolder\abcd.txt
+
+If you do not specify option `/S`, AzCopy will will only copy blobs that don't reside in a virtual directory:
+
+	C:\myfolder\abc.txt
+	C:\myfolder\abc1.txt
+	C:\myfolder\abc2.txt
+
+### Download a single blob
+
+	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
+
+>If the folder `C:\myfolder` does not exist, AzCopy will create it and download `abc.txt ` into the new folder.
+
+### Download a blob from a secondary region
+
+	AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+
+>You must have read-access geo-redundant storage enabled.
 
 ### Download all blobs from a blob container
 
@@ -155,33 +164,6 @@ After the copy operation, the directory `C:\myfolder` will include the following
 	C:\myfolder\a.txt
 	C:\myfolder\abcd.txt
 
-### Upload files matching the specified file pattern to a blob container
-
-	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
-
-Assume the following files reside in folder `C:\myfolder`:
-
-	C:\myfolder\abc.txt
-	C:\myfolder\abc1.txt
-	C:\myfolder\abc2.txt
-	C:\myfolder\xyz.txt
-	C:\myfolder\subfolder\a.txt
-	C:\myfolder\subfolder\abcd.txt
-
-After the copy operation, the container will include the following files:
-
-	abc.txt
-	abc1.txt
-	abc2.txt
-	subfolder\a.txt
-	subfolder\abcd.txt
-
-If you do not specify option `/S`, AzCopy will will only copy blobs that don't reside in a virtual directory:
-
-	C:\myfolder\abc.txt
-	C:\myfolder\abc1.txt
-	C:\myfolder\abc2.txt
-
 ### Download blobs with the specified prefix to the file system, recursively
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:a /S
@@ -201,8 +183,25 @@ After the copy operation, the folder `C:\myfolder` will include the following fi
 	C:\myfolder\abc1.txt
 	C:\myfolder\abc2.txt
 
-Note that the prefix applies to the virtual directory, which forms the first part of the blob name. In the example shown above, the virtual directory does not match the specified prefix, so it is not copied. In addition, if the option `\S` is not specified, AzCopy will not copy any blobs.
+The prefix applies to the virtual directory, which forms the first part of the blob name. In the example shown above, the virtual directory does not match the specified prefix, so it is not copied. In addition, if the option `\S` is not specified, AzCopy will not copy any blobs.
 
+### Copy a blob within a Storage account
+
+	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt
+
+>When you copy a blob within a Storage account, a [server-side copy]((http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)) operation is performed.
+
+### Copy a blob across Storage accounts
+
+	AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
+
+>When you copy a blob across Storage accounts, a [server-side copy]((http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)) operation is performed.
+
+### Copy a blob from secondary region to primary region
+
+	AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
+
+>You must have read-access geo-redundant storage enabled.
 
 ### Copy a blob and its snapshots to another storage account
 
@@ -214,14 +213,30 @@ After the copy operation, the target container will include the blob and its sna
 	abc (2013-02-25 080757).txt
 	abc (2014-02-21 150331).txt
 
-
 ### Use a response file to specify command-line parameters
 
-	AzCopy /@:"C:\myfolder\abc.txt"
+	AzCopy /@:"C:\responsefiles\copyoperation.txt"
 
 You can include any AzCopy command-line parameters in a response file. AzCopy processes the parameters in the file as if they had been specified on the command line, performing a direct substitution with the contents of the file.
 
-**Specify one or more single-line response files**
+Assume a response file named `copyoperation.txt`, that contains the following lines. Each AzCopy parameter can be specified on a single line or on it's own line:
+
+	/Source:http://myaccount.blob.core.windows.net/mycontainer
+	/Dest:C:\myfolder
+	/SourceKey:<sourcekey>
+	/S
+	/Y
+
+AzCopy will fail if you split the parameter across two lines, as shown here for the `/sourcekey` parameter:
+
+	http://myaccount.blob.core.windows.net/mycontainer
+ 	C:\myfolder
+	/sourcekey:
+	[sourcekey]
+	/S
+	/Y
+
+### Use multiple response files to specify command-line parameters
 
 Assume a response file named `source.txt` that specifies a source container:
 
@@ -242,33 +257,6 @@ To call AzCopy with these response files, all of which reside in a directory `C:
 AzCopy processes this command just as it would if you included all of the individual parameters on the command line:
 
 	AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
-
-**Specify a multi-line response file**
-
-Assume a response file named `copyoperation.txt`, that contains the following lines. Each AzCopy parameter is specified on its own line:
-
-	/Source:http://myaccount.blob.core.windows.net/mycontainer
-	/Dest:C:\myfolder
-	/SourceKey:<sourcekey>
-	/S
-	/Y
-
-To call AzCopy with this response files, use this command:
-
-	AzCopy /@:"C:\responsefiles\copyoperation.txt"
-
-AzCopy processes this command just as it would if you included all of the individual parameters on the command line:
-
-	AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
-
-Note that each AzCopy parameter must be specified all on one line. For example, AzCopy will fail if you split the parameter across two lines, as shown here for the `/sourcekey` parameter:
-
-	http://myaccount.blob.core.windows.net/mycontainer
- 	C:\myfolder
-	/sourcekey:
-	[sourcekey]
-	/S
-	/Y
 
 ### Specify a shared access signature (SAS)
 
@@ -312,7 +300,6 @@ This example creates the journal file if it does not already exist. If it does e
 
 This example resumes the last operation, which may have failed to complete.
 
-
 ### Generate a log file
 
 **Write to the verbose log file in the default location**
@@ -326,7 +313,6 @@ If you specify option `/V` without providing a file path to the verbose log, the
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V:C:\myfolder\azcopy1.log
 
 Note that if you specify a relative path following option `/V`, such as `/V:test/azcopy1.log`, then the verbose log is created in the current working directory within a subfolder named `test`.
-
 
 ### Set the last-modified time of downloaded files to be same as the source blobs
 
@@ -347,7 +333,6 @@ Specify the `/MT` option to compare the last-modified time of the source blob an
 ### Specify the number of concurrent operations to start
 
 Option `/NC` specifies the number of concurrent copy operations. By default, AzCopy will begin concurrent operations at eight times the number of core processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for this option to avoid failure caused by resource competition.
-
 
 ### 	Run AzCopy against blob resources in the storage emulator
 
@@ -507,7 +492,7 @@ The option `/EntityOperation` indicates how to insert entities into the table. P
 
 Note that you cannot specify option `/PKRS` in the import scenario. Unlike the export scenario, in which you must specify option `/PKRS` to start concurrent operations, AzCopy will by default start concurrent operations when you import entities. The default number of concurrent operations started is equal to the number of core processors; however, you can specify a different number of concurrent with option `/NC`. For more details, type `AzCopy /?:NC` at the command line.
 
-## AzCopy Options
+## AzCopy Parameters
 
 Parameters for AzCopy are described in the table below. You can also type one of the following commands from the command line for help in using AzCopy:
 
