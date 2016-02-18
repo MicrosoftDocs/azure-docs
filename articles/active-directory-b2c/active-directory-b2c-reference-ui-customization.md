@@ -18,7 +18,7 @@
 
 # Azure Active Directory B2C preview: Customize the Azure AD B2C user interface (UI)
 
-User experience is paramount in a consumer-facing application. It is the difference between a good application and a great one, and between merely active consumers and truly engaged ones. Azure Active Directory (Azure AD) B2C lets you customize consumer sign up, sign in (*see note below*), and profile editing pages with pixel-perfect control.
+User experience is paramount in a consumer-facing application. It is the difference between a good application and a great one, and between merely active consumers and truly engaged ones. Azure Active Directory (Azure AD) B2C lets you customize consumer sign-up, sign-in (*see note below*), and profile editing pages with pixel-perfect control.
 
 > [AZURE.NOTE]
 Currently, local account sign-in pages, verification emails and self-service password reset pages can be customized only by using the [company branding feature](../active-directory/active-directory-add-company-branding.md) and not by the mechanisms described in this article.
@@ -51,7 +51,7 @@ In the following sections, you will find examples of HTML5 fragments (for each t
 
 ### Identity provider selection page
 
-This page contains a list of identity providers that the user can choose from during sign up or sign in. These are either social identity providers such as Facebook and Google+, or local accounts (based on email address or user name).
+This page contains a list of identity providers that the user can choose from during sign-up or sign-in. These are either social identity providers such as Facebook and Google+, or local accounts (based on email address or user name).
 
 ```HTML
 
@@ -200,7 +200,7 @@ This page contains a sign-up form that the consumer has to fill in when signing 
 
 ### Multi-factor authentication page
 
-On this page, users can verify their phone numbers (using text or voice) during sign up or sign in.
+On this page, users can verify their phone numbers (using text or voice) during sign-up or sign-in.
 
 ```HTML
 
