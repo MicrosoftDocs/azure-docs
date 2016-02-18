@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to implement faceted navigation in Azure Search | Microsoft Azure | Hosted cloud search service" 
+	pageTitle="How to implement faceted navigation in Azure Search | Microsoft Azure | search navigation categories" 
 	description="Add Faceted navigation to applications that integrate with Azure Search, a cloud hosted search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 #How to implement faceted navigation in Azure Search

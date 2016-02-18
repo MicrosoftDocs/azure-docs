@@ -18,7 +18,10 @@
 	ms.author="heidist"/>
 
 # Create an Azure Search service in the Azure Portal
-
+> [AZURE.SELECTOR]
+- [Portal](search-create-service-portal.md)
+- [REST](search-get-started-management-api.md)
+- 
 Microsoft Azure Search is a hosted cloud search service that allows you to embed search functionality into custom applications. It provides a search engine and storage of your search data, which you can access and manage through the Azure Portal, a .NET SDK, or a REST API. Key features include auto-complete queries, fuzzy matching, hit-highlighting, faceted navigation, scoring profiles, and multi-language support. To learn more about what Azure Search does, see [What is Azure Search](search-what-is-azure-search.md).
 
 Azure Search is available at pricing levels ranging from free (shared) to Standard, where cost is based on how much capacity you sign up for. 

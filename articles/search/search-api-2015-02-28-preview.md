@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure"
+   pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure | Azure Search Preview API"
    description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Natural Language Analyzers and moreLikeThis searches."
    services="search"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="02/04/2016"
+   ms.date="2/16/2016"
    ms.author="heidist"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
@@ -1154,7 +1154,7 @@ A **Search** operation is issued as a GET or POST request and specifies paramete
 
 **When to use POST instead of GET**
 
-When you use HTTP GET to call the **Search** API, you need to be aware that the length of the request URL cannot exceed 8 KB. This is usually enough for most applications. However, some applications produce very large queries or OData filter expressions. For these applications, using HTTP POST is a better choice because it allows larger filters and queries than GET. With POST, the number of terms or clauses in a query is the limiting factor, not the size of the raw query since the request size limit for POST is close to 17 MB.
+When you use HTTP GET to call the **Search** API, you need to be aware that the length of the request URL cannot exceed 8 KB. This is usually enough for most applications. However, some applications produce very large queries or OData filter expressions. For these applications, using HTTP POST is a better choice because it allows larger filters and queries than GET. With POST, the number of terms or clauses in a query is the limiting factor, not the size of the raw query since the request size limit for POST is approximately 16 MB.
 
 > [AZURE.NOTE] Even though the POST request size limit is very large, search queries and filter expressions cannot be arbitrarily complex. See [Lucene query syntax](https://msdn.microsoft.com/library/mt589323.aspx) and [OData expression syntax](https://msdn.microsoft.com/library/dn798921.aspx) for more information about search query and filter complexity limitations.
 **Request**
@@ -1646,7 +1646,9 @@ A **Suggestions** operation is issued as a GET or POST request.
 
 **When to use POST instead of GET**
 
-When you use HTTP GET to call the **Suggestions** API, you need to be aware that the length of the request URL cannot exceed 8 KB. This is usually enough for most applications. However, some applications produce very large queries, specifically OData filter expressions. For these applications, using HTTP POST is a better choice. The request size limit for POST is close to 17 MB, which is plenty of room for even the most complex queries.
+When you use HTTP GET to call the **Suggestions** API, you need to be aware that the length of the request URL cannot exceed 8 KB. This is usually enough for most applications. However, some applications produce very large queries, specifically OData filter expressions. For these applications, using HTTP POST is a better choice because it allows larger filters than GET. With POST, the number of clauses in a filter is the limiting factor, not the size of the raw filter string since the request size limit for POST is approximately 16 MB.
+
+> [AZURE.NOTE] Even though the POST request size limit is very large, filter expressions cannot be arbitrarily complex. See [OData expression syntax](https://msdn.microsoft.com/library/dn798921.aspx) for more information about filter complexity limitations.
 
 **Request**
 
