@@ -69,7 +69,7 @@ To obtain these values from a Classic or ARM Storage Account in the Azure Portal
 
 To obtain these values from a Classic Storage Account in the Classic Portal:
 
-1. Log in to the [Azure Portal](https://portal.azure.com).
+1. Log in to the [Classic Portal](https://manage.windowsazure.com).
 2. Navigate to the storage account you want to use.
 3. Click **MANAGE ACCESS KEYS** at the bottom of the navigation pane.
 4. In the pop up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one. 
