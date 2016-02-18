@@ -196,6 +196,6 @@ Now that you’ve set up your virtual machine and created your database, see the
 
 -	[Connecting to Oracle Database from a Java Application](http://docs.oracle.com/cd/E11882_01/appdev.112/e12137/getconn.htm#TDPJD136)
 
--	[Oracle virtual machine images for Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
+-	[Oracle virtual machine images for Azure](virtual-machines-linux-classic-oracle-images.md)
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)

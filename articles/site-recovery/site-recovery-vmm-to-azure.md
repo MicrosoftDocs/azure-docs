@@ -290,7 +290,7 @@ After servers, clouds, and networks are configured correctly, you can enable pro
 4. On the configure tab of the virtual machine properties following network properties could be modified.
 
 
-	1.  Number of network adapters of target virtual machine - The number of network adapters is dictated by the size you specify for the target virtual machine. Check [virtual machine size specs](../virtual-machines/virtual-machines-size-specs.md#size-tables) for the number of nics supported by the virtual machine size. 
+	1.  Number of network adapters of target virtual machine - The number of network adapters is dictated by the size you specify for the target virtual machine. Check [virtual machine size specs](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) for the number of nics supported by the virtual machine size. 
 
 		When you modify the size for a virtual machine and save the settings, the number of network adapter will change when you open **Configure** page the next time.The number of network adapters of target virtual machines is minimum of the number of network adapters on source virtual machine and maximum number of network adapters supported by the size of the virtual machine chosen. It is explained below:
 

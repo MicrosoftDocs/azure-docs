@@ -27,7 +27,7 @@ existing HPC Pack head node in Azure. This lets you scale up the compute capacit
 
 ![Burst nodes][burst]
 
->[AZURE.TIP] If you use the [HPC Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md) to create the cluster in Azure,
+>[AZURE.TIP] If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to create the cluster in Azure,
 you can include Azure burst nodes in your automated
 deployment. See the examples in that article.
 

@@ -1,31 +1,6 @@
-<properties
-	pageTitle="Deploy and manage VM with templates | Microsoft Azure"
-	description="Deploy and manage the most common configurations for Azure virtual machines using Resource Manager templates and Azure CLI."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
-
-<tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/01/2015"
-	ms.author="rasquill"/>
-
-# Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI
-
-> [AZURE.SELECTOR]
-- [PowerShell](virtual-machines-windows-ps-manage.md)
-- [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 This article shows you how to use Azure Resource Manager templates and the Azure CLI to do the following common tasks for deploying and managing Azure virtual machines. For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/) and [Application frameworks using templates](virtual-machines-linux-app-frameworks.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. You can't use templates in the classic deployment model.
 
 - [Quick-create a virtual machine in Azure](#quick-create-a-vm-in-azure)
 - [Deploy a virtual machine in Azure from a template](#deploy-a-vm-in-azure-from-a-template)
@@ -235,7 +210,7 @@ And away you go with your new VM.
 
 Use the instructions in these sections to deploy a new Azure VM by using a template with the Azure CLI. This template creates a single virtual machine in a new virtual network with a single subnet, and unlike `azure vm quick-create`, enables you to describe what you want precisely and repeat it without errors. Here's what this template creates:
 
-![](./media/virtual-machines-deploy-rmtemplates-azure-cli/new-vm.png)
+![](././media/virtual-machines-common-cli-deploy-templates/new-vm.png)
 
 ### Step 1: Examine the JSON file for the template parameters
 
@@ -765,7 +740,7 @@ Output looks something like the following:
 
 This template allows you to create two virtual machines under a load balancer and configure a load-balancing rule on Port 80. This template also deploys a storage account, virtual network, public IP address, availability set, and network interfaces.
 
-![](./media/virtual-machines-deploy-rmtemplates-azure-cli/multivmextlb.png)
+![](././media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
 
 Follow these steps to deploy a multi-VM application that uses a virtual network and a load balancer by using a Resource Manager template in the GitHub template repository via Azure PowerShell commands.
 
@@ -1303,4 +1278,6 @@ Then you'll need to mount the disk, as you normally would in Linux (or in Window
 
 For far more examples of Azure CLI usage with the **arm** mode, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager overview](../resource-group-overview.md).
 
+
 For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/) and [Application frameworks using templates](virtual-machines-linux-app-frameworks.md).
+
