@@ -138,7 +138,7 @@ In addition, Azure App Service has a new preview feature for REST APIs:  API app
 
 ##<a name="features"></a>Feature Comparison
 
-The following table compares the capabilities of App Service, Cloud Services, and Virtual Machines to help you make the best choice. For current information about the SLA for each option, see [Azure Service Level Agreements](/support/legal/sla/).
+The following table compares the capabilities of App Service, Cloud Services, Virtual Machines, and Service Fabric to help you make the best choice. For current information about the SLA for each option, see [Azure Service Level Agreements](/support/legal/sla/).
 
 Feature|App Service (web apps)|Cloud Services (web roles)|Virtual Machines|Service Fabric|Notes
 ---|---|---|---|---|---
