@@ -127,7 +127,7 @@ These abilities are often then migrated to tools like [Puppet](https://puppetlab
 
 ### Azure resource group templates
 
-More recently, Azure released the [Azure resource management](virtual-machines-azurerm-versus-azuresm.md) REST API, and updated PowerShell and Azure CLI tools to use it easily. You can deploy, modify, or redeploy entire application topologies using [Azure Resource Manager templates](../resource-group-authoring-templates.md) with the Azure resource management API using:
+More recently, Azure released the [Azure resource management](virtual-machines-windows-compare-deployment-models.md) REST API, and updated PowerShell and Azure CLI tools to use it easily. You can deploy, modify, or redeploy entire application topologies using [Azure Resource Manager templates](../resource-group-authoring-templates.md) with the Azure resource management API using:
 
 - the [Azure portal using templates](https://github.com/Azure/azure-quickstart-templates)&mdash;hint, use the "DeployToAzure" button
 - the [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
@@ -184,7 +184,7 @@ Docker tools:
 
 Docker on Microsoft Azure:
 
-- [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
+- [Docker VM Extension for Linux on Azure](virtual-machines-linux-dockerextension.md)
 - [Azure Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-xplat-cli-install.md)
 - [Using the Docker VM Extension from the Azure portal](virtual-machines-linux-classic-portal-use-docker.md)
