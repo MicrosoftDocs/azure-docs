@@ -628,4 +628,4 @@ If you have not enabled flashback on the original primary database, it’s recom
 We recommend that you enable flashback database on the primary and the standby databases. When a failover happens, the primary database can be flashed back to the time before the failover and quickly converted to a standby database.
 
 ##Additional Resources
-[Oracle Virtual Machine images for Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
+[Oracle Virtual Machine images for Azure](virtual-machines-linux-classic-oracle-images.md)
