@@ -184,7 +184,7 @@ Docker tools:
 
 Docker on Microsoft Azure:
 
-- [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
+- [Docker VM Extension for Linux on Azure](virtual-machines-linux-dockerextension.md)
 - [Azure Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-xplat-cli-install.md)
 - [Using the Docker VM Extension from the Azure portal](virtual-machines-linux-classic-portal-use-docker.md)
