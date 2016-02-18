@@ -195,7 +195,7 @@ For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://ms
 
 	![custom image](./media/virtual-machines-windows-classic-createupload-vhd/vm_custom_image.png)
 
-	This new image is now available under **My Images** when you create a virtual machine. For instructions, see [Create a custom virtual machine](virtual-machines-create-custom.md).
+	This new image is now available under **My Images** when you create a virtual machine. For instructions, see [Create a custom virtual machine](virtual-machines-windows-classic-createportal.md).
 
 	![create VM from custom image](./media/virtual-machines-windows-classic-createupload-vhd/create_vm_custom_image.png)
 

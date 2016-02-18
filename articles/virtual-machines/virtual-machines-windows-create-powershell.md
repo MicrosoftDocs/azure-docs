@@ -385,7 +385,7 @@ Here is the Azure PowerShell command set to create this virtual machine.
 
 ## Additional Resources
 
-[Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
+[Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-windows-compare-deployment-models.md)
 
 [Azure Resource Manager Overview](../resource-group-overview.md)
 

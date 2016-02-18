@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
-Virtual Machine Scale Sets make it easy for you to deploy and manage identical virtual machines as a set. Scale sets provide a highly scalable and customizable compute layer for hyperscale applications, and they support Windows platform images, Linux platform images, custom images, and extensions. For more information about scale sets, see [Virtual Machine Scale Sets](virtual-machines-vmss-overview.md).
+Virtual Machine Scale Sets make it easy for you to deploy and manage identical virtual machines as a set. Scale sets provide a highly scalable and customizable compute layer for hyperscale applications, and they support Windows platform images, Linux platform images, custom images, and extensions. For more information about scale sets, see [Virtual Machine Scale Sets](virtual-machines-linux-scale-sets-overview.md).
 
 This tutorial shows you how to create a Virtual Machine Scale Set of Linux virtual machines using the latest patched version of Ubuntu Linux and automatically scale the machines in the set. You do this by creating an Azure Resource Manager template and deploying it using Azure PowerShell. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
@@ -41,7 +41,7 @@ Before you get started with the steps in this tutorial, [install the Azure CLI](
 
 1. **Sign in to Microsoft Azure** - In your command-line interface (Bash, Terminal, Command prompt), make sure you're in Resource Manager mode by typing `azure config mode arm`, and then [log in with your work or school id](../xplat-cli-connect.md#use-the-log-in-method) by typing `azure login` and following the prompts for an interactive login experience to your Azure account.
 
-	> [AZURE.NOTE] If you have a work or school ID and you know you do not have two-factor authentication enabled, you can use `azure login -u` along with the work or school ID to log in without an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](resource-group-create-work-id-from-personal.md).
+	> [AZURE.NOTE] If you have a work or school ID and you know you do not have two-factor authentication enabled, you can use `azure login -u` along with the work or school ID to log in without an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](virtual-machines-windows-create-aad-work-id.md).
 
 2. **Create a resource group** – All resources must be deployed to a resource group. For this tutorial, name the resource group **vmsstest1**:
 
@@ -163,7 +163,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
  - Microsoft.Insights.VMDiagnosticsSettings
  - Microsoft.Insights/autoscaleSettings
 
-	For more information about Resource Manager resources, see [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).
+	For more information about Resource Manager resources, see [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](virtual-machines-windows-compare-deployment-models.md).
 
 	Add the storage account resource under the resources parent element that you added to the template. This template uses a loop to create the recommended 5 storage accounts where the operating system disks and diagnostic data are stored. This set of accounts can support up to 100 virtual machines in a scale set, which is the current maximum. Each storage account is named with a letter designator that was defined in the variables combined with the suffix that you provide in the parameters for the template.
 
