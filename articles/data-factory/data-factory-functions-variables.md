@@ -4,7 +4,9 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"
+	services="data-factory"
+/>
 
 <tags 
 	ms.service="data-factory" 
