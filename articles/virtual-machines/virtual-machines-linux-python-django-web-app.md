@@ -51,7 +51,7 @@ A screenshot of the completed application is below:
 
 1. Edit the network security group to allow incoming http traffic to port 80 using the instructions [here](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
-1. By default, your new virtual machine doesn't have a fully qualified domain name (FQDN).  You can create one by following the instructions [here](virtual-machines-create-fqdn-on-portal.md).  This step is optional to complete this tutorial.
+1. By default, your new virtual machine doesn't have a fully qualified domain name (FQDN).  You can create one by following the instructions [here](virtual-machines-linux-portal-create-fqdn.md).  This step is optional to complete this tutorial.
 
 ## <a id="setup"> </a>Setting up the development environment
 

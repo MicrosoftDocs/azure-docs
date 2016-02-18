@@ -40,7 +40,7 @@ detailed guidance and considerations for production deployments, see
 Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 If you want to use the A8 or A9 compute intensive instance size, see
-[About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-a8-a9-a10-a11-specs.md).
+[About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 ## Prerequisites
 
