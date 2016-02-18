@@ -75,99 +75,11 @@ On the Azure AD Connect server, run the following PowerShell commands:
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
-##-------TEST SECTION----
-***CHANGE: Separate notes by two blank lines***
-text text text
-
->[AZURE.NOTE]
-Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
-
-
->[AZURE.NOTE]
-The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
-
-***CHANGE: Reverse order of notes***
-text text text
-
->[AZURE.NOTE]
-The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
-
->[AZURE.NOTE]
-Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
-
-***CHANGE: Indent note line of note 2***
-text text text
-
->[AZURE.NOTE]
-Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
-
- >[AZURE.NOTE]
-The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
-
-***CHANGE: Indent text line  of note 2***
-text text text
-
->[AZURE.NOTE]
- Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.<br>
-
->[AZURE.NOTE]
-  The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
-
-  ***CHANGE: Indent both lines of note 2 2 spaces***
-  text text text
-
-  >[AZURE.NOTE]
-  Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
-
-    >[AZURE.NOTE]
-    The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
-
-	***CHANGE: Indent both lines of note 2 4 spaces***
-	text text text
-
     >[AZURE.NOTE]
     Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
 
-        >[AZURE.NOTE]
-        The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
-
-***CHANGE: Stack of three notes***
-text text text
-
->[AZURE.NOTE]
-Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
-
->[AZURE.NOTE]
-Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
-
->[AZURE.NOTE]
-The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
-
-***CHANGE: Put second note on one line with added spaces***
-text text text
-
->[AZURE.NOTE]
-Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
-
->[AZURE.NOTE]     Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
-
-***CHANGE: Put second note on one line ***
-text text text
-
->[AZURE.NOTE]
-Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
-
->[AZURE.NOTE]<br>Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
-
-***CHANGE: Put both notes on one line***
-text text text
-
->[AZURE.NOTE] Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
-
->[AZURE.NOTE] The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
-
-text text text
-## ------------ END TEXT SECTION ----------
+    >[AZURE.NOTE]
+    The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
 
 #### Configure AD FS claim rules
 Configuring the AD FS claim rules enables instantaneous registration of a computer with Azure Device Registration Service by allowing computers to authenticate by using Kerberos/NTLM via AD FS. Without this step, computers will get to Azure AD in a delayed manner (subject to Azure AD Connect sync times).
