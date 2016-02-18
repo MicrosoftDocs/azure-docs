@@ -75,7 +75,7 @@ For more information about each workflow, click the appropriate procedure in the
 |If you want to do this ...|Go to this UI page ...|Use this procedure|
 |---|---|---|
 |Create a service</br>Delete a service</br>Get the service registration key</br>Regenerate the service registration key|StorSimple Manager service|[Deploy the StorSimple Manager service](storsimple-ova-manage-service.md)|
-|Change the service data encryption key</br>View the operations logs|StorSimple Manager service → Dashboard|[Use the StorSimple service dashboard](storsimple-ova-manager-service-dashboard.md)|
+|Change the service data encryption key</br>View the operations logs|StorSimple Manager service → Dashboard|[Use the StorSimple service dashboard](storsimple-ova-manage-service-dashboard.md)|
 |Deactivate a Virtual Array</br>Delete a Virtual Array|StorSimple Manager service → Devices|[Deactivate or delete a Virtual Array](storsimple-ova-deactivate-and-delete-device.md)|
 |Disaster recovery and device failover</br>Failover prerequisites</br>Failover to a virtual device</br>Business continuity disaster recovery (BCDR)</br>Errors during disaster recovery|StorSimple Manager service → Devices|[Disaster recovery and device failover for your StorSimple Virtual Array](storsimple-ova-failover-dr.md)|
 |Back up shares and volumes</br>Take a manual backup</br>Change the backup schedule</br>View existing backups|StorSimple Manager service → Backup catalog|[Back up your StorSimple Virtual Array](storsimple-ova-backup.md)|
