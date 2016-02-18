@@ -22,7 +22,7 @@
 
 ##Overview
 
-In this tutorial, you add push notifications to the [Xamarin.Android quickstart] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [Xamarin.Android quickstart] tutorial, which you must complete first. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+In this tutorial, you add push notifications to the [Xamarin.Android quickstart] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [Create a Xamarin.Android app] tutorial, which you must complete first. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##Prerequisites
 
@@ -31,9 +31,6 @@ This tutorial requires the following:
 + An active Google account. You can sign up for a Google account at [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
 + [Google Cloud Messaging Client Component](http://components.xamarin.com/view/GCMClient/). You will add this component during the tutorial.
-
-+ Complete the [Create a Xamarin.Android app] tutorial.
-
 
 ##<a name="create-hub"></a>Create a Notification Hub
 
