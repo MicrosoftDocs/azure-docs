@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/18/2016"
    ms.author="masimms"/>
    
 # Creating a Performance Testing Environment for Elasticsearch on Azure
