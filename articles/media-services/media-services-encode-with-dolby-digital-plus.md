@@ -3,7 +3,7 @@
 	description="This topic describes how to encode your media with Dolby Digital Plus." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
-	ms.author="juliako"/>
+	ms.date="02/17/2016"   
+	ms.author="anilmur"/>
 
 #Encoding your media with Dolby Digital Plus
 
