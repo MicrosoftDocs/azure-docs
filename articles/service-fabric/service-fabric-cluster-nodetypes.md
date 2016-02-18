@@ -36,7 +36,7 @@ When you scale up a VM Scale Set a new instance is created. The new VM Scale Set
 
 If you have deployed your cluster from the portal or have used the sample ARM template that we provided, then when you get a list of all resources under a Resource Group then you will see the load balancers for each VM Scale Set or node type.
 
-The name would something like this  **LB-&lt;NodeType name&gt;**
+The name would something like: **LB-&lt;NodeType name&gt;**. For example, LB-sfcluster4doc-0, as shown in this screenshot:
 
 
 ![Resources][Resources]
