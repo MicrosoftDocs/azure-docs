@@ -2,7 +2,7 @@
 
 
 
-For details about the VM Agents and how they work to support VM Extensions, see [VM Agent and VM Extensions Overview](virtual-machines-extensions-install.md).
+For details about the VM Agents and how they work to support VM Extensions, see [VM Agent and VM Extensions Overview](virtual-machines-windows-classic-manage-extensions.md).
 
 ##Azure VM Extensions
 
