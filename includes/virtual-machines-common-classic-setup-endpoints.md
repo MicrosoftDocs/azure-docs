@@ -1,25 +1,4 @@
-<properties
-	pageTitle="Set up endpoints on a classic virtual machine | Microsoft Azure"
-	description="Learn to set up endpoints in the Azure classic portal to allow communication with a virtual machine in Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
 
-<tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/06/2016"
-	ms.author="cynthn"/>
-
-# How to set up endpoints on a classic Azure virtual machine
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model. 
 
 
 All virtual machines that you create in Azure using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine.
@@ -43,7 +22,7 @@ After you create an endpoint, you can use an access control list (ACL) to define
 2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
 3.	Click **Endpoints**. The **Endpoints** page lists all the current endpoints for the virtual machine.
 
-	![Endpoints](./media/virtual-machines-set-up-endpoints/endpointswindows.png)
+	![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
 
 4.	In the taskbar, click **Add**.
 5.	On the **Add an endpoint to a virtual machine** page, choose the type of endpoint.
@@ -59,7 +38,7 @@ After you create an endpoint, you can use an access control list (ACL) to define
 
 The new endpoint will be listed on the **Endpoints** page.
 
-![Endpoint creation successful](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
+![Endpoint creation successful](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
 To use an Azure PowerShell cmdlet to set this up, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). If you are using the Azure CLI in Service Management mode, use the **azure vm endpoint create** command.
 
@@ -75,11 +54,11 @@ If the virtual machine is in an Azure virtual network, we recommend network secu
 2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
 3.	Click **Endpoints**. From the list, select the appropriate endpoint.
 
-    ![ACL list](./media/virtual-machines-set-up-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
+    ![ACL list](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
 
 5.	In the taskbar, click **Manage ACL** to open the **Specify ACL details** dialog box.
 
-    ![Specify ACL details](./media/virtual-machines-set-up-endpoints/EndpointACLdetails.png)
+    ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
 
 6.	Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is 131.107.0.0/16.
 

@@ -101,4 +101,4 @@ These extensions provide support for other VM features that might be useful.
 |VM Extension Name|Feature Description|More Information|
 |---|---|---|
 |**BGInfo**|Presents a consolidated picture of useful server information on the desktop when using RDP.|[BGInfo Extension](https://msdn.microsoft.com/library/dn606289.aspx)|
-|**HpcVmDrivers**|Installs, configures, and maintains the remote direct memory access (RDMA) network device drivers on a size A8 or A9 VM running Windows Server 2012 R2 or Windows Server 2012. Enables clustered A8 or A9 VMs to use the RDMA network when running parallel MPI applications.|[About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-a8-a9-a10-a11-specs.md)
+|**HpcVmDrivers**|Installs, configures, and maintains the remote direct memory access (RDMA) network device drivers on a size A8 or A9 VM running Windows Server 2012 R2 or Windows Server 2012. Enables clustered A8 or A9 VMs to use the RDMA network when running parallel MPI applications.|[About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md)

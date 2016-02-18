@@ -1,26 +1,4 @@
-<properties
-	pageTitle="Connect VMs in a cloud service | Microsoft Azure"
-	description="Connect a virtual machine created with the classic deployment model to an Azure cloud service or virtual network."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
 
-<tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/03/2016"
-	ms.author="cynthn"/>
-
-
-# Connect virtual machines created with the classic deployment model with a virtual network or cloud service
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
 Virtual machines created with the classic deployment model are always placed in a cloud service. The cloud service acts as a container and provides a unique public DNS name, a public IP address, and a set of endpoints to access the virtual machine over the Internet. The cloud service can be in a virtual network, but that's not a requirement.

@@ -59,7 +59,7 @@ For Windows VMs, additional options include:
 
 - In the Azure classic portal, find the VM, then click **Reset Remote Access** from the Command bar.
 - Review [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
-- Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-set-up-endpoints.md).
+- Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md).
 
 If you’re familiar with Hyper-V, you might be looking for a tool similar to VMConnect. Azure doesn’t offer a similar tool because console access to a virtual machine isn’t supported.
 
@@ -136,7 +136,7 @@ To provide redundancy, put two or more similarly configured VMs in the same avai
 
 ## Additional resources
 
-[About Azure Virtual Machines](virtual-machines-about.md)
+[About Azure Virtual Machines](virtual-machines-linux-about.md)
 
 [Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-creation-choices.md)
 

@@ -1,29 +1,4 @@
-<properties
-   pageTitle="Custom scripts on VMs using templates | Microsoft Azure"
-   description="Automate Windows and Linux Azure VM configuration tasks by using the Custom Script extension with Resource Manager templates"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
 
-<tags
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-multiple"
-   ms.workload="infrastructure-services"
-   ms.date="11/01/2015"
-   ms.author="kundanap"/>
-
-# Using Custom Script extension With Azure Resource Manager templates
-
-This article gives an overview of writing Azure Resource Manager templates with Custom Script extension for bootstrapping workloads on a Linux or a Windows VM.
-
-For an overview of Custom Script extension please refer to the article [here](virtual-machines-windows-classic-extensions-customscript.md).
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-extensions-customscript.md).
 
 Ever since its launch, Custom Script extension has been used widely to configure workloads on both Windows and Linux VMs. With the introduction of Azure Resource Manager templates, users can now create a single template that not only provisions the VM but also configures the workloads on it.
 
@@ -102,4 +77,4 @@ Please refer to the examples below for complete samples of configuring applicati
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Custom Script extension on a Linux VM</a>.
 </br>
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Custom Script extension on a Windows VM</a>.
+<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Custom Script extension on a Windows VM</a>.

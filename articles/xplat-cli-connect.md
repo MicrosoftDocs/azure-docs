@@ -65,7 +65,7 @@ Copy the code offered to you, above, and open a browser to http://aka.ms/devicel
 ## Use non-interactive log in with a work or school account
 
 
-The non-interactive log in method only works with a work or school account, also called an *organizational account*. This account is managed by your organization, and defined in your organization's Azure Active Directory. You can [create an orgnizational account](#create-an-organizational-account) if you don't have one, or you can [create a work or school ID from your Microsoft account id](./virtual-machines/resource-group-create-work-id-from-personal.md). This requires you to specify either a username or a username and a password to the `azure login` command, like so:
+The non-interactive log in method only works with a work or school account, also called an *organizational account*. This account is managed by your organization, and defined in your organization's Azure Active Directory. You can [create an orgnizational account](#create-an-organizational-account) if you don't have one, or you can [create a work or school ID from your Microsoft account id](./virtual-machines/virtual-machines-windows-create-aad-work-id.md). This requires you to specify either a username or a username and a password to the `azure login` command, like so:
 
 	azure login -u ahmet@contoso.onmicrosoft.com
 	info:    Executing command login
