@@ -41,7 +41,7 @@ Azure Active Directory Connect is made up of three primary parts.  They are the 
 
 - Synchronization - This part is made up of the components and functionality previously released as [Dirsync and Azure AD Sync](active-directory-aadconnect-get-started-tools-comparison.md).  This is the part that is responsible for creating users and groups.  It is also responsible for making sure that the information on users and groups in your on-premises environment, matches the cloud.
 - AD FS - This is an optional part of Azure AD Connect and can be used to setup a hybrid environment using an on-premises AD FS infrastructure.  This part can be used by organizations to address complex deployments that include such things as domain join SSO, enforcement of AD sign-in policy and smart card or 3rd party MFA.
-- Health Monitoring - Azure AD Connect Health can provide robust monitoring of your AD FS servers and provide a central location in the Azure portal to view this activity.  For additional information see [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
+- Health Monitoring - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity.  For additional information see [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
 
 ## Install Azure AD Connect
 
