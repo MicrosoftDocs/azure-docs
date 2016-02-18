@@ -47,19 +47,17 @@ Once you have created your mobile service, you can follow an easy quickstart in 
 
 In this section you will download a new Xamarin iOS app and a service project for your mobile service.
 
-1. In the [Azure classic portal], click **Mobile Services**, and then click the mobile service that you just created.
+1. If you haven't already done so, install Visual Studio with Xamarin. Instructions can be found on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx). You can also use [Xamarin Studio] on a Mac OS X machine.
 
-2. In the quickstart tab, click **Xamarin** under **Choose platform** and expand **Create a new Xamarin app**.
+2. In the [Azure classic portal], click **Mobile Services**, and then click the mobile service that you just created.
+
+3. In the quickstart tab, click **Xamarin** under **Choose platform** and expand **Create a new Xamarin app**.
 
    	![][6]
 
    	This displays the three easy steps to create a Xamarin iOS app connected to your mobile service.
 
   	![][7]
-
-3. If you haven't already done so, download and install <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> on your local computer or virtual machine.
-
-4. Download and install [Xcode] v4.4 or a later version and [Xamarin Studio]. You can also use Xamarin for Visual Studio.
 
 5. Under **Download and publish your service to the cloud**, select **iOS** and click **Download**.
 
