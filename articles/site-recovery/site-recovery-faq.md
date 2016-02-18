@@ -76,11 +76,7 @@ Yes. You can either replicate Hyper-V VMs in the cloud on the VMM server to Azur
 
 You can protect physical servers running Windows and Linux, to Azure or to a secondary site. [Learn](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) about operating system requirements The same limitations apply whether you're replicating physical servers to Azure or to a secondary site.
 
-<<<<<<< HEAD
 Note that physical servers will run as VMs in Azure if your on-premises server goes down. Failback to an on-premises physical server isn't currently supported. You can only fail back to a virtual machine running on VMware.
-=======
-Note that physical servers will run as VMs in Azure if your on-premises server goes down. Failback to an on-premises physical server isn't currently supported .You'll need to fail back to a VMware VM.
->>>>>>> 523e13d2971ed10912dcc27b71c2d86e55fd978d
 
 ### What VMware VMs can I protect?
 
