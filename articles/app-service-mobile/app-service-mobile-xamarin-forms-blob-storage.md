@@ -30,7 +30,7 @@ In this tutorial, you will create a storage account and add a connection string 
 
 ## Prerequisites
 
-Complete the [Create a Xamarin.Forms app], which lists other prerequisites. This article uses the completed app from that tutorial.
+Complete the [Create a Xamarin.Forms app] tutorial, which lists other prerequisites. This article uses the completed app from that tutorial.
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile). There, you can immediately create a short-lived starter mobile app in App Service—no credit card required, and no commitments.
 
@@ -710,7 +710,7 @@ This article described how to use the new file support in the Azure Mobile clien
 <!-- URLs. -->
 
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
-[Create a Xamarin.Forms app]: ../app-service-mobile-xamarin-forms-get-started.md
+[Create a Xamarin.Forms app]: app-service-mobile-xamarin-forms-get-started.md
 [Xamarin.Forms DependencyService]: https://developer.xamarin.com/guides/xamarin-forms/dependency-service/
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
