@@ -1,22 +1,3 @@
-<properties
-   pageTitle="Using SAP on Azure Virtual Machines (VMs) | Microsoft Azure"
-   description="Using SAP on Azure Virtual Machines (VMs)"
-   services="virtual-machines,virtual-network,storage"
-   documentationCenter="saponazure"
-   authors="MSSedusch"
-   manager="juergent"
-   editor=""
-   tags="azure-service-management"
-   keywords=""/>
-<tags
-   ms.service="virtual-machines"
-   ms.devlang="NA"
-   ms.topic="campaign-page"
-   ms.tgt_pltfrm="vm-multiple"
-   ms.workload="na"
-   ms.date="02/12/2016"
-   ms.author="sedusch"/>
-   
 # Using SAP on Azure Virtual Machines (VMs)
 
 Cloud Computing is a widely used term which is gaining more and more importance within the IT industry, from small companies up to large and multinational corporations. Microsoft Azure is the Cloud Services Platform from Microsoft which offers a wide spectrum of new possibilities. Now customers are able to rapidly provision and de-provision applications as Cloud-Services, so they are not limited to technical or budgeting restrictions. Instead of investing time and budget into hardware infrastructure, companies can focus on the application, business processes and its benefits for customers and users.
@@ -81,3 +62,5 @@ This article should help setting up Azure SUSE Linux VMs for running SAP and giv
 Updated: December 2015
 
 [This article can be found here](virtual-machines-linux-sap-on-suse-quickstart.md)
+
+

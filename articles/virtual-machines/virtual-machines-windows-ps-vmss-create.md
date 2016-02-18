@@ -153,7 +153,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
  - Microsoft.Insights.VMDiagnosticsSettings
  - Microsoft.Insights/autoscaleSettings
 
-	For more information about Resource Manager resources, see [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).
+	For more information about Resource Manager resources, see [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](virtual-machines-windows-compare-deployment-models.md).
 
 	Add the storage account resource under the resources parent element that you added to the template. This template uses a loop to create the recommended 5 storage accounts where the operating system disks and diagnostic data are stored. This set of accounts can support up to 100 virtual machines in a scale set, which is the current maximum. Each storage account is named with a letter designator that was defined in the variables combined with the suffix that you provide in the parameters for the template.
 

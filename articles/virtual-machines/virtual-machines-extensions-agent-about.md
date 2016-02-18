@@ -44,7 +44,7 @@ There are two Azure VM Agents, one for Windows VMs and one for Linux VMs. By def
 
 The VM Agent is enabled in the following situations:
 
--   When you create an instance of a Virtual Machine by using the **Quick Create** method in the Management Portal, or by using the **Custom Create** method in the Management Portal and making sure that the **Install the VM Agent** checkbox is selected (as shown in the image below). For more information, see [How to Create a Custom Virtual Machine](virtual-machines-create-custom.md).
+-   When you create an instance of a Virtual Machine by using the **Quick Create** method in the Management Portal, or by using the **Custom Create** method in the Management Portal and making sure that the **Install the VM Agent** checkbox is selected (as shown in the image below). For more information, see [How to Create a Custom Virtual Machine](virtual-machines-windows-classic-createportal.md).
 
     ![VM Agent Checkbox](media/virtual-machines-extensions-agent-about/IC719409.png)
 
