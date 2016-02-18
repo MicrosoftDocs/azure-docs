@@ -36,7 +36,7 @@ queues**.
 ## Create a Ruby Application
 
 Create a Ruby application. For instructions, 
-see [Ruby on Rails Web application on an Azure VM](/develop/ruby/tutorials/web-app-with-linux-vm/).
+see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
 
 ## Configure Your Application to Access Storage
 
