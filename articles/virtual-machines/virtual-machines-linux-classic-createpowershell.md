@@ -20,13 +20,11 @@
 # Create and preconfigure a Linux virtual machine using Azure Powershell
 
 > [AZURE.SELECTOR]
-<<<<<<< HEAD:articles/virtual-machines/virtual-machines-linux-classic-createpowershell.md
-- [Azure CLI](virtual-machines-linux-tutorial.md)
-- [PowerShell](virtual-machines-linux-classic-createpowershell.md)
-=======
 - [Azure CLI](virtual-machines-linux-cli-create.md)
-- [PowerShell](virtual-machines-ps-create-preconfigure-linux-vms.md)
->>>>>>> vm-refactor-staging:articles/virtual-machines/virtual-machines-ps-create-preconfigure-linux-vms.md
+- [PowerShell](virtual-machines-linux-classic-createpowershell.md)
+
+
+
 
 <br>
 
