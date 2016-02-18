@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Relationship of Service Fabric Node Types to Virtual Machine Scale Sets | Microsoft Azure"
-   description="Relationship of Service Fabric Node Types to Virtual Machine Scale Sets, Learn how to RDP into a VM Scale Set instance or a cluster node."
+   pageTitle="Service Fabric node types and VM Scale Sets | Microsoft Azure"
+   description="Describes how Service Fabric node types relate to VM Scale Sets and how to remote connect to a VM Scale Set instance or a cluster node."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
