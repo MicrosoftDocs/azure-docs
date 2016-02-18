@@ -31,8 +31,8 @@ To complete this tutorial, you need the following:
 * An active Azure account.
 If you don't have an account yet, sign up for an Azure trial and get up to 10 free Mobile App backends. You can keep using them even after your trial ends. See [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* A Mac with [Xamarin Studio] and [Xcode] v4.4 or later installed it. You can run the Xamarin.iOS app using Visual Studio on a Windows computer if you want, but it's a bit more complicated because you have to connect to a networked Mac running the Xamarin.iOS Build Host. If you're interested in doing that, see [Installing Xamarin.iOS on Windows].
-
+* A Mac with [Xamarin Studio] and [Xcode] v4.4 or later, or Visual Studio on a Windows machine with a networked Mac. To create this environment, follow the complete instructions on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx).
+ 
 * A physical iOS device. Push notifications are not supported by the iOS simulator.
 
 * An [Apple Developer Program membership](https://developer.apple.com/programs/ios/), required to register with the Apple Push Notification Service (APNS).
