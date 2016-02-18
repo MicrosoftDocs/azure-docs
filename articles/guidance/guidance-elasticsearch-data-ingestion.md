@@ -140,15 +140,17 @@ exceeds specified parameters (currently 500 IOPS for a disk attached to a Standa
 for a Premium Storage disk). 
 
     To reduce the chances of throttling and increase I/O performance, consider creating multiple data disks
-for each VM and configure Elasticsearch to stripe data across these disks as described in [General Guidance](#Disk and File System Requirements).
+for each VM and configure Elasticsearch to stripe data across these disks as described in the [Disk and [File System Requirements](#TODO).
 
     You should select a hardware configuration that helps to minimize the number of disk I/O
 read operations by ensuring that sufficient memory is available to cache frequently accessed data. This
-is described in [General guidance](#Memory Requirements).
+is described in [Memory Requirements](TODO) section of the document Implementing
+Elasticsearch on Azure.
 
 - **What type of workload will each node need to support?** Elasticsearch benefits from having memory
 available in which to cache data (in the form of the file system cache) and for the JVM heap as described
-in [General guidance](#Memory Requirements). 
+in the [Memory Requirements](#memory-requirements) section of the document Implementing Elasticsearch on
+Azure. 
 
     The amount of memory, number of CPU cores, and quantity of available disks are set by the
 SKU of the virtual machine. For more information, see the [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/) page on the Azure website.
@@ -182,8 +184,7 @@ available and the reduced disk contention on each node.
 
 - Use premium storage for storing Elasticsearch data. This is discussed in more detail in the [Storage Options](#storage-options) section.
 
-- Use multiple disks (of the same size) and stripe data across these disks. The SKU of your VMs will dictate the maximum number of 
-data disks that you can attach. For more information, see [General Guidance](#Disk and File System Requirements).
+- Use multiple disks (of the same size) and stripe data across these disks. The SKU of your VMs will dictate the maximum number of data disks that you can attach. For more information, see [Disk and File System Requirements](#disk-and-file-system-requirements).
 
 - Use a multi-core CPU SKU; at least 2 cores, preferably 4 or more. 
 
@@ -235,7 +236,7 @@ memory.
 
 > [AZURE.NOTE]  For cluster reliability, always create multiple master nodes to and configure the
 > remaining nodes to avoid the possibility of a split brain from occurring. Ideally, there should be an
-> odd number of master nodes. This topic is described in more detail in [Resilience and Recovery].
+> odd number of master nodes. This topic is described in more detail in the document [Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery](TODO).
 
 ### Storage Options
 
@@ -380,7 +381,8 @@ were as follows:
 
 The tests were conducted while the system was running in **steady state**. In situations where index
 rebalancing or node recovering is occurring, data transmissions between nodes holding primary and replica
-shards can generate significant network traffic. The effects of this process are described more in [Resilience and Recovery].
+shards can generate significant network traffic. The effects of this process are described more in the
+document [Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery](TODO).
 
 ### Determining Limiting Factors: CPU Utilization
 
@@ -1244,11 +1246,3 @@ You specify the data for the constructor string in the JUnit Request page used t
 The *BulkInsertTest* and *BigBulkInsertTest* methods perform the actual work of generating and uploading the data. Both methods are very similar; they connect to the Elasticsearch cluster and then create a batch of documents (as determined by the *ItemsPerInsert* constructor string parameter). The documents are added to the index by using the Elasticsearch Bulk API. The difference between the two methods is that the *data1* and *data2* string fields in each document are omitted from the upload in the *BulkInsertTest* method, but are filled in with strings of 12000 characters in the *BigBulkInsertTest* method. Note that you select which of these methods to run using the *Test Method* box in the JUnit Request page in JMeter (highlighted in the previous figure).
 
 > [AZURE.NOTE] The sample code presented here uses the Elasticsearch 1.7.3 Transport Client library. If you are using Elasticsearch 2.0.0 or later, you must use the appropriate library for the version selected. For more information about the Elasticsearch 2.0.0 Transport Client library, see the [Transport Client](https://www.elastic.co/guide/en/elasticsearch/client/java-api/2.0/transport-client.html) page on the Elasticsearch website.
-
-[General guidance]: guidance-elasticsearch.md
-[Data ingestion guidance]: guidance-elasticsearch-data-ingestion.md
-[Performance testing guidance]: guidance-elasticsearch-performance-testing-environment.md
-[JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md
-[Considerations for JMeter]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md
-[Query aggregation and performance]: guidance-elasticsearch-query-aggregation-performance.md
-[Resilience and Recovery]: guidance-elasticsearch-resilience-recovery.md

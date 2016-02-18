@@ -151,9 +151,10 @@ node.master: true
 > elected masters, resulting in a "split brain" problem which can lead to data corruption and other
 > issues. 
 > 
-> [Resilience and Recovery Testing] describes how you should configure the cluster to reduce the chances 
-> of this from occurring. Ultimately, it is a good strategy in a moderate to large cluster to use 
-> dedicated master nodes that take no responsibility for managing data.
+> The document [Configuring Resilience and Recovery on ElasticSearch on Azure][]
+> describes how you should configure the cluster to reduce the chances of this from occurring. However,
+> ultimately it is a good strategy in a moderate to large cluster to use dedicated master nodes that 
+> takes no responsibility for managing data.
 
 The nodes in a cluster share information about the other nodes in the cluster (by [gossiping][]) and 
 which shards they contain. Client applications storing and fetching data can connect to any node in a
@@ -205,7 +206,7 @@ clients as a single node will take responsibility for each set of scatter/gather
 these operations perform. In a mixed workload environment, you should be prepared to run performance 
 tests to assess the impact of using client nodes on your specific workloads.
 
-> [AZURE.NOTE] Refer to the document [Query aggregation and performance] for more information on this tuning process.
+> [AZURE.NOTE] Refer to the document [Tuning Data Aggregation and Query Performance for Elasticsearch on Azure][] for more information on this tuning process.
 
 ### Connecting to a Cluster
 
@@ -644,10 +645,9 @@ with a TTL (time to live) after which they expire and get removed, but in most c
 The number of nodes in a cluster can vary over time, but the number of shards in an index is fixed once
 the index has been created. To add or remove shards requires reindexing the data – a process of creating
 a new index with the required number of shards and then copying the data from the old index to the new
-(you can use aliases to insulate users from the fact that data has been reindexed – see [Query aggregation and performance] for more details).
-
-Therefore, it is important to determine the number of shards that you are likely to require in advance of 
-creating the first index in your cluster. You can perform the following steps to establish this number:
+(you can use aliases to insulate users from the fact that data has been reindexed – see the document
+[Tuning Data Aggregation and Query Performance for Elasticsearch on Azure][] for more details).
+Therefore, it is important to determine the number of shards that you are likely to require in advance of creating the first index in your cluster. You can perform the following steps to establish this number:
 
 - Create a single-node cluster using the same hardware configuration that you intend to deploy in
 production.
@@ -963,7 +963,7 @@ tune indexing performance.
 - Throttle client applications that are performing data ingestion operations and determine the effect
 that this has on performance. If this approach shows significant improvement, then consider either
 retaining the throttle, or scaling out by spreading the load for write-heavy indexes across more nodes.
-For more information, see [Data ingestion guidance].
+For more information, see the document [Tuning Data Ingestion Performance for Elasticsearch on Azure][].
 
 - If the searching statistics for an index indicate that queries are taking a long time then consider how
 the queries are optimized. For more information, see the section [Query Tuning][]. Note that you can use
@@ -998,14 +998,21 @@ testing. These tools are intended to be used in a development or test environmen
 A frequently-used example is [Apache JMeter][].
 
 JMeter was used to perform benchmarking and other load tests described in documents related to this
-guidance. [JMeter guidance] describes in detail how JMeter was configured and used.
+guidance. The document [Running Performance Tests on Elasticsearch Using JMeter](TODO) describes in detail how JMeter was configured and used.
 
 ## Next steps
 
 - [Elasticsearch: The Definitive Guide](https://www.elastic.co/guide/en/elasticsearch/guide/master/index.html)
 
-<!-- TODO; add next steps -->
- 
+[Running Elasticsearch on Azure]: guidance-elasticsearch.md
+[Tuning Data Ingestion Performance for Elasticsearch on Azure]: guidance-elasticsearch-data-ingestion.md
+[Create a Performance Testing Environment for Elasticsearch on Azure]: guidance-elasticsearch-performance-testing-environment.md
+[Implementing a JMeter Test Plan for Elasticsearch]: guidance-elasticsearch-implementing-jmeter.md
+[Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md
+[Tuning Data Aggregation and Query Performance for Elasticsearch on Azure]: guidance-elasticsearch-query-aggregation-performance.md
+[Configuring Resilience and Recovery on ElasticSearch on Azure]: guidance-elasticsearch-resilience-recovery.md
+[Running the Automated Elasticsearch Resiliency Tests]: guidance-elasticsearch-resilience-testing.md
+
 [Apache JMeter]: http://jmeter.apache.org/
 [Apache Lucene]: https://lucene.apache.org/
 [Automatically scale machines in a Virtual Machine Scale Set]: virtual-machines-vmss-walkthrough/
@@ -1019,15 +1026,6 @@ guidance. [JMeter guidance] describes in detail how JMeter was configured and us
 [Network Requirements]: #network-requirements
 [Node Discovery]: #node-discovery
 [Query Tuning]: #query-tuning
-
-[General guidance]: guidance-elasticsearch.md
-[Data ingestion guidance]: guidance-elasticsearch-data-ingestion.md
-[Performance testing guidance]: guidance-elasticsearch-performance-testing-environment.md
-[JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md
-[Considerations for JMeter]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md
-[Query aggregation and performance]: guidance-elasticsearch-query-aggregation-performance.md
-[Resilience and Recovery]: guidance-elasticsearch-resilience-recovery.md
-[Resilience and Recovery Testing]: guidance-elasticsearch-resilience-testing.md
 
 [A Highly Available Cloud Storage Service with Strong Consistency]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx
 [Azure Cloud Plugin]: https://www.elastic.co/blog/azure-cloud-plugin-for-elasticsearch
