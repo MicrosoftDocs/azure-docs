@@ -296,7 +296,7 @@ Next, you need to determine the publisher, offer, and SKU of the image for your 
 |MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
 |MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
 
-If the virtual machine image you need is not listed, use the instructions [here](resource-groups-vm-searching.md#powershell) to determine the publisher, offer, and SKU names.
+If the virtual machine image you need is not listed, use the instructions [here](virtual-machines-linux-cli-ps-findimage.md#powershell) to determine the publisher, offer, and SKU names.
 
 Copy these commands to your command set and fill in the publisher, offer, and SKU names.
 

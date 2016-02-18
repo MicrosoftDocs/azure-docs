@@ -51,12 +51,12 @@ Here's a walkthrough of the steps in this tutorial.
 
 	![Volume successfully initialized](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE] The size of the VM determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-size-specs.md).
+> [AZURE.NOTE] The size of the VM determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
 
 ## Additional resources
 
 [How to detach a disk from a Windows virtual machine](virtual-machines-windows-classic-detach-disk.md)
 
-[About disks and VHDs for virtual machines](virtual-machines-disks-vhds.md)
+[About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md)
 
 [logon]: virtual-machines-windows-classic-connect-logon.md

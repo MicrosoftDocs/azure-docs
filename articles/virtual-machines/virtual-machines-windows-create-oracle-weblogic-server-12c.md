@@ -185,4 +185,4 @@ Now that you’ve set up your Virtual Machine running Oracle WebLogic Server, se
 
 -	[Oracle WebLogic Server 12c using Linux on Microsoft Azure](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
 
--	[Oracle Virtual Machine images for Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
+-	[Oracle Virtual Machine images for Azure](virtual-machines-linux-classic-oracle-images.md)

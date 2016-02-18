@@ -117,4 +117,4 @@ Once the listener is configured, you need to configure all the web server virtua
 
 ## Next step
 
-- See these [guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md) if you are deploying your own IT workload in Azure.
+- See these [guidelines](virtual-machines-linux-infrastructure-service-guidelines.md) if you are deploying your own IT workload in Azure.

@@ -28,6 +28,6 @@
 
 ## Additional resources
 
-[About disks and VHDs for virtual machines](virtual-machines-disks-vhds.md)
+[About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md)
 
 [How to attach a data disk to a Windows virtual machine](virtual-machines-windows-classic-attach-disk.md)

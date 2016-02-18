@@ -1,26 +1,4 @@
-<properties
- pageTitle="Virtual machine extensions and features | Microsoft Azure"
- description="Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve."
- services="virtual-machines"
- documentationCenter=""
- authors="squillace"
- manager="timlt"
- editor=""
- tags="azure-service-management,azure-resource-manager"/>
 
-<tags
- ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-multiple"
- ms.workload="infrastructure-services"
- ms.date="12/08/2015"
- ms.author="rasquill"/>
-#About virtual machine extensions and features
-
-Microsoft Azure provides VM Extensions built by both Microsoft and by trusted third-party providers to enable security, runtime, debugging, management, and other features you can take advantage of to increase your productivity with Azure Virtual Machines. This topic describes the various features that Azure VM Extensions provide to both Windows and Linux Virtual Machines for your use and points toward documentation for each one.
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 
@@ -76,7 +54,7 @@ Supports common operations management features and behavior. See also the sectio
 
 |**VM Extension Name**|Feature Description|More Information|
 |---|---|---|
-|**AzureVmLogCollector**|You can use the **AzureVMLogCollector** extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs. |[AzureLogCollector Extension](virtual-machines-extensions-log-collector.md)|
+|**AzureVmLogCollector**|You can use the **AzureVMLogCollector** extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs. |[AzureLogCollector Extension](virtual-machines-windows-log-collector-extension.md)|
 |**IaaSDiagnostics**|Enables, disables, and configures Azure Diagnostics, and is also used by the **AzureCATExtensionHandler** to support SAP monitoring.|[Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
 |**OSPatchingForLinux**|Enables the Azure VM administrators to automate the VM OS updates with the customized configurations. You can use the OSPatching extension to configure OS updates for your virtual machines, including: Specify how often and when to install OS patches, Specify what patches to install, and Configure the reboot behavior after updates|[OS Patching Extension Blog Post](https://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). See also the readme and source on Github at [OS Patching Extension](https://github.com/Azure/azure-linux-extensions).|
 
@@ -102,3 +80,4 @@ These extensions provide support for other VM features that might be useful.
 |---|---|---|
 |**BGInfo**|Presents a consolidated picture of useful server information on the desktop when using RDP.|[BGInfo Extension](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Installs, configures, and maintains the remote direct memory access (RDMA) network device drivers on a size A8 or A9 VM running Windows Server 2012 R2 or Windows Server 2012. Enables clustered A8 or A9 VMs to use the RDMA network when running parallel MPI applications.|[About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md)
+
