@@ -33,7 +33,7 @@ However, a few resource providers offer two versions of the resource (one for cl
 - **Storage** - Supports required storage accounts that store the VHDs for virtual machines, including their operating system and additional data disks.
 - **Network** - Supports required NICs, virtual machine IP addresses, and subnets within virtual networks and optional load balancers, load balancer IP addresses, and Network Security Groups.
 
-For these resource types, you must be aware of which version you are using because the supported operations will differ. For more details about transitioning Compute, Storage, and Networking resources, see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+For these resource types, you must be aware of which version you are using because the supported operations will differ. For more details about transitioning Compute, Storage, and Networking resources, see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
 ## Resource Manager characteristics
 
@@ -180,7 +180,7 @@ If you can afford downtime for your Virtual Machines, you can transition them fr
 
 For a list of equivalent Azure CLI commands when transitioning from classic deployment to Resource Manager, see [Equivalent Resource Manager and Service Management commands for VM operations](./virtual-machines/virtual-machines-linux-cli-manage.md).
 
-For more details about transitioning Compute, Storage, and Networking resources, see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+For more details about transitioning Compute, Storage, and Networking resources, see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
 To learn about connecting virtual networks from different deployment models, see [Connecting classic VNets to new VNets](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
