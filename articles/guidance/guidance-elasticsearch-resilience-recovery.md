@@ -3,7 +3,7 @@
    description="Considerations related to resiliency and recovery for Elasticsearch."
    services=""
    documentationCenter="na"
-   authors="masimms"
+   authors="mabsimms"
    manager="marksou"
    editor=""
    tags=""/>

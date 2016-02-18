@@ -3,7 +3,7 @@
    description="How to set up an environment for testing the performance of an Elasticsearch cluster."
    services=""
    documentationCenter="na"
-   authors="masimms"
+   authors="mabsimms"
    manager="marksou"
    editor=""
    tags=""/>

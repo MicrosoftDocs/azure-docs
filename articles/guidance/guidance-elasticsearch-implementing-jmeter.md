@@ -3,7 +3,7 @@
    description="How to run performance tests for Elasticsearch with JMeter."
    services=""
    documentationCenter="na"
-   authors="masimms"
+   authors="mabsimms"
    manager="marksou"
    editor=""
    tags=""/>

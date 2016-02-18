@@ -3,7 +3,7 @@
    description="How to maximize data ingestion performance with Elasticsearch on Azure."
    services=""
    documentationCenter="na"
-   authors="masimms"
+   authors="mabsimms"
    manager="marksou"
    editor=""
    tags=""/>

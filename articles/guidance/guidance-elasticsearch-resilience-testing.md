@@ -3,7 +3,7 @@
    description="Description of how you can run the resiliency tests in your own environment."
    services=""
    documentationCenter="na"
-   authors="masimms"
+   authors="mabsimms"
    manager="marksou"
    editor=""
    tags=""/>

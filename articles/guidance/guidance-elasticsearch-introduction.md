@@ -4,7 +4,7 @@
    description="Elasticsearch on Azure Guidance."
    services=""
    documentationCenter="na"
-   authors="masimms"
+   authors="mabsimms"
    manager="marksou"
    editor=""
    tags=""/>

@@ -3,7 +3,7 @@
    description="How to use a JUnit sampler to generate and upload data to an Elasticsearch cluster."
    services=""
    documentationCenter="na"
-   authors="masimms"
+   authors="mabsimms"
    manager="marksou"
    editor=""
    tags=""/>

@@ -3,7 +3,7 @@
    description="How to install, configure, and run Elasticsearch on Azure."
    services=""
    documentationCenter="na"
-   authors="masimms"
+   authors="mabsimms"
    manager="marksou"
    editor=""
    tags=""/>
