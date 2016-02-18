@@ -38,9 +38,9 @@ An Elasticsearch index can contain multiple types. It may be better to avoid thi
 
 - Different types might specify different analyzers, and it is not always clear which analyzer Elasticsearch should use if a query is performed at the index level rather than at the type level. See [Avoiding Type Gotchas](https://www.elastic.co/guide/en/elasticsearch/guide/current/mapping.html#_avoiding_type_gotchas) for details.
 
-Shards for indexes that hold multiple types will likely be bigger than those for indexes that contain a single type. The bigger a shard, the more effort is required by Elasticsearch to filter data when performing queries.
+- Shards for indexes that hold multiple types will likely be bigger than those for indexes that contain a single type. The bigger a shard, the more effort is required by Elasticsearch to filter data when performing queries.
 
-If there is a significant mismatch between data volumes for the types, information for one type can become sparsely distributed across many shards reducing the efficiency of searches that retrieve this data.
+- If there is a significant mismatch between data volumes for the types, information for one type can become sparsely distributed across many shards reducing the efficiency of searches that retrieve this data.
 
 ![](./media/guidance-elasticsearch/query-performance1.png)
 
