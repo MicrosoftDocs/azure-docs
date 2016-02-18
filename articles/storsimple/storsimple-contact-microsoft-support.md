@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/17/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli" />
 
 # Contact Microsoft Support
