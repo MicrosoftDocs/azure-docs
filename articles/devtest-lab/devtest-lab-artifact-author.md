@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 #Create custom artifacts for your DevTest Lab VM
@@ -121,4 +121,5 @@ Create your custom artifact by following steps below:
 
 ## Next steps
 
-Learn how to [add a Git artifact repository to your DevTest Lab](devtest-lab-add-artifact-repo.md).
+- Learn how to [add a Git artifact repository to your DevTest Lab](devtest-lab-add-artifact-repo.md).
+- (Video) [How to author custom artifacts in a DevTest Lab](/documentation/videos/how-to-author-custom-artifacts)
