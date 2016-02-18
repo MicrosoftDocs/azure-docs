@@ -23,8 +23,8 @@ This article is [part of a series](guidance-elasticsearch.md).
 
 The performance tests conducted against Elasticsearch were implemented by using JMeter test plans 
 together with Java code incorporated as a JUnit test for performing tasks such as uploading data into 
-the cluster. The test plans and JUnit code are described in [Tuning Data Ingestion Performance for Elasticsearch on Azure], and 
-[Query aggregation and performance].
+the cluster. The test plans and JUnit code are described in [Tuning Data Ingestion Performance for Elasticsearch on Azure][], and 
+[Tuning Data Aggregation and Query Performance for Elasticsearch on Azure][].
 
 The purpose of this document is to summarize the key experience gained from constructing and running 
 these test plans. The [JMeter Best Practices](http://jmeter.apache.org/usermanual/best-practices.html) 
@@ -95,7 +95,7 @@ scripting to automate the running of test plans.
 ## Implementing a JUnit Test
 
 You can incorporate complex code into a JMeter test plan by creating one or more JUnit tests. 
-You can write a JUnit test by using a Java IDE such as Eclipse. [Considerations for JMeter]
+You can write a JUnit test by using a Java IDE such as Eclipse. [Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance][]
 provides information on how to set up an appropriate development environment.
 
 The following list summarizes some best practices you should follow when writing the code for a 
@@ -172,8 +172,5 @@ public void bulkInsertTest() throws IOException {
 
 [Running Elasticsearch on Azure]: guidance-elasticsearch-running-on-azure.md
 [Tuning Data Ingestion Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-ingestion-performance.md
-[Performance testing guidance]: guidance-elasticsearch-performance-testing-environment.md
-[JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md
-[Considerations for JMeter]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md
-[Query aggregation and performance]: guidance-elasticsearch-query-aggregation-performance.md
-[Resilience and Recovery]: guidance-elasticsearch-resilience-recovery.md
+[Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
+[Tuning Data Aggregation and Query Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-aggregation-and-query-performance.md
