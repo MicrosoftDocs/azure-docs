@@ -80,7 +80,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [Create a Virtual Machine Running Windows]: virtual-machines-windows-tutorial.md
 [Create a Virtual Machine Running Linux]: virtual-machines-linux-cli-create.md
 
-[Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows]:xplat-cli-azure-manage-vm-asm-arm.md
+[Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows]:virtual-machines-linux-cli-manage.md
 [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI]: virtual-machines-deploy-rmtemplates-azure-cli.md
 [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell]:  virtual-machines-windows-ps-manage.md
 [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines]: virtual-machines-linux-classic-createpowershell.md
@@ -90,7 +90,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 
 [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System]: virtual-machines-linux-classic-create-upload-vhd.md
 
-[Creating a virtual machine for a website with Visual Studio]: virtual-machines-dotnet-create-visual-studio-powershell.md
+[Creating a virtual machine for a website with Visual Studio]: virtual-machines-windows-classic-web-app-visual-studio.md
 [Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries]: virtual-machines-windows-csharp.md
 
 [Log On to the Virtual Machine]: virtual-machines-linux-classic-log-on.md
@@ -101,4 +101,4 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [Azure hybrid cloud test environments]: virtual-machines-windows-classic-hybrid-test-env.md
 
 [Create a Virtual Machine Running Linux]: virtual-machines-linux-cli-create.md
-[Create a Custom Virtual Machine]: virtual-machines-create-custom.md
+[Create a Custom Virtual Machine]: virtual-machines-windows-classic-createportal.md

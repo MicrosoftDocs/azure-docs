@@ -94,7 +94,7 @@ The following table summarizes the Business Intelligence features installed on t
 
 - The minimum recommended size for a virtual machine is **A3** when using SQL Server Enterprise Edition. The **A4** virtual machine size is recommended for SQL Server BI deployments of Analysis Services and Reporting Services.
 
-	For information on the current VM sizes, see [Virtual Machine Sizes for Azure](virtual-machines-size-specs.md).
+	For information on the current VM sizes, see [Virtual Machine Sizes for Azure](virtual-machines-linux-sizes.md).
 
 - A best practice for disk management is to store data, log, and backup files on drives other than **C**: and **D**:. For example, create data disks **E**: and **F**:.
 
@@ -398,7 +398,7 @@ This section summarizes Microsoft Azure Virtual Machine Endpoints to create and 
 
 For more information on creating endpoints, see the following:
 
-- Create Endpoints:[How to Set Up Endpoints to a Virtual Machine](virtual-machines-set-up-endpoints.md).
+- Create Endpoints:[How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md).
 
 - SQL Server: See the “Complete Configuration steps to connect to the virtual machine Using SQL Server Management Studio” section of [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-portal-sql.md).
 
