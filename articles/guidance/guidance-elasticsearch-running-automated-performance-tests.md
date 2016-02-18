@@ -38,7 +38,6 @@ The automated tests require the following items:
 
     [Python 3.5.1](https://www.python.org/downloads/release/python-351/)
 
----
 
 ## How the Tests Work
 The tests are run using JMeter. A JMeter Master server loads a test plan and passes it to a set of JMeter Subordinate servers which actually run the tests. The JMeter Master server coordinates the JMeter Subordinate servers and accumulates the results.
@@ -53,7 +52,6 @@ The following test plans are provided:
 
 * [elasticsearchautotestplan6nodesqueryonly.jmx](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/templates/elasticsearchautotestplan6nodesqueryonly.jmx). This test plan runs the query-only test over a 6-node cluster.
 
----
 
 You can use these test plans as a basis for your own scenarios if you need fewer or more nodes.
 
@@ -65,8 +63,6 @@ Before running the Resilience Tests you should download, compile, and deploy the
 There are two versions of the JUnit tests:
 - [Elasticsearch1.73](https://github.com/mspnp/azure-guidance/tree/master/ingestion-and-query-tests/junitcode/elasticsearch1.73). Use this code for performing the ingestion tests. These tests use Elasticsearch 1.73
 - [Elasticsearch2](https://github.com/mspnp/azure-guidance/tree/master/ingestion-and-query-tests/junitcode/elasticsearch2). Use this code for performing the query tests. These tests use Elasticsearch 2.1 and later.
-
----
 
 Copy the appropriate JAR file along with the rest of the dependencies to your JMeter machines. The process is described by the procedure Deploying a JUnit Test to JMeter in the document [How-To Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance].
 
@@ -85,7 +81,6 @@ Copy the following test script parameter files to the JMeter server machine:
 * [run.properties](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/run.properties). This file specifies the number of JMeter test threads to use, the duration of the test (in seconds), the IP address of a node (or a load balancer) in the Elasticsearch cluster, and the name of the cluster:
 
   ##### run.properties
-  ---
   ```
   nthreads=3
   duration=300
@@ -97,7 +92,6 @@ Copy the following test script parameter files to the JMeter server machine:
 * [query-config-win.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-win.ini) and [query-config-nix.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-nix.ini). These two files contain the same information; the *win* file is formatted for Windows filenames and paths, and the *nix* file is formatted for Linux filenames and paths:
 
   ##### query-config-win.ini
-  ---
   ```
   [DEFAULT]
   debug=true #if true shows console logs.
@@ -113,8 +107,6 @@ Copy the following test script parameter files to the JMeter server machine:
 
   Edit this file to specify the locations of the test results, the name of the JMeter test plan to run, the IP addresses of the Elasticsearch data nodes, the reports containing the raw performance data that will be generated, and the name (or names) of the index under test. If the *run.properties* file is located in a different folder or directory, specify the full path to this file.
 
----
-
 ## Running the Tests
 
 * Copy the file [query-test.py](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-test.py) to the JMeter server machine, in the same folder as the *run.properties* and *query-config-win.ini* (*query-config-nix.ini*) files.
@@ -123,15 +115,13 @@ Copy the following test script parameter files to the JMeter server machine:
 
 * Run the *query-test.py* script from the command line to perform the tests:
 
-  ##### Command Line
-  ---
+  #### Command Line
   ```
   py query-test.py
   ```
 
 * When the test has completed, the results are stored as the set of CSV files specified in the *query-config-win.ini* (*query-config-nix.ini*) file . You can use Excel to analyze and graph this data.
 
----
 
 [Tuning Data Ingestion Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-ingestion-performance.md
 [Tuning Data Aggregation and Query Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-aggregation-and-query-performance.md
