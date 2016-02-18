@@ -192,4 +192,7 @@ You can disable it, but this is not recommended. Sampling is designed so that re
 
 The city, region, and country dimensions are derived from IP addresses and aren't always accurate.
 
+## Still not working...
+
+* [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
 

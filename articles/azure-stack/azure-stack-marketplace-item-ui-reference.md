@@ -18,6 +18,8 @@
 
 # Marketplace item UI references for Azure Stack
 
+Icons and text for marketplace items as seen in the Azure Stack portal:
+
 ## Create blade
 
 ![](media/azure-stack-marketplace-item-ui-reference/image1.png)

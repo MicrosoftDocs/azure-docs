@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 
@@ -249,3 +249,8 @@ Be sure to remove any line breaks (if any) from the html content that you pass t
 Now when users access your application from a device that is not registered with the Azure Active Directory Device Registration Service, they will receive a page that looks similar to the screen shot below. 
 
 ![Screeshot of an error when users haven't registered their device with Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
+
+##Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+

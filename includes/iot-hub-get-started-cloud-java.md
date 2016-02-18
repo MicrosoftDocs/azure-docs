@@ -16,7 +16,7 @@ In this section, you'll create a Java console app that creates a new device iden
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.0-preview.9</version>
+      <version>1.0.0</version>
     </dependency>
     ```
     
@@ -54,7 +54,7 @@ In this section, you'll create a Java console app that creates a new device iden
     ```
     RegistryManager registryManager = RegistryManager.createFromConnectionString(connectionString);
 
-    Device device = Device.createFromId(deviceId);
+    Device device = Device.createFromId(deviceId, null, null);
     try {
       device = registryManager.addDevice(device);
     } catch (IotHubException iote) {

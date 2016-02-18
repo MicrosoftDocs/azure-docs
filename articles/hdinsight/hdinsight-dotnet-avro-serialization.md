@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/11/2016"
 	ms.author="jgao"/>
 
 
@@ -32,7 +32,7 @@ The serialized representation of an object in the Avro system consists of two pa
 ##The Hadoop scenario
 The Apache Avro serialization format is widely used in Azure HDInsight and other Apache Hadoop environments. Avro provides a convenient way to represent complex data structures within a Hadoop MapReduce job. The format of Avro files (Avro object container file) has been designed to support the distributed MapReduce programming model. The key feature that enables the distribution is that the files are “splittable” in the sense that one can seek any point in a file and start reading from a particular block.
 
-##Serialization in the Microsoft Avro Library
+##Serialization in Avro Library
 The .NET Library for Avro supports two ways of serializing objects:
 
 - **reflection** - The JSON schema for the types is automatically built from the data contract attributes of the .NET types to be serialized.
@@ -41,14 +41,16 @@ The .NET Library for Avro supports two ways of serializing objects:
 When the data schema is known to both the writer and reader of the stream, the data can be sent without its schema. In cases when an Avro object container file is used, the schema is stored within the file. Other parameters, such as the codec used for data compression, can be specified. These scenarios are outlined in more detail and illustrated in the code examples below.
 
 
-## Microsoft Avro Library prerequisites
+## Install Avro Library
+
+The following are required before you install the libary:
 
 - <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 - <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 or later)
 
 Note that the Newtonsoft.Json.dll dependency is downloaded automatically with the installation of the Microsoft Avro Library. The procedure for this is provided in the following section.
 
-## Microsoft Avro Library installation
+
 The Microsoft Avro Library is distributed as a NuGet package that can be installed from Visual Studio via the following procedure:
 
 1. Select the **Project** tab -> **Manage NuGet Packages...**
@@ -59,11 +61,10 @@ Note that the Newtonsoft.Json.dll (>=6.0.4) dependency is also downloaded automa
 
 You may want to visit the <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library home page</a> to read the current release notes.
 
-##Microsoft Avro Library source code
 
 The Microsoft Avro Library source code is available at the <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library home page</a>.
 
-##Compiling the schema by using the Microsoft Avro Library
+##Compile schemas using Avro Library
 
 The Microsoft Avro Library contains a code generation utility that allows creating C# types automatically based on the previously defined JSON schema. The code generation utility is not distributed as a binary executable, but can be easily built via the following procedure:
 
@@ -90,7 +91,7 @@ Please note that namespaces are extracted from the JSON schema, using the logic 
 
     Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:. /nf:my.own.nspace
 
-##<a name="samples"></a>Guide to the samples for the Microsoft Avro Library
+## Samples
 Six examples provided in this topic illustrate different scenarios supported by the Microsoft Avro Library. The Microsoft Avro Library is designed to work with any stream. In these examples, data is manipulated via memory streams rather than file streams or databases for simplicity and consistency. The approach taken in a production environment will depend on the exact scenario requirements, data source and volume, performance constraints, and other factors.
 
 The first two examples show how to serialize and deserialize data into memory stream buffers by using reflection and generic records. The schema in these two cases is assumed to be shared between the readers and writers out-of-band.

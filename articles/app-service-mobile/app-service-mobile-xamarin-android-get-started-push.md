@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Add push notifications to your Xamarin.Android app with Azure App Service"
 	description="Learn how to use Azure App Service and Azure Notification Hubs to send push notifications to your Xamarin.Android app"
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="ggailey777"
 	manager="dwrede"
 	editor=""/>
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/18/2015" 
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # Add push notifications to your Xamarin.Android app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Overview
 
@@ -31,7 +29,7 @@ In this tutorial, you add push notifications to the [Xamarin.Android quickstart]
 This tutorial requires the following:
 
 + An active Google account. You can sign up for a Google account at [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
-   
+
 + [Google Cloud Messaging Client Component](http://components.xamarin.com/view/GCMClient/). You will add this component during the tutorial.
 
 + Completed [Xamarin.Android quickstart] tutorial.
@@ -65,7 +63,7 @@ This tutorial requires the following:
 
 You can test the app by using a virtual device in the emulator. There are additional configuration steps required when running on an emulator.
 
-1. Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown below in the Android Virtual Device (AVD) manager. 
+1. Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown below in the Android Virtual Device (AVD) manager.
 
 	![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 

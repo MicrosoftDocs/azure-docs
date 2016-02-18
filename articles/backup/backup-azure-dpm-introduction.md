@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="giridharreddy"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="System Center Data Protection Manager, data protection manager, dpm backup"/>
 
 <tags
 	ms.service="backup"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/12/2016"
 	ms.author="giridham;jimpark"/>
 
 # Preparing to back up workloads to Azure with DPM
@@ -70,7 +71,7 @@ Prepare Azure Backup to back up DPM data as follows:
 - DPM can back up most workloads to Azure Backup. For a full list of what’s supported see the Azure Backup support items below.
 - Data stored in Azure Backup can’t be recovered with the “copy to tape” option.
 - You’ll need an Azure account with the Azure Backup feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. Read about [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
-- Using Azure Backup requires the Azure Backup Agent to be installed on the servers you want to back up. Each server must have at least 2.5 GB of local free storage space for cache location, although 15 GB of free local storage space to be used for the cache location is recommended.
+- Using Azure Backup requires the Azure Backup Agent to be installed on the servers you want to back up. Each server must have at least 10 % of the size of the data that is being backed up, available as local free storage. For example, backing up 100 GB of data requires a minimum of 10 GB of free space in the scratch location. While the minimum is 10%, 15% of free local storage space to be used for the cache location is recommended.
 - Data will be stored in the Azure vault storage. There’s no limit to the amount of data you can back up to an Azure Backup vault but the size of a data source (for example a virtual machine or database) shouldn’t exceed 54400 GB.
 
 These file types are supported for back up to Azure:

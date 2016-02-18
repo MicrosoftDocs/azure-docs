@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2015" 
+	ms.date="01/26/2016" 
 	ms.author="ryancraw"/>
 
 # Securing access to DocumentDB data #

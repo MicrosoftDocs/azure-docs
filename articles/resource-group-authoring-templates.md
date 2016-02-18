@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager templates
@@ -130,7 +130,9 @@ The allowed types and values are:
 - object or secureObject - any valid JSON object
 - array - any valid JSON array
 
-To specify a parameter as optional, set its defaultValue to an empty string.
+To specify a parameter as optional, set its defaultValue to an empty string. 
+
+If you specify a parameter name that matches one of the parameters in the command to deploy the template (such as including a parameter named **ResourceGroupName** in your template which is the same as the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet), you will be prompted to provide a value for a parameter with the postfix **FromTemplate** (such as **ResourceGroupNameFromTemplate**). In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
 
 >[AZURE.NOTE] All passwords, keys, and other secrets should use the **secureString** type. Template parameters with the secureString type cannot be read after resource deployment. 
 
@@ -170,7 +172,7 @@ The following example shows how to define parameters:
        }
     }
 
-For how to input the parameter values during deployment, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md/#parameter-file). 
+For how to input the parameter values during deployment, see [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy/#parameter-file). 
 
 ## Variables
 
