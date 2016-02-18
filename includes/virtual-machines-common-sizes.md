@@ -1,25 +1,4 @@
-<properties
- pageTitle="Virtual machine sizes | Microsoft Azure"
- description="Lists the different sizes for virtual machines and their capacities."
- services="virtual-machines"
- documentationCenter=""
- authors="cynthn"
- manager="timlt"
- editor=""
- tags="azure-resource-manager,azure-service-management"/>
 
-<tags
-ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-multiple"
- ms.workload="infrastructure-services"
- ms.date="01/05/2016"
- ms.author="cynthn"/>
-
-# Sizes for virtual machines
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Overview
 
@@ -187,6 +166,6 @@ Note: For information and considerations about using these sizes, see [About the
 
 [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
 
-[About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
+[About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
