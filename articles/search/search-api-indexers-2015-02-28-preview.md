@@ -10,7 +10,8 @@ editor="" />
 <tags 
 ms.service="search" 
 ms.devlang="rest-api" 
-ms.workload="search" ms.topic="article"  
+ms.workload="search" 
+ms.topic="article"  
 ms.tgt_pltfrm="na" 
 ms.date="02/18/2016" 
 ms.author="eugenesh" />
@@ -35,9 +36,9 @@ A **data source** specifies what data needs to be indexed, credentials to access
 
 The following data sources are currently supported:
 
-- **Azure SQL Database** and **SQL Server on Azure VMs**. For a targeted walk-through, see [this article](https://azure.microsoft.com/documentation/articles/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/). 
-- **Azure DocumentDB**. For a targeted walk-through, see [this article](https://azure.microsoft.com/documentation/articles/documentdb-search-indexer). 
-- **Azure Blob Storage**, including the following document formats: PDF, Microsoft Office (DOCX/DOC, XSLX/XLS, PPTX/PPT, MSG), HTML, XML, ZIP, and plain text files (including JSON). For  a targeted walk-through, see [this article](TBD).
+- **Azure SQL Database** and **SQL Server on Azure VMs**. For a targeted walk-through, see [this article](../search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/). 
+- **Azure DocumentDB**. For a targeted walk-through, see [this article](../documentdb/documentdb-search-indexer). 
+- **Azure Blob Storage**, including the following document formats: PDF, Microsoft Office (DOCX/DOC, XSLX/XLS, PPTX/PPT, MSG), HTML, XML, ZIP, and plain text files (including JSON). For  a targeted walk-through, see [this article](../search-howto-indexing-blob-storage.md).
 	 
 We're considering adding support for additional data sources in the future. To help us prioritize these decisions, please provide your feedback on the [Azure Search feedback forum](http://feedback.azure.com/forums/263029-azure-search).
 
@@ -388,7 +389,7 @@ The syntax for structuring the request payload is as follows. A sample request i
 
 An indexer can optionally specify a schedule. If a schedule is present, the indexer will run periodically as per schedule. Schedule has the following attributes:
 
-- `interval`: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: "P[nD][T[nH][nM]]". Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours. 
+- `interval`: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `"P[nD][T[nH][nM]]"`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours. 
 
 - `startTime`: Required. An UTC datetime when the indexer should start running. 
 

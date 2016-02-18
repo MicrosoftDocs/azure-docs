@@ -67,7 +67,7 @@ Developers who are building search applications will need to know the service UR
 
 To get the service URL from the service dashboard:
 
-1.	Sign in to the [Azure Classic Portal](https://portal.azure.com).
+1.	Sign in to the [Azure Portal](https://portal.azure.com).
 2.	Click **Browse** | **Everything** | **Search services**.
 3.	Click the name of your search service to open the dashboard.
 4.	Click **PROPERTIES** to slide open a property page. The service URL is at the top of the page. You can pin this page for fast access later.
@@ -178,7 +178,7 @@ Owner|Start, stop, or delete the service.<p>Generate and view admin keys and que
 Contributor|Has the same level of access as Owner, except for role management. For example, a Contributor can view and regenerate `api-key`, but he or she cannot modify role memberships.
 Reader|View service status and query keys. Members of this role cannot start or stop a service, nor can they view admin keys.
 
-Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [Role-based access control in Azure Classic Portal](../role-based-access-control-configure.md) for more information.
+Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [Role-based access control in Azure Portal](../active-directory/role-based-access-control-configure.md) for more information.
 
 Roles provide access control after the service is created. Only subscription managers can add a Search service to a subscription.
 

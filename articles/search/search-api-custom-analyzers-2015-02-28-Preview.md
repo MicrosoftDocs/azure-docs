@@ -3,7 +3,7 @@
 	description="Custom analyzers (Azure Search REST API Version 2015-02-28-Preview)"
 	services="search"
 	documentationCenter=""
-	authors="JanuszLembicz"
+	authors="Yahnoosh"
 	manager="pablocas"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="jlembicz"
-	ms.date="12/06/2015" />
+	ms.date="02/18/2016" />
 
 # Analyzers (Azure Search REST API Version 2015-02-28-Preview)
 
@@ -22,7 +22,7 @@
 
 ## Overview
 
-The role of a full-text search engine, in simple terms, is to process and store documents in a way that enables efficient querying and retrieval. At a high level, it all comes down to extracting important words from documents, putting them in an index, and then using the index to find documents that match words of a given query. The process of extracting words from documents and search queries is called lexical analysis. Components that perform lexical analysis are called analyzers. In Azure Search you can choose from a set of [predefined language agnostic analyzers](#Analyzers) and [language specific analyzers](https://msdn.microsoft.com/en-us/library/azure/dn879793.aspx). You also have an option to define your own, custom analyzers. A custom analyzer allows you to take control over the process of converting text into indexable/searchable tokens. It’s a user-defined configuration consisting of a single predefined tokenizer and one or more token filters. The tokenizer is responsible for breaking text into tokens, and the token filters for modifying tokens emitted by the tokenizer.
+The role of a full-text search engine, in simple terms, is to process and store documents in a way that enables efficient querying and retrieval. At a high level, it all comes down to extracting important words from documents, putting them in an index, and then using the index to find documents that match words of a given query. The process of extracting words from documents and search queries is called lexical analysis. Components that perform lexical analysis are called analyzers. In Azure Search you can choose from a set of [predefined language agnostic analyzers](#Analyzers) and [language specific analyzers](https://msdn.microsoft.com/library/azure/dn879793.aspx). You also have an option to define your own, custom analyzers. A custom analyzer allows you to take control over the process of converting text into indexable/searchable tokens. It’s a user-defined configuration consisting of a single predefined tokenizer and one or more token filters. The tokenizer is responsible for breaking text into tokens, and the token filters for modifying tokens emitted by the tokenizer.
 
 Popular scenarios enabled by custom analyzers include:
 
