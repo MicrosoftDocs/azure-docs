@@ -129,7 +129,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 14. \[Classic Deployment]: [The basics: Capturing a Linux VM to Make a Template](virtual-machines-linux-classic-capture-image.md)
 15. [The basics: The Azure Linux Agent](virtual-machines-linux-agent-user-guide.md)
 16. [The basics: Azure VM Extensions and Features](virtual-machines-windows-extensions-features.md)
-17. \[Classic Deployment]: [The basics: Injecting Custom Data into a VM to use with Cloud-init](virtual-machines-how-to-inject-custom-data.md)
+17. \[Classic Deployment]: [The basics: Injecting Custom Data into a VM to use with Cloud-init](virtual-machines-windows-classic-inject-custom-data.md)
 18. \[Classic Deployment]: [Blogging the basics: Building Highly Available Linux on Azure in 12 Steps](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. \[Classic Deployment]: [Blogging the basics: Automate Provisioning Linux on Azure with Azure CLI, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
 20. [The basics: The Azure Docker VM Extension](virtual-machines-linux-dockerextension.md)

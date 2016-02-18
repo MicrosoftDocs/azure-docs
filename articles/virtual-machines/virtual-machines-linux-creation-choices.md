@@ -80,8 +80,10 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [Create a Virtual Machine Running Windows]: virtual-machines-windows-tutorial.md
 [Create a Virtual Machine Running Linux]: virtual-machines-linux-cli-create.md
 
-[Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows]:xplat-cli-azure-manage-vm-asm-arm.md
-[Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI]: virtual-machines-deploy-rmtemplates-azure-cli.md
+
+[Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows]:virtual-machines-linux-cli-manage.md
+[Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI]: virtual-machines-linux-cli-deploy-templates.md
+
 [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell]:  virtual-machines-windows-ps-manage.md
 [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines]: virtual-machines-linux-classic-createpowershell.md
 
