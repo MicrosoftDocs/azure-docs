@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
  
 
-The fastest way to get started using [Docker] is to go to the Azure Marketplace and create a VM using the **Docker on Ubuntu Server** image template created by [Canonical] in conjunction with [MSOpenTech]. This creates an Ubuntu Server VM and automatically installs the [Docker VM Extension](virtual-machines-docker-vm-extension.md) along with the **latest** Docker engine pre-installed and running on on Azure.  
+The fastest way to get started using [Docker] is to go to the Azure Marketplace and create a VM using the **Docker on Ubuntu Server** image template created by [Canonical] in conjunction with [MSOpenTech]. This creates an Ubuntu Server VM and automatically installs the [Docker VM Extension](virtual-machines-linux-dockerextension.md) along with the **latest** Docker engine pre-installed and running on on Azure.  
 
 You can immediately connect to the VM using SSH and begin doing work with Docker directly without doing anything else.
 

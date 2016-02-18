@@ -33,7 +33,7 @@ This article provides sample configuration for configuring Azure VM extensions f
 
 To learn more about these extensions click here : [Azure VM Extensions Overview.](virtual-machines-windows-extensions-features.md)
 
-To learn more about authoring extension templates click here : [Authoring Extension Templates.](virtual-machines-extensions-authoring-templates.md)
+To learn more about authoring extension templates click here : [Authoring Extension Templates.](virtual-machines-windows-extensions-authoring-templates.md)
 
 This article lists expected configuration values for some of the Linux Extensions.
 
