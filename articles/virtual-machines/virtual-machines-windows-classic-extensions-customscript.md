@@ -22,7 +22,7 @@
 This article gives an overview of using the Custom Script extension on Windows VMs using Azure PowerShell cmdlets.
 
 Virtual machine (VM) extensions are built by Microsoft and trusted third-party publishers to extend the functionality of the VM. For an overview of VM extensions, see
-[Azure VM extensions and features](virtual-machines-extensions-features.md).
+[Azure VM extensions and features](virtual-machines-windows-extensions-features.md).
 
 Link:
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md).

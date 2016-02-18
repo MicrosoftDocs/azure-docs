@@ -51,4 +51,4 @@ For organizations and individuals for which a direct Internet connection and pub
 
 ## Next step
 
-- Learn about [implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md) to design a custom dev/test or production deployment in Azure infrastruture services.
+- Learn about [implementation guidelines](virtual-machines-linux-infrastructure-service-guidelines.md) to design a custom dev/test or production deployment in Azure infrastruture services.

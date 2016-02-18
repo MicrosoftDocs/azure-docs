@@ -42,7 +42,7 @@ Item | Virtual machine name | Gallery image | Minimum size
 
 **Table M – Virtual machines for the high-availability line of business application in Azure**
 
-For the complete list of virtual machine sizes, see [Sizes for virtual machines](virtual-machines-size-specs.md).
+For the complete list of virtual machine sizes, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
 
 Use the following block of Azure PowerShell commands to create the virtual machines for the two domain controllers. Specify the values for the variables, removing the < and > characters. Note that this PowerShell command block uses values from the following:
 
