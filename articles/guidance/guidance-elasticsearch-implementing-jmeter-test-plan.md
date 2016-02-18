@@ -23,7 +23,7 @@ This article is [part of a series](guidance-elasticsearch.md).
 
 The performance tests conducted against Elasticsearch were implemented by using JMeter test plans 
 together with Java code incorporated as a JUnit test for performing tasks such as uploading data into 
-the cluster. The test plans and JUnit code are described in [Data ingestion guidance], and 
+the cluster. The test plans and JUnit code are described in [Tuning Data Ingestion Performance for Elasticsearch on Azure], and 
 [Query aggregation and performance].
 
 The purpose of this document is to summarize the key experience gained from constructing and running 
@@ -171,7 +171,7 @@ public void bulkInsertTest() throws IOException {
 ```
 
 [Running Elasticsearch on Azure]: guidance-elasticsearch-running-on-azure.md
-[Data ingestion guidance]: guidance-elasticsearch-data-ingestion.md
+[Tuning Data Ingestion Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-ingestion-performance.md
 [Performance testing guidance]: guidance-elasticsearch-performance-testing-environment.md
 [JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md
 [Considerations for JMeter]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md

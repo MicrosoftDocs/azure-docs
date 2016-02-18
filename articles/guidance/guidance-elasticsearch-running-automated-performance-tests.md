@@ -18,9 +18,9 @@
    ms.date="02/17/2016"
    ms.author="masimms"/>
    
-   
 # Running the Automated Elasticsearch Performance Tests
 
+This article is [part of a series](guidance-elasticsearch.md). 
 
 The documents [Tuning Data Ingestion Performance for Elasticsearch on Azure] and [Tuning Data Aggregation and Query Performance for Elasticsearch on Azure] describe a number of performance tests that were run against a sample Elasticsearch cluster.
 

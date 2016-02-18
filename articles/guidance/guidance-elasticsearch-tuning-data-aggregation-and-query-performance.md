@@ -212,7 +212,7 @@ Each document in the index had the same schema. This table summarizes the fields
   SourceIpLongitude             |Double       |This field contains a random value.|
   SourceIpMetroCode             |Long         |This field is set to 0.|
   SourceIpPostalCode            |String       |This field is set to the empty string.|
-  SourceLatLong                 |Geo\_point   |This field is set to a random geo point.|
+  SourceLatLong                 |Geo point   |This field is set to a random geo point.|
   SourcePort                    |String       |This field is populated with the string representation of a random number|
   TargetIp                      |IP           |This is populated with a random IP address in the range 0.0.100.100 to 255.9.100.100|
   SourcedFrom                   |String       |This field is set to the string “MonitoringCollector”.|
@@ -1044,11 +1044,3 @@ GET /sample/ctip/_search
 
 ```
 -->
-
-[Running Elasticsearch on Azure]: guidance-elasticsearch-running-on-azure.md
-[Data ingestion guidance]: guidance-elasticsearch-data-ingestion.md
-[Performance testing guidance]: guidance-elasticsearch-performance-testing-environment.md
-[JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md
-[Considerations for JMeter]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md
-[Query aggregation and performance]: guidance-elasticsearch-query-aggregation-performance.md
-[Resilience and Recovery]: guidance-elasticsearch-resilience-recovery.md

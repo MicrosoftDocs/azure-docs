@@ -998,20 +998,20 @@ testing. These tools are intended to be used in a development or test environmen
 A frequently-used example is [Apache JMeter][].
 
 JMeter was used to perform benchmarking and other load tests described in documents related to this
-guidance. The document [Create a Performance Testing Environment for Elasticsearch on Azure][] describes in detail how JMeter was configured and used.
+guidance. The document [Creating a Performance Testing Environment for Elasticsearch on Azure][] describes in detail how JMeter was configured and used.
 
 ## Next steps
 
 - [Elasticsearch: The Definitive Guide](https://www.elastic.co/guide/en/elasticsearch/guide/master/index.html)
 
 [Running Elasticsearch on Azure]: guidance-elasticsearch-running-on-azure.md
-[Tuning Data Ingestion Performance for Elasticsearch on Azure]: guidance-elasticsearch-data-ingestion.md
-[Create a Performance Testing Environment for Elasticsearch on Azure]: guidance-elasticsearch-performance-testing-environment.md
-[Implementing a JMeter Test Plan for Elasticsearch]: guidance-elasticsearch-implementing-jmeter.md
-[Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md
-[Tuning Data Aggregation and Query Performance for Elasticsearch on Azure]: guidance-elasticsearch-query-aggregation-performance.md
-[Configuring Resilience and Recovery on ElasticSearch on Azure]: guidance-elasticsearch-resilience-recovery.md
-[Running the Automated Elasticsearch Resiliency Tests]: guidance-elasticsearch-resilience-testing.md
+[Tuning Data Ingestion Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-ingestion-performance.md
+[Creating a Performance Testing Environment for Elasticsearch on Azure]: guidance-elasticsearch-creating-performance-testing-environment.md
+[Implementing a JMeter Test Plan for Elasticsearch]: guidance-elasticsearch-implementing-jmeter-test-plan.md
+[Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
+[Tuning Data Aggregation and Query Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-aggregation-and-query-performance.md
+[Configuring Resilience and Recovery on ElasticSearch on Azure]: guidance-elasticsearch-configuring-resilience-and-recovery.md
+[Running the Automated Elasticsearch Resiliency Tests]: guidance-elasticsearch-configuring-resilience-and-recovery
 
 [Apache JMeter]: http://jmeter.apache.org/
 [Apache Lucene]: https://lucene.apache.org/

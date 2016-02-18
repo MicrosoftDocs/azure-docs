@@ -95,7 +95,7 @@ In a system that must support large-scale data ingestion, you ask the following 
 maintenance overhead for Elasticsearch. If the data is replicated, each replica is maintained
 synchronously. Fast-moving data that has only a limited lifespan or that can easily be reconstructed
 might benefit from disabling replication altogether. This option is considered further in the section
-[Considerations for Tuning Large-Scale Data Ingestion.](#_Considerations_for_Tuning)
+[Tuning Large-Scale Data Ingestion.](#tuning-large-scale-data-ingestion)
 
 - **How up-to-date do you require the data discovered by searching to be?** To maintain performance,
 Elasticsearch buffers as much data in memory as it can. This means that not all changes are immediately
@@ -107,7 +107,7 @@ index. By default, this interval is set at 1 second. However, not every situatio
 occur this quickly. For example, indexes recording log data might need to cope with a rapid and continual
 influx of information which needs to be ingested quickly, but does not require the information to be
 immediately available for querying. In this case, consider reducing the frequency of refreshes. This
-feature is also described in the section [Considerations for Tuning Large-Scale Data Ingestion.](#_Considerations_for_Tuning)
+feature is also described in the section [Tuning Large-Scale Data Ingestion.](#tuning-large-scale-data-ingestion)
 
 - **How quickly is the data likely to grow?** Index capacity is determined by the number of shards
 specified when the index is created. To allow for growth, specify an adequate number of shards (the
@@ -140,16 +140,16 @@ exceeds specified parameters (currently 500 IOPS for a disk attached to a Standa
 for a Premium Storage disk). 
 
     To reduce the chances of throttling and increase I/O performance, consider creating multiple data disks
-for each VM and configure Elasticsearch to stripe data across these disks as described in the [Disk and [File System Requirements](#TODO).
+for each VM and configure Elasticsearch to stripe data across these disks as described in the [Disk and File System Requirements](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements).
 
     You should select a hardware configuration that helps to minimize the number of disk I/O
 read operations by ensuring that sufficient memory is available to cache frequently accessed data. This
-is described in [Memory Requirements](TODO) section of the document Implementing
+is described in [Memory Requirements](guidance-elasticsearch-running-on-azure.md#memory-requirements) section of the document Implementing
 Elasticsearch on Azure.
 
 - **What type of workload will each node need to support?** Elasticsearch benefits from having memory
 available in which to cache data (in the form of the file system cache) and for the JVM heap as described
-in the [Memory Requirements](#memory-requirements) section of the document Implementing Elasticsearch on
+in the [Memory Requirements](guidance-elasticsearch-running-on-azure.md#memory-requirements) section of the document Implementing Elasticsearch on
 Azure. 
 
     The amount of memory, number of CPU cores, and quantity of available disks are set by the
@@ -184,7 +184,7 @@ available and the reduced disk contention on each node.
 
 - Use premium storage for storing Elasticsearch data. This is discussed in more detail in the [Storage Options](#storage-options) section.
 
-- Use multiple disks (of the same size) and stripe data across these disks. The SKU of your VMs will dictate the maximum number of data disks that you can attach. For more information, see [Disk and File System Requirements](#disk-and-file-system-requirements).
+- Use multiple disks (of the same size) and stripe data across these disks. The SKU of your VMs will dictate the maximum number of data disks that you can attach. For more information, see [Disk and File System Requirements](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements).
 
 - Use a multi-core CPU SKU; at least 2 cores, preferably 4 or more. 
 
@@ -236,7 +236,7 @@ memory.
 
 > [AZURE.NOTE]  For cluster reliability, always create multiple master nodes to and configure the
 > remaining nodes to avoid the possibility of a split brain from occurring. Ideally, there should be an
-> odd number of master nodes. This topic is described in more detail in the document [Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery](TODO).
+> odd number of master nodes. This topic is described in more detail in the document [Configuring Resilience and Recovery on ElasticSearch on Azure][].
 
 ### Storage Options
 
@@ -263,7 +263,7 @@ DS series or better. DS machines cost the same as the equivalent D-series VMs, b
 for using premium storage.
 
 In cases where the maximum transfer rate per disk is insufficient to support the expected workload,
-consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](virtual-machines-linux-configure-raid/).
+consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](virtual-machines-linux-configure-raid/).
 
 > [AZURE.NOTE] Experience within Microsoft has shown that using RAID 0 is particularly beneficial for
 > smoothing out the I/O effects of *spiky* workloads that generate frequent bursts of activity.
@@ -321,7 +321,7 @@ scenarios, so to assess the best approach for any given situation you need to be
 series performance tests.
 
 This section is concerned with the scale-up approach; scaling out is discussed in the section
-[Considerations for Scaling-Out Clusters to Support Large-Scale Data Ingestion](#scaling-out-clusters).
+[Scaling-Out: Conclusions](#scaling-out-conclusions).
 This section describes the results of a series of benchmarks that were performed against a set of
 Elasticsearch clusters comprising VMs with varying sizes. The clusters were designated as small, medium,
 and large. The following table summarizes the resources allocated to the VMs in each cluster.
@@ -382,7 +382,7 @@ were as follows:
 The tests were conducted while the system was running in **steady state**. In situations where index
 rebalancing or node recovering is occurring, data transmissions between nodes holding primary and replica
 shards can generate significant network traffic. The effects of this process are described more in the
-document [Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery](TODO).
+document [Configuring Resilience and Recovery on ElasticSearch on Azure][].
 
 ### Determining Limiting Factors: CPU Utilization
 
@@ -754,7 +754,7 @@ The following table summarizes the response times and throughput of each test fo
 
 The decline in performance as the number of replicas increases is clear, but you should also notice the large volume of data ingestion errors in the third test. The messages generated by these errors indicated that they were due to the bulk insert queue overflowing causing requests to be rejected. These rejections occurred very quickly, hence the large number.
 
-> [AZURE.NOTE]  The results of the third test highlight the importance of using an intelligent retry strategy when transient errors such as this occur—back off for a short period to allow the bulk insert queue to drain before reattempting to repeat the bulk insert operation.
+> [AZURE.NOTE] The results of the third test highlight the importance of using an intelligent retry strategy when transient errors such as this occur—back off for a short period to allow the bulk insert queue to drain before reattempting to repeat the bulk insert operation.
 
 The next sets of graphs compare the response times during the tests. In each case the first graph shows the overall response times, while the second graph zooms in on the response times for the fastest operations (note that the scale of the first graph is ten times that of the second). You can see how the profile of the response times varies across the three tests.
 
@@ -932,7 +932,7 @@ For data ingestion workloads, the performance of the disk I/O subsystem is a cri
 
 ## Appendix: The Bulk Load Data Ingestion Performance Test
 
-This appendix describes the performance test performed against the Elasticsearch cluster. The tests were run by using JMeter running on a separate set of VMs. Details the configuration of the test environment are described in the document How-To: Create a Performance Testing Environment for Elasticsearch. To perform your own testing, you can create your own JMeter test plan manually, or you can use the automated test scripts available separately. See the document How-To: Run the Automated Elasticsearch Ingestion Tests for further information.
+This appendix describes the performance test performed against the Elasticsearch cluster. The tests were run by using JMeter running on a separate set of VMs. Details the configuration of the test environment are described in [Creating a Performance Testing Environment for Elasticsearch on Azure][]. To perform your own testing, you can create your own JMeter test plan manually, or you can use the automated test scripts available separately. See [Running the Automated Elasticsearch Performance Tests][] for further information.
 
 The data ingestion workload performed a large-scale upload of documents by using the bulk insert API. The purpose of this index was to simulate a repository receiving log data representing system events for subsequent search and analysis. Each document was stored in a single index named *systembase*, and had the type *logs*. All documents had the same fixed schema described by the following table:
 
@@ -1052,7 +1052,7 @@ Each bulk insert batch comprised 1000 documents. Each document was generated bas
 
 The data was generated dynamically by using a custom JUnit Request sampler that was added to a thread group in a JMeter test plan. The JUnit code was created by using the JUnit Test Case template in the Eclipse IDE.
 
-> [AZURE.NOTE] For information on how to create a JUnit test for JMeter, see the document How-To: Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance.
+> [AZURE.NOTE] For information on how to create a JUnit test for JMeter, see [Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance][].
 
 The following snippet shows the Java code for testing Elasticsearch 1.7.3. Note that the JUnit test class in this example is named *ElasticSearchLoadTest2*:
 
@@ -1246,3 +1246,8 @@ You specify the data for the constructor string in the JUnit Request page used t
 The *BulkInsertTest* and *BigBulkInsertTest* methods perform the actual work of generating and uploading the data. Both methods are very similar; they connect to the Elasticsearch cluster and then create a batch of documents (as determined by the *ItemsPerInsert* constructor string parameter). The documents are added to the index by using the Elasticsearch Bulk API. The difference between the two methods is that the *data1* and *data2* string fields in each document are omitted from the upload in the *BulkInsertTest* method, but are filled in with strings of 12000 characters in the *BigBulkInsertTest* method. Note that you select which of these methods to run using the *Test Method* box in the JUnit Request page in JMeter (highlighted in the previous figure).
 
 > [AZURE.NOTE] The sample code presented here uses the Elasticsearch 1.7.3 Transport Client library. If you are using Elasticsearch 2.0.0 or later, you must use the appropriate library for the version selected. For more information about the Elasticsearch 2.0.0 Transport Client library, see the [Transport Client](https://www.elastic.co/guide/en/elasticsearch/client/java-api/2.0/transport-client.html) page on the Elasticsearch website.
+
+[Configuring Resilience and Recovery on ElasticSearch on Azure]: guidance-elasticsearch-configuring-resilience-and-recovery.md
+[Creating a Performance Testing Environment for Elasticsearch on Azure]: guidance-elasticsearch-creating-performance-testing-environment.md
+[Running the Automated Elasticsearch Performance Tests]: guidance-elasticsearch-running-automated-performance-tests.md
+[Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md

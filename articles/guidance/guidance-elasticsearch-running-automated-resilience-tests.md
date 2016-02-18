@@ -18,7 +18,9 @@
    ms.author="masimms"/>
    
 # Running the Automated Elasticsearch Resiliency Tests
-   
+
+This article is [part of a series](guidance-elasticsearch.md). 
+
 [Resilience and Recovery Testing] describes 
 a series of tests that were performed against a sample Elasticsearch cluster to determine how well the 
 system responded to some common forms of failure and how well it recovered. Four scenarios were tested:
@@ -178,7 +180,7 @@ files in a folder created under the *results* directory. Each run has its own re
 You can use Excel to analyze and graph this data.
 
 [Running Elasticsearch on Azure]: guidance-elasticsearch-running-on-azure.md
-[Data ingestion guidance]: guidance-elasticsearch-data-ingestion.md
+[Tuning Data Ingestion Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-ingestion-performance.md
 [Performance testing guidance]: guidance-elasticsearch-performance-testing-environment.md
 [JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md
 [Considerations for JMeter]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md
