@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="02/17/2016"   
-	ms.author="Juliako,Asolanki,johndeu"/>
+	ms.author="juliako;adsolank;johndeu"/>
 
 
 # Indexing Media Files with Azure Media Indexer
