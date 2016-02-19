@@ -18,6 +18,7 @@
 
 
 # Prepare a Red Hat-based virtual machine for Azure
+
 In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure.  Versions of RHEL covered in this article are 6.7, 7.1 and 7.2, and hypervisors for preparation covered in this article are Hyper-V, KVM and VMware.  For more information on eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/articles/1989673).
 
 [Prepare a RHEL 6.7 virtual machine from Hyper-V Manager](#rhel67hyperv)
@@ -577,15 +578,15 @@ This section assumes that you have already installed a RHEL virtual machine in V
     Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
     The crashkernel option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 
-9.Add Hyper-V modules into initramfs:   
+9.	Add Hyper-V modules into initramfs:
 
-  Edit `/etc/dracut.conf`, add content:  
+	    Edit `/etc/dracut.conf`, add content:
 
-  add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”  
+	        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-  Rebuild the initramfs:  
+	    Rebuild the initramfs:
 
-  # dracut –f -v  
+	        # dracut –f -v
 
 10.	Ensure that the SSH server is installed and configured to start at boot time. This is usually the default. Modify the `/etc/ssh/sshd_config` to include following line:
 
@@ -743,130 +744,132 @@ This section assumes that you have already installed a RHEL virtual machine in V
 ### <a id="rhel7xkickstart"> </a>Prepare a RHEL 7.1/7.2 virtual machine from a kickstart file###
 
 
-1.	Create the kickstart file with content below, and save the file. For details about kickstart installation, refer to the [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
-
-# Kickstart for provisioning a RHEL 7 Azure VM
-
-# System authorization information
-auth --enableshadow --passalgo=sha512
-
-# Use graphical install
-text
-
-# Do not run the Setup Agent on first boot
-firstboot --disable
-
-# Keyboard layouts
-keyboard --vckeymap=us --xlayouts='us'
-
-# System language
-lang en_US.UTF-8
-
-# Network information
-network  --bootproto=dhcp
-
-# Root password
-rootpw --plaintext "to_be_disabled"
-
-# System services
-services --enabled="sshd,waagent,NetworkManager"
-
-# System timezone
-timezone Etc/UTC --isUtc --ntpservers 0.rhel.pool.ntp.org,1.rhel.pool.ntp.org,2.rhel.pool.ntp.org,3.rhel.pool.ntp.org
-
-# Partition clearing information
-clearpart --all --initlabel
-
-# Clear the MBR
-zerombr
-
-# Disk partitioning information
-part /boot --fstype="xfs" --size=500
-part / --fstyp="xfs" --size=1 --grow --asprimary
-
-# System bootloader configuration
-bootloader --location=mbr
-
-# Firewall configuration
-firewall --disabled
-
-# Enable SELinux
-selinux --enforcing
-
-# Don't configure X
-skipx
-
-# Power down the machine after install
-poweroff
+1.	Create the kickstart file with below content, and save the file. For details about kickstart installation, please refer to the [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
 
 
-%packages
-@base
-@console-internet
-chrony
-sudo
-parted
--dracut-config-rescue
+        # Kickstart for provisioning a RHEL 7 Azure VM
 
-%end
+        # System authorization information
+        auth --enableshadow --passalgo=sha512
 
-%post --log=/var/log/anaconda/post-install.log
+        # Use graphical install
+        text
 
-#!/bin/bash
+        # Do not run the Setup Agent on first boot
+        firstboot --disable
 
-# Register Red Hat Subscription
-subscription-manager register --username=XXX --password=XXX --auto-attach --force
+        # Keyboard layouts
+        keyboard --vckeymap=us --xlayouts='us'
 
-# Install latest repo update
-yum update -y
+        # System language
+        lang en_US.UTF-8
 
-# Enable extras repo
-subscription-manager repos --enable=rhel-7-server-extras-rpms
+        # Network information
+        network  --bootproto=dhcp
 
-# Install WALinuxAgent
-yum install -y WALinuxAgent
+        # Root password
+        rootpw --plaintext "to_be_disabled"
 
-# Unregister REd Hat subscription
-subscription-manager unregister
+        # System services
+        services --enabled="sshd,waagent,NetworkManager"
 
-# Enable waaagent at boot-up
-systemctl enable waagent
+        # System timezone
+        timezone Etc/UTC --isUtc --ntpservers 0.rhel.pool.ntp.org,1.rhel.pool.ntp.org,2.rhel.pool.ntp.org,3.rhel.pool.ntp.org
 
-# Disable the root account
-usermod root -p '!!'
+        # Partition clearing information
+        clearpart --all --initlabel
 
-# Configure swap in WALinuxAgent
-sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
-sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
+        # Clear the MBR
+        zerombr
 
-# Set the cmdline
-sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
+        # Disk partitioning information
+        part /boot --fstype="xfs" --size=500
+        part / --fstyp="xfs" --size=1 --grow --asprimary
 
-# Enable SSH keepalive
-sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config
+        # System bootloader configuration
+        bootloader --location=mbr
 
-# Build the grub cfg
-grub2-mkconfig -o /boot/grub2/grub.cfg
+        # Firewall configuration
+        firewall --disabled
 
-# Configure network
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
-DEVICE=eth0
-ONBOOT=yes
-BOOTPROTO=dhcp
-TYPE=Ethernet
-USERCTL=no
-PEERDNS=yes
-IPV6INIT=no
-NM_CONTROLLED=yes
-EOF
+        # Enable SELinux
+        selinux --enforcing
 
-# Deprovision and prepare for Azure
-waagent -force -deprovision
+        # Don't configure X
+        skipx
 
-%end
+        # Power down the machine after install
+        poweroff
 
-2.	Place the kickstart file to a place reachable from the installation system.
+
+
+        %packages
+        @base
+        @console-internet
+        chrony
+        sudo
+        parted
+        -dracut-config-rescue
+
+        %end
+
+        %post --log=/var/log/anaconda/post-install.log
+
+        #!/bin/bash
+
+        # Register Red Hat Subscription
+        subscription-manager register --username=XXX --password=XXX --auto-attach --force
+
+        # Install latest repo update
+        yum update -y
+
+        # Enable extras repo
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+
+        # Install WALinuxAgent
+        yum install -y WALinuxAgent
+
+        # Unregister REd Hat subscription
+        subscription-manager unregister
+
+        # Enable waaagent at boot-up
+        systemctl enable waagent
+
+        # Disable the root account
+        usermod root -p '!!'
+
+        # Configure swap in WALinuxAgent
+        sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
+        sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
+
+        # Set the cmdline
+        sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
+
+        # Enable SSH keepalive
+        sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config
+
+        # Build the grub cfg
+        grub2-mkconfig -o /boot/grub2/grub.cfg
+
+        # Configure network
+        cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
+        NM_CONTROLLED=yes
+        EOF
+
+        # Deprovision and prepare for Azure
+        waagent -force -deprovision
+
+        %end
+
+2.	Place the kickstart file in a place that is reachable from the installation system.
 
 3.	In Hyper-V Manager, create a new VM. In the **Connect Virtual Hard Disk** page, select **Attach a virtual hard disk later**, and complete the New Virtual Machine Wizard.
 
@@ -902,7 +905,7 @@ This issue is intermittent. However, it occurs more frequently during frequent d
 
 ### The Hyper-V driver could not be included in initial ramdisk when using a non-Hyper-V hypervisor
 
-In some cases, Linux installers might not include the drivers for Hyper-V in the initial ramdisk (initrd or initramfs) unless it detects that it is running in an a Hyper-V environment.
+In some cases, Linux installers might not include the drivers for Hyper-V in the initial ramdisk (initrd or initramfs) unless it detects that it is running in a Hyper-V environment.
 
 When you're using a different virtualization system (i.e. Virtualbox, Xen, etc.) to prepare your Linux image, you may need to rebuild the initrd to ensure that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial ramdisk. This is a known issue at least on systems based on the upstream Red Hat distribution.
 
