@@ -118,19 +118,28 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.
 
 ## Customer stories
 
-* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
-
-* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
 
 * [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
 
 * [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
 
-* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
-
 * [Ludwig Institute of Cancer Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5830)
 
 * [Microsoft Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=15634)
+
+* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
+
+* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=26266)
+
+* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+
+* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
+
+
+
+
+
+
 
 ## Next steps
 
