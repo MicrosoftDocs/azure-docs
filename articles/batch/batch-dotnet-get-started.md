@@ -30,7 +30,7 @@ This article assumes that you have a working knowledge of C# and Visual Studio. 
 
 - **Azure account**--If you don't already have an Azure subscription, you can [create a free Azure account][azure_free_account].
 - **Batch account**--Once you have an Azure subscription, [create and manage an Azure Batch account](batch-account-create-portal.md).
-- **Storage account**--See the "Create a storage account" section in [About Azure storage accounts](../storage-create-storage-account.md).
+- **Storage account**--See the "Create a storage account" section in [About Azure storage accounts](./../storage/storage-create-storage-account.md).
 
 ### Visual Studio
 
