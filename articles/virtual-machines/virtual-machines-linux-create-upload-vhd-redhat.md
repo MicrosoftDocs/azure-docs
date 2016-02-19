@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="02/17/2016"
 	ms.author="mingzhan"/>
 
 
@@ -35,15 +35,17 @@ In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL)
 [Prepare a RHEL 7.1/7.2 virtual machine from a kickstart file](#rhel7xkickstart)
 
 
-## Prepare an image from Hyper-V Manager
+## Prepare a Red Hat-based virtual machine from Hyper-V Manager
 ### Prerequisites
-This section assumes that you have already installed a RHEL image from an ISO file obtained from Red Hat's website to a virtual hard disk (VHD). For more details on how to use Hyper-V manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
+This section assumes that you have already installed a RHEL image from an ISO file obtained from Red Hat's website to a virtual hard disk (VHD). For more details on how to use Hyper-V Manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 **RHEL installation notes**
 
-- The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd powershell cmdlet.
+- The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd PowerShell cmdlet.
 
-- When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. LVM or RAID may be used on data disks if preferred.
+- VHDs must be created as "fixed"--dynamic VHDs are not supported.
+
+- When you're installing the Linux system, we recommend that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. LVM or RAID may be used on data disks if preferred.
 
 - Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk. More information about this can be found in the steps below.
 
@@ -93,12 +95,11 @@ This section assumes that you have already installed a RHEL image from an ISO fi
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
+9.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
-        # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-        # rpm -ivh epel-release-6-8.noarch.rpm
+        # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-10.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open `/boot/grub/menu.lst` in a text editor and ensure that the default kernel includes the following parameters:
+10.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/boot/grub/menu.lst` in a text editor and ensure that the default kernel includes the following parameters:
 
         console=ttyS0
         earlyprintk=ttyS0
@@ -126,7 +127,7 @@ This section assumes that you have already installed a RHEL image from an ISO fi
 
     **Note:** Installing the WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 2.
 
-13.	Do not create swap space on the OS disk
+13.	Do not create swap space on the OS disk.
 The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
         ResourceDisk.Format=y
@@ -197,10 +198,9 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
         ClientAliveInterval 180
 
-10.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
+10.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
-        # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
-        # rpm -ivh epel-release-7-5.noarch.rpm
+        # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
 11.	Install the Azure Linux Agent by running the following command:
 
@@ -229,7 +229,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
  
 
 
-## Prepare an image from KVM
+## Prepare a Red Hat-based virtual machine from KVM
 
 ### <a id="rhel67kvm"> </a>Prepare a RHEL 6.7 virtual machine from KVM###
 
@@ -295,11 +295,19 @@ The Azure Linux Agent can automatically configure swap space using the local res
     Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
     The crashkernel option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 
-10.	Uninstall cloud-init:
+10. Add Hyper-V modules into initramfs:  
+
+    Edit `/etc/dracut.conf` and add content:
+    add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    Rebuild the initramfs:
+        # dracut –f -v
+
+11.	Uninstall cloud-init:
 
         # yum remove cloud-init
 
-11.	Ensure that the SSH server is installed and configured to start at boot time:
+12.	Ensure that the SSH server is installed and configured to start at boot time:
 
         # chkconfig sshd on
 
@@ -312,17 +320,16 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 		# service sshd restart
 
-12.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
+13.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
-        # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-        # rpm -ivh epel-release-6-8.noarch.rpm
+        # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-13.	Install the Azure Linux Agent by running the following command:
+14.	Install the Azure Linux Agent by running the following command:
 
         # yum install WALinuxAgent
         # chkconfig waagent on
 
-14.	The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in **/etc/waagent.conf** appropriately:
+15.	The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in **/etc/waagent.conf** appropriately:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -330,19 +337,19 @@ The Azure Linux Agent can automatically configure swap space using the local res
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	Unregister the subscription (if necessary) by running the following command:
+16.	Unregister the subscription (if necessary) by running the following command:
 
         # subscription-manager unregister
 
-16.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+17.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
         # waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-17.	Shut down the VM in KVM.
+18.	Shut down the VM in KVM.
 
-18.	Convert the qcow2 image to vhd format.
+19.	Convert the qcow2 image to vhd format.
     First convert the image to raw format:
 
          # qemu-img convert -f qcow2 –O raw rhel-6.7.qcow2 rhel-6.7.raw
@@ -406,7 +413,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-8.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open `/etc/default/grub` in a text editor and edit the **GRUB_CMDLINE_LINUX** parameter, for example:
+8.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open `/etc/default/grub` in a text editor and edit the **GRUB_CMDLINE_LINUX** parameter. For example:
 
         GRUB_CMDLINE_LINUX="rootdelay=300
         console=ttyS0
@@ -450,10 +457,9 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
         systemctl restart sshd
 
-13.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
+13.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
-        # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
-        # rpm -ivh epel-release-7-5.noarch.rpm
+        # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
 14.	Install the Azure Linux Agent by running the following command:
 
@@ -503,7 +509,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
-## Prepare an image from VMware
+## Prepare a Red Hat-based virtual machine from VMware
 ### Prerequisites
 This section assumes that you have already installed a RHEL virtual machine in VMware. For details on how to install an operating system in VMware, please see [VMware Guest Operating System Installation Guide](http://partnerweb.vmware.com/GOSIG/home.html).
 
@@ -552,10 +558,9 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
+7.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
-        # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-        # rpm -ivh epel-release-6-8.noarch.rpm
+        # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
 8.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:
 
@@ -572,16 +577,26 @@ This section assumes that you have already installed a RHEL virtual machine in V
     Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
     The crashkernel option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 
-9.	Ensure that the SSH server is installed and configured to start at boot time. This is usually the default. Modify the `/etc/ssh/sshd_config` to include following line:
+9.Add Hyper-V modules into initramfs:   
+
+  Edit `/etc/dracut.conf`, add content:  
+
+  add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”  
+
+  Rebuild the initramfs:  
+
+  # dracut –f -v  
+
+10.	Ensure that the SSH server is installed and configured to start at boot time. This is usually the default. Modify the `/etc/ssh/sshd_config` to include following line:
 
         ClientAliveInterval 180
 
-10.	Install the Azure Linux Agent by running the following command:
+11.	Install the Azure Linux Agent by running the following command:
 
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
 
-11.	Do not create swap space on the OS disk:
+12.	Do not create swap space on the OS disk:
 
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
@@ -591,17 +606,17 @@ This section assumes that you have already installed a RHEL virtual machine in V
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-12.	Unregister the subscription (if necessary) by running the following command:
+13.	Unregister the subscription (if necessary) by running the following command:
 
         # sudo subscription-manager unregister
 
-13.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+14.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-14.	Shut down the VM, and convert the VMDK file to VHD file.
+15.	Shut down the VM, and convert the VMDK file to VHD file.
 
     First convert the image to raw format:
 
@@ -676,11 +691,9 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
         ClientAliveInterval 180
 
-9.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
+9.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
-
-        # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
-        # rpm -ivh epel-release-7-5.noarch.rpm
+        # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
 10.	Install the Azure Linux Agent by running the following command:
 
@@ -724,123 +737,134 @@ This section assumes that you have already installed a RHEL virtual machine in V
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
-## Prepare from an ISO using a kickstart file automatically
+## Prepare a Red Hat-based virtual machine from an ISO using a kickstart file automatically
 
 
 ### <a id="rhel7xkickstart"> </a>Prepare a RHEL 7.1/7.2 virtual machine from a kickstart file###
 
 
-1.	Create the kickstart file with below content, and save the file. For details about kickstart installation, please refer to the [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1.	Create the kickstart file with content below, and save the file. For details about kickstart installation, refer to the [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+
+# Kickstart for provisioning a RHEL 7 Azure VM
+
+# System authorization information
+auth --enableshadow --passalgo=sha512
+
+# Use graphical install
+text
+
+# Do not run the Setup Agent on first boot
+firstboot --disable
+
+# Keyboard layouts
+keyboard --vckeymap=us --xlayouts='us'
+
+# System language
+lang en_US.UTF-8
+
+# Network information
+network  --bootproto=dhcp
+
+# Root password
+rootpw --plaintext "to_be_disabled"
+
+# System services
+services --enabled="sshd,waagent,NetworkManager"
+
+# System timezone
+timezone Etc/UTC --isUtc --ntpservers 0.rhel.pool.ntp.org,1.rhel.pool.ntp.org,2.rhel.pool.ntp.org,3.rhel.pool.ntp.org
+
+# Partition clearing information
+clearpart --all --initlabel
+
+# Clear the MBR
+zerombr
+
+# Disk partitioning information
+part /boot --fstype="xfs" --size=500
+part / --fstyp="xfs" --size=1 --grow --asprimary
+
+# System bootloader configuration
+bootloader --location=mbr
+
+# Firewall configuration
+firewall --disabled
+
+# Enable SELinux
+selinux --enforcing
+
+# Don't configure X
+skipx
+
+# Power down the machine after install
+poweroff
 
 
-        # Kickstart for provisioning a RHEL 7 Azure VM
 
-        # System authorization information
-        auth --enableshadow --passalgo=sha512
+%packages
+@base
+@console-internet
+chrony
+sudo
+parted
+-dracut-config-rescue
 
-        # Use graphical install
-        text
+%end
 
-        # Do not run the Setup Agent on first boot
-        firstboot --disable
+%post --log=/var/log/anaconda/post-install.log
 
-        # Keyboard layouts
-        keyboard --vckeymap=us --xlayouts='us'
+#!/bin/bash
 
-        # System language
-        lang en_US.UTF-8
+# Register Red Hat Subscription
+subscription-manager register --username=XXX --password=XXX --auto-attach --force
 
-        # Network information
-        network  --bootproto=dhcp
+# Install latest repo update
+yum update -y
 
-        # Root password
-        rootpw --plaintext "to_be_disabled"
+# Enable extras repo
+subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-        # System services
-        services --enabled="sshd,waagent,NetworkManager"
+# Install WALinuxAgent
+yum install -y WALinuxAgent
 
-        # System timezone
-        timezone Etc/UTC --isUtc --ntpservers 0.rhel.pool.ntp.org,1.rhel.pool.ntp.org,2.rhel.pool.ntp.org,3.rhel.pool.ntp.org
+# Unregister REd Hat subscription
+subscription-manager unregister
 
-        # Partition clearing information
-        clearpart --all --initlabel
+# Enable waaagent at boot-up
+systemctl enable waagent
 
-        # Clear the MBR
-        zerombr
+# Disable the root account
+usermod root -p '!!'
 
-        # Disk partitioning information
-        part /boot --fstype="xfs" --size=500
-        part / --fstyp="xfs" --size=1 --grow --asprimary
+# Configure swap in WALinuxAgent
+sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
+sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
 
-        # System bootloader configuration
-        bootloader --location=mbr
+# Set the cmdline
+sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
 
-        # Firewall configuration
-        firewall --disabled
+# Enable SSH keepalive
+sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config
 
-        # Enable SELinux
-        selinux --enforcing
+# Build the grub cfg
+grub2-mkconfig -o /boot/grub2/grub.cfg
 
-        # Don't configure X
-        skipx
+# Configure network
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE=eth0
+ONBOOT=yes
+BOOTPROTO=dhcp
+TYPE=Ethernet
+USERCTL=no
+PEERDNS=yes
+IPV6INIT=no
+NM_CONTROLLED=yes
+EOF
 
-        # Power down the machine after install
-        poweroff
+# Deprovision and prepare for Azure
+waagent -force -deprovision
 
-        # Primary Fedora repo
-        repo --name="epel7" --baseurl="http://dl.fedoraproject.org/pub/epel/7/x86_64/"
-
-        %packages
-        @base
-        @console-internet
-        chrony
-        sudo
-        python-pyasn1
-        parted
-        ntfsprogs
-        WALinuxAgent
-        -dracut-config-rescue
-
-        %end
-
-        %post --log=/var/log/anaconda/post-install.log
-
-        #!/bin/bash
-
-        # Disable the root account
-        usermod root -p '!!'
-
-        # Configure swap in WALinuxAgent
-        sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
-        sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
-
-        # Set the cmdline
-        sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
-
-        # Enable SSH keepalive
-        sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config
-
-        # Build the grub cfg
-        grub2-mkconfig -o /boot/grub2/grub.cfg
-
-        # Configure network
-        cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
-        DEVICE=eth0
-        ONBOOT=yes
-        BOOTPROTO=dhcp
-        TYPE=Ethernet
-        USERCTL=no
-        PEERDNS=yes
-        IPV6INIT=no
-        NM_CONTROLLED=yes
-        EOF
-
-        # Deprovision and prepare for Azure
-        waagent -force -deprovision
-
-        %end
-
-
+%end
 
 2.	Place the kickstart file to a place reachable from the installation system.
 
@@ -858,12 +882,12 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 6.	Enter `inst.ks=<the location of the Kickstart file>` at the end of the boot options, and press **Enter**.
 
-7.	Wait for the installation to finish, when it’s finished, the VM will be shutdown automatically. Your Linux VHD is now ready to be uploaded to Azure.
+7.	Wait for the installation to finish. When it’s finished, the VM will be shut down automatically. Your Linux VHD is now ready to be uploaded to Azure.
 
 ## Known issues
 There are known issues when you are using RHEL 7.1 in Hyper-V and Azure.
 
-### Issue: Disk I/O freeze
+### Disk I/O freeze
 
 This issue may occur during frequent storage disk I/O activities with RHEL 7.1 in Hyper-V and Azure.   
 
@@ -876,6 +900,23 @@ This issue is intermittent. However, it occurs more frequently during frequent d
 
     # sudo yum update
 
+### The Hyper-V driver could not be included in initial ramdisk when using a non-Hyper-V hypervisor
+
+In some cases, Linux installers might not include the drivers for Hyper-V in the initial ramdisk (initrd or initramfs) unless it detects that it is running in an a Hyper-V environment.
+
+When you're using a different virtualization system (i.e. Virtualbox, Xen, etc.) to prepare your Linux image, you may need to rebuild the initrd to ensure that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial ramdisk. This is a known issue at least on systems based on the upstream Red Hat distribution.
+
+To resolve this issue, you need to add Hyper-V modules into initramfs and rebuild it:
+
+Edit `/etc/dracut.conf`, add content:
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+Rebuild the initramfs:
+
+        # dracut –f -v
+
+For more details, see the information about [rebuilding initramfs](https://access.redhat.com/solutions/1958).
 
 ## Next steps
 You're now ready to use your Red Hat Enterprise Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see steps 2 and 3 in [Creating and uploading a virtual hard disk that contains the Linux operating system](virtual-machines-linux-create-upload-vhd.md).
