@@ -15,7 +15,7 @@
    ms.date="01/21/2016"
    ms.author="joaoma"/>
 
-# URL Path Based Routing load balancing 
+# URL Path Based Routing overview
 
 URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. One of the scenario is to route requests for different content types to different backend server pools.
 In the following example, Application Gateway is serving traffic for contoso.com from three back-end server pools for example: VideoServerPool, ImageServerPool and DefaultServerPool.
@@ -26,7 +26,7 @@ Requests for http://contoso.com/video* will be routed to VideoServerPool, and ht
 
 ## UrlPathMap configuration element
 
-UrlPathMap element is used to specify Path patterns to back-end server pool mappings. As in earlier cases, oneBelow is the snippet of urlPathMap element from template file.
+UrlPathMap element is used to specify Path patterns to back-end server pool mappings. This is the snippet of urlPathMap element from template file.
 
 	"urlPathMaps": [
 	{
@@ -61,6 +61,7 @@ UrlPathMap element is used to specify Path patterns to back-end server pool mapp
 
 >[AZURE.NOTE] PathPattern: This is a list of path patterns to match. Each must start with / and the only place a * is allowed is at the end following a ‘/’. The string fed to the path matcher does not include any text after the first ? or #, and those chars are not allowed here. 
 
+You can check out an [ARM template using URL based routing](https://azure.microsoft.com/en-us/documentation/templates/201-application-gateway-url-path-based-routing) for more information.
 
 ## PathBasedRouting rule
 

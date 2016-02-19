@@ -20,7 +20,7 @@
 
 URL Path Based Routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL lists in Application Gateway and send the network traffic to the defined back-end pool. A common use for URL based routing is to load balance requests for different content types to different back-end server pools.
 
-URL path based routing introduces a rule type to application gateway. Application gateway has 2 rule types: basic and PathBasedRouting. Basic rule type will provide round-robin service for the back-end pools while PathBasedRouting will provide network traffic mapping based on the path pattern for the URL. 
+URL based routing introduces a new rule type to application gateway. Application gateway has 2 rule types: basic and PathBasedRouting. Basic rule type provides round-robin service for the back-end pools while PathBasedRouting in addition to round robin distribution, also takes path pattern of the request URL into account while choosing the backend pool.
 
 >[AZURE.IMPORTANT] PathPattern: The list of path patterns to match. Each must start with / and the only place a * is allowed is at the end following a ‘/’. The string fed to the path matcher does not include any text after the first ? or #, and those characters are not allowed. 
 
