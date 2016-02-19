@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="02/19/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -92,7 +92,7 @@ You can filter and dismiss recommendations.
     ![][4]
 
 ### Apply recommendations
-After reviewing all recommendations, decide which one you should apply first. We recommended that you use the severity rating as the main parameter to evaluate which recommendations should be applied first.
+After reviewing all recommendations, decide which one you should apply first. We recommend that you use the severity rating as the main parameter to evaluate which recommendations should be applied first.
 Using the **Enable Antimalware** recommendation, let’s walk through an example of how to apply a recommendation.
 
 1. In the **Recommendations** blade, select **Enable Antimalware**.
