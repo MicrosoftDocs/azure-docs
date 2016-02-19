@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Update Infrastructure for Red Hat Enterprise Linux images | Microsoft Azure"
-   description="Introduce yum update service for on-demand Red Hat Enterprise Linux instance in Azure"
+   pageTitle="An update infrastructure for Red Hat Enterprise Linux images | Microsoft Azure"
+   description="Introduces the yum update service for an on-demand Red Hat Enterprise Linux instance in Azure"
    services="virtual-machines"
    documentationCenter=""
    authors="KylieLiang"
@@ -16,31 +16,30 @@
    ms.date="01/13/2016"
    ms.author="kyliel"/>
 
-# Update Infrastructure for Red Hat Enterprise Linux images
+# An update infrastructure for Red Hat Enterprise Linux images
 
-Red Hat Update Infrastructure (RHUI) in Azure is to manage yum repository content for Azure Red Hat Enterprise Linux (RHEL) images. Then on-demand RHEL instances created from Azure Marketplace will have access to the regional yum repository to receive incremental updates and is included in all prices.
+By using Red Hat Update Infrastructure (RHUI) in Azure, you can manage yum repository content for Azure Red Hat Enterprise Linux (RHEL) images. The on-demand RHEL instances that you created from Azure Marketplace will then have access to the regional yum repository. This allows RHEL instances to receive incremental updates.
 
-Yum repository list managed by Red Hat Update Infrastructure (RHUI) is configured in your Red Hat Enterprise Linux (RHEL) instance during provisioning. So you need not to do any additional configuration but just run "yum update" once your RHEL is running.
+The yum repository list, which is managed by RHUI, is configured in your RHEL instance during provisioning. So you don't need to do any additional configuration--just run `yum update` after your RHEL instance is running.
 
-## What is RHUI?
-[Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) offers a highly scalable solution to manage yum repository content for Red Hat Enterprise Linux cloud instances, hosted by Red Hat Certified Cloud Providers. Based on the upstream Pulp project, Red Hat Update Infrastructure allows cloud providers to locally mirror Red Hat-hosted repository content, create custom repositories with their own content, and make those repositories available to a large group of end users via a load-balanced content delivery system.
+## RHUI overview
+[Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) offers a highly scalable solution to manage yum repository content for Red Hat Enterprise Linux cloud instances that are hosted by Red Hat-certified cloud providers. Based on the upstream Pulp project, RHUI allows cloud providers to locally mirror Red Hat-hosted repository content, create custom repositories with their own content, and make those repositories available to a large group of end users through a load-balanced content delivery system.
 
-## Which regions RHUI is deployed in?
-Now RHUI is deployed in all public regions listed on [Azure Status Dashboard](https://azure.microsoft.com/status/). It means you could get yum update service without any additional charge in these regions.
+## Regions where RHUI is deployed
+RHUI is deployed in all public regions that are listed on the [Azure status dashboard](https://azure.microsoft.com/status/). This means that you can get the yum update service without any additional charge in these regions. This information will be updated in the future.
 
-Following supported region information will be updated in the future.
+## Get updates from an on-premises update repository (like Red Hat Network Satellite)
 
-## Could I get updates from an on-premises update repository, like Red Hat Network Satellite?
-You need to have Red Hat Cloud Access license and bring your existing Red Hat subscription to Azure.
+To get updates from an on-premises update repository, you need to have a Red Hat Cloud Access license and an existing Red Hat subscription to Azure.
 
-Then you need to de-register Red Hat Update Infrastructure (RHUI) and re-register to your on-premises update Infrastructure. Below are detailed steps.
+Then, you need to unregister RHUI and reregister to your on-premises update infrastructure. Below are detailed steps.
 
-1.	Edit /etc/yum.repos.d/rh-cloud.repo and change all 'enabled=1' to 'enabled=0’, one command line could be like the following:
+1.	Edit /etc/yum.repos.d/rh-cloud.repo and change all `enabled=1` to `enabled=0`. For example:
 
         # sed -i 's/enabled=1/enabled=0/g' /etc/yum.repos.d/rh-cloud.repo
 
-2.	Edit /etc/yum/pluginconf.d/rhnplugin.conf and change 'enabled=0' to 'enabled=1'
-3.	RHN register with
+2.	Edit /etc/yum/pluginconf.d/rhnplugin.conf and change `enabled=0` to `enabled=1`.
+3.	Then, register with Red Hat Network (RHN).
 
         rhn_register
 
@@ -49,7 +48,7 @@ Then you need to de-register Red Hat Update Infrastructure (RHUI) and re-registe
         rhnreg_ks
 
 
-> [AZURE.NOTE] Outbound data transfers will be charged, refer [here](http://azure.microsoft.com/pricing/details/data-transfers/). Recommend to use default RHUI to get incremental updates without additional charge.
+> [AZURE.NOTE] Outbound data transfers will be charged (see the [pricing details](http://azure.microsoft.com/pricing/details/data-transfers/)). We recommend using default RHUI to get incremental updates without incurring additional charges.
 
-## Next Steps
-Now you understand what is Red Hat Update Infrastrcture in Azure. Create RHEL image from [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/) and enjoy the experience of yum update in your RHEL instance.
+## Next steps
+Now that you understand RHUI in Azure, you can create a RHEL image from [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/) and use `yum update` in your RHEL instance.
