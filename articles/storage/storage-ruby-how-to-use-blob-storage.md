@@ -31,8 +31,17 @@ This guide will show you how to perform common scenarios using Blob storage. The
 
 ## Create a Ruby application
 
-Create a Ruby application. For instructions,
-see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Create a Ruby application. For instructions, see [Ruby on Rails Web application on an Azure VM](/develop/ruby/tutorials/web-app-with-linux-vm/)
+
+<!-- I tried this, and it doesn't work, don't know why. The link above doesn't work either.
+(../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Renders as 
+https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/virtual-machines-ruby-rails-web-app-linux/
+which gives a 404 
+-->
+
+
+/develop/ruby/tutorials/web-app-with-linux-vm/
 
 ## Configure your application to access Storage
 
