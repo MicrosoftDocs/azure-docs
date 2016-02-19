@@ -127,7 +127,7 @@ All data in the `$logs` container can be accessed by using the Blob service APIs
 
 Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to a storage service. Transactions are reported at both the API operation level as well as at the storage service level, and capacity is reported at the storage service level. Metrics data can be used to analyze storage service usage, diagnose issues with requests made against the storage service, and to improve the performance of applications that use a service.
 
-To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it from the [Azure Portal](https://portal.azure.com). For details, see [How To monitor a storage account](../how-to-monitor-a-storage-account.md). You can also enable Storage Analytics programmatically via the REST API or the client library. [Use the Get Blob Service Properties, Get Queue Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), and [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) operations to enable Storage Analytics for each service.
+To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it from the [Azure Portal](https://portal.azure.com). For details, see [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the **Get Service Properties** operations to enable Storage Analytics for each service.
 
 ### Transaction metrics
 
@@ -194,7 +194,7 @@ When looking at Storage Analytics data, you can use the tables in the [Storage A
 ## Next steps
 
 ### Setting up Storage Analytics
-- [How To monitor a storage account](../how-to-monitor-a-storage-account.md)
+- [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md)
 - [Enabling and Configuring Storage Analytics](https://msdn.microsoft.com/library/hh360996.aspx)
 
 ### Storage Analytics logging  
