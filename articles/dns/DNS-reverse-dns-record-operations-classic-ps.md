@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/16/2016"
+   ms.date="02/18/2016"
    ms.author="joaoma" />
 
 # How to manage reverse DNS records for your services (classic) using PowerShell
