@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Connect domain-joined devices to Azure AD for Windows 10 experiences | Microsoft Azure"
-	description="Explains how administrators can configure Group Policy settings to enable devices to be domain-joined to the enterprise network."
+	description="Explains how administrators can configure Group Policy to enable devices to be domain-joined to the enterprise network."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -28,8 +28,8 @@ Domain join in Windows 10 will provide the following benefits after you connect 
 - Single sign-on (SSO) to Azure AD resources from anywhere
 - Access to the enterprise Windows Store by using work or school accounts (no Microsoft account required)
 - Enterprise-compliant roaming of user settings across devices by using work or school accounts (no Microsoft account required)
-Strong authentication and convenient sign-in for work or school accounts with Microsoft Passport and Windows Hello
-- Ability to restrict access to devices that comply with organizational device Group Policy settings
+- Strong authentication and convenient sign-in for work or school accounts with Microsoft Passport and Windows Hello
+- Ability to restrict access only to devices that comply with organizational device Group Policy settings
 
 ## Prerequisites
 
@@ -76,9 +76,8 @@ On the Azure AD Connect server, run the following PowerShell commands:
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
 >[AZURE.NOTE]
-Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.<br><br>
-NOTE:<br><br>
-The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
+- Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
+- The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
 
 #### Configure AD FS claim rules
 Configuring the AD FS claim rules enables instantaneous registration of a computer with Azure Device Registration Service by allowing computers to authenticate by using Kerberos/NTLM via AD FS. Without this step, computers will get to Azure AD in a delayed manner (subject to Azure AD Connect sync times).
@@ -119,7 +118,7 @@ On the AD FS server (or on a session connected to the AD FS server), run the fol
     Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString
 
 >[AZURE.NOTE]
-Windows 10 computers will authenticate by using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. You can do this by checking that the adfs/services/trust/13/windowstransport shows as enabled in the AD FS management console under **Service** > **Endpoints**.
+Windows 10 computers will authenticate by using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. You can do this by checking the adfs/services/trust/13/windowstransport. It should show as enabled in the AD FS management console under **Service** > **Endpoints**.
 
 
 ### Step 2: Configure automatic device registration via Group Policy in Active Directory
