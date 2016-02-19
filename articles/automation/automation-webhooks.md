@@ -18,7 +18,7 @@
 # Azure Automation webhooks
 
 A *webhook* allows you to start a particular runbook in Azure Automation through a single HTTP request. This allows external services such as Visual Studio Team Services, GitHub, or custom applications to start runbooks without implementing a full solution using the Azure Automation API.  
-![Webhooks](media/automation-webhooks/webhooks-overview.png)
+![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 You can compare webhooks to other methods of starting a runbook in [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
 
@@ -39,7 +39,7 @@ A webhook can define values for runbook parameters that are used when the runboo
 
 When a client starts a runbook using a webhook, it cannot override the parameter values defined in the webhook.  To receive data from the client, the runbook can accept a single parameter called **$WebhookData** of type [object] that will contain data that the client includes in the POST request. 
 
-![Webhookdata](media/automation-webhooks/webhookdata.png)
+![Webhookdata properties](media/automation-webhooks/webhook-data-properties.png)
 
 The **$WebhookData** object will have the following properties:
 
