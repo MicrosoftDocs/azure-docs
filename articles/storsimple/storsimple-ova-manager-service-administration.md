@@ -82,7 +82,7 @@ For more information about each workflow, click the appropriate procedure in the
 |Restore shares from a backup set</br>Restore volumes from a backup set</br>Item-level recovery (file server only)|StorSimple Manager service → Backup Catalog|[Restore from a backup of your StorSimple Virtual Array](storsimple-ova-restore.md)|
 |About  storage accounts</br>Add a storage account</br>Edit a storage account</br>Delete a storage account|StorSimple Manager service → Configure|[Manage storage accounts for the StorSimple Virtual Array](storsimple-ova-manage-storage-accounts.md)|
 |About access control records</br>Add or modify an access control record </br>Delete an access control record|StorSimple Manager service → Configure|[Manage access control records for the StorSimple Virtual Array](storsimple-ova-manage-acrs.md)|
-|View job details|StorSimple Manager service → Jobs| [Manage jobs](storsimple-ova-manage-jobs.md)|
+|View job details|StorSimple Manager service → Jobs| [Manage StorSimple Virtual Array jobs](storsimple-ova-manage-jobs.md)|
 |Configure alert settings</br>Receive alert notifications</br>Manage alerts</br>Review alerts|StorSimple Manager service → Alerts|[View and manage alerts for the StorSimple Virtual Array](storsimple-ova-manage-alerts.md)|
 |Modify the device administrator password|StorSimple Manager service → Devices → Configure|[Change the StorSimple Virtual Array device administrator password](storsimple-ova-change-device-admin-password.md)|
 |Install software updates|StorSimple Manager service → Devices → Maintenance|[Update your Virtual Array](storsimple-ova-update.md)|
