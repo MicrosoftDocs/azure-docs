@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell](virtual-machines-windows-ps-manage.md)
-- [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+- [CLI](virtual-machines-linux-cli-deploy-templates.md)
 
 <br>
 
