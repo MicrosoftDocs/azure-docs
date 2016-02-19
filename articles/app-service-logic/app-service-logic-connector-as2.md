@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/11/2016"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 # Get started with the AS2 Connector and add it to your Logic App
@@ -107,9 +107,11 @@ Enable Archiving | boolean | Determines if the outbound message should be archiv
 The action returns a HTTP 200 response code on successful completion.
 
 ## Do more with your Connector
+You can [archive your AS2 messages](app-service-logic-archive-as2-messages.md).
+
 More on logic apps at [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

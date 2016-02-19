@@ -21,7 +21,7 @@
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
 
-Using the SAP connector, you can connect Azure App Services web, mobile, and logic apps to your existing SAP server. This allows you to invoke RFCs, BAPIs, tRFCs as well as send IDocs to the SAP server, even if it sits behind your on-premises firewall.
+Using the [SAP connector](app-service-logic-connector-sap.md), you can connect Azure App Services web, mobile, and logic apps to your existing SAP server. This allows you to invoke RFCs, BAPIs, tRFCs as well as send IDocs to the SAP server, even if it sits behind your on-premises firewall.
 
 If you have an on-premises SAP server, use a hybrid listener to establish connectivity with the SAP connector as shown:
 
