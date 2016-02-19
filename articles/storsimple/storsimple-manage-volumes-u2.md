@@ -202,7 +202,7 @@ Conversion from a tiered to a locally pinned volume can adversely affect device 
 - There is no current backup.
 - The device supports mixed workloads.
 
-Be sure to take a backup before you begin the conversion.  
+To minimize the effects that these factors may have, schedule the conversion for off-peak hours, remove any non-essential data from the device, and take a backup before you start the conversion.
 
 #### To change the volume type
 
