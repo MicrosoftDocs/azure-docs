@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
+   ms.date="02/19/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes (Update 2)
@@ -194,6 +194,15 @@ A locally pinned volume is fully provisioned when it is created. If you are conv
 You might want to change a locally pinned volume to a tiered volume if you need additional space to provision other volumes. When you convert the locally pinned volume to tiered, the available capacity on the device increases by the size of the released capacity. If connectivity issues prevent the conversion of a volume from the local type to the tiered type, the local volume will exhibit properties of a tiered volume until the conversion is completed. This is because some data might have spilled to the cloud. This spilled data will continue to occupy local space on the device that cannot be freed until the operation is restarted and completed.
 
 >[AZURE.NOTE] Converting a volume can take some time and you cannot cancel a conversion after it starts. The volume remains online during the conversion, and you can take backups, but you cannot expand or restore the volume while the conversion is taking place.  
+
+Conversion from a tiered to a locally pinned volume can adversely affect device performance. The following factors can increase the time it takes to complete the conversion:
+
+- There is insufficient bandwidth.
+- The device is already spilling to the cloud.
+- There is no current backup.
+- The device supports mixed workloads.
+
+Be sure to take a backup before you begin the conversion.  
 
 #### To change the volume type
 
