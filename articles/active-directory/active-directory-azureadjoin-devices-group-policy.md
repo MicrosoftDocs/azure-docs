@@ -75,11 +75,10 @@ On the Azure AD Connect server, run the following PowerShell commands:
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
-    >[AZURE.NOTE]
-    Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.
-
-    >[AZURE.NOTE]
-    The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
+>[AZURE.NOTE]
+Replace [*connector account name*] with the domain account that's used as the Active Directory connector account.<br><br>
+NOTE:<br><br>
+The user name of the credential that's entered when the Get-Credential pop-up appears, needs to be in the format *user@example.com*
 
 #### Configure AD FS claim rules
 Configuring the AD FS claim rules enables instantaneous registration of a computer with Azure Device Registration Service by allowing computers to authenticate by using Kerberos/NTLM via AD FS. Without this step, computers will get to Azure AD in a delayed manner (subject to Azure AD Connect sync times).
