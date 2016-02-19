@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Set up protection between on-premises VMware Sites"
-	description="Use this article to configure protection between two VMware sites using Azure Site Recovery."
+	pageTitle="Replicate on-premises VMware virtual machines or physical servers to a secondary site | Microsoft Azure"
+	description="Use this article to replicate VMware VMs or Windows/Linux physical servers to a secondary site with Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 
-# Set up protection between on-premises VMware sites
+# Replicate on-premises VMware virtual machines or physical servers to a secondary site
 
 
 ## Overview
@@ -27,7 +27,7 @@ InMage Scout in Azure Site Recovery provides real-time replication between on-pr
 
 ## Prerequisites
 
-- **Azure account**—You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/).
+- **Azure account**—You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing.
 
 
 ## Step 1: Create a vault
@@ -36,7 +36,7 @@ InMage Scout in Azure Site Recovery provides real-time replication between on-pr
 2. Click **Data Services** > **Recovery Services** > **Site Recovery Vault**.
 3. Click **Create New** > **Quick Create**.
 4. In **Name** enter a friendly name to identify the vault.
-5. In **Region** select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](pricing/details/site-recovery/).
+5. In **Region** select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 Check the status bar to confirm that the vault was successfully created. The vault will be listed as **Active** on the main Recovery Services page.
 
