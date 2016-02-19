@@ -76,7 +76,9 @@ var table = client.getTable(tableName);
 
 ##<a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
 
-##<a name="templates"></a>How to: Register push templates to send cross-platform notifications
+##<a name="register-for-push"></a>How to: Register for Push Notifications
+
+##<a name="push-xplat-templates"></a>How to: Handle Cross-Platform Templates with Notification Hubs
 
 ##<a name="errors"></a>How to: Handle Errors
 
