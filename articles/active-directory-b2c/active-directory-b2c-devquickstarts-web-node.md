@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/18/2016"
 	ms.author="brandwe"/>
 
 # B2C Preview: Add sign-in to a nodeJS Web App
@@ -54,7 +54,7 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 
 - Include a **web app/web api** in the application
 - Enter `http://localhost/TodoListService` as a **Reply URL** - it is the default URL for this code sample.
-- Create an **Application Secret** for your application and copy it down.  You will need it shortly.
+- Create an **Application Secret** for your application and copy it down. You will need it shortly. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before use.
 - Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -424,7 +424,7 @@ For reference, the completed sample (without your configuration values) [is prov
 
 You can now move onto more advanced topics.  You may want to try:
 
-[Secure a Web API with B2C model in node.js >>](active-directory-b2c-devquickstarts-webapi-nodejs.md)
+[Secure a Web API with B2C model in node.js >>](active-directory-b2c-devquickstarts-api-node.md)
 
 <!--
 

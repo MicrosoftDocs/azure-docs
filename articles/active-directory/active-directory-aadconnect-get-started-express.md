@@ -50,7 +50,7 @@ If you receive an error and have problems with connectivity, please see [Trouble
 6. On the Connect to AD DS screen enter the username and password for an enterprise admin account.  Click **Next**.
 ![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. On the Ready to configure screen, click **Install**.
-	- Optionally on the Ready to Configure page, you can un-check the “**Start the synchronization process as soon as configuration completes**” checkbox.  If you do this, the wizard will configure sync but will leave the task disabled so it will not run until you enable it manually in the Task Scheduler.  Once the task is enabled, synchronization will run every three hours.
+	- Optionally on the Ready to Configure page, you can un-check the **Start the synchronization process as soon as configuration completes** checkbox.  If you do this, the wizard will configure sync but will leave the task disabled so it will not run until you enable it manually in the Task Scheduler.  Once the task is enabled, synchronization will run every 30 minutes.
 	- Also optionally you can choose to configure sync services for **Exchange Hybrid deployment** by checking the corresponding checkbox.  If you don’t plan to have Exchange mailboxes both in the cloud and on premises, you do not need this.
 ![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 8. Once the installation completes, click **Exit**.
