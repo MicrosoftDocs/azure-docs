@@ -40,7 +40,7 @@ The basic syntax for AzCopy commands is:
 
 	AzCopy /Source:<source> /Dest:<destination> [Options]
 
-## AzCopy Blob Samples
+## AzCopy Blob Storage Samples
 
 Open a command window and navigate to the AzCopy installation directory on your computer, where the `AzCopy.exe` executable is located. The examples below demonstrate a variety of scenarios for copying blobs with AzCopy. Look at the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
 
@@ -164,7 +164,7 @@ After the copy operation, the directory `C:\myfolder` will include the following
 	C:\myfolder\a.txt
 	C:\myfolder\abcd.txt
 
-### Download blobs with the specified prefix to the file system, recursively
+### Download blobs with the specified prefix
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:a /S
 
@@ -213,107 +213,6 @@ After the copy operation, the target container will include the blob and its sna
 	abc (2013-02-25 080757).txt
 	abc (2014-02-21 150331).txt
 
-### Use a response file to specify command-line parameters
-
-	AzCopy /@:"C:\responsefiles\copyoperation.txt"
-
-You can include any AzCopy command-line parameters in a response file. AzCopy processes the parameters in the file as if they had been specified on the command line, performing a direct substitution with the contents of the file.
-
-Assume a response file named `copyoperation.txt`, that contains the following lines. Each AzCopy parameter can be specified on a single line or on it's own line:
-
-	/Source:http://myaccount.blob.core.windows.net/mycontainer
-	/Dest:C:\myfolder
-	/SourceKey:<sourcekey>
-	/S
-	/Y
-
-AzCopy will fail if you split the parameter across two lines, as shown here for the `/sourcekey` parameter:
-
-	http://myaccount.blob.core.windows.net/mycontainer
- 	C:\myfolder
-	/sourcekey:
-	[sourcekey]
-	/S
-	/Y
-
-### Use multiple response files to specify command-line parameters
-
-Assume a response file named `source.txt` that specifies a source container:
-
-	/Source:http://myaccount.blob.core.windows.net/mycontainer
-
-And a response file named `dest.txt` that specifies a destination folder in the file system:
-
-	/Dest:C:\myfolder
-
-And a response file named `options.txt` that specifies options for AzCopy:
-
-	/S /Y
-
-To call AzCopy with these response files, all of which reside in a directory `C:\responsefiles`, use this command:
-
-	AzCopy /@:"C:\responsefiles\source.txt" /@:"C:\responsefiles\dest.txt" /SourceKey:<sourcekey> /@:"C:\responsefiles\options.txt"   
-
-AzCopy processes this command just as it would if you included all of the individual parameters on the command line:
-
-	AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
-
-### Specify a shared access signature (SAS)
-
-**Specify a SAS for the source container using the /sourceSAS option**
-
-	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /DestC:\myfolder /SourceSAS:SAS /S
-
-**Specify a SAS for the source container on the source container URI**
-
-	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken /Dest:C:\myfolder /S
-
-**Specify a SAS for the destination container using the /destSAS option**
-
-	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer1 /DestSAS:SAS /Pattern:abc.txt
-
-**Specify a SAS for the source and destination containers**
-
-	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceSAS:SAS1 /DestSAS:SAS2 /Pattern:abc.txt
-
-### Specify a journal file folder
-
-Each time you issue a command to AzCopy, it checks whether a journal file exists in the default folder, or whether it exists in a folder that you specified via this option. If the journal file does not exist in either place, AzCopy treats the operation as new and generates a new journal file.
-
-If the journal file does exist, AzCopy will check whether the command line that you input matches the command line in the journal file. If the two command lines match, AzCopy resumes the incomplete operation. If they do not match, you will be prompted to either overwrite the journal file to start a new operation, or to cancel the current operation.
-
-**Use the default location for the journal file**
-
-	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
-
-If you omit option `/Z`, or specify option `/Z` without the folder path, as shown above, AzCopy creates the journal file in the default location, which is `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. If the journal file already exists, then AzCopy resumes the operation based on the journal file.
-
-**Specify a custom location for the journal file**
-
-	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z:C:\journalfolder\
-
-This example creates the journal file if it does not already exist. If it does exist, then AzCopy resumes the operation based on the journal file.
-
-**Resume an AzCopy operation**
-
-	AzCopy /Z:C:\journalfolder\
-
-This example resumes the last operation, which may have failed to complete.
-
-### Generate a log file
-
-**Write to the verbose log file in the default location**
-
-	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
-
-If you specify option `/V` without providing a file path to the verbose log, then AzCopy creates the log file in the default location, which is `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
-
-**Write to the verbose log file in a custom location**
-
-	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V:C:\myfolder\azcopy1.log
-
-Note that if you specify a relative path following option `/V`, such as `/V:test/azcopy1.log`, then the verbose log is created in the current working directory within a subfolder named `test`.
-
 ### Set the last-modified time of downloaded files to be same as the source blobs
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT
@@ -330,11 +229,7 @@ Specify the `/MT` option to compare the last-modified time of the source blob an
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
 
-### Specify the number of concurrent operations to start
-
-Option `/NC` specifies the number of concurrent copy operations. By default, AzCopy will begin concurrent operations at eight times the number of core processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for this option to avoid failure caused by resource competition.
-
-### 	Run AzCopy against blob resources in the storage emulator
+### Run AzCopy against blob resources in the storage emulator
 
 	AzCopy /Source:https://127.0.0.1:10004/myaccount/myfileshare/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
 
@@ -358,11 +253,11 @@ If you specify `/SetContentType` without a value, then AzCopy will set each blob
 
 	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
 
-## Copy files in Azure File storage with AzCopy
+## AzCopy File Storage Samples
 
-The examples below demonstrate a variety of scenarios for copying Azure files with AzCopy.
+Open a command window and navigate to the AzCopy installation directory on your computer, where the `AzCopy.exe` executable is located. The examples below demonstrate a variety of scenarios for copying files with AzCopy. Look at the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
 
-### Download a file from an Azure file share to the file system
+### Download a single file
 
 	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
@@ -491,6 +386,117 @@ The option `/EntityOperation` indicates how to insert entities into the table. P
 - `InsertOrReplace`: Replaces an existing entity or inserts a new entity if it does not exist in the table.
 
 Note that you cannot specify option `/PKRS` in the import scenario. Unlike the export scenario, in which you must specify option `/PKRS` to start concurrent operations, AzCopy will by default start concurrent operations when you import entities. The default number of concurrent operations started is equal to the number of core processors; however, you can specify a different number of concurrent with option `/NC`. For more details, type `AzCopy /?:NC` at the command line.
+
+## Other ways to use AzCopy
+
+### Use a response file to specify command-line parameters
+
+	AzCopy /@:"C:\responsefiles\copyoperation.txt"
+
+You can include any AzCopy command-line parameters in a response file. AzCopy processes the parameters in the file as if they had been specified on the command line, performing a direct substitution with the contents of the file.
+
+Assume a response file named `copyoperation.txt`, that contains the following lines. Each AzCopy parameter can be specified on a single line
+
+	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
+
+or on separate lines:
+
+	/Source:http://myaccount.blob.core.windows.net/mycontainer
+	/Dest:C:\myfolder
+	/SourceKey:<sourcekey>
+	/S
+	/Y
+
+AzCopy will fail if you split the parameter across two lines, as shown here for the `/sourcekey` parameter:
+
+	http://myaccount.blob.core.windows.net/mycontainer
+ 	C:\myfolder
+	/sourcekey:
+	<sourcekey>
+	/S
+	/Y
+
+### Use multiple response files to specify command-line parameters
+
+Assume a response file named `source.txt` that specifies a source container:
+
+	/Source:http://myaccount.blob.core.windows.net/mycontainer
+
+And a response file named `dest.txt` that specifies a destination folder in the file system:
+
+	/Dest:C:\myfolder
+
+And a response file named `options.txt` that specifies options for AzCopy:
+
+	/S /Y
+
+To call AzCopy with these response files, all of which reside in a directory `C:\responsefiles`, use this command:
+
+	AzCopy /@:"C:\responsefiles\source.txt" /@:"C:\responsefiles\dest.txt" /SourceKey:<sourcekey> /@:"C:\responsefiles\options.txt"   
+
+AzCopy processes this command just as it would if you included all of the individual parameters on the command line:
+
+	AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
+
+### Specify a shared access signature (SAS)
+
+**Specify a SAS for the source container using the /sourceSAS option**
+
+	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /DestC:\myfolder /SourceSAS:SAS /S
+
+**Specify a SAS for the source container on the source container URI**
+
+	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken /Dest:C:\myfolder /S
+
+**Specify a SAS for the destination container using the /destSAS option**
+
+	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer1 /DestSAS:SAS /Pattern:abc.txt
+
+**Specify a SAS for the source and destination containers**
+
+	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceSAS:SAS1 /DestSAS:SAS2 /Pattern:abc.txt
+
+### Specify a journal file folder
+
+Each time you issue a command to AzCopy, it checks whether a journal file exists in the default folder, or whether it exists in a folder that you specified via this option. If the journal file does not exist in either place, AzCopy treats the operation as new and generates a new journal file.
+
+If the journal file does exist, AzCopy will check whether the command line that you input matches the command line in the journal file. If the two command lines match, AzCopy resumes the incomplete operation. If they do not match, you will be prompted to either overwrite the journal file to start a new operation, or to cancel the current operation.
+
+**Use the default location for the journal file**
+
+	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
+
+If you omit option `/Z`, or specify option `/Z` without the folder path, as shown above, AzCopy creates the journal file in the default location, which is `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. If the journal file already exists, then AzCopy resumes the operation based on the journal file.
+
+**Specify a custom location for the journal file**
+
+	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z:C:\journalfolder\
+
+This example creates the journal file if it does not already exist. If it does exist, then AzCopy resumes the operation based on the journal file.
+
+**Resume an AzCopy operation**
+
+	AzCopy /Z:C:\journalfolder\
+
+This example resumes the last operation, which may have failed to complete.
+
+### Generate a log file
+
+**Write to the verbose log file in the default location**
+
+	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
+
+If you specify option `/V` without providing a file path to the verbose log, then AzCopy creates the log file in the default location, which is `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
+
+**Write to the verbose log file in a custom location**
+
+	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V:C:\myfolder\azcopy1.log
+
+Note that if you specify a relative path following option `/V`, such as `/V:test/azcopy1.log`, then the verbose log is created in the current working directory within a subfolder named `test`.
+
+### Specify the number of concurrent operations to start
+
+Option `/NC` specifies the number of concurrent copy operations. By default, AzCopy will begin concurrent operations at eight times the number of core processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for this option to avoid failure caused by resource competition.
 
 ## AzCopy Parameters
 
