@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="02/18/2016"
    ms.author="joaoma"/>
 
 # Application Gateway overview
@@ -25,7 +25,7 @@ Application Gateway currently supports layer-7 application delivery for the foll
 
 - HTTP load balancing
 - Cookie-based session affinity
-- Secure Sockets Layer (SSL) offload
+- [Secure Sockets Layer (SSL) offload](application-gateway-ssl.md)
 - [URL based content routing](application-gateway-url-route-overview.md) 
 
 ## HTTP layer 7 load balancing
