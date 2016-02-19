@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Tuning Data Ingestion Performance for Elasticsearch on Azure | Microsoft Azure"
+   pageTitle="Tuning data ingestion performance for Elasticsearch on Azure | Microsoft Azure"
    description="How to maximize data ingestion performance with Elasticsearch on Azure."
    services=""
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="02/18/2016"
    ms.author="masimms"/>
 
-# Tuning Data Ingestion Performance for Elasticsearch on Azure
+# Tuning data ingestion performance for Elasticsearch on Azure
 
 This article is [part of a series](guidance-elasticsearch.md). 
 
