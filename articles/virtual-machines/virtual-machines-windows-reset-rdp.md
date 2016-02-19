@@ -108,7 +108,7 @@ If you were unable to run the Azure IaaS (Windows) diagnostics package or runnin
 
 ## Additional resources
 
-[Azure VM extensions and features](virtual-machines-extensions-features.md)
+[Azure VM extensions and features](virtual-machines-windows-extensions-features.md)
 
 [Connect to an Azure virtual machine with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 

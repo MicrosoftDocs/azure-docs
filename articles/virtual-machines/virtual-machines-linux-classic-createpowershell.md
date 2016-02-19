@@ -23,6 +23,7 @@
 - [Azure CLI](virtual-machines-linux-cli-create.md)
 - [PowerShell](virtual-machines-linux-classic-createpowershell.md)
 
+
 <br>
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.

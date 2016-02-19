@@ -63,7 +63,7 @@ Follow the instructions in [Create an Oracle WebLogic Server 12c virtual machine
 ##Additional resources
 [Miscellaneous considerations for Oracle virtual machine images](miscellaneous-considerations-for-oracle-virtual-machine-images-new-article.md)
 
-[List of Oracle virtual machine images](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
+[List of Oracle virtual machine images](virtual-machines-linux-classic-oracle-images.md)
 
 [Connecting to Oracle Database from a Java Application](http://docs.oracle.com/cd/E11882_01/appdev.112/e12137/getconn.htm#TDPJD136)
 
