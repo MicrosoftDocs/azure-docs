@@ -12,14 +12,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/20/2016"
+   ms.date="02/19/2016"
    ms.author="alkohli" />
 
 # Technical specifications and compliance for the StorSimple device
 
 ## Overview
 
-The hardware components of your Microsoft Azure StorSimple device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power and Cooling Modules (PCMs), disk drives, and enclosures. The compliance information covers such things as international standards, safety and emissions, and cabling. 
+The hardware components of your Microsoft Azure StorSimple device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the storage capacity, Power and Cooling Modules (PCMs), disk drives, and enclosures. The compliance information covers such things as international standards, safety and emissions, and cabling.
+
+## Storage specifications
+
+| Device model/ Capacity                         | 8100                                                    | 8600                                                    |
+|------------------------------------------------|---------------------------------------------------------|---------------------------------------------------------|
+| Number of Hard Drive Disks (HDDs)              |   8                                                     |  19                                                     |
+| Number of solid state disks (SSDs)             |   4                                                     |  5                                                      |
+| HDD capacity                                   |   4 TB                                                  |  4 TB                                                   |
+| SSD capacity                                   |   400 GB                                                |  800 GB                                                 |
+| Usable HDD capacity                            | 14 TB                                                   | 36 TB                                                   |
+| Usable SSD capacity                            | 800 GB                                                  | 2 TB                                                    |
+| Effective Local capacity*                      | 15 - 45 TB                                              | 38 - 115 TB                                             |
+| Maximum capacity (including cloud)             | 200 TB                                                  | 500 TB                                                  | 
 
 ## Power and Cooling Module specifications  
 
