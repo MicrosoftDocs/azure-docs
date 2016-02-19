@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/08/2016"
 	ms.author="sethm"/>
 
 # Manage Service Bus with PowerShell
@@ -27,10 +27,10 @@ Microsoft Azure PowerShell is a scripting environment that you can use to contro
 Before you begin this article, you must have the following:
 
 - An Azure subscription. Azure is a subscription-based platform. For more
-information about obtaining a subscription, see [Purchase Options],
-[Member Offers], or [Free Trial].
+information about obtaining a subscription, see [Purchase Options][],
+[Member Offers][], or [Free Trial][].
 
-- A computer with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell].
+- A computer with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][].
 
 - A general understanding of PowerShell scripts, NuGet packages, and the .NET Framework.
 
@@ -177,7 +177,7 @@ Some ready-made scripts are also available for download:
 [Purchase Options]: http://azure.microsoft.com/pricing/purchase-options/
 [Member Offers]: http://azure.microsoft.com/pricing/member-offers/
 [Free Trial]: http://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell]: ../install-configure-powershell.md
+[Install and configure Azure PowerShell]: ../powershell-install-configure.md
 [Service Bus NuGet package]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx

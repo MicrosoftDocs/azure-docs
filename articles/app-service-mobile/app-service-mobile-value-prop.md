@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/04/2016"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>What are Mobile Apps?
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Azure App Service is a fully managed Platform as a Service (PaaS) offering for professional developers that brings a rich set of capabilities to web, mobile and integration scenarios. *Mobile Apps* in *Azure App Service* offer a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
 
@@ -27,7 +25,7 @@ Azure App Service is a fully managed Platform as a Service (PaaS) offering for p
 ##Why Mobile Apps?
 *Mobile Apps* in *Azure App Service* offers a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers. With Mobile Apps you can:
 
-- **Build native and cross platform apps** - whether you're building native iOS, Android, and Windows apps or cross-platform Xamarin or Cordova (Phonegap) apps, you can take advantage of App Service using native SDKs.  
+- **Build native and cross platform apps** - whether you're building native iOS, Android, and Windows apps or cross-platform Xamarin or Cordova (Phonegap) apps, you can take advantage of App Service using native SDKs.
 - **Connect to your enterprise systems** - with Mobile Apps you can add corporate sign on in minutes, and connect to your enterprise on-premises or cloud resources.
 - **Connect to SaaS APIs easily** - with more than 40 SaaS API connectors, you can easily integrate your app with SaaS APIs your enterprise uses today. Want to update account status in both CRM and the billing system? Mobile Apps offer enterprise SaaS APIs at your fingertips.
 - **Build offline-ready apps with sync** - make your mobile workforce productive by building apps that work offline and use Mobile Apps to sync data in the background when connectivity is present with any of your enterprise data sources or SaaS APIs.
@@ -52,4 +50,4 @@ For more information on Azure App Service platform, see [Azure App Service].
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Get Started]: app-service-mobile-ios-get-started.md
 
- 
+

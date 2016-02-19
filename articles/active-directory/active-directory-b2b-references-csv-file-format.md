@@ -2,6 +2,7 @@
    pageTitle="CSV file format for Azure Active Directory B2B collaboration preview | Microsoft Azure"
    description="Azure Active Directory B2B supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/09/2016"
    ms.author="viviali"/>
 
-# CSV file format for Azure Active Directory (Azure AD) B2B collaboration preview
+# Azure AD B2B collaboration preview: CSV file format
 
 The preview version of Azure AD B2B collaboration requires a CSV file specifying partner user information to be uploaded through the Azure AD portal. The CSV file should contain the required labels below, and optional fields as necessary. Modify the sample CSV file (below) without changing the spelling of the labels in the first row or reordering the columns.
 
@@ -67,3 +68,5 @@ Browse our other articles on Azure B2B collaboration
 - [External user token format](active-directory-b2b-references-external-user-token-format.md)
 - [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+

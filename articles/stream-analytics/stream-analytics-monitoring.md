@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/03/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # Understand Stream Analytics job monitoring and how to monitor queries

@@ -392,21 +392,19 @@ Enabling HTTPS for a custom domain is only available for the **Standard** and **
 
 > [AZURE.NOTE] Before switching an app from the **Free** tier to **Standard** tier, you should remove spending caps in place for your subscription, otherwise you risk your app becoming unavailable if you reach your caps before the billing period ends. For more information on shared and **Standard** tier, see [Pricing Details][pricing].
 
-1.	In your browser, open the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
+1.	In your browser, open the [Azure Portal](https://portal.azure.com).
 	
-2.	Click the **Browse** option on the left side of the page.
-
-3.	Click the **Web Apps** blade.
+2.	Click the **App Service** option on the left side of the page.
 
 4.	Click the name of your app.
 
 5.	In the **Essentials** page, click **Settings**.
 
-6.	Click **Scale**
+6.	Click **Scale Up**
 	
 	![The scale tab][scale]
 
-7.	In the **Scale** section, set the App Service plan mode by clicking **Select**.
+7.	In the **Scale Up** section, set the App Service plan mode by clicking **Select**.
 
 	> [AZURE.NOTE] If you receive a "Configuring scale for web app '&lt;app name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Azure support](/support/options/).
 
@@ -415,11 +413,9 @@ Enabling HTTPS for a custom domain is only available for the **Standard** and **
 
 Before performing the steps in this section, you must have associated a custom domain name with your app. For more information, see [Configuring a custom domain name for a web app][customdomain].
 
-1.	In your browser, open the [Azure Management Portal](https://portal.azure.com).
+1.	In your browser, open the [Azure Portal](https://portal.azure.com).
 
-2.	Click the **Browse** option on the left side of the page.
-
-3.	Click the **Web Apps** blade.
+2.	Click the **App Service** option on the left side of the page.
 
 4.	Click the name of your app.
 

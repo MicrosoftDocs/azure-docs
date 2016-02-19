@@ -186,8 +186,6 @@ The steps for pushing your Visual Studio solution to Web Apps is the same as in 
 
 -	Add the entire solution's directory tree to your repository, with the .sln file in the repository root.
 
--	In your Visual Studio solution, [enable NuGet Package Restore](http://docs.nuget.org/Consume/Package-Restore) to make Visual Studio automatically restore missing packages.
-
 Once you have set up your repository as described, and configured your web app in Azure for continuous publishing from one of the online Git repositories, you can develop your ASP.NET application locally in Visual Studio and continuously deploy your code simply by pushing your changes to your online Git repository.
 
 ## Disable continuous deployment

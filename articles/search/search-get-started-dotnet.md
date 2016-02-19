@@ -13,11 +13,14 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/21/2016"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Get started with your first Azure Search application in .NET
-
+> [AZURE.SELECTOR]
+- [.NET](search-get-started-dotnet.md)
+- [Portal](search-get-started-portal.md)
+ 
 Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience. This tutorial uses the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx), as well as the Azure Search service REST API.
 
 To run this sample, you'll need an Azure Search service, which you can sign up for in the [Azure Portal](https://portal.azure.com). For step-by-step instructions, see [Create an Azure Search service in the portal](search-create-service-portal.md).
@@ -78,7 +81,7 @@ When you're finished creating the projects, your solution should look similar to
 
 4. Next, install the Azure Search .NET client library. Be sure to specify the search correctly or you won't easily find the package. Right-click **Manage NuGet Packages** again.
 
-5. Specify **Online** > **nuget.org** > **Include Prerelease**, and then search for *azure.search*. Click **Install** to install the library.
+5. Specify **Online** > **nuget.org** > **Stable Only**, and then search for *azure.search*. Click **Install** to install the library.
 
    ![][12]
 

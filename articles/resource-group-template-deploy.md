@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/23/2015"
+   ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
 # Deploy an application with Azure Resource Manager template
@@ -107,6 +107,8 @@ You specify the type of deployment through the **Mode** property, as shown in th
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
           [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
+     If the template includes a parameter with a name that matches one of the parameters in the command to deploy the template (such as including a parameter named **ResourceGroupName** in your template which is the same as the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet), you will be prompted to provide a value for a parameter with the postfix **FromTemplate** (such as **ResourceGroupNameFromTemplate**). In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
 
 6. To get information about deployment failures.
 
@@ -272,14 +274,14 @@ If you use a parameter file to pass the parameter values to your template during
 
 The size of the parameter file cannot be more than 64 KB.
 
-For how to define parameters in template, see [Authoring templates](resource-group-authoring-templates.md/#parameters)
+For how to define parameters in template, see [Authoring templates](../resource-group-authoring-templates/#parameters)
 For details about KeyVault reference to pass secure values, see [Pass secure values during deployment
 ](resource-manager-keyvault-parameter.md)
 
 ## Next steps
 - For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](./virtual-machines/arm-template-deployment.md)
 - For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md).
 - To learn about the sections of the Azure Resource Manager template, see [Authoring templates](resource-group-authoring-templates.md)
 - For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](resource-group-template-functions.md)
 
