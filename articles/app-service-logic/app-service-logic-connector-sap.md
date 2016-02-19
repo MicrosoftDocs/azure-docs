@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="02/18/2016"
    ms.author="sameerch"/>
 
 
@@ -63,6 +63,8 @@ The SAP Connector does require hybrid connectivity to connect to *any* SAP endpo
 3. Follow the install process which gets initiated and provide the primary connection string when asked for
 4. Once the setup process is complete, then a dialog similar to the following is displayed:   
 ![][3]
+
+More on [integrating with an on-premises SAP server](app-service-logic-integrate-with-an-on-premise-sap-server.md). 
 
 Now when you browse to the created API App again then you will observe the hybrid connection status as Connected:  
 ![][4]
