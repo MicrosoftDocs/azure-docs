@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/17/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Recover a database from user error in SQL Data Warehouse
@@ -25,14 +25,16 @@ SQL Data Warehouse offers two core capabilities for recovering from user error t
 
 Both of these capabilities restore to a new database on the same server.
 
+There are two different APIs that support a SQL Data Warehouse database restore: Azure PowerShell and REST API. You can use either one to access the SQL Data Warehouse restore functionality.
+
 ## Recover a live database
-In the event of user error causing unintended data modification, you can restore the database to any of the restore points within the retention period. The database snapshots for a live database occur every 8 hours and are retained for 7 days. 
+In the event of user error causing unintended data modification, you can restore the database to any of the restore points within the retention period. The database snapshots for a live database occur at least every 8 hours and are retained for 7 days.
 
 ### PowerShell
 
-Use Azure PowerShell to programmatically perform database restore. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
+Use Azure PowerShell to programmatically perform database restore. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
-To restore a database, use the [Start-AzureSqlDatabaseRestore][] cmdlet. 
+To restore a database, use the [Start-AzureSqlDatabaseRestore][] cmdlet.
 
 1. Open Microsoft Azure PowerShell.
 2. Connect to your Azure account and list all the subscriptions associated with your account.
@@ -81,7 +83,7 @@ After the restore has completed, you can configure your recovered database to be
 In the event a database is deleted, you can restore the deleted database to the time of deletion. Azure SQL Data Warehouse takes a database snapshot before the database is dropped and retains it for 7 days.
 
 ### PowerShell
-Use Azure PowerShell to programmatically perform a deleted database restore. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
+Use Azure PowerShell to programmatically perform a deleted database restore. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
 To restore a deleted database, use the [Start-AzureSqlDatabaseRestore][] cmdlet.
 
