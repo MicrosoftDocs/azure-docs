@@ -21,7 +21,7 @@ ms.service="virtual-machines"
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
-This article shows you how to set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [size A8 and A9 compute-intensive instances](virtual-machines-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you set up size A8 and A9 Windows Server-based instances to run in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
+This article shows you how to set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [size A8 and A9 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you set up size A8 and A9 Windows Server-based instances to run in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
 If you want to run MPI workloads on Linux VMs that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md).
 
@@ -37,7 +37,7 @@ instances with Microsoft HPC Pack.
 
 ## Prerequisites
 
-* **Review [background information and considerations](virtual-machines-a8-a9-a10-a11-specs.md)** about the compute-intensive instances
+* **Review [background information and considerations](virtual-machines-windows-a8-a9-a10-a11-specs.md)** about the compute-intensive instances
 
 
 * **Azure subscription** - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
@@ -111,9 +111,9 @@ in an Azure VM.
 
 ## Scenario 2. Deploy compute nodes in compute-intensive VMs (IaaS)
 
-In this scenario, you deploy the HPC Pack head node and cluster compute nodes on VMs joined to an Active Directory domain in an Azure virtual network. HPC Pack provides a number of [deployment options in Azure VMs](virtual-machines-hpcpack-cluster-options.md), including automated deployment scripts and Azure quickstart templates. As an example, the considerations and steps below guide you to use
+In this scenario, you deploy the HPC Pack head node and cluster compute nodes on VMs joined to an Active Directory domain in an Azure virtual network. HPC Pack provides a number of [deployment options in Azure VMs](virtual-machines-linux-hpcpack-cluster-options.md), including automated deployment scripts and Azure quickstart templates. As an example, the considerations and steps below guide you to use
 the [HPC Pack IaaS deployment
-script](virtual-machines-hpcpack-cluster-powershell-script.md) to
+script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to
 automate most of this process.
 
 ![Cluster in Azure VMs][iaas]
@@ -141,7 +141,7 @@ automate most of this process.
 
     Download the HPC Pack IaaS Deployment Script package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922).
 
-    To prepare the client computer, create the script configuration file, and run the script, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md). To deploy size A8 and A9 compute nodes, see the additional considerations later in this article.
+    To prepare the client computer, create the script configuration file, and run the script, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md). To deploy size A8 and A9 compute nodes, see the additional considerations later in this article.
 
 2. **Bring the compute nodes online to run jobs**
 
