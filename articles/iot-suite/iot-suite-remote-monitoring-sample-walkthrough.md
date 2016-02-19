@@ -78,11 +78,90 @@ The device command acknowledgment is provided through the IoT hub.
 
 ### Azure Stream Analytics jobs
 
-**Job 1: Telemetry** operates on the incoming device telemetry stream using two commands. The first command sends all telemetry messages from the devices to persistent blob storage. The second command computes average, minimum, and maximum humidity values over a five minute sliding window. This data is also sent to blob storage.
+**Job 1: Telemetry** operates on the incoming device telemetry stream using two commands. The first command sends all telemetry messages from the devices to persistent blob storage. The second command computes average, minimum, and maximum humidity values over a five minute sliding window. This data is also sent to blob storage. This job uses the following query definition:
 
-**Job 2: Device Info** filters device information messages from the incoming message stream and sends them to an Event Hub endpoint. A device sends device information messages at start up and in response to a **SendDeviceInfo** command.
+```
+WITH 
+    [StreamData]
+AS (
+    SELECT
+        *
+    FROM 
+      [IoTHubStream] 
+    WHERE
+        [ObjectType] IS NULL -- Filter out device info and command responses
+) 
 
-**Job 3: Rules** evaluates incoming temperature and humidity telemetry values against per-device thresholds. Threshold values are set in the rules editor included in the solution. Each device/value pair is stored by timestamp in a blob which is read into Stream Analytics as **Reference Data**. The job compares any non-empty value against the set threshold for the device. If it exceeds the '>' condition, the job will output an **alarm** event that indicates that the threshold was exceeded and provides the device, value, and timestamp values.
+SELECT
+    *
+INTO
+    [Telemetry]
+FROM
+    [StreamData]
+
+SELECT
+    DeviceId,
+    AVG (Humidity) AS [AverageHumidity], 
+    MIN(Humidity) AS [MinimumHumidity], 
+    MAX(Humidity) AS [MaxHumidity], 
+    5.0 AS TimeframeMinutes 
+INTO
+    [TelemetrySummary]
+FROM
+    [StreamData]
+WHERE
+    [Humidity] IS NOT NULL
+GROUP BY
+    DeviceId, 
+    SlidingWindow (mi, 5)
+```
+
+**Job 2: Device Info** filters device information messages from the incoming message stream and sends them to an Event Hub endpoint. A device sends device information messages at start up and in response to a **SendDeviceInfo** command.This job uses the following query definition:
+
+```
+SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
+```
+
+**Job 3: Rules** evaluates incoming temperature and humidity telemetry values against per-device thresholds. Threshold values are set in the rules editor included in the solution. Each device/value pair is stored by timestamp in a blob which is read into Stream Analytics as **Reference Data**. The job compares any non-empty value against the set threshold for the device. If it exceeds the '>' condition, the job will output an **alarm** event that indicates that the threshold was exceeded and provides the device, value, and timestamp values.This job uses the following query definition:
+
+```
+WITH AlarmsData AS 
+(
+SELECT
+     Stream.DeviceID,
+     'Temperature' as ReadingType,
+     Stream.Temperature as Reading,
+     Ref.Temperature as Threshold,
+     Ref.TemperatureRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+
+UNION ALL
+
+SELECT
+     Stream.DeviceID,
+     'Humidity' as ReadingType,
+     Stream.Humidity as Reading,
+     Ref.Humidity as Threshold,
+     Ref.HumidityRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
+)
+
+SELECT *
+INTO DeviceRulesMonitoring
+FROM AlarmsData
+
+SELECT *
+INTO DeviceRulesHub
+FROM AlarmsData
+```
 
 ### Event Processor
 
