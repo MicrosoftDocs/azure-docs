@@ -13,11 +13,13 @@
 	ms.service="virtual-machines" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.tgt_pltfrm="infrastructure,vm-windows"
+	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure" 
 	ms.date="12/14/2015" 
 	ms.author="rasquill" 
-
+/>
+	
+	
 # Virtual Machines and Containers in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
