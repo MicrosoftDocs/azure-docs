@@ -11,7 +11,7 @@
 <tags
 	ms.service="azure-resource-manager"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm=""
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="01/19/2016"

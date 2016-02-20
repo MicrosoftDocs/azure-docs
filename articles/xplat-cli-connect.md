@@ -11,7 +11,7 @@
 <tags
 	ms.service="multiple"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm=""
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/29/2015"
