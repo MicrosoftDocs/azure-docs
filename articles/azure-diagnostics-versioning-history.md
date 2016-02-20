@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Diagnostics Version History"
-	description="Change log for Azure diagnostics versions shipped in Azure SDKs"
+	description="Explanation of changes in the different versions of Azure diagnostics as shipped with different Microsoft Azure SDKs versions."
 	services="multiple"
 	documentationCenter=".net"
 	authors="rboucher"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="multiple"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
@@ -37,13 +37,12 @@ Azure SDK version | Azure Diagnostics version | Model
 
 The latest version is 1.5, which shipped with Azure SDK 2.8. The version of Azure Diagnostics extension that ships with the SDK is only used for local emulator scenarios. Any deployed application automatically uses the latest version when running in Azure, irrespective of which version of the SDK the application is built with. However, unless you install the latest Azure SDK, you may not have all the tools that help you utilize the new features.
 
-## What has changed across versions?
 Various features and changes described below.
 
-### Azure SDK 2.8
+## Azure SDK 2.8
 Azure SDK 2.8 added the ability to send diagnostics data to [Application Insights](./application-insights/app-insights-cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
 
-### Azure 2.6 diagnostics changes
+## Azure 2.6 diagnostics changes
 
 For Azure SDK 2.6 Cloud Service projects in Visual Studio, the following changes were made. (These changes also apply to later versions of Azure SDK.)
 
@@ -63,7 +62,7 @@ There are some notable differences between how the connection string worked in A
 
 ### Migrating projects to Azure SDK 2.6 and later
 
-When migrating from Azure SDK 2.5 to Azure SDK 2.6 or later, if you had a diagnostics storage account specified in the .wadcfgx file, then it will stay there. To take advantage of the flexibility of using different storage accounts for different storage configurations, you'll have to manually add the connection string to your project.If you're migrating a project from Azure SDK 2.4 or earlier to Azure SDK 2.6, then the diagnostics connection strings are preserved. However, please note the changes in how connection strings are treated in Azure SDK 2.6 as specified in the previous section.
+When migrating from Azure SDK 2.5 to Azure SDK 2.6 or later, if you had a diagnostics storage account specified in the .wadcfgx file, then it will stay there. To take advantage of the flexibility of using different storage accounts for different storage configurations, you'll have to manually add the connection string to your project. If you're migrating a project from Azure SDK 2.4 or earlier to Azure SDK 2.6, then the diagnostics connection strings are preserved. However, please note the changes in how connection strings are treated in Azure SDK 2.6 as specified in the previous section.
 
 ### How Visual Studio determines the diagnostics storage account
 
@@ -79,7 +78,7 @@ The checkbox for **Update development storage connection strings for Diagnostics
 
 For example, suppose you select this checkbox and the diagnostics connection string specifies `UseDevelopmentStorage=true`. When you publish the project to Azure, Visual Studio will automatically update the diagnostics connection string with the storage account you specified in the Publish wizard. However, if a real storage account was specified as the diagnostics connection string, then that account is used instead.
 
-### Diagnostics functionality differences between Azure SDK 2.4 and earlier and Azure SDK 2.5 and later
+## Diagnostics functionality differences between Azure SDK 2.4 and earlier and Azure SDK 2.5 and later
 
 If you're upgrading your project from Azure SDK 2.4 to Azure SDK 2.5 or later, you should bear in mind the following diagnostics functionality differences.
 
