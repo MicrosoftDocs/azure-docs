@@ -14,8 +14,7 @@
    ms.date="02/18/2016"
    ms.author="magoedte;bwren"/>
 
-Starting a runbook in Azure Automation
-======================================
+# Starting a runbook in Azure Automation
 
 The following table will help you determine the method to start a runbook in Azure Automation that is most suitable to your particular scenario. This article includes details on starting a runbook with the Azure portal and with Windows PowerShell. Details on the other methods are provided in other documentation that you can access from the links below.
 
@@ -33,8 +32,7 @@ The following image illustrates detailed step-by-step process in the life cycle 
 
 ![Runbook Architecture](media/automation-starting-runbook/runbooks-architecture.png)
 
-Starting a runbook with the Azure portal
-----------------------------------------
+## Starting a runbook with the Azure portal
 
 1.	In the Azure portal, select **Automation** and then then click the name of an automation account.
 2.	Select the **Runbooks** tab.
@@ -42,8 +40,7 @@ Starting a runbook with the Azure portal
 4.	If the runbook has parameters, you will be prompted to provide values with a text box for each parameter. See [Runbook Parameters](#Runbook-parameters) below for further details on parameters.
 5.	Either select **View Job** next to the **Starting** runbook message or select the **Jobs** tab for the runbook to view the runbook job’s status.
 
-Starting a runbook with the Azure portal
-----------------------------------------
+## Starting a runbook with the Azure portal
 
 1.	From your automation account, click the **Runbooks** part to open the **Runbooks** blade.
 2.	Click a runbook to open its **Runbook** blade.
@@ -51,8 +48,7 @@ Starting a runbook with the Azure portal
 4.	If the runbook has no parameters, you will be prompted to confirm whether you want to start it. If the runbook has parameters, the **Start Runbook** blade will be opened so you can provide parameter values. See [Runbook Parameters](#Runbook-parameters) below for further details on parameters.
 5.	The **Job** blade is opened so that you can track the job's status.
 
-Starting a runbook with Windows PowerShell
-------------------------------------------
+## Starting a runbook with Windows PowerShell
 
 You can use the [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/azure/dn690259.aspx) to start a runbook with Windows PowerShell. The following sample code starts a runbook called Test-Runbook.
 
@@ -82,8 +78,7 @@ $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
 Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" –Parameters $params
 ```
 
-Runbook parameters
-------------------
+## Runbook parameters
 
 When you start a runbook using the Azure Management Portal or Windows PowerShell, the instruction is sent through the Azure Automation web service. This service does not support parameters with complex data types. If you need to provide a value for a complex parameter, then you must call it inline from another runbook as described in [Child runbooks in Azure Automation](automation-child-runbooks.md).
 
@@ -189,7 +184,6 @@ Assuming the username in the credential was *jsmith*, this results in the follow
 jsmith
 ```
 
-Next Steps
-----------
+## Next Steps
 
 -	The runbook architecture in current article provides a high-level description about the hybrid runbooks, to know more details, see [Child runbooks in Azure Automation](automation-child-runbooks.md)
