@@ -44,11 +44,11 @@ To back up files and data from a Windows machine to Azure, you need to create a 
 
     ![Create vault](./media/backup-try-azure-backup-in-10-mins/second-blade-backup.png)
 
-3. On the resulting screen, for **Name**, enter a friendly name to identify the backup vault. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers and hyphens.
+    a. On the resulting screen, for **Name**, enter a friendly name to identify the backup vault. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers and hyphens.
 
-4. For **Region**, select the geographic region for the backup vault. By choosing a geographic region close to your location, you can reduce network latency when backing up to Azure.
+    b. For **Region**, select the geographic region for the backup vault. By choosing a geographic region close to your location, you can reduce network latency when backing up to Azure.
 
-5. Click **Create Vault**.
+    c. Click **Create Vault**.
 
     ![Create vault](./media/backup-try-azure-backup-in-10-mins/demo-vault-name.png)
 
@@ -78,17 +78,17 @@ To back up files and data from a Windows machine to Azure, you need to create a 
 
     ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
 
-   >[AZURE.NOTE] Learn more about choosing storage redundancy options in this [overview](../storage/storage-redundancy.md).
+    >[AZURE.NOTE] Learn more about choosing storage redundancy options in this [overview](../storage/storage-redundancy.md).
 
     d. Click **Recovery Services**, in the left navigation pane to return to the list of resources for *Recovery Services*.
 
     Your Windows machine now needs to be authenticated with the backup vault you just created. The authentication is achieved using vault credentials.
 
-3.  Click on the *vault* you just created.
+7.  Click on the vault you just created.
 
     ![Creating Vault status](./media/backup-try-azure-backup-in-10-mins/demo-vault-active-full-screen.png)
 
-4. From the **Quick Start** page, click **Download vault credentials**.
+8. From the **Quick Start** page, click **Download vault credentials**.
 
     ![Download](./media/backup-try-azure-backup-in-10-mins/downloadvc.png)
 
@@ -96,7 +96,7 @@ To back up files and data from a Windows machine to Azure, you need to create a 
 
     >[AZURE.NOTE] The vault credentials file is used only during the registration workflow and expires after 48hrs.
 
-5. Click **Save** to download the vault credentials to the local account's *Downloads* folder, or select **Save As** from the *Save* menu to specify a location for the vault credentials.
+9. Click **Save** to download the vault credentials to the local account's *Downloads* folder, or select **Save As** from the *Save* menu to specify a location for the vault credentials.
 
     Ensure that the vault credentials are saved in a location that can be accessed from your machine. If the file is stored in a file share/SMB, check for the access permissions.
 
@@ -104,27 +104,31 @@ To back up files and data from a Windows machine to Azure, you need to create a 
 
     Next, you need to download the backup agent
 
-6. Click **Recovery Services**, in the left navigation pane and then click the *backup vault* that you want to register with a server.
+10. Click **Recovery Services**, in the left navigation pane and then click the backup vault that you want to register with a server.
 
     ![Select backup vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
 
-7. On the Quick Start page, click **Agent for Windows Server or System Center Data Protection Manager or Windows Client > Save** (or select **Save As** from the *Save* menu to specify a location for the agent).
+11. On the Quick Start page, click **Agent for Windows Server or System Center Data Protection Manager or Windows Client > Save** (or select **Save As** from the *Save* menu to specify a location for the agent).
 
     ![Save agent](./media/backup-try-azure-backup-in-10-mins/agent.png)
 
+At this point, you've finished creating a backup vault and downloading the necessary components. Now you'll install the backup agent.
+
 ## Step 3: Install the Azure Backup agent on your Windows Server or client
 
-1. After the *MARSagentinstaller.exe* download is completed, click **Run** (or double click **MARSAgentInstaller.exe** from the saved location).
+1. After the *MARSagentinstaller.exe* download finishes, click **Run** (or double click **MARSAgentInstaller.exe** from the saved location).
 
-2. Choose the *installation folder* and *cache folder* required for the agent and click **Next**.
+2. Choose the *installation folder* and *cache folder* required for the agent.
 
     The cache location you specify must have free space equal to at least 5% of the backup data.
 
+    Click **Next**.
+
     ![Scratch and Cache](./media/backup-try-azure-backup-in-10-mins/recovery-services-agent-setup-wizard-1.png)
 
-3. You can continue to connect to the internet through default proxy settings, or if you use a proxy server to connect to the internet, in the **Proxy configuration** screen, check the **Use custom proxy settings** box and enter the proxy server details.
+3. You can continue to connect to the internet through the default proxy settings, or if you use a proxy server to connect to the internet, in the **Proxy configuration** screen, check the **Use custom proxy settings** box and enter the proxy server details.
 
-   If you use an authenticated proxy, enter the user name and password details.
+    If you use an authenticated proxy, enter the user name and password details.
 
    Click **Next**.
 
@@ -142,17 +146,17 @@ To back up files and data from a Windows machine to Azure, you need to create a 
 
 6. In the **Vault Identification** screen, browse to and select the *vault credentials file* you previously downloaded. Ensure that the vault credentials file is available in a location that can be accessed by the setup application.
 
-    ![Vault credentials](./media/backup-try-azure-backup-in-10-mins/vault-identification-with-creds.png)
-
     Click **Next**.
 
-7. In the **Encryption setting** screen, you can either generate a passphrase or provide a passphrase (minimum of 16 characters). Remember to save the passphrase in a secure location.
+    ![Vault credentials](./media/backup-try-azure-backup-in-10-mins/vault-identification-with-creds.png)
 
-    ![Encryption](./media/backup-try-azure-backup-in-10-mins/encryption.png)
+7. In the **Encryption setting** screen, you can either generate a passphrase or provide a passphrase (minimum of 16 characters). Remember to save the passphrase in a secure location.
 
     > [AZURE.WARNING] If the passphrase is lost or forgotten Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user. Please save the file in a secure location as it is required during a recovery operation.
 
     Click **Finish**.
+
+    ![Encryption](./media/backup-try-azure-backup-in-10-mins/encryption.png)
 
     The **Register Server Wizard** registers the server with Microsoft Azure Backup.
 
