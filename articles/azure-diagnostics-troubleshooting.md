@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Troubleshooting Azure Diagnostics"
-	description="Troubleshoot problems using Azure diagnostics "
+	description="Troubleshoot problems when using Azure diagnostics in Azure Cloud Services, Virtual Machines and "
 	services="multiple"
 	documentationCenter=".net"
 	authors="rboucher"
@@ -9,16 +9,16 @@
 
 <tags
 	ms.service="multiple"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="02/20/2016"
 	ms.author="robb"/>
 
 
 # Azure Diagnostics Troubleshooting and FAQ
-
+Troubleshooting information relevant to using Azure Diagnostics. For more information on Azure
 
 ## Azure Diagnostics is not Starting
 Diagnostics is comprised of two components: A guest agent plugin and the monitoring agent.
@@ -56,7 +56,8 @@ Exit Code|Description
 -112|General error
 
 
-## Diagnostics Data is Not Logged to Storage
+## Diagnostics Data is Not Logged to Azure Storage
+Azure diagnostics stores all data in Azure Storage.
 
 The most common cause of missing event data is incorrectly defined storage account information.
 
@@ -88,12 +89,8 @@ On a Virtual Machine:
 The above commands generates the log file *maeventtable.csv*, which you can open and inspect for failure messages.    
 
 
-## Frequently Asked Questions
-The following are some frequently asked questions and their answers:
-
-**Q.** How are tables named?
-
-**A.** Tables are named according to the following:
+## Diagnostics data Tables not found
+The tables in Azure storage holding Azure diagnostics data are named using the code below:
 
 		if (String.IsNullOrEmpty(eventDestination)) {
 		    if (e == "DefaultEvents")

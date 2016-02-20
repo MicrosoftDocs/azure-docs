@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="02/20/2016"
 	ms.author="robb"/>
 
 
@@ -171,19 +171,20 @@ The PowerShell cmdlets for managing Diagnostics on a VM are: Set-AzureVMDiagnost
 
 ### Step 6: Look at your telemetry data
 In the Visual Studio **Server Explorer** navigate to the wadexample storage account. After the VM has been running about 5 minutes you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** and **WADSetOtherTable**. Double-click on one of the tables to view the telemetry that has been collected.
-	![CloudServices_diag_wadexamplevm_tables](./media/virtual-machines-dotnet-diagnostics/WadExampleVMTables.png)
 
-## Configuration File Schema
+![CloudServices_diag_wadexamplevm_tables](./media/virtual-machines-dotnet-diagnostics/WadExampleVMTables.png)
+
+## Configuration file schema
 
 The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics agent starts. See the [latest schema reference](https://msdn.microsoft.com/library/azure/mt634524.aspx) for valid values and examples.
 
-## Troubleshooting and FAQ
+## Troubleshooting
 
 See [Troubleshooting Azure Diagnostics](azure-diagnostics-troubleshooting.md) for more information.
 
 
-## Additional Resources
-- [Azure Diagnostics Topics](azure-diagnostics.md)
+## Next Steps
+[See a list of virtual machine related Azure Diagnostics articles](azure-diagnostics.md#virtual-machines-using-azure-diagnostics) to change the data you are collecting, troubleshoot problems or learn more about diagnostics in general.
 
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
