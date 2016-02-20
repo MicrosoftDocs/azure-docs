@@ -138,7 +138,7 @@ To increase the bandwidth utilized for replication by Azure Site Recovery you wo
 
 The following key controls the number of threads per replicating disk that are used when replicating
 
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Replication\UploadThreadsPerVM
 
  In an “overprovisioned” network, this registry key needs to be changed from it’s default values. We support a maximum of 32.  
 

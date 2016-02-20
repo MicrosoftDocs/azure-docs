@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure AD Connect: Upgrade from Windows Azure AD sync tool (DirSync) | Microsoft Azure"
-   description="Learn how to upgrade from DirSync to Azure AD Connect.  This articles describes the steps for upgrading your current Windows Azure AD sync tool (DirSync) to Azure AD Connect."
+   pageTitle="Azure AD Connect: Upgrade from Microsoft Azure AD sync tool (DirSync) | Microsoft Azure"
+   description="Learn how to upgrade from DirSync to Azure AD Connect.  This articles describes the steps for upgrading your current Microsoft Azure AD sync tool (DirSync) to Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
@@ -16,7 +16,7 @@
    ms.date="02/16/2016"
    ms.author="shoatman;billmath"/>
 
-# Azure AD Connect: Upgrade Windows Azure Active Directory sync (DirSync)
+# Azure AD Connect: Upgrade Microsoft Azure Active Directory sync (DirSync)
 
 The following documentation will help you upgrade your existing DirSync installation to Azure AD Connect.
 
@@ -187,8 +187,8 @@ Once these 4 operations have been completed, there are no errors, and you are sa
 
 ### Uninstall DirSync (old server)
 
-- From **Programs and features** locate **Windows Azure Active Directory sync tool**
-- Uninstall **Windows Azure Active Directory sync tool**
+- From **Programs and features** locate **Microsoft Azure Active Directory sync tool**
+- Uninstall **Microsoft Azure Active Directory sync tool**
 - Note that the uninstallation might take up to 15 minutes to complete.
 
 With DirSync uninstalled, there is no active server exporting to Azure AD. The next step must be completed before any changes in your on-premises Active Directory will continue to be synchronized to Azure AD.
