@@ -514,7 +514,7 @@ The hive activity takes the 2 inputs and produces an output slice every day. You
 ## Chaining activities
 You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. This chaining occurs at the time slice level (a discrete unit within a dataset).
 
-## Data Factory function and system variables   
+## Data Factory functions and system variables   
 
 See [Data Factory Functions and System Variables](data-factory-functions-variables.md) article for a list of functions and system variables supported by Azure Data Factory. 
 
