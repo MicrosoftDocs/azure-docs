@@ -20,7 +20,7 @@
 
 ## Overview
 
-Azure offers several ways to host web sites: [Azure App Service][], [Cloud Services][], and [Virtual Machines][]. This article helps you understand the options and make the right choice for your web application.
+Azure offers several ways to host web sites: [Azure App Service][], [Cloud Services][], [Virtual Machines][], and [Service Fabric][]. This article helps you understand the options and make the right choice for your web application.
 
 Azure App Service is the best choice for most web apps. Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability. You can move existing sites to Azure App Service easily with an [online migration tool](https://www.migratetoazure.net/), use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice. The [WebJobs][] feature makes it easy to add background job processing to your App Service web app.
 
@@ -142,10 +142,10 @@ The following table compares the capabilities of App Service, Cloud Services, Vi
 
 Feature|App Service (web apps)|Cloud Services (web roles)|Virtual Machines|Service Fabric|Notes
 ---|---|---|---|---|---
-Near-instant deployment|X||||Deploying an application or an application update to a Cloud Service, or creating a VM, takes several minutes at least; deploying an application to a web app takes seconds.
+Near-instant deployment|X|||X|Deploying an application or an application update to a Cloud Service, or creating a VM, takes several minutes at least; deploying an application to a web app takes seconds.
 Scale up to larger machines without redeploy|X|||X|
 Web server instances share content and configuration, which means you don't have to redeploy or reconfigure as you scale.|X|||X|
-Multiple deployment environments (production and staging)|X|X|||
+Multiple deployment environments (production and staging)|X|X||X|Service Fabric allows you to have multiple environments for your apps or to deploy different versions of your app side-by-side.
 Automatic OS update management|X|X|||Automatic OS updates are planned for a future Service Fabric release.
 Seamless platform switching (easily move between 32 bit and 64 bit)|X|X|||
 Deploy code with GIT, FTP|X||X||
@@ -165,7 +165,7 @@ Network isolation with [Azure Virtual Network](/services/virtual-network/)|X|X|X
 Support for [Azure Traffic Manager](/services/traffic-manager/)|X|X|X|X|
 Integrated Endpoint Monitoring|X|X|X||
 Remote desktop access to servers||X|X|X|
-Install any custom MSI||X|X||Service Fabric allows you to host any executable file as a [guest executable](../service-fabric/service-fabric-deploy-existing-app.md).
+Install any custom MSI||X|X|X|Service Fabric allows you to host any executable file as a [guest executable](../service-fabric/service-fabric-deploy-existing-app.md).
 Ability to define/execute start-up tasks||X|X|X|
 Can listen to ETW events||X|X|X|
 
@@ -183,11 +183,13 @@ To get started with the option(s) you choose for your application, see the follo
 * [Azure App Service](/documentation/services/app-service/)
 * [Azure Cloud Services](/documentation/services/cloud-services/)
 * [Azure Virtual Machines](/documentation/services/virtual-machines/)
+* [Service Fabric](/documentation/services/service-fabric)
 
   [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
   [Azure App Service]: /services/app-service/
   [Cloud Services]: http://go.microsoft.com/fwlink/?LinkId=306052
   [Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
+  [Service Fabric]: /services/service-fabric
   [ClearDB]: http://www.cleardb.com/
   [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
   [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
