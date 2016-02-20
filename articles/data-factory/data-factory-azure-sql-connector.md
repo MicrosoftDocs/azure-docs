@@ -498,7 +498,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
     }
 
 ## Identity columns in the target database
-This section describes how to copy data from a source table to a destination table that has an identity column. 
+This section provides an example for copying data from a source table without an identity column to a destination table with an identity column. 
 
 **Source table:** 
 
