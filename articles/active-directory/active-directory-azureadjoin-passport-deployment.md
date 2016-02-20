@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Enable Microsoft Passport for Work in the organization | Microsoft Azure" 
-	description="Deployment instructions to enable Microsoft Passport in your organization." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Enable Microsoft Passport for Work in the organization | Microsoft Azure"
+	description="Deployment instructions to enable Microsoft Passport for Work in your organization." 
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="stevenpo"
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/19/2015"
 	ms.author="femila"/>
 
 # Enable Microsoft Passport for work in the organization
@@ -43,7 +43,7 @@ To deploy user certificates based on Microsoft Passport keys, you need the follo
  - A specific Organizational Unit (OU) in AD where Windows 10 domain-joined computers will be located.
  - A specific security group containing Windows 10 domain-joined computers that will be auto-registered with Azure AD.
 
-## Configure Microsoft Passport for work via deploying PowerShell through Configuration Manager 
+## Configure Microsoft Passport for work via deploying PowerShell through Configuration Manager
 
 Run the following PowerShell command:
 
