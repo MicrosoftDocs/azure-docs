@@ -299,6 +299,8 @@ Azure events provide useful insights into what is happening in your Azure resour
 
 You can create alerts on these user events and configure them to send email notifications to the administrator and co-administrators of the subscription. In addition, you can specify additional email addresses of users who need to receive email notifications when the conditions are met. This is very useful when you want to get notified on failures and don’t want to continuously monitor your data factory.
 
+> [AZURE.NOTE] The portal does not show alerts on events at this time. Please use the [Monitoring and Management App](data-factory-monitor-manage-app.md) to see all alerts.
+
 #### Specifying an alert definition:
 To specify an alert definition, you create a JSON file describing the operations that you want to be alerted on. In the example below, the alert will send an email notification for the RunFinished operation. To be specific, an email notification is sent when a run in the data factory has completed and the run has failed (Status = FailedExecution).
 
