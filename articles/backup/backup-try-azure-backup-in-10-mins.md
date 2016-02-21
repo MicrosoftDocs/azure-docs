@@ -62,23 +62,23 @@ To back up files and data from a Windows machine to Azure, you need to create a 
 
 6. Select **storage redundancy** options.
 
-    The best time to select your storage redundancy options is right after creating a vault and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
+    The best time to select your storage redundancy options is right after creating a vault and before any machines are registered to it. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
 
     If you are using Azure as a primary backup storage endpoint (e.g. you are backing up to Azure from a Windows Server), you should consider picking (the default) Geo-Redundant storage option.
 
     If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises & using Azure for your long term retention needs), you should consider choosing Locally Redundant Storage. This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
 
-    a. Click on the *vault* you just created.
+    a. Click on the vault you just created.
 
     b. Select **Configure**.
 
     ![Configure Vault status](./media/backup-try-azure-backup-in-10-mins/configure-vault.png)
 
-    c. Choose the appropriate storage redundancy option. You will need to click **Save** if you've selected **Locally Redundant**, since **Geo Redundant** is the default.
+    c. Choose the appropriate storage redundancy option. You will need to click **Save** if you've selected **Locally Redundant**, since **Geo Redundant** is the default option.
 
     ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
 
-    >[AZURE.NOTE] Learn more about choosing storage redundancy options in this [overview](../storage/storage-redundancy.md).
+    >[AZURE.NOTE] Learn more about storage redundancy options in this [overview](../storage/storage-redundancy.md).
 
     d. Click **Recovery Services**, in the left navigation pane to return to the list of resources for *Recovery Services*.
 
@@ -130,7 +130,7 @@ At this point, you've finished creating a backup vault and downloading the neces
 
     If you use an authenticated proxy, enter the user name and password details.
 
-   Click **Next**.
+    Click **Next**.
 
     ![Proxy configuration](./media/backup-try-azure-backup-in-10-mins/proxy-configuration.png)
 
@@ -170,11 +170,9 @@ At this point, you've finished creating a backup vault and downloading the neces
 
 ## Step 4: Back up files and folders
 
-Before your machine is backed up you need to configure and schedule back options.
+1. In the mmc snap-in (which opened automatically if you left the *Launch Microsoft Azure Recovery Services Agent* checkbox checked) click **Schedule Backup**.
 
-1. In the mmc snap-in (which opened automatically because you left the *Launch Microsoft Azure Recovery Services Agent* checkbox checked) click **Schedule Backup**.
-
-    ![Schedule a Windows Server Backup](./media/backup-try-azure-backup-in-10-mins/snap-in-schedule-backup.png)
+    ![Schedule a Windows Server Backup](./media/backup-try-azure-backup-in-10-mins/snap-in-schedule-backup-closeup.png)
 
 2. On the **Getting started** screen, click **Next**.
 
@@ -200,19 +198,19 @@ Before your machine is backed up you need to configure and schedule back options
 
 5. Specify the *retention policy* for the backup copy. You can modify the daily, weekly, monthly, and yearly retention policy to meet your needs.
 
-    ![Items for Windows Server Backup](./media/backup-try-azure-backup-in-10-mins/select-retention-policy.png)
+    >[AZURE.NOTE] The backup schedule is explained in detail in the following [article](backup-azure-backup-cloud-as-tape.md).
 
      Click **Next**
 
-    >[AZURE.NOTE] The backup schedule is explained in detail in the following [article](backup-azure-backup-cloud-as-tape.md).
+    ![Items for Windows Server Backup](./media/backup-try-azure-backup-in-10-mins/select-retention-policy.png)
 
 6. Choose the initial backup type.
 
     You can back up automatically over the network, or you can back up offline. The remainder of this article follows the automatic backup process. If you prefer to do an offline backup, review this article for additional information on the [offline back up workflow in Azure Backup](backup-azure-backup-import-export.md).
 
-    ![Initial Windows Server backup](./media/backup-try-azure-backup-in-10-mins/choose-initial-backup-type.png)
-
     Click **Next**
+
+    ![Initial Windows Server backup](./media/backup-try-azure-backup-in-10-mins/choose-initial-backup-type.png)
 
 7. On the **Confirmation** screen review the information and click **Finish**.
 
