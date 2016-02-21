@@ -424,5 +424,5 @@ Follow these links to learn more about more complex storage tasks.
 
 - [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
 - [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
-- [Azure Storage Services REST API](https://msdn.microsoft.com/en-us/library/azure/dd179355.aspx)
+- [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
