@@ -13,10 +13,12 @@
 	ms.service="virtual-machines" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.tgt_pltfrm="infrastructure,vm-linux"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure" 
 	ms.date="12/14/2015" 
 	ms.author="rasquill" 
+/>
+
 
 # Virtual Machines and Containers in Azure
 
