@@ -93,7 +93,7 @@ Next, measure the maximum performance requirements of your application throughou
 
 If you have an existing application and want to move to Premium Storage, first build the checklist above for the existing application. Then, build a prototype of your application on Premium Storage and design the application based on guidelines described in *Optimizing Application Performance* in a later section of this document. The next section describes the tools you can use to gather the performance measurements.
 
-Create a checklist similar to your existing application for the prototype. Using Benchmarking tools you can simulate the workloads and measure performance on the prototype application. See the section on *Benchmarking* to learn more. By doing so you can determine whether Premium Storage can match or surpass your application performance requirements. Then you can implement the same guidelines for your production application.
+Create a checklist similar to your existing application for the prototype. Using Benchmarking tools you can simulate the workloads and measure performance on the prototype application. See the section on [Benchmarking](#benchmarking) to learn more. By doing so you can determine whether Premium Storage can match or surpass your application performance requirements. Then you can implement the same guidelines for your production application.
 
 ### Counters to measure application performance requirements  
 The best way to measure performance requirements of your application, is to use performance-monitoring tools provided by the operating system of the server. You can use PerfMon for Windows and iostat for Linux. These tools capture counters corresponding to each measure explained in the above section. You must capture the values of these counters when your application is running its normal, peak and off-hours workloads.
@@ -117,7 +117,7 @@ Learn more about [iostat](http://linuxcommand.org/man_pages/iostat1.html) and [P
 ## Optimizing Application Performance  
 The main factors that influence performance of an application running on Premium Storage are Nature of IO Requests, VM size, Disk size, Number of disks, Disk Caching, Multithreading and Queue Depth. You can control some of these factors with knobs provided by the system. Most applications may not give you an option to alter the IO size and Queue Depth directly. For example, if you are using SQL Server, you cannot choose the IO size and queue depth. SQL Server chooses the optimal IO size and queue depth values to get the most performance. It is important to understand the effects of both types of factors on your application performance, so that you can provision appropriate resources to meet performance needs.
 
-Throughout this section, refer to the application requirements checklist that you created, to identify how much you need to optimize your application performance. Based on that, you will be able to determine which factors from this section you will need to tune. To witness the effects of each factor on your application performance, run benchmarking tools on your application setup. Refer to the [Benchmarking](#_Benchmarking) section at the end of this article for steps to run common benchmarking tools on Windows and Linux VMs.
+Throughout this section, refer to the application requirements checklist that you created, to identify how much you need to optimize your application performance. Based on that, you will be able to determine which factors from this section you will need to tune. To witness the effects of each factor on your application performance, run benchmarking tools on your application setup. Refer to the [Benchmarking](#Benchmarking) section at the end of this article for steps to run common benchmarking tools on Windows and Linux VMs.
 
 ### Optimizing IOPS, Throughput and Latency at a glance  
 The table below summarizes all the performance factors and the steps to optimize IOPS, Throughput and Latency. The sections following this summary will describe each factor is much more depth.
@@ -168,7 +168,7 @@ To get IOPS and Bandwidth higher than the maximum value of a single premium stor
 >**Note:**  
 >As you increase either IOPS or Throughput the other also increases, make sure you do not hit throughput or IOPS limits of the disk or VM when increasing either one.
 
-To witness the effects of IO size on application performance, you can run benchmarking tools on your VM and disks. Create multiple test runs and use different IO size for each run to see the impact. Refer to the [Benchmarking](#_Benchmarking) section at the end of this article for more details.
+To witness the effects of IO size on application performance, you can run benchmarking tools on your VM and disks. Create multiple test runs and use different IO size for each run to see the impact. Refer to the [Benchmarking](#Benchmarking) section at the end of this article for more details.
 
 ## High Scale VM Sizes  
 When you start designing an application, one of the first things to do is, choose a VM to host your application. Premium Storage comes with High Scale VM sizes that can run applications requiring higher compute power and a high local disk I/O performance. These VMs provide faster processors, a higher memory-to-core ratio, and a Solid-State Drive (SSD) for the local disk. Examples of High Scale VMs supporting Premium Storage are the DS and GS series VMs.
@@ -180,7 +180,7 @@ High Scale VMs are available in different sizes with a different number of CPU c
 | Standard_DS14 | 16 | 112 GB | OS = 1023 GB <br> Local SSD = 224 GB | 32 | 576 GB | 50,000 IOPS <br> 512 MB per second | 4,000 IOPS and 33 MB per second |
 | Standard_GS5 | 32 | 448 GB | OS = 1023 GB <br> Local SSD = 896 GB | 64 | 4224 GB | 80,000 IOPS <br> 2,000 MB per second | 5,000 IOPS and 50 MB per second |
 
-To view a complete list of all available Azure VM sizes, refer [Sizes for Azure virtual machines](../virtual-machines/virtual-machines-size-specs.md). Choose a VM size that can meet and scale to your desired application performance requirements. In addition to this, take into account following important considerations when choosing VM sizes.
+To view a complete list of all available Azure VM sizes, refer to [Sizes for Azure virtual machines](../virtual-machines/virtual-machines-size-specs.md). Choose a VM size that can meet and scale to your desired application performance requirements. In addition to this, take into account following important considerations when choosing VM sizes.
 
 *Scale Limits*  
 The maximum IOPS limits per VM and per disk are different and independent of each other. Make sure that the application is driving IOPS within the limits of the VM as well as the premium disks attached to it. Otherwise, application performance will experience throttling.
@@ -416,7 +416,7 @@ Below are screenshots of the Iometer test results for combined IOPS and Throughp
 ![](media/storage-premium-storage-performance/image10.png)
 
 ### FIO  
-FIO is a popular tool to benchmark storage on the Linux VMs. It has the flexibility to select different IO sizes, sequential or random reads and writes. It spawns worker threads or processes to perform the specified I/O operations. You can specify the type of I/O operations each worker thread must perform using job files. We created one job file per scenario illustrated in the examples below. You can change the specifications in these job files to benchmark different workloads running on Premium Storage. In the examples, we are using a Standard DS 14 VM running **Ubuntu**. Use the same setup described in the beginning of Benchmarking section and warm up the cache before running the benchmarking tests.
+FIO is a popular tool to benchmark storage on the Linux VMs. It has the flexibility to select different IO sizes, sequential or random reads and writes. It spawns worker threads or processes to perform the specified I/O operations. You can specify the type of I/O operations each worker thread must perform using job files. We created one job file per scenario illustrated in the examples below. You can change the specifications in these job files to benchmark different workloads running on Premium Storage. In the examples, we are using a Standard DS 14 VM running **Ubuntu**. Use the same setup described in the beginning of the [Benchmarking section](#Benchmarking) and warm up the cache before running the benchmarking tests.
 
 Before you begin, [download FIO](https://github.com/axboe/fio) and install it on your virtual machine.
 
