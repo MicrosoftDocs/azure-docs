@@ -28,7 +28,7 @@ In this tutorial you will be using the Azure Storage plugin for Hudson CI made a
 
 Hudson enables continuous integration of a software project by allowing developers to easily integrate their code changes and have builds produced automatically and frequently, thereby increasing the productivity of the developers. Builds are versioned, and build artifacts can be uploaded to various repositories. This article will show how to use Azure Blob storage as the repository of the build artifacts. It will also show how to download dependencies from Azure Blob storage.
 
-More information about Hudson can be found at [Meet Hudson].
+More information about Hudson can be found at [Meet Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
 
 ## Benefits of using the Blob service ##
 
@@ -62,7 +62,7 @@ You will need the following to use the Blob service with your Hudson CI solution
 
 - An Azure account. You can sign up for an Azure account at <http://www.azure.com>.
 
-- An Azure storage account. If you don't already have a storage account, you can create one using the steps at [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
+- An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
 
 - Familiarity with the Hudson CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Hudson CI build artifacts.
 
