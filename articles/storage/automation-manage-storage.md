@@ -34,7 +34,7 @@ Lower operational overhead and free up IT / DevOps staff to focus on work that a
 
 ## How can Azure Automation help manage Azure Storage?
 
-Azure Storage can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation has these Storage PowerShell cmdlets available out of the box, so that you can perform all of your blob, table, and queue management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
+Azure Storage can be managed in Azure Automation by using the PowerShell cmdlets that are available in [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation has these Storage PowerShell cmdlets available out of the box, so that you can perform all of your blob, table, and queue management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
 
 The [Azure Automation runbook gallery](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contains a variety of product team and community runbooks to get started automating management of Azure Storage, other Azure services, and 3rd party systems. Gallery runbooks include:
 
@@ -47,5 +47,5 @@ The [Azure Automation runbook gallery](https://azure.microsoft.com/blog/2014/10/
 
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure Storage blobs, tables, and queues, follow these links to learn more about Azure Automation.
 
-See the Azure Automation [Creating or importing a runbook in Azure Automation](../automation/automation-creating-importing-runbook.md)
+See the Azure Automation tutorial [Creating or importing a runbook in Azure Automation](../automation/automation-creating-importing-runbook.md)
  
