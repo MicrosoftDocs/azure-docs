@@ -577,3 +577,12 @@ You should see following message after successful deployment:
 
 
 You can also the **Add-AlertRule** cmdlet to deploy an alert rule. See [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) topic for details and examples.  
+
+## Move data factory to a different resource group or subscription
+You can move a data factory to a different resource group or a different subscription by using the **Move** command bar button on the home page of your data factory. 
+
+![Move data factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
+
+You can also move any related resources (such as alerts associated with the data factory) along with the data factory.
+
+![Move Resources dialog box](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
