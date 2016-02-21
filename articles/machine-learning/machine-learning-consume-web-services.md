@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="02/20/2016"
+	ms.date="02/21/2016"
 	ms.author="garye" />
 
 
@@ -249,7 +249,7 @@ The following sample code  shows how to construct a REST API request in Java.  I
     	}
     
     	
-You can also generate the code in many other languages using a swagger document from the API help page and following the directions provided at [swagger.io](http://swagger.io/) site 
+ 
 
 ### BES Example
 Unlike the RRS service, the BES service is asynchronous. This means that the BES API is simply queuing up a job to be executed, and the caller polls the job's status to see when it has completed. Here are the operations currently supported for batch jobs:
@@ -486,3 +486,201 @@ The code sample below demonstrates how you can submit and monitor a batch job ag
 	        }
 	    }
 	}
+
+#### Sample code in Java for BES
+This is a Batch execution service call that takes the JSON consisting of a reference to an input sample csv and a output sample csv as shown below and creates a job in the Azure ML to do the batch predictions.
+
+	{ "GlobalParameters": {}, 
+    	"Inputs": { "input1": { "ConnectionString": 	"DefaultEndpointsProtocol=https;
+			AccountName=myAcctName; AccountKey=Q8kkieg==", 
+        	"RelativeLocation": "myContainer/sampleinput.csv" } }, 
+    	"Outputs": { "output1": { "ConnectionString": 	"DefaultEndpointsProtocol=https;
+			AccountName=myAcctName; AccountKey=kjC12xQ8kkieg==", 
+        	"RelativeLocation": "myContainer/sampleoutput.csv" } } 
+	} 
+
+View the full code in [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp) 
+
+#####Create a BES job	
+	    
+	    /**
+	     * Call REST API to create a job to Azure ML 
+	     * for batch predictions
+	     * @return response from the REST API
+	     */	
+	    public static String besCreateJob() {
+	        
+	        HttpPost post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpPost(apiurl);
+	            client = HttpClientBuilder.create().build();
+	            
+	            // setup output message by copying JSON body into 
+	            // apache StringEntity object along with content type
+	            entity = new StringEntity(jsonBody, HTTP.UTF_8);
+	            entity.setContentEncoding(HTTP.UTF_8);
+	            entity.setContentType("text/json");
+	
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+				// note a space after the word "Bearer " - don't miss that
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	            post.setEntity(entity);
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	            
+	            jobId = EntityUtils.toString(authResponse.getEntity()).replaceAll("\"", "");
+	            
+	            
+	            return jobId;
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    
+	    }
+	    
+#####Start a previously created BES job	        
+	    /**
+	     * Call REST API for starting prediction job previously submitted 
+	     * 
+	     * @param job job to be started 
+	     * @return response from the REST API
+	     */	
+	    public static String besStartJob(String job){
+	        HttpPost post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpPost(startJobUrl+"/"+job+"/start?api-version=2.0");
+	            client = HttpClientBuilder.create().build();
+	         
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	            
+	            if (authResponse.getEntity()==null)
+	            {
+	                return authResponse.getStatusLine().toString();
+	            }
+	            
+	            return EntityUtils.toString(authResponse.getEntity());
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    }
+#####Cancel a previously created BES job
+	    
+	    /**
+	     * Call REST API for canceling the batch job 
+	     * 
+	     * @param job job to be started 
+	     * @return response from the REST API
+	     */	
+	    public static String besCancelJob(String job) {
+	        HttpDelete post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpDelete(startJobUrl+job);
+	            client = HttpClientBuilder.create().build();
+	         
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	         
+	            if (authResponse.getEntity()==null)
+	            {
+	                return authResponse.getStatusLine().toString();
+	            }
+	            return EntityUtils.toString(authResponse.getEntity());
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    }
+	    
+###Other programming environments
+You can also generate the code in many other languages using a swagger document from the API help page and following the directions provided at [swagger.io](http://swagger.io/) site. Go to the [swagger.io](http://swagger.io/swagger-codegen/) and follow the instructions to download swagger code, java and apache mvn. Here is the summary of instructions on setting up swagger for other programming environments.
+
+* Make sure Java 7 or higher is installed
+* Install apache mvn (On ubuntu, you can use *apt-get install mvn*)
+* Goto github for swagger and download the swagger project as a zip file
+* Unzip swagger
+* Build swagger tools by running *mvn package* from the swagger's source directory
+
+Now you can use any of the swagger tools. Here are the instructions to generate Java client code. 
+
+* Go to the Azure ML API Help page 
+* Find the URL for swagger.json for Azure ML REST APIs 
+* Click the swagger document link (one of the top bullets)
+* Use the following command as shown in the [Read Me file of swagger](https://github.com/swagger-api/swagger-codegen/blob/master/README.md) to generate the client code
+
+**Sample Command Line to generate client code**
+
+	java -jar swagger-codegen-cli.jar generate\
+	 -i https://ussouthcentral.services.azureml.net:443/workspaces/\
+	fb62b56f29fc4ba4b8a8f900c9b89584/services/26a3afce1767461ab6e73d5a206fbd62/swagger.json\
+	 -l java -o /home/username/sample
+
+* Combine values in the fields host, basePath and "/swagger.json" in the the sample of the swagger API help page shown below to construct swagger URL used in the command line above
+
+**Sample API Help Page**
+
+
+	{
+	  "swagger": "2.0",
+	  "info": {
+	    "version": "2.0",
+	    "title": "Sample 5: Binary Classification with Web Service: Adult Dataset [Predictive Exp.]",
+	    "description": "No description provided for this web service.",
+	    "x-endpoint-name": "default"
+	  },
+	  "host": "ussouthcentral.services.azureml.net:443",
+	  "basePath": "/workspaces/afbd553b9bac4c95be3d040998943a4f/services/26a3afce1767461ab6e73d5a206fbd62",
+	  "schemes": [
+	    "https"
+	  ],
+	  "consumes": [
+	    "application/json"
+	  ],
+	  "produces": [
+	    "application/json"
+	  ],
+	  "paths": {
+	    "/swagger.json": {
+	      "get": {
+	        "summary": "Get swagger API document for the web service",
+	        "operationId": "getSwaggerDocument",
+	        
