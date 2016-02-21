@@ -13,8 +13,8 @@
    ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
-	 ms.topic="hero-article"
-	 ms.date="02/20/2016"
+	 ms.topic="get-started-article"
+	 ms.date="02/21/2016"
 	 ms.author="jimpark;"/>
 
 # Back up a Windows Server or client to Azure
