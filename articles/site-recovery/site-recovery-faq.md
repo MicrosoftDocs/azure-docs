@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-	ms.service="get-started-article"
+	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/11/2016"
+	ms.date="02/14/2016"
 	ms.author="raynew"/>
 
 
@@ -43,9 +43,9 @@ It depends on the deployment scenario.
 
 Check the Hyper-V host server prerequisites in:
 
-- [Replicating Hyper-V VMs (without VMM) to Azure](site-recovery-hyper-v-site-to-azure.md/#before-you-start)
-- [Replicating Hyper-V VMs (with VMM) to Azure](site-recovery-vmm-to-azure.md/#before-you-start)
-- [Replicating Hyper-V VMs to a secondary datacenter](site-recovery-vmm-to-vmm.md/#before-you-start)
+- [Replicating Hyper-V VMs (without VMM) to Azure](site-recovery-hyper-v-site-to-azure.md#before-you-start)
+- [Replicating Hyper-V VMs (with VMM) to Azure](site-recovery-vmm-to-azure.md#before-you-start)
+- [Replicating Hyper-V VMs to a secondary datacenter](site-recovery-vmm-to-vmm.md#before-you-start)
 
 Regarding guest operating systems:
 
@@ -74,17 +74,17 @@ Yes. You can either replicate Hyper-V VMs in the cloud on the VMM server to Azur
 
 ### What physical servers can I protect?
 
-You can protect physical servers running Windows and Linux, to Azure or to a secondary site. [Learn](site-recovery-vmware-to-azure-classic.md/#before-you-start-deployment) about operating system requirements The same limitations apply whether you're replicating physical servers to Azure or to a secondary site.
+You can protect physical servers running Windows and Linux, to Azure or to a secondary site. [Learn](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) about operating system requirements The same limitations apply whether you're replicating physical servers to Azure or to a secondary site.
 
-Note that physical servers will run as VMs in Azure if your on-premises server goes down. Failback to an on-premises physical server isn't currently supported .You'll need to fail back to a VMware VM.
+Note that physical servers will run as VMs in Azure if your on-premises server goes down. Failback to an on-premises physical server isn't currently supported. You can only fail back to a virtual machine running on VMware.
 
 ### What VMware VMs can I protect?
 
-For this scenario you'll need a VMware vCenter server, a vSphere hypervisor, and virtual machines running VMware tools. [Learn](site-recovery-vmware-to-azure-classic.md/#before-you-start-deployment) about exact requirements. The same limitations apply whether you're replicating physical servers to Azure or to a secondary site.
+For this scenario you'll need a VMware vCenter server, a vSphere hypervisor, and virtual machines running VMware tools. [Learn](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) about exact requirements. The same limitations apply whether you're replicating physical servers to Azure or to a secondary site.
 
 ### Are there any prerequisites for replicating virtual machines to Azure?
 
-Virtual machines you want to replicate to Azure should comply with [Azure requirements](site-recovery-best-practices.md/#azure-virtual-machine-requirements).
+Virtual machines you want to replicate to Azure should comply with [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 ### Can I replicate Hyper-V generation 2 virtual machines to Azure?
 
@@ -127,7 +127,7 @@ When replicating virtual machines and physical servers between on-premises sites
 
 ### If I replicate to Azure what kind of storage account do I need?
 
-You'll need a storage account with [standard geo-redundant storage](../storage/storage-introduction.md/#replication-for-durability-and-high-availability). Premium storage isn't currently supported.
+You'll need a storage account with [standard geo-redundant storage](../storage/storage-introduction.md#replication-for-durability-and-high-availability). Premium storage isn't currently supported.
 
 ### How often can I replicate data?
 - **Hyper-V:** Hyper-V VMs running on Windows Server 2012 R2 can be replicated every 30 seconds, 5 minutes or 15 minutes. If you've set up SAN replication then replication with be synchronous.
