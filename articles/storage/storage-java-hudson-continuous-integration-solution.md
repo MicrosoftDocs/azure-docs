@@ -62,7 +62,7 @@ You will need the following to use the Blob service with your Hudson CI solution
 
 - An Azure account. You can sign up for an Azure account at <http://www.azure.com>.
 
-- An Azure storage account. If you don't already have a storage account, you can create one using the steps at [How to Create a Storage Account](storage-create-storage-account.md#create-storage-account.
+- An Azure storage account. If you don't already have a storage account, you can create one using the steps at [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account.
 
 - Familiarity with the Hudson CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Hudson CI build artifacts.
 
