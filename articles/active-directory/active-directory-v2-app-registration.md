@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 # How to register an app with the v2.0 endpoint
@@ -39,6 +39,8 @@ Next, add the Platforms that your app will use.
 - For mobile apps, copy down the default redirect uri automatically created for you.
 
 Optionally, you can customize the look and feel of your sign-in page in the Profile section.  Make sure to click **Save** before moving on.
+
+> [AZURE.NOTE] When you create an application using [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com), the application will be registered in the home tenant of the account that you use to sign into the portal.  This means that you can not register an application in your Azure AD tenant using a personal Microsoft account.  If you explicitly wish to register an application in a particular tenant, sign in with an account originally created in that tenant.
 
 ## Build a quick start app
 Now that you have a Microsoft app, you can complete one of our v2.0 quick start tutorials.  Here are a few recommendations:

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 # Sign-in Microsoft Account & Azure AD users in a single app
@@ -35,7 +35,7 @@ Choose your favorite platform below to build an app using our open source librar
 ## What's New	
 The conceptual information here will be useful in understanding what is & what isn't possible with the v2.0 endpoint.
 
-- If you've built an app during the v2.0 endpoint 2015 preview period, be sure to [read about these protocol changes](active-directory-v2-preview-oidc-changes.md) to make sure your app keeps working.
+- If you built an app during the v2.0 endpoint 2015 preview period, be sure to [read about these breaking protocol changes](active-directory-v2-preview-oidc-changes.md) that we recently made.
 - Learn about the [types of apps you can build with the v2.0 endpoint](active-directory-v2-flows.md).
 - For developers familiar with Azure Active Directory, you should check out the [updates to our protocols & differences in the v2.0 endpoint](active-directory-v2-compare.md).
 - Understand the [limitations, restrictions and constraints](active-directory-v2-limitations.md) with the v2.0 endpoint.
