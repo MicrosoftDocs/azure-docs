@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="11/18/2015"
+   ms.date="02/21/2016"
    ms.author="tomfitz"/>
 
 # Authenticating a service principal with Azure Resource Manager
@@ -27,7 +27,10 @@ You can use either Azure PowerShell or Azure CLI for Mac, Linux and Windows. If 
 ## Concepts
 1. Azure Active Directory (AAD) - an identity and access management service for the cloud. For more information, see [What is Azure active Directory](active-directory/active-directory-whatis.md)
 2. Service Principal - An instance of an application in a directory that needs to access other resources.
-3. AD Application - Directory record that identifies an application to AAD. For more information, see [Basics of Authentication in Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
+3. AD Application - Directory record that identifies an application to AAD.
+
+For a more detailed explanation of applications and service principals, see [Application Objects and Service Principal Objects](active-directory/active-directory-application-objects.md). 
+For more information about Active Directory authentication, see [Authentication Scenarios for Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
 ## Authenticate service principal with password - PowerShell
 
