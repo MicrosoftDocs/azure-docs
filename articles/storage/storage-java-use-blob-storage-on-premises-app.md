@@ -416,7 +416,7 @@ deletes the container named **gettingstarted**.
         }
     }
 
-For an overview of other blob storage classes and methods, see [How to use blob storage from Java](storage-java-how-to-use-blob-storage.md).
+For an overview of other blob storage classes and methods, see [How to use Blob storage from Java](storage-java-how-to-use-blob-storage.md).
 
 ## Next steps
 
