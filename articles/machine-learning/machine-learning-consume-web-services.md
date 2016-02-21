@@ -200,13 +200,12 @@ Towards the bottom of the help page you will find the code examples. Below is th
 	}
 
 **Sample Code in Java**
+
 The following sample code just shows how to construct REST API request and it assumes apikey and apiurl has API details and jsonBody has correct JSON object expected by the REST API to make a prediction. Download the full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
 
 	/**
 	 * Download full code from github - https://github.com/nk773/AzureML_RRSApp
  	 */
-	
-    
     	/**
      	  * Call REST API for retrieving prediction from Azure ML 
      	  * @return response from the REST API
