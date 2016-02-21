@@ -85,7 +85,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope | Required | A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of **id_tokens** (more to come on this later in the article). The `offline_access` scope indicates that your app will need a **refresh_token** for long-lived access to resources. |
 | response_mode | Recommended | The method that should be used to send the resulting authorization_code back to your app. It can be one of 'query', 'form_post', or 'fragment'.
 | state | Recommended | A value included in the request that will also be returned in the token response. It can be a string of any content that you want. A randomly generated unique value is typically used for preventing cross-site request forgery attacks. The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page they were on or the policy being executed. |
-| p | Required | The policy that will be executed. It is the name of a policy that is created in your B2C directory, whose value should begin with "b2c_1_". Learn more about policies in [Extensible policy framework](active-directory-b2c-reference-policies.md). |
+| p | Required | The policy that will be executed. It is the name of a policy that is created in your B2C directory. The policy name value should begin with "b2c_1_". Learn more about policies in [Extensible policy framework](active-directory-b2c-reference-policies.md). |
 | prompt | Optional | The type of user interaction that is required. The only valid value at this time is 'login', which forces the user to enter their credentials on that request. Single sign-on will not take effect. |
 
 At this point, the user will be asked to complete the policy's workflow. This may involve the user entering their user name and password, signing in with a social identity, signing up for the directory, or any other number of steps, depending on how the policy is defined.
@@ -174,7 +174,7 @@ A successful token response will look like:
 
 > [AZURE.NOTE]
 	If at this point you're thinking: "Where's the access_token?", consider the following. When you request the `openid` scope, Azure AD will issue a JSON Web Token (JWT) `id_token` in the response.
-	While this `id_token` is not technically an OAuth 2.0 access_token, it can be used as such when it communicates with your app's own backend service, which is represented by the same client_id as the client. The `id_token` is still a signed JWT Bearer token that can be sent to a resource in an HTTP authorization header and used to authenticate requests. The difference is that an `id_token` does not have a mechanism for scoping down the access that a particular client application may have. However, when your client application is the only client that can communicate with your backend service (as is the case with the current Azure AD B2C preview), there is no need for such a scoping mechanism. When Azure AD B2C adds the capability for clients to communicate with additional first-party and third-party resources, access_tokens will be introduced. However, even at that time, using `id_tokens` to communicate with your app's own backend service will still be the pattern that we recommend. For more information, see the [types of applications](active-directory-b2c-apps.md) that you can build with the Azure AD B2C preview.
+	While this `id_token` is not technically an OAuth 2.0 access_token, it can be used as such when it communicates with your app's own backend service, which is represented by the same client_id as the client. The `id_token` is still a signed JWT Bearer token that can be sent to a resource in an HTTP authorization header and used to authenticate requests. <br><br>The difference is that an `id_token` does not have a mechanism for scoping down the access that a particular client application may have. However, when your client application is the only client that can communicate with your backend service (as is the case with the current Azure AD B2C preview), there is no need for such a scoping mechanism. <br><br>When Azure AD B2C adds the capability for clients to communicate with additional first-party and third-party resources, access_tokens will be introduced. However, even at that time, using `id_tokens` to communicate with your app's own backend service will still be the pattern that we recommend. For more information, see the [types of applications](active-directory-b2c-apps.md) that you can build with the Azure AD B2C preview.
 
 Error responses will look like:
 
@@ -191,7 +191,7 @@ Error responses will look like:
 | error_description | A specific error message that can help a developer to identify the root cause of an authentication error. |
 
 ## 3. Use the token
-Now that you've successfully acquired an `id_token`, you can use the token in requests to your backend Web APIs by including it in the `Authorization` header:
+Now that you've successfully acquired an `id_token`, you can use the token in requests to your backend web APIs by including it in the `Authorization` header:
 
 ```
 GET /tasks
