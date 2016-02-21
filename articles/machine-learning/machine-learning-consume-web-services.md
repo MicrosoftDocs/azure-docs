@@ -201,10 +201,10 @@ Towards the bottom of the help page you will find the code examples. Below is th
 
 **Sample Code in Java**
 
-The following sample code just shows how to construct REST API request and it assumes apikey and apiurl has API details and jsonBody has correct JSON object expected by the REST API to make a prediction. Download the full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
+The following sample code  shows how to construct a REST API request in Java.  It assumes that variables (apikey and apiurl) has necessary API details and the variable jsonBody has a correct JSON object as expected by the REST API to make a successful prediction. You can download the full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
 
 	/**
-	 * Download full code from github - https://github.com/nk773/AzureML_RRSApp
+	 * Download full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
  	 */
     	/**
      	  * Call REST API for retrieving prediction from Azure ML 
@@ -249,7 +249,7 @@ The following sample code just shows how to construct REST API request and it as
     	}
     
     	
-You can also generate code in many other languages using a swagger document from API help page and following the directions provided at [swagger.io](http://swagger.io/) site 
+You can also generate the code in many other languages using a swagger document from the API help page and following the directions provided at [swagger.io](http://swagger.io/) site 
 
 ### BES Example
 Unlike the RRS service, the BES service is asynchronous. This means that the BES API is simply queuing up a job to be executed, and the caller polls the job's status to see when it has completed. Here are the operations currently supported for batch jobs:
