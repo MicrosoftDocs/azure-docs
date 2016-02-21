@@ -28,7 +28,7 @@ Opening paragraph
 **How to use this article (optional)**
 - Used when the article is long to help describe what all is there and how it's organized. Intent to help customer as a guiding para to decide where to jump to or start within the doc. 
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 Select one of the following disclaimers depending on your scenario.
 
