@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Add a Git artifact repository to your DevTest Lab
+
+[![](./media/devtest-lab-add-artifact-repo/video-still.png "Click to view this article accompanying video.")](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
 
 ## Overview
 
@@ -27,8 +29,6 @@ By default, a DevTest Lab includes artifacts from the official Azure DevTest Lab
 
 The following screen shot shows an example of how a repository containing artifacts might look in GitHub:  
 ![Sample GitHub artifacts repo](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
-
-[AZURE.VIDEO how-to-add-your-private-artifacts-repository-in-a-devtest-lab]
 
 ## Add a GitHub artifacts repository to your lab
 
