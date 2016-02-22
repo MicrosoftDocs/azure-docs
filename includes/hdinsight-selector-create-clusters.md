@@ -1,4 +1,4 @@
-> [AZURE.SELECTOR-LIST (OS | Tools]
+> [AZURE.SELECTOR-LIST (OS | Tools)]
 - [Linux | Overview](hdinsight-hadoop-provision-linux-clusters.md)
 - [Linux | Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md)
 - [Linux | Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
