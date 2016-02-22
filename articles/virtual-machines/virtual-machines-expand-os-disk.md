@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="na"
-   ms.date="02/19/2016"
+   ms.date="02/22/2016"
    ms.author="kirpas@microsoft.com"/>
 
 # How to expand the OS drive of a Virtual Machine in an Azure Resource Group
