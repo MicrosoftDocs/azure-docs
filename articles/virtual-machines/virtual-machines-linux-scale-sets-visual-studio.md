@@ -21,4 +21,4 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-create-windows-powershell-service-manager.md).
 
-[AZURE.INCLUDE[virtual-machines-common-scale-sets-visual-studio](../../includes/virtual-machines-common-scale-sets-visual-studio.md)]
+[AZURE.INCLUDE [virtual-machines-common-scale-sets-visual-studio](../../includes/virtual-machines-common-scale-sets-visual-studio.md)]
