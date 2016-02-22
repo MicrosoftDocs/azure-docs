@@ -20,18 +20,17 @@
 
 ## Overview
 
-This document is a companion guide for customers migrating from Capptain to Azure Mobile Engagement, who had been using the APIs. This describes in more detail how to get the authentication mechanism working for the new APIs.
+This document describes in detail how to get the authentication mechanism working for the new APIs.
 
 It is assumed that you have a valid Azure subscription and you have created a Mobile Engagement app using one of our [Developer Tutorials](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## Authentication
 
-When migrating from Capptain APIs to the new Azure Mobile Engagement APIs, the main differences will be regarding authentication. Previously, the APIs supported Basic Authentication. Now a Microsoft Azure Active Directory based OAuth token must be used for authentication. 
+A Microsoft Azure Active Directory based OAuth token must be used for authentication. 
 
 In order to authentication an API request, an authorization header must be added to every request. It must be of the following form:
 
 	Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGmJlNmV2ZWJPamg2TTNXR1E...
-
 
 >[AZURE.NOTE] Azure Active Directory tokens expire in 1 hour.
 
@@ -132,9 +131,7 @@ This is an alternative way to accomplish the steps mentioned previously using a 
 
 	Copy these values for reference. For getting an access token now, you will use TenantId as `{TENANT_ID}`, ApplicationId as `{CLIENT_ID}` and Secret as `{CLIENT_SECRET}`.
 
-
 8. Check in the Azure Management portal that a new AD application was under **Show Applications my company owns**.
-
 
 #### Steps to get a valid token
 
@@ -168,9 +165,7 @@ Now in every API call, include the authorization request header:
 
 If you get a 401 status code returned, check the response body, it might tell you the token is expired. In that case, get a new token.
 
-
 ##Using the APIs
-
 
 Now that you have a valid token, you are ready to make the API calls.
 
@@ -189,11 +184,9 @@ Now that you have a valid token, you are ready to make the API calls.
 
 	![](./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png)
 
-
 >[AZURE.NOTE] <br/>
 >1. Ignore the API Root Address as this was for the previous APIs.<br/>
->2.You need to use the Application Resource name which is different than the Application name
-itself. 
+>2.You need to use the Application Resource name which is different than the Application name itself. 
 
 
 

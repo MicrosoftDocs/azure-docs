@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage access control records for the StorSimple Virtual Array (Preview)
