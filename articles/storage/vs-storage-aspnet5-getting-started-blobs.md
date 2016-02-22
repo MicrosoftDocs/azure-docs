@@ -97,34 +97,34 @@ To upload a blob file into a container, get a container reference and use it to 
 To list the blobs in a container, first get a container reference. You can then call the container's **ListBlobsSegmentedAsync** method to retrieve the blobs and/or directories within it. To access the rich set of properties and methods for a returned **IListBlobItem**, you must cast it to a **CloudBlockBlob**, **CloudPageBlob**, or **CloudBlobDirectory** object. If you don’t know the blob type, you can use a type check to determine which to cast it to. The following code demonstrates how to retrieve and output the URI of each item in a container.
 
 	BlobContinuationToken token = null;
-        do
+    do
+    {
+        BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(token);
+        token = resultSegment.ContinuationToken;
+
+        foreach (IListBlobItem item in resultSegment.Results)
         {
-            BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(token);
-            token = resultSegment.ContinuationToken;
-
-            foreach (IListBlobItem item in resultSegment.Results)
+            if (item.GetType() == typeof(CloudBlockBlob))
             {
-                if (item.GetType() == typeof(CloudBlockBlob))
-                {
-                    CloudBlockBlob blob = (CloudBlockBlob)item;
-                    Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
-                }
-
-                else if (item.GetType() == typeof(CloudPageBlob))
-                {
-                    CloudPageBlob pageBlob = (CloudPageBlob)item;
-
-                    Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
-                }
-
-                else if (item.GetType() == typeof(CloudBlobDirectory))
-                {
-                    CloudBlobDirectory directory = (CloudBlobDirectory)item;
-
-                    Console.WriteLine("Directory: {0}", directory.Uri);
-                }
+                CloudBlockBlob blob = (CloudBlockBlob)item;
+                Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
             }
-        } while (token != null);
+
+            else if (item.GetType() == typeof(CloudPageBlob))
+            {
+                CloudPageBlob pageBlob = (CloudPageBlob)item;
+
+                Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
+            }
+
+            else if (item.GetType() == typeof(CloudBlobDirectory))
+            {
+                CloudBlobDirectory directory = (CloudBlobDirectory)item;
+
+                Console.WriteLine("Directory: {0}", directory.Uri);
+            }
+        }
+    } while (token != null);
 
 There are others ways to list the contents of a blob container. See [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) for more information.
 
@@ -140,7 +140,7 @@ To download a blob, first get a reference to the blob, and then call the **Downl
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-There are other ways to save blobs as files. See [Get started with Azure Blob blob storage using .NET](storage-dotnet-how-to-use-blobs.md#download-blobs) for more information.
+There are other ways to save blobs as files. See [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md#download-blobs) for more information.
 
 ##Delete a blob
 To delete a blob, first get a reference to the blob, and then call the **DeleteAsync** method on it.
