@@ -20,7 +20,7 @@
 
 ## Overview
 This article describes how get started using Azure Table storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET project by using the  Visual Studio **Add Connected Services** dialog. This article shows you how to perform common tasks in Azure tables, including creating and
-deleting a table, as well as working with table entities. The samples are written in C\# code and use the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). For more general information about using Azure table storage, see [How to use Table storage from .NET](storage-dotnet-how-to-use-tables.md).
+deleting a table, as well as working with table entities. The samples are written in C\# code and use the [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). For more general information about using Azure table storage, see [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md).
 
 Azure Table storage enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.
 
@@ -63,8 +63,6 @@ To create the Azure table, just add a call to **CreateIfNotExistsAsync()** to th
 
 You can insert multiple entities into a table in a single write operation. The following code example creates two entity objects ("Jeff Smith" and "Ben Smith"), adds them to a **TableBatchOperation** object using the Insert method, and then starts the operation by calling **CloudTable.ExecuteBatchAsync**.
 
-	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
-
 	// Create the batch operation.
 	TableBatchOperation batchOperation = new TableBatchOperation();
 
@@ -87,8 +85,6 @@ You can insert multiple entities into a table in a single write operation. The f
 
 ## Get all of the entities in a partition
 To query a table for all of the entities in a partition, use a **TableQuery** object. The following code example specifies a filter for entities where 'Smith' is the partition key. This example prints the fields of each entity in the query results to the console.
-
-	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
 	// Construct the query operation for all customer entities where PartitionKey="Smith".
     TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
@@ -114,24 +110,20 @@ To query a table for all of the entities in a partition, use a **TableQuery** ob
 ## Get a single entity
 You can write a query to get a single, specific entity. The following code uses a **TableOperation** object to specify a customer named 'Ben Smith'. This method returns just one entity, rather than a collection, and the returned value in **TableResult.Result** is a **CustomerEntity** object. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the table service.
 
-        // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
-
         // Create a retrieve operation that takes a customer entity.
         TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
-	// Execute the retrieve operation.
-	TableResult retrievedResult = await peopleTable.ExecuteAsync(retrieveOperation);
-
-	// Print the phone number of the result.
-	if (retrievedResult.Result != null)
-	   Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
-	else
-	   Console.WriteLine("The phone number could not be retrieved.");
+		// Execute the retrieve operation.
+		TableResult retrievedResult = await peopleTable.ExecuteAsync(retrieveOperation);
+	
+		// Print the phone number of the result.
+		if (retrievedResult.Result != null)
+		   Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
+		else
+		   Console.WriteLine("The phone number could not be retrieved.");
 
 ## Delete an entity
 You can delete an entity after you find it. The following code looks for a customer entity named "Ben Smith" and if it finds it, it deletes it.
-
-	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
 	// Create a retrieve operation that expects a customer entity.
 	TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
