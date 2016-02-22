@@ -107,7 +107,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Soonr Workplace application using the following pattern: **“https://<ServerName\>.soonr.com/singlesignon/saml/SSO”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Soonr Workplace application using the following pattern: **“https://\<server-name\>.soonr.com/singlesignon/saml/SSO”**.
 
 
 4. On the **Configure single sign-on at Soonr Workplace** page, perform the following steps:
