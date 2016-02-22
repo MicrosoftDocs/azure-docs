@@ -18,7 +18,7 @@
 
 # Add a web application firewall in Azure Security Center
 
-Azure Security Center may recommend that you add a web application firewall from a Microsoft partner in order to secure your web applications. This document walks you through an example of how to do this.
+Azure Security Center may recommend that you add a web application firewall (WAF) from a Microsoft partner in order to secure your web applications. This document walks you through an example of how to do this.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center. This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
