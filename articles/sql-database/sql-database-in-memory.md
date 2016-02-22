@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="02/11/2016"
 	ms.author="jodebrui"/>
 
 
@@ -318,6 +318,12 @@ EXECUTE Demo.usp_DemoReset;
 #### Expected comparison results
 
 Our In-Memory tests have shown a **9 times** performance improvement for this simplistic workload, with ostress running on an Azure VM in the same Azure region as the database.
+
+
+
+<a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
+
+&nbsp;
 
 
 ## B. Install the In-Memory Analytics sample

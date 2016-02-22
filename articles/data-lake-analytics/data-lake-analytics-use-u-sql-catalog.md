@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Use U-SQL catalog
@@ -55,7 +55,7 @@ You can use Data Lake Tools for Visual Studio to manage the catalog.  For more i
     - To add a new assembly, right-click **Assemblies**, and then click **Register Assembly**.
     - To add a new schema, right-click **Schemas**, and then click "Create Schema**.
     - To add a new table, right-click **Tables**, and then click ""Create Table**.
-    - To add a new table valued function, see [Davelop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md).
+    - To add a new table valued function, see [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md).
 
 
 ![Browse U-SQL Visual Studio catalogs](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
