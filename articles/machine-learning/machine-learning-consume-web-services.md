@@ -642,9 +642,9 @@ You can also generate the code in many other languages using a swagger document 
 
 Now you can use any of the swagger tools. Here are the instructions to generate Java client code. 
 
-* Go to the Azure ML API Help page 
-* Find the URL for swagger.json for Azure ML REST APIs 
-* Click the swagger document link (one of the top bullets)
+* Go to the Azure ML API Help page (example [here](https://studio.azureml.net/apihelp/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/jobs))
+* Find the URL for swagger.json for Azure ML REST APIs (second last bullet on top of API help page)
+* Click the swagger document link (example [here](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument))
 * Use the following command as shown in the [Read Me file of swagger](https://github.com/swagger-api/swagger-codegen/blob/master/README.md) to generate the client code
 
 **Sample Command Line to generate client code**
@@ -654,7 +654,7 @@ Now you can use any of the swagger tools. Here are the instructions to generate 
 	fb62b56f29fc4ba4b8a8f900c9b89584/services/26a3afce1767461ab6e73d5a206fbd62/swagger.json\
 	 -l java -o /home/username/sample
 
-* Combine values in the fields host, basePath and "/swagger.json" in the the sample of the swagger API help page shown below to construct swagger URL used in the command line above
+* Combine values in the fields host, basePath and "/swagger.json" in the the sample of the swagger [API help page](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument) shown below to construct swagger URL used in the command line above
 
 **Sample API Help Page**
 
