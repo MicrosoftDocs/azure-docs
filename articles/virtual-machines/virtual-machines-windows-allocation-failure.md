@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Troubleshooting VM allocation failures | Microsoft Azure"
-	description="Troubleshoot allocation failures when you create, restart, or resize a VM in Azure"
+	pageTitle="Troubleshooting Windows VM allocation failures | Microsoft Azure"
+	description="Troubleshoot allocation failures when you create, restart, or resize a Windows VM in Azure"
 	services="virtual-machines, azure-resource-manager"
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="top-support-issue,azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,8 +17,9 @@
 	ms.date="02/02/2016"
 	ms.author="cjiang"/>
 
-# Troubleshoot allocation failures when you create, restart, or resize VMs in Azure
+# Troubleshoot allocation failures when you create, restart, or resize Windows VMs in Azure
 
 
+[AZURE INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
 
 [AZURE.INCLUDE[virtual-machines-common-allocation-failure](../../includes/virtual-machines-common-allocation-failure.md)]
