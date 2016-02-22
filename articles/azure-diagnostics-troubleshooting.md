@@ -17,8 +17,8 @@
 	ms.author="robb"/>
 
 
-# Azure Diagnostics Troubleshooting and FAQ
-Troubleshooting information relevant to using Azure Diagnostics. For more information on Azure
+# Azure Diagnostics Troubleshooting
+Troubleshooting information relevant to using Azure Diagnostics. For more information on Azure diagnostics, see [Azure Diagnostics Overview](azure-diagnostics.md#cloud-services).
 
 ## Azure Diagnostics is not Starting
 Diagnostics is comprised of two components: A guest agent plugin and the monitoring agent.
