@@ -21,9 +21,9 @@
 ## Overview
 
 This article describes how to get started using Azure Blob storage after you have created or referenced an Azure storage account in an ASP.NET app by using the  Visual Studio **Add Connected Services** dialog box. The article shows you how to create blob containers and perform other common tasks such as uploading, listing, downloading, and deleting blobs. The samples are written in C\# and
-use the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+use the [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
- - For more general information about using Azure Blob storage, see [How to use Blob storage from .NET](storage-dotnet-how-to-use-blobs.md).
+ - For more general information about using Azure Blob storage, see [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md).
  - For more information about ASP.NET projects, see [ASP.NET](http://www.asp.net).
 
 
