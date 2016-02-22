@@ -21,4 +21,4 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-[AZURE.INCLUDE[virtual-machines-common-about](../../includes/virtual-machines-common-about.md)]
+[AZURE.INCLUDE [virtual-machines-common-about](../../includes/virtual-machines-common-about.md)]
