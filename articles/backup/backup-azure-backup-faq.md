@@ -218,8 +218,8 @@ A4. The key used to encrypt the backup data is present only on the customer prem
 
 	| Registry path | Registry Key | Value |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` |  ScratchLocation | <i>New cache folder location</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>New cache folder location</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |  ScratchLocation | <i>New cache folder location</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>New cache folder location</i> |
 
 
 + Start the OBEngine by executing the below command in an elevated command prompt:
