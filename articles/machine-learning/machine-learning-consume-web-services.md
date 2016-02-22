@@ -201,7 +201,7 @@ Towards the bottom of the help page you will find the code examples. Below is th
 
 **Sample Code in Java**
 
-The following sample code  shows how to construct a REST API request in Java.  It assumes that variables (apikey and apiurl) has necessary API details and the variable jsonBody has a correct JSON object as expected by the REST API to make a successful prediction. You can download the full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
+The following sample code  shows how to construct a REST API request in Java.  It assumes that variables (apikey and apiurl) has necessary API details and the variable jsonBody has a correct JSON object as expected by the REST API to make a successful prediction. You can download the full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp). This Java sample requires [apache http client library](https://hc.apache.org/downloads.cgi).
 
 	/**
 	 * Download full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
@@ -488,7 +488,7 @@ The code sample below demonstrates how you can submit and monitor a batch job ag
 	}
 
 #### Sample code in Java for BES
-The Batch execution service REST API takes the JSON consisting of a reference to an input sample csv and a output sample csv as shown below and creates a job in the Azure ML to do the batch predictions. You can view the full code in [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp) 
+The Batch execution service REST API takes the JSON consisting of a reference to an input sample csv and a output sample csv as shown below and creates a job in the Azure ML to do the batch predictions. You can view the full code in [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). This Java sample requires [apache http client library](https://hc.apache.org/downloads.cgi). 
 
 
 	{ "GlobalParameters": {}, 
