@@ -488,7 +488,8 @@ The code sample below demonstrates how you can submit and monitor a batch job ag
 	}
 
 #### Sample code in Java for BES
-The Batch execution service REST API takes the JSON consisting of a reference to an input sample csv and a output sample csv as shown below and creates a job in the Azure ML to do the batch predictions.
+The Batch execution service REST API takes the JSON consisting of a reference to an input sample csv and a output sample csv as shown below and creates a job in the Azure ML to do the batch predictions. You can view the full code in [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp) 
+
 
 	{ "GlobalParameters": {}, 
     	"Inputs": { "input1": { "ConnectionString": 	"DefaultEndpointsProtocol=https;
@@ -499,7 +500,6 @@ The Batch execution service REST API takes the JSON consisting of a reference to
         	"RelativeLocation": "myContainer/sampleoutput.csv" } } 
 	} 
 
-View the full code in [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp) 
 
 #####Create a BES job	
 	    
