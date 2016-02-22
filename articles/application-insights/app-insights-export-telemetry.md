@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -170,7 +170,6 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 
     If the account is owned by your organization, you have to be a member of the owners or contributors groups.
 
-    <!-- Your account has to be either a paid-for account, or in the free trial period. -->
 
 * *Can I export straight to my own on-premises store?* 
 

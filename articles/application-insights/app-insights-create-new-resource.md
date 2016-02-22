@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="2/16/2016" 
 	ms.author="awills"/>
 
 # Create a new Application Insights resource
@@ -31,7 +31,7 @@ If you haven't got a [Microsoft account, get one now](http://live.com). (If you 
 
 You'll also need a subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your Windows Live ID.
 
-Or you can create a new subscription. The free trial lets you try everything in Azure. After the trial period expires, you might find the pay-as-you-go subscription appropriate, as you won't be charged for free services. 
+Or you can create a new subscription. The free account lets you try everything in Azure. After the trial period expires, you might find the pay-as-you-go subscription appropriate, as you won't be charged for free services. 
 
 When you've got access to a subscription, login to Application Insights at [http://portal.azure.com](https://portal.azure.com), and use your Live ID to login.
 

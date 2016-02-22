@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.date="02/18/2016"
 	ms.author="awills"/>
 
 
@@ -196,6 +196,51 @@ On the client side Windows 7, 8 and 8.1, again with .NET Framework 4.0 and 4.5
 
 IIS support is: IIS 7, 7.5, 8, 8.5
 (IIS is required)
+
+## Automation with PowerShell
+
+You can start and stop monitoring by using PowerShell.
+
+`Get-ApplicationInsightsMonitoringStatus [-Name appName]`
+
+* `-Name` (Optional) The name of a web app.
+* Displays the Application Insights monitoring status for each web app (or the named app) in this IIS server.
+
+* Returns `ApplicationInsightsApplication` for each app:
+ * `SdkState==EnabledAfterDeployment`: App is being monitored, and was instrumented at run time, either by the Status Monitor tool, or by `Start-ApplicationInsightsMonitoring`.
+ * `SdkState==Disabled`: The app is not instrumented for Application Insights. Either it was never instrumented, or run-time monitoring was disabled with the Status Monitor tool or with `Stop-ApplicationInsightsMonitoring`.
+ * `SdkState==EnabledByCodeInstrumentation`: The app was instrumented by adding the SDK to the source code. Its SDK cannot be updated or stopped.
+ * `SdkVersion` shows the version in use for monitoring this app.
+ * `LatestAvailableSdkVersion`shows the version currently available on the NuGet gallery. To upgrade the app to this version, use `Update-ApplicationInsightsMonitoring`.
+
+`Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
+
+* `-Name` The name of the app in IIS
+* `-InstrumentationKey` The ikey of the Application Insights resource where you want the results to be displayed.
+
+* Instruments a web app that is already deployed in IIS, but is not already instrumented (`SdkState==Disabled`).
+
+    The version of the SDK used to instrument the app is a locally cached copy of the one on the NuGet gallery. After the first use of this cmdlet on this server, the cache is not updated until you use `Update-ApplicationInsightsMonitoring`.
+
+* Returns `ApplicationInsightsApplication`.
+
+`Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
+
+* `-Name` The name of an app in IIS
+* `-All` Stops monitoring all apps in this IIS server for which `SdkState==EnabledAfterDeployment`
+
+* Stops monitoring the specified apps and removes instrumentation. It only works for apps that have been instrumented at run-time using the Status Monitoring tool or Start-ApplicationInsightsApplication. (`SdkState==EnabledAfterDeployment`)
+
+* Returns ApplicationInsightsApplication.
+
+`Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
+
+* `-Name`: The name of a web app in IIS.
+* `-InstrumentationKey` (Optional.) Use this to change the resource to which the app's telemetry is sent.
+* This cmdlet:
+ * Updates the locally cached version of the SDK to the latest released version on the NuGet gallery. All future uses of `Start-ApplicationInsightsMonitoring` will use this version.
+ * Upgrades the named app to the latest version of the SDK. (Only works if `SdkState==EnabledAfterDeployment`)
+ * If you provide an instrumentation key, the named app is reconfigured to send telemetry to the resource with that key. (Works if `SdkState != Disabled`)
 
 ## <a name="next"></a>Next steps
 
