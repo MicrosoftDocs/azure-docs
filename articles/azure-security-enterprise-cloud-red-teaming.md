@@ -13,13 +13,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/17/2016"
+   ms.date="02/22/2016"
    ms.author="yuridio"/>
 
 
 #Microsoft Enterprise Cloud Red Teaming
 
 Red Teaming is above and beyond compliance accreditations or other industry requirements and provides Microsoft, and our customers, with the additional assurance that Microsoft cloud services are continuously performing security monitoring, testing, and updates to reflect the constantly changing threats that both customers and Microsoft face.
+
+> [AZURE.NOTE] You can also download this article from the [TechNet Gallery](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). 
 
 ##Introduction
 
