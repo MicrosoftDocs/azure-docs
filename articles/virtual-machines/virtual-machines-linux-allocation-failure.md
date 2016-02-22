@@ -21,4 +21,4 @@
 
 
 
-[AZURE.INCLUDE[virtual-machines-common-allocation-failure](../../includes/virtual-machines-common-allocation-failure.md)]
+[AZURE.INCLUDE [virtual-machines-common-allocation-failure](../../includes/virtual-machines-common-allocation-failure.md)]

@@ -21,4 +21,4 @@
 
 
 
-[AZURE.INCLUDE[virtual-machines-common-scale-sets-overview](../../includes/virtual-machines-common-scale-sets-overview.md)]
+[AZURE.INCLUDE [virtual-machines-common-scale-sets-overview](../../includes/virtual-machines-common-scale-sets-overview.md)]
