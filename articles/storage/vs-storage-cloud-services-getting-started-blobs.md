@@ -164,7 +164,7 @@ and here are the results:
 	Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-For more information, see [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/en-us/library/azure/dd135734.aspx).
+For more information, see [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).
 
 ## Download blobs
 
