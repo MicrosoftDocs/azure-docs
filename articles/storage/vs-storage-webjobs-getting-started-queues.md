@@ -332,7 +332,7 @@ Messages whose content causes a function to fail are called *poison messages*. W
 
 ### Automatic poison message handling
 
-The SDK will call a function up to 5 times to process a queue message. If the fifth try fails, the message is moved to a poison queue. You can see how to configure the maximum number of retries is configurable in [How to set configuration options](#how-to-set-configuration-options).
+The SDK will call a function up to 5 times to process a queue message. If the fifth try fails, the message is moved to a poison queue. You can see how to configure the maximum number of retries in [How to set configuration options](#how-to-set-configuration-options).
 
 The poison queue is named *{originalqueuename}*-poison. You can write a function to process messages from the poison queue by logging them or sending a notification that manual attention is needed.
 
@@ -501,7 +501,7 @@ To write [application tracing logs](web-sites-dotnet-troubleshoot-visual-studio.
 
 Console output appears in the Dashboard only if the program is running in an Azure WebJob, not if the program is running locally or in some other environment.
 
-You can disable logging by setting the Dashboard connection string to null. For more information, see [How to set Configuration Options]](#how-to-set-configuration-options).
+You can disable logging by setting the Dashboard connection string to null. For more information, see [How to set Configuration Options](#how-to-set-configuration-options).
 
 The following example shows several ways to write logs:
 
