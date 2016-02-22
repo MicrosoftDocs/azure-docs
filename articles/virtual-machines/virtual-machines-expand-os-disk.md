@@ -3,8 +3,8 @@
    description="Default size of OS drive in an IaaS Virtual Machine is 127 GB that may be an obstacle in some customers scenarios. This article demonstrates an approach for expanding the OS drive using Azure Resource Manager Powershell."
    services="virtual-machines,storage,azure-resource-manager"
    documentationCenter="dev-center-name"
-   authors="kirpas@MSFT"
-   manager="roshar@MSFT"
+   authors="kirpasingh"
+   manager="roshar"
    editor=""/>
 
 <tags
@@ -14,11 +14,11 @@
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="na"
    ms.date="02/22/2016"
-   ms.author="kirpas@microsoft.com"/>
+   ms.author="kirpas"/>
 
 # How to expand the OS drive of a Virtual Machine in an Azure Resource Group
 ## Overview
-When you create a new VM in a Resource Group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/), the default OS drive is 127 GB. Even though it’s possible to add data disks to the VM (how many depending upon the SKU you’ve chosen) and moreover it’s recommended to install applications and CPU intensive workloads on these addendum disks, oftentimes customers need to expand the OS drive to support certain scenarios such as following:
+When you create a new VM in a Resource Group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default OS drive is 127 GB. Even though it’s possible to add data disks to the VM (how many depending upon the SKU you’ve chosen) and moreover it’s recommended to install applications and CPU intensive workloads on these addendum disks, oftentimes customers need to expand the OS drive to support certain scenarios such as following:
 
 1.  Support legacy applications that install components on OS drive.
 2.  Migrate a physical PC or virtual machine from on-premises with a larger OS drive.
@@ -26,7 +26,7 @@ When you create a new VM in a Resource Group by deploying an image from [Azure M
 >[AZURE.IMPORTANT]Azure has two different deployment models for creating and working with resources: Resource Manager and Classic. This article covers using the Resource Manager model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Resize the OS drive
-In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/). Open your Powershell ISE or Powershell window in administrative mode and follow the steps below:
+In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](../powershell-install-configure.md). Open your Powershell ISE or Powershell window in administrative mode and follow the steps below:
 
 1.  Sign-in to your Microsoft Azure account in resource management mode and select your subscription as follows:
     ```Powershell
