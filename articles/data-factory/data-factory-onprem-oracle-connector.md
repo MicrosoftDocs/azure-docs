@@ -207,6 +207,16 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
+
+You will need to adjust the query string based on how dates are configured in your Oracle database. If you see the following error message: 
+
+	Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+
+you may need to change the query as shown below (using the to_date function):
+
+	"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+
+
 ## Oracle linked service properties
 
 The following table provides description for JSON elements specific to Oracle linked service. 
