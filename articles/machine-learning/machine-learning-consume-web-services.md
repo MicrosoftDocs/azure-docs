@@ -654,7 +654,7 @@ Now you can use any of the swagger tools. Here are the instructions to generate 
 	fb62b56f29fc4ba4b8a8f900c9b89584/services/26a3afce1767461ab6e73d5a206fbd62/swagger.json\
 	 -l java -o /home/username/sample
 
-* Combine values in the fields host, basePath and "/swagger.json" in the the sample of the swagger [API help page](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument) shown below to construct swagger URL used in the command line above
+* Combine values in the fields host, basePath and "/swagger.json" in the sample of a swagger [API help page](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument) shown below to construct swagger URL used in the command line above
 
 **Sample API Help Page**
 
