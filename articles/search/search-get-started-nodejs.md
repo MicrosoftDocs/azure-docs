@@ -17,6 +17,9 @@
 	ms.author="heidist"/>
 
 # Get started with Azure Search in NodeJS
+> [AZURE.SELECTOR]
+- [Portal](search-get-started-portal.md)
+- [.NET](search-get-started-dotnet.md)
 
 Learn how to build a custom NodeJS search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
 

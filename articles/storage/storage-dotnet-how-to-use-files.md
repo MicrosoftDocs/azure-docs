@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 			pageTitle="Get started with Azure File storage on Windows | Microsoft Azure"
     		description="Store file data in the cloud with Azure File storage, and mount your cloud file share from an Azure virtual machine (VM) or from an on-premises application running Windows."
             services="storage"
@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/14/2016"
+      ms.date="02/19/2016"
       ms.author="robinsh" />
 
 # Get started with Azure File storage on Windows
