@@ -20,6 +20,6 @@
 # Troubleshoot allocation failures when you create, restart, or resize Windows VMs in Azure
 
 
-[AZURE INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
 
-[AZURE.INCLUDE[virtual-machines-common-allocation-failure](../../includes/virtual-machines-common-allocation-failure.md)]
+[AZURE.INCLUDE [virtual-machines-common-allocation-failure](../../includes/virtual-machines-common-allocation-failure.md)]
