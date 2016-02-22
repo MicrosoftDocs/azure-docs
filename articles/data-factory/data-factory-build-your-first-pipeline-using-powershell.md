@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="spelluru"
 	manager="jhubbard"
-	editor="monicar"/>
+	editor="monicar"
+/>
 
 <tags
 	ms.service="data-factory"
@@ -42,6 +43,8 @@ If you are using Azure PowerShell of **version < 1.0**, You will need to use cmd
 	2. Run **Get-AzureSubscription** to view all the subscriptions for this account.
 	3. Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
 4. Switch to AzureResourceManager mode as the Azure Data Factory cmdlets are available in this mode: **Switch-AzureMode AzureResourceManager**.
+
+Please see [Deprecation of Switch AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell) for details. 
 
 
 ## Step 1: Create the data factory

@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Add a Git artifact repository to your DevTest Lab
+
+> [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to add your private Artifacts Repository in a DevTest Lab](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab) 
 
 ## Overview
 
