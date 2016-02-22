@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/28/2016"
 	ms.author="anhoh"/>
 
 # View, edit, create, and upload JSON documents using the DocumentDB Document Explorer #
@@ -33,7 +33,7 @@ Document Explorer can be launched from any of the DocumentDB account, database, 
 1. At the top of the DocumentDB account or database blade, simply click the **Document Explorer** command.
 
 	![Screenshot of the Document Explorer command](./media/documentdb-view-JSON-document-explorer/documentexplorercommand.png)
- 
+
 2. Alternatively, near the bottom of each blade is a **Developer Tools** lens that contains the **Document Explorer** part.
 
 	![Screenshot of the Document Explorer part](./media/documentdb-view-JSON-document-explorer/documentexplorerpart.png)
@@ -100,7 +100,7 @@ Document Explorer supports a number of navigation options and advanced settings.
 	![Screenshot of Document Explorer Settings Blade](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
 
 	> [AZURE.NOTE] After modifying Document Explorer settings, you must click the **Refresh** command in order to apply the new settings.  The settings will persist only in the current browser session.
-	
+
 3. The **Database** and **Collection** drop-down list boxes can be used to easily change the collection from which documents are currently being viewed without having to close and re-launch Document Explorer.  
 
 4. Document Explorer also supports filtering the currently loaded set of documents by their id property.  Simply type in the filter box.
@@ -142,5 +142,3 @@ Document Explorer supports bulk ingestion of one or more existing JSON documents
 
 - To learn more about DocumentDB, click [here](http://azure.com/docdb).
 - To get started with code, click [here](documentdb-get-started.md).
-
- 
