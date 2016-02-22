@@ -20,4 +20,4 @@
 
 
 
-[AZURE.INCLUDE[virtual-machines-common-log-collector-extension](../../includes/virtual-machines-common-log-collector-extension.md)]
+[AZURE.INCLUDE [virtual-machines-common-log-collector-extension](../../includes/virtual-machines-common-log-collector-extension.md)]
