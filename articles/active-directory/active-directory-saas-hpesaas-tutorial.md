@@ -179,6 +179,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 
 
+
 ### Creating a HPE SaaS test user
 
 The objective of this section is to create a user called Britta Simon in HPE SaaS. Please work with HPE SaaS support team to add the users in the HPE SaaS account. 
