@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="02/11/2016"
    ms.author="bwren;sngun" />
 
 # Configuring Azure Automation
@@ -50,15 +50,15 @@ When you access Azure resources using the [Azure cmdlets](http://msdn.microsoft.
 8. Type the full user name of the user that you created.
 9. Select the subscription that you want the user to manage.
 10. Log out of Azure and then log back in with the account you just created. You will be prompted to change the user’s password.
-11. Create a new [Azure Automation Credential asset](http://msdn.microsoft.com/library/dn940015.aspx) for the user account that you created. The **Credential Type** should be **Windows PowerShell Credential**.
+11. Create a new [Azure Automation Credential asset](automation-credentials.md) for the user account that you created. The **Credential Type** should be **Windows PowerShell Credential**.
 
 ## Create an automation account
 
 An automation account is a container for your Azure Automation resources. It provides a way to separate your environments or further organize your workflows. If you've already created an automation account, you can skip this step.
 
-1. Log in to the [Azure preview portal](https://portal.azure.com/).
+1. Log in to the [Azure portal](https://portal.azure.com/).
 
-2. In the Azure preview portal, click **New** > **Management** > **Automation Account**
+2. In the Azure portal, click **New** > **Management** > **Automation Account**
 
 3. In the **Add Automation Account** blade, configure your Automation Account details. 
 
