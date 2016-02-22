@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Add a web application firewall  | Microsoft Azure"
+   pageTitle="Add a web application firewall in Azure Security Center  | Microsoft Azure"
    description="This document shows you how to implement the Azure Security Center recommendation **Add a web application firewall**."
    services="security-center"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="02/22/2016"
    ms.author="terrylan"/>
 
-# Add a web application firewall
+# Add a web application firewall in Azure Security Center
 
 Azure Security Center may recommend that you add a web application firewall from a Microsoft partner in order to secure your web applications. This document walks you through an example of how to do this.
 
