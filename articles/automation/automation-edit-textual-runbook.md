@@ -12,8 +12,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="01/19/2016"
-	ms.author="bwren" />
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren" />
 
 # Editing textual runbooks in Azure Automation
 
@@ -25,7 +25,7 @@ Each runbook in Azure Automation has two versions, Draft and Published. You edit
 
 To work with [Graphical Runbooks](automation-runbook-types.md#graphical-runbooks), see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
 
-## To edit a runbook with the Azure preview portal
+## To edit a runbook with the Azure portal
 
 Use the following procedure to open a runbook for editing in the textual editor.
 
