@@ -106,7 +106,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-veevavault-tutorial/tutorial_veevavault_04.png) <br>
 
 
-    a. In the **Sign On URL** textbox, type the Reply URL for your Veeva Vault application using the following pattern: **“https://login.veevavault.com/auth/saml/consumer/<TenantSSOID\>”**.
+    a. In the **Sign On URL** textbox, type the Reply URL for your Veeva Vault application using the following pattern: **“https://login.veevavault.com/auth/saml/consumer/\<TenantSSOID\>”**.
 
 
 4. On the **Configure single sign-on at Veeva Vault** page, perform the following steps:
