@@ -62,7 +62,7 @@ There are three types of disks that can be used with your VM and each has specif
 |IOPS per disk|500|2300|5000|
 |Throughput per disk|100 MB per second|150 MB per second|200 MB per second|
 
-#### Storage Account Scalability Targets
+#### Storage account scalability targets
 
 Premium Storage accounts have following scalability targets in addition to the [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/azure/dn249410.aspx). If your application requirements exceed the scalability targets of a single storage account, build your application to use multiple storage accounts, and partition your data across those storage accounts.
 
@@ -72,10 +72,10 @@ Premium Storage accounts have following scalability targets in addition to the [
 
 For the more information on Premium Storage specifications, check out [Scalability and Performance Targets when using Premium Storage](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage).
 
-#### Additional Data Disks
-Depending on your workload, determine if additional data disks are necessary for your VM. You can attach several persistent data disks to your VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. If you stripe Premium Storage data disks using [Storage Spaces](http://technet.microsoft.com/library/hh831739.aspx), you should configure it with one column for each disk that is used. Otherwise, overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. For Linux VMs you can use the *mdadm* utility to achieve the same. See article [Configure Software RAID on Linux](../virtual-machines-linux-configure-raid.md) for details.
+#### Additional data disks
+Depending on your workload, determine if additional data disks are necessary for your VM. You can attach several persistent data disks to your VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. If you stripe Premium Storage data disks using [Storage Spaces](http://technet.microsoft.com/library/hh831739.aspx), you should configure it with one column for each disk that is used. Otherwise, overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. For Linux VMs you can use the *mdadm* utility to achieve the same. See article [Configure Software RAID on Linux](../virtual-machines/virtual-machines-linux-configure-raid.md) for details.
 
-#### Disk Caching Policy
+#### Disk caching policy
 By default, disk caching policy is *Read-Only* for all the Premium data disks, and *Read-Write* for the Premium operating system disk attached to the VM. This configuration setting is recommended to achieve the optimal performance for your application’s IOs. For write-heavy or write-only data disks (such as SQL Server log files), disable disk caching so that you can achieve better application performance. The cache settings for existing data disks can be updated using [Azure Portal](https://portal.azure.com) or the *-HostCaching* parameter of the *Set-AzureDataDisk* cmdlet.
 
 #### Location
@@ -296,7 +296,7 @@ Create a new DS series Azure VM instance using the **Azure OS Disk** that you re
 
 Specify other Azure VM information, such as a cloud service, region, storage account, availability set, and caching policy. Note that the VM instance must be co-located with associated operating system or data disks, so the selected cloud service, region, and storage account must all be in the same location as the underlying VHDs of those disks.
 
-### Attach Data Disk
+### Attach data disk
 
 Lastly, if you have registered data disk VHDs, attach them to the new DS-series or GS-series Azure VM.
 
@@ -318,7 +318,7 @@ If you currently have an Azure VM that uses Standard Storage disks, follow the p
 
 In addition, please refer to the previous section on Considerations for understanding various optimizations you can do for Premium Storage. Depending on the optimizations that are applicable to your applications, the migration process may fall into one of the migration scenarios below.
 
-### A Simple Migration
+### A simple migration
 In this simple scenario, you are looking to preserve your configuration as is while migrating from Standard Storage to Premium Storage. Here you’ll move each of your disks as is and then convert the VM as well.
 Benefit of this is the ease of migration; and the downside is, the resulting configuration may not be optimized for the lowest cost.
 
@@ -661,10 +661,10 @@ Optimizations like this need to be handled on a case by case basis and requires 
 2.	Login to the VM and copy the data from the current volume to the new disk that maps to that volume. Do this for all the current volumes that need to map to a new disk.
 3.	Next, change the application settings to switch to the new disks, and detach the old volumes.
 
-###  Application Migrations
+###  Application migrations
 Databases and other complex applications may require special steps as defined by the application provider for the migration. Please refer to respective application documentation. E.g. typically databases can be migrated through backup and restore.
 
-## Next Steps
+## Next steps
 
 See the following resources for specific scenarios for migrating virtual machines:
 
