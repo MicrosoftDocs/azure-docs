@@ -99,14 +99,16 @@ At this point, you should be able to enter the custom domain name in your browse
  
 ## What happens to the custom domain you bought
 
-The custom domain you bought in the **Custom domains and SSL** blade is tied to the Azure subscription. This means that:
+The custom domain you bought in the **Custom domains and SSL** blade is tied to the Azure subscription. As an Azure resource, this
+custom domain is separate and independent from the App Service app that you first bought the domain for. This means that:
 
 - Within the Azure portal, you can use the custom domain you bought for more than one App Service app, and not just for the app
 that you first bought the custom domain for. 
-- If you delete the App Service app that you first bought the domain for, the domain isn't deleted.
-- You'll see the custom domains you bought in the **Custom domains and SSL** blade for *any* App Service app created in the same 
-Azure subscription.
+- You can manage all the custom domains you bought in the Azure subscription by going to the **Custom domains and SSL** blade of *any* 
+App Service app in that subscription.
 - You can assign any App Service app from the same Azure subscription to a subdomain within that custom domain.
+- If you decide to delete an App Service app, you can choose not to delete the custom domain it is bound to if you want to keep using 
+it for other apps.
 
 ## If you can't see the custom domain you bought
 
