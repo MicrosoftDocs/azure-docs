@@ -58,7 +58,7 @@ Use PowerShell to programmatically perform a Point In Time Restore with the [Sta
 		 
 
 ###REST API 
-Use REST to programmatically perform database restore. To do this create the restore request using the [Create Database](https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx) operation, and specify the **create mode** to be **PointInTimeRestore**.
+Use REST to programmatically perform database restore. To do this create the restore request using the [Create Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) operation, and specify the **create mode** to be **PointInTimeRestore**.
 
 ##Restore a deleted database
 In the event a database is deleted, Azure SQL Database allows you to restore the deleted database to the point in time of deletion. Azure SQL Database stores the deleted database backup for the retention period of the database.
