@@ -107,7 +107,7 @@ To perform query operations, you must specify a key resolver that is able to res
 
 ## Azure Key Vault
 
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Azure Key Vault, users can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For more information, see [What is Azure Key Vault?](../articles/key-vault-whatis.md).
+Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Azure Key Vault, users can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For more information, see [What is Azure Key Vault?](../key-vault/key-vault-whatis.md).
 
 The storage client library uses the Key Vault core library in order to provide a common framework across Azure for managing keys. Users also get the additional benefit of using the Key Vault extensions library. The extensions library provides useful functionality around simple and seamless Symmetric/RSA local and cloud key providers as well as with aggregation and caching.
 
@@ -247,4 +247,4 @@ Note that encrypting your storage data results in additional performance overhea
 Download the [Azure Storage Client Library for .NET NuGet package](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0)
 Download the [Azure Storage Client Library for .NET Source Code](https://github.com/Azure/azure-storage-net) from GitHub
 Download the Azure Key Vault NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages  
-Visit the [Azure Key Vault Documentation](../articles/key-vault-whatis.md)
+Visit the [Azure Key Vault Documentation](../key-vault/key-vault-whatis.md)
