@@ -18,6 +18,8 @@
 
 # Add owners and users to a DevTest Lab
 
+> [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to set security in your DevTest Lab](/documentation/videos/how-to-set-security-in-your-devtest-lab) 
+
 ## Overview
 
 Access to a DevTest Lab is controlled by Azure Role-Based Access Control (RBAC). Search for [Role-Based-Access-Control (RBAC)](https://azure.microsoft.com/searchresults?query=Role%20Based%20Access%20Control%20%28RBAC%29) in the Azure preview portal to learn more.
@@ -33,8 +35,6 @@ You grant access to your DevTest Lab through two roles:
 	-  Users in the **DevTest Lab User** role can perform these operations only inside in the lab that they are assigned to.  
 	For example, a **DevTest Lab User** cannot create a virtual machine using the Virtual Machine service of the subscription. Creating a virtual machine is only allowed from the DevTest Lab account.
 	- *External* users must have an account in one of the Microsoft account domains (i.e. @hotmail.com, @live.com, @msn.com, @passport.com, @outlook.com, or any variant for a specific country).
-
-[AZURE.VIDEO how-to-set-security-in-your-devtest-lab]
 
 ## Add an owner to your lab
 

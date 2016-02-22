@@ -18,6 +18,8 @@
 
 # Add a VM with artifacts to an Azure DevTest Lab
 
+> [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to create VMs with artifacts in a DevTest Lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) 
+
 ## Overview
 
 You create a virtual machine in a DevTest Lab starting with an Azure base image or with an image that you have uploaded to your lab.
@@ -27,8 +29,6 @@ DevTest Lab *artifacts* let you specify actions that are performed when the VM i
 Your lab includes artifacts from the Public DevTest Lab Artifact Repository as well as artifacts that are created and added to your own Artifact Repository.
 
 This article shows you how create a VM in your lab using artifacts.
-
-[AZURE.VIDEO how-to-create-vms-with-artifacts-in-a-devtest-lab]
 
 ## Add a VM with artifacts
 
