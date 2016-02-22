@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure App Service, Cloud Services, Virtual Machines, and Service Fabric comparison"
-	description="Learn when to use Azure App Service, Cloud Services, Virtual Machines, Service Fabric for hosting web applications."
+	description="Learn when to use Azure App Service, Cloud Services, Virtual Machines, and Service Fabric for hosting web applications."
 	services="app-service\web, virtual-machines, cloud-services"
 	documentationCenter=""
 	authors="tdykstra"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="02/22/2016"
 	ms.author="tdykstra"/>
 
 # Azure App Service, Cloud Services, Virtual Machines, and Service Fabric comparison
@@ -165,7 +165,7 @@ Network isolation with [Azure Virtual Network](/services/virtual-network/)|X|X|X
 Support for [Azure Traffic Manager](/services/traffic-manager/)|X|X|X|X|
 Integrated Endpoint Monitoring|X|X|X||
 Remote desktop access to servers||X|X|X|
-Install any custom MSI||X|X|X|Service Fabric allows you to host any executable file as a [guest executable](../service-fabric/service-fabric-deploy-existing-app.md).
+Install any custom MSI||X|X|X|Service Fabric allows you to host any executable file as a [guest executable](../service-fabric/service-fabric-deploy-existing-app.md) or you can install any app on the VMs.
 Ability to define/execute start-up tasks||X|X|X|
 Can listen to ETW events||X|X|X|
 
