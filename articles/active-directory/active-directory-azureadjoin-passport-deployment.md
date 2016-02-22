@@ -1,36 +1,36 @@
-<properties
-	pageTitle="Enable Microsoft Passport for Work in the organization | Microsoft Azure"
-	description="Deployment instructions to enable Microsoft Passport in your organization."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
+<properties 
+	pageTitle="Enable Microsoft Passport for Work in the organization | Microsoft Azure" 
+	description="Deployment instructions to enable Microsoft Passport in your organization." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="femila" 
+	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/19/2015"
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
-# Enable Microsoft Passport for Work in the organization
+# Enable Microsoft Passport for work in the organization
 
-After connecting Windows 10 domain-joined devices with Azure Active Directory (Azure AD), do the following to enable Microsoft Passport for Work in the organization.
+After connecting Windows 10 domain joined devices with Azure AD do the following to enable Microsoft Passport for Work in the organization.
 
 ## Deploy System Center Configuration Manager version 1509 for Technical Preview
 To deploy user certificates based on Microsoft Passport keys, you need the following:
 
 - **System Center Configuration Manager version 1509 for Technical Preview**. For more information, see [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update). and [System Center Configuration Manager Team Blog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
-- **Public key infrastructure (PKI)**: To enable Microsoft Passport for Work by using user certificates, you must have a PKI in place. If you don’t have one, or if you don’t want to use it for user certificates, you can do the following:
- - **Deploy a domain controller (DC)**: On Windows Server, build 10551 or newer, [install a replica DC in an existing domain](https://technet.microsoft.com/en-us/library/jj574134.aspx), or if you are creating a new environment, [install a new Active Directory forest](https://technet.microsoft.com/en-us/library/jj574134.aspx). (The ISOs for Windows Server build 10551 are available for download on [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
+- **PKI infrastructure**: To enable Microsoft Passport for Work using user certificates you must have a PKI infrastructure in place. If you don’t have one or you don’t want to use it for user certificates you can deploy a domain controllers (DC) of the new version of Windows Server:
+ - **Deploy a DC of new version of Windows Server**: On a brand new Windows Server build 10551 or newer (The ISOs are available for download on [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true)) follow the steps to [install a replica DC in an existing domain](https://technet.microsoft.com/en-us/library/jj574134.aspx) or to [install a new Active Directory forest if creating a brand new environment](https://technet.microsoft.com/en-us/library/jj574134.aspx).
 
 ## Configure Microsoft Passport for work via Group Policy in Active Directory
 
- You can use Group Policy in Windows Server Active Directory (Active Directory) to configure your Windows 10 domain-joined devices to provision Microsoft Passport credentials for users upon user logon to Windows:
+ You can use an Active Directory Group Policy to configure your Windows 10 domain joined devices to provision user Microsoft Passport credentials upon user logon to Windows:
 
 1. 	Open Server Manager and navigate to **Tools** > **Group Policy Management**.
 2.	From Group Policy Management, navigate to the domain node that corresponds to the domain in which you would like to enable Azure AD Join.
@@ -43,7 +43,7 @@ To deploy user certificates based on Microsoft Passport keys, you need the follo
  - A specific Organizational Unit (OU) in AD where Windows 10 domain-joined computers will be located.
  - A specific security group containing Windows 10 domain-joined computers that will be auto-registered with Azure AD.
 
-## Configure Microsoft Passport for work via deploying PowerShell through Configuration Manager
+## Configure Microsoft Passport for work via deploying PowerShell through Configuration Manager 
 
 Run the following PowerShell command:
 
