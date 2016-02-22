@@ -172,9 +172,6 @@ To download blobs, first retrieve a blob reference and then call the **DownloadT
 example uses the **DownloadToStream** method to transfer the blob
 contents to a stream object that you can then persist to a local file.
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
-    // the "Access blob containers in code" section.
-
     // Get a reference to a blob named "photo1.jpg".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
 
@@ -185,9 +182,6 @@ contents to a stream object that you can then persist to a local file.
     }
 
 You can also use the **DownloadToStream** method to download the contents of a blob as a text string.
-
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
-    // the "Access blob containers in code" section.
 
 	// Get a reference to a blob named "myblob.txt"
 	CloudBlockBlob blockBlob2 = container.GetBlockBlobReference("myblob.txt");
@@ -203,9 +197,6 @@ You can also use the **DownloadToStream** method to download the contents of a b
 
 To delete a blob, first get a blob reference and then call the
 **Delete** method.
-
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
-    // the "Access blob containers in code" section.
 
     // Get a reference to a blob named "myblob.txt".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
