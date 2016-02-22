@@ -248,3 +248,4 @@ Note that encrypting your storage data results in additional performance overhea
 - Download the [Azure Storage Client Library for .NET Source Code](https://github.com/Azure/azure-storage-net) from GitHub
 - Download the Azure Key Vault NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages  
 - Visit the [Azure Key Vault Documentation](../key-vault/key-vault-whatis.md)
+
