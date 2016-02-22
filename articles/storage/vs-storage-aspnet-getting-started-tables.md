@@ -141,17 +141,17 @@ To query a table for all of the entities in a partition, use a **TableQuery** ob
 ## Get a single entity
 You can write a query to get a single, specific entity. The following code uses a **TableOperation** object to specify a customer named 'Ben Smith'. This method returns just one entity, rather than a collection, and the returned value in **TableResult.Result** is a **CustomerEntity** object. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the table service.
 
-        // Create a retrieve operation that takes a customer entity.
-        TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+	// Create a retrieve operation that takes a customer entity.
+    TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
-		// Execute the retrieve operation.
-		TableResult retrievedResult = await peopleTable.ExecuteAsync(retrieveOperation);
+	// Execute the retrieve operation.
+	TableResult retrievedResult = await peopleTable.ExecuteAsync(retrieveOperation);
 	
-		// Print the phone number of the result.
-		if (retrievedResult.Result != null)
-		   Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
-		else
-		   Console.WriteLine("The phone number could not be retrieved.");
+	// Print the phone number of the result.
+	if (retrievedResult.Result != null)
+		Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
+	else
+	   Console.WriteLine("The phone number could not be retrieved.");
 
 ## Delete an entity
 You can delete an entity after you find it. The following code looks for a customer entity named "Ben Smith" and if it finds it, it deletes it.
