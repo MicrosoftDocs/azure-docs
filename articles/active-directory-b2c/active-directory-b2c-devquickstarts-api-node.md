@@ -52,15 +52,9 @@ Before you can use Azure AD B2C, you must create a directory, or tenant.  A dire
 Next, you need to create an app in your B2C directory that gives Azure AD some information that it needs to securely communicate with your app. In this case, both the client app and web API will be represented by a single **Application ID**, because they comprise one logical app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
 
 - Include a **web app/web api** in the application
-<<<<<<< HEAD
 - Enter `http://localhost/TodoListService` as a **Reply URL**. It is the default URL for this code sample.
-- Create an **Application secret** for your application and copy it. You will need it later.
+- Create an **Application secret** for your application and copy it. You will need it later. You will need it shortly. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before you use it.
 - Copy the **Application ID** that is assigned to your app. You will also need this later.
-=======
-- Enter `http://localhost/TodoListService` as a **Reply URL** - it is the default URL for this code sample.
-- Create an **Application Secret** for your application and copy it down. You will need it shortly. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before use.
-- Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
->>>>>>> 79866dbbf857d14af234bcc81cd1a06b3e9c0fbd
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
