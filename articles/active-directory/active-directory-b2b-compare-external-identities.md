@@ -24,7 +24,7 @@ In addition to managing mobile workforce access to SaaS apps, Azure Active Direc
 
 Do you provide a service or application, such as a payroll service, to businesses? Azure AD provides the identity platform that allows you to build applications that seamlessly integrate with millions of organizations that have already configured Azure AD as part of deploying Office 365 or other enterprise services.
 
-**Example:** A pharmaceutical distributor provides medical supplies and information systems to the healthcare industry. They needed to field an analytics application to medical practices and wanted customers to manage their own identities. This company chose Azure AD as the identity platform for their practice management application, providing Azure AD identities to their customers at sign up when necessary. For more information, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+**Example:** A pharmaceutical distributor provides medical supplies and information systems to the healthcare industry. They needed to field an analytics application to medical practices and wanted customers to manage their own identities. This company chose Azure AD as the identity platform for their practice management application, providing Azure AD identities to their customers at sign up when necessary. For more information, see [Azure Active Directory developer's guide](active-directory-developers-guide.md).
 
 ## Enabling business partner access to your corporate resources
 
@@ -42,7 +42,7 @@ Do you need to securely and cost-effectively publish online applications, such a
 
 Each of the scenarios already discussed in this article is addressed by capabilities within Azure AD. This table should help clarify which capabilities are most relevant to you:
 
-| **Consider this product...**       | [Azure AD Multi-tenant App](active-directory-appssoaccess-whatis.md)    | [Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)        | [Azure AD B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)                |
+| **Consider this product...**       | [Azure AD Multi-tenant App](active-directory-developers-guide.md)    | [Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)        | [Azure AD B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)                |
 |-----------------------|-------------------------|----------------------------|------------------------|
 | **If I need to provide...** | a service to businesses | partner access to my apps  | a service to consumers |
 | **And I am similar to...**  | Pharma distributor      | Imaging company            | Sports franchise       |
