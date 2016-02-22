@@ -1,23 +1,23 @@
 
-<properties 
-	pageTitle="Using Azure AD Connect Health with AD FS | Microsoft Azure" 
-	description="This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Using Azure AD Connect Health with AD FS | Microsoft Azure"
+	description="This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="01/21/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/17/2016"
 	ms.author="billmath"/>
 
-# Using Azure AD Connect Health with AD FS 
+# Using Azure AD Connect Health with AD FS
 The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health.
 
 ## Alerts for AD FS
@@ -32,7 +32,7 @@ By selecting an alert you will be provided with additional information as well a
 ## Usage Analytics for AD FS
 Azure AD Connect Health Usage Analytics analyzes the authentication traffic of your federation servers. Selecting the usage analytics box will open the usage analytics blade, which will show you the metrics and groupings.
 
->[AZURE.NOTE] In order to use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs). 
+>[AZURE.NOTE] In order to use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs).
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/report1.png)
 
@@ -73,3 +73,5 @@ By selecting the Filter option at the top of the blade, you can filter by server
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
+

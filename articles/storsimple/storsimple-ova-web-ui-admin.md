@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="02/17/2016"
    ms.author="alkohli" />
 
 # Use the Web UI to administer your StorSimple Virtual Array (preview)
@@ -94,7 +94,7 @@ A log package is comprised of all the relevant logs that can assist Microsoft Su
 
 ## Shut down and restart your device
 
-You can shut down or restart your virtual device using the local web UI.
+You can shut down or restart your virtual device using the local web UI. We recommend that before you restart, take the volumes or shares offline on the host and then the device. This will minimize any possibility of data corruption. 
 
 #### To shut down your virtual device
 

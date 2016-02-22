@@ -143,7 +143,7 @@ Yes. You will have to create an ExpressRoute gateway within your virtual network
 You must establish an ExpressRoute circuit and configure routes for public peering.
 
 ### Are there limits on the number of routes I can advertise?
-Yes. We accept up to 4000 route prefixes for private peering and public peering. You can increase this to 10,000 routes if you enable the ExpressRoute premium feature.
+Yes. We accept up to 4000 route prefixes for private peering and 200 each for public peering and Microsoft peering. You can increase this to 10,000 routes for private peering if you enable the ExpressRoute premium feature.
 
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 Prefixes advertised through BGP must be /29 or larger (/28 to /8).
