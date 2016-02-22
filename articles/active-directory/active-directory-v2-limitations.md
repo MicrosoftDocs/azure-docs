@@ -21,6 +21,7 @@
 When building applications that integrate with Azure Active Directory, you will need to decide if the v2.0 endpoint and authentication protocols will meet your needs.  The original Azure AD app model is still fully supported and in some respects, is more feature rich than v2.0.  However, the v2.0 endpoint [introduces significant benefits](active-directory-v2-compare.md) for developers that may entice you to use the new programming model.  Over time, v2.0 will grow to encompass all Azure AD features, so that you will only ever need to use the v2.0 endpoint.
 
 At this point in time, there are two core features that you can achieve with the v2.0 endpoint:
+
 - Signing in users with personal and work accounts.
 - Calling the [converged Outlook API](https://dev.outlook.com).
 
@@ -33,7 +34,7 @@ If you have an existing app with Azure AD that does not use the v2.0 endpoint, t
 ## Restrictions on apps
 The following types of apps are not currently supported by the v2.0 endpoint.  For a description of the supported types of apps, refer to [this article](active-directory-v2-flows.md).
 
-##### Standalone web APIs
+##### Standalone Web APIs
 With the v2.0 endpoint, you have the ability to [build a Web API that is secured using OAuth 2.0](active-directory-v2-flows.md#web-apis).  However, that Web API will only be able to receive tokens from an application that shares the same Application Id.  Building a web API that is accessed from a client with a different Application Id is not supported.  That client will not be able to request or obtain permissions to your web API.
 
 To see how to build a Web API that accepts tokens from a client with the same App Id, see the v2.0 endpoint Web API samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
@@ -41,17 +42,12 @@ To see how to build a Web API that accepts tokens from a client with the same Ap
 ##### Daemons/Server Side Apps
 Apps that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the OAuth 2.0 client credentials flow.  
 
-This flow is not currently supported by the v2.0 endpoint - which is to say that apps can only get tokens after an interactive user sign-in flow has occurred.  The client credentials flow will be added in the near future.  If you would like to see the client credentials flow in the generally available Azure AD app model, check out the [Daemon sample on GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
+This flow is not currently supported by the v2.0 endpoint - which is to say that apps can only get tokens after an interactive user sign-in flow has occurred.  The client credentials flow will be added in the near future.  If you would like to see the client credentials flow using the original Azure AD endpoint, check out the [Daemon sample on GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
 
 ##### Web API On-Behalf-Of Flow
 Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 endpoint.  This scenario is common in native clients that have a Web API backend, which in turn calls a Microsoft Online service or another custom built web API that supports Azure AD.
 
 This scenario can be supported using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the On-Behalf-Of Flow.  However, the On-Behalf-Of flow is not currently supported for the v2.0 endpoint.  To see how this flow works in the generally available Azure AD service, check out the [On-Behalf-Of code sample on GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
-
-## Restrictions on users
-At this moment, every app using the v2.0 endpoint will be publicly exposed to all users with a Microsoft Account or Azure AD account. Any user with either type of account will be able to successfully navigate to or install your app, enter their credentials, and consent to your app's permissions.  You can write your app's code to reject sign-ins from certain sets of users - but that will not prevent them from being able to consent to the app.
-
-Effectively, your apps can not restrict the types of users that can sign into the app.  You will not be able to build Line of Business apps (restricted to users in one organization), apps available to only enterprise users (with an Azure AD account), or apps only available to consumers (with a Microsoft Account).
 
 ## Restrictions on app registrations
 At this point in time, all apps that want to integrate with the v2.0 endpoint must create a new app registration at [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  Any existing Azure AD or Microsoft Account apps will not be compatible with the v2.0 endpoint, nor will apps registered in any portal besides the new App Registration Portal.  We plan to provide a way to enable existing applications for use as a v2.0 app, but at this time, there is no migration path for an app to the v2.0 endpoint.

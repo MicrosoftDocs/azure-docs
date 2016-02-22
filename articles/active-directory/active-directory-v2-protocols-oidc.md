@@ -41,14 +41,14 @@ When your web app needs to authenticate the user, it can direct the user to the 
 ```
 // Line breaks for legibility only
 
-GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e		// Your registered Application Id
+GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=id_token
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F 	  // Your registered Redirect Uri, url encoded
-&response_mode=form_post							  // 'query', 'form_post', or 'fragment'
-&scope=openid										 // Translates to the 'Sign you in' permission
-&state=12345						 				 // Any value, provided by your app
-&nonce=678910										 // Any value, provided by your app
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&response_mode=form_post
+&scope=openid
+&state=12345
+&nonce=678910
 ```
 
 > [AZURE.TIP] Try pasting the below into a web browser!
@@ -59,6 +59,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------- |
+| tenant | required | The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers.  For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
 | response_type | required | Must include `id_token` for OpenID Connect sign-in.  It may also include other response_types, such as `code`. |
 | redirect_uri | recommended | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
@@ -158,7 +159,7 @@ To acquire access tokens, you'll need to slightly modify the sign in request fro
 ```
 // Line breaks for legibility only
 
-GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
+GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e		// Your registered Application Id
 &response_type=id_token+code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F 	  // Your registered Redirect Uri, url encoded

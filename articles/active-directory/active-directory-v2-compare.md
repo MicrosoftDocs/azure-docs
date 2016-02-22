@@ -122,15 +122,6 @@ We are now restricting the information that the `openid` scope affords your app 
 The `email` scope is very straightforward – it allows your app access to the user’s primary email address via the `email` claim in the id_token.  The `profile` scope affords your app access to all other basic information about the user – their name, preferred username, object ID, and so on.
 
 This allows you to code your app in a minimal-disclosure  fashion – you can only ask the user for the set of information that your app requires to do its job.  For more information on these scopes, refer to [the v2.0 scope reference](active-directory-v2-scopes.md). 
- 
-## Admin consent
-
-In the original Azure Active Directory service, there is a dedicated query parameter `prompt=admin_consent` that can be used to invoke tenant adminstrative functionality.  `prompt=admin_consent` has been primarily used for two purposes:
-
-- Acquiring highly privileged permissions in an application.  This includes all **application permissions** and certain **delegated permissions** that have been marked as highly-privileged.
-- Pre-provisioning authorization to an app for all employees in an organization.
-
-In the v2.0 endpoint, this functionality has been removed as a query parameter in a sign-in request.  Instead, it is provided at a dedicated endpoint.  To learn more about the **app provisioning endpoint**, refer to [the v2.0 scope reference](active-directory-v2-scopes.md).
 
 ## Token Claims
 

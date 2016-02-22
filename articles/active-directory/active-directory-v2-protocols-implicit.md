@@ -42,13 +42,27 @@ The entire implicit sign in flow looks something like this - each of the steps a
 To initially sign the user into your app, you can send an [OpenID Connect](active-directory-v2-protocols-oidc.md) authorization request and get an `id_token` from the v2.0 endpoint:
 
 ```
+// Line breaks for legibility only
+
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&response_type=id_token+token
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&response_mode=fragment
+&state=12345
+&nonce=678910
+```
+
+> [AZURE.TIP] Try pasting the below request into a browser!
+
+```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910
 ```
-> [AZURE.TIP] Try pasting this request into a browser!
-
 
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------- |
+| tenant | required | The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers.  For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
 | response_type | required | Must include `id_token` for OpenID Connect sign-in.  It may also include the response_type `token`. Using `token` here will allow your app to receive an access token immediately from the authorize endpoint without having to make a second request to the authorize endpoint.  If you use the `token` response_type, the `scope` parameter must contain a scope indicating which resource to issue the token for. |
 | redirect_uri | recommended | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
@@ -125,13 +139,28 @@ Now that you've signed the user into your single page app, you can get access to
 In the normal OpenID Connect/OAuth flow, you would do this by making a request to the v2.0 `/token` endpoint.  However, the v2.0 endpoint does not support CORS requests, so making AJAX calls to get and refresh tokens is out of the question.  Instead, you can use the implicit flow in a hidden iframe to get new tokens for other web APIs: 
 
 ```
+// Line breaks for legibility only
+
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&response_type=token
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment
+&state=12345&nonce=678910
+&prompt=none
+&domain_hint=organizations
+&login_hint=myuser@mycompany.com
+```
+
+> [AZURE.TIP] Try pasting the below request into a browser! (but if you want it to succeed, modify the domain_hint & login_hint values first)
+
+```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint=organizations&login_hint=myuser@mycompany.com
 ```
 
-> [AZURE.TIP] Try pasting this request into a browser! (but if you want it to succeed, modify the domain_hint & login_hint values first)
-
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------- |
+| tenant | required | The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers.  For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
 | response_type | required | Must include `id_token` for OpenID Connect sign-in.  It may also include other response_types, such as `code`. |
 | redirect_uri | recommended | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
