@@ -11,7 +11,7 @@
 <tags
 	ms.service="azure-resource-manager"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="01/19/2016"
@@ -37,7 +37,7 @@ One advantage of the Azure Resource Manager is that you can create your Azure re
 
 When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group. For more information on the Azure Resource Manager, visit the [Azure Resource Manager Overview](resource-group-overview.md).
 
-After you create a deployment, you can manage the individual resources imperatively on the command line, just like you can in the classic (Service Management) deployment model. For example, use Azure Resource Manager CLI commands to start, stop, or delete resources such as [Azure Resource Manager virtual machines](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+After you create a deployment, you can manage the individual resources imperatively on the command line, just like you can in the classic (Service Management) deployment model. For example, use Azure Resource Manager CLI commands to start, stop, or delete resources such as [Azure Resource Manager virtual machines](virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 ## Authentication
 
@@ -84,7 +84,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 * A password = `adminPassword`
 * A domain name for the VM = `dnsLabelPrefix`
 
->[AZURE.TIP] These steps show you just one way to use a VM template with the Azure CLI. For other examples, see [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+>[AZURE.TIP] These steps show you just one way to use a VM template with the Azure CLI. For other examples, see [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 1. Follow the "Learn more with GitHub" link to download the files azuredeploy.json and azuredeploy.parameters.json from GitHub to a working folder on your local computer. (Make sure to select the _raw_ format of each file in GitHub.)
 

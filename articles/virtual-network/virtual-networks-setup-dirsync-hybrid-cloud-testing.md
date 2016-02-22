@@ -183,4 +183,4 @@ This environment is now ready for you to perform testing of Office 365 applicati
 
 [Azure hybrid cloud test environments](../virtual-machines/virtual-machines-windows-classic-hybrid-test-env.md)
 
-[Azure infrastructure services implementation guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Azure infrastructure services implementation guidelines](../virtual-machines/virtual-machines-linux-infrastructure-service-guidelines.md)

@@ -87,7 +87,7 @@ This is a prescriptive, pre-defined architecture. Keep the following in mind:
 
 To build a dev/test environment or a proof-of-concept of this configuration, see [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md).
 
-For additional information about designing IT workloads for Azure, see [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md).
+For additional information about designing IT workloads for Azure, see [Azure infrastructure services implementation guidelines](virtual-machines-linux-infrastructure-service-guidelines.md).
 
 ## Next step
 

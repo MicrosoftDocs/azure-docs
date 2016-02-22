@@ -93,7 +93,7 @@ The Windows Server installation in the platform image contains the following con
 |Guest Account|Disabled|
 |Windows Firewall with Advanced Security|On|
 |.NET Framework|Version 4|
-|Disks|The size-selected limits the number of data disks you can configure. See [Virtual Machine Sizes for Azure](virtual-machines-size-specs.md)|
+|Disks|The size-selected limits the number of data disks you can configure. See [Virtual Machine Sizes for Azure](virtual-machines-linux-sizes.md)|
 
 ### SQL Server
 
@@ -145,4 +145,4 @@ If you create a virtual machine by using a platform-provided SQL Server image, y
 - [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md)
 - [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-dr.md)
 - [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
-- [Azure Virtual Machines](virtual-machines-about.md)
+- [Azure Virtual Machines](virtual-machines-linux-about.md)

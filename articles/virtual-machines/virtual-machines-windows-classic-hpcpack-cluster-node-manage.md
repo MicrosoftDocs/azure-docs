@@ -32,7 +32,7 @@ run each of the scripts as an administrator.
 
 ## Prerequisites
 
-* **HPC Pack cluster in Azure VMs** - Create an HPC Pack cluster in the classic (Service Management) deployment model by using at least HPC Pack 2012 R2 Update 1. For example, you can automate the deployment by using the HPC Pack VM image in the Azure Marketplace and an Azure PowerShell script. For information and prerequisites, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md).
+* **HPC Pack cluster in Azure VMs** - Create an HPC Pack cluster in the classic (Service Management) deployment model by using at least HPC Pack 2012 R2 Update 1. For example, you can automate the deployment by using the HPC Pack VM image in the Azure Marketplace and an Azure PowerShell script. For information and prerequisites, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
 
 * **Azure publish settings file or management certificate** - You need to do one of the following on the head node:
 

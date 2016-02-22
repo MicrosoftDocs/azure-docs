@@ -36,7 +36,7 @@ The Azure SDK for .NET installs the following products:
 - [Microsoft Azure Storage Emulator](#stgemulator)
 - [Microsoft Azure Storage Tools](#stgtools)
 - [Microsoft Azure Libraries for .NET](#libraries)
-- [HDInsight Tools for Visual Studio](#hdinsight) and [Microsoft Hive ODBC Driver](#hdinsight)
+- [HDInsight Tools for Visual Studio and Microsoft Hive ODBC Driver](#hdinsight)
 - [Microsoft Azure Mobile App SDK V1.0](#mobile)
 - [Microsoft Azure PowerShell](#ps)
 
@@ -63,7 +63,7 @@ This enables you to work with Azure resources, primarily Cloud Services and Virt
 
 * [Create, open, and publish cloud service projects](cloud-services/cloud-services-dotnet-get-started.md).
 * [Create deployment packages for cloud service projects](http://msdn.microsoft.com/library/ff683672.aspx).
-* [Create Azure Virtual Machines while creating new web projects](virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md).
+* [Create Azure Virtual Machines while creating new web projects](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md).
 * [Create PowerShell scripts while creating new virtual machines](http://msdn.microsoft.com/library/dn642480.aspx).
 * [View and manage cloud service project settings in Visual Studio Project Properties windows](http://msdn.microsoft.com/library/ee405486.aspx).
 * View and manage [cloud services](http://msdn.microsoft.com/library/ff683675.aspx), [virtual machines](http://msdn.microsoft.com/library/jj131259.aspx), and [Service Bus](http://msdn.microsoft.com/library/jj149828.aspx) in Server Explorer. 
@@ -101,7 +101,7 @@ This includes the following:
 
 HDInsight tools in Server Explorer enable you to navigate Hive databases and linked storage accounts for HDInsight clusters, create tables, and create and submit Hive queries. For more information, see [Get started using HDInsight Hadoop Tools for Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-###<a id="mobile">Microsoft Azure Mobile App SDK
+###<a id="mobile"></a>Microsoft Azure Mobile App SDK V1.0
 
 Tools for working with [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop.md).
 
