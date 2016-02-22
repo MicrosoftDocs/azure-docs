@@ -56,6 +56,7 @@ To enable conditional access, you can create Group Policy settings that allow ac
 ## Deployment instructions
 
 
+
 ### Step 1: Deploy Azure Active Directory Connect
 
 Azure AD Connect will enable you to provision computers on-premises as device objects in the cloud. To deploy Azure AD Connect, refer to Enabling your directory for hybrid management with Azure AD Connect.
