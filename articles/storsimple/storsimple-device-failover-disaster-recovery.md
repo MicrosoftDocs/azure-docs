@@ -59,6 +59,11 @@ Use the following table to determine if you can fail over to another device runn
 | Update 2 to Update 1 (1, 1.1, 1.2)                 | Yes <br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as tiered.                  | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
 | Update 2 to Update 2 (later version)                               | Yes<br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as the starting volume type; tiered as tiered and locally pinned as locally pinned. | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
 
+
+#### Partial failover across software versions
+
+If you have multiple StorSimple devices running a mix of pre-Update 1 and Update 1 or later software and you intend to perform a partial failover, then you need to be aware of the following caveat. There was a cloud metadata and data format change for Update 1 or later versions. If you fail over only some of the volume containers from a pre-Update 1 device to a target running Update 1 (or later), then your source device can run into issues. We recommend that you first apply Update 1 or later on both the devices and then proceed with this partial failover. 
+
 ## Fail over to another physical device
 
 Perform the following steps to restore your device to a target physical device.
