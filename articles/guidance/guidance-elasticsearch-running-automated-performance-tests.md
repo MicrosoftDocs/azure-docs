@@ -1,6 +1,6 @@
 
 <properties
-   pageTitle="Running the Automated Elasticsearch Performance Tests | Microsoft Azure"
+   pageTitle="Running the automated Elasticsearch performance tests | Microsoft Azure"
    description="Description of how you can run the performance tests in your own environment."
    services=""
    documentationCenter="na"
@@ -18,7 +18,7 @@
    ms.date="02/18/2016"
    ms.author="masimms"/>
    
-# Running the Automated Elasticsearch Performance Tests
+# Running the automated Elasticsearch performance tests
 
 This article is [part of a series](guidance-elasticsearch.md). 
 
