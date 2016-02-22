@@ -21,4 +21,4 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
-[AZURE.INCLUDE[virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
+[AZURE.INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]

@@ -21,4 +21,4 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-extensions-customscript.md).
 
-[AZURE.INCLUDE[virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
+[AZURE.INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
