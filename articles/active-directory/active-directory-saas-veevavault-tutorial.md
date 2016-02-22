@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="02/22/2016"
 	ms.author="jeedes"/>
 
 
@@ -84,7 +84,7 @@ To configure and test Azure AD single sign-on with Veeva Vault, you need to comp
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Veeva Vault test user](#creating-a-veevavault-test-user)** - to have a counterpart of Britta Simon in Veeva Vault that is linked to the Azure AD representation of her.
+4. **[Creating a Veeva Vault test user](#creating-a-veeva-vault-test-user)** - to have a counterpart of Britta Simon in Veeva Vault that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -106,7 +106,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-veevavault-tutorial/tutorial_veevavault_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the Reply URL for your Veeva Vault application using the following pattern: **“https://login.veevavault.com/auth/saml/consumer/<TenantSSOID\>”**.
+    a. In the **Sign On URL** textbox, type the Reply URL for your Veeva Vault application using the following pattern: **“https://login.veevavault.com/auth/saml/consumer/<TenantSSOID\>”**.
 
 
 4. On the **Configure single sign-on at Veeva Vault** page, perform the following steps:
@@ -184,7 +184,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 ### Creating a Veeva Vault test user
 
-The objective of this section is to create a user called Britta Simon in Veeva Vault. Please work with Veeva Vault support team to add the users in the Veeva Vault account. 
+The objective of this section is to create a user called Britta Simon in Veeva Vault. Please work with your Veeva Vault support team to get users added to your Veeva Vault application. 
 
 
 > [AZURE.NOTE] If you need to create an user manually, you need to 
