@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/08/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli" />
 
 
@@ -76,7 +76,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
     ![Network settings page](./media/storsimple-ova-deploy3-iscsi-setup/image6.png)
 
-    If you added more than one network interface during the provisioning of the device, you can configure them here.
+    If you added more than one network interface during the provisioning of the device, you can configure them here. Note you can configure your network interface as IPv4 only or as both IPv4 and IPv6. IPv6 only configurations are not supported.
 
 5. DNS servers are required because they are used when your device attempts to communicate with your cloud storage service providers or to resolve your device by name if it is configured as a file server. On the **Network settings** page under the **DNS servers**:
 

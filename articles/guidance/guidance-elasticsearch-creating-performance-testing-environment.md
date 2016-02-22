@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a Performance Testing Environment for Elasticsearch | Microsoft Azure"
+   pageTitle="Creating a performance testing environment for Elasticsearch | Microsoft Azure"
    description="How to set up an environment for testing the performance of an Elasticsearch cluster."
    services=""
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="02/18/2016"
    ms.author="masimms"/>
    
-# Creating a Performance Testing Environment for Elasticsearch on Azure
+# Creating a performance testing environment for Elasticsearch on Azure
 
 This article is [part of a series](guidance-elasticsearch.md). 
 
