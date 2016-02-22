@@ -11,7 +11,8 @@
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" ms.topic="get-started-article" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
 	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
