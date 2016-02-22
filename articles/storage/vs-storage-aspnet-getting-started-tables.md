@@ -58,6 +58,37 @@ To create the Azure table, just add a call to **CreateIfNotExistsAsync()** to th
 	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
 
+## Add an entity to a table
+
+To add an entity to a table you create a class that defines the properties of your entity. The following code defines an entity class called **CustomerEntity** that uses the customer's first name as the row key and last name as the partition key.
+
+	public class CustomerEntity : TableEntity
+	{
+	    public CustomerEntity(string lastName, string firstName)
+	    {
+	        this.PartitionKey = lastName;
+	        this.RowKey = firstName;
+	    }
+
+	    public CustomerEntity() { }
+
+	    public string Email { get; set; }
+
+	    public string PhoneNumber { get; set; }
+	}
+
+Table operations involving entities are done using the **CloudTable** object you created earlier in "Access tables in code." The **TableOperation** object represents the operation to be done. The following code example shows how to create a **CloudTable** object and a **CustomerEntity** object. To prepare the operation, a **TableOperation** is created to insert the customer entity into the table. Finally, the operation is executed by calling CloudTable.ExecuteAsync.
+
+	// Create a new customer entity.
+	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
+	customer1.Email = "Walter@contoso.com";
+	customer1.PhoneNumber = "425-555-0101";
+
+	// Create the TableOperation that inserts the customer entity.
+	TableOperation insertOperation = TableOperation.Insert(customer1);
+
+	// Execute the insert operation.
+	await peopleTable.ExecuteAsync(insertOperation);
 
 ## Insert a batch of entities
 
