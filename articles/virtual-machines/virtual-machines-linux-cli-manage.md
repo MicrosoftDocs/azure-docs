@@ -12,7 +12,7 @@
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="command-line-interface,vm-linux"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
 	ms.date="12/14/2015"
 	ms.author="danlep"/>

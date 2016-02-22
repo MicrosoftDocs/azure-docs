@@ -13,7 +13,7 @@
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="command-line-interface,vm-windows"
+   ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
    ms.date="12/08/2015"
    ms.author="rasquill"/>
