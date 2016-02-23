@@ -1,6 +1,6 @@
 <properties 
    pageTitle="How to manage reverse DNS records for your services using PowerShell in Resource Manager | Microsoft Azure"
-   description="How to create reverse DNS records for Azure services  using PowerShell in Resource Manager"
+   description="How to manage reverse DNS records or PTR records for Azure services using PowerShell in Resource Manager"
    services="DNS"
    documentationCenter="na"
    authors="joaoma"
