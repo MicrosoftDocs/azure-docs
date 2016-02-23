@@ -20,6 +20,15 @@
 
 The SQL Server Resource Provider adaptor lets you use any SQL Server-based workload through Azure Stack so that SQL server databases can be used when deploying cloud native apps as well as SQL-based websites on Azure Stack.
 
+To deploy a SQL Server resource provider, you’ll take the following steps:
+
+1. [Create](#create-a-wildcard-certificate) and [export](#export-the-wildcard-certificate) a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
+2. [Deploy](#deploy-the-sql-server-resource-provider) the resource provider code onto a virtual machine.
+3. [Add an Azure Stack DNS record](#add-a-dns-record) so that traffic can be property directed to the the resource provider virtual machine.
+4. [Register](#register-the-sql-resource-provider) the resource provider virtual machine with Azure Resource Manager so the latter recognizes the new resource type and properly direct requests.
+
+
+
 ## Before you deploy
 
 Before deploying SQL resource providers, you'll need to create a default Windows Server image with .NET 3.5, turn off IE Enhanced Security, and install the latest version of Azure PowerShell.
@@ -181,7 +190,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 5. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials.
 
-6. In the **Windows PowerShell credential request** dialog box, type *sqlRpUsername* and *sqlRPPassw0rd* for the manifest credentials.
+6. In the **Windows PowerShell credential request** dialog box, type *sqlRpUsername* and *sqlRpPassw0rd* for the manifest credentials.
 
 ## Verify your resource provider exists
 

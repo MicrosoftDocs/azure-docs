@@ -13,7 +13,7 @@
    ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
-	 ms.topic="article"
+	 ms.topic="get-started-article"
 	 ms.date="01/28/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
@@ -119,6 +119,12 @@ A20. Ensure firewall rules enable communication with URLs below for seamless bac
 - \*.WindowsAzure.com
 - \*.microsoftonline.com
 - \*.windows.net
+
+**Q21. Can I install the Azure Backup agent on an Azure VM already backed by the Azure Backup service using the Vm extension?** <br/>
+A21. Absolutely. Azure Backup provides VM level back up for Azure VMs using the VM extension and you can install the Azure Backup agent on Guest Windows OS to protect files and folders in a guest OS.
+
+**Q22. Can I install the Azure Backup agent on an Azure VM to back up files and folders present on temporary storage provided by the Azure VM?** <br/>
+A22. You can install the Azure Backup agent on the Guest Windows OS and back up files and folders on tempstorage. However, please note that backups will start failing when temporary storage data is wiped out. Also, during restore you can only restore to non-temporary storage if temporary storage data has been deleted. 
 
 
 ## Backup & Retention

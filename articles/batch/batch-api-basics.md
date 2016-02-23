@@ -10,7 +10,7 @@
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
 	ms.date="01/21/2016"
@@ -192,15 +192,9 @@ For more information on job preparation and release tasks, see [Run job preparat
 
 #### <a name="multiinstance"></a>Multi-instance tasks
 
-A [multi-instance task][rest_multiinstance] is a task that is configured to run on more than one compute node simultaneously. With multi-instance tasks, you can enable high performance computing scenarios like Message Passing Interface (MPI) that require a group of compute nodes allocated together to process a single workload.
+A [multi-instance task](batch-mpi.md) is a task that is configured to run on more than one compute node simultaneously. With multi-instance tasks, you can enable high performance computing scenarios like Message Passing Interface (MPI) that require a group of compute nodes allocated together to process a single workload.
 
-In Batch, you create a multi-instance task by specifying multi-instance settings for a normal [task](#task). These settings include the number of compute nodes to execute the task, a command line for the main task (the "application command"), a coordination command, and a list of common resource files for each task.
-
-When you submit a task with multi-instance settings to a job, the Batch service performs the following:
-
-1. Automatically creates one primary task and enough subtasks that together will execute on the total number of nodes you specified. Batch then schedules these tasks for execution on the nodes, which first download the common resource files you specified.
-2. After the common resource files have been downloaded, the coordination command is executed by the primary and subtasks. This coordination command typically launches a background service (such as [MS-MPI][msmpi]'s `smpd.exe`) and verifies that the nodes are ready to process inter-node messages.
-3. When the coordination command has been successfully completed by the primary and all subtasks, the task's command line (the "application command") is executed only by the primary task, which typically initiates a custom MPI-enabled application that processes your workload on the nodes. For example, in a Windows MPI scenario, you would typically execute your MPI-enabled application with [MS-MPI][msmpi]'s `mpiexec.exe` using the application command.
+For a detailed discussion on running MPI jobs in Batch using the Batch .NET library, check out [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](batch-mpi.md).
 
 ### <a name="jobschedule"></a>Scheduled jobs
 

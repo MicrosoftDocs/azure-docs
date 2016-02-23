@@ -2,6 +2,7 @@
    pageTitle="External user object attribute changes for Azure Active Directory B2B collaboration preview | Microsoft Azure"
    description="Azure Active Directory B2B supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -34,3 +35,5 @@ Browse our other articles on Azure B2B collaboration:
 - [CSV file format reference](active-directory-b2b-references-csv-file-format.md)
 - [External user token format](active-directory-b2b-references-external-user-token-format.md)
 - [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+

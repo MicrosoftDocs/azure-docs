@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/19/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -38,7 +38,7 @@ In [Setting security policies in Azure Security Center](security-center-policies
 - Turn on data collection.
 - Choose which recommendations to see as part of your security policy.
 
-Current policy recommendations center around system updates, baseline rules, antimalware programs, [ACLs for endpoints](../virtual-machines/virtual-machines-set-up-endpoints.md), [network security groups](../virtual-networks/virtual-networks-nsg.md) on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
+Current policy recommendations center around system updates, baseline rules, antimalware programs, [ACLs for endpoints](../virtual-machines/virtual-machines-set-up-endpoints.md), [network security groups](../virtual-network/virtual-networks-nsg.md) on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
 
 ### Monitor recommendations
 After setting a security policy, Security Center analyzes the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile on the **Security Center** blade lets you know the total number of recommendations identified by Security Center.
@@ -68,18 +68,18 @@ Use the table below as a reference to help you understand the available recommen
 |-----|-----|
 |Enable Data Collection for subscriptions/virtual machines|Recommends that you turn on data collection in the security policy for each of your subscriptions or for select VMs.|
 |Resolve mismatch baseline rules|Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved.|
-|Apply system updates|Recommends that you deploy missing system updates to VMs (Windows VMs only).|
+|Apply system updates|Recommends that you deploy missing system security and critical updates to VMs (Windows VMs only).|
 |Configure ACLs for endpoints|Recommends that you configure access control lists to restrict inbound access to VMs (classic VMs only).|
-|Add a web application firewall|Recommends that you deploy a web application firewall (WAF) for web endpoints (Resource Manager VMs only).|
+|[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints (Resource Manager VMs only).|
 |Finalize web application firewall setup|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
-|Enable Antimalware|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
+|[Enable Antimalware](security-center-enable-antimalware.md)|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
 |Enable Network Security Groups on subnets/network interfaces|Recommends that you enable network security groups (NSGs) on subnets and network interfaces (Resource Manager VMs only).|
 |Restrict access through public external endpoints|Recommends that you configure inbound traffic rules for NSGs.|
 |Enable server SQL Auditing|Recommends that you turn on auditing for Azure SQL servers (Azure SQL service only; doesn't include SQL running on your virtual machines).|
 |Enable database SQL Auditing|Recommends that you turn on auditing for Azure SQL databases (Azure SQL service only; doesn't include SQL running on your virtual machines).|
 |Enable Transparent Data Encryption on SQL databases|Recommends that you enable encryption for SQL databases (Azure SQL service only).|
 |Deploy the VM Agent|Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision patch scanning, baseline scanning, and antimalware programs. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent.|
-| [Apply disk encryption](security-center-apply-disk-encryption.md) |Recommends that you encrypt your VM disks (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM.|
+| [Apply disk encryption](security-center-apply-disk-encryption.md) |Recommends that you encrypt your VM disks using Azure Disk Encryption (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM.|
 
 You can filter and dismiss recommendations.
 
@@ -92,7 +92,7 @@ You can filter and dismiss recommendations.
     ![][4]
 
 ### Apply recommendations
-After reviewing all recommendations, decide which one you should apply first. We recommended that you use the severity rating as the main parameter to evaluate which recommendations should be applied first.
+After reviewing all recommendations, decide which one you should apply first. We recommend that you use the severity rating as the main parameter to evaluate which recommendations should be applied first.
 Using the **Enable Antimalware** recommendation, let’s walk through an example of how to apply a recommendation.
 
 1. In the **Recommendations** blade, select **Enable Antimalware**.
@@ -104,7 +104,7 @@ Using the **Enable Antimalware** recommendation, let’s walk through an example
 5. Enter the required configuration settings on the **Add Extension** blade, and then select **OK**.
 ![][6]
 
-[Microsoft Antimalware](../azure-security/azure-security-antimalware.md) is now active on the selected virtual machine.
+[Microsoft Antimalware](../azure-security-antimalware.md) is now active on the selected virtual machine.
 
 ### Deploy recommended partner solutions
 
