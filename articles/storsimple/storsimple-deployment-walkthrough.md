@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
+   manager="carmonm"
    editor="" />
 <tags
    ms.service="storsimple"

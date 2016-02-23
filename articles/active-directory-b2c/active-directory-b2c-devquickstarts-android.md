@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/17/2016"
 	ms.author="brandwe"/>
 
 # Azure AD B2C preview: Call a web API from an Android application
@@ -42,7 +42,7 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 
 - Include a **web app**/**web API** in the application.
 - Enter `urn:ietf:wg:oauth:2.0:oob` as a **Reply URL**. It is the default URL for this code sample.
-- Create an **Application secret** for your application and copy it. You will need it later.
+- Create an **Application secret** for your application and copy it. You will need it later. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before you use it.
 - Copy the **Application ID** that is assigned to your app. You will also need this later.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]

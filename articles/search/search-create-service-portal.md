@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/05/2016"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Create an Azure Search service in the Azure Portal
@@ -25,7 +25,7 @@ Azure Search is available at pricing levels ranging from free (shared) to Standa
 
 ## Add Azure Search to your subscription for free
 
-As an administrator, you can add Azure Search to an existing Azure subscription at no cost when choosing the shared service. You can sign up for a [free trial subscription](../includes/free-trial-note.md) to begin your evaluation.
+As an administrator, you can add Azure Search to an existing Azure subscription at no cost when choosing the shared service. You can sign up for a [free trial subscription](../../includes/free-trial-note.md) to begin your evaluation.
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
 
