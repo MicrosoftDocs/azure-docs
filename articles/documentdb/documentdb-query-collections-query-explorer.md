@@ -1,6 +1,6 @@
 <properties
 	pageTitle="DocumentDB Query Explorer: A SQL query editor | Microsoft Azure"
-	description="Learn about the DocumentDB Query Explorer, an Azure portal tool for writing SQL queries and running them against a DocumentDB collection."
+	description="Learn about the DocumentDB Query Explorer, an Azure portal tool for writing SQL queries and running them against a NoSQL DocumentDB collection."
 	keywords="writing sql queries, sql query editor"
 	services="documentdb"
 	authors="AndrewHoh"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/22/2016"
+	ms.date="02/23/2016"
 	ms.author="anhoh"/>
 
 # Write, edit, and run SQL queries for DocumentDB using Query Explorer 
@@ -43,7 +43,7 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
 
 	![Screenshot of results of writing SQL queries in Query Explorer](./media/documentdb-query-collections-query-explorer/queryresults1.png)
 
-## Working with results
+## Work with results
 
 By default, Query Explorer returns results in sets of 100.  If your query produces more than 100 results, simply use the **Next page** and **Previous page** commands to navigate through the result set.
 
@@ -53,25 +53,25 @@ For successful queries, the **Information** pane contains metrics such as the re
 
 ![Screenshot of Query Explorer query information](./media/documentdb-query-collections-query-explorer/queryinformation.png)
 
-## To use multiple queries
+## Use multiple queries
 
 If you're using multiple queries and want to quickly switch between them, you can enter all the queries in the query text box of the **Query Explorer** blade, then highlight the one you want to run, and then click **Run query** to view the results.
 
 ![Screenshot of writing multiple SQL queries in Query Explorer (a SQL query editor) and highlighting and running individual queries](./media/documentdb-query-collections-query-explorer/queryexplorerhighlightandrun.png)
 
-## To add queries from a file into the SQL query editor
+## Add queries from a file into the SQL query editor
 
 You can load the contents of an existing file using the **Load File** command.
 
 ![Screenshot showing how to load SQL queries from a file into Query Explorer using Load File](./media/documentdb-query-collections-query-explorer/loadqueryfile.png)
 
-## Troubleshooting
+## Troubleshoot
 
 If a query completes with errors, Query Explorer displays a list of errors that can help with troubleshooting efforts.
 
 ![Screenshot of Query Explorer query errors](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
-## Other ways to run SQL queries in DocumentDB
+## Run DocumentDB SQL queries outside the portal
 
 The Query Explorer in the Azure portal is just one way to run SQL queries against DocumentDB. You can also run SQL queries using the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) or the [client SDKs](documentdb-sdk-dotnet.md). For more information about using these other methods, see [Executing SQL queries](documentdb-sql-query.md#executing-sql-queries)
 
