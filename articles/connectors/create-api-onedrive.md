@@ -1,6 +1,6 @@
 <properties
-pageTitle="Use the OneDrive API in your Logic Apps | Microsoft Azure"
-description="Get started using the Azure App Service OneDrive API in your Logic apps and your Power apps."
+pageTitle="Add the OneDrive API in PowerApps Enterprise and your Logic Apps | Microsoft Azure"
+description="Overview of the OneDrive API with REST API parameters"
 services=""	
 documentationCenter="" 	
 authors="msftman"	
@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/18/2016"
+ms.date="02/22/2016"
 ms.author="deonhe"/>
 
 # Get started with the OneDrive API
@@ -25,81 +25,78 @@ The OneDrive API can be be used from PowerApps Enterprise and logic apps.
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [OneDrive API](../app-service-logic/app-service-logic-connector-onedrive.md).
 
-With OneDrive, you can:
+With OneDrive, you can: 
 
-* Use it to build logic apps
-* Use it to build power apps  
+- Build your business flow based on the data you get from OneDrive. 
+- Use triggers for when a file is created or updated.
+- Use actions to create a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a new file is created in OneDrive, you can email that file using Office 365.
+- Add the OneDrive API to PowerApps Enterprise. Then, your users can use this API within their apps. 
 
 For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Let's talk about triggers and actions
+## Triggers and actions
+The OneDrive API includes the following trigger and actions. 
 
-The OneDrive API can be used as an action; it has trigger(s). All APIs support data in JSON and XML formats. 
+| Triggers | Actions|
+| --- | --- |
+|<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>List files in a folder</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>List root folder</li><li>Update file</li><li>When a file is modified</li></ul>
 
- The OneDrive API has the following action(s) and/or trigger(s) available:
-
-### OneDrive actions
-You can take these action(s):
-
-|Action|Description|
-|--- | ---|
-|GetFileMetadata|Retrieves metadata of a file in OneDrive using id|
-|UpdateFile|Updates a file in OneDrive|
-|DeleteFile|Deletes a file from OneDrive|
-|GetFileMetadataByPath|Retrieves metadata of a file in OneDrive using path|
-|GetFileContentByPath|Retrieves contents of a file in OneDrive using path|
-|GetFileContent|Retrieves contents of a file in OneDrive using id|
-|CreateFile|Uploads a file to OneDrive|
-|CopyFile|Copies a file to OneDrive|
-|ExtractFolderV2|Extracts a folder to OneDrive|
-### OneDrive triggers
-You can listen for these event(s):
-
-|Trigger | Description|
-|--- | ---|
-|OnNewFile|Triggers a flow when a new file is created in a OneDrive folder|
-|OnUpdatedFile|Triggers a flow when a file is modified in a OneDrive folder|
-
+All APIs support data in JSON and XML formats.
 
 ## Create a connection to OneDrive
-To use the OneDrive API, you first create a **connection** then provide the details for these properties: 
 
-|Property| Required|Description|
-| ---|---|---|
-|Token|Yes|Provide OneDrive Credentials|  
+### Add additional configuration in PowerApps
+When you add OneDrive to PowerApps Enterprise, you enter the **App Key** and **App Secret** values of your OneDrive application. The **Redirect URL** value is also used in your OneDrive application. If you don't have a OneDrive application, you can use the following steps to create the application: 
 
->[AZURE.TIP] You can use this connection in other logic apps or power apps, or both.
+1. Go to the [app creation page][5] in _Microsoft account developer center_ and sign in with your _Microsoft Account_.
 
-## OneDrive REST API reference
+2. Enter your **Application name**, and accept the agreement:  
+![OneDrive new app][6]
+
+3. In settings:  
+
+	1. Select **API Settings**.  
+	2. Set the **Redirect URL** to the value shown when you add the new OneDrive API in the Azure Portal.  
+	3. **Save** your changes.  
+
+	![OneDrive app API settings][7]
+
+Now copy/paste the **App Key** and **App Secret** values in your OneDrive configuration in the Azure portal. 
+
+### Add additional configuration in logic apps
+When you add this API to your logic apps, you must authorize logic apps to connect to your OneDrive.
+
+1. Sign in to your OneDrive account.
+2. Allow your logic apps to connect and use your OneDrive. 
+
+After you create the connection, you enter the OneDrive properties, like the folder path or file name. The **REST API reference** in this topic describes these properties.
+
+>[AZURE.TIP] You can use this same connection in other logic apps.
+
+## Swagger REST API reference
 #### This documentation is for version: 1.0
 
 
-### Retrieves metadata of a file in OneDrive using id
-**```GET: /datasets/default/files/{id}```** 
-
-
+### Get file metadata using id
+Retrieves metadata of a file in OneDrive using id.  
+```GET: /datasets/default/files/{id}``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |id|string|yes|path|none|Unique identifier of the file in OneDrive|
 
-
-### Here are the possible responses:
-
+### Responses
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
-
-### Updates a file in OneDrive
-**```PUT: /datasets/default/files/{id}```** 
-
-
+### Update file
+Updates a file in OneDrive.  
+```PUT: /datasets/default/files/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -107,100 +104,87 @@ To use the OneDrive API, you first create a **connection** then provide the deta
 |body| |yes|body|none|Content of the file to update in OneDrive|
 
 
-### Here are the possible responses:
-
+### Response
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
-
-
-### Deletes a file from OneDrive
-**```DELETE: /datasets/default/files/{id}```** 
-
-
+### Delete file
+Deletes a file from OneDrive.  
+```DELETE: /datasets/default/files/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |id|string|yes|path|none|Unique identifier of the file to delete from OneDrive|
 
 
-### Here are the possible responses:
-
+### Response
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
-
-### Retrieves metadata of a file in OneDrive using path
-**```GET: /datasets/default/GetFileByPath```** 
-
-
+### Get file metadata using path
+Retrieves metadata of a file in OneDrive using path.  
+```GET: /datasets/default/GetFileByPath```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |path|string|yes|query|none|Unique path to the file in OneDrive|
 
 
-### Here are the possible responses:
-
+### Response
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-### Retrieves contents of a file in OneDrive using path
-**```GET: /datasets/default/GetFileContentByPath```** 
 
-
+### Get file content using path
+Retrieves contents of a file in OneDrive using path.  
+```GET: /datasets/default/GetFileContentByPath```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |path|string|yes|query|none|Unique Path to the file in OneDrive|
 
 
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-### Retrieves contents of a file in OneDrive using id
-**```GET: /datasets/default/files/{id}/content```** 
 
-
+### Get file content using id
+Retrieves contents of a file in OneDrive using id.  
+```GET: /datasets/default/files/{id}/content```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |id|string|yes|path|none|Unique identifier of the file in OneDrive|
 
 
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-### Uploads a file to OneDrive
-**```POST: /datasets/default/files```** 
 
-
+### Create file
+Uploads a file to OneDrive.  
+```POST: /datasets/default/files```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -209,20 +193,18 @@ To use the OneDrive API, you first create a **connection** then provide the deta
 |body| |yes|body|none|Content of the file to upload to OneDrive|
 
 
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-### Copies a file to OneDrive
-**```POST: /datasets/default/copyFile```** 
-
-
+### Copy file
+Copies a file to OneDrive.  
+```POST: /datasets/default/copyFile```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -231,60 +213,54 @@ To use the OneDrive API, you first create a **connection** then provide the deta
 |overwrite|boolean|no|query|false|Overwrites the destination file if set to 'true'|
 
 
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-### Triggers a flow when a new file is created in a OneDrive folder
-**```GET: /datasets/default/triggers/onnewfile```** 
-
-
+### When a file is created
+Triggers a flow when a new file is created in a OneDrive folder.  
+```GET: /datasets/default/triggers/onnewfile```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |folderId|string|yes|query|none|Unique identifier of the folder in OneDrive|
 
 
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
 ### Triggers a flow when a file is modified in a OneDrive folder
-**```GET: /datasets/default/triggers/onupdatedfile```** 
-
-
+Triggers a flow when a file is modified in a OneDrive folder.  
+```GET: /datasets/default/triggers/onupdatedfile```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |folderId|string|yes|query|none|Unique identifier of the folder in OneDrive|
 
 
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-### Extracts a folder to OneDrive
-**```POST: /datasets/default/extractFolderV2```** 
-
-
+### Extract folder
+Extracts a folder to OneDrive.  
+```POST: /datasets/default/extractFolderV2```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -293,102 +269,68 @@ To use the OneDrive API, you first create a **connection** then provide the deta
 |overwrite|boolean|no|query|false|Overwrites the destination files if set to 'true'|
 
 
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-## Object definition(s): 
+## Object definitions
 
- **DataSetsMetadata**:
+#### DataSetsMetadata
 
-Required properties for DataSetsMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
+|Property Name | Data Type | Required|
+|---|---|---|
+|tabular|not defined|no|
+|blob|not defined|no|
 
 
-| Name | Data Type |
-|---|---|
-|tabular|not defined|
-|blob|not defined|
+#### TabularDataSetsMetadata
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
 
 
+#### BlobDataSetsMetadata
 
- **TabularDataSetsMetadata**:
-
-Required properties for TabularDataSetsMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|source|string|
-|displayName|string|
-|urlEncoding|string|
-|tableDisplayName|string|
-|tablePluralName|string|
+|Property Name | Data Type |Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
 
 
 
- **BlobDataSetsMetadata**:
+#### BlobMetadata
 
-Required properties for BlobDataSetsMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|source|string|
-|displayName|string|
-|urlEncoding|string|
-
-
-
- **BlobMetadata**:
-
-Required properties for BlobMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
-|ETag|string|
-|FileLocator|string|
+|Property Name | Data Type |Required|
+|---|---|---|
+|Id|string|no|
+|Name|string|no|
+|DisplayName|string|no|
+|Path|string|no|
+|LastModified|string|no|
+|Size|integer|no|
+|MediaType|string|no|
+|IsFolder|boolean|no|
+|ETag|string|no|
+|FileLocator|string|no|
 
 
 ## Next Steps
-After you add the Dropbox API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
+After you add the OneDrive API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
 
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+
+[5]: https://account.live.com/developers/applications/create
+[6]: ./media/create-api-onedrive/onedrive-new-app.png
+[7]: ./media/create-api-onedrive/onedrive-app-api-settings.png

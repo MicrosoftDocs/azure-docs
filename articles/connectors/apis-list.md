@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="02/22/2016"
 	ms.author="deonhe"/>
 
 # Here's the list of Microsoft-managed APIs for building apps
@@ -27,12 +27,12 @@ For pricing information and a list of what is included with each Service Tier, s
 
 |APIs||||
 |-----------|-----------|-----------|-----------|
-|[![API Icon] [bingsearchicon] <br> **Bing Search**][bingsearchdoc]|[![API Icon] [boxicon] <br> **Box**][boxDoc]|[![API Icon] [crmonlineicon] <br> **CRM Online**][crmonlinedoc]|[![API Icon] [dropboxicon] <br> **Dropbox**][dropboxdoc]|
-|[![API Icon] [excelicon] <br> **Excel**][exceldoc]|[![API Icon] [ftpicon] <br> **FTP**][ftpdoc]|[![API Icon] [googledriveicon] <br> **Google Drive**][googledrivedoc]|[![API Icon] [microsofttranslatoricon] <br> **Translator**][microsofttranslatordoc]|
-|[![API Icon] [office365icon] <br> **Office 365** <br> **Outlook**][office365outlookdoc]|[![API Icon] [office365icon] <br> **Office 365**<br> **Users**][office365usersdoc]|[![API Icon] [office365icon] <br> **Office 365** <br>**Video**][office365videodoc]|[![API Icon] [onedriveicon] <br> **OneDrive**][onedrivedoc]|
-|[![API Icon] [salesforceicon] <br> **Salesforce**][salesforcedoc]|[![API Icon] [servicebusicon] <br> **Service Bus**][servicebusdoc]|[![API Icon] [sftpicon] <br> **SFTP**][sftpdoc]|[![API Icon] [sharepointicon] <br> **SharePoint**<br>**Server**][sharepointdoc]|
-|[![API Icon] [slackicon] <br> **Slack** <br>][slackdoc]|[![API Icon] [smtpicon] <br> **SMTP**][smtpdoc]|[![API Icon] [sqlicon] <br> **SQL**][sqldoc]|[![API Icon] [twilioicon] <br> **Twilio**][twiliodoc]|
-|[![API Icon] [twittericon] <br> **Twitter**][twitterdoc]|[![API Icon] [yammericon] <br> **Yammer**][yammerdoc]
+|[![API Icon] [blobicon] <br> **Azure Blob**][azureblobdoc]|[![API Icon] [bingsearchicon] <br> **Bing Search**][bingsearchdoc]|[![API Icon] [boxicon] <br> **Box**][boxDoc]|[![API Icon] [crmonlineicon] <br> **CRM Online**][crmonlinedoc]|
+|[![API Icon] [dropboxicon] <br> **Dropbox**][dropboxdoc]|[![API Icon] [facebookicon] <br> **Facebook**][facebookdoc]|[![API Icon] [ftpicon] <br> **FTP**][ftpdoc]|[![API Icon] [googledriveicon] <br> **Google Drive**][googledrivedoc]|
+|[![API Icon] [microsofttranslatoricon] <br> **Translator**][microsofttranslatordoc]|[![API Icon] [office365icon] <br> **Office 365** <br> **Outlook**][office365outlookdoc]|[![API Icon] [office365icon] <br> **Office 365**<br> **Users**][office365usersdoc]|[![API Icon] [office365icon] <br> **Office 365** <br>**Video**][office365videodoc]|
+|[![API Icon] [onedriveicon] <br> **OneDrive**][onedrivedoc]|[![API Icon] [salesforceicon] <br> **Salesforce**][salesforcedoc]|[![API Icon] [servicebusicon] <br> **Service Bus**][servicebusdoc]|[![API Icon] [sftpicon] <br> **SFTP**][sftpdoc]|
+|[![API Icon] [sharepointicon] <br> **SharePoint**<br>**Server**][sharepointdoc]|[![API Icon] [slackicon] <br> **Slack** <br>][slackdoc]|[![API Icon] [smtpicon] <br> **SMTP**][smtpdoc]|[![API Icon] [sqlicon] <br> **SQL Azure**][sqldoc]|
+|[![API Icon] [twilioicon] <br> **Twilio**][twiliodoc]|[![API Icon] [twittericon] <br> **Twitter**][twitterdoc]|[![API Icon] [yammericon] <br> **Yammer**][yammerdoc] |
 
 >[AZURE.INFO] These APIs will work with version 2015-12-01-preview of the service.
 
@@ -55,11 +55,13 @@ APIs can also be used as actions within your apps. Actions are useful for lookin
 [Get started with Power apps now](../power-apps/powerapps-get-started-azure-portal.md)  
 
 <!--API Documentation-->
+[azureblobdoc]: ./create-api-azureblobstorage.md "Connect to Azure blob to manage files in your blob container."
 [bingsearchDoc]: ./create-api-bingsearch.md "Search Bing for web, images, news and video."
 [boxDoc]: ./create-api-box.md/ "Connects to Box and can upload, get, delete, list, and more file tasks."
 [crmonlinedoc]: ./create-api-crmonline.md/ "Connect to Dynamics CRM Online and do more with your CRM Online data."
 [dropboxdoc]: ./create-api-dropbox.md/ "Connect to Dropbox and can get, delete, list, and more file tasks."
 [exceldoc]: ./create-api-excel.md/ "Connect to Excel."
+[facebookdoc]: ./create-api-facebook.md/ "Connect to Facebook to post to a timeline, get a page feed, and more."
 [ftpdoc]: ./create-api-ftp.md/ "Connects to an FTP / FTPS server and do different FTP tasks, including uploading, getting, deleting files, and more."
 [googledrivedoc]: ./create-api-googledrive.md/ "Connect to GoogleDrive and interact with your data."
 [microsofttranslatordoc]: ./create-api-microsofttranslator.md/
@@ -74,18 +76,20 @@ APIs can also be used as actions within your apps. Actions are useful for lookin
 [slackdoc]: ./create-api-slack.md/ "Connect to Slack and post messages to Slack channels."
 [sftpdoc]: ./create-api-sftp.md/ "Connects to SFTP and can upload, get, delete files, and more."
 [smtpdoc]: ./create-api-smtp.md/ "Connects to a SMTP server and can send email with attachments."
-[sqldoc]: ./create-api-sqlazure.md/ "Connects to on-premises SQL Server or an Azure SQL Database. You can create, update, get, and delete entries on a SQL database table."
+[sqldoc]: ./create-api-sqlazure.md/ "Connects to SQL Azure Database. You can create, update, get, and delete entries on a SQL database table."
 [twiliodoc]: ./create-api-twilio.md/ "Connects to Twilio and can send and get messages, get available numbers, managing incoming phone numbers, and more."
 [twitterdoc]: ./create-api-twitter.md/ "Connects to Twitter and get timelines, post tweets, and more."
 [yammerdoc]: ./create-api-yammer.md/ "Connects to Yammer to post messages and get new messages."
 
 <!--Icon references-->
+[blobicon]: ./media/apis-list/blobicon.png
 [bingsearchicon]: ./media/apis-list/bingsearchicon.png
 [boxicon]: ./media/apis-list/boxicon.png
 [ftpicon]: ./media/apis-list/ftpicon.png
 [crmonlineicon]: ./media/apis-list/dynamicscrmicon.png
 [dropboxicon]: ./media/apis-list/dropboxicon.png
 [excelicon]: ./media/apis-list/excelicon.png
+[facebookicon]: ./media/apis-list/facebookicon.png
 [googledriveicon]: ./media/apis-list/googledriveicon.png
 [microsofttranslatoricon]: ./media/apis-list/translatoricon.png
 [office365icon]: ./media/apis-list/office365icon.png

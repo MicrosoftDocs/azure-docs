@@ -1,6 +1,6 @@
 <properties
-pageTitle="Use the Salesforce API in your Logic Apps | Microsoft Azure"
-description="Get started using the Azure App Service Salesforce API in your Logic apps and your Power apps."
+pageTitle="Add the Salesforce API in PowerApps Enterprise and your Logic Apps | Microsoft Azure"
+description="Overview of the Salesforce API with REST API parameters"
 services=""	
 documentationCenter="" 	
 authors="msftman"	
@@ -14,130 +14,135 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/18/2016"
+ms.date="02/22/2016"
 ms.author="deonhe"/>
 
 # Get started with the Salesforce API
-
-The Salesforce API provides an API to work with Salesforce objects.
+Connect to Salesforce and create objects, get objects, and more.
 
 The Salesforce API can be be used from PowerApps Enterprise and logic apps. 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Salesforce API](../app-service-logic/app-service-logic-connector-Salesforce Connector.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Salesforce API](../app-service-logic/app-service-logic-connector-salesforce.md).
 
 With Salesforce, you can:
 
-* Use it to build logic apps
-* Use it to build power apps  
+- Build your business flow based on the data you get from SalesForce. 
+- Use triggers for when an object is created or updated.
+- Use actions to create an object, delete an object, and more. These actions get a response, and then make the output available for other actions. For example, when a new object is created in Salesforce, you can send an email using Office 365.
+- Add the Salesforce API to PowerApps Enterprise. Then, your users can use this API within their apps. 
 
 For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Let's talk about triggers and actions
+## Triggers and actions
+The Salesforce API includes the following trigger and actions. 
 
-The Salesforce API can be used as an action; it has trigger(s). All APIs support data in JSON and XML formats. 
+| Triggers | Actions|
+| --- | --- |
+|<ul><li>When an object is created</li><li>When an object is modified</li></ul> | <ul><li>Create object</li><li>Get objects</li><li>When an object is created</li><li>When an object is modified</li><li>Delete object</li><li>Get object</li><li>Get object types (SObjects)</li><li>Update object</li></ul>
 
- The Salesforce API has the following action(s) and/or trigger(s) available:
-
-### Salesforce actions
-You can take these action(s):
-
-|Action|Description|
-|--- | ---|
-|PostItem|Creates a Salesforce object|
-|GetItem|Retrieves a Salesforce object|
-|DeleteItem|Deletes a Salesforce object|
-|PatchItem|Updates a Salesforce object|
-### Salesforce triggers
-You can listen for these event(s):
-
-|Trigger | Description|
-|--- | ---|
-|GetOnNewItems|Triggers a flow when an object is created in Salesforce|
-|GetOnUpdatedItems|Triggers a flow when an object is modified in Salesforce|
-
+All APIs support data in JSON and XML formats. 
 
 ## Create a connection to Salesforce 
-To use the Salesforce API, you first create a **connection** then provide the details for these properties: 
 
-|Property| Required|Description|
-| ---|---|---|
-|Token|Yes|Provide Salesforce Credentials|  
+### Add additional configuration in PowerApps
+When you add Salesforce to PowerApps Enterprise, you enter the **App Key** and **App Secret** values of your Salesforce application. The **Redirect URL** value is also used in your Salesforce application. If you don't have a Salesforce application, you can use the following steps to create the application: 
 
->[AZURE.TIP] You can use this connection in other logic apps or power apps, or both.
+1. [Sign-in to the Salesforce developer homepage][5], select your profile, and select **Setup**:  
+![Salesforce homepage][6]
 
-## Salesforce REST API reference
+3. Select **Create** and select **Apps**. In the **Apps** page under **Connected Apps**, select **New**:  
+![Salesforce create app][7]
+
+4. In **New Connected App**:  
+
+	1. Enter the value for **Connected App Name**.  
+	2. Enter the value for **API Name**.  
+	3. Enter the value for **Contact Email**.  
+	4. Under _API (Enable OAuth Settings)_, select **Enable OAuth Settings**, and set the **Callback URL** to the value shown when you add the new Salesforce API in the Azure Portal.  
+
+5. Under _Selected OAuth scopes_, add the following scopes to the **Selected OAuth Scopes**:  
+
+	- Access and manage your Chatter data (chatter_api)
+	- Access and manage your data (api)
+	- Allow access to your unique identifier (openid)
+	- Perform requests on your behalf at any time (refresh_token, offline_access)
+
+6. **Save** your changes:  
+![Salesforce new app][8]
+
+Now copy/paste the **App Key** and **App Secret** values in your Salesforce configuration in the Azure portal. 
+
+### Add additional configuration in logic apps
+When you add this API to your logic apps, you must authorize logic apps to connect to your Salesforce.
+
+1. Sign in to your Salesforce account.
+2. Allow your logic apps to connect and use your Salesforce account. 
+
+After you create the connection, you enter the Salesforce properties, like the table name. The **REST API reference** in this topic describes these properties.
+
+>[AZURE.TIP] You can use this same connection in other logic apps.
+
+## Swaggers REST API reference
 #### This documentation is for version: 1.0
 
 
-### Creates a Salesforce object
-**```POST: /datasets/default/tables/{table}/items```** 
-
-
+### Create object
+Creates a Salesforce object.  
+```POST: /datasets/default/tables/{table}/items``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |table|string|yes|path|none|Salesforce SObject type (example: 'Lead')|
 |item| |yes|body|none|Salesforce object to create|
 
-
-### Here are the possible responses:
-
+### Response
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-### Retrieves a Salesforce object
-**```GET: /datasets/default/tables/{table}/items/{id}```** 
-
-
+### Get object
+Retrieves a Salesforce object.  
+```GET: /datasets/default/tables/{table}/items/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |table|string|yes|path|none|Salesforce SObject type (example: 'Lead')|
 |id|string|yes|path|none|Unique identifier of Salesforce object to retrieve|
 
-
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-### Deletes a Salesforce object
-**```DELETE: /datasets/default/tables/{table}/items/{id}```** 
-
-
+### Delete object
+Deletes a Salesforce object.  
+```DELETE: /datasets/default/tables/{table}/items/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |table|string|yes|path|none|Salesforce SObject type (example: 'Lead')|
 |id|string|yes|path|none|Unique identifier of Salesforce object to delete|
 
-
-### Here are the possible responses:
-
+### Response
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-### Updates a Salesforce object
-**```PATCH: /datasets/default/tables/{table}/items/{id}```** 
-
-
+### Update object
+Updates a Salesforce object.  
+```PATCH: /datasets/default/tables/{table}/items/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -145,21 +150,17 @@ To use the Salesforce API, you first create a **connection** then provide the de
 |id|string|yes|path|none|Unique identifier of the Salesforce object to update|
 |item| |yes|body|none|Salesforce object with changed properties|
 
-
-### Here are the possible responses:
-
+### Response
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-### Triggers a flow when an object is created in Salesforce
-**```GET: /datasets/default/tables/{table}/onnewitems```** 
-
-
+### When an object is created
+Triggers a flow when an object is created in Salesforce.  
+```GET: /datasets/default/tables/{table}/onnewitems```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -169,21 +170,17 @@ To use the Salesforce API, you first create a **connection** then provide the de
 |$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
 |$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
 
-
-### Here are the possible responses:
-
+### Response
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-### Triggers a flow when an object is modified in Salesforce
-**```GET: /datasets/default/tables/{table}/onupdateditems```** 
-
-
+### When an object is modified 
+Triggers a flow when an object is modified in Salesforce.  
+```GET: /datasets/default/tables/{table}/onupdateditems```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -193,217 +190,105 @@ To use the Salesforce API, you first create a **connection** then provide the de
 |$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
 |$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
 
-
-### Here are the possible responses:
-
+### Response
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-## Object definition(s): 
+## Object definitions 
 
- **DataSetsMetadata**:
+#### DataSetsMetadata
 
-Required properties for DataSetsMetadata:
+| Name | Data Type | Required|
+|---|---|---|
+|tabular|not defined|no|
+|blob|not defined|no|
 
 
-None of the properties are required. 
+#### TabularDataSetsMetadata
 
+| Name | Data Type | Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
 
-**All properties**: 
 
+#### BlobDataSetsMetadata
 
-| Name | Data Type |
-|---|---|
-|tabular|not defined|
-|blob|not defined|
+| Name | Data Type | Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
 
 
+#### TableMetadata
 
- **TabularDataSetsMetadata**:
+| Name | Data Type | Required|
+|---|---|---|
+|name|string|no|
+|title|string|no|
+|x-ms-permission|string|no|
+|schema|not defined|no|
 
-Required properties for TabularDataSetsMetadata:
 
+#### DataSetsList
 
-None of the properties are required. 
+| Name | Data Type | Required|
+|---|---|---|
+|value|array|no|
 
 
-**All properties**: 
+#### DataSet
 
-
-| Name | Data Type |
-|---|---|
-|source|string|
-|displayName|string|
-|urlEncoding|string|
-|tableDisplayName|string|
-|tablePluralName|string|
-
-
-
- **BlobDataSetsMetadata**:
-
-Required properties for BlobDataSetsMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|source|string|
-|displayName|string|
-|urlEncoding|string|
-
-
-
- **TableMetadata**:
-
-Required properties for TableMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|name|string|
-|title|string|
-|x-ms-permission|string|
-|schema|not defined|
-
-
-
- **Object**:
-
-Required properties for Object:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-
-
-
- **DataSetsList**:
-
-Required properties for DataSetsList:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|value|array|
-
-
-
- **DataSet**:
-
-Required properties for DataSet:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
+| Name | Data Type | Required|
+|---|---|---|
 |Name|string|
-|DisplayName|string|
+|DisplayName|string|no|
 
 
+#### Table
 
- **Table**:
-
-Required properties for Table:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
+| Name | Data Type | Required|
+|---|---|---|
+|Name|string|no|
+|DisplayName|string|no|
 
 
-| Name | Data Type |
-|---|---|
-|Name|string|
-|DisplayName|string|
+#### Item
+
+| Name | Data Type | Required|
+|---|---|---|
+|ItemInternalId|string|no|
 
 
+#### ItemsList
 
- **Item**:
-
-Required properties for Item:
-
-
-None of the properties are required. 
+| Name | Data Type | Required|
+|---|---|---|
+|value|array|no|
 
 
-**All properties**: 
+#### TablesList
 
-
-| Name | Data Type |
-|---|---|
-|ItemInternalId|string|
-
-
-
- **ItemsList**:
-
-Required properties for ItemsList:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|value|array|
-
-
-
- **TablesList**:
-
-Required properties for TablesList:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|value|array|
+| Name | Data Type | Required|
+|---|---|---|
+|value|array|no|
 
 
 ## Next Steps
 After you add the Salesforce API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
 
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+
+[5]: https://developer.salesforce.com
+[6]: ./media/create-api-salesforce/salesforce-developer-homepage.png
+[7]: ./media/create-api-salesforce/salesforce-create-app.png
+[8]: ./media/create-api-salesforce/salesforce-new-app.png

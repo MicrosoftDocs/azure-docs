@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/22/2016"
    ms.author="mandia"/>
 
 
@@ -71,7 +71,7 @@ Now copy/paste the **Consumer Key** and **Consumer Secret** values in your Twitt
 ### Add additional configuration in logic apps
 When you add this API to your logic apps, you must authorize logic apps to connect to your Twitter account.
 
-1. Sign in to your Twtitter account.
+1. Sign in to your Twitter account.
 2. Select **Authorize**, and allow your logic apps to connect and use your Twitter account. 
 
 After you create the connection, you enter the Twitter properties, like the tweet text. The **REST API reference** in this topic describes these properties.
