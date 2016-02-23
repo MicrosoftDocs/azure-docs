@@ -54,7 +54,7 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 
 9. The new collection now appears in the **Collections** lens on the **Database** blade.
  
-	![Screen shot of the new collection in the Database blade - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-8.png)
+	![Screen shot of the new collection in the Database blade - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-9.png)
 
 ## What is a DocumentDB collection? 
 
