@@ -13,7 +13,7 @@
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="hero-article" 
+	ms.topic="get-started-article" 
 	ms.date="01/05/2016" 
 	ms.author="omark"/>
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="02/23/2016"
 	ms.author="stepsic"/> 
 	
 # Use Logic Apps features
@@ -33,7 +33,7 @@ You may find the following documents useful:
 - [Management and runtime REST APIs](https://msdn.microsoft.com/library/azure/dn948513.aspx) - including how to invoke Logic apps directly
 - [Language reference](https://msdn.microsoft.com/library/azure/dn948512.aspx) - a comprehensive list of all supported functions/expressions
 - [Trigger and action types](https://msdn.microsoft.com/library/azure/dn948511.aspx) - the different types of actions and the inputs they take
-- [Overview of App Service](app-service-value-prop-what-is.md) - description of what components to choose when to build a solution
+- [Overview of App Service](../app-service/app-service-value-prop-what-is.md) - description of what components to choose when to build a solution
 
 ## Adding conditional logic
 
@@ -90,7 +90,7 @@ The following updates your existing logic app to use parameters for the query te
 2. Scroll to the `twitterconnector` action, locate the query value, and replace it with `#@{parameters('topic')}`.
 	You could also use the  **concat** function to join together two or more strings, for example: `@concat('#',parameters('topic'))` is identical to the above. 
  
-Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
+Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](http://msdn.microsoft.com/library/mt643788(Azure.100).aspx).
 
 Now, when you click **Save**, every hour you get any new tweets that have more than 5 retweets delivered to a folder called **tweets** in your Dropbox.
 

@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/18/2016"
+ms.date="02/23/2016"
 ms.author="deonhe"/>
 
 # Get started with the Yammer API
@@ -56,8 +56,7 @@ This documentation is for version: 1.0
 
 ### Get all public messages in the logged in user's Yammer network
 Corresponds to "All" conversations in the Yammer web interface.  
-**```GET: /messages.json```** 
-
+```GET: /messages.json```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -82,10 +81,8 @@ Corresponds to "All" conversations in the Yammer web interface.
 
 
 ### Post a Message to a Group or All Company Feed
-If group ID is provided, message will be posted to the specified group else it will be posted in All Company Feed.  
-**```POST: /messages.json```** 
-
-
+If group ID is provided, message will be posted to the specified group else it will be posted in All Company Feed.    
+```POST: /messages.json``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
