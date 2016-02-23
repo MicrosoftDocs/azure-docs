@@ -19,13 +19,13 @@
 
 # How to manage reverse DNS records for your services (classic) using PowerShell
 
-[AZURE.INCLUDE [DNS-reverse-dns-record-operations-classic-selectors-include.md](../../includes/DNS-reverse-dns-record-operations-classic-selectors-include.md)]
+[AZURE.INCLUDE [DNS-reverse-dns-record-operations-classic-selectors-include.md](../../includes/dns-reverse-dns-record-operations-classic-selectors-include.md)]
 
-[AZURE.INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/DNS-reverse-dns-record-operations-intro-include.md)]
+[AZURE.INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](DNS-reverse-dns-record-operations-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](dns-reverse-dns-record-operations-ps.md).
 
-[AZURE.INCLUDE [DNS-reverse-dns-record-operations-scenario-include.md](../../includes/DNS-reverse-dns-record-operations-scenario-include.md)]
+[AZURE.INCLUDE [DNS-reverse-dns-record-operations-scenario-include.md](../../includes/dns-reverse-dns-record-operations-scenario-include.md)]
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -56,4 +56,4 @@ To ensure a third party can’t create reverse DNS records mapping to your DNS d
 - The reverse DNS FQDN forward resolves to the name or IP of the Cloud Service for which it has been specified, or to any Cloud Service name or IP within the same subscription e.g., reverse DNS is “app1.contoso.com.” which is a CName alias for contosoapp1.cloudapp.net.
 Validation checks are only performed when the reverse DNS property for a Cloud Service is set or modified. Periodic re-validation is not performed.
 
-[FAQ](../../includes/DNS-reverse-dns-record-operations-faq-include.md)
+[FAQ](../../includes/dns-reverse-dns-record-operations-faq-include.md)

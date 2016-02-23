@@ -19,12 +19,12 @@
 
 # How to manage reverse DNS records for your services using PowerShell
 
-[AZURE.INCLUDE [DNS-reverse-dns-record-operations-arm-selectors-include.md](../../includes/DNS-reverse-dns-record-operations-arm-selectors-include.md)]
+[AZURE.INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
 
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](DNS-reverse-dns-record-operations-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](dns-reverse-dns-record-operations-classic-ps.md).
 
-[AZURE.INCLUDE [DNS-reverse-dns-record-operations-scenario-include.md](../../includes/DNS-reverse-dns-record-operations-scenario-include.md)]
+[AZURE.INCLUDE [dns-reverse-dns-record-operations-scenario-include.md](../../includes/dns-reverse-dns-record-operations-scenario-include.md)]
 
 To perform the steps in this article, you'll need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](xplat-cli-install.md) and you'll need to [log on to Azure](xplat-cli-connect.md). 
 
@@ -76,4 +76,4 @@ To ensure a third party can’t create reverse DNS records mapping to your DNS d
 Validation checks are only performed when the reverse DNS property for a Public IP Address is set or modified. Periodic re-validation is not performed.
 
 
-[FAQ](../../includes/DNS-reverse-dns-record-operations-faq-include.md)
+[FAQ](../../includes/dns-reverse-dns-record-operations-faq-include.md)
