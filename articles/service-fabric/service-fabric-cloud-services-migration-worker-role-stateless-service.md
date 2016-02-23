@@ -107,11 +107,15 @@ namespace Stateless1
 
 ```
 
-Both have a primary "Run" override in which to begin processing. An important difference in the "Run" entry point however is that a Worker Role instance will recycle if the Run method exits. The RunAsync method in a Service Fabric service however can run to completion and the service instance will stay up. 
+Both have a primary "Run" override in which to begin processing. Service Fabric services  combine `Run`, `Start`, and `Stop` into a single entry point, `RunAsync`. Your service should begin working when `RunAsync` starts, and should stop working when the `RunAsync` method's CancellationToken is signaled. 
+
+There are several key differences between the lifecycle and lifetime of Worker Roles and Service Fabric services:
+
+ - **Lifecycle:** The biggest difference is that a Worker Role is a VM and so its lifecycle is tied to the VM, which includes events for when the VM starts and stops. A Service Fabric service has a lifecycle that is separate from the VM lifecycle, so it does not include events for when the host VM or machine starts and stop, as they are not related.
+
+ - **Lifetime:** A Worker Role instance will recycle if the `Run` method exits. The `RunAsync` method in a Service Fabric service however can run to completion and the service instance will stay up. 
 
 Service Fabric provides an optional communication setup entry point for services that listen for client requests. Both the RunAsync and communication entry point are optional overrides in Service Fabric services - your service may choose to only listen to client requests, or only run a processing loop, or both - which is why the RunAsync method is allowed to exit without restarting the service instance, because it may continue to listen for client requests.
-
-The main difference between Worker Roles and Service Fabric services is their lifecycle. A Worker Role is a VM and so its lifecycle is tied to the VM, which includes events for when the VM starts and stops. A Service Fabric service has a lifecycle that is separate from the VM lifecycle, so it does not include events for when the host VM or machine starts and stop, as they are not related.
 
 ## Application API and environment
 
