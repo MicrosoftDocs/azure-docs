@@ -35,7 +35,7 @@ The following list provides details on common offers
 - **MPN** (Microsoft Partner Network) - Members receive  monthly Azure credits at no charge  
   - [Azure Benefits for partners](https://azure.microsoft.com/offers/ms-azr-0025p/)
   - [Enroll as a partner](http://go.microsoft.com/fwlink/?linkid=309258&clcid=0x409) or [Subscribe to Microsoft Action pack](http://go.microsoft.com/fwlink/?linkid=525768&clcid=0x409)
-  - [Use Azure credits - Step by Step video](http://blogs.technet.com/b/uspartner_ts2team/archive/2014/07/24/activating-your-azure-internal-use-rights-benefit.aspx). Access the [MPN portal](https://mspartner.microsoft.com/Pages/Locale.aspx) and verify your eligibility status and follow steps under Software Keys & benefits. If you cannot verify your eligibility, contact [MPN support](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
+  - Use Azure credits - Access the [MPN portal](https://mspartner.microsoft.com/Pages/Locale.aspx) and verify your eligibility status and follow steps under Software Keys & benefits. If you cannot verify your eligibility, contact [MPN support](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
 - **MSDN & Visual Studio subscriber**
   - [MSDN Dev/Test Benefits.](https://azure.microsoft.com/offers/ms-azr-0023p/) [Visual Studio subscriber benefits.](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
   - [Activate Visual Studio subscriber Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
@@ -76,7 +76,7 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
 
  **Note** Although your credit card won’t be charged, Microsoft will place an authorization hold on it for a minimal amount to verify that the credit card is valid. The hold will be released within 3-5 business days, depending on your financial institution’s policies.
 
- If you receive an error after submitting your credit card information, see the article [My credit card doesn’t go through when I try to sign up for Azure](../billing-credit-card-fails-during-azure-sign-up.md).
+ If you receive an error after submitting your credit card information, see the article [My credit card doesn’t go through when I try to sign up for Azure](billing-credit-card-fails-during-azure-sign-up.md).
 
  ![cardverify](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)</br>
 6. In the **Agreement** section, check the box if you agree to the subscription agreement, offer details and privacy statement. Then select **Sign up**.
