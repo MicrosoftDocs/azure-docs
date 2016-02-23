@@ -29,8 +29,12 @@ A Script Action is simply a Bash script that you provide a URL to, and parameter
 
 * Can be restricted to __run on only certain node types__, for example head nodes or worker nodes.
 
-* Can be __persisted__ or __ad hoc__. __Persisted__ scripts that apply to worker nodes will be ran automatically on new nodes created when scaling up a cluster. __Ad hoc__ scripts are not persisted; however, you can subsequently promote an ad hoc script to a persisted script, or demote a persisted script to an ad hoc script.
-    
+* Can be __persisted__ or __ad hoc__.
+
+    __Persisted__ scripts that apply to worker nodes will be ran automatically on new nodes created when scaling up a cluster.
+
+    __Ad hoc__ scripts are not persisted; however, you can subsequently promote an ad hoc script to a persisted script, or demote a persisted script to an ad hoc script.
+
     > [AZURE.IMPORTANT] Script actions used during cluster creation are automatically persisted.
     >
     > Scripts that fail are not persisted, even if you specifically indicate that they should be.
@@ -64,7 +68,7 @@ The script is ran while HDInsight is being configured. At this stage, the script
 During cluster creation, you can specify multiple script actions that are invoked in the order in which they were specified.
 
 > [AZURE.IMPORTANT] Script actions must complete within 60 minutes, or they will timeout. During cluster provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
-> 
+>
 > To minimize the time it takes to run the script, avoid tasks such as downloading and compiling applications from source. Instead, pre-compile the application and store the binary in Azure Blob storage so that it can quickly be downloaded to the cluster.
 
 ###Script action on a running cluster
@@ -75,8 +79,13 @@ Unlike script actions used during cluster creation, a failure in a script ran on
 >
 > Scripts actions run with root privileges, so you should make sure that you understand what a script does before applying it to your cluster.
 
-When applying a script to a cluster, the cluster state will change to 
+When applying a script to a cluster, the cluster state will change to
 [TBD see notes from Duc and Sandhya and experiment a bit]
+
+In the portal I saw:
+Running
+State HdInsight Configuration???
+Running
 
 ## Example Script Action scripts
 
@@ -375,21 +384,21 @@ Perform the following steps:
 4. Set the admin/HTTPS user for the cluster:
 
         $httpCreds = get-credential
-        
+
     When prompted, enter 'admin' as the name, and provide a password.
 
 5. Set the SSH credentials:
 
         $sshCreds = get-credential
-    
+
     When prompted, enter the SSH user name and password. If you want to secure the SSH account with a certificate instead of a password, use a blank password and set `$sshPublicKey` to the contents of the certificate public key you wish to use. For example:
-    
+
         $sshPublicKey = Get-Content .\path\to\public.key -Raw
-    
+
 4. Finally, create the cluster:
-        
+
         New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes -HttpCredential $httpCreds -SshCredential $sshCreds -OSType Linux
-    
+
     If you are using a public key to secure your SSH account, you must also specify `-SshPublicKey $sshPublicKey` as a parameter.
 
 It can take several minutes before the cluster is created.
@@ -423,7 +432,7 @@ You can use Ambari web UI to view information logged by scripts during cluster c
 
 If the cluster creation failed due to an error in script action, the script action logs can still be accessed directly from the default storage account associated with the cluster.
 
-* The storage logs are available at `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`. 
+* The storage logs are available at `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
 	![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
