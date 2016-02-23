@@ -412,7 +412,7 @@ For reference, the completed sample (without your configuration values) [is prov
 
 You can now move on to more advanced topics. You might try:
 
-[Secure a web API by using the B2C model in Node.js](active-directory-b2c-devquickstarts-webapi-nodejs.md)
+[Secure a web API by using the B2C model in Node.js](active-directory-b2c-devquickstarts-api-node.md)
 
 <!--
 
