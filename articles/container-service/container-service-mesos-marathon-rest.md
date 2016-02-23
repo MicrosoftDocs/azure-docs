@@ -30,7 +30,7 @@ Before working through these examples, you will need a Mesos cluster configured 
 
 Once connected to the ACS cluster, the Mesos and related REST APIs can be accessed through http://localhost:local-port. The examples in this document assume that you are tunneling on port 80. For example, the Marathon endpoint can be reached at `http://localhost/marathon/v2/`.  For more information on the various APIs, see the Mesosphere documentation for the [Marathon
 API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the
-[Chronos API](https://mesos.github.io/chronos/docs/api.html) and the
+[Chronos API](https://mesos.github.io/chronos/docs/api.html), and the
 Apache documentation for the [Mesos Scheduler
 API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
 
