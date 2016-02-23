@@ -20,22 +20,10 @@
 # How to manage reverse DNS records for your services using PowerShell
 
 [AZURE.INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
-
+<BR>
+[AZURE.INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
+<BR>
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](dns-reverse-dns-record-operations-classic-ps.md).
-
-## What are reverse DNS records?
-Reverse DNS records are used in a variety of situations to weakly authenticate the caller. For example, reverse DNS records are widely used in combating email spam through by verifying that the sender of an email message did so from a host for which there was a reverse DNS record, and optionally, where that host was recognized as one that was authorized to send email from the originating domain.
-
-Reverse DNS records, or PTR records, are DNS record types that enable the translation of a publically routable IP back to a name. In DNS, names, such as app1.contoso.com, are resolved to IPs in a process that is called forward resolution. With reverse DNS, this process is reversed to enable the resolution of the name given the publically routable IP.
-
-The Internet Assigned Numbers Authority (IANA) is the organization responsible for managing the available publically routable IP space. The IANA allocate contiguous blocks of publically routable IPs to registries who sub-divide those blocks into smaller contiguous blocks that are allocated to other registries, ISPs or to larger companies. The reverse DNS hierarchy models those allocations and sub-allocations through DNS delegations. Those delegations enable the reverse resolution of any given IP by following the delegation chain from the IANA to the delegated authority for that IP.
-For more information on Reverse DNS records, please see [here](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
-
-## How does Azure support reverse DNS records for your Azure services?
-Microsoft works with a number of registries to secure an adequate supply of publically routable IP blocks. Each of these blocks is then delegated to Microsoft-owned and operated authoritative DNS servers. Microsoft hosts the reverse DNS zones for all publically routable IP blocks assigned to it; Microsoft does not support the onward delegation of these IP blocks to customers’ own authoritative DNS servers.
-
-Azure enables Azure customers to specify a custom fully-qualified domain name (FQDN) for public routable IPs assigned to that customer. These custom FQDNs will then be returned from and reverse DNS lookup for that IP. 
-Azure provides reverse DNS support for all assigned publically routable IPs at no additional cost, and for services deployed using the ASM and newer ARM deployment models.
 
 
 ## Add a reverse DNS record to an existing Public IP address
