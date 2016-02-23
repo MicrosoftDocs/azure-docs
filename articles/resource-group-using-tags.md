@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/23/2016"
 	ms.author="tomfitz"/>
 
 
@@ -50,6 +50,37 @@ The following example shows a storage account with a tag.
             }
         }
     ]
+
+Currently, Resource Manager does not support processing an object for the tag names and values. Instead, you can pass an object for the tag values, but you must still specify the tag names, as shown below.
+
+    {
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "tagvalues": {
+          "type": "object",
+          "defaultValue": {
+            "dept": "Finance",
+            "project": "Test"
+          }
+        }
+      },
+      "resources": [
+      {
+        "apiVersion": "2015-06-15",
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "examplestorage",
+        "tags": {
+          "dept": "[parameters('tagvalues').dept]",
+          "project": "[parameters('tagvalues').project]"
+        },
+        "location": "[resourceGroup().location]",
+        "properties": {
+          "accountType": "Standard_LRS"
+        }
+      }]
+    }
+
 
 ## Tags in the portal
 
