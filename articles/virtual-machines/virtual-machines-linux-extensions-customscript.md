@@ -1,6 +1,6 @@
 <properties
    pageTitle="Custom scripts on Linux VMs using templates | Microsoft Azure"
-   description="Automate Linux Azure VM configuration tasks by using the Custom Script extension with Resource Manager templates"
+   description="Automate Linux VM configuration tasks by using the Custom Script extension with Resource Manager templates"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"

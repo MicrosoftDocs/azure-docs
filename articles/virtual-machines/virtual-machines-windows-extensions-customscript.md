@@ -1,6 +1,6 @@
 <properties
    pageTitle="Custom scripts on Windows VMs using templates | Microsoft Azure"
-   description="Automate Windows Azure VM configuration tasks by using the Custom Script extension with Resource Manager templates"
+   description="Automate Windows VM configuration tasks by using the Custom Script extension with Resource Manager templates"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
