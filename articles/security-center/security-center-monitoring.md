@@ -116,7 +116,7 @@ Similar to the virtual machines resource health information, this blade provides
 
 The networking status breakdown section lists potential security issues and offers recommendations. Possible issues can include:
 
-- [ACLs on endpoints](virtual-machines-windows-classic-setup-endpoints.md) not enabled
+- [ACLs on endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) not enabled
 - [Network Security Groups](virtual-networks-nsg.md) not enabled
 - Healthy Subnets and access in NSG not restricted are listed. 
  
