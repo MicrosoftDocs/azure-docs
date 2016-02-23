@@ -1,6 +1,6 @@
 <properties
 	pageTitle="DocumentDB Query Explorer: A SQL query editor | Microsoft Azure"
-	description="Learn about the DocumentDB Query Explorer, an Azure portal tool for writing SQL queries and running them against a NoSQL DocumentDB collection."
+	description="Learn about the DocumentDB Query Explorer, a SQL query editor in the Azure portal for writing SQL queries and running them against a NoSQL DocumentDB collection."
 	keywords="writing sql queries, sql query editor"
 	services="documentdb"
 	authors="AndrewHoh"
