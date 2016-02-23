@@ -21,21 +21,17 @@
 # Container management with the REST API
 
 Mesos provides an environment for deploying and scaling clustered workload while abstracting the underlying hardware. On top of Mesos, frameworks manage scheduling and executing compute workload. While frameworks are available for many popular workloads, this document will detail creating and scaling container deployments with Marathon.
+
 Before working through these examples, you will need a Mesos cluster configured in ACS and have remote connectivity to this cluster. For more information in these items see the following articles.
 
 - [Deploying an Azure Container Service Cluster](./container-service-deployment.md) 
 - [Connecting to an ACS Cluster](./container-service-connect.md)
 
 
-Once you have your SSH tunnel setup you will be able to access the
-Mesos related rest APIs through `http://localhost:LOCAL_PORT`. In the
-examples below we assume you are tunenling on port 80,
-e.g. `http://localhost/marathon/v2` will be the endpoint for the
-Marathon API. For more information on the various APIs available see
-the Mesosphere documentation for the [Marathon
+Once connected to the ACS cluster, the Mesos and related REST APIs can be accessed through http://localhost:local-port. The examples in this document assume that you are tunneling on port 80. For example, the Marathon endpoint can be reached at `http://localhost/marathon/v2/`.  For more information on the various APIs, see the Mesosphere documentation for the [Marathon
 API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the
 [Chronos API](https://mesos.github.io/chronos/docs/api.html) and the
-Apache focumentation for the [Mesos Scheduler
+Apache documentation for the [Mesos Scheduler
 API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
 
 ## Gather information from Mesos and Marathon
