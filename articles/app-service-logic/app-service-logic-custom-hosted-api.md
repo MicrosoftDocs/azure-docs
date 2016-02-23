@@ -22,28 +22,20 @@ Although Logic Apps has a rich set of 40+ connectors for a variety of services, 
 
 ## Deploy your Web App
 
-First, you'll need to deploy your API as a Web App in App Service. The instructions here cover basic deployment: [Create an ASP.NET web app](web-sites-dotnet-get-started.md).
+First, you'll need to deploy your API as a Web App in App Service. The instructions here cover basic deployment: [Create an ASP.NET web app](web-sites-dotnet-get-started.md).  While you can call into any API from a Logic App, for the best experience we recommend you add Swagger metadata to integrate easily with Logic Apps actions.  You can find details on adding swagger [here](https://azure.microsoft.com/en-us/documentation/articles/app-service-api-dotnet-get-started/#use-swagger-metadata-and-ui).
 
-Be sure to get the **URL** of your Web app - it appears in the **Essentials** at the top of the Web app.
+### API Settings
+
+In order for the Logic Apps designer to parse your Swagger, it's important that you enable CORS and set the APIDefinition properties of your web app.  This is very easy to set within the Azure Portal.  Simply open the settings blade of your Web App, and under the API section set the 'API Definition' to the URL of your swagger.json file (this is usually https://{name}.azurewebsites.net/swagger/docs/v1), and add a CORS policy for '*' to allow for requests from the Logic Apps Designer.
 
 ## Calling into the API
 
-Start by creating a new blank Logic app. Once you have a blank Logic app created, click **Edit** or **Triggers and actions**, and select **Create from Scratch**.
+When within the Logic Apps portal, if you have set CORS and the API Definition properties you should be able to easily add Custom API actions within your flow.  In the designer you can select to browse your subscription websites to list the websites with a swagger URL defined.  You can also use the HTTP + Swagger action to point to a swagger and list available actions and inputs.  Finally, you can always create a request using the HTTP action to call any API, even those that do not have or expose a swagger doc. 
 
-First, you'll probably want to use a recurrence trigger or click the **Run this logic manually**. Next, you'll want to actually make the call to your API. To do this, click the green **HTTP** action on the right-hand side.
+If you want to secure your API, then there are a couple different ways to do that:
 
-1. Choose the **Method** - this is defined in your API's code
-2. In the **URL** section, paste in the **URL** for your deployed Web app
-3. If you require any **Headers**, include them in JSON format like this: `{"Content-type" : "application/json", "Accept" : "application/json" }`
-4. If your API is public, then you may leave **Authentication** blank. If you want to secure calls to your API, see the following sections.
-5. Finally, include the **Body** of the question that you defined in your API.
-
-Click **Save** in the command bar. If you click **Run now** you should see the call to your API and the response in the run list.
-
-This works great if you have a public API. But if you want to secure your API, then there are a couple different ways to do that:
-
-1. *No code change required* - Azure Active Directory can be used to protect your API without requiring any code changes or redeployment.
-2. Enforce Basic Auth, AAD Auth, or Certificate Auth in the code of your API. 
+1. No code change required - Azure Active Directory can be used to protect your API without requiring any code changes or redeployment.
+1. Enforce Basic Auth, AAD Auth, or Certificate Auth in the code of your API.
 
 ## Securing calls to your API without a code change 
 
