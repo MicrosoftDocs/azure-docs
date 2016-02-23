@@ -419,6 +419,14 @@ Add a configuration file for each environment by performing the following steps:
             "value": "String"
         }
 
+### Property names with spaces
+If a property name has spaces in it, use square brackets as shown in the following example (Database server name): 
+
+     {
+         "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+         "value": "MyAsqlServer.database.windows.net"
+     }
+
 
 ### Deploy solution using a configuration
 When you are publishing Azure Data Factory entities in VS, you can specify the configuration that you want to use for that publishing operation. 
