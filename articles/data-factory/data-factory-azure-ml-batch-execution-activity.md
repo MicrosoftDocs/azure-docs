@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/06/2015" 
+	ms.date="02/06/2016" 
 	ms.author="spelluru"/>
 
 # Create predictive pipelines using Azure Machine Learning activities   
