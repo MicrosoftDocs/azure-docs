@@ -56,14 +56,9 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 	3. Search for and install the following Data Lake Store packages:
 	
 		* Microsoft.Azure.Management.DataLake.Store
-		* Microsoft.Azure.Management.DataLake.StoreFileSystem
 		* Microsoft.Azure.Management.DataLake.StoreUploader
 
 		![Add a Nuget source](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
-
-	4. You should also install the **Microsoft.Azure.Common.Authentication** package. This is also a prerelease package and is required for authentication with Azure Data Lake Store.
-
-		![Add a Nuget source](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "Create a new Azure Data Lake account")
 
 	4. Close the **Nuget Package Manager**.
 
@@ -78,15 +73,9 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 		using System.IO;
 		
 		using Microsoft.Azure;
-		using Microsoft.Azure.Common.Authentication;
-		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.DataLake.Store;
 		using Microsoft.Azure.Management.DataLake.Store.Models;
-		using Microsoft.Azure.Management.DataLake.StoreFileSystem;
-		using Microsoft.Azure.Management.DataLake.StoreFileSystem.Models;
 		using Microsoft.Azure.Management.DataLake.StoreUploader;
-		using Microsoft.Azure.Common.Authentication.Factories;
-		
 		
 		namespace CreateADLApplication
 		{
@@ -94,7 +83,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 		    {
 		        private static DataLakeStoreManagementClient _dataLakeStoreClient;
 		        private static DataLakeStoreFileSystemManagementClient _dataLakeStoreFileSystemClient;
-		        private const string ResourceGroupName = "<resource_grp_name>"; //THIS SHOULD ALREADY EXIST
+		        private const string ResourceGroupName = "<resource_grp_name>"; // This should already exist.
 		
 		        static void Main(string[] args)
 		        {
