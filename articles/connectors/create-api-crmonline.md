@@ -1,6 +1,6 @@
 <properties
-pageTitle="Add the CRM API in PowerApps Enterprise or to your Logic Apps | Microsoft Azure"
-description="Overview of CRM API with REST API reference"
+pageTitle="Add the Dynamic CRM Online API in PowerApps Enterprise or to your Logic Apps | Microsoft Azure"
+description="Overview of the CRM Online API with REST API parameters"
 services=""	
 documentationCenter="" 	
 authors="msftman"	
@@ -17,80 +17,87 @@ ms.date="02/22/2016"
 ms.author="deonhe"/>
 
 # Get started with the CRM API
+Connect to Dynamics CRM Online to create a new record, update an item, and more. 
 
-This API provides an interface to work with Dynamics CRM Instances.
+The CRM Online API can be be used from PowerApps Enterprise and logic apps. 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version of this connector, click [CRM Connector](../app-service-logic/app-service-logic-connector-Crm Connector.md).
+With CRM Online, you can:
 
->[AZURE.TIP] "Connector" and "API" are used interchangeably.
+- Build your business flow based on the data you get from CRM Online. 
+- Use actions that delete a record, get entities, and more. These actions get a response, and then make the output available for other actions. For example, when an item is updated in CRM, you can send an email using Office 365.
 
-With the CRM connector, you can:
-
-* Use it to build logic apps
-* Use it in power apps
-
-This topic focuses on the CRM connector triggers and actions available, creating a connection to the connector, and also lists the REST API parameters.
 
 For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](..powerapps-register-from-available-apis.md).
 
-Need help creating a logic app? See [Create a logic app](..app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Let's talk about triggers and actions
+## Triggers and actions
+The CRM API includes the following actions. There are no triggers. 
 
-The CRM API can be used as an action; there are no triggers. All connectors support data in JSON and XML formats. 
+| Triggers | Actions|
+| --- | --- |
+|None.| <ul><li>Create a new record</li><li>Gets records</li><li>Delete a record</li><li>Gets a record</li><li>Gets entities</li><li>Update an item</li></ul>
 
- The CRM API has the following action(s) and/or trigger(s) available:
+All APIs support data in JSON and XML formats.
 
-### CRM API actions
-You can take these action(s):
+## Create a connection to CRM Online
 
-|Action|Description|
-|--- | ---|
-|GetDataSets|Return the data sets|
-|GetItems|Get records for an entity|
-|PostItem|Create a new record in an entity|
-|GetItem|Used for getting a particular record present for a CRM entity|
-|DeleteItem|Delete an Item froma a List|
-|PatchItem|Used for partially updating an existing record for a CRM entity|
-|GetTables|Used for getting the list of entities present in a CRM instance|
-## Create a connection to CRM Connector
-To use the CRM API, you first create a **connection** then provide the details for these properties: 
+### Add additional configuration in PowerApps
+When you add CRM Online to PowerApps Enterprise, you enter the **Client ID** and **App Key** values of your Dynamics CRM Online Azure Active Directory (AAD) application. The **Redirect URL** value is also used in your CRM Online application. If you don't have an application, you can use the following steps to create the application: 
 
-|Property| Required|Description|
-| ---|---|---|
-|Token|Yes|Provide Dynamics CRM Online Credentials|
+1. In the [Azure Portal](https://portal.azure.com), open **Active Directory**, and select your organization's tenant name.
+2. In the Applications tab, select **Add**. In **Add application**:  
 
+	1. Enter a **Name** for your application.  
+	2. Leave the application type as **Web**.  
+	3. Select **Next**.
+
+	![Add AAD application - app info][9]
+
+3. In **App Properties**:  
+
+	1. Enter the **SIGN-ON URL** of your application.  Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
+	2. Enter a valid **APP ID URI** for your app.  
+	3. Select **OK**.  
+
+	![Add AAD application - app properties][10]
+
+4. In the new application, select **Configure**. 
+5. Under _OAuth 2_, set the **Reply URL** to the redirect URL value shown when you add the CRM Online API in the Azure Portal:  
+![Configure Contoso AAD app][12]
+
+Now copy/paste the **Client ID** and **App Key** values in your CRM Online configuration in the Azure portal. 
+
+### Add additional configuration in logic apps
+When you add this API to your logic apps, you must sign in to Dynamic CRM Online.
+
+After you create the connection, you enter the CRM Online properties, like the table or dataset. The **REST API reference** in this topic describes these properties.
 
 >[AZURE.TIP] You can use this connection in other logic apps.
 
-## CRM connector REST API reference
+## Swagger REST API reference
 #### This documentation is for version: 1.0
 
+### Create a new record 
+Create a new record in an entity.  
+```POST: /datasets/{dataset}/tables/{table}/items``` 
 
-### Return the data sets 
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|dataset|string|yes|path|none|Unique name for CRM Organization contoso.crm|
+|table|string|yes|path|none|Name of the entity|
+|item| |yes|body|none|Record to Create|
 
-
- Return the data sets
-```GET: /datasets``` 
-
-There are no parameters for this call
 #### Response
-
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
-
 
 
 ### Gets records 
-
-
- Get records for an entity
+ Get records for an entity.  
 ```GET: /datasets/{dataset}/tables/{table}/items``` 
-
-
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -101,74 +108,48 @@ There are no parameters for this call
 |$filter|string|no|query|none|ODATA filter query to restrict the number of entries.|
 |$orderby|string|no|query|none|ODATA orderBy query for specifying the order of entries.|
 
-
 #### Response
-
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-### Create a new record 
 
+### Return the data sets 
+ Return the data sets.  
+```GET: /datasets``` 
 
- Create a new record in an entity
-```POST: /datasets/{dataset}/tables/{table}/items``` 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|Unique name for CRM Organization contoso.crm|
-|table|string|yes|path|none|Name of the entity|
-|item| |yes|body|none|Record to Create|
-
+There are no parameters for this call. 
 
 #### Response
-
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
 ### Gets a table item 
-
-
- Used for getting a particular record present for a CRM entity
+Used for getting a particular record present for a CRM entity.  
 ```GET: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
-
-
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |dataset|string|yes|path|none|Unique name for CRM Organization contoso.crm|
 |table|string|yes|path|none|Name of the entity|
 |id|string|yes|path|none|Identifier for the record|
 
-
 #### Response
-
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
-
-
 
 ### Delete an Item from a List 
-
-
- Delete an Item froma a List
+Delete an Item from a a List. 
 ```DELETE: /datasets/{dataset}/tables/{table}/items/{id}``` 
-
-
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -176,24 +157,17 @@ There are no parameters for this call
 |table|string|yes|path|none|Name of the entity|
 |id|string|yes|path|none|Identifier for the record|
 
-
 #### Response
-
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
 ### Patches an existing table item 
-
-
- Used for partially updating an existing record for a CRM entity
+Used for partially updating an existing record for a CRM entity.  
 ```PATCH: /datasets/{dataset}/tables/{table}/items/{id}``` 
-
-
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -202,221 +176,111 @@ There are no parameters for this call
 |id|string|yes|path|none|Identifier for the record|
 |item| |yes|body|none|Record to Update|
 
-
 #### Response
-
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
-
-
 
 ### Gets entities 
-
-
- Used for getting the list of entities present in a CRM instance
+Used for getting the list of entities present in a CRM instance.  
 ```GET: /datasets/{dataset}/tables``` 
-
-
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |dataset|string|yes|path|none|Unique name for CRM Organization contoso.crm|
 
-
 #### Response
-
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
+## Object definitions
 
-## Object definition(s): 
+#### DataSetsMetadata
 
- **DataSetsMetadata**:
+|Property Name | Data Type | Required|
+|---|---|---|
+|tabular|not defined|no|
+|blob|not defined|no|
 
-Required properties for DataSetsMetadata:
+#### TabularDataSetsMetadata
 
+|Property Name | Data Type |Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
 
-None of the properties are required. 
+#### BlobDataSetsMetadata
 
+|Property Name | Data Type |Required|
+|---|---|---|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
 
-**All properties**: 
 
+#### TableMetadata
 
-| Name | Data Type |
-|---|---|
-|tabular|not defined|
-|blob|not defined|
+|Property Name | Data Type |Required|
+|---|---|---|
+|name|string|no|
+|title|string|no|
+|x-ms-permission|string|no|
+|schema|not defined|no|
 
+#### DataSetsList
 
+|Property Name | Data Type |Required|
+|---|---|---|
+|value|array|no|
 
- **TabularDataSetsMetadata**:
+#### DataSet
 
-Required properties for TabularDataSetsMetadata:
+|Property Name | Data Type |Required|
+|---|---|---|
+|Name|string|no|
+|DisplayName|string|no|
 
 
-None of the properties are required. 
+#### Table
 
+|Property Name | Data Type |Required|
+|---|---|---|
+|Name|string|no|
+|DisplayName|string|no|
 
-**All properties**: 
+#### Item
 
+|Property Name | Data Type |Required|
+|---|---|---|
+|ItemInternalId|string|no|
 
-| Name | Data Type |
-|---|---|
-|source|string|
-|displayName|string|
-|urlEncoding|string|
-|tableDisplayName|string|
-|tablePluralName|string|
+#### ItemsList
 
+|Property Name | Data Type |Required|
+|---|---|---|
+|value|array|no|
 
 
- **BlobDataSetsMetadata**:
+#### TablesList
 
-Required properties for BlobDataSetsMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|source|string|
-|displayName|string|
-|urlEncoding|string|
-
-
-
- **TableMetadata**:
-
-Required properties for TableMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|name|string|
-|title|string|
-|x-ms-permission|string|
-|schema|not defined|
-
-
- **DataSetsList**:
-
-Required properties for DataSetsList:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|value|array|
-
-
-
- **DataSet**:
-
-Required properties for DataSet:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|Name|string|
-|DisplayName|string|
-
-
-
- **Table**:
-
-Required properties for Table:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|Name|string|
-|DisplayName|string|
-
-
-
- **Item**:
-
-Required properties for Item:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|ItemInternalId|string|
-
-
-
- **ItemsList**:
-
-Required properties for ItemsList:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|value|array|
-
-
-
- **TablesList**:
-
-Required properties for TablesList:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|value|array|
+|Property Name | Data Type |Required|
+|---|---|---|
+|value|array|no|
 
 
 ## Next Steps
+After you add the CRM online API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
+
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+
+
+[9]: ./media/create-api-crmonline/aad-tenant-applications-add-appinfo.png
+[10]: ./media/create-api-crmonline/aad-tenant-applications-add-app-properties.png
+[12]: ./media/create-api-crmonline/contoso-aad-app-configure.png
