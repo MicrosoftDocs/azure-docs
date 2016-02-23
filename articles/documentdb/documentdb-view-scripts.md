@@ -102,7 +102,7 @@ Script Explorer allows you to execute server-side stored procedures.
 
 	> [AZURE.NOTE] The **Save & Execute** command will save your stored procedure before executing, which will overwrite the previous version of the stored procedure.
 
-	![Screenshot of Script Explorer script properties view](./media/documentdb-view-scripts/scriptexplorerexecutesproc.png)
+	![Screenshot of Script Explorer script properties view](./media/documentdb-view-scripts/scriptexplorerexecsproc.png)
 
 - Successful stored procedure executions will have a *Successfuly saved and executed the stored procedure* status and the returned results will be populated in the *Results* pane.
 
