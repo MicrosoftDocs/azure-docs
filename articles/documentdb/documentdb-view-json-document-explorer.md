@@ -73,7 +73,7 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
 
 	![Screenshot of Document Explorer delete command](./media/documentdb-view-JSON-document-explorer/deletedocument.png)
 
-# Work with JSON documents
+## Work with JSON documents
 
 Document Explorer validates that any new or edited document contains valid JSON.  You can even hover over the incorrect section to get details about the validation error.
 
