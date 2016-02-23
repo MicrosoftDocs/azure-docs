@@ -34,7 +34,7 @@ Managing and tuning the performance of relational databases is a challenging tas
  
 ## Permissions
 
-The following [role-based access control](role-based-access-control-configure.md) permissions are required to use Query Performance Insight: 
+The following [role-based access control](../active-directory/role-based-access-control-configure.md) permissions are required to use Query Performance Insight: 
 
 - **Reader**, **Owner**, **Contributor**, **SQL DB Contributor** or **SQL Server Contributor** permissions are required to view the top resource consuming queries and charts. 
 - **Owner**, **Contributor**, **SQL DB Contributor** or **SQL Server Contributor** permissions are required to view query text.
