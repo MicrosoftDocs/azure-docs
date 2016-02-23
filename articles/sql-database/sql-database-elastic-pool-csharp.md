@@ -32,13 +32,10 @@ This article shows you how to create an [elastic database pool](sql-database-ela
 The examples use the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
 
-The Azure SQL Database Library for .NET provides an [Azure Resource Manager](resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for Resource Manager-based client libraries. Resource Manager requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
-
-<br>
 
 > [AZURE.NOTE] The SQL Database Library for .NET is currently in preview.
 
-<br>
+
 
 If you do not have an Azure subscription, simply click **FREE TRIAL** at the top of this page, and then come back to this article. And for a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
