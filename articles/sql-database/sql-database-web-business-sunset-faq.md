@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/23/2015"
+   ms.date="02/23/2016"
    ms.author="sstein" />
 
 # Web and Business Edition sunset FAQ
