@@ -56,7 +56,7 @@ Based on your database's usage, there are currently 2 categories of recommendati
 
 ## Getting pricing tier recommendations
 
-Get pricing tier recommendations by selecting an existing Web or Business database, click **All settings**, then click **Pricing tier (scale DTUs)**. (Pricing tier recommendations are also available when you [Upgrade Azure SQL server to V12](sql-database-v12-upgrade.md).)
+Get pricing tier recommendations by selecting an existing Web or Business database, click **All settings**, then click **Pricing tier (scale DTUs)**. (Pricing tier recommendations are also available when you [Upgrade Azure SQL server to V12](sql-database-upgrade-server-portal.md).)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **BROWSE** > **SQL databases**.
