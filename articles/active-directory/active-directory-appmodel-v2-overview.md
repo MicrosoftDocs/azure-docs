@@ -53,13 +53,13 @@ These links will be useful for exploring the platform in depth:
 - [App Model v2.0 Token Reference](active-directory-v2-tokens.md)
 - [Office 365 REST API Reference](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Scopes and Consent in the v2 endpoint](active-directory-v2-scopes.md)
-- Open source libraries tested with the v2 endpoint 
-    - [Java WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
-    - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
-    - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
-    - [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
-    - [Android OpenID Connect sample](https://github.com/learning-layers/android-openid-connect)
+- Below is the current list of Open source client libraries that have been tested with the v2.0 endpoint. Please note features such as [OpenID Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) and token validation endpoints are not supported, which some of these libraries may depend on:  
 
+  - [Java WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
+  - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
+  - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
+  - [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
+  - [Android OpenID Connect sample](https://github.com/learning-layers/android-openid-connect)
 
 <!-- TODO: These articles
 - [ADAL Library Reference]()
