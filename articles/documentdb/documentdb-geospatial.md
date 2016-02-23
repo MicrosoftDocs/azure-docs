@@ -13,27 +13,27 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="10/27/2015" 
+    ms.date="02/03/2016" 
     ms.author="arramac"/>
     
 # Working with Geospatial data in Azure DocumentDB
 
-This article is an introduction to the geospatial functionality in [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/). After reading this, you will be able to answer the following questions:
+This article is an introduction to the geospatial functionality in [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). After reading this, you will be able to answer the following questions:
 
 - How do I store spatial data in Azure DocumentDB?
 - How can I query geospatial data in Azure DocumentDB in SQL and LINQ?
 - How do I enable or disable spatial indexing in DocumentDB?
 
-Please see this [Github project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial) for code samples.
+Please see this [Github project](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) for code samples.
 
-## Introduction to Spatial data
+## Introduction to spatial data
 
 Spatial data describes the position and shape of objects in space. In most applications, these correspond to objects on the earth, i.e. geospatial data. Spatial data can be used to represent the location of a person, a place of interest, or the boundary of a city, or a lake. Common use cases often involve proximity queries, for e.g., "find all coffee shops near my current location". 
 
 ### GeoJSON
 DocumentDB supports indexing and querying of geospatial point data that's represented using the [GeoJSON specification](http://geojson.org/geojson-spec.html). GeoJSON data structures are always valid JSON objects, so they can be stored and queried using DocumentDB without any specialized tools or libraries. The DocumentDB SDKs provide helper classes and methods that make it easy to work with spatial data. 
 
-### Points, Linestrings and Polygons
+### Points, linestrings and polygons
 A **Point** denotes a single position in space. In geospatial data, a point represents the exact location, which could be a street address of a grocery store, a kiosk, an automobile or a city.  A point is represented in GeoJSON (and DocumentDB) using its coordinate pair or longitude and latitude. Here's an example JSON for a point.
 
 **Points in DocumentDB**
@@ -83,13 +83,13 @@ In addition to points, GeoJSON also supports LineStrings and Polygons. **LineStr
 
 In addition to Point, LineString and Polygon, GeoJSON also specifies the representation for how to group multiple geospatial locations, as well as how to associate arbitrary properties with geolocation as a **Feature**. Since these objects are valid JSON, they can all be stored and processed in DocumentDB. However DocumentDB only supports automatic indexing of points.
 
-### Coordinate Reference Systems
+### Coordinate reference systems
 
 Since the shape of the earth is irregular, coordinates of geospatial data is represented in many coordinate reference systems (CRS), each with their own frames of reference and units of measurement. For example, the "National Grid of Britain" is a reference system is very accurate for the United Kingdom, but not outside it. 
 
 The most popular CRS in use today is the World Geodetic System  [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). GPS devices, and many mapping services including Google Maps and Bing Maps APIs use WGS-84. DocumentDB supports indexing and querying of geospatial data using the WGS-84 CRS only. 
 
-## Creating Documents with spatial data
+## Creating documents with spatial data
 When you create documents that contain GeoJSON values, they are automatically indexed with a spatial index in accordance to the indexing policy of the collection. If you're working with a DocumentDB SDK in a dynamically typed language like Python or Node.js, you must create valid GeoJSON.
 
 **Create Document with Geospatial data in Node.js**
@@ -133,11 +133,11 @@ If you're working with the .NET (or Java) SDKs, you can use the new Point and Po
 
 If you don't have the latitude and longitude information, but have the physical addresses or location name like city or country, you can look up the actual coordinates by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](https://msdn.microsoft.com/library/ff701713.aspx).
 
-## Querying Spatial Types
+## Querying spatial types
 
 Now that we've taken a look at how to insert geospatial data, let's take a look at how to query this data using DocumentDB using SQL and LINQ.
 
-### Spatial SQL Built-in functions
+### Spatial SQL built-in functions
 DocumentDB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more details on the complete set of built-in functions in the SQL language, please refer to [Query DocumentDB](documentdb-sql-query.md).
 
 <table>
@@ -347,10 +347,10 @@ And here's how you can modify an existing collection to take advantage of spatia
 
 > [AZURE.NOTE] If the location GeoJSON value within the document is malformed or invalid, then it will not get indexed for spatial querying. You can validate location values using ST_ISVALID and ST_ISVALIDDETAILED.
 
-## Next Steps
+## Next steps
 Now that you've learnt about how to get started with geospatial support in DocumentDB, you can:
 
-- Start coding with the [Geospatial .NET code samples on Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)
+- Start coding with the [Geospatial .NET code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/blob/e880a71bc03c9af249352cfa12997b51853f47e5/samples/code-samples/Geospatial/Program.cs)
 - Get hands on with geospatial querying at the [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 - Learn more about [DocumentDB Query](documentdb-sql-query.md)
 - Learn more about [DocumentDB Indexing Policies](documentdb-indexing-policies.md)

@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
     tags="azure-service-management" />
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # How to run a Java application server on a virtual machine created with the classic deployment model
@@ -132,7 +132,7 @@ At this point, your Tomcat website should be viewable from an external browser b
     The benefit of having Tomcat start automatically is that it will start if the virtual machine is rebooted (for example, after software updates that require a reboot are installed).
 
 ## Next steps
-Learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications by viewing the information available at the [Java Developer Center](http://azure.microsoft.com/develop/java/).
+Learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications by viewing the information available at the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
 

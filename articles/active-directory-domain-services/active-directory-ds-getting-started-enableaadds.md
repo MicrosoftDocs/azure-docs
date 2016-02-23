@@ -1,19 +1,19 @@
-﻿<properties
+<properties
 	pageTitle="Azure Active Directory Domain Services preview: Getting Started | Microsoft Azure"
 	description="Getting started with Azure Active Directory Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.topic="get-started-article"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
@@ -50,7 +50,7 @@ In this step you can enable Azure AD Domain Services for your directory. Perform
 
 8. The next step is to select a virtual network in which you'd like Azure AD Domain Services to be available. Select the virtual network you just created in the drop-down titled **Connect domain services to this virtual network**.
    - Ensure that the virtual network you have specified belongs to an Azure region supported by Azure AD Domain Services.
-   - Refer to the [regions page](active-directory-ds-regions.md) to see the list of supported Azure regions.
+   - Refer to the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services are available.
 
 9. When you are done selecting the above options, click **Save** from the task pane at the bottom of the page to enable Azure AD Domain Services.
 10. The page will display a ‘Pending …’ state, while Azure AD Domain Services is being enabled for your directory.

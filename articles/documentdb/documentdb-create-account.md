@@ -17,7 +17,7 @@
 	ms.date="12/17/2015" 
 	ms.author="mimig"/>
 
-# Create a DocumentDB database account using the Azure portal
+# How to create a DocumentDB database account using the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure Portal](documentdb-create-account.md)
@@ -25,7 +25,7 @@
 
 To use Microsoft Azure DocumentDB, you must create a DocumentDB database account using either the Azure portal, Azure Resource Manager templates, or Azure command-line interface (CLI). This article shows how to create a database account using the Azure portal. To create an account using Azure Resource Manager or Azure CLI, see [Automate DocumentDB database account creation](documentdb-automation-resource-manager-cli.md). 
 
-Are you new to DocumentDB? Watch [this](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four minute video by Scott Hanselman to see how to complete the most common tasks in the online portal.
+Are you new to DocumentDB? Watch [this](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four minute video by Scott Hanselman to see how to complete the most common tasks in the online portal.
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 

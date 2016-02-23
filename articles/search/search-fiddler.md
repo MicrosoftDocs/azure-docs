@@ -13,12 +13,13 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="12/18/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Use Fiddler to evaluate and test Azure Search REST APIs
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
+- [Search Explorer](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)

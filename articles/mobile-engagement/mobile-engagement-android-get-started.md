@@ -2,7 +2,7 @@
 	pageTitle="Get started with Azure Mobile Engagement"
 	description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Android apps."
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="android"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />

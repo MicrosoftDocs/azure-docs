@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Azure SQL Database Web and Business Edition sunset FAQ | Microsoft Azure"
    description="Find out when the Azure SQL Web and Business databases will be retired and learn about the features and functionality of the new service tiers."
    services="sql-database"
@@ -6,13 +6,13 @@
    authors="stevestein"
    manager="jeffreyg"
    editor="monicar" />
-<tags 
+<tags
    ms.service="sql-database"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/30/2015"
+   ms.date="02/23/2016"
    ms.author="sstein" />
 
 # Web and Business Edition sunset FAQ
@@ -26,18 +26,18 @@ To assist you with upgrading Web and Business databases, the SQL Database servic
 - [Upgrade to SQL Database V12 using the Azure portal](sql-database-upgrade-server-portal.md)
 - [Upgrade to SQL Database V12 using PowerShell](sql-database-upgrade-server-powershell.md)
 - [Change the pricing tier of a Web or Business database](sql-database-service-tier-advisor.md)
- 
+
 
 
 ## Why does the Azure portal show my Web and Business edition databases as Retired?
 
-Because Web and Business edition databases will not be available after September 2015, the portal labels Web and Business databases as Retired. Web and Business databases can still be provisioned and managed as usual, but the Retired label is a reminder that it is best to use the Basic, Standard, or Premium service tiers for new databases. The retired label also provides a reminder that any Web and Business databases should be upgraded to Standard, Basic, or Premium. For detailed information on upgrading existing Web or Business databases to the new service tiers, see [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md).
+Because Web and Business edition databases will not be available after September 2015, the portal labels Web and Business databases as Retired. The retired label also provides a reminder that any Web and Business databases should be upgraded to Standard, Basic, or Premium. For detailed information on upgrading existing Web or Business databases to the new service tiers, see [Upgrade to Azure SQL Database V12](sql-database-upgrade-server-portal.md).
 
 ## Which new service tier is the best choice to upgrade my existing Web or Business database to?
 
-Selecting an appropriate new service tier and performance level for your existing Web or Business database depends on the specific feature and performance requirements for your application. 
+Selecting an appropriate new service tier and performance level for your existing Web or Business database depends on the specific feature and performance requirements for your application.
 
-Use the pricing tier recommendations described above, or for detailed information to assist you in selecting an appropriate new service tier, see [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md).
+Use the pricing tier recommendations described above, or for detailed information to assist you in selecting an appropriate new service tier, see [Upgrade to Azure SQL Database V12](sql-database-upgrade-server-portal.md).
 
 ## Why is Microsoft introducing new service tiers?
 
@@ -45,7 +45,7 @@ Based on customer feedback, Azure SQL Database is introducing new service tiers 
 
 ## Where can I learn more about the new service tiers?
 
-For detailed information about the new service tiers and performance model, see [Service tiers](sql-database-service-tiers.md). For detailed pricing information for the new service tiers, see [SQL Database pricing](http://azure.microsoft.com/pricing/details/sql-database/).
+For detailed information about the new service tiers and performance model, see [Service tiers](sql-database-service-tiers.md). For detailed pricing information for the new service tiers, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## What features or functionality will not be available in Basic, Standard, and Premium?
 
@@ -55,7 +55,7 @@ Microsoft is also changing the database copy experience with Premium databases. 
 
 ## How does Basic, Standard, and Premium improve my billing experience?
 
-Basic, Standard, and Premium Azure SQL Databases are billed by the hour, and you have the ability to scale each database up or down 4 times within a 24 hour period. You are billed at a fixed rate based on the highest service tier and performance level you choose for each hour. Additionally, performance levels (example: Basic, S1, and P2) are broken out in the bill to make it easier to see the number of database days/hours you incurred in a single month for each performance level. Web and Business databases continue to be billed using Database Units based on the database size. Please visit the [SQL Database pricing page](http://azure.microsoft.com/pricing/details/sql-database/) to learn more about the pricing and differences between the new service tiers.
+Basic, Standard, and Premium Azure SQL Databases are billed by the hour, and you have the ability to scale each database up or down 4 times within a 24 hour period. You are billed at a fixed rate based on the highest service tier and performance level you choose for each hour. Additionally, performance levels (example: Basic, S1, and P2) are broken out in the bill to make it easier to see the number of database days/hours you incurred in a single month for each performance level. Web and Business databases continue to be billed using Database Units based on the database size. Please visit the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) to learn more about the pricing and differences between the new service tiers.
 
 
 ## See also
@@ -66,4 +66,4 @@ Basic, Standard, and Premium Azure SQL Databases are billed by the hour, and you
 
 [Service tiers](sql-database-service-tiers.md)
 
-[Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md)
+[Upgrade to Azure SQL Database V12](sql-database-upgrade-server-portal.md)

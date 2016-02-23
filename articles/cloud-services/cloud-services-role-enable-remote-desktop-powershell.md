@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="09/17/2015" 
+ms.date="01/19/2016" 
 ms.author="saurabh"/>
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services using PowerShell
@@ -20,12 +20,12 @@ ms.author="saurabh"/>
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running. 
 
-This article describes how to enable remote desktop on your Cloud Service Roles using PowerShell. See [How to install and configure Azure PowerShell](powershell-install-configure.md) for the prerequisites needed for this article. PowerShell uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. 
+This article describes how to enable remote desktop on your Cloud Service Roles using PowerShell. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for the prerequisites needed for this article. PowerShell uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. 
 
 
 ## Configure Remote Desktop from PowerShell

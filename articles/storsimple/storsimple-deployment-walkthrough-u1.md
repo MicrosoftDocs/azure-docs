@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,12 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device (Update 1)
 
-[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## Overview
 
@@ -112,7 +115,7 @@ Before you begin, make sure that:
 
 - You have your Microsoft Azure storage account with access credentials.
 
-- Your Microsoft Azure subscription is enabled for the StorSimple Manager service. Your subscription should be purchased through the [Enterprise Agreement](http://azure.microsoft.com/pricing/enterprise-agreement/).
+- Your Microsoft Azure subscription is enabled for the StorSimple Manager service. Your subscription should be purchased through the [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - You have access to terminal emulation software such as PuTTY.
 
@@ -282,7 +285,7 @@ For MPIO installation instructions for a StorSimple device connected to a Linux 
 
 ## Next steps
 
-Configure a [virtual device](storsimple-virtual-device.md).
+- Configure a [virtual device](storsimple-virtual-device.md).
 
-Use the [StorSimple Manager service](storsimple-manager-service-administration.md) to manage your StorSimple device.
+- Use the [StorSimple Manager service](storsimple-manager-service-administration.md) to manage your StorSimple device.
  

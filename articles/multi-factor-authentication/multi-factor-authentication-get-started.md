@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 #Choose the multi-factor security solution for you
@@ -42,7 +42,7 @@ Remote access such as VPN, RDG| |* |
 
 ## Where are the users located
 
-Next, depending on where are users are located, we can determine the correct solution to use, whether it is mutli-factor authentication in the cloud or on-premises using the MFA Server.
+Next, depending on where our users are located, we can determine the correct solution to use, whether it is mutli-factor authentication in the cloud or on-premises using the MFA Server.
 
 
 

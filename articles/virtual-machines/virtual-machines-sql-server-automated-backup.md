@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Automated Backup for SQL Server in Azure Virtual Machines
@@ -22,7 +22,7 @@ Automated Backup automatically configures [Managed Backup to Microsoft Azure](ht
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
-## Automated Backup Settings
+## Automated Backup settings
 
 The following table describes the options that can be configured for Automated Backup. The actual configuration steps vary depending on whether you use the Azure portal or Azure Windows PowerShell commands.
 
@@ -36,9 +36,9 @@ The following table describes the options that can be configured for Automated B
 
 ## Configure Automated Backup in the Azure portal
 
-You can use the Azure portal to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine. 
+You can use the Azure portal to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine.
 
->[AZURE.NOTE] Automated Backup relies on the SQL Server IaaS Agent. To install and configure the agent, you must have the Azure VM Agent running on the target virtual machine. Newer virtual machine gallery images have this option enabled by default, but the Azure VM Agent might be missing on existing VMs. If you are using your own VM image, you will also need to install the SQL Server IaaS Agent. For more information, see [VM Agent and Extensions](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+>[AZURE.NOTE] Automated Backup relies on the SQL Server IaaS Agent. To install and configure the agent, you must have the Azure VM Agent running on the target virtual machine. Newer virtual machine gallery images have this option enabled by default, but the Azure VM Agent might be missing on existing VMs. If you are using your own VM image, you will also need to install the SQL Server IaaS Agent. For more information, see [VM Agent and Extensions](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 The following Azure portal screenshot shows these options under **OPTIONAL CONFIGURATION** | **SQL AUTOMATED BACKUP**.
 
@@ -76,7 +76,7 @@ To enable encryption, modify the previous script to pass the EnableEncryption pa
 
 To disable automatic backup, run the same script without the **-Enable** parameter to the **New-AzureVMSqlServerAutoBackupConfig**. As with installation, it can take several minutes to disable Automated Backup.
 
-## Disabling and Uninstalling the SQL Server IaaS Agent
+## Disabling and uninstalling the SQL Server IaaS Agent
 
 If you want to disable the SQL Server IaaS Agent for Automated Backup and Patching, use the following command:
 
@@ -104,7 +104,7 @@ The following products are compatible with the SQL Server IaaS Agent features 
 
 - SQL Server 2014 Enterprise
 
-## Next Steps
+## Next steps
 
 Automated Backup configures Managed Backup on Azure VMs. So it is important to [review the documentation for Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) to understand the behavior and implications.
 

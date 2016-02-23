@@ -13,33 +13,31 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
+	ms.date="02/05/2016"
 	ms.author="glenga" />
 
 #Create a Xamarin.Android App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
- 
+
 ##Overview
 
-This tutorial shows you how to add a cloud-based backend service to a Xamarin.Android app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md). 
+This tutorial shows you how to add a cloud-based backend service to a Xamarin.Android app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md).
 
 A screenshot from the completed app is below:
 
 ![][0]
 
 Completing this tutorial is a prerequisite for all other Mobile Apps tutorials for Xamarin.Android apps.
- 
+
 ##Prerequisites
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
- 
+* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+
 * [Visual Studio Community 2013] or later.  If you install Visual Studio Community 2013, install [Xamarin] separately.  You can install the Xamarin tools when you install Visual Studio 2015.
- 
+
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
 
 ## Create a new Azure Mobile App backend
@@ -60,7 +58,7 @@ You have now provisioned an Azure Mobile App backend that can be used by your mo
 
   	This downloads a project that contains a client application that is connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
 
-2. Press the **F5** key to build the project and start the app. 
+2. Press the **F5** key to build the project and start the app.
 
 3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the **Add** button.
 
@@ -88,5 +86,5 @@ You have now provisioned an Azure Mobile App backend that can be used by your mo
 [Xamarin]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
- 
+
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203

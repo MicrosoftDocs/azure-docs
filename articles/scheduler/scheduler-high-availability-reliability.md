@@ -24,7 +24,7 @@ As a core Azure platform service, Azure Scheduler is highly available and featur
 
 ### Geo-redundant service deployment
 
-Azure Scheduler is available via the UI in almost every geo region that's in Azure today. The list of regions that Azure Scheduler is available in is [listed here](http://azure.microsoft.com/regions/#services). If a data center in a hosted region is rendered unavailable, the failover capabilities of Azure Scheduler are such that the service is available from another data center.
+Azure Scheduler is available via the UI in almost every geo region that's in Azure today. The list of regions that Azure Scheduler is available in is [listed here](https://azure.microsoft.com/regions/#services). If a data center in a hosted region is rendered unavailable, the failover capabilities of Azure Scheduler are such that the service is available from another data center.
 
 ### Geo-regional job replication
 
@@ -72,10 +72,9 @@ To learn how to configure an alternate endpoint, refer to [errorAction](schedule
 
  [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
  [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
-
 
  [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 

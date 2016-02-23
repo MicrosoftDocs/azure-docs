@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="02/09/2016"
    ms.author="tomfitz"/>
 
 # Pass secure values during deployment
@@ -21,8 +21,6 @@
 When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an [Azure Key Vault](./key-vault/key-vault-whatis.md) and reference the value in other Resource Manager templates. You include only a reference to the secret 
 in your template so the secret is never exposed, and you do not need to manually enter the value for the secret each time you deploy the resources. You specify which users or 
 service principals can access the secret.  
-
-> [AZURE.NOTE] Currently, only Azure CLI supports the ability to reference a key vault secret. Azure PowerShell will add this ability as soon as possible. 
 
 ## Deploy a key vault and secret
 
@@ -37,34 +35,34 @@ To learn about deploying a key vault and secret, see
 You reference the secret from within a parameters file which passes values to your template. You reference the secret by passing the resource identifier of the key vault and the name of the secret.
 
     "parameters": {
-        "adminPassword": {
-            "reference": {
-                "keyVault": {
-                    "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-                }, 
-                "secretName": "sqlAdminPassword" 
-            } 
-        }
+      "adminPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+          }, 
+          "secretName": "sqlAdminPassword" 
+        } 
+      }
     }
 
 An entire parameter file might look like:
 
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "sqlsvrAdminLogin": {
-                "value": ""
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "sqlsvrAdminLogin": {
+          "value": ""
+        },
+        "sqlsvrAdminLoginPassword": {
+          "reference": {
+            "keyVault": {
+              "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
             },
-            "sqlsvrAdminLoginPassword": {
-                "reference": {
-                    "keyVault": {
-                        "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-                    },
-                    "secretName": "adminPassword"
-                }
-            }
+            "secretName": "adminPassword"
+          }
         }
+      }
     }
 
 The parameter that accepts the secret should be a **securestring**. The following example shows the relevant sections of a template that deploys a SQL server that requires an administrator password.
@@ -106,6 +104,6 @@ The parameter that accepts the secret should be a **securestring**. The followin
 ## Next steps
 
 - For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
-- For more information about deploying templates, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+- For information about using a key vault with a Virtual Machine, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md).
 - For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 

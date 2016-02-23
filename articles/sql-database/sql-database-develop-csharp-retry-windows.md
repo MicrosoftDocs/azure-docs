@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="C# retry logic to connect to SQL Database | Microsoft Azure" 
-	description="C# sample includes retry logic for reliably interacting with Azure SQL Database." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="C# retry logic to connect to SQL Database | Microsoft Azure"
+	description="C# sample includes retry logic for reliably interacting with Azure SQL Database."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/17/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/17/2015"
 	ms.author="genemi"/>
 
 
@@ -22,10 +22,7 @@
 
 
 
-> [AZURE.SELECTOR]
-- [PHP](sql-database-develop-php-retry-windows.md)
-- [C#](sql-database-develop-csharp-retry-windows.md)
-- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 
 
@@ -288,5 +285,3 @@ Run the program with the "test" parameter, and verify it first fails but then su
 - [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
 - [Try SQL Database: Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md)
-
-

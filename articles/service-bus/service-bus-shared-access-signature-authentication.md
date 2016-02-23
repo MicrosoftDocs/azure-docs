@@ -25,7 +25,7 @@ SAS authentication support is included in the Azure SDK version 2.0 and later. F
 
 SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients claim access to Service Bus resources by presenting a SAS token. This token consists of the resource URI being accessed, and an expiry signed with the configured key.
 
-You can configure Shared Access Signature authorization rules on Service Bus [relays](service-bus-fundamentals-hybrid-solutions.md/#relays), [queues](service-bus-fundamentals-hybrid-solutions.md/#queues), [topics](service-bus-fundamentals-hybrid-solutions.md/#topics), and [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/).
+You can configure Shared Access Signature authorization rules on Service Bus [relays](service-bus-fundamentals-hybrid-solutions.md#relays), [queues](service-bus-fundamentals-hybrid-solutions.md#queues), [topics](service-bus-fundamentals-hybrid-solutions.md#topics), and [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/).
 
 SAS authentication uses the following elements:
 

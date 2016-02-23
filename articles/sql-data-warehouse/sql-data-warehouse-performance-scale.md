@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
+   ms.date="01/07/2016"
+   ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # Elastic performance and scale with SQL Data Warehouse
 To elastically increase or decrease your compute power all you need to do is adjust the number of Data Warehouse Units (DWU) allocated to your SQL Data Warehouse. Data Warehouse Units are a new concept delivered by SQL Data Warehouse to enable you to manage this simmply and effectively. This topic serves as an introduction to Data Warehouse units; explaining how you can use them to elastically scale your compute power. The article also provides some initial guidance on how to set a reasonable DWU value for your environment.
@@ -56,7 +56,9 @@ Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.wind
 ## Pausing compute resources
 Unique to SQL Data Warehouse is the ability to pause and resume compute on demand.  If the team will not be using the Data Warehouse instance for a period of time, like nights, weekends, certain holidays or for any other reason, you can pause the Data Warehouse instance for that period of time and pick up where you left off when you return.  
 
-The pause action returns your compute resources back to the pool of available resources in the data center and the resume action acquires the necessary compute resources needed for the DWU you've set and assigns them to your Data Warehouse instance.  
+The pause action returns your compute resources back to the pool of available resources in the data center and the resume action acquires the necessary compute resources needed for the DWU you've set and assigns them to your Data Warehouse instance.
+
+> [AZURE.NOTE] Since storage is separate from compute, your storage is unaffected by pause.
 
 Pause and resume of your compute power can be done through the [Azure Classic Portal][], via REST APIs or through Powershell.  Pausing cancels all running or queued activities and when you return you can resume your compute resources in seconds. 
 
@@ -73,9 +75,9 @@ Resuming the service is also very straightforward with PowerShell:
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
-For more details on how to use PowerShell please refer to the [Introduction to PowerShell cmdlets][] article.
+For more details on how to use PowerShell please refer to [Using PowerShell cmdlets and REST APIs with SQL Data Warehouse][].
 
-> [Azure.Note] Since storage is separate from compute, your storage is unaffected by pause.
+
 
 ## Next steps
 For the performance overview, see [performance overview][].
@@ -84,7 +86,7 @@ For the performance overview, see [performance overview][].
 
 <!--Article references-->
 [performance overview]: sql-data-warehouse-overview-performance.md
-[Introduction to PowerShell cmdlets]: sql-data-warehouse-get-started-powershell-cmdlets.md
+[Using PowerShell cmdlets and REST APIs with SQL Data Warehouse]: sql-data-warehouse-reference-powershell-cmdlets.md
 
 <!--MSDN references-->
 

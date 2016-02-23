@@ -35,7 +35,7 @@ Questions or problems with [Visual Studio Application Insights in Windows][windo
 #### I used to see data, but it has stopped
 
 * Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
-* Have you hit your monthly quota of data points? Open Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
+* Have you hit your monthly quota of data points? Open Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 
 
 ## How do I add Application Insights to a Universal App?
@@ -82,7 +82,7 @@ To help correlate events in the client and server, generate an operation id for 
 
 ## The Azure start screen
 
-*I'm looking at [the Azure portal](http://portal.azure.com). Does the map tell me something about my app?*
+*I'm looking at [the Azure portal](https://portal.azure.com). Does the map tell me something about my app?*
 
 No, it shows the health of Azure servers around the world.
 

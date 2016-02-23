@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) creates an identity landscape that is yours in
 
 You can think of an account in Azure AD as your driver's license for the cloud: it's your unique ID for accessing services online. In that sense, Azure AD works like your own private registrar in the cloud for those driver's licenses.  It enables identities to be used anywhere in the cloud, and improves mobility for users who access resources on-premises.
 
-> [AZURE.NOTE] To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## How does Azure AD support Office 365, Microsoft Intune, and other Azure services?
 The Azure portal, Office 365 Admin Center, Microsoft Intune account portal, and the cmdlets from the Azure AD PowerShell module all read from and write to a single shared instance of Azure AD that is associated with your directory. Portals (or cmdlets) act as a front-end interface that pulls in or changes your directory information. [Learn more about support for other services](active-directory-administer.md#what-is-an-azure-ad-tenant)

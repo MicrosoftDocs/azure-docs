@@ -13,16 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # Move Data to and from Azure Blob Storage using Python
 
-Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
-
-[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
-
 ## Introduction
+This topic describes how to list, upload and download blobs using the Python API. 
 
 With the Python API provided in Azure SDK, you can
 
@@ -32,7 +29,12 @@ With the Python API provided in Azure SDK, you can
 - List the blobs in a container
 - Delete a blob
 
-This section documents how to list, upload and download blobs. For more information about using the Python API, see [How to Use the Blob Storage Service from Python](../storage-python-how-to-use-blob-storage.md). 
+For more information about using the Python API, see [How to Use the Blob Storage Service from Python](../storage-python-how-to-use-blob-storage.md).
+
+Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
+
+[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
+
 
 > [AZURE.NOTE] If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](machine-learning-data-science-virtual-machines.md), then AzCopy is already installed on the VM.
 

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/10/2016"
    ms.author="sameerch"/>
 
 
 # Get started with the Oracle Database Connector and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
 Connect to an on-premises Oracle Database server to create and change your information or data. Connectors can be used in Logic Apps to retrieve, process, or push data as a part of a "workflow". When you use the Oracle Connector in your workflow, you can achieve a variety of scenarios. For example, you can:
 
 - Expose a section of the data residing in your Oracle database using a web or mobile application.
@@ -51,7 +53,7 @@ A connector can be created within a logic app or be created directly from the Az
 Data Source | Yes | A data source (net service) name that is specified in the tnsnames.ora file on the computer where the Oracle client is installed. For information about data source names and tnsnames.ora, see [Configuring the Oracle Client](http://msdn.microsoft.com/library/dd787872.aspx).
 User Name | Yes | Enter a user name to connect to the Oracle server.
 Password | Yes | Enter the user name password.
-Service Bus Connection String | Yes | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/)
+Service Bus Connection String | Yes | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
 Tables | No | Enter the tables in the database that are allowed to be modified by the connector. For example, enter *OrdersTable,EmployeeTable*.
 Stored Procedures | No | Enter the stored procedures in the database that can be called by the connector. For example, enter *IsEmployeeEligible,CalculateOrderDiscount*.
 Functions | No | Enter the functions in the database that can be called by the connector. For example, enter *IsEmployeeEligible,CalculateOrderDiscount*.

@@ -1,11 +1,11 @@
 <properties
-	pageTitle="How to use Table storage from .NET | Microsoft Azure"
-	description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table."
+	pageTitle="Get started with Azure Table storage using .NET | Microsoft Azure"
+	description="Store unstructured data in the cloud using Azure Table storage, Microsoft's NoSQL data store. Get started with simple Table storage operations, including creating and deleting tables and inserting, updating, deleting, and querying data."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,20 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2015"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
-# How to use Table storage from .NET
+# Get started with Azure Table storage using .NET
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 ## Overview
 
-This article will show you how to perform common scenarios by using the
-Azure Table storage service. The samples are written in C\# code
-and use the Azure Storage Client Library for .NET. The scenarios covered include creating and
-deleting a table, as well as working with table entities.
+Azure Table storage is a service that stores unstructured NoSQL data in the cloud. Table storage is a key/attribute store with a schemaless design. Because Table storage is schemaless, it's easy to adapt your data as the needs of your application evolve. Access to data is fast and cost-effective for all kinds of applications. Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data. 
+
+You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
+
+This tutorial shows how to write .NET code for some common scenarios using Azure Table storage, including creating and deleting a table and inserting, updating, deleting, and querying table data.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -483,8 +484,8 @@ to learn about more complex storage tasks:
     - [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
 - Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 - View more feature guides to learn about additional options for storing data in Azure.
-    - Use [Blob Storage](storage-dotnet-how-to-use-blobs.md) to store unstructured data.
-    - Use [SQL Database](sql-database-dotnet-how-to-use.md) to store relational data.
+    - [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) to store unstructured data.
+    - [How to use Azure SQL Database in .NET applications](sql-database-dotnet-how-to-use.md) to store relational data.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="ASP.NET MVC tutorial for DocumentDB: Web Application Development | Microsoft Azure" 
-	description="Complete this ASP.NET MVC tutorial to create an MVC web application using DocumentDB. You'll store JSON and access data from a todo app hosted on Azure Websites." 
+	description="ASP.NET MVC tutorial to create an MVC web application using DocumentDB. You'll store JSON and access data from a todo app hosted on Azure Websites - ASP NET MVC tutorial step by step." 
 	keywords="asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step"
 	services="documentdb" 
 	documentationCenter=".net" 
@@ -15,10 +15,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/18/2015" 
+	ms.date="02/09/2016" 
 	ms.author="ryancraw"/>
 
-#<a name="_Toc395809351"></a>Web application development with ASP.NET MVC using DocumentDB
+#<a name="_Toc395809351"></a>ASP.NET MVC Tutorial: Web application development with DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -38,7 +38,7 @@ This walk-through shows you how to use the DocumentDB service provided by Azure 
 
 Before following the instructions in this article, you should ensure that you have the following:
 
-- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](../../pricing/free-trial/).
+- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013](http://www.visualstudio.com/) Update 4 or higher.
 - Azure SDK for .NET version 2.5.1 or higher, available through the [Microsoft Web Platform Installer][].
 
@@ -84,7 +84,7 @@ Now that you have an account, let's create our new ASP.NET project.
 
   	I haven't chosen a "Database server" here because we're not using an Azure SQL Database Server here, we're going to be creating a new Azure DocumentDB account later on in the Azure Portal.
 
-	For more information about choosing an **App Service plan** and **Resource group**, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	For more information about choosing an **App Service plan** and **Resource group**, see [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
   	![Screen shot of the Configure Microsoft Azure Website dialog box](./media/documentdb-dotnet-application/image11_1.png)
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/16/2016"
 	ms.author="markusvi"/>
 
 
@@ -60,7 +60,7 @@ The types are expressed with the following syntax:
 
 [DNComponent](#dncomponent)  &nbsp;&nbsp;&nbsp;&nbsp; [DNComponentRev](#dncomponentrev) &nbsp;&nbsp;&nbsp;&nbsp; [EscapeDNComponent](#escapedncomponent)
 
-**Insprection:**
+**Evaluation:**
 
 [IsBitSet](#isbitset)  &nbsp;&nbsp;&nbsp;&nbsp; [IsDate](#isdate) &nbsp;&nbsp;&nbsp;&nbsp; [IsEmpty](#isempty)
 &nbsp;&nbsp;&nbsp;&nbsp; [IsGuid](#isguid) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsNumeric](#isnumeric)  &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring)
@@ -679,7 +679,7 @@ For an attribute, this would evaluate to True if the attribute is absent or is p
 The inverse of this function is named IsPresent.
 
 **Example:** <br>
-`IsNull([displayName])` <br>
+`IsNullOrEmpty([displayName])` <br>
 Returns True if the attribute is not present or is an empty string in the CS or MV.
 
 

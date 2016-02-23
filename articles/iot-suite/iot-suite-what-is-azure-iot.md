@@ -2,32 +2,33 @@
  pageTitle="Azure solutions for Internet of Things | Microsoft Azure"
  description="A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Suite, and preconfigured solutions"
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/05/2015"
+ ms.date="02/04/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Suite
 
-The Microsoft Azure IoT Suite is an enterprise-grade solution that enables you to get started quickly through a set of extensible preconfigured solutions that address common IoT scenarios, such as *remote monitoring* and *connected devices*.
+The Microsoft Azure IoT Suite is an enterprise-grade solution that enables you to get started quickly through a set of extensible preconfigured solutions that address common IoT scenarios, such as *remote monitoring* and *predictive maintenance*.
 
 The preconfigured solutions:
 
 - Are complete, working, end-to-end solutions that include simulated devices to get you started, preconfigured Azure services such as [Azure IoT Hub][], [Azure Event Hubs][], [Azure Stream Analytics][], [Azure Machine Learning][], and [Azure storage][], and solution specific management consoles.
 - Contain proven, production-ready code that you can customize and extend to implement your own specific IoT scenarios.
 
-You may also be interested in the [Azure IoT Hub][] service that many of the preconfigured solution use. [Azure IoT Hub][] provides many of the data processing and analytics capabilities defined in the sample solution architecture.
+You may also be interested in the [Azure IoT Hub][] service that many of the preconfigured solutions use. [Azure IoT Hub][] provides many of the data processing and analytics capabilities defined in the sample solution architecture.
 
 ## Next steps
 

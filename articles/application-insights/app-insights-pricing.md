@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 # Manage pricing and quota for Application Insights
@@ -67,7 +67,7 @@ At any time, you can switch to the 30 day free Premium trial. This gives you the
 * You can also inspect individual data points at source during debugging:
  * If you run your app in debug mode in Visual Studio, the data points are logged in the Output window. 
  * To see client data points, open your browser's debugging pane (usually F12) and open the network tab.
-
+* The data rate is (by default) reduced by [adaptive sampling](app-insights-sampling). This means that, as usage of your app increases, the telemetry rate won't increase as much as you might expect.
 
 ### Overage
 
@@ -85,6 +85,8 @@ The chart at the bottom of the pricing blade shows your application's data point
 ![At the bottom of the pricing blade](./media/app-insights-pricing/03-allocation.png)
 
 Click the chart for more detail, or drag across it and click (+) for the detail of a time range.
+
+The chart shows the volume of data that arrives at the Application Insights service, after [sampling](app-insights-sampling).
 
 
 ## Data rate
@@ -112,17 +114,13 @@ If throttling occurs, you'll see a notification warning that this has happened.
 * Open Settings/Quota and Pricing to see the Data Volume chart.
 * Or in Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
 
-*How can I reduce the amount of data my app sends?*
-
-* Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search. From ASP.NET SDK 2.0.0-beta3, adaptive sampling is enabled by default.
-* [Switch off telemetry collectors](app-insights-configuration-with-applicationinsights-config.md) that you don't need.
-
 
 ### Tips for reducing your data rate
 
 If you encounter the throttling limits, here are some things you can do:
 
 * Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search.
+* [Limit the number of Ajax calls that can be reported](app-insights-javascript.md#detailed-configuration) in every page view, or switch off Ajax reporting.
 * Switch off collection modules you don't need by [editing ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). For example, you might decide that performance counters or dependency data are inessential.
 * Pre-aggregate metrics. If you have put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 

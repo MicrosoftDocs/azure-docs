@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="02/17/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Calling a web API from a .NET web app
@@ -42,22 +42,22 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 
 - Include a **web app/web api** in the application
 - Enter `https://localhost:44316/` as a **Reply URL** - it is the default URL for this code sample.
-- Create an **Application Secret** for your application and copy it down.  You will need it shortly.
+- Create an **Application Secret** for your application and copy it down. You will need it shortly. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before use.
 - Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3. Create your policies
 
-In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This web app contains three 
-identity experiences - sign-up, sign-in, and edit profile.  You will need to create one policy of each type, as described in the 
+In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This web app contains three
+identity experiences - sign-up, sign-in, and edit profile.  You will need to create one policy of each type, as described in the
 [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When creating your three policies, be sure to:
 
 - Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
 - Choose the **Display Name** and **Object ID** application claims in every policy.  You can choose other claims as well.
 - Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)] 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Once you have your three policies successfully created, you're ready to build your app.
 
@@ -66,7 +66,7 @@ you should start with the [.NET Web App getting started tutorial](active-directo
 
 ## 4. Download the code
 
-The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet).  To build the sample as you go, you can 
+The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet).  To build the sample as you go, you can
 [download a skeleton project as a .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip) or clone the skeleton:
 
 ```
@@ -76,13 +76,13 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Web
 The completed app is also [available as a .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) or on the
 `complete` branch of the same repo.
 
-Once you've downloaded the sample code, open the Visual Studio `.sln` file to get started.  You'll notice that there are two projects in the solution: a `TaskWebApp` project and a `TaskService` project.  The `TaskWebApp` is the WPF 
-web app front end that the user interacts with.  The `TaskService` is the app's backend web API that stores each user's to-do list. 
+Once you've downloaded the sample code, open the Visual Studio `.sln` file to get started.  You'll notice that there are two projects in the solution: a `TaskWebApp` project and a `TaskService` project.  The `TaskWebApp` is the WPF
+web app front end that the user interacts with.  The `TaskService` is the app's backend web API that stores each user's to-do list.
 
 ## 5. Configure the task service
 
-When the `TaskService` receieves requests from the `TaskWebApp`, it checks for a valid access token to authenticate the request.  In order to validate the access token, 
-you need to provide the `TaskService` with some information about your app.  In the `TaskService` project, open up the `web.config` file in the root 
+When the `TaskService` receieves requests from the `TaskWebApp`, it checks for a valid access token to authenticate the request.  In order to validate the access token,
+you need to provide the `TaskService` with some information about your app.  In the `TaskService` project, open up the `web.config` file in the root
 of the project and replace the values in the `<appSettings>` section:
 
 ```
@@ -97,7 +97,7 @@ of the project and replace the values in the `<appSettings>` section:
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
 </appSettings>
 ```
-  
+
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
@@ -233,7 +233,7 @@ public partial class Startup
 #### Get an access token using the authorization code
 
 Your web app is now configured to authenticate the user using your B2C directory, and receive back an authorization code from Azure AD.
-The next step is to exchange this authorization code for an access token from Azure AD. 
+The next step is to exchange this authorization code for an access token from Azure AD.
 
 Whenever your .NET web apps need to get access tokens from Azure AD, you can use the **Active Directory Authentication Library (ADAL)**.  
 You don't have to use ADAL for this process, but ADAL makes it easier for you by taking care of many details, such as sending OAuth
@@ -272,7 +272,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 	// The token will be stored in the ADAL token cache, for use in our controllers
 	AuthenticationResult result = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), credential, new string[] { clientId }, mostRecentPolicy);
 }
-``` 
+```
 
 #### Get an access token in the controllers
 
@@ -294,7 +294,7 @@ public async Task<ActionResult> Index()
 
 		// We don't care which policy is used to access the TaskService, so let's use the most recent policy
 		string mostRecentPolicy = ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value;
-		
+
 		// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
 		// AcquireTokenSilentAsync will return a token from the token cache, and throw an exception if it cannot do so.
 		AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
@@ -309,7 +309,7 @@ public async Task<ActionResult> Index()
 	}
 	...
 }
-``` 
+```
 
 ADAL will take care of caching the tokens, refreshing them when they expire, and telling you when the user must sign in again by throwing exceptions.  All
 you need to do is to call `AuthenticationContext.AcquireTokenSilentAsync(...)` whenever you need a token in your app.
@@ -323,9 +323,9 @@ Now that you have a token, you can attach it to the HTTP GET request in the `Aut
 
 public async Task<ActionResult> Index()
 {
-	... 
-	
-	try 
+	...
+
+	try
 	{
 		HttpClient client = new HttpClient();
 		HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, serviceUrl + "/api/tasks");
@@ -343,7 +343,7 @@ public async Task<ActionResult> Index()
 		}
 		else
 		{
-			// If the call failed with access denied, then drop the current access token from the cache, 
+			// If the call failed with access denied, then drop the current access token from the cache,
 			// and show the user an error indicating they might need to sign-in again.
 			if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 			{
@@ -390,8 +390,8 @@ public void SignOut()
 
 		HttpContext.GetOwinContext().Authentication.SignOut(
 		new AuthenticationProperties(
-			new Dictionary<string, string> 
-			{ 
+			new Dictionary<string, string>
+			{
 				{Startup.PolicyKey, ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value}
 			}), OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
 	}

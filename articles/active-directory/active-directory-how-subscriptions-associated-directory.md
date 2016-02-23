@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="02/11/2016"
 	ms.author="curtand"/>
 
 # How Azure subscriptions are associated with Azure Active Directory
@@ -109,16 +109,29 @@ To manage both of the directories in the Azure classic portal, complete these st
 > These steps can only be completed while a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option **Use existing directory** is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school).
 
 1. Sign in to the Azure classic portal using your Microsoft account.
+
 2. Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.
+
 3. Click **Use existing directory** and check **I am ready to be signed out now** and click the check mark to complete the action.
+
 4. Sign in to the Azure classic portal using an account that has global admin rights for the work or school directory.
+
 5. When prompted to **Use the Contoso directory with Azure?**, and click **continue**.
+
 6. Click **Sign out now**.
+
 7. Sign back in to the Azure classic portal using your Microsoft account. Both directories will appear in the Active Directory extension.
 
 
-## What's next
-[Sign up for Azure as an organization](sign-up-organization.md)
+## Next Steps
+
+- To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
+
+- To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
+
+- For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md)
+
+- [Sign up for Azure as an organization](sign-up-organization.md)
 
 
 <!--Image references-->

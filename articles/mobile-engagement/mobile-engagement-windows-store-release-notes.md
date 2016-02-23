@@ -18,6 +18,18 @@
 
 #Windows Universal Apps SDK Release Notes
 
+##3.3.1 (02/18/2016)
+
+-   Fix conflicts between web announcement's HTML content and SDK's HTML page.
+-   Stability improvements.
+
+##3.3.0 (01/22/2016)
+
+-   Fix crash formatting on UWP apps running in release mode.
+-   Fix 1px margin on notifications for Universal 8.1 apps.
+-   ms-appx and ms-appdata schemes available on action urls.
+-   Stability improvements.
+
 ##3.2.0 (11/20/2015)
 
 -   Added support for Windows 10 Universal Windows Platform applications.

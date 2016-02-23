@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="How to use Blob Storage from Xamarin (Preview) | Microsoft Azure" 
-	description="The Azure Storage Client Library for Xamarin preview enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an Android application that uses Azure Blob storage." 
-	services="storage" 
-	documentationCenter="xamarin" 
-	authors="micurd" 
-	manager="" 
-	editor=""/>
+<properties
+	pageTitle="How to use Blob Storage from Xamarin (Preview) | Microsoft Azure"
+	description="The Azure Storage Client Library for Xamarin preview enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an Android application that uses Azure Blob storage."
+	services="storage"
+	documentationCenter="xamarin"
+	authors="micurd"
+	manager=""
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/21/2016"
+	ms.author="micurd"/>
 
 # How to use Blob Storage from Xamarin (Preview)
 
@@ -49,7 +49,7 @@ The shared access signature URI for the new container should be similar to the f
 
 The shared access signature that you created on the container will be valid for the next day. The signature grants full permissions (*e.g.*, read, write, delete, and list) to blobs within the container.
 
-For more information about shared access signatures, see the [SAS tutorial for .NET](storage-dotnet-shared-access-signature-part-2.md).
+For more information about shared access signatures, see [Shared Access Signatures: Create and use a SAS with Blob storage](storage-dotnet-shared-access-signature-part-2.md).
 
 ## Create a new Xamarin Application
 
@@ -173,8 +173,9 @@ In this tutorial, you learned how to use Azure Blob storage and SAS with a Xamar
 
 Learn more about blobs, tables, and queues by checking out the following links:
 
-[Introduction to Microsoft Azure Storage](storage-introduction.md)  
-[How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)  
-[How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md)  
-[How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)
-[Transfer data with the AzCopy command-line utility](storage-use-azcopy) 
+- [Introduction to Microsoft Azure Storage](storage-introduction.md)
+- [Get started with Azure Blob Storage using .NET](storage-dotnet-how-to-use-blobs.md)
+- [Get started with Azure Table Storage using .NET](storage-dotnet-how-to-use-tables.md)
+- [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md)
+- [Get started with Azure File Storage on Windows](storage-dotnet-how-to-use-files.md)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)

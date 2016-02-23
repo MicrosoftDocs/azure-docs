@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # Restore an app in Azure App Service
@@ -22,7 +22,7 @@ This article shows you how to restore an App Service app that you have previousl
 
 The App Service Restore feature lets you restore your app with its linked databases (SQL Database or MySQL) on-demand to a previous state, or create a new app based on one of your original app's backup. Creating a new app that runs in parallel to the latest version can be useful for A/B testing.
 
-The App Service Restore feature, available on the **Backups** blade in the [Azure Portal](http://portal.azure.com), is available only in Standard and Premium pricing tiers. For information about scaling your app using Standard or Premium tier, see [Scale an app in Azure App Service](web-sites-scale.md). Note that the Premium tier allows a greater number of daily backups to be performed over the Standard tier.
+The App Service Restore feature, available on the **Backups** blade in the [Azure Portal](https://portal.azure.com), is available only in Standard and Premium pricing tiers. For information about scaling your app using Standard or Premium tier, see [Scale an app in Azure App Service](web-sites-scale.md). Note that the Premium tier allows a greater number of daily backups to be performed over the Standard tier.
 
 <a name="PreviousBackup"></a>
 ## To Restore an app from a previously made backup
@@ -78,7 +78,7 @@ The App Service Restore feature, available on the **Backups** blade in the [Azur
 	
 1. To see details about the success or failure of the app restore operation, select the **Audit Log** part of the main **Browse** blade. 
 	
-	The **Audio log** blade displays all of your operations, along with level, status, resource, and time details.
+	The **Audit log** blade displays all of your operations, along with level, status, resource, and time details.
 	
 2. Scroll the blade to find operations related to your app.
 3. To view additional details about an operation, select the operation in the list.
@@ -86,7 +86,11 @@ The App Service Restore feature, available on the **Backups** blade in the [Azur
 The details blade will display the available information related to the operation.
 	
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
-	
+
+## Next Steps
+
+You can also backup and restore App Service apps using REST API (see [Use REST to back up and restore App Service apps](websites-csm-backup.md)).
+
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 

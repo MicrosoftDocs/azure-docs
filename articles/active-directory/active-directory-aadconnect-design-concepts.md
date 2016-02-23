@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="12/02/2015"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
-# Design concepts for Azure AD Connect
+# Azure AD Connect: Design concepts
 The purpose of this topic is to describe areas which must be thought through during the implementation design of Azure AD Connect. This is a deep dive on certain areas and these concept are briefly described in other topics as well.
 
 ## sourceAnchor
@@ -42,7 +42,6 @@ The attribute value must follow the following rules:
 - Should not be based on user's name, these change
 - Should not be case sensitive and avoid values that may vary by case
 - Should be assigned when the object is created.
-
 
 If the selected sourceAnchor is not of type string, Azure AD Connect will Base64Encode the attribute value to ensure no special characters will appear. If you use another federation server than ADFS, make sure your server also has the capability to Base64Encode the attribute.
 

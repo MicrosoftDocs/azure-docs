@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
@@ -24,7 +24,7 @@
 
 Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Just like a manufacturing factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
 
-Data Factory works across on-premises and cloud data sources and SaaS to ingest, prepare, transform, analyze, and publish your data.  Use Data Factory to compose services into managed data flow pipelines to transform your data using services like [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) and [Azure Batch](http://azure.microsoft.com/documentation/services/batch/) for your big data computing needs, and with [Azure Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/) to operationalize your analytics solutions.  Go beyond just a tabular monitoring view, and use the rich visualizations of Data Factory to quickly display the lineage and dependencies between your data pipelines. Monitor all of your data flow pipelines from a single unified view to easily pinpoint issues and setup monitoring alerts.
+Data Factory works across on-premises and cloud data sources and SaaS to ingest, prepare, transform, analyze, and publish your data.  Use Data Factory to compose services into managed data flow pipelines to transform your data using services like [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) and [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) for your big data computing needs, and with [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) to operationalize your analytics solutions.  Go beyond just a tabular monitoring view, and use the rich visualizations of Data Factory to quickly display the lineage and dependencies between your data pipelines. Monitor all of your data flow pipelines from a single unified view to easily pinpoint issues and setup monitoring alerts.
 
 See [Overview & Key Concepts](data-factory-introduction.md) for more details. 
  
@@ -72,9 +72,9 @@ See **Azure Data Factory Limits** section of the [Azure Subscription and Service
 
 You can author/create data factories using one of the following:
 
-- **Azure Portal**. The Data Factory blades in the Azure Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Data Factory Editor][data-factory-editor] for an overview of the editor and [Get started with Data Factory][datafactory-getstarted] for an example of using the portal/editor to create and deploy a data factory.   
+- **Azure Portal**. The Data Factory blades in the Azure Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Get started with Data Factory][datafactory-getstarted] for an example of using the portal/editor to create and deploy a data factory.   
 - **Azure PowerShell**. If you are a PowerShell user and prefer to use PowerShell instead of Portal UI, you can use Azure Data Factory cmdlets that are shipped as part of Azure PowerShell to create and deploy data factories. See [Create and monitor Azure Data Factory using Azure PowerShell][create-data-factory-using-powershell] for a simple example and [Tutorial: Move and process log files using Data Factory][adf-tutorial] for an advanced example of using PowerShell cmdles to create ad deploy a data factory. See [Data Factory Cmdlet Reference][adf-powershell-reference] content on MSDN Library for a comprehensive documentation of Data Factory cmdlets.  
-- **Visual Studio**. You can also use Visual Studio to programmatically create, monitor, and manage data factories. See [Create, monitor, and manage Azure data factories using Data Factory .NET SDK](data-factory-create-data-factories-programmatically) article for details.  
+- **Visual Studio**. You can also use Visual Studio to programmatically create, monitor, and manage data factories. See [Create, monitor, and manage Azure data factories using Data Factory .NET SDK](data-factory-create-data-factories-programmatically.md) article for details.  
 - **.NET Class Library**. You can programmatically create data factories by using Data Factory .NET SDK. See [Create, monitor, and manage data factories using .NET SDK][create-factory-using-dotnet-sdk] for a walkthrough of creating a data factory using .NET SDK. See [Data Factory Class Library Reference][msdn-class-library-reference] for a comprehensive documentation of Data Factory .NET SDK.  
 - **REST API**. You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories. See [Data Factory REST API Reference][msdn-rest-api-reference] for  a comprehensive documentation of Data Factory REST API. 
 
@@ -132,9 +132,9 @@ In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 repres
 You can rerun a slice in one of the following ways: 
 
 - Click **Run** in the command bar on the **DATA SLICE** blade for the slice in the portal. 
-- Run **Set-AzureRmDataFactorySliceStatus** cmdlet with Status set to **PendingExecution** for the slice.   
+- Run **Set-AzureRmDataFactorySliceStatus** cmdlet with Status set to **Waiting** for the slice.   
 	
-		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
 See [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] for details about the cmdlet. 
 
@@ -153,12 +153,9 @@ If you really want to stop all the executions immediately, the only way would be
 
 
 
-[image-rerun-slice]: ./media/data-factory-faq/rerun-slice.png
-
 [adfgetstarted]: data-factory-get-started.md
 [adf-introduction]: data-factory-introduction.md
 [adf-troubleshoot]: data-factory-troubleshoot.md
-[data-factory-editor]: data-factory-editor.md
 [datafactory-getstarted]: data-factory-get-started.md
 [create-data-factory-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md

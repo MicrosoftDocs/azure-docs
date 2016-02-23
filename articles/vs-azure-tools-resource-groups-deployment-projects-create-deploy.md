@@ -1,82 +1,123 @@
-﻿<properties
+<properties
    pageTitle="Creating and deploying Azure Resource Group Visual Studio projects | Microsoft Azure"
    description="Use Visual Studio to create a Azure resource group project and deploy the resources to Azure."
-   services="visual-studio-online"
+   services="azure-resource-manager"
    documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
+   authors="tfitzmac"
+   manager="wpickett"
    editor="" />
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
-   ms.author="tarcher" />
+   ms.date="02/16/2016"
+   ms.author="tomfitz" />
 
 # Creating and deploying Azure resource groups through Visual Studio
 
-The **Azure Resource Group** deployment project template is available in Visual Studio when Azure SDK 2.6 is installed. Azure Resource Group projects let you group together and publish multiple related Azure resources in a single deployment operation. Azure Resource Group projects use a technology called **Azure Resource Manager** to do their work. **Azure Resource Manager** is a REST API service that lets you define Azure resource groups, which contain multiple Azure resources that are typically used together and have a similar lifecycle. By using resource groups, you can operate on all the resources in a group with a single function call, instead of calling different functions for each individual resource. To learn more about Azure resource groups, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md). For a more detailed, end-to-end Azure Resource Group deployment scenario, see [Azure Resource Group for Visual Studio](https://azure.microsoft.com/blog/azure-resource-manager-2-5-for-visual-studio/).
+With Visual Studio and the [Azure SDK](https://azure.microsoft.com/downloads/), you can create a project that deploys your infrastructure and code to Azure. For example, you can define the web host, web site, and database for your app, and 
+deploy that infrastructure along with the code. Or, you can define a Virtual Machine, Virtual Network and Storage Account, and deploy that infrastructure along with a script that is executed on Virutal Machine. 
+The **Azure Resource Group** deployment project enables to deploy all the needed resources in a single, repeatable operation. For more information about deploying and managing your resources, see [Azure Resource Manager overview](resource-group-overview.md).
 
-Azure Resource Group projects contain Azure Resource Manager JSON templates, which define the elements that are deployed to a resource group. See [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md) for more information.
+Azure Resource Group projects contain Azure Resource Manager JSON templates, which define the resources that are deployed to a Azure. To learn about the elements of the Resource Manager template,
+see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). Visual Studio enables you to edit these templates, and provides tools that simplify working with templates.
 
-Azure Resource Manager has many different resource providers available that can be used to deploy resources such as Ubuntu Server and Windows Server 2012 R2. This topic uses a **Web Apps** resource, which deploys a basic, empty website to Azure.
+In this topic, you will deploy a web app and SQL Database; however, the steps are almost the same for 
+any type resource. You can just as easily deploy a Virtual Machine and its related resources. Visual Studio provides many different starter templates for deploying common scenarios.
 
-## Creating Azure Resource Group projects
+## Create Azure Resource Group project
 
-In this procedure, you learn how to create an Azure Resource Group project with a **Web App** template.
-
-### To create a Azure Resource Group project
+In this procedure, you will create an Azure Resource Group project with a **Web app + SQL** template.
 
 1. In Visual Studio, choose **File**, **New Project**, choose **C#** or **Visual Basic**. Then choose **Cloud**, and then choose **Azure Resource Group** project.
 
     ![Cloud Deployment Project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796668.png)
 
-1. Choose the template that you want to deploy to Azure Resource Manager. For this example, we'll choose the **Web app** template.
+1. Choose the template that you want to deploy to Azure Resource Manager. Notice there are many different options based on the type of project you wish to deploy. For this topic, we'll choose the **Web app + SQL** template.
 
-    ![Choose a template](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796669.png)
+    ![Choose a template](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
 
-    You can also add more resources to the Resource Group later.
+    The template you pick is just a starting point; you can add and remove resources to fulfill your scenario.
 
     >[AZURE.NOTE] The list of available templates is retrieved online and may change.
 
-    Visual Studio creates an Azure Resource Group deployment project for a web app.
+    Visual Studio creates a resource group deployment project for the web app and SQL database.
 
 1. Expand the nodes in the deployment project to see what was created.
 
-    Since we chose the Web app template for this example, you see the following files. 
+    ![show nodes](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
+
+    Since we chose the Web app + SQL template for this example, you see the following files. 
 
     |File name|Description|
     |---|---|
     |Deploy-AzureResourceGroup.ps1|A PowerShell script that invokes PowerShell commands to deploy to Azure Resource Manager.<br />**Note** This PowerShell script is used by Visual Studio to deploy your template. Any changes you make to this script will also affect deployment in Visual Studio, so be careful.|
-    !WebSite.json|A template that defines the infrastructure you want deploy to Azure.|
-    |WebSite.param.dev.json|A parameters file that contains specific values needed by the configuration file.|
+    |WebSiteSQLDatabase.json|The resource manager template that defines the infrastructure you want deploy to Azure, and the parameters you can provide during deployment. It also defines the dependencies between the resources so they are deployed in the correct order.|
+    |WebSiteSQLDatabase.parameters.json|A parameters file that contains values needed by the template. These are the values you pass in to customize each deployment.|
     |AzCopy.exe|A tool used by the PowerShell script to copy files from the local storage drop path to the storage account container. This tool is used only if you configure the deployment project to deploy your code along with the template.|
 
-    All Azure Resource Group deployment projects contain these four basic files. Other projects may contain additional files to support other functionality.
+    All resource group deployment projects contain these four basic files. Other projects may contain additional files to support other functionality.
 
-## Customizing an Azure Resource Group project
+## Customize the Resource Manager template
 
-You can customize a deployment project by modifying the JSON template files that describe the Azure resources you want to deploy. JSON stands for JavaScript Object Notation, and is a serialized data format that is easy to work with.
+You can customize a deployment project by modifying the JSON templates that describe the resources you want to deploy. JSON stands for JavaScript Object Notation, and is a serialized data format that is easy to work with. 
+The JSON files use a schema which is referenced at the top of each file. You can download the schema and analyze it if you want to understand it better. The schema defines what elements are allowed, the types and formats of 
+fields, the possible values of enumerated values, and so on. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
-Azure Resource Group projects have two template files under the **Templates** node in Solution Explorer that you can modify: an Azure Resource Manager template file and a parameter file.
+To work on your template, open **WebSiteSQLDatabase.json**.
 
-- **Azure Resource Manager template files** (which have the extension .json) specify the file(s) containing the resources you want, as well as parameters needed by the deployment project, such as site name and location. They also specify the dependencies of the components in the Azure Resource Group and their properties, such as names, tags, and rules for triggers. You can modify this file to add your own functionality. For example, you could add a database to the template. Refer to the documentation for each resource provider to find out the parameters you need to provide. See [Resource Providers](https://msdn.microsoft.com/library/azure/dn790572.aspx) for more information.
+The Visual Studio editor provides tools to assist you with editing the resource manager template. The **JSON Outline** window makes it easy to see the elements defined in your template.
 
-- **Parameter files** (which have the extension `.param.*.json`) contain values for the parameters specified in the configuration file that are needed for each resource provider. In this example, the configuration file for a web app (WebSite.json) defines parameters for *siteName* and *siteLocation*. During deployment, you are asked to provide values for the parameters in the template file, and these values are stored in the parameters file. You can also edit the parameter file directly.
+![show JSON outline](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-json-outline.png)
 
-JSON files can be edited in the Visual Studio editor. If you install the [PowerShell Tools for Visual Studio](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597), then you'll also get syntax highlighting, brace matching, and IntelliSense to make it easier to read and edit PowerShell scripts. A link to install the PowerShell Tools appears at the top of the editor if it's not already installed.
+Selecting any of the elements in the outline takes you to that part of the template and highlights the corresponding JSON.
 
-![Install PowerShell Tools](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796671.png)
+![navigate JSON](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/navigate-json.png)
 
-The JSON files use a schema which is referenced at the top of each file. You can download the schema and analyze it if you want to understand it better. The schema defines what elements are allowed, the types and formats of fields, the possible values of enumerated values, and so on.
+You can add a new resource to your template by either selecting the **Add Resource** button at the top of the JSON Outline window, or by right-clicking **resources** and selecting **Add New Resource**.
 
-If you want to deploy to different configurations or change settings often, you can create different copies of the *param* file. Try to use the same template for all environments.
+![add resource](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
-## Deploying an Azure Resource Group project to an Azure resource group
+For this tutorial, select **Storage Account** and give it a name. A storage account name must be only numbers and lower-case letters, and less than 24 characters. The project will add a 13-character unique string onto the name 
+that you provide so make sure your name is no more 11 characters.
 
-When you deploy an Azure Resource Group project, you deploy it to an Azure resource group, which is just a logical grouping of resources in Azure such as web apps, databases, and so on.
+![add storage](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
+
+Notice that not only was the resource added, but also a parameter for the type storage account, and a variable for the name of the storage account.
+
+![show outline](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
+
+The **WebSitePicturesType** parameter is pre-defined with allowed types and a default type. You can leave these values or edit them for your scenario. If you do not want to permit anyone to deploy a 
+**Premium_LRS** storage account through this template, simple remove it from the allowed types, as shown below. 
+
+    "WebSitePicturesType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS"
+      ]
+    }
+
+Visual Studio also provides intellisense to help you understand what properties are available when editing the template. For example, to edit the properties for your App Service plan, navigate to the 
+**HostingPlan** resource, and add a new value for the **properties**. Notice that intellisense shows the available values and provides a description of that value.
+
+![show intellisense](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
+
+You can set **numberOfWorkers** to 1.
+
+    "properties": {
+      "name": "[parameters('hostingPlanName')]",
+      "numberOfWorkers": 1
+    }
+
+## Deploy the Resource Group project to Azure
+
+You are now ready to deploy your project. When you deploy an Azure Resource Group project, you deploy it to an Azure resource group, which is just a logical grouping of resources in Azure such as web apps, databases, and so on.
 
 1. On the shortcut menu of the deployment project node, choose **Deploy**, **New Deployment**.
 
@@ -84,114 +125,87 @@ When you deploy an Azure Resource Group project, you deploy it to an Azure resou
 
     The **Deploy to Resource Group** dialog box appears.
 
-    ![Deploy To Resource Group Dialog Box](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
+    ![Deploy To Resource Group Dialog Box](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
 
-1. In the **Resource group** dropdown box, choose an existing resource group or create a new one.To create a resource group, open the **Resource Group** dropdown box and choose **<Create New...>**.
+1. In the **Resource group** dropdown box, choose an existing resource group or create a new one. To create a resource group, open the **Resource Group** dropdown box and choose **<Create New...>**.
 
-    The **Create Resource Group** dialog box appears.
+    ![Deploy To Resource Group Dialog Box](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
 
-    ![Create Resource Group Dialog Box](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796674.png)
+    The **Create Resource Group** dialog box appears. Give your group a name and location, and select the **Create** button.
 
-    >[AZURE.NOTE] Typically when you start a new deployment project you will want to create a new resource group to deploy to.
+    ![Create Resource Group Dialog Box](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
+   
+1. You can edit the parameters for the deployment by choosing the **Edit Parameters** button. Provide values for the parameters and select the **Save** button.
 
-1. Enter a name and location for the resource group, and then choose the **Create** button.
+    ![Edit Parameters Dialog Box](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
+    
+    The **Save passwords** option means the passwords will be saved as plain text in the JSON file. This option is not secure.
 
-    The location of the resource group doesn't need to be the same as the location of the resources, since resources in a group can span regions.
+1. Choose the **Deploy** button to deploy the project to Azure. You can see the progress of the deployment in the **Output** window. Deployment may take several minutes to complete, depending on your configuration. Enter the database administrator password, if prompted.
 
-1. Choose the template configuration and parameters files you want to use for this deployment, or accept the defaults.
+    >[AZURE.NOTE] You may be asked to install the Azure PowerShell cmdlets. Because these cmdlets are required to deploy Azure resource groups, you need to install them.
+    
+1. When the deployment has finished, you should see a message in the **Output** window something like:
 
-    You can edit the properties for a resource by choosing the **Edit Parameters** button. If required parameters are missing when you deploy, the **Edit Parameters** dialog box appears so that you can provide them. Parameters that are missing values have **<null>** appearing in the **Value** box next to them. For this example (a web app resource), the required parameters include the site name, hosting plan, and site location. (If you recall, these parameter values are set to null by default in the parameters file.) The other parameters have default values.
+        ...
+        15:19:19 - DeploymentName     : websitesqldatabase-0212-2318
+        15:19:19 - CorrelationId      : 6cb43be5-86b4-478f-9e2c-7e7ce86b26a2
+        15:19:19 - ResourceGroupName  : DemoSiteGroup
+        15:19:19 - ProvisioningState  : Succeeded
+        ...
 
-    ![Edit Parameters Dialog Box](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796675.png)
+1. In a browser, open the [Azure Portal](https://portal.azure.com/) and sign in to your account. To see the resource group, select **Resource groups** and the resource group you deployed to.
 
-1. In the **Edit Parameters** dialog box, enter the site name, site location, hosting plan name, and check the values of any other properties. When you're done, choose the **Save** button.
+    ![select group](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
 
-    - The *siteName* parameter is the first part of the URL of the web page. For example, for the URL mywebsitename.azurewebsites.net, the site name is **mywebsitename**.
+1. You will see all of the deployed resources.
 
-    - The *hostingPlanName* parameter specifies your hosting plan. For this example, you can use "Free". For more information about hosting plans, see [Azure App Service plans in-depth overview](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)
-
-    - The *siteLocation* parameter refers to the Azure region where the site is to be hosted, such as "West US". For a list of available regions, see [Azure Regions](http://azure.microsoft.com/regions/).
-
-1. Choose the **Deploy** button to deploy the project to Azure.
-
-    You can see the progress of the deployment in the **Output** window. Deployment may take several minutes to complete, depending on your configuration.
-
-    >[AZURE.NOTE] You may be asked to install the Microsoft Azure PowerShell cmdlets. Because these cmdlets are required to deploy Azure resource groups, you need to install them.
-
-1. In a browser, open the [Azure Preview Portal](https://portal.azure.com/). Since this is a new change, there should be a new notification message available in the **Notifications** tab. Choose it to view details about the new Azure resource group. To see a list of all the available resource groups, you can choose the **Browse** tab and then choose **Resource Groups**.
-
-    ![The provisioned Azure Resource Group](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796676.png)
+    ![show resources](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
 
 1. If you make changes and want to redeploy your project, you can choose the existing resource group directly from the Azure resource group project's shortcut menu. On the shortcut menu, choose **Deploy**, and then choose the resource group you just deployed to.
 
-    ![Azure resource group deployed](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796677.png)
+    ![Azure resource group deployed](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
-    Deploying an Azure resource group deploys only that project. If your solution has a code project or any other projects, you need to deploy them separately.
+## Deploy code with your infrastructure
 
-## Using Azure SDK 2.5 Cloud Deployment Projects with Azure SDK 2.6
+At this point, you have deployed the infrastructure for your app, but there is no actual code deployed with the project. This topic shows how to deploy a 
+web app and SQL Database tables during deployment. If you are deploying a Virtual Machine instead of a web app, you want to run some code on the machine as part of deployment. The process for 
+deploying code for a web app or for setting up a Virtual Machine is almost the same.
 
-If you are using Cloud Deployment projects that were created with Azure SDK 2.5, you'll want to upgrade to Azure SDK 2.6 or later to be able to use the new features for editing and deploying Azure resource templates. The easiest way to reuse the templates you created with Azure SDK 2.5 is to create the Azure SDK 2.6 or later version of the project, move your templates to that project and do some modifications.
+1. In your Visual Studio solution, add an **ASP.NET Web Application**. 
 
-### To use Azure SDK 2.5 Cloud Deployment projects with Azure SDK 2.6 or later
+    ![add web app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
+    
+1. Select **MVC** and clear the field for **Host in the cloud** because the resource group project will perform that task.
 
-1. Add a new Azure SDK 2.6 or later Azure Resource Group project to your solution.
+    ![select MVC](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
+    
+1. After your web app has been created, add a reference in the resource group project to the web app project.
 
-    1. Open the solution that contains your Azure SDK 2.5 Cloud Deployment project.
+    ![add reference](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
+    
+    By adding a reference, you link the web app project to the resource group project, and set three key properties.  The **Additional Properties** contains the web deployment package staging location that will be 
+    pushed to the Azure Storage. The **Include File Path** contains the path where the package will be created.  The **Include Targets** contains the command that deployment will execute. The default value of 
+    **Build;Package** enables the deployment to build and create a web deployment package (package.zip).  A publish profile is not needed as the deployment gets the necessary information from the properties to 
+    create the package.
+    
+      ![see reference](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
+      
+1. Add a new resource to the template, and this time select **Web Deploy for Web Apps**. 
 
-    1. On the **File** menu, choose **New**, **Project**.
+    ![add web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
+    
+1. Re-deploy your resource group project to the resource group. This time there are some new parameters. You do not need to provide values for **_artifactsLocation** or **_artifactsLocationSasToken** be they are auto-generated. Set the folder and file name to the path that contains the deployment package.
 
-    1. In the **New Project** dialog box, find the **Azure Resource Group **project under **Visual C#**/**Cloud** or **Visual Basic**/**Cloud**.
+    ![add web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
+    
+    For the **Artifact storage account**, you can use the one deployed with this resource group.
+    
+After the deployment has finished, you can browse to the site and notice that the default ASP.NET app has been deployed.
 
-         The project template name was changed from **Cloud Deployment** to Azure Resource Group.
-
-    1. Give the project a name.
-
-    1. Change the solution drop-down box to **Add to solution**.
-
-    1. Next, you will be asked to pick a template. Since you’ll be moving your existing templates from your Azure SDK 2.5 Cloud Deployment project, you can choose any template, so let’s choose the blank template at the bottom of the list.
-
-    1. Choose the **OK** button.
-
-        The new project is added to your solution.
-
-1. Copy your template and parameter files from the Azure SDK 2.5 Cloud Deployment project to your Azure SDK 2.6 or later Resource Group project.
-
-    1. In Solution Explorer, find the template and parameter files you want to copy in the Azure SDK 2.5 deployment project, select them and copy them.
-
-    2. Paste the files into the **Templates** folder in your new Azure SDK 2.6 or later Resource Group project.
-
-1. In Solution Explorer, find the template and parameter files you want to copy in the Azure SDK 2.5 deployment project, select them and copy them.
-
-1. Paste the files into the Templates folder in your new Azure SDK 2.6 or later Resource Group project.
-
-1. If you're also deploying a web application with your template, you’ll need to create a reference from the new Azure SDK 2.6 or later Resource Group project to your Web Application.
-
-    1. On the context menu of the **References** node of your new Azure SDK 2.6 or later Resource Group project in Solution Explorer, choose **Add Reference**.
-
-    1. Select the box next to your Web Application in the list of projects and then choose the **OK** button.
-
-1. On the context menu of the References node of your new Azure SDK 2.6 or later Resource Group project in Solution Explorer, choose Add Reference.
-
-1. Select the box next to your Web Application in the list of projects and then choose the OK button.
-
-1. Rename all occurrences of the parameters *dropLocation* and *dropLocationSasToken* to *_artifactsLocation* and *_artifactsLocationSasToken*.
-
-1. If you don’t plan to use them, you can delete the empty template and parameter files that were automatically added to the Azure SDK 2.6 or later project when you created it
-
-    1. Delete the file DeployTemplate.json.
-
-    1. Delete the file DeploymentTemplate.param.dev.json.
-
-1. If you have made changes to the Publish-AzureResourceGroup.ps1 script in the Azure SDK 2.5 project, you’ll need to move those changes to the Deploy-AzureResourceGroup.ps1 script in the Azure SDK 2.6 or later project.
-
-    Now you can deploy your template using the deployment command in the Azure SDK 2.6 or later Azure Resource Group project and take advantage of the new features for editing templates in Azure SDK 2.6. Once you have the 2.6 or later project working to your satisfaction, you can remove the Azure SDK 2.5 project from your solution.
-
-## Why the project required updating
-
-Some changes were made to the templates deployed in Azure SDK 2.6 that makes Azure SDK 2.5 deployment script and templates incompatible. The first, and biggest change, is the deployment is launched. Azure SDK 2.5 had compiled code that used the Azure REST APIs to upload your template and start the deployment. Feedback from developers indicated that they would prefer Visual Studio to just launch the PowerShell script that is included in the project. So, in Azure SDK 2.6, the deploy command launches the PowerShell script that is included in the project to deploy the template. This enables you to customize the deployment and have those customizations always run, whether you are deploying from the command line using Azure PowerShell or deploying through Visual Studio using the Deploy command. To deploy from Visual Studio, you'll need to use the Azure SDK 2.6 (or later) deployment PowerShell script when you have Azure SDK 2.6 or later installed.
-
-Adjustments were also made to some variable names and build tasks to better align with naming conventions in TFS automated builds and other projects within Microsoft. The code in Visual Studio that gathers the variables and values needed to launch the PowerShell script will look for these new names.
+![show deployed app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## Next steps
 
-To learn how to add resources to your Azure Resource Group in Visual Studio, see [Editing Resource Manager templates with Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
+- To learn about managing your resources through the portal, see [Using the Azure Portal to manage your Azure resources](./azure-portal/resource-group-portal.md).
+- To learn more about templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).

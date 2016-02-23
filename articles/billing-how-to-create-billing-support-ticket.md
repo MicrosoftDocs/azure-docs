@@ -24,7 +24,7 @@ This article provides the information you will need to open a ticket with Azure 
 
 >[AZURE.NOTE]Only the Azure account administrator has permission to access the Account Center.
 
-1. Go to the [Azure Support](http://azure.microsoft.com/support) web site and click **Get Support**. You can also submit an incident from the Microsoft Azure portal or from the Azure Accounts Center.
+1. Go to the [Azure Support](https://azure.microsoft.com/support/) web site and click **Get Support**. You can also submit an incident from the Microsoft Azure portal or from the Azure Accounts Center.
 
  * To submit a support ticket from the [Azure portal](https://manage.windowsazure.com/), click your account name, and then click Contact Microsoft Support.
  * To submit a support ticket from the [Azure Account Center](https://account.windowsazure.com/Subscriptions), select a subscription, and then click Contact Microsoft Support.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="02/05/2016"
 	ms.author="ricksal"/>
 
 # Get started with Mobile Services for Android  (JavaScript backend)
@@ -42,7 +42,7 @@ Completing this tutorial requires the [Android Developer Tools](https://develope
 
 The downloaded quickstart project contains the Azure Mobile Services SDK for Android.
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 
 ## Create a new mobile service

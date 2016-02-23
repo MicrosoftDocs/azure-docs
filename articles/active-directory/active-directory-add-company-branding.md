@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/30/2015" 
+	ms.date="02/12/2016" 
 	ms.author="MarkVi"/>
 
 # Add company branding to your Sign In and Access Panel pages
@@ -21,7 +21,7 @@
 > [AZURE.NOTE]
 >
 - Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-- Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
+- Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Many companies want to apply a consistent look and feel across all the websites and services they manage so that their end users won’t be confused whenever they need to use those sites. Azure Active Directory provides this capability by allowing you to customize the appearance of the following end user-facing web pages so that they include your company logo and color schemes:
 

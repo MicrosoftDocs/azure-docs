@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/22/2015"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
@@ -87,15 +87,15 @@ For information about using a template for deployment, see [Deploy an applicatio
 
 For guidance about how to structure your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md).
 
-For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments-preview-portal.md). 
+For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md). 
 
 ## Tags
 
-Resource Manager provides a tagging feature that enables you to categorize resources according to your requirements for managing or billing. You might want to use tags when you have a complex collection of resource groups and resources, and need to visualize those assets in the way that makes the most sense to you. For example, you could tag resources that serve a similar role in your organization or belong to the same department.
+Resource Manager provides a tagging feature that enables you to categorize resources according to your requirements for managing or billing. You might want to use tags when you have a complex collection of resource groups and resources, and need to visualize those assets in the way that makes the most sense to you. For example, you could tag resources that serve a similar role in your organization or belong to the same department. Without tags, users in your organization can create multiple resources that may be very difficult to later identify and manage. For example, you may wish to delete all of the resources for a particular project, but if those resources were not tagged for the project, you will have to manually find them. Tagging can be an important way for you to reduce unnecessary costs in your subscription. 
 
 Resources do not need to reside in the same resource group to share a tag. You can create your own tag taxonomy to ensure that all users in your organization use common tags rather than users inadvertently applying slightly different tags (such as "dept" instead of "department").
 
-For more information about tags, see [Using tags to organize your Azure resources](./resource-group-using-tags.md).
+For more information about tags, see [Using tags to organize your Azure resources](./resource-group-using-tags.md). You can create a [customized policy](#manage-resources-with-customized-policies) that requires adding tags to resources during deployment.
 
 ## Access control
 
@@ -111,7 +111,7 @@ For best practices, see [Security considerations for Azure Resource Manager](bes
 
 ## Manage resources with customized policies
 
-Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include scenarios as diverse as enforcing a naming convention on resources, limiting which regions can host a type of resource, or requiring a tag value on resources to organize billing by departments. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include scenarios as diverse as enforcing a naming convention on resources, limiting which types and instances of resources can be deployed,  limiting which regions can host a type of resource, or requiring a tag value on resources to organize billing by departments. You create policies to help reduce costs and maintain consistency in your subscription. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 
 ## Consistent management layer
 
@@ -119,7 +119,7 @@ Resource Manager provides completely compatible operations through Azure PowerSh
 
 For information about PowerShell, see [Using Azure PowerShell with Resource Manager](./powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
-For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./virtual-machines/xplat-cli-azure-resource-manager.md).
+For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
 
 For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 

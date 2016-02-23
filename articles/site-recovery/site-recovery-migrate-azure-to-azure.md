@@ -23,7 +23,7 @@
 
 Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios see the [Azure Site Recovery overview](site-recovery-overview.md).
 
-This article describes how to use Site Recovery to migrate Azure IaaS virtual machines from one Azure region to another. The articles uses most of the steps described in [Set up protection between on-premises VMware virtual machines or physical servers and Azure](site-recovery-vmware-to-azure.md). We suggest you read through that article for detailed instructions on each step in the deployment.
+This article describes how to use Site Recovery to migrate Azure IaaS virtual machines from one Azure region to another. The articles uses most of the steps described in [Set up protection between on-premises VMware virtual machines or physical servers and Azure](site-recovery-vmware-to-azure-classic-legacy.md). We suggest you read through that article for detailed instructions on each step in the deployment.
 
 ## Get started
 
@@ -34,15 +34,15 @@ Here's what you need before you start:
 - **A process server**: A virtual machine running Windows Server 2012 R2. Protected virtual machines send replication data to this server.
 - **IaaS virtual machines**: The VMs you want to migrate.
 
-- Read more about these components in [What do I need?](site-recovery-vmware-to-azure.md#what-do-i-need)
-- You should also read the guidelines on [capacity planning](site-recovery-vmware-to-azure.md#capacity-planning) and make sure you have all the [deployment prerequisites](site-recovery-vmware-to-azure.md#before-you-start) in place before you start.
+- Read more about these components in [What do I need?](site-recovery-vmware-to-azure-classic-legacy.md#what-do-i-need)
+- You should also read the guidelines on [capacity planning](site-recovery-vmware-to-azure-classic-legacy.md#capacity-planning) and make sure you have all the [deployment prerequisites](site-recovery-vmware-to-azure-classic-legacy.md#before-you-start) in place before you start.
 
 ## Deployment steps
 
-1. [Create a vault](site-recovery-vmware-to-azure.md/#step-1-create-a-vault)
-2. [Deploy a configuration server](site-recovery-vmware-to-azure.md#step-2-deploy-a-configuration-server) as an Azure VM.
-3. [Deploy the master target server](site-recovery-vmware-to-azure.md#step-2-deploy-a-configuration-server) as an Azure VM.
-4. [Deploy a process server](site-recovery-vmware-to-azure.md#step-4-deploy-the-on-premises-process-server). Note that:
+1. [Create a vault](site-recovery-vmware-to-azure-classic-legacy.md#step-1-create-a-vault)
+2. [Deploy a configuration server](site-recovery-vmware-to-azure-classic-legacy.md#step-2-deploy-a-configuration-server) as an Azure VM.
+3. [Deploy the master target server](site-recovery-vmware-to-azure-classic-legacy.md#step-2-deploy-a-configuration-server) as an Azure VM.
+4. [Deploy a process server](site-recovery-vmware-to-azure.md-classic-legacy#step-4-deploy-the-on-premises-process-server). Note that:
 
 	- You should deploy the process server on the same virtual network/subnet as the IaaS VMs you want to migrate. 
 		![IaaS VMs](./media/site-recovery-migrate-azure-to-azure/ASR_MigrateAzure1.png)
@@ -54,10 +54,10 @@ Here's what you need before you start:
 	
 		![process server](./media/site-recovery-migrate-azure-to-azure/ASR_MigrateAzure2.png)
 
-5. [Install the latest updates](site-recovery-vmware-to-azure.md#step-5-install-latest-updates). Make sure all the component servers you've installed are up-to-date.
-6. [Create a protection group](site-recovery-vmware-to-azure.md#step-7-create-a-protection-group). In order to starting protecting migrated virtual machines using Site Recovery you need to set up a protection group. You specify replication settings for a group and they'll be applied to all machines that you add to that group. 
-7. [Set up virtual machines](site-recovery-vmware-to-azure.md#step-8-set-up-machines-you-want-to-protect). You'll need to get the Mobility service installed on each VM (either automatically or manually).
-8. [Step 8: Enable protection for virtual machines](site-recovery-vmware-to-azure.md#step-9-enable-protection). You enable protection for VMs by adding them to a protection group. Note that:
+5. [Install the latest updates](site-recovery-vmware-to-azure-classic-legacy.md#step-5-install-latest-updates). Make sure all the component servers you've installed are up-to-date.
+6. [Create a protection group](site-recovery-vmware-to-azure-classic-legacy.md#step-7-create-a-protection-group). In order to starting protecting migrated virtual machines using Site Recovery you need to set up a protection group. You specify replication settings for a group and they'll be applied to all machines that you add to that group. 
+7. [Set up virtual machines](site-recovery-vmware-to-azure-classic-legacy.md#step-8-set-up-machines-you-want-to-protect). You'll need to get the Mobility service installed on each VM (either automatically or manually).
+8. [Step 8: Enable protection for virtual machines](site-recovery-vmware-to-azure-classic-legacy.md#step-9-enable-protection). You enable protection for VMs by adding them to a protection group. Note that:
 
 	- You can discover the IaaS virtual machines that you want to migrate to Azure using the private IP address of the virtual machines. Find this address on the virtual machine dashboard in Azure.
 	-  On the tab for the protection group you created, click Add Machines > Physical Machines

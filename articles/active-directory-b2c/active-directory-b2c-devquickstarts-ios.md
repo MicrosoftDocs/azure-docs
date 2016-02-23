@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="objectivec"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="02/17/2016"
 	ms.author="brandwe"/>
 
 # Azure AD B2C Preview: Calling a Web API from an iOS application
@@ -24,9 +24,9 @@ With Azure AD B2C, you can add powerful self-service identity managment features
 and authenticate users.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
+
 > [AZURE.NOTE]
-	This quickstart has a pre-requisite that you have a Web API protected by Azure AD with B2C in order to work fully. We have built one for both .Net and node.js for you to use. This walk-through assumes the node.js Web-API sample is configured. 
+	This quickstart has a pre-requisite that you have a Web API protected by Azure AD with B2C in order to work fully. We have built one for both .Net and node.js for you to use. This walk-through assumes the node.js Web-API sample is configured.
 	please refer to the [Azure Active Directory Web-API for Node.js sample](active-directory-b2c-devquickstarts-api-node.md`
 ).
 
@@ -46,20 +46,20 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 
 - Include a **web app/web api** in the application
 - Enter `http://localhost:3000/auth/openid/return` as a **Reply URL** - it is the default URL for this code sample.
-- Create an **Application Secret** for your application and copy it down.  You will need it shortly.
+- Create an **Application Secret** for your application and copy it down. You will need it shortly. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before use.
 - Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3. Create your policies
 
-In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three 
-identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the 
+In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three
+identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the
 [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When creating your three policies, be sure to:
 
 - Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
 - Choose the **Display Name** and **Object ID** application claims in every policy.  You can choose other claims as well.
-- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly. 
+- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -70,7 +70,7 @@ you should start with the [.NET Web App getting started tutorial](active-directo
 
 ## 4. Download the code
 
-The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS).  To build the sample as you go, you can 
+The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS).  To build the sample as you go, you can
 [download a skeleton project as a .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip) or clone the skeleton:
 
 ```
@@ -218,16 +218,16 @@ Create a  file called `samplesPolicyData.m` with the following code:
 {
     static samplesPolicyData *instance = nil;
     static dispatch_once_t onceToken;
-    
+
     dispatch_once(&onceToken, ^{
         instance = [[self alloc] init];
         NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"]];
         instance.policyName = [dictionary objectForKey:@"policyName"];
         instance.policyID = [dictionary objectForKey:@"policyID"];
 
-        
+
     });
-    
+
     return instance;
 }
 
@@ -239,7 +239,7 @@ Create a  file called `samplesPolicyData.m` with the following code:
 
 The quick code to store our objects for the UI is complete. We now need to write our code to access ADAL for iOS with the parameters we put in our `settings.plist` file in order to get an access token to provide to our Task server. This can get verbose, so stay focused.
 
-All our work will be done in `samplesWebAPIConnector.m`. 
+All our work will be done in `samplesWebAPIConnector.m`.
 
 First, let's create our `doPolicy()` implementation that we wrote in our `samplesWebAPIConnector.h` header file:
 
@@ -252,20 +252,20 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
     {
         [self readApplicationSettings];
     }
-    
+
     [self getClaimsWithPolicyClearingCache:NO policy:policy params:nil parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
-        
+
         if (userInfo == nil)
         {
             completionBlock(nil, error);
         }
-        
+
         else {
-            
+
             completionBlock(userInfo, nil);
         }
     }];
-    
+
 }
 
 
@@ -273,7 +273,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 
 You see that the the method is pretty simple. It takes as an input the `samplesPolicyData` object we created a few moments ago, the parent ViewController, and then a callback. The call back is interesting and we'll walk through it.
 
-1. You'll see that the `completionBlock` has ADProfileInfo as a type that will get returned with a `userInfo` object. ADProfileInfo is the type that holds all the response from the server, in particular claims. 
+1. You'll see that the `completionBlock` has ADProfileInfo as a type that will get returned with a `userInfo` object. ADProfileInfo is the type that holds all the response from the server, in particular claims.
 2. You'll see that we `readApplicationSettings`. This reads the data that we've provided in the `settings.plist`
 3. Finally, we have a rather large `getClaimsWithPolicyClearingCache` method. This is the actual call to ADAL for iOS we need to write. We'll do that later.
 
@@ -281,7 +281,7 @@ Now let's write our large method `getClaimsWithPolicyClearingCache`. This is lar
 
 #### Create our call in to ADAL for iOS
 
-If you downloaded the skeleton from GitHub, you'll see we already have several of these in place that help with the sample application. They all follow the pattern of `get(Claims|Token)With<verb>ClearningCache`. Using Objetive C conventions, this reads very much like English. For instance "get a Token with extra parameters I provide you and clear the cache". This is `getTokenWithExtraParamsClearingCache()`. Pretty simple. 
+If you downloaded the skeleton from GitHub, you'll see we already have several of these in place that help with the sample application. They all follow the pattern of `get(Claims|Token)With<verb>ClearningCache`. Using Objetive C conventions, this reads very much like English. For instance "get a Token with extra parameters I provide you and clear the cache". This is `getTokenWithExtraParamsClearingCache()`. Pretty simple.
 
 We'll be writing "get Claims and a token With the policy I provide you and don't clear the cache" or `getClaimsWithPolicyClearingCache`. We always get a token back from ADAL, so it's not necessary to specify "Claims and token" in the method. However sometimes you just want the token without the overhead of parsing the claims, so we provided a method without Claims called `getTokenWithPolicyClearingCache` in the skeleton.
 
@@ -295,19 +295,19 @@ Let's write this code now:
                 completionHandler:(void (^) (ADProfileInfo*, NSError*))completionBlock;
 {
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
-    
-    
+
+
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
     authContext.parentController = parent;
     NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
-    
+
     if(!data.correlationId ||
        [[data.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
     {
         authContext.correlationId = [[NSUUID alloc] initWithUUIDString:data.correlationId];
     }
-    
+
     [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
     [authContext acquireTokenWithScopes:data.scopes
                       additionalScopes: data.additionalScopes
@@ -318,7 +318,7 @@ Let's write this code now:
                   extraQueryParameters: params.urlEncodedString
                                 policy: policy.policyID
                        completionBlock:^(ADAuthenticationResult *result) {
-                           
+
                            if (result.status != AD_SUCCEEDED)
                            {
                                completionBlock(nil, result.error);
@@ -367,7 +367,7 @@ Using the code above you can acquire a token for the policy you provide. We'll u
 
 #### Create our Task Calls to the server
 
-Now that we have a token, we need to provide it to our API for authoriztion. 
+Now that we have a token, we need to provide it to our API for authoriztion.
 
 If you recall we had three methods we need to implement:
 
@@ -384,7 +384,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock;
    completionBlock:(void (^) (bool, NSError* error)) completionBlock;
 ```
 
-Our `getTasksList` provides an array that represents the tasks in our server 
+Our `getTasksList` provides an array that represents the tasks in our server
 Our `addTask` and `deleteTask` do the subsequent action and return TRUE or FALSE if it was successful.
 
 Let's write our `getTaskList` first:
@@ -398,58 +398,58 @@ Let's write our `getTaskList` first:
     {
         [self readApplicationSettings];
     }
-    
+
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
-    
+
     [self craftRequest:[self.class trimString:data.taskWebApiUrlString]
                 parent:parent
      completionHandler:^(NSMutableURLRequest *request, NSError *error) {
-        
+
         if (error != nil)
         {
             completionBlock(nil, error);
         }
         else
         {
-            
+
             NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-            
+
             [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                
+
                 if (error == nil && data != nil){
-                    
+
                     NSArray *tasks = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                    
+
                     //each object is a key value pair
                     NSDictionary *keyValuePairs;
                     NSMutableArray* sampleTaskItems = [[NSMutableArray alloc]init];
-                    
+
                     for(int i =0; i < tasks.count; i++)
                     {
                         keyValuePairs = [tasks objectAtIndex:i];
-                        
+
                         samplesTaskItem *s = [[samplesTaskItem alloc]init];
                         s.itemName = [keyValuePairs valueForKey:@"task"];
-                        
+
                         [sampleTaskItems addObject:s];
                     }
-                    
+
                     completionBlock(sampleTaskItems, nil);
                 }
                 else
                 {
                     completionBlock(nil, error);
                 }
-                
+
             }];
         }
     }];
-    
+
 }
 
 ```
 
-It's beyond the scope of this walkthrough to discuss the Task code but there is something interesting you might have noticed: a `craftRequest` method that takes our task URL. This method is what we use to create the request, with the access token we received, for the server. Let's write that now. 
+It's beyond the scope of this walkthrough to discuss the Task code but there is something interesting you might have noticed: a `craftRequest` method that takes our task URL. This method is what we use to create the request, with the access token we received, for the server. Let's write that now.
 
 Let's add the following code to the `samplesWebAPIConnector.m' file:
 
@@ -459,7 +459,7 @@ Let's add the following code to the `samplesWebAPIConnector.m' file:
     completionHandler:(void (^)(NSMutableURLRequest*, NSError* error))completionBlock
 {
     [self getClaimsWithPolicyClearingCache:NO parent:parent completionHandler:^(NSString* accessToken, NSError* error){
-        
+
         if (accessToken == nil)
         {
             completionBlock(nil,error);
@@ -467,13 +467,13 @@ Let's add the following code to the `samplesWebAPIConnector.m' file:
         else
         {
             NSURL *webApiURL = [[NSURL alloc]initWithString:webApiUrlString];
-            
+
             NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:webApiURL];
-            
+
             NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", accessToken];
-            
+
             [request addValue:authHeader forHTTPHeaderField:@"Authorization"];
-            
+
             completionBlock(request, nil);
         }
     }];
@@ -493,10 +493,10 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
     {
         [self readApplicationSettings];
     }
-    
+
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
     [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
-        
+
         if (error != nil)
         {
             completionBlock(NO, error);
@@ -504,27 +504,27 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
         else
         {
             NSDictionary* taskInDictionaryFormat = [self convertTaskToDictionary:task];
-            
+
             NSData* requestBody = [NSJSONSerialization dataWithJSONObject:taskInDictionaryFormat options:0 error:nil];
-            
+
             [request setHTTPMethod:@"POST"];
             [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
             [request setHTTPBody:requestBody];
-            
+
             NSString *myString = [[NSString alloc] initWithData:requestBody encoding:NSUTF8StringEncoding];
 
             NSLog(@"Request was: %@", request);
             NSLog(@"Request body was: %@", myString);
-            
+
             NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-            
+
             [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                
+
                 NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 NSLog(@"%@", content);
-                
+
                 if (error == nil){
-                    
+
                     completionBlock(true, nil);
                 }
                 else
@@ -545,11 +545,11 @@ This following the same pattern but introduces another (and final!) method we ne
 +(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
 {
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-    
+
     if (task.itemName){
         [dictionary setValue:task.itemName forKey:@"task"];
     }
-    
+
     return dictionary;
 }
 
@@ -566,10 +566,10 @@ Finally, let's write our `deleteTask`:
     {
         [self readApplicationSettings];
     }
-    
+
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
     [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
-        
+
         if (error != nil)
         {
             completionBlock(NO, error);
@@ -577,24 +577,24 @@ Finally, let's write our `deleteTask`:
         else
         {
             NSDictionary* taskInDictionaryFormat = [self convertTaskToDictionary:task];
-            
+
             NSData* requestBody = [NSJSONSerialization dataWithJSONObject:taskInDictionaryFormat options:0 error:nil];
-            
+
             [request setHTTPMethod:@"DELETE"];
             [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
             [request setHTTPBody:requestBody];
-            
+
             NSLog(@"%@", request);
-            
+
             NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-            
+
             [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                
+
                 NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 NSLog(@"%@", content);
-                
+
                 if (error == nil){
-                    
+
                     completionBlock(true, nil);
                 }
                 else
@@ -615,9 +615,9 @@ The last thing we need to do is implement Sign-Out for our application. This is 
 +(void) signOut
 {
     [authContext.tokenCacheStore removeAll:nil];
-    
+
     NSHTTPCookie *cookie;
-    
+
     NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     for (cookie in [storage cookies])
     {

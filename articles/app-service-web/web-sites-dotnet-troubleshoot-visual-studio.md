@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Troubleshoot a web app in Azure App Service using Visual Studio

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/19/2015"
+	ms.date="02/15/2016"
 	ms.author="heidist"/>
 
 # Service limits in Azure Search
@@ -71,7 +71,7 @@ The following table is a chart that lists replicas on the vertical axis, and par
 <tr><td>N/A</td><td><b>1 Partition</b></td><td><b>2 Partitions</b></td><td><b>3 Partitions</b></td><td><b>4 Partitions</b></td><td><b>6 Partitions</b></td><td><b>12 Partitions</b></td></tr>
 </table>
 
-Search units, pricing, and capacity are explained in detail on the Azure web site. See [Pricing Details](http://azure.microsoft.com/pricing/details/search/) for more information.
+Search units, pricing, and capacity are explained in detail on the Azure web site. See [Pricing Details](https://azure.microsoft.com/pricing/details/search/) for more information.
 
 > [AZURE.NOTE] The number of replicas and partitions must evenly divide into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread across partitions. For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future release. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
 

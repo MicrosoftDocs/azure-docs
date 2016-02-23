@@ -1,4 +1,4 @@
-    <properties
+<properties
 	pageTitle="Add a VM with artifacts to a DevTest Lab | Microsoft Azure"
 	description="Create a new virtual machine with Artifacts in DevTest Lab."
 	services="devtest-lab,virtual-machines"
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Add a VM with artifacts to an Azure DevTest Lab
+
+> [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to create VMs with artifacts in a DevTest Lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) 
 
 ## Overview
 
@@ -30,7 +32,7 @@ This article shows you how create a VM in your lab using artifacts.
 
 ## Add a VM with artifacts
 
-1. Sign in to the [Azure preview portal](http://portal.azure.com).
+1. Sign in to the [Azure preview portal](https://portal.azure.com).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -97,4 +99,4 @@ Follow these steps to view or modify the parameters of your selected artifacts:
 
 ## Next steps
 
-Learn how to [author custom artifacts for your VM](devtest-lab-artifact-author.md).
+- Learn how to [author custom artifacts for your VM](devtest-lab-artifact-author.md).

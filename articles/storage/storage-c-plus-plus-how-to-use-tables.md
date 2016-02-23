@@ -4,8 +4,8 @@
     services="storage"
     documentationCenter=".net"
     authors="tamram"
-    manager="adinah"
-    editor=""/>
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -13,17 +13,17 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="09/23/2015"
-    ms.author="tamram"/>
+    ms.date="02/17/2016"
+    ms.author="dineshm"/>
 
 # How to use Table storage from C++
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 ## Overview  
-This guide will show you how to perform common scenarios by using the Azure Table storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). The scenarios covered include **creating and deleting a table** and **working with table entities**.
+This guide will show you how to perform common scenarios by using the Azure Table storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **creating and deleting a table** and **working with table entities**.
 
->[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 1.0.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/).
+>[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp/).
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -46,12 +46,12 @@ Add the following include statements to the top of the C++ file where you want t
 	#include "was/table.h"
 
 ## Set up an Azure storage connection string  
-An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running a client application, you must provide the storage connection string in the following format. Use the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure storage accounts](storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
+An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running a client application, you must provide the storage connection string in the following format. Use the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure storage accounts](storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
 
 	// Define the connection string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-To test your application in your local Windows-based computer, you can use the Azure [storage emulator](storage-use-emulator.md) that is installed with the [Azure SDK](http://azure.microsoft.com/downloads/). The storage emulator is a utility that simulates the Azure Blob, Queue, and Table services available on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:  
+To test your application in your local Windows-based computer, you can use the Azure [storage emulator](storage-use-emulator.md) that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/). The storage emulator is a utility that simulates the Azure Blob, Queue, and Table services available on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:  
 
 	// Define the connection string with Azure storage emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
@@ -412,4 +412,4 @@ Now that you've learned the basics of table storage, follow these links to learn
 -	[How to use Queue storage from C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[List Azure Storage resources in C++](storage-c-plus-plus-enumeration.md)
 -	[Storage Client Library for C++ reference](http://azure.github.io/azure-storage-cpp)
--	[Azure Storage documentation](http://azure.microsoft.com/documentation/services/storage/)
+-	[Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)

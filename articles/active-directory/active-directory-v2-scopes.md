@@ -101,18 +101,27 @@ The resulting access token can then be used in HTTP requests to the resource - i
 
 For more detail on the OAuth 2.0 protocol and how to acquire access tokens, see the [app model v2.0 protocol reference](active-directory-v2-protocols.md).
 
-## OpenId & Offline_Access
 
-The app model v2.0 has two well defined scopes that do not apply to a particular resource - `openid` and `offline_access`.
+## OpenId Connect scopes
+
+The v2.0 implementation of OpenID Connect has a few well-defined scopes that do not apply to any particular resource - `openid`, `email`, `profile`, and `offline_access`.
 
 #### OpenId
 
-If an app performs sign-in using [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow), it must request the `openid` scope.  The `openid` scope will show up in the work account consent screen as the "Sign you in" permission, and in the personal Microsoft account consent screen as the "View your profile and connect to apps and services using your Microsoft account" permission.  This permission enables an app to access the OpenID Connect user info endpoint, and thus requires user approval.  The `openid` scope can also be used at the v2.0 token endpoint to acquire id_tokens, which can be used to secure HTTP calls between different components of an app.
+If an app performs sign-in using [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow), it must request the `openid` scope.  The `openid` scope will show up in the work account consent screen as the "Sign you in" permission, and in the personal Microsoft account consent screen as the "View your profile and connect to apps and services using your Microsoft account" permission.  This permission enables an app to receive a unique identifier for the user in the form of the `sub` claim.  It also affords the app access to the user info endpoint.  The `openid` scope can also be used at the v2.0 token endpoint to acquire id_tokens, which can be used to secure HTTP calls between different components of an app.
 
-#### Offline_Access
+#### Email
 
-The `offline_access` scope allows your app to access resources on behalf of the user for an extended period of time.  In the work account consent screen, this scope will appear as the "Access your data anytime" permission.  In the personal Microsoft account consent screen, it will appear as the "Access your info anytime" permission.  When a user approves the `offline_access` scope, your app will be enabled to receive refresh tokens from the v2.0 token endpoint.  Refresh tokens are long-lived and allow your app to acquire new access tokens as older ones expire.
+The `email` scope can be included along with the `openid` scope and any others.  It affords the app access to the user's primary email address in the form of the `email` claim.  The `email` claim will only be included in tokens if an email address is associated with the user account, which is not always the case.  If using the `email` scope, your app should be prepared to handle the case in which the `email` claim does not exist in the token.
+
+#### Profile
+
+The `profile` scope can be included along with the `openid` scope and any others.  It affords the app access to a wealth of information about the user.  This includes, but is not limited to, the user's given name, surname, preferred username, object ID, and so on.  For a complete list of the profile claims available in id_tokens for a given user, refer to the [v2.0 token reference](active-directory-v2-tokens.md).
+
+#### Offline_access
+
+The [`offline_access` scope](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) allows your app to access resources on behalf of the user for an extended period of time.  In the work account consent screen, this scope will appear as the "Access your data anytime" permission.  In the personal Microsoft account consent screen, it will appear as the "Access your info anytime" permission.  When a user approves the `offline_access` scope, your app will be enabled to receive refresh tokens from the v2.0 token endpoint.  Refresh tokens are long-lived and allow your app to acquire new access tokens as older ones expire.
 
 If your app does not request the `offline_access` scope, it will not receive refresh_tokens.  This means that when you redeem an authorization_code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow), you will only receive back an access_token from the `/token` endpoint.  That access_token will remain valid for a short period of time (typically one hour), but will eventually expire.  At that point in time, your app will need to redirect the user back to the `/authorize` endpoint to retrieve a new authorization_code.  During this redirect, the user may or may not need to enter their credentials again or re-consent to permissions, depending on the the type of app.
 
-For more information on how to get and use refresh tokens, refer to the [app model v2.0 protocol reference](active-directory-v2-protocols.md).
+For more information on how to get and use refresh tokens, refer to the [v2.0 protocol reference](active-directory-v2-protocols.md).

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/17/2016"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure Portal
@@ -35,8 +35,8 @@ Click the tab selector for information on creating Hadoop clusters in HDInsight 
 
 Before you begin this article, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Azure Storage account** - An HDInsight cluster uses an Azure Blob storage container as the default file system. For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight](../hdinsight-use-blob-storage.md). For details on creating an Azure Storage account, see [How to Create a Storage Account](../storage-create-storage-account.md).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Azure Storage account** - An HDInsight cluster uses an Azure Blob storage container as the default file system. For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For details on creating an Azure Storage account, see [How to Create a Storage Account](../storage/storage-create-storage-account.md).
 
 ##Open the Portal
 
@@ -65,7 +65,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 - Use the cluster customization parameters in the HDInsight .NET SDK or Azure PowerShell during cluster creation. These configuration changes are then preserved through the lifetime of the cluster and are not affected by cluster node reimages that Azure platform periodically performs for maintenance. For more information on using the cluster customization parameters, see [Create HDInsight clusters](hdinsight-provision-clusters.md).
 - Some native Java components, like Mahout and Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
 
-	>[AZURE.NOTE] If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](http://azure.microsoft.com/support/options/).
+	>[AZURE.NOTE] If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 	> Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight?](hdinsight-component-versioning.md).
 
@@ -217,7 +217,7 @@ You are also charged for an HDInsight cluster, even when it is not in use. Since
 
 There are many ways you can program the process:
 
-- User Azure Data Factory. See [Azure HDInsight Linked Service](../data-factory-compute-linked-services.md/#azure-hdinsight-linked-service) and [Transform and analyze using Azure Data Factory](../data-factory-data-transformation-activities.md) for on-demand and self-defined HDInsight linked services.
+- User Azure Data Factory. See [Azure HDInsight Linked Service](../data-factory/data-factory-compute-linked-services.md/#azure-hdinsight-linked-service) and [Transform and analyze using Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md) for on-demand and self-defined HDInsight linked services.
 - Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md).
 - Use Azure CLI. See [Manage HDInsight clusters using Azure CLI](hdinsight-administer-use-command-line.md).
 - Use HDInsight .NET SDK. See [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md).
@@ -395,7 +395,7 @@ In this article, you have learned how to create an HDInsight cluster by using th
 * [Administer HDInsight Using Azure CLI](hdinsight-administer-use-command-line.md)
 * [Create HDInsight clusters](hdinsight-provision-clusters.md)
 * [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Get Started with Azure HDInsight](../hdinsight-get-started.md)
+* [Get Started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

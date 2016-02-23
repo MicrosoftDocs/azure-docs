@@ -10,37 +10,39 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/18/2015" 
+    ms.date="02/09/2016" 
     ms.author="asmalser" />
 
 #Configuring single sign-on to applications that are not in the Azure Active Directory application gallery
 
-The Azure Active Directory application gallery provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory, as described in [this article](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by follow the step-by-step instructions presented in the Azure management portal to enable single sign-on.
+This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. This feature was released from technical preview on November 18th, 2015 and is included in [Azure Active Directory Premium](active-directory-editions.md). If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 
-Customers with [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx) licenses get these additional capabilities, which can be invoked from the **Custom** category of the Azure AD application gallery:
+The Azure Active Directory application gallery provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory, as described in [this article](active-directory-appssoaccess-whatis.md). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by follow the step-by-step instructions presented in the Azure management portal to enable single sign-on.
 
-* Self-service connection of any application that supports SAML 2.0 identity providers
-* Self-service connection of any web application that has an HTML-based sign-in page using password-based SSO
-* Ability to add links to any application in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users)
+Customers with [Azure Active Directory Premium](active-directory-editions.md) licenses also get these additional capabilities:
+
+* Self-service integration of any application that supports SAML 2.0 identity providers
+* Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)
 * Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](active-directory-scim-provisioning))
+* Ability to add links to any application in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)
 
 This can include not only SaaS applications that you use but have not yet been on-boarded to the Azure AD application gallery, but third-party web applications that your organization has deployed to servers you control, either in the cloud or on-premises.
 
-Note: Application developers who are looking to test compatibility between their application and this feature can do so by using a [free trial of Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/), but are encouraged to acquire an [Internal Use Rights license](https://mspartner.microsoft.com/en/us/pages/membership/internal-use-software.aspx).
+These capabilities, also known as *app integration templates*, provide standards-based connection points for apps that support SAML, SCIM, or forms-based authentication, and include flexible options and settings for compatibility with a broad number of applications. 
 
-##Adding an unlisted or custom application 
+##Adding an unlisted application
 
-To configure an application, sign into the Azure management portal using your Azure Active Directory administrator account, and browse to the **Active Directory > [Directory] > Applications** section, select **Add**, and then **Add an application from the gallery**. 
+To connect an application using an app integration template, sign into the Azure management portal using your Azure Active Directory administrator account, and browse to the **Active Directory > [Directory] > Applications** section, select **Add**, and then **Add an application from the gallery**. 
 
 ![][1]
 
-In the app gallery, you can add a custom app using the **Custom** category on the left, or by selecting the **Add an unlisted application** link that is shown in the search results if your desired app wasn't found. After entering a Name for your application, you can configure the single sign-on options and behavior. 
+In the app gallery, you can add an unlisted app using the **Custom** category on the left, or by selecting the **Add an unlisted application** link that is shown in the search results if your desired app wasn't found. After entering a Name for your application, you can configure the single sign-on options and behavior. 
 
 **Quick tip**:  As a best practice, use the search function to check to see if the application already exists in the application gallery. If the app is found and its description mentions "single sign on", then the application is already supported for federated single sign-on. 
 
 ![][2]
 
-Adding a custom application provides a very similar experience to the one available for pre-integrated applications. To start, select **Configure Single Sign-On**. The next screen presents the following three options for configuring single sign on, which are described in the following sections.
+Adding an application this way provides a very similar experience to the one available for pre-integrated applications. To start, select **Configure Single Sign-On**. The next screen presents the following three options for configuring single sign on, which are described in the following sections.
 
 ![][3]
 
@@ -107,9 +109,15 @@ Note: You can upload a tile logo for the application using the **Upload Logo** b
 
 Select this option to add a link to an application to your organization's Azure AD Access Panel or Office 365 portal. You can use this to add links to custom web apps that currently use Azure Active Directory Federation Services (or other federation service) instead of Azure AD for authentication. Or, you can add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels. 
 
-After selecting **Next**, you will be prompted to enter the URL of the application to link to. Once completed, users and groups may be assigned to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) for those users.
+After selecting **Next**, you will be prompted to enter the URL of the application to link to. Once completed, users and groups may be assigned to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users) for those users.
 
-Note: You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application. 
+Note: You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application.
+
+## Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md)
+- [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-custom-apps/customapp1.png

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="02/22/2016"
 	ms.author="robmcm"/>
 
 # Buy and Configure a custom domain name in Azure App Service
@@ -41,12 +41,12 @@ For a production web app, you probably want users to see a custom domain name. T
 
 > [AZURE.NOTE] Please do not attempt to purchase a domain using a subscription that does not have an Active Credit Card associated with it. This could result in your subscription being disabled. 
 
-If you don't have a domain name for your web app, you can easily buy one on [Azure Portal](https://portal.azure.com). During the purchase process you can choose to have WWW and root domain's DNS records be mapped to your web app automatically. You also can manage your domain right inside Azure Portal.
+If you don't have a domain name for your web app, you can easily buy one on [Azure Portal](https://portal.azure.com/). During the purchase process you can choose to have WWW and root domain's DNS records be mapped to your web app automatically. You also can manage your domain right inside Azure Portal.
 
 
 Use the following steps to buy domain names and assign to your web app.
 
-1. In your browser, open the [Azure Portal](https://portal.azure.com).
+1. In your browser, open the [Azure Portal](https://portal.azure.com/).
 
 2. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains and SSL**
 
@@ -97,3 +97,35 @@ Once configuration has completed, the custom domain name will be listed in the *
 
 At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.
  
+## What happens to the custom domain you bought
+
+The custom domain you bought in the **Custom domains and SSL** blade is tied to the Azure subscription. As an Azure resource, this
+custom domain is separate and independent from the App Service app that you first bought the domain for. This means that:
+
+- Within the Azure portal, you can use the custom domain you bought for more than one App Service app, and not just for the app
+that you first bought the custom domain for. 
+- You can manage all the custom domains you bought in the Azure subscription by going to the **Custom domains and SSL** blade of *any* 
+App Service app in that subscription.
+- You can assign any App Service app from the same Azure subscription to a subdomain within that custom domain.
+- If you decide to delete an App Service app, you can choose not to delete the custom domain it is bound to if you want to keep using 
+it for other apps.
+
+## If you can't see the custom domain you bought
+
+If you have bought the custom domain from within the **Custom domains and SSL** blade, but cannot see the custom domain under 
+**Managed domains**, verify the following things:
+
+- The custom domain creation may not have finished. Check the notification bell at the top of the Azure portal for the progress.
+- The custom domain creation may have failed for some reason. Check the notification bell at the top of the Azure portal for the progress.
+- The custom domain may have succeeded but the blade may not be refreshed yet. Try reopening the **Custom domains and SSL** blade.
+- You may have deleted the custom domain at some point. Check the audit logs by clicking **Settings** > **Audit Logs** from your app's 
+main blade. 
+- The **Custom domains and SSL** blade you're looking in may belong to an app that's created in a different Azure subscription. Switch to
+another app in a different subscription and check its **Custom domains and SSL** blade.  
+    Within the portal, you won't be able to see or manage custom domains created in a different Azure subscription than the app. 
+    However, if you click **Advanced management** in the domain's **Manage domain** blade, you'll be redirected to the domain
+    provider's website, where you'll be able to 
+    [manually configure your custom domain like any external custom domain](web-sites-custom-domain-name.md) 
+    for apps created in a different Azure subscription. 
+
+

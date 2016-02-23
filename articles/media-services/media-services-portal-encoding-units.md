@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/29/2016"
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@
 
 ## Overview
 
-A Media Services account is associated with a Reserved Unit Type which determines the speed with which your media processing tasks are processed. You can pick between the following reserved unit types: **Basic**, **Standard**, or **Premium**. For example, the same encoding job runs faster when you use the **Standard** reserved unit type compare to the **Basic** type. For more information, see the [Encoding Reserved Unit Types](http://azure.microsoft.com/blog/author/milanga).
+A Media Services account is associated with a Reserved Unit Type which determines the speed with which your media processing tasks are processed. You can pick between the following reserved unit types: **S1**, **S2**, or **S3**. For example, the same encoding job runs faster when you use the **S2** reserved unit type compare to the **S1** type. For more information, see the [Encoding Reserved Unit Types](https://azure.microsoft.com/blog/author/milanga/).
 
 In addition to specifying the reserved unit type, you can specify to provision your account with encoding reserved units. The number of provisioned encoding reserved units determines the number of media tasks that can be processed concurrently in a given account. For example, if your account has 5 reserved units, then 5 media tasks will be running concurrently as long as there are tasks to be processed. The remaining tasks will wait in the queue and will get picked up for processing sequentially as soon as a running task finishes. If an account does not have any reserved units provisioned, then tasks will be picked up sequentially. In this case, the wait time between one task finishing and the next one starting will depend on the availability of resources in the system.
 
@@ -40,7 +40,7 @@ To change the reserved unit type and the number of encoding reserved units, do t
 
 2. Select the **ENCODING** page.
 
-	To change the **RESERVED UNIT TYPE**, press BASIC, STANDARD, or PREMIUM.
+	To change the **RESERVED UNIT TYPE**, press S1, S2, or S3.
 
 	To change the number of reserved units for the selected reserved unit type, use the **ENCODING** slider.
 

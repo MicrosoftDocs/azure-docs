@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="01/19/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -35,6 +35,9 @@
 </table></br>
 
 ## Release Notes
+
+### <a name="1.5.1"/>[1.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
+- Fixed a bug in HashPartitionResolver to generate hash values in little-endian to be consistent with other SDKs.
 
 ### <a name="1.5.0"/>[1.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
 - Add Hash & Range partition resolvers to assist with sharding applications across multiple partitions.
@@ -71,6 +74,7 @@ All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** wil
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.5.1](#1.5.1) | December 31, 2015 |--- 
 | [1.5.0](#1.5.0) | December 04, 2015 |---
 | [1.4.0](#1.4.0) | October 05, 2015 |---
 | [1.3.0](#1.3.0) | October 05, 2015 |---

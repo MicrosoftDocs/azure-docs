@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/20/2016"
 	ms.author="ricksal"/>
 
 # Add Mobile Services to an existing Android app (JavaScript backend)

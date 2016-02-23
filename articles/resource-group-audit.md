@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Audit operations with Resource Manager | Microsoft Azure" 
 	description="Use the audit log in Resource Manager to review user actions and errors. Shows PowerShell, Azure CLI, and REST." 
 	services="azure-resource-manager" 

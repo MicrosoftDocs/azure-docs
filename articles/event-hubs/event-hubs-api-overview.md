@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Event Hubs API overview
 
 This article summarizes some of the key Event Hubs .NET client APIs. There are two categories: management and runtime APIs. Runtime APIs consist of all operations needed to send and receive a message. Management operations enable you to manage an Event Hubs entity state by creating, updating, and deleting entities.
 
-Monitoring scenarios span both management and runtime. For detailed reference documentation on the .NET APIs, see the [.NET Class Library](https://msdn.microsoft.com/library/azure/mt419900.aspx) and [EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx) references.
+Monitoring scenarios span both management and runtime. For detailed reference documentation on the .NET APIs, see the [Service Bus .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) and [EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx) references.
 
 ## Management APIs
 
@@ -84,7 +84,7 @@ await client.SendAsync(data);
 ### Create consumer
 
 ```
-// Create the Event Hub client
+// Create the Event Hubs client
 EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
 
 // Get the default consumer group
@@ -120,6 +120,7 @@ These APIs provide resiliency to worker processes that may become unavailable, b
 ```
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
 // Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
+
 string eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
 string blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
 
@@ -185,5 +186,5 @@ To learn more about Event Hubs scenarios, visit these links:
 
 The .NET API references are here:
 
-- [Service Bus and Event Hubs .NET API reference](https://msdn.microsoft.com/library/azure/mt419900.aspx)
+- [Service Bus and Event Hubs .NET API references](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Event processor host API reference](https://msdn.microsoft.com/library/azure/mt445521.aspx)

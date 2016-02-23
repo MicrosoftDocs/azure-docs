@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="01/06/2016"
    ms.author="jgao"/>
 
 # Overview of Microsoft Azure Data Lake Analytics
@@ -61,7 +61,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
 - U-SQL & development
     - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
     - [Use U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-    - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analtyics-u-sql-develop-user-defined-operators.md)
+    - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
     
 - Management
     - [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)

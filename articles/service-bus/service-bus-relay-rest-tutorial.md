@@ -27,7 +27,7 @@ The first step is to create a service namespace, and to obtain a Shared Access S
 
 ### To create a service namespace and obtain a SAS key
 
-1. To create a namespace in the [Azure classic portal][], follow the steps in [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/hh690931.aspx).
+1. To create a service namespace, visit the [Azure classic portal][]. Click **Service Bus** on the left-hand side, then click **Create**. Type a name for your namespace, then click the check mark.
 
 2. In the main window of the portal, click the name of the service namespace you created in the previous step.
 
