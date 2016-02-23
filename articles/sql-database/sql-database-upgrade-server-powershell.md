@@ -178,7 +178,7 @@ In addition to monitoring individual databases you can monitor elastic database 
 Additional monitoring information:
 
 - [Azure SQL Database performance guidance for single databases](http://msdn.microsoft.com/library/azure/dn369873.aspx).
-- [Price and performance considerations for an elastic database pool](sql-database=elastic-pool-guidance.md).
+- [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
 - [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
 
 
