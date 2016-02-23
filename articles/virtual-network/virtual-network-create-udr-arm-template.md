@@ -116,7 +116,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
 2. Run the `New-AzureRmResourceGroup` cmdlet to create a resource group.
 
@@ -174,7 +174,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 
 To deploy the ARM template by using the Azure CLI, follow the steps below.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the `azure config mode` command to switch to Resource Manager mode, as shown below.
 
 		azure config mode arm
