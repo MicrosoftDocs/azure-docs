@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" y
-	ms.date="12/08/2015" 
+	ms.date="02/08/2016" 
 	ms.author="spelluru"/>
 
 # Pipelines and Activities in Azure Data Factory
