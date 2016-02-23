@@ -92,19 +92,19 @@ Script Explorer allows you to easily perform CRUD operations on DocumentDB serve
 
 ## Execute stored procedures with Script Explorer
 
-Script Explorer allows you to execute server-side stored procedures.
+Script Explorer allows you to execute server-side stored procedures from the Azure Portal.
 
-- When initially opening create stored procedure, a default script *prefix* is provided. Add an id and your input parameter. For multiple parameters, the inputs must be within an array (e.g. *["foo", "bar"]*).
+- When opening a new create stored procedure blade, a default script (*prefix*) will already be provided. In order to run the *prefix* script or your own script, add an *id* and *inputs*. For stored procedures that accept multiple parameters, all inputs must be within an array (e.g. *["foo", "bar"]*).
 
 	![Screenshot of Script Explorer script properties view](./media/documentdb-view-scripts/scriptexploreraddinputs.png)
 
 - To execute a script, simply click on the **Save & Execute** command within script editor pane.
 
-	> [AZURE.NOTE] The **Save & Execute** command will save your stored procedure before executing, which will overwrite the previous version of the stored procedure.
+	> [AZURE.NOTE] The **Save & Execute** command will save your stored procedure before executing, which means it will overwrite the previously saved version of the stored procedure.
+
+- Successful stored procedure executions will have a *Successfully saved and executed the stored procedure* status and the returned results will be populated in the *Results* pane.
 
 	![Screenshot of Script Explorer script properties view](./media/documentdb-view-scripts/scriptexplorerexecsproc.png)
-
-- Successful stored procedure executions will have a *Successfuly saved and executed the stored procedure* status and the returned results will be populated in the *Results* pane.
 
 - If the execution encounters an error, the error will be populated in the *Results* pane.
 
