@@ -1,5 +1,5 @@
 <properties
-	pageTitle="View, edit, create, and upload JSON documents using the DocumentDB Document Explorer | Microsoft Azure"
+	pageTitle="DocumentDB Document Explorer | Microsoft Azure"
 	description="Learn about the DocumentDB Document Explorer, an Azure Portal tool to view, edit, create, and upload JSON documents with DocumentDB."
 	services="documentdb"
 	authors="AndrewHoh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/28/2016"
+	ms.date="02/22/2016"
 	ms.author="anhoh"/>
 
 # View, edit, create, and upload JSON documents using the DocumentDB Document Explorer #
@@ -33,10 +33,6 @@ Document Explorer can be launched from any of the DocumentDB account, database, 
 1. At the top of the DocumentDB account or database blade, simply click the **Document Explorer** command.
 
 	![Screenshot of the Document Explorer command](./media/documentdb-view-JSON-document-explorer/documentexplorercommand.png)
-
-2. Alternatively, near the bottom of each blade is a **Developer Tools** lens that contains the **Document Explorer** part.
-
-	![Screenshot of the Document Explorer part](./media/documentdb-view-JSON-document-explorer/documentexplorerpart.png)
 
 2. Simply click the tile to launch Document Explorer.
 
@@ -86,20 +82,17 @@ Document Explorer allows you to easily create, edit and delete documents.
 
 	> [AZURE.NOTE] The timestamp (_ts) property is internally represented as epoch time, but Document Explorer displays the value in a human readable GMT format.
 
-##<a id="Navigate"></a>Document Explorer navigation options and advanced settings##
+##<a id="Navigate"></a>Document Explorer Filtering options##
 
 Document Explorer supports a number of navigation options and advanced settings.
 
-1. By default, Document Explorer loads up to the first 100 documents in the selected collection, by their created date from earliest to latest.  You can load additional documents (in batches of 100) by selecting the **Load more** option at the bottom of the Document Explorer blade.  The default behavior can be modified by clicking the Settings command at the top of the Document Explorer blade.
+1. By default, Document Explorer loads up to the first 100 documents in the selected collection, by their created date from earliest to latest.  You can load additional documents (in batches of 100) by selecting the **Load more** option at the bottom of the Document Explorer blade. You can choose which documents to load through the **Filter** command.
 
-	![Screenshot of Document Explorer Settings Blade](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
+	![Screenshot of Document Explorer Filter Settings](./media/documentdb-view-JSON-document-explorer/documentexplorerfiltersettings.png)
 
+2. Click on the **Filter** command, and filter settings will appear below the command bar. In the filter settings, you can provide a WHERE clause and/or an ORDER BY clause to load match documents in the Document Explorer grid. By clicking **filter**, Document Explorer will automatically refresh with documents matching the filter query. Read more about the DocumentDB SQL grammar [here](documentdb-sql-query.md).
 
-2. On the Settings blade, you can adjust the number of items to return per page as well as provide a WHERE clause to load matching documents in the Document Explorer grid.  Read more about the DocumentDB SQL grammar [here](documentdb-sql-query.md).
-
-	![Screenshot of Document Explorer Settings Blade](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
-
-	> [AZURE.NOTE] After modifying Document Explorer settings, you must click the **Refresh** command in order to apply the new settings.  The settings will persist only in the current browser session.
+	![Screenshot of Document Explorer Settings Blade](./media/documentdb-view-JSON-document-explorer/documentexplorerfiltersettings2.png)
 
 3. The **Database** and **Collection** drop-down list boxes can be used to easily change the collection from which documents are currently being viewed without having to close and re-launch Document Explorer.  
 
@@ -122,19 +115,19 @@ Document Explorer supports a number of navigation options and advanced settings.
 
 Document Explorer supports bulk ingestion of one or more existing JSON documents.  
 
-1. To start the upload process, click the **Add Document** command.
+1. To start the upload process, click the **Upload Document** command.
 
-	![Screenshot of Document Explorer bulk ingestion functionality](./media/documentdb-view-JSON-document-explorer/adddocument1.png)
+	![Screenshot of Document Explorer bulk ingestion functionality](./media/documentdb-view-JSON-document-explorer/uploaddocument1.png)
 
 2. A new blade opens.  Click the browse button to open a file explorer window and select one or more JSON documents to upload.
 
-	![Screenshot of Document Explorer bulk ingestion process](./media/documentdb-view-JSON-document-explorer/adddocument2.png)
+	![Screenshot of Document Explorer bulk ingestion process](./media/documentdb-view-JSON-document-explorer/uploaddocument2.png)
 
 	> [AZURE.NOTE] Document Explorer currently supports up to 100 JSON documents per individual upload operation.
 
 3. Once you're satisfied with your selection, click the **Upload** button.  The documents are automatically added to the Document Explorer grid and the upload results are displayed as the operation progresses. Import failures are reported for individual files.
 
-	![Screenshot of Document Explorer bulk ingestion results](./media/documentdb-view-JSON-document-explorer/adddocument3.png)
+	![Screenshot of Document Explorer bulk ingestion results](./media/documentdb-view-JSON-document-explorer/uploaddocument3.png)
 
 4. Once the operation has completed, you can select up to another 100 documents to upload.
 
