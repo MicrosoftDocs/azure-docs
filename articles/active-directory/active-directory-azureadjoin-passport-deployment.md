@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Enable Microsoft Passport for Work in the organization | Microsoft Azure"
+	pageTitle="Enable Microsoft Passport for Work in your organization | Microsoft Azure"
 	description="Deployment instructions to enable Microsoft Passport for Work in your organization."
 	services="active-directory"
 	documentationCenter=""
@@ -17,9 +17,9 @@
 	ms.date="11/19/2015"
 	ms.author="femila"/>
 
-# Enable Microsoft Passport for Work in the organization
+# Enable Microsoft Passport for Work in your organization
 
-After connecting Windows 10 domain joined devices with Azure Active Directory (Azure AD), do the following to enable Microsoft Passport for Work in the organization.
+After connecting Windows 10 domain-joined devices with Azure Active Directory (Azure AD), do the following to enable Microsoft Passport for Work in the organization.
 
 ## Deploy System Center Configuration Manager version 1509 for Technical Preview
 To deploy user certificates based on Microsoft Passport for Work keys, you need the following:
