@@ -38,7 +38,7 @@ To complete this article you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE ACCOUNT** at the top of this page, and then come back to finish this article.
 - An Azure SQL Database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-- An [Azure Storage account](storage-create-storage-account.md) with a blob container to store the BACPAC.
+- An [Azure Storage account](../storage/storage-create-storage-account.md) with a blob container to store the BACPAC.
 
 
 ## Export your database

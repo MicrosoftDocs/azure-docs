@@ -19,7 +19,6 @@
 
 # Create and export a BACPAC of an Azure SQL database using PowerShell
 
-**Single database**
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-export.md)
@@ -40,7 +39,7 @@ To complete this article you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE ACCOUNT** at the top of this page, and then come back to finish this article.
 - An Azure SQL Database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-- An [Azure Storage account](storage-create-storage-account.md) with a blob container to store the BACPAC. Currently the storage account must use the classic deployment model so choose **Classic** when creating a storage account.
+- An [Azure Storage account](../storage/storage-create-storage-account.md) with a blob container to store the BACPAC. Currently the storage account must use the classic deployment model so choose **Classic** when creating a storage account.
 - Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 

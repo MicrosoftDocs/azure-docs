@@ -26,7 +26,7 @@
 
 Learn how to manage multiple databases by creating an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets. 
 
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server.md) in one step.
+> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
 
 Elastic database pools allow you to scale-out database resources and management across multiple SQL databases.
 
