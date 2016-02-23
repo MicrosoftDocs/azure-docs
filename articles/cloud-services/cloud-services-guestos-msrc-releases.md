@@ -20,19 +20,36 @@
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
 
+
+## February Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-009 | [3134220] | Cumulative Security Update for Internet Explorer | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-013 | [3134811] | Security Update to Windows Journal to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-014 | [3134228] | Security update to Microsoft Windows to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-016 | [3136041] | Security Update to WebDAV to Address Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-018 | [3136082] | Security Update for Windows Kernel-Mode Driver to Address Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-019 | [3137893] | Security Update for .NET Framework to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+|  | [] |  | 4.29, 3.36, 2.48 | February 9, 2016 |
+|  | [] |  | 4.29, 3.36, 2.48 | February 9, 2016 |
+|  | [] |  | 4.29, 3.36, 2.48 | February 9, 2016 |
+|  | [] |  | 4.29, 3.36, 2.48 | February 9, 2016 |
+|  | [] |  | 4.29, 3.36, 2.48 | February 9, 2016 |
+|  | [] |  | 4.29, 3.36, 2.48 | February 9, 2016 |
 ## Janurary Guest OS
 
 | Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS16-001 | [3124903] | Cumulative Security Update for Internet Explorer | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
-| MS16-003 | [3125540] | Cumulative Security Update for JScript and VBScript | 2.47 | Janurary 12, 2015 |
-| MS16-005 | [3124584] | Security Update for Windows Kernel-Mode Drivers to Address Remote Code Execution | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
-| MS16-007 | [3124901] | Security Update for Microsoft Windows to Address Remote Code Execution | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
-| MS16-008 | [3124605] | Security Update for Kernel to Address Elevation of Privilege | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
-| Microsoft Security Advisory Revision | [2755801] | Update for Vulnerabilities in Adobe Flash Player in Internet Explorer (Package KB: TBD) -  Advisory Placeholder | 4.28, 3.35 | Janurary 12, 2015 |
-| Microsoft Security Advisory | [3109853] | Update to Improve TLS Interoperability | 4.28, 3.35 | Janurary 12, 2015 |
-| Microsoft Security Advisory | [3123479] | Deprecation of SHA-1 Hashing Algorithm for Microsoft Root Certificate Program | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
-| Microsoft Security Advisory | [2736233] | Updates for ActiveX Kill Bits | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
+| MS16-001 | [3124903] | Cumulative Security Update for Internet Explorer | 4.28, 3.35, 2.47 | Janurary 12, 2016 |
+| MS16-003 | [3125540] | Cumulative Security Update for JScript and VBScript | 2.47 | Janurary 12, 2016 |
+| MS16-005 | [3124584] | Security Update for Windows Kernel-Mode Drivers to Address Remote Code Execution | 4.28, 3.35, 2.47 | Janurary 12, 2016 |
+| MS16-007 | [3124901] | Security Update for Microsoft Windows to Address Remote Code Execution | 4.28, 3.35, 2.47 | Janurary 12, 2016 |
+| MS16-008 | [3124605] | Security Update for Kernel to Address Elevation of Privilege | 4.28, 3.35, 2.47 | Janurary 12, 2016 |
+| Microsoft Security Advisory Revision | [2755801] | Update for Vulnerabilities in Adobe Flash Player in Internet Explorer (Package KB: TBD) -  Advisory Placeholder | 4.28, 3.35 | Janurary 12, 2016 |
+| Microsoft Security Advisory | [3109853] | Update to Improve TLS Interoperability | 4.28, 3.35 | Janurary 12, 2016 |
+| Microsoft Security Advisory | [3123479] | Deprecation of SHA-1 Hashing Algorithm for Microsoft Root Certificate Program | 4.28, 3.35, 2.47 | Janurary 12, 2016 |
+| Microsoft Security Advisory | [2736233] | Updates for ActiveX Kill Bits | 4.28, 3.35, 2.47 | Janurary 12, 2016 |
 
 ## December Guest OS
 
