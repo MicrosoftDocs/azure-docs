@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/16/2016"
-	ms.author="billmath"/>
+	ms.author="billmath"/> 
 
 # Next steps and how to manage Azure AD Connect
 The following are advanced operational topics that allow you to customize Azure Active Directory Connect to meet your organization's needs and requirements.  
