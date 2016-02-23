@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/23/2016"
    ms.author="mandia"/>
 
 # Get started with the Azure blob storage API
@@ -27,17 +27,16 @@ The Azure blob storage API can be used from logic apps.
 With Azure blob storage, you can:
 
 - Build your business flow based on the data you get from the blob. 
-- Use a trigger for when a file is updated.
 - Use actions that let you create a file, get file content, and more. These actions get a response, and then make the output available for other actions. For example, you can search for "urgent" in a file in your blob, and then send all files with "urgent" in an email using Office 365. 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
-Azure blob includes the following trigger and actions. 
+Azure blob includes the following actions. There are no triggers.
 
 | Triggers | Actions|
 | --- | --- |
-| <ul><li>Gets an updated file</li></ul> | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using</li><li>Gets an updated file</li><li>Update file</li></ul> |
+| None. | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using</li><li>Update file</li></ul> |
 
 All APIs support data in JSON and XML formats.
 
@@ -55,6 +54,7 @@ After you create the connection, you enter the blob properties, like folder path
  
 
 ## Swagger REST API reference
+Applies to version: 1.0.
 
 ### Create file
 Uploads a file to Azure Blob Storage.  
@@ -173,21 +173,6 @@ Retrieves file metadata from Azure Blob Storage using path.
 | Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |path|string|yes|query|none|Unique path to the file in Azure Blob Storage|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Gets an updated file
-Gets an updated file.  
-```GET: /datasets/default/triggers/onupdatedfile```
-
-| Name|Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|folderId|string|yes|query|none |Folder Id under which to look for an updated file|
 
 #### Response
 |Name|Description|

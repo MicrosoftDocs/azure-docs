@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/22/2016"
+   ms.date="02/23/2016"
    ms.author="mandia"/>
 
 
@@ -327,7 +327,7 @@ Retrieves users that I am following.
 
 
 ## Next steps
-After you add the Dropbox API to PowerApps Enterprise, [give users permissions](../powerapps-manage-api-connection-user-access.md) to use the API in their apps.
+After you add the Dropbox API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
 
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 

@@ -47,6 +47,7 @@ When you add Bing Search to PowerApps Enterprise, you are prompted for an accoun
 
 
 ## Swagger REST API reference
+Applies to version: 1.0.
 
 ### Search web 
 Retrieves web sites from a Bing search.  
