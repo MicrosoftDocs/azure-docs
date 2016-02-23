@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/14/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli" />
 
 # Contact Microsoft Support
@@ -30,21 +30,47 @@ Perform the following steps to create a support request:
 
 #### To create a support request
 
-1. A support request can be created through the [Azure classic portal](https://manage.windowsazure.com/). In the [classic portal](https://manage.windowsazure.com/), click your **Account Name** and then click **Contact Microsoft Support**.
+1. In the [Azure classic portal](https://manage.windowsazure.com/), in the upper right corner, click your account name and then click **Contact Microsoft Support**.
 
-	![Contact MS Support via ManagementPortal](./media/storsimple-contact-microsoft-support/IC777286.png)
+	![Contact MS Support via ManagementPortal](./media/storsimple-contact-microsoft-support/Ibiza1.png)
 
-2. In the **Contact Microsoft Support** dialog:								
+2. You will be redirected to the new Azure portal (ms.portal.azure.com). Click the **New support request** tile.
 
-	1. From the drop-down list, select the target **Subscription** associated with your StorSimple Manager service. Specify **Support Type** as **Technical**. You need a paid support plan to enable Technical Support.
+	![Contact MS Support via new portal](./media/storsimple-contact-microsoft-support/Ibiza2.png)
 
-	2. Click the check icon ![Check icon](./media/storsimple-contact-microsoft-support/IC740895.png) to **Create Ticket**.
+    On the right side of the screen, the **New support request** pane appears. 
 
-3. In the **Microsoft Support** window, from the **Product** drop-down list, choose **StorSimple**.
+	![New support request pane](./media/storsimple-contact-microsoft-support/Ibiza3a.png)
 
-	![Contact Microsoft Support - Product](./media/storsimple-contact-microsoft-support/IC777288.png)
+3. In the **Basics** dialog box, complete the following:								
+	1. From the **Issue type** drop-down list , select **Technical**.
+	2. Select a **Subscription** from the drop-down list.
+	3. From the **Service** drop-down list, select **StorSimple**. 
+	4. Select a **Support plan** from the drop-down list. You need a paid support plan to enable Technical Support.
 
-4. Follow the on-screen instructions to properly classify your request and provide a clear and specific description of your problem.
+4. Click **Next**. The **Problem** dialog box appears.
+
+	![New support request pane](./media/storsimple-contact-microsoft-support/Ibiza5a.png) 
+
+5. In the **Problem** dialog box, complete the following:
+
+    1.  Select a **Severity** level from the drop-down list.
+    2.  Select a **Problem type** from the drop-down list.
+    3.  Select a **Category** from the drop-down list. 
+    4.  In the **Details** box, briefly describe your issue.
+    5.  In the **Time frame** box, indicate the date, time, and time zone that corresponds to the most recent occurrence of your issue.
+    6.  Under **File upload**, click the folder icon to browse to your support package.
+    7.  Select the **Share diagnostic information** check box.
+
+6. Click **Next**. The **Contact information** dialog box appears.
+
+	![New support request pane](./media/storsimple-contact-microsoft-support/Ibiza6a.png) 
+
+7. Enter your contact information and select a contact method (phone or email). 
+
+8. Select the **Save contact changes for future support requests** check box.
+
+9. Click **Create**.
 
 After you have submitted your request, a Support engineer will contact you as soon as possible to proceed with your request.
 
