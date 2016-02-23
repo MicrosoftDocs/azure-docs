@@ -1,6 +1,6 @@
 <properties
-	pageTitle="View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer | Microsoft Azure"
-	description="Learn about the DocumentDB Script Explorer, an Azure Portal tool to view DocumentDB server-side programming artifacts including stored procedures, triggers, and user-defined functions."
+	pageTitle="DocumentDB JavaScript editor: Script Explorer | Microsoft Azure"
+	description="Learn about the DocumentDB Script Explorer, an Azure Portal tool to manage DocumentDB server-side programming artifacts including stored procedures, triggers, and user-defined functions."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -12,46 +12,35 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="12/01/2015"
+	ms.topic="article"
+	ms.date="02/22/2016"
 	ms.author="anhoh"/>
 
-# View, edit, and create stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer
+# Create and run stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer
 
 This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Script Explorer, an Azure Portal tool that enables you to view DocumentDB server-side programming artifacts including stored procedures, triggers, and user-defined functions.  Read more about DocumentDB server-side programming [here](documentdb-programming.md).
 
 By completing this tutorial, you'll be able to answer the following questions:  
 
--	How can I easily view DocumentDB stored procedures via a web browser?
--	How can I easily view DocumentDB triggers via a web browser?
--	How can I easily view DocumentDB user-defined functions via a web browser?
+-	How can I easily view, edit, and create DocumentDB stored procedures via a web browser?
+-	How can I easily view and edit DocumentDB triggers via a web browser?
+-	How can I easily view and edit DocumentDB user-defined functions via a web browser?
 
-## Launch and navigate Script Explorer
+## Launch Script Explorer
 
 Script Explorer can be launched from any of the DocumentDB account, database, and collection blades.  
 
-1. At the top of the DocumentDB account or database blade, simply click the **Script Explorer** command.
+1. At the top of the DocumentDB account, database, or collection blade, simply click the **Script Explorer** command.
 
 	![Screenshot of the Script Explorer command](./media/documentdb-view-scripts/scriptexplorercommand.png)
- 
-2. Alternatively, near the bottom of each blade is a **Developer Tools** lens that contains the **Script Explorer** part.
 
-	![Screenshot of the Script Explorer part](./media/documentdb-view-scripts/scriptexplorerpart.png)
-
-2. Simply click the command or the part to launch Script Explorer.
-
-	<p>The **Database** and **Collection** drop-down list boxes are pre-populated depending on the context in which you launch Script Explorer.  For example, if you launch from a database blade, then the current database is pre-populated.  If you launch from a collection blade, then the current collection is pre-populated.
+2. <p>The **Database** and **Collection** drop-down list boxes are pre-populated depending on the context in which you launch Script Explorer.  For example, if you launch from a database blade, then the current database is pre-populated.  If you launch from a collection blade, then the current collection is pre-populated.
 
 	![Screenshot of Script Explorer](./media/documentdb-view-scripts/scriptexplorerinitial.png)
 
-
 3. The **Database** and **Collection** drop-down list boxes can be used to easily change the collection from which scripts are currently being viewed without having to close and re-launch Script Explorer.  
 
-4. Script Explorer also supports filtering the currently loaded set of scripts by their id property.  Simply type in the filter box.
-
-	![Screenshot of Script Explorer with filter highlighted](./media/documentdb-view-scripts/scriptexplorerfilter.png)
-
-	And the results in the Script Explorer list are filtered based on your supplied criteria.
+4. Script Explorer also supports filtering the currently loaded set of scripts by their id property.  Simply type in the filter box and the results in the Script Explorer list are filtered based on your supplied criteria.
 
 	![Screenshot of Script Explorer with filtered results](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
@@ -63,7 +52,7 @@ Script Explorer can be launched from any of the DocumentDB account, database, an
 	![Screenshot of Script Explorer refresh command](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 
-## View, edit, create, and delete stored procedures, triggers, and user-defined functions with  Script Explorer
+## Create, view, and edit stored procedures, triggers, and user-defined functions with Script Explorer
 
 Script Explorer allows you to easily perform CRUD operations on DocumentDB server-side programming artifacts.  
 
@@ -101,7 +90,30 @@ Script Explorer allows you to easily perform CRUD operations on DocumentDB serve
 
 	![Screenshot of Script Explorer delete command](./media/documentdb-view-scripts/scriptexplorerdeletescript2.png)
 
+## Execute stored procedures with Script Explorer
+
+Script Explorer allows you to execute server-side stored procedures from the Azure Portal.
+
+- When opening a new create stored procedure blade, a default script (*prefix*) will already be provided. In order to run the *prefix* script or your own script, add an *id* and *inputs*. For stored procedures that accept multiple parameters, all inputs must be within an array (e.g. *["foo", "bar"]*).
+
+	![Screenshot of Script Explorer script properties view](./media/documentdb-view-scripts/scriptexploreraddinputs.png)
+
+- To execute a script, simply click on the **Save & Execute** command within script editor pane.
+
+	> [AZURE.NOTE] The **Save & Execute** command will save your stored procedure before executing, which means it will overwrite the previously saved version of the stored procedure.
+
+- Successful stored procedure executions will have a *Successfully saved and executed the stored procedure* status and the returned results will be populated in the *Results* pane.
+
+	![Screenshot of Script Explorer script properties view](./media/documentdb-view-scripts/scriptexplorerexecsproc.png)
+
+- If the execution encounters an error, the error will be populated in the *Results* pane.
+
+	![Screenshot of Script Explorer script properties view](./media/documentdb-view-scripts/scriptexplorerexecutesprocerror.png)
+
+
+
 ## Next steps
 
 To learn more about DocumentDB, click [here](http://azure.com/docdb).
- 
+
+For samples on server side scripts, visit our [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ServerSideScripts).
