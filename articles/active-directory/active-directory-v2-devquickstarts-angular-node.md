@@ -31,7 +31,7 @@ This sample is a simple To-Do List single page app that stores tasks in a backen
 To get started, you'll need to download & install [node.js](https://nodejs.org).  Then you can clone or [download](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/skeleton.zip) a skeleton app:
 
 ```
-git clone --branch skeleton https://github.com/AzureADQuickStarst/AppModelv2-SinglePageApp-AngularJS-NodeJS.git
+git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS.git
 ```
 
 The skeleton app includes all the boilerplate code for a simple AngularJS app, but is missing all of the identity-related pieces.  If you don't want to follow along, you can instead clone or [download](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/complete.zip) the completed sample.
