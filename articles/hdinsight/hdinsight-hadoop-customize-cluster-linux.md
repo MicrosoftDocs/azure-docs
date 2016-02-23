@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Customize HDInsight Clusters using script actions | Microsoft Azure"
-	description="Learn how to add custom components to Linux-based HDInsight clusters using Script Actions. Script Actions are Bash scripts that run during cluster creation, and can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R."
+	description="Learn how to add custom components to Linux-based HDInsight clusters using Script Actions. Script Actions are Bash scripts that on the cluster nodes, and can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -19,26 +19,64 @@
 
 # Customize Linux-based HDInsight clusters using Script Action
 
-HDInsight provides a configuration option called **Script Action** that invokes custom scripts, which define the customization to be performed on the cluster during the creation process. These scripts can be used to install additional software on a cluster, or to change the configuration of applications on a cluster.
+HDInsight provides a configuration option called **Script Action** that invokes custom scripts that customize the cluster. These scripts can be used during cluster creation, or on an already running cluster, and are used to install additional components or change configuration settings.
 
-> [AZURE.NOTE] The information in this article is specific to Linux-based HDInsight clusters. For a version of this article that is specific to Windows-based clusters, see [Customize HDInsight clusters using Script Action (Windows)](hdinsight-hadoop-customize-cluster.md)
+> [AZURE.NOTE] The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters. For information on using script actions with Windows-based clusters, see [Customize HDInsight clusters using Script Action (Windows)](hdinsight-hadoop-customize-cluster.md).
 
-## Script Action in the cluster creation process
+## Understanding Script Actions
 
-Script Action is only used while a clusters is in the process of being created. The following diagram illustrates when Script Action is executed during the creation process:
+A Script Action is simply a Bash script that you provide a URL to, and parameters for, and it is then ran on the HDInsight cluster nodes. The following are characteristics and features of script actions.
+
+* Can be restricted to __run on only certain node types__, for example head nodes or worker nodes.
+
+* Can be __persisted__ or __ad hoc__. __Persisted__ scripts that apply to worker nodes will be ran automatically on new nodes created when scaling up a cluster. __Ad hoc__ scripts are not persisted; however, you can subsequently promote an ad hoc script to a persisted script, or demote a persisted script to an ad hoc script.
+    
+    > [AZURE.IMPORTANT] Script actions used during cluster creation are automatically persisted.
+    >
+    > Scripts that fail are not persisted, even if you specifically indicate that they should be.
+
+* Can accept __parameters__ that are used by the script during execution.
+
+* Are ran with __root level privileges__ on the cluster nodes.
+
+* Can be used through the __Azure Portal__, __Azure PowerShell__, or __HDInsight .NET SDK__
+
+> [AZURE.IMPORTANT] There is no automatic way to undo the changes made by a script action. If you need to reverse the effects of a script, you must understand what changes were made and manually reverse them (or provide a script action that reverses them.)
+
+To assist in understanding what scripts have been applied to a cluster, and in determining the ID of scripts for promotion or demotion, the cluster keeps a history of all scripts that have been ran.
+
+### Script Action in the cluster creation process
+
+Script Actions used during cluster creation are slightly different from script actions ran on an existing cluster:
+
+* The script is __automatically persisted__.
+
+* A __failure__ in the script can cause the cluster creation process to fail.
+
+The following diagram illustrates when Script Action is executed during the creation process:
 
 ![HDInsight cluster customization and stages during cluster creation][img-hdi-cluster-states]
 
-The script is ran while HDInsight is being configured. At this stage, the script is run in parallel on all the specified nodes in the cluster, and is ran with root privileges on the nodes.
+The script is ran while HDInsight is being configured. At this stage, the script is ran in parallel on all the specified nodes in the cluster, and is ran with root privileges on the nodes.
 
-> [AZURE.NOTE] Because you have root privileges on the cluster nodes when the script is ran, you can perform operations like stopping and starting services, including Hadoop-related services. If you stop services, you must ensure that the Ambari service and other Hadoop-related services are up and running before the script finishes running. These services are required to successfully ascertain the health and state of the cluster while it is being created.
+> [AZURE.NOTE] Because the script is ran with root level privilege on the cluster nodes, you can perform operations like stopping and starting services, including Hadoop-related services. If you stop services, you must ensure that the Ambari service and other Hadoop-related services are up and running before the script finishes running. These services are required to successfully determine the health and state of the cluster while it is being created.
 
-Each cluster can accept multiple script actions that are invoked in the order in which they are specified. A script can be ran on the head nodes, the worker nodes, or both.
+During cluster creation, you can specify multiple script actions that are invoked in the order in which they were specified.
 
-> [AZURE.IMPORTANT] Script actions must complete within 60 minutes, or they will timeout. During node provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
+> [AZURE.IMPORTANT] Script actions must complete within 60 minutes, or they will timeout. During cluster provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 > 
 > To minimize the time it takes to run the script, avoid tasks such as downloading and compiling applications from source. Instead, pre-compile the application and store the binary in Azure Blob storage so that it can quickly be downloaded to the cluster.
 
+###Script action on a running cluster
+
+Unlike script actions used during cluster creation, a failure in a script ran on an already running cluster does not automatically cause the cluster to change to a failed state. Once a script completes, the cluster should return to a "running" state.
+
+> [AZURE.IMPORTANT] This does not mean that your running cluster is immune to scripts that do bad things. For example, a script could delete files needed by the cluster, change configuration so that services fail, etc.
+>
+> Scripts actions run with root privileges, so you should make sure that you understand what a script does before applying it to your cluster.
+
+When applying a script to a cluster, the cluster state will change to 
+[TBD see notes from Duc and Sandhya and experiment a bit]
 
 ## Example Script Action scripts
 
