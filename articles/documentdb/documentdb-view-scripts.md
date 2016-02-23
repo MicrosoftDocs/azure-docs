@@ -96,7 +96,7 @@ Script Explorer allows you to execute server-side stored procedures.
 
 - When initially opening create stored procedure, a default script *prefix* is provided. Add an id and your input parameter. For multiple parameters, the inputs must be within an array (e.g. *["foo", "bar"]*).
 
-	![Screenshot of Script Explorer script properties view](./media/documentdb-view-scripts/scriptexploreraddinput.png)
+	![Screenshot of Script Explorer script properties view](./media/documentdb-view-scripts/scriptexploreraddinputs.png)
 
 - To execute a script, simply click on the **Save & Execute** command within script editor pane.
 
