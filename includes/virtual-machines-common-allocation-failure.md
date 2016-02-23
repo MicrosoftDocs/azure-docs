@@ -1,5 +1,3 @@
-# Troubleshoot allocation failures when you create, restart, or resize VMs in Azure
-
 When you create a VM, restart stopped (deallocated) VMs, or resize a VM, Microsoft Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations -- even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
 
 The "General troubleshooting steps" section lists steps to address common issues. The "Detailed troubleshooting steps" section provides resolution steps by specific error message. Before you get started, here is some background information to understand how allocation works and why allocation failure happens.
@@ -132,7 +130,7 @@ If an affinity group is not necessary, do not use an affinity group, or group yo
 
 New_General* or New_VMSizeNotSupported*
 
-<**Cause of cluster pinning**
+**Cause of cluster pinning**
 
 Before regional virtual networks were introduced, you were required to associate a virtual network with an affinity group. As a result, compute resources placed into an affinity group are bound by the same constraints as described in the "Allocation scenario: Affinity group (VM/service proximity)" section above. The compute resources are tied to one cluster.
 
