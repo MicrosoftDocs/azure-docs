@@ -30,7 +30,7 @@ Do you provide a service or application, such as a payroll service, to businesse
 
 Do you have business partners or others outside your company who need to access your enterprise resources, such as a SharePoint site or your ERP system? Azure AD enables admins to grant external users (who may or may not exist in Azure AD) single sign on access to corporate applications. This improves security as users lose access when they leave the partner organization, while you control access policies within your organization. This also simplifies administration as you don’t need to manage an external partner directory or per partner federation relationships.
 
-**Example:** An imaging company provides retailers with photo imaging services and operates the largest retail network of printing kiosks. They chose Azufe AD to enable thousands of users at their retail business partners to use their own credentials to download the latest partner marketing materials and reorder photo processing supplies from the company’s supplier extranet. For more information, see [Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md).
+**Example:** An imaging company provides retailers with photo imaging services and operates the largest retail network of printing kiosks. They chose Azure AD to enable thousands of users at their retail business partners to use their own credentials to download the latest partner marketing materials and reorder photo processing supplies from the company’s supplier extranet. For more information, see [Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md).
 
 ## Developing applications for consumers
 
