@@ -21,12 +21,7 @@
 
 [AZURE.INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
 
-
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](dns-reverse-dns-record-operations-classic-ps.md).
-
-[AZURE.INCLUDE [dns-reverse-dns-record-operations-scenario-include.md](../../includes/dns-reverse-dns-record-operations-scenario-include.md)]
-
-To perform the steps in this article, you'll need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](xplat-cli-install.md) and you'll need to [log on to Azure](xplat-cli-connect.md). 
 
 ## What are reverse DNS records?
 Reverse DNS records are used in a variety of situations to weakly authenticate the caller. For example, reverse DNS records are widely used in combating email spam through by verifying that the sender of an email message did so from a host for which there was a reverse DNS record, and optionally, where that host was recognized as one that was authorized to send email from the originating domain.

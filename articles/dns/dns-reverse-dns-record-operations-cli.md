@@ -26,8 +26,6 @@
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](dns-reverse-dns-record-operations-classic-ps.md).
 
 
-[AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
-
 ## Add a reverse DNS record to an existing Public IP address
 You can add reverse DNS to an existing Public IP address use the azure network public-ip set.
 

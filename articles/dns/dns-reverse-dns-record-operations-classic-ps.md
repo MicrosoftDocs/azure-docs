@@ -25,10 +25,6 @@
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](dns-reverse-dns-record-operations-ps.md).
 
-[AZURE.INCLUDE [DNS-reverse-dns-record-operations-scenario-include.md](../../includes/dns-reverse-dns-record-operations-scenario-include.md)]
-
-[AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
-
 ## Add a reverse DNS record to an existing Cloud Services
 You can add reverse DNS to an existing Cloud Service using the “Set-AzureService” cmdlet.
 
