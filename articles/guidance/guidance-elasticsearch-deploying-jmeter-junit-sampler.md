@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance | Microsoft Azure"
+   pageTitle="Deploying a JMeter JUnit sampler for testing Elasticsearch performance | Microsoft Azure"
    description="How to use a JUnit sampler to generate and upload data to an Elasticsearch cluster."
    services=""
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="02/18/2016"
    ms.author="masimms"/>
    
-# Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance
+# Deploying a JMeter JUnit sampler for testing Elasticsearch performance
 
 This article is [part of a series](guidance-elasticsearch.md). 
 
