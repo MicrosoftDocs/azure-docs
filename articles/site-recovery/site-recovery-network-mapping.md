@@ -23,7 +23,7 @@ Azure Site Recovery contributes to your business continuity and disaster recover
 
 This article describes network mapping, which helps you optimally configure network settings when you're using Site Recovery to replicate Hyper-V virtual machines located in VMM clouds between two on-premises datacenters, or between an on-premises datacenter and Azure. Note that if you're replicating Hyper-V VMs without a VMM cloud, or replicating VMware VMs or physical servers, this article isn't relevant.
 
-ost any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Overview
