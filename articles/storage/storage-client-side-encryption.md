@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="02/19/2016"
 	ms.author="lakasa"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Overview
 
-The [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
+The [Azure Storage Client Library for .NET Nuget package](https://www.nuget.org/packages/WindowsAzure.Storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
 
 For client-side encryption with Java, see [Client-Side Encryption with Java for Microsoft Azure Storage](storage-client-side-encryption-java.md).
 
@@ -244,7 +244,8 @@ Note that encrypting your storage data results in additional performance overhea
 
 ## Next steps
 
-Download the [Azure Storage Client Library for .NET NuGet package](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0)
-Download the [Azure Storage Client Library for .NET Source Code](https://github.com/Azure/azure-storage-net) from GitHub
-Download the Azure Key Vault NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages  
-Visit the [Azure Key Vault Documentation](../key-vault/key-vault-whatis.md)
+- Download the [Azure Storage Client Library for .NET NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage)
+- Download the [Azure Storage Client Library for .NET Source Code](https://github.com/Azure/azure-storage-net) from GitHub
+- Download the Azure Key Vault NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages  
+- Visit the [Azure Key Vault Documentation](../key-vault/key-vault-whatis.md)
+
