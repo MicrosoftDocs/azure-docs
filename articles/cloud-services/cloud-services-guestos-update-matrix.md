@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="01/18/2016"
+   ms.date="02/22/2016"
    ms.author="yuemlu"/>
 
 # Azure Guest OS releases and SDK compatibility matrix
@@ -30,10 +30,10 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 
 ## News updates
 
-###### **February 22 2015**
+###### **February 22 2016**
 February Guest OS rollout is starting February 22 2016, and projected to be released on March 9 2016.
 
-###### **Janurary 18 2015**
+###### **Janurary 18 2016**
 January Guest OS rollout is starting Janurary 18 2016, and projected to be released on February 12 2016.
 
 ###### **Janurary 4 2016**
