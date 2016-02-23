@@ -78,7 +78,7 @@ The device command acknowledgment is provided through the IoT hub.
 
 ### Azure Stream Analytics jobs
 
-**Job 1: Telemetry** operates on the incoming device telemetry stream using two commands. The first command sends all telemetry messages from the devices to persistent blob storage. The second command computes average, minimum, and maximum humidity values over a five minute sliding window. This data is also sent to blob storage. This job uses the following query definition:
+**Job 1: Telemetry** operates on the incoming device telemetry stream in two ways. The first sends all telemetry messages from the devices to persistent blob storage. The second computes average, minimum, and maximum humidity values over a five minute sliding window. This data is also sent to blob storage. This job uses the following query definition:
 
 ```
 WITH 

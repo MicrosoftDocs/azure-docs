@@ -47,9 +47,9 @@ The following diagram illustrates the key elements of the remote monitoring solu
 
 ## Devices
 
-When you deploy the remote monitoring preconfigured solution, the deployment includes instances of a software device simulator that simulates a physical cooler device. The simulated devices send temperature and humidity telemetry to an IoT hub endpoint.
+When you deploy the remote monitoring preconfigured solution, four simulated devices are pre-provisioned in the solution that simulate a cooling device. These simulated devices have a built in temperature and humidity model that emits telemetry.
 
-When a device first connects to IoT Hub, it sends a list of the commands that it can respond to. In the Remote Monitoring preconfigured solution, these commands are:
+When a device first connects to IoT Hub in the remote monitoring preconfigured solution, the device information message sent to the IoT hub enumerates the list of commands that the device can respond to. In the remote monitoring preconfigured solution, the commands are: 
 
 - *Ping Device*. The device responds to this command with an acknowledgement. This is useful for checking that the device is still active and listening.
 - *Start Telemetry*. Instructs the device to start sending telemetry.
@@ -57,6 +57,8 @@ When a device first connects to IoT Hub, it sends a list of the commands that it
 - *Change Set Point Temperature*. Controls the simulated temperature telemetry values the device sends. This is useful for testing.
 - *Diagnostic Telemetry*. Controls if the device should send the external temperature as telemetry.
 - *Change Device State*. Sets the device state metadata property that the device reports. This is useful for testing.
+
+You can add additional simulated devices to the solution that emit the same telemetry and respond to the same commands. 
 
 ## IoT Hub
 
