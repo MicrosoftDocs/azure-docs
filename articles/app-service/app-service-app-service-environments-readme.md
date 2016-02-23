@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
-	ms.author="yochay"/>
+	ms.date="02/18/2016" 
+	ms.author="stefsch"/>
 
 # Overview
 
@@ -32,7 +32,23 @@ App Service Environments are isolated to running only a single customer's applic
 
 Apps frequently need to access corporate resources such as internal databases and web services.  Apps running on App Service Environments can access resources reachable via [Site-to-Site][SiteToSite] VPN and [Azure ExpressRoute][ExpressRoute] connections.
 
+* [What is an App Service Environment?](../app-service-web/app-service-app-service-environment-intro.md)
+* [Creating an App Service Environment](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [Creating Apps in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [Configuring an App Service Environment](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
+* [Scaling Apps in an App Service Environment](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+* [Network Security and Architecture](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
+
+## How Tos
+
 [AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
+
+
+## Videos
+[AZURE.VIDEO azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps]
+
+[AZURE.VIDEO microsoft-ignite-2015-running-enterprise-web-and-mobile-apps-on-azure-app-service]
+
 
 <!-- LINKS -->
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/

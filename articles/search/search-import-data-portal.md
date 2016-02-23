@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Import data to Azure Search using the portal
@@ -36,6 +36,8 @@ Using the wizard, data import is a 3-part construction:
 To use an indexer or the **Import Data** command, your primary data source needs to be one of the supported data sources: Azure SQL Database, SQL Server relational databases on an Azure VM, or Azure DocumentDB.
 
 You can only import from a single table, view, or equivalent data structure. You might need to create this data structure in your application data source first to get the right metadata and data inputs into your search index.
+
+You can try out this workflow using sample data. Visit [Get started with Azure Search in the Azure Portal](search-get-started-portal.md) to get started.
 
 ##Configure data import
 
