@@ -1,6 +1,6 @@
 <properties
 	pageTitle="DocumentDB Document Explorer  | Microsoft Azure"
-	description="Learn about the DocumentDB Document Explorer, an Azure Portal tool to view, edit, create, and upload JSON documents with DocumentDB, a NoSQL document database."
+	description="Learn about the DocumentDB Document Explorer, an Azure Portal tool to view JSON, edit, create, and upload JSON documents with DocumentDB, a NoSQL document database."
     keywords="view json"
 	services="documentdb"
 	authors="AndrewHoh"
@@ -43,7 +43,7 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
 
     A minimal JSON snippet is provided in the **Document** blade.
 
-	![Screenshot of Document Explorer create document experience](./media/documentdb-view-JSON-document-explorer/createdocument.png)
+	![Screenshot of Document Explorer create document experience, where you can view JSON and edit JSON](./media/documentdb-view-JSON-document-explorer/createdocument.png)
 
 2. In the **Document** blade, type or paste in the content of the JSON document you wish to create, and then click **Save** to commit your document to the database and collection specified in the **Document Explorer** blade.
 
@@ -51,7 +51,7 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
 
 	> [AZURE.NOTE] If you do not provide an "id" property, then Document Explorer automatically adds an id property and generates a GUID as the id value.
 
-    > [AZURE.NOTE] If you already have data from JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, HBase, or from other DocumentDB collections, you can use DocumentDB's [data migration tool](documentdb-import-data.md) to quickly import your data.
+    If you already have data from JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, HBase, or from other DocumentDB collections, you can use DocumentDB's [data migration tool](documentdb-import-data.md) to quickly import your data.
 
 ## Edit a document
 
@@ -59,7 +59,7 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
 
 2. To edit an existing document, select it in the **Document Explorer** blade, edit the document in the **Document** blade, and then click **Save**.
 
-    ![Screenshot of Document Explorer edit document functionality](./media/documentdb-view-JSON-document-explorer/editdocument.png)
+    ![Screenshot of Document Explorer edit document functionality used to view JSON](./media/documentdb-view-JSON-document-explorer/editdocument.png)
 
     If you're editing a document and decide that you want to discard the current set of edits, simply click **Discard** in the **Document** blade, confirm the discard action, and the previous state of the document is reloaded.
 
@@ -77,11 +77,11 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
 
 Document Explorer validates that any new or edited document contains valid JSON.  You can even hover over the incorrect section to get details about the validation error.
 
-![Screenshot of Document Explorer invalid JSON highlighting](./media/documentdb-view-JSON-document-explorer/invalidjson1.png)
+![Screenshot of Document Explorer with invalid JSON highlighting](./media/documentdb-view-JSON-document-explorer/invalidjson1.png)
 
 Additionally, Document Explorer prevents you from saving a document with invalid JSON content.
 
-![Screenshot of Document Explorer invalid JSON save error](./media/documentdb-view-JSON-document-explorer/invalidjson2.png)
+![Screenshot of Document Explorer with invalid JSON save error](./media/documentdb-view-JSON-document-explorer/invalidjson2.png)
 
 Finally, Document Explorer allows you to easily view the system properties of the currently loaded document by clicking the **Properties** command.
 
@@ -104,7 +104,7 @@ By default, Document Explorer loads up to the first 100 documents in the selecte
 
 	![Screenshot of Document Explorer Settings blade](./media/documentdb-view-JSON-document-explorer/documentexplorerfiltersettings2.png)
 
-	Document Explorer automatically refreshes the results with documents matching the filter query. Read more about the DocumentDB SQL grammar in the [SQL query and SQL syntax](documentdb-sql-query.md) article.
+	Document Explorer automatically refreshes the results with documents matching the filter query. Read more about the DocumentDB SQL grammar in the [SQL query and SQL syntax](documentdb-sql-query.md) article or print a copy of the [SQL query cheat sheet](documentdb-sql-query-cheat-sheet.md).
 
     The **Database** and **Collection** drop-down list boxes can be used to easily change the collection from which documents are currently being viewed without having to close and re-launch Document Explorer.  
 
@@ -146,7 +146,14 @@ Document Explorer supports bulk ingestion of one or more existing JSON documents
 
 4. Once the operation is complete, you can select up to another 100 documents to upload.
 
+## Work with JSON documents outside the portal
+
+The Document Explorer in the Azure portal is just one way to work with documents in DocumentDB. You can also work with documents using the [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) or the [client SDKs](documentdb-sdk-dotnet.md). For example code, see the [.NET SDK document examples](documentdb-dotnet-samples.md#document-examples) and the [Node.js SDK document examples](documentdb-nodejs-samples.md#document-examples).
+
+If you need to import or migrate files from another source (JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, or HBase), you can use the DocumentDB [data migration tool](documentdb-import-data.md) to quickly import your data to DocumentDB.
+
 ## Next steps
 
-- To learn more about DocumentDB, click [here](http://azure.com/docdb).
-- To get started with code, click [here](documentdb-get-started.md).
+To learn more about the DocumentDB SQL grammar supported in Document Explorer, see the [SQL query and SQL syntax](documentdb-sql-query.md) article or print out the [SQL query cheat sheet](documentdb-sql-query-cheat-sheet.md).
+
+The [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) is also a useful resource to guide you as you learn about DocumentDB. 
