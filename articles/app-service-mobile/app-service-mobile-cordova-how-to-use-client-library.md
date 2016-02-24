@@ -63,13 +63,10 @@ To return all data from the table, use the following:
  *
  * @param {Object} results the results as a pseudo-array
  * @param {int} results.length the length of the results array
- * @param {int} results.totalCount the total count of matches in the table
- *                 - Only included when .includeTotalCount() is used
  * @param {Object} results[] the individual results
  */
 function success(results) {
-   var numItemsRead = results.length,
-       totalItemsMatchingQuery = results.totalCount;
+   var numItemsRead = results.length;
 
    for (var i = 0 ; i < results.length ; i++) {
        var row = results[i];
@@ -82,13 +79,13 @@ function failure(error) {
 }
 
 table
-    .includeTotalCount()
     .read()
     .then(success, failure);
 ```
 
 The success function is called with the results.   Do not use `for (var i in results)` in
-the success function as that will iterate over totalCount as well.
+the success function as that will iterate over information that is included in the results
+when other query functions (such as `.includeTotalCount()`) are used.
 
 For more information on the Query syntax, refer to the [Query object documentation].
 
@@ -99,7 +96,6 @@ You can use a `where` clause on the table reference:
 ```
 table
     .where({ userId: user.userId, complete: false })
-    .includeTotalCount()
     .read()
     .then(success, failure);
 ```
@@ -114,7 +110,6 @@ function filterByUserId(currentUserId) {
 
 table
     .where(filterByUserId, user.userId)
-    .includeTotalCount()
     .read()
     .then(success, failure);
 ```
@@ -143,6 +138,10 @@ function loadPage(pageNum) {
     }
 }
 ```
+
+The `.includeTotalCount()` method is used to add a totalCount field to the results object.  The
+totalCount field is filled with the total number of records that would be returned if no paging
+is used.
 
 You can then use the pages variable and some UI buttons to provide a page list; use loadPage() to
 load the new records for each page.  You should implement some sort of caching to speed access to
@@ -181,6 +180,11 @@ table
 
 On successful insertion, the inserted item is returned with the additional fields that are required
 for sync operations.  You should update your own cache with this information for later updates.
+
+Note that the Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.
+In the case of dynamic schema, the schema of the table is updated on the fly, allowing you to add
+columns to the table just by specifying them in an insert or update operation.  We recommend that
+you turn off dynamic schema before moving your application to production.
 
 ##<a name="modifying"></a>How to: Modify Data
 
