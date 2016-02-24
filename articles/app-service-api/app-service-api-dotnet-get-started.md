@@ -315,13 +315,13 @@ In this section you use Azure tools that are integrated into the Visual Studio *
 	* Precompile during publishing
 	* Exclude files from the App_Data folder
 
-	For this tutorial you don't need any of these. For detailed explanations of what they do, see [https://msdn.microsoft.com/en-us/library/dd465337.aspx](https://msdn.microsoft.com/en-us/library/dd465337.aspx "How to: Deploy a Web Project Using One-Click Publish in Visual Studio").
+	For this tutorial you don't need any of these. For detailed explanations of what they do, see [How to: Deploy a Web Project Using One-Click Publish in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
 
 14. Click **Next**.
 
 	![](./media/app-service-api-dotnet-get-started/settingsnext.png)
 
-	The **Preview** tab gives you an opportunity to see what files are going to be copied from your project to the server, which in this case is the new API app. When you're deploying a project to an API app that you already deployed the project to earlier, only changed files are copied. If you want to see a list of what will be copied, you can click the **Start Preview** button.
+	The **Preview** tab gives you an opportunity to see what files are going to be copied from your project to the API app. When you're deploying a project to an API app that you already deployed to earlier, only changed files are copied. If you want to see a list of what will be copied, you can click the **Start Preview** button.
 
 15. Click **Publish**.
 
@@ -351,11 +351,11 @@ In this section you use Azure tools that are integrated into the Visual Studio *
 
 	Two blades open, one with an overview of the API app, and one with a long list of settings that you can view and change.
 
-16. In the **Settings** blade, find the API section and click **API Definition**. 
+16. In the **Settings** blade, find the **API** section and click **API Definition**. 
 
 	![](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
 
-	The API Definition blade lets you specify the URL that returns Swagger 2.0 metadata in JSON format. When Visual Studio creates the API app, it sets the API definition URL to the default value for Swashbuckle-generated metadata that you saw earlier, which is the API app's base URL plus `/swagger/docs/v1`. 
+	The **API Definition** blade lets you specify the URL that returns Swagger 2.0 metadata in JSON format. When Visual Studio creates the API app, it sets the API definition URL to the default value for Swashbuckle-generated metadata that you saw earlier, which is the API app's base URL plus `/swagger/docs/v1`. 
 
 	![](./media/app-service-api-dotnet-get-started/apidefurl.png)
 
@@ -485,17 +485,17 @@ If you called the middle tier API app now, it would try to call the data tier us
 
 ## <a id="creating"></a> Optional: Creating an API app project from scratch
 
-In this tutorial, you've worked with downloaded code. You haven't seen how to create a new ASP.NET Web API 2 project that you intend to deploy as an API app. To do that, you can simply create a Web API project and install the Swashbuckle package, or you can use the **Azure API App** new-project template. To use that template, click **File > New > Project > ASP.NET Web Application > Azure API App**.
+In this tutorial you download ASP.NET Web API projects for deployment to App Service, rather than create new projects from scratch. To create a project that you intend to deploy to an API app, you can create a typical Web API project and install the Swashbuckle package, or you can use the **Azure API App** new-project template. To use that template, click **File > New > Project > ASP.NET Web Application > Azure API App**.
 
 ![](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
-The **Azure API App** project template is equivalent to choosing the **Empty** ASP.NET 4.5.2 template, clicking the check box to add Web API support, and installing the Swashbuckle package.
+The **Azure API App** project template is equivalent to choosing the **Empty** ASP.NET 4.5.2 template, clicking the check box to add Web API support, and installing the Swashbuckle package. In addition, the template adds some Swashbuckle configuration code designed to prevent the creation of duplicate Swagger operation IDs.
 
 ## Optional: Changing an app type
 
-As explained earlier, the only difference between API apps, web apps, and mobile apps is the way they are represented in the portal. If you create an API app and want to change it to a web app, you can do that by using  the [Resource Explorer](https://resources.azure.com/) tool. 
+As explained earlier, the only difference between API apps, web apps, and mobile apps is the way they are represented in the portal. Because they all have the same features, it is never necessary to change an app type.
 
-For example, you could change one of the API apps you just created to a web app by performing the following steps.
+However, if you want to change the portal representation, it's easy to do. For example, you could change one of the API apps you just created to a web app by performing the following steps.
 
 1. Open Resource Explorer.
 
@@ -519,7 +519,7 @@ For example, you could change one of the API apps you just created to a web app 
 
 In this tutorial, you've seen the API definition URL in Visual Studio and in the Azure portal. You can also configure the API definition URL for an API app by using [Azure Resource Manager templates](../resource-group-authoring-templates.md) in command line tools such as [Azure PowerShell](../powershell-install-configure.md) and the [Azure CLI](../xplat-cli-install.md). 
 
-For an example of an Azure Resource Manager template that sets the API definition property, open the [azuredeploy.json file in the sample application repository](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Find the section of the template that looks like the following example:
+For an example of an Azure Resource Manager template that sets the API definition property, open the [azuredeploy.json file in the repository for this tutorial's sample application](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Find the section of the template that looks like the following example:
 
 		"apiDefinition": {
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
