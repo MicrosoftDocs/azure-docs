@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/19/2016"
+   ms.date="02/23/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -70,7 +70,7 @@ Use the table below as a reference to help you understand the available recommen
 |Resolve mismatch baseline rules|Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved.|
 |Apply system updates|Recommends that you deploy missing system security and critical updates to VMs (Windows VMs only).|
 |Configure ACLs for endpoints|Recommends that you configure access control lists to restrict inbound access to VMs (classic VMs only).|
-|[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints (Resource Manager VMs only).|
+|[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints. The automatic provisioning process is based on Resource Manager WAF packages that are deployed to a separate VNet. Access to the protected web applications on Classic VMs is restricted to the WAF appliances only using NSG. This support will be extended to a fully customized deployment of Classic WAF packages in the future.|
 |Finalize web application firewall setup|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
 |[Enable Antimalware](security-center-enable-antimalware.md)|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
 |Enable Network Security Groups on subnets/network interfaces|Recommends that you enable network security groups (NSGs) on subnets and network interfaces (Resource Manager VMs only).|
@@ -106,28 +106,6 @@ Using the **Enable Antimalware** recommendation, let’s walk through an example
 
 [Microsoft Antimalware](../azure-security-antimalware.md) is now active on the selected virtual machine.
 
-### Deploy recommended partner solutions
-
-Another recommendation you might get is to deploy an integrated security solution from a Microsoft partner. Let’s walk through an example of how to do this.
-
-1. Return to the **Recommendations** blade.
-2.	Select recommendation **Secure web application using web application firewall**. This opens the **Unprotected Web Applications** blade.
-![][7]
-3. Select a web application, the **Add a Web Application Firewall** blade opens.
-4. Select **Barracuda Web Application Firewall**. A blade opens that provides you information about the **Barracuda Web Application Firewall**.
-5. Click **Create** in the information blade. The **New Web Application Firewall** blade opens, where you can perform **VM Configuration** steps and provide **WAF Information**.
-6. Select **VM Configuration**. In the **VM Configuration** blade you enter information required to spin up the virtual machine that will run the WAF.
-![][8]
-7. Return to the **New Web Application Firewall** blade and select **WAF Information**. In the **WAF Information** blade you configure the WAF itself. Step 6 allows you to configure the virtual machine on which the WAF will run and step 7 enables you to provision the WAF itself.
-
-8. Return to the **Recommendations** blade. A new entry was generated after you created the WAF, called **Finalize web application firewall setup**. This entry lets you know that you need to complete the process of actually wiring up the WAF within the Azure Virtual Network so that it can protect the application.
-![][9]
-
-9. Select **Finalize web application firewall setup**. A new blade opens. You can see that there is a web application that needs to have its traffic rerouted.
-10. Select the web application. A blade opens that gives you steps for finalizing the web application firewall setup. Complete the steps, and then click **Restrict traffic**. Security Center will then do the wiring-up for you.
-![][10]
-
-The logs from that WAF are now fully integrated. Security Center can start automatically gathering and analyzing the logs so that it can surface important security alerts to you.
 
 ## Next steps
 In this document, you were introduced to security recommendations in Security Center. To learn more about Security Center, see the following:
@@ -144,7 +122,3 @@ In this document, you were introduced to security recommendations in Security Ce
 [4]: ./media/security-center-recommendations/dismiss-recommendations.png
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
-[7]: ./media/security-center-recommendations/secure-web-application.png
-[8]: ./media/security-center-recommendations/vm-configuration.png
-[9]: ./media/security-center-recommendations/finalize-waf.png
-[10]: ./media/security-center-recommendations/restrict-traffic.png
