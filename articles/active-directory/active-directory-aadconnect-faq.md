@@ -35,6 +35,9 @@ All networking software, physical devices, or anything else that limits the maxi
 **Q: What do I do if I receive an email that asking me to renew my Office 365 certificate**  
 Use the guidance that is outlined in the [renew certificates](active-directory-aadconnect-o365-certs.md) topic on how to renew the certificate.
 
+**Q: I have “Automatically update relying party” set for O365 relying party, do I have to take any action when my token signing certificate automatically rolls over?**
+Use the guidance that is outlined in the article [here](active-directory-aadconnect-o365-certs.md)
+
 **Q: Are SLDs (Single Label Domains) supported?**  
 No, Azure AD Connect does not support on-premises forests/domains using SLDs.
 
