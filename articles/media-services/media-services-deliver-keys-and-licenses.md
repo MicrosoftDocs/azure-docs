@@ -38,6 +38,7 @@ The following diagram shows the main steps you need to take to use AMS to delive
 
 The code example in this topic shows how to create a common content key and get PlayReady or Widevine license acquisition URLs. You need to get the following pieces of information from AMS and configure your on-premises server: **content key**, **key id**, **license acquisition URL**. Once you configure your on-premises server, you could stream from your own streaming server. Since the encrypted stream points to AMS license server, your player will request a license from AMS. If you choose token authentication, the AMS license server will validate the token you sent through HTTPS and (if valid) will deliver the license back to your player. (The code example only shows how to create a common content key and  get PlayReady or Widevine license acquisition URLs. If you want to delivery AES-128 keys, you need to create an envelope content key and get a key acquisition URL and [this](media-services-protect-with-aes128.md) article shows how to do it).
 	
+	
 	using System;
 	using System.Collections.Generic;
 	using System.Configuration;
@@ -86,16 +87,22 @@ The code example in this topic shows how to create a common content key and get 
 	            IContentKey key = CreateCommonTypeContentKey();
 	
 	            // Print out the key ID and Key in base64 string format
-	            Console.WriteLine("Created key {0} with key value {1} ", key.Id, System.Convert.ToBase64String(key.GetClearKeyValue()));
-	            Console.WriteLine("PlayReady License Key delivery URL: {0}", key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense));
-	            Console.WriteLine("Widevine License Key delivery URL: {0}", key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine));
+	            Console.WriteLine("Created key {0} with key value {1} ", 
+	                key.Id, System.Convert.ToBase64String(key.GetClearKeyValue()));
+	
+	            Console.WriteLine("PlayReady License Key delivery URL: {0}", 
+	                key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense));
+	
+	            Console.WriteLine("Widevine License Key delivery URL: {0}",
+	                key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine));
 	
 	            if (tokenRestriction)
 	                tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
 	            else
 	                AddOpenAuthorizationPolicy(key);
 	
-	            Console.WriteLine("Added authorization policy: {0}", key.AuthorizationPolicyId);
+	            Console.WriteLine("Added authorization policy: {0}", 
+	                key.AuthorizationPolicyId);
 	            Console.WriteLine();
 	            Console.ReadLine();
 	        }
@@ -106,7 +113,8 @@ The code example in this topic shows how to create a common content key and get 
 	            // Create ContentKeyAuthorizationPolicy with Open restrictions 
 	            // and create authorization policy          
 	
-	            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
+	            List<ContentKeyAuthorizationPolicyRestriction> restrictions = 
+	                new List<ContentKeyAuthorizationPolicyRestriction>
 	            {
 	                new ContentKeyAuthorizationPolicyRestriction
 	                {
@@ -148,7 +156,8 @@ The code example in this topic shows how to create a common content key and get 
 	        {
 	            string tokenTemplateString = GenerateTokenRequirements();
 	
-	            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
+	            List<ContentKeyAuthorizationPolicyRestriction> restrictions = 
+	                new List<ContentKeyAuthorizationPolicyRestriction>
 	            {
 	                new ContentKeyAuthorizationPolicyRestriction
 	                {
@@ -206,23 +215,32 @@ The code example in this topic shows how to create a common content key and get 
 	            // The following code configures PlayReady License Template using .NET classes
 	            // and returns the XML string.
 	
-	            //The PlayReadyLicenseResponseTemplate class represents the template for the response sent back to the end user. 
-	            //It contains a field for a custom data string between the license server and the application 
-	            //(may be useful for custom app logic) as well as a list of one or more license templates.
-	            PlayReadyLicenseResponseTemplate responseTemplate = new PlayReadyLicenseResponseTemplate();
+	            //The PlayReadyLicenseResponseTemplate class represents the template 
+	            //for the response sent back to the end user. 
+	            //It contains a field for a custom data string between the license server 
+	            //and the application (may be useful for custom app logic) 
+	            //as well as a list of one or more license templates.
 	
-	            // The PlayReadyLicenseTemplate class represents a license template for creating PlayReady licenses
+	            PlayReadyLicenseResponseTemplate responseTemplate = 
+	                new PlayReadyLicenseResponseTemplate();
+	
+	            // The PlayReadyLicenseTemplate class represents a license template 
+	            // for creating PlayReady licenses
 	            // to be returned to the end users. 
-	            //It contains the data on the content key in the license and any rights or restrictions to be 
-	            //enforced by the PlayReady DRM runtime when using the content key.
+	            // It contains the data on the content key in the license 
+	            // and any rights or restrictions to be 
+	            // enforced by the PlayReady DRM runtime when using the content key.
 	            PlayReadyLicenseTemplate licenseTemplate = new PlayReadyLicenseTemplate();
-	            //Configure whether the license is persistent (saved in persistent storage on the client) 
-	            //or non-persistent (only held in memory while the player is using the license).  
+	
+	            // Configure whether the license is persistent 
+	            // (saved in persistent storage on the client) 
+	            // or non-persistent (only held in memory while the player is using the license).  
 	            licenseTemplate.LicenseType = PlayReadyLicenseType.Nonpersistent;
 	
 	            // AllowTestDevices controls whether test devices can use the license or not.  
 	            // If true, the MinimumSecurityLevel property of the license
-	            // is set to 150.  If false (the default), the MinimumSecurityLevel property of the license is set to 2000.
+	            // is set to 150.  If false (the default), 
+	            // the MinimumSecurityLevel property of the license is set to 2000.
 	            licenseTemplate.AllowTestDevices = true;
 	
 	            // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
@@ -235,9 +253,11 @@ The code example in this topic shows how to create a common content key and get 
 	            //then the DRM runtime will only allow the video to be displayed over digital outputs 
 	            //(analog video outputs won’t be allowed to pass the content).
 	
-	            //IMPORTANT: These types of restrictions can be very powerful but can also affect the consumer experience. 
+	            // IMPORTANT: These types of restrictions can be very powerful 
+	            // but can also affect the consumer experience. 
 	            // If the output protections are configured too restrictive, 
-	            // the content might be unplayable on some clients. For more information, see the PlayReady Compliance Rules document.
+	            // the content might be unplayable on some clients. 
+	            // For more information, see the PlayReady Compliance Rules document.
 	
 	            // For example:
 	            //licenseTemplate.PlayRight.AgcAndColorStripeRestriction = new AgcAndColorStripeRestriction(1);
@@ -257,7 +277,8 @@ The code example in this topic shows how to create a common content key and get 
 	                {
 	                    new ContentKeySpecs
 	                    {
-	                        required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+	                        required_output_protection = 
+	                            new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
 	                        security_level = 1,
 	                        track_type = "SD"
 	                    }
@@ -308,4 +329,21 @@ The code example in this topic shows how to create a common content key and get 
 	
 	    }
 	}
+	
 
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+
+##See also
+
+[Using PlayReady and/or Widevine Dynamic Common Encryption](media-services-protect-with-drm.md)
+
+[Using AES-128 Dynamic Encryption and Key Delivery Service](media-services-protect-with-aes128.md)
+
+[Using partners to deliver Widevine licenses to Azure Media Services](media-services-licenses-partner-integration.md)
