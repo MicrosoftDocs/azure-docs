@@ -122,7 +122,7 @@ By default, Document Explorer loads up to the first 100 documents in the selecte
 
 	![Screenshot of Document Explorer refresh command](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
 
-## Bulk add documents with Document Explorer
+## Bulk add documents
 
 Document Explorer supports bulk ingestion of one or more existing JSON documents, up to 100 JSON files per upload operation.  
 
@@ -134,7 +134,7 @@ Document Explorer supports bulk ingestion of one or more existing JSON documents
 
     The **Upload Document** blade opens. 
 
-2. Click the browse button to open a file explorer window and select one or more JSON documents to upload.
+2. Click the browse button to open a file explorer window, select one or more JSON documents to upload, and then click **Open**.
 
 	![Screenshot of Document Explorer bulk ingestion process](./media/documentdb-view-JSON-document-explorer/uploaddocument2.png)
 

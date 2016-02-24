@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="02/23/2016"
 	ms.author="anhoh"/>
 
 # Create and run stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer
 
-This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Script Explorer, which is a JavaScript editor in the Azure portal that enables you to view DocumentDB server-side programming artifacts including stored procedures, triggers, and user-defined functions. Read more about DocumentDB server-side programming in the [Stored procedures, database triggers, and UDFs](documentdb-programming.md) article.
+This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Script Explorer, which is a JavaScript editor in the Azure portal that enables you to view and execute DocumentDB server-side programming artifacts including stored procedures, triggers, and user-defined functions. Read more about DocumentDB server-side programming in the [Stored procedures, database triggers, and UDFs](documentdb-programming.md) article.
 
 ## Launch Script Explorer
 
@@ -31,11 +31,11 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
  
     >[AZURE.NOTE] Script Explorer also appears on the database and collection blades.
 
-3.  The **Database** and **Collection** drop-down list boxes are pre-populated depending on the context in which you launch Script Explorer.  For example, if you launch from a database blade, then the current database is pre-populated.  If you launch from a collection blade, then the current collection is pre-populated.
+    The **Database** and **Collection** drop-down list boxes are pre-populated depending on the context in which you launch Script Explorer.  For example, if you launch from a database blade, then the current database is pre-populated.  If you launch from a collection blade, then the current collection is pre-populated.
 
 	![Screenshot of Script Explorer](./media/documentdb-view-scripts/scriptexplorerinitial.png)
 
-4. The **Database** and **Collection** drop-down list boxes can be used to easily change the collection from which scripts are currently being viewed without having to close and re-launch Script Explorer.  
+4.  Use the **Database** and **Collection** drop-down list boxes to easily change the collection from which scripts are currently being viewed without having to close and re-launch Script Explorer.  
 
 5. Script Explorer also supports filtering the currently loaded set of scripts by their id property.  Simply type in the filter box and the results in the Script Explorer list are filtered based on your supplied criteria.
 
@@ -87,25 +87,25 @@ Script Explorer allows you to easily perform CRUD operations on DocumentDB serve
 
 	![Screenshot of Script Explorer delete command](./media/documentdb-view-scripts/scriptexplorerdeletescript2.png)
 
-## Execute stored procedures
+## Execute a stored procedure
 
 Script Explorer allows you to execute server-side stored procedures from the Azure portal.
 
 - When opening a new create stored procedure blade, a default script (*prefix*) will already be provided. In order to run the *prefix* script or your own script, add an *id* and *inputs*. For stored procedures that accept multiple parameters, all inputs must be within an array (e.g. *["foo", "bar"]*).
 
-	![Screenshot of Script Explorer script properties view](./media/documentdb-view-scripts/scriptexploreraddinputs.png)
+	![Screenshot of Script Explorer Stored Procedures blade to add input and execute a stored procedure](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-input.png)
 
-- To execute a script, simply click on the **Save & Execute** command within script editor pane.
+- To execute a stored procedure, simply click on the **Save & Execute** command within script editor pane.
 
 	> [AZURE.NOTE] The **Save & Execute** command will save your stored procedure before executing, which means it will overwrite the previously saved version of the stored procedure.
 
 - Successful stored procedure executions will have a *Successfully saved and executed the stored procedure* status and the returned results will be populated in the *Results* pane.
 
-	![Screenshot of Script Explorer script properties view](./media/documentdb-view-scripts/scriptexplorerexecsproc.png)
+	![Screenshot of Script Explorer Stored Procedures blade, to execute a stored procedure](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure.png)
 
 - If the execution encounters an error, the error will be populated in the *Results* pane.
 
-	![Screenshot of Script Explorer script properties view](./media/documentdb-view-scripts/scriptexplorerexecutesprocerror.png)
+	![Screenshot of Script Explorer script properties view. Execute a stored procedure with errors](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-error.png)
 
 ## Work with scripts outside the portal
 
