@@ -149,7 +149,7 @@ For the sampling percentage, choose a percentage that is close to 100/N where N 
 If you also enable fixed-rate sampling at the server, the clients and server will synchronize so that, in Search, you can  navigate between related page views and requests.
 
 
-## Enabling fixed-rate sampling at the server
+## Enabling fixed-rate sampling at your server
 
 1. **Update your project's NuGet packages** to the latest *pre-release* version of Application Insights. Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
 
@@ -186,7 +186,7 @@ If you also enable fixed-rate sampling at the server, the clients and server wil
 
 
 
-### Alternative: enable fixed-rate sampling in server code
+### Alternative: enable fixed-rate sampling in your server code
 
 
 Instead of setting the sampling parameter in the .config file, you can use code. 
@@ -213,7 +213,7 @@ Instead of setting the sampling parameter in the .config file, you can use code.
 
 ## When  to use sampling?
 
-Adaptive sampling is automatically enabled if you use the ASP.NET SDK version 2.0.0-beta3 or later.
+Adaptive sampling is automatically enabled if you use the ASP.NET SDK version 2.0.0-beta3 or later. No matter what SDK version you use, ingestion sampling (at our server) may operate if there is no sampling in the SDK.
 
 You don’t need sampling for most small and medium size applications. The most useful diagnostic information and most accurate statistics are obtained by collecting data on all of your user activities. 
 
@@ -226,13 +226,17 @@ The main advantages of sampling are:
 
 ### Fixed or adaptive sampling?
 
+All forms of sampling operate only above a certain threshold of traffic. For example, it won't affect most debugging sessions or low-use sites.
+
 Use fixed-rate sampling if:
 
 * You want synchronized sampling between client and server, so that, when you're investigating events in [Search](app-insights-diagnostic-search.md), you can navigate between related events on the client and server, such as page views and http requests.
 * You are confident of the appropriate sampling percentage for your app. It should be high enough to get accurate metrics, but below the rate that exceeds your pricing quota and the throttling limits. 
 * You aren't debugging your app. When you hit F5 and try a few pages of your app, you probably want to see all the telemetry.
 
-Otherwise, we recommend adaptive sampling. 
+Otherwise, we recommend adaptive sampling. This is enabled by default in the ASP.NET server SDK.
+
+If you don't use sampling at the SDK - for example if you're using Java, or if you disable sampling in ApplicationInsights.config - then ingestion sampling may operate as the data arrives at the Application Insights service. It's a form of adaptive sampling.
 
 ## How does sampling work?
 
@@ -275,7 +279,7 @@ The client-side (JavaScript) SDK participates in sampling in conjunction with se
 
 *Can I find out the sampling rate that adaptive sampling is using?*
 
- * Yes - use the code method of configuring adaptive sampling, and you can provide a callback that gets the sampling rate.
+ * Yes - use the code method of configuring adaptive sampling, and you can provide a callback that gets the sampling rate. If you use continuous export, you can see the sampling rate listed in the exported data points.
 
 *If I use fixed-rate sampling, how do I know which sampling percentage will work the best for my app?*
 

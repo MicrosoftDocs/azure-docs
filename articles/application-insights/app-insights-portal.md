@@ -19,6 +19,18 @@
 
 After you have [set up Application Insights on your project](app-insights-overview.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
 
+## The dashboard
+
+When you sign in to the [Azure portal](https://portal.azure.com), you first get to the dashboard. You can customize it or put it into full screen mode. This example has been customized to show the key charts its owners are interested in.
+
+
+![A customized dashboard.](./media/app-insights-portal/30.png)
+
+1. Click the top corner anytime to get back to the dashboard.
+2. **+ New** creates a new resource. An [Application Insights resource](app-insights-create-new-resource.md) is a place to store and analyze telemetry from your app.
+3. The navigation bar opens your existing resources.
+4. Edit and create dashboards using the dashboard toolbar.
+
 ## Find your telemetry
 
 Sign in to the [Azure portal](https://portal.azure.com) and browse to the Application Insights resource that you created for your app.
@@ -84,14 +96,28 @@ Choose what you want to see on the overview. In Customize, you can insert sectio
 
 ![Click Edit. Drag tiles and charts. Add tiles from the gallery. Then click Done.](./media/app-insights-portal/020-customize.png)
 
-### Customize the Azure dashboard
+## Dashboards
+
+The Azure portal dashboard is the home page you see when you first sign in to [the portal](https://portal.azure.com). On it, you can bring together charts and tiles (groups of charts) from multiple resources. 
+
+![Click Edit. Drag tiles and charts. Add tiles from the gallery. Then click Done.](./media/app-insights-portal/30.png)
+
+When you're looking at a blade or chart that's particularly interesting, you can pin it to the dashboard. You'll see it next time you return there.
+
+![To pin a chart, hover over it and then click "..." in the header.](./media/app-insights-portal/33.png)
+
+You can save more than one dashboard and switch between them. When you pin a chart or blade, they're added to the current dashboard.
+
+![To switch between dashboards, click Dashboard and select a saved dashboard. To create and save a new dashboard, click New. To rearrange, click Edit.](./media/app-insights-portal/32.png)
+
+For example, you might have one dashboard for displaying full screen in the team room, and another for general development.
 
 
-The Azure portal dashboard is the home page you see when you first sign in to the portal. On it, you can bring together tiles (groups of charts) from multiple resources. 
+On the dashboard, a blade appears as a tile: click it to go to the blade. A chart replicates the chart in its original location.
 
-To pin a tile from the Application Insights overview blade to the portal dashboard, select the header of the tile and then "...".
 
-For a more comprehensive dashboard, use [Power BI](https://azure.microsoft.com/blog/application-insights-content-pack-for-power-bi/) to display your telemetry.
+![](./media/app-insights-portal/35.png)
+
 
 ## Metrics blades
 

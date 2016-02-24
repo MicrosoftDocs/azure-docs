@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Deployment annotations for Application Insights | Microsoft Azure"
+    pageTitle="Release annotations for Application Insights | Microsoft Azure"
     description="Add deployment or build markers to your metrics explorer charts in Application Insights."
     services="application-insights"
     documentationCenter=".net"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/22/2016"
     ms.author="awills"/>
 
 # Release annotations in Application Insights
@@ -42,7 +42,7 @@ You need to do this for each release template that you want to create release an
 1. Sign in to the [Microsoft Azure Portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. (Or [create one now](app-insights-overview.md), if you haven't done so yet.)
 2. Open **Settings**, **API Access**, and take a copy of **Application Insights Id**.
 
-    ![In portal.azure.com, open your Application Insights resource and choose Settings. Open API Access. Copy the ](./media/app-insights-annotations/20.png)
+    ![In portal.azure.com, open your Application Insights resource and choose Settings. Open API Access. Copy the Application ID](./media/app-insights-annotations/20.png)
 
 2. In a separate browser window, open (or create) the release template that manages your deployments from Visual Studio Team Services. 
 
@@ -69,6 +69,11 @@ You need to do this for each release template that you want to create release an
 
 5. Finally, **Save** the release definition.
 
-## Deployment annotations
+## Release annotations
 
 Now, whenever you use the release template to deploy a new release, an annotation will be sent to Application Insights. The annotations will appear on charts in Metrics Explorer.
+
+Click on any annotation marker to open details about the release, including requestor, source control branch, release definition, environment, and more.
+
+
+    ![Click any release annotation marker.](./media/app-insights-annotations/20.png)
