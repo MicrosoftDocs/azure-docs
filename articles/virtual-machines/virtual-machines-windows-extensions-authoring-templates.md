@@ -30,7 +30,7 @@ From Azure PowerShell, run the following Azure PowerShell cmdlet:
 
 This cmdlet returns the publisher name, extension name, and version as follows:
 
-       Publisher                   : Microsoft.Azure.Extensions  
+      Publisher                   : Microsoft.Azure.Extensions  
       ExtensionName               : DockerExtension
       Version                     : 1.0
 

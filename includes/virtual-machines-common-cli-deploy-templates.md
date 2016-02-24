@@ -210,7 +210,7 @@ And away you go with your new VM.
 
 Use the instructions in these sections to deploy a new Azure VM by using a template with the Azure CLI. This template creates a single virtual machine in a new virtual network with a single subnet, and unlike `azure vm quick-create`, enables you to describe what you want precisely and repeat it without errors. Here's what this template creates:
 
-![](././media/virtual-machines-common-cli-deploy-templates/new-vm.png)
+![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
 
 ### Step 1: Examine the JSON file for the template parameters
 
@@ -740,7 +740,7 @@ Output looks something like the following:
 
 This template allows you to create two virtual machines under a load balancer and configure a load-balancing rule on Port 80. This template also deploys a storage account, virtual network, public IP address, availability set, and network interfaces.
 
-![](././media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
+![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
 
 Follow these steps to deploy a multi-VM application that uses a virtual network and a load balancer by using a Resource Manager template in the GitHub template repository via Azure PowerShell commands.
 

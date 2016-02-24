@@ -29,7 +29,7 @@ From Azure CLI, run the following commnad:
 
 This command returns the publisher name, extension name and version as following:
 
-       Publisher                   : Microsoft.Azure.Extensions  
+      Publisher                   : Microsoft.Azure.Extensions  
       ExtensionName               : DockerExtension
       Version                     : 1.0
 

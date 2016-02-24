@@ -17,7 +17,8 @@
 	ms.date="12/14/2015"
 	ms.author="danlep"/>
 
-# Equivalent Resource Manager and Service Management commands for VM tasks with the Azure command-line interface
+# Equivalent Resource Manager and Service Management commands for Linux VM tasks with the Azure command-line interface
+
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
