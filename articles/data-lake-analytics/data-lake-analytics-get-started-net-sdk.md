@@ -139,8 +139,7 @@ A sample search log has been copied to a public Azure Blob container. In the app
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value. This resource group should already exist.
                     _location = "East US 2";
                     
-                    string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                    string localFilePath = @"C:\local_path\file.txt"; // TODO: Make sure this exists and can be overwritten.
+                    string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and contains the U-SQL script.
                     
                     // Authenticate the user
                     // For more information about applications and instructions on how to get a client ID, see: 
