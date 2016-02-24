@@ -1,6 +1,6 @@
 <properties"
 pageTitle="title="List of Oracle VM images | Microsoft Azure"
-description="Get the list of Oracle images in the Azure Gallery and learn how to create an Oracle virtual machine based on one."
+description="Get the list of Oracle images in the Azure Gallery and learn how to create an Oracle virtual machine."
 services="virtual-machines"
 documentationCenter=""
 authors="bbenz"
