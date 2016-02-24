@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configuring Resilience and Recovery on Elasticsearch on Azure"
+   pageTitle="Configuring resilience and recovery on Elasticsearch on Azure"
    description="Considerations related to resiliency and recovery for Elasticsearch."
    services=""
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="02/18/2016"
    ms.author="masimms"/>
    
-# Configuring Resilience and Recovery on Elasticsearch on Azure
+# Configuring resilience and recovery on Elasticsearch on Azure
 
 This article is [part of a series](guidance-elasticsearch.md). 
 
