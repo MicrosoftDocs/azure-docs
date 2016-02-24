@@ -92,10 +92,10 @@ Australia Southeast | Australia East
 US Gov Iowa | US Gov Virginia
 
 <!--Anchors-->
-[image1]: ././media/virtual-machines-common-planned-maintenance/vmplanned1.png
-[image2]: ././media/virtual-machines-common-planned-maintenance/EventViewerPostReboot.png
+[image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
+[image2]: ./media/virtual-machines-common-planned-maintenance/EventViewerPostReboot.png
 [image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
-[image4]: ././media/virtual-machines-common-planned-maintenance/AvailabilitySetExample.png
+[image4]: ./media/virtual-machines-common-planned-maintenance/AvailabilitySetExample.png
 
 
 <!--Link references-->

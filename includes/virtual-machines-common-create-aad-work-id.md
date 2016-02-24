@@ -12,7 +12,7 @@ The steps are simple. You need to locate your signed on identity in the Azure cl
 
 Start by logging in to the [Azure classic portal](https://manage.windowsazure.com) with your personal Microsoft account identity. After you are logged in, scroll down the blue panel on the left side and click **ACTIVE DIRECTORY**.
 
-![Azure Active Directory](././media/virtual-machines-common-create-aad-work-id/azureactivedirectorywidget.png)
+![Azure Active Directory](./media/virtual-machines-common-create-aad-work-id/azureactivedirectorywidget.png)
 
 Let's start by finding some information about your identity in Azure. You should see something like the following in the main pane, showing that you have one default directory.
 
