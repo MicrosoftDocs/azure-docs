@@ -3,7 +3,7 @@
 	description="Learn how to monitor a storage account in Azure by using the Azure Portal."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/19/2016"
-	ms.author="tamram"/>
+	ms.author="robinsh"/>
 
 # Monitor a storage account in the Azure Portal
 
