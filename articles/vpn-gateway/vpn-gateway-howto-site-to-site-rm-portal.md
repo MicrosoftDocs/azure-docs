@@ -43,7 +43,7 @@ Verify that you have the following items before beginning configuration.
 
 - An externally-facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 	
-- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](http://azure.microsoft.com/pricing/free-trial/).
 
 ## About this configuration
 
@@ -85,8 +85,6 @@ In a virtual network, the *local site* typically refers to your on-premises loca
 [AZURE.INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
 ## Configure your VPN device
-
-At this point, you'll need the public IP address of the virtual network gateway for configuring your on-premises VPN device. Work with your device manufacturer for specific configuration information. Refer to the [VPN Devices](vpn-gateway-about-vpn-devices.md) for more information. 
 
 [AZURE.INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
