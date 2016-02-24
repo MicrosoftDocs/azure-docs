@@ -29,7 +29,7 @@ Use these steps to create an image based on an Azure VM.
 
 1. Create an Azure virtual machine. You can use the “Windows Server Remote Desktop Session Host” or the "Windows Server Remote Desktop Session Host with Microsoft Office 365 ProPlus" image from the Azure virtual machine image gallery. This image meets all the Azure RemoteApp template image requirements.
 
-	For details, see [Create a VM running Windows](../virtual-machines/virtual-machines-windows-tutorial.md).
+	For details, see [Create a VM running Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
 2. Connect to the VM and install and configure the apps that you want to share through RemoteApp. Make sure to perform any additional Windows configurations required by your apps.
 

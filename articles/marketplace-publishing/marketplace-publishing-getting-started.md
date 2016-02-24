@@ -57,7 +57,7 @@ Some steps are shared between the different types of solutions. This article pro
 
 - [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)
 - [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
-- [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines-windows-tutorial/)
+- [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines-windows-hero-tutorial/)
 
 **Data Services**
 

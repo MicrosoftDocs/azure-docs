@@ -53,7 +53,7 @@ Pack head node by using the Resource Manager deployment model in the Azure porta
 
     ![HPC Pack image][marketplace]
 
-4. Use the portal to configure the settings and create the VM. For detailed steps, follow the tutorial [Create a Windows virtual machine in the Azure portal](virtual-machines-windows-tutorial.md). For a first deployment you can usually accept many default or recommended settings.
+4. Use the portal to configure the settings and create the VM. For detailed steps, follow the tutorial [Create a Windows virtual machine in the Azure portal](virtual-machines-windows-hero-tutorial.md). For a first deployment you can usually accept many default or recommended settings.
 
     **VNet considerations**
 

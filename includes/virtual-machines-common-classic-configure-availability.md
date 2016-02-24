@@ -90,6 +90,6 @@ To use Azure PowerShell commands, open an administrator-level Azure PowerShell s
 [Load balancing for Azure infrastructure services]: virtual-machines-linux-load-balance.md
 [Manage the availability of virtual machines]: virtual-machines-linux-manage-availability.md
 
-[Create a virtual machine running Windows]: virtual-machines-windows-tutorial.md
+[Create a virtual machine running Windows]: virtual-machines-windows-hero-tutorial.md
 [Virtual Network overview]: virtual-networks-overview.md
 [Articles for virtual machines in Service Management]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines 

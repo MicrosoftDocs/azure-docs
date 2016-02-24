@@ -77,7 +77,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 <!-- LINKS -->
 [overview]: ../resource-group-overview.md
 
-[Create a Virtual Machine Running Windows]: virtual-machines-windows-tutorial.md
+[Create a Virtual Machine Running Windows]: virtual-machines-windows-hero-tutorial.md
 [Create a Virtual Machine Running Linux]: virtual-machines-linux-cli-create.md
 
 

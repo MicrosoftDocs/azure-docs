@@ -60,7 +60,7 @@ Choose an image based on the operating system you want to run. Azure and its par
 <!-- LINKS -->
 [overview]: ../resource-group-overview.md
 
-[Create a virtual machine running Windows]: virtual-machines-windows-tutorial.md
+[Create a virtual machine running Windows]: virtual-machines-windows-hero-tutorial.md
 
 [Equivalent Resource Manager and Service Management commands for virtual machine operations with the Azure CLI for Mac, Linux, and Windows]:virtual-machines-linux-cli-manage.md
 [Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI]: virtual-machines-linux-cli-deploy-templates.md
