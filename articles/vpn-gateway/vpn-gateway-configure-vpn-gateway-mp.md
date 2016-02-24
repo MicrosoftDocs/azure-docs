@@ -20,8 +20,14 @@
 # Configure a VPN gateway in the Azure Classic Portal
 
 
-If you want to create a secure cross-premises connection between Azure and your on-premises location, you'll need to configure a VPN gateway. There are different types of gateways and the type of gateway you'll create depends both on your network design plan, and the on-premises VPN device you want to use. For example, some connectivity options, such as a point-to-site connection, require a dynamic routing gateway. If you want to configure your gateway to support both point-to-site (P2S) connections and a site-to-site (S2S) connection, you'll have to configure a dynamic routing gateway even though site-to-site can be configured with either gateway routing type. Additionally, you'll have to make sure the device you want to use for your site-to-site connection will support the gateway VPN type that you want to create. See [About VPN Gateways](vpn-gateway-about-vpngateways.md).
+If you want to create a secure cross-premises connection between Azure and your on-premises location, you'll need to configure a VPN gateway. There are different types of VPN gateways and the type of VPN gateway you'll create depends both on your network design plan, and the on-premises VPN device you want to use. 
 
+For example, some connectivity options, such as a point-to-site connection, require a dynamic routing gateway. If you want to configure your gateway to support both point-to-site (P2S) connections and a site-to-site (S2S) connection, you'll have to configure a dynamic routing gateway even though site-to-site can be configured with either gateway routing type. 
+
+Additionally, you'll have to make sure that the device you want to use for your connection will support the VPN type that you want to create. See [About VPN Gateways](vpn-gateway-about-vpngateways.md).
+
+
+**About this article** 
 This article was written for the classic deployment model and the Azure Classic Portal (not the Azure Portal). At this time, if you want to configure a VPN Gateway for the classic deployment model using a portal, you must use the [Azure Classic Portal](https://manage.windowsazure.com). 
 
 **About Azure deployment models**
