@@ -38,6 +38,6 @@ Every Marketplace item has:
 
 Every item published to the Marketplace uses a format called the Azure Gallery Package (azpkg). Deployment or runtime resources (like code, zip files with software, virtual machines, or disks) shouldn't be included the Azure Gallery Package.
 
-## Next Steps
+## Next steps
 
 [Create a marketplace item](azure-stack-create-marketplace-item.md)

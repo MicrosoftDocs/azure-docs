@@ -358,7 +358,7 @@ Insert a telemetry initializer immediately after the initialization code that yo
     </script>
 ```
 
-For a summary of the non-custom properties available on the telemetryItem, see the [data model](app-insights-export-data-model.md/#lttelemetrytypegt).
+For a summary of the non-custom properties available on the telemetryItem, see the [data model](app-insights-export-data-model.md#lttelemetrytypegt).
 
 You can add as many initializers as you like. 
 

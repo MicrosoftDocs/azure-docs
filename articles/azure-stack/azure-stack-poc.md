@@ -30,6 +30,6 @@ Microsoft Azure Stack Technical Preview 1 release is being made available throug
 
 -   Networking scenarios are limited due to the single host/NIC requirement.
 
-## Next Steps
+## Next steps
 
 [Key features and concepts](azure-stack-key-features.md)

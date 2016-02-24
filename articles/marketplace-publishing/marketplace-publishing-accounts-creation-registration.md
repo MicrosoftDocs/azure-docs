@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="01/25/2016"
    ms.author="hascipio"/>
 
 # Create a Microsoft Developer account
@@ -93,7 +93,7 @@ The Microsoft Developer Center is used to register the company information once.
 
 10. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info (or PayPal in supported markets). When you are finished, click **Next** to move on to the **"Review screen"**.
 
-11. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the **Microsoft Azure Marketplace Publisher Agreement**. Check the box to indicate you have read and accepted these terms.
+11. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the [Microsoft Azure Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560). Check the box to indicate you have read and accepted these terms.
 
 12. Click **Finish** to confirm your registration. We'll send a confirmation message to your developer email address.
 

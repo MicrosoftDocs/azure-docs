@@ -1,4 +1,4 @@
-    <properties
+<properties
 	pageTitle="Add owners and users to a DevTest Lab | Microsoft Azure"
 	description="Securely add a user who is not in your subscription to your Azure DevTest Lab."
 	services="devtest-lab,virtual-machines"
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Add owners and users to a DevTest Lab
+
+> [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to set security in your DevTest Lab](/documentation/videos/how-to-set-security-in-your-devtest-lab) 
 
 ## Overview
 

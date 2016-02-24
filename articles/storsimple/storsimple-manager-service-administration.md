@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/27/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to administer your StorSimple device
@@ -34,7 +34,7 @@ The StorSimple Manager service runs in Microsoft Azure and connects to multiple 
 
 #### To connect to the service
 
-1. Navigate to [http://azure.microsoft.com/](https://azure.microsoft.com/)
+1. Navigate to [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 
 1. Using your Microsoft account credentials, log on to the Microsoft Azure classic portal (located at the top-right of the pane).
 

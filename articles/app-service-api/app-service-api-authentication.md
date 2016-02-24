@@ -18,7 +18,7 @@
 
 # Authentication and authorization for API Apps in Azure App Service
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
 
 ## Overview 
 
@@ -53,16 +53,14 @@ App Service can prevent anonymous HTTP requests from reaching your API app, it c
 
 1. Allow only authenticated requests to reach your API app.
 
-	If an anonymous request is received from a browser, App Service will redirect to a logon page. 
+	If an anonymous request is received from a browser, App Service will redirect to a logon page for the authentication provider (Azure AD, Google, Twitter, etc.) that you choose. 
 
-	If you know in advance which authentication provider (Google, Twitter, etc.) you want to use, you can configure App Service to handle the logon process for you.  As an alternative, you can specify your own URL to which App Service will redirect anonymous requests. You can then give users a choice of authentication providers.
-
-	With this option, you don't need to write any authentication code at all in your app, and authorization is simplified because the most important claims are provided in the HTTP headers.
+	With this option, you don't need to write any authentication code at all in your app, and authorization code is simplified because the most important claims are provided in the HTTP headers.
 
 2. Allow all requests to reach your API app, but validate authenticated requests and pass along authentication information in the HTTP headers.
 
-	This option gives you more flexibility in handling anonymous requests, and makes it easy to write code that needs access to the most common claims. Unlike option 1, you have to write code if you want to prevent anonymous users from using your API. 
-
+	This option gives you more flexibility in handling anonymous requests, but you have to write code if you want to prevent anonymous users from using your API. Since the most popular claims are passed in the headers of HTTP requests, authorization code is relatively simple.
+	
 3. Allow all requests to reach your API, take no action on authentication information in the requests.
 
 	This option leaves the tasks of authentication and authorization entirely up to your application code.
@@ -112,8 +110,4 @@ For more information about authentication using Azure Active Directory, see the 
 
 ## Next steps
 
-This article has explained authentication and authorization features of App Service that you can use for API apps. 
-
-If you are following the getting started sequence of tutorials for ASP.NET and API Apps, try out these features in the next tutorial, [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md).
-
-For more information about using Node and Java in Azure App Service, see the [Node.js Developer Center](/develop/nodejs/) and the [Java Developer Center](/develop/java/).
+This article has explained authentication and authorization features of App Service that you can use for API apps. In the next tutorial, you'll learn how to implement [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md).

@@ -42,6 +42,6 @@ ARM templates deploy and provision all of the resources for your application in 
 
 9.  In the **Edit Parameters** dialog box, enter values for the parameters (which vary by template), and then click **Save**.
 
-## Next Steps
+## Next steps
 
 [Deploy templates with the command line](azure-stack-deploy-template-command-line.md)

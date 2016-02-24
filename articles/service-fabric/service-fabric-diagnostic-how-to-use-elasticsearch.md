@@ -16,7 +16,7 @@
    ms.date="01/20/2016"
    ms.author="karolz@microsoft.com"/>
 
-# Use ElasticSearch as a Service Fabric application trace store
+# Use Elasticsearch as a Service Fabric application trace store
 ## Introduction
 This article describes how [Azure Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric/) applications can use **Elasticsearch** and **Kibana** for application trace storage, indexing, and search. [Elasticsearch](https://www.elastic.co/guide/index.html) is an open-source, distributed, and scalable real-time search and analytics engine that is well-suited for this task. It can be installed on Windows and Linux virtual machines running in Microsoft Azure. Elasticsearch can very efficiently process *structured* traces produced using technologies such as **Event Tracing for Windows (ETW)**.
 
@@ -39,7 +39,7 @@ The most straightforward way to set up the Elasticsearch service on Azure is thr
 Here, we will use another template, called **ES-MultiNode** from the [Microsoft patterns and practices ELK branch](https://github.com/mspnp/semantic-logging/tree/elk/). This template is somewhat easier to use, and it creates an Elasticsearch cluster protected by HTTP basic authentication by default. Before you proceed, please download the [Microsoft patterns and practices ELK repository](https://github.com/mspnp/semantic-logging/tree/elk/) from GitHub to your machine (by either cloning the repository or downloading a zip file). The ES-MultiNode template is located in the folder with the same name.
 >[AZURE.NOTE] The ES-MultiNode template and associated scripts currently support the Elasticsearch 1.7 release. Support for Elasticsearch 2.0 will be added at a later date.
 
-### Prepare a machine to run ElasticSearch installation scripts
+### Prepare a machine to run Elasticsearch installation scripts
 The easiest way to use the ES-MultiNode template is through a provided Azure PowerShell script called `CreateElasticSearchCluster`. To use this script, you need to install PowerShell modules and a tool called **openssl**. The latter is needed for creating an SSH key that can be used to administer your Elasticsearch cluster remotely.
 
 Note that the `CreateElasticSearchCluster` script is designed for ease of use with the ES-MultiNode template from a Windows machine. It is possible to use the template on a non-Windows machine, but that scenario is beyond the scope of this article.

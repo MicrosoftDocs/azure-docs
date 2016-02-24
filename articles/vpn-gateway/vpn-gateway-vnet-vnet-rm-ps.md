@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -23,17 +23,15 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-This article will walk you through the steps using the Resource Manager deployment model. If you are looking for a different deployment model for this configuration, use the tabs above to select the article you want. 
-
-At this time, we don't have a solution for VNet-to-VNet connections for virtual networks created using the Resource Manager deployment method that reside in different subscriptions. The team is currently working on a solution and we anticipate having steps by the end of the year or very early next year. When it is available, this article will reflect those steps. The steps below are for VNets that are in the same subscription. 
+This article will walk you through the steps to create a connection between virtual networks using the **Resource Manager** deployment model and PowerShell. At this time, we don't have documentation for VNet-to-VNet connections for virtual networks created using the Resource Manager deployment model that reside in different subscriptions. The team is currently working on a solution. When it is available, this article will reflect those steps. The steps below are for VNets that are in the same subscription.
 
 **About Azure deployment models**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 	
-- If your virtual networks were created using the Classic deployment model, see [Create a VNet-to-VNet connection](virtual-networks-configure-vnet-to-vnet-connection.md). The Classic deployment model supports connecting VNets that reside in different subscriptions.
+- If your virtual networks were created using the classic deployment model, see [Create a VNet-to-VNet connection](virtual-networks-configure-vnet-to-vnet-connection.md). The classic deployment model supports connecting VNets that reside in different subscriptions.
 	
-- If you want to connect a virtual network that was created in the Classic deployment model to a virtual network that was created using the Azure Resource Manager model, see [Connecting Classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
+- If you want to connect a virtual network that was created in the classic deployment model to a virtual network that was created using the Azure Resource Manager model, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## About VNet-to-VNet connections
 
@@ -85,8 +83,8 @@ This article will walk you through connecting two virtual networks, VNet1 and VN
 
 
 - Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-- Install the PowerShell modules. You'll need the latest version of the Azure Resource Manager PowerShell cmdlets to configure your connection. [AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
+	
+- You'll need to install the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 
 
 ## Step 1 - Plan your IP address ranges

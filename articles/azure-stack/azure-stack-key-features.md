@@ -118,7 +118,7 @@ The Network Resource Provider (NRP) delivers a series of Software Defined Networ
 
 ### Storage RP
 
-The Storage RP delivers three Azure-consistent storage services: blob, table, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md) on Azure.com or [download the Azure Stack Azure-consistent Storage Validation Guide](http://http://download.microsoft.com/download/A/3/0/A301E0CF-06D3-47BD-AA65-4B3108D5974D/Azure).
+The Storage RP delivers three Azure-consistent storage services: blob, table, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md) on Azure.com or [download the Azure Stack Azure-consistent Storage Validation Guide](http://aka.ms/azurestacktp1doc).
 
 #### Blob storage
 
@@ -140,6 +140,6 @@ Azure RBAC has three basic roles that apply to all resource types: Owner, Contri
 
 Microsoft Azure Stack collects and aggregates usage data across all resource providers to provide a concise report per user. Data can be as simple as consumed resource count, or as complex as individual performance and scale counters. The data is available via REST API. There is an Azure-consistent Tenant API as well as Provider and Delegated Provider APIs to get usage data across all tenant subscriptions. This data can be used to integrate with an external tool or service for billing or chargeback.
 
-## Next Steps
+## Next steps
 
 [Deploy Azure Stack Technical Preview 1 (POC)](azure-stack-deploy.md)

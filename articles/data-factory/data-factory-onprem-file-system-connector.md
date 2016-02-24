@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Move data to and from On-premises File System using Azure Data Factory
+# Move data to and from On-premises file system using Azure Data Factory
 
 This article outlines how you can use data factory copy activity to move data to and from on-premises file system. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
@@ -27,14 +27,14 @@ Data factory supports connecting to and from on-premises File System via the Dat
 > 
 > See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
 
-## Linux File Share 
+## Linux file share 
 
 Perform the following two steps to use a Linux file share with the File Server Linked Service:
 
 - Install [Samba](https://www.samba.org/) on your Linux Server.
 - Install and configure Data Management Gateway on a Windows server. Installing gateway on a Linux server is not supported. 
  
-## Sample: Copy data from On-premises File System to Azure Blob
+## Sample: Copy data from on-premises file system to Azure Blob
 
 This sample shows how to copy data from an on-premises file system to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
  
@@ -249,7 +249,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
-##Sample: Copy data from Azure SQL to On-premises File System 
+##Sample: Copy data from Azure SQL to on-premises file system 
 
 The sample below shows:
 
@@ -430,7 +430,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
-## OnPremisesFileServer Linked Service properties
+## OnPremisesFileServer linked service properties
 
 You can link an On-premises File System to an Azure Data Factory with On-Premises File Server Linked Service. The following table provides description for JSON elements specific to On-Premises File Server Linked Service. 
 
@@ -474,7 +474,7 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 	  }
 	}
 
-## On-premises File System Dataset type properties
+## On-premises file system dataset type properties
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure Blob, Azure Table, On-premises File System, etc...). 
 
@@ -569,7 +569,7 @@ To use Avro format in a subsequent Hive table, refer to [Apache Hive’s tutoria
 
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
-## File Share Copy Activity type properties
+## File Share copy activity type properties
 
 **FileSystemSource** supports the following properties:
 

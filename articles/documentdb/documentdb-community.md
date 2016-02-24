@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="12/22/2015"
+  ms.date="01/29/2016"
   ms.author="andrl"/>
 
 # Community portal
@@ -80,6 +80,8 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 **Community posts:**
 
+* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *by Robert Sheldon*
+
 * [**DocumentDB as a data sink for Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *by Jan Hentschel*
 
 * [**Azure DocumentDB in production!**](http://blog.nexapp.ca/2015/11/30/azure-documentdb-in-production/) - *by Alexandre Walsh and Marc-Olivier Duval*
@@ -124,6 +126,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                   | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/)                                                     | Andrew Liu                                                  | Bellevue, WA         | March 3, 2016          | n/a
 | SQLBits XV                                                                                                                 | tbd                                                         | Liverpool, UK        | May 4-7, 2016          | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
@@ -132,6 +135,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                   | Recording |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/)                                                | Merwan Chinta                                               | Austin, TX           | January 28, 2016       | n/a |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/)                                                       | Vincent-Philippe Lauzon                                     | Montreal, QC, Canada | December 1, 2015       | n/a |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/)                                                     | David Makogon                                               | Seattle, WA          | November 12, 2015      | n/a |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/)                                                                    | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | Seattle, WA          | October 27-30, 2015    | n/a |
@@ -210,14 +214,6 @@ Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up t
 | ------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | A language-independent collaboratively edited question and answer site for programmers. Follow our tag: [azure-documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
 | [![MSDN](./media/documentdb-community/msdn.png)](http://go.microsoft.com/fwlink/?LinkId=631655 )                                | A good place for support and feedback on Microsoft Azure features and services like Web Sites, DocumentDB, etc. |
-
-<br/><br/>
-
-### Internet Relay Chat + Office Hours
-
-You can chat with us in real-time over IRC on `chat.freenode.net` in the `#documentdb` channel with an [IRC client](http://www.irchelp.org/) or by connecting in your web channel to the channel using Freenode's [WebChat](http://webchat.freenode.net/?channels=documentdb).
-
-We host office hours on IRC every Friday from 11am to 12pm pacific time.
 
 <br/><br/>
 
