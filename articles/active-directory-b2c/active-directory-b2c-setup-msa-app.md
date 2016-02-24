@@ -29,9 +29,7 @@ To use Microsoft account as an identity provider in Azure Active Directory (Azur
 
     ![Microsoft account - Add a new app](./media/active-directory-b2c-setup-msa-app/msa-add-new-app.png)
 
-3. Provide an **Application name** and click **I accept**.
-
-	>[AZURE.NOTE] This requires you to accept Microsoft services terms of use.
+3. Provide an **Application name** and click **I accept**. This requires you to accept Microsoft services terms of use.
 
     ![Microsoft account - App name](./media/active-directory-b2c-setup-msa-app/msa-app-name.png)
 
@@ -43,9 +41,7 @@ To use Microsoft account as an identity provider in Azure Active Directory (Azur
 
     ![Microsoft account - Redirect URL](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
 
-6. Click **App Settings** on the left navigation. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Microsoft account as an identity provider in your tenant.
-
-	>[AZURE.NOTE] **Client secret** is an important security credential.
+6. Click **App Settings** on the left navigation. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Microsoft account as an identity provider in your tenant. **Client secret** is an important security credential.
 
     ![Microsoft account - Client secret](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
 
