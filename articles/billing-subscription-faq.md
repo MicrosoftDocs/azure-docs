@@ -49,7 +49,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [Does the monthly rate cover a single Azure plan or the entire account?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
 
-- [How do I upgrade to a higher tier Azure Support plan?](#how-do-i-upgrade-to-a-higher-tier-Azure-Support-plan)
+- [How do I upgrade to a higher tier Azure Support plan?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
 
 -	[When will I be billed for Azure Support?](#when-will-i-be-billed-for-azure-support)
 
