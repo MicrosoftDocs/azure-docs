@@ -8,7 +8,7 @@
  editor=""
  tags="azure-resource-manager,azure-service-management"/>
 <tags
-ms.service="virtual-machines,cloud-services"
+ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
