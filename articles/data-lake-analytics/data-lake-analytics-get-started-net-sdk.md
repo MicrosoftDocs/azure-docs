@@ -64,6 +64,7 @@ A sample search log has been copied to a public Azure Blob container. In the app
         Install-Package Microsoft.Azure.Management.DataLake.Analytics -Pre
         Install-Package Microsoft.Azure.Management.DataLake.Store -Pre
         Install-Package Microsoft.Azure.Management.DataLake.StoreUploader -Pre
+        Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
         Install-Package WindowsAzure.Storage
 
 4. Add a new file to the project called **SampleUSQLScript.txt**, and then paste the following U-SQL script. The Data Lake Analtyics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).

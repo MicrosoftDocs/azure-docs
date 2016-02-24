@@ -57,6 +57,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 	
 		* Microsoft.Azure.Management.DataLake.Store
 		* Microsoft.Azure.Management.DataLake.StoreUploader
+        * Microsoft.IdentityModel.Clients.ActiveDirectory
 
 		![Add a Nuget source](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
 
