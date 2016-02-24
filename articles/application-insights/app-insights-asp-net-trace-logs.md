@@ -26,13 +26,15 @@ If you use NLog, log4Net or System.Diagnostics.Trace for diagnostic tracing in y
 
 Install your chosen logging framework in your project. This should result in an entry in app.config or web.config.
 
+> You need to add an entry to web.config if you're using System.Diagnostics.Trace.
+
 ## Configure Application Insights to collect logs
 
 **[Add Application Insights to your project](app-insights-asp-net.md)** if you haven't done that yet. You'll see an option to include the log collector.
 
 Or **Configure Application Insights** by right-clicking your project in Solution Explorer. Select the options to include the log collector.
 
-**No Application Insights menu or log collector option?** Try [Troubleshooting](#troubleshooting).
+*No Application Insights menu or log collector option?* Try [Troubleshooting](#troubleshooting).
 
 
 ## Manual installation
@@ -52,7 +54,7 @@ Use this method if your project type isn't supported by the Application Insights
 
 The NuGet package installs the necessary assemblies, and also modifies web.config or app.config.
 
-#### Insert diagnostic log calls
+## Insert diagnostic log calls
 
 If you use System.Diagnostics.Trace, a typical call would be:
 
@@ -76,6 +78,8 @@ An advantage of TrackTrace is that you can put relatively long data in the messa
 
 
 ## Explore your logs
+
+Run your app, either in debug mode or deploy it live.
 
 In your app's overview blade in [the Application Insights portal][portal], choose [Search][diagnostic].
 

@@ -76,4 +76,4 @@ Now, whenever you use the release template to deploy a new release, an annotatio
 Click on any annotation marker to open details about the release, including requestor, source control branch, release definition, environment, and more.
 
 
-    ![Click any release annotation marker.](./media/app-insights-annotations/20.png)
+![Click any release annotation marker.](./media/app-insights-annotations/60.png)

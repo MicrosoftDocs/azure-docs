@@ -21,7 +21,7 @@ After you have [set up Application Insights on your project](app-insights-overvi
 
 ## The dashboard
 
-When you sign in to the [Azure portal](https://portal.azure.com), you first get to the dashboard. You can customize it or put it into full screen mode. This example has been customized to show the key charts its owners are interested in.
+When you sign in to the [Azure portal](https://portal.azure.com), you first get to the dashboard. You can customize it or put it into full screen mode. This example has been customized to show the key charts that interest its owners.
 
 
 ![A customized dashboard.](./media/app-insights-portal/30.png)
