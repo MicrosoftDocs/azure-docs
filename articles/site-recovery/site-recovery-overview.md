@@ -18,7 +18,7 @@
 
 #  What is Site Recovery?
 
-he Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. Read some common questions in our [FAQ](site-recovery-faq.md).
+The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. Read some common questions in our [FAQ](site-recovery-faq.md).
 
 ## Why use Site Recovery? 
 
