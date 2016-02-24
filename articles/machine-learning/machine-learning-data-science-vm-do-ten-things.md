@@ -824,7 +824,7 @@ The scored dataset can then be viewed:
 
 Azure SQL Data Warehouse is an elastic data warehouse as a service with enterprise-class SQL Server experience. 
 
-You can provision your Azure SQL Data Warehouse by following the instructions provided in this [article](https://azure.microsoft.com/documentation/articles/sql-data-warehouse-get-started-provision/). Once you provision your Azure SQL Data Warehouse, you can use this [walkthrough](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-sqldw-walkthrough/) to do data upload, exploration and modeling using data within the SQL Data Warehouse. 
+You can provision your Azure SQL Data Warehouse by following the instructions provided in this [article](sql-data-warehouse-get-started-provision.md). Once you provision your Azure SQL Data Warehouse, you can use this [walkthrough](machine-learning-data-science-process-sqldw-walkthrough.md) to do data upload, exploration and modeling using data within the SQL Data Warehouse. 
 
 #### Azure DocumentDB
 
