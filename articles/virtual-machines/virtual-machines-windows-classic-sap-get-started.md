@@ -20,5 +20,4 @@
 # Using SAP on Windows virtual machines (VMs)
 
 
-
 [AZURE.INCLUDE [virtual-machines-common-classic-sap-get-started](../../includes/virtual-machines-common-classic-sap-get-started.md)]
