@@ -2,6 +2,7 @@
    pageTitle="Comparing capabilities for managing external identities using Azure Active Directory | Microsoft Azure"
    description="Compares Azure Active Directory B2B collaboration, B2C, and Multi-tenant App for supporting authentication and authorization for external identities"
    services="active-directory"
+   documentationCenter="" 
    authors="arvindsuthar"
    manager="cliffdi"
    editor=""
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="01/22/2016"
+   ms.date="02/24/2016"
    ms.author="asuthar"/>
 
 # Comparing capabilities for managing external identities using Azure Active Directory
@@ -42,7 +43,7 @@ Do you need to securely and cost-effectively publish online applications, such a
 
 Each of the scenarios already discussed in this article is addressed by capabilities within Azure AD. This table should help clarify which capabilities are most relevant to you:
 
-| **Consider this product...**       | [Azure AD multi-tenant app](active-directory-developers-guide.md)    | [Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)        | [Azure AD B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)                |
+| **Consider this product...**       | [Azure AD multi-tenant SaaS app](active-directory-developers-guide.md)    | [Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)        | [Azure AD B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)                |
 |-----------------------|-------------------------|----------------------------|------------------------|
 | **If I need to provide...** | a service to businesses | partner access to my apps  | a service to consumers |
 | **And I am similar to...**  | Pharma distributor      | Imaging company            | Sports franchise       |
