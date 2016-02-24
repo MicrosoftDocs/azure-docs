@@ -48,7 +48,7 @@ Azure Security Center may recommend that you add a web application firewall (WAF
 11. Select the web application. A blade opens that gives you steps for finalizing the web application firewall setup. Complete the steps, and then select **Restrict traffic**. Security Center will then do the wiring-up for you.
 ![][6]
 
-> [AZURE.NOTE] The automatic provisioning process is based on Resource Manager WAF packages that are deployed to a separate VNet. Access to the protected web applications on Classic VMs is restricted to the WAF appliances only using NSG. This support will be extended to a fully customized deployment of Classic WAF packages in the future.
+> [AZURE.NOTE] The automatic provisioning process is based on WAF packages (created using the Resource Manager deployment model) that are deployed to a separate VNet. Access to the protected web applications on VMs (classic) is restricted to the WAF appliances only using NSG. This support will be extended to a fully customized deployment of WAF packages (classic) in the future. Learn more about the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
 
 The logs from that WAF are now fully integrated. Security Center can start automatically gathering and analyzing the logs so that it can surface important security alerts to you.
 

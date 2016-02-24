@@ -96,9 +96,9 @@ When a user opens Azure Security Center, only recommendations and alerts that ar
 To edit a security policy, you must be an Owner or Contributor of the subscription.
 
 ### What types of virtual machines will be supported?
-Both [Classic and Resource Manager](../azure-classic-rm.md) virtual machines are supported, including virtual machines that are part of Azure Service Fabric clusters.
+Virtual machines created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md) are supported, including virtual machines that are part of Azure Service Fabric clusters.
 
-Access Control List recommendations currently apply to Classic virtual machines. Network Security Groups currently only apply to Resource Manager virtual machines.
+Access Control List recommendations currently apply to virtual machines (classic). Network Security Groups currently only apply to virtual machines (Resource Manager).
 
 ### Are Linux virtual machines supported?
 Azure Security Center offers baseline monitoring for Linux virtual machines (Ubuntu versions 12.04, 14.04, 14.10, and 15.04 only). In the future, additional security health monitoring and data collection/analysis will be available, as well as support for additional Linux distros.

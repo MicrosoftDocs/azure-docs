@@ -62,15 +62,17 @@ The recommendations are shown in a table format where each line represents one p
     - **Medium**: A vulnerability exists and non-critical or additional steps are required to eliminate it or to complete a process.
     - **Low**: A vulnerability exists that should be addressed but does not require immediate attention. (By default, low recommendations aren't presented, but you can filter on low recommendations if you want to see them.)
 
-Use the table below as a reference to help you understand the available recommendations and what each one will do if you apply it:
+Use the table below as a reference to help you understand the available recommendations and what each one will do if you apply it.
+
+> [AZURE.NOTE] You will want to understand the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
 
 |Recommendation|Description|
 |-----|-----|
 |Enable Data Collection for subscriptions/virtual machines|Recommends that you turn on data collection in the security policy for each of your subscriptions or for select VMs.|
 |Resolve mismatch baseline rules|Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved.|
 |Apply system updates|Recommends that you deploy missing system security and critical updates to VMs (Windows VMs only).|
-|Configure ACLs for endpoints|Recommends that you configure access control lists to restrict inbound access to VMs (classic VMs only).|
-|[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints. The automatic provisioning process is based on Resource Manager WAF packages that are deployed to a separate VNet. Access to the protected web applications on Classic VMs is restricted to the WAF appliances only using NSG. This support will be extended to a fully customized deployment of Classic WAF packages in the future.|
+|Configure ACLs for endpoints|Recommends that you configure access control lists to restrict inbound access to VMs (classic only).|
+|[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints. The automatic provisioning process is based on WAF packages (created using the Resource Manager deployment model) that are deployed to a separate VNet. Access to the protected web applications on VMs (classic) is restricted to the WAF appliances only using NSG. This support will be extended to a fully customized deployment of WAF packages (classic) in the future.|
 |Finalize web application firewall setup|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
 |[Enable Antimalware](security-center-enable-antimalware.md)|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
 |Enable Network Security Groups on subnets/network interfaces|Recommends that you enable network security groups (NSGs) on subnets and network interfaces (Resource Manager VMs only).|
