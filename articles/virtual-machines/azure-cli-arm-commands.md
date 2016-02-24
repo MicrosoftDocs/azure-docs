@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Use the Azure CLI with Resource Manager | Microsoft Azure"
 	description="Learn about using the Azure CLI for Mac, Linux, and Windows to manage Azure resources using the CLI in Azure Resource Manager mode."
-	services="virtual-machines,virtual-network,mobile-services,cloud-services"
+	services="virtual-machines-linux,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
