@@ -19,6 +19,7 @@
 
 # Equivalent Resource Manager and Service Management commands for Windows VM tasks with the Azure command-line interface
 
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-cli-manage](../../includes/virtual-machines-common-cli-manage.md)]
