@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="02/23/2016"
 	ms.author="deonhe"/>
 
 # Here's the list of Microsoft-managed APIs for building apps
@@ -23,18 +23,18 @@ Select an icon to learn how to quickly leverage these APIs to build  apps that c
 
 For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 |APIs||||
 |-----------|-----------|-----------|-----------|
-|[![API Icon] [blobicon] <br> **Azure Blob**][azureblobdoc]|[![API Icon] [bingsearchicon] <br> **Bing Search**][bingsearchdoc]|[![API Icon] [boxicon] <br> **Box**][boxDoc]|[![API Icon] [crmonlineicon] <br> **CRM Online**][crmonlinedoc]|
-|[![API Icon] [dropboxicon] <br> **Dropbox**][dropboxdoc]|[![API Icon] [facebookicon] <br> **Facebook**][facebookdoc]|[![API Icon] [ftpicon] <br> **FTP**][ftpdoc]|[![API Icon] [googledriveicon] <br> **Google Drive**][googledrivedoc]|
-|[![API Icon] [microsofttranslatoricon] <br> **Translator**][microsofttranslatordoc]|[![API Icon] [office365icon] <br> **Office 365** <br> **Outlook**][office365outlookdoc]|[![API Icon] [office365icon] <br> **Office 365**<br> **Users**][office365usersdoc]|[![API Icon] [office365icon] <br> **Office 365** <br>**Video**][office365videodoc]|
-|[![API Icon] [onedriveicon] <br> **OneDrive**][onedrivedoc]|[![API Icon] [salesforceicon] <br> **Salesforce**][salesforcedoc]|[![API Icon] [servicebusicon] <br> **Service Bus**][servicebusdoc]|[![API Icon] [sftpicon] <br> **SFTP**][sftpdoc]|
-|[![API Icon] [sharepointicon] <br> **SharePoint**<br>**Server**][sharepointdoc]|[![API Icon] [slackicon] <br> **Slack** <br>][slackdoc]|[![API Icon] [smtpicon] <br> **SMTP**][smtpdoc]|[![API Icon] [sqlicon] <br> **SQL Azure**][sqldoc]|
-|[![API Icon] [twilioicon] <br> **Twilio**][twiliodoc]|[![API Icon] [twittericon] <br> **Twitter**][twitterdoc]|[![API Icon] [yammericon] <br> **Yammer**][yammerdoc] |
+|[![API Icon][blobicon]<br/>**Azure Blob**][azureblobdoc]|[![API Icon][bingsearchicon]<br/>**Bing Search**][bingsearchdoc]|[![API Icon][boxicon]<br/>**Box**][boxDoc]|[![API Icon][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|
+|[![API Icon][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][facebookicon]<br/>**Facebook**][facebookdoc]|[![API Icon][ftpicon]<br/>**FTP**][ftpdoc]|[![API Icon][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
+|[![API Icon][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Users**][office365usersdoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|
+|[![API Icon][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![API Icon][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![API Icon][servicebusicon]<br/>**Service Bus**][servicebusdoc]|[![API Icon][sftpicon]<br/>**SFTP**][sftpdoc]|
+|[![API Icon][sharepointicon]<br/>**SharePoint**<br/>**Server**][sharepointdoc]|[![API Icon][slackicon]<br/>**Slack**<br/>][slackdoc]|[![API Icon][smtpicon]<br/>**SMTP**][smtpdoc]|[![API Icon][sqlicon]<br/>**SQL Azure**][sqldoc]|
+|[![API Icon][twilioicon]<br/>**Twilio**][twiliodoc]|[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] |
 
->[AZURE.INFO] These APIs will work with version 2015-12-01-preview of the service.
+> [AZURE.INFO] These APIs will work with version 2015-12-01-preview of the service.
 
 ### APIs can be triggers
 Several APIs provide triggers that can notify your app when specific events occur. For example, the FTP API has the OnUpdatedFile trigger. You can build an either a logic app or power app that listens to this trigger and takes an action whenever the trigger is fired.
@@ -42,15 +42,14 @@ Several APIs provide triggers that can notify your app when specific events occu
 There are two types of triggers:  
 
 * Poll Triggers: These triggers poll your service at a specified frequency to check for new data. When new data is available, a new instance of your app runs with the data as input. To prevent the same data from being consumed multiple times, the trigger may clean-up data that has been read and passed to your app.
-* Push Triggers: These triggers listen for data on an endpoint or for an event to occur. Then, triggers a new instance of your app. The twitter API is one such example. TODO--verify that Twitter is a good example.
+* Push Triggers: These triggers listen for data on an endpoint or for an event to occur. Then, triggers a new instance of your app. The twitter API is one such example.
 
 
 ### APIs can be actions
 APIs can also be used as actions within your apps. Actions are useful for looking up data which can then be used in the execution of your app. For example, you may need to look up customer data from a SQL database when processing an order. Or, you may need to write, update or delete data in a destination table. You can do this using the actions provided by the APIs. Actions map to operations that are defined in the Swagger metadata.
 
 
-[What's new](TODO)  
-[Get help migrating to version 2015-12-01-preview](TODO)  
+[What's new](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
 [Build a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 [Get started with Power apps now](../power-apps/powerapps-get-started-azure-portal.md)  
 
