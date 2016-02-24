@@ -69,7 +69,7 @@ Using policies, these scenarios can easily be achieved as described below.
 
 Policy definition is created using JSON. It consists of one or more
 conditions/logical operators which define the actions and an effect
-which tells what happens when the conditions are fulfilled. The schema is published at http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json 
+which tells what happens when the conditions are fulfilled. The schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 
 Basically, a policy contains the following:
 
@@ -127,21 +127,21 @@ Sources: **action**.
 
 Property alias is a name that can be used in policy defniniton to access the resource type specific properties, such as settings, and skus. It works across all api versions that the property exists. Aliases can be retrieved using the REST API below ( Powershell support will be added in the future):
 
-	GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+    GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 	
 The defintion of an alias looks like below. As you can see, a alias defines pathes in different api versions, even when there is a property name change. 
 
-	"aliases": [
-	  {
-	    "name": "Microsoft.Storage/storageAccounts/sku.name",
-	    "paths": [
-	      {
-	        "path": "Properties.AccountType",
-	        "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
-	      }
-	    ]
-	  }
-	]
+    "aliases": [
+      {
+        "name": "Microsoft.Storage/storageAccounts/sku.name",
+        "paths": [
+          {
+            "path": "Properties.AccountType",
+            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
+          }
+        ]
+      }
+    ]
 
 currently, supported aliases are 
 
@@ -235,29 +235,30 @@ will be denied.
 ### Use Approved SKUs
 
 The below example shows the use of property alias to restrict SKUs. In the example below, only Standard_LRS and Standard_GRS is approved to use for storage accounts.
-	{
-	  "if": {
-	    "allOf": [
-	      {
-	        "source": "action",
-	        "like": "Microsoft.Storage/storageAccounts/*"
-	      },
-	      {
-	        "not": {
-	          "allof": [
-	            {
-	              "field": "Microsoft.Storage/storageAccounts/accountType",
-	              "in": ["Standard_LRS", "Standard_GRS"]
-	            }
-	          ]
-	        }
-	      }
-	    ]
-	  },
-	  "then": {
-	    "effect": "deny"
-	  }
-	}
+
+    {
+      "if": {
+        "allOf": [
+          {
+            "source": "action",
+            "like": "Microsoft.Storage/storageAccounts/*"
+          },
+          {
+            "not": {
+              "allof": [
+                {
+                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "in": ["Standard_LRS", "Standard_GRS"]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
     
 
 ### Naming Convention
