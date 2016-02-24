@@ -875,7 +875,7 @@ You now have the data in your Power BI data model. Your Power BI desktop should 
 
 You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](../documentdb/documentdb-powerbi-visualize.md#build-the-reports) to build a report. The end result will be a report that looks like the following.
 
-![Power BI Desktop Report View - Power BI connector](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview2.png)
+![Power BI Desktop Report View - Power BI connector](./media/machine-learning-data-science-vm-do-ten-things/power_bi_connector_pbireportview2.png)
 
 ## 9. Dynamically scale your DSVM to meet your project needs
 
