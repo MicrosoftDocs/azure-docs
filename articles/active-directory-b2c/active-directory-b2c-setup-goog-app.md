@@ -40,7 +40,7 @@ To use Google+ as an identity provider in Azure Active Directory (Azure AD) B2C,
 
     ![Google+ - OAuth consent screen](./media/active-directory-b2c-setup-goog-app/google-consent-screen.png)
 
-6. Click **Add credentials** and then choose **OAuth 2.0 client ID**.
+6. Click **New credentials** and then choose **OAuth client ID**.
 
     ![Google+ - OAuth consent screen](./media/active-directory-b2c-setup-goog-app/google-add-oauth2-client-id.png)
 
@@ -48,15 +48,11 @@ To use Google+ as an identity provider in Azure Active Directory (Azure AD) B2C,
 
     ![Google+ - OAuth consent screen](./media/active-directory-b2c-setup-goog-app/google-web-app.png)
 
-8. Provide a **Name** for your application, enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Authorized JavaScript origins** field, and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). Click **Create**.
-
-	>[AZURE.NOTE] The **{tenant}** value is case-sensitive.
+8. Provide a **Name** for your application, enter `https://login.microsoftonline.com` in the **Authorized JavaScript origins** field, and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). The **{tenant}** value is case-sensitive. Click **Create**.
 
     ![Google+ - Create client ID](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 
-9. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Google+ as an identity provider in your tenant.
-
-	>[AZURE.NOTE] **Client secret** is an important security credential.
+9. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Google+ as an identity provider in your tenant. **Client secret** is an important security credential.
 
     ![Google+ - Client secret](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
 
