@@ -50,13 +50,13 @@ The following examples demonstrate a variety of scenarios for copying data to an
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:"abc.txt"
 
->If the specified destination container does not exist, AzCopy will create it and upload the file into it.
+If the specified destination container does not exist, AzCopy will create it and upload the file into it.
 
 **Upload single file to virtual directory**
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 
->If the specified virtual directory does not exist, AzCopy will upload the file to include the virtual directory in its name (*e.g.*, `vd/abc.txt` in the example above).
+If the specified virtual directory does not exist, AzCopy will upload the file to include the virtual directory in its name (*e.g.*, `vd/abc.txt` in the example above).
 
 **Upload all files**
 
@@ -127,13 +127,13 @@ If you specify `/SetContentType` without a value, then AzCopy will set each blob
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 
->If the folder `C:\myfolder` does not exist, AzCopy will create it and download `abc.txt ` into the new folder.
+Note that if the folder `C:\myfolder` does not exist, AzCopy will create it and download `abc.txt ` into the new folder.
 
 **Download single blob from secondary region**
 
 	AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
->You must have read-access geo-redundant storage enabled.
+You must have read-access geo-redundant storage enabled.
 
 **Download all blobs**
 
@@ -194,25 +194,25 @@ Or if you want to exclude blobs whose last modified time is the same or older th
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
 
-###Copy
+### Copy
 
 **Copy single blob within Storage account**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt
 
->When you copy a blob within a Storage account, a [server-side copy]((http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)) operation is performed.
+When you copy a blob within a Storage account, a [server-side copy]((http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)) operation is performed.
 
 **Copy single blob across Storage accounts**
 
 	AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
 
->When you copy a blob across Storage accounts, a [server-side copy]((http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)) operation is performed.
+When you copy a blob across Storage accounts, a [server-side copy]((http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)) operation is performed.
 
 **Copy single blob from secondary region to primary region**
 
 	AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
 
->You must have read-access geo-redundant storage enabled.
+You must have read-access geo-redundant storage enabled.
 
 **Copy single blob and its snapshots across Storage accounts**
 
@@ -232,17 +232,21 @@ The `/SyncCopy` option ensures that the copy operation will get consistent speed
 
 	AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 
-Note that `/SyncCopy` might generate additional egress cost compared to asynchronous copy, the recommended approach is to use this option in an Azure VM that is in the same region as your source storage account to avoid egress cost.
+`/SyncCopy` might generate additional egress cost compared to asynchronous copy, the recommended approach is to use this option in an Azure VM that is in the same region as your source storage account to avoid egress cost.
 
 ## File Storage
 
 ### Upload
 
+**Upload single file**
+
+	AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:abc.txt
+
 **Upload all files**
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /S
 
-Note that any empty folders will not be copied.
+Empty folders will not be copied.
 
 **Upload files matching specified pattern**
 
@@ -254,7 +258,7 @@ Note that any empty folders will not be copied.
 
 	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-Note that if the specified source is an Azure file share, then you must either specify the exact file name, (*e.g.* `abc.txt`) to copy a single file, or specify option `/S` to copy all files in the share recursively. Attempting to specify both a file pattern and option `/S` together will result in an error.
+If the specified source is an Azure file share, then you must either specify the exact file name, (*e.g.* `abc.txt`) to copy a single file, or specify option `/S` to copy all files in the share recursively. Attempting to specify both a file pattern and option `/S` together will result in an error.
 
 **Download all files**
 
