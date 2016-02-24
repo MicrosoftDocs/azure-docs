@@ -1,6 +1,6 @@
 <properties
- pageTitle="About the A8, A9, A10, and A11 instances | Microsoft Azure"
- description="Get background information and considerations for using the Azure A8, A9, A10, and A11 compute-intensive sizes for virtual machines and cloud services."
+ pageTitle="About the A8 - A11 instances with Windows | Microsoft Azure"
+ description="Get background information and considerations for using the Azure A8, A9, A10, and A11 compute-intensive sizes for Windows VMs and cloud services"
  services="virtual-machines, cloud-services"
  documentationCenter=""
  authors="dlepow"
@@ -8,7 +8,7 @@
  editor=""
  tags="azure-resource-manager,azure-service-management"/>
 <tags
-ms.service="virtual-machines"
+ms.service="virtual-machines,cloud-services"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"

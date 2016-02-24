@@ -1,7 +1,7 @@
 <properties
- pageTitle="About the A8, A9, A10, and A11 instances | Microsoft Azure"
- description="Get background information and considerations for using the Azure A8, A9, A10, and A11 compute-intensive sizes for virtual machines and cloud services."
- services="virtual-machines, cloud-services"
+ pageTitle="About the A8 - A11 instances and Linux | Microsoft Azure"
+ description="Get background information and considerations for using the Azure A8, A9, A10, and A11 compute-intensive sizes for Linux VMs"
+ services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
@@ -16,7 +16,7 @@ ms.service="virtual-machines"
  ms.date="01/26/2016"
  ms.author="danlep"/>
 
-# About the A8, A9, A10, and A11 compute-intensive instances
+# About running Linux on the A8, A9, A10, and A11 compute-intensive instances
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -24,7 +24,7 @@ ms.service="virtual-machines"
 
 ## Access to the RDMA network
 
-Within a single cloud service or an availability set, the A8 and A9 instances can access the RDMA network in Azure to run Linux MPI applications. At this time, Azure Linux RDMA is supported only with [Intel MPI Library 5](https://software.intel.com/en-us/intel-mpi-library/).
+Within a single cloud service or an availability set, the A8 and A9 instances can access the RDMA network in Azure to run Linux MPI applications. At this time, Azure Linux RDMA is only supported with [Intel MPI Library 5](https://software.intel.com/en-us/intel-mpi-library/).
 
 >[AZURE.NOTE] Currently, Azure Linux RDMA drivers are not available for installation via driver extensions. They are available only by using the RDMA-enabled SLES 12 image from the Azure Marketplace.
 
