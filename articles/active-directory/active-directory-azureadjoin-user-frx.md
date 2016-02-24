@@ -25,7 +25,7 @@ If either Windows 10 Professional or Windows 10 Enterprise editions are installe
 ## To join a device to Azure AD
 
 
-1. After the **Getting Ready** stage, you are prompted to set up your device.
+1. When you turn on your new device and start the setup process, you should see the  **Getting Ready** message. Follow the prompts to set up your device.
 2. Start by customizing your region and language. Then accept the EULA.
 ![Customize for your region](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
 3. Select the network you want to use for connecting to the Internet.
