@@ -18,7 +18,7 @@
 
 
 
-# Use PowerShell cmdlets with Azure RemoteApp
+# Use Windows PowerShell cmdlets with Azure RemoteApp
 =====================================
 
  You can use the Azure RemoteApp PowerShell cmdlets to administer and maintain your collections. Use the following information to get started.
