@@ -1,18 +1,18 @@
-<properties 
+<properties
 	pageTitle="Runbook and module galleries for Azure Automation | Microsoft Azure"
 	description="Runbooks and modules from Microsoft and the community are available for you to install and use in your Azure Automation environment.  This article describes how you can access these resources and to contribute your runbooks to the gallery."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor="tysonn" />
-<tags 
+<tags
 	ms.service="automation"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/18/2016"
+	ms.date="02/24/2016"
 	ms.author="magoedte;bwren" />
 
 
@@ -41,7 +41,7 @@ You can only import directly from the Runbook Gallery using the Azure classic po
 
 ### To import a runbook from the Runbook Gallery with the Azure portal
 
-1. In the Azure Portal, open your Automation account. 
+1. In the Azure Portal, open your Automation account.
 2. Click on the **Runbooks** tile to open the list of runbooks.
 3. Click **Browse gallery** button. <br>
 ![Browse gallery button](media/automation-runbook-gallery/browse-gallery-button.png)
@@ -62,7 +62,7 @@ Microsoft encourages you to add runbooks to the Runbook Gallery that you think w
 
 - The upload must be a single .ps1 or .graphrunbook file.  If the runbook requires any modules, child runbooks, or assets, then you should list those in the description of the submission and in the comments section of the runbook.  If you have a solution requiring multiple runbooks, then upload each separately and list the names of the related runbooks in each of their descriptions. Make sure that you use the same tags so that they will show up in the same category. A user will have to read the description to know that other runbooks are required the solution to work.
 
-- Insert either a PowerShell or PowerShell Workflow code snippet into the description using **Insert code section** icon. 
+- Insert either a PowerShell or PowerShell Workflow code snippet into the description using **Insert code section** icon.
 
 - The Summary for the upload will be displayed in the Runbook Gallery results so you should provide detailed information that will help a user identify the functionality of the runbook.
 
@@ -87,24 +87,31 @@ Microsoft encourages you to add runbooks to the Runbook Gallery that you think w
 
 PowerShell modules contain cmdlets that you can use in your runbooks, and existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](http://www.powershellgallery.com).  You can launch this gallery from the Azure portal and install them directly into Azure Automation or you can download them and install them manually.  You cannot install the modules directly from the Azure classic portal, but you can download them install them as you would any other module.
 
-### To import a module from the PowerShell Gallery with the Azure portal
+### To import a module from the Automation Module Gallery with the Azure portal
 
-1. In the Azure Portal, open your Automation account. 
+1. In the Azure Portal, open your Automation account.
 2. Click on the **Assets** tile to open the list of assets.
 3. Click on the **Modules** tile to open the list of modules.
-3. Click on the **PowerShell gallery** button to launch the PowerShell Gallery in another browser window. <br>
-![PowerShell gallery](media/automation-runbook-gallery/powershell-gallery-button.png)
-4. Click the **Modules** menu to access the list of available modules.<br>
-![PowerShell gallery button](media/automation-runbook-gallery/powershell-gallery.png)
-4. Locate a module that you're interested in and select it to view its details.
-5. To install the module directly into Azure Automation, click the **Deploy to Azure Automation** button.<br>
-![PowerShell gallery button](media/automation-runbook-gallery/powershell-gallery-detail.png)
-6. You are returned to the Azure portal in a **Custom deployment** pane.  Specify whether you will install the module in a **New or Existing Automation Account** and the **Automation Account Name**.  The **Automation Account Location** is ignored if you use an existing account. 
-7. Select **Resource group** and either specify a existing resource group or create a new one for the module.
-6. You must select **Legal terms** and click **Buy**.  Note that despite the name of this button you are not actually charged for installing a module.
-7. Click **Create** to import the module.  This may take a couple of minutes since each activity needs to be extracted.  
-8. You will receive a notification that the module is being deployed and a notification when it has completed. 
+4. Click on the **Browse gallery** button and the Browse gallery blade is launched. <br>
+![Module gallery](media/automation-runbook-gallery/modules-blade-buttons.png) <br>
+5. After you have launched the Browse gallery blade, you can search by the following fields:
 
+   - Module Name
+   - Tags
+   - Author
+   - Cmdlet/DSC resource name
+
+6. Locate a module that you're intrested in and select it to view its details.  
+When you drill into a specific module, you can view more information about the module, including a link back to the PowerShell Gallery, any required dependencies, and all of the cmdlets and/or DSC resources that the module contains.
+![PowerShell module details](media/automation-runbook-gallery/gallery-item-details.png)
+
+7. To install the module directly into Azure Automation, click the **Import** button.<br>
+![Import module button](media/automation-runbook-gallery/module-import-button.png)
+8. When you click the Import button, you will see the module name that you are about to import. If all the dependencies are installed, the **OK** button will be active. If you are missing dependencies, you need to import those before you can import this module.
+9. Click **OK** to import the module, and the module blade will launch. When Azure Automation imports a module to your account, it extracts metadata about the module and the cmdlets.![Import module blade](media/automation-runbook-gallery/module-import-blade.png)<br>
+This may take a couple of minutes since each activity needs to be extracted.  
+11. You will receive a notification that the module is being deployed and a notification when it has completed.
+12. After the module is imported, you will see the available activities, and you can use its resources in your runbooks and Desired State Configuration.
 
 ## Requesting a runbook or module
 
