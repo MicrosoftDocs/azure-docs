@@ -39,17 +39,20 @@ This article was written for the classic deployment model using the [classic por
 
 The procedure below will walk you through configuring your VPN gateway in the Azure Classic Portal. These steps apply to gateways for VNets that were created using the Service Management mode and are visible in the Azure Classic Portal. They are not the steps for using the Preview Portal or for VNets configured using the Resource Manager mode. You can find information about creating VNet gateways for virtual networks created using the Resource Manager mode in [Create a virtual network with a site-to-site connection using Azure Resource Manager and PowerShell ](vpn-gateway-create-site-to-site-rm-powershell.md).
 
-Before you configure your gateway, you'll first need to create your virtual network. For steps to create a virtual network for cross-premises connectivity, see [Configure a virtual network with a site-to-site VPN connection](vpn-gateway-site-to-site-create.md), or [Configure a virtual network with a point-to-site VPN connection](vpn-gateway-point-to-site-create.md). Then, use the steps below to configure the VPN gateway and gather the information you'll need to configure your VPN device. 
 
-If you already have a VPN gateway and you want to change the routing type, see [How to change your VPN gateway routing type](#how-to-change-your-vpn-gateway-type).
-
-1. [Create a VPN gateway](#create-a-vpn-gateway)
+1. [Create a VPN gateway for your VNet](#create-a-vpn-gateway)
 
 1. [Gather information for your VPN device configuration](#gather-information-for-your-vpn-device-configuration)
 
 1. [Configure your VPN device](#configure-your-vpn-device)
 
 1. [Verify your local network ranges and VPN gateway IP address](#verify-your-local-network-ranges-and-vpn-gateway-ip-address)
+
+### Before you begin
+
+Before you configure your gateway, you'll first need to create your virtual network. For steps to create a virtual network for cross-premises connectivity, see [Configure a virtual network with a site-to-site VPN connection](vpn-gateway-site-to-site-create.md), or [Configure a virtual network with a point-to-site VPN connection](vpn-gateway-point-to-site-create.md). Then, use the steps below to configure the VPN gateway and gather the information you'll need to configure your VPN device. 
+
+If you already have a VPN gateway and you want to change the routing type, see [How to change your VPN gateway routing type](#how-to-change-your-vpn-gateway-type).
 
 ## Create a VPN gateway
 
