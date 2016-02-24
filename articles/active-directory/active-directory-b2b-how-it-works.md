@@ -2,6 +2,7 @@
    pageTitle="Azure AD B2B collaboration preview: How it works | Microsoft Azure"
    description="Describes how Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -41,3 +42,4 @@ While a paid Azure AD subscription (Basic or Premium) is not necessary to use Az
  - [External user token format](active-directory-b2b-references-external-user-token-format.md)
  - [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
  - [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
+ - [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

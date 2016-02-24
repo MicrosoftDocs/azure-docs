@@ -1,20 +1,19 @@
 <properties
-   pageTitle="Azure AD Connect: Supported topologies | Microsoft Azure"
-   description="This topic details supported and unsupported topologies for Azure AD Connect"
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="stevenpo"
-   editor=""/>
-
+    pageTitle="Azure AD Connect: Supported topologies | Microsoft Azure"
+    description="This topic details supported and unsupported topologies for Azure AD Connect"
+    services="active-directory"
+    documentationCenter=""
+    authors="AndKjell"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="01/22/2016"
-   ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+	ms.topic="get-started-article"
+    ms.date="02/12/2016"
+    ms.author="andkjell"/>
 
 # Topologies for Azure AD Connect
 

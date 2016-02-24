@@ -10,10 +10,10 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="02/22/2016"
    ms.author="yurid"/>
 
 # Setting security policies in Azure Security Center
@@ -65,12 +65,12 @@ Security policies are configured for each subscription. To modify a security pol
 
 | Policy | When State is On |
 |----- |-----|
-| System Updates | Retrieves a list of available updates from Windows Update or WSUS, depending on which service is configured for that virtual machine, every 12 hours and recommends missing updates be installed on your Windows virtual machines. |
+| System Updates | Retrieves a list of available updates from Windows Update or WSUS, depending on which service is configured for that virtual machine, every 12 hours and recommends missing security and critical updates be installed on your Windows virtual machines. |
 | Baseline Rules | Analyzes all supported virtual machines every 12 hours to identify any OS configurations that could make the virtual machine more vulnerable to attack and recommends configuration changes to address these vulnerabilities. See the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information on the specific configurations being monitored. |
 | Antimalware | Recommends antimalware be provisioned for all Windows virtual machines to help identify and remove viruses, spyware, and other malicious software. |
 | Access Control List on endpoints | Recommends that an [Access Controls List](virtual-machines-set-up-endpoints.md) (ACL) be configured to limit access to a Classic virtual machine endpoints. This would typically be used to ensure that only users who are connected to the corporate network can access the virtual machines. |
 | Network Security Groups | Recommends that [Network Security Groups](virtual-networks-nsg.md) (NSGs) be configured to control inbound and outbound traffic to subnets and network interfaces for Resource Manager virtual machines. NSGs configured for a subnet will be inherited by all virtual machine network interfaces unless otherwise specified. In addition to checking that an NSG has been configured, this option assesses inbound security rules to identify if there are any that allow incoming traffic. |
-| Web Application Firewall | Recommends a Web Application Firewall be provisioned on Resource Manager virtual machines when: [Instance Level Public IP](virtual-networks-instance-level-public-ip.md) (ILPIP) is used and the associated NSG Inbound Security Rules are configured to allow access to port 80/443. Load Balanced IP (VIP) is used and the associated load balancing and inbound NAT rules are configured to allow access to port 80/443 (for more information, see [Azure Resource Manager Support for Load Balancer](load-balancer-arm.md)) |
+| Web Application Firewall | Recommends a Web Application Firewall be provisioned on virtual machines when: [Instance Level Public IP](virtual-networks-instance-level-public-ip.md) (ILPIP) is used and the associated NSG Inbound Security Rules are configured to allow access to port 80/443. Load Balanced IP (VIP) is used and the associated load balancing and inbound NAT rules are configured to allow access to port 80/443 (for more information, see [Azure Resource Manager Support for Load Balancer](load-balancer-arm.md)) |
 | SQL Auditing | Recommends that auditing of access to Azure SQL Servers and Databases be enabled for compliance, advanced detection and investigation purposes. |
 | SQL Transparent Data Encryption | Recommends that encryption at rest be enabled for your Azure SQL databases, associated backups and transaction log files so that even if your data is breached, it will not be readable. |
 

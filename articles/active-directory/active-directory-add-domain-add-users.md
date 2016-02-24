@@ -59,6 +59,5 @@ This can also be done using [Microsoft PowerShell](https://msdn.microsoft.com/li
 - [Using custom domain names to simplify the sign-in experience for your users](active-directory-add-domain.md)
 - [Add company branding to your Sign In and Access Panel pages ](active-directory-add-company-branding.md)
 - [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md)
-- [Built-in domain name reference for Azure Active Directory](active-directory-add-domain-builtin-domains.md)
 - [Change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.md)
 - [Delete a custom domain in Azure Active Directory](active-directory-add-domain-delete-domain.md)

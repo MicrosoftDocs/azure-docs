@@ -28,9 +28,9 @@ This article assumes that you have a working knowledge of C# and Visual Studio. 
 
 ### Accounts
 
-- **Azure account**--If you do not already have an Azure subscription, you can create a free trial account in minutes at [Azure free trial](http://azure.microsoft.com/pricing/free-trial/).
+- **Azure account**--If you don't already have an Azure subscription, you can [create a free Azure account][azure_free_account].
 - **Batch account**--Once you have an Azure subscription, [create and manage an Azure Batch account](batch-account-create-portal.md).
-- **Storage account**--See the "Create a storage account" section in [About Azure storage accounts](../storage-create-storage-account.md).
+- **Storage account**--See the "Create a storage account" section in [About Azure storage accounts](./../storage/storage-create-storage-account.md).
 
 ### Visual Studio
 
@@ -243,7 +243,7 @@ The DotNetTutorial sample application does not use the JobPreparationTask or Job
 
 Shared access signatures are strings which--when included as part of a URL--provide secure access to containers and blobs in Azure Storage. The DotNetTutorial application uses both blob and container shared access signature URLs, and demonstrates how to obtain these shared access signature strings from the Storage service.
 
-- **Blob shared access signatures**--The pool's StartTask in DotNetTutorial uses blob shared access signatures when it downloads the application binaries and input data files from Storage (see Step #3 below). The `UploadFileToContainerAsync` method in DotNetTutorial's `Program.cs` contains the code that obtains each blob's shared access signature. It does so by calling [CloudblobData.GetSharedAccessSignature][net_sas_blob].
+- **Blob shared access signatures**--The pool's StartTask in DotNetTutorial uses blob shared access signatures when it downloads the application binaries and input data files from Storage (see Step #3 below). The `UploadFileToContainerAsync` method in DotNetTutorial's `Program.cs` contains the code that obtains each blob's shared access signature. It does so by calling [CloudBlob.GetSharedAccessSignature][net_sas_blob].
 
 - **Container shared access signatures**--As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, TaskApplication uses a container shared access signature that provides write access to the container as part of the path when it uploads the file. Obtaining the container shared access signature is done in a similar fashion as when obtaining the blob shared access signature. In DotNetTutorial, you will find that the `GetContainerSasUrl` helper method calls [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] to do so. You'll read more about how TaskApplication uses the container shared access signature in "Step 6: Monitor Tasks."
 
@@ -428,7 +428,7 @@ Within the `MonitorTasks` method in DotNetTutorial's `Program.cs`, there are thr
 
 2. **TaskStateMonitor**--[TaskStateMonitor][net_taskstatemonitor] provides Batch .NET applications with helper utilities for monitoring task states. In `MonitorTasks`, *DotNetTutorial* waits for all tasks to reach [TaskState.Completed][net_taskstate] within a time limit. Then it terminates the job.
 
-3. **TerminateJobAsync**--Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) will mark that job as completed. It is essential to do so if your Batch solution uses a [JobReleaseTask][net_jobreltask]. This is a special type of task, which is described in [Job preparation and completion tasks](batch-job-prep-release).
+3. **TerminateJobAsync**--Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) will mark that job as completed. It is essential to do so if your Batch solution uses a [JobReleaseTask][net_jobreltask]. This is a special type of task, which is described in [Job preparation and completion tasks](batch-job-prep-release.md).
 
 The `MonitorTasks` method from *DotNetTutorial*'s `Program.cs` appears below:
 
@@ -642,6 +642,7 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 - Check out a different implementation of processing the "top N words" workload by using Batch in the [TopNWords][github_topnwords] sample.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
+[azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
