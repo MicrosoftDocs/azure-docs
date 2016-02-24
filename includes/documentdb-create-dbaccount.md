@@ -25,7 +25,7 @@
 
 	![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deployed to a resource group - Online database creator notification](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.	After the DocumentDB account is created, it is ready for use with the default settings in the online portal. Note that the default consistency of the DocumentDB account is set to **Session**.  You can adjust the default consistency setting by clicking the **Key Icon** on the **Essentials bar**, then clicking the **Default Consistency** entry on the **All Settings** blade.
+5.	After the DocumentDB account is created, it is ready for use with the default settings in the online portal. Note that the default consistency of the DocumentDB account is set to **Session**.  You can adjust the default consistency setting by clicking the **Settings** icon on the top command bar, then clicking the **Default Consistency** entry under **Feature** on the **All Settings** blade.
 
     ![Screen shot of the Resource Group blade - begin application development](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
 
