@@ -222,9 +222,9 @@ Once you have set up a way to provide TwiML responses, you can pass that URL int
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
 
-[azure_twilio_howto_dotnet]: /develop/net/how-to-guides/twilio-voice-and-sms-service/
-[azure_twilio_howto_java]: /develop/java/how-to-guides/twilio-voice-and-sms-service/
-[azure_twilio_howto_node]: /develop/nodejs/how-to-guides/twilio-voice-and-sms-service/
-[azure_twilio_howto_ruby]: /develop/ruby/how-to-guides/twilio-voice-and-sms-service/
-[azure_twilio_howto_python]: /develop/python/how-to-guides/twilio-voice-and-sms-service/
-[azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
+[azure_twilio_howto_dotnet]: /twilio-dotnet-how-to-use-for-voice-sms.md
+[azure_twilio_howto_java]: /partner-twilio-java-how-to-use-voice-sms.md
+[azure_twilio_howto_node]: /partner-twilio-nodejs-how-to-use-voice-sms.md
+[azure_twilio_howto_ruby]: /partner-twilio-ruby-how-to-use-voice-sms.md
+[azure_twilio_howto_python]: /partner-twilio-python-how-to-use-voice-sms.md
+[azure_twilio_howto_php]: /partner-twilio-php-how-to-use-voice-sms.md
