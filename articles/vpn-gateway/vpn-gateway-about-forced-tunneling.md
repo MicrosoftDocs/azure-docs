@@ -28,8 +28,6 @@ Forced tunneling lets you redirect or "force" all Internet-bound traffic back to
 [AZURE.INCLUDE [vpn-gateway-forcedtunnel](../../includes/vpn-gateway-table-forcedtunnel-include.md)] 
 
 
-vpn-gateway-table-forcedtunnel-include
-
 **About Azure deployment models**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
