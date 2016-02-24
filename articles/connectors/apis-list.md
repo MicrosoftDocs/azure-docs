@@ -35,7 +35,7 @@ For pricing information and a list of what is included with each Service Tier, s
 |[![API Icon][twilioicon]<br/>**Twilio**][twiliodoc]|[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 
-> [AZURE.INFO] These APIs will work with version 2015-12-01-preview of the service.
+> [AZURE.NOTE] These APIs work with 2015-12-01-preview version of the service.
 
 ### APIs can be triggers
 Several APIs provide triggers that can notify your app when specific events occur. For example, the FTP API has the OnUpdatedFile trigger. You can build an either a logic app or power app that listens to this trigger and takes an action whenever the trigger is fired.
