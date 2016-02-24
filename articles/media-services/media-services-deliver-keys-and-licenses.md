@@ -34,6 +34,7 @@ The following diagram shows the main steps you need to take to use AMS to delive
 ![Protect with PlayReady](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
 
 
+##.NET code example
 
 The code example in this topic shows how to create a common content key and get PlayReady or Widevine license acquisition URLs. You need to get the following pieces of information from AMS and configure your on-premises server: **content key**, **key id**, **license acquisition URL**. Once you configure your on-premises server, you could stream from your own streaming server. Since the encrypted stream points to AMS license server, your player will request a license from AMS. If you choose token authentication, the AMS license server will validate the token you sent through HTTPS and (if valid) will deliver the license back to your player. (The code example only shows how to create a common content key and  get PlayReady or Widevine license acquisition URLs. If you want to delivery AES-128 keys, you need to create an envelope content key and get a key acquisition URL and [this](media-services-protect-with-aes128.md) article shows how to do it).
 	
