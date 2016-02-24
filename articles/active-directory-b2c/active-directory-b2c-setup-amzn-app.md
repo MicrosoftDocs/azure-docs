@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory B2C preview: Amazon configuration | Microsoft Azure"
-	description="Provide sign-up and sign-in to consumers with LinkedIn accounts in your applications that are secured by Azure Active Directory B2C."
+	description="Provide sign-up and sign-in to consumers with Amazon accounts in your applications that are secured by Azure Active Directory B2C."
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="swkrish"
@@ -34,15 +34,11 @@ To use Amazon as an identity provider in Azure Active Directory (Azure AD) B2C, 
 
     ![Providing application information for registering a new application at Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-register-app.png)
 
-5. In the **Web Settings** section, copy the values of **Client ID** and **Client Secret**. (You need to click the **Show Secret** button to see this.) You need both of them to configure Amazon as an identity provider in your tenant. Click **Edit** at the bottom of the section.
-
-	>[AZURE.NOTE] Client secret is an important security credential.
+5. In the **Web Settings** section, copy the values of **Client ID** and **Client Secret**. (You need to click the **Show Secret** button to see this.) You need both of them to configure Amazon as an identity provider in your tenant. Click **Edit** at the bottom of the section. **Client Secret** is an important security credential.
 
 	![Providing Client ID and Client Secret for your new application at Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
 
-6. Enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Allowed JavaScript Origins** field and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Allowed Return URLs** field. Replace **{tenant}** with your tenant's name (for example, contoso.onmicrosoft.com). Click **Save**.
-
->[AZURE.NOTE] The **{tenant}** value is case-sensitive.
+6. Enter `https://login.microsoftonline.com` in the **Allowed JavaScript Origins** field and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Allowed Return URLs** field. Replace **{tenant}** with your tenant's name (for example, contoso.onmicrosoft.com). Click **Save**. The **{tenant}** value is case-sensitive.
 
     ![Providing JavaScript Origins and Return URLs for your new application at Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 
