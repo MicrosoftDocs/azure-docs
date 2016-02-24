@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/23/16"
+	ms.date="02/23/2016"
 	ms.author="ryanwi"/>
 
 # Deploy, upgrade, test, and remove Service Fabric applications by using PowerShell
