@@ -72,7 +72,7 @@ You might also be interested in these related articles:
 
 - Azure Resource Manager: [Authoring Azure ARM Templates](../resource-group-authoring-templates/) and [Simple ARM Template Examples](https://github.com/rjmax/ArmExamples)
 
-- Storage account throttles: [How to Monitor for Storage Account Throttling](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) and [Premium storage](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-when-using-premium-storage)
+- Storage account throttles: [How to Monitor for Storage Account Throttling](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) and [Premium storage](../storage/storage-premium-storage/#scalability-and-performance-targets-when-using-premium-storage)
 
 [img-pubportal-menu-sol-templ]:media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
