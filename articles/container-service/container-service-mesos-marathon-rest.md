@@ -22,7 +22,7 @@
 
 Mesos provides an environment for deploying and scaling clustered workload while abstracting the underlying hardware. On top of Mesos, frameworks manage scheduling and executing compute workload. While frameworks are available for many popular workloads, this document will detail creating and scaling container deployments with Marathon.
 
-Before working through these examples, you will need a Mesos cluster configured in ACS and have remote connectivity to this cluster. For more information in these items see the following articles.
+Before working through these examples, you will need a Mesos cluster configured in ACS and have remote connectivity to this cluster. For more information on these items, see the following articles.
 
 - [Deploying an Azure Container Service Cluster](./container-service-deployment.md) 
 - [Connecting to an ACS Cluster](./container-service-connect.md)
@@ -36,13 +36,13 @@ API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
 
 ## Gather information from Mesos and Marathon
 
-Before deploying containers to the Mesos cluster, gather some information about the Mesos cluster such as the name and current status of the Mesos agents. To do so, query the `master/slaves` endpoint on a Mesos master. If everything goes well, you will see a list of Mesos agents and several properties for each.   
+Before deploying containers to the Mesos cluster, gather some information about the Mesos cluster such as the names and current status of the Mesos agents. To do so, query the `master/slaves` endpoint on a Mesos master. If everything goes well, you will see a list of Mesos agents and several properties for each.   
 
 ```bash
 curl http://localhost/master/slaves
 ```
 
-Now, use the Marathon `/apps` endpoint to check for and current Marathon deployments to the Mesos cluster. If this is a new cluster, you will see an empty array for apps.
+Now, use the Marathon `/apps` endpoint to check for current application deployments to the Mesos cluster. If this is a new cluster, you will see an empty array for apps.
 
 ```
 curl localhost/marathon/v2/apps
@@ -79,13 +79,13 @@ In order to deploy a Docker container, create your own json file, or use the sam
 curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-type: application/json"
 ```
 
-The output will be similar the following:
+The output will be similar to the following:
 
 ```json
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-Now if you query Marathon for running application, this new application will show in the output.
+Now, if you query Marathon for applications, this new application will show in the output.
 
 ```
 curl localhost/marathon/v2/apps
@@ -107,13 +107,13 @@ Run the following command to scale the application out.
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-Finally, query the Marathon endpoint for application instance. You will notice that there are now three.
+Finally, query the Marathon endpoint for applications, you will notice that there are now three of the nginx container.
 
 ```
 curl localhost/marathon/v2/apps
 ```
 
-## Marathon REST API PowerShell
+## Marathon REST API interaction with PowerShell
 
 These same action can be performed using PowerShell on a Windows system. This quick exercise will complete similar tasks as the last exercise, this time using PowerShell commands.
 
