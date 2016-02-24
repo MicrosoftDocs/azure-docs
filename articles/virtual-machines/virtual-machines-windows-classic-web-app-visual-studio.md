@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creating a VM for a web project using Visual Studio | Microsoft Azure"
-	description="Create a virtual machine for a web application"
+	pageTitle="Create a virtual machine for a web application| Microsoft Azure"
+	description="Creating a VM for a web project using Visual Studio and Windows."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="TomArcher"
@@ -20,5 +20,7 @@
 # Creating a virtual machine for a web application with Visual Studio
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
+<br>
 
 [AZURE.INCLUDE [virtual-machines-common-classic-web-app-visual-studio](../../includes/virtual-machines-common-classic-web-app-visual-studio.md)]

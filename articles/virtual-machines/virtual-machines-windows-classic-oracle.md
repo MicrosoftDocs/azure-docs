@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Oracle on Azure VMs | Microsoft Azure"
-	description="Find the articles that describe how to set up Oracle software on Windows-based or Linux-based Azure virtual machines."
+	description="Find the articles that describe how to set up Oracle software on a Windows virtual machine."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="bbenz"
@@ -21,4 +21,6 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
+
+<br>
 [AZURE.INCLUDE [virtual-machines-common-classic-oracle](../../includes/virtual-machines-common-classic-oracle.md)]
