@@ -16,7 +16,7 @@ ms.service="virtual-machines"
  ms.date="01/26/2016"
  ms.author="danlep"/>
 
-# About running Linux on the A8, A9, A10, and A11 compute-intensive instances
+# About using the A8, A9, A10, and A11 compute-intensive instances with Linux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
