@@ -1,6 +1,6 @@
 <properties
    pageTitle="ACS container management with the REST API | Microsoft Azure"
-   description="Deploy containers to an Azure Container Service cluster service using the Marathon REST API."
+   description="Deploy containers to an Azure Container Service Mesos cluster, using the Marathon REST API."
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
