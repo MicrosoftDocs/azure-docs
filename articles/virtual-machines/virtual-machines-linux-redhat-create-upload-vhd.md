@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
