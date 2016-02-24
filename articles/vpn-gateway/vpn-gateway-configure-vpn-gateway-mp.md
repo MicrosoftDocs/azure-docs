@@ -17,7 +17,7 @@
    ms.date="02/23/2016"
    ms.author="cherylmc" />
 
-# Configure a VPN gateway in the Azure Classic Portal
+# Configure a VPN gateway for the classic deployment model
 
 
 If you want to create a secure cross-premises connection between Azure and your on-premises location, you'll need to configure a VPN gateway. There are different types of VPN gateways and the type of VPN gateway you'll create depends both on your network design plan, and the on-premises VPN device you want to use. 
@@ -29,7 +29,7 @@ Additionally, you'll have to make sure that the device you want to use for your 
 
 **About this article** 
 
-This article was written for the classic deployment model and the Azure Classic Portal (not the Azure Portal). At this time, if you want to configure a VPN Gateway for the classic deployment model using a portal, you must use the [Azure Classic Portal](https://manage.windowsazure.com). 
+This article was written for the classic deployment model using the [classic portal](https://manage.windowsazure.com) (not the Azure Portal). When we have an article available for the resource manager deployment model, we will link to it from here. 
 
 **About Azure deployment models**
 
