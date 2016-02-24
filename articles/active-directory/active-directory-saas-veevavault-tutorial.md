@@ -73,6 +73,7 @@ To configure the integration of Veeva Vault into Azure AD, you need to add Veeva
 ![Creating an Azure AD test user](./media/active-directory-saas-veevavault-tutorial/tutorial_veevavault_01.png)<br>
 7. In the results pane, select **Veeva Vault**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-veevavault-tutorial/tutorial_veevavault_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Veeva Vault based on a test user called "Britta Simon".
@@ -108,6 +109,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     a. In the **Sign On URL** textbox, type the Reply URL for your Veeva Vault application using the following pattern: **“https://login.veevavault.com/auth/saml/consumer/\<TenantSSOID\>”**.
 
+    b. Click **Next**.
 
 4. On the **Configure single sign-on at Veeva Vault** page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-veevavault-tutorial/tutorial_veevavault_05.png) <br>

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # Application Insights for web pages
@@ -170,7 +170,7 @@ Click any row for specific details.
 
 > [AZURE.NOTE] If you delete the Browsers filter on the blade, both server and AJAX dependencies will be included in these charts. Click Restore Defaults to reconfigure the filter.
 
-**To drill into failed Ajax calls** one quick way is to change the failures chart to a grid, and then click a row to see specific instances.
+**To drill into failed Ajax calls** scroll down to the Dependency failures grid, and then click a row to see specific instances.
 
 ![](./media/app-insights-javascript/37.png)
 

@@ -13,8 +13,8 @@
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.topic="article"
+	ms.date="02/23/2016"
 	ms.author="trinadhk; jimpark; markgal"/>
 
 
