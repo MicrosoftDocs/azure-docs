@@ -58,7 +58,6 @@ These links will be useful for exploring the platform in depth:
   - [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
   - [Android OpenID Connect sample](https://github.com/learning-layers/android-openid-connect)
 
-
 <!-- TODO: These articles
 - [ADAL Library Reference]()
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
