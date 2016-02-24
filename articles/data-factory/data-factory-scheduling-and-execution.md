@@ -243,6 +243,25 @@ Once you kick off the rerun and the 9-10AM slice for dataset2 is ready, data fac
 
 For deeper dive on specifying dependency and tracking the dependencies for complex chain of activities and datasets, refer to sections below.
 
+## Chaining activities
+You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. 
+
+For example, consider the following case:
+ 
+1.	Pipeline P1 has Activity A1 that requires external input dataset D1, and produce **output** dataset **D2**.
+2.	Pipeline P2 has Activity A2 that requires **input** from dataset **D2**, and produces output dataset D3.
+ 
+In this scenario, the activity A1 will run when the external data is available, and the scheduled availability frequency is reached.  The activity A2 will run when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 will not run for that slice until it becomes available.
+
+The Diagram View would look like below:
+
+![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+
+The Diagram View with both activities in the same pipeline would look like below: 
+
+![Chaining activities in the same pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+
+
 ## Modeling datasets with different frequencies
 
 In the samples shown above, the frequencies for input and output datasets and activity schedule window were same. Some scenarios require the ability to produce output at a frequency different than frequencies of one or more inputs. Data factory supports modeling these scenarios.
@@ -510,24 +529,6 @@ The hive activity takes the 2 inputs and produces an output slice every day. You
 	   }
 	}
 
-
-## Chaining activities
-You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. 
-
-For example, consider the following case:
- 
-1.	Pipeline P1 has Activity A1 that requires external input dataset D1, and produce **output** dataset **D2**.
-2.	Pipeline P2 has Activity A2 that requires **input** from dataset **D2**, and produces output dataset D3.
- 
-In this scenario, the activity A1 will run when the external data is available, and the scheduled availability frequency is reached.  The activity A2 will run when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 will not run for that slice until it becomes available.
-
-The Diagram View would look like below:
-
-![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
-
-The Diagram View with both activities in the same pipeline would look like below: 
-
-![Chaining activities in the same pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
 ## Data Factory functions and system variables   
 
