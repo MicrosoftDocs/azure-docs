@@ -74,13 +74,13 @@ If you want to use the v2.0 endpoint in a production application, you have the f
 
 - If you are building a web application, you can safely use our generally available server-side middleware to perform sign in and token validation.  These include the OWIN Open ID Connect middleware for ASP.NET and our NodeJS Passport plugin.  Code samples using these middlewares are available in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section as well.
 - For other platforms and for native & mobile applications, you can also integrate with the v2.0 endpoint by directly sending & receiving protocol messages in your application code.  The v2.0 OpenID Connect and OAuth protocols [have been explicitly documented](active-directory-v2-protocols.md) to help you perform such an integration.
-- Finally, you can use open source Open ID Connect and OAuth libraries to integrate with the v2.0 endpoint.  The v2.0 protocol should be compatible with many open source protocol libraries without major changes.  The availability of such libraries varies per languange and platform, and the [Open ID Connect](http://openid.net/connect/) and [OAuth 2.0](http://oauth.net/2/) websites maintain a list of popular implementations. Below are the Open source client libraries and samples that have been tested with the v2.0 endpoint. Please note, features such as [OpenID Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) and token validation endpoints are not yet supported, and may need to be disabled in the library to work with the v2 endpoint:  
+- Finally, you can use open source Open ID Connect and OAuth libraries to integrate with the v2.0 endpoint.  The v2.0 protocol should be compatible with many open source protocol libraries without major changes.  The availability of such libraries varies per languange and platform, and the [Open ID Connect](http://openid.net/connect/) and [OAuth 2.0](http://oauth.net/2/) websites maintain a list of popular implementations. Below are the Open source client libraries and samples that have been tested with the v2.0 endpoint. Please note, features such as [OpenID Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) and token validation endpoints are not yet supported, and may need to be disabled in the library to work with the v2 endpoint: 
 
-- [Java WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
-- [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
-- [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
-- [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
-- [Android OpenID Connect sample](https://github.com/learning-layers/android-openid-connect)
+  - [Java WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
+  - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
+  - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
+  - [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
+  - [Android OpenID Connect sample](https://github.com/learning-layers/android-openid-connect)
 
 ## Restrictions on protocols
 The v2.0 endpoint only supports Open ID Connect & OAuth 2.0.  However, not all features and capabilities of each protocol have been incorporated into the v2.0 endpoint.  Some examples include:
