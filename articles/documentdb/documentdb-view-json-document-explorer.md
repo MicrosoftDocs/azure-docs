@@ -1,5 +1,5 @@
 <properties
-	pageTitle="DocumentDB Document Explorer  | Microsoft Azure"
+	pageTitle="DocumentDB Document Explorer, to view JSON | Microsoft Azure"
 	description="Learn about the DocumentDB Document Explorer, an Azure Portal tool to view JSON, edit, create, and upload JSON documents with DocumentDB, a NoSQL document database."
     keywords="view json"
 	services="documentdb"
@@ -23,7 +23,7 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
 
 ## Launch Document Explorer
 
-1. In the Azure Portal, in the Jumpbar, click **DocumentDB Accounts**. If **DocumentDB Accounts** is not visible, click **Browse** and then click **DocumentDB Accounts**.
+1. In the Azure portal, in the Jumpbar, click **DocumentDB Accounts**. If **DocumentDB Accounts** is not visible, click **Browse** and then click **DocumentDB Accounts**.
 
 2. At the top of the **DocumentDB account** blade, click **Document Explorer**. 
  
@@ -75,7 +75,7 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
 
 ## Work with JSON documents
 
-Document Explorer validates that any new or edited document contains valid JSON.  You can even hover over the incorrect section to get details about the validation error.
+Document Explorer validates that any new or edited document contains valid JSON.  You can even view JSON errors by hovering over the incorrect section to get details about the validation error.
 
 ![Screenshot of Document Explorer with invalid JSON highlighting](./media/documentdb-view-JSON-document-explorer/invalidjson1.png)
 
@@ -156,4 +156,4 @@ If you need to import or migrate files from another source (JSON files, MongoDB,
 
 To learn more about the DocumentDB SQL grammar supported in Document Explorer, see the [SQL query and SQL syntax](documentdb-sql-query.md) article or print out the [SQL query cheat sheet](documentdb-sql-query-cheat-sheet.md).
 
-The [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) is also a useful resource to guide you as you learn about DocumentDB. 
+The [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) is also a useful resource to guide you as you learn more about DocumentDB. 
