@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/10/2016"
+	ms.date="02/24/2016"
 	ms.author="curtand"/>
 
 # Setting up Azure Active Directory for self service group management
@@ -31,7 +31,7 @@ Self-service group management is currently comprised of two essential scenarios:
 
 ## Making a group available for end user self-service
 
-In the Azure portal, on the **Configure** tab, set the **Delegated group management** switch to Enabled, and then set the **Users can create security groups switch** or the **Users can create Office groups switch** to Enabled.
+In the Azure classic portal, on the **Configure** tab, set the **Delegated group management** switch to Enabled, and then set the **Users can create security groups switch** or the **Users can create Office groups switch** to Enabled.
 
 When the **Users can create security groups** switch is set to **Enabled**, all users in your directory are allowed to create new security groups and add members to these groups. These new groups would also show up in the Access Panel for all other users, and that other users can create requests to join these groups if the policy setting on the group allows this. If this switch is set to Disabled, users cannot create groups and cannot change existing groups that they are an owner of, but they can still manage the memberships of those groups and approve requests from other users to join their groups.
 

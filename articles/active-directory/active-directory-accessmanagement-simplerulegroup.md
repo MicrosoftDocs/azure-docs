@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/24/2016"
 	ms.author="curtand"/>
 
 
@@ -21,13 +21,17 @@
 
 To enable dynamic membership for a particular group, perform the following steps:
 
-1. In the Azure portal, under the **Groups** tab, select the group you want to edit, and then in this group’s **Configure** tab, set the **Enable Dynamic Memberships** switch to **Yes**.
+1. In the Azure classic portal, click **Active Directory**, and then click the name of your organization’s directory.
 
-2. You can now set up a simple single rule for the group that will control how dynamic membership for this group functions. Make sure the **Add users where** option is selected, and then select a user property from the list (for example, department, jobTitle, etc.),
+2. Click the **Groups** tab.
 
-3. Next, select a condition (Not Equals, Equals, Not Starts With, Starts With, Not Contains, Contains, Not Match, Match), and finally specify a value for the selected user property. For example, if a group is assigned to a SaaS application and you enable dynamic memberships for this group by setting a rule whereby **Add users where** is set to the jobTitle that Equals(-eq)Sales Rep, all users within your Azure AD directory whose job titles are set to Sales Rep will have access to this SaaS application.
+3. Select the group you want to edit, and then in this group’s **Configure** tab, set the **Enable Dynamic Memberships** switch to **Yes**.
 
-4. Note that you can set up a rule for dynamic membership on security groups or Office groups.  Dynamic Memberships for Groups require an Azure AD Premium license.
+4. Set up a simple single rule for the group that will control how dynamic membership for this group functions. Make sure the **Add users where** option is selected, and then select a user property from the list (for example, department, jobTitle, etc.),
+
+5. Next, select a condition (Not Equals, Equals, Not Starts With, Starts With, Not Contains, Contains, Not Match, Match), and finally specify a value for the selected user property. For example, if a group is assigned to a SaaS application and you enable dynamic memberships for this group by setting a rule whereby **Add users where** is set to the jobTitle that Equals(-eq)Sales Rep, all users within your Azure AD directory whose job titles are set to Sales Rep will have access to this SaaS application.
+
+6. Note that you can set up a rule for dynamic membership on security groups or Office 365 groups.  Dynamic memberships for groups require an Azure AD Premium license.
 
 These articles provide additional information on Azure Active Directory.
 

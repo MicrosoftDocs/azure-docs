@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/10/2016"
+	ms.date="02/24/2016"
 	ms.author="curtand"/>
 
 
@@ -25,9 +25,9 @@ Within Azure Active Directory (Azure AD), one of the major features is the abili
 
 ##How do I create and manage a security group
 
-**To create a group in the Azure portal**
+**To create a group in the Azure classic portal**
 
-1. In the Azure portal, click **Active Directory**, and then click the name of your organization’s directory.
+1. In the Azure classic portal, click **Active Directory**, and then click the name of your organization’s directory.
 2. Click the **Groups** tab.
 3. On the Groups page, click **Add Group**.
 4. In the **Add Group** window, specify the name and the description of a group.
@@ -35,18 +35,18 @@ Within Azure Active Directory (Azure AD), one of the major features is the abili
 
 ## How do I assign or remove users in a security group
 
-**To add a member to a group in the Azure portal**
+**To add a member to a group in the Azure classic portal**
 
-1. In the Azure portal, click **Active Directory**, and then click the name of your organization’s directory.
+1. In the Azure classic portal, click **Active Directory**, and then click the name of your organization’s directory.
 2. Click the **Groups** tab.
 3. On the **Groups** page, click on the name of the group that you want to add members to. By default, this displays the **Members** tab of the selected group.
 4. On that group’s page, click **Add Members**.
 5. On the **Add Members** page, click on the name of the user or a group that you want to add as a member of this group and make sure this name is added to the Selected pane.
 
 
-**To remove a member from a group in the Azure portal**
+**To remove a member from a group in the Azure classic portal**
 
-1. In the Azure portal, click **Active Directory**, and then click on the name of your organization’s directory.
+1. In the Azure classic portal, click **Active Directory**, and then click on the name of your organization’s directory.
 2. Click the **Groups** tab.
 3. On the Groups page, click on the name of the group that you want to remove members from.
 4. On that group’s page, click the **Members** tab.
@@ -58,11 +58,21 @@ Within Azure Active Directory (Azure AD), one of the major features is the abili
 
 **To enable dynamic membership for a particular group, perform the following steps:**
 
-1. In the Azure portal, under the **Groups** tab, select the group you want to edit, and then in this group’s **Configure** tab, set the **Enable Dynamic Memberships** switch to **Yes**.
-2. You can now set up a simple single rule for the group that will control how dynamic membership for this group functions. Make sure the **Add users where** radio button is checked and then select a user property from the pull-down menu (for example, department, jobTitle, etc.),
+1. In the Azure classic portal, click **Active Directory**, and then click the name of your organization’s directory.
+
+2. Click the **Groups** tab.
+
+3. Select the group you want to edit, and then in this group’s **Configure** tab, set the **Enable Dynamic Memberships** switch to **Yes**.
+
+4. Set up a simple single rule for the group that will control how dynamic membership for this group functions. Make sure the **Add users where** option is selected, and then select a user property from the list (for example, department, jobTitle, etc.),
+
+5. Next, select a condition (Not Equals, Equals, Not Starts With, Starts With, Not Contains, Contains, Not Match, Match), and finally specify a value for the selected user property.
+
+6. Note that you can set up a rule for dynamic membership on security groups or Office 365 groups.  Dynamic memberships for groups require an Azure AD Premium license. Nested group memberships are not supported for group-based assignment to applications at this time.
+
 3. Next, select a condition (Not Equals, Equals, Not Starts With, Starts With, Not Contains, Contains, Not Match, Match), and finally specify a value for the selected user property.
 
-For example, if a group is assigned to a SaaS application (for more information see Assign access for a group to a SaaS application in Azure AD) and you enable dynamic memberships for this group by setting a rule whereby Add users where is set to the jobTitle that Equals(-eq)Sales Rep, all users within your Azure AD directory whose job titles are set to Sales Rep, will have access to this SaaS application.
+For example, if a group is assigned to a SaaS application and you enable dynamic memberships for this group by setting a rule whereby Add users where is set to the jobTitle that Equals(-eq)Sales Rep, all users within your Azure AD directory whose job titles are set to Sales Rep, will have access to this SaaS application. For more information, see [Assign access for a group to a SaaS application in Azure AD](active-directory-accessmanagement-group-saasapps.md).
 
 ## Additional information
 

@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/24/2016"
 	ms.author="curtand"/>
 
 # Managing owners for a group
 
 ## Assigning owners to a group
 
-**To add an owner to a group in the Azure portal**
+**To add an owner to a group in the Azure classic portal**
 
-1. In the Azure portal, click **Active Directory**, and then click the name of your organization’s directory.
+1. In the Azure classic portal, click **Active Directory**, and then click the name of your organization’s directory.
 2. Click the **Groups** tab.
 2. On the **Groups** page, click on the name of the group that you want to add owners to.
 3. On that group’s page, click **Add Owners**.
@@ -32,7 +32,7 @@
 
 **To remove an owner from a group from the Azure portal**
 
-1. In the Azure portal, click **Active Directory**, and then click the name of your organization’s directory.
+1. In the Azure classic portal, click **Active Directory**, and then click the name of your organization’s directory.
 2. Click the **Groups** tab.
 3. On the **Groups** page, click the name of the group that you want to remove an owner from.
 4. On that group’s page, click the **Owners** tab.

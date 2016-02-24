@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/24/2016"
 	ms.author="curtand"/>
 
 
@@ -44,7 +44,7 @@ The total length of the body of your advanced rule cannot exceed 2048 characters
 >String and regex operations are case insensitive. You can also perform Null checks, using $null as a constant, for example, user.department -eq $null.
 Strings containing quotes " should be escaped using 'character, for example, user.department -eq "Sa`"les".
 
-##Supported expression rule operators
+## Supported expression rule operators
 The following table lists all the supported expression rule operators and their syntax to be used in the body of the advanced rule:
 
 | Operator        | Syntax         |
