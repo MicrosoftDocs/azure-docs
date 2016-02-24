@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connecting Azure SQL Database to Azure Search Using Indexers | Microsoft Azure | Hosted cloud search service" 
+	pageTitle="Connecting Azure SQL Database to Azure Search Using Indexers | Microsoft Azure | Indexers" 
 	description="Learn how to pull data from Azure SQL Database to an Azure Search index using indexers." 
 	services="search" 
 	documentationCenter="" 

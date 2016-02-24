@@ -11,14 +11,14 @@
 <tags 
 	ms.service="stream-analytics" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="02/11/2016"
 	ms.author="jeffstok"
 />
 
-# Azure Stream Analytics and IoT event processing
+# Get started with Azure Stream Analytics to process data from IoT devices
 
 In this tutorial you will learn to create stream processing logic to gather data from Internet of Things (IoT) devices. We will use a real-world, Internet of Things (IoT) use-case to demonstrate how to build your solution quickly and economically.
 
