@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/10/2016"
    ms.author="sameerch"/>
 
 
 # Get started with the Chatter Connector and add it to your Logic App 
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
 Connect to Chatter and post a message or search a feed. For example, you can search a Chatter feed and when you find something specific, you can post that Chatter message to a Sales group.
 
 You can add the Chatter connector to your business workflow and process data as part of this workflow within a Logic App. 

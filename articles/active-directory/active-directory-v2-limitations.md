@@ -76,6 +76,14 @@ Not all languages and platforms have libraries that support the v2.0 app model p
 
 If you wish to integrate an app with the v2.0 app model using another language or platform, refer to the [OAuth 2.0 and OpenID Connect Protocol Reference](active-directory-v2-protocols.md) which will instruct you on how to construct the HTTP messages necessary to communicate with the v2.0 endpoint.
 
+Below are the Open source client libraries and samples that have been tested with the v2.0 endpoint. Please note, features such as [OpenID Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) and token validation endpoints are not yet supported, and may need to be disabled in the library to work with the v2 endpoint:  
+
+- [Java WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
+- [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
+- [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
+- [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
+- [Android OpenID Connect sample](https://github.com/learning-layers/android-openid-connect)
+
 ## Restrictions on Protocols
 The v2.0 app model supports Open ID Connect & OAuth 2.0.  However, not all features and capabilities of each protocol have been incorporated into the v2.0 app model.  Some examples include:
 
