@@ -1,14 +1,14 @@
 <properties
  pageTitle="Run OpenFOAM with HPC Pack on Linux VMs | Microsoft Azure"
  description="Deploy a Microsoft HPC Pack cluster on Azure and run an OpenFOAM job on multiple Linux compute nodes across an RDMA network."
- services="virtual-machines"
+ services="virtual-machines-linux"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
  tags="azure-service-management,hpc-pack"/>
 <tags
- ms.service="virtual-machines"
+ ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"

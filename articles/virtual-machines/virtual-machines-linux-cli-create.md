@@ -2,7 +2,7 @@
 	pageTitle="Create a Linux virtual machine | Microsoft Azure"
 	description="Learn to create a Linux virtual machine or Ubuntu virtual machine by using an image from Azure and the Azure Command-Line Interface."
 	keywords="linux virtual machine,virtual machine linux,ubuntu virtual machine" 
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
@@ -10,7 +10,7 @@
 	tags="azure-resource-manager" />
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

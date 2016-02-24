@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Linux and Open-Source Computing on Azure | Microsoft Azure"
 	description="Lists Linux and Open-Source Computing articles on Azure, including basic Linux usage, some fundamental concepts about running or uploading Linux images on Azure, and other content about specific technologies and optimizations."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.devlang="NA"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"

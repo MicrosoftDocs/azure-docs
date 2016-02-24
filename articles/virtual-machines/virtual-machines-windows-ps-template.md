@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create a VM with a template | Microsoft Azure"
 	description="Use a Resource Manager template to easily create a new Windows virtual machine with PowerShell."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

@@ -4,12 +4,12 @@
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	authors="gbowerman"
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="linux"
 	ms.devlang="na"

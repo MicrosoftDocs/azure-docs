@@ -1,14 +1,14 @@
 <properties
    pageTitle="Azure virtual machine deployment with Chef | Microsoft Azure"
    description="Learn how to use Chef to do automated virtual machine deployment and configuration on Microsoft Azure"
-   services="virtual-machines"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="diegoviso"
    manager="timlt"
    tags="azure-service-management,azure-resource-manager"
    editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services"
+<tags ms.service="virtual-machines-windows" ms.workload="infrastructure-services"
 ms.tgt_pltfrm="vm-multiple"
 ms.devlang="na"
 ms.topic="article"

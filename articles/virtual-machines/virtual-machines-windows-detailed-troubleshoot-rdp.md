@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Detailed Remote Desktop troubleshooting | Microsoft Azure"
 	description="Detailed troubleshooting steps for RDP connections to an Azure virtual machine running Windows."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

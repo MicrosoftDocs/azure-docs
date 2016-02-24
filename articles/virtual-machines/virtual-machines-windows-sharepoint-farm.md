@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create SharePoint server farms | Microsoft Azure"
 	description="Quickly create a new basic or highly-available SharePoint Server 2013 farm with the Azure portal marketplace."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"

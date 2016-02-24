@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Optimize MySQL Performance on Linux VMs | Microsoft Azure"
 	description="Learn how to optimize MySQL running on an Azure virtual machine (VM) running Linux."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

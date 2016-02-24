@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create an Azure virtual machine running Linux in the Azure classic portal | Microsoft Azure"
 	description="Use the Azure classic portal to create an Azure virtual machine (VM) running Linux with the Azure resource groups."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

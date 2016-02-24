@@ -2,7 +2,7 @@
 	pageTitle="Troubleshoot Remote Desktop connection to an Azure VM | Microsoft Azure"
 	description="Troubleshoot Remote Desktop connection errors for a Windows VM. Get quick mitigation steps, help by error message and detailed network troubleshooting."
 	keywords="Remote desktop error,remote desktop connection error,cannot connect to VM,remote desktop troubleshooting"
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
@@ -10,7 +10,7 @@
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

@@ -2,14 +2,14 @@
 	pageTitle="Base Configuration Test Environment with Azure Resource Manager"
 	description="Learn how to create a simple dev/test environment that simulates a simplified intranet in Microsoft Azure using Resource Manager."
 	documentationCenter=""
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"

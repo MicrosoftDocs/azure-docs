@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Attach a data disk | Microsoft Azure"
 	description="How to attach new or existing data disk to a VM in the Azure portal using the Resource Manager deployment model."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

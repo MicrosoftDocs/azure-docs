@@ -1,14 +1,14 @@
 <properties
  pageTitle="Submit jobs to an HPC Pack cluster in Azure | Microsoft Azure"
  description="Learn how to set up an on-premises computer to submit jobs to an HPC Pack cluster in Azure"
- services="virtual-machines"
+ services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
  tags="azure-resource-manager,azure-service-management,hpc-pack"/>
 <tags
-ms.service="virtual-machines"
+ms.service="virtual-machines-windows"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"

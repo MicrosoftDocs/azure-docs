@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Planned maintenance for Azure VMs | Microsoft Azure"
 	description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="drewm"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Different ways to create a Windows VM | Microsoft Azure"
 	description="Lists the different ways to create a Windows virtual machine with Resource Manager."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="index-page"
 	ms.tgt_pltfrm="vm-windows"

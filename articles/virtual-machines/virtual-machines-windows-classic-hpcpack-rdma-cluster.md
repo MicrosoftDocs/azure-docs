@@ -1,14 +1,14 @@
 <properties
  pageTitle="Set up a Windows RDMA cluster to run MPI applications | Microsoft Azure"
  description="Learn how to create a Windows HPC Pack cluster with size A8 or A9 VMs to use the Azure RDMA network to run MPI apps."
- services="virtual-machines"
+ services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
  tags="azure-service-management,hpc-pack"/>
 <tags
-ms.service="virtual-machines"
+ms.service="virtual-machines-windows"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"

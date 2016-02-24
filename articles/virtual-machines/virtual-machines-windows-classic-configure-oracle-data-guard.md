@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Configuring Oracle Data Guard in VMs | Microsoft Azure"
 	description="Step through a tutorial for setting up and implementing Oracle Data Guard on Azure virtual machines for high availability and disaster recovery."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	authors="bbenz"
 	documentationCenter=""
 	tags="azure-service-management"/>
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"

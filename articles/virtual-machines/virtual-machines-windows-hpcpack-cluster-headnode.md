@@ -1,14 +1,14 @@
 <properties
  pageTitle="Create an HPC Pack head node in an Azure VM | Microsoft Azure"
  description="Learn how to use the Azure portal and the Resource Manager deployment model to create a Microsoft HPC Pack head node in an Azure VM."
- services="virtual-machines"
+ services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
  tags="azure-resource-manager,hpc-pack"/>
 <tags
-ms.service="virtual-machines"
+ms.service="virtual-machines-windows"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"

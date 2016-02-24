@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Run a compute-intensive .NET app on a VM | Microsoft Azure"
 	description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Azure Service Bus queues to monitor progress remotely."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=".net"
 	authors="davidmu1"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags=“azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="dotnet"

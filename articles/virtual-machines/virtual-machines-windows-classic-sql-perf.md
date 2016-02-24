@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Performance best practices for SQL Server | Microsoft Azure"
 	description="Provides best practices for optimizing SQL Server performance in Microsoft Azure VMs."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
@@ -9,7 +9,7 @@
 	tags="azure-service-management" />
 	
 <tags 
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"

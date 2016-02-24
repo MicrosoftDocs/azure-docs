@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Clusterize MySQL with load-balanced sets | Microsoft Azure"
 	description="Setup a load-balanced, high availability Linux MySQL cluster created with the classic deployment model on Azure"
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="bureado"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

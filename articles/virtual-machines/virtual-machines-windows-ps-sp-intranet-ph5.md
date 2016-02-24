@@ -2,14 +2,14 @@
 	pageTitle="SharePoint Server 2013 farm Phase 5 | Microsoft Azure"
 	description="Create an availability group and add your SharePoint databases to it in Phase 5 of the SharePoint Server 2013 farm in Azure."
 	documentationCenter=""
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"

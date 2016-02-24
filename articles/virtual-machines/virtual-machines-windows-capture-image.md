@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Capture a Windows VM in Resource Manager | Microsoft Azure"
 	description="Learn how to capture an image of a Windows-based Azure virtual machine (VM) created with the Azure Resource Manager deployment model."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

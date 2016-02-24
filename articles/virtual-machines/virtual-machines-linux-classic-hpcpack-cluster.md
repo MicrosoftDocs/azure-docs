@@ -1,14 +1,14 @@
 <properties
  pageTitle="Linux compute VMs in an HPC Pack cluster | Microsoft Azure"
  description="Learn how to script the deployment of an HPC Pack cluster in Azure containing a head node running Windows Server with Linux compute nodes."
- services="virtual-machines"
+ services="virtual-machines-linux"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
  tags="azure-service-management,hpc-pack"/>
 <tags
- ms.service="virtual-machines"
+ ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"

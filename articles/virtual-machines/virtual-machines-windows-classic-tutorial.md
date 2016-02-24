@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create a VM running Windows in the classic portal | Microsoft Azure"
 	description="Create a Windows virtual machine in the Azure classic portal."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

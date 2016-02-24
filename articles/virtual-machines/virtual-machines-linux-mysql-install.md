@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Set up MySQL on a Linux VM | Microsoft Azure "
 	description="Learn how to install the MySQL stack on a Linux virtual machine (Ubuntu or RedHat family OS) in Azure"
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

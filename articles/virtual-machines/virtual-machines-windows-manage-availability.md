@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Manage the availability of VMs | Microsoft Azure"
 	description="Learn how to use multiple virtual machines to ensure high availability for your Azure application."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="kenazk"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

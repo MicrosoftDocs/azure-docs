@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Running a MariaDB (MySQL) cluster on Azure"
 	description="Create a MariaDB + Galera MySQL cluster on Azure Virtual Machines"
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="sabbour"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"

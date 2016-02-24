@@ -1,7 +1,7 @@
 <properties
    pageTitle="Authoring Templates with Windows VM extensions | Microsoft Azure"
    description="Learn about authoring Azure Resource Manager templates with extensions for Windows VMs"
-   services="virtual-machines"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="azure-resource-manager"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-windows"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"

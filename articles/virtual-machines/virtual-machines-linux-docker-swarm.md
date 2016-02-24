@@ -2,7 +2,7 @@
 <properties
    pageTitle="Getting Started using docker with swarm on Azure"
    description="Describes how to create a group of VMs with the Docker VM Extension and use swarm to create a Docker cluster."
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
@@ -10,7 +10,7 @@
    tags="azure-service-management"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"

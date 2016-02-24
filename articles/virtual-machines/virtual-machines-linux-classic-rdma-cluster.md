@@ -1,14 +1,14 @@
 <properties
  pageTitle="Linux RDMA cluster to run MPI applications | Microsoft Azure"
  description="Create a Linux cluster of size A8 or A9 VMs to use RDMA to run MPI apps."
- services="virtual-machines"
+ services="virtual-machines-linux"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
  tags="azure-service-management"/>
 <tags
-ms.service="virtual-machines"
+ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"

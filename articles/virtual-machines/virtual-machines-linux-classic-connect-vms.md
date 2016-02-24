@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Connect VMs in a cloud service | Microsoft Azure"
 	description="Connect a virtual machine created with the classic deployment model to an Azure cloud service or virtual network."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

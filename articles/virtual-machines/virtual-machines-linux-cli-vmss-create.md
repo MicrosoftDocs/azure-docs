@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Automatically Scale Virtual Machine Scale Sets | Microsoft Azure"
 	description="Get started creating and managing your first Azure Virtual Machine Scale Sets using Azure CLI"
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"

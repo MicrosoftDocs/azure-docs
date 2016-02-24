@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Virtual Machine Scale Sets Overview | Microsoft Azure"
 	description="Learn more about Virtual Machine Scale Sets"
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="gbowerman"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

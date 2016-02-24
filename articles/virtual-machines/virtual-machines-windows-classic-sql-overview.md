@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Overview of SQL Server on Virtual Machines | Microsoft Azure"
 	description="This article provides an overview of SQL Server hosted on Azure Virtual Machines. This includes links to depth content."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="rothja"
 	manager="jeffreyg"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"

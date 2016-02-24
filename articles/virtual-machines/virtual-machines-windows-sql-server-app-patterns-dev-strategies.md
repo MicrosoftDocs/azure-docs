@@ -1,14 +1,14 @@
 <properties
 	pageTitle="SQL Server Application Patterns on VMs | Microsoft Azure"
 	description="This article covers application patterns for SQL Server on Azure VMs. It provides solution architects and developers a foundation for good application architecture and design."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="Selcin"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management,azure-resource-manager" />
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"

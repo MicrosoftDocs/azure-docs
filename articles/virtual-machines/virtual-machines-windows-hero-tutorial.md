@@ -2,14 +2,14 @@
 	pageTitle="Create a Windows virtual machine in the Azure portal | Microsoft Azure"
 	description="Learn how to create a Windows virtual machine or virtual computer by using the Azure Marketplace in the Azure portal"
 	keywords="Windows virtual machine,create a virtual machine,virtual computer,setting up a virtual machine"
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

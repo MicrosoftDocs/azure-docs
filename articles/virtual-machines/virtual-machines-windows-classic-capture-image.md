@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Capture an image of an Azure Windows VM | Microsoft Azure"
 	description="Capture an image of an Azure Windows virtual machine created with the classic deployment model."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

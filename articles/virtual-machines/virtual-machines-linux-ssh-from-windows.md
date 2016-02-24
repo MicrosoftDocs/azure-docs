@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Use SSH on Windows to connect to Linux virtual machines | Microsoft Azure" 
 description="Learn how to generate and use SSH keys on a Windows computer to connect to a Linux virtual machine on Azure." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
@@ -9,7 +9,7 @@ description="Learn how to generate and use SSH keys on a Windows computer to con
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 

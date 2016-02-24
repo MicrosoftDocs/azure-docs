@@ -1,7 +1,7 @@
 <properties
    pageTitle="Use docker-machine with Azure | Microsoft Azure"
    description="Shows how to get up and running on Azure with Docker Machine on Ubuntu, using the classic deployment model."
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="azure-service-management"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
