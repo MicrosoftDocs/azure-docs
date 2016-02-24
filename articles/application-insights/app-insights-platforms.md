@@ -39,7 +39,7 @@ These are implementations we've heard about, including some by third parties.
 + [ASP.NET - for apps that are already live](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
-+ [Azure web apps and VMs](../insights-perf-analytics.md)
++ [Azure web apps and VMs](../azure-portal/insights-perf-analytics.md)
 + [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
 + [CRM Online from Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)

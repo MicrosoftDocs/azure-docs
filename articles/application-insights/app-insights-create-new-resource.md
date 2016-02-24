@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/16/2016" 
+	ms.date="02/16/2016" 
 	ms.author="awills"/>
 
 # Create a new Application Insights resource

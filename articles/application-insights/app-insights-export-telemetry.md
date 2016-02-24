@@ -42,7 +42,7 @@ On your application's Overview blade in the Application Insights portal, open Co
 
 ![Scroll down and click Continuous Export](./media/app-insights-export-telemetry/01-export.png)
 
-Add an export, and choose an [Azure storage account](../storage-introduction.md) where you want to put the data:
+Add an export, and choose an [Azure storage account](../storage/storage-introduction.md) where you want to put the data:
 
 ![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/app-insights-export-telemetry/02-add.png)
 
