@@ -1,13 +1,12 @@
 
 
-
 This article provides background information and considerations for using the Azure A8, A9, A10, and A11 instances, also known as *compute-intensive* instances. Key features of these instances include:
 
 * **High-performance hardware** – The Azure datacenter hardware that runs these instances is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations.
 
 * **RDMA network connection for MPI applications** – Set up the A8 and A9 instances to communicate with other A8 and A9 instances over a low-latency, high-throughput network in Azure that is based on remote direct memory access (RDMA) technology. This feature can boost the performance of certain Linux and Windows Message Passing Interface (MPI) applications .
 
-* **Support for Linux and Windows HPC clusters** – Deploy cluster management and job scheduling software on the A8, A9, A10, and A11 instances in Azure to create a stand-alone HPC cluster or to add capacity to an on-premises cluster.
+* **Support for HPC clusters** – Deploy cluster management and job scheduling software on the A8, A9, A10, and A11 instances in Azure to create a stand-alone HPC cluster or to add capacity to an on-premises cluster.
 
 >[AZURE.NOTE]A10 and A11 instances have the same performance optimizations and specifications as the A8 and A9 instances. However, they do not include access to the RDMA network in Azure. They are designed for HPC applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
 
