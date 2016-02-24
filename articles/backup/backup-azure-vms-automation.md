@@ -230,9 +230,9 @@ Building the VM out of the restored disks can be done using the older Azure Serv
 ```
  $properties  = $details.Properties
 
- $storageAccountName = $properties["TargetStorageAccountName"]
- $containerName = $properties["TargetContainerName"]
- $blobName = $properties["TargetBlobName"]
+ $storageAccountName = $properties["Target Storage Account Name"]
+ $containerName = $properties["Config Blob Container Name"]
+ $blobName = $properties["Config Blob Name"]
 
  $keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
  $storageAccountKey = $keys.Primary
@@ -243,7 +243,7 @@ Building the VM out of the restored disks can be done using the older Azure Serv
  Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path -Context $storageContext
 
 
- $obj = [xml](Get-Content $destination_path)
+$obj = [xml](((Get-Content -Path $destination_path -Encoding UniCode)).TrimEnd([char]0x00))
  $pvr = $obj.PersistentVMRole
  $os = $pvr.OSVirtualHardDisk
  $dds = $pvr.DataVirtualHardDisks

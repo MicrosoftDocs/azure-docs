@@ -10,7 +10,7 @@
 <tags
  ms.service="iot-hub"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="02/03/2016"
@@ -32,5 +32,5 @@ You may also be interested in [Azure IoT Suite][lnk-iot-suite], which is a colle
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-iot-hub]: iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: http://azure.microsoft.com/solutions/iot/
+[lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/

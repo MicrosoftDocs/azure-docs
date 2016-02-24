@@ -33,4 +33,4 @@ Keep in mind that it is perfectly reasonable to use different frameworks for dif
 ## Next steps
 
 - [Learn more about the Reliable Actors API](service-fabric-reliable-actors-introduction.md)
-- [Learn more about the Reliable Services API](../Service-Fabric/service-fabric-reliable-services-introduction.md)
+- [Learn more about the Reliable Services API](service-fabric-reliable-services-introduction.md)

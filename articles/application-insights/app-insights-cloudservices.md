@@ -125,7 +125,7 @@ See the two sample worker roles instrumented to report requests: [WorkerRoleA](h
 
 ## Azure Diagnostics
 
-[Azure Diagnostics](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) data includes role management events, performance counters, and application logs. You can have these sent to Application Insights so that you can see them alongside the rest of your telemetry, making it easier to diagnose issues.
+[Azure Diagnostics](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) data includes role management events, performance counters, and application logs. You can have these sent to Application Insights so that you can see them alongside the rest of your telemetry, making it easier to diagnose issues.
 
 Azure diagnostics are particularly useful if a role fails unexpectedly, or fails to start.
 
@@ -263,7 +263,7 @@ That's it! The portal experience is already wired up to help you see all associa
 ## Related topics
 
 * [Configure sending Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md)
-* [Using PowerShell to send Azure diagnostics to Application Insights])(app-insights-powershell-azure-diagnostics.md)
+* [Using PowerShell to send Azure diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
 
 
 

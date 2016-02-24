@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="02/05/2016"
 	ms.author="ricksal"/>
 
 # Get started with Mobile Services for Android  (JavaScript backend)

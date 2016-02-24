@@ -18,7 +18,7 @@
 
 # IoT Hub MQTT support
 
-IoT Hub enables devices to communicate with the IoT Hub device endpoints using the [MQTT v3.1.1][lnk-mqtt-org] protocol. 
+IoT Hub enables devices to communicate with the IoT Hub device endpoints using the [MQTT v3.1.1][lnk-mqtt-org] protocol on port 8883. IoT Hub requires all device communication to be secured using TLS/SSL.
 
 ## Connecting to IoT Hub
 
@@ -26,7 +26,7 @@ A device can connect to an IoT hub using the MQTT protocol either by using the l
 
 ## Using the device client SDKS
 
-[Device client SDKs][lnk-mqtt-org] that support the MQTT protocol are available for Java, Node.js, C and C#. The device client SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. By default, the device client SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
+[Device client SDKs][lnk-device-sdks] that support the MQTT protocol are available for Java, Node.js, C and C#. The device client SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. By default, the device client SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
 
 When a device is connected to an IoT hub, the device client SDKs provide methods that enable the device to send messages to and receive messages from an IoT hub.
 

@@ -12,15 +12,13 @@
     ms.workload="na"
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
-    ms.topic="article"
-    ms.date="01/29/2016"
+    ms.topic="hero-article"
+    ms.date="02/04/2016"
     ms.author="yuaxu"/>
 
 #Create an Android app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Overview
 

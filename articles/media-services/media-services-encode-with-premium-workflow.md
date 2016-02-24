@@ -54,7 +54,9 @@ The following steps are performed:
 1. Create an asset and upload a workflow file. 
 2. Create an asset and upload a source media file.
 3. Get the “Media Encoder Premium Workflow” media processor.
-4. Create a job and a task.
+4. Create a job and a task. 
+
+	In most cases, the configuration string for the task is empty (like in the following example). There are some advanced scenarios (that require you to to set runtime properties dynamically) in which case you would provide an XML string to the encoding task. Examples of such scenarios are: creating an overlay, parallel or sequential media stitching, subtitling.
 5. Add two input assets to the task.
 	
 	a. 1st – the workflow asset.
@@ -268,10 +270,6 @@ The following is a complete example. For information on how to set up with Media
 	    }
 	}
 
-
-##Known issues
-
-If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file. 
 
 
 ##Media Services learning paths

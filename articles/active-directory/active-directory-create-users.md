@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.topic="get-started-article"
+	ms.date="02/10/2016"
 	ms.author="curtand;viviali"/>
 
 # Create or edit users in Azure AD
@@ -25,12 +25,12 @@ You have to create an account for every user who will access a Microsoft cloud s
 1. Click **Active Directory**, and then select the name of your organization’s directory.
 2. On the **Users** page, click **Add User**.
 3. On the **Tell us about this user** page, for **Type of User**, select either:
-	
+
 	- **New user in your organization** – to create a new user account in your directory
 	- **User with an existing Microsoft account** – to add an existing Microsoft consumer account to your directory (ie. outlook account)
 	- **User in another Azure AD directory** – to add a user account to your directory that is sourced from another Azure AD directory (Note: you need to be a member of the other directory to select a user in it)
-	- **Users in partner companies** - to invite and authorize partner company users to your directory ([See Azure Active Directory B2B](active-directory-b2b-what-is-azure-ad-b2b.md))
-	
+	- **Users in partner companies** - to invite and authorize partner company users to your directory ([See Azure Active Directory B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md))
+
 
 4. Depending on the option you selected, enter either a user name, an email address, or upload a CSV file for partner users.
 5. On the user **Profile** page, provide a user’s first and last name, a user friendly name, and a user role from the Roles drop-down menu. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md). Specify whether to **Enable Multi-Factor Authentication**.
@@ -87,7 +87,7 @@ Here are the known limitations of Azure AD external users:
 - external users who are admins cannot add users from partner companies to directories (B2B) outside their home directory
 - external users cannot consent to multi-tenant applications in directories outside of their home directory
 - Visual Studio Online does not currently support access by external users
-- PowerBI does not currently support access by external users 
+- PowerBI does not currently support access by external users
 - Office Portal does not support licensing external users
 
 ## Guests
@@ -99,7 +99,7 @@ Guests have a limited set of rights in the directory. These rights limit the abi
 - see other users and groups associated with an Azure subscription they are assigned to
 - see group members of groups that they belong to
 - look up other users in the directory provided they know the full email address of the user
-- see only a limited set of attributes of the users they look up - limited to display name, email address, user principal name (UPN), and thumbnail photo 
+- see only a limited set of attributes of the users they look up - limited to display name, email address, user principal name (UPN), and thumbnail photo
 - get a list of verified domains in the tenant
 - consent to applications, granting them the same access that they have in your directory
 
