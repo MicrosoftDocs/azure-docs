@@ -17,16 +17,16 @@
 	ms.date="11/19/2015"
 	ms.author="femila"/>
 
-# Set up a new device with Azure AD during setup
+# Set up a new device with Azure AD during Setup
 
-In Windows 10, users can join their devices to Azure Active Directory (Azure AD) in the first run experience (FRX). This allows organizations to distribute shrink-wrapped devices to their employees or students, or let them choose their own devices (CYOD).
-If either Windows 10 Professional or Windows 10 Enterprise editions are installed on a device, the experience defaults to the setup process for company-owned devices.
+In Windows 10, users can join their devices to Azure Active Directory (Azure AD) in the first-run experience (FRX). This allows organizations to distribute shrink-wrapped devices to their employees or students, or let them choose their own devices (CYOD).
+If either Windows 10 Professional or Windows 10 Enterprise editions is installed on a device, the experience defaults to the setup process for company-owned devices.
 
 ## To join a device to Azure AD
 
 
 1. When you turn on your new device and start the setup process, you should see the  **Getting Ready** message. Follow the prompts to set up your device.
-2. Start by customizing your region and language. Then accept the EULA.
+2. Start by customizing your region and language. Then accept the Microsoft Software License Terms.
 ![Customize for your region](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
 3. Select the network you want to use for connecting to the Internet.
 4. Select whether you're using a personal device or a company-owned device. If it's company-owned, click **This device belongs to my organization**. This starts the Azure AD Join experience. Following is a screen that you'll see if you're using Windows 10 Professional.
@@ -36,7 +36,7 @@ If either Windows 10 Professional or Windows 10 Enterprise editions are installe
 5.	Enter the credentials that were provided to you by your organization.
 <center>
 ![Sign-in screen](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png)
-6.	Once you have entered your user name, a matching tenant is located in Azure AD. If you are in a federated domain, you will be redirected to your on-premises Secure Token Service (STS) server--for example, Active Directory Federation Services (AD FS).
+6.	After you have entered your user name, a matching tenant is located in Azure AD. If you are in a federated domain, you will be redirected to your on-premises Secure Token Service (STS) server--for example, Active Directory Federation Services (AD FS).
 7. If you are a user in a non-federated domain, enter your credentials directly on the Azure AD-hosted page. If company branding was configured, you will also see your organization’s logo and support text.
 8.	You're prompted for a multi-factor authentication challenge. This challenge is configurable by an IT administrator.
 9.	Azure AD checks whether this user/device requires enrollment in mobile device management.
