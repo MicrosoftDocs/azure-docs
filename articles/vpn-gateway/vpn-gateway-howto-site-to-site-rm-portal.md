@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a virtual network with a site-to-site VPN connection using Azure Resource Manager and the Azure Portal | Microsoft Azure"
-   description="This article walks you through creating a VNet using the Resource Manager model and connecting it to your local on-premises network using a S2S VPN gateway connection. Site-to-site connections can be used for hybrid configurations. Includes additional steps to modify IP address prefixes for existing local sites."
+   pageTitle="Create a virtual network with a Site-to-Site VPN connection using Azure Resource Manager and the Azure Portal | Microsoft Azure"
+   description="This article walks you through creating a VNet using the Resource Manager model and connecting it to your local on-premises network using a S2S VPN gateway connection."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,16 +14,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/05/2015"
+   ms.date="02/24/2016"
    ms.author="cherylmc"/>
 
-# Create a virtual network with a site-to-site VPN connection using the Azure Portal
+# Create a resource manager VNet with a Site-to-Site VPN connection using the Azure Portal
 
 > [AZURE.SELECTOR]
 - [Azure portal](vpn-gateway-site-to-site-rm-portal.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the Azure Resource Manager deployment model and the Azure portal. 
+This article will walk you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the Azure Resource Manager deployment model and the Azure portal. 
+
+**add graphic**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
@@ -84,13 +86,13 @@ In a virtual network, the *local site* typically refers to your on-premises loca
 
 ## Configure your VPN device
 
-At this point, you'll need the public IP address of the virtual network gateway for configuring your on-premises VPN device. Work with your device manufacturer for specific configuration information. Additionally, refer to the [VPN Devices](vpn-gateway-about-vpn-devices.md) for more information.
+At this point, you'll need the public IP address of the virtual network gateway for configuring your on-premises VPN device. Work with your device manufacturer for specific configuration information. Refer to the [VPN Devices](vpn-gateway-about-vpn-devices.md) for more information. 
 
-[AZURE.INCLUDE [vpn-gateway-configure-vpn-device-rm-portal](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 ## Create the Site-to-Site VPN connection
 
-Next, you'll create the site-to-site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values for your own. The shared key must match the value you used for your VPN device configuration.
+Next, you'll create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values for your own. The shared key must match the value you used for your VPN device configuration.
 
 [AZURE.INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-rm-portal-include.md)]
 
