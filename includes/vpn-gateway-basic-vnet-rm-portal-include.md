@@ -8,7 +8,7 @@ To create a VNet based on the scenario above by using the Azure portal, follow t
 
 	![Create virtual network blade](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. In the example below, the  new resource group is called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
 
 	![Resource group](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
@@ -20,7 +20,7 @@ To create a VNet based on the scenario above by using the Azure portal, follow t
 
 7. Wait for the VNet to be created, then in the **Virtual network** blade, click **All settings** > **Subnets** > **Add**.
 
-8. Specify the subnet settings for the *BackEnd* subnet, as shown below, and then click **OK**. 
+8. Specify the subnet settings for any additional subnets. In this example we are adding the  *BackEnd* subnet. Click **OK**. 
 
 	![Subnet settings](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
 

@@ -1,7 +1,7 @@
 To create a local network gateway, follow the steps below:
 
-1. Use **Browse** and fildter to locate the **Local network gateways** blade, then click **Add**.
-2. On the **Create local network gateways blade**, **Name** your local network gateway object. For this example, we'll name the local network gateway *GW1LocalNet*.
+1. Use **Browse** and filter to locate the **Local network gateways** blade, then click **Add**.
+2. On the **Create local network gateways blade**, **Name** your local network gateway object. 
 3. Configure an **IP address** for your gateway. This is the IP address of the external VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure. This is the device IP address that your Azure gateway will connect to.
 4. **Address Space** refers to the address ranges on your local (typically on-premises) network. You can add multiple address space ranges. The ranges that you enter here cannot overlap any of the address space ranges that you are using for any of the virtual networks that will communicate through the gateway.  You will need to coordinate with your on-premises configuration as well as with your Azure virtual network address spaces. 
 5. For **Subscription**, verify that the correct subscription is showing.

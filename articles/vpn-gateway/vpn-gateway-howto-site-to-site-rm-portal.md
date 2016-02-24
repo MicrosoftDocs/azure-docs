@@ -20,7 +20,7 @@
 # Create a resource manager VNet with a Site-to-Site VPN connection using the Azure Portal
 
 > [AZURE.SELECTOR]
-- [Azure portal](vpn-gateway-site-to-site-rm-portal.md)
+- [Azure portal - classic](vpn-gateway-site-to-site-rm-portal.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 This article will walk you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the Azure Resource Manager deployment model and the Azure portal. 
@@ -51,13 +51,41 @@ When using these steps for your environment, be sure to substitute the values fo
 
 ### VNet scenario
 
-[AZURE.INCLUDE [vpn-gateway-basic-vnet-scenario](../../includes/vpn-gateway-basic-vnet-scenario-include.md)]
+In the steps below, you will create a VNet, add a gateway subnet, a gateway, a local site, and a connection. This is in addition to configuring your VPN device.
 
-The basic scenario is shown above. In this exercise, you will add a gateway subnet, a gateway, a local site, and a connection. This is in addition to configuring your VPN device.
+When using these steps as an exercise, you can use the following values:
+
+- VNet name = TestVNet
+- Address Space = 10.10.0.0/16
+- Resource Group Name = TestRG
+- Location = EastUS
+- Subnet 1 Name = FrontEnd
+- Range = 10.10.2.0/24
+- Subnet 2 Name = BackEnd
+- Range = 10.10.2.0/24
+- Gateway Subnet Name = GatewaySubnet
+- Range = 10.10.3.0/24
+- DNS Server = whatever server IP address that you want to use for name resolution
+- Gateway Name = GW1 (this is not the same as a gateway subnet)
+- Public IP address Name = PublicIP
+- Location = EastUS
+- Local Site = GW1LocalSite
+- 
+- 
+
 
 ## Create a virtual network 
 
 If you already have a virtual network, verify that the settings are correct, then skip to Specify the DNS server.
+
+**If you are using this as a sample exercise, you can use the following settings**
+
+Virtual Network Name = TestVNet1
+Address Space = 10.10.0.0/16
+Subnet 1 = FrontEnd
+Range = 10.10.
+
+
 
 [AZURE.INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]  
 
@@ -71,9 +99,22 @@ Before connecting your virtual network to a gateway, you'll first need to create
 
 **Important:** The gateway subnet prefix for some configurations require a subnet of /28 or larger in order to accommodate the number of IP addresses needed in the pool. This means the gateway subnet prefix needs to be /28, /27, /26 etc. You may want to create a larger subnet here in order to accomodate possible future configuration additions.
 
+**For this section, you can use the following example settings:**
+
+- Gateway Subnet Name = GatewaySubnet
+- Subnet = 192.168.3.0/26
+- Gateway type = VPN
+- VPN type = Route-based
+- Resource Group = 
+
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## Create the gateway
+
+**For this section, you can use the following example settings:**
+
+- Virtual Network Gateway Name  = VNETGW1
+- 
 
 
 [AZURE.INCLUDE [vpn-gateway-create-gw-rm-portal](../../includes/vpn-gateway-create-gw-rm-portal-include.md)]
