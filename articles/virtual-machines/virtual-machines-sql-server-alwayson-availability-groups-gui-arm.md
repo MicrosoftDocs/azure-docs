@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Configure AlwaysOn availability groups Azure Resource Manager | Microsoft Azure"
 	description="Create an AlwaysOn availability group with Azure virtual machines in Azure Resource Manager mode. This tutorial primarily uses the user interface to automatically create the entire solution."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-resource-manager" />
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"

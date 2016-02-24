@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Simulated hybrid cloud test environment | Microsoft Azure" 
 	description="Create a simulated hybrid cloud environment for IT pro or development testing, using two Azure virtual networks and a VNet-to-VNet connection." 
-	services="virtual-network" 
+	services="virtual-machines-windows" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
