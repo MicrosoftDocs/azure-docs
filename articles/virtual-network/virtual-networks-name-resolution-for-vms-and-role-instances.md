@@ -12,12 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-<<<<<<< HEAD
    ms.date="02/24/2016"
-=======
-   ms.date="02/20/2016"
->>>>>>> 6ef0765041d7771239e1abe596c01d58bd2da321
-   ms.author="joaoma" />
+   ms.author="telmos" />
 
 # Name Resolution for VMs and Role Instances
 

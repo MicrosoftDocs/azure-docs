@@ -13,13 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-<<<<<<< HEAD
-   ms.date="02/24/2016"
-   ms.author="joaoma" />
-=======
    ms.date="02/23/2016"
    ms.author="telmos" />
->>>>>>> 6ef0765041d7771239e1abe596c01d58bd2da321
+
 
 # Specifying DNS settings in a virtual network configuration file
 
