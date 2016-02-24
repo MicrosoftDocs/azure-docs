@@ -32,7 +32,8 @@ For pricing information and a list of what is included with each Service Tier, s
 |[![API Icon][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Users**][office365usersdoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|
 |[![API Icon][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![API Icon][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![API Icon][servicebusicon]<br/>**Service Bus**][servicebusdoc]|[![API Icon][sftpicon]<br/>**SFTP**][sftpdoc]|
 |[![API Icon][sharepointicon]<br/>**SharePoint**<br/>**Server**][sharepointdoc]|[![API Icon][slackicon]<br/>**Slack**<br/>][slackdoc]|[![API Icon][smtpicon]<br/>**SMTP**][smtpdoc]|[![API Icon][sqlicon]<br/>**SQL Azure**][sqldoc]|
-|[![API Icon][twilioicon]<br/>**Twilio**][twiliodoc]|[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] |
+|[![API Icon][twilioicon]<br/>**Twilio**][twiliodoc]|[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] | |
+
 
 > [AZURE.INFO] These APIs will work with version 2015-12-01-preview of the service.
 
@@ -56,29 +57,29 @@ APIs can also be used as actions within your apps. Actions are useful for lookin
 <!--API Documentation-->
 [azureblobdoc]: ./create-api-azureblobstorage.md "Connect to Azure blob to manage files in your blob container."
 [bingsearchDoc]: ./create-api-bingsearch.md "Search Bing for web, images, news and video."
-[boxDoc]: ./create-api-box.md/ "Connects to Box and can upload, get, delete, list, and more file tasks."
-[crmonlinedoc]: ./create-api-crmonline.md/ "Connect to Dynamics CRM Online and do more with your CRM Online data."
-[dropboxdoc]: ./create-api-dropbox.md/ "Connect to Dropbox and can get, delete, list, and more file tasks."
-[exceldoc]: ./create-api-excel.md/ "Connect to Excel."
-[facebookdoc]: ./create-api-facebook.md/ "Connect to Facebook to post to a timeline, get a page feed, and more."
-[ftpdoc]: ./create-api-ftp.md/ "Connects to an FTP / FTPS server and do different FTP tasks, including uploading, getting, deleting files, and more."
-[googledrivedoc]: ./create-api-googledrive.md/ "Connect to GoogleDrive and interact with your data."
-[microsofttranslatordoc]: ./create-api-microsofttranslator.md/
-[office365outlookdoc]: ./create-api-office365-outlook.md/ "The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account."
-[officeunifieddoc]: ./create-api-bingsearch.md/
-[office365usersdoc]: ./create-api-office365-users.md/
-[office365videodoc]: ./create-api-office365-video.md/
-[onedrivedoc]: ./create-api-onedrive.md/ "Connects to your personal Microsoft OneDrive and upload, delete, list files, and more."
-[salesforcedoc]: ./create-api-salesforce.md/ "Connect to your Salesforce account and manage  accounts, leads, opportunities, and more."
-[servicebusdoc]: ./create-api-servicebus.md/ "Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions."
-[sharepointdoc]: ./create-api-sharepointserver.md/ "Connects to on-premises Microsoft SharePoint Server or SharePoint Online to manage documents, and list items. Different authentication methods such as default credentials, OAuth 2.0, Windows authentication, and Form-Based authentication are supported."
-[slackdoc]: ./create-api-slack.md/ "Connect to Slack and post messages to Slack channels."
-[sftpdoc]: ./create-api-sftp.md/ "Connects to SFTP and can upload, get, delete files, and more."
-[smtpdoc]: ./create-api-smtp.md/ "Connects to a SMTP server and can send email with attachments."
-[sqldoc]: ./create-api-sqlazure.md/ "Connects to SQL Azure Database. You can create, update, get, and delete entries on a SQL database table."
-[twiliodoc]: ./create-api-twilio.md/ "Connects to Twilio and can send and get messages, get available numbers, managing incoming phone numbers, and more."
-[twitterdoc]: ./create-api-twitter.md/ "Connects to Twitter and get timelines, post tweets, and more."
-[yammerdoc]: ./create-api-yammer.md/ "Connects to Yammer to post messages and get new messages."
+[boxDoc]: ./create-api-box.md "Connects to Box and can upload, get, delete, list, and more file tasks."
+[crmonlinedoc]: ./create-api-crmonline.md "Connect to Dynamics CRM Online and do more with your CRM Online data."
+[dropboxdoc]: ./create-api-dropbox.md "Connect to Dropbox and can get, delete, list, and more file tasks."
+[exceldoc]: ./create-api-excel.md "Connect to Excel."
+[facebookdoc]: ./create-api-facebook.md "Connect to Facebook to post to a timeline, get a page feed, and more."
+[ftpdoc]: ./create-api-ftp.md "Connects to an FTP / FTPS server and do different FTP tasks, including uploading, getting, deleting files, and more."
+[googledrivedoc]: ./create-api-googledrive.md "Connect to GoogleDrive and interact with your data."
+[microsofttranslatordoc]: ./create-api-microsofttranslator.md
+[office365outlookdoc]: ./create-api-office365-outlook.md "The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account."
+[officeunifieddoc]: ./create-api-bingsearch.md
+[office365usersdoc]: ./create-api-office365-users.md
+[office365videodoc]: ./create-api-office365-video.md
+[onedrivedoc]: ./create-api-onedrive.md "Connects to your personal Microsoft OneDrive and upload, delete, list files, and more."
+[salesforcedoc]: ./create-api-salesforce.md "Connect to your Salesforce account and manage  accounts, leads, opportunities, and more."
+[servicebusdoc]: ./create-api-servicebus.md "Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions."
+[sharepointdoc]: ./create-api-sharepointserver.md "Connects to on-premises Microsoft SharePoint Server or SharePoint Online to manage documents, and list items. Different authentication methods such as default credentials, OAuth 2.0, Windows authentication, and Form-Based authentication are supported."
+[slackdoc]: ./create-api-slack.md "Connect to Slack and post messages to Slack channels."
+[sftpdoc]: ./create-api-sftp.md "Connects to SFTP and can upload, get, delete files, and more."
+[smtpdoc]: ./create-api-smtp.md "Connects to a SMTP server and can send email with attachments."
+[sqldoc]: ./create-api-sqlazure.md "Connects to SQL Azure Database. You can create, update, get, and delete entries on a SQL database table."
+[twiliodoc]: ./create-api-twilio.md "Connects to Twilio and can send and get messages, get available numbers, managing incoming phone numbers, and more."
+[twitterdoc]: ./create-api-twitter.md "Connects to Twitter and get timelines, post tweets, and more."
+[yammerdoc]: ./create-api-yammer.md "Connects to Yammer to post messages and get new messages."
 
 <!--Icon references-->
 [blobicon]: ./media/apis-list/blobicon.png
