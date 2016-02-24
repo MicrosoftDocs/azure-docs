@@ -1,5 +1,3 @@
-
-
 ## Understand planned vs. unplanned maintenance
 There are two types of Microsoft Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.
 
