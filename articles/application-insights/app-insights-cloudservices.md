@@ -260,6 +260,10 @@ That's it! The portal experience is already wired up to help you see all associa
 
 [The example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.
 
+## Exception "method not found" on running in Azure Cloud Services
+
+Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Services roles. [Install 4.6 on each role](../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
+
 ## Related topics
 
 * [Configure sending Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md)
