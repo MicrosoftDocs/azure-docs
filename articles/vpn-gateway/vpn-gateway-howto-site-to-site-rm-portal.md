@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure portal - classic](vpn-gateway-site-to-site-rm-portal.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [PowerShell - Resource Manager](vpn-gateway-howto-site-to-site-rm-powershell.md)
 
 This article will walk you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the Azure Resource Manager deployment model and the Azure portal. 
 
@@ -55,8 +55,8 @@ In the steps below, you will create a VNet, add a gateway subnet, a gateway, a l
 
 When using these steps as an exercise, you can use the following values:
 
-Values for TestVNet1:
-- 
+<a name="values"/>Values for TestVNet1:- not yet verified.
+
 - VNet Name: TestVNet1
 - Resource Group: TestRG1
 - Location: East US
@@ -79,11 +79,14 @@ Values for TestVNet1:
 ## Create a virtual network 
 
 If you already have a virtual network, verify that the settings are correct, then skip to Specify the DNS server.
+If you are doing this as an exercise, refer to these [values](#values) when creating your VNet.
 
 
 [AZURE.INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]  
 
 ### Specify a DNS server
+
+If you are doing this as an exercise, refer to these [values](#values) when specifying your DNS server.
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
@@ -93,17 +96,22 @@ Before connecting your virtual network to a gateway, you'll first need to create
 
 **Important:** The gateway subnet prefix for some configurations require a subnet of /28 or larger in order to accommodate the number of IP addresses needed in the pool. This means the gateway subnet prefix needs to be /28, /27, /26 etc. You may want to create a larger subnet here in order to accomodate possible future configuration additions.
 
+If you are doing this as an exercise, refer to these [values](#values) when creating your gateway subnet.
+
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## Create the gateway
 
+If you are doing this as an exercise, refer to these [values](#values) when creating your gateway.
 
 [AZURE.INCLUDE [vpn-gateway-create-gw-rm-portal](../../includes/vpn-gateway-create-gw-rm-portal-include.md)]
 
 ## Add your local site
 
 In a virtual network, the *local site* typically refers to your on-premises location. You'll give that site a name by which Azure can refer to it. This collection of settings is referred to as an Azure Local Network Gateway. You can modify the prefixes that you add here, but there are specific steps to follow when doing so. You can find the information at the end of this article.
+
+If you are doing this as an exercise, refer to these [values](#values) when adding your local site.
 
 [AZURE.INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
@@ -114,6 +122,8 @@ In a virtual network, the *local site* typically refers to your on-premises loca
 ## Create the Site-to-Site VPN connection
 
 Next, you'll create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values for your own. The shared key must match the value you used for your VPN device configuration.
+
+If you are doing this as an exercise, refer to these [values](#values) when creating your connection.
 
 [AZURE.INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-rm-portal-include.md)]
 
