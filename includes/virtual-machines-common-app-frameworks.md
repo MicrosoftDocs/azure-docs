@@ -50,8 +50,6 @@ Depending on the template, it can take some time for Azure to deploy the resourc
 
 ## Azure PowerShell
 
-[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
-
 Run these commands to create the resource group and the deployment after you replace the text in brackets with the resource group name, location, deployment name, and template name:
 
 	New-AzureRmResourceGroup -Name {resource-group-name} -Location {location}
