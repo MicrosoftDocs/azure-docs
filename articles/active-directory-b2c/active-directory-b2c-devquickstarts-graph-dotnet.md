@@ -390,8 +390,5 @@ for B2C apps:
 - When calling the Graph API, use [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx).
 - When creating & updating consumer users, there are a few required properties, described above.
 
-> [AZURE.IMPORTANT]
-You will need to account for the replication characteristics of the directory service underlying Azure AD B2C (read [this](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx) article to learn more) when using Azure AD Graph API in your B2C app. After a consumer signs up for your B2C app using a **Sign-up** policy, if you turn around immediately and try to read the user object using the Azure AD Graph API in your app, it may not be available. You will have to wait a few seconds for the replication process to complete. We will publish more concrete guidance on the "write-read consistency guarantee" provided by Azure AD Graph API and the directory service at general availability.
-
 If you have any questions or requests for actions you would like to perform with the Graph API on your B2C tenant, we're all ears!  Please leave a comment on the article
 or file an issue in the code sample GitHub repo.

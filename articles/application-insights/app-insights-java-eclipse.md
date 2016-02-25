@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Get started with Application Insights with Java in Eclipse
