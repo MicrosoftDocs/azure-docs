@@ -10,7 +10,7 @@
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/18/2016"
