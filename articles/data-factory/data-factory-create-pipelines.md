@@ -253,7 +253,7 @@ delay | TimeSpan | 00:00:00 | Specify the delay before data processing of the sl
 longRetry | Integer<p>Max value: 10</p> | 1 | The number of long retry attempts before the slice execution is failed.<p>longRetry attempts are spaced by longRetryInterval. So if you need to specify a time between retry attempts, use longRetry. If both Retry and longRetry are specified, each longRetry attempt will include Retry attempts and the max number of attempts will be Retry * longRetry.</p><p>For example, if we have the following in the activity policy:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/></p><p>Assume there is only one slice to execute (status is Waiting) and the activity execution fails every time. Initially there would be 3 consecutive execution attempts. After each attempt the slice status would be Retry. After first 3 attempts are over the slice status would be LongRetry.</p><p>After an hour (i.e. longRetryInteval’s value), there would be another set of 3 consecutive execution attempts. After that, the slice status would be Failed and no more retries would be attempted. Hence overall 6 attempts were made.</p><p>Note: If any execution succeeds, the slice status would be Ready and no more retries will be attempted.</p><p>longRetry may be used in situations where dependent data arrives at non-deterministic times or the overall environment is quite flaky under which data processing occurs. In such cases doing retries one after another may not help and doing so after an interval of time results in the desired output.</p><p>Word of caution: do not set high values for longRetry or longRetryInterval. Typically higher values imply other systemic issues which are being brushed off under this</p> 
 longRetryInterval | TimeSpan | 00:00:00 | The delay between long retry attempts 
 
-## Chaining activities
+## Chain activities
 If you have multiple activities in a pipeline and they do not depend on each other (output of an activity is not an input of another activity), the activities may run in parallel if input data slices for the activities are ready. 
 
 You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. 
@@ -273,15 +273,16 @@ The Diagram View with both activities in the same pipeline would look like below
 
 ![Chaining activities in the same pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
 
-## Parallel processing of slices
-Set the value of **concurrency** in the activity JSON definition to a value higher than 1 so that multiple slices are processed in parallel by multiple instances of the activity at runtime. This is really helpful when processing back-filled slices from the past. 
-
 ## Scheduling and Execution
 So far you have understood what pipelines and activities are. You have also taken a look at how are they defined and a high level view of the activities in Azure Data Factory. Now let us take a look at how they get executed. 
 
 A pipeline is active only between its start time and end time. It is not executed before the start time or after the end time. If the pipeline is paused, it will not get executed irrespective of its start and end time. For a pipeline to run, it should not be paused. In fact, it is not the pipeline that gets executed. It is the activities in the pipeline which get executed. However they do so in the overall context of the pipeline. 
 
 See [Scheduling and Execution](data-factory-scheduling-and-execution.md) to understand how scheduling and execution works in Azure Data Factory.
+
+### Parallel processing of slices
+Set the value of **concurrency** in the activity JSON definition to a value higher than 1 so that multiple slices are processed in parallel by multiple instances of the activity at runtime. This is really helpful when processing back-filled slices from the past. 
+
 
 ## Authoring and managing a pipeline
 Azure Data Factory provides various mechanisms to author and deploy pipelines (which in turn contain one or more activities in it). 
