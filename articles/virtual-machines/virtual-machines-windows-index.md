@@ -1,22 +1,22 @@
 <properties
-   pageTitle"Technical articles for Windows VMs |
+   pageTitle="Technical articles for Windows VMs |
     Microsoft Azure"
-   description"A complete list of Microsoft Azure documentation articles related to Windows virtual machines"
-   services"virtual-machines"
-   documentationCenter""
-   authors"dlepow"
-   manager"timlt"
-   tags"azure-service-management,azure-resource-manager"
-   editor""/>
+   description="A complete list of Microsoft Azure documentation articles related to Windows virtual machines"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   tags="azure-service-management,azure-resource-manager"
+   editor=""/>
 
 <tags
-   ms.service"virtual-machines"
-   ms.devlang""
-   ms.topic"article"
-   ms.tgt_pltfrm"vm-windows"
-   ms.workload"infrastructure-services"
-   ms.date"02/24/2016"
-   ms.author"danlep"/>
+   ms.service="virtual-machines"
+   ms.devlang=""
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows"
+   ms.workload="infrastructure-services"
+   ms.date="02/24/2016"
+   ms.author="danlep"/>
 
 # Technical articles for Windows virtual machines
 
