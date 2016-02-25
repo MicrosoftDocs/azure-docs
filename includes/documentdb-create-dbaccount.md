@@ -29,7 +29,7 @@
 
     ![Screen shot of the Resource Group blade - begin application development](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
 
-    ![Screen shot of the Consistency Level blade - Session Consistency](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
+    ![Screen shot of the Consistency Level blade - Session Consistency](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-8.png)  
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
