@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 The Office 365 Video API provides an API to work with Office 365 channels and videos.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Office365 Video Connector](../app-service-logic/app-service-logic-connector-Office365 Video Connector.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. This API is not supported on any previous schema versions.
 
 With the Office365 Video, you can:
 
