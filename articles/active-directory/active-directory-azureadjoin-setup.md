@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/26/2016"
 	ms.author="femila"/>
 
 # Setting up Azure AD Join in your organization
