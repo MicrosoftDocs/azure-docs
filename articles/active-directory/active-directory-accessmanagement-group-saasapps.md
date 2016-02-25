@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="02/26/2016"
 	ms.author="curtand"/>
 
 
@@ -26,7 +26,7 @@ This capability can be used with hundreds of applications that you can add from 
 
 **To assign access for a group to a SaaS application**
 
-1. In the Azure classic portal, select **Active Directory** on the navigation bar on the left hand side.
+1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory** on the navigation bar on the left hand side.
 
 2. Select the **Directory** tab, and then open the directory in which you want to assign access for a group to a SaaS application.
 

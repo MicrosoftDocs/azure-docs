@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="02/24/2016"
+  ms.date="02/26/2016"
   ms.author="stevenpo"/>
 
 
@@ -43,7 +43,7 @@ Consider an application like Salesforce. In many organizations, Salesforce is pr
 
 With Azure AD, applications like Salesforce can be pre-configured for single sign-on (SSO) and automated provisioning. Once the application is configured, an Administrator can take the one-time action to create and assign the appropriate groups. In this example, an administrator could execute the following assignments:
 
-- [Attribute-based dynamic groups](active-directory-manage-groups.md) can be defined to automatically represent all members of the marketing and sales teams using attributes like department or role:
+- [Dynamic groups](active-directory-manage-groups.md) can be defined to automatically represent all members of the marketing and sales teams using attributes like department or role:
 
     - All members of marketing groups would be assigned to the "marketing" role in Salesforce
 

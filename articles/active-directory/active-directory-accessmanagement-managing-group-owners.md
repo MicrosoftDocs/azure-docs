@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="02/26/2016"
 	ms.author="curtand"/>
 
 # Managing owners for a group
@@ -23,20 +23,24 @@
 
 **To add an owner to a group in the Azure classic portal**
 
-1. In the Azure classic portal, click **Active Directory**, and then click the name of your organization’s directory.
-2. Click the **Groups** tab.
-2. On the **Groups** page, click on the name of the group that you want to add owners to.
-3. On that group’s page, click **Add Owners**.
-4. On the **Add owners** page, click the name of the user that you want to add as the owner of this group and make sure this name is added to the **Selected** pane.
+1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
+
+2. Select the **Groups** tab, and then open the group that you want to add owners to.
+
+3. Select **Add Owners**.
+
+4. On the **Add owners** page, select the user that you want to add as the owner of this group, and make sure this name is added to the **Selected** pane.
 
 
 **To remove an owner from a group from the Azure portal**
 
-1. In the Azure classic portal, click **Active Directory**, and then click the name of your organization’s directory.
-2. Click the **Groups** tab.
-3. On the **Groups** page, click the name of the group that you want to remove an owner from.
-4. On that group’s page, click the **Owners** tab.
-5. On that group’s page, click the name of the owner that you want to remove from this group, and then click **Remove**.
+1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
+
+2. Select the **Groups** tab, and then open the group that you want to remove an owner from.
+
+4. Select the **Owners** tab.
+
+5. Select the owner that you want to remove from this group, and then select **Remove**.
 
 ## Additional information
 

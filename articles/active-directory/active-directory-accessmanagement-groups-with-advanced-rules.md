@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="02/26/2016"
 	ms.author="curtand"/>
 
 
@@ -24,7 +24,7 @@ The Azure classic portal provides you with the ability to create advanced rules 
 
 ## To create the advanced rule
 
-1. In the Azure classic portal, select **Active Directory**, and then open your organization’s directory.
+1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
 
 2. Select the **Groups** tab, and then open the group you want to edit.
 

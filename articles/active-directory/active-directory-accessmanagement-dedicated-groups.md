@@ -14,16 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="02/26/2016"
 	ms.author="curtand"/>
 
 # Dedicated groups in Azure Active Directory
 
 In Azure Active Directory, the dedicated groups feature automatically creates and populates membership for the dedicated groups. Members of dedicated groups cannot be added or removed using the Azure classic portal, Windows PowerShell cmdlets, or programmatically.
 
+> [AZURE.NOTE] Dedicated groups require that an Azure AD Premium license is assigned to
+> - the administrator who manages the rule on a group
+>	- all users who are selected by the rule to be a member of the group
+
 **To enable dedicated groups**
 
-1. In the Azure classic portal, select **Active Directory**, and then open your organization’s directory.
+1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
 
 2. Select the **Groups** tab, and then open the group you want to edit.
 
