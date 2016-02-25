@@ -13,8 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/26/2016"
+	ms.date="02/26/2016"
 	ms.author="douglasl"/>
+
+# Stretch Database overview
 
 Stretch Database migrates your historical data transparently and securely to the Microsoft Azure cloud.
 
@@ -121,6 +123,6 @@ Stretch Database does not change the permissions model of an existing database. 
 **Identify databases and tables that are candidates for Stretch Database.** Download SQL Server 2016 Upgrade Advisor and run the Stretch Database Advisor to identify databases and tables that are candidates for Stretch Database. Stretch Database Advisor also identifies blocking issues. For more info, see [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md).
 
 <!--Image references-->
-[StretchOverviewImage1][./media/sql-server-stretch-database-overview/StretchDBOverview.png]
-[StretchOverviewImage2][./media/sql-server-stretch-database-overview/StretchDBOverview1.png]
-[StretchOverviewImage3][./media/sql-server-stretch-database-overview/StretchDBOverview2.png]
+[StretchOverviewImage1]: ./media/sql-server-stretch-database-overview/StretchDBOverview.png
+[StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
+[StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png

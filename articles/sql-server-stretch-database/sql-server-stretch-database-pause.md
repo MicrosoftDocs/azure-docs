@@ -13,8 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/26/2016"
+	ms.date="02/26/2016"
 	ms.author="douglasl"/>
+
+# Pause and resume data migration (Stretch Database)
 
 To pause or resume data migration to Azure, select **Stretch** for a table in SQL Server Management Studio, and then select **Pause** to pause data migration or **Resume** to resume data migration. You can also use Transact\-SQL to pause or resume data migration.
 
@@ -53,5 +55,5 @@ ALTER TABLE <table name>
     SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```
 
-## See Also
+## See also
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)

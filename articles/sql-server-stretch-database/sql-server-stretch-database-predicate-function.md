@@ -13,8 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/26/2016"
+	ms.date="02/26/2016"
 	ms.author="douglasl"/>
+
+# Write an Inline Table-Valued Function to Select Rows to Migrate (Stretch Database)
 
 If you store historical data in a separate table, you can configure Stretch Database to migrate the entire table. If your table contains both historical and current data, on the other hand, you can specify a filter predicate to select the rows to migrate. The filter predicate must call an inline table\-valued function. This topic describes how to write an inline table\-valued function to select rows to migrate.
 
@@ -405,5 +407,5 @@ You can't drop the inline table\-valued function as long as a table is using the
 ## Check the filter predicate applied to a table
 To check the filter predicate applied to a table, open the catalog view **sys.remote\_data\_archive\_tables** and check the value of the **filter\_predicate** column. If the value is null, the entire table is eligible for archiving. For more info, see [sys.remote_data_archive_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
-## See Also
+## See also
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)

@@ -13,8 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/26/2016"
+	ms.date="02/26/2016"
 	ms.author="douglasl"/>
+
+# Disable Stretch Database and bring back remote data
 
 To disable Stretch Database for a table, select **Stretch** for a table in SQL Server Management Studio. Then select one of the following options.
 
@@ -86,6 +88,6 @@ ALTER DATABASE <database name>
 ## Drop a Stretch\-enabled database
 Dropping a database that was enabled for Stretch Database drops the local database but does not remove the remote data. If you want to delete the remote data, you have to drop the remote database by using the Azure management portal.
 
-## See Also
+## See also
 [ALTER DATABASE SET Options (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 [Pause and resume Stretch Database](sql-server-stretch-database-pause.md)

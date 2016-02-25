@@ -13,8 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/26/2016"
+	ms.date="02/26/2016"
 	ms.author="douglasl"/>
+
+# Monitor and troubleshoot data migration (Stretch Database)
 
 To monitor data migration in Stretch Database Monitor, select **Tasks | Stretch | Monitor** for a database in SQL Server Management Studio .
 
@@ -45,4 +47,4 @@ There are several problems that can affect migration. Check the following things
 [Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
 
 <!--Image references-->
-[StretchMonitorImage1][./media/sql-server-stretch-database-monitor/StretchDBMonitor.png]
+[StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png

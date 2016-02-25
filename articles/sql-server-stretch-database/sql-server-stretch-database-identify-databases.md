@@ -13,8 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/26/2016"
+	ms.date="02/26/2016"
 	ms.author="douglasl"/>
+
+# Identify databases and tables for Stretch Database by running Stretch Database Advisor
 
 To identify databases and tables that are candidates for Stretch Database, download SQL Server 2016 Upgrade Advisor and run the Stretch Database Advisor. Stretch Database Advisor also identifies blocking issues.
 
@@ -58,7 +60,7 @@ Enable Stretch Database.
 
 -   To enable Stretch Database on another **table**, when Stretch is already enabled on the database, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md).
 
-## See Also
+## See also
 [Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md)
 [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
 [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)

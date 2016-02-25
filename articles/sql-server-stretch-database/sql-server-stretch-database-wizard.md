@@ -13,8 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/26/2016"
+	ms.date="02/26/2016"
 	ms.author="douglasl"/>
+
+# Run the Enable Database for Stretch Wizard
 
 To configure a database for Stretch Database, run the Enable Database for Stretch Wizard.  This topic describes the info that you have to enter and the choices that you have to make in the wizard.
 
@@ -107,6 +109,6 @@ Enable additional tables for Stretch Database. Monitor data migration and manage
 
 -   [Backup and restore Stretch-enabled databases](sql-server-stretch-database-backup.md)
 
-## See Also
+## See also
 [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
 [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)

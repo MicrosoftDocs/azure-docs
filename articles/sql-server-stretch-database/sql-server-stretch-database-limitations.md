@@ -13,8 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/26/2016"
+	ms.date="02/26/2016"
 	ms.author="douglasl"/>
+
+# Surface area limitations and blocking issues for Stretch Database
 
 Learn about blocking issues that you have to resolve before you can enable Stretch Database.
 
@@ -87,7 +89,7 @@ IIn the current preview release of SQL Server 2016, Stretch\-enabled tables have
 
 -   Filters on indexes are not propagated to the remote table.
 
-## See Also
+## See also
 [Identify databases and tables for Stretch Database by running Stretch Database Advisor](sql-server-stretch-database-identify-databases.md)
 [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
 [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
