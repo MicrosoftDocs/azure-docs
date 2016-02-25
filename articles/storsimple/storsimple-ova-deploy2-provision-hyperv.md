@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="02/25/2016"
    ms.author="alkohli"/>
 
-# Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V (Preview)
+# Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V
 
 ![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv4.png)
 
 ## Overview 
 
-This provisioning tutorial applies to Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running v 1.1.1.0 (Public Preview) only. This tutorial describes how to provision a StorSimple Virtual Array on a host system running Hyper-V 2008 R2, Hyper-V 2012, or Hyper-V 2012 R2.
+This provisioning tutorial applies to Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running v 1.1.1.0. This tutorial describes how to provision a StorSimple Virtual Array on a host system running Hyper-V 2008 R2, Hyper-V 2012, or Hyper-V 2012 R2.
 
 You will need administrator privileges to provision and configure a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
-> [AZURE.IMPORTANT]
-> 
-> This public preview is intended for evaluation only. Installing this preview in a production environment is not supported.
 
 ## Provisioning prerequisites
 
@@ -41,6 +38,8 @@ Before you begin, make sure that:
 -   You have completed all the steps in [Prepare the portal for StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
 -   You have downloaded the virtual device image for Hyper-V from the Azure portal. For more information, see [Step 3: Download the virtual device image](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
+	
+	> [AZURE.IMPORTANT] The software running on the StorSimple Virtual Array may only be used in conjunction with the Storsimple Manager service.
 
 ### For the StorSimple virtual device 
 
@@ -97,7 +96,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 #### To provision a virtual device
 
-1.  On your Windows Server host, copy the virtual device image on the local drive. This is the image that you have downloaded through the Azure portal. Make a note of the location where you copied the image as you will be using this later in the procedure.
+1.  On your Windows Server host, copy the virtual device image on the local drive. This is the image (VHD or VHDX) that you have downloaded through the Azure portal. Make a note of the location where you copied the image as you will be using this later in the procedure.
 
 2.  Open **Server Manager**. In the top right corner, click **Tools** and select **Hyper-V Manager**.
 
@@ -117,7 +116,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
-1.  On the **Specify generation** page, choose **Generation 1**. Click **Next**.
+1.  On the **Specify generation** page, if using a VHD, choose **Generation 1**. If using a VHDX (for Windows Server 2012 or later), choose **Generation 2**. Click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 
@@ -194,7 +193,10 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image19.png)
 
-1.  You will return to the **Settings** page. Click **OK** to close the **Settings** page and return to Hyper-V Manager window.
+1.  You will return to the **Settings** page. Perform this step only if you are using a VHDX. If using a VHD and Generation 1 virtual machine, skip this step and go to the next one. You will now need to disable secure boot on your virtual machine. Secure Boot is enabled by default when you create a new Generation 2 virtual machine. In the **Settings** page for the Generation 2 Virtual Machine, select **Firmware** under **Hardware**, and then uncheck the **Enable Secure Boot** check box. 
+
+
+2.  You will return to the **Settings** page. Click **OK** to close the **Settings** page and return to Hyper-V Manager window.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image20.png)
 
