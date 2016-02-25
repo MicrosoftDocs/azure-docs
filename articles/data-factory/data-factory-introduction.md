@@ -57,4 +57,10 @@ Linked services define the information needed for Data Factory to connect to ext
 
 With the four simple concepts of datasets, activities, pipelines and linked services, you are ready to get started!  You can [build your first pipeline](data-factory-build-your-first-pipeline.md)  from the ground up, or deploy a ready-made sample by following the instructions in our [Data Factory Samples](data-factory-samples.md) article. 
 
+## Supported regions
+You can create data factories only in the **West US** and **North Europe** regions at this time. However, a data factory can access data stores and compute services in other regions to move data between data stores or process data using compute services. 
+
+The Data Factory service itself does not store any data or process data. It lets you create data-driven workflows to orchestrate movement of data between [supported data stores](data-factory-data-movement-activities.md#supported-data-stores) and processing of data using [compute services](data-factory-compute-linked-services.md) in other regions or in an on-premises environment. It also allows you to [monitor and manage workflows](data-factory-monitor-manage-pipelines.md) using the Azure Portal, Azure PowerShell, and Monitoring and Management App. 
+
+Note that even though the Data Factory service is only available in only **West US** and **North Europe** regions, the service powering the data movement in Data Factory is available [globally](data-factory-data-movement-activities.md#global) in several regions. The service is not used when moving data to/from an on-premises data store (or) a data store in an Azure VM; instead, a [Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) installed in your on-premises environment moves the data in this case.          
 
