@@ -30,8 +30,8 @@ The following table displays libraries that are released by Microsoft. The **Lib
 | PHP | Windows | [PHP for SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2.0+ | PHP Driver for SQL Server | [Link](http://msdn.microsoft.com/library/dn865013.aspx) |
 | Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2.0+ |  Type 4 JDBC driver that provides database connectivity through the standard JDBC API | [Link](https://msdn.microsoft.com/library/mt654048.aspx) |
 | ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11.0+ | Microsoft ODBC Driver for SQL Server | [Link](http://msdn.microsoft.com/library/jj730308.aspx) |
-| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver for SQL Server | [Link](https://msdn.microsoft.com/en-us/library/hh568451(v=sql.110).aspx) |
-| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver for SQL Server | [Link](https://msdn.microsoft.com/en-us/library/hh568451(v=sql.110).aspx) |
+| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver for SQL Server | [Link](https://msdn.microsoft.com/en-us/library/hh568451.aspx) |
+| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver for SQL Server | [Link](https://msdn.microsoft.com/en-us/library/hh568451.aspx) |
 
 ### ODBC support
 
