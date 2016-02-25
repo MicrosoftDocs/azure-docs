@@ -26,7 +26,7 @@ We've heard the following questions about Azure RemoteApp. Have others? Visit th
 - **What are the deployment options?** There are two kinds of RemoteApp collections: cloud and hybrid. Which one you need depends on a number of factors, like whether you need domain join. We talk about all of those decisions [here](remoteapp-collections.md).
 
 ## Quick tips on using Azure RemoteApp ##
-- **How long until I'm disconnected? How long can I be idle before you give me the boot?** 4 hours. If you or one of your users is idle for 4 hours, you'll be automatically signed out of Azure RemoteApp. Check out the other default settings in [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md).
+- **How long until I'm disconnected? How long can I be idle before you give me the boot?** 4 hours. If you or one of your users is idle for 4 hours, you'll be automatically signed out of Azure RemoteApp. Check out the other default settings in [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md).
 - **Can I try this service for free?** Yes. There is a free trial available for 30 days. After the trial ends, you can transition to a paid account (which you can use in production) or stop using the service. Start your free trial by going to [portal.azure.com](http://portal.azure.com) - create a new instance of RemoteApp. With the free trial, you can build 2 instances of RemoteApp with 10 users per instance. Remember that this trial only lives for 30 days.
 ## Azure RemoteApp subscription details ##
 
