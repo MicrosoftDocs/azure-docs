@@ -1,6 +1,4 @@
 
- 
-
 
 A *custom* virtual machine simply means a virtual machine that you create using the **From Gallery** option because it gives you more configuration choices than the **Quick Create** option. These choices include:
 
@@ -15,5 +13,3 @@ A *custom* virtual machine simply means a virtual machine that you create using 
 
 ## To create the virtual machine
 
-
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
