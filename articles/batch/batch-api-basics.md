@@ -44,26 +44,17 @@ In the sections below, you'll learn about each of the resources mentioned in the
 
 ## <a name="resource"></a> Resources of the Batch service
 
-When you use the Azure Batch service, you will take advantage of the following resources:
+When you use the Azure Batch service, you will use the following resources:
 
 - [Account](#account)
-
 - [Compute node](#computenode)
-
 - [Pool](#pool)
-
 - [Job](#job)
-
 - [Task](#task)
-
 	- [Start Task](#starttask)
-
 	- [Job ManagerTask](#jobmanagertask)
-
 	- [Job preparation and release tasks](#jobpreprelease)
-
 	- [Multi-instance tasks](#multiinstance)
-
 - [JobSchedule](#jobschedule)
 
 ### <a name="account"></a>Account
@@ -322,9 +313,27 @@ Tasks may occasionally fail or be interrupted. The task application itself may f
 
 It is also possible for an intermittent issue to cause a task to hang or take too long to execute. The maximum execution time can be set for a task, and if exceeded, Batch will interrupt the task application.
 
-### Accounting for "bad" nodes
+### Troubleshooting "bad" compute nodes
 
-Each node in a pool is given a unique ID, and the node on which a task runs is included in the task meta-data. In situations where tasks are failing on a particular node, this can be determined by your Batch client application and the suspect node can be removed from the pool. If any tasks are running on a  node when it is deleted, they will be automatically re-queued for execution on other nodes.
+In situations where some of your tasks are failing, your Batch client application or service can examine the metadata of the failed tasks to identify a misbehaving node. Each node in a pool is given a unique ID, and the node on which a task runs is included in the task metadata. Once identified, you can take several actions provided by the Batch REST API and Batch .NET client library:
+
+- **Reboot the node** ([REST][rest_reboot] | [.NET][net_reboot])
+
+	Restarting the node can sometimes clear up latent issues such as stuck or crashed processes. Note that if your pool uses a start task or your job uses a job preparation task, they will be executed when the node restarts.
+
+- **Reimage the node** ([REST][rest_reimage] | [.NET][net_reimage])
+
+  This reinstalls the operating system on the node. As with rebooting a node, start tasks and job preparation tasks are rerun after the node has been reimaged.
+
+- **Remove the node from the pool** ([REST][rest_remove] | [.NET][net_remove])
+
+	Sometimes it is necessary to completely remove the node from the pool.
+
+- **Disable task scheduling on the node** ([REST][rest_offline] | [.NET][net_offline])
+
+  This effectively takes the node "offline" so that no further tasks will be assigned to it, but allows the node to remain running and in the pool. This enables you to perform further investigation into the cause of the failures without losing the failed task's data, and without the node causing additional task failures. For example, you can disable task scheduling on the node, then log in remotely to examine the node's event logs, or perform other troubleshooting. Once you've finished your investigation, you can then bring the node back online by enabling task scheduling ([REST][rest_online], [.NET][net_online]), or perform one of the other actions discussed above.
+
+> [AZURE.IMPORTANT] With each action above--reboot, reimage, remove, disable task scheduling--you are able to specify how tasks currently running on the node are handled when you perform the action. For example, when you disable task scheduling on a node with the Batch .NET client library, you can specify a [DisableComputeNodeSchedulingOption][net_offline_option] enum value to specify whether to **Terminate** running tasks, **Requeue** them for scheduling on other nodes, or allow running tasks to complete before performing the action (**TaskCompletion**).
 
 ## Next steps
 
@@ -353,6 +362,12 @@ Each node in a pool is given a unique ID, and the node on which a task runs is i
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
 [net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
+[net_reboot]: https://msdn.microsoft.com/library/azure/mt631495.aspx
+[net_reimage]: https://msdn.microsoft.com/library/azure/mt631496.aspx
+[net_remove]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.removefrompoolasync.aspx
+[net_offline]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.disableschedulingasync.aspx
+[net_online]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.enableschedulingasync.aspx
+[net_offline_option]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.disablecomputenodeschedulingoption.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx
@@ -365,3 +380,8 @@ Each node in a pool is given a unique ID, and the node on which a task runs is i
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
+[rest_reboot]: https://msdn.microsoft.com/library/azure/dn820171.aspx
+[rest_reimage]: https://msdn.microsoft.com/library/azure/dn820157.aspx
+[rest_remove]: https://msdn.microsoft.com/library/azure/dn820194.aspx
+[rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
+[rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
