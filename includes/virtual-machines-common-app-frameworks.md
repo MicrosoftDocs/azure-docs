@@ -36,7 +36,7 @@ Deploying a template by using the Azure portal is easy to do by just sending a U
 
 You should see the custom deployment blade:
 
-![](../virtual-machines/media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
+![](../articles/virtual-machines/media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
 
 1.	For the **Template** pane, click **Save**.
 2.	Click **Parameters**. On the **Parameters** pane, enter new values, select from allowed values, or accept default values, and then click **OK**.
