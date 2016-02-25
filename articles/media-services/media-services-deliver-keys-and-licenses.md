@@ -196,10 +196,10 @@ The code example in this topic shows how to create a common content key and get 
 	
 	            return tokenTemplateString;
 	        }
-	
+
 	        static private string GenerateTokenRequirements()
 	        {
-	            TokenRestrictionTemplate template = new TokenRestrictionTemplate();
+	            TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
 	
 	            template.PrimaryVerificationKey = new SymmetricVerificationKey();
 	            template.AlternateVerificationKeys.Add(new SymmetricVerificationKey());
@@ -209,7 +209,7 @@ The code example in this topic shows how to create a common content key and get 
 	
 	            return TokenRestrictionTemplateSerializer.Serialize(template);
 	        }
-	
+
 	        static private string ConfigurePlayReadyLicenseTemplate()
 	        {
 	            // The following code configures PlayReady License Template using .NET classes
