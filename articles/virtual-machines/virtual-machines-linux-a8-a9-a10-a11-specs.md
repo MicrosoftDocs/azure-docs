@@ -1,7 +1,7 @@
 <properties
  pageTitle="About the A8 - A11 instances and Linux | Microsoft Azure"
  description="Get background information and considerations for using the Azure A8, A9, A10, and A11 compute-intensive sizes for Linux VMs"
- services="virtual-machines"
+ services="virtual-machines-linux"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
