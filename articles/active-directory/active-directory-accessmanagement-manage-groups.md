@@ -64,7 +64,7 @@ Within Azure Active Directory (Azure AD), one of the major features is the abili
 6. Verify that you want to remove this member from the group by clicking **Yes** as the answer to the action confirmation question.
 
 
-## How do I manage members of a group dynamically using attribute-based rules?
+## How can I create a simple rule to manage members of a group dynamically?
 
 For example, if a group is assigned to a SaaS application and you enable dynamic memberships for this group by setting a rule whereby Add users where is set to the jobTitle that Equals(-eq)Sales Rep, all users within your Azure AD directory whose job titles are set to Sales Rep, will have access to this SaaS application. For more information, see [Assign access for a group to a SaaS application in Azure AD](active-directory-accessmanagement-group-saasapps.md). To enable dynamic membership for a particular group, perform the following steps:
 
