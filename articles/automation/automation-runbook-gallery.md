@@ -103,10 +103,10 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 
 6. Locate a module that you're interested in and select it to view its details.  
 When you drill into a specific module, you can view more information about the module, including a link back to the PowerShell Gallery, any required dependencies, and all of the cmdlets and/or DSC resources that the module contains.
-![PowerShell module details](media/automation-runbook-gallery/gallery-item-details.png)
+![PowerShell module details](media/automation-runbook-gallery/gallery-item-details.png) <br>
 
 7. To install the module directly into Azure Automation, click the **Import** button.<br>
-![Import module button](media/automation-runbook-gallery/module-import-button.png)
+![Import module button](media/automation-runbook-gallery/module-import-button.png) <br>
 8. When you click the Import button, you will see the module name that you are about to import. If all the dependencies are installed, the **OK** button will be active. If you are missing dependencies, you need to import those before you can import this module.
 9. Click **OK** to import the module, and the module blade will launch. When Azure Automation imports a module to your account, it extracts metadata about the module and the cmdlets.<br>![Import module blade](media/automation-runbook-gallery/module-import-blade.png)<br>
 This may take a couple of minutes since each activity needs to be extracted.  
