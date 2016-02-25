@@ -173,6 +173,7 @@ You can see from the above screenshot that when you enable Verbose logging and t
 The Trace records can be especially numerous.  With Graphical runbook tracing you can get two to four records per activity depending on whether you have configured Basic or Detailed tracing.  Unless you need this information to track the progress of a runbook for troubleshooting, you might want to keep Tracing turned off.
 
 **To enable activity-level tracing, perform the following steps.**
+
  1. In the Azure Portal, open your Automation account.
 
  2. Click on the **Runbooks** tile to open the list of runbooks.
@@ -183,7 +184,7 @@ The Trace records can be especially numerous.  With Graphical runbook tracing yo
 
  5. On the Logging and Tracing blade, under Log verbose records, click **On** to enable verbose logging and udner Activity-level tracing, change the trace level to **Basic** or **Detailed** based on the level of tracing you require.<br>
 
-  ![Graphical Authoring Logging and Tracing Blade](media/automation-runbook-output-and-messages/logging_tracing_settings.png)
+    ![Graphical Authoring Logging and Tracing Blade](media/automation-runbook-output-and-messages/logging_tracing_settings.png)
 
 ## Related articles
 
