@@ -1,7 +1,7 @@
 
 <properties
 	pageTitle="Troubleshooting dynamic membership for groups| Microsoft Azure"
-	description="A topic that lists troubleshooting tips for dynamic membership for groups in Azure AD."
+	description="Troubleshooting tips for dynamic membership for groups in Azure AD."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Setting up Azure Active Directory for self service application access management| Microsoft Azure"
-	description="overview of Self-service group management that enables users to create and manage security groups or Office groups in Azure Active Directory and offers users the possibility to request security group or Office group memberships"
+	description="Self-service group management enables users to create and manage security groups or Office 365 groups in Azure Active Directory and offers users the possibility to request security group or Office 365 group memberships"
 	services="active-directory"
 	documentationCenter=""
   authors="curtand"
@@ -17,9 +17,9 @@
 	ms.date="02/24/2016"
 	ms.author="curtand"/>
 
-# Setting up Azure Active Directory for self service group management
+# Setting up Azure Active Directory for self-service group management
 
-Self-service group management enables users to create and manage security groups or Office groups in Azure Active Directory (Azure AD) and offers users the possibility to request security group or Office group memberships, which can subsequently be approved or denied by the owner of the group. By using self-service group management features, the day-to-day control of group membership can be delegated to people who understand the business context for that membership. Self service group management features are available only for security groups and Office 365 groups, not for mail-enabled security groups or distribution lists.
+Self-service group management enables users to create and manage security groups or Office 365 groups in Azure Active Directory (Azure AD) and offers users the possibility to request security group or Office 365 group memberships, which can subsequently be approved or denied by the owner of the group. By using self-service group management features, the day-to-day control of group membership can be delegated to people who understand the business context for that membership. Self service group management features are available only for security groups and Office 365 groups, not for mail-enabled security groups or distribution lists.
 
 Self-service group management is currently comprised of two essential scenarios: delegated group management and self-service group management.
 

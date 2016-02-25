@@ -23,23 +23,25 @@ In Azure Active Directory, the dedicated groups feature automatically creates an
 
 **To enable dedicated groups**
 
-1. In the Azure classic portal, on the Configure tab, set the **Enable Dedicated Groups switch to Yes**.
+1. In the Azure classic portal, select **Active Directory**, and then open your organization’s directory.
+
+2. Select the **Groups** tab, and then open the group you want to edit.
+
+3. Select the **Configure tab**, and then set the **Enable Dedicated Groups switch to Yes**.
 
 Once the Enable Dedicated Groups switch is set to **Yes**, you can further enable the directory to automatically create the All Users dedicated group by setting the **Enable “All Users” Group** switch to **Yes**. You can then also edit the name of this dedicated group by typing it in the **Display Name for “All Users” Group** field.
 
-The All Users dedicated group can be useful if you want to assign the same permissions to all the users in your directory. For example, you can grant all users in your directory access to a SaaS application by assigning access for the All Users dedicated group to this application.
+The All Users group can be used to assign the same permissions to all the users in your directory. For example, you can grant all users in your directory access to a SaaS application by assigning access for the All Users dedicated group to this application.
 
-Please note that the dedicated "All Users" group includes all users in the directory, and this includes guests and external users. If you need a group that excludes external users then you can accomplish this by creating a group with a dynamic rule like
+The dedicated "All Users" group includes all users in the directory, including guests and external users. If you need a group that excludes external users, then you can accomplish this by creating a group with an attribute-based dynamic rule such as the following:
 
-(user.userPrincipalName -notContains "#EXT#@")
+				(user.userPrincipalName -notContains "#EXT#@")
 
-For a group that excludes all Guests, use a rule like
+For a group that excludes all Guests, use a rule such as the following:
 
-(user.userType -ne "Guest")
+				(user.userType -ne "Guest")
 
-This article explains more about how to create a rule to manage members of a group in Azure Active Directory:
-
-* [Creating a simple rule to configure dynamic memberships for a group](active-directory-accessmanagement-simplerulegroup.md)
+To learn about how to use regular expressions to create advanced rules for dynamic group membership, see [Using attributes to create advanced rules](active-directory-accessmanagement-groups-with-advanced-rules.md).
 
 
 These articles provide additional information on Azure Active Directory.

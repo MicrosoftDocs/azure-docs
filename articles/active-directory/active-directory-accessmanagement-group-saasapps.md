@@ -26,19 +26,21 @@ This capability can be used with hundreds of applications that you can add from 
 
 **To assign access for a group to a SaaS application**
 
-1. Open a browser of your choice and go to the Azure portal. In the Azure portal, find the Active Directory extension on the navigation bar on the left hand side. Under the **Directory** tab, click the directory in which you want to assign access for a group to a Saas application.
+1. In the Azure classic portal, select **Active Directory** on the navigation bar on the left hand side.
 
+2. Select the **Directory** tab, and then open the directory in which you want to assign access for a group to a SaaS application.
 
-2. Click the **Applications** tab for your directory. Select an application that you added from the Application Gallery, then click  the **Users and Groups** tab.
+3. Select the **Applications** tab. Select an application that you added from the Application Gallery, and then click  the **Users and Groups** tab.
 
-3. On the **Users and Groups** tab, in the **Starting with** field, enter the name of the group to which you want to assign access, and click the check mark in the upper right. You only need to type the first part of the group's name. Then, select the group, then then select the **Assign Access** button. Select **Yes** when you see the confirmation message. Nested group memberships are not supported for group-based assignment to applications at this time.
+4. On the **Users and Groups** tab, in the **Starting with** field, enter the name of the group to which you want to assign access, and then select the check mark in the upper right. You only need to type the first part of a group's name.
 
+5. Select the group, then then select the **Assign Access** button. Select **Yes** when you see the confirmation message. Nested group memberships are not supported for group-based assignment to applications at this time.
 
-4. You can also see which users are assigned to the application, either directly or by membership in a group. To do this, change the **Show dropdown from 'Groups'** to **'All Users'**. The list shows users in the directory and whether or not each user is assigned to the application. The list also shows whether the assigned users are assigned to the application directly (assignment type shown as 'Direct'), or by virtue of group membership (assignment type shown as 'Inherited.')
+6. You can also see which users are assigned to the application, either directly or by membership in a group. To do this, change the **Show dropdown from 'Groups'** to **'All Users'**. The list shows users in the directory and whether or not each user is assigned to the application. The list also shows whether the assigned users are assigned to the application directly (assignment type shown as 'Direct'), or by virtue of group membership (assignment type shown as 'Inherited.')
 
 
 > [AZURE.NOTE]
->You will see the Users and Groups tab only after you have enabled Azure AD Premium or Azure AD Basic.
+>You can see the Users and Groups tab only after you have enabled Azure AD Premium or Azure AD Basic.
 
 ##Related Articles
 
