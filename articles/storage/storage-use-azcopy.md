@@ -27,9 +27,11 @@ AzCopy is a Windows command-line utility designed for copying data to and from M
 ## Download and install AzCopy
 
 ### Windows
-1. Download the [latest version of AzCopy](http://aka.ms/downloadazcopy).
+
+Download the [latest version of AzCopy](http://aka.ms/downloadazcopy).
 
 ### Mac/Linux
+
 AzCopy is not available for Mac/Linux OSs. However, Azure CLI is a suitable alternative for copying data to and from Azure Storage. Read [Using the Azure CLI with Azure Storage](storage-azure-cli.md) to learn more.
 
 ## Writing your first AzCopy command
