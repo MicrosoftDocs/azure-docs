@@ -27,7 +27,7 @@ Office 365 Users Connection provider lets you access user profiles in your organ
 With Office 365 Users, you can:
 
 * Use it to build logic apps
-* Use it to build power apps
+* Use it to build PowerApps
 
 For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
