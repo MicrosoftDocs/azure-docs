@@ -206,7 +206,7 @@ When you select the domain to be federated with your on-premise directory, Azure
 
 ![Azure AD Domain](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
 
-> [AZURE.NOTE] AD Connect tries to verify the domain during the configure stage. If you continue to configure without adding the necessary DNS records where your domain DNS is hosted, the wizard will not be able to complete the configuration.</br>
+> [AZURE.NOTE] AD Connect tries to verify the domain during the configure stage. If you continue to configure without adding the necessary DNS records where your domain DNS is hosted, the wizard will not be able to complete the configuration. </br>
 
 ## Configure and verify pages
 On this page the configuration will actually happen.
