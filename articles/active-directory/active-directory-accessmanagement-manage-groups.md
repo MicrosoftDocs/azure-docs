@@ -34,7 +34,7 @@ Within Azure Active Directory (Azure AD), one of the major features is the abili
 
 4. In the **Add Group** window, specify the name and the description of a group.
 
-5. This task can be completed using either the Office 365 account portal, the Windows Intune account portal or the Azure portal, depending on which services your organization has subscribed to. For more information about using portals to manage your Azure Active Directory, see [Administering your Azure AD directory](active-directory-administer).
+5. This task can be completed using either the Office 365 account portal, the Windows Intune account portal or the Azure portal, depending on which services your organization has subscribed to. For more information about using portals to manage your Azure Active Directory, see [Administering your Azure AD directory](active-directory-administer.md).
 
 ## How do I add or remove individual users in a security group?
 
