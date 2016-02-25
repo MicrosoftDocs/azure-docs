@@ -62,7 +62,15 @@ Use the following table to determine if you can fail over to another device runn
 
 #### Partial failover across software versions
 
-If you have multiple StorSimple devices running a mix of pre-Update 1 and Update 1 or later software and you intend to perform a partial failover, then you need to be aware of the following caveat. There was a cloud metadata and data format change for Update 1 or later versions. If you fail over only some of the volume containers from a pre-Update 1 device to a target running Update 1 (or later), then your source device can run into issues. We recommend that you first apply Update 1 or later on both the devices and then proceed with this partial failover. 
+Follow this guidance if you intend to perform a partial failover using a StorSimple source device running pre-Update 1 to a target running Update 1 or later. 
+
+
+| Partial failover from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+|Pre-Update 1 (Release, 0.1, 0.2, 0.3) to Update 1 or later  | Yes, see below for the best practice tip.                                                                                                                                                                               | Yes, see below for the best practice tip.                                                    |
+
+
+>[AZURE.TIP] In general, partial failover is not recommended as there was a cloud metadata and data format change for Update 1 or later versions. If you need to perform a partial failover, we recommend that you first apply Update 1 or later on both the devices (source and target) and then proceed with the failover. 
 
 ## Fail over to another physical device
 
