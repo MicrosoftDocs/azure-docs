@@ -31,7 +31,7 @@ Ongoing access management, usage evaluation, and reporting continue to be a chal
  Azure AD's application assignment focuses on two primary assignment modes:
 
 - **Individual assignment** An IT admin with directory Global Administrator permissions can select individual user accounts and grant them access to the application.
-- **Group-based assignment (paid Azure AD only)** An IT admin with directory Global Administrator permissions can assign a group to the application. Specific users' access is determined by whether they are members of the group at the time they attempt to access the application. In other words, an administrator can effectively create an assignment rule stating "any current member of the assigned group has access to the application". Using this assignment option, administrators can benefit from any of Azure AD group management options, including [attribute-based dynamic groups](active-directory-manage-groups.md), external system groups (for example, on-premises Active Directory or Workday), or Administrator-managed or self-service-managed groups. A single group can be easily assigned to multiple apps, ensuring that applications with assignment affinity can share assignment rules, reducing the overall management complexity. Please note that nested group memberships are not supported for group-based assignment to applications at this time.
+- **Group-based assignment (paid Azure AD only)** An IT admin with directory Global Administrator permissions can assign a group to the application. Specific users' access is determined by whether they are members of the group at the time they attempt to access the application. In other words, an administrator can effectively create an assignment rule stating "any current member of the assigned group has access to the application". Using this assignment option, administrators can benefit from any of Azure AD group management options, including [attribute-based dynamic groups](active-directory-acessmanagement-manage-groups.md), external system groups (for example, on-premises Active Directory or Workday), or Administrator-managed or self-service-managed groups. A single group can be easily assigned to multiple apps, ensuring that applications with assignment affinity can share assignment rules, reducing the overall management complexity. Please note that nested group memberships are not supported for group-based assignment to applications at this time.
 
 Using these two assignment modes, administrators can achieve any desirable assignment management approach.
 
@@ -43,7 +43,7 @@ Consider an application like Salesforce. In many organizations, Salesforce is pr
 
 With Azure AD, applications like Salesforce can be pre-configured for single sign-on (SSO) and automated provisioning. Once the application is configured, an Administrator can take the one-time action to create and assign the appropriate groups. In this example, an administrator could execute the following assignments:
 
-- [Dynamic groups](active-directory-manage-groups.md) can be defined to automatically represent all members of the marketing and sales teams using attributes like department or role:
+- [Dynamic groups](active-directory-acessmanagement-manage-groups.md) can be defined to automatically represent all members of the marketing and sales teams using attributes like department or role:
 
     - All members of marketing groups would be assigned to the "marketing" role in Salesforce
 
