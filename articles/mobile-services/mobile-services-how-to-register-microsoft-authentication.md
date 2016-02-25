@@ -31,7 +31,7 @@ This topic shows you how to register your mobile app to be able to use Microsoft
 
 ##Register your Windows Store app at the Windows Dev Center
 
-Windows Store apps must first be registered with the Windows Dev Center.
+Windows Store apps must first be registered with the Windows Dev Center. By registering, your Windows app will be able to use single sign-on behaviors.
 
 >[AZURE.NOTE]Windows Phone 8, Windows Phone 8.1 Silverlight, and non-Windows apps can skip this section.
 

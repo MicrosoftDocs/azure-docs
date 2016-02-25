@@ -29,7 +29,7 @@ Integrating your on-premises directories with Azure AD makes your users more pro
 
 - Single tool to provide an easy deployment experience for synchronization and sign-in.
 
-- Provides the newest capabilities for your scenarios. Azure AD Connect replaces older versions of identity integration tools such as DirSync and Azure AD Sync. For more information, see [Directory integration tools comparison](active-directory-aadconnect-get-started-tools-comparison.md).
+- Provides the newest capabilities for your scenarios. Azure AD Connect replaces older versions of identity integration tools such as DirSync and Azure AD Sync. For more information, see [Hybrid Identity directory integration tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md).
 
 
 ### How Azure AD Connect works
@@ -39,9 +39,9 @@ Azure Active Directory Connect is made up of three primary parts.  They are the 
 <center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png)
 </center>
 
-- Synchronization - This part is made up of the components and functionality previously released as [Dirsync and Azure AD Sync](active-directory-aadconnect-get-started-tools-comparison.md).  This is the part that is responsible for creating users and groups.  It is also responsible for making sure that the information on users and groups in your on-premises environment, matches the cloud.
+- Synchronization - This part is made up of the components and functionality previously released as [Dirsync and Azure AD Sync](active-directory-hybrid-identity-design-considerations-tools-comparison.md).  This is the part that is responsible for creating users and groups.  It is also responsible for making sure that the information on users and groups in your on-premises environment, matches the cloud.
 - AD FS - This is an optional part of Azure AD Connect and can be used to setup a hybrid environment using an on-premises AD FS infrastructure.  This part can be used by organizations to address complex deployments that include such things as domain join SSO, enforcement of AD sign-in policy and smart card or 3rd party MFA.
-- Health Monitoring - Azure AD Connect Health can provide robust monitoring of your AD FS servers and provide a central location in the Azure portal to view this activity.  For additional information see [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
+- Health Monitoring - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity.  For additional information see [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
 
 ## Install Azure AD Connect
 

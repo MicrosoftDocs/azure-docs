@@ -43,7 +43,7 @@ The table below provides information on regions and geopolitical boundaries for 
 
 |**Geopolitical region**|**Azure regions**|**ExpressRoute locations**|
 |---|---|---|---|
-|**US Government cloud**|US Gov Iowa, US Gov Virginia|Chicago, Washington DC|
+|**US Government cloud**|US Gov Iowa, US Gov Virginia|Chicago, New York+, Washington DC|
 |**China cloud**|China North, China East|Beijing, Shanghai|
 
 
@@ -65,12 +65,12 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Comcast** | Supported | Not Supported | Silicon Valley, Washington DC |
 | **CoreSite** | Supported | Supported | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto+, Washington DC |
-| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** |  Supported | Supported | Osaka, Tokyo |
+| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |  Supported | Supported | Osaka, Tokyo |
 | **[InterCloud]( https://www.intercloud.com/)** | Supported | Supported | Amsterdam, London, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Supported | Supported | Amsterdam, London |
-| **Interxion** | Supported | Supported | Amsterdam |
+| **Interxion** | Supported | Supported | Amsterdam, London |
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Supported | Amsterdam, Chicago, Dallas, London, Seattle, Silicon Valley, Washington DC |
-| **Megaport** | Supported | Supported | Melbourne, Sydney |
+| **Megaport** | Supported | Supported | Dallas, Los Angeles, Melbourne, New York, Seattle, Sydney, Washington DC |
 | **MTN** | Supported | Supported | London |
 | **NEXTDC** | Supported | Supported | Melbourne, Sydney |
 | **NTT Communications** | Supported | Coming soon | London, Tokyo |
@@ -83,7 +83,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supported | Not Supported | Melbourne, Sydney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Sydney, Tokyo, Washington DC |
 | **Vodafone** | Supported | Not Supported | London | 
-| **[Zayo Group]( http://www.zayo.com/)** | Supported | Supported | Chicago, Los Angeles, New York, Silicon Valley, Washington DC |
+| **[Zayo Group]( http://www.zayo.com/solutions/industries/connect-to-cloud-data-centers/cloud-connectivity/microsoft-expressroute/)** | Supported | Supported | Chicago, Los Angeles, New York, Silicon Valley, Washington DC |
 
  **+** denotes coming soon
 

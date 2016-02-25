@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="02/18/2016" 
 	ms.author="awills"/>
 
 #  Sampling in Application Insights
@@ -23,12 +23,13 @@
 Sampling is a feature in Application Insights that allows you to collect and store a reduced set of telemetry while maintaining a statistically correct analysis of application data.  It reduces traffic and helps avoid [throttling](app-insights-pricing.md#data-rate). The data is filtered in such a way that related items are allowed through, so that you can navigate between items when you're performing diagnostic investigations.
 When metric counts are presented to you in the portal, they are renormalized to take account of the sampling, to minimize any effect on the statistics.
 
-Adaptive sampling is enabled by default in the Application Insights SDK for ASP.NET, version 2.0.0-beta3 or later. Sampling is currently in Beta, and may change in the future.
+Sampling is currently in Beta, and may change in the future.
 
-There are two alternative sampling modules:
+There are three alternative sampling methods:
 
-* Adaptive sampling automatically adjusts the sampling percentage to achieve a specific volume of requests. Currently available for ASP.NET server-side telemetry only.  
-* Fixed-rate sampling is also available. You specify the sampling percentage. Available for ASP.NET web app code and JavaScript web pages. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
+* **Adaptive sampling** automatically adjusts the sampling percentage to achieve a specific volume of requests. It's enabled by default in the Application Insights SDK for ASP.NET, version 2.0.0-beta3 or later. 
+* **Fixed-rate sampling** is also available in SDK versions 2 onwards. You specify the sampling percentage. This works on both the JavaScript client and ASP.NET server. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
+* **Ingestion sampling**. This happens at the Application Insights service. Your SDK sends all the telemetry from your browser and server, but we retain only a percentage. It's adaptive, operating only if your app sends more than a minimum volume of telemetry, and only if the SDK isn't performing one of the other types of sampling. It's also influenced by the pricing tier that you are using. Although it doesn't reduce traffic, it helps you keep within your monthly quota.
 
 ## Enabling adaptive sampling
 
@@ -148,7 +149,7 @@ For the sampling percentage, choose a percentage that is close to 100/N where N 
 If you also enable fixed-rate sampling at the server, the clients and server will synchronize so that, in Search, you can  navigate between related page views and requests.
 
 
-## Enabling fixed-rate sampling at the server
+## Enabling fixed-rate sampling at your server
 
 1. **Update your project's NuGet packages** to the latest *pre-release* version of Application Insights. Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
 
@@ -185,7 +186,7 @@ If you also enable fixed-rate sampling at the server, the clients and server wil
 
 
 
-### Alternative: enable fixed-rate sampling in server code
+### Alternative: enable fixed-rate sampling in your server code
 
 
 Instead of setting the sampling parameter in the .config file, you can use code. 
@@ -212,7 +213,7 @@ Instead of setting the sampling parameter in the .config file, you can use code.
 
 ## When  to use sampling?
 
-Adaptive sampling is automatically enabled if you use the ASP.NET SDK version 2.0.0-beta3 or later.
+Adaptive sampling is automatically enabled if you use the ASP.NET SDK version 2.0.0-beta3 or later. No matter what SDK version you use, ingestion sampling (at our server) may operate if there is no sampling in the SDK.
 
 You don’t need sampling for most small and medium size applications. The most useful diagnostic information and most accurate statistics are obtained by collecting data on all of your user activities. 
 
@@ -225,19 +226,23 @@ The main advantages of sampling are:
 
 ### Fixed or adaptive sampling?
 
+All forms of sampling operate only above a certain threshold of traffic. For example, it won't affect most debugging sessions or low-use sites.
+
 Use fixed-rate sampling if:
 
 * You want synchronized sampling between client and server, so that, when you're investigating events in [Search](app-insights-diagnostic-search.md), you can navigate between related events on the client and server, such as page views and http requests.
 * You are confident of the appropriate sampling percentage for your app. It should be high enough to get accurate metrics, but below the rate that exceeds your pricing quota and the throttling limits. 
 * You aren't debugging your app. When you hit F5 and try a few pages of your app, you probably want to see all the telemetry.
 
-Otherwise, we recommend adaptive sampling. 
+Otherwise, we recommend adaptive sampling. This is enabled by default in the ASP.NET server SDK.
+
+If you don't use sampling at the SDK - for example if you're using Java, or if you disable sampling in ApplicationInsights.config - then ingestion sampling may operate as the data arrives at the Application Insights service. It's a form of adaptive sampling.
 
 ## How does sampling work?
 
-From the application standpoint, sampling is a feature of the Application Insights SDK. You specify what percentage of all data points should be sent to Application Insights service. From version 2.0.0 of Application Insights SDK you can control sampling percentage from your code. (Future versions of SDK will additionally allow configuring sampling percentage from the ApplicationInsights.config file.)
+Fixed-rate and adaptive sampling are a feature of the SDK in ASP.NET versions from 2.0.0 onwards. Ingestion sampling is a feature of the Application Insights service, and can be in operation if the SDK is not performing sampling. 
 
-The SDK decides which telemetry items to drop, and which ones to keep. The sampling decision is based on several rules that aim to preserve all interrelated data points intact, maintaining a diagnostic experience in Application Insights that is actionable and reliable even with a reduced data set. For example, if for a failed request your app sends additional telemetry items (such as exception and traces logged from this request), sampling will not split this request and other telemetry. It either keeps or drops them all together. As a result, when you look at the request details in Application Insights, you can always see the request along with its associated telemetry items. 
+The sampling algorithm decides which telemetry items to drop, and which ones to keep (whether it's in the SDK or in the Application Insights service). The sampling decision is based on several rules that aim to preserve all interrelated data points intact, maintaining a diagnostic experience in Application Insights that is actionable and reliable even with a reduced data set. For example, if for a failed request your app sends additional telemetry items (such as exception and traces logged from this request), sampling will not split this request and other telemetry. It either keeps or drops them all together. As a result, when you look at the request details in Application Insights, you can always see the request along with its associated telemetry items. 
 
 For applications that define "user" (that is, most typical web applications), the sampling decision is based on the hash of the user id, which means that all telemetry for any particular user is either preserved or dropped. For the types of applications that don't define users (such as web services) the sampling decision is based on the operation id of the request. Finally, for the telemetry items that neither have user nor operation id set (for example telemetry items reported from asynchronous threads with no http context) sampling simply captures a percentage of telemetry items of each type. 
 
@@ -274,7 +279,7 @@ The client-side (JavaScript) SDK participates in sampling in conjunction with se
 
 *Can I find out the sampling rate that adaptive sampling is using?*
 
- * Yes - use the code method of configuring adaptive sampling, and you can provide a callback that gets the sampling rate.
+ * Yes - use the code method of configuring adaptive sampling, and you can provide a callback that gets the sampling rate. If you use continuous export, you can see the sampling rate listed in the exported data points.
 
 *If I use fixed-rate sampling, how do I know which sampling percentage will work the best for my app?*
 
@@ -292,7 +297,9 @@ The client-side (JavaScript) SDK participates in sampling in conjunction with se
 
 *On what platforms can I use sampling?*
 
-* Currently, adaptive sampling is available for the server sides of ASP.NET web apps (hosted either in Azure or on your own server). Fixed-rate sampling is available for any web pages, and for both client and server sides of .NET web applications.
+* Ingestion sampling can occur automatically for any telemetry above a certain volume, if the SDK is not performing sampling. This would work, for example, if your app uses a Java server, or if you are using an older version of the ASP.NET SDK.
+
+* If you're using ASP.NET SDK versions 2.0.0 and above (hosted either in Azure or on your own server), you get adaptive sampling by default, but you can switch to fixed-rate as described above. With fixed-rate sampling, the browser SDK automatically synchronizes to sample related events. 
 
 *There are certain rare events I always want to see. How can I get them past the sampling module?*
 
