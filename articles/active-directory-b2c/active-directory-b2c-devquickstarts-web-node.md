@@ -12,8 +12,8 @@
 	ms.workload="identity"
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.topic="hero-article"
+	ms.date="02/25/2016"
 	ms.author="brandwe"/>
 
 # B2C Preview: Add sign-in to a nodeJS Web App
