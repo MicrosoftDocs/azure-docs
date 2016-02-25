@@ -78,8 +78,6 @@ To back up files and data from a Windows machine to Azure, you need to create a 
 
     ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
 
-    >[AZURE.NOTE] You can learn more about storage redundancy options in this [overview](../storage/storage-redundancy.md) article.
-
     d. Click **Recovery Services**, in the left navigation pane to return to the list of resources for **Recovery Services**.
 
     ![Select backup vault](./media/backup-try-azure-backup-in-10-mins/rs-left-nav.png)
