@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Frequently asked questions for VMs | Microsoft Azure"
 	description="Provides answers to some of the common questions about Azure virtual machines created with the classic deployment model."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

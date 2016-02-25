@@ -2,14 +2,14 @@
 	pageTitle="SharePoint Server 2013 farm Phase 4 | Microsoft Azure"
 	description="Create the SharePoint server virtual machines and a new SharePoint farm in Phase 4 of the SharePoint Server 2013 farm in Azure."
 	documentationCenter=""
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"

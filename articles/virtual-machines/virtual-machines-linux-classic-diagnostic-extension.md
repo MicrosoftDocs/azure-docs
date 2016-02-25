@@ -2,7 +2,7 @@
 <properties
 		pageTitle="Monitoring a Linux VM with a VM extension | Microsoft Azure"
 		description="Learn how to use the Linux Diagnostic Extension to monitor performance and diagnostic data of a Linux VM in Azure."
-		services="virtual-machines"
+		services="virtual-machines-linux"
 		documentationCenter=""
   		authors="NingKuang"
 		manager="timlt"
@@ -10,7 +10,7 @@
   		tags="azure-service-management"/>
 
 <tags
-		ms.service="virtual-machines"
+		ms.service="virtual-machines-linux"
 		ms.workload="infrastructure-services"
 		ms.tgt_pltfrm="vm-linux"
 		ms.devlang="na"

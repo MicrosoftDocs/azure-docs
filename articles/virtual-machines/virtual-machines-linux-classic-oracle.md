@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Oracle on Azure VMs | Microsoft Azure"
-	description="Find the articles that describe how to set up Oracle software on Windows-based or Linux-based Azure virtual machines."
-	services="virtual-machines"
+	description="Find the articles that describe how to set up Oracle software on a Linux virtual machine."
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="bbenz"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

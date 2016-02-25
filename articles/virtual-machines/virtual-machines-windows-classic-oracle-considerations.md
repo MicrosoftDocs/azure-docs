@@ -1,14 +1,14 @@
 <properties
 pageTitle="Considerations for using Oracle VM images | Microsoft Azure"
 description="Learn about supported configurations and limitations for an Oracle VM on Windows Server in Azure before you deploy."
-services="virtual-machines"
+services="virtual-machines-windows"
 documentationCenter=""
 manager=""
 authors="bbenz"
 tags="azure-service-management"/>
 
 <tags
-ms.service="virtual-machines"
+ms.service="virtual-machines-windows"
 ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="vm-windows"

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Different ways to create a Linux VM | Microsoft Azure"
 	description="Lists the different ways to create a Linux virtual machine on Azure and gives links to further instructions."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
@@ -77,7 +77,7 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 <!-- LINKS -->
 [overview]: ../resource-group-overview.md
 
-[Create a Virtual Machine Running Windows]: virtual-machines-windows-tutorial.md
+[Create a Virtual Machine Running Windows]: virtual-machines-windows-hero-tutorial.md
 [Create a Virtual Machine Running Linux]: virtual-machines-linux-cli-create.md
 
 

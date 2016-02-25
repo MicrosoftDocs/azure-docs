@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create a Linux VM | Microsoft Azure"
 	description="Learn how to create a custom virtual machine with the classic deployment model running the Linux operating system."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

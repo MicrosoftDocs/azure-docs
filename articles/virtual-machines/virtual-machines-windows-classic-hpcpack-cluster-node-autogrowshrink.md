@@ -1,14 +1,14 @@
 <properties
  pageTitle="Autoscale compute resources in HPC cluster | Microsoft Azure"
  description="Learn about ways to automatically grow and shrink compute resources in an HPC Pack cluster in Azure"
- services="virtual-machines"
+ services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
  tags="azure-service-management,hpc-pack"/>
 <tags
-ms.service="virtual-machines"
+ms.service="virtual-machines-windows"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"

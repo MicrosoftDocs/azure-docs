@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template | Microsoft Azure"
 	description="Use a Azure resource manager template to create a new Windows virtual machine with Azure diagnostics extension."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="sbtron"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

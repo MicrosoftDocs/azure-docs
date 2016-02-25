@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Line of business application in Azure | Microsoft Azure" 
 	description="Learn the value of a line of business application in Azure, set up a test environment, and deploy a high-availability configuration." 
-	services="virtual-machines" 
+	services="virtual-machines-windows" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 

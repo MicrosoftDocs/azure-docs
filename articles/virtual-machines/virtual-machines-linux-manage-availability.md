@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Manage the availability of Linux VMs | Microsoft Azure"
-	description="Learn how to use multiple virtual machines to ensure high availability for your Linux application in Azure"
-	services="virtual-machines"
+	pageTitle="Manage the availability of VMs | Microsoft Azure"
+	description="Learn how to use multiple virtual machines to ensure high availability for your Azure application."
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="kenazk"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

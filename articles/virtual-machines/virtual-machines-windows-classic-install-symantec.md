@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Install Symantec Endpoint Protection on a VM | Microsoft Azure"
 	description="Learn how to install and configure the Symantec Endpoint Protection security extension on a new or existing Azure VM created with the classic deployment model."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"

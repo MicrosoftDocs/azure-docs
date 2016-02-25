@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Creating a VM for a web project using Visual Studio | Microsoft Azure"
-	description="Create a virtual machine for a web application"
-	services="virtual-machines"
+	pageTitle="Create a virtual machine for a web application | Microsoft Azure"
+	description="Creating a VM for a web project using Visual Studio and Linux."
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="dotnet"

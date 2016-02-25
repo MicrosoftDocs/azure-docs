@@ -9,7 +9,7 @@
 	tags="top-support-issue,azure-resourece-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="na"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

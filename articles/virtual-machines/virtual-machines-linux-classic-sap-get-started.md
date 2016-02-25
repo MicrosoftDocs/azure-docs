@@ -9,7 +9,7 @@
    tags="azure-service-management"
    keywords=""/>
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="NA"
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"

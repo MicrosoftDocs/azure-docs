@@ -1,7 +1,7 @@
 <properties
  pageTitle="HPC Pack cluster for Excel and SOA | Microsoft Azure"
  description="Get started with an HPC Pack cluster in Azure to run large-scale Excel and SOA workloads"
- services="virtual-machines"
+ services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
@@ -9,7 +9,7 @@
  tags="azure-resource-manager,hpc-pack"/>
 
 <tags
- ms.service="virtual-machines"
+ ms.service="virtual-machines-windows"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"

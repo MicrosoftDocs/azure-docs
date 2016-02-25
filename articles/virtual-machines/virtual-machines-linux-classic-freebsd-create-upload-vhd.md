@@ -1,7 +1,7 @@
 <properties
    pageTitle="Create and upload a FreeBSD VM image | Microsoft Azure"
    description="Learn to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system to create an Azure virtual machine"
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
    authors="KylieLiang"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="azure-service-management"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"

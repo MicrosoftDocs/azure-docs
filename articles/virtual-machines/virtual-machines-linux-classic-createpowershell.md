@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create a Linux VM using Azure Powershell | Microsoft Azure"
 	description="Learn how to create and preconfigure a Linux VM using Azure PowerShell."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

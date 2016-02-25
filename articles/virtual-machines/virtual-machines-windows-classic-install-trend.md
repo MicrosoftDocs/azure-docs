@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Install Trend Micro Deep Security on a VM | Microsoft Azure"
 	description="This article describes how to install and configure Trend Micro security on a VM created with the classic deployment model in Azure."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"

@@ -2,14 +2,14 @@
 	pageTitle="Base Configuration Test Environment with Azure Resource Manager"
 	description="Learn how to create a simple dev/test environment that simulates a simplified intranet in Microsoft Azure using Resource Manager."
 	documentationCenter=""
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
@@ -244,7 +244,7 @@ This is your current configuration.
 
 CLIENT1 acts as a typical laptop, tablet, or desktop computer on the Contoso intranet.
 
-> [AZURE.NOTE] The following command set creates CLIENT1 running Windows Server 2012 R2 Datacenter, which can be done for all types of Azure subscriptions. If you have an MSDN-based Azure subscription, you can create CLIENT1 running Windows 10, Windows 8, or Windows 7 using the [Azure portal](virtual-machines-windows-tutorial.md).
+> [AZURE.NOTE] The following command set creates CLIENT1 running Windows Server 2012 R2 Datacenter, which can be done for all types of Azure subscriptions. If you have an MSDN-based Azure subscription, you can create CLIENT1 running Windows 10, Windows 8, or Windows 7 using the [Azure portal](virtual-machines-windows-hero-tutorial.md).
 
 First, fill in the name of your resource group, Azure location, and storage account name and run these commands at the Azure PowerShell command prompt on your local computer to create an Azure Virtual Machine for CLIENT1.
 

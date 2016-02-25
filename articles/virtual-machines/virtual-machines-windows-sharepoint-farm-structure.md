@@ -2,14 +2,14 @@
 	pageTitle="SharePoint Server 2013 farms in Azure | Microsoft Azure"
 	description="Find the articles that describe how to set up a dev/test environment or a production SharePoint Server 2013 farm in Microsoft Azure."
 	documentationCenter=""
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"

@@ -2,14 +2,14 @@
 	pageTitle="Line of business application Phase 2 | Microsoft Azure" 
 	description="Create and configure the two Active Directory replica domain controllers in Phase 2 of the line of business application in Azure." 
 	documentationCenter=""
-	services="virtual-machines" 
+	services="virtual-machines-windows" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 

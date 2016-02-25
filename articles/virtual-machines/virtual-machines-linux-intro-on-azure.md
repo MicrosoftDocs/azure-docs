@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Introduction to Linux in Azure | Microsoft Azure"
 	description="Learn about using Linux virtual machines on Azure."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter="python"
 	authors="szarkos"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

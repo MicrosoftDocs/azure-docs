@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create SharePoint server farms | Microsoft Azure"
 	description="Quickly create a new basic or highly-available SharePoint Server 2013 farm with the Azure portal marketplace."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
@@ -53,7 +53,7 @@ To create the high-availability (nine-server) SharePoint farm:
 
 ## Managing the SharePoint farms
 
-You can administer the servers of these farms through Remote Desktop connections. For more information, see [Log on to the virtual machine](virtual-machines-windows-tutorial.md#log-on-to-the-virtual-machine).
+You can administer the servers of these farms through Remote Desktop connections. For more information, see [Log on to the virtual machine](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine).
 
 From the Central Administration SharePoint site, you can configure My sites, SharePoint applications, and other functionality. For more information, see [Configure SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 

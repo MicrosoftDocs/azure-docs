@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Prepare Debian Linux VHD | Microsoft Azure"
 	description="Learn how to create Debian 7 & 8 VHD files for deployment in Azure."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
@@ -9,7 +9,7 @@
     tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

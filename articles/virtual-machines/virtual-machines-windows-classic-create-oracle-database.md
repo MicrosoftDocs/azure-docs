@@ -1,13 +1,13 @@
 <properties
 	pageTitle="Create an Oracle Database VM with the Azure classic portal | Microsoft Azure"
 	description="Learn how to create a virtual machine with an Oracle Database on it using the classic deployment model and the Azure portal."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	authors="bbenz"
 	documentationCenter=""
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="Windows"

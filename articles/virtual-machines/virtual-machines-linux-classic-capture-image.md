@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Capture an image of a Linux VM | Microsoft Azure"
 	description="Learn how to capture an image of a Linux-based Azure virtual machine (VM) created with the classic deployment model."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="How to Use CoreOS | Microsoft Azure"
 	description="Describes CoreOS, how to create a CoreOS virtual machine cluster on Azure in the classic deployment model, and its basic usage."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"

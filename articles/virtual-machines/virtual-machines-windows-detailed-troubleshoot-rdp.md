@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Detailed Remote Desktop troubleshooting | Microsoft Azure"
 	description="Detailed troubleshooting steps for RDP connections to an Azure virtual machine running Windows."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
@@ -84,7 +84,7 @@ Verify that a computer directly connected to the Internet can make Remote Deskto
 
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_2.png)
 
-If you do not have a computer that is directly connected to the Internet, create and test with a new Azure virtual machine in a resource group or cloud service. For more information, see [Create a virtual machine running Windows in Azure](virtual-machines-windows-tutorial.md). You can delete the virtual machine and the resource group or the cloud service, after the test.
+If you do not have a computer that is directly connected to the Internet, create and test with a new Azure virtual machine in a resource group or cloud service. For more information, see [Create a virtual machine running Windows in Azure](virtual-machines-windows-hero-tutorial.md). You can delete the virtual machine and the resource group or the cloud service, after the test.
 
 If you can create a Remote Desktop connection with a computer directly attached to the Internet, check your organization intranet edge device for:
 
@@ -102,7 +102,7 @@ For virtual machines created using the classic deployment model, verify that ano
 
 > [AZURE.NOTE] For virtual machines created in Resource Manager, skip to [Source 4: Network Security Groups](#nsgs).
 
-If you do not have another virtual machine in the same cloud service or virtual network, you can create a new one by using the steps in [Create a virtual machine running Windows in Azure](virtual-machines-windows-tutorial.md). Delete the extra virtual machine after the test is completed.
+If you do not have another virtual machine in the same cloud service or virtual network, you can create a new one by using the steps in [Create a virtual machine running Windows in Azure](virtual-machines-windows-hero-tutorial.md). Delete the extra virtual machine after the test is completed.
 
 If you can connect via Remote Desktop to a virtual machine in the same cloud service or virtual network, check for these:
 

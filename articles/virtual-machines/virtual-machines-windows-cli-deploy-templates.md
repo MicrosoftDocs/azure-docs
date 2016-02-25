@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Deploy and manage VM with templates | Microsoft Azure"
 	description="Deploy and manage the most common configurations for Azure virtual machines using Resource Manager templates and Azure CLI."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

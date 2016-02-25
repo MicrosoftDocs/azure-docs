@@ -1,7 +1,7 @@
 <properties
    pageTitle="Sample configuration for Linux VM extensions | Microsoft Azure"
    description="Sample configuration for authoring templates with extensions for Linux VMs"
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="azure-resource-manager"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"

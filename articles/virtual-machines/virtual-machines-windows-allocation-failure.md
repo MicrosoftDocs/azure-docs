@@ -9,7 +9,7 @@
 	tags="top-support-issue,azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="na"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
