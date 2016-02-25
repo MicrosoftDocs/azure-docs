@@ -93,7 +93,7 @@ Follow the checklist below to enable and configure the Azure Active Directory De
 
 ##[Optional] Part 4: Enable multi-factor authentication
 
-It is strongly recommended that you configure one of the several options for multi-factor authentication. If you want to require MFA, see [Choose the multi-factor security solution for you](multi-factor-authentication-get-started.md). It includes a description of each solution, and links to help you configure the solution of your choice.
+It is strongly recommended that you configure one of the several options for multi-factor authentication. If you want to require MFA, see [Choose the multi-factor security solution for you](../multi-factor-authentication/multi-factor-authentication-get-started.md). It includes a description of each solution, and links to help you configure the solution of your choice.
 
 ## Part 5: Verification
 
