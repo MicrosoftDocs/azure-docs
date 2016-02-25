@@ -1,6 +1,6 @@
 <properties
 pageTitle="Use the SharePoint Server API in your Logic Apps | Microsoft Azure"
-description="Get started using the Azure App Service SharePoint Server API in your Logic apps and your Power apps."
+description="Get started using the Azure App Service SharePoint Server API in your Logic apps and your PowerApps."
 services=""	
 documentationCenter="" 	
 authors="msftman"	
@@ -26,7 +26,7 @@ The SharePoint Connection Provider provides an API to work with Lists on SharePo
 With SharePoint, you can:
 
 * Use it to build logic apps
-* Use it to build power apps  
+* Use it to build PowerApps  
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -72,7 +72,7 @@ To use the SharePoint API, you first create a **connection** then provide the de
 | ---|---|---|
 |Token|Yes|Provide SharePoint Credentials|  
 
->[AZURE.TIP] You can use this connection in other logic apps or power apps or both.
+>[AZURE.TIP] You can use this connection in other logic apps or PowerApps or both.
 
 ## SharePoint REST API reference
 #### This documentation is for version: 1.0

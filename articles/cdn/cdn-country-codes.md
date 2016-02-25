@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - Country codes" 
-	description="The Country Filtering feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - Country codes"
+	description="The Country Filtering feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 #Country codes
@@ -23,11 +23,11 @@ The **Country Filtering** feature uses country codes to define the countries fro
 | Code         | Country                                      | Additional Information                                                                                                                                                                                                                               
 |--------------|----------------------------------------------|------------------------------------------------------|
 | A1           | Anonymous Proxy                              | This country code identifies a set of IP addresses used by anonymizers or VPN services. These types of services may be used to circumvent IP geolocation restrictions. |                                                                        
-| A2           | Satellite Provider                           | This country code identifies a set of IP addresses used by Satellite ISPs to provide Internet service to multiple countries (e.g., Nigeria and Ghana). | 
+| A2           | Satellite Provider                           | This country code identifies a set of IP addresses used by Satellite ISPs to provide Internet service to multiple countries (e.g., Nigeria and Ghana). |
 | AF           | Afghanistan                                  |     |
 | AL           | Albania                                      |     |
-| DZ           | Algeria                                      |     | 
-| AS           | American Samoa                               |     | 
+| DZ           | Algeria                                      |     |
+| AS           | American Samoa                               |     |
 | AD           | Andorra                                      |     |
 | AO           | Angola                                       |     |
 | AI           | Anguilla                                     |     |
@@ -39,10 +39,10 @@ The **Country Filtering** feature uses country codes to define the countries fro
 | AP           | Asia/Pacific Region                          | This country code identifies a set of IP addresses that are spread out through the Asia/Pacific region. The country of origin for this set of IP addresses is unknown. More importantly, this country code does not cover all IP addresses in the Asia/Pacific region. [Learn more](https://my.edgecast.com/uploads/ubers/1/docs/webhelp/w/CDNHelpCenter/Content/Knowledge_Base/Geolocation_EU_AP.htm).|     
 | AU           | Australia                                    |     |
 | AT           | Austria                                      |     |
-| AZ           | Azerbaijan                                   |     | 
+| AZ           | Azerbaijan                                   |     |
 | BS           | Bahamas                                      |     |
-| BH           | Bahrain                                      |     | 
-| BD           | Bangladesh                                   |     | 
+| BH           | Bahrain                                      |     |
+| BD           | Bangladesh                                   |     |
 | BB           | Barbados                                     |     |
 | BY           | Belarus                                      |     |
 | BE           | Belgium                                      |     |
