@@ -33,8 +33,10 @@ You can only import directly from the Runbook Gallery using the Azure classic po
 ### To import a runbook from the Runbook Gallery with the Azure classic portal
 
 1. In the Azure Management portal, click, **New**, **App Services**, **Automation**, **Runbook**, **From Gallery**.
-2. Select a category to view related runbooks, and select a runbook to view its details. When you select the runbook you want, click the right arrow button.<br>
-![Runbook gallery](media/automation-runbook-gallery/runbook-gallery.png)
+2. Select a category to view related runbooks, and select a runbook to view its details. When you select the runbook you want, click the right arrow button.
+
+    ![Runbook gallery](media/automation-runbook-gallery/runbook-gallery.png)
+
 3. Review the contents of the runbook and note any requirements in the description. Click the right arrow button when you’re done.
 4. Enter the runbook details and then click the checkmark button. The runbook name will already be filled in.
 5. The runbook will appear on the **Runbooks** tab for the Automation Account.
@@ -43,13 +45,19 @@ You can only import directly from the Runbook Gallery using the Azure classic po
 
 1. In the Azure Portal, open your Automation account.
 2. Click on the **Runbooks** tile to open the list of runbooks.
-3. Click **Browse gallery** button. <br>
-![Browse gallery button](media/automation-runbook-gallery/browse-gallery-button.png)
-4. Locate the gallery item you want and select it to view its details.   <br>
-![Browse gallery](media/automation-runbook-gallery/browse-gallery.png)
+3. Click **Browse gallery** button.
+
+    ![Browse gallery button](media/automation-runbook-gallery/browse-gallery-button.png)
+
+4. Locate the gallery item you want and select it to view its details.
+
+    ![Browse gallery](media/automation-runbook-gallery/browse-gallery.png)
+
 4. Click on **View source project** to view the item in the [TechNet Script Center](http://gallery.technet.microsoft.com/).
-5. To import an item, click on it to view its details and then click the **Import** button.<br>
-![Import button](media/automation-runbook-gallery/gallery-item-detail.png)
+5. To import an item, click on it to view its details and then click the **Import** button.
+
+    ![Import button](media/automation-runbook-gallery/gallery-item-detail.png)
+	
 6. Optionally, change the name of the runbook and then click **OK** to import the runbook.
 5. The runbook will appear on the **Runbooks** tab for the Automation Account.
 
@@ -92,8 +100,9 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 1. In the Azure Portal, open your Automation account.
 2. Click on the **Assets** tile to open the list of assets.
 3. Click on the **Modules** tile to open the list of modules.
-4. Click on the **Browse gallery** button and the Browse gallery blade is launched. <br>
-![Module gallery](media/automation-runbook-gallery/modules-blade-buttons.png) <br>
+4. Click on the **Browse gallery** button and the Browse gallery blade is launched.
+
+    ![Module gallery](media/automation-runbook-gallery/modules-blade-buttons.png) <br>
 5. After you have launched the Browse gallery blade, you can search by the following fields:
 
    - Module Name
@@ -103,12 +112,18 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 
 6. Locate a module that you're interested in and select it to view its details.  
 When you drill into a specific module, you can view more information about the module, including a link back to the PowerShell Gallery, any required dependencies, and all of the cmdlets and/or DSC resources that the module contains.
-![PowerShell module details](media/automation-runbook-gallery/gallery-item-details.png) <br>
 
-7. To install the module directly into Azure Automation, click the **Import** button.<br>
-![Import module button](media/automation-runbook-gallery/module-import-button-a.png) <br>
+    ![PowerShell module details](media/automation-runbook-gallery/gallery-item-details.png) <br>
+
+7. To install the module directly into Azure Automation, click the **Import** button.
+
+    ![Import module button](media/automation-runbook-gallery/module-import-button-a.png)
+
 8. When you click the Import button, you will see the module name that you are about to import. If all the dependencies are installed, the **OK** button will be active. If you are missing dependencies, you need to import those before you can import this module.
-9. Click **OK** to import the module, and the module blade will launch. When Azure Automation imports a module to your account, it extracts metadata about the module and the cmdlets.<br>![Import module blade](media/automation-runbook-gallery/module-import-blade-a.png)<br>
+9. Click **OK** to import the module, and the module blade will launch. When Azure Automation imports a module to your account, it extracts metadata about the module and the cmdlets.
+
+    ![Import module blade](media/automation-runbook-gallery/module-import-blade-a.png)
+
 This may take a couple of minutes since each activity needs to be extracted.  
 11. You will receive a notification that the module is being deployed and a notification when it has completed.
 12. After the module is imported, you will see the available activities, and you can use its resources in your runbooks and Desired State Configuration.
