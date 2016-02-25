@@ -48,6 +48,23 @@ To use the Slack API, you first create a **connection** then provide the details
 | ---|---|---|
 |Token|Yes|Provide Slack Credentials|
 
+Follow these steps to sign into Slack and complete the configuration of the Slack **connection** in your logic app:
+
+1. Select **Recurrence**
+2. Select a **Frequency** and enter an **Interval**
+3. Select **Add an action**  
+![Configure Slack][1]  
+4. Enter Slack in the search box and wait for the search to return all entries with Slack in the name
+5. Select **Slack - Post message**
+6. Select **Sign in to Slack**:  
+![Configure Slack][2]
+7. Provide your Slack credentials to sign in to authorize the  application    
+![Configure Slack][3]  
+8. You'll be redirected to your organization's Log in page. **Authorize** Slack to interact with your logic app:      
+![Configure Slack][5] 
+9. After the authorization completes you'll be redirected to your logic app to complete it by configuring the **Slack - Get all messages** section. Add other triggers and actions that you need.  
+![Configure Slack][6] 
+
 
 >[AZURE.TIP] You can use this connection in other logic apps.
 
@@ -460,3 +477,10 @@ None of the properties are required.
 
 ## Next Steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+
+[1]: ./media/create-api-slack/connectionconfig1.png
+[2]: ./media/create-api-slack/connectionconfig2.png 
+[3]: ./media/create-api-slack/connectionconfig3.png
+[4]: ./media/create-api-slack/connectionconfig4.png
+[5]: ./media/create-api-slack/connectionconfig5.png
+[6]: ./media/create-api-slack/connectionconfig6.png
