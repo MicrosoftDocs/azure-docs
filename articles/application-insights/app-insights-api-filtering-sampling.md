@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/25/2016" 
 	ms.author="awills"/>
 
 # Sampling, filtering and preprocessing telemetry in the Application Insights SDK
@@ -26,6 +26,7 @@ Currently these features are available for the ASP.NET SDK.
 * [Sampling](#sampling) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
  * Fixed-rate sampling lets you determine the percentage of events that are transmitted.
  * Adaptive sampling (the default for ASP.NET SDK from 2.0.0-beta3) automatically adjusts the sampling rate according to the volume of your telemetry. You can set a target volume.
+ * Ingestion sampling is a feature of the Application Insights portal, and can be used with any SDK. It's a fixed rate algorithm, which you can set in the Quotas and Pricing blade. Although it doesn't reduce the telemetry transmitted over the network, it reduces the volume stored and processed in the portal.
 * [Filtering](#filtering) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. This is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it will affect your statistics - for example, if you filter out all successful requests.
 * [Add properties](#add-properties) to any telemetry sent from your app, including telemetry from the standard modules. For example, you could add calculated values; or version numbers by which to filter the data in the portal.
 * [The SDK API](app-insights-api-custom-events-metrics.md) is used to send custom events and metrics.
