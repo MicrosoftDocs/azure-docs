@@ -508,7 +508,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
     over time".
 
 ## **How to delete your solution**
-Please ensure that you stop the data generator when not actively using the solution as running the data generator will incur higher costs. Please delete the solution if you are not using it. Deleting your solution will delete all the components provisioned in your subscription when you deployed the solution. To delete the solution right click on your solution name in the left panel of the solution template and click on delete.
+Please ensure that you stop the data generator when not actively using the solution as running the data generator will incur higher costs. Please delete the solution if you are not using it. Deleting your solution will delete all the components provisioned in your subscription when you deployed the solution. To delete the solution click on your solution name in the left panel of the solution template and click on delete.
 
 ## **Cost estimation tools**
 

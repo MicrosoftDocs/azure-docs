@@ -73,6 +73,7 @@ To configure the integration of Soonr Workplace into Azure AD, you need to add S
 ![Creating an Azure AD test user](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_01.png)<br>
 7. In the results pane, select **Soonr Workplace**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Soonr Workplace based on a test user called "Britta Simon".
@@ -109,6 +110,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Soonr Workplace application using the following pattern: **“https://\<server-name\>.soonr.com/singlesignon/saml/SSO”**.
 
+    b. Click **Next**.
 
 4. On the **Configure single sign-on at Soonr Workplace** page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_05.png) <br>
