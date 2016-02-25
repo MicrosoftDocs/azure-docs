@@ -87,4 +87,4 @@ If there is a disconnect, we retry every 10 seconds to re-establish connections.
 The geo-secondary is an async replica and we do not try to keep it in full sync with the primary. But we provide a method to force synchronization. It is designed to ensure the replication of critical changes (e.g. password updates). It will impact performance as it will block the calling thread until all committed transactions are replicated. For details, see [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx). 
 
 ## What tools are available to monitor the replication lag between the primary database and geo-secondary?
-We expose the real-time replication lag between the primary database and geo-secondary through a DMV. For details, see [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/en-us/library/mt575504.aspx).
+We expose the real-time replication lag between the primary database and geo-secondary through a DMV. For details, see [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
