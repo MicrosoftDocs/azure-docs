@@ -14,7 +14,7 @@
     ms.workload="na"
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
-    ms.topic="article"
+    ms.topic="hero-article"
     ms.date="02/09/2016"
     ms.author="adrianha"/>
 

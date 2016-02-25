@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/19/2016"
+   ms.date="02/22/2016"
    ms.author="jehollan"/>
 
 #C\# API App
+
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. 
+
 The C# API app gives you an easy way to run simple C# expressions *while your Logic app executes*.
 
 ##When should you use this API app?
