@@ -100,7 +100,7 @@ Do the following:
 - Click [Using Visual Studio](data-factory-get-started-using-vs.md) link at the top to perform the tutorial by using Visual Studio 2013.
 
 ## Copy Activity
-See [Data Movement Activities](data-movement-activities.md) article for detailed information about the Copy Activity in Azure Data Factory.  
+See [Data Movement Activities](data-factory-data-movement-activities.md) article for detailed information about the Copy Activity in Azure Data Factory.  
 
 
 <!--Link references-->

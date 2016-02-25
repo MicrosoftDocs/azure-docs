@@ -424,7 +424,7 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
 
 ## See Also
-See [Data Movement Activities](data-movement-activities.md) article for detailed information about the **Copy Activity** in Azure Data Factory.
+See [Data Movement Activities](data-factory-data-movement-activities.md) article for detailed information about the **Copy Activity** in Azure Data Factory.
 
 
 [adf-tutorial]: data-factory-tutorial.md

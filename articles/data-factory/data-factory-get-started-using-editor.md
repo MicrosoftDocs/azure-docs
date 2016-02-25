@@ -379,7 +379,7 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 
 
 ## See Also
-See [Data Movement Activities](data-movement-activities.md) article for detailed information about the **Copy Activity** in Azure Data Factory.
+See [Data Movement Activities](data-factory-data-movement-activities.md) article for detailed information about the **Copy Activity** in Azure Data Factory.
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
