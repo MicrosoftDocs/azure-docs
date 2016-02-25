@@ -22,7 +22,7 @@
 
 AzCopy is a Windows command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
 
-> [AZURE.NOTE] This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/en-us/services/storage/). If not, reading the [Introduction to Azure Storage](https://azure.microsoft.com/en-us/documentation/articles/storage-introduction/) documentation will be helpful. Most importantly, you will need to [create a Storage account](https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#create-a-storage-account) in order to start using AzCopy.
+> [AZURE.NOTE] This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/services/storage/). If not, reading the [Introduction to Azure Storage](storage-introduction.md) documentation will be helpful. Most importantly, you will need to [create a Storage account](storage-create-storage-account.md#create-a-storage-account) in order to start using AzCopy.
 
 ## Download and install AzCopy
 
