@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/23/2016"
+   ms.date="02/25/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes (Update 2)
