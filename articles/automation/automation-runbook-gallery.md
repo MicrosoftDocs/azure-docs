@@ -57,7 +57,7 @@ You can only import directly from the Runbook Gallery using the Azure classic po
 5. To import an item, click on it to view its details and then click the **Import** button.
 
     ![Import button](media/automation-runbook-gallery/gallery-item-detail.png)
-	
+
 6. Optionally, change the name of the runbook and then click **OK** to import the runbook.
 5. The runbook will appear on the **Runbooks** tab for the Automation Account.
 
@@ -124,9 +124,9 @@ When you drill into a specific module, you can view more information about the m
 
     ![Import module blade](media/automation-runbook-gallery/module-import-blade-a.png)
 
-This may take a couple of minutes since each activity needs to be extracted.  
-11. You will receive a notification that the module is being deployed and a notification when it has completed.
-12. After the module is imported, you will see the available activities, and you can use its resources in your runbooks and Desired State Configuration.
+    This may take a couple of minutes since each activity needs to be extracted.
+10. You will receive a notification that the module is being deployed and a notification when it has completed.
+11. After the module is imported, you will see the available activities, and you can use its resources in your runbooks and Desired State Configuration.
 
 ## Requesting a runbook or module
 
