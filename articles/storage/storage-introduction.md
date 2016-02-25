@@ -12,7 +12,7 @@
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/24/2016"
 	ms.author="tamram"/>
 
@@ -217,7 +217,7 @@ To learn more about Azure Storage, explore these resources:
 - [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
 - [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md)
 - [Get started with Azure Queue storage using .NET](storage-dotnet-how-to-use-queues.md)
-- [Get started with Azure File storage using .NET](storage-dotnet-how-to-use-files.md)
+- [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 
 ### For Java/Android Developers
 
