@@ -30,7 +30,7 @@ This article lists the things you need to do to prepare your environment to back
 If you've already done all of the high-level steps above, you can start [backing up your Windows machines](backup-azure-backup-windows-server.md). Otherwise, continue through the detailed steps below to make sure your environment is ready.
 
 ## Before you start
-To prepare your environment for backing up Windows machines, you need an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/en-us/free/) in just a couple of minutes.
+To prepare your environment for backing up Windows machines, you need an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
 ## Create a Backup Vault
 To back up files and data from a Windows machine or Data Protection Manager (DPM) to Azure or when backing up IaaS VMs to Azure, you need to create a backup vault in the geographic region where you want to store the data.
@@ -137,7 +137,7 @@ After creating the Azure Backup vault, an agent should be installed on each of y
     The machine is now registered successfully to the vault and you are ready to start backing up to Microsoft Azure.
 
 ## Next steps
-- Sign up for a [free Azure account](https://azure.microsoft.com/en-us/free/)
+- Sign up for a [free Azure account](https://azure.microsoft.com/free/)
 - [Back up a Windows server or client machine](backup-azure-backup-windows-server.md).
 - If you still have unanswered questions, take a look at the [Azure Backup FAQ](backup-azure-backup-faq.md).
 - Visit the [Azure Backup forum](http://go.microsoft.com/fwlink/p/?LinkId=290933)
