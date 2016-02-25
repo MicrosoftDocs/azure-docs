@@ -296,7 +296,7 @@ Note that `/SyncCopy` might generate additional egress cost comparing to asynchr
 
 ### Download
 
-**Download entities**
+**Download table**
 
 	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key
 
@@ -308,7 +308,7 @@ User can also specify the option `/Manifest:<manifest file name>` to set the man
 
 	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /Manifest:abc.manifest
 
-**Download entities to JSON or CSV data file format**
+**Download table to JSON or CSV data file format**
 
 AzCopy by default downloads tables to the JSON data files. You can specify the option `/PayloadFormat:JSON|CSV` to decide the downloaded file type.
 
@@ -316,7 +316,7 @@ AzCopy by default downloads tables to the JSON data files. You can specify the o
 
 When specifying the CSV payload format, besides the data files with `.csv` extension that will be found in the place specified by the parameter `/Dest`, AzCopy will generate scheme file with file extension `.schema.csv` for each data file.
 
-**Download entities concurrently**
+**Download table entities concurrently**
 
 	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PKRS:"aa#bb"
 
@@ -341,7 +341,7 @@ Note that the minimum possible value for option `/SplitSize` is 32MB. If the spe
 
 ### Upload
 
-**Upload entities**
+**Upload table**
 
 	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
 
@@ -357,7 +357,7 @@ Note that asynchronous copying from File Storage to Page Blob is not supported.
 
 ### Copy
 
-**Copy entities to a blob**
+**Copy table to blob**
 
 	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:https://myaccount.blob.core.windows.net/mycontainer/ /SourceKey:key1 /Destkey:key2
 
