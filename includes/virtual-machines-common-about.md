@@ -1,14 +1,6 @@
 
 
 
-Azure Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers. Typically, you'll choose a virtual machine if you need more control over the computing environment than the other choices offer.
-
-An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine. However, you still need to maintain the virtual machine -- configuring, patching, and maintaining the operating system and any other software that runs on the virtual machine.
-
-This table helps you compare the choices offered by Azure.
-
-[AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
-
 ## Next steps
 
 Try out a virtual machine by creating a simple virtual machine quickly. For instructions, see one of these tutorials:
