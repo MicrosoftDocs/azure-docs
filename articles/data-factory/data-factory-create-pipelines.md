@@ -292,13 +292,33 @@ You can create and deploy pipeline using REST APIs too. This mechanism can be le
 ### Using .NET SDK
 You can create and deploy pipeline via .NET SDK too. This mechanism can be leveraged to create pipelines programmatically. To learn more on this refer to [Create, manage, and monitor data factories programmatically](data-factory-create-data-factories-programmatically.md).
 
+## Chaining activities
+If you have multiple activities in a pipeline and they do not depend on each other (output of an activity is not an input of another activity), the activities may run in parallel if input data slices for the activities are ready. 
+
+You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. 
+
+For example, consider the following case:
+ 
+1.	Pipeline P1 has Activity A1 that requires external input dataset D1, and produce **output** dataset **D2**.
+2.	Pipeline P2 has Activity A2 that requires **input** from dataset **D2**, and produces output dataset D3.
+ 
+In this scenario, the activity A1 will run when the external data is available, and the scheduled availability frequency is reached.  The activity A2 will run when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 will not run for that slice until it becomes available.
+
+The Diagram View would look like below:
+
+![Chaining activities in two pipelines](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
+
+The Diagram View with both activities in the same pipeline would look like below: 
+
+![Chaining activities in the same pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
+
 
 ## Scheduling and Execution
 So far you have understood what pipelines and activities are. You have also taken a look at how are they defined and a high level view of the activities in Azure Data Factory. Now let us take a look at how they get executed. 
 
-A pipeline is active only between its start time and end time. It is not executed before the start time or after the end time. If the pipeline is paused, it will not get executed irrespective of its start and end time. For a pipeline to run, it should not be paused. 
+A pipeline is active only between its start time and end time. It is not executed before the start time or after the end time. If the pipeline is paused, it will not get executed irrespective of its start and end time. For a pipeline to run, it should not be paused. In fact, it is not the pipeline that gets executed. It is the activities in the pipeline which get executed. However they do so in the overall context of the pipeline. 
 
-In fact, it is not the pipeline that gets executed. It is the activities in the pipeline which get executed. However they do so in the overall context of the pipeline. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) to understand how scheduling and execution works in Azure Data Factory.
+See [Scheduling and Execution](data-factory-scheduling-and-execution.md) to understand how scheduling and execution works in Azure Data Factory.
 
 ## Manage & Monitor  
 Once a pipeline is deployed, you can manage and monitor your pipelines, slices and runs. Read more about it here: [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md).
