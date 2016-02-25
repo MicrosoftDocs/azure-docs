@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="02/16/2016"
+	ms.date="02/24/2016"
 	ms.author="billmath"/>
 
 # What is Azure Multi-Factor Authentication?
@@ -117,7 +117,7 @@ Custom greetings for phone calls| | | *
 Customization of caller ID for phone calls| | | *
 Event Confirmation| | | *
 Trusted IPs| | | *
-Suspend MFA for remembered devices (Public Preview)| | | *
+Remember MFA for trusted devices (Public Preview)| | | *
 MFA SDK| | | *
 MFA for on-premises applications using MFA server| | | *
 
@@ -198,7 +198,7 @@ One-Time Bypass | ● | ●
 Custom greetings for phone calls | ● | ●
 Customizable caller ID for phone calls | ● | ●
 Trusted IPs | ● | ●
-Suspend MFA for remembered devices (Public Preview) | ● |  
+Remember MFA for trusted devices (Public Preview) | ● |  
 Conditional access | ● | ●
 Cache | ● | ●
 
