@@ -101,7 +101,7 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
    - Author
    - Cmdlet/DSC resource name
 
-6. Locate a module that you're intrested in and select it to view its details.  
+6. Locate a module that you're interested in and select it to view its details.  
 When you drill into a specific module, you can view more information about the module, including a link back to the PowerShell Gallery, any required dependencies, and all of the cmdlets and/or DSC resources that the module contains.
 ![PowerShell module details](media/automation-runbook-gallery/gallery-item-details.png)
 
