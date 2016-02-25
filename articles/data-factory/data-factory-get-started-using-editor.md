@@ -12,7 +12,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
@@ -20,8 +20,8 @@
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
 
@@ -375,15 +375,11 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 1.	Create an Azure **data factory**.
 2.	Create **linked services** that link data stores and computes (referred as **Linked Services**) to the data factory.
 3.	Create **tables** which describe input data and output data for pipelines.
-4.	Create **pipelines**. A pipeline consists of one or more activities and processes the inputs and produces outputs. Set the active period for the pipeline by specifying **Start** time and **End** time for the pipeline. The active period defines the time duration in which data slices will be produced. 
+4.	Create **pipelines**. A pipeline consists of one or more activities and processes the inputs and produces outputs. Set the active period for the pipeline by specifying **Start** time and **End** time for the pipeline. The active period defines the time duration in which data slices will be produced.
 
 
-For a list of supported activities, see [Pipelines and Activities][msdn-activities] 
-topic and for a list of supported linked services, see [Linked Services][msdn-linkedservices] 
-topic on MSDN Library.
- 
-To do this tutorial using Azure PowerShell, see [Create and monitor a data factory using Azure PowerShell][monitor-manage-using-powershell].  
-
+## See Also
+See [Data Movement Activities](data-movement-activities.md) article for detailed information about the **Copy Activity** in Azure Data Factory.
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

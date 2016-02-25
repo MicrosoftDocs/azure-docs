@@ -12,16 +12,16 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Tutorial: Create and monitor a data factory using Visual Studio
+# Tutorial: Create a pipeline with Copy Activity using Visual Studio
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
 ##In This Tutorial
@@ -240,5 +240,8 @@ To update Azure Data Factory tools for Visual Studio, do the following:
 4. Select **Azure Data Factory tools for Visual Studio** and click **Update**. If you do not see this entry, you already have the latest version of the tools. 
 
 See [Monitor datasets and pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) for instructions on how to use the Azure Portal to monitor the pipeline and datasets you have created in this tutorial.
+
+## See Also
+See [Data Movement Activities](data-movement-activities.md) article for detailed information about the **Copy Activity** in Azure Data Factory.
 
 
