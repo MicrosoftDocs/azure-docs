@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Detach a disk from a Windows VM | Microsoft Azure"
 	description="Learn to detach a disk from a virtual machine in Azure using the classic deployment model."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

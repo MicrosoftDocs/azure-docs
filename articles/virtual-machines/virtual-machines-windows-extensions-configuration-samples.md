@@ -1,7 +1,7 @@
 <properties
    pageTitle="Sample configuration for Windows VM extensions | Microsoft Azure"
    description="Sample configuration for authoring templates with extensions"
-   services="virtual-machines"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="azure-resource-manager"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-windows"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Different ways to create a Windows VM | Microsoft Azure"
 	description="Lists the different ways to create a Windows virtual machine with Resource Manager."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="index-page"
 	ms.tgt_pltfrm="vm-windows"
@@ -60,7 +60,7 @@ Choose an image based on the operating system you want to run. Azure and its par
 <!-- LINKS -->
 [overview]: ../resource-group-overview.md
 
-[Create a virtual machine running Windows]: virtual-machines-windows-tutorial.md
+[Create a virtual machine running Windows]: virtual-machines-windows-hero-tutorial.md
 
 [Equivalent Resource Manager and Service Management commands for virtual machine operations with the Azure CLI for Mac, Linux, and Windows]:virtual-machines-linux-cli-manage.md
 [Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI]: virtual-machines-linux-cli-deploy-templates.md

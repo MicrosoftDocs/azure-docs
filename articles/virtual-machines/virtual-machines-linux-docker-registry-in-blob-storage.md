@@ -1,7 +1,7 @@
 <properties 
   pageTitle="Deploying Your Own Private Docker Registry on Azure | Microsoft Azure"
   description="Describes how you can use Docker Registry to host your container images on the Azure Blob Storage service."
-  services="virtual-machines"
+  services="virtual-machines-linux"
   documentationCenter="virtual-machines"
   authors="ahmetalpbalkan"
   editor="squillace"
@@ -9,7 +9,7 @@
   tags="azure-service-management,azure-resource-manager" />
 
 <tags
-  ms.service="virtual-machines"
+  ms.service="virtual-machines-linux"
   ms.devlang="multiple"
   ms.topic="article"
   ms.tgt_pltfrm="vm-linux"

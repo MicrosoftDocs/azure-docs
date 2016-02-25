@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Use SSH on Linux and Mac | Microsoft Azure" 
 	description="Generate and use SSH keys on Linux and Mac for the Resource Manager and classic deployment models on Azure." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 

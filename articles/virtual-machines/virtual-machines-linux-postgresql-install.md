@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Set up PostgreSQL on a Linux VM | Microsoft Azure"
 	description="Learn how to install and configure PostgreSQL on a Linux virtual machine in Azure"
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
@@ -9,7 +9,7 @@
  	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"

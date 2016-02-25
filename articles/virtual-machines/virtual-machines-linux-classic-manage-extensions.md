@@ -1,14 +1,14 @@
 <properties
  pageTitle="Manage virtual machine extensions | Microsoft Azure"
  description="Describes how to add, find, update, and remove extensions for Azure virtual machines, in the classic deployment model."
- services="virtual-machines"
+ services="virtual-machines-linux"
  documentationCenter=""
  authors="squillace"
  manager="timlt"
  editor=""
  tags="azure-service-management"/>
 <tags
- ms.service="virtual-machines"
+ ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"

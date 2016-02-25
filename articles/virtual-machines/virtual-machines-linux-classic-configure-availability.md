@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configure an availability set for classic VMs | Microsoft Azure"
 	description="Configure an availability set for a new or existing virtual machine in the classic deployment model using the Azure classic portal and Azure PowerShell."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Automated SQL Server Patching in VMs | Microsoft Azure"
 	description="Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-resource-manager" />
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"

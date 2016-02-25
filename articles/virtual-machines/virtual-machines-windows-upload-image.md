@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Upload a Windows VHD for Resource Manager | Microsoft Azure"
 	description="Learn to upload a Windows based virtual machine image to use with the Resource Manager deployment model."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Remote Desktop to a Linux VM | Microsoft Azure"
 	description="Learn how to install and configure Remote Desktop to connect to a Microsoft Azure Linux VM"
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

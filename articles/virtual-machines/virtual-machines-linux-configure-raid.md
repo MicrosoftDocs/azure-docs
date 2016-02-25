@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Configure software RAID on avirtual machine running Linux | Microsoft Azure" 
 	description="Learn how to use mdadm to configure RAID on Linux in Azure." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	writer="szark" 
@@ -10,7 +10,7 @@
 	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 

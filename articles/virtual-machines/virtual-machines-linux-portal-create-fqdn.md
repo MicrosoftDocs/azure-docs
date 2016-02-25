@@ -1,7 +1,7 @@
 <properties
    pageTitle="Create FQDN for a VM in Azure portal | Microsoft Azure"
    description="Learn how to create a Fully Qualified Domain Name or FQDN for a Resource Manager based virtual machine in the Azure portal."
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
    authors="dsk-2015"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="azure-resource-manager"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"

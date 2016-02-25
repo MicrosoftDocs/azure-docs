@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Compute-intensive Java application on a VM | Microsoft Azure"
 	description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"

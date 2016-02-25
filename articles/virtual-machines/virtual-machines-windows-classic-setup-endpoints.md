@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Set up endpoints on a classic virtual machine | Microsoft Azure"
 	description="Learn to set up endpoints in the Azure classic portal to allow communication with a virtual machine in Azure."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

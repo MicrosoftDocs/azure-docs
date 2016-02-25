@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows | Microsoft Azure"
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	description="Learn how to use PowerShell to enable Azure Diagnostics in a virtual machine running Windows"
 	authors="sbtron"
@@ -8,7 +8,7 @@
 	editor="""/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

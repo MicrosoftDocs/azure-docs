@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create and upload a Linux VHD | Microsoft Azure"
 	description="Create and upload an Azure virtual hard disk (VHD) with the classic deployment model that contains the Linux operating system."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

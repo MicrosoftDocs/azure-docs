@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Migrate a SQL Server database to SQL Server on a VM | Microsoft Azure"
 	description="Learn about how to migrate an on-premises user database to SQL Server in an Azure virtual machine."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="carlrabeler"
 	manager="jeffreyg"
 	editor=""
 	tags="azure-service-management" />
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"

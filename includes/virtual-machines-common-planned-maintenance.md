@@ -99,7 +99,7 @@ US Gov Iowa | US Gov Virginia
 
 
 <!--Link references-->
-[Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
+[Virtual Machines Manage Availability]: virtual-machines-windows-hero-tutorial.md
 
 [Understand planned versus unplanned maintenance]: virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 

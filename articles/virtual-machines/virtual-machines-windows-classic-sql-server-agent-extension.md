@@ -1,7 +1,7 @@
 <properties
 	pageTitle="SQL Server IaaS Agent Extension | Microsoft Azure"
 	description="This topic uses resources created with the classic deployment model, and describes the SQL Server agent extension, which enables a VM running SQL Server on Azure to use automation features."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="jeffgoll"
 	manager="jeffreyg"
@@ -9,7 +9,7 @@
    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"

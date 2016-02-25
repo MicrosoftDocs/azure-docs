@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Tomcat on a virtual machine | Microsoft Azure"
 	description="This tutorial uses resources created with  the classic deployment model, and shows how to create a Windows Virtual machine and configure it to run Apache Tomcat application server."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
@@ -9,7 +9,7 @@
     tags="azure-service-management" />
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="web"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"

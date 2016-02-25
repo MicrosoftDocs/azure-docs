@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create an Jupyter/IPython Notebook | Microsoft Azure"
 	description="Learn how to deploy the Jupyter/IPython Notebook on a Linux virtual machine created with the resource manager deployment model in Azure."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter="python"
 	authors="crwilcox"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="python"

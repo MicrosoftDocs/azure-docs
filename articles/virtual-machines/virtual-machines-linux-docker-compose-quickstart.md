@@ -1,7 +1,7 @@
 <properties
    pageTitle="Docker and Compose on a virtual machine | Microsoft Azure"
    description="Quick introduction to working with Compose and Docker on Azure virtual machines."
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="azure-service-management"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"

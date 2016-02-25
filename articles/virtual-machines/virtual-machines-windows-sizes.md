@@ -1,7 +1,7 @@
 <properties
  pageTitle="Virtual machine sizes | Microsoft Azure"
  description="Lists the different sizes for virtual machines and their capacities."
- services="virtual-machines"
+ services="virtual-machines-windows"
  documentationCenter=""
  authors="cynthn"
  manager="timlt"
@@ -9,7 +9,7 @@
  tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-ms.service="virtual-machines"
+ms.service="virtual-machines-windows"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
