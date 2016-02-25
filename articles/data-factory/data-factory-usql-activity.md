@@ -156,7 +156,7 @@ The following table describes names and descriptions of properties that are spec
 Property | Description | Required
 :-------- | :----------- | :--------
 type | The type property must be set to **DataLakeAnalyticsU-SQL**. | Yes
-scriptPath | Path to folder that contains the U-SQL script. | No (if you use script)
+scriptPath | Path to folder that contains the U-SQL script. Note that name of the file is case-sensitive. | No (if you use script)
 scriptLinkedService | Linked service that links the storage that contains the script to the data factory | No (if you use script)
 script | Specifiy inline script instread of specifying scriptPath and scriptLinkedService. For example: "script" : "CREATE DATABASE test". | No (if you use scriptPath and scriptLinkedService)
 degreeOfParallelism | The maximum number of nodes that will be used simultaneously to run the job. | No
