@@ -59,10 +59,11 @@ Follow these steps to sign into Yammer and complete the configuration of the Yam
 ![Configure Yammer][2]
 7. Provide your Yammer credentials to sign in to authorize the application  
 ![Configure Yammer][3]  
-8. You'll be redirected to your organization's Log in page. **Allow** yammer to interact with your logic app:  
+8. You'll be redirected to your organization's Log in page. **Allow** Yammer to interact with your logic app:  
 ![Configure Yammer][4] 
-9. After signing in, return to your logic app to complete it by configuring the **Yammer - Get all messages** section and adding other triggers and actions that you need.
-![Configure Yammer][5] 
+9. After signing in, return to your logic app to complete it by configuring the **Yammer - Get all messages** section and adding other triggers and actions that you need.  
+![Configure Yammer][5]  
+10. Save your work by selecting **Save** on the menu bar above.
 
 
 >[AZURE.TIP] You can use this connection in other logic apps.

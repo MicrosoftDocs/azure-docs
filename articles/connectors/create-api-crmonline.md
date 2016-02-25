@@ -85,6 +85,7 @@ Follow these steps to sign into CRM online and complete the configuration of the
 7. Provide your CRM Online credentials to sign in to authorize the application
 ![Configure CRM Online][15]  
 8. After signing in, return to your logic app to complete it by adding other triggers and actions that you need.
+9. Save your work by selecting **Save** on the menu bar above.
 
 
 After you create the connection, you enter the CRM Online properties, like the table or dataset. The **REST API reference** in this topic describes these properties.

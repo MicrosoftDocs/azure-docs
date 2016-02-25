@@ -63,7 +63,8 @@ Follow these steps to sign into Slack and complete the configuration of the Slac
 8. You'll be redirected to your organization's Log in page. **Authorize** Slack to interact with your logic app:      
 ![Configure Slack][5] 
 9. After the authorization completes you'll be redirected to your logic app to complete it by configuring the **Slack - Get all messages** section. Add other triggers and actions that you need.  
-![Configure Slack][6] 
+![Configure Slack][6]
+10. Save your work by selecting **Save** on the menu bar above.
 
 
 >[AZURE.TIP] You can use this connection in other logic apps.
