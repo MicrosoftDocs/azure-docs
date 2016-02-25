@@ -222,11 +222,11 @@ A combined approach, typically used for handling variable but ongoing load, is t
 
 ## <a name="scaling"></a>Scaling applications
 
-With [automatic scaling](batch-automatic-scaling.md), your application can easily be scaled up or down automatically to accommodate the computation that you need. You can dynamically adjust the number of nodes in a pool according to the current workload and resource usage statistics, allowing you to lower the overall cost of running your application by using only those resources needed. You can specify the scaling settings for a pool when it is created, and you can update this configuration at any time.
+With [automatic scaling](batch-automatic-scaling.md), you can have the Batch service dynamically adjust the number of compute nodes in a pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't. You can specify the automatic scaling settings for a pool when it is created, or enable scaling later, and you can update the scaling settings on an automatic scaling-enabled pool.
 
-When automatically decreasing the number of nodes, currently running tasks must be considered. A de-allocation policy is specified which determines whether running tasks are stopped to remove the node immediately, or whether tasks are allowed to finish before the nodes are removed. Setting the target number of nodes to zero at the end of a job, but allowing running tasks to finish, will maximize utilization.
+Automatic scaling is performed by specifying an **automatic scaling formula** for a pool. The Batch service uses this formula to determine the target number of nodes in the pool for the next scaling interval (an interval which you can specify).
 
-The automatic scaling of an application is done by specifying a set of scaling formulas. These formulas are used to determine the target number of nodes in the pool for the next scaling interval. For example, perhaps a job requires that you submit a large number of tasks to be scheduled for execution. You can assign a scaling formula to the pool that adjusts size of the pool (the number of nodes) based on the current number of pending tasks, and the completion rate of those tasks. The Batch service periodically evaluates the formula, resizing the pool based on workload.
+For example, perhaps a job requires that you submit a large number of tasks to be scheduled for execution. You can assign a scaling formula to the pool that adjusts number of nodes in the pool based on the current number of pending tasks, and the completion rate of those tasks. The Batch service periodically evaluates the formula, and resizes the pool based on workload and your formula settings.
 
 A scaling formula can be based on the following metrics:
 
@@ -236,10 +236,11 @@ A scaling formula can be based on the following metrics:
 
 - **Task metrics** – Based on the status of tasks, such as Active, Pending, and Completed.
 
-For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
+When automatic scaling decreases the number of compute nodes in a pool, currently running tasks must be considered. To accommodate this, your formula can include a node de-allocation policy setting that specifies whether running tasks are stopped immediately, or allowed to finish before the node is removed from the pool.
 
-> [AZURE.TIP]
- While not often required, it is possible to specify individual nodes to be removed from a pool. If a node is suspected of being less reliable, for example, it could be removed from the pool to prevent additional tasks from being assigned.
+> [AZURE.TIP] To maximize compute resource utilization, set the target number of nodes to zero at the end of a job, but allow running tasks to finish.
+
+For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
 
 ## <a name="cert"></a>Security with certificates
 
