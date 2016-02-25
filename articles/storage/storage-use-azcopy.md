@@ -294,15 +294,13 @@ Note that `/SyncCopy` might generate additional egress cost comparing to asynchr
 
 ## Table Storage
 
-### Upload
-
 ### Download
 
-**Download all entities**
+**Download entities**
 
 	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key
 
-AzCopy writes a manifest file to the specified destination folder or blob container. The manifest file is used by the import process to locate the necessary data files and perform data validation during the import process. The manifest file uses the following naming convention by default:
+AzCopy writes a manifest file to the specified destination folder. The manifest file is used in the upload process to locate the necessary data files and perform data validation. The manifest file uses the following naming convention by default:
 
 	<account name>_<table name>_<timestamp>.manifest
 
@@ -310,35 +308,29 @@ User can also specify the option `/Manifest:<manifest file name>` to set the man
 
 	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /Manifest:abc.manifest
 
-**Download all entities to JSON and CSV data file format**
+**Download entities to JSON or CSV data file format**
 
-AzCopy by default exports Table entites to JSON files, user can specify option `/PayloadFormat:JSON|CSV` to decide the exported data file type.
+AzCopy by default downloads tables to the JSON data files. You can specify the option `/PayloadFormat:JSON|CSV` to decide the downloaded file type.
 
 	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PayloadFormat:CSV
 
 When specifying the CSV payload format, besides the data files with `.csv` extension that will be found in the place specified by the parameter `/Dest`, AzCopy will generate scheme file with file extension `.schema.csv` for each data file.
 
-### Copy
+**Download entities concurrently**
 
-**Copy all entities to a blob**
+	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PKRS:"aa#bb"
 
-	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:https://myaccount.blob.core.windows.net/mycontainer/ /SourceKey:key1 /Destkey:key2
+AzCopy will start concurrent operations to export entities when the user specifies option `/PKRS`. Each operation exports one partition key range.
 
-AzCopy will generate a JSON data file into the local folder or blob container with following naming convention:
+Note that the number of concurrent operations is also controlled by option `/NC`. AzCopy uses the number of core processors as the default value of `/NC` when copying table entities, even if `/NC` was not specified. When the user specifies option `/PKRS`, AzCopy uses the smaller of the two values - partition key ranges versus implicitly or explicitly specified concurrent operations - to determine the number of concurrent operations to start. For more details, type `AzCopy /?:NC` at the command line.
 
-	<account name>_<table name>_<timestamp>_<volume index>_<CRC>.json
-
-The generated JSON data file follows the payload format for minimal metadata. For details on this payload format, see [Payload Format for Table Service Operations](http://msdn.microsoft.com/library/azure/dn535600.aspx).
-
-Note that when exporting Storage Table Entities to Storage Blob, AzCopy will export the Table entities to local temporary data files firstly and then upload them to Blob, these temporary data files are put into the journal file folder with the default path “<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>”, you can specify option /Z:[journal-file-folder] to change the journal file folder location and thus change the temporary data files location. The temporary data files’ size is decided by your table entities’ size and the size you specified with the option /SplitSize, although the temporary data file in local disk will be deleted instantly once it has been uploaded to the Blob, please make sure you have enough local disk space to store these temporary data files before they are deleted,
-
-### Split the export files
+**Split download into multiple files**
 
 	AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
 
 AzCopy uses a *volume index* in the split data file names to distinguish multiple files. The volume index consists of two parts, a *partition key range index* and a *split file index*. Both indexes are zero-based.
 
-The partition key range index will be 0 if user does not specify option `/PKRS` (introduced in next section).
+The partition key range index will be 0 if user does not specify option `/PKRS`.
 
 For instance, suppose AzCopy generates two data files after the user specifies option `/SplitSize`. The resulting data file names might be:
 
@@ -347,15 +339,9 @@ For instance, suppose AzCopy generates two data files after the user specifies o
 
 Note that the minimum possible value for option `/SplitSize` is 32MB. If the specified destination is Blob storage, AzCopy will split the data file once its sizes reaches the blob size limitation (200GB), regardless of whether option `/SplitSize` has been specified by the user.
 
-### Export entities concurrently
+### Upload
 
-	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PKRS:"aa#bb"
-
-AzCopy will start concurrent operations to export entities when the user specifies option `/PKRS`. Each operation exports one partition key range.
-
-Note that the number of concurrent operations is also controlled by option `/NC`. AzCopy uses the number of core processors as the default value of `/NC` when copying table entities,  even if `/NC` was not specified. When the user specifies option `/PKRS`, AzCopy uses the smaller of the two values - partition key ranges versus implicitly or explicitly specified concurrent operations - to determine the number of concurrent operations to start. For more details, type `AzCopy /?:NC` at the command line.
-
-### Import entities concurrently
+**Upload entities**
 
 	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
 
@@ -365,13 +351,38 @@ The option `/EntityOperation` indicates how to insert entities into the table. P
 - `InsertOrMerge`: Merges an existing entity or inserts a new entity if it does not exist in the table.
 - `InsertOrReplace`: Replaces an existing entity or inserts a new entity if it does not exist in the table.
 
-Note that you cannot specify option `/PKRS` in the import scenario. Unlike the export scenario, in which you must specify option `/PKRS` to start concurrent operations, AzCopy will by default start concurrent operations when you import entities. The default number of concurrent operations started is equal to the number of core processors; however, you can specify a different number of concurrent with option `/NC`. For more details, type `AzCopy /?:NC` at the command line.
+Note that you cannot specify option `/PKRS` in the upload scenario. Unlike the download scenario, in which you must specify option `/PKRS` to start concurrent operations, AzCopy will by default start concurrent operations when you upload a table. The default number of concurrent operations started is equal to the number of core processors; however, you can specify a different number of concurrent with option `/NC`. For more details, type `AzCopy /?:NC` at the command line.
 
 Note that asynchronous copying from File Storage to Page Blob is not supported.
 
+### Copy
+
+**Copy entities to a blob**
+
+	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:https://myaccount.blob.core.windows.net/mycontainer/ /SourceKey:key1 /Destkey:key2
+
+AzCopy will generate a JSON data file into the local folder or blob container with following naming convention:
+
+	<account name>_<table name>_<timestamp>_<volume index>_<CRC>.json
+
+The generated JSON data file follows the payload format for minimal metadata. For details on this payload format, see [Payload Format for Table Service Operations](http://msdn.microsoft.com/library/azure/dn535600.aspx).
+
+Note that when copying Table entities to a blob, AzCopy will download the Table entities to local temporary data files and then upload those entities to the blob. These temporary data files are put into the journal file folder with the default path “<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>”, you can specify option /Z:[journal-file-folder] to change the journal file folder location and thus change the temporary data files location. The temporary data files’ size is decided by your table entities’ size and the size you specified with the option /SplitSize, although the temporary data file in local disk will be deleted instantly once it has been uploaded to the blob, please make sure you have enough local disk space to store these temporary data files before they are deleted.
+
+**Copy entities to table using blobs**
+
+Imagine a Blob container with the following blobs: A JSON file representing an Azure Table and its accompanying manifest file.
+
+	myaccount_mytable_20140103T112020.manifest
+	myaccount_mytable_20140103T112020_0_0_0AF395F1DC42E952.json
+
+You can run the following command to copy entities to a table using the manifest file in that blob container:
+
+	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:https://myaccount.table.core.windows.net/mytable /SourceKey:key1 /DestKey:key2 /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:"InsertOrReplace"
+
 ## Other ways to use AzCopy
 
-### Use a response file to specify command-line parameters
+**Use a response file to specify command-line parameters**
 
 	AzCopy /@:"C:\responsefiles\copyoperation.txt"
 
@@ -398,7 +409,7 @@ AzCopy will fail if you split the parameter across two lines, as shown here for 
 	/S
 	/Y
 
-### Use multiple response files to specify command-line parameters
+**Use multiple response files to specify command-line parameters**
 
 Assume a response file named `source.txt` that specifies a source container:
 
@@ -420,67 +431,55 @@ AzCopy processes this command just as it would if you included all of the indivi
 
 	AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
 
-### Specify a shared access signature (SAS)
-
-**Specify a SAS for the source container using the /sourceSAS option**
-
-	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /DestC:\myfolder /SourceSAS:SAS /S
-
-**Specify a SAS for the source container on the source container URI**
-
-	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken /Dest:C:\myfolder /S
-
-**Specify a SAS for the destination container using the /destSAS option**
-
-	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer1 /DestSAS:SAS /Pattern:abc.txt
-
-**Specify a SAS for the source and destination containers**
+**Specify a shared access signature (SAS)**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceSAS:SAS1 /DestSAS:SAS2 /Pattern:abc.txt
 
-### Specify a journal file folder
+You can also specify a SAS on the container URI:
+
+	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken /Dest:C:\myfolder /S
+
+**Journal file folder**
 
 Each time you issue a command to AzCopy, it checks whether a journal file exists in the default folder, or whether it exists in a folder that you specified via this option. If the journal file does not exist in either place, AzCopy treats the operation as new and generates a new journal file.
 
 If the journal file does exist, AzCopy will check whether the command line that you input matches the command line in the journal file. If the two command lines match, AzCopy resumes the incomplete operation. If they do not match, you will be prompted to either overwrite the journal file to start a new operation, or to cancel the current operation.
 
-**Use the default location for the journal file**
+If you want to use the default location for the journal file:
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
 
 If you omit option `/Z`, or specify option `/Z` without the folder path, as shown above, AzCopy creates the journal file in the default location, which is `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. If the journal file already exists, then AzCopy resumes the operation based on the journal file.
 
-**Specify a custom location for the journal file**
+If you want to specify a custom location for the journal file:
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z:C:\journalfolder\
 
 This example creates the journal file if it does not already exist. If it does exist, then AzCopy resumes the operation based on the journal file.
 
-**Resume an AzCopy operation**
+If you want to resume an AzCopy operation:
 
 	AzCopy /Z:C:\journalfolder\
 
 This example resumes the last operation, which may have failed to complete.
 
-### Generate a log file
-
-**Write to the verbose log file in the default location**
+**Generate a log file**
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
 
 If you specify option `/V` without providing a file path to the verbose log, then AzCopy creates the log file in the default location, which is `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
 
-**Write to the verbose log file in a custom location**
+Otherwise, you can create an log file in a custom location:
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V:C:\myfolder\azcopy1.log
 
 Note that if you specify a relative path following option `/V`, such as `/V:test/azcopy1.log`, then the verbose log is created in the current working directory within a subfolder named `test`.
 
-### Specify the number of concurrent operations to start
+**Specify the number of concurrent operations to start**
 
 Option `/NC` specifies the number of concurrent copy operations. By default, AzCopy will begin concurrent operations at eight times the number of core processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for this option to avoid failure caused by resource competition.
 
-### Run AzCopy against Azure Storage Emulator
+**Run AzCopy against Azure Storage Emulator**
 
 You can run AzCopy against the [Azure Storage Emulator](storage-use-emulator.md) for Blobs and Tables:
 
