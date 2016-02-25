@@ -226,7 +226,7 @@ This feedback will help us improve the quality of white papers we release.
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco churn model template](https://caqs.azure.net/#gallery/telcocustomerchurn) in Cortana Analytics Gallery 
+[5] [Telco churn model template](http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5) in Cortana Analytics Gallery 
  
 ##Appendix
 

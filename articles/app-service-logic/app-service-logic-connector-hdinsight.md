@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/12/2016"
+   ms.date="02/10/2016"
    ms.author="sameerch"/>
 
 
 # Get started with the HDInsight Connector and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
 HDInsight Connector lets you create a Hadoop cluster on Azure and submit various Hadoop jobs such as Hive, Pig, MapReduce and Streaming MapReduce jobs. Azure HDInsight service deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data. The Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze, in parallel, the data stored in this distributed system. Using HDInsight connector, you can create or delete a cluster, submit a job and wait for it to complete.
 
 Connectors can be used in Logic apps to fetch, process or push data as a part of a flow. You can add the HDInsight connector to your business workflow and process data as part of this workflow within a Logic App. 
