@@ -55,36 +55,30 @@ In the steps below, you will create a VNet, add a gateway subnet, a gateway, a l
 
 When using these steps as an exercise, you can use the following values:
 
-- VNet name = TestVNet
-- Address Space = 10.10.0.0/16
-- Resource Group Name = TestRG
-- Location = EastUS
-- Subnet 1 Name = FrontEnd
-- Range = 10.10.2.0/24
-- Subnet 2 Name = BackEnd
-- Range = 10.10.2.0/24
-- Gateway Subnet Name = GatewaySubnet
-- Range = 10.10.3.0/24
-- DNS Server = whatever server IP address that you want to use for name resolution
-- Gateway Name = GW1 (this is not the same as a gateway subnet)
-- Public IP address Name = PublicIP
-- Location = EastUS
-- Local Site = GW1LocalSite
+Values for TestVNet1:
 - 
-- 
+- VNet Name: TestVNet1
+- Resource Group: TestRG1
+- Location: East US
+- TestVNet1 Address Space: 10.11.0.0/16 & 10.12.0.0/16
+- Subnets: 
+	- FrontEnd: 10.11.0.0/24
+	- BackEnd: 10.12.0.0/24
+	- GatewaySubnet: 10.12.255.0.0/27
+- DNS Server: 8.8.8.8
+- GatewayName: VNet1GW (not the same thing as a Gateway Subnet name)
+- Public IP: VNet1GWIP
+- VPNType: RouteBased
+- Connection: VNet1toVNet4
+- ConnectionType: Vpn
+- Local Site: VNet1GWLocal
+
+
 
 
 ## Create a virtual network 
 
 If you already have a virtual network, verify that the settings are correct, then skip to Specify the DNS server.
-
-**If you are using this as a sample exercise, you can use the following settings**
-
-Virtual Network Name = TestVNet1
-Address Space = 10.10.0.0/16
-Subnet 1 = FrontEnd
-Range = 10.10.
-
 
 
 [AZURE.INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]  
@@ -99,22 +93,10 @@ Before connecting your virtual network to a gateway, you'll first need to create
 
 **Important:** The gateway subnet prefix for some configurations require a subnet of /28 or larger in order to accommodate the number of IP addresses needed in the pool. This means the gateway subnet prefix needs to be /28, /27, /26 etc. You may want to create a larger subnet here in order to accomodate possible future configuration additions.
 
-**For this section, you can use the following example settings:**
-
-- Gateway Subnet Name = GatewaySubnet
-- Subnet = 192.168.3.0/26
-- Gateway type = VPN
-- VPN type = Route-based
-- Resource Group = 
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## Create the gateway
-
-**For this section, you can use the following example settings:**
-
-- Virtual Network Gateway Name  = VNETGW1
-- 
 
 
 [AZURE.INCLUDE [vpn-gateway-create-gw-rm-portal](../../includes/vpn-gateway-create-gw-rm-portal-include.md)]
