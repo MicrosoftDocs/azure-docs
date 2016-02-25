@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Use AMS to only deliver DRM licenses or AES keys" 
+	pageTitle="Use Azure Media Services to deliver DRM licenses or AES keys" 
 	description="This article describes how you can use Azure Media Services (AMS) to deliver PlayReady and/or Widevine licenses and AES keys but do the rest (encoding, encrypting, streaming) using your on-premises servers." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="02/24/2016" 
 	ms.author="juliako"/>
 
 
-#Use AMS to only deliver PlayReady and/or Widevine licenses or AES keys
+#Use Azure Media Services to deliver DRM licenses or AES keys
 
 Azure Media Services (AMS) enables you to ingest, encode, add content protection, and stream your content (see [this](media-services-protect-with-drm.md) article for details). However, there are customers who only want to use AMS to deliver licenses and/or keys and do encoding, encrypting and streaming using their on-premises servers. This article describes how you can use AMS to deliver PlayReady and/or Widevine licenses but do the rest with your on-premises servers. 
 
@@ -33,6 +33,9 @@ The following diagram shows the main steps you need to take to use AMS to delive
 
 ![Protect with PlayReady](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
 
+##Download sample
+
+You can download the sample described in this article from [here](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
 
 ##.NET code example
 
