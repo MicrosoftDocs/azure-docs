@@ -478,7 +478,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Specifies whether to treat null or empty string as null value. | TRUE<br/>FALSE | No |
+| treatEmptyAsNull | Specifies whether to treat null or empty string as null value. <p>Note that when the **quoteChar** property is specified, a quoted empty string can also be treated as null with this property.</p> | TRUE(default) <br/>FALSE | No |
 | skipHeaderLineCount | Indicates how many lines need be skipped. It is applicable only when input dataset is using **TextFormat**. | Integer from 0 to Max. | No | 
 | recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. | True (default value), False | No | 
 
