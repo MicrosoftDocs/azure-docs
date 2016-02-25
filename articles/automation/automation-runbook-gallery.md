@@ -106,7 +106,7 @@ When you drill into a specific module, you can view more information about the m
 ![PowerShell module details](media/automation-runbook-gallery/gallery-item-details.png) <br>
 
 7. To install the module directly into Azure Automation, click the **Import** button.<br>
-![Import module button](media/automation-runbook-gallery/module-import-button.png) <br>
+![Import module button](media/automation-runbook-gallery/module-import-button-a.png) <br>
 8. When you click the Import button, you will see the module name that you are about to import. If all the dependencies are installed, the **OK** button will be active. If you are missing dependencies, you need to import those before you can import this module.
 9. Click **OK** to import the module, and the module blade will launch. When Azure Automation imports a module to your account, it extracts metadata about the module and the cmdlets.<br>![Import module blade](media/automation-runbook-gallery/module-import-blade.png)<br>
 This may take a couple of minutes since each activity needs to be extracted.  
