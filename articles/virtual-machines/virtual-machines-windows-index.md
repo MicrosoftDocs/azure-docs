@@ -2,7 +2,7 @@
    pageTitle="Technical articles for Windows VMs |
     Microsoft Azure"
    description="A complete list of Microsoft Azure documentation articles related to Windows virtual machines"
-   services="virtual-machines"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
@@ -10,8 +10,8 @@
    editor=""/>
 
 <tags
-   ms.service="virtual-machines"
-   ms.devlang=""
+   ms.service="virtual-machines-windows"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
