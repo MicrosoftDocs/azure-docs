@@ -58,7 +58,7 @@ To back up files and data from a Windows machine or Data Protection Manager (DPM
 
 > [AZURE.IMPORTANT] The best time to identify your storage redundancy option is right after vault creation and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
 >
-> Read more about [Geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [Locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) options in this [overview](../storage/storage-redundancy.md).
+> Read more about [Geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [Locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in this [overview](../storage/storage-redundancy.md).
 
 ## Download the vault credential file
 The on-premises server (Windows client or Windows Server or Data Protection Manager server) needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved using “vault credentials”. The vault credential file is downloaded through a secure channel from the Azure portal and the Azure Backup service is unaware of the private key of the certificate, which does not persist in the portal or the service.
