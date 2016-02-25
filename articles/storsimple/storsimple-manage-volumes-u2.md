@@ -200,14 +200,14 @@ Conversion from a tiered to a locally pinned volume can adversely affect device 
 - There is insufficient bandwidth.
 - The device is full and is already spilling to the cloud.
 - There is no current backup.
-- The device supports mixed workloads (tiered and locally pinned).
 
 To minimize the effects that these factors may have:
 
 - Review your bandwidth throttling policies and make sure that a dedicated 40 Mbps bandwidth is available.
 - Schedule the conversion for off-peak hours.
 - Take a backup before you start the conversion.
-- If you are converting multiple volumes (supporting different workloads), then you should prioritize the volume conversion so that higher priority volumes are converted first. For example, you should convert volumes that host virtual machines (VMs) or volumes with SQL workloads before you convert volumes with file share workloads.
+
+If you are converting multiple volumes (supporting different workloads), then you should prioritize the volume conversion so that higher priority volumes are converted first. For example, you should convert volumes that host virtual machines (VMs) or volumes with SQL workloads before you convert volumes with file share workloads.
 
 #### To change the volume type
 
