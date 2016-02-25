@@ -61,7 +61,7 @@ Behind each chart there are additional insights. Select a tile to see more infor
 
 If you click on any line of this graph, the others will be gray out and you focus only on the one you selected. To return to the dashboard, click **Azure Security Center** under the **Dashboards** option on the left pane of this page. 
 
-[AZURE.NOTE] If you’d like to customize your reports, by adding additional fields or changing existing visuals, you can edit the report. Read [Interact with a report in Editing View in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-interact-with-a-report-in-editing-view/) for more information.
+> [AZURE.NOTE] If you’d like to customize your reports, by adding additional fields or changing existing visuals, you can edit the report. Read [Interact with a report in Editing View in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-interact-with-a-report-in-editing-view/) for more information.
 
 The **Alerts over Time**, **Attacked Resources** and **Attacker IPs** tiles will have the similar output when you click on each one of it. This happens because the report aggregates information regarding all those three variables and calls it **Resources under Attack** as shown below:
 
