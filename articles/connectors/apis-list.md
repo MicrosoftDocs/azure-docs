@@ -1,5 +1,5 @@
 <properties
-	pageTitle="List of managed APIs | Microsoft Azure App Service"
+	pageTitle="List of Microsoft-managed APIs | Microsoft Azure App Service"
 	description="Get a complete list of the Microsoft-Managed APIs you can use to build Logic apps in Azure App Service"
 	services="app-service\logic"
 	documentationCenter=""
@@ -17,9 +17,9 @@
 	ms.date="02/23/2016"
 	ms.author="deonhe"/>
 
-# Here's the list of Microsoft-managed APIs for building apps
+# List of Microsoft-managed APIs
 
-Select an icon to learn how to quickly leverage these APIs to build  apps that call these services. These APIs can be used to build logic apps and or power apps or both.
+Select an icon to learn how to quickly leverage these APIs to build  apps that call these services. These APIs can be used to build logic apps and or PowerApps or both.
 
 For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
@@ -38,7 +38,7 @@ For pricing information and a list of what is included with each Service Tier, s
 > [AZURE.NOTE] These APIs work with 2015-12-01-preview version of the service.
 
 ### APIs can be triggers
-Several APIs provide triggers that can notify your app when specific events occur. For example, the FTP API has the OnUpdatedFile trigger. You can build an either a logic app or power app that listens to this trigger and takes an action whenever the trigger is fired.
+Several APIs provide triggers that can notify your app when specific events occur. For example, the FTP API has the OnUpdatedFile trigger. You can build an either a logic app or a PowerApp that listens to this trigger and takes an action whenever the trigger is fired.
 
 There are two types of triggers:  
 
@@ -52,7 +52,7 @@ APIs can also be used as actions within your apps. Actions are useful for lookin
 
 [What's new](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
 [Build a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Get started with Power apps now](../power-apps/powerapps-get-started-azure-portal.md)  
+[Get started with PowerApps now](../power-apps/powerapps-get-started-azure-portal.md)  
 
 <!--API Documentation-->
 [azureblobdoc]: ./create-api-azureblobstorage.md "Connect to Azure blob to manage files in your blob container."
