@@ -25,7 +25,7 @@ Office 365 API enables interaction with Office 365. For example: creating, editi
 With the Office 365, you can:
 
 * Use it to build logic apps
-* Use it to build power apps
+* Use it to build PowerApps
 
 For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
