@@ -18,20 +18,20 @@
 	ms.author="daleche"/>
 
 
-# How to restore a single table in a database from an Azure SQL Database backup
+# How to restore a single table in Azure SQL Database backup
 
-This article describes the steps about how to restore a single table in a database from an Azure SQL Database backup. To do this, follow these steps:
+You may encounter situations where you performed an accidental data modification and want to recover the single affected table. This article describes the steps to restore a single table in a database from one of the backups automatically that are performed by Azure SQL Database, based on your selected performance tier.
 
 ## Preparation steps: Rename the table and restore a copy of the database
-1. Identify the table in your Azure SQL Database that you want to replace with the restored copy, and then rename the table by using Microsoft SQL Management Studio. For example, rename the table’s name to &lt;Table name&gt;_bak.
+1. Identify the table in your Azure SQL Database that you want to replace with the restored copy. Rename the table by using Microsoft SQL Management Studio. For example, rename the table to &lt;table name&gt;_old.
 
-	**Note** Make sure that there's no activity on the table that's being renamed. If you encounter issues, please do this procedure during maintenance window.
+	**Note** To avoid being blocked, make sure that there's no activity on the table that's being renamed. If you encounter issues, please do this procedure during maintenance window.
 
-2. Restore your database to the desired restore time. To do this, refer to the steps in [Recover an Azure SQL Database from a user error](../sql-database/sql-database-user-error-recovery.md).
+2. Restore a backup of your database to a point in time you wish to recover to. To do this, refer to the steps in [Recover an Azure SQL Database from a user error](../sql-database/sql-database-user-error-recovery.md).
 
 	**Notes**:
-	- The restore process restores the database that uses DBName+TimeStamp as database name, for example, **MyTestdb_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is part of safety measure, and the intention is to verify the restored database before user drops their current database and rename the restored DB for their production use.
-	- This step will create a new database in the server where your current database is. Microsoft maintains Point In Time Restore (PITR) for every performance tier from Basic to Premier. The restore point varies between each tiers.
+	- The restored database will have a name in the format of DBName+TimeStamp, for example, **MyTestdb_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is part of safety measure, and the intention is to verify the restored database before user drops their current database and rename the restored DB for their production use.
+	- All performance tiers from Basic to Premium are automatically backed up by the service, with varying backup retention based on the tier:
 
 | DB Restore | Basic tier | Standard tiers | Premium tiers |
 | :-- | :-- | :-- | :-- |
@@ -71,4 +71,4 @@ This article describes the steps about how to restore a single table in a databa
 9. Click **Connect**, and then select the target database that you want to move the table to, and then click **Next**. This should complete executing the previously generated script and you should see the table that's moved copied to the target database.
 
 ## Verification step
-1. Query and test the newly copied table to make sure the data is intact. Upon confirmation, you can drop the renamed table that is form **Preparation steps** section. For example, &lt;Table name&gt;_bak.
+1. Query and test the newly copied table to make sure the data is intact. Upon confirmation, you can drop the renamed table that is form **Preparation steps** section. For example, &lt;table name&gt;_old.
