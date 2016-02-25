@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - Advanced HTTP Reports" 
-	description="Advanced HTTP reports in Microsoft Azure CDN. These reports provide detailed information on CDN activity." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - Advanced HTTP Reports"
+	description="Advanced HTTP reports in Microsoft Azure CDN. These reports provide detailed information on CDN activity."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 # Advanced HTTP reports in Microsoft Azure CDN
@@ -29,11 +29,11 @@ This document explains advanced HTTP reporting in Microsoft Azure CDN. These rep
 1. From the CDN profile blade, click the **Manage** button.
 
 	![CDN profile blade manage button](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
-	
+
 	The CDN management portal opens.
-	
+
 2. Hover over the **Analytics** tab, then hover over the **Advanced HTTP Reports** flyout.  Click on **HTTP Large Platform**.
-	
+
 	Report options are displayed.
 
 ## Geography Reports (Map-Based)
@@ -52,7 +52,7 @@ World Map | This report allows you to view the worldwide demand for your CDN con
 United States Map | This report allows you to view the demand for your CDN content in the United States. Each state is color-coded on this map to indicate the percentage of hits that originated from that region.
 Canada Map | This report allows you to view the demand for your CDN content in Canada. Each province is color-coded on this map to indicate the percentage of hits that originated from that region.
 Europe Map | This report allows you to view the demand for your CDN content in Europe. Each country is color-coded on this map to indicate the percentage of hits that originated from that region.
-Asia Pacific Map | This report allows you to view the demand for your CDN content in Asia. Each country is color-coded on this map to indicate the percentage of hits that originated from that region. 
+Asia Pacific Map | This report allows you to view the demand for your CDN content in Asia. Each country is color-coded on this map to indicate the percentage of hits that originated from that region.
 
 ## Geography Reports (Bar Charts)
 
@@ -98,7 +98,7 @@ The left-hand side of the graph (y-axis) indicates how many hits occurred on the
 
 > [AZURE.TIP] If you hover over a bar, the total number of hits that occurred during that hour will be displayed as a tooltip.
 
-The data that was used to generate the bar chart can be viewed below it. There you will find the total number of hits and the amount of data transferred (in gigabytes) for each hour covered by the report. 
+The data that was used to generate the bar chart can be viewed below it. There you will find the total number of hits and the amount of data transferred (in gigabytes) for each hour covered by the report.
 
 ## By File
 
