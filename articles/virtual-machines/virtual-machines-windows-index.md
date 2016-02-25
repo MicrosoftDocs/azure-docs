@@ -25,7 +25,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## Articles for the Resource Manager deployment model
+## Windows VMs in the Resource Manager deployment model
 
 ### Overview
 
@@ -128,7 +128,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [About virtual machine extensions and features](virtual-machines-windows-extensions-features.md)
 	
-[Create a Fully Qualified Domain Name in the Azure portal](virtual-machines-windows-portal-create-fqdn.md]
+[Create a Fully Qualified Domain Name in the Azure portal](virtual-machines-windows-portal-create-fqdn.md)
 
 ### Storage
 
@@ -308,7 +308,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 	
 [How to attach a data disk to a classic Windows virtual machine](virtual-machines-windows-classic-attach-disk.md)
 
-[How to detach a data disk fro a classic Windows virtual machine](virtual-machines-windows-classic-detach-disk.md)
+[How to detach a data disk from a classic Windows virtual machine](virtual-machines-windows-classic-detach-disk.md)
 
 [Use the D drive as a data drive on a Windows VM](virtual-machines-windows-classic-change-drive-letter.md)
 
@@ -366,9 +366,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 [Service Management .NET API](https://msdn.microsoft.com/library/azure/mt420161.aspx)
 
 [Azure Service Management PowerShell cmdlet reference documentation](https://msdn.microsoft.com/library/azure/dn708504.aspx)
-
-[Azure template community reference page](https://azure.microsoft.com/documentation/templates/)
-
 
 
 ### Troubleshooting
