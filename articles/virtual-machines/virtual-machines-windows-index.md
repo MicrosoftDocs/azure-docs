@@ -205,7 +205,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 
 
-## Articles for the classic deployment model
+## Windows VM in the classic deployment model
 
 ### Overview
 
