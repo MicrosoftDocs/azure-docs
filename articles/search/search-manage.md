@@ -18,6 +18,10 @@
 	ms.author="heidist"/>
 
 # Manage your Search service on Microsoft Azure
+> [AZURE.SELECTOR]
+- [Portal](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [REST API](search-get-started-management-api.md)
 
 Azure Search is a cloud-based service with an HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, search data storage, and a query command syntax. 
 
