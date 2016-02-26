@@ -84,7 +84,7 @@ After you create the connection, you enter the Twitter properties, like the twee
 Applies to version: 1.0.
 
 ### Post a new tweet 
-Tweet. 
+Tweet.  
 ```POST: /posttweet``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -105,7 +105,7 @@ Tweet.
 
 
 ### When a new tweet appears 
-Triggers a workflow when a new tweet is posted which matches your search query. 
+Triggers a workflow when a new tweet is posted which matches your search query.  
 ```GET: /onnewtweet``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -126,7 +126,7 @@ Triggers a workflow when a new tweet is posted which matches your search query.
 
 
 ### Get home timeline 
-Retrieves the most recent tweets and re-tweets posted me and my followers. 
+Retrieves the most recent tweets and re-tweets posted me and my followers.  
 ```GET: /hometimeline``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -146,7 +146,7 @@ Retrieves the most recent tweets and re-tweets posted me and my followers.
 
 
 ### Get user 
-Retrieves details about the specified user (example: user name, description, followers count, etc.). 
+Retrieves details about the specified user (example: user name, description, followers count, etc.).  
 ```GET: /user``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -166,7 +166,7 @@ Retrieves details about the specified user (example: user name, description, fol
 
 
 ### Get user timeline 
-Retrieves a collection of the most recent tweets posted by the specified user. 
+Retrieves a collection of the most recent tweets posted by the specified user.  
 ```GET: /usertimeline``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -187,7 +187,7 @@ Retrieves a collection of the most recent tweets posted by the specified user.
 
 
 ### Search tweet 
-Retrieves a collection of relevant tweets matching a specified query. 
+Retrieves a collection of relevant tweets matching a specified query.  
 ```GET: /searchtweets``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -208,7 +208,7 @@ Retrieves a collection of relevant tweets matching a specified query.
 
 
 ### Get followers 
-Retrieves users following the specified user. 
+Retrieves users following the specified user.  
 ```GET: /followers``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -229,7 +229,7 @@ Retrieves users following the specified user.
 
 
 ### Get my followers 
-Retrieves users who are following me. 
+Retrieves users who are following me.  
 ```GET: /myfollowers``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -249,7 +249,7 @@ Retrieves users who are following me.
 
 
 ### Get following 
-Retrieves users who the specified user is following. 
+Retrieves users who the specified user is following.  
 ```GET: /friends``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -270,7 +270,7 @@ Retrieves users who the specified user is following.
 
 
 ### Get my following 
-Retrieves users that I am following. 
+Retrieves users that I am following.  
 ```GET: /myfriends``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
