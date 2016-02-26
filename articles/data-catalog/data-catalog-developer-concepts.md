@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure Data Catalog developer concepts"
    description="Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API."
    services="data-catalog"
@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="derrickv"/>  
 
 # Azure Data Catalog developer concepts

@@ -10,25 +10,25 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="02/22/2016"
 	ms.author="raynew"/>
 
 
 # Prepare network mapping for Hyper-V virtual machine protection with VMM in Azure Site Recovery
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover, and recovery of virtual machines and physical servers. 
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover, and recovery of virtual machines and physical servers.
 
-This article describes network mapping, which helps you optimally configure network settings when you're using Site Recovery to replicate Hyper-V virtual machines located in VMM clouds between two on-premises datacenters, or between an on-premises datacenter and Azure. Note that if you're replicating Hyper-V VMs without a VMM cloud, or replicating VMware VMs or physical servers, this article isn't relevant. 
+This article describes network mapping, which helps you optimally configure network settings when you're using Site Recovery to replicate Hyper-V virtual machines located in VMM clouds between two on-premises datacenters, or between an on-premises datacenter and Azure. Note that if you're replicating Hyper-V VMs without a VMM cloud, or replicating VMware VMs or physical servers, this article isn't relevant.
 
-After reading this article post any questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
+Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Overview
 
-Network mapping is used when Azure Site Recovery is deployed to replicate Hyper-V virtual machines to Azure or to a secondary datacenter, using Hyper-V Replica or SAN replication. 
+Network mapping is used when Azure Site Recovery is deployed to replicate Hyper-V virtual machines to Azure or to a secondary datacenter, using Hyper-V Replica or SAN replication.
 
 - **Replicating Hyper-V virtual machines in VMM clouds between two on-premises datacenters**—Network mapping maps between VM networks on a source VMM server and VM networks on a target VMM server to do the following:
 

@@ -85,11 +85,11 @@ Ask questions and get help:
 
  - [MSDN Forum: Azure Mobile Services](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
 
- - [Azure Mobile Services at the Microsoft Azure Team Blog](http://azure.microsoft.com/blog/topics/mobile/)
+ - [Azure Mobile Services at the Microsoft Azure Team Blog](https://azure.microsoft.com/blog/topics/mobile/)
 
- - [Azure Mobile Services at azure.microsoft.com](http://azure.microsoft.com/services/mobile-services/)
+ - [Azure Mobile Services at azure.microsoft.com](https://azure.microsoft.com/services/mobile-services/)
 
- - [Azure Mobile Services Documentation at azure.microsoft.com](http://azure.microsoft.com/documentation/services/mobile-services/)
+ - [Azure Mobile Services Documentation at azure.microsoft.com](https://azure.microsoft.com/documentation/services/mobile-services/)
 
 
 

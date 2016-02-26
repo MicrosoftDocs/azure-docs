@@ -125,7 +125,7 @@ The remainder of this section describes what metrics you should monitor and why.
 
 ### <a name="monitoring-service-health"></a>Monitoring service health
 
-You can use the [Azure Classic Portal](manage.windowsazure.com) to view the health of the Storage service (and other Azure services) in all the Azure regions around the world. This enables you to see immediately if an issue outside of your control is affecting the Storage service in the region you use for your application.
+You can use the [Azure Classic Portal](https://manage.windowsazure.com) to view the health of the Storage service (and other Azure services) in all the Azure regions around the world. This enables you to see immediately if an issue outside of your control is affecting the Storage service in the region you use for your application.
 
 The Azure Classic Portal can also provide with notifications of incidents that affect the various Azure services.
 Note: This information was previously available, along with historical data, on the Azure Service Dashboard at <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.

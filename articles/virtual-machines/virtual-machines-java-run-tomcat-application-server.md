@@ -132,7 +132,7 @@ At this point, your Tomcat website should be viewable from an external browser b
     The benefit of having Tomcat start automatically is that it will start if the virtual machine is rebooted (for example, after software updates that require a reboot are installed).
 
 ## Next steps
-Learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications by viewing the information available at the [Java Developer Center](http://azure.microsoft.com/develop/java/).
+Learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications by viewing the information available at the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
 

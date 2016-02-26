@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/14/2015"
@@ -259,7 +259,7 @@ In this step, you define the management operations you will use to create shared
 	```
 	public static void Main(string[] args)
 	{
-		…
+	…
 	}
 	static void Queue()
 	{
@@ -439,47 +439,47 @@ In this step, you obtain the list of messages from the queue you created in the 
 
 In the `Queue()` method, iterate through the queue and receive the messages using the [Microsoft.ServiceBus.Messaging.QueueClient.Receive](https://msdn.microsoft.com/library/azure/hh322678.aspx) method, printing out each message to the console. Add the following code directly beneath the code you added in the previous step:
 
-```
-Console.WriteLine("Now receiving messages from Queue.");
-BrokeredMessage message;
-while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 1, seconds: 5))) != null)
-    {
-        Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
-        message.Complete();
+	```
+	Console.WriteLine("Now receiving messages from Queue.");
+	BrokeredMessage message;
+	while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 1, seconds: 5))) != null)
+	    {
+	        Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
+	        message.Complete();
 	
-        Console.WriteLine("Processing message (sleeping...)");
-        Thread.Sleep(1000);
-    }
-```
+	        Console.WriteLine("Processing message (sleeping...)");
+	        Thread.Sleep(1000);
+	    }
+	```
 
 ### End the `Queue()` method and clean up resources
 
 Directly after the previous code, add the following code to clean up the message factory and queue resources:
 
-```
-factory.Close();
-myQueueClient.Close();
-namespaceClient.DeleteQueue("IssueTrackingQueue");
-```
+	```
+	factory.Close();
+	myQueueClient.Close();
+	namespaceClient.DeleteQueue("IssueTrackingQueue");
+	```
 
 ### Call the `Queue()` method
 
 The last step is to add a statement that calls the `Queue()` method from `Main()`. Add the following highlighted line of code at the end of Main():
 	
-```
-public static void Main(string[] args)
-{
-    // Collect user input
-    CollectUserInput();
+	```
+	public static void Main(string[] args)
+	{
+	    // Collect user input
+	    CollectUserInput();
 	
-    // Populate test data
-    issues = ParseCSVFile();
-    MessageList = GenerateMessages(issues);
+	    // Populate test data
+	    issues = ParseCSVFile();
+	    MessageList = GenerateMessages(issues);
 	
-    // Add this call
-    Queue();
-}
-```
+	    // Add this call
+	    Queue();
+	}
+	```
 
 ### Example
 

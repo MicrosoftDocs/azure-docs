@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015" 
+	ms.date="01/26/2016" 
 	ms.author="bradsev" />
 
 
@@ -109,7 +109,7 @@ XUF99EW9OIQOMV7Q7 | Family Saloon
 
 [Vehicle Telematics Simulator Visual Studio Solution](http://go.microsoft.com/fwlink/?LinkId=717075) 
 
-[Azure Event Hub](http://azure.microsoft.com/services/event-hubs/)
+[Azure Event Hub](https://azure.microsoft.com/services/event-hubs/)
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/26/2016"
 	ms.author="asmalser"/>
 
 #Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory
@@ -56,9 +56,13 @@ For example, if you need to send the department that the user belongs to in thei
 
 If for a given user there is no value stored for a selected attribute, then that claim with not be issued in the token.
 
-**Note:** The **user.onpremisesecurityidentifier** and **user.onpremisesamaccountname** are only supported when synchronizing user data from on-premise Active Directory using the latest preview of the AAD Connect tool. You can download the preview of the connect tool at the link below:  
+**Note:** The **user.onpremisesecurityidentifier** and **user.onpremisesamaccountname** are only supported when synchronizing user data from on-premise Active Directory using the [Azure AD Connect tool](active-directory-aadconnect.md).
 
-http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=53949
+## Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
+- [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md)
 	
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png

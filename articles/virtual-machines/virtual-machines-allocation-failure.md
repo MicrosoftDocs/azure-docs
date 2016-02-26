@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Troubleshooting VM allocation failures | Microsoft Azure"
 	description="Troubleshoot allocation failures when you create, restart, or resize a VM in Azure"
 	services="virtual-machines, azure-resource-manager"
@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="kenazk"/>
+	ms.date="02/02/2016"
+	ms.author="cjiang"/>
 
 
 
 # Troubleshoot allocation failures when you create, restart, or resize VMs in Azure
 
-When you create a VM, restart stopped (deallocated) VMs, or resize a VM, Microsoft Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
+When you create a VM, restart stopped (deallocated) VMs, or resize a VM, Microsoft Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations -- even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
 
-If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](http://azure.microsoft.com/support/options/) site.
+The "General troubleshooting steps" section lists steps to address common issues. The "Detailed troubleshooting steps" section provides resolution steps by specific error message. Before you get started, here is some background information to understand how allocation works and why allocation failure happens.
 
-In this article, the "Troubleshoot common allocation failures" sections list steps to address common issues. The "Troubleshoot specific allocation failure scenarios" sections provide resolution steps for specific error messages. Before you get started, here is some background information to understand how allocation works and why allocation failures happen.
+If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
 
 ## Background information
 ### How allocation works
@@ -77,7 +77,7 @@ Two common failure scenarios are related to affinity groups. In the past, an aff
 Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
 ![Pinned Allocation Taxonomy](./media/virtual-machines-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] The error listed in each allocation scenario is a short form. Refer to the [Appendix](#appendix) for detailed error strings.
+> [AZURE.NOTE] The error listed in each allocation scenario is a short form. Refer to the [Error string lookup](#Error string lookup) for detailed error strings.
 
 #### Allocation scenario: Resize a VM or add VMs or role instances to an existing cloud service
 **Error**
@@ -90,7 +90,7 @@ A request to resize a VM or add a VM or a role instance to an existing cloud ser
 
 **Workaround**
 
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, but if it's acceptable to use a different virtual IP address (VIP), create a new cloud service to host the new VM and add the new cloud service to the regional virtual network where the existing VMs are running. If your existing cloud service does not use a regional virtual network, you can still create a new virtual network for the new cloud service, and then connect your [existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, but if it's acceptable to use a different virtual IP address (VIP), create a new cloud service to host the new VM and add the new cloud service to the regional virtual network where the existing VMs are running. If your existing cloud service does not use a regional virtual network, you can still create a new virtual network for the new cloud service, and then connect your [existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. Similar to the above scenario, add the desired compute resource through creating a new cloud service (note that the new cloud service has to use a different VIP) and use a regional virtual network to connect your cloud services.
 
@@ -108,7 +108,7 @@ Partial deallocation means that you stopped (deallocated) one or more, but not a
 
 If it's acceptable to use a different VIP, delete the stopped (deallocated) VMs (but keep the associated disks) and add the VMs back through a different cloud service. Use a regional virtual network to connect your cloud services:
 - If your existing cloud service uses a regional virtual network, simply add the new cloud service to the same virtual network.
-- If your existing cloud service does not use a regional virtual network, create a new virtual network for the new cloud service, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+- If your existing cloud service does not use a regional virtual network, create a new virtual network for the new cloud service, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 #### Allocation scenario: Restart fully stopped (deallocated) VMs
 **Error**
@@ -126,7 +126,7 @@ If it's acceptable to use a different VIP, delete the original stopped (dealloca
 #### Allocation scenario: Staging/production deployments (platform as a service only)
 **Error**
 
-New_General or New_VMSizeNotSupported
+New_General* or New_VMSizeNotSupported*
 
 **Cause of cluster pinning**
 
@@ -139,7 +139,7 @@ Delete the first deployment and the original cloud service and redeploy the clou
 #### Allocation scenario: Affinity group (VM/service proximity)
 **Error**
 
-New_General or New_VMSizeNotSupported
+New_General* or New_VMSizeNotSupported*
 
 **Cause of cluster pinning**
 
@@ -152,17 +152,17 @@ If an affinity group is not necessary, do not use an affinity group, or group yo
 #### Allocation scenario: Affinity-group-based virtual network
 **Error**
 
-New_General or New_VMSizeNotSupported
+New_General* or New_VMSizeNotSupported*
 
-**Cause of cluster pinning**
+<**Cause of cluster pinning**
 
 Before regional virtual networks were introduced, you were required to associate a virtual network with an affinity group. As a result, compute resources placed into an affinity group are bound by the same constraints as described in the "Allocation scenario: Affinity group (VM/service proximity)" section above. The compute resources are tied to one cluster.
 
 **Workaround**
 
-If you do not need an affinity group, create a new regional virtual network for the new resources you're adding, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+If you do not need an affinity group, create a new regional virtual network for the new resources you're adding, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then add the desired resources again.
+Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then add the desired resources again.
 
 ### Troubleshoot specific allocation failure scenarios in the Azure Resource Manager deployment model
 Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
@@ -178,7 +178,7 @@ In general, as long as the error does not indicate "the requested VM size is not
 #### Allocation scenario: Resize a VM or add VMs to an existing availability set
 **Error**
 
-Upgrade_VMSizeNotSupported or GeneralError
+Upgrade_VMSizeNotSupported* or GeneralError*
 
 **Cause of cluster pinning**
 
@@ -216,8 +216,7 @@ Full deallocation means that you stopped (deallocated) all VMs in an availabilit
 
 Select a new VM size to allocate. If this does not work, please try again later.
 
-## Appendix
-### Error string lookup
+## Error string lookup
 **New_VMSizeNotSupported***
 
 "The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, try relaxing constraints such as virtual network bindings, deploying to a hosted service with no other deployment in it and to a different affinity group or with no affinity group, or try deploying to a different region."

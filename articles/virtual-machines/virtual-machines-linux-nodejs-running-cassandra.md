@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 # Running Cassandra with Linux on Azure and Accessing it from Node.js 
@@ -118,7 +118,7 @@ The following software versions are used during the deployment:
 <tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu	</td><td>[Microsoft Azure](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu	</td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
 Since downloading of JRE requires manual acceptance of Oracle license, to simplify the deployment, download all the required software to the desktop for later uploading into the Ubuntu template image we will be creating as a precursor to the cluster deployment. 
@@ -303,7 +303,7 @@ This will take a few seconds and the image should be available in MY IMAGES sect
 
 ##Single Region Deployment Process
 **Step 1: Create the Virtual Network**
-Log into the Azure classic portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Azure classic portal](../virtual-network/virtual-networks-create-vnet.md) for detailed steps of the process.      
+Log into the Azure classic portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Azure classic portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md) for detailed steps of the process.      
 
 <table>
 <tr><th>VM Attribute Name</th><th>Value</th><th>Remarks</th></tr>

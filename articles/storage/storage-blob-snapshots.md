@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Create a read-only snapshot of a blob | Microsoft Azure"
 	description="Learn how to create a snapshot of a blob to back up blob data at a given moment in time. Understand how snapshots are billed and how to use them to minimize capacity charges."
 	services="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/19/2016"
 	ms.author="tamram"/>
 
 # Create a blob snapshot

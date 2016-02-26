@@ -22,7 +22,7 @@ This topic explores and compares tools and options for managing Azure SQL databa
 
 ## Azure portal
 
-The [Azure portal](http://portal.azure.com) is a web-based application where you can create, update, and delete databases and logical servers and monitor database activity. This tool is great if you're just getting started with Azure, managing a small number of databases, or need to do something quickly.
+The [Azure portal](https://portal.azure.com) is a web-based application where you can create, update, and delete databases and logical servers and monitor database activity. This tool is great if you're just getting started with Azure, managing a small number of databases, or need to do something quickly.
 
 For more in-depth information about using the portal see [Manage SQL Databases using the Azure Classic Portal](sql-database-manage-portal.md).
 

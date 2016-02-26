@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Get started with Application Insights with Java in Eclipse
@@ -28,7 +28,7 @@ Currently the plug-in works for Maven projects and Dynamic Web Projects in Eclip
 You'll need:
 
 * Oracle JRE 1.6 or later
-* A subscription to [Microsoft Azure](http://azure.microsoft.com/). (You could start with the [free trial](http://azure.microsoft.com/pricing/free-trial/).)
+* A subscription to [Microsoft Azure](https://azure.microsoft.com/). (You could start with the [free trial](https://azure.microsoft.com/pricing/free-trial/).)
 * [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/), Indigo or later.
 * Windows 7 or later, or Windows Server 2008 or later
 

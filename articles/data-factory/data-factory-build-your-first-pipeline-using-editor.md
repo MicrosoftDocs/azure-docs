@@ -34,7 +34,7 @@ In this article, you will learn how to use the [Azure Portal](https://portal.azu
 ## Step 1: Create the data factory
 A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. Let's start with creating the data factory in this step. 
 
-1.	After logging into the [Azure Portal](http://portal.azure.com/), do the following:
+1.	After logging into the [Azure Portal](https://portal.azure.com/), do the following:
 	1.	Click **NEW** on the left menu. 
 	2.	Click **Data analytics** in the **Create** blade.
 	3.	Click **Data Factory** on the **Data analytics** blade.
@@ -120,7 +120,7 @@ In this step, you will link an on-demand HDInsight cluster to your data factory.
 	- You could use **your own HDInsight cluster** instead of using an on-demand HDInsight cluster. See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details.
 	- The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done.
 	
-		As more and more slices are processed, you will see a lot of containers in your Azure blob storage, which you may want to delete to reduce the storage cost. The name of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetime stamp". Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
+		As more and more slices are processed, you will see a lot of containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The name of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
 
 	See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
 3. Click **Deploy** on the command bar to deploy the linked service. 
@@ -316,7 +316,7 @@ In this article, you have created a pipeline with a transformation activity (HDI
 | Topic | Description |
 | :---- | :---- |
 | [Pipelines](data-factory-create-pipelines.md) | This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. |
-| [Datasets](data-factory-create-datasets.md) | his article will help you understand datasets in Azure Data Factory.
+| [Datasets](data-factory-create-datasets.md) | This article will help you understand datasets in Azure Data Factory.
 | [Scheduling and Execution](data-factory-scheduling-and-execution.md) | This article explains the scheduling and execution aspects of Azure Data Factory application model. |
 | [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) | This article describes how to monitor, manage and debug your pipelines. It also provides information on how to create alerts and get notified on failures. |
 

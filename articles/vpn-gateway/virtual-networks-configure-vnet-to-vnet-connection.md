@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -24,7 +24,7 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-This article will walk you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). If you are looking for a different deployment model for this configuration, use the tabs above to select the article you want. 
+This article will walk you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). If you want to connect virtual networks created using the Resource Manager deployment model, please see [Configure a VNet-to-VNet connection for virtual networks in the same subscription by using Azure Resource Manager and PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
 **About Azure deployment models**
 
@@ -198,7 +198,7 @@ Now that you have each VNet configured, you’ll configure your VNet gateways.
 
 ## Step 7 - Connect the VPN gateways
 
-When all of the previous steps have been completed, you’ll set the IPsec/IKE pre-shared keys to be the same. You can do this either using a REST API, or PowerShell cmdlet. If you use PowerShell, verify that you have the [latest version](http://azure.microsoft.com/downloads/) of the Microsoft Azure PowerShell cmdlets. The examples below use PowerShell cmdlets to set the key value to A1b2C3D4. Note that both use the same key value. Edit the examples below to reflect your own values.
+When all of the previous steps have been completed, you’ll set the IPsec/IKE pre-shared keys to be the same. You can do this either using a REST API, or PowerShell cmdlet. If you use PowerShell, verify that you have the [latest version](https://azure.microsoft.com/downloads/) of the Microsoft Azure PowerShell cmdlets. The examples below use PowerShell cmdlets to set the key value to A1b2C3D4. Note that both use the same key value. Edit the examples below to reflect your own values.
 
 For VNet1
 

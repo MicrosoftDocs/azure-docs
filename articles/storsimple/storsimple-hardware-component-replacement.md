@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # StorSimple hardware component replacement
 
 ## Overview
 
-The hardware component replacement tutorials describe the hardware components of your Microsoft Azure StorSimple device and the steps necessary to remove and replace them. This article describes the safety icons, provides pointers to the detailed tutorials, and lists the components that are replaceable.
+The hardware component replacement tutorials describe the hardware components of your Microsoft Azure StorSimple 8000 series device and the steps necessary to remove and replace them. This article describes the safety icons, provides pointers to the detailed tutorials, and lists the components that are replaceable.
 
 >[AZURE.IMPORTANT] Before attempting to remove or replace any StorSimple component, make sure that you review the [safety icon conventions](#safety-icon-conventions) and other [safety precautions](storsimple-safety.md).
  
@@ -57,7 +57,7 @@ When you replace a module, **NEVER leave an empty bay in the rear of the enclosu
 
 ## Hardware component replacement procedures
 
-Your Microsoft Azure StorSimple device consists of several plug-in modules in the primary and/or EBOD enclosures. The 8100 has a single primary enclosure, whereas the 8600 is a dual enclosure device with a primary enclosure and an EBOD enclosure.
+Your StorSimple 8000 series device consists of several plug-in modules in the primary and/or EBOD enclosures. The 8100 has a single primary enclosure, whereas the 8600 is a dual enclosure device with a primary enclosure and an EBOD enclosure.
 
 The main hardware components in your device are summarized in the following tables. Click the link in the **Replacement procedure** column to go to the associated tutorial.
 
@@ -122,9 +122,9 @@ The following field replaceable units (FRUs) are available for your StorSimple d
 
 - Chassis (including the integrated operations panel)
 
-- 764 W AC Power and Cooling Module
+- 764 W AC PCM
 
-- 580 W AC Power and Cooling Module
+- 580 W AC PCM
 
 - Hard disk drive with drive carrier module
 

@@ -13,8 +13,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.topic="get-started-article" 
+	ms.date="02/16/2016" 
 	ms.author="mimig"/>
 
 # Introduction to DocumentDB: A NoSQL JSON Database
@@ -23,8 +23,8 @@ DocumentDB is a NoSQL document database for big data solutions handling JSON dat
 
 A quick way to learn about this JSON database and see it in action is to follow these three steps: 
 
-1. Watch the two minute [What is DocumentDB?](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) video, which introduces the benefits of using DocumentDB.
-2. Watch the three minute [Create DocumentDB on Azure](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) video, which highlights how to get started with DocumentDB by using the Azure Portal.
+1. Watch the two minute [What is DocumentDB?](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) video, which introduces the benefits of using DocumentDB.
+2. Watch the three minute [Create DocumentDB on Azure](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) video, which highlights how to get started with DocumentDB by using the Azure Portal.
 3. Visit the [Query Playground](http://www.documentdb.com/sql/demo), where you can walk through different activities to learn about the rich querying functionality available in DocumentDB. Then, head over to the Sandbox tab and run your own custom SQL queries and experiment with DocumentDB.
 
 Then, return to this article, where we'll dig in deeper and you'll learn the answers to the following questions:  
@@ -77,11 +77,11 @@ Azure DocumentDB exposes resources through a REST API that can be called by any 
 Download | Documentation
 --- | ---
 [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) | [.NET library](https://msdn.microsoft.com/library/azure/dn948556.aspx)
-[Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) | [Node.js library](http://dl.windowsazure.com/documentDB/nodedocs/)
-[Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) | [Java library](http://dl.windowsazure.com/documentdb/javadoc/)
-[JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) | [JavaScript library](http://dl.windowsazure.com/documentDB/jsclientdocs/)
-n/a | [Server-side JavaScript SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/)
-[Python SDK](https://pypi.python.org/pypi/pydocumentdb) | [Python library](http://dl.windowsazure.com/documentDB/pythondocs/)
+[Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) | [Node.js library](http://azure.github.io/azure-documentdb-node/)
+[Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) | [Java library](http://azure.github.io/azure-documentdb-java/)
+[JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) | [JavaScript library](http://azure.github.io/azure-documentdb-js/)
+n/a | [Server-side JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/)
+[Python SDK](https://pypi.python.org/pypi/pydocumentdb) | [Python library](http://azure.github.io/azure-documentdb-python/)
 
 Beyond basic create, read, update, and delete operations, DocumentDB provides a rich SQL query interface for retrieving JSON documents and server side support for transactional execution of JavaScript application logic. The query and script execution interfaces are available through all platform libraries as well as the REST APIs. 
 
@@ -103,9 +103,9 @@ If you already have an Azure account, you can get started with DocumentDB in the
 If you don't have an Azure account, you can:
 
 - Sign up for an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/), which gives you 30 days and $200 to try all the Azure services. 
-- If you have an MSDN subscription, you are eligible for [$150 in free Azure credits per month](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service. 
+- If you have an MSDN subscription, you are eligible for [$150 in free Azure credits per month](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service. 
 
-Then, when you're ready to learn more, visit our [learning path](http://azure.microsoft.com/documentation/learning-paths/documentdb/) to navigate all the learning resources available to you. 
+Then, when you're ready to learn more, visit our [learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to navigate all the learning resources available to you. 
 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/25/2015"
 	ms.author="bradygaster"/>
 
 # Build and deploy a Node.js API app in Azure App Service
@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 ## Prerequisites
-1. [Node.js](nodejs.org) running on development machine (this sample assumes Node.js version 4.2.2 is installed)
+1. [Node.js](http://nodejs.org) running on development machine (this sample assumes Node.js version 4.2.2 is installed)
 1. [GitHub](https://github.com/) account
 1. Microsoft Azure [free trial account](https://azure.microsoft.com/pricing/free-trial/)
 1. Git installed on your local development workstation
@@ -66,7 +66,7 @@ The commands below should be performed using the Node.js command line. By using 
 
 1. Copy the **lib** folder from the **start** folder into the **ContactList** folder created by the scaffolder. 
 
-1. Replace the code in the **handlers/contacts.js** file with the code below. This code uses the JSON data stored in the **lib/contacts.json** file that is served by **lib/contactRepository.js**. The new contats.js code below will respond to HTTP requests to get all of the contacts using this code. 
+1. Replace the code in the **handlers/contacts.js** file with the code below. This code uses the JSON data stored in the **lib/contacts.json** file that is served by **lib/contactRepository.js**. The new contacts.js code below will respond to HTTP requests to get all of the contacts using this code. 
 
         'use strict';
         
@@ -86,7 +86,7 @@ The commands below should be performed using the Node.js command line. By using 
         
         module.exports = {
             get: function contacts_get(req, res) {
-                res.json(repository.get(req.params['id']))
+                res.json(repository.get(req.params['id']));
             }    
         };
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2016"
+   ms.date="01/27/2016"
    ms.author="tomfitz"/>
 
 # Create Active Directory application and service principal using portal
@@ -29,7 +29,7 @@ Azure portal in a later release. You can use the portal to assign the applicatio
 the service principal, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
 ## Concepts
-1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure active Directory](active-directory/active-directory-whatis.md)
+1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure Active Directory](active-directory/active-directory-whatis.md)
 2. Service Principal - an instance of an application in a directory.
 3. AD Application - a directory record in AAD that identifies an application to AAD. 
 
@@ -121,7 +121,7 @@ If your application accesses resources on behalf of a signed-in user, you must g
 
 1. Select **Add application**.
 
-2. From the list, select the **Windows Azure Service Management API**.
+2. From the list, select the **Azure Service Management API**.
 
       ![select app](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -179,12 +179,12 @@ First, you must install the Active Directory Authentication Library into your Vi
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
     PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
 
-To sign in with your application id and secret, use the following method to retrieve the token.
+To sign in with your client id and secret, use the following method to retrieve the token.
 
     public static string GetAccessToken()
     {
         var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
-        var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
+        var credential = new ClientCredential(clientId: "{client id}", clientSecret: "{application password}");
         var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
 
         if (result == null) {
@@ -201,7 +201,7 @@ To sign in on behalf of the user, use the following method to retrieve the token
     public static string GetAcessToken()
     {
         var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", {application id}, new Uri({redirect uri});
+        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", {client id}, new Uri({redirect uri});
 
         if (result == null) {
             throw new InvalidOperationException("Failed to obtain the JWT token");

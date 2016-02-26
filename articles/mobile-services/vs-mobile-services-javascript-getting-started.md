@@ -86,4 +86,4 @@ Delete a row in a data table. Call the [done]() method on the returned [Promise]
 
 
 
-[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/) 
+[Learn more about mobile services](https://azure.microsoft.com/documentation/services/mobile-services/) 

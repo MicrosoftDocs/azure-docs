@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""
     authors="carlrabeler"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="11/10/2015"
+    ms.date="02/12/2016"
     ms.author="carlrab"/>
 
 # Configure geo-replication for Azure SQL Database with Transact-SQL
@@ -46,7 +46,7 @@ To configure geo-replication, you need the following:
 
 ## Add secondary database
 
-You can use the **ALTER DATABASE** statement to create a geo-replicated secondary database on a partner server. You execute this statement on the master database of the server containing the database to be replicated. The geo-replicated database (the "primary database") will have the same name as the database being replicated and will, by default, have the same service level as the primary database. The secondary database can be readable or non-readable, and can be a single database or an elastic databbase. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+You can use the **ALTER DATABASE** statement to create a geo-replicated secondary database on a partner server. You execute this statement on the master database of the server containing the database to be replicated. The geo-replicated database (the "primary database") will have the same name as the database being replicated and will, by default, have the same service level as the primary database. The secondary database can be readable or non-readable, and can be a single database or an elastic databbase. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
 After the secondary database is created and seeded, data will begin replicating asynchronously from the primary database. The steps below describe how to configure geo-replication using Management Studio. Steps to create non-readable and readable secondaries, either with a single database or an elastic database, are provided.
 
 > [AZURE.NOTE] If the secondary database exists on the specified partner server (for example, because a geo-replication relationship currently exists or previously existed, the command will fail.
@@ -63,7 +63,7 @@ Use the following steps to create a non-readable secondary as a single database.
 
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a non-readable secondary database on <MySecondaryServer1>.
+3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a non-readable secondary database on MySecondaryServer1 where MySecondaryServer1 is your friendly server name.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -97,8 +97,8 @@ Use the following steps to create a non-readable secondary as an elastic databas
 3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a non-readable secondary database on a secondary server in an elastic pool.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool1);
+           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 
 4. Click **Execute** to run the query.
 
@@ -114,8 +114,8 @@ Use the following steps to create a readable secondary as an elastic database.
 3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a readable secondary database on a secondary server in an elastic pool.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool2);
+           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool2));
 
 4. Click **Execute** to run the query.
 
@@ -123,7 +123,7 @@ Use the following steps to create a readable secondary as an elastic database.
 
 ## Remove secondary database
 
-You can use the **ALTER DATABASE** statement to permanently terminate the replication partnership between a secondary database and its primary. This statement is executed on the master database on which the primary database resides. After the relationship termination, the secondary database becomes a regular read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+You can use the **ALTER DATABASE** statement to permanently terminate the replication partnership between a secondary database and its primary. This statement is executed on the master database on which the primary database resides. After the relationship termination, the secondary database becomes a regular read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
 
 Use the following steps to remove geo-replicated secondary from a geo-replication partnership.
 
@@ -149,7 +149,7 @@ The command performs the following workflow:
 
 2. Switches the roles of the two databases in the geo-replication partnership.  
 
-This sequence guarantees that no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+This sequence guarantees that no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
 
 
 > [AZURE.NOTE] If the primary database is unavailable when the command is issued, the command will fail with the error message indicating that the primary server is not available. In rare cases, it is possible that the operation cannot complete and may appear stuck. In this case, the user can execute the force failover command and accept data loss.
@@ -229,7 +229,7 @@ Use the following steps to monitor a geo-replication partnership.
 
 ## Additional resources
 
-- [Spotlight on new geo-replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Spotlight on new geo-replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Designing cloud applications for business continuity using geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+- [SQL Database documentation](https://azure.microsoft.com/services/sql-database/)

@@ -64,7 +64,7 @@ Although you may disable all jobs within a job collection in a single operation,
 
 ## Pricing
 
-For pricing details, please see [Scheduler Pricing](http://azure.microsoft.com/pricing/details/scheduler/).
+For pricing details, please see [Scheduler Pricing](https://azure.microsoft.com/pricing/details/scheduler/).
 
 ## See Also
  

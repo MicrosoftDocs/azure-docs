@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # Supported hardware for the 10 GbE network interfaces on your StorSimple device
@@ -47,6 +47,24 @@ Microsoft has tested the following small form-factor pluggable (SFP) transceiver
 | 1. |Cisco|N3K-C3172PQ-10GE|
 | 2. |Cisco|N3K-C3048-ZM-F|
 | 3. |Cisco|N5K-C5596UP-FA|
+
+## List of devices tested in the field
+
+This section contains the list of devices that have been successfully deployed in the field by StorSimple customers. These have not been tested by Microsoft but are likely to work with your StorSimple device.
+ 
+| Parameter                         | Value                                    |
+|-----------------------------------|------------------------------------------|
+| Switch   make                     | Juniper                                  |
+| Switch   model                    | ex4550-32F                               |
+| Switch   operating system version | JunOS 12.3R9.4                           |
+| Blade   model                     | Ports onboard (PIC 0)                    |
+| Transceiver make                  | Juniper                                  |
+| Transceiver   model               | Part number 740-021308 <br></br> Part number 740-030658                   |
+| Transceiver   firmware version    | Rev 01 Version 0.0 (reported)            |
+| Cable   model                     | Duplex jumper LC/LC 50/125µ,   OM3, LSZH |
+| StorSimple   model                | 8600                                     |
+| StorSimple   software version     | 6.3.9600.17491                           |
+
 
 ## List of devices tested by OEM provider (Mellanox)  
 

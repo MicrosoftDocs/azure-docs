@@ -240,7 +240,7 @@ The BizTalk Services project, **InvoiceProcessingBridge**, that transforms the m
 
 2.  In Visual Studio Solution Explorer, right-click the **InvoiceProcessingBridge** project, and then click **Deploy**.
 
-3.  Provide the values as shown in the image, and then click **Deploy**. You can get the ACS credentials for BizTalk Services by clicking **Connection Information** from the BizTalk Services dashboard on the .
+3.  Provide the values as shown in the image, and then click **Deploy**. You can get the ACS credentials for BizTalk Services by clicking **Connection Information** from the BizTalk Services dashboard.
 
     ![][11]  
 

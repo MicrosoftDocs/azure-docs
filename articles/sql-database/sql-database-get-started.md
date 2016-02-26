@@ -32,12 +32,12 @@ This SQL Database tutorial shows you how to create a first SQL database in just 
 - Create a server to host the database you create, and then set up a firewall rule for it.
 - Create a SQL database from an AdventureWorks sample, which has data that you can play with.
 
-You'll need an Azure account and subscription before you start. If you don't have one, sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+You'll need an Azure account and subscription before you start. If you don't have one, sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 > [AZURE.NOTE] This SQL Database tutorial covers setting up a database using Microsoft's relational database management system (RDBMS) in the cloud, Azure SQL Database. Another option is to run SQL Server on an Azure Virtual Machine. See [Understanding Azure SQL Database and SQL Server in Azure VMs](data-management-azure-sql-database-and-sql-server-iaas.md) for a quick comparison, or you can see [Provision a SQL server virtual machine](virtual-machines-provision-sql-server.md) to get started with a virtual machine.
 
 ## Step 1: sign in and start SQL database setup
-1. Sign in to the [Azure portal](http://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **New** > **Data + Storage** > **SQL Database**.
 
 	![SQL Database tutorial: Create a new SQL database.](./media/sql-database-get-started/create-db.png)
@@ -76,7 +76,7 @@ The database and server aren't created yet. This happens after the next step, wh
 
 	![Create a sample SQL database](./media/sql-database-get-started/adworks_create.png)
 
-	>[AZURE.NOTE] For this quick how-to, we didn't change the settings for **Pricing tier**, **Collation**, and **Resource group**. You can change the pricing tier of a database and scale up and down at any time, with no downtime. See [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/) and [SQL database pricing tiers](sql-database-service-tiers.md) to learn more. The collation of a database can't be changed once you set it up here. See [Collation and Unicode Support](https://msdn.microsoft.com/library/ms143726.aspx) for details about collation. See [Azure Resource Manager Overview](resource-group-overview.md) for details about Azure resource groups.
+	>[AZURE.NOTE] For this quick how-to, we didn't change the settings for **Pricing tier**, **Collation**, and **Resource group**. You can change the pricing tier of a database and scale up and down at any time, with no downtime. See [SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/) and [SQL database pricing tiers](sql-database-service-tiers.md) to learn more. The collation of a database can't be changed once you set it up here. See [Collation and Unicode Support](https://msdn.microsoft.com/library/ms143726.aspx) for details about collation. See [Azure Resource Manager Overview](resource-group-overview.md) for details about Azure resource groups.
 
 You jump back to the Azure Startboard, where a tile shows progress until the database is created and it's online. You can also click **Browse all** and then click **SQL Databases** to confirm the database is online.
 

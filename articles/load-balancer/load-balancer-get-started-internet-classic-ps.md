@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/23/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 # Get started creating an Internet facing load balancer (classic) in PowerShell
@@ -60,9 +60,7 @@ You can use Remove-AzureEndpoint to remove a virtual machine endpoint from the l
 
 ## Next steps
 
-[Get started configuring an internal load balancer](load-balancer-internal-getstarted.md)
+You can also [get started creating an internal load balancer](load-balancer-get-started-ilb-classic-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for an especific load balancer network traffic behavior.
 
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
-
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+If your application needs to keep connections alive for servers behind a load balancer, you can understand more about [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). It will help to learn about idle connection behavior when you are using Azure Load Balancer. 
 

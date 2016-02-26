@@ -12,20 +12,22 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.topic="get-started-article" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Tutorial: Create and monitor a data factory using Azure PowerShell
+# Tutorial: Create a pipeline with Copy Activity using Azure PowerShell
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
 The [Get started with Azure Data Factory][adf-get-started] tutorial shows you how to create and monitor an Azure data factory using the [Azure Portal][azure-portal]. 
-In this tutorial, you will create and monitor an Azure data factory by using Azure PowerShell cmdlets. The pipeline in the data factory you create in this tutorial copies data from an Azure blob to an Azure SQL database.  
+In this tutorial, you will create and monitor an Azure data factory by using Azure PowerShell cmdlets. The pipeline in the data factory you create in this tutorial uses a Copy Activity to copy data from an Azure blob to an Azure SQL database.
+
+The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.   
 
 > [AZURE.IMPORTANT] 
 > Please go through the [Tutorial Overview](data-factory-get-started.md) article and complete the pre-requisite steps before performing this tutorial.
@@ -47,7 +49,7 @@ If you are using Azure PowerShell of **version < 1.0**, You will need to use cmd
 4. Switch to AzureResourceManager mode as the Azure Data Factory cmdlets are available in this mode: **Switch-AzureMode AzureResourceManager**.
   
 
-##In This Tutorial
+##In this tutorial
 The following table lists the steps you will perform as part of the tutorial and their descriptions. 
 
 Step | Description
@@ -58,7 +60,7 @@ Step | Description
 [Step 4: Create and run a pipeline](#CreateAndRunAPipeline) | In this step, you will create a pipeline named **ADFTutorialPipeline** in the data factory: **ADFTutorialDataFactoryPSH**. . The pipeline will have a **Copy Activity** that copies data from an Azure blob to an output Azure database table.
 [Step 5: Monitor data sets and pipeline](#MonitorDataSetsAndPipeline) | In this step, you will monitor the datasets and the pipeline using Azure PowerShell in this step.
 
-## <a name="CreateDataFactory"></a>Step 1: Create an Azure Data Factory
+## <a name="CreateDataFactory"></a>Step 1: Create an Azure data factory
 In this step, you use the Azure PowerShell to create an Azure data factory named **ADFTutorialDataFactoryPSH**.
 
 1. Start Azure PowerShell and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
@@ -381,7 +383,7 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 		Start             : 3/3/2015 12:00:00 AM
 		End               : 3/3/2015 1:00:00 AM
 		RetryCount        : 0
-		Status            : PendingExecution
+		Status            : Waiting
 		LatencyStatus     :
 		LongRetryCount    : 0
 
@@ -393,7 +395,7 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 		Start             : 3/4/2015 11:00:00 PM
 		End               : 3/4/2015 12:00:00 AM
 		RetryCount        : 0
-		Status            : PendingExecution
+		Status            : Waiting
 		LatencyStatus     : 
 		LongRetryCount    : 0
 
@@ -423,6 +425,8 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 
 See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
 
+## See Also
+See [Data Movement Activities](data-factory-data-movement-activities.md) article for detailed information about the **Copy Activity** in Azure Data Factory.
 
 
 [adf-tutorial]: data-factory-tutorial.md

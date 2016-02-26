@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/22/2016"
 	ms.author="bradygaster"/>
 
 # Build and deploy a Java API app in Azure App Service
@@ -150,7 +150,7 @@ This demonstration will begin with a Swagger JSON body that will be pasted into 
 ## Edit the Code to add API Implementation
 In this section you'll replace the generated code's server-side implementation with your custom code. The new code will return an ArrayList of Contact entities to the calling client. 
 
-1. Open the *Contact.java* model file, located in the *src/gen/java/swagger/model* folder, using [Visual Studio Code](https://code.visualstudio.com) or in your favorite text editor. 
+1. Open the *Contact.java* model file, located in the *src/gen/java/io/swagger/model* folder, using [Visual Studio Code](https://code.visualstudio.com) or in your favorite text editor. 
 
     ![Open Contact Model File](media/app-service-api-java-api-app/open-contact-model-file.png)
 
@@ -163,7 +163,7 @@ In this section you'll replace the generated code's server-side implementation w
 			this.emailAddress = email;
 		}
 
-1. Open the *ContactsApiServiceImpl.java* service implementation file, located in the *src/main/java/swagger/api/impl* folder, using [Visual Studio Code](https://code.visualstudio.com) or in your favorite text editor.
+1. Open the *ContactsApiServiceImpl.java* service implementation file, located in the *src/main/java/io/swagger/api/impl* folder, using [Visual Studio Code](https://code.visualstudio.com) or in your favorite text editor.
 
     ![Open Contact Service Code File](media/app-service-api-java-api-app/open-contact-service-code-file.png)
 
@@ -195,14 +195,14 @@ In this section you'll replace the generated code's server-side implementation w
             }
   
             @Override
-            public Response contactsGet()
+            public Response contactsGet(SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 return Response.ok().entity(list).build();
                 }
   
             @Override
-            public Response contactsGetById(Integer id)
+            public Response contactsGetById(Integer id, SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 Contact ret = null;
@@ -262,7 +262,7 @@ In this section you'll learn how to create a new API App using the Azure Portal,
 
 	![Set up Java in the API App blade](media/app-service-api-java-api-app/set-up-java.png)
 
-1. Click the **Deployment credentials** settings menu item, and provide a username and passowrd you wish to use for publishing files to your API App. 
+1. Click the **Deployment credentials** settings menu item, and provide a username and password you wish to use for publishing files to your API App. 
 
 	![Set deployment credentials](media/app-service-api-java-api-app/deployment-credentials.png)
 

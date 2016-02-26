@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # How to partition data in DocumentDB with the .NET SDK
 
-Azure DocumentDB is a document database service that enables you to seamlessly scale your account through provisioning of collections using the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) and [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) (also called **sharding**). In order to make it easier to develop partitioned applications and reduce the amount of boiler-plate code required for partitioning tasks, we have added functionality in the .NET SDK that makes it easier to build applications that are scaled out across multiple partitions.
+Azure DocumentDB is a document database service that enables you to seamlessly scale your account through provisioning of collections using the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) and [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) (also called **sharding**). In order to make it easier to develop partitioned applications and reduce the amount of boiler-plate code required for partitioning tasks, we have added functionality in the .NET, Node.js, and Java SDKs that makes it easier to build applications that are scaled out across multiple partitions.
 
 In this article, we'll take a look at the classes and interfaces in the .NET SDK and how you can use them to develop partitioned applications.
 
@@ -143,10 +143,6 @@ DocumentDB supports client-side partitioning for a couple of reasons:
 - It is really difficult to abstract away the concept of a collection from developers without compromising one of the three among consistent indexing/querying, high availability and ACID transaction guarantees. 
 - Document databases often require flexibility in terms of defining partitioning strategies, which a server-side approach might not be able to accommodate. 
 
-**Why is partitioning not supported in other platforms (Node.js, Java, or Python)?**
-
-We will gradually rollout partitioning support to other platforms based on feedback from the .NET SDK customers.
-
 **How do I add or remove a collection to my partitioning scheme?**
 
 Take a look at the implementation of DocumentClientHashPartitioningManager in the samples project for an example of how you can implement repartitioning.
@@ -166,5 +162,5 @@ You can chain PartitionResolvers by implementing your own IPartitionResolver tha
 * [DocumentDB .NET SDK Documentation at MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET samples](https://github.com/Azure/azure-documentdb-net)
 * [DocumentDB Limits](documentdb-limits.md)
-* [DocumentDB Blog on Performance Tips](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
+* [DocumentDB Blog on Performance Tips](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  

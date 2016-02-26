@@ -35,7 +35,7 @@ Offline sync has several advantages:
 * Syncs data across multiple devices
 * Detects conflicts when same record is modified by two devices
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get [free mobile services that you can keep using even after your trial ends](http://azure.microsoft.com/pricing/details/mobile-services/). For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank").
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get [free mobile services that you can keep using even after your trial ends](https://azure.microsoft.com/pricing/details/mobile-services/). For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank").
 
 This tutorial is based on the [Mobile Services Quick Start tutorial], which you must complete first. Let's first review the code related to offline sync already in the Quick Start.
 

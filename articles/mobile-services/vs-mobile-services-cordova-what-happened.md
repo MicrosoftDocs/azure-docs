@@ -33,4 +33,4 @@ Under `services\mobileServices\settings`, a new JavaScript (.js) file with a **M
 	        "<insert your key>"
 	    );
 
-[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/) 
+[Learn more about mobile services](https://azure.microsoft.com/documentation/services/mobile-services/) 

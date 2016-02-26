@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/09/2016"
-	ms.author="trinadhk;jimpark;aashishr"/>
+	ms.date="01/28/2016"
+	ms.author="trinadhk;jimpark;"/>
 
 
 # Troubleshoot Azure virtual machine backup
@@ -105,7 +105,7 @@ For Windows VMs:
 
 For Linux VMs:
 
-- Follow the instructions on [Updating Linux VM Agent ](../virtual-machines-linux-update-agent.md).
+- Follow the instructions on [Updating Linux VM Agent ](../virtual-machines/virtual-machines-linux-update-agent.md).
 
 
 ### Validating VM Agent installation

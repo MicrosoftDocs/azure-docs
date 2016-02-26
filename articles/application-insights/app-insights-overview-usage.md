@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="11/24/2015"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # Usage analysis with Application Insights
@@ -25,7 +25,7 @@ Application Insights works for both stand-alone apps (on iOS, Android and Window
 
 ## Add Application Insights to your project
 
-To get started, get a subscription to [Microsoft Azure](https://azure.com). (There's a free trial, and after the trial period, you can continue with the free tier of the service.)
+To get started, get a free account with [Microsoft Azure](https://azure.com). (After the trial period, you can continue with the free tier of the service.)
 
 In the [Azure portal](https://portal.azure.com), create an Application Insights resource. This is where you'll see usage and performance data about your app.
 
@@ -42,7 +42,7 @@ You can also add Application Insights to your [ASP.NET](app-insights-asp-net.md)
 
 ### Run your project and see first results
 
-Run your project in debug mode for a few minutes, and then go to the [Azure portal](http://portal.azure.com) and browse to your project resource in Application Insights.
+Run your project in debug mode for a few minutes, and then go to the [Azure portal](https://portal.azure.com) and browse to your project resource in Application Insights.
 
 ![In Azure, click Browse, Application Insights, and select your project](./media/app-insights-overview-usage/00-start.png)
 

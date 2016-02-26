@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016"  
+	ms.date="02/02/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services
@@ -22,13 +22,39 @@
  
 Azure Active Directory, Azure Media Services, Azure Media Player, Dynamic Encryption, License Delivery,PlayReady, Widevine, FairPlay, Common Encryption(CENC), Multi-DRM, Axinom, DASH, EME, MSE, JSON Web Token (JWT), Claims, Modern Browsers,Key Rollover, Symmetric Key, Asymmetric Key, OpenID Connect, X509 certificate. 
 
+##In this article
+
+The following topics are covered in this article:
+
+- [Introduction](media-services-cenc-with-multidrm-access-control.md#introduction)
+	- [Overview of this article](media-services-cenc-with-multidrm-access-control.md#overview-of-this-article)
+- [A reference design](media-services-cenc-with-multidrm-access-control.md#a-reference-design)
+- [Mapping design to technology for implementation](media-services-cenc-with-multidrm-access-control.md#mapping-design-to-technology-for-implementation)
+- [Implementation](media-services-cenc-with-multidrm-access-control.md#implementation)
+	- [Implementation procedures](media-services-cenc-with-multidrm-access-control.md#implementation-procedures)
+	- [Some gotchas in implementation](media-services-cenc-with-multidrm-access-control.md#some-gotchas-in-implementation)
+- [Additional Topics for Implementation](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
+	- [HTTP or HTTPS](media-services-cenc-with-multidrm-access-control.md#http-or-https)
+	- [Azure Active Directory signing key rollover](media-services-cenc-with-multidrm-access-control.md#azure-active-directory-signing-key-rollover)
+	- [Where is the Access Token?](media-services-cenc-with-multidrm-access-control.md#where-is-the-access-token)
+	- [What about Live Streaming?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
+	- [What about license servers outside of Azure Media Services?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
+	- [What if I want to use a custom STS?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
+- [The completed system and test](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
+	- [User login](media-services-cenc-with-multidrm-access-control.md#user-login)
+	- [Using Encrypted Media Extensions for PlayReady](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensipons-for-playready)
+	- [Using EME for Widevine](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
+	- [Not entitled users](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
+	- [Running custom Secure Token Service](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
+- [Summary](media-services-cenc-with-multidrm-access-control.md#summary)
+
 ##Introduction
 
 It is well known that it is a complex task to design and build a DRM subsystem for an OTT or online streaming solution. And it is a common practice for operators/online video providers to outsource this part to specialized DRM service providers. The goal of this document is to present a reference design and implementation of end-to-end DRM subsystem in OTT or online streaming solution.
 
 The targeted readers of this document are engineers working in DRM subsystem of OTT or online streaming/multi-screen solutions, or any readers interested in DRM subsystem. The assumption is that readers are familiar with at least one of the DRM technologies on the market, such as PlayReady, Widevine, FairPlay or Adobe Access.
 
-By DRM, we also include CENC (Common Encryption) with multi-DRM. A major trend in online streaming and OTT industry is to use CENC with multi-native-DRM on various client platforms, which is a shift from the previous trend of using a single DRM and its client SDK for various client platforms. When using CENC with multi-native-DRM, both PlayReady and Widevine are encrypted per the [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271) specification.
+By DRM, we also include CENC (Common Encryption) with multi-DRM. A major trend in online streaming and OTT industry is to use CENC with multi-native-DRM on various client platforms, which is a shift from the previous trend of using a single DRM and its client SDK for various client platforms. When using CENC with multi-native-DRM, both PlayReady and Widevine are encrypted per the [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specification.
 
 The benefits of CENC with multi-DRM are as follows:
 
@@ -36,23 +62,9 @@ The benefits of CENC with multi-DRM are as follows:
 1. Reduces the cost of managing encrypted assets since only a single copy of encrypted assets is needed;
 1. Eliminates DRM client licensing cost since the native DRM client is usually free on its native platform.
 
-Microsoft has been an active promoter of DASH and CENC together with some major industry players. Microsoft Azure Media Services has been providing support of DASH and CENC. For recent announcements, please see Mingfei’s blogs: [Announcing Google Widevine license delivery services public preview in Azure Media Services](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/), and [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).  
+Microsoft has been an active promoter of DASH and CENC together with some major industry players. Microsoft Azure Media Services has been providing support of DASH and CENC. For recent announcements, please see Mingfei’s blogs: [Announcing Google Widevine license delivery services in Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/), and [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).  
 
-###Overview of this article
-
-In this article, “multi-DRM” covers the following:
-
-1. Microsoft PlayReady
-1. Google Widevine
-1. Apple FairPlay (not yet supported by Azure Media Services)
-
-The following table summarizes the native platform/native app, and browsers supported by each DRM.
-
-**DRM**|**Native OS/Native App**|**Supported Desktop Browsers**|**Supported Mobile Browsers**|**Supported Streaming Formats**
-----|------|----|-----|----
-**PlayReady**|Windows, Windows Phone, Xbox|IE11 on Windows 8.1+, Microsoft Edge|Windows Phone 8.1+|DASH, Smooth Streaming
-**Widevine**|Android|Chrome 34+ on all PC and Mac|Android 4.3+|DASH
-**FairPlay**|Mac OS, iOS|Safari||HLS
+### Overview of this article
 
 The goal of this article includes the following:
 
@@ -60,7 +72,39 @@ The goal of this article includes the following:
 1. Provides a reference implementation on Microsoft Azure/Azure Media Services platform;
 1. Discusses some design and implementation topics.
 
-##A reference design
+In the article, “multi-DRM” covers the following:
+
+1. Microsoft PlayReady
+1. Google Widevine
+1. Apple FairPlay (not yet supported by Azure Media Services)
+
+The following table summarizes the native platform/native app, and browsers supported by each DRM.
+
+**Client Platform**|**Native DRM Support**|**Browser/App**|**Streaming Formats**
+----|------|----|----
+**Smart TVs, operator STBs, OTT STBs**|PlayReady primarily, and/or Widevine, and/or other|Linux, Opera, WebKit, Other|Various formats
+**Windows 10 devices (Windows PC, Windows Tablets, Windows Phone, Xbox)**|PlayReady|MS Edge/IE11/EME<br/><br/><br/>UWP|DASH (For HLS, PlayReady is not supported)<br/><br/>DASH, Smooth Streaming (For HLS, PlayReady is not supported) 
+**Android devices (Phone, Tablet, TV)**|Widevine|Chrome/EME|DASH
+**iOS (iPhone, iPad), OS X clients and Apple TV**|FairPlay|Safari 8+/EME|HLS
+**Plugin: Adobe Primetime**|Primetime Access|Browser plugin|HDS, HLS
+
+Considering the current state of deployment for each DRM, a service will typically want to implement 2 or 3 DRMs to make sure you address all the types of endpoints in the best way.
+
+There is a tradeoff between the complexity of the service logic and the complexity on the client side to reach a certain level of user experience on the various clients.
+
+To make your selection, keep in mind these facts:
+
+- PlayReady is natively implemented in every Windows device, on some Android devices, and available through software SDKs on virtually any platform
+- Widevine is natively implemented in every Android device, in Chrome, and in some other devices
+- FairPlay is available only on iOS and Mac OS clients or through iTunes.
+
+So a typical multi-DRM would be:
+
+- Option 1: PlayReady and Widevine
+- Option 2: PlayReady, Widevine and FairPlay
+
+
+## A reference design
 
 In this section, we will present a reference design which is agnostic to technologies used to implement it.
 
@@ -125,7 +169,7 @@ They have direct impact to license delivery cost if you use public cloud for lic
 
 As you can easily see, the two different designs result in very different license request patterns hence license delivery cost if license delivery service is provided by a public cloud such as Azure Media Services.
 
-##Mapping design to technology for implementation
+## Mapping design to technology for implementation
 
 Next, we map our generic design to technologies on Microsoft Azure/Azure Media Services platform, by specifying which technology to use for each building block.
 
@@ -133,7 +177,7 @@ The following table shows the mapping:
 
 **Building Block**|**Technology**
 ------|-------
-**Player**|[Azure Media Player](http://azure.microsoft.com/services/media-services/media-player/)
+**Player**|[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/)
 **Identity Provider (IDP)**|Azure Active Directory
 **Secure Token Service (STS)**|Azure Active Directory
 **DRM Protection Workflow**|Azure Media Services Dynamic Protection
@@ -171,7 +215,9 @@ During runtime, the flow is as below:
 
 1. Player makes a license acquisition request based on the browser/DRM supported. In the license acquisition request, key ID and the JWT token will also be submitted. License delivery service will verify the JWT token and the claims contained before issuing the needed license.
 
-##Implementation procedures
+##Implementation
+
+###Implementation procedures
 
 The implementation will include the following steps:
 
@@ -198,14 +244,14 @@ The implementation will include the following steps:
 
 George Trifonov of Azure Media Services Team has written a blog providing detailed steps in setting up Azure Active Directory for an ASP.NET MVC player app: [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-George has also written a blog on [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). And here is his [sample on Azure AD integration with Azure Media Services key delivery](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration).
+George has also written a blog on [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). And here is his [sample on Azure AD integration with Azure Media Services key delivery](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
 
 For information on Azure Active Directory:
 
 - You can find developer information in [Azure Active Directory Developer’s Guide](../active-directory/active-directory-developers-guide.md).
 - You can find administrator information in [Administer Your Azure AD Directory](../active-directory/active-directory-administer.md).
 
-###Some gotchas in implementation
+### Some gotchas in implementation
 
 There are some “gotchas” in the implementation. Hopefully the following list of “gotchas” can help you troubleshooting in case you run into issues.
 
@@ -246,13 +292,17 @@ There are some “gotchas” in the implementation. Hopefully the following list
 
 	Since adding support of JWT (AAD) in addition to SWT (ACS), the default TokenType is TokenType.JWT. If you use SWT/ACS, you must set to TokenType.SWT.
 
-##HTTP or HTTPS?
+## Additional Topics for Implementation
+Next we will disc
+uss some additional topics in our design and implementation.
+
+###HTTP or HTTPS?
 
 The ASP.NET MVC player application we built must support the following:
 
 1. User authentication through Azure AD which needs to be under HTTPS;
 1. JWT token exchange between client and Azure AD which needs to be under HTTPS;
-1. DRM license acquisition by the client which needs to be under HTTPS.
+1. DRM license acquisition by the client which is required to be under HTTPS if license delivery is provided by Azure Media Services. Of course, PlayReady product suite does not mandate HTTPS for license delivery. If your PlayReady license server is outside of Azure Media Services, either HTTP or HTTPS could be used.
 
 Therefore, the ASP.NET player application will use HTTPS as a best practice. This means the Azure Media Player will be on a page under HTTPS. However, for streaming we prefer HTTP, hence we need to consider mixed content issue.
 
@@ -262,15 +312,15 @@ Therefore, the ASP.NET player application will use HTTPS as a best practice. Thi
 
 In the reference implementation, for DRM protected contents, both application and streaming will be under HTTTPS. For open contents, the player does not need authentication or license, so you have the liberty to use either HTTP or HTTPS.
 
-##Azure Active Directory signing key rollover
+### Azure Active Directory signing key rollover
 
 This is an important point to take into consideration of your implementation. If you do not consider this in your implementation, the completed system will eventually stop working completely within at most 6 weeks.
 
 Azure AD uses industry standard to establish trust between itself and applications using Azure AD. Specifically, Azure AD uses a signing key that consists of a public and private key pair. When Azure AD creates a security token that contains information about the user, this token is signed by Azure AD using its private key before it is sent back to the application. To verify that the token is valid and actually originated from Azure AD, the application must validate the token’s signature using the public key exposed by Azure AD that is contained in the tenant’s federation metadata document. This public key – and the signing key from which it derives – is the same one used for all tenants in Azure AD.
 
-Detailed info on Azure AD key rollover can be found in the document: [Important Information about Signing Key Rollover in Azure AD](http://msdn.microsoft.com/library/azure/dn641920.aspx).
+Detailed info on Azure AD key rollover can be found in the document: [Important Information about Signing Key Rollover in Azure AD](http://msdn.microsoft.com/library/azure/dn641920.aspx/).
 
-Between the [public-private key pair](https://login.windows.net/common/discovery/keys), 
+Between the [public-private key pair](https://login.windows.net/common/discovery/keys/), 
 
 - The private key is used by Azure Active Directory to generate a JWT token;
 - The public key is used by an application such as DRM License Delivery Services in AMS to verify the JWT token;
@@ -292,7 +342,7 @@ What if the key rollover happens after AAD generates a JWT token but before the 
 
 Because a key may be rolled at any moment, there is always more than one valid public key available in the federation metadata document. Azure Media Services license delivery can use any of the keys specified in the document, since one key may be rolled soon, another may be its replacement, and so forth.
 
-##Where is the Access Token?
+### Where is the Access Token?
 
 If you look at how a web app calls an API app under [Application Identity with OAuth 2.0 Client Credentials Grant](active-directory-authentication-scenarios.md#web-application-to-web-api), the authentication flow is as below:
 
@@ -302,7 +352,7 @@ If you look at how a web app calls an API app under [Application Identity with O
 4.	Azure AD authenticates the application and returns a JWT access token that is used to call the web API.
 5.	Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API. The web API then validates the JWT token, and if validation is successful, returns the desired resource.
 
-In this “application identity” flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [diagram on this page](http://msdn.microsoft.com/library/azure/dn645542.aspx) describes how authorization code grant flow works.
+In this “application identity” flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [diagram on this page](http://msdn.microsoft.com/library/azure/dn645542.aspx/) describes how authorization code grant flow works.
 
 In license acquisition with token restriction, we are following the same trusted subsystem pattern. And the license delivery service in Azure Media Services is the web API resource, the “backend resource” a web application needs to access. So where is the access token?
 
@@ -325,7 +375,7 @@ We need to register and configure the “pointer” app in Azure AD by following
 	
 Therefore, the JWT token issued by Azure AD is indeed the access token for accessing this “pointer” resource.
 
-##What about Live Streaming?
+### What about Live Streaming?
 
 In the above, our discussion has been focusing on on-demand assets. What about live streaming?
 
@@ -333,14 +383,14 @@ The good news is that you can use exactly the same design and implementation for
 
 Specifically, it is well known that to do live streaming in Azure Media Services, you need to create a channel, then a program under the channel. To create the program, you need to create an asset which will contain the live archive for the program. In order to provide CENC with multi-DRM protection of the live content, all you need to do, is to apply the same setup/processing to the asset as if it was a “VOD asset” before you start the program.
 
-##What about license servers outside of Azure Media Services?
+### What about license servers outside of Azure Media Services?
 
 Often, customers may have invested in license server farm either in their own data center or hosted by DRM service providers. Fortunately, Azure Media Services Content Protection allows you to operate in hybrid mode: contents hosted and dynamically protected in Azure Media Services, while DRM licenses are delivered by servers outside Azure Media Services. In this case, there are the following considerations of changes:
 
 1. The Secure Token Service needs to issue tokens which are acceptable and can be verified by the license server farm. For example, the Widevine license servers provided by Axinom requires a specific JWT token which contains “entitlement message”. Therefore, you need to have an STS to issue such JWT token. The authors have completed such an implementation and you can find the details in the following document in [Azure Documentation Center](https://azure.microsoft.com/documentation/): [Using Axinom to deliver Widevine licenses to Azure Media Services](media-services-axinom-integration.md). 
 1. You no longer need to configure license delivery service (ContentKeyAuthorizationPolicy) in Azure Media Services. What you need to do is to provide the license acquisition URLs (for PlayReady, Widevine and FairPlay) when you configure AssetDeliveryPolicy in setting up CENC with multi-DRM.
  
-##What if I want to use a custom STS?
+### What if I want to use a custom STS?
 
 There could be a few reasons that a customer may choose to use a custom STS (Secure Token Service) for providing JWT tokens. Some of them are:
 
@@ -357,13 +407,13 @@ There are two types of security keys:
 1.	Symmetric key: the same key is used for both generating and verifying a JWT token;
 2.	Asymmetric key: a public-private key pair in an X509 certificate is used with private key for encrypting/generating a JWT token and the public key for verifying the token.
 
-###Tech note
+####Tech note
 
 If you use .NET Framework/C# as your development platform, the X509 certificate used for asymmetric security key must have key length at least 2048. This is a requirement of the class System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Otherwise, the following exception will be thrown:
 
 IDX10630: The 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' for signing cannot be smaller than '2048' bits. 
 
-##The completed system and test
+## The completed system and test
 
 We will walk through a few scenarios in the completed end-to-end system so that readers can have a basic “picture” of the behavior before getting a login account.
 
@@ -373,7 +423,7 @@ If what you need is “non-integrated” scenario: video assets hosted in Azure 
 
 If what you need is end-to-end integrated scenario: video assets is under dynamic DRM protection in Azure Media Services, with token authentication and JWT token being generated by Azure AD, you need to login.
 
-###User login
+### User login
 
 In order to test the end-to-end integrated DRM system, you need to have an “account” created or added. 
 
@@ -405,9 +455,9 @@ Below are the screenshots of different login pages used by different domain acco
 
 ![Custom Azure AD tenant domain account](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 
-###Using Encrypted Media Extensions (EME) for PlayReady
+### Using Encrypted Media Extensions for PlayReady
 
-On a modern browser with EME/PlayReady support, such as IE 11 on Windows 8.1 and up, and Microsoft Edge browser on Windows 10, PlayReady will be the underlying DRM for EME.
+On a modern browser with Encrypted Media Extensions (EME) for PlayReady support, such as IE 11 on Windows 8.1 and up, and Microsoft Edge browser on Windows 10, PlayReady will be the underlying DRM for EME.
 
 ![Using EME for PlayReady](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready1.png)
 
@@ -417,7 +467,12 @@ The following screen shows the player plugins and MSE/EME support.
 
 ![Using EME for PlayReady](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready2.png)
 
-####Using EME for Widevine
+EME in Microsoft Edge and IE 11 on Windows 10 allows invoking of [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/) on Windows 10 devices which support it. PlayReady SL3000 unlocks the flow of enhanced premium content (4K, HDR, etc.) and new content delivery models (early window for Enhanced Content).
+
+Focus on the Windows devices: PlayReady is the only DRM in the HW available on Windows devices (PlayReady SL3000). A streaming service can use PlayReady through EME or through a UWP application and offer a higher video quality using PlayReady SL3000 than another DRM. Typically, 2K content will flow through Chrome or Firefox, and 4K content through Microsoft Edge/IE11 or a UWP application on the same device (depending on service settings and implementation).
+
+
+#### Using EME for Widevine
 
 On a modern browser with EME/Widevine support, such as Chrome 41+ on Windows 10, Windows 8.1, Mac OSX Yosemite, and Chrome on Android 4.4.4, Google Widevine is the DRM behind EME.
 
@@ -427,15 +482,15 @@ Notice that Widevine does not prevent one from making screen capture of protecte
 
 ![Using EME for Widevine](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-widevine2.png)
 
-###Not entitled users
+### Not entitled users
 
 If a user is not a member of “Entitled Users” group, the user will not be able to pass “entitlement check” and the multi-DRM license service will refuse to issue the requested license as shown below. The detailed description is “License acquire failed”, which is as designed.
 
-![Un-entitled Users](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png.png)
+![Un-entitled Users](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
 
-###Running custom Secure Token Service (STS)
+### Running custom Secure Token Service
 
-For the scenario of running custom STS, the JWT token will be issued by the custom STS using either symmetric or asymmetric key. 
+For the scenario of running custom Secure Token Service (STS), the JWT token will be issued by the custom STS using either symmetric or asymmetric key. 
 
 The case of using symmetric key (using Chrome):
 
@@ -447,7 +502,7 @@ The case of using asymmetric key via an X509 certificate (using Microsoft modern
 
 In both of the above cases, user authentication stays the same – through Azure AD. The only difference is that JWT tokens are issued by the custom STS instead of Azure AD. Of course, when configuring dynamic CENC protection, the restriction of license delivery service specifies the type of JWT token, either symmetric or asymmetric key.
 
-##Summary
+## Summary
 
 In this document, we discussed CENC with multi-native-DRM and access control via token authentication: its design and its implementation using Azure, Azure Media Services and Azure Media Player.
 
@@ -466,4 +521,4 @@ In this document, we discussed CENC with multi-native-DRM and access control via
 
 ###Acknowledgments 
 
-William Zhang, Mingfei Yan, Kilroy Hughes, Julia Kornich
+William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich

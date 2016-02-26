@@ -19,7 +19,7 @@
 
 #Create Linux-based clusters in HDInsight using the Azure CLI
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 The Azure CLI is a cross-platform command-line utility that allows you to manage Azure Services. It can be used, along with Azure Resource management templates, to create an HDInsight cluster, along with associated storage accounts and other services.
 
@@ -33,7 +33,7 @@ The steps in this document walk through the process of creating a new HDInsight 
 
 ##Prerequisites
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Azure CLI__. For information on installing the CLI, see [Install the Azure CLI](../xplat-cli-install.md).
 

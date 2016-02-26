@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.date="02/18/2016"
 	ms.author="awills"/>
 
 
@@ -99,7 +99,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 ## View performance telemetry
 
-Sign into [the Azure portal](http://portal.azure.com), browse Application Insights and open the resource that you created.
+Sign into [the Azure portal](https://portal.azure.com), browse Application Insights and open the resource that you created.
 
 ![Choose Browse, Application Insights, then select your app](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -196,6 +196,7 @@ On the client side Windows 7, 8 and 8.1, again with .NET Framework 4.0 and 4.5
 
 IIS support is: IIS 7, 7.5, 8, 8.5
 (IIS is required)
+
 
 ## <a name="next"></a>Next steps
 

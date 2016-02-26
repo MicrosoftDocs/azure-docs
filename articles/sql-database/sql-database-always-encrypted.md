@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2015"
+	ms.date="01/14/2016"
 	ms.author="sstein"/>
 
 # SQL Database tutorial: Protect sensitive data with Always Encrypted (Windows certificate store)
@@ -42,7 +42,7 @@ Follow the steps in this article and learn how to setup Always Encrypted for an 
 
 For this tutorial you'll need:
 
-- An Azure account and subscription before you start. If you don't have one, sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+- An Azure account and subscription before you start. If you don't have one, sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
@@ -50,9 +50,9 @@ For this tutorial you'll need:
 
 
 ## Create a blank SQL database
-1. Sign in to the [Azure portal](http://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **New** > **Data + Storage** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions to create a database in the Azure portal, see [Create a SQL database in minutes](sql-database-getting-started.md).
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions to create a database in the Azure portal, see [Create a SQL database in minutes](sql-database-get-started.md).
 
 	![create a blank database](./media/sql-database-always-encrypted/create-database.png)
 

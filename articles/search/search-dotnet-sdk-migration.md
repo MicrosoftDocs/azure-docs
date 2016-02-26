@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Upgrading to the Azure Search .NET SDK version 1.0.1-preview | Microsoft Azure | Hosted cloud search service"
-   description="Upgrading to the Azure Search .NET SDK version 1.0.1-preview"
+   pageTitle="Upgrading to the Azure Search .NET SDK version 1.1 | Microsoft Azure | Hosted cloud search service"
+   description="Upgrading to the Azure Search .NET SDK version 1.1"
    services="search"
    documentationCenter=""
    authors="brjohnstmsft"
@@ -13,29 +13,29 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/22/2016"
+   ms.date="02/09/2016"
    ms.author="brjohnst"/>
 
-# Upgrading to the Azure Search .NET SDK version 1.0.1-preview
+# Upgrading to the Azure Search .NET SDK version 1.1
 
-If you're using version 0.13.0-preview or older of the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx), this article will help you upgrade your application to use the latest version, 1.0.1-preview.
+If you're using version 1.0.2-preview or older of the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx), this article will help you upgrade your application to use the first generally available version, 1.1.
 
 For a more general walkthrough of the SDK including examples, see [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md).
 
-Version 1.0.1-preview of the Azure Search .NET SDK contains several breaking changes from the previous version (0.13.0-preview). These are mostly minor, so changing your code should require only minimal effort. See [Steps to upgrade](#UpgradeSteps) for instructions on how to change your code to use the new SDK version.
+Version 1.1 of the Azure Search .NET SDK contains several breaking changes from versions prior to 1.0.0-preview (this includes versions 0.13.0-preview and older). These are mostly minor, so changing your code should require only minimal effort. See [Steps to upgrade](#UpgradeSteps) for instructions on how to change your code to use the new SDK version.
 
 <a name="WhatsNew"></a>
-## What's new in 1.0.1-preview
+## What's new in version 1.1
 
-Version 1.0.1-preview targets the same REST API version as older versions of the Azure Search .NET SDK (2015-02-28), so there are no new service features in this release. However, there are new client-side serialization features.
+Version 1.1 targets the same REST API version as older versions of the Azure Search .NET SDK (2015-02-28), so there are no new service features in this release. However, there are new client-side serialization features.
 
 The SDK uses JSON.NET for serializing and deserializing documents. The new version of the SDK supports custom serialization via `JsonConverter` and `IContractResolver` (see the [JSON.NET documentation](http://www.newtonsoft.com/json/help/html/Introduction.htm) for more details). This can be useful when you want to adapt an existing model class from your application for use with Azure Search, and other more advanced scenarios. For example, with custom serialization you can:
- 
+
  - Include or exclude certain properties of your model class from being stored as document fields.
  - Map between property names in your code and field names in your index.
  - Create custom attributes that can be used for both mapping properties to document fields as well as creating the corresponding index definition.
 
-You can find examples of implementing custom serialization in the unit tests for the Azure Search .NET SDK on GitHub. A good starting point is [this folder](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models). It contains classes that are used by the custom serialization tests. 
+You can find examples of implementing custom serialization in the unit tests for the Azure Search .NET SDK on GitHub. A good starting point is [this folder](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models). It contains classes that are used by the custom serialization tests.
 
 In addition to custom serialization, the new SDK also supports serialization of `SearchContinuationToken` objects. This can be useful if you call Azure Search from a web application and you need to exchange continuation tokens with a browser or mobile client while paging through search results.
 
@@ -44,23 +44,25 @@ In addition to custom serialization, the new SDK also supports serialization of 
 
 First, update your NuGet reference for `Microsoft.Azure.Search` using either the NuGet Package Manager Console or by right-clicking on your project references and selecting "Manage NuGet Packages..." in Visual Studio.
 
-> [AZURE.NOTE] Make sure that you are able to see pre-release packages by selecting "Include Prerelease" if you're using Visual Studio or by using the `-IncludePrerelease` switch if you're using the Package Manager Console.
+Once NuGet has downloaded the new packages and their dependencies, rebuild your project.
 
-Once NuGet has downloaded the new packages and their dependencies, rebuild your project. You should see build errors like the following:
+If you were previously using version 1.0.0-preview, 1.0.1-preview, or 1.0.2-preview, the build should succeed and you're ready to go!
+
+If you were previously using version 0.13.0-preview or older, you should see build errors like the following:
 
     Program.cs(137,56,137,62): error CS0117: 'Microsoft.Azure.Search.Models.IndexBatch' does not contain a definition for 'Create'
     Program.cs(137,99,137,105): error CS0117: 'Microsoft.Azure.Search.Models.IndexAction' does not contain a definition for 'Create'
     Program.cs(146,41,146,54): error CS1061: 'Microsoft.Azure.Search.IndexBatchException' does not contain a definition for 'IndexResponse' and no extension method 'IndexResponse' accepting a first argument of type 'Microsoft.Azure.Search.IndexBatchException' could be found (are you missing a using directive or an assembly reference?)
     Program.cs(163,13,163,42): error CS0246: The type or namespace name 'DocumentSearchResponse' could not be found (are you missing a using directive or an assembly reference?)
 
-The next step is to fix the build errors one by one. Most will require changing some class and method names that have been renamed in the SDK. [List of breaking changes in 1.0.1-preview](#ListOfChanges) contains a list of these name changes.
+The next step is to fix the build errors one by one. Most will require changing some class and method names that have been renamed in the SDK. [List of breaking changes in version 1.1](#ListOfChanges) contains a list of these name changes.
 
-If you're using custom classes to model your documents, and those classes have properties of non-nullable primitive types (for example, `int` or `bool` in C#), there is a bug fix in the 1.0.1-preview version of the SDK of which you should be aware. See [Bug fixes in 1.0.1-preview](#BugFixes) for more details.
+If you're using custom classes to model your documents, and those classes have properties of non-nullable primitive types (for example, `int` or `bool` in C#), there is a bug fix in the 1.1 version of the SDK of which you should be aware. See [Bug fixes in version 1.1](#BugFixes) for more details.
 
-Finally, once you've fixed any build errors, you can make changes to your application to take advantage of new functionality if you wish. The custom serialization feature in the new SDK is detailed in [What's new in 1.0.1-preview](#WhatsNew).
+Finally, once you've fixed any build errors, you can make changes to your application to take advantage of new functionality if you wish. The custom serialization feature in the new SDK is detailed in [What's new in version 1.1](#WhatsNew).
 
 <a name="ListOfChanges"></a>
-## List of breaking changes in 1.0.1-preview
+## List of breaking changes in version 1.1
 
 The following list is ordered by the likelihood that the change will affect your application code.
 
@@ -114,7 +116,7 @@ You can change it to this to fix any build errors:
 <a name="OperationMethodChanges"></a>
 ### Operation method changes
 
-Each operation in the Azure Search .NET SDK is exposed as a set of method overloads for synchronous and asynchronous callers. The signatures and factoring of these method overloads has changed in version 1.0.1-preview.
+Each operation in the Azure Search .NET SDK is exposed as a set of method overloads for synchronous and asynchronous callers. The signatures and factoring of these method overloads has changed in version 1.1.
 
 For example, the "Get Index Statistics" operation in older versions of the SDK exposed these signatures:
 
@@ -137,7 +139,7 @@ In `IndexOperationsExtensions`:
         this IIndexOperations operations,
         string indexName);
 
-The method signatures for the same operation in version 1.0.1-preview look like this:
+The method signatures for the same operation in version 1.1 look like this:
 
 In `IIndexesOperations`:
 
@@ -159,12 +161,12 @@ In `IndexesOperationsExtensions`:
 
     // Simplified synchronous operation
     public static IndexGetStatisticsResult GetStatistics(
-        this IIndexesOperations operations, 
+        this IIndexesOperations operations,
         string indexName,
         SearchRequestOptions searchRequestOptions = default(SearchRequestOptions));
 
-Starting with version 1.0.1-preview, the Azure Search .NET SDK organizes operation methods differently:
- 
+Starting with version 1.1, the Azure Search .NET SDK organizes operation methods differently:
+
  - Optional parameters are now modeled as default parameters rather than additional method overloads. This reduces the number of method overloads, sometimes dramatically.
  - The extension methods now hide a lot of the extraneous details of HTTP from the caller. For example, older versions of the SDK returned a response object with an HTTP status code, which you often didn't need to check because operation methods throw `CloudException` for any status code that indicates an error. The new extension methods just return model objects, saving you the trouble of having to unwrap them in your code.
  - Conversely, the core interfaces now expose methods that give you more control at the HTTP level if you need it. You can now pass in custom HTTP headers to be included in requests, and the new `AzureOperationResponse<T>` return type gives you direct access to the `HttpRequestMessage` and `HttpResponseMessage` for the operation. `AzureOperationResponse` is defined in the `Microsoft.Rest.Azure` namespace and replaces `Hyak.Common.OperationResponse`.
@@ -266,7 +268,7 @@ You can change it by getting the `.Results` property of the search response to f
         };
     }
 
-You will have to look for such cases in your code yourself; **The compiler will not warn you** because `JsonResult.Data` is of type `object`. 
+You will have to look for such cases in your code yourself; **The compiler will not warn you** because `JsonResult.Data` is of type `object`.
 
 ### CloudException changes
 
@@ -280,17 +282,17 @@ In older versions of the SDK, `SearchServiceClient` and `SearchIndexClient` had 
 
 Finally, the constructors that took a `Uri` and `SearchCredentials` have changed. For example, if you have code that looks like this:
 
-    var client = 
+    var client =
         new SearchServiceClient(
-            new SearchCredentials("abc123"), 
+            new SearchCredentials("abc123"),
             new Uri("http://myservice.search.windows.net"));
 
 You can change it to this to fix any build errors:
 
-    var client = 
+    var client =
         new SearchServiceClient(
             new Uri("http://myservice.search.windows.net"),
-            new SearchCredentials("abc123")); 
+            new SearchCredentials("abc123"));
 
 Also note that the type of the credentials parameter has changed to `ServiceClientCredentials`. This is unlikely to affect your code since `SearchCredentials` is derived from `ServiceClientCredentials`.
 
@@ -315,7 +317,7 @@ You can change it to this to fix any build errors:
 ### Interface name changes
 
 The operation group interface names have all changed to be consistent with their corresponding property names:
- 
+
  - The type of `ISearchServiceClient.Indexes` has been renamed from `IIndexOperations` to `IIndexesOperations`.
  - The type of `ISearchServiceClient.Indexers` has been renamed from `IIndexerOperations` to `IIndexersOperations`.
  - The type of `ISearchServiceClient.DataSources` has been renamed from `IDataSourceOperations` to `IDataSourcesOperations`.
@@ -324,7 +326,7 @@ The operation group interface names have all changed to be consistent with their
 This change is unlikely to affect your code unless you created mocks of these interfaces for test purposes.
 
 <a name="BugFixes"></a>
-## Bug fixes in 1.0.1-preview
+## Bug fixes in version 1.1
 
 There was a bug in older versions of the Azure Search .NET SDK relating to serialization of custom model classes. The bug could occur if you created a custom model class with a property of a non-nullable value type.
 
@@ -334,11 +336,11 @@ Create a custom model class with a property of non-nullable value type. For exam
 
 If you index a document with the default value of that type (for example, 0 for `int`), the field will be null in Azure Search. If you subsequently search for that document, the `Search` call will throw `JsonSerializationException` complaining that it can't convert `null` to `int`.
 
-Also, filters may not work as expected since null was written to the index instead of the intended value. 
+Also, filters may not work as expected since null was written to the index instead of the intended value.
 
 ### Fix details
 
-We have fixed this issue in version 1.0.1-preview of the SDK. Now, if you have a model class like this:
+We have fixed this issue in version 1.1 of the SDK. Now, if you have a model class like this:
 
     public class Model
     {

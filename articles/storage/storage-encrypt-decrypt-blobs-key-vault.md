@@ -24,9 +24,9 @@ This tutorial covers how to make use of client-side storage encryption with Azur
 
 **Estimated time to complete:** 20 minutes
 
-For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault/key-vault-whatis.md).
+For overview information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-whatis.md).
 
-For overview information about client-side encryption for Azure Storage, see [Get Started with Client-Side Encryption for Microsoft Azure Storage](storage-client-side-encryption.md).
+For overview information about client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](storage-client-side-encryption.md).
 
 
 ## Prerequisites
@@ -40,7 +40,7 @@ To complete this tutorial, you must have the following:
 
 ## Overview of client-side encryption
 
-For an overview of client-side encryption for Azure Storage, see [Get Started with Client-Side Encryption for Microsoft Azure Storage](storage-client-side-encryption.md)
+For an overview of client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](storage-client-side-encryption.md)
 
 Here is a brief description of how client side encryption works:
 
@@ -51,7 +51,7 @@ Here is a brief description of how client side encryption works:
 
 
 ## Set up your Azure Key Vault
-In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial  [Get started with Azure Key Vault](key-vault/key-vault-get-started.md):
+In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial  [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md):
 
 - Create a key vault.
 - Add a key or secret to the key vault.
@@ -167,7 +167,7 @@ Add the following code to encrypt a blob and upload it to your Azure storage acc
 		blob.UploadFromStream(stream, stream.Length, null, options, null);
 
 
-Following is a screenshot from the [Azure Classic Portal](manage.windowsazure.com) for a blob that has been encrypted by using client-side encryption with a key stored in Key Vault. The **KeyId** property is the URI for the key in Key Vault that acts as the KEK. The **EncryptedKey** property contains the encrypted version of the CEK.
+Following is a screenshot from the [Azure Classic Portal](https://manage.windowsazure.com) for a blob that has been encrypted by using client-side encryption with a key stored in Key Vault. The **KeyId** property is the URI for the key in Key Vault that acts as the KEK. The **EncryptedKey** property contains the encrypted version of the CEK.
 
 ![Screenshot showing Blob metadata that includes encryption metadata][1]
 

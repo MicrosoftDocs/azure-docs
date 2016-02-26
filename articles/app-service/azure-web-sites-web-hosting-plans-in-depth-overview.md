@@ -62,7 +62,7 @@ To create a new App Service Plan, click **+ Create New**, type the **App Service
  
 ## Move an app to a different App Service plan
 
-You can move an app to a different app service plan in the [Azure Portal](http://portal.azure.com). Apps can be moved between plans in the same geographical region.
+You can move an app to a different app service plan in the [Azure Portal](https://portal.azure.com). Apps can be moved between plans in the same geographical region.
 
 To move an app to another plan, navigate to the app you want to move, then click **Change App Service Plan**.
  

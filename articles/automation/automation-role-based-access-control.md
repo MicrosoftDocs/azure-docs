@@ -9,10 +9,10 @@
 <tags 
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/13/2016"
+   ms.date="02/11/2016"
    ms.author="sngun"/>
 
 # Role-based access control in Azure Automation
@@ -37,7 +37,7 @@ In this article we will walk you through how to set up RBAC in Azure Automation.
 
 ## Configure RBAC for your Automation Account using Azure Portal
 
-1.	Log in to the [Azure Portal](http://portal.azure.com/) and open your Automation account from the Automation Accounts blade.  
+1.	Log in to the [Azure Portal](https://portal.azure.com/) and open your Automation account from the Automation Accounts blade.  
 
 2.	Click on the **Access** control at the top right corner. This opens the **Users** blade where you can add new users, groups and applications to manage your Automation account and view existing roles that can be configured for the Automation Account.  
 

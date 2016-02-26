@@ -1,4 +1,4 @@
-## What is Blob Storage
+## What is Blob Storage?
 
 Azure Blob storage is a service for storing large amounts of
 unstructured data, such as text or binary data, that can be accessed from anywhere in the world via
@@ -33,7 +33,7 @@ The Blob service contains the following components:
     
 	*Page blobs* can be up to 1 TB in size, and are more efficient for frequent read/write operations. Azure Virtual Machines use page blobs as OS and data disks.
 
-	For more information about blobs, see [Understanding Block Blobs, Page Blobs, and Append Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+	For more information about blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ## Naming and referencing containers and blobs
 

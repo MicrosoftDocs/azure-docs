@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 
@@ -42,7 +42,7 @@ There is no software charges for this data science VM image. You only pay for th
 
 Before you can create a Microsoft Data Science Virtual Machine, you must have the following:
 
-- **An Azure subscription**: To obtain one, see [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**: To obtain one, see [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 *   **An Azure storage account**: To create one, see [Create an Azure storage account](storage-create-storage-account.md#create-a-storage-account) Alternatively, the storage account can be created as part of the process of creating the VM if you do not want to use an existing account.
 

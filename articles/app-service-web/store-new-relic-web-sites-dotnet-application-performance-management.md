@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="01/21/2016" 
 	ms.author="stepsic"/>
 
 
@@ -164,7 +164,7 @@ Below is an example of the Applications Overview dashboard when you select the B
 
 Check out these additional resources for more information:
 
- * [Installing the .NET Agent for Azure Websites](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-websites#manual): New Relic .NET Agent installation procedures 
+ * [Installing the .NET Agent on Azure Web Apps](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-preview-portal#install-new-relic-azure-webapps): New Relic .NET Agent installation procedures 
  * [The New Relic User Interface](https://newrelic.com/docs/site/the-new-relic-ui): 
 Overview of the New Relic UI, setting user rights and profiles, using standard functions and dashboard drill-down details
  * [Applications Overview](https://newrelic.com/docs/site/applications-overview): Features and functions when using New Relic's Applications Overview dashboard

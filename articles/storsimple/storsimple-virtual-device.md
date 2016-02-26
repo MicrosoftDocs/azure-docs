@@ -235,7 +235,7 @@ Perform the following steps to configure remote management for your StorSimple v
 
 ![Video available](./media/storsimple-virtual-device/Video_icon.png) **Video available**
 
-To watch a video that describes how to create a virtual StorSimple device in the cloud, click [here](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-device/).
+To watch a video that describes how to create a virtual StorSimple device in the cloud, click [here](https://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-device/).
 
 ## Work with the StorSimple virtual device
 
@@ -363,7 +363,7 @@ The failover process will begin. When the failover is finished, go to the **Devi
 
 ![Video available](./media/storsimple-virtual-device/Video_icon.png) **Video available**
 
-To watch a video that describes how you can restore a failed over physical device to a virtual device in the cloud, click [here](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+To watch a video that describes how you can restore a failed over physical device to a virtual device in the cloud, click [here](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Shut down or delete the virtual device
 

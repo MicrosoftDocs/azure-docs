@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="02/10/2016"
 	ms.author="heidist"/>
 
 #Build queries in Azure Search in .NET
@@ -41,8 +41,8 @@ The following code snippet creates a method that passes a search string input to
 			sp.Filter = filter;
 		}
 	
-		DocumentSearchResponse<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
-		foreach (SearchResult<Hotel> result in response)
+		DocumentSearchResult<Hotel> documentSearchResult = indexClient.Documents.Search<Hotel>(searchText, sp);
+		foreach (SearchResult<Hotel> result in documentSearchResult.Results)
 		{
 			Console.WriteLine(result.Document);
 		}

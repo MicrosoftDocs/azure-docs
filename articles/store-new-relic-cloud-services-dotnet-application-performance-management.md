@@ -43,7 +43,7 @@ alerting, tracks application exceptions, and a whole lot more.
 New Relic Standard is free to Azure users
 New Relic Pro is offered based on instance size for Azure Cloud Services
 
-For pricing information see the [New Relic page in the Azure Store](http://azure.microsoft.com/marketplace/partners/newrelic/newrelic).
+For pricing information see the [New Relic page in the Azure Store](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/).
 
 > [AZURE.NOTE] Pricing is only listed for up to 10 compute instances. For counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.
 

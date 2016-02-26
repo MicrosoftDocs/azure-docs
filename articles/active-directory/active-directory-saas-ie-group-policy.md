@@ -1,19 +1,19 @@
 <properties
-   pageTitle="How to Deploy the Access Panel Extension for Internet Explorer using Group Policy | Microsoft Azure"
-   description="How to use group policy to deploy the Internet Explorer add-on for the My Apps portal."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="How to Deploy the Access Panel Extension for Internet Explorer using Group Policy | Microsoft Azure"
+    description="How to use group policy to deploy the Internet Explorer add-on for the My Apps portal."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="11/18/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/09/2016"
+    ms.author="liviodlc"/>
 
 #How to Deploy the Access Panel Extension for Internet Explorer using Group Policy
 
@@ -176,4 +176,8 @@ Follow the steps below to verify if the extension deployment was successful:
 
 	![Verify that the Access Panel Extension is installed and enabled.](./media/active-directory-saas-ie-group-policy/verify-install.png)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md)

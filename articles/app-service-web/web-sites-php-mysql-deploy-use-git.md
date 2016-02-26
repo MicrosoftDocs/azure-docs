@@ -13,8 +13,8 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.topic="hero-article"
+	ms.date="02/09/2016"
 	ms.author="tomfitz"/>
 
 #Create a PHP-MySQL web app in Azure App Service and deploy using Git

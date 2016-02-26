@@ -18,7 +18,7 @@
 
 # Configure ExpressRoute and site-to-site VPN connections to coexist for a VNet
 
-Having the ability to configure site-to-site VPN and ExpressRoute has several advantages. You can configure site-to-site VPN as a secure failover path for ExressRoute, or use site-to-site VPNs to connect to sites that are not part of your network, but that are connected through ExpressRoute. We will cover the steps to configure both scenarios in this article. This article applies to connections created using the classic deployment mode. 
+Having the ability to configure site-to-site VPN and ExpressRoute has several advantages. You can configure site-to-site VPN as a secure failover path for ExressRoute, or use site-to-site VPNs to connect to sites that are not part of your network, but that are connected through ExpressRoute. We will cover the steps to configure both scenarios in this article. Currently you can only create this configuration by using the classic deployment model. When we have documentation that applies to the Resource Manager deployment model, we will link to it from here.
 
 >[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md)
 
@@ -67,7 +67,7 @@ There are two different sets of procedures to choose from in order to configure 
 
 This procedure will walk you through creating a VNet and create site-to-site and ExpressRoute connections that will coexist.
 
-1. Verify that you have the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).
+1. Verify that you have the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](https://azure.microsoft.com/downloads/).
 
 2. Create a schema for your virtual network. For more information about working with the network configuration file, see [Configure a Virtual Network using a network configuration file](../virtual-network/virtual-networks-create-vnet-classic-portal.md). For more information about the configuration schema, see [Azure Virtual Network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -179,7 +179,7 @@ If you have an existing virtual network connected via either ExpressRoute or sit
 
 **Before you begin configuration:** Verify that you have enough IP addresses left in your virtual network so that you can increase the gateway subnet size.
 
-1. Download the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).
+1. Download the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](https://azure.microsoft.com/downloads/).
 
 2. Delete the existing site-to-site VPN gateway. Use the following cmdlet, replacing the values with your own.
 

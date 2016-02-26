@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="02/24/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from DocumentDB using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure DocumentDB from another data store and move data from another data store to DocumentDB. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+
+The following sample(s) show how to copy data to and from Azure DocumentDB and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+
 
 ## Sample: Copy data from DocumentDB to Azure Blob
 
@@ -376,6 +379,14 @@ Example:
 	    }
 	  }
 	}
+
+### Schema by Data Factory
+For schema-free data stores such as DocumentDB, the Data Factory service infers the schema in one of the following ways:  
+
+1.	If you specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service honors this structure as the schema. In this case, if a row does not contain a value for a column, a null value will be provided for it.
+2.	If you do not specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service infers the schema by using the first row in the data. In this case, if the first row does not contain the full schema, some columns will be missing in the result of copy operation.
+
+Therefore, for schema-free data sources, the best practice is to specify the structure of data using the **structure** property.
 
 ## Azure DocumentDB Copy Activity type properties
 

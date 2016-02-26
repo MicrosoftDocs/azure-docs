@@ -10,10 +10,10 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="02/23/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
@@ -28,7 +28,7 @@ This FAQ answers questions about Azure Security Center, a service that helps you
 Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 ### How do I get Azure Security Center?
-Azure Security Center is enabled with your Microsoft Azure subscription and accessed from the [Azure portal](http://azure.microsoft.com/features/azure-portal/). ([Sign in to the portal](https://portal.azure.com), select **Browse**, and scroll to **Security Center**). You may see some security recommendations in the dashboard right away. That is because the service can assess the security state of some controls based on their configuration in Azure. In order to light up the full set of security monitoring, recommendations and alerting capabilities, you will need to [enable Data Collection](#data-collection).  
+Azure Security Center is enabled with your Microsoft Azure subscription and accessed from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). ([Sign in to the portal](https://portal.azure.com), select **Browse**, and scroll to **Security Center**). You may see some security recommendations in the dashboard right away. That is because the service can assess the security state of some controls based on their configuration in Azure. In order to light up the full set of security monitoring, recommendations and alerting capabilities, you will need to [enable Data Collection](#data-collection).  
 
 ## Billing
 
@@ -52,7 +52,7 @@ You can disable **Data collection** for a subscription in the Security policy. (
 ### Where is my data stored?<a name=where-is-my-data-stored></a>
 For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You choose the storage account for a subscription in the Security policy. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Security policy**.) When you click on a subscription, a new blade opens. Click **Choose storage accounts** to select a region.  Data collected is logically isolated from other customers’ data for security reasons.
 
-To learn more about Azure storage and storage accounts, see [Storage Documentation](https://azure.microsoft.com/documentation/services/storage/) and [About Azure storage accounts](storage-create-storage-account.md).
+To learn more about Azure storage and storage accounts, see [Storage Documentation](https://azure.microsoft.com/documentation/services/storage/) and [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 ## Using Azure Security Center
 
@@ -70,7 +70,7 @@ To learn how to configure a security policy, see [Setting security policies in A
 Azure Security Center analyzes the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control. Examples are:
 
 - Provisioning of antimalware to help identify and remove malicious software
-- Configuring [Network Security Groups](virtual-networks-nsg.md) and rules to control traffic to virtual machines
+- Configuring [Network Security Groups](../virtual-network/virtual-networks-nsg.md) and rules to control traffic to virtual machines
 - Provisioning of a web application firewall to help defend against attacks targeting your web applications
 - Deploying missing system updates
 - Addressing OS configurations that do not match the recommended baselines
@@ -89,16 +89,16 @@ Azure Security Center automatically collects, analyzes and fuses log data from y
 - Security alerts from integrated partner security solutions such as Anti-Malware or Web Application Firewalls
 
 ### How are permissions handled in Azure Security Center?
-Azure Security Center supports role based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](role-based-access-control-configure.md).
+Azure Security Center supports role based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
 When a user opens Azure Security Center, only recommendations and alerts that are related to resources the user has access to will be seen.  This means that users will only see items related to resources where the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to.
 
 To edit a security policy, you must be an Owner or Contributor of the subscription.
 
 ### What types of virtual machines will be supported?
-Both [Classic and Resource Manager](azure-classic-rm.md) virtual machines are supported, including virtual machines that are part of Azure Service Fabric clusters.
+Virtual machines created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md) are supported, including virtual machines that are part of Azure Service Fabric clusters.
 
-Access Control List recommendations currently apply to Classic virtual machines. Network Security Groups and recommendations for installation of Web Application Firewall currently only apply to Resource Manager virtual machines.
+Access Control List recommendations currently apply to virtual machines (classic). Network Security Groups currently only apply to virtual machines (Resource Manager).
 
 ### Are Linux virtual machines supported?
 Azure Security Center offers baseline monitoring for Linux virtual machines (Ubuntu versions 12.04, 14.04, 14.10, and 15.04 only). In the future, additional security health monitoring and data collection/analysis will be available, as well as support for additional Linux distros.

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/13/2015" 
+	ms.date="02/16/2016" 
 	ms.author="jeffstok"/>
 
 #Stream Analytics release notes
@@ -54,8 +54,8 @@ This release contains the following updates.
 Title | Description
 ---|---
 Azure IoT Suite Public Preview | Stream Analytics is included in the Public Preview of the Azure IoT Suite.
-Azure Preview portal integration | In addition to continued presence in the Azure Management portal, Stream Analytics is now integrated in the [Azure Preview portal](http://azure.microsoft.com/overview/preview-portal/). Note that Stream Analytics functionality in the Preview portal is currently a subset of the functionality offered in the Azure Management portal, without support for in-browser query testing, Power BI output configuration, and browsing to or creating new input and output resources in subscriptions you have access to.
-Support for DocumentDB output | Stream Analytics jobs can now output to [DocumentDB](http://azure.microsoft.com/services/documentdb/).
+Azure Preview portal integration | In addition to continued presence in the Azure Management portal, Stream Analytics is now integrated in the [Azure Preview portal](https://azure.microsoft.com/overview/preview-portal/). Note that Stream Analytics functionality in the Preview portal is currently a subset of the functionality offered in the Azure Management portal, without support for in-browser query testing, Power BI output configuration, and browsing to or creating new input and output resources in subscriptions you have access to.
+Support for DocumentDB output | Stream Analytics jobs can now output to [DocumentDB](https://azure.microsoft.com/services/documentdb/).
 Support for IoT Hub input | Stream Analytics jobs can now ingest data from IoT Hubs.
 TIMESTAMP BY for heterogeneous events | When a single data stream contains multiple event types having timestamps in different fields, you can now use [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) with expressions to specify different timestamp fields for each case.
 
@@ -127,7 +127,7 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 ## Next steps
 
 - [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-- [Get started using Azure Stream Analytics](../stream.analytics.get.started.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

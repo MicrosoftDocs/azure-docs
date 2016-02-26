@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -72,6 +72,7 @@ To configure the integration of Ariba into Azure AD, you need to add Ariba from 
 ![Creating an Azure AD test user](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_01.png)<br>
 7. In the results pane, select **Ariba**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Ariba based on a test user called "Britta Simon".
@@ -83,7 +84,7 @@ To configure and test Azure AD single sign-on with Ariba, you need to complete t
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Ariba test user](#creating-a-Ariba-test-user)** - to have a counterpart of Britta Simon in Ariba that is linked to the Azure AD representation of her.
+4. **[Creating a Ariba test user](#creating-a-ariba-test-user)** - to have a counterpart of Britta Simon in Ariba that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 

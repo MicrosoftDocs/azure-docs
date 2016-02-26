@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Get started with cmdlets in SQL Data Warehouse"
+   pageTitle="Using PowerShell cmdlets and REST APIs with SQL Data Warehouse"
    description="Suspend and restart SQL Data Warehouse using PowerShell cmdlets"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sidneyh"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/11/2016"
-   ms.author="mausher;sidneyh;barbkess;sonyama"/>
+   ms.date="02/22/2016"
+   ms.author="barbkess;mausher;sonyama"/>
 
-# Get started with Azure Data Warehouse cmdlets and REST APIs
+# Using PowerShell cmdlets and REST APIs with SQL Data Warehouse
 
 SQL Data Warehouse can be managed using either Azure PowerShell cmdlets or REST APIs. 
 
@@ -27,18 +27,18 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
 ## Get and run the Azure PowerShell cmdlets
 
 1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
-2. To run the module, at the start window type **Microsoft Azure PowerShell**.
+2. To run the module, at the start window type **Windows PowerShell**.
 3. If you have not already added your account to the machine, run the following cmdlet. (For more information, see [How to install and configure Azure PowerShell]():
 
-```
-Add-AzureAccount
-```
+	```
+	Login-AzureRmAccount
+	```
 
 3. Select your subscription for the database you want to suspend or resume. This selects the subscription named "MySubscription".
 
-```
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
-```
+	```
+	Select-AzureRmSubscription -SubscriptionName "MySubscription"
+	```
 
 ## Suspend-AzureRmSqlDatabase
 

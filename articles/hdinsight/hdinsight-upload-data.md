@@ -220,7 +220,7 @@ The Azure Data Factory service is a fully managed service for composing data sto
 
 Azure Data Factory can be used to move data into Azure Blob storage, or to create data pipelines that directly use HDInsight features such as Hive and Pig.
 
-For more information, see the [Azure Data Factory documentation](http://azure.microsoft.com/documentation/services/data-factory/).
+For more information, see the [Azure Data Factory documentation](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ###<a id="sqoop"></a>Apache Sqoop
 
@@ -239,7 +239,7 @@ Azure Blob storage can also be accessed using an Azure SDK from the following pr
 * Python
 * Ruby
 
-For more information on installing the Azure SDKs, see [Azure downloads](http://azure.microsoft.com/downloads/)
+For more information on installing the Azure SDKs, see [Azure downloads](https://azure.microsoft.com/downloads/)
 
 
 ## Next steps
@@ -263,9 +263,9 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md

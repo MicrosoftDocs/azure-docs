@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="SQL error codes - database connection error | Microsoft Azure"
 	description="Learn about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. "
 	keywords="sql error code,access sql,database connection error,sql error codes"
@@ -29,19 +29,19 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 -->
 
 
-This article lists SQL error codes for SQL Database client application, including database connection errors, transient faults, resource governance errors, database copy issues, and other errors. Most categories are particular to Azure SQL Database, and do not apply to Microsoft SQL Server.
+This article lists SQL error codes for SQL Database client application, including database connection errors, transient errors (also called transient faults), resource governance errors, database copy issues, and other errors. Most categories are particular to Azure SQL Database, and do not apply to Microsoft SQL Server.
 
 In your client application for any given error you can provide your user with a message you customize.
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
 
 
-## Database connection errors, transient faults, and other temporary errors
+## Database connection errors, transient errors, and other temporary errors
 
 The following table covers the SQL error codes for connection loss errors, and other transient errors you might encounter when your application attempts to access SQL Database.
 
 
-### Most common database connection errors and transient faults
+### Most common database connection errors and transient fault errors
 
 
 Transient fault errors typically manifest as one of the following error messages from your client programs:
@@ -59,7 +59,7 @@ Transient fault errors should prompt your client program to run *retry logic* th
 
 - [Client development and quick start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-- [Actions to fix connection errors and transient faults in SQL Database](sql-database-connectivity-issues.md)
+- [Actions to fix connection errors and transient errors in SQL Database](sql-database-connectivity-issues.md)
 
 
 ### Transient fault error codes

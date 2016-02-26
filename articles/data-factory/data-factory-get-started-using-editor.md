@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/02/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create a pipeline with Copy Activity using Data Factory Editor
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
 
-##In This Tutorial
+##In this tutorial
 This tutorial contains the following steps:
 
 Step | Description
@@ -33,11 +33,13 @@ Step | Description
 [Step 1: Create an Azure Data Factory](#CreateDataFactory) | In this step, you will create an Azure data factory named **ADFTutorialDataFactory**.  
 [Step 2: Create linked services](#CreateLinkedServices) | In this step, you will create two linked services: **StorageLinkedService** and **AzureSqlLinkedService**. The StorageLinkedService links the Azure storage and AzureSqlLinkedService links the Azure SQL database to the ADFTutorialDataFactory. The input data for the pipeline resides in a blob container in the Azure blob storage and output data will be stored in a table in the Azure SQL database. Therefore, you add these two data stores as linked services to the data factory.      
 [Step 3: Create input and output tables](#CreateInputAndOutputDataSets) | In the previous step, you created linked services that refer to data stores that contain input/output data. In this step, you will define two data factory tables -- **EmpTableFromBlob** and **EmpSQLTable** -- that represent the input/output data that is stored in the data stores. For the EmpTableFromBlob, you will specify the blob container that contains a blob with the source data and for the EmpSQLTable, you will specify the SQL table that will store the output data. You will also specify other properties such as structure of the data, availability of the data, etc... 
-[Step 4: Create and run a pipeline](#CreateAndRunAPipeline) | In this step, you will create a pipeline named **ADFTutorialPipeline** in the ADFTutorialDataFactory. The pipeline will have a **Copy Activity** that copies input data from the Azure blob to the output Azure SQL table.
+[Step 4: Create and run a pipeline](#CreateAndRunAPipeline) | In this step, you will create a pipeline named **ADFTutorialPipeline** in the ADFTutorialDataFactory. The pipeline will have a **Copy Activity** that copies input data from the Azure blob to the output Azure SQL table. The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
 [Step 5: Monitor slices and pipeline](#MonitorDataSetsAndPipeline) | In this step, you will monitor slices of input and output tables by using Azure Portal.
- 
 
-## <a name="CreateDataFactory"></a>Step 1: Create an Azure Data Factory
+> [AZURE.IMPORTANT] 
+> Please go through the [Tutorial Overview](data-factory-get-started.md) article and complete the pre-requisite steps before performing this tutorial.
+
+## <a name="CreateDataFactory"></a>Step 1: Create an Azure data factory
 In this step, you use the Azure Portal to create an Azure data factory named **ADFTutorialDataFactory**.
 
 1.	After logging into the [Azure Portal][azure-portal], click **NEW** from the bottom-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** in the **Data analytics** blade. 
@@ -79,7 +81,6 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 	![Author and Deploy Tile][image-author-deploy-tile] 
 
-	See [Data Factory Editor][data-factory-editor] topic for detailed overview of the Data Factory editor. 
 	 
 5. In the **Editor**, click **New data store** button on the toolbar and select **Azure storage** from the drop down menu. You should see the JSON template for creating an Azure storage linked service in the right pane. 
 
@@ -376,15 +377,11 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 1.	Create an Azure **data factory**.
 2.	Create **linked services** that link data stores and computes (referred as **Linked Services**) to the data factory.
 3.	Create **tables** which describe input data and output data for pipelines.
-4.	Create **pipelines**. A pipeline consists of one or more activities and processes the inputs and produces outputs. Set the active period for the pipeline by specifying **Start** time and **End** time for the pipeline. The active period defines the time duration in which data slices will be produced. 
+4.	Create **pipelines**. A pipeline consists of one or more activities and processes the inputs and produces outputs. Set the active period for the pipeline by specifying **Start** time and **End** time for the pipeline. The active period defines the time duration in which data slices will be produced.
 
 
-For a list of supported activities, see [Pipelines and Activities][msdn-activities] 
-topic and for a list of supported linked services, see [Linked Services][msdn-linkedservices] 
-topic on MSDN Library.
- 
-To do this tutorial using Azure PowerShell, see [Create and monitor a data factory using Azure PowerShell][monitor-manage-using-powershell].  
-
+## See Also
+See [Data Movement Activities](data-factory-data-movement-activities.md) article for detailed information about the **Copy Activity** in Azure Data Factory.
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -400,7 +397,6 @@ To do this tutorial using Azure PowerShell, see [Create and monitor a data facto
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
 
-[data-factory-editor]: data-factory-editor.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md

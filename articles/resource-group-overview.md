@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
@@ -87,7 +87,7 @@ For information about using a template for deployment, see [Deploy an applicatio
 
 For guidance about how to structure your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md).
 
-For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments-preview-portal.md). 
+For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md). 
 
 ## Tags
 
@@ -119,7 +119,7 @@ Resource Manager provides completely compatible operations through Azure PowerSh
 
 For information about PowerShell, see [Using Azure PowerShell with Resource Manager](./powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
-For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./virtual-machines/xplat-cli-azure-resource-manager.md).
+For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
 
 For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 

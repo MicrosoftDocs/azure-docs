@@ -35,7 +35,7 @@ Apart from prerequisites listed in the Tutorial Overview topic, you need to inst
 - **Install Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer.
 - This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, read through [Introduction to Azure Data Factory](data-factory-introduction.md). 
 - See [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) to learn about Azure Resource Manager (ARM) templates. 
- 
+
 
 ## Step 1: Create the ARM template
 
@@ -219,9 +219,11 @@ Note the following:
 - You could use **your own HDInsight cluster** instead of using an on-demand HDInsight cluster. See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details.
 - The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done.
 
-	As more and more slices are processed, you will see a lot of containers in your Azure blob storage, which you may want to delete to reduce the storage cost. The name of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetime stamp". Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
+	As more and more slices are processed, you will see a lot of containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The name of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
 
-See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details. 
+See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
+
+> [AZURE.NOTE] You can find another example of ARM template for creating an Azure data factory on [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).  
 
 ## Step 2: Deploy Data Factory entities using the ARM template
 
@@ -235,7 +237,7 @@ See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md
 
 ## Monitor the pipeline
  
-1.	After logging into the [Azure Portal](http://portal.azure.com/), Click **Browse** and select **Data factories**.
+1.	After logging into the [Azure Portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
 		![Browse->Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	In the **Data Factories** blade, click the data factory (**TutorialFactoryARM**) you created.	
 2.	In the **Data Factory** blade for your data factory, click **Diagram**.

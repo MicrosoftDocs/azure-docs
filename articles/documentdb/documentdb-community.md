@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="12/22/2015"
+  ms.date="02/24/2016"
   ms.author="andrl"/>
 
 # Community portal
@@ -62,6 +62,15 @@ A DocumentDB REST API Swagger file that can be easily deployed as an API App.
 
 Check it out on [Github](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
+
+### fluent-plugin-documentdb
+
+*by Yoichi Kawasaki*
+
+fluent-plugin-documentdb is a Fluentd plugin for outputing to Azure DocumentDB.
+
+Check it out on [Github](https://github.com/yokawasa/fluent-plugin-documentdb) and [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
+
 <br/><br/>
 
 *Find more open source DocumentDB projects on [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
@@ -79,6 +88,14 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 <br/>
 
 **Community posts:**
+
+* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *by Yoichi Kawasaki*
+
+* [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *by Peter Mannerhult*
+
+* [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *by George Saadeh*
+
+* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *by Robert Sheldon*
 
 * [**DocumentDB as a data sink for Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *by Jan Hentschel*
 
@@ -124,6 +141,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                   | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/)                                                     | Andrew Liu                                                  | Bellevue, WA         | March 3, 2016          | n/a
 | SQLBits XV                                                                                                                 | tbd                                                         | Liverpool, UK        | May 4-7, 2016          | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
@@ -132,9 +150,10 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                   | Recording |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/)                                                | Merwan Chinta                                               | Austin, TX           | January 28, 2016       | n/a |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/)                                                       | Vincent-Philippe Lauzon                                     | Montreal, QC, Canada | December 1, 2015       | n/a |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/)                                                     | David Makogon                                               | Seattle, WA          | November 12, 2015      | n/a |
-| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/)                                                                    | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | Seattle, WA          | October 27-30, 2015    | n/a |
+| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/)                                                                    | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | Seattle, WA          | October 27-30, 2015    | [Developing Modern Applications on Azure](https://www.youtube.com/watch?v=k5Z24HX-RyQ) |
 | [CloudDevelop 2015](http://www.clouddevelop.org/)                                                                          | David Makogon, Ryan Crawcour                                | Columbus, OH         | October 23, 2015       | n/a |
 | [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/eventhome.aspx)                                            | Leonard Lobel                                               | Sofia, Bulgaria      | October 10, 2015       | n/a |
 | [SQL Saturday #429 - Oporto 2015](http://www.sqlsaturday.com/429/eventhome.aspx)                                           | Leonard Lobel                                               | Oporto, Portugal     | October 3, 2015        | n/a |
@@ -163,6 +182,8 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Show                                        | Speaker                 | Date               | Episode |
 | ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| Integration User Group                      | Han Wong                | February 17, 2016  | [Analyze and visualize non-relational data with DocumentDB + Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| Channel 9: Modern Applications              | Tara Shankar Jana       | December 13, 2016  | [Take a modern approach to data in your apps](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips                                   | Miguel Quintero         | December 10, 2015  | [DocumentDB - Un vistazo general](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | Integration User Group                      | Howard Edidin           | November 9, 2015   | [Azure DocumentDB for Healthcare Integration – Part 2](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
 | Integration User Group                      | Howard Edidin           | October 5, 2015    | [Azure DocumentDB for Healthcare Integration](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
@@ -210,14 +231,6 @@ Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up t
 | ------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | A language-independent collaboratively edited question and answer site for programmers. Follow our tag: [azure-documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
 | [![MSDN](./media/documentdb-community/msdn.png)](http://go.microsoft.com/fwlink/?LinkId=631655 )                                | A good place for support and feedback on Microsoft Azure features and services like Web Sites, DocumentDB, etc. |
-
-<br/><br/>
-
-### Internet Relay Chat + Office Hours
-
-You can chat with us in real-time over IRC on `chat.freenode.net` in the `#documentdb` channel with an [IRC client](http://www.irchelp.org/) or by connecting in your web channel to the channel using Freenode's [WebChat](http://webchat.freenode.net/?channels=documentdb).
-
-We host office hours on IRC every Friday from 11am to 12pm pacific time.
 
 <br/><br/>
 

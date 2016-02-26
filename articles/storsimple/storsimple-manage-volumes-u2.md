@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.workload="NA"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes (Update 2)
@@ -48,7 +48,7 @@ When you create a locally pinned volume, the available space for creation of tie
 
 Tiered volumes are thinly provisioned volumes in which the frequently accessed data stays local on the device and less frequently used data is automatically tiered to the cloud. Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources. Instead of reserving sufficient storage in advance, StorSimple uses thin provisioning to allocate just enough space to meet current requirements. The elastic nature of cloud storage facilitates this approach because StorSimple can increase or decrease cloud storage to meet changing demands.
 
-You can designate a tiered volume as an archival volume by checking the **Use this volume for less frequently accessed archival data** check box. Archival volumes use a 512 KB deduplication chunk size, whereas non-archival volumes use a 64 KB chunk size. The larger deduplication chunk size allows the device to transfer larger chunks of data to the cloud.
+If you are using the tiered volume for archival data, selecting the **Use this volume for less frequently accessed archival data** check box changes the deduplication chunk size for your volume to 512 KB. If you do not select this option, the corresponding tiered volume will use a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.
 
 >[AZURE.NOTE] Archival volumes created with a pre-Update 2 version of StorSimple will be imported as tiered with the archival check box selected.
 
@@ -178,7 +178,7 @@ Modify a volume when you need to expand it or change the hosts that access the v
 
 ![Video available](./media/storsimple-manage-volumes-u2/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how to expand a volume, click [here](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+To watch a video that demonstrates how to expand a volume, click [here](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
 ## Change the volume type
 

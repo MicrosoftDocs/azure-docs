@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Automatically Scale Virtual Machine Scale Sets | Microsoft Azure"
 	description="Get started creating and managing your first Azure Virtual Machine Scale Sets using Azure PowerShell"
 	services="virtual-machines"

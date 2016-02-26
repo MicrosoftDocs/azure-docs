@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to use Blob storage from .NET | Microsoft Azure"
-	description="Learn about Azure Blob storage, and how to create a container and to upload, download, list, and delete blob content."
+	pageTitle="Get started with Azure Blob storage using .NET | Microsoft Azure"
+	description="Store file data in the cloud with Azure Blob (object) storage. Get started with simple Blob storage operations, including creating a container and uploading, downloading, listing, and deleting blob content."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,19 +13,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/01/2015"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
-# How to use Blob storage from .NET
+# Get started with Azure Blob storage using .NET
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Overview
 
-This guide will demonstrate how to perform common scenarios using the
-Azure Blob storage service. The samples are written in C\# and
-use the Azure Storage Client Library for .NET. The Storage Client Library is an SDK that simplifies interacting with Blob Storage REST API's. The scenarios covered in this guide include **uploading**, **listing**, **downloading**, and **deleting** blobs and should take you about an hour to complete. If you want to watch a Getting Started Video see [Introduction To Azure Storage in five minutes](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/) or you can read [Getting started with Azure Storage in five minutes](storage-getting-started-guide.md).
+Azure Blob storage is a service that stores file data in the cloud. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is sometimes referred to as object storage.
+
+### About this tutorial
+
+This tutorial shows how to write .NET code for some common scenarios using Azure Blob storage. Scenarios covered include uploading, listing, downloading, and deleting blobs. 
+
+**Estimated time to complete:** 45 minutes
+
+**Prerequisities:**
+
+- 
+
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -40,6 +49,7 @@ use the Azure Storage Client Library for .NET. The Storage Client Library is an 
 [AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
 
 ### Namespace declarations
+
 Add the following namespace declarations to the top of any C\# file
 in which you wish to programmatically access Azure Storage:
 
@@ -377,8 +387,8 @@ to learn more.
 - [Get started with Queue storage for .NET](storage-dotnet-how-to-use-queues.md)
 - [Get started with File storage for .NET](storage-dotnet-how-to-use-files.md)
 - [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
-- [Use SQL Database to store relational data](../sql-database/articles/sql-database-dotnet-how-to-use.md)
 - [How to use Azure blob storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+- [Using SQL Database from .NET (C#)](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png

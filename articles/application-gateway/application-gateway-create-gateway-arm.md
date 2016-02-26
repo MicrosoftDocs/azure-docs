@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 
@@ -33,13 +33,13 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 This article walks you through the steps to create, configure, start, and delete an application gateway.
 
 
->[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager and classic. Make sure that you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This document will cover creating an application gateway by using Azure Resource Manager. To use the classic version, go to [Create an application gateway classic deployment by using PowerShell](application-gateway-create-gateway.md).
+>[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager and classic. Make sure that you understand [deployment models and tools](../azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This document will cover creating an application gateway by using Azure Resource Manager. To use the classic version, go to [Create an application gateway classic deployment by using PowerShell](application-gateway-create-gateway.md).
 
 
 
 ## Before you begin
 
-1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](http://azure.microsoft.com/downloads/).
+1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
 2. You will create a virtual network and subnet for Application Gateway. Make sure that no virtual machines or cloud deployments are using the subnet. The application gateway must be by itself in a virtual network subnet.
 3. The servers that you will configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
@@ -50,7 +50,7 @@ This article walks you through the steps to create, configure, start, and delete
 - **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 - **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
 - **Listener:** The listener has a front-end port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
-- **Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
+- **Rule:** The rule binds the listener, the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener. 
 
 
 
@@ -71,32 +71,24 @@ Here are the steps that are needed to create an application gateway:
 
 ## Create a resource group for Resource Manager
 
-Make sure that you are using the latest version of Azure PowerShell. More info is available at [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
+Make sure that you are using the latest version of Azure PowerShell. More info is available at [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Step 1
-
+Login to Azure
 		Login-AzureRmAccount
 
-
-
+You will be prompted to authenticate with your credentials.<BR>
 ### Step 2
-
 Check the subscriptions for the account.
 
 		Get-AzureRmSubscription
 
-You will be prompted to authenticate with your credentials.<BR>
-
 ### Step 3
-
 Choose which of your Azure subscriptions to use. <BR>
-
 
 		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-
 ### Step 4
-
 Create a new resource group (skip this step if you're using an existing resource group).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
@@ -104,7 +96,6 @@ Create a new resource group (skip this step if you're using an existing resource
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway will use the same resource group.
 
 In the example above, we created a resource group called "appgw-RG" and location "West US".
-
 
 >[AZURE.NOTE] If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
 
@@ -174,7 +165,6 @@ Configure the front-end IP port named "frontendport01" for the public IP endpoin
 
 	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
-
 ### Step 5
 
 Create the front-end IP configuration named "fipconfig01" and associate the public IP address with the front-end IP configuration.
@@ -243,7 +233,7 @@ Once the application gateway is in a stopped state, use the **Remove-AzureRmAppl
 To verify that the service has been removed, you can use the **Get-AzureRmApplicationGateway** cmdlet. This step is not required.
 
 
-	Get-AzureRmApplicationGateway -Name appgwtest-ResourceGroupName appgw-rg
+	Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 
 ## Next steps

@@ -52,7 +52,7 @@ steps to create a cluster head node in the classic (Service Management) deployme
 subscription used to deploy the head node VM, or a different
 subscription (or subscriptions).
 
-* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several Azure nodes with multicore sizes. To increase a quota, [open an online customer support request](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
+* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several Azure nodes with multicore sizes. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 
 ## Step 1: Create a cloud service and a storage account to add Azure nodes
 

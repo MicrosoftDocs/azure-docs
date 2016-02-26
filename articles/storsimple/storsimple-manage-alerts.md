@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.workload="NA"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to view and manage StorSimple alerts
@@ -31,7 +31,7 @@ Your StorSimple device generates alerts in response to a variety of conditions. 
 
 - **Hardware issues** – These alerts tell you about the health of your hardware. They let you know if firmware upgrades are needed, if a network interface has issues, or if there is a problem with one of your data drives.
 
-- **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the devices and the StorSimple Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md/#troubleshoot-with-the-test-hcsmconnection-cmdlet).
+- **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the devices and the StorSimple Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
 
 - **Performance issues** – These alerts are caused when your system isn’t performing optimally, such as when it is under a heavy load.
 
@@ -49,7 +49,7 @@ Alerts have different severity levels, depending on the impact that the alert si
 
 ## Configure alert settings
 
-You can choose whether you want to be notified by email of alert conditions for each of your StorSimple devices. Additionally, you can identify other alert notification recipients by entering their email addresses in the **OTHER EMAIL RECIPIENTS** box, separated by semicolons.
+You can choose whether you want to be notified by email of alert conditions for each of your StorSimple devices. Additionally, you can identify other alert notification recipients by entering their email addresses in the **Other email recipients** box, separated by semicolons.
 
 >[AZURE.NOTE] You can enter a maximum of 20 email addresses per device.
 
@@ -61,15 +61,15 @@ After you enable email notification for a device, members of the notification li
 
 2. Under **Alert Settings**, set the following:
 
-    1. In the **SEND EMAIL NOTIFICATION** field, select **YES**.
+    1. In the **Send email notification** field, select **YES**.
 
-    2. In the **EMAIL SERVICE ADMINISTRATORS** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
+    2. In the **Email service administrators** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
 
-    3. In the **OTHER EMAIL RECIPIENTS** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
+    3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
 
         ![Alerts notification configuration](./media/storsimple-manage-alerts/AlertNotify.png)
 
-3. To send a test email notification, click the arrow icon next to **SEND TEST EMAIL**. The StorSimple Manager service will display status messages as it forwards the test notification. 
+3. To send a test email notification, click the arrow icon next to **Send test email**. The StorSimple Manager service will display status messages as it forwards the test notification. 
 
 4. When the following message appears, click **OK**. 
 
@@ -91,7 +91,7 @@ Clicking an alert in the list provides you with additional details for the alert
 
 ![Hardware alert example](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
 
-You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from the device by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts, press the Ctrl key while you select the alerts, and then click **Clear**. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
+You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from the device by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
 
 When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. Some events will be cleared by the system if another event is triggered with new information. In that case, you will see the following message.
 

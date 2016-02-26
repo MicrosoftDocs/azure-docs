@@ -30,7 +30,7 @@ The following diagram shows the architecture of the deployed system. A system ad
 
 In order to run through the following steps, you'll need:
 
- * An active Azure subscription. If you don't have one, you can get a free trail on [azure.com](https://azure.microsoft.com).
+ * An active Azure subscription. If you don't have one, you can get a free trail on [azure.com](https://azure.microsoft.com/).
  * A work or school id to use Azure resource groups. If you have a personal account and log in with a Microsoft id, you need to [create a work id from your personal one](resource-group-create-work-id-from-personal.md).
  * Either -- depending on your client operating system -- the [Azure PowerShell](powershell-install-configure.md) or the [Azure CLI for Mac, Linux, and Windows](xplat-cli-install.md).
  * [OpenSSL](https://www.openssl.org/). OpenSSL is used to generate the necessary certificates.

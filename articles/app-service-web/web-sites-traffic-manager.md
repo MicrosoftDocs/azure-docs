@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/25/2016" 
 	ms.author="cephalin"/>
 
 # Controlling Azure web app traffic with Azure Traffic Manager
@@ -61,5 +61,5 @@ For a conceptual and technical overview of Azure Traffic Manager, see [Traffic M
 For detailed information about load balancing in Azure Traffic Manager, see [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
 For more information about using Traffic Manager with Web Apps, see the blog posts 
-[Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) and [Azure Traffic Manager can now integrate with Azure Web Sites](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+[Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) and [Azure Traffic Manager can now integrate with Azure Web Sites](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
  

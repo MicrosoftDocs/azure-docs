@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # How to use the Azure Mobile Apps Node.js SDK
@@ -21,8 +21,6 @@
 [AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
 This article provides detailed information and examples showing how to work with a Node.js backend in Azure App Service Mobile Apps.
-
-> [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples in this document use v2.0.0-rc2 of [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduction
 
@@ -126,7 +124,7 @@ Visual Studio 2015 requires an extension to develop Node.js applications within 
         // Azure Mobile Apps Initialization
         var mobile = azureMobileApps();
         mobile.tables.add('TodoItem');
-        app.use('mobile');
+        app.use(mobile);
 
     Save the file.
 
@@ -340,7 +338,7 @@ An example _azureMobile.js_ file implementing the database settings given above 
 We recommend that you add _azureMobile.js_ to your _.gitignore_ file (or other source code control ignore file) to prevent passwords from
 being stored in the cloud.  Always configure production settings in App Settings within the [Azure Portal].
 
-### <a name="howto-appsettings"><a>App Settings for configuring your Mobile App
+### <a name="howto-appsettings"></a>App Settings for configuring your Mobile App
 
 Most settings in the _azureMobile.js_ file have an equivalent App Setting in the [Azure Portal].  Use the following list to configure your
 app in App Settings:
@@ -663,7 +661,7 @@ You can also specify authentication on specific operations:
 		get: function (req, res, next) {
 			var date = { currentTime: Date.now() };
 			res.status(200).type('application/json').send(date);
-		});
+		}
 	};
 	// The GET methods must be authenticated.
 	api.get.access = 'authenticated';
@@ -672,6 +670,67 @@ You can also specify authentication on specific operations:
 
 The same token that is used for the tables endpoint must be used for custom APIs requiring authentication.
 
+### <a name="howto-customapi-auth"></a>How to: Handle Large File Uploads
+
+Azure Mobile Apps SDK uses the [body-parser middleware](https://github.com/expressjs/body-parser) to accept and decode body content in your submission.  You can pre-configure
+body-parser to accept larger file uploads:
+
+	var express = require('express'),
+        bodyParser = require('body-parser'),
+		azureMobileApps = require('azure-mobile-apps');
+
+	var app = express(),
+		mobile = azureMobileApps();
+
+    // Set up large body content handling
+    app.use(bodyParser.json({ limit: '50mb' }));
+    app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
+	// Import the Custom API
+	mobile.api.import('./api');
+
+	// Add the mobile API so it is accessible as a Web API
+	app.use(mobile);
+
+	// Start listening on HTTP
+	app.listen(process.env.PORT || 3000);
+
+You can adjust the 50Mb limit we have shown above.  Note that the file will be base-64 encoded before transmission, which will
+increase the size of the actual upload.
+
+### <a name="howto-customapi-sql"></a>How to: Execute Custom SQL Statements
+
+The Azure Mobile Apps SDK allows access to the entire Context through the request object, allowing you to execute
+parameterized SQL statements to the defined data provider easily:
+
+    var api = {
+        get: function (request, response, next) {
+            // Check for parameters - if not there, pass on to a later API call
+            if (typeof request.params.completed === 'undefined')
+                return next();
+
+            // Define the query - anything that can be handled by the mssql
+            // driver is allowed.
+            var query = {
+                sql: 'UPDATE TodoItem SET complete=@completed',
+                parameters: [{
+                    completed: request.params.completed
+                }]
+            };
+
+            // Execute the query.  The context for Azure Mobile Apps is available through
+            // request.azureMobile - the data object contains the configured data provider.
+            request.azureMobile.data.execute(query)
+            .then(function (results) {
+                response.json(results);
+            });
+        }
+    };
+
+    api.get.access = 'authenticated';
+    module.exports = api;
+
+This endpoint can be accessed by s
 ## <a name="Debugging"></a>Debugging and troubleshooting
 
 The Azure App Service provides several debugging and troubleshooting techniques for Node.js applications.
@@ -753,7 +812,7 @@ From the editor, you can also execute the code on the site
 [Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Toubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
-[use Node modules]: ../nodejs-use-node-mobiles-azure-apps.md
+[use Node modules]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/

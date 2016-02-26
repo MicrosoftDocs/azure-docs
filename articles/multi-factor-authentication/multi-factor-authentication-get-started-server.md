@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Getting started with the Azure Multi-Factor Authentication Server" 
 	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA Server." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords="authentication server, azure multi factor authentication app activation page, authentication server download" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Getting started with the Azure Multi-Factor Authentication Server

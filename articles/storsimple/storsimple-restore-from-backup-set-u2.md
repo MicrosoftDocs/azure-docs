@@ -31,7 +31,7 @@ You can restore a volume from a local or cloud backup. In either case, the resto
 
 Before you initiate a restore operation, you should be aware of the following:
 
-- **You must take the volume offline** – Take the volume offline on both the host and the device before you initiate the restore operation. Although the restore operation automatically brings the volume online on the device, you must manually bring the device online on the host. You can bring the volume online on the host as soon as the volume is online on the device. (You do not need to wait until the restore operation is finished.) For procedures, go to [Take a volume offline](storsimple-manage-volumes.md#take-a-volume-offline)
+- **You must take the volume offline** – Take the volume offline on both the host and the device before you initiate the restore operation. Although the restore operation automatically brings the volume online on the device, you must manually bring the device online on the host. You can bring the volume online on the host as soon as the volume is online on the device. (You do not need to wait until the restore operation is finished.) For procedures, go to [Take a volume offline](storsimple-manage-volumes-u2.md#take-a-volume-offline).
 
 - **Volume type after restore** – Deleted volumes are restored based on the type in the snapshot; that is, volumes that were locally pinned are restored as locally pinned volumes and volumes that were tiered are restored as tiered volumes.
 
@@ -45,7 +45,7 @@ Before you initiate a restore operation, you should be aware of the following:
 
 - **You can perform a backup while you are restoring a local volume** – For procedures go to [Use the StorSimple Manager service to manage backup policies](storsimple-manage-backup-policies.md).
 
-- **You can cancel a restore operation** – If you cancel the restore job, then the volume will be rolled back to the state that it was in before you initiated the restore operation. For procedures, go to [Cancel a job](storsimple-manage-jobs.md#cancel-a-job).
+- **You can cancel a restore operation** – If you cancel the restore job, then the volume will be rolled back to the state that it was in before you initiated the restore operation. For procedures, go to [Cancel a job](storsimple-manage-jobs-u2.md#cancel-a-job).
 
 ## How to use the backup catalog
 
@@ -101,7 +101,7 @@ You can use the **Backup Catalog** page to restore your StorSimple volume from a
 
 ![Video available](./media/storsimple-restore-from-backup-set-u2/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how you can use the clone and restore features in StorSimple to recover deleted files, click [here](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+To watch a video that demonstrates how you can use the clone and restore features in StorSimple to recover deleted files, click [here](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ## If the restore fails
 
@@ -113,4 +113,4 @@ To complete the restore operation, take the volume offline on the host and retry
 
 - Learn how to [Manage StorSimple volumes](storsimple-manage-volumes-u2.md).
 
-- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration-u2.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

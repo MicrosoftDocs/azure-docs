@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="11/18/2015"
+	ms.date="02/19/2016"
 	ms.author="anhoh"/>
 
 # NoSQL tutorial: Build a DocumentDB C# console application 
@@ -45,7 +45,7 @@ Now let's get started!
 
 Please make sure you have the following:
 
-- An active Azure account. If you don't have one, you can sign up for a [Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+- An active Azure account. If you don't have one, you can sign up for a [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
 
 ## Step 1: Create a DocumentDB account

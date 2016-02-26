@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Lock Resources with Resource Manager | Microsoft Azure" 
 	description="Prevent users from updating or deleting certain resources by applying a restriction to all users and roles." 
 	services="azure-resource-manager" 
@@ -13,17 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/21/2016" 
 	ms.author="tomfitz"/>
 
 # Lock resources with Azure Resource Manager
 
-As an administrator, there are scenarios where you will want to place a lock on a subscription, resource group or resource  to prevent other users in your organization from committing write actions or accidentally deleting a critical resource. 
+As an administrator, there are scenarios where you will want to place a lock on a subscription, resource group or resource  to prevent other users in your organization from accidentally deleting a critical resource. 
 
-Azure Resource Manager provides the ability to restrict operations on resources through resource management locks. Locks are policies which enforce a lock level at a particular scope. The scope can be a subscription, resource group or resource. The lock level identifies the type of enforcement for the policy, which presently has two values – **CanNotDelete** and **ReadOnly**. **CanNotDelete** means authorized users can still read and modify resources, but they can't delete any of the restricted resources. **ReadOnly** means authorized users can only read from the resource, but they can't modify or delete any of the restricted resources.
+Azure Resource Manager provides the ability to restrict operations on resources through resource management locks. Locks are policies which enforce a lock level at a particular scope. The scope can be a subscription, resource group or resource. The lock level identifies the type of enforcement for the policy, which presently can be set to **CanNotDelete**. **CanNotDelete** means authorized users can still read and modify resources, but they can't delete any of the restricted resources.
 
 Locks are different from using role-based access control to assign user permissions to perform certain actions. To learn about setting permissions for users and roles, see 
 [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md). Unlinke role-based access control, you use management locks to apply a restriction across all users and roles, and you typically apply the locks for only limited duration.
+
+When you apply a lock at a parent scope, all child resources inherit the same lock.
 
 ## Common scenarios
 
@@ -31,18 +33,9 @@ One common scenario is when you have a resource group with some resources that a
 time and then turned off. In this scenario, you will want to enable the shut down of the VMs but it is imperative 
 that a storage account not be deleted. In this scenario, you would use a resource lock with a lock level of **CanNotDelete** on the storage account.
 
-In another scenario, your business may have periods where you don't want updates going into production. The **ReadOnly** lock level stops creation or updates. If you’re a retail company, you may not want to allow updates during holiday shopping periods.  If you’re a financial services company, you may have constraints related to deployments during 
-certain market hours. A resource lock can provide a policy to lock the resources as appropriate. This could be applied to just certain resources or to the entirety of the resource group.
-
 ## Who can create or delete locks in your organization
 
 To create or delete management locks, you must have access to **Microsoft.Authorization/\*** or **Microsoft.Authorization/locks/\*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions. For more information about assigning access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
-
-## Lock inheritance
-
-When you apply a lock at a parent scope, all child resources inherit the same lock.
-
-If you apply more than one lock to a resource, the most restrictive lock takes precedence. For example, if you apply **ReadOnly** at the parent level (such as the resource group) and **CanNotDelete** on a resource within that group, the more restrictive lock (ReadOnly) from the parent takes precedence.
 
 ## Creating a lock in a template
 
@@ -93,7 +86,7 @@ In the request, include a JSON object that specifies the properties for the lock
         }
     } 
 
-For lock-level, specify either **CanNotDelete** or **ReadOnly**.
+For lock-level, specify either **CanNotDelete**.
 
 For examples, see [REST API for management locks](https://msdn.microsoft.com/library/azure/mt204563.aspx).
 

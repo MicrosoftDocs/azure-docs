@@ -3,20 +3,20 @@
    description="Learn how to manage privileged identities with the Azure Privileged Identity Management extension."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="02/10/2016"
+   ms.author="kgremban"/>
 
-# Getting Started with Azure Privileged Identity Management
+# Getting started with Azure Privileged Identity Management
 
 ## Starting the Privileged Identity Management extension
 

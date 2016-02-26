@@ -51,7 +51,7 @@ This topic presents a Transact-SQL code sample that:
 ## Prerequisites
 
 
-- An Azure account and subscription. You can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+- An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Any database you can create a table in.

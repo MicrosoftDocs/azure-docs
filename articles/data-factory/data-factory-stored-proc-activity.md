@@ -90,7 +90,7 @@ storedProcedureParameters | Specify values for stored procedure parameters | No
 	> [AZURE.IMPORTANT] **Name** and **casing** of the parameter (DateTime in this example) must match that of parameter specified in the pipeline/activity JSON . In the stored procedure definition, ensure that **@** is used as a prefix for the parameter.
 	
 ### Create a data factory  
-4. After logging into the [Azure Portal](http://portal.azure.com/), do the following:
+4. After logging into the [Azure Portal](https://portal.azure.com/), do the following:
 	1.	Click **NEW** on the left menu. 
 	2.	Click **Data analytics** in the **Create** blade.
 	3.	Click **Data Factory** on the **Data analytics** blade.
