@@ -26,7 +26,7 @@ Scaling up on Azure web apps involves two related actions: changing your App Ser
 
 The scale settings take only seconds to apply and affect all web apps in your App Service plan. They do not require your code to be changed or your applications to be redeployed.
 
-For information about App Service plans, see [What is an App Service Plan?](../app-service/web-sites-web-hosting-plan-overview.md) and [Azure App Service Plans In-Depth Overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). For information the pricing and features of individual App Service plans, see [App Service Pricing Details](/pricing/details/web-sites/).  
+For information about App Service plans, see [What is an App Service Plan?](../app-service/app-service-how-works-readme.md) and [Azure App Service Plans In-Depth Overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). For information the pricing and features of individual App Service plans, see [App Service Pricing Details](/pricing/details/web-sites/).  
 
 > [AZURE.NOTE] Before switching a web app from the **Free** mode to **Basic**, **Standard**, or **Premium** mode, you must first remove the spending caps in place for your Azure App Service subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
