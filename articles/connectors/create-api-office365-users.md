@@ -87,7 +87,7 @@ When you add this API to PowerApps Enterprise, you enter the **Client ID** and *
 
 A new Azure Active Directory app is created. You can copy/paste the **Client ID** and **Client Secret** values into your Office 365 users API configuration in the Azure portal. 
 
-Some good info on AAD applications at [How and why applications are added to Azure AD](/active-directory-how-applications-are-added.md).
+Some good info on AAD applications at [How and why applications are added to Azure AD](../active-directory/active-directory-how-applications-are-added.md).
 
 
 ### Add additional configuration in logic apps
