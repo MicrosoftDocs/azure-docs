@@ -39,10 +39,10 @@ Supported Devices
 Scenario Prerequisites
 ------------------------------------------------------------------------
 * Subscription to Office 365 or Azure Active Directory Premium
-* Azure Active Directory Tenant
+* An Azure Active Directory tenant
 * Windows Server Active Directory (Windows Server 2008 or above)
 * Updated schema in Windows Server 2012 R2
-* Subscription to Azure Active Directory Premium
+* License for Azure Active Directory Premium
 * Windows Server 2012 R2 Federation Services, configured for SSO to Azure AD
 * Windows Server 2012 R2 Web Application Proxy Microsoft Azure Active Directory Connect (Azure AD Connect). [Download Azure AD Connect here](http://www.microsoft.com/en-us/download/details.aspx?id=47594).
 * Verified domain.
@@ -54,11 +54,11 @@ Known issues in this release
 * Some versions of iOS8, before iOS 8.3 do not work.
 
 ## Scenario assumptions
-This scenario assumes that you have a hybrid environment consisting of an Azure AD tenant and a local active directory. These tenants should be connected using Azure AD Connect and with a verified domain and AD FS for SSO. The checklist below will help you configure your environment to the stage described above.
+This scenario assumes that you have a hybrid environment consisting of an Azure AD tenant and a on-premises Active Directory. These tenants should be connected using Azure AD Connect and with a verified domain and AD FS for SSO. The checklist below will help you configure your environment to the stage described above.
 
-Checklist: Prerequisites for Conditional Access Scenario
+Checklist: Prerequisites for Conditional Access scenario
 --------------------------------------------------------------
-Connect your Azure AD Tenant with your Local Active Directory.
+Connect your Azure AD tenant with your on-premises Active Directory.
 
 ## Configure Azure Active Directory Device Registration Service
 Use this guide to deploy and configure Azure Active Directory Device Registration Service for your organization.
@@ -109,14 +109,14 @@ The deployment is now complete. You can now try out some scenarios. Follow the l
 
 
 
-## Integrate Azure Active Directory with local Active Directory
-This will help you integrate your Azure AD tenant with your local active directory, using Azure AD Connect. Although the steps are available in the Azure Portal, make note of any special instructions listed in this section.
+## Integrate Azure Active Directory with on-premises Active Directory
+This will help you integrate your Azure AD tenant with your on-premises active directory, using Azure AD Connect. Although the steps are available in the Azure classic portal, make note of any special instructions listed in this section.
 
-1.	Log on to the Azure Portal as Administrator.
+1.	Log on to the Azure classic portal using an account that is a Global Administrator in Azure AD.
 2.	On the left pane, select **Active Directory**.
 3.	On the **Directory** tab, select your directory.
 4.	Select the **Directory Integration** tab.
-5.	Under **deploy and manage** section, follow the steps 1 through 3 to integrate Azure Active Directory with your local directory.
+5.	Under **deploy and manage** section, follow the steps 1 through 3 to integrate Azure Active Directory with your on-premises directory.
   1.	Add domains.
   2.	Install and run Azure AD Connect: Install Azure AD Connect using the following instructions, [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Verify and manage directory sync. Single sign-on instructions are available within this step.
@@ -166,7 +166,7 @@ This will help you integrate your Azure AD tenant with your local active directo
 
 ### Prepare Azure AD Connect for device writeback
 
-1.	Complete Part 1: Prepare AAD Connect.
+1.	Complete Part 1: Prepare Azure AD Connect.
 
 
 ## Join devices to your workplace using Azure Active Directory Device Registration
