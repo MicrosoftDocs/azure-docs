@@ -116,7 +116,7 @@ In this step, you will create datasets to represent the input and output data fo
 #### Create the input dataset
 
 1. In the **Solution Explorer**, right-click **Tables**, point to **Add**, and click **New Item**. 
-2. Select **Azure Blob** from the list, change the name of the file to **OutputDataset.json**, and click **Add**.
+2. Select **Azure Blob** from the list, change the name of the file to **InputDataSet.json**, and click **Add**.
 3. Replace the **JSON** in the editor with the following: 
 
 	In the JSON snippet, you are creating a dataset called **AzureBlobInput** that represents input data for an activity in the pipeline. In addition, you specify that the input data is located in the blob container called **adfgetstarted** and the folder called **inputdata**
