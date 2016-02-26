@@ -216,7 +216,6 @@ While running the local Spark Scala application on a Windows computer, you might
 
 		![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
 
-
 3. Define the project structure to create an artifact (packaged jar) that will eventually contain the code that runs on the cluster. 
 
 	1. From the **File** menu, click **Project Structure**.
