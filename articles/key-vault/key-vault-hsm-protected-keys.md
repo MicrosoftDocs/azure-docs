@@ -198,9 +198,21 @@ Go to the Microsoft Download Center and [download the Azure Key Vault BYOK tools
 
 	KeyVault-BYOK-Tools-USGovCloud.zip
 
-	4DE9B33990099E4197ED67D786316F62
+	4DE9B339
 
-	8E5218FC1EB0C24DCAD8A1851FD345B8
+	90099E41
+
+	97ED67D7
+
+	86316F62
+
+	8E5218FC
+
+	1EB0C24D
+
+	CAD8A185
+
+	1FD345B8
 
 
 To validate the integrity of your downloaded BYOK toolset, from your Azure PowerShell session, use the [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet.
