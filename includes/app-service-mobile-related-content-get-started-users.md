@@ -1,4 +1,4 @@
-+ [Authentication in App Service](../articles/app-service-mobile/app-service-mobile-auth.md)  
++ [Authentication in App Service](../articles/app-service/app-service-authentication-overview.md)  
 Learn about how user authentication and authorization works in Azure App Service.
 
 + Add authentication to your Mobile App: [Android][android-get-started-users], [Cordova][cordova-get-started-users], [iOS][ios-get-started-users], [Windows Universal][windows-get-started-users], [Xamarin.Android][xamarin-android-get-started-users], [Xamarin.iOS][xamarin-ios-get-started-users]  
