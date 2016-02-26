@@ -43,59 +43,73 @@ month that you can use for paid Azure services.
 To see Azure App Service in action before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, 
 you can immediately create a short-lived starter app in App Service—no credit card required, no commitments.
 
-In the following video, Scott Hanselman shows how easy it is to sign up for a free trial of Microsoft Azure. (Duration: 1:58)
-
-> [AZURE.VIDEO sign-up-for-microsoft-azure]
-
 ## Deploy a web app
 
-First, let's quickly deploy a sample application to Azure App Service. 
+First, deploy a simple web app to Azure App Service. 
+
+1. First, use your favorite framework to create a new app. Such as:
+
+    - ASP.NET app using Visual Studio
+    - PHP app using the Laravel generator
+    - Node.js app using the Express generator
+    - Python app using Django
+    - Java app using Eclipse (and put the WAR file in the &lt;project_root>/webapps directory like you would on Tomcat)
+
+2. Install the [Azure CLI](xplat-cli-install.md). If you have NPM installed already, you can just install it with the following command:
+
+        npm install azure-cli -g
+
+2. In a Windows command prompt, Linux shell, or OS X terminal, navigate to your app's project root.
+
+3. Log into Azure like so:
+
+        azure login
+    
+    Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
+
+4. Create the App Service app resource in Azure like so:
+
+        azure site create --git <app_service_name>
+    
+    Not only is your app created now, your current directly is also Git-initialized and connected to the App Service app as a Git remote.
+
+4. You may want to quickly change framework settings for your App Service app. For example, Laravel 5 requires PHP >5.6, so you can change from the 
+default v5.4 like so: 
+
+        azure site set --php-version v5.6 <app_service_name>
+
+4. Now, deploy your app to the App Service app you just created like you would push any code with Git:
+
+        git add .
+        git commit -m "<your_commit_message_here>"
+        git push azure master 
+    
+    Note that the `git push` command not only puts code in Azure, but also triggers framework-specific deployment tasks. If you have any package.json 
+    (Node.js), composer.json (PHP), requirements.txt (Python) in your project (repository) root, or if you have a packages.config in your ASP.NET project, the deployment 
+    scripts will restore the required packages for you.
+
+    > [AZURE.NOTE] PYTHON users: Your app needs to be [WSGI](http://wsgi.readthedocs.org/)-compliant. Before you run the git commands, run the following commands to 
+    > generate the files you need in your project root:  
+    >   curl -s https://raw.githubusercontent.com/cephalin/AzureWebAppPythonBootstrap/master/configurewebapp.sh | bash /dev/stdin [options]  
+    > For example, for a Django app, run:  
+    >   curl -s https://raw.githubusercontent.com/cephalin/AzureWebAppPythonBootstrap/master/configurewebapp.sh | bash /dev/stdin -n <project_name_from_django_admin_startproject> -f django
+    
+    >[AZURE.NOTE] JAVA users: Put the WAR file for your web app into the <repository_root>/webapps folder, just like you would when you deploy your web app to Tomcat/Jetty. To make your app
+    > the default app, name your WAR file **ROOT.war**. 
+
+5. Congratulations, you have deployed your app to Azure App Service. To see how your app runs live in Azure, run:
+
+        azure site browse <app_service_name>
+
+    Just like how you deployed your app to Azure for the first time, you can now git-add-commit-push from your project (repository) root anytime to make an update to the live site.
+
+Now, let's go to the Azure portal to see what you created:
 
 1. Log into the [Azure portal](https://portal.azure.com) with a Microsoft account that has your Azure subscription.
 
-1. Click on any one of the **bulleted** app samples below to deploy it to Azure App Service. If you have not yet logged into your Azure subscription, you will be 
-redirected to the login page.
+2. On the left bar, click **App Services**.
 
-    - [**Deploy a simple HTML site**](https://deploy.azure.com/?repository=https://github.com/BlackrockDigital/startbootstrap-business-casual) - an open-source HTML 
-    and [Bootstrap](https://getbootstrap.com/) template designed by [Start Bootstrap](https://startbootstrap.com/). This is a simple example that shows how 
-    a basic app runs in App Service, with HTML, CSS, and image files.  
-        ![](./media/app-service-get-start/deploy-html-site.png)
-        \[[GitHub Repo](https://github.com/BlackrockDigital/startbootstrap-business-casual)]
-    - [**Deploy a WordPress app**](https://deploy.azure.com/?repository=https://github.com/cephalin/WordPress) - the most popular open-source content
-    management system (CMS) based on PHP and MySQL. The deployed app is the default WordPress code, with a 
-    custom deployment template that's embedded in the GitHub repository that custom-deploys a MySQL database along with the app and simple 
-    [configuration changes](https://github.com/cephalin/WordPress/blob/master/wp-config.php) to enable database access from the App Service app.  
-        ![](./media/app-service-get-start/deploy-wordpress-app.png)
-        \[[GitHub Repo](https://github.com/cephalin/WordPress)] \[[Deployment Template](https://github.com/cephalin/WordPress/blob/master/azuredeploy.json)]
-    - [**Deploy the default app from MEAN.JS**](https://deploy.azure.com/?repository=https://github.com/cephalin/mean) - an open-source MEAN 
-    (MongoDB, Express, AngularJS, and Node.js) framework. The default codebase contains a CRUD sample and a chat sample. It lacks user-defined settings for social 
-    login, but you can still use the manual sign-up/login UI. A custom deployment template that's embedded in the GitHub repository custom-deploys a 
-    MongoDB database to enable database access from the App Service app.  
-        ![](./media/app-service-get-start/deploy-mean-app.png) 
-        \[[GitHub Repo](https://github.com/cephalin/mean)] \[[Deployment Template](https://github.com/cephalin/mean/blob/master/azuredeploy.json)]
-    - [**Deploy the ContosoMoments app**](https://deploy.azure.com/?repository=https://github.com/azure-appservice-samples/ContosoMoments) - a .NET Framework multi-channel 
-    photo sharing app built on top of [Xamarin Platform for Visual Studio](https://xamarin.com/platform) that includes both web and native client apps. It brings together 
-    multiple components
-    in Azure to enable the end-to-end scenario, including App Service (with WebJobs), SQL Database, Storage, and push notification with Notification Service. 
-    A custom deployment template that's embedded in the GitHub repository performs the complex 
-    deployment for everything except for the native Windows Phone/iOS/Android apps themselves.  
-    [IMAGE HERE...]
-    \[[GitHub Repo](https://github.com/azure-appservice-samples/ContosoMoments)] \[[Deployment Template](https://github.com/azure-appservice-samples/ContosoMoments/blob/master/azuredeploy.json)]
-
-2. Accept the default parameters as you desire and click **Next**. In most cases, the deployment template already defines default values for the parameters, 
-or [https://deploy.azure.com](https://deploy.azure.com) may generate one. For some apps, you also need to supply a database password to use because the 
-deployment template requires one.  
-   ![](./media/app-service-get-start/deploy-contosomomemnts-app-config.png) 
-
-3. Click **Deploy** to start the deploying to Azure.  
-   ![](./media/app-service-get-start/deploy-contosomomemnts-app-deploy.png) 
-
-4. Once deployment is finished, you can click the link for the app to browse to it, or click **Manage** to view and manage it in the Azure portal.  
-   ![](./media/app-service-get-start/deploy-contosomomemnts-app-done.png) 
-
-### Congratulations! You have just deployed your first app to Azure App Service!
-
-Click the **Manage** link to open the app's blade in the Azure portal.
+3. Click the App Service app that you just created to open its blade in the portal. You will see that the **Settings** blade is also opened by default for your convenience.
 
 ![](./media/app-service-get-start/social-login-start.png) 
 
