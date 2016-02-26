@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/18/2015"
+	ms.date="02/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
@@ -143,7 +143,12 @@ The defintion of an alias looks like below. As you can see, a alias defines path
       }
     ]
 
-currently, supported aliases are 
+Currently, the supported aliases are:
+
+| Alias name | Description |
+| ---------- | ----------- |
+| resourcetype | Supported resource types are: |
+
 
 | Alias name             | Description                                     | 
 | :------------- | :------------- |
