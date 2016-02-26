@@ -67,7 +67,7 @@ Now copy/paste the **Client Id** and **Client Secret** values in your Translator
 Applies to version: 1.0.
 
 ### Detect language    
-Detects source language of given text. 
+Detects source language of given text.  
 ```GET: /Detect```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -82,7 +82,7 @@ Detects source language of given text.
 
 
 ### Text to speech    
-Converts a given text into speech as an audio stream in wave format. 
+Converts a given text into speech as an audio stream in wave format.  
 ```GET: /Speak```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -98,7 +98,7 @@ Converts a given text into speech as an audio stream in wave format.
 
 
 ### Translate text    
-Translates text to a specified language using Microsoft Translator. 
+Translates text to a specified language using Microsoft Translator.  
 ```GET: /Translate```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -116,7 +116,7 @@ Translates text to a specified language using Microsoft Translator.
 
 
 ### Get languages    
-Retrieves all languages that Microsoft Translator supports. 
+Retrieves all languages that Microsoft Translator supports.  
 ```GET: /TranslatableLanguages```
 
 There are no parameters for this call. 
@@ -129,7 +129,7 @@ There are no parameters for this call.
 
 
 ### Get speech languages    
-Retrieves the languages available for speech synthesis. 
+Retrieves the languages available for speech synthesis.  
 ```GET: /SpeakLanguages``` 
 
 There are no parameters for this call.
