@@ -59,7 +59,7 @@ After you create the connection, you enter your the SQL properties, like the tab
 Applies to version: 1.0.
 
 ### Get row 
-Retrieves a single row from a SQL table. 
+Retrieves a single row from a SQL table.  
 ```GET: /datasets/default/tables/{table}/items/{id}``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -75,7 +75,7 @@ Retrieves a single row from a SQL table.
 
 
 ### Get rows 
-Retrieves rows from a SQL table. 
+Retrieves rows from a SQL table.  
 ```GET: /datasets/default/tables/{table}/items``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -94,7 +94,7 @@ Retrieves rows from a SQL table.
 
 
 ### Insert row 
-Inserts a new row into a SQL table. 
+Inserts a new row into a SQL table.  
 ```POST: /datasets/default/tables/{table}/items``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -110,7 +110,7 @@ Inserts a new row into a SQL table.
 
 
 ### Delete row 
-Deletes a row from a SQL table. 
+Deletes a row from a SQL table.  
 ```DELETE: /datasets/default/tables/{table}/items/{id}``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -126,7 +126,7 @@ Deletes a row from a SQL table.
 
 
 ### Get tables 
-Retrieves tables from a SQL database. 
+Retrieves tables from a SQL database.  
 ```GET: /datasets/default/tables``` 
 
 There are no parameters for this call. 
@@ -139,7 +139,7 @@ There are no parameters for this call.
 
 
 ### Update row 
-Updates an existing row in a SQL table. 
+Updates an existing row in a SQL table.  
 ```PATCH: /datasets/default/tables/{table}/items/{id}``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
