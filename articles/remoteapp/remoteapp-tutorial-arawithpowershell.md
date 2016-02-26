@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Getting started in Azure RemoteApp with Powershell | Microsoft Azure"
-   description="Learn how to get started in Azure RemoteApp with Powershell"
+   pageTitle="Use PowerShell cmdlets with Azure RemoteApp | Microsoft Azure"
+   description="Learn how to use Windows PowerShell cmdlets in Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
    authors="guscatalano"
@@ -13,24 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="12/05/2015"
-   ms.author="guscatal;spatnaik;elizapo"/>
+   ms.date="02/23/2016"
+   ms.author="elizapo"/>
 
 
 
-# Getting started in Azure RemoteApp with Powershell
+# Use Windows PowerShell cmdlets with Azure RemoteApp
 =====================================
 
+ You can use the Azure RemoteApp PowerShell cmdlets to administer and maintain your collections. Use the following information to get started.
 
-## Get the cmdlets
+## Get the cmdlets 
 -------------
-First we need to download Azure Powershell commandlets [here](http://go.microsoft.com/?linkid=9811175), the RemoteApp ones are included in it.
+First download the Azure Powershell cmdlets [here](http://go.microsoft.com/?linkid=9811175), the RemoteApp cmdlets are included in it. 
 
-Check out the Azure RemoteApp cmdlet help [here](https://msdn.microsoft.com/library/mt428031.aspx).
+Check out the [Azure RemoteApp cmdlet help](https://msdn.microsoft.com/library/mt428031.aspx).
 
 ## Configure Azure cmdlets to use your subscription
 ------------------
 Follow [this guide](../powershell-install-configure.md) so you can use the cmdlets against your Azure subscription.
+
+You can use these steps to get started quickly:
+
+1.	Download and install the [Azure PowerShell cmdlets](http://go.microsoft.com/?linkid=9811175).
+2.	Launch Microsoft Azure PowerShell.
+3.	Run **Add-AzureAccount** to authenticate to your Azure subscription. When prompted, enter the same user name and password that you use to sign in to Azure portal.  
+4.	Run **Get-AzureSubscription** to list the subscriptions associated with your user account. 
+5.	Run **Select-AzureSubscription** and specify the subscription name or ID to use in the PowerShell console.
+
+Congratulations, your Azure PowerShell console is configured and ready to use. Be aware that you'll need to repeate steps 2 through 5 each time you start the the Azure PowerShell console.  
 
 ## Create a cloud collection
 --------------------
@@ -54,7 +65,7 @@ And you're done! That user should be able to connect to the application using th
 ## Available cmdlets
 There are lots of other commands that we have, the documentation for them will be coming shortly:
 
-Basic RemoteApp Collection  cmdlets:
+Basic RemoteApp Collection  cmdlets: 
 
 - New-AzureRemoteAppCollection
 - Get-AzureRemoteAppCollection
@@ -99,3 +110,4 @@ Other RemoteApp cmdlets:
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
+ 

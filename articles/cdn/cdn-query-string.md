@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - Controlling caching behavior of requests with query strings" 
-	description="CDN query string caching controls how files are to be cached when they contain query strings." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - Controlling caching behavior of requests with query strings"
+	description="CDN query string caching controls how files are to be cached when they contain query strings."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 #Controlling caching behavior of CDN requests with query strings
@@ -24,7 +24,7 @@
 
 ##Overview
 
-Query string caching controls how files are to be cached when they contain query strings. 
+Query string caching controls how files are to be cached when they contain query strings.
 
 > [AZURE.NOTE] The Standard and Premium CDN tiers provide the same query string caching functionality, but the user interface differs.  This document describes the **Standard** tier user interface.  For the Premium tier, see [Controlling caching behavior of CDN requests with query strings - Premium](cdn-query-string-premium.md).
 
@@ -33,13 +33,13 @@ Three modes are available:
 - **Ignore query strings**:  This is the default mode.  The CDN edge node will pass the query string from the requestor to the origin on the first request and cache the asset.  All subsequent requests for that asset that are served from the edge node will ignore the query string until the cached asset expires.
 - **Bypass caching for URL with query strings**:  In this mode, requests with query strings are not cached at the CDN edge node.  The edge node retrieves the asset directly from the origin and passes it to the requestor with each request.
 - **Cache every unique URL**:  This mode treats each request with a query string as a unique asset with its own cache.  For example, the response from the origin for a request for *foo.ashx?q=bar* would be cached at the edge node and returned for subsequent caches with that same query string.  A request for *foo.ashx?q=somethingelse* would be cached as a separate asset with its own time to live.
-	
+
 	>[AZURE.WARNING] This mode should not be used when the query string contains parameters that will change with every request, such as a session ID or a user name, since this would result in a very low cache hit ratio.
 
 ##Changing query string caching settings
 
 1. From the CDN profile blade, click the CDN endpoint you wish to manage.
-	
+
 	![CDN profile blade endpoints](./media/cdn-query-string/cdn-endpoints.png)
 
 	The CDN endpoint blade opens.
@@ -47,17 +47,11 @@ Three modes are available:
 2. Click the **Configure** button.
 
 	![CDN profile blade manage button](./media/cdn-query-string/cdn-config-btn.png)
-	
+
 	The CDN Configuration blade opens.
-	
+
 3. Select a setting from the **Query string caching behavior** dropdown.
-	
+
 	![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png)
-	
+
 4. After making your selection, click the **Save** button.
-
-
-
-
-	
-
