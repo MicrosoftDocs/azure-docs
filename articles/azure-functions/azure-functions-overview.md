@@ -1,24 +1,24 @@
-# Azure Indianapolis Overview
+# Azure Functions Overview
 
 ## Life's about to get a whole lot easier 
 
 Write any function under a minute - either when you need a simple job to cleanse a database or to build functionality that processes millions of messages from connected devices. User your development language of choice (C#, Node.JS, Python and more). Pay only for the time your code runs and trust Azure to scale as needed.
 
-## Understanding Azure Indianapolis
+## Understanding Azure Functions
 
-### I'd like to learn more about Azure Indianapolis
+### I'd like to learn more about Azure Functions
 
 * What are the [Supported Features]() and [integration Partners]()
-* [How much does Azure Indianapolis cost?]()
+* [How much does Azure Functions cost?]()
 
 ### Getting Started
 
-* [Create my first Azure Indianapolis via Template]()
-* [Create my first Azure Indianapolis from Scratch]()
+* [Create my first Azure Functions via Template]()
+* [Create my first Azure Functions from Scratch]()
 
 ## Feature Scope
 
-Azure Indianapolis makes achieving complicated integration and connectivity tasks trivial. With this core set of capabilities, developers using Azure Indianapolis can become even more productive by focusing only on their goal rather than putting together infrastructure pieces.
+Azure Functions makes achieving complicated integration and connectivity tasks trivial. With this core set of capabilities, developers using Azure Functions can become even more productive by focusing only on their goal rather than putting together infrastructure pieces.
 
 ### Features
 
@@ -49,8 +49,8 @@ Azure Indianapolis makes achieving complicated integration and connectivity task
 | Email | N/A | <span class="wa-cancel"></span> |
 | Identity | Azure <abbr title="Active Directory">AD</abbr> | <span class="wa-cancel"></span> |
 | Service Monitoring | Azure Insights | <span class="wa-check wa-check-green"></span> |
-| Scheduled | Indianapolis | <span class="wa-check wa-check-green"></span> |
-| HTTP | Indianapolis | <span class="wa-check wa-check-green"></span> |
+| Scheduled | Functions | <span class="wa-check wa-check-green"></span> |
+| HTTP | Functions | <span class="wa-check wa-check-green"></span> |
 | Service Automation | <abbr title="Azure Resource Manager">ARM</abbr> | <span class="wa-check wa-check-green"></span> |
 
 ### SaaS & PaaS Integrations
@@ -64,9 +64,9 @@ Azure Indianapolis makes achieving complicated integration and connectivity task
 | Streams | Event Hubs | <span class="wa-check wa-check-green"></span> |
 | Notifications | Service Bus | <span class="wa-check wa-check-green"></span> |
 | Email | Send Grid* | <span class="wa-check wa-check-green"></span> |
-| HTTP | Indianapolis | <span class="wa-check wa-check-green"></span> |
+| HTTP | Functions | <span class="wa-check wa-check-green"></span> |
 | Slack | Slack* | <span class="wa-check wa-check-green"></span> |
 
-## How much does Indianapolis cost?
+## How much does Functions cost?
 
 Full pricing details are available on the [Pricing]() page.
