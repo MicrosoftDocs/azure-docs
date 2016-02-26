@@ -15,13 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Get started with the Dropbox API 
-Connect to Dropbox to manage files, such us create files, get files, and more. 
+Connect to Dropbox to manage files, such us create files, get files, and more. The Dropbox API can be be used from:
 
-The Dropbox API can be be used from PowerApps Enterprise and logic apps. 
+- PowerApps  
+- Logic apps 
 
 With Dropbox, you can: 
 
@@ -81,6 +82,7 @@ After you create the connection, you enter the Dropbox properties, like the fold
 >[AZURE.TIP] You can use this same Dropbox connection in other logic apps.
 
 ## Swagger REST API reference
+Applies to version: 1.0.
 
 ### Create file    
 Uploads a file to Dropbox.  
