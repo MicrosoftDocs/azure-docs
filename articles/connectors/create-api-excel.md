@@ -14,22 +14,20 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/23/2016"
+ms.date="02/25/2016"
 ms.author="deonhe"/>
 
 # Get started with the Excel API
 
-Connect to Excel to insert a row, delete a row, and more. 
+Connect to Excel to insert a row, delete a row, and more. The Excel API can be be used from:
 
-The Excel API can be be used from PowerApps Enterprise.
+- PowerApps
 
 With Excel, you can:
 
 - Add the Excel API to PowerApps Enterprise. Then, your users can use this API within their apps. 
 
 For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
-
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 Excel includes the following action. There are no triggers. 
@@ -41,11 +39,10 @@ Excel includes the following action. There are no triggers.
 All APIs support data in JSON and XML formats. 
 
 ## Swagger REST API reference
-#### This documentation is for version: 1.0
-
+Applies to version: 1.0.
 
 ### Inserts a new row into an Excel table
-**```POST: /datasets/{dataset}/tables/{table}/items```** 
+```POST: /datasets/{dataset}/tables/{table}/items``` 
 
 
 
@@ -62,12 +59,12 @@ All APIs support data in JSON and XML formats.
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
+
 
 
 
 ### Retrieves a single row from an Excel table
-**```GET: /datasets/{dataset}/tables/{table}/items/{id}```** 
+```GET: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
@@ -84,12 +81,12 @@ All APIs support data in JSON and XML formats.
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
+
 
 
 
 ### Deletes a row from an Excel table
-**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```** 
+```DELETE: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
@@ -106,12 +103,12 @@ All APIs support data in JSON and XML formats.
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
+
 
 
 
 ### Updates an existing row in an Excel table
-**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```** 
+```PATCH: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
@@ -129,11 +126,11 @@ All APIs support data in JSON and XML formats.
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-## Object definition
+
+## Object definitions
 
 #### DataSetsMetadata
 
