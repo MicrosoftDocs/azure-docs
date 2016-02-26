@@ -1,7 +1,7 @@
 <properties
    pageTitle="Create a Work or School identity in AAD | Microsoft Azure"
    description="Learn how to create a work or school identity in Azure Active Directory to use with Resource Manager and classic deployment models."
-   services="virtual-machines"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="squillace"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-windows"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"

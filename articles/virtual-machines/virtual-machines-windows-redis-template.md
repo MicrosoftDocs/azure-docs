@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Redis Cluster Resource Manager Template"
 	description="Learn to easily deploy a new Redis cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template"
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="timwieman"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

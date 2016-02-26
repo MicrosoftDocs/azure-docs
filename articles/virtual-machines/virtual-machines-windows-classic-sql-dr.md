@@ -1,14 +1,14 @@
 <properties
 	pageTitle="High Availability and Disaster Recovery for SQL Server | Microsoft Azure"
 	description="A discussion of the various types of HADR strategies for SQL Server running in Azure Virtual Machines."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management"/>
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"

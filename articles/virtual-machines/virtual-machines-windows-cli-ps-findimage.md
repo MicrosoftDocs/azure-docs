@@ -1,7 +1,7 @@
 <properties
    pageTitle="Navigate and select VM images | Microsoft Azure"
    description="Learn how to determine the publisher, offer, and SKU for images when creating an Azure virtual machine with the Resource Manager deployment model."
-   services="virtual-machines"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="squillace"
    manager="timlt"
@@ -10,7 +10,7 @@
    />
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-windows"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"

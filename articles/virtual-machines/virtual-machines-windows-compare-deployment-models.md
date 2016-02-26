@@ -1,7 +1,7 @@
 <properties
    pageTitle="Compute, Network, and Storage providers | Microsoft Azure"
    description="Conceptual overview of the Compute, Network, and Storage Resource Providers (CRP, NRP, and SRP) for Windows applications in Azure Resource Manager"
-   services="virtual-machines"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="mahthi"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-windows"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"

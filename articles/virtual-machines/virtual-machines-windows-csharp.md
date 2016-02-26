@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Deploy Resources Using .NET Libraries | Microsoft Azure"
 	description="Learn to use the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure using the Resource Manager."
-	services="virtual-machines,virtual-network,storage"
+	services="virtual-machines-windows,virtual-network,storage"
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

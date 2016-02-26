@@ -1,7 +1,7 @@
 <properties
    pageTitle="Troubleshooting Windows VM extension failures | Microsoft Azure"
    description="Learn about troubleshooting Azure Windows VM extension failures"
-   services="virtual-machines"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="top-support-issue,azure-resource-manager"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-windows"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"

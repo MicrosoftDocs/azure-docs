@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Python web app with Django on Linux | Microsoft Azure" 
 	description="Learn how to host a Django-based web application on Azure using a Linux virtual machine." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="python" 
 	authors="huguesv" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 	tags=“azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="python" 

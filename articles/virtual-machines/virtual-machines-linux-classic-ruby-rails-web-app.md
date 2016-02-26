@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Host a Ruby on Rails website on a Linux VM | Microsoft Azure"
 	description="Set up and host a Ruby on Rails-based website on Azure using a Linux virtual machine."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter="ruby"
 	authors="rmcmurray"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="web"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Troubleshooting Windows VM allocation failures | Microsoft Azure"
 	description="Troubleshoot allocation failures when you create, restart, or resize a Windows VM in Azure"
-	services="virtual-machines, azure-resource-manager"
+	services="virtual-machines-windows, azure-resource-manager"
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
@@ -9,7 +9,7 @@
 	tags="top-support-issue,azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="na"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

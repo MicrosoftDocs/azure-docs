@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Update the Azure Linux Agent from GitHub | Microsoft Azure"
 	description="Learn how to the update Azure Linux Agent for your Linux VM in Azure to the lateset version from Github"
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

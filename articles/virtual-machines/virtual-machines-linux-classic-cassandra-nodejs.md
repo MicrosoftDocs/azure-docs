@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Run Cassandra with Linux on Azure | Microsoft Azure" 
 	description="How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app" 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="nodejs" 
 	authors="rmcmurray" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 	azure-service-management"/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 

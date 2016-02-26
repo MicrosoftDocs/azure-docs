@@ -2,14 +2,14 @@
 	pageTitle="Azure infrastructure services implementation guidelines"
 	description="Learn about the key design and implementation guidelines for deploying an IT workload in Azure infrastructure services."
 	documentationCenter=""
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	authors="squillace"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

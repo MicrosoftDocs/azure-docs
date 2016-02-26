@@ -1,7 +1,7 @@
 <properties
    pageTitle="Troubleshooting Linux VM extension failures | Microsoft Azure"
    description="Learn about troubleshooting Azure Linux VM extension failures"
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="top-support-issue,azure-resource-manager"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"

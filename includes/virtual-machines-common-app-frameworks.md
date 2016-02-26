@@ -36,7 +36,7 @@ Deploying a template by using the Azure portal is easy to do by just sending a U
 
 You should see the custom deployment blade:
 
-![](./media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
+![](../articles/virtual-machines/media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
 
 1.	For the **Template** pane, click **Save**.
 2.	Click **Parameters**. On the **Parameters** pane, enter new values, select from allowed values, or accept default values, and then click **OK**.
@@ -49,8 +49,6 @@ You should see the custom deployment blade:
 Depending on the template, it can take some time for Azure to deploy the resources.
 
 ## Azure PowerShell
-
-[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Run these commands to create the resource group and the deployment after you replace the text in brackets with the resource group name, location, deployment name, and template name:
 

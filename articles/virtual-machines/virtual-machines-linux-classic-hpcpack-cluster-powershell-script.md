@@ -1,14 +1,14 @@
 <properties
    pageTitle="PowerShell script to deploy Linux HPC cluster | Microsoft Azure"
    description="Run a PowerShell script to deploy a Linux HPC Pack cluster in Azure infrastructure services"
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
    editor=""
    tags="azure-service-management,hpc-pack"/>
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"

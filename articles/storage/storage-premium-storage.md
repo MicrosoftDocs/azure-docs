@@ -324,7 +324,7 @@ This section shows how to create a Premium Storage account using the Azure Porta
 
 5.	On the **Storage Account** blade, keep the default values for **Resource Group**, **Subscription**, **Location**, and **Diagnostics**. Click **Create**.
 
-For a complete walk-through inside an Azure environment, see [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-tutorial.md).
+For a complete walk-through inside an Azure environment, see [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
 ### Create an Azure virtual machine using Premium Storage via Azure PowerShell
 This PowerShell example shows how to create a new Premium Storage account and attach a data disk that uses that account to a new Azure virtual machine.
@@ -389,7 +389,7 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 - [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
 - [Migrating to Azure Premium Storage](storage-migration-to-premium-storage.md)
-- [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-tutorial.md)
+- [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 - [Sizes for Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md)
 - [Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 

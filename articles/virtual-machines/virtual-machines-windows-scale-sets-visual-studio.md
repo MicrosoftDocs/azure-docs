@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Deploying Virtual Machine Scale Set Templates in Visual Studio | Microsoft Azure"
 	description="How to deploy Virtual Machine Scale Set using a Visual Studio Resource Group Deployment"
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="gbowerman"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

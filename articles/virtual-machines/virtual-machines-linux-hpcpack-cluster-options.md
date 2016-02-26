@@ -1,14 +1,14 @@
 <properties
  pageTitle="Linux HPC Pack cluster options in the cloud | Microsoft Azure"
  description="Learn about options with Microsoft HPC Pack to create and manage a Linux high performance computing (HPC) cluster in the Azure cloud"
- services="virtual-machines,cloud-services"
+ services="virtual-machines-linux,cloud-services"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
  tags="azure-resource-manager,azure-service-management,hpc-pack"/>
 <tags
-ms.service="virtual-machines"
+ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"

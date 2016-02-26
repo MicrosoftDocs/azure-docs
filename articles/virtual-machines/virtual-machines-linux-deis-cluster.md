@@ -1,7 +1,7 @@
 <properties
    pageTitle="Deploy a 3-node Deis cluster | Microsoft Azure"
    description="This article describes how to create a 3-node Deis cluster on Azure using an Azure Resource Manager template"
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
    authors="HaishiBai"
    manager="larar"
@@ -9,7 +9,7 @@
    tags="azure-resource-manager"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"

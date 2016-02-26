@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Attach a disk to a VM | Microsoft Azure"
 	description="Attach a data disk to a Windows virtual machine created with the classic deployment model and initialize it."
-	services="virtual-machines, storage"
+	services="virtual-machines-windows, storage"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

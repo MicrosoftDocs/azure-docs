@@ -1,7 +1,7 @@
 <properties
    pageTitle="How to Tag a VM | Microsoft Azure"
    description="Learn about Tagging an Azure Virtual Machine created using the Resource Manager deployment model."
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
    authors="mmccrory"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="azure-resource-manager"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"

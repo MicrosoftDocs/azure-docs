@@ -1,13 +1,13 @@
 <properties
 	pageTitle="Oracle WebLogic Server and Database VM | Microsoft Azure"
 	description="Create an Oracle WebLogic Server 12c and Oracle Database 12c Azure image running on Windows Server 2012, using Resource Manager deployment model."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	authors="bbenz"
 	documentationCenter=""
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"

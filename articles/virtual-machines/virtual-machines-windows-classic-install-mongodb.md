@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Install MongoDB on a Windows VM | Microsoft Azure"
 	description="Learn how to install MongoDB on an Azure VM created with the classic deployment model running Windows Server."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"

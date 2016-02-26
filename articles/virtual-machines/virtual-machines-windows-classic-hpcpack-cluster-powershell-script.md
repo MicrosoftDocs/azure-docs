@@ -1,14 +1,14 @@
 <properties
    pageTitle="PowerShell script to deploy Windows HPC cluster | Microsoft Azure"
    description="Run a PowerShell script to deploy a Windows HPC Pack cluster in Azure infrastructure services"
-   services="virtual-machines"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
    editor=""
    tags="azure-service-management,hpc-pack"/>
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-windows"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"

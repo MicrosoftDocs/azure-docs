@@ -1,7 +1,7 @@
 <properties
    pageTitle="Deploy popular application frameworks using templates | Microsoft Azure"
    description="Create popular application frameworks by using Azure Resource Manager templates to install Active Directory, Docker, and many more."
-   services="virtual-machines"
+   services="virtual-machines-windows"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="azure-resource-manager" />
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-windows"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"

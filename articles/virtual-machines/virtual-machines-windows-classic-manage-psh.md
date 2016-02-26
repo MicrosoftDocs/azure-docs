@@ -1,7 +1,7 @@
 <properties
    pageTitle="Manage your virtual machines by using Azure PowerShell | Microsoft Azure"
    description="Learn commands that you can use to automate tasks in managing your virtual machines."
-   services="virtual-machines"
+   services="virtual-machines-windows"
    documentationCenter="windows"
    authors="singhkay"
    manager="timlt"
@@ -9,7 +9,7 @@
    tags="azure-service-management"/>
 
    <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-windows"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"

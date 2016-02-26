@@ -227,6 +227,6 @@ You can reinstate a client certificate by removing the thumbprint from the list 
 
 ## Next steps
 
-You can add a virtual machine to your virtual network. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md) for steps.
+You can add a virtual machine to your virtual network. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.
 
 

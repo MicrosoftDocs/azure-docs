@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Detach a disk from a Linux VM | Microsoft Azure"
 	description="Learn to detach a data disk from an Azure virtual machine created using the classic deployment model."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

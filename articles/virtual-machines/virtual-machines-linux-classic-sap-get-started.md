@@ -1,7 +1,7 @@
 <properties
    pageTitle="Using SAP on Linux virtual machines (VMs) | Microsoft Azure"
    description="Learn about using SAP on Linux virtual machines (VMs) in Microsoft Azure"
-   services="virtual-machines,virtual-network,storage"
+   services="virtual-machines-linux,virtual-network,storage"
    documentationCenter="saponazure"
    authors="MSSedusch"
    manager="juergent"
@@ -9,7 +9,7 @@
    tags="azure-service-management"
    keywords=""/>
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="NA"
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
