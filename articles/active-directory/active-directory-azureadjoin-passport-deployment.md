@@ -17,6 +17,7 @@
 	ms.date="11/19/2015"
 	ms.author="femila"/>
 
+
 # Enable Microsoft Passport for work in your organization
 
 After connecting Windows 10 domain-joined devices with Azure Active Directory (Azure AD), do the following to enable Microsoft Passport for work in your organization.
