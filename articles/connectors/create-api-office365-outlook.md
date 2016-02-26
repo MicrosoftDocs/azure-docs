@@ -97,7 +97,7 @@ When you add this API to PowerApps Enterprise, you enter the **App Key** and **A
 
 A new Azure Active Directory app is created. You can copy/paste the **App Key** and **App Secret** values into your Office 365 Outlook API configuration in the Azure portal. 
 
-Some good info on AAD applications at [How and why applications are added to Azure AD](/active-directory-how-applications-are-added.md).
+Some good info on AAD applications at [How and why applications are added to Azure AD](../active-directory/active-directory-how-applications-are-added.md).
 
 ### Add additional configuration in logic apps
 When you add this API to your logic apps, you must sign-in to your Office 365 Outlook account and allow logic apps to connect to your account.
