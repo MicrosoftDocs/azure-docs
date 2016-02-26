@@ -378,3 +378,19 @@ In the previous example, the JSON sent to the server is 44 characters long:
 
 			{"subscription":"2013-12-07","premium":"true"}
  
+##Logging
+###Enable Logging
+
+The SDK can be configured to produce test logs in the IDE console.
+These logs are not activated by default. To activate them, the property `EngagementAgent.Instance.TestLogEnabled` needs to be set before initializing the agent:
+
+			EngagementAgent.Instance.TestLogEnabled = true;
+			EngagementAgent.Instance.Init();
+
+###Logging level
+
+The default level of logs from the SDK is *verbose* but you can customize it thanks to the `EngagementAgent.Instance.TestLogLevel` property and the `EngagementTestLogLevel` enumeration. Set this property before the `EngagementAgent.Instance.TestLogEnabled`:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Information;
+			EngagementAgent.Instance.TestLogEnabled = true;
+			EngagementAgent.Instance.Init();
