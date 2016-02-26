@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/17/2016"
+   ms.date="03/21/2016"
    ms.author="mikewasson"/>
 
 # Running a Single Windows VM on Azure
@@ -55,11 +55,15 @@ Provisioning a single VM in Azure involves more moving parts than the core VM it
 
 ## VM recommendations
 
-- When moving an existing workload to Azure, choose the [VM size][virtual-machine-sizes] that most closely matches your on-premise servers. We recommend the DS- and GS-series, which can use Premium Storage for I/O intensive workloads. .
+- When moving an existing workload to Azure, choose the [VM size][virtual-machine-sizes] that most closely matches your on-premise servers. We recommend the DS- and GS-series, which can use Premium Storage for I/O intensive workloads.
 
     - If your workload does not require high-performance, low-latency disk access, consider the other Standard tier VM sizes, such as A-series or D-series.
 
-- When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region].
+- When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given location, run the following Azure CLI command:
+
+    ```
+    azure vm sizes --location <location>
+    ```
 
 - For information about choosing a published VM image, see [Navigate and select Azure virtual machine images][select-vm-image].
 
@@ -99,32 +103,30 @@ You can scale a VM up or down by changing the VM size. In some cases, you will n
 
 To resize a VM:
 
-1. Go to the [Azure Regions web page][services-by-region], and verify that the desired VM size is supported in the location where you deployed the VM.
-
-2. If the VM size is supported in that location, run the following CLI command. This command lists the sizes that are available on the hardware cluster.
+1. Run the following CLI command. This command lists the VM sizes that are available on the hardware cluster where the VM is hosted.
 
     ```text
-    azure vm sizes -g <<resource-group>> --vm-name <<vm-name>>
+    azure vm sizes -g <resource-group> --vm-name <vm-name>
     ```
 
-3. If the desired size is listed, run the following command to resize the VM.
+2. If the desired size is listed, run the following command to resize the VM.
 
     ```text
-    azure vm set -g <<resource-group>> --vm-size <<new-vm-size>
-        --boot-diagnostics-storage-uri <<storage-account-uri>> <<vm-name>>
+    azure vm set -g <resource-group> --vm-size <new-vm-size>
+        --boot-diagnostics-storage-uri <storage-account-uri> <vm-name>
     ```
 
     The VM will restart during this process. After the restart, your existing OS and data disks will be remapped, but anything on the temporary disk will be lost.
 
     The `--boot-diagnostics-storage-uri` option enables [boot diagnostics][boot-diagnostics] to log any errors related to startup.
 
-4. Otherwise, if the desired size is not listed, run the following commands to deallocate the VM, resize it, and then restart the VM.
+3. Otherwise, if the desired size is not listed, run the following commands to deallocate the VM, resize it, and then restart the VM.
 
     ```text
-    azure vm deallocate -g <<resource-group>> <<vm-name>>
-    azure vm set -g <<resource-group>> --vm-size <<new-vm-size>
-        --boot-diagnostics-storage-uri <<storage-account-uri>> <<vm-name>>
-    azure vm start -g <<resource-group>> <<vm-name>>
+    azure vm deallocate -g <resource-group> <vm-name>
+    azure vm set -g <resource-group> --vm-size <new-vm-size>
+        --boot-diagnostics-storage-uri <storage-account-uri> <vm-name>
+    azure vm start -g <resource-group> <vm-name>
     ```
 
    > [AZURE.WARNING] Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
@@ -150,7 +152,7 @@ To resize a VM:
 - **VM diagnostics.** Run the following CLI command to enable diagnostics:
 
     ```text
-    azure vm enable-diag <<resource-group>> <<vm-name>>
+    azure vm enable-diag <resource-group> <vm-name>
     ```
 
     This command enables basic health metrics, diagnostics infrastructure logs, and boot diagnostics. For more information, see [Enable monitoring and diagnostics][enable-monitoring].
@@ -162,7 +164,7 @@ To resize a VM:
     Use the following CLI command to de-allocate a VM:
 
     ```text
-    azure vm deallocate <<resource-group>> <<vm-name>>
+    azure vm deallocate <resource-group> <vm-name>
     ```
 
     Note: The **Stop** button in the Azure portal also deallocates the VM. However, if you shut down from inside Windows (via RDP), the VM is stopped but _not_ de-allocated, so you will still be charged.
@@ -190,7 +192,7 @@ To resize a VM:
 - To reset the local admin password, run the `vm reset-access` Azure CLI command.
 
     ```text
-    azure vm reset-access -u <<user>> -p <<new-password>> <<resource-group>> <<vm-name>>
+    azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
     ```
 
 - If your VM gets into a non-bootable state, use [Boot Diagnostics][boot-diagnostics] to diagnose boot failures.
@@ -207,8 +209,8 @@ The script uses the naming conventions described in [Recommended Naming Conventi
 ECHO OFF
 SETLOCAL
 
-IF "%~1"=="" (
-    ECHO Usage: %0 subscription-id
+IF "%2"=="" (
+    ECHO Usage: %0 subscription-id admin-password
     EXIT /B
     )
 
@@ -219,7 +221,7 @@ SET LOCATION=eastus2
 SET APP_NAME=app1
 SET ENVIRONMENT=dev
 SET USERNAME=testuser
-SET PASSWORD=AweS0me@PW
+SET PASSWORD=%2
 
 :: Explicitly set the subscription to avoid confusion as to which subscription
 :: is active/default
@@ -245,8 +247,7 @@ SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4
 SET VM_SIZE=Standard_DS1
 
 :: Set up the postfix variables attached to most CLI commands
-SET POSTFIX=--resource-group %RESOURCE_GROUP% --location %LOCATION% ^
-  --subscription %SUBSCRIPTION%
+SET POSTFIX=--resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
 
 CALL azure config mode arm
 
@@ -254,32 +255,36 @@ CALL azure config mode arm
 :: Create resources
 
 :: Create the enclosing resource group
-CALL azure group create --name %RESOURCE_GROUP% --location %LOCATION%
+CALL azure group create --name %RESOURCE_GROUP% --location %LOCATION% ^
+  --subscription %SUBSCRIPTION%
 
 :: Create the VNet
 CALL azure network vnet create --address-prefixes 172.17.0.0/16 ^
-  --name %VNET_NAME% %POSTFIX%
+  --name %VNET_NAME% --location %LOCATION% %POSTFIX%
 
 :: Create the network security group
-CALL azure network nsg create --name %NSG_NAME% %POSTFIX%
+CALL azure network nsg create --name %NSG_NAME% --location %LOCATION% %POSTFIX%
 
 :: Create the subnet
 CALL azure network vnet subnet create --vnet-name %VNET_NAME% --address-prefix ^
   172.17.0.0/24 --name %SUBNET_NAME% --network-security-group-name %NSG_NAME% ^
-  --resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
+  %POSTFIX%
 
 :: Create the public IP address (dynamic)
-CALL azure network public-ip create --name %IP_NAME% %POSTFIX%
+CALL azure network public-ip create --name %IP_NAME% --location %LOCATION% %POSTFIX%
 
 :: Create the NIC
 CALL azure network nic create --public-ip-name %IP_NAME% --subnet-name ^
-  %SUBNET_NAME% --subnet-vnet-name %VNET_NAME%  --name %NIC_NAME% %POSTFIX%
+  %SUBNET_NAME% --subnet-vnet-name %VNET_NAME%  --name %NIC_NAME% --location ^
+  %LOCATION% %POSTFIX%
 
 :: Create the storage account for the OS VHD
-CALL azure storage account create --type PLRS %POSTFIX% %VHD_STORAGE%
+CALL azure storage account create --type PLRS --location %LOCATION% %POSTFIX% ^
+  %VHD_STORAGE%
 
 :: Create the storage account for diagnostics logs
-CALL azure storage account create --type LRS %POSTFIX% %DIAGNOSTICS_STORAGE%
+CALL azure storage account create --type LRS --location %LOCATION% %POSTFIX% ^
+  %DIAGNOSTICS_STORAGE%
 
 :: Create the VM
 CALL azure vm create --name %VM_NAME% --os-type Windows --image-urn ^
@@ -287,16 +292,17 @@ CALL azure vm create --name %VM_NAME% --os-type Windows --image-urn ^
   --vnet-name %VNET_NAME% --nic-name %NIC_NAME% --storage-account-name ^
   %VHD_STORAGE% --os-disk-vhd "%VM_NAME%-osdisk.vhd" --admin-username ^
   "%USERNAME%" --admin-password "%PASSWORD%" --boot-diagnostics-storage-uri ^
-  "https://%DIAGNOSTICS_STORAGE%.blob.core.windows.net/" %POSTFIX%
+  "https://%DIAGNOSTICS_STORAGE%.blob.core.windows.net/" --location %LOCATION% ^
+  %POSTFIX%
 
 :: Attach a data disk
-CALL azure vm disk attach-new -g %RESOURCE_GROUP% --vm-name %VM_NAME% ^
-  --size-in-gb 128 --vhd-name data1.vhd --storage-account-name %VHD_STORAGE%
+CALL azure vm disk attach-new --vm-name %VM_NAME% --size-in-gb 128 --vhd-name ^
+  data1.vhd --storage-account-name %VHD_STORAGE% %POSTFIX%
 
 :: Allow RDP
-CALL azure network nsg rule create -g %RESOURCE_GROUP% --nsg-name %NSG_NAME% ^
-  --direction Inbound --protocol Tcp --destination-port-range 3389 ^
-  --source-port-range * --priority 100 --access Allow RDPAllow
+CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
+  --protocol Tcp --destination-port-range 3389 --source-port-range * ^
+  --priority 100 --access Allow RDPAllow %POSTFIX%
 ```
 
 ## Next steps
