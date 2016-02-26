@@ -43,7 +43,7 @@ The Office 365 Users API has the following actions available. There are no trigg
 
 | Triggers | Actions|
 | --- | --- |
-|None. | <ul><li>Get manager</li><li>Get my profile</li><li>Get direct reports</li><li>Get user profile</li><li>Search for users</li></ul>|
+|None | <ul><li>Get manager</li><li>Get my profile</li><li>Get direct reports</li><li>Get user profile</li><li>Search for users</li></ul>|
 
 All APIs support data in JSON and XML formats. 
 
@@ -76,7 +76,7 @@ When you add this API to PowerApps Enterprise, you enter the **Client ID** and *
 5. When complete, the new AAD app opens. Select **Configure**:  
 ![Contoso AAD app][10]
 
-6. Under the _OAuth 2_ section, set the **Reply URL** to the redirect URL value shown when you added the Office 365 Users API in the Azure Portal. Select **Add application**:  
+6. Under the **OAuth 2** section, set the **Reply URL** to the redirect URL value shown when you added the Office 365 Users API in the Azure Portal. Select **Add application**:  
 ![Configure Contoso AAD app][11]
 
 7. In **Permissions to other applications**, select **Office 365 Unified API (Preview)**, and select **OK**:  
@@ -105,7 +105,7 @@ After you create the connection, you enter the Office 365 Users properties, like
 Applies to version: 1.0.
 
 ### Get my profile 
-Retrieves the profile for the current user. 
+Retrieves the profile for the current user.  
 ```GET: /users/me``` 
 
 There are no parameters for this call.
@@ -124,7 +124,7 @@ There are no parameters for this call.
 
 
 ### Get user profile 
-Retrieves a specific user profile. 
+Retrieves a specific user profile.  
 ```GET: /users/{userId}``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -145,7 +145,7 @@ Retrieves a specific user profile.
 
 
 ### Get manager 
-Retrieves user profile for the manager of the specified user. 
+Retrieves user profile for the manager of the specified user.  
 ```GET: /users/{userId}/manager``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -167,7 +167,7 @@ Retrieves user profile for the manager of the specified user.
 
 
 ### Get direct reports 
-Get direct reports. 
+Get direct reports.  
 ```GET: /users/{userId}/directReports``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -189,7 +189,7 @@ Get direct reports.
 
 
 ### Search for users 
-Retrieves search results of user profiles. 
+Retrieves search results of user profiles.  
 ```GET: /users``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
