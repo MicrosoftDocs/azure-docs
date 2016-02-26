@@ -14,14 +14,15 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/22/2016"
-ms.author="deonhe"/>
+ms.date="02/25/2016"
+ms.author="mandia"/>
 
 # Get started with the OneDrive API
 
-Connect to OneDrive to manage your files. You can perform various actions such as upload, update, get, and delete on files in OneDrive.
+Connect to OneDrive to manage your files, including upload, get, delete files, and more. The OneDrive API can be be used from:
 
-The OneDrive API can be be used from PowerApps Enterprise and logic apps. 
+- PowerApps 
+- Logic apps 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [OneDrive API](../app-service-logic/app-service-logic-connector-onedrive.md).
 
@@ -76,7 +77,7 @@ After you create the connection, you enter the OneDrive properties, like the fol
 >[AZURE.TIP] You can use this same connection in other logic apps.
 
 ## Swagger REST API reference
-#### This documentation is for version: 1.0
+Applies to version: 1.0.
 
 
 ### Get file metadata using id
