@@ -48,7 +48,7 @@ U-SQL  | ADLS Authentication Options | 1 | Pending | [@ArindamC](https://github.
 
 Area   |Topic | location
 ------------- | ------------- | -------------- 
-Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates | [location](../data-lake-analytics-manage-use-powershell.md)
+Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates | [location](data-lake-analytics-manage-use-powershell.md)
 
 ## How to Give Feedback on the Backlog
 There are a few options to give feedback on the backlog:
