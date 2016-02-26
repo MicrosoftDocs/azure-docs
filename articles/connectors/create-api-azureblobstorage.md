@@ -152,7 +152,7 @@ Retrieves file contents from Azure Blob Storage using path.
 
 
 ### Get File Metadata
-Retrieves file metadata from Azure Blob Storage using file id. 
+Retrieves file metadata from Azure Blob Storage using file id.  
 ```GET: /datasets/default/files/{id}```
 
 | Name|Data Type|Required|Located In|Default Value|Description|
