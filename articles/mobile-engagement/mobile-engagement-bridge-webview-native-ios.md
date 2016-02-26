@@ -19,8 +19,8 @@
 #Bridge iOS WebView with native Mobile Engagement iOS SDK
 
 > [AZURE.SELECTOR]
-- [Android Bridge](mobile-engagement-bridge-webview-android.md)
-- [iOS Bridge](mobile-engagement-bridge-webview-ios.md)
+- [Android Bridge](mobile-engagement-bridge-webview-native-android.md)
+- [iOS Bridge](mobile-engagement-bridge-webview-native-ios.md)
 
 Some mobile apps are designed as a hybrid app where the app itself is developed using native iOS Objective-C development but some or even all of the screens are rendered within an iOS WebView. You can still consume Mobile Engagement iOS SDK within such apps and this tutorial describes how to go about doing this. 
 
@@ -53,7 +53,7 @@ Follow the steps below for the iOS bridge sample:
 		
 		@end
 
-5. We will update the `ViewController.m` file later but first we will create the bridge file which creates a wrapper over some commonly used Mobile Engagement iOS SDK methods. Create a new header file called **EngagementJsExports.h** which uses the `JsExport` mechanism described in the aforementioned [session](https://developer.apple.com/videos/play/wwdc2013/615) to expose the native iOS methods. 
+5. We will update the `ViewController.m` file later but first we will create the bridge file which creates a wrapper over some commonly used Mobile Engagement iOS SDK methods. Create a new header file called **EngagementJsExports.h** which uses the `JSExport` mechanism described in the aforementioned [session](https://developer.apple.com/videos/play/wwdc2013/615) to expose the native iOS methods. 
 
 		#import <Foundation/Foundation.h>
 		#import <JavaScriptCore/JavascriptCore.h>
@@ -163,7 +163,7 @@ Follow the steps below for the iOS bridge sample:
 6. Note the following points about the **ViewController.m** file:
 
 	- In the `loadWebView` method, we are loading a local HTML file called **LocalPage.html** whose code we will review next. 
-	- In the `webViewDidFinishLoad` method, we are grabbing the JsContext and associating our wrapper class with it. This will allow calling our wrapper SDK methods using the handle **EngagementJs** from the webView. 
+	- In the `webViewDidFinishLoad` method, we are grabbing the `JsContext` and associating our wrapper class with it. This will allow calling our wrapper SDK methods using the handle **EngagementJs** from the webView. 
 
 7. Create a file called **LocalPage.html** with the following code:
 

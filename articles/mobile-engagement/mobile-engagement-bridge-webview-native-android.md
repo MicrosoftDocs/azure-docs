@@ -19,8 +19,8 @@
 #Bridge Android WebView with native Mobile Engagement Android SDK
 
 > [AZURE.SELECTOR]
-- [Android Bridge](mobile-engagement-bridge-webview-android.md)
-- [iOS Bridge](mobile-engagement-bridge-webview-ios.md)
+- [Android Bridge](mobile-engagement-bridge-webview-native-android.md)
+- [iOS Bridge](mobile-engagement-bridge-webview-native-ios.md)
 
 Some mobile apps are designed as a hybrid app where the app itself is developed using native Android development but some or even all of the screens are rendered within an Android WebView. You can still consume Mobile Engagement Android SDK within such apps and this tutorial describes how to go about doing this. 
 The sample code below is based on the Android documentation [here](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript). It describes how this documented approach could be used to implement the same for Mobile Engagement Android SDK's commonly used methods such that a Webview from a hybrid app can also initiate requests to track events, jobs, errors, app-info while piping them via our Android SDK. 
