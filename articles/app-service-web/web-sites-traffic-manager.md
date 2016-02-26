@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/25/2016" 
 	ms.author="cephalin"/>
 
 # Controlling Azure web app traffic with Azure Traffic Manager
