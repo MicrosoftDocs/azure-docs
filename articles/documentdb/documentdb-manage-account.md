@@ -33,13 +33,13 @@ access the **Keys** part from the **Essentials** bar in your **DocumentDB Accoun
 copy, and regenerate the access keys that are used to access your
 DocumentDB account.
 
-![Azure Portal screenshot, Keys blade](media/documentdb-manage-account/keys.png)
+![Azure Portal screenshot, Keys blade](./media/documentdb-manage-account/keys.png)
 
 Another option is to access the **Keys** entry from the **All Settings** blade,.
 
-![All Settings, Keys blade](media/documentdb-manage-account/allsettingskeys.png)
+![All Settings, Keys blade](./media/documentdb-manage-account/allsettingskeys.png)
 
-Note that the **Keys** blade also includes primary and secondary connection strings that can be used to connect to your account from the [Data Migration Tool](documentdb-import-data).
+Note that the **Keys** blade also includes primary and secondary connection strings that can be used to connect to your account from the [Data Migration Tool](documentdb-import-data.md).
 
 It also includes read-only keys to provide users with read only-access to DocumentDB. Reads and queries are read-only operations, while creates, deletes, and replaces are not.
 
@@ -52,7 +52,7 @@ It also includes read-only keys to provide users with read only-access to Docume
 3.      On the **Keys** blade, click the **Copy** button to the right of the
 key you wish to copy.
 
-  ![View and copy an access key in the Azure Portal, Keys blade](media/documentdb-manage-account/copykeys.jpg)
+  ![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-manage-account/copykeys.jpg)
 
 ### Regenerate access keys
 
