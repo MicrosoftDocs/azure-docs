@@ -221,32 +221,32 @@ To learn more about Azure Storage, explore these resources:
 
 ### For Java/Android Developers
 
-- [Get started with Azure Blob storage using Java/Android](storage-java-how-to-use-blob-storage.md)
-- [Get started with Azure Table storage using Java/Android](storage-java-how-to-use-table-storage.md)
-- [Get started with Azure Queue storage using Java/Android](storage-java-how-to-use-queue-storage.md)
-- [Get started with File storage using Java](storage-java-how-to-use-file-storage.md) 
+- [How to use Blob storage from Java/Android](storage-java-how-to-use-blob-storage.md)
+- [How to use Table storage from Java/Android](storage-java-how-to-use-table-storage.md)
+- [How to use Queue storage from Java/Android](storage-java-how-to-use-queue-storage.md)
+- [How to use File storage from Java](storage-java-how-to-use-file-storage.md) 
 
 ### For Node.js Developers
 
-- [Get started with Azure Blob storage using Node.js](storage-nodejs-how-to-use-blob-storage.md)
-- [Get started with Azure Table storage using Node.js](storage-nodejs-how-to-use-table-storage.md)
-- [Get started with Azure Queue storage using Node.js](storage-nodejs-how-to-use-queues.md)
+- [How to use Blob storage from Node.js](storage-nodejs-how-to-use-blob-storage.md)
+- [How to use Table storage from Node.js](storage-nodejs-how-to-use-table-storage.md)
+- [How to use Queue storage from Node.js](storage-nodejs-how-to-use-queues.md)
 
 ### For PHP Developers
 
-- [Get started with Azure Blob storage using PHP](storage-php-how-to-use-blobs.md)
-- [Get started with Azure Table storage using PHP](storage-php-how-to-use-table-storage.md)
-- [Get started with Azure Queue storage using PHP](storage-php-how-to-use-queues.md)
+- [How to use Blob storage from PHP](storage-php-how-to-use-blobs.md)
+- [How to use Table storage from PHP](storage-php-how-to-use-table-storage.md)
+- [How to use Queue storage from PHP](storage-php-how-to-use-queues.md)
 
 ### For Ruby Developers
 
-- [Get started with Azure Blob storage using Ruby](storage-ruby-how-to-use-blob-storage.md)
-- [Get started with Azure Table storage using Ruby](storage-ruby-how-to-use-table-storage.md)
-- [Get started with Azure Queue storage using Ruby](storage-ruby-how-to-use-queue-storage.md)
+- [How to use Blob storage from Ruby](storage-ruby-how-to-use-blob-storage.md)
+- [How to use Table storage from Ruby](storage-ruby-how-to-use-table-storage.md)
+- [How to use Queue storage from Ruby](storage-ruby-how-to-use-queue-storage.md)
 
 ### For Python Developers
 
-- [Get started with Azure Blob storage using Python](storage-python-how-to-use-blob-storage.md)
-- [Get started with Azure Table storage using Python](storage-python-how-to-use-table-storage.md)
-- [Get started with Azure Queue storage using Python](storage-python-how-to-use-queue-storage.md)
-- [Get started with Azure File storage using Python](storage-python-how-to-use-file-storage.md)
+- [How to use Blob storage from Python](storage-python-how-to-use-blob-storage.md)
+- [How to use Table storage from Python](storage-python-how-to-use-table-storage.md)
+- [How to use Queue storage from Python](storage-python-how-to-use-queue-storage.md)
+- [How to use File storage from Python](storage-python-how-to-use-file-storage.md)
