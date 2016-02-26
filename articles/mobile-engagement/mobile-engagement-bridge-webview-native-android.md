@@ -18,6 +18,10 @@
 
 #Bridge Android WebView with native Mobile Engagement Android SDK
 
+> [AZURE.SELECTOR]
+- [Android Bridge](mobile-engagement-bridge-webview-android.md)
+- [iOS Bridge](mobile-engagement-bridge-webview-ios.md)
+
 Some mobile apps are designed as a hybrid app where the app itself is developed using native Android development but some or even all of the screens are rendered within an Android WebView. You can still consume Mobile Engagement Android SDK within such apps and this tutorial describes how to go about doing this. 
 The sample code below is based on the Android documentation [here](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript). It describes how this documented approach could be used to implement the same for Mobile Engagement Android SDK's commonly used methods such that a Webview from a hybrid app can also initiate requests to track events, jobs, errors, app-info while piping them via our Android SDK. 
 
@@ -113,10 +117,10 @@ The sample code below is based on the Android documentation [here](https://devel
 	        myWebView.loadUrl("file:///android_asset/Sample.html");
 	        WebSettings webSettings = myWebView.getSettings();
 	        webSettings.setJavaScriptEnabled(true);
-	        myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
+	        myWebView.addJavascriptInterface(new WebAppInterface(this), "EngagementJs");
 	    }
 
-5. In the above snippet, we called `addJavascriptInterface` to associate our bridge class with our Webview and also created a handle called **Android** to call the methods from the bridge file. 
+5. In the above snippet, we called `addJavascriptInterface` to associate our bridge class with our Webview and also created a handle called **EngagementJs** to call the methods from the bridge file. 
 
 6. Now create the following file called **Sample.html** in your project in a folder called **assets** which is loaded into the Webview and where we will call the methods from the bridge file.
 
@@ -150,23 +154,23 @@ The sample code below is based on the Android documentation [here](https://devel
 		                        switch(inputId)
 		                        {
 		                            case "event":
-		                            Android.sendEngagementEvent(value, extras);
+		                            EngagementJs.sendEngagementEvent(value, extras);
 		                            break;
 		
 		                            case "job":
-		                            Android.startEngagementJob(value, extras);
+		                            EngagementJs.startEngagementJob(value, extras);
 		                            window.setTimeout( function()
 		                            {
-		                              Android.endEngagementJob(value);
+		                              EngagementJs.endEngagementJob(value);
 		                            }, 10000 );
 		                            break;
 		
 		                            case "error":
-		                            Android.sendEngagementError(value, extras);
+		                            EngagementJs.sendEngagementError(value, extras);
 		                            break;
 		
 		                            case "appInfo":
-		                            Android.sendAppInfo({"customer_name":value});
+		                            EngagementJs.sendEngagementAppInfo({"customer_name":value});
 		                            break;
 		                        }
 		                    }
