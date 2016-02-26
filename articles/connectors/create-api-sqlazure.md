@@ -14,18 +14,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 
 # Get started with the SQL Azure API
 Connect to SQL Azure to manage your tables and rows, such as insert rows, get tables, and more.
 
-The SQL Azure API can be be used from logic apps. 
+The SQL Azure API can be be used from:
+
+- Logic apps 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [SQL connector](../app-service-logic/app-service-logic-connector-sql.md).
 
-With SQL, you can:
+With SQL Azure, you can:
 
 - Build your business flow based on the data you get from SQL Azure. 
 - Use actions to get a row, insert a row, and more. These actions get a response, and then make the output available for other actions. For example, you can get a row of data from SQL Azure, and then add that data to Excel. 
@@ -53,7 +55,8 @@ After you create the connection, you enter your the SQL properties, like the tab
 
 >[AZURE.TIP] You can use this connection in other logic apps.
 
-## REST API reference
+## Swagger REST API reference
+Applies to version: 1.0.
 
 ### Get row 
 Retrieves a single row from a SQL table. 

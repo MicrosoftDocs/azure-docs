@@ -15,13 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Get started with the Microsoft Translator API
-Connect to Microsoft Translator to translate text, detect a language, and more. 
+Connect to Microsoft Translator to translate text, detect a language, and more. The Microsoft Translator API can be be used from:
 
-The Microsoft Translator can be be used from PowerApps Enterprise and logic apps. 
+- PowerApps 
+- Logic apps 
 
 With Microsoft Translator, you can: 
 
@@ -63,6 +64,7 @@ Now copy/paste the **Client Id** and **Client Secret** values in your Translator
 
 
 ## Swagger REST API reference
+Applies to version: 1.0.
 
 ### Detect language    
 Detects source language of given text. 

@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="02/25/2016"
 	ms.author="deonhe"/>
 
 # List of Microsoft-managed APIs
+
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Connectors List](../app-service-logic/app-service-logic-connectors-list.md). 
 
 Select an icon to learn how to quickly leverage these APIs to build  apps that call these services. These APIs can be used to build logic apps and or PowerApps or both.
 
@@ -34,8 +36,6 @@ For pricing information and a list of what is included with each Service Tier, s
 |[![API Icon][sharepointicon]<br/>**SharePoint**<br/>**Server**][sharepointdoc]|[![API Icon][slackicon]<br/>**Slack**<br/>][slackdoc]|[![API Icon][smtpicon]<br/>**SMTP**][smtpdoc]|[![API Icon][sqlicon]<br/>**SQL Azure**][sqldoc]|
 |[![API Icon][twilioicon]<br/>**Twilio**][twiliodoc]|[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] | |
 
-
-> [AZURE.NOTE] These APIs work with 2015-12-01-preview version of the service.
 
 ### APIs can be triggers
 Several APIs provide triggers that can notify your app when specific events occur. For example, the FTP API has the OnUpdatedFile trigger. You can build an either a logic app or a PowerApp that listens to this trigger and takes an action whenever the trigger is fired.

@@ -15,13 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Get started with the Bing Search API 
-Connect to Bing Search to search news, search videos, and more. 
+Connect to Bing Search to search news, search videos, and more. The Bing Search API can be used from:
 
-The Bing Search API can be used from PowerApps and logic apps. 
+- PowerApps 
+- Logic apps 
 
 With Bing Search, you can: 
 

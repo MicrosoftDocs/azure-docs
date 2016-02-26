@@ -15,13 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Get started with the Google Drive API
-Connect to Google Drive to create files, get rows, and more. 
+Connect to Google Drive to create files, get rows, and more. The Google Drive API can be used from:
 
-The Google Drive API can be used from PowerApps and logic apps. 
+- PowerApps 
+- Logic apps 
 
 With Google Drive, you can: 
 
@@ -90,6 +91,7 @@ After you create the connection, you enter the Google Drive properties, like the
 
 
 ## Swagger REST API reference
+Applies to version: 1.0.
 
 ### Create file    
 Uploads a file to Google Drive. 

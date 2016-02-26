@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Get started with the SFTP API
-Connect to an SFTP server to manage your files. You can do different tasks on the SFTP server, such as upload files, delete files, and more.
+Connect to an SFTP server to manage your files. You can do different tasks on the SFTP server, such as upload files, delete files, and more. The SFTP API can be used from: 
 
-The SFTP API can be used from logic apps.
+- Logic apps
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [SFTP connector](../app-service-logic/app-service-logic-connector-sftp.md).
 
@@ -59,6 +59,7 @@ After you create the connection, you enter the SFTP properties, like the folder 
 
 
 ## Swagger REST API reference
+Applies to version: 1.0.
 
 ### Create file
 Uploads a file in SFTP.

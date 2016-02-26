@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Get started with the FTP API
-Connect to an FTP server to manage your files. You can do different tasks on the FTP server, such as upload files, delete files, and more.
+Connect to an FTP server to manage your files, including upload files, delete files, and more. The FTP API can be used from:
 
-The FTP API can be used from logic apps.
+- Logic apps
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [FTP connector](../app-service-logic/app-service-logic-connector-ftp.md).
 
@@ -56,6 +56,7 @@ After you create the connection, you enter the FTP properties, like the source f
 >[AZURE.TIP] You can use this same FTP connection in other logic apps.
 
 ## Swagger REST API reference
+Applies to version: 1.0.
 
 ### Create file
 Uploads a file to FTP server.
