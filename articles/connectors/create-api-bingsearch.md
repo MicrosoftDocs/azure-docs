@@ -15,13 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Get started with the Bing Search API 
-Connect to Bing Search to search news, search videos, and more. 
+Connect to Bing Search to search news, search videos, and more. The Bing Search API can be used from:
 
-The Bing Search API can be used from PowerApps and logic apps. 
+- PowerApps 
+- Logic apps 
 
 With Bing Search, you can: 
 
@@ -84,7 +85,7 @@ Retrieves videos from a Bing search.
 |market|string|no|query|none |Market or region to narrow the search (example: en-US)|
 |longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
 |latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
-|videoFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof.  Valid values: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <p>For example: 'Duration:Short+Resolution:High'</p>|
+|videoFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof.  Valid values: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>For example: 'Duration:Short+Resolution:High'|
 |videoSortBy|string|no|query|none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
 
 #### Response
@@ -107,7 +108,7 @@ Retrieves images from a Bing search.
 |market|string|no|query|none |Market or region to narrow the search (example: en-US)|
 |longitude|number|no|query| none|Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
 |latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
-|imageFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof. Valid values: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><p>For example: 'Size:Small+Aspect:Square'</p>|
+|imageFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof. Valid values: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>For example: 'Size:Small+Aspect:Square'|
 
 #### Response
 |Name|Description|
@@ -196,9 +197,9 @@ Retrieves all web sites, videos, images, etc. from a Bing search.
 |longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
 |latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
 |webFileType|string|no|query|none |File type to narrow the search (example: 'DOC')|
-|videoFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof.  Valid values: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <p>For example: 'Duration:Short+Resolution:High'</p>|
+|videoFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof.  Valid values: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>For example: 'Duration:Short+Resolution:High'|
 |videoSortBy|string|no|query|none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
-|imageFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof. Valid values: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><p>For example: 'Size:Small+Aspect:Square'</p>|
+|imageFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof. Valid values: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>For example: 'Size:Small+Aspect:Square'|
 |newsSortBy|string|no|query|none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
 |newsCategory|string|no|query|none |Category of news to narrow the search (example: 'rt_Business')|
 |newsLocationOverride|string|no|query|none |Override for Bing location detection. This parameter is only applicable in en-US market. The format for input is US./<state /> (example: 'US.WA')|
@@ -287,7 +288,7 @@ Retrieves all web sites, videos, images, etc. from a Bing search.
 |WebResultsTotal|integer|no|
 |ImageResultsTotal|integer|no|
 |VideoResultsTotal|integer|no|
-|NewsResultsTotal|integer|
+|NewsResultsTotal|integer|no|
 |SpellSuggestionsTotal|integer|no|
 |WebResults|array|no|
 |ImageResults|array|no|

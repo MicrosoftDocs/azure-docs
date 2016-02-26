@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="objectivec"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/17/2016"
 	ms.author="brandwe"/>
 
