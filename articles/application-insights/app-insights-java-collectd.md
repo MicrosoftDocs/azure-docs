@@ -40,7 +40,7 @@ Take a copy of the instrumentation key, which identifies the resource.
 On your Unix server machine(s):
 
 1. Install [collectd](http://collectd.org/) version 5.4.0 or later.
-2. Download the [Application Insights collectd writer plugin](https://azuredownloads.blob.core.windows.net/applicationinsights/applicationinsights-collectd-1.0.3.jar). Note the version number.
+2. Download the [Application Insights collectd writer plugin](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). Note the version number.
 3. Copy the plugin JAR into `/usr/share/collectd/java`.
 3. Edit `/etc/collectd/collectd.conf`:
  * Ensure that [the Java plugin](https://collectd.org/wiki/index.php/Plugin:Java) is enabled.
