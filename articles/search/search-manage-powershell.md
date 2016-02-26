@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="2/25/2016" 
+	ms.date="02/25/2016" 
 	ms.author="seasa"/>
 
 # Manage your Search service on Microsoft Azure with PowerShell
@@ -52,9 +52,11 @@ To specify the subscription, run the following command. In the following example
 	$serviceName = "your-service-name-lowercase-with-dashes"
 	$sku = "free" # or "standard" for a paid service
 	$location = "West US"
-	# You can get a list of potential locations with (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Search'}).Locations
+	# You can get a list of potential locations with
+	# (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Search'}).Locations
 	$resourceGroupName = "YourResourceGroup" 
-	# If you don't already have this resource group, you can create it with with New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+	# If you don't already have this resource group, you can create it with with 
+	# New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
 	# Register the arm provider idempotently. This must be done once per subscription
 	Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search" -Force
