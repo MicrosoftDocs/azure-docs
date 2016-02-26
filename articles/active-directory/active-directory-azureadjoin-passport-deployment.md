@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Enable Microsoft Passport for work in your organization | Microsoft Azure"
+	pageTitle="Enable Microsoft Passport for Work in your organization | Microsoft Azure"
 	description="Deployment instructions to enable Microsoft Passport in your organization."
 	services="active-directory"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 	ms.author="femila"/>
 
 
-# Enable Microsoft Passport for work in your organization
+# Enable Microsoft Passport for Work in your organization
 
 After connecting Windows 10 domain-joined devices with Azure Active Directory (Azure AD), do the following to enable Microsoft Passport for work in your organization.
 
@@ -27,7 +27,7 @@ To deploy user certificates based on Microsoft Passport keys, you need the follo
 
 - **System Center Configuration Manager version 1509 for Technical Preview**. For more information, see [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) and [System Center Configuration Manager Team Blog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
 - **Public key infrastructure (PKI)**: To enable Microsoft Passport for work by using user certificates, you must have a PKI in place. If you don’t have one, or you don’t want to use it for user certificates you can do this:
- - **Deploy a domain controller**: Install Windows Server 2016 build 10551 or newer, and follow the steps to [install a replica domain controller in an existing domain](https://technet.microsoft.com/library/jj574134.aspx) or to [install a new Active Directory forest, if you're creating a new environment](https://technet.microsoft.com/en-us/library/jj574166). (The ISOs are available for download on [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
+ - **Deploy a domain controller**: Install Windows Server 2016 build 10551 or newer, and follow the steps to [install a replica domain controller in an existing domain](https://technet.microsoft.com/library/jj574134.aspx) or to [install a new Active Directory forest, if you're creating a new environment](https://technet.microsoft.com/library/jj574166). (The ISOs are available for download on [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
 
 ## Configure Microsoft Passport for work via Group Policy in Active Directory
 
