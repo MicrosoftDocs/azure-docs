@@ -26,7 +26,7 @@ Connect to Office 365 Video to get information about an Office 365 video, get a 
 
 With Office 365 Video, you can:
 
-- Build your business flow based on the data you get from Office 365 Outlook. 
+- Build your business flow based on the data you get from Office 365 Video. 
 - Use actions that check the video portal status, get a list of all video in a channel, and more. These actions get a response, and then make the output available for other actions. For example, you can use the Bing Search API to search for Office 365 videos, and then use the Office 365 video API to get information about that video. If the video meets your requirements, you can post this video on Facebook. 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
@@ -37,7 +37,7 @@ The Office 365 Users API has the following actions available. There are no trigg
 
 | Triggers | Actions|
 | --- | --- |
-| None.| <ul><li>Checks video portal status</li><li>Get all viewable Channels</li><li>Get playback url of the Azure Media Services manifest for a video</li><li>Get the bearer token to get access to decrypt the video</li><li>Gets information about a particular office365 video</li><li>Lists all the office365 videos present in a channel</li></ul>
+| None | <ul><li>Checks video portal status</li><li>Get all viewable Channels</li><li>Get playback url of the Azure Media Services manifest for a video</li><li>Get the bearer token to get access to decrypt the video</li><li>Gets information about a particular office365 video</li><li>Lists all the office365 videos present in a channel</li></ul>
 
 All APIs support data in JSON and XML formats. 
 
@@ -55,7 +55,7 @@ After you create the connection, you enter the Office 365 video properties, like
 Applies to version: 1.0.
 
 ### Checks video portal status 
-Checks the video portal status to see if video services are enabled. 
+Checks the video portal status to see if video services are enabled.  
 ```GET: /{tenant}/IsEnabled``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -77,7 +77,7 @@ Checks the video portal status to see if video services are enabled.
 
 
 ### Get all viewable Channels 
-Gets all the channels the user has viewing access to. 
+Gets all the channels the user has viewing access to.  
 ```GET: /{tenant}/Channels``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -100,7 +100,7 @@ Gets all the channels the user has viewing access to.
 
 
 ### Lists all the office365 videos present in a channel 
-Lists all the office365 videos present in a channel. 
+Lists all the office365 videos present in a channel.  
 ```GET: /{tenant}/Channels/{channelId}/Videos``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -124,7 +124,7 @@ Lists all the office365 videos present in a channel.
 
 
 ### Gets information about a particular office365 video 
-Gets information about a particular office365 video. 
+Gets information about a particular office365 video.  
 ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -149,7 +149,7 @@ Gets information about a particular office365 video.
 
 
 ### Get playback url of the Azure Media Services manifest for a video 
-Get playback url of the Azure Media Services manifest for a video. 
+Get playback url of the Azure Media Services manifest for a video.  
 ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/playbackurl``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -175,7 +175,7 @@ Get playback url of the Azure Media Services manifest for a video.
 
 
 ### Get the bearer token to get access to decrypt the video 
-Get the bearer token to get access to decrypt the video. 
+Get the bearer token to get access to decrypt the video.  
 ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/token```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
