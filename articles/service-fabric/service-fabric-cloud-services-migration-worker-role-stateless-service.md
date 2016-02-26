@@ -50,10 +50,10 @@ Worker Role and Service Fabric service APIs offer similar entry points:
 
 **Entry Point** | **Worker Role** | **Service Fabric service**
 --- | --- | ---
-Processing | ```Run()``` | ```RunAsync()```
-VM start | ```OnStart()``` | N/A
-VM stop | ```OnStop()``` | N/A
-Open listener for client requests | N/A | <ul><li> ```CreateServiceInstanceListener()``` for stateless</li><li>```CreateServiceReplicaListener()``` for stateful</li></ul>
+Processing | `Run()` | `RunAsync()`
+VM start | `OnStart()` | N/A
+VM stop | `OnStop()` | N/A
+Open listener for client requests | N/A | <ul><li> `CreateServiceInstanceListener()` for stateless</li><li>`CreateServiceReplicaListener()` for stateful</li></ul>
 
 ### Worker Role
 
@@ -123,11 +123,11 @@ The Cloud Services environment API provides information and functionality for th
 
 **Environment Task** | **Cloud Services** | **Service Fabric**
 --- | --- | ---
-Configuration Settings and change notification | ```RoleEnvironment``` | ```CodePackageActivationContext```
-Local Storage | ```RoleEnvironment``` | ```CodePackageActivationContext```
-Endpoint Information | ```RoleInstance``` <ul><li>Current instance: ```RoleEnvironment.CurrentRoleInstance```</li><li>Other roles and instance: ```RoleEnvironment.Roles```</li> | <ul><li>```NodeContext``` for current Node address</li><li>```FabricClient``` and ```ServicePartitionResolver``` for service endpoint discovery</li> 
-Environment Emulation | ```RoleEnvironment.IsEmulated``` | N/A
-Simultaneous change event | ```RoleEnvironment``` | N/A
+Configuration Settings and change notification | `RoleEnvironment` | `CodePackageActivationContext`
+Local Storage | `RoleEnvironment` | `CodePackageActivationContext`
+Endpoint Information | `RoleInstance` <ul><li>Current instance: `RoleEnvironment.CurrentRoleInstance`</li><li>Other roles and instance: `RoleEnvironment.Roles`</li> | <ul><li>`NodeContext` for current Node address</li><li>`FabricClient` and `ServicePartitionResolver` for service endpoint discovery</li> 
+Environment Emulation | `RoleEnvironment.IsEmulated` | N/A
+Simultaneous change event | `RoleEnvironment` | N/A
 
 ## Configuration settings
 
@@ -143,7 +143,7 @@ Each of these packages can be independently versioned and upgraded. Similar to C
 ### Accessing configuration
 #### Cloud Services
 
-Configuration settings from ServiceConfiguration.*.cscfg can be accessed through ```RoleEnvironment```. These settings are globally available to all role instances in the same Cloud Service deployment.
+Configuration settings from ServiceConfiguration.*.cscfg can be accessed through `RoleEnvironment`. These settings are globally available to all role instances in the same Cloud Service deployment.
 
 ```C#
 
@@ -155,7 +155,7 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
 Each service has its own individual configuration package. There is no built-in mechanism for global configuration settings accessible by all applications in a cluster. When using Service Fabric's special Settings.xml configuration file within a configuration package, values in Settings.xml can be overwritten at the application level, making application-level configuration settings possible.
 
-Configuration settings are accesses within each service instance through the service's ```CodePackageActivationContext```.
+Configuration settings are accesses within each service instance through the service's `CodePackageActivationContext`.
 
 ```C#
 
@@ -177,7 +177,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 ### Configuration update events
 #### Cloud Services
 
-The ```RoleEnvironment.Changed``` event is used to notify all role instances when a change occurs in the environment, such as a configuration change. This is used to consume configuration updates without recycling role instances or restarting a worker process.
+The `RoleEnvironment.Changed` event is used to notify all role instances when a change occurs in the environment, such as a configuration change. This is used to consume configuration updates without recycling role instances or restarting a worker process.
 
 ```C#
 
