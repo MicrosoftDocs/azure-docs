@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resources for batch and HPC workloads in the cloud | Microsoft Azure"
-   description="Lists technical resources to help you run your large-scale parallel, batch, and high perforance computeing (HPC) workloads in Azure."
+   description="Lists technical resources to help you run your large-scale parallel, batch, and high performance computing (HPC) workloads in Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -10,7 +10,7 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="01/26/2016"
@@ -86,7 +86,6 @@ Use these Azure templates to deploy Linux HPC clusters.
 
 * [MPI forum](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
 
-
 ## Compute intensive instances
 
 Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.md), including compute intensive [A8 and A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) instances capable of connecting to a back-end RDMA network, to run your Linux and Windows HPC workloads.
@@ -119,19 +118,28 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.
 
 ## Customer stories
 
-* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
-
-* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
 
 * [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
 
 * [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
 
-* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
-
 * [Ludwig Institute of Cancer Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5830)
 
 * [Microsoft Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=15634)
+
+* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
+
+* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=26266)
+
+* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+
+* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
+
+
+
+
+
+
 
 ## Next steps
 

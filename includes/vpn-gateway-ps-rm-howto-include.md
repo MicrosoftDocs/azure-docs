@@ -2,7 +2,7 @@ There are a couple of different ways to install the modules: the PowerShell Gall
 
 When you install from the PowerShell Gallery, your files will be located by default in *%ProgramFiles%\WindowsPowerShell\Modules*. When you install from the Web Platform Installer, your files will be located by default in *%ProgramFiles%\Microsoft SDKs\Azure\PowerShell\*. Because of this, you'll want to stick with one or the other in order to avoid errors when you update your cmdlets in the future. The Web Platform Installer will receive updated cmdlets monthly. The Gallery receives updated versions of the cmdlets at the time they are released. For that reason, some people prefer to use the Gallery. 
 
-For additional information about installing Azure PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). 
+For additional information about installing Azure PowerShell, see [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md). 
 
 **To install modules from the PowerShell Gallery**
 

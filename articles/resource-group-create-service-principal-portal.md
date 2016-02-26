@@ -29,7 +29,7 @@ Azure portal in a later release. You can use the portal to assign the applicatio
 the service principal, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
 ## Concepts
-1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure active Directory](active-directory/active-directory-whatis.md)
+1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure Active Directory](active-directory/active-directory-whatis.md)
 2. Service Principal - an instance of an application in a directory.
 3. AD Application - a directory record in AAD that identifies an application to AAD. 
 

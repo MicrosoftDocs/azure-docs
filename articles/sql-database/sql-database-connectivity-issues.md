@@ -13,8 +13,8 @@
 	ms.workload="sql-database"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/02/2016"
+	ms.topic="article"
+	ms.date="02/17/2016"
 	ms.author="daleche"/>
 
 
@@ -106,6 +106,7 @@ To test your retry logic, you must simulate or cause an error than can be correc
 
 
 One way you can test your retry logic is to disconnect your client computer from the network while the program is running. The error will be:
+
 - **SqlException.Number** = 11001
 - Message: "No such host is known"
 
@@ -114,6 +115,7 @@ As part of the first retry attempt, your program can correct the misspelling, an
 
 
 To make this practical, you unplug your computer from the network before you start your program. Then your program recognizes a run time parameter that causes the program to:
+
 1. Temporarily add 11001 to its list of errors to consider as transient.
 2. Attempt its first connection as usual.
 3. After the error is caught, remove 11001 from the list.
@@ -126,6 +128,7 @@ To make this practical, you unplug your computer from the network before you sta
 
 
 Your program can purposely misspell the user name before the first connection attempt. The error will be:
+
 - **SqlException.Number** = 18456
 - Message: "Login failed for user 'WRONG_MyUserName'."
 
@@ -134,6 +137,7 @@ As part of the first retry attempt, your program can correct the misspelling, an
 
 
 To make this practical, your program could recognize a run time parameter that causes the program to:
+
 1. Temporarily add 18456 to its list of errors to consider as transient.
 2. Purposely add 'WRONG_' to the user name.
 3. After the error is caught, remove 18456 from the list.
@@ -249,14 +253,17 @@ If your program uses ADO.NET classes like **System.Data.SqlClient.SqlConnection*
 
 
 ADO.NET 4.6.1:
-- Adds support the TDS 7.4 protocol. This includes connection enhancements beyond those in 4.0.
+
+- For Azure SQL Database, there is improved reliability when you open a connection by using the **SqlConnection.Open** method. The **Open** method now incorporates best effort retry mechanisms in response to transient faults, for certain errors within the Connection Timeout period.
 - Supports connection pooling. This includes an efficient verification that the connection object it gives your program is functioning.
+
 
 
 When you use a connection object from a connection pool, we recommend that your program temporarily close the connection when not immediately using it. Re-opening a connection is not expensive the way creating a new connection is.
 
 
 If you are using ADO.NET 4.0 or earlier, we recommend that you upgrade to the latest ADO.NET.
+
 - As of November 2015, you can [download ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
 
 
@@ -269,6 +276,7 @@ If your program is failing to connect to Azure SQL Database, one diagnostic opti
 
 
 On any Windows computer, you can try these utilities:
+
 - SQL Server Management Studio (ssms.exe), which connects by using ADO.NET.
 - sqlcmd.exe, which connects by using [ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
 
@@ -285,6 +293,7 @@ Suppose you suspect that connection attempts are failing due to port issues. On 
 
 
 On Linux the following utilities might be helpful:
+
 - `netstat -nap`
 - `nmap -sS -O 127.0.0.1`
  - (Change the example value to be your IP address.)
@@ -323,6 +332,7 @@ Your client can assist in a diagnosis by logging all errors it encounters. You m
 
 
 Enterprise Library 6 (EntLib60) offers .NET managed classes to assist with logging:
+
 - [5 - As Easy As Falling Off a Log: Using the Logging Application Block](http://msdn.microsoft.com/library/dn440731.aspx)
 
 
@@ -391,18 +401,21 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 
 Enterprise Library 6 (EntLib60) is a framework of .NET classes that helps you implement robust clients of cloud services, one of which is the Azure SQL Database service. You can locate topics dedicated to each area in which EntLib60 can assist by first visiting:
+
 - [Enterprise Library 6 – April 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 
 Retry logic for handling transient errors is one area in which EntLib60 can assist:
+
 - [4 - Perseverance, Secret of All Triumphs: Using the Transient Fault Handling Application Block](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
 A short C# code sample that uses EntLib60 in its retry logic is available at:
+
 - [Code sample: Retry logic from Enterprise Library 6, in C# for connecting to SQL Database](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
-> [AZURE.NOTE] The source code for EntLib60 is available for public [download](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft has no plans to make further feature or maintenance updates to EntLib.
+> [AZURE.NOTE] The source code for EntLib60 is available for public [download](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft has no plans to make further feature updates or maintenance updates to EntLib.
 
 
 ### EntLib60 classes for transient errors and retry

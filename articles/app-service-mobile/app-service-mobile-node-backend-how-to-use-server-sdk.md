@@ -124,7 +124,7 @@ Visual Studio 2015 requires an extension to develop Node.js applications within 
         // Azure Mobile Apps Initialization
         var mobile = azureMobileApps();
         mobile.tables.add('TodoItem');
-        app.use('mobile');
+        app.use(mobile);
 
     Save the file.
 
@@ -661,7 +661,7 @@ You can also specify authentication on specific operations:
 		get: function (req, res, next) {
 			var date = { currentTime: Date.now() };
 			res.status(200).type('application/json').send(date);
-		});
+		}
 	};
 	// The GET methods must be authenticated.
 	api.get.access = 'authenticated';
@@ -698,6 +698,39 @@ body-parser to accept larger file uploads:
 You can adjust the 50Mb limit we have shown above.  Note that the file will be base-64 encoded before transmission, which will
 increase the size of the actual upload.
 
+### <a name="howto-customapi-sql"></a>How to: Execute Custom SQL Statements
+
+The Azure Mobile Apps SDK allows access to the entire Context through the request object, allowing you to execute
+parameterized SQL statements to the defined data provider easily:
+
+    var api = {
+        get: function (request, response, next) {
+            // Check for parameters - if not there, pass on to a later API call
+            if (typeof request.params.completed === 'undefined')
+                return next();
+
+            // Define the query - anything that can be handled by the mssql
+            // driver is allowed.
+            var query = {
+                sql: 'UPDATE TodoItem SET complete=@completed',
+                parameters: [{
+                    completed: request.params.completed
+                }]
+            };
+
+            // Execute the query.  The context for Azure Mobile Apps is available through
+            // request.azureMobile - the data object contains the configured data provider.
+            request.azureMobile.data.execute(query)
+            .then(function (results) {
+                response.json(results);
+            });
+        }
+    };
+
+    api.get.access = 'authenticated';
+    module.exports = api;
+
+This endpoint can be accessed by s
 ## <a name="Debugging"></a>Debugging and troubleshooting
 
 The Azure App Service provides several debugging and troubleshooting techniques for Node.js applications.

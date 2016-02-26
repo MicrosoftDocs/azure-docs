@@ -100,16 +100,19 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 1 Log in to the POC host:
 
 - Go to the following path and ensure 
-\\\\sofs\Share\CRP\GuestArtifactRepository and ensure Microsoft.Powershell.DSC.2.11.0.0.zip exists in the path. 
+\\\\sofs\Share\CRP\GuestArtifactRepository and ensure Microsoft.Powershell.DSC.2.11.0.0.zip exists in the path (or a higher version) 
 -  Go to the \\\\sofs\Share\CRP\PlatformImages folder. You should see the WindowsServer2012R2DatacenterEval.VHD image file. But you need to create an image that includes .NET 3.5 and save it here. For instructions on how to create that image, see [create a .NET 3.5 compatible base server image in your Azure Stack Platform Image Repository](azure-stack-add-image-pir.md#Create-an-image-of-WindowsServer2012R2-including-.NET-3.5). Then use the new image filename when you define the manifest file's **Filename** parameter.
+-  This new image should either be set as the default image on the Azure Stack Technical Preview installation (SKU value is 2012-R2-Datacenter), or the **SqlServiceDSCTemplate.json** template should be edited to point to the new SKU you just created.
+-  You may not need to create this new image, if you have already done so for another resource provider, like the SQL Server Resource Provider
  
 2 Login to the ClientVM: 
 
 - Download and expand the [WebAppsDeployment.zip](http://go.microsoft.com/fwlink/?LinkId=723982) to the client machine. 
 - Run the **Deploy-SqlServerDSC.ps1** script to provision a new VM and install SQL server.
-**NOTE** Make sure to remember the resource group used in the script to provision the SQL virtual machine. The same resource group should be used during Web Apps deployment in the next step. When prompted to create a user account on the VM, the username admin will be auto-populated and you will be asked to submit a password. Make sure to record this password for as you’ll need it again when you deploy the Web App Azure Resource Manager template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime SQL database located on this SQL server.
 
-**NOTE** The resource group used in the script to provision the SQL vm should be the same resource group used during the WebApps deployment in the next step. The script default for the Resource Group is: WebsitesSQL. 
+**NOTE** Make sure to remember the resource group used in the script to provision the SQL virtual machine. When prompted to create a user account on the VM, the username admin will be auto-populated and you will be asked to submit a password. Make sure to record this password for as you’ll need it again when you deploy the Web App Azure Resource Manager template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime SQL database located on this SQL server.
+
+**NOTE** Make a note of the resource group used in the script to provision the SQL VM, as it should be the same resource group used during the WebApps deployment in the next step. The script default for the Resource Group is: WebsitesSQL. 
 
 Once the deployment completes, navigate to the Resource Group in the Azure Stack portal, select the Sq0-NIC resource, and take note of the Private IP address (it will be something like: 10.0.2.4). This IP address will be used later in this deployment process.
 Record the IP address for the SQL Server.  To do this Browse > Resource Groups > select resource group used for installing SQL server > Resources > Sq0-NIC  This address will be needed when running the Azure Resource Manager template.
@@ -181,7 +184,7 @@ The Azure Stack Web App Azure Resource Manager template will collect information
 - The SQL server name is the private IP address gathered after the SQL Server template deployment (found on Sq0-NIC resource blade, as noted above).
 - The SA password is the local SQL admin password used during the deployment of the SQL Server template.
 - The “number of workers” item will only create Shared workers.
-- There is not a lot of space for additional VMs in the TP1 POC environment so it is best to just go with 1 instance of each role type.
+- There may not be a lot of resources left for additional VMs in the single-host TP1 POC environment so it is usually best to just go with 1 instance of each role type.
 - The resource group used for deploying web apps must be the same as the one used to deploy the SQL server (as noted above, the default Resource Group for the SQL Server template deployment is: WebsitesSQL).
 - Replace the *SQLServerPassword* with password you used when you ran the **Deploy-SQLServerDSC.ps1** script.
 
@@ -249,6 +252,8 @@ DNS entries need to be made for the Front End and Management Server VIPs.  To do
 
 **Set up the wildcard certificates**
 
+**NOTE** You may not need to go through this step if you have already created a wildcard certificate for another resource provider, like the SQL Server Resource Provider.
+
 To configure your Azure Stack Web Apps deployment with wildcard certificates you need to first get the wildcard certificate to configure the system with.  To do this: 
 
 1. On the Azure Stack POC machine, open Remote Desktop Connection, and sign in to the **portalvm** as the domain administrator.
@@ -270,6 +275,8 @@ To configure your Azure Stack Web Apps deployment with wildcard certificates you
 
 
 **Export wildcard certificate**
+
+**NOTE** You may not need to go through this step if you have already created a wildcard certificate for another resource provider, like the SQL Server Resource Provider.
 
 1. Open Microsoft Management Console (MMC), click **File**, and then click **Add/Remove Snap-in**.
 
@@ -372,7 +379,7 @@ The new certificate is now saved to the desktop on the **portalvm** virtual mach
 
 3. In the **Register resource provider** blade, type a **Display Name**, like *WebApps*.
 
-4. In the **Manifest endpoint** box, type the location of the manifest file, like *htts://management.azurestack.local/*.
+4. In the **Manifest endpoint** box, type the location of the manifest file, like *https://management.azurestack.local/*.
 
 5. Type the admin credentials for **Username** and **Password**.
 
@@ -383,6 +390,8 @@ The new certificate is now saved to the desktop on the **portalvm** virtual mach
 8. Click **Create**. In about five minutes, close and reopen the browser, and then sign in to the Azure Stack portal as an admin.
 
 9. On the **Dashboard**, click the **webapps** tile to explore the new resource provider settings. 
+
+**NOTE** The password requested during registration is the one specified during the ARM deployment.
 
 **Deploy a new Web App**
 

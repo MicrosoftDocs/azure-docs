@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/28/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma"/>
 
 # Configure an application gateway for SSL offload by using the classic deployment model
@@ -24,12 +24,11 @@
 Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
 
 
-
 ## Before you begin
 
 1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
-2. Verify that you have a working virtual network with a valid subnet.
-3. Verify that you have back-end servers either in the virtual network or with a public IP/VIP assigned.
+2. Verify that you have a working virtual network with a valid subnet. Make sure that no virtual machines or cloud deployments are using the subnet. The application gateway must be by itself in a virtual network subnet.
+3. The servers that you will configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
 To configure SSL offload on an application gateway, do the following steps in the order listed:
 
@@ -56,7 +55,6 @@ This sample shows the cmdlet on the first line, followed by the output.
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 To validate that the gateway was created, you can use the **Get-AzureApplicationGateway** cmdlet.
-
 
 In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state.
 
