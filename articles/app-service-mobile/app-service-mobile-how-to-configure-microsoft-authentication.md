@@ -26,8 +26,7 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
 
 Universal Windows apps and Windows store apps must be registered through the Windows Dev Center. This enables you to more more easily configure push notifications for your app in the future.  
 
->[AZURE.NOTE]Skip this section for Windows Phone 8, Windows Phone 8.1 Silverlight, and all other non-Windows apps.  
->If you have already configured push notifications for your Windows app, you can also skip this section.
+>[AZURE.NOTE]Skip this section for Windows Phone 8, Windows Phone 8.1 Silverlight, and all other non-Windows apps. If you have already configured push notifications for your Windows app, you can also skip this section.
 
 1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your app with Microsoft Account.
 
@@ -86,7 +85,7 @@ If you have already registered your Windows app in the previous section, you can
 
 You are now ready to use Microsoft Account for authentication in your app.
 
-## <a name="related-content"> </a>Related Content
+## <a name="related-content"> </a>Related content
 
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
