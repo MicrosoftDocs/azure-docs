@@ -83,7 +83,7 @@ Now copy/paste these **App Key** and **App Secret** values in your Goole Drive A
 When you add this API to your logic apps, you must authorize logic apps to connect to your Google Drive.
 
 1. Sign in to your Google Drive account.
-2. Select **Authorize**, and allow your logic apps to connect and use your Google Drive. 
+2. Allow your logic apps to connect and use your Google Drive. 
 
 After you create the connection, you enter the Google Drive properties, like the folder path or file name. The **REST API reference** in this topic describes these properties.
 
@@ -94,7 +94,7 @@ After you create the connection, you enter the Google Drive properties, like the
 Applies to version: 1.0.
 
 ### Create file    
-Uploads a file to Google Drive. 
+Uploads a file to Google Drive.  
 ```POST: /datasets/default/files```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -111,7 +111,7 @@ Uploads a file to Google Drive.
 
 
 ### Insert row    
-Inserts a row into a Google Sheet. 
+Inserts a row into a Google Sheet.  
 ```POST: /datasets/{dataset}/tables/{table}/items```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -128,7 +128,7 @@ Inserts a row into a Google Sheet.
 
 
 ### Copy file    
-Copies a file on Google Drive. 
+Copies a file on Google Drive.  
 ```POST: /datasets/default/copyFile```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -145,7 +145,7 @@ Copies a file on Google Drive.
 
 
 ### Delete file    
-Deletes a file from Google Drive. 
+Deletes a file from Google Drive.  
 ```DELETE: /datasets/default/files/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -160,7 +160,7 @@ Deletes a file from Google Drive.
 
 
 ### Delete Row    
-Deletes a row from a Google Sheet. 
+Deletes a row from a Google Sheet.  
 ```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -177,7 +177,7 @@ Deletes a row from a Google Sheet.
 
 
 ### Extract archive to folder    
-Extracts an archive file into a folder in Google Drive (example: .zip). 
+Extracts an archive file into a folder in Google Drive (example: .zip).  
 ```POST: /datasets/default/extractFolderV2```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -194,7 +194,7 @@ Extracts an archive file into a folder in Google Drive (example: .zip).
 
 
 ### Get file content using id    
-Retrieves file content from Google Drive using id. 
+Retrieves file content from Google Drive using id.  
 ```GET: /datasets/default/files/{id}/content```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -209,7 +209,7 @@ Retrieves file content from Google Drive using id.
 
 
 ### Get file content using path    
-Retrieves file content from Google Drive using path. 
+Retrieves file content from Google Drive using path.  
 ```GET: /datasets/default/GetFileContentByPath```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -224,7 +224,7 @@ Retrieves file content from Google Drive using path.
 
 
 ### Get file metadata using id    
-Retrieves file metadata from Google Drive using id. 
+Retrieves file metadata from Google Drive using id.  
 ```GET: /datasets/default/files/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -239,7 +239,7 @@ Retrieves file metadata from Google Drive using id.
 
 
 ### Get file metadata using path    
-Retrieves file metadata from Google Drive using path. 
+Retrieves file metadata from Google Drive using path.  
 ```GET: /datasets/default/GetFileByPath```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -254,7 +254,7 @@ Retrieves file metadata from Google Drive using path.
 
 
 ### Get row    
-Retrieves a single row from a Google Sheet.
+Retrieves a single row from a Google Sheet.  
 ```GET: /datasets/{dataset}/tables/{table}/items/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -271,7 +271,7 @@ Retrieves a single row from a Google Sheet.
 
 
 ### Update file    
-Updates a file in Google Drive. 
+Updates a file in Google Drive.  
 ```PUT: /datasets/default/files/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -287,7 +287,7 @@ Updates a file in Google Drive.
 
 
 ### Update row    
-Updates a row in a Google Sheet. 
+Updates a row in a Google Sheet.  
 ```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
