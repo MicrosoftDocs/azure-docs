@@ -55,7 +55,7 @@ First, deploy a simple web app to Azure App Service.
     - Python app using Django
     - Java app using Eclipse (and put the WAR file in the &lt;project_root>/webapps directory like you would on Tomcat)
 
-2. Install the [Azure CLI](xplat-cli-install.md). If you have NPM installed already, you can just install it with the following command:
+2. Install the [Azure CLI](../xplat-cli-install.md). If you have NPM installed already, you can just install it with the following command:
 
         npm install azure-cli -g
 
