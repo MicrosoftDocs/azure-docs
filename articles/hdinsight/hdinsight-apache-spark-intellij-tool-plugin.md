@@ -205,8 +205,6 @@ While running the local Spark Scala application on a Windows computer, you might
 
 2. In the next window, provide the project details.
 
-	![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
-
 	* Provide a project name and project location.
 	* For **Project SDK**, make sure you provide a Java version greater than 7.
 	* For **Scala SDK**, click **Create**, click **Download**, and then select the version of Scala to use. **Make sure you do not use version 2.11.x**. This sample uses version **2.10.6**.
@@ -215,6 +213,9 @@ While running the local Spark Scala application on a Windows computer, you might
 
 	* For **Spark SDK**, download and use the SDK from [here](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
 	* Click **Finish**.
+
+		![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
+
 
 3. Define the project structure to create an artifact (packaged jar) that will eventually contain the code that runs on the cluster. 
 
