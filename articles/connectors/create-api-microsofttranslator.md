@@ -15,13 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Get started with the Microsoft Translator API
-Connect to Microsoft Translator to translate text, detect a language, and more. 
+Connect to Microsoft Translator to translate text, detect a language, and more. The Microsoft Translator API can be be used from:
 
-The Microsoft Translator can be be used from PowerApps Enterprise and logic apps. 
+- PowerApps 
+- Logic apps 
 
 With Microsoft Translator, you can: 
 
@@ -63,9 +64,10 @@ Now copy/paste the **Client Id** and **Client Secret** values in your Translator
 
 
 ## Swagger REST API reference
+Applies to version: 1.0.
 
 ### Detect language    
-Detects source language of given text. 
+Detects source language of given text.  
 ```GET: /Detect```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -80,7 +82,7 @@ Detects source language of given text.
 
 
 ### Text to speech    
-Converts a given text into speech as an audio stream in wave format. 
+Converts a given text into speech as an audio stream in wave format.  
 ```GET: /Speak```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -96,7 +98,7 @@ Converts a given text into speech as an audio stream in wave format.
 
 
 ### Translate text    
-Translates text to a specified language using Microsoft Translator. 
+Translates text to a specified language using Microsoft Translator.  
 ```GET: /Translate```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -114,7 +116,7 @@ Translates text to a specified language using Microsoft Translator.
 
 
 ### Get languages    
-Retrieves all languages that Microsoft Translator supports. 
+Retrieves all languages that Microsoft Translator supports.  
 ```GET: /TranslatableLanguages```
 
 There are no parameters for this call. 
@@ -127,7 +129,7 @@ There are no parameters for this call.
 
 
 ### Get speech languages    
-Retrieves the languages available for speech synthesis. 
+Retrieves the languages available for speech synthesis.  
 ```GET: /SpeakLanguages``` 
 
 There are no parameters for this call.
