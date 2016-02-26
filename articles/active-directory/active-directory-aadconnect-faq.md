@@ -32,14 +32,18 @@ With the builds from February 2016, this is supported.
 **Q: I have a firewall, network device, or something else that limits the maximum time connections can stay open on my network. How long should my client side timeout threshold be when using Azure AD Connect?**  
 All networking software, physical devices, or anything else that limits the maximum time connections can remain open should use a threshold of at least 5 minutes (300 seconds) for connectivity between the server where the Azure AD Connect client is installed and Azure Active Directory. This also applies to all previously released Microsoft Identity synchronization tools.
 
-**Q: What do I do if I receive an email that asking me to renew my Office 365 certificate**  
-Use the guidance that is outlined in the [renew certificates](active-directory-aadconnect-o365-certs.md) topic on how to renew the certificate.
-
 **Q: Are SLDs (Single Label Domains) supported?**  
 No, Azure AD Connect does not support on-premises forests/domains using SLDs.
 
 **Q: Are "dotted" NetBios named supported?**  
 No, Azure AD Connect does not support on-premises forests/domains where the NetBios name contains a period "." in the name.
+
+## Federation
+**Q: What do I do if I receive an email that asking me to renew my Office 365 certificate**  
+Use the guidance that is outlined in the [renew certificates](active-directory-aadconnect-o365-certs.md) topic on how to renew the certificate.
+
+**Q: I have "Automatically update relying party" set for O365 relying party. Do I have to take any action when my token signing certificate automatically rolls over?**</br>
+Use the guidance that is outlined in the article [renew certificates](active-directory-aadconnect-o365-certs.md)
 
 ## Environment
 **Q: Is it supported to rename the server after Azure AD Connect has been installed?**  
