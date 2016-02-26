@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Azure Service Bus](../app-service-logic/app-service-logic-connector-Azure Service Bus.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Azure Service Bus](../app-service-logic/app-service-logic-connector-azureservicebus.md).
 
 With Azure Service Bus, you can:
 
@@ -56,6 +56,22 @@ To use the Azure Service Bus API, you first create a **connection** then provide
 |Property| Required|Description|
 | ---|---|---|
 |ConnectionString|Yes|Provide Azure Service Bus Connection String|  
+
+Follow these steps to create a service bus **connection** that you can then use in your logic app:
+
+1. Select **Recurrence**
+2. Select a **Frequency** and enter an **Interval**     
+![Configure Service Bus][1] 
+3. Select **Add an action**     
+ ![Configure Service Bus][2]   
+4. Enter **Service Bus** in the search box and wait for the search to return all entries with Service Bus in the name
+5. Select **Service Bus - Send message**  
+![Configure Service Bus][3]
+7. Enter a **Connection name** and a **Connection string** then select **Create connection**:      
+![Configure Service Bus][4]
+7. After the connection is created, you'll be presented with the **Send message** dialog. Enter all the required information for sending a message.  
+![Configure Service Bus][5]
+8. Select the **Save** button on the menu above to save your work.    
 
 >[AZURE.TIP] You can use this connection in other logic apps.
 
@@ -146,3 +162,10 @@ ContentTransferEncoding
 
 ## Next Steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+[1]: ./media/create-api-servicebus/connectionconfig1.png
+[2]: ./media/create-api-servicebus/connectionconfig2.png 
+[3]: ./media/create-api-servicebus/connectionconfig3.png
+[4]: ./media/create-api-servicebus/connectionconfig4.png
+[5]: ./media/create-api-servicebus/connectionconfig5.png
+[6]: ./media/create-api-servicebus/connectionconfig6.png

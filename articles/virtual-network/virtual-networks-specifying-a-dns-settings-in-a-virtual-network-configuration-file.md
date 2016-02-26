@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="telmos" />
+   ms.author="telmos" /> 
+
 
 # Specifying DNS settings in a virtual network configuration file
 
