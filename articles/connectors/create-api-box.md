@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Get started with the Box API
-Connect to Box and create files, delete files, and more.
+Connect to Box and create files, delete files, and more. The Box API can be used from:
 
-The Box API can be used from logic apps. 
+- Logic apps 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Box connector](../app-service-logic/app-service-logic-connector-box.md).
 
@@ -52,6 +52,7 @@ After you create the connection, you enter the Box properties. The **REST API re
 >[AZURE.TIP] You can use this same Box connection in other logic apps.
 
 ## Swagger REST API reference
+Applies to version: 1.0.
 
 ### Create file
 Uploads a file to Box.  
