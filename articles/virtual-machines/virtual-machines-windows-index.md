@@ -37,7 +37,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Learn about Azure Resource Manager deployments](../resource-group-overview.md)
 
-[Virtual Machines and Containers in Azure](virtual-machines-windows-and-containers.md)
+[Virtual Machines and Containers in Azure](virtual-machines-windows-containers.md)
 
 [Virtual Machine Scale Sets Overview](virtual-machines-windows-scale-sets-overview.md)
 
@@ -205,7 +205,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 
 
-## Windows VM in the classic deployment model
+## Windows VMs in the classic deployment model
 
 ### Overview
 
@@ -215,7 +215,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Compare VMs, websites and cloud services](../app-service-web/choose-web-site-cloud-service-vm.md)
 
-[Virtual Machines and Containers in Azure](virtual-machines-windows-and-containers.md)
+[Virtual Machines and Containers in Azure](virtual-machines-windows-containers.md)
 
 
 
