@@ -52,7 +52,7 @@ It also includes read-only keys to provide users with read only-access to Docume
 3.      On the **Keys** blade, click the **Copy** button to the right of the
 key you wish to copy.
 
-  ![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-manage-account/copykeys.jpg)
+  ![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-manage-account/copykeys.png)
 
 ### Regenerate access keys
 
