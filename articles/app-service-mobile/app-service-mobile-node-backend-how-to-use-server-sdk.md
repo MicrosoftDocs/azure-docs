@@ -497,7 +497,7 @@ will provide this functionality:
     table.insert(function (context) {
 	    context.item.userId = context.user.id;
 	    return context.execute();
-    }
+    });
 
     module.exports = table;
 
