@@ -14,63 +14,56 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/18/2016"
+ms.date="02/25/2016"
 ms.author="deonhe"/>
 
 # Get started with the Office365 Video API
+Connect to Office 365 Video to get information about an Office 365 video, get a list of videos, and more. The Office 365 Video API can be used from:
 
-The Office 365 Video API provides an API to work with Office 365 channels and videos.
+- Logic apps 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. This API is not supported on any previous schema versions.
 
-With the Office365 Video, you can:
+With Office 365 Video, you can:
 
-* Use it to build logic apps
+- Build your business flow based on the data you get from Office 365 Video. 
+- Use actions that check the video portal status, get a list of all video in a channel, and more. These actions get a response, and then make the output available for other actions. For example, you can use the Bing Search API to search for Office 365 videos, and then use the Office 365 video API to get information about that video. If the video meets your requirements, you can post this video on Facebook. 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Let's talk about triggers and actions
+## Triggers and actions
 
-The Office365 Video API can be used as an action; there are no triggers. All APIs support data in JSON and XML formats. 
+The Office 365 Users API has the following actions available. There are no triggers.
 
- The Office365 Video API has the following action(s) and/or trigger(s) available:
+| Triggers | Actions|
+| --- | --- |
+| None | <ul><li>Checks video portal status</li><li>Get all viewable Channels</li><li>Get playback url of the Azure Media Services manifest for a video</li><li>Get the bearer token to get access to decrypt the video</li><li>Gets information about a particular office365 video</li><li>Lists all the office365 videos present in a channel</li></ul>
 
-### Office365 Video API actions
-You can take these action(s):
+All APIs support data in JSON and XML formats. 
 
-|Action|Description|
-|--- | ---|
-|IsVideoPortalEnabled|Checks the video portal status to see if video services are enabled|
-|ListViewableChannels|Gets all the channels the user has viewing access to|
-|ListVideos|Lists all the office365 videos present in a channel|
-|GetVideo|Gets information about a particular office365 video|
-|GetPlaybackUrl|Get playback url of the Azure Media Services manifest for a video|
-|GetStreamingKeyAccessToken|Get the bearer token to get access to decrypt the video|
-ActionsTableReplaceMeLater## Create a connection to Office365 Video API
-To use the Office365 Video API, you first create a **connection** then provide the details for these properties: 
+## Create a connection to Office365 Video API
+When you add this API to your logic apps, you must sign-in to your Office 365 Video  account and allow logic apps to connect to your account.
 
-|Property| Required|Description|
-| ---|---|---|
-|Token|Yes|Provide SharePoint Online Credentials|
+1. Sign in to your Office 365 Video account.
+2. Allow your logic apps to connect and use your Office 365 account. 
 
+After you create the connection, you enter the Office 365 video properties, like the tenant name or channel ID. The **REST API reference** in this topic describes these properties.
 
->[AZURE.TIP] You can use this connection in other logic apps.
+>[AZURE.TIP] You can use this same Office 365 Video connection in other logic apps.
 
-## Office365 Video REST API reference
-#### This documentation is for version: 1.0
+## Swagger REST API reference
+Applies to version: 1.0.
 
-
-### Checks the video portal status to see if video services are enabled
-**```GET: /{tenant}/IsEnabled```** 
-
-
+### Checks video portal status 
+Checks the video portal status to see if video services are enabled.  
+```GET: /{tenant}/IsEnabled``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |tenant|string|yes|path|none|The tenant name for the directory the user is part of|
 
 
-### Here are the possible responses:
+#### Response
 
 |Name|Description|
 |---|---|
@@ -80,21 +73,19 @@ To use the Office365 Video API, you first create a **connection** then provide t
 |404|Not Found|
 |500|Internal Server Error|
 |default|Operation Failed.|
-------
 
 
 
-### Gets all the channels the user has viewing access to
-**```GET: /{tenant}/Channels```** 
-
-
+### Get all viewable Channels 
+Gets all the channels the user has viewing access to.  
+```GET: /{tenant}/Channels``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |tenant|string|yes|path|none|The tenant name for the directory the user is part of|
 
 
-### Here are the possible responses:
+#### Response
 
 |Name|Description|
 |---|---|
@@ -104,14 +95,13 @@ To use the Office365 Video API, you first create a **connection** then provide t
 |404|Not Found|
 |500|Internal Server Error|
 |default|Operation Failed.|
-------
 
 
 
-### Lists all the office365 videos present in a channel
-**```GET: /{tenant}/Channels/{channelId}/Videos```** 
 
-
+### Lists all the office365 videos present in a channel 
+Lists all the office365 videos present in a channel.  
+```GET: /{tenant}/Channels/{channelId}/Videos``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -119,7 +109,7 @@ To use the Office365 Video API, you first create a **connection** then provide t
 |channelId|string|yes|path|none|The channel id from which videos need to be fetched|
 
 
-### Here are the possible responses:
+#### Response
 
 |Name|Description|
 |---|---|
@@ -129,14 +119,13 @@ To use the Office365 Video API, you first create a **connection** then provide t
 |404|Not Found|
 |500|Internal Server Error|
 |default|Operation Failed.|
-------
 
 
 
-### Gets information about a particular office365 video
-**```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}```** 
 
-
+### Gets information about a particular office365 video 
+Gets information about a particular office365 video.  
+```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -145,7 +134,7 @@ To use the Office365 Video API, you first create a **connection** then provide t
 |videoId|string|yes|path|none|The video id|
 
 
-### Here are the possible responses:
+#### Response
 
 |Name|Description|
 |---|---|
@@ -155,14 +144,13 @@ To use the Office365 Video API, you first create a **connection** then provide t
 |404|Not Found|
 |500|Internal Server Error|
 |default|Operation Failed.|
-------
 
 
 
-### Get playback url of the Azure Media Services manifest for a video
-**```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/playbackurl```** 
 
-
+### Get playback url of the Azure Media Services manifest for a video 
+Get playback url of the Azure Media Services manifest for a video.  
+```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/playbackurl``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -172,7 +160,7 @@ To use the Office365 Video API, you first create a **connection** then provide t
 |streamingFormatType|string|yes|query|none|Streaming format type. 1 - Smooth Streaming or MPEG-DASH. 0 - HLS Streaming|
 
 
-### Here are the possible responses:
+#### Response
 
 |Name|Description|
 |---|---|
@@ -182,14 +170,13 @@ To use the Office365 Video API, you first create a **connection** then provide t
 |404|Not Found|
 |500|Internal Server Error|
 |default|Operation Failed.|
-------
 
 
 
-### Get the bearer token to get access to decrypt the video
-**```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/token```** 
 
-
+### Get the bearer token to get access to decrypt the video 
+Get the bearer token to get access to decrypt the video.  
+```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/token```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -198,7 +185,7 @@ To use the Office365 Video API, you first create a **connection** then provide t
 |videoId|string|yes|path|none|The video id|
 
 
-### Here are the possible responses:
+#### Response
 
 |Name|Description|
 |---|---|
@@ -208,54 +195,33 @@ To use the Office365 Video API, you first create a **connection** then provide t
 |404|Not Found|
 |500|Internal Server Error|
 |default|Operation Failed.|
-------
 
 
+## Object definitions
 
-## Object definition(s): 
+#### Channel: Channel class
 
- **Channel**:Channel class
-
-Required properties for Channel:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
+| Name | Data Type | Required|
+|---|---|---|
+|Id|string|no|
+|Title|string|no|
+|Description|string|no|
 
 
-| Name | Data Type |
-|---|---|
-|Id|string|
-|Title|string|
-|Description|string|
+#### Video 
 
-
-
- **Video**:Video class
-
-Required properties for Video:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|Id|string|
-|Title|string|
-|Description|string|
-|CreationDate|string|
-|Owner|string|
-|ThumbnailUrl|string|
-|VideoUrl|string|
-|VideoDuration|integer|
-|VideoProcessingStatus|integer|
-|ViewCount|integer|
+| Name | Data Type |Required|
+|---|---|---|
+|Id|string|no|
+|Title|string|no|
+|Description|string|no|
+|CreationDate|string|no|
+|Owner|string|no|
+|ThumbnailUrl|string|no|
+|VideoUrl|string|no|
+|VideoDuration|integer|no|
+|VideoProcessingStatus|integer|no|
+|ViewCount|integer|no|
 
 
 ## Next Steps
