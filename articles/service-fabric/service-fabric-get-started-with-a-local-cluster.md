@@ -118,7 +118,7 @@ Now that we have deployed the application, let's look at some of the app details
 3. Finally, take a look at the list of partitions for WordCountService:
 
     ```powershell
-    Get-ServiceFabricPartition -ApplicationName 'fabric:/WordCount/WordCountService'
+    Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
     ```
 
     ![View the service partitions in PowerShell][ps-getsfpartitions]
