@@ -79,7 +79,7 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
 
 	* For **Spark SDK**, download and use the SDK from [here](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
 
-	![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
+		![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
 
 	* Click **Finish**.
 
