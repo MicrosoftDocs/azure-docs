@@ -147,7 +147,11 @@ Currently, the supported aliases are:
 
 | Alias name | Description |
 | ---------- | ----------- |
-| resourcetype | Supported resource types are: |
+| {resourceType}/sku.name | Supported resource types are: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
+| Microsoft.Cache/Redis/enableNonSslPort |  |
+| Microsoft.Cache/Redis/shardCount |  |
 
 
 | Alias name             | Description                                     | 
