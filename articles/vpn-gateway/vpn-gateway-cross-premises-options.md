@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="vpn-gateway"
