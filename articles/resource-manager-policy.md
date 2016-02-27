@@ -154,16 +154,6 @@ Currently, the supported aliases are:
 | Microsoft.Cache/Redis/shardCount |  |
 
 
-| Alias name             | Description                                     | 
-| :------------- | :------------- |
-| {resourceType}/sku.name   | Supported resource types are: Microsoft.Storage/storageAccounts, Microsoft.Scheduler/jobcollections, Microsoft.DocumentDB/databaseAccounts, Microsoft.Cache/Redis， Microsoft.CDN/profiles  |
-| {resourceType}/sku.family | Supported resource types are Microsoft.Cache/Redis|
-| {resource'Type}/sku.capacity | Supported resource types are Microsoft.Cache/Redis|
-| Microsoft.Cache/Redis/enableNonSslPort||
-|Microsoft.Cache/Redis/shardCount||
-
-
-
 To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). Currently, policy only works on PUT requests. 
 
 
