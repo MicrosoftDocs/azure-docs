@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/26/2016" 
 	ms.author="stefsch"/>	
 
 # How To Control Inbound Traffic to an App Service Environment
@@ -49,12 +49,12 @@ The following is a list of ports used by an App Service Environment:
 ## Outbound Connectivity and DNS Requirements ##
 For an App Service Environment to function properly, it requires outbound access to Azure Storage worldwide as well as Sql Database in the same Azure region.  If outbound Internet access is blocked in the virtual network, App Service Environments will not be able to access these Azure endpoints.
 
-App Service Environments also require a valid DNS infrastructure configured for the virtual network.  If for any reason the DNS configuration is changed after an App Service Environment has been created, developers can force an App Service Environment to pick up the new DNS configuration.  Triggering a rolling environment reboot using the "Restart" icon located at the top of the App Service Environment management blade in the [new management portal][NewPortal] will cause the environment to pick up the new DNS configuration.
+App Service Environments also require a valid DNS infrastructure configured for the virtual network.  If for any reason the DNS configuration is changed after an App Service Environment has been created, developers can force an App Service Environment to pick up the new DNS configuration.  Triggering a rolling environment reboot using the "Restart" icon located at the top of the App Service Environment management blade in the [Azure portal][NewPortal] will cause the environment to pick up the new DNS configuration.
 
 The following list details the connectivity and DNS requirements for an App Service Environment:
 
 -  Outbound network connectivity to Azure Storage endpoints worldwide.  This includes endpoints located in the same region as the App Service Environment, as well as storage endpoints located in **other** Azure regions.  Azure Storage endpoints resolve under the following DNS domains: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* and *file.core.windows.net*.  
--  Outbound network connectivity to Sql DB endpoints located in the same region as the App Service Environment.  SQl DB endpoints resolve under the following domain:  *database.windows.net*.
+-  Outbound network connectivity to Sql DB endpoints located in the same region as the App Service Environment.  Sql DB endpoints resolve under the following domain:  *database.windows.net*.
 -  Outbound network connectivity to the Azure management plane endpoints (both ASM and ARM endpoints).  This includes outbound connectivity to both *management.core.windows.net* and *management.azure.com*. 
 -  Outbound network connectivity to *ocsp.msocsp.com*.  This is needed to support SSL functionality.
 -  The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points.  If these endpoints cannot be resolved, App Service Environment creation attempts will fail, and existing App Service Environments will be marked as unhealthy.

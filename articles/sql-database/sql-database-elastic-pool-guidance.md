@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015" 
+	ms.date="02/26/2016" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -32,7 +32,7 @@ Assess whether using an elastic database pool for a group of databases is cost e
 
 SaaS ISVs develop applications built on top of large scale data-tiers consisting of multiple databases. A common application pattern is to give each customer his or her own database. But different customers have varying and unpredictable usage patterns, and it is difficult to predict the resource requirements of each database user. Thererfore an ISV can overprovision resources at considerable expense to ensure favorable throughput and response times for all databases. Or, the ISV can spend less and risk a poor performance experience for their customers.  
 
-Elastic database pools in Azure SQL Database enable SaaS ISVs to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database. Elastic database pools enable the ISV to purchase elastic database throughput units (eDTUs) for a pool shared by multiple databases to accommodate unpredictable periods of usage by individual databases. The eDTU requirement for a pool is determined by the aggregate utilization of its databases. The amount of eDTUs available to the pool is controlled by the ISV budget. Elastic database pools makes it easy for the ISV to reason over the impact of budget on performance and vice versa for their pool. The ISV simply adds databases to the pool, sets any required eDTU guarantees or caps for the databases, and then sets the eDTU of the pool based on their budget. By using elastic database pools ISVs can seamlessly grow their service from a lean startup to a mature business at ever increasing scale.  
+Elastic database pools in Azure SQL Database enable SaaS ISVs to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database. Elastic database pools enable the ISV to purchase elastic Database Transaction Units (eDTUs) for a pool shared by multiple databases to accommodate unpredictable periods of usage by individual databases. The eDTU requirement for a pool is determined by the aggregate utilization of its databases. The amount of eDTUs available to the pool is controlled by the ISV budget. Elastic database pools makes it easy for the ISV to reason over the impact of budget on performance and vice versa for their pool. The ISV simply adds databases to the pool, sets any required eDTU guarantees or caps for the databases, and then sets the eDTU of the pool based on their budget. By using elastic database pools ISVs can seamlessly grow their service from a lean startup to a mature business at ever increasing scale.  
   
 
 

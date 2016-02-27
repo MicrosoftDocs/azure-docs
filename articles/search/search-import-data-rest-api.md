@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/17/2016"
 	ms.author="heidist"/>
 
 # Import data to Azure Search using the REST API

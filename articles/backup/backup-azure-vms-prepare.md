@@ -3,7 +3,7 @@
 	description="Make sure your environment is prepared for backing up virtual machines in Azure"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor=""
 	keywords="backups; backing up;"/>
