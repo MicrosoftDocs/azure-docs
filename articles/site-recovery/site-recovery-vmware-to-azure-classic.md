@@ -87,7 +87,7 @@ When you’re planning capacity, here's what you need to think about:
 
 ### Source environment considerations
 
-- **Maximum daily change rate**—A protected machine can only use one process server, and a single process server can a daily change rate up to 2 TB. Thus 2 TB is the maximum daily data change rate that’s supported for a protected machine.
+- **Maximum daily change rate**—A protected machine can only use one process server, and a single process server can handle up to 2 TB of data change per day. Thus 2 TB is the maximum daily data change rate that’s supported for a protected machine.
 - **Maximum throughput**—A replicated machine can belong to one storage account in Azure. A standard storage account can handle a maximum of 20,000 requests per second, and we recommend that you keep the number of IOPS across a source machine to 20,000. For example if you have a source machine with 5 disks and each disk generates 120 IOPS (8K size) on the source then it will be within the Azure per disk IOPS limit of 500. The number of storage accounts required = total source IOPs/20000. 
  
 
