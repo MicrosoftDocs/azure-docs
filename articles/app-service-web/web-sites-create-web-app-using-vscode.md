@@ -55,7 +55,7 @@ This tutorial is designed to get you started building applications with the late
 
 	![dnvm location](./media/web-sites-create-web-app-using-vscode/00-where-dnvm.png)
 
-3. Now that you have DNVM, you must to use it to download DNX to run your applications. Run the following at the command prompt:
+3. Now that you have DNVM, you must use it to download DNX to run your applications. Run the following at the command prompt:
 
 		dnvm upgrade
 
