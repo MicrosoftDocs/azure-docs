@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="02/26/2016"
 	ms.author="ryanwi"/>
 
 # Deploy, upgrade, test, and remove Service Fabric applications by using PowerShell
@@ -22,7 +22,10 @@ This article shows how to use PowerShell to automate common tasks for deploying,
 
 ## Prerequisites
 
-Before you move on to the tasks in the article, be sure to [install the runtime, SDK, and tools](service-fabric-get-started.md), which also installs the **ServiceFabric** and **ServiceFabricTestability** PowerShell modules. [Enable PowerShell script execution](service-fabric-get-started.md#enable-powershell-script-execution) and [install and start a local cluster](service-fabric-get-started.md#install-and-start-a-local-cluster) so you can run the examples in the article.
+Before you move on to the tasks in the article, be sure to:
+- [install the runtime, SDK, and tools](service-fabric-get-started.md), which also installs the **ServiceFabric** PowerShell module.
+- [Enable PowerShell script execution](service-fabric-get-started.md#enable-powershell-script-execution).
+- Start a local cluster by running C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager.exe
 
 The examples in this article use the [**WordCount** sample application](http://aka.ms/servicefabricsamples) (located in the Getting Started samples). Download and build the sample application.
 
