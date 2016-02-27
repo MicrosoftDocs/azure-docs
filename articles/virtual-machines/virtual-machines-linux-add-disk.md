@@ -24,7 +24,7 @@ This topic will add a persistent disk to a Linux based Azure Virtual machine usi
 
 ## Prerequisites
 - a working Azure subscription
-    - [free trial signup](https://azure.microsoft.com/en-us/pricing/free-trial/)
+    - [free trial signup](https://azure.microsoft.com/pricing/free-trial/)
     - [Azure portal](http://portal.azure.com)
 - The Azure CLI
     - [Linux installer](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409), [Mac OSX installer](http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409)
@@ -32,7 +32,7 @@ This topic will add a persistent disk to a Linux based Azure Virtual machine usi
         - Mac via **Homebrew** `brew install azure-cli`
         - Mac & Linux via **npm** `npm install -g azure-cli`
         - Mac & Linux via **Docker** `docker run -it microsoft/azure-cli`
-- A running Linux VM on Azure. [AZURE.INCLUDE [vms-create-linux](../../includes/vms-create-linux.md)]
+- A running Linux VM on Azure. [AZURE.INCLUDE [virtual-machines-create-linuxvm](../../includes/virtual-machines-create-linuxvm.md)]
 
 - You will need to know the Resource Group Name, Your VM name and the Region they are located in order to proceed. 
 
@@ -54,7 +54,7 @@ Attaching a new disk is quick. Just type `azure vm disk attach-new <myuniquegrou
 ## Connect to the Linux virtual machine to mount the new disk
 
 
-> [AZURE.NOTE] This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access. This article uses username and password with **SSH** for brevity.
+> [AZURE.NOTE] This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access. This article uses username and password with **SSH** for brevity.
 
 You will need to SSH into your Azure VM in order to partition, format and mount your new disk so your Linux VM can use it. If you're not familiar with connecting with **ssh**, the command takes the form `ssh <username>@<FQDNofAzureVM> -p <the ssh port>`. 
 
@@ -182,10 +182,10 @@ The data disk is now ready to use as `/datadrive`.
 	bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr  vmlinuz
 	boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 
-> [AZURE.NOTE] You can also connect to your Linux virtual machine using an SSH key for identification. For details, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
+> [AZURE.NOTE] You can also connect to your Linux virtual machine using an SSH key for identification. For details, see [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md).
 
 ## Next Steps
 
 - Remember, that your new disk will not typically be available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file. 
-- Review the **[Optimize your Linux machine performance](vmd-linux-optimization.md)** recomendations to ensure your Linux VM is configured correctly.
+- Review the [Optimize your Linux machine performance](virtual-machines-linux-optimization.md) recomendations to ensure your Linux VM is configured correctly.
 - Expand your storage capacity by adding additional disks and [configure RAID](virtual-machines-linux-configure-raid.md) for additional performance. 

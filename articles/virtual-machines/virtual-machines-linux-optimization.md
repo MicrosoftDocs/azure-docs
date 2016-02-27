@@ -20,11 +20,11 @@
 
 # Optimize your Linux VM on Azure
 
-Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to ensure you have set it up to optimize it's performance on the Microsoft Azure platform. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](virtual-machines-linux-create-upload-vhd.md).  
+Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to ensure you have set it up to optimize its performance on the Microsoft Azure platform. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](virtual-machines-linux-create-upload-generic.md).  
 
 ## Prerequisites
 - a working Azure subscription
-    - [free trial signup](https://azure.microsoft.com/en-us/pricing/free-trial/)
+    - [free trial signup](https://azure.microsoft.com/pricing/free-trial/)
     - [Azure portal](http://portal.azure.com)
 - The Azure CLI
     - [Linux installer](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409), [Mac OSX installer](http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409)
@@ -32,16 +32,16 @@ Creating a Linux virtual machine (VM) is easy to do from the command line or fro
         - Mac via **Homebrew** `brew install azure-cli`
         - Mac & Linux via **npm** `npm install -g azure-cli`
         - Mac & Linux via **Docker** `docker run -it microsoft/azure-cli`
-- A running Linux VM on Azure. [AZURE.INCLUDE [vms-create-linux](../../includes/vms-create-linux.md)]
+- A running Linux VM on Azure. [AZURE.INCLUDE [virtual-machines-create-linuxvm](../../includes/virtual-machines-create-linuxvm.md)]
 
-- Connect your AzureCLI terminal to your Azure subscription
-    - Before doing anything with Azure - you have to authenticate to your subscription. To do this with AzureCLI, simply type `azure login` to start the interactive process. 
+- Connect your Azure CLI terminal to your Azure subscription
+    - Before doing anything with Azure - you have to authenticate to your subscription. To do this with Azure CLI, simply type `azure login` to start the interactive process. 
 
 ## Azure OS Disk
 Once you create a Linux Vm in Azure, it has two disks associated with it. /dev/sda is your OS disk, /dev/sdb is your temporary disk.  Do not use the main OS disk (/dev/sda) for anything except the operating system as it is optimized for fast VM boot time and will not provide good performance for your workloads. You will want to attach one or more disks to your VM in order to get persistent and optimized storage for your data. 
 
 ## Adding Disks for Size and Performance targets 
-Based on the VM size you choose, you can attach up to 16 additional disks on an A-Series, 32 disks on a D-Series and 64 disks on a G-Series machine - each up to 1 TB in size. It is recommended to add extra disks as needed per your space and IOps requirements. Each disk has a performance target of 500 IOps for Standard Storage and up to 5000 IOps per disk for Premium Storage.  For more information about Premium Storage disks, please refer to [Premium Storage: High-Performance Storage for Azure VMs](../../storage-premium-storage-preview-portal.md)
+Based on the VM size you choose, you can attach up to 16 additional disks on an A-Series, 32 disks on a D-Series and 64 disks on a G-Series machine - each up to 1 TB in size. It is recommended to add extra disks as needed per your space and IOps requirements. Each disk has a performance target of 500 IOps for Standard Storage and up to 5000 IOps per disk for Premium Storage.  For more information about Premium Storage disks, please refer to [Premium Storage: High-Performance Storage for Azure VMs](../storage/storage-premium-storage-preview-portal.md)
 
 In order to achieve the highest IOps on Premium Storage disks where their cache settings have been set to either "ReadOnly" or "None", you must disable "barriers" while mounting the file system in Linux. You do not need barriers because the writes to Premium Storage backed disks are durable for these cache settings.
 - If you use **reiserFS**, disable barriers using the mount option “barrier=none” (For enabling barriers, use “barrier=flush”)
@@ -113,7 +113,7 @@ For the Redhat distribution family, you only need the following command:
 
 ## Using Software RAID to achieve higher I/Ops
 
-If your workloads require more IOps than a single disk can provide, you will need to use a software RAID configuration of multiple disks. Because Azure already performs disk resiliency at the local fabric layer, you will achieve the highest level of performance from a RAID-0 striping configuration.  You will need to provision and create new disks in the Azure environment and attach them to your Linux VM prior to partitioning, formatting and mounting the drives.  More details on configuring a software RAID setup on your Linux VM in azure can be found in the **[Configuring Software RAID on Linux](../virtual-machines-linux-configure-raid.md)** document.
+If your workloads require more IOps than a single disk can provide, you will need to use a software RAID configuration of multiple disks. Because Azure already performs disk resiliency at the local fabric layer, you will achieve the highest level of performance from a RAID-0 striping configuration.  You will need to provision and create new disks in the Azure environment and attach them to your Linux VM prior to partitioning, formatting and mounting the drives.  More details on configuring a software RAID setup on your Linux VM in azure can be found in the **[Configuring Software RAID on Linux](virtual-machines-linux-configure-raid.md)** document.
 
 
 ## Next Steps
@@ -121,7 +121,7 @@ If your workloads require more IOps than a single disk can provide, you will nee
 Remember, as with all optimization discussions, you will need to perform tests before and after each change to measure the impact the change will have.  Optimization is a step by step process that will have different results across different machines in your environment.  What works for one configuration may not work for others.
 
 Some useful links to additional resources: 
-- [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage-premium-storage-preview-portal.md)
-- [Azure Linux Agent User Guide](../virtual-machines-linux-agent-user-guide.md)
-- [Optimizing MySQL Performance on Azure Linux VMs](../virtual-machines-linux-optimize-mysql-perf)
-- [Configure Software RAID on Linux](../virtual-machines-linux-configure-raid.md)
+- [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage-preview-portal.md)
+- [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
+- [Optimizing MySQL Performance on Azure Linux VMs](virtual-machines-linux-classic-optimize-mysql.md)
+- [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md)
