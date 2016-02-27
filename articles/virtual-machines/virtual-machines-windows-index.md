@@ -56,7 +56,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 ### Get started
 [Learning path for Windows VMs](https://azure.microsoft.com/en-us/documentation/learning-paths/virtual-machines/)
 
-[Create a Windows virtual machine in the Azure portal](virtual-machines-windows-tutorial.md)
+[Create a Windows virtual machine in the Azure portal](virtual-machines-windows-classic-tutorial.md)
 
 [Different ways to create a Windows virtual machine with Resource Manager](virtual-machines-windows-creation-choices.md)
 
@@ -68,7 +68,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 
 ### Plan
-[Sizes for virtual machines](virtual-machines-windows-sizes.md.md)
+[Sizes for virtual machines](virtual-machines-windows-sizes.md)
 
 [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
@@ -87,7 +87,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [How to capture a Windows virtual machine in the Resource Manager deployment model](virtual-machines-windows-capture-image.md)
 
-[Upload a VM image](virtual-machines-upload-image-windows-resource-manager.md)
+[Upload a VM image](virtual-machines-windows-upload-image.md)
 
 [Automating Azure virtual machine deployment with Chef](virtual-machines-windows-chef-automation.md)
 
@@ -149,13 +149,14 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 ### Develop
 
-[Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries](virtual-machines-windows-csharp.md.md)
+[Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries](virtual-machines-windows-csharp.md)
 
 
 [Authoring Azure Resource Manager Templates with VM Extensions](virtual-machines-windows-extensions-authoring-templates.md)
-[Create and deploy through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+
+[Create and deploy through Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 		
-[Author Azure Resource Manager templates](resource-group-authoring-templates.md)
+[Author Azure Resource Manager templates](../resource-group-authoring-templates.md)
 
 
 ### Workloads
@@ -170,7 +171,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 
 ### Reference
-[Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../azure-cli-arm-commands.md)
+[Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](azure-cli-arm-commands.md)
 
 [Compute REST API](https://msdn.microsoft.com/library/azure/mt163647.aspx)
 
@@ -242,7 +243,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [About images for classic virtual machines](virtual-machines-windows-classic-about-images.md)
 
-[Sizes for virtual machines](virtual-machines-windows-sizes.md.md)
+[Sizes for virtual machines](virtual-machines-windows-sizes.md)
 
 [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
@@ -342,7 +343,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [High-availability line of business application](virtual-machines-windows-lob.md)
 
-[HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-options.md)
+[HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md)
 
 [Hybrid cloud test environment](virtual-machines-windows-classic-hybrid-test-env.md)
 

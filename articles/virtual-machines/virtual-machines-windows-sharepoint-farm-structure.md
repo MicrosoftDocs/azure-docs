@@ -41,7 +41,7 @@ This automatically-created environment consists of nine servers in a cloud-only 
 
 See the [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) item in the Azure Marketplace of the Azure portal. This creates a high-availability dev/test farm for an Internet-facing SharePoint website. See [Create SharePoint server farms](virtual-machines-windows-sharepoint-farm.md) for additional details.
 
-You can also use an Azure Resource Manager template. See [Deploy a nine-server SharePoint farm](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
+You can also use an Azure Resource Manager template. See [Deploy a nine-server SharePoint farm](virtual-machines-windows-app-frameworks.md#deploy-a-nine-server-sharepoint-farm).
 
 > [AZURE.NOTE] The **SharePoint Server Farm** item in the Azure Marketplace of the Azure portal has been removed.
 
