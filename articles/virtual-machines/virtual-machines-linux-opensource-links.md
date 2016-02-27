@@ -34,8 +34,8 @@ The sections are broken down on the right of this page. (Links may occur in more
 - [Azure Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/)
 - [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index)
 - [Events and Demonstrations: Microsoft Openness CEE](http://www.opennessatcee.com/)
-- \[Classic Deployment]: [How to: Uploading your own Distro Image](virtual-machines-linux-classic-create-upload-vhd.md) (and also instructions using an [Azure-Endorsed Distribution](virtual-machines-linux-endorsed-distributions.md))
-- [Notes: General Linux Requirements to Run in Azure](virtual-machines-linux-create-upload-vhd-generic.md)
+- \[Classic Deployment]: [How to: Uploading your own Distro Image](virtual-machines-linux-classic-create-upload-vhd.md) (and also instructions using an [Azure-Endorsed Distribution](virtual-machines-linux-endorsed-distros.md))
+- [Notes: General Linux Requirements to Run in Azure](virtual-machines-linux-create-upload-generic.md)
 - \[Classic Deployment]: [Notes: General Introduction for Linux on Azure](virtual-machines-linux-intro-on-azure.md)
 
 <!--
@@ -63,9 +63,6 @@ Ubuntu is a very popular and Azure-endorsed Linux distribution based on dpkg and
 4. \[Classic Deployment]: [How to: Node.js and Cassandra](virtual-machines-linux-classic-cassandra-nodejs.md)
 5. \[Resource Manager Deployment]: [How to: IPython Notebook](virtual-machines-linux-jupyter-notebook.md)
 6. \[Classic Deployment]: [Geeking out: Running ASP.NET 5 on Linux using Docker Containers](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
-7. [Images: Redis Server](https://azure.microsoft.com/marketplace/partners/cognosys/redisserver269ubuntu1204lts/)
-8. [Images: Minecraft Server](https://azure.microsoft.com/marketplace/partners/bitnami/craftbukkitminecraft179r030ubuntu1210/)
-11. [Images: Mono as a Service](https://azure.microsoft.com/marketplace/partners/aegis/monoasaserviceubuntu1204/)
 
 
 ### [Debian](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=Debian)
@@ -81,8 +78,6 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduce
 3. [How to: Prepare a Custom CentOS-Based VM for Azure](virtual-machines-linux-create-upload-centos.md)
 4. \[Classic Deployment]: [Blog: How to Deploy a CentOS VM Image from OpenLogic](https://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. \[Classic Deployment]: [How to: Install Apache Qpid Proton-C for AMQP and Service Bus](../service-bus/service-bus-amqp-apache.md/)
-7. [Images: Apache 2.2.15 on OpenLogic CentOS 6.3](https://azure.microsoft.com/marketplace/partners/cognosys/apache2215onopenlogiccentos63/)
-8. [Images: Drupal 7.2, LAMP Server on OpenLogic CentOS 6.3](https://azure.microsoft.com/marketplace/partners/cognosys/drupal720lampserveronopenlogiccentos63/)
 
 ### SUSE Linux Enterprise Server and openSUSE
 
@@ -217,8 +212,8 @@ This section contains information about several different storage approaches and
 2. MySQL
     - [How to: Install and Run MySQL](virtual-machines-linux-classic-mysql-on-opensuse.md)
     - [How to: Optimize Performance of MySQL on Azure](virtual-machines-linux-classic-optimize-mysql.md)
-    - [How to: MySQL Clusters](virtual-machines-linux-mysql-cluster.md)
-    - [How to: Create a MySQL Database using the Marketplace](store-php-create-mysql-database.md)
+    - [How to: MySQL Clusters](virtual-machines-linux-classic-mysql-cluster.md)
+    - [How to: Create a MySQL Database using the Marketplace](../store-php-create-mysql-database.md)
     - [How to: Django and MySQL on Azure Websites with Python and Visual Studio](../app-service-web/web-sites-python-ptvs-django-mysql.md)
     - [MySQL High Availability Architecture in Microsoft Azure](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
@@ -241,7 +236,6 @@ Run HPC workloads on Linux VM clusters built with open-source tools or with Micr
 
 1.	[Quickstart template: Spin up a SLURM cluster](https://azure.microsoft.com/documentation/templates/slurm/)
  (and [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
-2.	[Quickstart template: Spin up a Torque cluster](https://azure.microsoft.com/documentation/templates/torque-cluster/)
 3.	[Quickstart template: Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
 4.	[Tutorial: Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md)
 5.	[Tutorial: Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
