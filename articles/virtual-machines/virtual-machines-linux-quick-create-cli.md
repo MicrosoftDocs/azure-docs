@@ -19,7 +19,7 @@
 
 # Create a Linux VM from the Azure CLI
 
-This topic shows how to quickly create a new Linux-based Azure Virtual Machine using the `azure vm quick-create` command in Azure Command-line Interface for Mac, Linux, and Windows [the Azure CLI](../../xplat-cli-install.md). It assumes you are using either Mac OS X or a Linux distribution as your client operating system, but the same commands work on a Windows computer as well. 
+This topic shows how to quickly create a new Linux-based Azure Virtual Machine using the `azure vm quick-create` command in Azure Command-line Interface for Mac, Linux, and Windows [the Azure CLI](../xplat-cli-install.md). It assumes you are using either Mac OS X or a Linux distribution as your client operating system, but the same commands work on a Windows computer as well. 
 
 > [AZURE.NOTE] This topic shows how to quickly create a Linux VM in a basic Azure environment for trial, testing, and other short-lived scenarios. You should create more secure Azure environments for your Linux VMs to use them for production or other longer-running scenarios. 
 
@@ -74,7 +74,7 @@ info:    group create command OK
 
 ## Create the Linux VM
 
-In the following command, you can use any image you want, but this example uses `canonical:ubuntuserver:14.04.2-LTS:latest` to create a VM quickly. (To locate an image in the marketplace, [search for an image](../resource-groups-vm-searching.md) or you can [upload your own custom image](../virtual-machines-linux-create-upload-vhd.md).)
+In the following command, you can use any image you want, but this example uses `canonical:ubuntuserver:14.04.2-LTS:latest` to create a VM quickly. (To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).)
 
 ```
 # Create the Linux VM using prompts
@@ -166,7 +166,7 @@ You can now SSH into your VM on the default SSH port 22.
 
 ## Detailed Walkthrough
 
-The `azure vm quick-create` quickly creates a VM so you can log in and get working. It does not have a complex environment, however, so if you want to customize your environment you can [use an Azure resource manager template to create a specific deployment quickly](TODO), or you can [create your own custom environment for a Linux VM using Azure CLI commands directly](). 
+The `azure vm quick-create` quickly creates a VM so you can log in and get working. It does not have a complex environment, however, so if you want to customize your environment you can [use an Azure resource manager template to create a specific deployment quickly](virtual-machines-linux-cli-deploy-templates.md), or you can [create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-cli-deploy-templates.md). 
 
 The example above creates:
 
