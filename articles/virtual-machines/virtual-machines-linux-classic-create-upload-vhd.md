@@ -160,7 +160,7 @@ Use the Azure CLI to upload the image, by using the following command:
 
 		azure vm image create <ImageName> --blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> --os Linux <PathToVHDFile>
 
-For more information, see [Azure CLI reference for Azure Service Management](virtual-machines-command-line-tools.md).
+For more information, see [Azure CLI reference for Azure Service Management](../virtual-machines-command-line-tools.md).
 
 
 ### If using PowerShell

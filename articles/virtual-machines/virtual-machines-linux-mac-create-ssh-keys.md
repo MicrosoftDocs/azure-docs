@@ -28,7 +28,7 @@ This topic discusses:
 ## Prerequisites
 
   - Azure account
-    - [free trial signup](https://azure.microsoft.com/en-us/pricing/free-trial/)
+    - [free trial signup](https://azure.microsoft.com/pricing/free-trial/)
     - [Azure portal](http://portal.azure.com)
   - Linux or Mac terminal with SSH toolkits installed 
 
@@ -38,9 +38,9 @@ Using SSH public and private keys is the most secure **and** easiest way to logi
 
 This article creates *ssh-rsa* format key files, as those are recommended for deployments on the Resource Manager and required on the [portal](https://portal.azure.com) for both Classic and Resource Manager deployments.
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-> [AZURE.NOTE] If you are logging onto your VMs from a Windows computer, see [Use SSH keys on Windows](virtual-machines-windows-use-ssh-key.md).
+> [AZURE.NOTE] If you are logging onto your VMs from a Windows computer, see [Use SSH keys on Windows](virtual-machines-linux-ssh-from-windows.md).
 
 ## Quick Command Listing
 
