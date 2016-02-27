@@ -22,50 +22,48 @@ Azure Functions makes achieving complicated integration and connectivity tasks t
 
 ### Features
 
-<!-- wa-check wa-cancel -->
-
-|Feature | Supported | Notes |
-|---|
-| Build Custom Backend | <span class="wa-check wa-check-green"></span> | |
-| Compute On-Demand | <span class="wa-check wa-check-green"></span> | |
-| Bring Your Own Code | <span class="wa-check wa-check-green"></span> | App Services: C#, node.js, Python, F#, PHP, batch, Java or any executable |
-| Pay Per Use & Pricing Model | <span class="wa-check wa-check-green"></span> | Price competitive pay per use, options for using memory more efficiently, support for dedicated compute |
-| Integrated Security Model | <span class="wa-cancel"></span> | |
-| Event Driven Trigger | <span class="wa-check wa-check-green"></span> | |
-| On-Premises Connectivity | <span class="wa-check wa-check-green"></span> | App Service support hybrid connection and VNET integration |
-| Development Experience | <span class="wa-check wa-check-green"></span> | Azure has out of the box DevOps features (CI/CD, Slots, etc.) and Local Development support |
-| Code-less SaaS & PaaS Connectors | <span class="wa-check wa-check-green"></span> | Azure has input/output bindings, making connecting moving data between services a code-less gesture |
-| Open Source | <span class="wa-check wa-check-green"></span> | Post Build |
-| Community Extensions | <span class="wa-check wa-check-green"></span> | Post Build |
+Feature | Supported | Notes 
+--------|-----------|-------
+Build Custom Backend | <span class="wa-check wa-check-green"></span> | &nbsp; 
+Compute On-Demand | <span class="wa-check wa-check-green"></span> | &nbsp;
+Bring Your Own Code | <span class="wa-check wa-check-green"></span> | App Services: C#, node.js, Python, F#, PHP, batch, Java or any executable
+Pay Per Use & Pricing Model | <span class="wa-check wa-check-green"></span> | Price competitive pay per use, options for using memory more efficiently, support for dedicated compute
+Integrated Security Model | <span class="wa-cancel"></span> | &nbsp;
+Event Driven Trigger | <span class="wa-check wa-check-green"></span> | &nbsp;
+On-Premises Connectivity | <span class="wa-check wa-check-green"></span> | App Service support hybrid connection and VNET integration 
+Development Experience | <span class="wa-check wa-check-green"></span> | Azure has out of the box DevOps features (CI/CD, Slots, etc.) and Local Development support 
+Code-less SaaS & PaaS Connectors | <span class="wa-check wa-check-green"></span> | Azure has input/output bindings, making connecting moving data between services a code-less gesture
+Open Source | <span class="wa-check wa-check-green"></span> | &nbsp;
+Community Extensions | <span class="wa-check wa-check-green"></span> | &nbsp;
 
 ### Triggers
 
-| Connector | Azure Service | Supported|
-|---|
-| Blob Storage | Azure Storage | <span class="wa-check wa-check-green"></span> |
-| No-SQL DB | DocumentDB | <span class="wa-check wa-check-green"></span> |
-| Streams | Event Hub | <span class="wa-check wa-check-green"></span> |
-| Queues | Azure Storage | <span class="wa-check wa-check-green"></span> |
-| Email | N/A | <span class="wa-cancel"></span> |
-| Identity | Azure <abbr title="Active Directory">AD</abbr> | <span class="wa-cancel"></span> |
-| Service Monitoring | Azure Insights | <span class="wa-check wa-check-green"></span> |
-| Scheduled | Functions | <span class="wa-check wa-check-green"></span> |
-| HTTP | Functions | <span class="wa-check wa-check-green"></span> |
-| Service Automation | <abbr title="Azure Resource Manager">ARM</abbr> | <span class="wa-check wa-check-green"></span> |
+Connector | Azure Service | Supported
+----------|---------------|----------
+Blob Storage | Azure Storage | <span class="wa-check wa-check-green"></span>
+No-SQL DB | DocumentDB | <span class="wa-check wa-check-green"></span>
+Streams | Event Hub | <span class="wa-check wa-check-green"></span>
+Queues | Azure Storage | <span class="wa-check wa-check-green"></span>
+Email | N/A | <span class="wa-cancel"></span>
+Identity | Azure <abbr title="Active Directory">AD</abbr> | <span class="wa-cancel"></span>
+Service Monitoring | Azure Insights | <span class="wa-check wa-check-green"></span>
+Scheduled | Functions | <span class="wa-check wa-check-green"></span>
+HTTP | Functions | <span class="wa-check wa-check-green"></span>
+Service Automation | <abbr title="Azure Resource Manager">ARM</abbr> | <span class="wa-check wa-check-green"></span>
 
 ### SaaS & PaaS Integrations
 
-| Connector | Azure Service | Supported |
-|---|
-|Blob Storage | Azure Storage | <span class="wa-check wa-check-green"></span> |
-| No-SQL DB | DocumentDB | <span class="wa-check wa-check-green"></span> |
-| Queues | Azure Storage | <span class="wa-check wa-check-green"></span> |
-| Tables | Azure Storage | <span class="wa-check wa-check-green"></span> |
-| Streams | Event Hubs | <span class="wa-check wa-check-green"></span> |
-| Notifications | Service Bus | <span class="wa-check wa-check-green"></span> |
-| Email | Send Grid* | <span class="wa-check wa-check-green"></span> |
-| HTTP | Functions | <span class="wa-check wa-check-green"></span> |
-| Slack | Slack* | <span class="wa-check wa-check-green"></span> |
+Connector | Azure Service | Supported 
+----------|---------------|----------
+Blob Storage | Azure Storage | <span class="wa-check wa-check-green"></span> 
+No-SQL DB | DocumentDB | <span class="wa-check wa-check-green"></span>
+Queues | Azure Storage | <span class="wa-check wa-check-green"></span>
+Tables | Azure Storage | <span class="wa-check wa-check-green"></span>
+Streams | Event Hubs | <span class="wa-check wa-check-green"></span>
+Notifications | Service Bus | <span class="wa-check wa-check-green"></span>
+Email | Send Grid* | <span class="wa-check wa-check-green"></span>
+HTTP | Functions | <span class="wa-check wa-check-green"></span>
+Slack | Slack* | <span class="wa-check wa-check-green"></span>
 
 ## How much does Functions cost?
 
