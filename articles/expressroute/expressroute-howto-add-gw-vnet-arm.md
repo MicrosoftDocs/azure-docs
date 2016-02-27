@@ -14,10 +14,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="02/09/2016"
+   ms.date="02/26/2016"
    ms.author="cherylmc"/>
 
-# Add a gateway to a VNet for ExpressRoute
+# Add a VPN Gateway to a Resource Manager VNet for an ExpressRoute configuration 
 
 This article will walk you through the steps to add a gateway subnet and create a VPN gateway for an already existing VNet. The steps for this configuration are specifically for VNets that were created using the **Resource Manager deployment model** and that will be be used in an ExpressRoute configuration. If you need information about creating gateways for VNets using the classic deployment model, see [Configure a virtual network for ExpressRoute using the classic portal](expressroute-howto-vnet-portal-classic.md).
 
