@@ -65,7 +65,7 @@ If you have already registered your Windows app in the previous section, you can
 
 6. Click **App Settings** and make a note of the values of the **Client ID** and **Client secret**.
 
-    > [AZURE.NOTE] The client secret is an important security credential. Do not share the client secret with anyone or distribute it within a client application.
+    > [AZURE.IMPORTANT] The client secret is an important security credential. Do not share the client secret with anyone or distribute it within a client application.
 
 ## <a name="secrets"> </a>Add Microsoft Account information to your App Service application
 
