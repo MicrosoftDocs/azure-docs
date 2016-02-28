@@ -1,26 +1,4 @@
-﻿<properties
-	pageTitle="How to Schedule Planned Maintenance for Azure VMs | Microsoft Azure"
-	description="Learn how to schedule planned maintenance on Azure VMs."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="igalf"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
-
-<tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/13/2016"
-	ms.author="igalf"/>
-
-
-# How to Schedule Planned Maintenance on Azure VMs
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+﻿
 
 ## Multi and Single Instance VMs
 For many customers running on Azure, it is critical that they are able to schedule when their VMs undergo planned maintenance, since this results in ~15 minutes of downtime. You can leverage availability sets to help control when provisioned VMs receive planned maintenance.
