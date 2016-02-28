@@ -1,5 +1,5 @@
 <properties
-	pageTitle="List of managed APIs | Microsoft Azure App Service"
+	pageTitle="List of Microsoft-managed APIs | Microsoft Azure App Service"
 	description="Get a complete list of the Microsoft-Managed APIs you can use to build Logic apps in Azure App Service"
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="02/25/2016"
 	ms.author="deonhe"/>
 
-# Here's the list of Microsoft-managed APIs for building apps
+# List of Microsoft-managed APIs
 
-Select an icon to learn how to quickly leverage these APIs to build  apps that call these services. These APIs can be used to build logic apps and or power apps or both.
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Connectors List](../app-service-logic/app-service-logic-connectors-list.md). 
+
+Select an icon to learn how to quickly leverage these APIs to build  apps that call these services. These APIs can be used to build logic apps and or PowerApps or both.
 
 For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
@@ -31,14 +33,12 @@ For pricing information and a list of what is included with each Service Tier, s
 |[![API Icon][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][facebookicon]<br/>**Facebook**][facebookdoc]|[![API Icon][ftpicon]<br/>**FTP**][ftpdoc]|[![API Icon][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
 |[![API Icon][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Users**][office365usersdoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|
 |[![API Icon][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![API Icon][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![API Icon][servicebusicon]<br/>**Service Bus**][servicebusdoc]|[![API Icon][sftpicon]<br/>**SFTP**][sftpdoc]|
-|[![API Icon][sharepointicon]<br/>**SharePoint**<br/>**Server**][sharepointdoc]|[![API Icon][slackicon]<br/>**Slack**<br/>][slackdoc]|[![API Icon][smtpicon]<br/>**SMTP**][smtpdoc]|[![API Icon][sqlicon]<br/>**SQL Azure**][sqldoc]|
+|[![API Icon][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![API Icon][slackicon]<br/>**Slack**<br/>][slackdoc]|[![API Icon][smtpicon]<br/>**SMTP**][smtpdoc]|[![API Icon][sqlicon]<br/>**SQL Azure**][sqldoc]|
 |[![API Icon][twilioicon]<br/>**Twilio**][twiliodoc]|[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 
-> [AZURE.NOTE] These APIs work with 2015-12-01-preview version of the service.
-
 ### APIs can be triggers
-Several APIs provide triggers that can notify your app when specific events occur. For example, the FTP API has the OnUpdatedFile trigger. You can build an either a logic app or power app that listens to this trigger and takes an action whenever the trigger is fired.
+Several APIs provide triggers that can notify your app when specific events occur. For example, the FTP API has the OnUpdatedFile trigger. You can build an either a logic app or a PowerApp that listens to this trigger and takes an action whenever the trigger is fired.
 
 There are two types of triggers:  
 
@@ -52,7 +52,7 @@ APIs can also be used as actions within your apps. Actions are useful for lookin
 
 [What's new](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
 [Build a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Get started with Power apps now](../power-apps/powerapps-get-started-azure-portal.md)  
+[Get started with PowerApps now](../power-apps/powerapps-get-started-azure-portal.md)  
 
 <!--API Documentation-->
 [azureblobdoc]: ./create-api-azureblobstorage.md "Connect to Azure blob to manage files in your blob container."
@@ -72,7 +72,7 @@ APIs can also be used as actions within your apps. Actions are useful for lookin
 [onedrivedoc]: ./create-api-onedrive.md "Connects to your personal Microsoft OneDrive and upload, delete, list files, and more."
 [salesforcedoc]: ./create-api-salesforce.md "Connect to your Salesforce account and manage  accounts, leads, opportunities, and more."
 [servicebusdoc]: ./create-api-servicebus.md "Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions."
-[sharepointdoc]: ./create-api-sharepointserver.md "Connects to on-premises Microsoft SharePoint Server or SharePoint Online to manage documents, and list items. Different authentication methods such as default credentials, OAuth 2.0, Windows authentication, and Form-Based authentication are supported."
+[sharepointdoc]: ./create-api-sharepointonline.md "Connects to SharePoint Online to manage documents and list items."
 [slackdoc]: ./create-api-slack.md "Connect to Slack and post messages to Slack channels."
 [sftpdoc]: ./create-api-sftp.md "Connects to SFTP and can upload, get, delete files, and more."
 [smtpdoc]: ./create-api-smtp.md "Connects to a SMTP server and can send email with attachments."
