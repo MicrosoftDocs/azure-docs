@@ -18,7 +18,7 @@ This article shows you how to attach both new and existing disks to a virtual ma
 
 4. To the right, under **Essentials**, click **All settings**, and then click **Disks**.
 
-	![Open disk settings](././media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
+	![Open disk settings](./media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
 
 Continue by following instructions for attaching either a new disk or an existing disk.
 
@@ -28,7 +28,7 @@ Continue by following instructions for attaching either a new disk or an existin
 
 2.	Review the default settings, update as necessary, and then click **OK**.
 
- 	![Review disk settings](././media/virtual-machines-common-attach-disk-portal/attach-new.png)
+ 	![Review disk settings](./media/virtual-machines-common-attach-disk-portal/attach-new.png)
 
 3.	After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**.
 
@@ -38,11 +38,11 @@ Continue by following instructions for attaching either a new disk or an existin
 
 2.	Under **Attach existing disk**, click **VHD File**.
 
-	![Attach existing disk](././media/virtual-machines-common-attach-disk-portal/attach-existing.png)
+	![Attach existing disk](./media/virtual-machines-common-attach-disk-portal/attach-existing.png)
 
 3.	Under **Storage accounts**, select the account and container that holds the .vhd file.
 
-	![Find VHD location](././media/virtual-machines-common-attach-disk-portal/find-storage-container.png)
+	![Find VHD location](./media/virtual-machines-common-attach-disk-portal/find-storage-container.png)
 
 4.	Select the .vhd file.
 

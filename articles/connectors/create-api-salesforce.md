@@ -14,13 +14,14 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/22/2016"
+ms.date="02/25/2016"
 ms.author="deonhe"/>
 
 # Get started with the Salesforce API
-Connect to Salesforce and create objects, get objects, and more.
+Connect to Salesforce and create objects, get objects, and more. The Salesforce API can be be used from:
 
-The Salesforce API can be be used from PowerApps Enterprise and logic apps. 
+- PowerApps 
+- Logic apps 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Salesforce API](../app-service-logic/app-service-logic-connector-salesforce.md).
 
@@ -85,7 +86,7 @@ After you create the connection, you enter the Salesforce properties, like the t
 >[AZURE.TIP] You can use this same connection in other logic apps.
 
 ## Swaggers REST API reference
-#### This documentation is for version: 1.0
+Applies to version: 1.0.
 
 
 ### Create object

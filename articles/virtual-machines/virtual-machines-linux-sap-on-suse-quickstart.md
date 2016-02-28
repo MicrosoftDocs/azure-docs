@@ -1,7 +1,7 @@
 <properties
    pageTitle="Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs | Microsoft Azure"
    description="Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs"
-   services="virtual-machines,virtual-network,storage"
+   services="virtual-machines-linux,virtual-network,storage"
    documentationCenter="saponazure"
    authors="hermanndms"
    manager="juergent"
