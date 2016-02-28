@@ -3,7 +3,7 @@
    description="Tips for using temporary tables in Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="jrowlandjones"
    manager="barbkess"
    editor=""/>
 
