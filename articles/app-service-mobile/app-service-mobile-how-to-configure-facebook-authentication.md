@@ -38,8 +38,7 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
 6. On the **App Secret** field, click **Show**, provide your password if requested, then make a note of the values of **App ID** and **App Secret**. You will uses these later to configure your application in Azure.
 
-	> [AZURE.NOTE] **Security Note**
-	The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
+	> [AZURE.IMPORTANT] The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
 
 7. On the left navigation bar, click **Settings**, type the **URL** of your Mobile App in **App Domains**, and enter a **Contact Email**.
 
