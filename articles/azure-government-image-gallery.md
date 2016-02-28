@@ -93,15 +93,15 @@ The below resources should provide more information on deploying from the image 
 
 ###Other Resources: 
 
-- [Deploying a Windows Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- [Deploying a Windows Virtual Machine](virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-- [Deploying a Linux Virtual Machine](../virtual-machines/virtual-machines-linux-cli-create.md)
+- [Deploying a Linux Virtual Machine](virtual-machines/virtual-machines-linux-cli-create.md)
 
 - [Virtual Machine FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
-- [Create and upload your own VHD](../virtual-machines-create-upload-vhd-windows-server/)
+- [Create and upload your own VHD](virtual-machines-create-upload-vhd-windows-server/)
 
-- [Capture Linux VM Image](../virtual-machines/virtual-machines-linux-classic-capture-image.md)
+- [Capture Linux VM Image](virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 
