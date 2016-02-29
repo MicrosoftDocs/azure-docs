@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Tuning data aggregation and qQuery performance with Elasticsearch on Azure | Microsoft Azure"
+   pageTitle="Tuning data aggregation and query performance with Elasticsearch on Azure | Microsoft Azure"
    description="A summary of considerations when optimizing query and search performance for Elasticsearch."
    services=""
    documentationCenter="na"
