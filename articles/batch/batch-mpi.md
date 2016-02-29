@@ -148,7 +148,7 @@ The contents of the `AZ_BATCH_TASK_SHARED_DIR` are accessible by the primary and
 
 Note that in the code samples in this article, we do not specify resource files for the multi-instance task itself, only for the pool's StartTask and the [CommonResourceFiles][net_multiinsance_commonresfiles] of the multi-instance settings.
 
-> [AZURE.IMPORTANT] Always use the environment variables `AZ_BATCH_TASK_SHARED_DIR` and `AZ_BATCH_TASK_WORKING_DIR` to refer to the these directories in your command lines. Do not attempt to construct the paths manually.
+> [AZURE.IMPORTANT] Always use the environment variables `AZ_BATCH_TASK_SHARED_DIR` and `AZ_BATCH_TASK_WORKING_DIR` to refer to these directories in your command lines. Do not attempt to construct the paths manually.
 
 ## Task lifetime
 
@@ -164,7 +164,7 @@ A compute node's recent task list will reflect the id of a subtask if the recent
 
 ## Obtain information about subtasks
 
-To obtain information on subtasks by using the Batch .NET library, call the [CloudTask.ListSubtasks][net_task_listsubtasks] method. This method returns information on all subtasks, and information about the compute node that executed the tasks. From this information, you can determine the each subtask's root directory, the pool id, its current state, exit code, and more. You can use this information in combination with the [PoolOperations.GetNodeFile][poolops_getnodefile] method to obtain the subtask's files. Note that this method does not return information for the primary task (id 0).
+To obtain information on subtasks by using the Batch .NET library, call the [CloudTask.ListSubtasks][net_task_listsubtasks] method. This method returns information on all subtasks, and information about the compute node that executed the tasks. From this information, you can determine each subtask's root directory, the pool id, its current state, exit code, and more. You can use this information in combination with the [PoolOperations.GetNodeFile][poolops_getnodefile] method to obtain the subtask's files. Note that this method does not return information for the primary task (id 0).
 
 > [AZURE.NOTE] Unless otherwise stated, Batch .NET methods that operate on the multi-instance [CloudTask][net_task] itself apply *only* to the primary task. For example, when you call the [CloudTask.ListNodeFiles][net_task_listnodefiles] method on a multi-instance task, only the primary task's files are returned.
 

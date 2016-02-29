@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/27/2016"
+   ms.date="02/23/2016"
    ms.author="alkohli"/>
 
 # Restore from a backup of your StorSimple Virtual Array (Preview)
@@ -100,12 +100,11 @@ To restore from a backup, in the Azure classic portal, perform the following ste
 
 3.  You can track the progress of the restore job. When the restore is 100% complete, navigate back to the **Volumes** page on your device.
 
-4.  You can now view the new restored volume in the list of volumes on your device. 
+4.  You can now view the new restored volume in the list of volumes on your device. Note that restore is done to the same type of volume. A tiered volume is restored as tiered and a locally pinned volume is restored as a locally pinned volume.
 
-	> [AZURE.NOTE] Restore is done to the same type of volume. A tiered volume is restored as tiered and a locally pinned volume is restored as a locally pinned volume.
+> [AZURE.IMPORTANT] When trying to restore a volume or a share from a backup set, if the restore job fails, a target volume or share may still be created in the portal. It is important that you delete this target volume or share in the portal to minimize any 	future issues arising from this element.
 
 ## Item-level recovery (ILR)
-
 
 This release introduces the item-level recovery (ILR) on a StorSimple virtual device configured as a file server. The feature allows you to do granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. Users can retrieve deleted files from recent backups using a self-service model.
 

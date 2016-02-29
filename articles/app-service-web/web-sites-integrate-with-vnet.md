@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/22/2016" 
 	ms.author="ccompy"/>
 
 # Integrate your app with an Azure Virtual Network #
@@ -170,13 +170,13 @@ There are a few pricing nuances that you should be aware of when using the VNET 
 
 For your apps to be able to use this feature, they need to be in a Standard or Premium App Service Plan.  You can see more details on those costs here: [App Service Pricing][ASPricing]. 
 
-Due to the way Point to Site VPNs are handled, you always have a charge for outbound data through your VNET Integration connection even if the VNET is in the same data center.  To see what those charges are take a look here:[Data Transfer Pricing Details][DataPricing].  
+Due to the way Point to Site VPNs are handled, you always have a charge for outbound data through your VNET Integration connection even if the VNET is in the same data center.  To see what those charges are take a look here: [Data Transfer Pricing Details][DataPricing].  
 
 The last item is the cost of the VNET gateways.  If you don't need the gateways for something else such as Site to Site VPNs then you are paying for gateways to support the VNET Integration feature.  There are details on those costs here: [VPN Gateway Pricing][VNETPricing].  
 
 ##Troubleshooting##
 
-While the feature is easy to set up that doesn't mean that your experience will be problem free.  Should you encounter problems accessing your desired endpoint there are some utilities you can use to test connectivity from the app console.  There are two console experiences you can use.  One is from the Kudu console and the other is the console that you can reach in the Azure Portal.  To get to the Kudu console then from your app go to Tools -> Kudu.  This is the same as going to [sitename].scm.azurewebsites.net.  Once that opens simply go to the Debug console tab.  To get to the Azure portal hosted console then from your app go to Tools -> Console.  
+While the feature is easy to set up that doesn't mean that your experience will be problem free.  Should you encounter problems accessing your desired endpoint there are some utilities you can use to test connectivity from the app console.  There are two console experiences you can use.  One is from the Kudu console and the other is the console that you can reach in the Azure Portal.  To get to the Kudu console from your app go to Tools -> Kudu.  This is the same as going to [sitename].scm.azurewebsites.net.  Once that opens simply go to the Debug console tab.  To get to the Azure portal hosted console then from your app go to Tools -> Console.  
 
 
 ####Tools####
@@ -198,7 +198,7 @@ This tool will tell you if you can reach a specific host and port but will not p
 
 There are a number of things that can prevent your app from reaching a specific host and port.  To break the problem down start with the easy things like:  
 
-- Does the Gateway shows as being up in the Portal?
+- Does the Gateway show as being up in the Portal?
 - Do certificates show as being in sync?
 - Did anybody change the network configuration without doing a "Sync Network" in the affected ASPs?
 

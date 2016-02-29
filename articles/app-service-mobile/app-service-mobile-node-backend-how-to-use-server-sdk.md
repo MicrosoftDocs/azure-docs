@@ -124,7 +124,7 @@ Visual Studio 2015 requires an extension to develop Node.js applications within 
         // Azure Mobile Apps Initialization
         var mobile = azureMobileApps();
         mobile.tables.add('TodoItem');
-        app.use('mobile');
+        app.use(mobile);
 
     Save the file.
 

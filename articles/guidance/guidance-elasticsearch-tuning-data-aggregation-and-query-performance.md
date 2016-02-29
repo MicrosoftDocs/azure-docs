@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Tuning Data Aggregation and Query Performance with Elasticsearch on Azure | Microsoft Azure"
+   pageTitle="Tuning data aggregation and qQuery performance with Elasticsearch on Azure | Microsoft Azure"
    description="A summary of considerations when optimizing query and search performance for Elasticsearch."
    services=""
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="02/18/2016"
    ms.author="masimms"/>
    
-# Tuning Data Aggregation and Query Performance for Elasticsearch on Azure
+# Tuning data aggregation and qQuery performance with Elasticsearch on Azure
 
 This article is [part of a series](guidance-elasticsearch.md). 
 

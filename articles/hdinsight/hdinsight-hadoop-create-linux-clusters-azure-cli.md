@@ -19,7 +19,7 @@
 
 #Create Linux-based clusters in HDInsight using the Azure CLI
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 The Azure CLI is a cross-platform command-line utility that allows you to manage Azure Services. It can be used, along with Azure Resource management templates, to create an HDInsight cluster, along with associated storage accounts and other services.
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Running the Automated Elasticsearch Resiliency Tests | Microsoft Azure"
+   pageTitle="Running the automated Elasticsearch resiliency tests | Microsoft Azure"
    description="Description of how you can run the resiliency tests in your own environment."
    services=""
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="02/18/2016"
    ms.author="masimms"/>
 
-# Running the Automated Elasticsearch Resiliency Tests
+# Running the automated Elasticsearch resiliency tests
 
 This article is [part of a series](guidance-elasticsearch.md).
 
