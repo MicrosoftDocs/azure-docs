@@ -46,7 +46,7 @@ This article assumes that you have the following items:
 	For a list of endorsed distributions, see [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md). For a general list of Linux distributions, see [Information for Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md).
 
 
-- **Azure Command-line Interface** - if you are using a Linux operating system to create your image, you use the [Azure Command-Line Interface](virtual-machines-command-line-tools.md) to upload the VHD.
+- **Azure Command-line Interface** - if you are using a Linux operating system to create your image, you use the [Azure Command-Line Interface](../virtual-machines-command-line-tools.md) to upload the VHD.
 
 - **Azure Powershell tools** - the `Add-AzureVhd` cmdlet can also be used to upload the VHD. See [Azure Downloads](https://azure.microsoft.com/downloads/) to download the Azure Powershell cmdlets. For reference information, see [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
@@ -55,13 +55,13 @@ This article assumes that you have the following items:
 
 Azure supports a variety of Linux distributions (see [Endorsed Distributions](virtual-machines-linux-endorsed-distros.md)). The following articles will guide you through how to prepare the various Linux distributions that are supported on Azure:
 
-- **[CentOS-based Distributions](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[CentOS-based Distributions](virtual-machines-linux-create-upload-centos.md)**
 - **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
 - **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
-- **[SLES & openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
-- **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
-- **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-vhd-generic.md)**
+- **[SLES & openSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
+- **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
+- **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md)**
 
 Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#linuxinstall)** for more tips on preparing Linux images for Azure.
 
@@ -142,7 +142,7 @@ Use Azure AD method to login:
 
 	Where `<PathToFile>` is the full path to the .publishsettings file.
 
-	For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md)
+	For more information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 
 > [AZURE.NOTE] We recommend you use the newer Azure Active Directory method to login to your Azure subscription, either from the Azure CLI or the Azure PowerShell.
 
@@ -160,7 +160,7 @@ Use the Azure CLI to upload the image, by using the following command:
 
 		azure vm image create <ImageName> --blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> --os Linux <PathToVHDFile>
 
-For more information, see [Azure CLI reference for Azure Service Management](virtual-machines-command-line-tools.md).
+For more information, see [Azure CLI reference for Azure Service Management](../virtual-machines-command-line-tools.md).
 
 
 ### If using PowerShell

@@ -12,7 +12,7 @@ Please note that there are two types of maintenance that can impact the availabi
 
 For a class of updates in Microsoft Azure, customers will not see any impact to their running virtual machines. Many of these updates are to components or services that can be updated without interfering with the running instance. Some of these updates are platform infrastructure updates on the host operating system that can be applied without requiring a full reboot of the virtual machines.
 
-These updates are accomplished with technology that enables live migration (a “memory-preserving” update). When updating, the virtual machine is placed into a “paused” state, preserving the memory in RAM, while the underlying host operating system receives the necessary updates and patches. The virtual machine is resumed within 30 seconds of being paused. After resuming, the clock of the virtual machine is automatically synchronized.
+These updates are accomplished with technology that enables in-place live migration, also called a “memory-preserving” update. When updating, the virtual machine is placed into a “paused” state, preserving the memory in RAM, while the underlying host operating system receives the necessary updates and patches. The virtual machine is resumed within 30 seconds of being paused. After resuming, the clock of the virtual machine is automatically synchronized.
 
 Not all updates can be deployed by using this mechanism, but given the short pause period, deploying updates in this way greatly reduces impact to virtual machines.
 
