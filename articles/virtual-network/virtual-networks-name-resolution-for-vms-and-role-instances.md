@@ -155,7 +155,7 @@ If forwarding queries to Azure doesn't suit your needs, you will need to provide
 
 When using your own DNS servers, Azure provides the ability to specify multiple DNS servers per virtual network or per network interface (for ARM) / cloud service (for classic).  DNS servers specified for a cloud service/network interface get precedence over those specified for the virtual network.
 
-> [AZURE.NOTE] Network connection properties, such as DNS server IPs, should not be edited directly within the Windows VMs as they may get erased during service heal when the virtual network adaptor gets replaced. 
+> [AZURE.NOTE] Network connection properties, such as DNS server IPs, should not be edited directly within Windows VMs as they may get erased during service heal when the virtual network adaptor gets replaced. 
 
 
 When working in ARM, DNS servers can be specified in the Portal, API/Templates ([vnet](https://msdn.microsoft.com/library/azure/mt163661.aspx), [nic](https://msdn.microsoft.com/library/azure/mt163668.aspx)) or PowerShell ([vnet](https://msdn.microsoft.com/library/mt603657.aspx), [nic](https://msdn.microsoft.com/library/mt619370.aspx)).
