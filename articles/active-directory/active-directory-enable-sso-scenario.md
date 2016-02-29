@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Managing Applications with Azure Active Directory | Microsoft Azure"
-   description="This article the benefits of integrating Azure Active Directory with your on-premises, cloud and SaaS applications."
-   services="active-directory"
-   documentationCenter=""
-   authors="ihenkel"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Managing Applications with Azure Active Directory | Microsoft Azure"
+    description="This article the benefits of integrating Azure Active Directory with your on-premises, cloud and SaaS applications."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
    <tags
       ms.service="active-directory"
@@ -13,12 +13,10 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/16/2015"
-      ms.author="inhenk"/>
+      ms.date="02/16/2016"
+      ms.author="markvi"/>
 
-# Managing Applications with Azure Active Directory (AD)
-
-## Overview
+# Managing Applications with Azure Active Directory
 
 Beyond the actual workflow or content, businesses have two basic requirements for all applications:
 
@@ -30,17 +28,17 @@ In the word of cloud applications this can best be achieved using identity to co
 
 In computing terminology:
 
-- *Who* is known as *identity* - a data store that consists of users and groups
+- *Who* is known as *identity* - the management of users and groups
 
-- *What* is known as *access management* – management of access to protected resources
+- *What* is known as *access management* – the management of access to protected resources
 
-Both components together is known as *Identity and Access Management (IAM)*, which is defined by the [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) group as “*the security discipline that enables the right individuals to access the right resources at the right times for the right reasons*”.
+Both components together are known as *Identity and Access Management (IAM)*, which is defined by the [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) group as “*the security discipline that enables the right individuals to access the right resources at the right times for the right reasons*”.
 
 Okay, so what’s the problem? If IAM is *not managed* in one place with an integrated solution:
 
 - Identity administrators have to individually create and update user accounts in all applications separately, a redundant and time consuming activity.
 
-- Users have to memorize multiple credentials to access the applications they need to work with, especially since they are encouraged not to use the same password for every application for security reasons. As a result, users tend to write down their passwords or use other password management solutions which introduces other data security risks.
+- Users have to memorize multiple credentials to access the applications they need to work with. As a result, users tend to write down their passwords or use other password management solutions which introduces other data security risks.
 
 - Redundant, time consuming activities reduce the amount of time users and administrators are working on business activities that increase your business’s bottom line.
 
@@ -52,15 +50,25 @@ So, what generally prevents organizations from adopting integrated IAM solutions
 
 - Security and monitoring tooling require additional customization and integration to achieve comprehensive E2E scenarios.
 
-## Azure Active Directory (AD) integrated with applications
+## Azure Active Directory integrated with applications
 
-Azure Active Directory (AD) is Microsoft’s comprehensive Identity as a Service (IDaaS) solution enabling IAM as a cloud service and providing built in access management, single-sign on (SSO), and reporting [pre-integrated with thousands of applications](https://azure.microsoft.com/marketplace/active-directory/), including Salesforce, Google Apps, Box, Concur, and lots more. With Azure AD applications you publish for your partners and customers (business or consumer) will have the same identity and access management capabilities freeing you to focus on you main business.
+Azure Active Directory is Microsoft’s comprehensive Identity as a Service (IDaaS) solution that:
 
-The value of Azure AD goes beyond “just” cloud applications. You can also use it with on-premises applications by providing secure remote access, avoiding the need for VPNs or other traditional remote access management system.
+- Enables IAM as a cloud service 
+
+- Provides central access management, single-sign on (SSO), and reporting 
+
+- Supports integrated access management for [thousands of applications](https://azure.microsoft.com/marketplace/active-directory/) in the application gallery, including Salesforce, Google Apps, Box, Concur, and more. 
+
+
+With Azure Active Directory, all applications you publish for your partners and customers (business or consumer) have the same identity and access management capabilities.<br> 
+This enables you to significantly reduce your operational costs.
 
 What if you need to implement an application that is not yet listed in the application gallery? While this is a bit more time-consuming than configuring SSO for applications from the application gallery, Azure AD provides you with a wizard that helps you with the configuration.
 
-By providing central access management and single sign on (SSO) for all your applications, Azure AD provides the solution to data security and productivity problems.
+The value of Azure AD goes beyond “just” cloud applications. You can also use it with on-premises applications by providing secure remote access. With secure remote access, you can eliminate the the need for VPNs or other traditional remote access management implementations.
+
+By providing central access management and single sign on (SSO) for all your applications, Azure AD provides the solution to the main data security and productivity problems.
 
 - Users can access multiple applications with one sign on giving more time to income generating or business operations activities done.
 
@@ -123,3 +131,7 @@ With Azure AD you can secure your applications with granular access policies and
 ## Getting started
 
 To get started integrating applications with Azure AD, take a look at the [Integrating Azure Active Directory with applications getting started guide](active-directory-integrating-applications-getting-started.md).
+
+## See also
+
+[Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

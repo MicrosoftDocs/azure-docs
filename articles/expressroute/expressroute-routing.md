@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/12/2016"
    ms.author="cherylmc"/>
 
 
@@ -67,7 +67,7 @@ Make sure that your IP address and AS number are registered to you in one of the
 - [APNIC](https://www.apnic.net/)
 - [AFRINIC](https://www.afrinic.net/)
 - [LACNIC](http://www.lacnic.net/)
-- [RIPE NCC](https://www.ripe.net/)
+- [RIPENCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
 
@@ -103,7 +103,8 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 
 **Note:** Advertising default routes will break Windows and other VM license activation. Follow instructions [here](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
 
-## Support for BGP communities
+## Support for BGP communities (Coming Soon)
+
 
 This section provides an overview of how BGP communities will be used with ExpressRoute. Microsoft will advertise routes in the public and Microsoft peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
 
@@ -117,7 +118,7 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 
 Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.
 
-| **Geopolitical Region** | **Microsoft Azure region (Same applies to Office 365)** | **BGP community value** |
+| **Geopolitical Region** | **Microsoft Azure region** | **BGP community value** |
 |---|---|---|
 | **North America** |    |  |
 |    | East US | 12076:51004 |
@@ -169,8 +170,8 @@ Microsoft does not honor any BGP community values that you set. You are required
 
 - Configure your ExpressRoute connection.
 
-	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-	- [Configure routing](expressroute-howto-routing-classic.md)
-	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+	- [Create an ExpressRoute circuit for the classic deployment model](expressroute-howto-circuit-classic.md) or [Create and modify an ExpressRoute circuit using Azure Resource Manager](expressroute-howto-circuit-arm.md)
+	- [Configure routing for the classic deployment model](expressroute-howto-routing-classic.md) or [Configure routing for the Resource Manager deployment model](expressroute-howto-routing-arm.md)
+	- [Link a classic VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md) or [Link a Resource Manager VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
 
 

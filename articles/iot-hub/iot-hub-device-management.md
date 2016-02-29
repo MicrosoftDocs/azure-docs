@@ -18,7 +18,7 @@
 
 # IoT device management using Azure IoT Suite and Azure IoT Hub
 
-Azure IoT Suite and Azure IoT Hub provide the foundational capabilities that enable device management for IoT solutions, at scale, and for a diverse set of devices and device topologies. References to device management in this article are specifically related to IoT device management.
+[Azure IoT Suite][lnk-iot-suite] and Azure IoT Hub provide the foundational capabilities that enable device management for IoT solutions, at scale, and for a diverse set of devices and device topologies. References to device management in this article are specifically related to IoT device management.
 
 ## Introduction
 
@@ -72,7 +72,7 @@ A production IoT deployment that operates under network and power or processing 
 
 ### The remote monitoring preconfigured solution and its device model
 
-The Azure IoT Suite Remote Monitoring preconfigured solution implements a self-defined device model. You can use this model to iterate quickly as you define and evolve the capabilities of your device.
+The Azure IoT Suite [Remote Monitoring preconfigured solution][lnk-remote-monitoring] implements a self-defined device model. You can use this model to iterate quickly as you define and evolve the capabilities of your device.
 
 You can find the source code for this preconfigured solution in the [azure-iot-solution][lnk-azure-iot-solution] GitHub repository.
 
@@ -159,4 +159,5 @@ To learn more about Azure IoT Hub, see these links:
 [service-bus-relay]: ../service-bus/service-bus-relay-overview.md
 [Connect your device]: https://azure.microsoft.com/develop/iot/
 [lnk-azure-iot-solution]: https://github.com/Azure/azure-iot-solution
-
+[lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-remote-monitoring]: ../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/26/2016"
 	ms.author="jaime-espinosa"/>
 
 # Reference for navigating the Azure portal
@@ -75,8 +75,6 @@ Other than the brand name, a few things in the portal have been renamed or group
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
 ## More Resources
-
-[The Azure cloud application platform](../app-service-cloud-app-platform.md)
 
 [Azure Portal]: https://portal.azure.com
 [Azure Marketplace]: /marketplace/

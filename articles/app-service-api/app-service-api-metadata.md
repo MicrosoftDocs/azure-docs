@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.topic="article"
+	ms.date="02/16/2016"
 	ms.author="tdykstra"/>
 
 # App Service API Apps metadata for API discovery and code generation 

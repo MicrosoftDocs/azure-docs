@@ -3,7 +3,7 @@
    description="A webhook that allows a client to start a runbook in Azure Automation from an HTTP call.  This article describes how to create a webhook and how to call one to start a runbook."
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
-   ms.author="bwren;sngun"/>
+   ms.date="02/23/2016"
+   ms.author="magoedte;bwren;sngun"/>
 
 # Azure Automation webhooks
 
 A *webhook* allows you to start a particular runbook in Azure Automation through a single HTTP request. This allows external services such as Visual Studio Team Services, GitHub, or custom applications to start runbooks without implementing a full solution using the Azure Automation API.  
-![Webhooks](media/automation-webhooks/webhooks-overview.png)
+![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 You can compare webhooks to other methods of starting a runbook in [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
 
@@ -29,7 +29,7 @@ The following table describes the properties that you must configure for a webho
 | Property | Description |
 |:---|:---|
 |Name | You can provide any name you want for a webhook since this is not exposed to the client.  It is only used for you to identify the runbook in Azure Automation. <br>  As a best practice, you should give the webhook a name related to the client that will use it. |
-|URL |The URL of the webhook is the unique address that a client calls with an HTTP POST to start the runbook linked to the webhook.  It is automatically generated when you create the webhook.  You cannot specify a custom URL. <br> <br>  The URL contains a security token that allows the runbook to be invoked by a third party system with no further authentication. For this reason, it should be treated like a password.  For security reasons, you can only view the URL in the Azure preview portal at the time the webhook is created. You should note the URL in a secure location for future use.   |
+|URL |The URL of the webhook is the unique address that a client calls with an HTTP POST to start the runbook linked to the webhook.  It is automatically generated when you create the webhook.  You cannot specify a custom URL. <br> <br>  The URL contains a security token that allows the runbook to be invoked by a third party system with no further authentication. For this reason, it should be treated like a password.  For security reasons, you can only view the URL in the Azure portal at the time the webhook is created. You should note the URL in a secure location for future use.   |
 |Expiration date | Like a certificate, each webhook has an expiration date at which time it can no longer be used.  This expiration date cannot be changed after the webhook is created, and the webhook also cannot be enabled again after the expiration date is reached.  In this case, you must create another webhook to replace the current one and update the client to use the new webhook. |
 | Enabled | A webhook is enabled by default when it is created.  If you set it to Disabled, then no client will be able to use it.  You can set the **Enabled** property when you create the webhook or anytime once it is created. |
 
@@ -39,7 +39,7 @@ A webhook can define values for runbook parameters that are used when the runboo
 
 When a client starts a runbook using a webhook, it cannot override the parameter values defined in the webhook.  To receive data from the client, the runbook can accept a single parameter called **$WebhookData** of type [object] that will contain data that the client includes in the POST request. 
 
-![Webhookdata](media/automation-webhooks/webhookdata.png)
+![Webhookdata properties](media/automation-webhooks/webhook-data-properties.png)
 
 The **$WebhookData** object will have the following properties:
 
@@ -83,9 +83,9 @@ Another strategy is to have the runbook perform some validation of an external c
 
 ## Creating a webhook
 
-Use the following procedure to create a new webhook linked to a runbook in the Azure preview portal.
+Use the following procedure to create a new webhook linked to a runbook in the Azure portal.
 
-1. From the **Runbooks blade** in the Azure preview portal, click the runbook that the webhook will start to view its detail blade. 
+1. From the **Runbooks blade** in the Azure portal, click the runbook that the webhook will start to view its detail blade. 
 3. Click **Webhook** at the top of the blade to open the **Add Webhook** blade. <br>
 ![Webhooks button](media/automation-webhooks/webhooks-button.png)
 4. Click **Create new webhook** to open the **Create webhook blade**.

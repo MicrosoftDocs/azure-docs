@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Continous export of telemetry from Application Insights" 
+	pageTitle="Continuous export of telemetry from Application Insights" 
 	description="Export diagnostic and usage data to storage in Microsoft Azure, and download it from there." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -42,7 +42,7 @@ On your application's Overview blade in the Application Insights portal, open Co
 
 ![Scroll down and click Continuous Export](./media/app-insights-export-telemetry/01-export.png)
 
-Add an export, and choose an [Azure storage account](../storage-introduction.md) where you want to put the data:
+Add an export, and choose an [Azure storage account](../storage/storage-introduction.md) where you want to put the data:
 
 ![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/app-insights-export-telemetry/02-add.png)
 
@@ -170,7 +170,6 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 
     If the account is owned by your organization, you have to be a member of the owners or contributors groups.
 
-    <!-- Your account has to be either a paid-for account, or in the free trial period. -->
 
 * *Can I export straight to my own on-premises store?* 
 

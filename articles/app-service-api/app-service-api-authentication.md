@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="01/21/2016"
 	ms.author="tdykstra"/>
 
@@ -110,8 +110,4 @@ For more information about authentication using Azure Active Directory, see the 
 
 ## Next steps
 
-This article has explained authentication and authorization features of App Service that you can use for API apps. 
-
-If you are following the getting started sequence of tutorials for ASP.NET and API Apps, try out these features in the next tutorial, [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md).
-
-For more information about using Node and Java in Azure App Service, see the [Node.js Developer Center](/develop/nodejs/) and the [Java Developer Center](/develop/java/).
+This article has explained authentication and authorization features of App Service that you can use for API apps. In the next tutorial, you'll learn how to implement [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md).

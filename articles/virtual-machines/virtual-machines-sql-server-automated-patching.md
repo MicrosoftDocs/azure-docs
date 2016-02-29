@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Automated Patching for SQL Server in Azure Virtual Machines
@@ -24,7 +24,7 @@ Automated Patching establishes a maintenance window for an Azure Virtual Machine
 
 ## Configure Automated Patching in the Azure portal
 
-You can use the [Azure portal](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) to configure Automated Patching when you create a new SQL Server Virtual Machine. 
+You can use the [Azure portal](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) to configure Automated Patching when you create a new SQL Server Virtual Machine.
 
 >[AZURE.NOTE] Automated Patching relies on the SQL Server IaaS Agent. To install and configure the agent, you must have the Azure VM Agent running on the target virtual machine. Newer virtual machine gallery images have this option enabled by default, but the Azure VM Agent might be missing on existing VMs. If you are using your own VM image, you will also need to install the SQL Server IaaS Agent. For more information, see [VM Agent and Extensions](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
@@ -61,7 +61,7 @@ It could take several minutes to install and configure the SQL Server IaaS Agent
 
 To disable Automated Patching, run the same script without the -Enable parameter to the New-AzureVMSqlServerAutoPatchingConfig. As with installation, it can take several minutes to disable Automated Patching.
 
-## Disabling and Uninstalling the SQL Server IaaS Agent
+## Disabling and uninstalling the SQL Server IaaS Agent
 
 If you want to disable the SQL Server IaaS Agent for Automated Backup and Patching, use the following command:
 
@@ -87,7 +87,7 @@ The following products are compatible with the SQL Server IaaS Agent features 
 
 - SQL Server 2014
 
-## Next Steps
+## Next steps
 
 A related feature for SQL Server VMs in Azure is [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-backup.md).
 

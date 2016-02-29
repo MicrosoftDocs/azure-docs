@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="01/26/2016" 
 	ms.author="awills"/>
 
@@ -114,7 +114,7 @@ Look for data in the Overview charts. At first, you'll just see one or two point
 
 Click through any chart to see more detailed metrics. [Learn more about metrics.][perf]
 
-* *No user or page data?* - [Add user & page data](app-insights-asp-net-client.md)
+* *No user or page data?* - [Add user & page data](app-insights-web-track-usage.md)
 
 ### Search: individual events
 
@@ -146,7 +146,7 @@ When you run in debug mode, telemetry is expedited through the pipeline, so that
 
 #### Trouble on your build server?
 
-See [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBuild).
+See [this Troubleshooting item](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [AZURE.NOTE] If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
 > [Learn about sampling](app-insights-sampling.md).
@@ -170,7 +170,7 @@ This is particularly useful if you have some [custom telemetry](app-insights-api
 
 ## Next steps
 
-- [User & page data](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [User & page data](../article/application-insights/app-insights-javascript.md#selector1)
 - [Exceptions](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
 - [Dependencies](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
