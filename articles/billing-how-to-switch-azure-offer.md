@@ -46,7 +46,7 @@ You can switch your existing subscription to a more favorable offer without any 
 
 **What offer changes do you support?**
 
-See [Offer changes supporte](#offier-changes-supported).
+See [Offer changes supported](#offer-changes-supported).
 
 **Does switching offers have any impact to my service?**
 
