@@ -50,12 +50,12 @@ You may download and run the [Azure Virtual Machine Readiness Assessment](https:
 
 We recommend that you also first review the tutorials, guides, and videos that cover the following topics:
 
-- [Configure a Cloud-Only Virtual Network in the Management Portal](virtual-networks-create-vnet-arm-pportal.md)
-- [Configure a Site-to-Site VPN in the Management Portal](vpn-gateway-site-to-site-create.md)
+- [Configure a Cloud-Only Virtual Network in the Azure Portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+- [Configure a Site-to-Site VPN in the Azure Portal](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 - [Install a new Active Directory forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)
-- [Install a replica Active Directory domain controller on Azure](virtual-networks-install-replica-active-directory-domain-controller.md)
-- [Windows Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](https://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
-- [Windows Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity ](https://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
+- [Install a replica Active Directory domain controller on Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md)
+- [Microsoft Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](https://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
+- [Microsoft Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity ](https://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 
 ## Introduction
 
@@ -65,7 +65,7 @@ The fundamental requirements for deploying Windows Server Active Directory on Az
 
  Connecting Azure virtual machines back to an on-premises corporate network requires Azure virtual network, which includes a site-to-site or site-to-point virtual private network (VPN) component able to seamlessly connect Azure virtual machines and on-premises machines. This VPN component could also enable on-premises domain member computers to access a Windows Server Active Directory domain whose domain controllers are hosted exclusively on Azure virtual machines. It is important to note, though, that if the VPN fails, authentication and other operations that depend on Windows Server Active Directory will also fail. While users may be able to log on using existing cached credentials, all peer-to-peer or client-to-server authentication attempts for which tickets have yet to be issued or have become stale will fail.
 
- See [Virtual Network](http://azure.microsoft.com/en-us/documentation/services/virtual-network/) for a demonstration video and a list of step-by-step tutorials, including [Configure a Site-to-Site VPN in the Management Portal](vpn-gateway-site-to-site-create.md).
+ See [Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) for a demonstration video and a list of step-by-step tutorials, including [Configure a Site-to-Site VPN in the Azure portal](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
  > [AZURE.NOTE] You can also deploy Windows Server Active Directory on an Azure virtual network that does not have connectivity with an on-premises network. The guidelines in this topic, however, assume that an Azure virtual network is used because it provides IP addressing capabilities that are essential to Windows Server.
 
@@ -111,7 +111,7 @@ For more information about how DCs are impacted, see [USN and USN Rollback](http
 
 Beginning with Windows Server 2012, [additional safeguards are built in to AD DS](https://technet.microsoft.com/library/hh831734.aspx). These safeguards help protect virtualized domain controllers against the aforementioned problems, as long as the underlying hypervisor platform supports VM-GenerationID. Azure supports VM-GenerationID, which means that domain controllers that run Windows Server 2012 or later on Azure virtual machines have the additional safeguards.
 
-> [Azure.NOTE] You should shut down and restart a VM that runs the domain controller role in Azure within the guest operating system instead of using the **Shut Down** option in the Azure Management Portal. Today, using the Management Portal to shut down a VM causes the VM to be deallocated. A deallocated VM has the advantage of not incurring charges, but it also resets the VM-GenerationID, which is undesirable for a DC. When the VM-GenerationID is reset, the invocationID of the AD DS database is also reset, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services (AD DS) Virtualization](https://technet.microsoft.com/library/hh831734.aspx) and [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
+> [Azure.NOTE] You should shut down and restart a VM that runs the domain controller role in Azure within the guest operating system instead of using the **Shut Down** option in the Azure classic portal. Today, using the classic portal to shut down a VM causes the VM to be deallocated. A deallocated VM has the advantage of not incurring charges, but it also resets the VM-GenerationID, which is undesirable for a DC. When the VM-GenerationID is reset, the invocationID of the AD DS database is also reset, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services (AD DS) Virtualization](https://technet.microsoft.com/library/hh831734.aspx) and [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
 
 ## Why deploy Windows Server AD DS on Azure Virtual Machines?
 
@@ -127,11 +127,11 @@ Finally, you may want to deploy a network application on Azure, such as SharePoi
 
 - For any Windows Server Active Directory deployment scenario that includes more than a single VM, it is necessary to use an Azure virtual network for IP address consistency. Note that this guide assumes that DCs are running on an Azure virtual network.
 
-- As with on-premises DCs, static IP addresses are recommended. A static IP address can only be configured by using Azure PowerShell. See [Static internal IP address for VMs](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) for more details. If you have monitoring systems or other solutions that check for static IP address configuration within the guest operating system, you can assign the same static IP address to the network adapter properties of the VM. But be aware that the network adapter will be discarded if the VM undergoes service healing or is shut down in the Management Portal and has its address deallocated. In that case, the static IP address within the guest will need to be reset.
+- As with on-premises DCs, static IP addresses are recommended. A static IP address can only be configured by using Azure PowerShell. See [Static internal IP address for VMs](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) for more details. If you have monitoring systems or other solutions that check for static IP address configuration within the guest operating system, you can assign the same static IP address to the network adapter properties of the VM. But be aware that the network adapter will be discarded if the VM undergoes service healing or is shut down in the classic portal and has its address deallocated. In that case, the static IP address within the guest will need to be reset.
 
-- Deploying VMs on a virtual network does not imply (or require) connectivity back to an on-premises network; the virtual network merely enables that possibility. You must create a virtual network for private communication between Azure and your on-premises network. You need to deploy a VPN endpoint on the on-premises network. The VPN is opened from Azure to the on-premises network. For more information, see [Virtual Network Overview](virtual-networks-overview.md) and [Configure a Site-to-Site VPN in the Management Portal](vpn-gateway-site-to-site-create.md).
+- Deploying VMs on a virtual network does not imply (or require) connectivity back to an on-premises network; the virtual network merely enables that possibility. You must create a virtual network for private communication between Azure and your on-premises network. You need to deploy a VPN endpoint on the on-premises network. The VPN is opened from Azure to the on-premises network. For more information, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) and [Configure a Site-to-Site VPN in the Azure Portal](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-> [Azure.NOTE] An option to [create a point-to-site VPN](vpn-gateway-point-to-site-create.md) is available to connect individual Windows-based computers directly to an Azure virtual network.
+> [Azure.NOTE] An option to [create a point-to-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) is available to connect individual Windows-based computers directly to an Azure virtual network.
 
 - Regardless of whether you create a virtual network or not, Azure charges for egress traffic but not ingress. Various Windows Server Active Directory design choices can affect how much egress traffic is generated by a deployment. For example, deploying a read-only domain controller (RODC) limits egress traffic because it does not replicate outbound. But the decision to deploy an RODC needs to be weighed against the need to perform write operations against the DC and the [compatibility](https://technet.microsoft.com/library/cc755190) that applications and services in the site have with RODCs. For more information about traffic charges, see [Azure pricing at-a-glance](http://azure.microsoft.com/pricing/).
 
@@ -176,7 +176,7 @@ However, because Azure does not provide native, full-featured firewall capabilit
 
 The high-level steps to deploy AD FS in this case are as follows:
 
-1. Create a [virtual network with cross-premises connectivity](vpn-gateway-cross-premises-options.md), using either a VPN or [ExpressRoute](http://azure.microsoft.com/services/expressroute/).
+1. Create a [virtual network with cross-premises connectivity](../vpn-gateway/vpn-gateway-cross-premises-options.md), using either a VPN or [ExpressRoute](http://azure.microsoft.com/services/expressroute/).
 
 2. Deploy domain controllers on the virtual network. This step is optional but recommended.
 
@@ -310,7 +310,7 @@ In an effort to simplify and meet the deployment and configuration needs of this
 
 #### Scenario considerations and how technology areas apply to the scenario
 
-- [Network topology](#BKMK_NetworkTopology): Create an Azure virtual network and [configure cross-premises connectivity](vpn-gateway-site-to-site-create.md).
+- [Network topology](#BKMK_NetworkTopology): Create an Azure virtual network and [configure cross-premises connectivity](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
  > [Azure.NOTE] For each of the Windows Server AD FS certificates, ensure that the URL defined within the certificate template and the resulting certificates can be reached by the Windows Server AD FS instances running on Azure. This may require cross-premises connectivity to parts of your PKI infrastructure. For example if the CRL's endpoint is LDAP-based and hosted exclusively on-premises, then cross-premises connectivity will be required. If this is not desirable, it may be necessary to use certificates issued by a CA whose CRL is accessible over the Internet.
 
@@ -336,9 +336,9 @@ An LDAP-aware application is deployed on an Azure virtual machine. It supports W
 
 #### Scenario considerations and how technology areas apply to the scenario
 
-- [Network topology](#BKMK_NetworkTopology): Create an Azure virtual network with [cross-premises connectivity](vpn-gateway-site-to-site-create.md).
+- [Network topology](#BKMK_NetworkTopology): Create an Azure virtual network with [cross-premises connectivity](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-- [Installation method](#BKMK_InstallMethod): Deploy replica DCs from the corporate Windows Server Active Directory domain. For a replica DC, you can install Windows Server AD DS on the VM, and optionally use the Install From Media (IFM) feature to reduce the amount of data that needs to be replicated to the new DC during installation. For a tutorial, see [Install a replica Active Directory domain controller on Azure](virtual-networks-install-replica-active-directory-domain-controller.md). Even if you use IFM, it may be more efficient to build the virtual DC on-premises and move the entire Virtual Hard Disk (VHD) to the cloud instead of replicating Windows Server AD DS during installation. For safety, it is recommended that you delete the VHD from the on-premises network once it has been copied to Azure.
+- [Installation method](#BKMK_InstallMethod): Deploy replica DCs from the corporate Windows Server Active Directory domain. For a replica DC, you can install Windows Server AD DS on the VM, and optionally use the Install From Media (IFM) feature to reduce the amount of data that needs to be replicated to the new DC during installation. For a tutorial, see [Install a replica Active Directory domain controller on Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md). Even if you use IFM, it may be more efficient to build the virtual DC on-premises and move the entire Virtual Hard Disk (VHD) to the cloud instead of replicating Windows Server AD DS during installation. For safety, it is recommended that you delete the VHD from the on-premises network once it has been copied to Azure.
 
 - [Windows Server Active Directory site topology](#BKMK_ADSiteTopology): Create a new Azure site in Active Directory Sites and Services. Create a Windows Server Active Directory subnet object to represent the Azure virtual network and add the subnet to the site. Create a new site link that includes the new Azure site and the site in which the Azure virtual network VPN endpoint is located in order to control and optimize Windows Server Active Directory traffic to and from Azure.
 
@@ -372,7 +372,7 @@ For example, if you deploy a replica DC on a virtual network and your forest has
 | 2 | [DC deployment configuration](#BKMK_DeploymentConfig) | <li>Deploy a separate forest without any trusts?</li> <li>Deploy a new forest with federation?</li> <li>Deploy a new forest with Windows Server Active Directory forest trust or Kerberos?</li> <li>Extend Corp forest by deploying a replica DC?</li> <li>Extend Corp forest by deploying a new child domain or domain tree?</li> | <li>Security</li> <li>Compliance</li> <li>Cost</li> <li>Resiliency and fault-tolerance</li> <li>Application compatibility</li> |
 | 3 | [Windows Server Active Directory site topology](#BKMK_ADSiteTopology) | How do you configure subnets, sites, and site links with Azure Virtual Network to optimize traffic and minimize cost? | <li>Subnet and site definitions</li> <li>Site link properties and change notification</li> <li>Replication compression</li> |
 | 4 | [IP addressing and DNS](#BKMK_IPAddressDNS) | How to configure IP addresses and name resolution? | <li>Use the Use the Set-AzureStaticVNetIP cmdlet to assign a static IP address</li> <li>Install Windows Server DNS server and configure the virtual network properties with the name and IP address of the VM that hosts the DC and DNS server roles</li> |
-| 5 | [Geo-distributed DCs](#BKMK_DistributedDCs) | How to replicate to DCs on separate virtual networks? | If your Active Directory site topology requires DCs in geographies that corresponds to different Azure regions, than you want to create Active Directory sites accordingly. [Configure VNet to VNet Connectivity](virtual-networks-configure-vnet-to-vnet-connection.md) to replicate between domain controllers on separate VNets. |
+| 5 | [Geo-distributed DCs](#BKMK_DistributedDCs) | How to replicate to DCs on separate virtual networks? | If your Active Directory site topology requires DCs in geographies that corresponds to different Azure regions, than you want to create Active Directory sites accordingly. [Configure VNet to VNet Connectivity](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) to replicate between domain controllers on separate VNets. |
 | 6 | [Read-only DCs](#BKMK_RODC) | Use read-only or writeable DCs? | <li>Filter HBI/PII attributes</li> <li>Filter secrets</li> <li>Limit outbound traffic</li> |
 | 7 | [Global catalog](#BKMK_GC) | Install global catalog? | <li>For single-domain forest, make all DCs GCs</li> <li>For multidomain forest, GCs are required for authentication</li> |
 | 8 | [Installation method](#BKMK_InstallMethod) | How to install DC in Azure? | Either: <li>Install AD DS using Windows PowerShell or Dcpromo</li> <li>Move VHD of an on-premises virtual DC</li> |
@@ -385,7 +385,7 @@ For example, if you deploy a replica DC on a virtual network and your forest has
 
 ### <a name="BKMK_NetworkTopology"></a>Network topology
 
-In order to meet the IP address consistency and DNS requirements of Windows Server AD DS, it is necessary to first create an [Azure virtual network](virtual-networks-overview.md) and attach your virtual machines to it. During its creation, you must decide whether to optionally extend connectivity to your on-premises corporate network, which transparently connects Azure virtual machines to on-premises machines — this is achieved using traditional VPN technologies and requires that a VPN endpoint be exposed on the edge of the corporate network. That is, the VPN is initiated from Azure to the corporate network, not vice-versa.
+In order to meet the IP address consistency and DNS requirements of Windows Server AD DS, it is necessary to first create an [Azure virtual network](../virtual-network/virtual-networks-overview.md) and attach your virtual machines to it. During its creation, you must decide whether to optionally extend connectivity to your on-premises corporate network, which transparently connects Azure virtual machines to on-premises machines — this is achieved using traditional VPN technologies and requires that a VPN endpoint be exposed on the edge of the corporate network. That is, the VPN is initiated from Azure to the corporate network, not vice-versa.
 
 Note that additional charges apply when extending a virtual network to your on-premises network beyond the standard charges that apply to each VM. Specifically, there are charges for CPU time of the Azure Virtual Network gateway and for the egress traffic generated by each VM that communicates with on-premises machines across the VPN. For more information about network traffic charges, see [Azure pricing at-a-glance](http://azure.microsoft.com/pricing/).
 
@@ -441,7 +441,7 @@ For fault tolerance and performance reasons, it is optimal to install the Window
 
 VMs register their DNS name automatically on startup or when there is a name change.
 
-For more information about this example and another example that shows how to provision the first VM and install AD DS on it, see [Install a new Active Directory forest on Microsoft Azure](active-directory-new-forest-virtual-machine.md). For more information about using Windows PowerShell, see [Install Azure PowerShell](powershell-install-configure.md) and [Azure Management Cmdlets](https://msdn.microsoft.com/library/azure/jj152841).
+For more information about this example and another example that shows how to provision the first VM and install AD DS on it, see [Install a new Active Directory forest on Microsoft Azure](active-directory-new-forest-virtual-machine.md). For more information about using Windows PowerShell, see [Install Azure PowerShell](../powershell-install-configure.md) and [Azure Management Cmdlets](https://msdn.microsoft.com/library/azure/jj152841).
 
 ### <a name="BKMK_DistributedDCs"></a>Geo-distributed DCs
 
@@ -451,7 +451,7 @@ Azure offers advantages when hosting multiple DCs on different virtual networks:
 
 - Physical proximity to branch offices (lower latency)
 
-For information about configuring direct communication between virtual networks, see [Configure VNet to VNet connectivity](virtual-networks-configure-vnet-to-vnet-connection.md).
+For information about configuring direct communication between virtual networks, see [Configure VNet to VNet connectivity](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 ### <a name="BKMK_RODC"></a>Read-only DCs
 
