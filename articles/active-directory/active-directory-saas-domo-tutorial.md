@@ -27,6 +27,7 @@ The objective of this tutorial is to show you how to integrate Domo with Azure A
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
+
 ## Prerequisites
 
 To configure Azure AD integration with Domo, you need the following items:
