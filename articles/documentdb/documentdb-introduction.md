@@ -13,8 +13,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.topic="get-started-article" 
+	ms.date="02/16/2016" 
 	ms.author="mimig"/>
 
 # Introduction to DocumentDB: A NoSQL JSON Database
@@ -77,11 +77,11 @@ Azure DocumentDB exposes resources through a REST API that can be called by any 
 Download | Documentation
 --- | ---
 [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) | [.NET library](https://msdn.microsoft.com/library/azure/dn948556.aspx)
-[Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) | [Node.js library](http://dl.windowsazure.com/documentDB/nodedocs/)
-[Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) | [Java library](http://dl.windowsazure.com/documentdb/javadoc/)
-[JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) | [JavaScript library](http://dl.windowsazure.com/documentDB/jsclientdocs/)
-n/a | [Server-side JavaScript SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/)
-[Python SDK](https://pypi.python.org/pypi/pydocumentdb) | [Python library](http://dl.windowsazure.com/documentDB/pythondocs/)
+[Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) | [Node.js library](http://azure.github.io/azure-documentdb-node/)
+[Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) | [Java library](http://azure.github.io/azure-documentdb-java/)
+[JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) | [JavaScript library](http://azure.github.io/azure-documentdb-js/)
+n/a | [Server-side JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/)
+[Python SDK](https://pypi.python.org/pypi/pydocumentdb) | [Python library](http://azure.github.io/azure-documentdb-python/)
 
 Beyond basic create, read, update, and delete operations, DocumentDB provides a rich SQL query interface for retrieving JSON documents and server side support for transactional execution of JavaScript application logic. The query and script execution interfaces are available through all platform libraries as well as the REST APIs. 
 

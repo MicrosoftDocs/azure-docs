@@ -13,13 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 
 # Archive Overview of AS2 Connector Messages
 
-**AS2 Connector** exposes the ability to archive messages. Archiving stores the message in the **Azure Blob Container** that is a part of package settings. 
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
+The [AS2 Connector](app-service-logic-connector-as2.md) exposes the ability to archive messages. Archiving stores the message in the **Azure Blob Container** that is a part of package settings. 
 
 Archiving is exposed at two points for both messages and acknowledgements (MDNs):
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="02/22/2016" 
 	ms.author="bradyg"/>
 
 # Customize Swashbuckle-generated API definitions 
@@ -201,7 +201,7 @@ When you use Visual Studio to regenerate the client code for your REST API, the 
         	    throw ex;
 		}
 
-The code for this demonstration can be found in [this GitHub repository](https://github.com/Azure-Samples/API-Apps-DotNet-Swashbuckle-Customization-MultipleResponseCodes). Along with the Web API project marked up with XML documentation comments is a Console Application project that contains a generated client for this API. 
+The code for this demonstration can be found in [this GitHub repository](https://github.com/Azure-Samples/app-service-api-dotnet-swashbuckle-swaggerresponse). Along with the Web API project marked up with XML documentation comments is a Console Application project that contains a generated client for this API. 
 
 ### Customize expected response codes using the SwaggerResponse attribute
 

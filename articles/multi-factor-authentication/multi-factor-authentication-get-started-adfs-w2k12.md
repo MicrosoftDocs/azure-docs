@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.topic="get-started-article" 
+	ms.date="02/18/2016"" 
 	ms.author="billmath"/>
 
 
@@ -33,6 +33,7 @@ When installing the Azure Multi-Factor Authentication Server you have the follow
 Before you begin, be aware of the following information:
 
 - It is not a requirement that the Azure Multi-Factor Authentication Server be installed on your AD FS federation server however the Multi-Factor Authentication Adapter for AD FS must be installed on a Windows Server 2012 R2 running AD FS. You can install the server on a different computer, as long as it is a supported version and install the AD FS adapter separately on your AD FS federation server. See the procedure below for instructions on installing the adapter separately.
+- When the Multi-Factor Authentication Server's AD FS Adapter was designed, it was anticipated that AD FS could pass the name of the relying party to the adapter which could be used as an application name.  However, this turned out not to be the case.  If using text message or mobile app authentication methods, the strings defined in Company Settings contain a placeholder "<$application_name$>".  This placeholder doesn't get replaced when using the AD FS Adapter.  Because of this, it is recommended to remove the placeholder from the appropriate strings when securing AD FS.
 
 - The signed on account must have privileges to create security groups in Active Directory.
 

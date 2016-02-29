@@ -53,7 +53,7 @@ Please see [here](sql-database-transact-sql-information.md) for the small set of
 ## More premium performance, new performance levels
 
 
-In V12, we increased the database throughput units (DTUs) allocated to all Premium performance levels by 25% at no additional cost. Even greater performance gains can be achieved with new features like:
+In V12, we increased the Database Transaction Units (DTUs) allocated to all Premium performance levels by 25% at no additional cost. Even greater performance gains can be achieved with new features like:
 
 
 - Support for in-memory [columnstore indexes](http://msdn.microsoft.com/library/gg492153.aspx).
@@ -124,7 +124,7 @@ There are many good reasons why customers should upgrade now to Azure SQL Databa
 
 - SQL Database V12 has a long list of features beyond those of V11.
 - We continue to add new features to V12, but no new features will be added to V11.
-- Most new features are released on SQL Database V12 before they being released for Microsoft SQL Server.
+- Most new features are released on SQL Database V12 before they are being released for Microsoft SQL Server.
 
 
 ## Are you using V12 already?
@@ -151,7 +151,7 @@ Another technique to ascertain the version is to run the `SELECT @@version;` sta
 A V12 database can be hosted only on a V12 logical server. And a V12 server can host only V12 databases.
 
 
-If you are not yet running on V12, you can upgrade your logical server by following the steps in [Upgrade to SQL Database V12 in place](sql-database-v12-upgrade.md).
+If you are not yet running on V12, you can upgrade your logical server by following the steps in [Upgrade to SQL Database V12 in place](sql-database-v12-plan-prepare-upgrade.md).
 
 
 ## <a name="V12AzureSqlDbPreviewGaTable"></a> General Availability regions

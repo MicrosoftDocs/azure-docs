@@ -9,10 +9,10 @@
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="02/26/2016"
    ms.author="cherylmc" />
 
 # About VPN devices for Site-to-Site VPN Gateway connections
@@ -144,7 +144,7 @@ The table below lists IPsec SA Encryption and Authentication Offers. Offers are 
 | 18                                                | -                                                            | AH MD5, no lifetimes                                         |
 
 
-- You can specify IPsec ESP NULL encryption with route-based and High Performance VPN gateway. This is intended for VNet-to-VNet connections within Azure networks. 
+- You can specify IPsec ESP NULL encryption with route-based and High Performance VPN gateways. Null based encryption does not provide protection to data in transit, and should only be used when maximum throughput and minimum latency is required.  Clients may chose to use this in vnet-to-vnet communication scenarios, or when encryption is being applied elsewhere in the solution.
 
 - For cross-premises connectivity through the Internet, please use the default Azure VPN gateway settings with encryption and hashing algorithms listed in the tables above to ensure security of your critical communication.
 
