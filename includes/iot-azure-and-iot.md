@@ -37,7 +37,9 @@ In the cloud, an IoT solution back end:
 
 IoT solutions can include automatic feedback loops. For example, a machine learning module in the back end can identify from telemetry that the temperature of a specific device is above normal operating levels and then send a command to the device, enabling it to take corrective action.
 
-### Presentation
+### Presentation and business connectivity
+
+The IoT solution backend typically delivers the data received from to devices to line-of-business (LOB) systems where that data is consumed by other business processes or workflows. The IoT solution backend can use rules to route specific types of data to specific LOB systems.
 
 Many IoT solutions enable users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports.
 
