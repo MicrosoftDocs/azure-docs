@@ -151,33 +151,33 @@ If forwarding queries to Azure doesn't suit your needs, you will need to provide
 > [AZURE.NOTE] For best performance, when using Azure VMs as DNS servers, IPv6 should be disabled and an [Instance-Level Public IP](virtual-networks-instance-level-public-ip.mp) should be assigned to each DNS server VM.  If you choose to use Windows Server as your DNS server, [this article](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) provides additional performance analysis and optimizations.
 
 
+### Specifying DNS servers
 
-## Specifying DNS servers
+When using your own DNS servers, Azure provides the ability to specify multiple DNS servers per virtual network or per network interface (for ARM) / cloud service (for classic).  DNS servers specified for a cloud service/network interface get precedence over those specified for the virtual network.
 
-You can specify multiple DNS servers to be used by your VMs and role instances.  For each DNS query, the client will first try the preferred DNS server and only try the alternate servers if the preferred one doesn't respond, i.e. DNS queries are not load-balanced across the different DNS servers. For this reason, verify that you have your DNS servers listed in the correct order for your environment.
+> [AZURE.NOTE] Network connection properties, such as DNS server IPs, should not be edited directly within the Windows VMs as they may get erased during service heal when the virtual network adaptor gets replaced. 
 
-> [AZURE.NOTE] If you change the DNS settings on a network configuration file for virtual network that is already deployed, you need to restart each VM for the changes to take effect.
 
-### Specifying a DNS server in the Management Portal
+When working in ARM, DNS servers can be specified in the Portal, API/Templates ([vnet](https://msdn.microsoft.com/library/azure/mt163661.aspx), [nic](https://msdn.microsoft.com/library/azure/mt163668.aspx)) or PowerShell ([vnet](https://msdn.microsoft.com/library/mt603657.aspx), [nic](https://msdn.microsoft.com/library/mt619370.aspx)).
 
-When you create a virtual network in the Management Portal, you can specify the IP address and name of the DNS server(s) that you want to use. Once the virtual network is created, the virtual machines and role instances that you deploy to the virtual network are automatically configured with the specified DNS settings.  DNS servers specified for a specific cloud service (Azure classic) or a network interface card (ARM-based deployments) take precedence over those specified for the virtual network.  
+When working in Azure classic, DNS servers for the virtual network can be specified in the Portal or [the *Network Configuration* file](https://msdn.microsoft.com/library/azure/jj157100).  For cloud service, the DNS servers are specified via [the *Service Configuration* file](https://msdn.microsoft.com/library/azure/ee758710) or in PowerShell ([New-AzureVM](https://msdn.microsoft.com/en-us/library/azure/dn495254.aspx)).
 
-### Specifying a DNS server by using configuration files (Azure classic)
-
-For classic virtual networks, you can specify DNS settings by using two different configuration files: the *Network Configuration* file and the *Service Configuration* file.
-
-The network configuration file describes the virtual networks in your subscription. When you add role instances or VMs to a cloud service in a virtual network, the DNS settings from your network configuration file are applied to each role instance or VM unless cloud-service specific DNS servers have been specified.
-
-The service configuration file is created for each cloud service that you add to Azure. When you add role instances or VMs to the cloud service, the DNS settings from your service configuration file are applied to each role instance or VM.
-
-> [AZURE.NOTE] DNS servers in the service configuration file override settings in the network configuration file. 
+> [AZURE.NOTE] If you change the DNS settings for a virtual network/virtual machine that is already deployed, you need to restart each affected VM for the changes to take effect.
 
 
 ## Next steps
 
-[Azure Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710)
+[ARM: Create or update a virtual network](https://msdn.microsoft.com/library/azure/mt163661.aspx)
+ 
+[ARM: Create or update a network interface card](https://msdn.microsoft.com/library/azure/mt163668.aspx)
 
-[Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
+[ARM: New-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx)
 
-[Configure a Virtual Network by Using a Network Configuration File](virtual-networks-using-network-configuration-file.md) 
+[ARM: New-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx)
+
+[Classic: Azure Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710)
+
+[Classic: Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
+
+[Classic: Configure a Virtual Network by Using a Network Configuration File](virtual-networks-using-network-configuration-file.md) 
 
