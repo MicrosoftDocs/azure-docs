@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/09/2016" 
 	ms.author="mahender"/>
 
 # Upgrade your existing .NET Azure Mobile Service to App Service
@@ -74,7 +74,7 @@ Mobile Apps provides a new [Mobile App Server SDK] which provides much of the sa
 
 At this point you will have a project that no longer references Mobile Services SDKs.
 
-Next you will add references the Mobile Apps SDK. For this upgrade, most developers will want to download and install the `Micrsoft.Azure.Mobile.Server.Quickstart` package, as this will pull in the entire required set.
+Next you will add references the Mobile Apps SDK. For this upgrade, most developers will want to download and install the `Microsoft.Azure.Mobile.Server.Quickstart` package, as this will pull in the entire required set.
 
 There will be quite a few compiler errors resulting from differences between the SDKs, but these are easy to address and are covered in the rest of this section.
 

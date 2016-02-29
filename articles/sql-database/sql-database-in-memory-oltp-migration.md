@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="MightyPen"/>
 
 
@@ -14,16 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="02/11/2016"
 	ms.author="jodebrui"/>
 
 
-# Use In-Memory (preview) to improve your application performance in SQL Database
+# Use In-Memory OLTP (preview) to improve your application performance in SQL Database
 
-Follow these steps to optimize the transactional performance of your existing [Premium](sql-database-service-tiers.md) Azure SQL Database by using the [In-Memory](sql-database-in-memory.md) feature.
+[In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of OLTP workload in  [Premium](sql-database-service-tiers.md) Azure SQL Databases without increasing the performance level.
 
+Follow these steps to adopt In-Memory OLTP in your existing database.
 
-## Step 1: Ensure your Premium database supports In-Memory
+## Step 1: Ensure your Premium database supports In-Memory OLTP
 
 Premium databases created in November 2015 or later do support the In-Memory feature. You can ascertain whether your Premium database supports the In-Memory feature by running the following Transact-SQL statement. In-Memory is supported if the returned result is 1 (not 0):
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/25/2016" 
+	ms.date="02/25/2016" 
 	ms.author="billmath"/>
 
 # Having trouble with Azure Multi-Factor Authentication
@@ -25,13 +25,13 @@ The following information is provided to help you with some of the common issues
 
 
 - [Correlation ID Errors](#correlation-id-errors)
-- [I have lost my phone or it was stolen](#i-have-lost-my-phone-or-it-was-stolen?)
+- [I have lost my phone or it was stolen](#i-have-lost-my-phone-or-it-was-stolen)
 - [I want to change my phone number](#i-want-to-change-my-phone-number)
 - [I have a new phone and need to change my phone number](#i-have-a-new-phone-and-need-to-change-my-phone-number)
-- [I am not receiving a code on my phone](#i-am-not-receiving-a-code-on-my-phone)
+- [I am not receiving a code on my phone](#i-am-not-receiving-a-code-or-a-call-on-my-phone)
 - [App passwords are not working](#app-passwords-are-not-working)
 - [How do I clean up Azure Authenticator from my old device and move to a new one?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
-- [I didn't find an answer to my problem](#i-didn't-find-an-answer-to-my-problem)
+- [I didn't find an answer to my problem](#i-didnt-find-an-answer-to-my-problem)
 
 ##Correlation ID Errors
 If you've tried the troubleshooting steps below and are still running into problems, you can post a question on the [Azure AD Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Search the Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) or [contact support](https://support.microsoft.com/en-us) and we'll take a look at your problem as soon as we can.
@@ -132,6 +132,9 @@ If you use multi-factor authentication with Azure you will want to change your s
 
 If you have a new phone and need to change the primary contact number that mfa uses, you can do this in one of two ways.
 
+>[AZURE.IMPORTANT]
+>It is important to configure a secondary authentication phone number.  Because your primary phone number and your mobile app are probably on the same phone, the secondary phone number is the only way you will be able to get back into your account if your phone is lost or stolen.
+
 The first is using a secondary authentication method.  If you have specified a secondary authentication phone number you can sign-in using it. 
 ![Setup](./media/multi-factor-authentication-end-user-manage/altphone.png)
 Notice in the screen shot above, two phone numbers have been setup.  One ending in 67 and the second ending in 30.
@@ -142,9 +145,6 @@ To sign in using the alternate phone number, sign-in as you normally would, then
 Then select your other phone number.  In this case, you would select **Call me at +X XXXXXXXX30**
 
 ![Alternate phone](./media/multi-factor-authentication-end-user-manage/altphone2.png)
-
->[AZURE.IMPORTANT]
->It is important to configure a secondary authentication phone number.  Because your primary phone number and your mobile app are probably on the same phone, the secondary phone number is the only way you will be able to get back into your account if your phone is lost or stolen.
 
 The second is by contacting your administrator or the person who setup mfa for you.  You only need to do this if you have not configured a secondary authentication phone number.  Otherwise you will have to contact your administrator or the person who setup mfa and have them clear you settings so the next time you sign-in, you will be prompted to [setup multi-factor authentication](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again) again.
 
@@ -158,7 +158,7 @@ First, you need to ensure the following:
 - If you selected to receive verification codes by text message to your mobile phone, make sure your service plan and device supports text message delivery. Your delivery speed and availability may vary by location and service provider. Also make sure that you have an adequate cell signal when trying to receive these codes.
 - If you chose to receive a verification via the mobile app, ensure that you have a significant cell signal.  Also remember that delivery speed and availability may vary by location and service provider. 
 
-If you have a smartphone, we recommend you use the [Azure Authenticator app](multi-factor-authentication-azure-authenticator).
+If you have a smartphone, we recommend you use the [Azure Authenticator app](multi-factor-authentication-azure-authenticator.md).
 
 You can switch between receiving your verification codes via text messages through the mobile app by choosing **Use a different verification option** when you sign-in. 
 
