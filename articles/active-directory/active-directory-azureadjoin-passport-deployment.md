@@ -108,8 +108,8 @@ Here is the sample xml:
       </Actions>
     </Task>
 
- In <Arguments>, ScopeId_73F3BB5E-5EDC-4928-87BD-4E75EB4BBC34/ConfigurationPolicy_db89c51e-1d1b-4a17-8e42-a5459b742ccd is the ID for the certificate profile created in the step, "Configure the certificate profile to use the "Passport for Work" enrollment certificate in Configuration Manager".
- Following the ScopeId is the version, <8>.
+ The scope ID, ScopeId_73F3BB5E-5EDC-4928-87BD-4E75EB4BBC34/ConfigurationPolicy_db89c51e-1d1b-4a17-8e42-a5459b742ccd, is the ID for the certificate profile created in the step, "Configure the certificate profile to use the "Passport for Work" enrollment certificate in Configuration Manager".
+ Following the scope ID is the version, 8.
 
 ## Additional information
 * [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
