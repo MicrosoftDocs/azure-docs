@@ -86,13 +86,13 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 4. In the **Actions** pane, click **Create Domain Certificate**.
 
-5. In the **Common name** box, type *\*.azurestack.local*.
+5. In the **Common name** box, type *.azurestack.local.
 
 6. Type values of your choice in the other boxes and then click **Next**.
 
 7. Click **Select** and choose **AzureStackCertificationAuthority**.
 
-8. In the **Friendly name** box, type *\*.azurestack.Local*.
+8. In the **Friendly name** box, type *.azurestack.local.
 
 
 
