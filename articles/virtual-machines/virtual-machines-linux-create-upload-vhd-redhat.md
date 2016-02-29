@@ -19,7 +19,7 @@
 
 # Prepare a Red Hat-based virtual machine for Azure
 
-In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure.  Versions of RHEL covered in this article are 6.7, 7.1 and 7.2, and hypervisors for preparation covered in this article are Hyper-V, KVM and VMware.  For more information on eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/articles/1989673).
+In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure. Versions of RHEL that are covered in this article are 6.7, 7.1 and 7.2. Hypervisors for preparation that are covered in this article are Hyper-V, Kernel-based Virtual Machine (KVM), and VMware. For more information on eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/articles/1989673).
 
 [Prepare a RHEL 6.7 virtual machine from Hyper-V Manager](#rhel67hyperv)
 
@@ -38,21 +38,21 @@ In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL)
 
 ## Prepare a Red Hat-based virtual machine from Hyper-V Manager
 ### Prerequisites
-This section assumes that you have already installed a RHEL image from an ISO file obtained from Red Hat's website to a virtual hard disk (VHD). For more details on how to use Hyper-V Manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
+This section assumes that you have already installed a RHEL image (from an ISO file that you obtained from Red Hat's website) to a virtual hard disk (VHD). For more details on how to use Hyper-V Manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 **RHEL installation notes**
 
-- The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd PowerShell cmdlet.
+- The newer VHDX format is not supported in Azure. You can convert the disk to VHD format by using Hyper-V Manager or the **convert-vhd** PowerShell cmdlet.
 
 - VHDs must be created as "fixed"--dynamic VHDs are not supported.
 
-- When you're installing the Linux system, we recommend that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. LVM or RAID may be used on data disks if preferred.
+- When you're installing the Linux operating system, we recommend that you use standard partitions rather than Logical Volume Manager (LVM) (which is often the default for many installations). This will help you to avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. You can use LVM or RAID on data disks if you prefer.
 
-- Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk. More information about this can be found in the steps below.
+- Do not configure a swap partition on the OS disk. You can configure the Linux agent to create a swap file on the temporary resource disk. More information about this is available in the steps below.
 
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
-- When using qemu-img to convert disk images to VHD format, note that there is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue will be fixed in an upcoming release of qemu-img.  For now it is recommended to use qemu-img version 2.2.0 or lower.
+- When you use **qemu-img** to convert disk images to VHD format, note that there is a known bug in qemu-img versions 2.2.1 or later. This bug results in an improperly formatted VHD. The issue is intended to be fixed in an upcoming release of qemu-img. For now, we recommend that you use qemu-img version 2.2.0 or earlier.
 
 ### <a id="rhel67hyperv"> </a>Prepare a RHEL 6.7 virtual machine from Hyper-V Manager###
 
@@ -61,13 +61,13 @@ This section assumes that you have already installed a RHEL image from an ISO fi
 
 2.	Click **Connect** to open a console window for the virtual machine.
 
-3.	Uninstall NetworkManager by running the following command:
+3.	Uninstall Network Manager by running the following command:
 
         # sudo rpm -e --nodeps NetworkManager
 
-    **Note:** If the package is not already installed, this command will fail with an error message. This is expected.
+    Note that if the package is not already installed, this command will fail with an error message. This is expected.
 
-4.	Create a file named **network** in the `/etc/sysconfig/` directory  that contains the following text:
+4.	Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
@@ -82,17 +82,17 @@ This section assumes that you have already installed a RHEL image from an ISO fi
         PEERDNS=yes
         IPV6INIT=no
 
-6.	Move (or remove) udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
+6.	Move (or remove) udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when you clonw a virtual machine in Microsoft Azure or Hyper-V:
 
         # sudo mkdir -m 0700 /var/lib/waagent
         # sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
         # sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
 
-7.	Ensure the network service will start at boot time by running the following command:
+7.	Ensure that the network service will start at boot time by running the following command:
 
         # sudo chkconfig network on
 
-8.	Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
+8.	Register your Red Hat subscription to enable the installation of packages from the RHEL repository by running the following command:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
@@ -107,9 +107,9 @@ This section assumes that you have already installed a RHEL image from an ISO fi
         rootdelay=300
         numa=off
 
-    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This will disable NUMA due to a bug in the kernel version used by RHEL 6.
+    This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This will disable NUMA due to a bug in the kernel version that is used by RHEL 6.
 
-    In addition to the above, it is recommended to remove the following parameters:
+    In addition to the above, we recommend removing the following parameters:
 
         rhgb quiet crashkernel=auto
 
@@ -126,10 +126,10 @@ This section assumes that you have already installed a RHEL image from an ISO fi
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
 
-    **Note:** Installing the WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 2.
+    Note that installing the WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 2.
 
 13.	Do not create swap space on the OS disk.
-The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
