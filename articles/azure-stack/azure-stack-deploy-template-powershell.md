@@ -66,7 +66,7 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 
   Replace *username* and *password* with your username and password. On subsequent uses, increment the value for the *$myNum* parameter. If you don’t do this, your previous virtual machine deployment will be overwritten.
 
-```
+  ```
 		# Set Deployment Variables
 		$myNum = "001" #Modify this per deployment
 		$RGName = "myRG$myNum"
@@ -81,7 +81,6 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		    -Name "myDeployment$myNum" `
 		    -ResourceGroupName $RGName `
 		    -TemplateFile "c:\templates\azuredeploy-101-simple-windows-vm.json" `
-		    -deploymentLocation $myLocation `
 		    -blobStorageEndpoint $myBlobStorageEndpoint `
 		    -newStorageAccountName "mystorage$myNum" `
 		    -dnsNameForPublicIP "mydns$myNum" `
@@ -89,9 +88,9 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		    -adminPassword ("password" | ConvertTo-SecureString -AsPlainText -Force) `
 		    -vmName "myVM$myNum" `
 		    -windowsOSVersion "2012-R2-Datacenter"
-```
+  ```
 
-4.  Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
+3.  Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
 
 ## Next steps
 
