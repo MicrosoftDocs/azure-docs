@@ -3,8 +3,8 @@
         description="Create an Azure file share in the cloud with this step-by-step tutorial. Manage your file share content, and mount a file share from an Azure virtual machine (VM) running Linux or an on-premises application that supports SMB 3.0."
         services="storage"
         documentationCenter="na"
-        authors="robinsh"
-        manager="carmonm"
+        authors="mine-msft"
+        manager="aungoo"
         editor="tysonn" />
 
 <tags ms.service="storage"
