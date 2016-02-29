@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2015"
+	ms.date="02/29/2016"
 	ms.author="sstein"/>
 
 # Protect sensitive data with Always Encrypted (Azure Key Vault)
@@ -50,7 +50,7 @@ For this tutorial you'll need:
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-- [Azure PowerShell](powershell-install-configure.md), minimum version of 1.1.0. 
+- [Azure PowerShell](../powershell-install-configure.md), minimum version of 1.1.0. 
     - Type **(Get-Module azure -ListAvailable).Version** to see what version of PowerShell you are running.
 
 
@@ -79,7 +79,7 @@ You must first enable your client application to access the SQL Database service
 
 Now that your client app is configured and you have your client id its time to create an Azure Key Vault and configure it's access policy to allow you and your application to access the vault's secrets (the Always Encrypted keys). To use keys with the Azure Key Vault *create*, *get*, *list*, *sign*, *verify*, *wrapKey*, and *unwrapKey* permissions are required for creating a new column master key and for setting up encryption with SQL Server Management Studio.
 
-To quickly create an Azure Key Vault you can run the script below. For a detailed explanation of these cmdlets and more information about creating and configuring an Azure Key Vault, see [Get started with Azure Key Vault](key-vault-get-started.md)
+To quickly create an Azure Key Vault you can run the script below. For a detailed explanation of these cmdlets and more information about creating and configuring an Azure Key Vault, see [Get started with Azure Key Vault](../Key-Vault/key-vault-get-started.md)
 
 
 
@@ -107,7 +107,7 @@ To quickly create an Azure Key Vault you can run the script below. For a detaile
 ## Create a blank SQL database
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **New** > **Data + Storage** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions to create a database in the Azure portal, see [Create a SQL database in minutes](sql-database-getting-started.md).
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions to create a database in the Azure portal, see [Create a SQL database in minutes](sql-database-get-started.md).
 
 	![create a blank database](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
