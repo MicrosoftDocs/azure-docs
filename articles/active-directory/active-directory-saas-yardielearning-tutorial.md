@@ -105,7 +105,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-yardielearning-tutorial/tutorial_yardielearning_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Yardi eLearning application using the following pattern: **“https://\<company name\>.yardielearning.com”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Yardi eLearning application using the following pattern: **“https://\<company name\>.yardielearning.com/login”**.
 
     b. Click **Next**.
 
