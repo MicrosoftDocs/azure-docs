@@ -1,7 +1,7 @@
 <properties
-	pageTitle="SQL Database tutorial: Protect sensitive data with Always Encrypted | Microsoft Azure"
+	pageTitle="Protect sensitive data with Always Encrypted | Microsoft Azure"
 	description="Protect sensitive data in your SQL database in minutes."
-	keywords="sql database tutorial, encrypt data in a sql database"	
+	keywords="encrypt data in a sql database"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -15,10 +15,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2015"
+	ms.date="02/29/2015"
 	ms.author="sstein"/>
 
-# SQL Database tutorial: Protect sensitive data with Always Encrypted (Windows certificate store)
+# Protect sensitive data with Always Encrypted (Windows certificate store)
 
 
 > [AZURE.SELECTOR]
