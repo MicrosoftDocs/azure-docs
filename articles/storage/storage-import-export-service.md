@@ -51,7 +51,7 @@ When you create an import job or an export job, you'll also need the *drive ID*,
 
 1.	**Subscription and storage accounts:** You must have an existing Azure subscription and one or more classic storage accounts to use the Import/Export service. Each job may be used to transfer data to or from only one classic storage account. In other words, a job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account). 
 
-  > [AZURE.NOTE] If you have an ARM storage account, contact Azure Support.
+  > [AZURE.NOTE] Storage accounts using the ARM model are not supported yet.
 
 2.	**Hard drives:** Only 3.5 inch SATA II/III internal hard drives are supported for use with the Import/Export service. Hard drives up to 8TB are supported. For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS. You can attach a SATA II/III disk externally to most computers using an external SATA II/III USB Adapter.
 3.	**BitLocker encryption:** All data stored on hard drives must be encrypted using BitLocker with encryption keys protected with numerical passwords.
