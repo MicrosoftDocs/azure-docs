@@ -29,7 +29,7 @@ you to regenerate the keys with no interruption to your DocumentDB
 account.
 
 In the [Microsoft Azure Portal](https://portal.azure.com/),
-access the **Keys** part from the **Essentials** bar in your **DocumentDB Account** blade to view,
+access the **Keys** blade from the **Essentials** bar in your **DocumentDB Account** blade to view,
 copy, and regenerate the access keys that are used to access your
 DocumentDB account.
 
@@ -121,7 +121,7 @@ Level](http://go.microsoft.com/fwlink/p/?LinkId=402365) section.*
 
 2.      In the account blade, if the **Settings** blade is not already opened, click the **Settings** icon on the top command bar.
 
-3.			In the **All Settings** blade, click on the **Default Consistency** entry under **Feature**.
+3.      In the **All Settings** blade, click on the **Default Consistency** entry under **Feature**.
 
 ![Default consistency session](./media/documentdb-manage-account/chooseandsaveconsistency.png)
 
