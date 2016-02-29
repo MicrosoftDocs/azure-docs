@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users with .NET backend

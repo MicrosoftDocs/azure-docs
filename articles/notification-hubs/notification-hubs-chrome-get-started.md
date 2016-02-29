@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for Chrome apps
