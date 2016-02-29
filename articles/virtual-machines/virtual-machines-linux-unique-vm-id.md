@@ -1,14 +1,14 @@
 <properties
    pageTitle="Accessing VM ID"
    description="Describes Accessing and Using Azure VM Unique ID"
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="kmouss"
    manager="drewm"
    editor=""/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
