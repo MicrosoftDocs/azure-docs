@@ -19,6 +19,17 @@
 
 # Create and configure a Windows Virtual Machine with Resource Manager and Azure PowerShell
 
+> [AZURE.SELECTOR]
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
+
+<br>
+
+
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 These steps show you how to construct a set of Azure PowerShell commands to create and configure an Azure virtual machine. You can use this building block process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment. You can also use it to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
@@ -27,26 +38,14 @@ These steps follow a fill-in-the-blanks approach for creating Azure PowerShell c
 
 ## Step 1: Install Azure PowerShell
 
-You must also have Azure PowerShell version 1.0.0 or later. If you have not installed and configured Azure PowerShell, click [here](../powershell-install-configure.md) for instructions.
-
-You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell prompt.
-
-	Get-Module azure | format-table version
-
-Here is an example.
-
-	Version
-	-------
-	1.0.0
-
-If you do not have Version 1.0.0 or later, you must remove Azure PowerShell using Programs and Features from the Control Panel and then install the latest version. See [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) for more information.
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Step 2: Set your subscription
 
 First, start an Azure PowerShell prompt.
 
 Login to your account.
-	
+
 	Login-AzureRmAccount
 
 Get your subscription name using the following command.
@@ -130,8 +129,8 @@ Use this command to list the existing availability sets.
 
 	Get-AzureRmAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-### NAT rules	
-	
+### NAT rules
+
 Resource Manager-based virtual machines can be configured with inbound NAT rules to allow incoming traffic from the Internet and be placed in a load balanced set. In both cases, you must specify a load balancer instance and other settings. For more information, see [Create a load balancer using Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md).
 
 VMs created with the Resource Manager deployment model require a Resource Manager virtual network. If needed, create a new Resource Manager-based virtual network with at least one subnet for the new virtual machine. Here is an example for a new virtual network named **TestNet** with two subnets named **frontendSubnet** and **backendSubnet**.
@@ -191,7 +190,7 @@ Copy the following lines to your command set and specify the name for the NIC.
 
 ### Option 2: Specify a NIC name and a DNS domain name label
 
-Copy the following lines to your command set and specify the name for the NIC and the globally unique domain name label. 
+Copy the following lines to your command set and specify the name for the NIC and the globally unique domain name label.
 
 	$nicName="<name of the NIC of the VM>"
 	$domName="<domain name label>"
@@ -392,6 +391,6 @@ Here is the Azure PowerShell command set to create this virtual machine.
 
 [Deploy and Manage Azure Virtual Machines using Resource Manager Templates and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
+[Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-resource-manager-template.md)
 
-[How to install and configure Azure PowerShell](../install-configure-powershell.md)
+[How to install and configure Azure PowerShell](powershell-install-configure.md)

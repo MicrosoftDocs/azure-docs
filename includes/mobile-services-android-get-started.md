@@ -10,7 +10,7 @@ The final stage of this tutorial is to build and run your new app.
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
-4. Wait for the Gradle sync activity to complete. If you see a "failed to find target" error, this is because the version used in Android Studio doesn't match that of the sample. The easiest way to fix this is to click the **Install missing platform(s) and sync project** link in the error message. You mught get additional version error messages, and you simply repeat this process until no errors appear.
+4. Wait for the Gradle sync activity to complete. If you see a "failed to find target" error, this is because the version used in Android Studio doesn't match that of the sample. The easiest way to fix this is to click the **Install missing platform(s) and sync project** link in the error message. You might get additional version error messages, and you simply repeat this process until no errors appear.
     - There is another way to fix this if you want to run with the "latest and greatest" version of Android. You can update the **targetSdkVersion** in the *build.gradle* file in the *app* directory to match the version already installed on your machine, which you can discover by clicking the **SDK Manager** icon and seeing what version is listed. Next you press the **Sync Project with Gradle Files**. You may get an error message for the version of Build Tools, and you fix that the same way.
 
 ### Running the app
@@ -19,7 +19,7 @@ You can run the app using the emulator, or using an actual device.
 
 1. To run from a device, connect it to your computer with a USB cable. You must [set up the device for development](https://developer.android.com/training/basics/firstapp/running-app.html). If you are developing on a Windows machine, you must also download and install a USB driver.
 
-2. To run using the Android emulator, you must define a least one Android Virtual Device (AVD). Click the AVD Manager icon to create and manage these devices.
+2. To run using the Android emulator, you must define at least one Android Virtual Device (AVD). Click the AVD Manager icon to create and manage these devices.
 
 3. From the **Run** menu, click **Run** to start the project. and choose a device or emulator from the dialog box that appears.
 
@@ -31,7 +31,7 @@ You can run the app using the emulator, or using an actual device.
 
 	> [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the ToDoActivity.java file.
 
-8. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
+8. Back in the Azure classic portal, click the **Data** tab and then click the **TodoItems** table.
 
    	![](./media/mobile-services-android-get-started/mobile-data-tab1.png)
 

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Run Hive queries using the HDInsight tools for Visual Studio
@@ -122,12 +122,12 @@ For more information about the HDInsight tools for Visual Studio:
 
 
 
-[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 

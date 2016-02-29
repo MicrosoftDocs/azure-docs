@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Microsoft Azure" 
-	description="Learn how to build an information portal and meta search engine using Search service on Microsoft Azure" 
+	pageTitle="Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Microsoft Azure | Microsoft Azure | Hosted cloud search service" 
+	description="Learn how to build an information portal and meta search engine using Azure Search, a cloud hosted search service for developers." 
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="07/08/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 # Azure Search Developer Case Study
@@ -52,7 +52,7 @@ Our vision was to build a complete infrastructure based on cloud services only. 
  
 ### High-level components
 
-We built a business, not just a site. Supporting the entire effort required a full range of tools and applications. We adopted Visual Studio and Visual Studio Online for development, Team Foundation Service (TFS) Online for source control and scrum management, Office 365 for communication and collaboration, and of course Microsoft Azure for all site-related operations and storage. With Visual Studio, the IDE provided direct provisioning to Azure, with integration to TFS Online providing an additional productivity boost.
+We built a business, not just a site. Supporting the entire effort required a full range of tools and applications. We adopted Visual Studio and Visual Studio Team Services for development, Team Foundation Service (TFS) Online for source control and scrum management, Office 365 for communication and collaboration, and of course Microsoft Azure for all site-related operations and storage. With Visual Studio, the IDE provided direct provisioning to Azure, with integration to TFS Online providing an additional productivity boost.
 
 The diagram below illustrates the high-level components used in the WhatToPedia infrastructure.
 
@@ -62,12 +62,12 @@ The diagram below illustrates the high-level components used in the WhatToPedia 
 
 Looking at the green boxes in the previous diagram, you’ll see that the WhatToPedia solution is built on these services:
 
-- [Azure Search](http://azure.microsoft.com/services/search/)
-- [Azure Websites using MVC 4](http://azure.microsoft.com/services/websites/)
-- [Azure WebJobs for scheduled tasks](../websites-webjobs-resources.md)
-- [Azure SQL Database](http://azure.microsoft.com/services/sql-database/)
-- [Azure BLOB Storage](http://azure.microsoft.com/services/storage/)
-- [SendGrid Email Delivery](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
+- [Azure Search](https://azure.microsoft.com/services/search/)
+- [Azure Websites using MVC 4](https://azure.microsoft.com/services/websites/)
+- [Azure WebJobs for scheduled tasks](../app-service-web/websites-webjobs-resources.md)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+- [Azure BLOB Storage](https://azure.microsoft.com/services/storage/)
+- [SendGrid Email Delivery](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
 
 The very heart of the solution is data and search. The flow of data from the Reseller provider to the end customer is illustrated below:
 
@@ -111,7 +111,7 @@ This is how we built the prototype.
 
 **Configure Azure Search Service**
 
-1. Login to Azure portal and added the Search service to our subscription. We used the shared version (free with our subscription).
+1. Login to Azure Classic Portal and added the Search service to our subscription. We used the shared version (free with our subscription).
 2. Create an index. For the prototype, we used the portal UI to define the search fields and create the scoring profiles. Our scoring profile is based on location data: country | city |address (see: Add scoring profiles).
 3. Copy the service URL and admin api-key to our configuration files. This key is on the Search service page in the portal, and it’s used to authenticate to the service.
 	
@@ -218,7 +218,7 @@ We hope you found this case study useful. If you go on to use Azure Search, I re
 
 - [MSDN forum dedicated to Azure Search](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)
 - [StackOverflow also has a tag](http://stackoverflow.com/questions/tagged/azure-search)
-- [Documentation page on Azure.com](http://azure.microsoft.com/documentation/services/search/)
+- [Documentation page on Azure.com](https://azure.microsoft.com/documentation/services/search/)
 - [Azure Search documentation on MSDN](http://msdn.microsoft.com/library/azure/dn798933.aspx)
 
 

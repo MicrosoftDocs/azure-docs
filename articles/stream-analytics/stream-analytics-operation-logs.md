@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Operation Logs | Microsoft Azure" 
-	description="Stream Analytics Operation Logs" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	pageTitle="Debug using operation and service logs in Stream Analytics | Microsoft Azure" 
+	description="How-to use Stream Analytics operation logs" 
+	keywords="service logs"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
-# Operation logs
+# Debug Stream Analytics jobs using service and operation logs
 
 All Azure services supply operational logging messages to users to record details related to management operations. In Azure Stream Analytics, this information can be used for debugging purposes such as viewing job status, job progress, and failure messages to track the progress of a job over time, from start to processing to output.
 
@@ -32,7 +32,7 @@ Operation Logs can be accessed in two ways:
 
 A link to the corresponding logs of a Stream Analytics job is displayed on the job’s Dashboard tab. If you click on that link, it will set the filters in a way that it shows latest logs for that specific job.
 
-  ![Select Management Services](./media/stream-analytics-operation-logs/01-stream-analytics-operation-logs.png)  
+  ![Select Management Services logs](./media/stream-analytics-operation-logs/01-stream-analytics-operation-logs.png)  
 
 ## Management Services
 
@@ -83,7 +83,7 @@ You can select any one of the failures, and click on the **Details** for more in
 
   ![Operation Details](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)  
 
-In case you need to contact [Support](http://azure.microsoft.com/support/options/) or provide information to the team via the [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics), please note the Operation Details, specifically the **Correlation ID**. 
+In case you need to contact [Support](https://azure.microsoft.com/support/options/) or provide information to the team via the [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics), please note the Operation Details, specifically the **Correlation ID**. 
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

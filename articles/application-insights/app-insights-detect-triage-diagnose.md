@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/04/2015"
+	ms.date="11/06/2015"
 	ms.author="awills"/>
 
 # Detect, Triage and Diagnose with Application Insights
@@ -20,28 +20,32 @@
 *Application Insights is in preview.*
 
 
-After you've published your application, Application Insights helps you make sure it's running OK and performing well. If there's a problem, you want to know about it soon, and then you want to know what to do about it.
+Application Insights helps you find out how your app is performing and being used when it's live. And if there's a problem, it lets you know about it, helps you assess the impact, and helps you determine the cause.
+
+Here's an account from a team that develops web applications:
 
 * *"A couple of days ago, we deployed a 'minor' hotfix. We didn't run a broad test pass, but unfortunately some unexpected change got merged into the payload, causing incompatibility between the front and back ends. Immediately, server exceptions surged, our alert fired, and we were made aware of the situation. A few clicks away on the Application Insights portal, we got enough information from exception callstacks to narrow down the problem. We rolled back immediately and limited the damage. Application Insights has made this part of the devops cycle very easy and actionable."*
 
-We can think of this part of the devops cycle as a pipeline:
-
-![Detect-Triage-Diagnose](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
-
-
-Once you've diagnosed the problem, you know where to focus your efforts - whether it's debugging your code, allocating more memory, or following up with a dependency. Finally, you can check that your fix has worked:
-
-
-
-![Repair-Validate](./media/app-insights-detect-triage-diagnose/02-pipe2.png)
-
-
-Let's see how Application Insights works at each stage of the pipeline.
-
-Application Insights works for devices apps and web applications. In this walkthrough, we'll focus on a web application. We'll follow the OBS team in Fabrikam Bank, who are responsible for the online banking system. They have added Application Insights to their web projects.  
-
+Let's see how a typical web development team uses Application Insights to monitor performance. We'll follow the team in Fabrikam Bank that develops the online banking system (OBS).
 
 ![Example bank web site](./media/app-insights-detect-triage-diagnose/03-bank.png)
+
+The team works on a cycle like this:
+
+![DevOps cycle](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
+
+Requirements feed into their development backlog (task list). They work in short sprints, which often deliver working software - usually in the form of improvements and extensions to the existing application. The live app is frequently updated with new features. While it's live, the team monitors it for performance and usage with the help of Application Insights. This analysis feeds back into their development backlog.
+
+The team uses Application Insights to monitor the live web application closely for:
+* Performance. They want to understand how response times vary with request count; how much CPU, network, disk, and other resources are being used; and where the bottlenecks are.
+* Failures. If there are exceptions or failed requests, or if a performance counter goes outside its comfortable range, the team needs to know rapidly so that they can take action.
+* Usage. Whenever a new feature is released, the team want to know to what extent it is used, and whether users have any difficulties with it.
+
+
+
+Let's focus on the feedback part of the cycle:
+
+![Detect-Triage-Diagnose](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 
 
 

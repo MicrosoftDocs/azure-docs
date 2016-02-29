@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Search Indexer Customization" 
-	description="Learn how to customize settings and policies of Azure Search indexers." 
+	pageTitle="Azure Search Indexer Customization | Microsoft Azure | Hosted cloud search service" 
+	description="Learn how to customize settings and policies of indexers in Azure Search, a hosted cloud search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="chaosrealm" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/29/2015" 
+	ms.date="02/04/2016" 
 	ms.author="eugenesh"/>
 
 #Azure Search Indexer Customization
@@ -114,5 +114,5 @@ You can change these values at any time by specifying one or both of these param
 
 Even if you choose to tolerate some failures, information about which documents failed is returned by the [Get Indexer Status API](https://msdn.microsoft.com/library/azure/dn946884.aspx).
 
-That’s it for now. If you have any thoughts or suggestions for future content ideas, tweet us using #AzureSearch hashtag, or submit your ideas on our [UserVoice page](http://feedback.azure.com/forums/263029-azure-search).    
+That’s it for now. If you have any thoughts or suggestions for future content ideas, tweet us using #AzureSearch hashtag, or submit your ideas on our [UserVoice page](https://feedback.azure.com/forums/263029-azure-search/).    
  

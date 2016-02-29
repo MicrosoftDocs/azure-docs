@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Manage your Search service on Microsoft Azure | Microsoft Azure" 
-	description="Manage your Search service on Microsoft Azure" 
+	pageTitle="Manage your Search service on Microsoft Azure | Microsoft Azure | Hosted cloud search service" 
+	description="Manage Azure Search, hosted cloud search service on Microsoft Azure" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,14 +14,18 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 # Manage your Search service on Microsoft Azure
+> [AZURE.SELECTOR]
+- [Portal](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [REST API](search-get-started-management-api.md)
 
-Azure Search is a cloud-based service and HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, search data storage, and a query command syntax. 
+Azure Search is a cloud-based service with an HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, search data storage, and a query command syntax. 
 
-This article explains how to administer a Search service in the [Azure portal](https://portal.azure.com).
+This article explains how to administer a Search service in the [Azure Portal](https://portal.azure.com). You can also use the new search traffic analytics feature for insights into activity at the index level. Visit [Search Traffic Analytics for Azure Search](search-traffic-analytics.md) to get started.
 
 Alternatively, you can use the Management REST API. See [Get started with Azure Search Management REST API](search-get-started-management-api.md) and [Azure Search Management REST API reference](http://msdn.microsoft.com/library/azure/dn832684.aspx) for details.
 
@@ -40,6 +44,10 @@ To plan for capacity and understand the billing impact, we recommend these links
 +	[Pricing Details](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 When you are ready to sign up, see [Create a Search service in the portal](search-create-service-portal.md).
+
+##Search Analytics
+
+You can enable data collection over user search activity to understand how your search service is performing, what terms are being used, and whether those terms returned hits. The best way to analyze and visualize this data is through a Power BI content pack. The first step is to enable search traffic analytics. See [Analyzing your Azure Search traffic](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) to learn how.
 
 <a id="sub-2"></a>
 ## Administrative tasks
@@ -63,7 +71,7 @@ Developers who are building search applications will need to know the service UR
 
 To get the service URL from the service dashboard:
 
-1.	Sign in to the [Azure portal](https://portal.azure.com).
+1.	Sign in to the [Azure Portal](https://portal.azure.com).
 2.	Click **Browse** | **Everything** | **Search services**.
 3.	Click the name of your search service to open the dashboard.
 4.	Click **PROPERTIES** to slide open a property page. The service URL is at the top of the page. You can pin this page for fast access later.
@@ -146,6 +154,9 @@ There is no detection method that tells you which index shards are stored on spe
 
 To help with future planning, you might want to check storage (using [Get Index Statistics](http://msdn.microsoft.com/library/dn798942.aspx)) to see how much you actually used. 
 
+### Best practices on scale and service deployment across multiple data centers (video)
+
+> [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
 
 <a id="sub-7"></a>
 ## Start or Stop the Service
@@ -160,7 +171,7 @@ Stopping or starting the service does not turn off billing. You must delete the 
 <a id="sub-8"></a>
 ## Set roles on administrative access
 
-Azure provides a global role-based authorization model for all services managed through the Preview Portal, or in the Azure Resource Manager API if you're using a custom administration tool. Owner, Contributor, and Reader roles set the level of service administration for the Active Directory users, groups, and security principals you assign to each role. See [Role-based access control in Azure Portal](../role-based-access-control-configure.md) for details about role membership.
+Azure provides a global role-based authorization model for all services managed through the Portal, or in the Azure Resource Manager API if you're using a custom administration tool. Owner, Contributor, and Reader roles set the level of service administration for the Active Directory users, groups, and security principals you assign to each role. See [Role-based access control in Azure Classic Portal](../active-directory/role-based-access-control-configure.md) for details about role membership.
 
 In terms of Azure Search, role-based access controls determine the following administrative tasks:
 
@@ -171,7 +182,7 @@ Owner|Start, stop, or delete the service.<p>Generate and view admin keys and que
 Contributor|Has the same level of access as Owner, except for role management. For example, a Contributor can view and regenerate `api-key`, but he or she cannot modify role memberships.
 Reader|View service status and query keys. Members of this role cannot start or stop a service, nor can they view admin keys.
 
-Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [Role-based access control in Azure Portal](../role-based-access-control-configure.md) for more information.
+Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [Role-based access control in Azure Portal](../active-directory/role-based-access-control-configure.md) for more information.
 
 Roles provide access control after the service is created. Only subscription managers can add a Search service to a subscription.
 

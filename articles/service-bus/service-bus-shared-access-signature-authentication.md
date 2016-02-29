@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/09/2015"
    ms.author="sethm" />
 
 # Shared Access Signature Authentication with Service Bus
@@ -25,7 +25,7 @@ SAS authentication support is included in the Azure SDK version 2.0 and later. F
 
 SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients claim access to Service Bus resources by presenting a SAS token. This token consists of the resource URI being accessed, and an expiry signed with the configured key.
 
-You can configure Shared Access Signature authorization rules on Service Bus [relays](service-bus-fundamentals-hybrid-solutions.md/#relays), [queues](service-bus-fundamentals-hybrid-solutions.md/#queues), [topics](service-bus-fundamentals-hybrid-solutions.md/#topics), and [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/).
+You can configure Shared Access Signature authorization rules on Service Bus [relays](service-bus-fundamentals-hybrid-solutions.md#relays), [queues](service-bus-fundamentals-hybrid-solutions.md#queues), [topics](service-bus-fundamentals-hybrid-solutions.md#topics), and [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/).
 
 SAS authentication uses the following elements:
 
@@ -94,7 +94,7 @@ For a full working sample of a Service Bus application that illustrates the conf
 
 ## Access Shared Access Authorization rules on a namespace
 
-Operations on the Service Bus namespace root require certificate authentication. You must upload a management certificate for your Azure subscription. To upload a management certificate, click **Settings** in the left-hand pane of the Azure portal. For more information about Azure management certificates, see [Create a Management Certificate for Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+Operations on the Service Bus namespace root require certificate authentication. You must upload a management certificate for your Azure subscription. To upload a management certificate, click **Settings** in the left-hand pane of the [Azure classic portal][]. For more information about Azure management certificates, see [Create a Management Certificate for Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
 
 The endpoint for accessing shared access authorization rules on a Service Bus namespace is as follows:
 
@@ -255,3 +255,5 @@ The following table shows the access rights required for various operations on S
 For a high-level overview of SAS in Service Bus, see [Shared Access Signatures](service-bus-sas-overview.md).
 
 See [Service Bus Authentication and Authorization](service-bus-authentication-and-authorization.md) for more background on Service Bus authentication.
+
+[Azure classic portal]: http://manage.windowsazure.com

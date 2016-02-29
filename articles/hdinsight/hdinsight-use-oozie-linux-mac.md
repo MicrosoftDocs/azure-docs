@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 
@@ -32,9 +32,9 @@ Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is i
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**: See [Get Azure free trial](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
+- **An Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Azure CLI**: See [Install and Configure the Azure CLI](xplat-cli-install.md)
+- **Azure CLI**: See [Install and Configure the Azure CLI](../xplat-cli-install.md)
 
 - **An HDInsight cluster**: See [Get Started with HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -201,7 +201,7 @@ Oozie workflows definitions are written in hPDL (a XML Process Definition Langua
 
 The following steps create the Azure SQL Database that data will be exported to.
 
-> [AZURE.IMPORTANT] Before performing these steps you must [install and configure the Azure CLI](xplat-cli-install.md). Installing the CLI and following the steps to create a database can be performed either from the HDInsight cluster or your local workstation.
+> [AZURE.IMPORTANT] Before performing these steps you must [install and configure the Azure CLI](../xplat-cli-install.md). Installing the CLI and following the steps to create a database can be performed either from the HDInsight cluster or your local workstation.
 
 1. Use the following command to create a new Azure SQL Database server:
 
@@ -292,9 +292,9 @@ The job definition describes where to find the workflow.xml, as well as other fi
 
 	This will return information similar to the following:
 
-		headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net
+		hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net
 
-	The port used for the JobTracker is 8050, so the full address to use for the JobTracker will be **headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050**.
+	The port used for the JobTracker is 8050, so the full address to use for the JobTracker will be **hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8050**.
 
 1. Use the following to create the Oozie job definition configuration:
 
@@ -390,13 +390,13 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 	This will return a value similar to the following:
 
 		<name>oozie.base.url</name>
-		<value>http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie</value>
+		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	The **http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** portion is the URL to use with the Oozie command.
+	The **http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** portion is the URL to use with the Oozie command.
 
 2. Use the following to create an environment variable for the URL, so you don't have to type it for every command:
 
-		export OOZIE_URL=http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie
+		export OOZIE_URL=http://HOSTNAMEt:11000/oozie
 
 	Replace the URL with the one you received earlier.
 

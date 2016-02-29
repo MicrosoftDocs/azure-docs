@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Create an ASP.NET API app in Azure App Service using Visual Studio 2015
 
-> [AZURE.SELECTOR]
-- [Visual Studio 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
-- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## Overview
 
@@ -186,7 +183,7 @@ To view the API test page, perform the following steps.
 
 ## Create an API app in Azure
 
-1. Create an API app in the [Azure preview portal](https://portal.azure.com). 
+1. Create an API app in the [Azure preview portal](https://portal.azure.com/). 
 
 	* Click **New > Web + Mobile > API App**.
 
@@ -268,7 +265,7 @@ API apps are essentially web apps for which Azure provides additional features f
 
 In this section, you navigate to the portal to view the API definition for the API app that you just created.
 
-1. In the [Azure preview portal](https://portal.azure.com), navigate to the **API app** blade for your API app:  click **Browse > Resource Groups > [the resource group you created] > [the API app you created]**.
+1. In the [Azure preview portal](https://portal.azure.com/), navigate to the **API app** blade for your API app:  click **Browse > Resource Groups > [the resource group you created] > [the API app you created]**.
 
 4. Click **API Definition**. 
 

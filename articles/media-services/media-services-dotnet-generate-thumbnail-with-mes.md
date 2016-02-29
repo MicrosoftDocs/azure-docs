@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="01/28/2016" 
 	ms.author="juliako"/>
 
 
@@ -302,7 +302,6 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 	          <MaxBitrate>4500</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <AACAudio>
 	      <Profile>AACLC</Profile>
@@ -357,7 +356,7 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 The following considerations apply:
 
 - The use of explicit timestamps for Start/Step/Range assumes that the input source is at least 1 minute long.
-- Jpg/Png/BmpVideo elements have Start, Step and Range string attributes – these can be interpreted as:
+- Jpg/Png/BmpImage elements have Start, Step and Range string attributes – these can be interpreted as:
 
 	- Frame Number if they are non-negative integers, eg. "Start": "120",
 	- Relative to source duration if expressed as %-suffixed, eg. "Start": "15%", OR
@@ -369,15 +368,16 @@ The following considerations apply:
 	NOTE: (Step and Range are ignored when Start is set to {Best})
 	
 	- Defaults: Start:{Best}
-- Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, AMS will match JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
+- Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, MES will match JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
 
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##See Also 
 

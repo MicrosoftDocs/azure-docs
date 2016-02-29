@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/07/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
+
 # View your access and usage reports
+
+*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
@@ -31,7 +34,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 > [AZURE.NOTE]
 >
 - Some advanced anomaly and resource usage reports are only available when you enable [Azure Active Directory Premium](active-directory-get-started-premium.md). Advanced reports help you improve access security, respond to potential threats and get access to analytics on device access and application usage.
-- Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
+- Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Reports
 
@@ -56,7 +59,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	Account provisioning activity						|	Provides a history of attempts to provision accounts to external applications.				|
 |	Password rollover status							|	Provides a detailed overview of automatic password rollover status of SaaS applications.	|
 |	Account provisioning errors							|	Indicates an impact to users’ access to external applications.								|
-|	**Rights managment**
+|	**Rights management**
 |	RMS usage											|	Provides a summary for Rights Management usage												|
 |	Most active RMS users								|	Lists top 1000 active users who accessed RMS-protected files								|
 |	RMS device usage									|	Lists devices used for accessing RMS-protected files										|
@@ -167,6 +170,10 @@ In the Azure Management Portal, reports are categorized in the following ways:
 | :-------------     | :-------        |
 | Use this report when you want to see usage for all the SaaS applications in your directory. This report is based on the number of times users have clicked on the application in the Access Panel. | Directory > Reports tab |
 
+This report includes sign ins to _all_ applications that your directory has access to, including pre-integrated Microsoft applications.
+
+Pre-integrated Microsoft applications include Office 365, Sharepoint, the Azure Management Portal, and others.
+
 ![Application usage summary](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 
@@ -222,7 +229,7 @@ Only certain types of sign in events will appear in the User Activity report.
 | ----------------------								| ---------		|
 | Sign ins to the [Access Panel](http://myapps.microsoft.com/)				| Yes			|
 | Sign ins to the [Azure Management Portal](https://manage.windowsazure.com/)		| Yes			|
-| Sign ins to the [Microsoft Azure Portal](http://portal.azure.com/)			| Yes			|
+| Sign ins to the [Microsoft Azure Portal](https://portal.azure.com/)			| Yes			|
 | Sign ins to the [Office 365 portal](http://portal.office.com/)			| Yes			|
 | Sign ins to a native application, like Outlook (see exception below)			| Yes			|
 | Sign ins to a federated/provisioned app through the Access Panel, like Salesforce	| Yes			|
@@ -247,7 +254,7 @@ If you suspect that a user account may be compromised or any kind of suspicious 
 
 - Contact the user to verify the activity
 - Reset the user's password
-- [Enable multi-factor authentication](http://go.microsoft.com/fwlink/?linkid=335774) for additional security
+- [Enable multi-factor authentication](multi-factor-authentication-get-started.md) for additional security
 
 ## View or download a report
 

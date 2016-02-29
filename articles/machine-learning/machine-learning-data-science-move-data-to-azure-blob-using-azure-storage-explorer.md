@@ -13,16 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # Move Data to and from Azure Blob Storage using Azure Storage Explorer
 
+## Introduction 
+
+Azure Storage Explorer is a free windows based tool for inspecting and altering data in an Azure storage account. This topic describes how to use it to upload and download data from Azure blob storage. The tool can be downloaded from [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/).
+
+Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
+
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-## Introduction
-
-Azure Storage Explorer is a free windows based tool for inspecting and altering data in an Azure storage account. It can be downloaded from [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/). 
 
 > [AZURE.NOTE] If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](machine-learning-data-science-virtual-machines.md), then Azure Storage Explorer is already installed on the VM.
 
@@ -32,7 +35,7 @@ Azure Storage Explorer is a free windows based tool for inspecting and altering 
 
 This document assumes that you have an Azure subscription, a storage account and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key. 
 
-- To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 - For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../storage-create-storage-account.md).
 
 

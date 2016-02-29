@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create a new Application Insights resource" 
-	description="Set up for a new application and get a new instrumentation key. Application Insights monitors the performance and usage of live applications." 
+	description="Set up Application Insights monitoring for a new live application. Web-based approach." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="02/16/2016" 
 	ms.author="awills"/>
 
 # Create a new Application Insights resource
@@ -31,9 +31,9 @@ If you haven't got a [Microsoft account, get one now](http://live.com). (If you 
 
 You'll also need a subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your Windows Live ID.
 
-Or you can create a new subscription. The free trial lets you try everything in Azure. After the trial period expires, you might find the pay-as-you-go subscription appropriate, as you won't be charged for free services. 
+Or you can create a new subscription. The free account lets you try everything in Azure. After the trial period expires, you might find the pay-as-you-go subscription appropriate, as you won't be charged for free services. 
 
-When you've got access to a subscription, login to Application Insights at [http://portal.azure.com](http://portal.azure.com), and use your Live ID to login.
+When you've got access to a subscription, login to Application Insights at [http://portal.azure.com](https://portal.azure.com), and use your Live ID to login.
 
 
 ## Create an Application Insights resource

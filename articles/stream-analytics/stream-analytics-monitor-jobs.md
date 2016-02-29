@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Monitor jobs on Stream Analytics programmatically | Microsoft Azure" 
-	description="Learn how to programmatically monitor Stream Analytics jobs created via REST APIs, Azure SDK, or Powershell." 
+	pageTitle="programmatically Monitor jobs on Stream Analytics | Microsoft Azure" 
+	description="Learn how to programmatically monitor Stream Analytics jobs created via REST APIs, Azure SDK, or Powershell."
+	keywords=".net monitor, job monitor, monitoring app"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,20 +14,20 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 
-# Programmatically monitor Stream Analytics jobs 
-This article demonstrates how to enable monitoring for a Stream Analytics job. Stream Analytics jobs created via REST APIs, Azure SDK, or Powershell do not have monitoring enabled by default.  You can manually enable this in the Azure Portal by navigating to the job’s Monitor page and clicking the Enable button or you can automate this process by following the steps in this article. The monitoring data will show up in the “Monitor” tab in the Azure Portal for your Stream Analytics job.
+# Programmatically create a Stream Analytics job monitor
+ This article demonstrates how to enable monitoring for a Stream Analytics job. Stream Analytics jobs created via REST APIs, Azure SDK, or Powershell do not have monitoring enabled by default.  You can manually enable this in the Azure Portal by navigating to the job’s Monitor page and clicking the Enable button or you can automate this process by following the steps in this article. The monitoring data will show up in the “Monitor” tab in the Azure Portal for your Stream Analytics job.
 
-![Monitor Jobs Tab](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
+![job monitor Jobs Tab](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
 ## Prerequisites
 Before you begin this article, you must have the following:
 
 - Visual Studio 2012 or 2013.
-- Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/).
+- Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 - An existing Stream Analytics job that needs monitoring enabled.
 
 ## Setup a project

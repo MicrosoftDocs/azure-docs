@@ -1,40 +1,42 @@
-<properties 
-	pageTitle="Create and upload an Oracle Linux VHD | Microsoft Azure" 
-	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains an Oracle Linux operating system." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
+<properties
+	pageTitle="Create and upload an Oracle Linux VHD | Microsoft Azure"
+	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains an Oracle Linux operating system."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management,azure-resource-manager" />
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/22/2016"
 	ms.author="szark"/>
 
-# Prepare an Oracle Linux Virtual Machine for Azure
+# Prepare an Oracle Linux virtual machine for Azure
 
 
-- [Prepare an Oracle Linux 6.4+ Virtual Machine for Azure](#oracle6)
-- [Prepare an Oracle Linux 7.0+ Virtual Machine for Azure](#oracle7)
+- [Prepare an Oracle Linux 6.4+ virtual machine for Azure](#oracle6)
+- [Prepare an Oracle Linux 7.0+ virtual machine for Azure](#oracle7)
 
-##Prerequisites##
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-This article assumes that you have already installed an Oracle Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx). 
+## Prerequisites ##
+
+This article assumes that you have already installed an Oracle Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 
-**Oracle Linux Installation Notes**
+**Oracle Linux installation notes**
 
 - Oracle's Red Hat compatible kernel and their UEK3 (Unbreakable Enterprise Kernel) are both supported on Hyper-V and Azure. For best results, please be sure to update to the latest kernel while preparing your Oracle Linux VHD.
 
 - Oracle's UEK2 is not supported on Hyper-V and Azure as it does not include the required drivers.
 
-- The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
+- The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
 - When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.  LVM or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
 
@@ -145,7 +147,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
  - XFS is now the default file system. The ext4 file system can still be used if desired.
 
 
-**Configuration Steps**
+**Configuration steps**
 
 1. In Hyper-V Manager, select the virtual machine.
 
@@ -208,7 +210,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 
 		# sudo yum install WALinuxAgent
 
-13.	Do not create swap space on the OS disk
+13.	Do not create swap space on the OS disk.
 
 	The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
@@ -227,4 +229,5 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 15. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 
- 
+## Next steps
+You're now ready to use your Oracle Linux .vhd to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see steps 2 and 3 in [Creating and uploading a virtual hard disk that contains the Linux operating system](virtual-machines-linux-create-upload-vhd.md).

@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="02/17/2016"
 	ms.author="juliako"/>
 
 
+# How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework
 
-# How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework #
-
-##Overview ##
+##Overview
 
 
 The Microsoft Smooth Streaming plugin for Open Source Media Framework 2.0 (SS for OSMF) extends the default capabilities of OSMF and adds Microsoft Smooth Streaming content playback to new and existing OSMF players. The plugin also adds Smooth Streaming playback capabilities to Strobe Media Playback (SMP).
@@ -202,7 +201,7 @@ package
 
 The code snippet below shows how to load the SS plugin for OSMF dynamically and play a basic video using the OSMF MediaFactory class. Before including the SS for OSMF code, copy the "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" dynamic plugin to the project folder if you want to load using FILE protocol, or copy under a web server for HTTP load. There is no need to include "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" in the project references.
 
-```
+ 
 package 
 {
 	
@@ -334,9 +333,9 @@ package
 		
 	}
 }
-```
 
 ##Strobe Media  Playback with the SS ODMF Dynamic Plugin
+
 The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). You can use the SS for OSMF plugin to add Smooth Streaming content playback to SMP. To do this, copy "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" under a web server for HTTP load using the following steps:
 
 1.	Browse the [Strobe Media Playback setup page](http://osmf.org/dev/2.0gm/setup.html). 
@@ -398,15 +397,16 @@ The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Pl
 
 For more information on general OSMF development, please see the official [OSMF development page](http://osmf.org/resources.html).
 
-
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ##See Also
 
-[Microsoft Adaptive Streaming Plugin for OSMF Update](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
+[Microsoft Adaptive Streaming Plugin for OSMF Update](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 

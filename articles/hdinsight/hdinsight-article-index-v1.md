@@ -1,6 +1,6 @@
 <properties
-   pageTitle="HDInsight article index for Azure portal | Microsoft Azure"
-   description="An index page with links to articles about HDInsight on the Azure portal. Microsoft recommends the Azure preview portal for new Hadoop clusters on HDInsight."
+   pageTitle="HDInsight article index for Azure Classic Portal | Microsoft Azure"
+   description="An index page with links to articles about HDInsight on the Azure Classic Portal. Microsoft recommends the Azure Portal for new Hadoop clusters on HDInsight."
    services="hdinsight"
    documentationCenter="na"
    authors="cjgronlund"
@@ -16,25 +16,25 @@
    ms.date="08/17/2015"
    ms.author="cjgronlund"/>
 
-# HDInsight article index for the Azure portal
+# HDInsight article index for the Azure Classic Portal
 
-Use this index page to find articles covering HDInsight on the [Azure portal](https://manage.windowsazure.com/). Azure HDInsight is a cloud distribution of open-source Hadoop and the Hortonworks Data Platform.
+Use this index page to find articles covering HDInsight on the [Azure Classic Portal](https://manage.windowsazure.com/). Azure HDInsight is a cloud distribution of open-source Hadoop and the Hortonworks Data Platform.
 
 
-> [AZURE.IMPORTANT]  This documentation index page is for customers who already have solutions deployed to the current Azure portal.
+> [AZURE.IMPORTANT]  This documentation index page is for customers who already have solutions deployed to the current Azure Classic Portal.
 >
-> Microsoft recommends using the **Azure preview portal** for new HDInsight clusters:
+> Microsoft recommends using the **Azure Portal** for new HDInsight clusters:
 >
-> * [Go to HDInsight preview portal documentation](/documentation/services/hdinsight/)
-> * [Go to the Azure preview portal](https://portal.azure.com/)
+> * [Go to HDInsight Portal documentation](/documentation/services/hdinsight/)
+> * [Go to the Azure Portal](https://portal.azure.com/)
 >
-> For an explanation of the advantages of the preview portal, see [DevOps just got a whole lot more awesome](/overview/preview-portal/).
+> For an explanation of the advantages of the Portal, see [DevOps just got a whole lot more awesome](/overview/preview-portal/).
 >
-> HDInsight on the Azure portal will not receive upgrades after July 2015 and is replaced by the Azure preview portal.
+> HDInsight on the Azure Classic Portal will not receive upgrades after July 2015 and is replaced by the Azure Portal.
 
 ## Get started
 
-If you're new to Hadoop on HDInsight, go to the [HDInsight documentation page](/documentation/services/hdinsight/) to get started with the Azure preview portal.
+If you're new to Hadoop on HDInsight, go to the [HDInsight documentation page](/documentation/services/hdinsight/) to get started with the Azure Portal.
 
 ## Linux
 
@@ -81,7 +81,7 @@ For a complete set of articles about using Linux and Linux clusters, go to the [
 
 ## Apache Spark
 
-For articles about using native Apache Spark clusters in the Azure preview portal, go to the [HDInsight documentation page](/documentation/services/hdinsight/).
+For articles about using native Apache Spark clusters in the Azure Portal, go to the [HDInsight documentation page](/documentation/services/hdinsight/).
 
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 * [Install and use Spark on Hadoop clusters](hdinsight-hadoop-spark-install.md)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/11/2015"
+	ms.date="12/14/2015"
 	ms.author="wesmc"/>
 
 # Getting started with Notification Hubs for Windows Store Apps
@@ -38,11 +38,11 @@ The completed code for this tutorial can be found on GitHub [here](https://githu
 
 This tutorial requires the following:
 
-+ Microsoft Visual Studio Express 2013 for Windows with Update 2<br/>This version of Visual Studio is required to create a universal app project. If you just want to create a Windows Store app, you need Visual Studio 2012 Express for Windows 8.
++ Microsoft Visual Studio Express 2013 for Windows with Update 2 or later<br/>This version of Visual Studio is required to create a universal app project. If you just want to create a Windows Store app, you need Visual Studio 2012 Express for Windows 8.
 
 + An active Windows Store account
 
-+ An active Azure account <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
++ An active Azure account <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
 
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Windows Store apps.
 
@@ -50,7 +50,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 To send push notifications to Windows Store apps, you must associate your app to the Windows Store. You must then configure your notification hub to integrate with WNS.
 
-1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Windows Dev Center</a>, sign in with your Microsoft account, and then click **Create a new app**.
+1. If you have not already registered your app, navigate to the [Windows Dev Center](http://go.microsoft.com/fwlink/p/?LinkID=266582), sign in with your Microsoft account, and then click **Create a new app**.
 
 
 2. Type a name for your app and click **Reserve app name**.
@@ -79,7 +79,7 @@ To send push notifications to Windows Store apps, you must associate your app to
 
 7. (Optional) Repeat steps 4–6 for the Windows Phone Store app project.  
 
-8. Back on the Windows Dev Center page for your new app, click **Services**, click **Push notifications**, and then click **Live Services site** under **Windows Push Notification Services (WNS) and Microsoft Azure Mobile Services**.
+8. Back on the [Windows Dev Center](http://go.microsoft.com/fwlink/p/?LinkID=266582) page for your new app, click **Services**, click **Push notifications**, and then click **Live Services site** under **Windows Push Notification Services (WNS) and Microsoft Azure Mobile Services**.
 
    	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-live-services.png)
 
@@ -92,31 +92,15 @@ To send push notifications to Windows Store apps, you must associate your app to
 
 ##Configure your notification hub
 
-1. Sign in to the [Azure portal], and then click **NEW** at the bottom of the screen.
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-2. Click **App Services**, click **Service Bus**, click **Notification Hub**, and then click **Quick Create**.
+<ol start="7">
+<li><p>Select the <b>Configure</b> tab at the top, enter the <b>Client secret</b> and <b>Package SID</b> values that you obtained from WNS in the previous section, and then click <b>Save</b>.</p>
+</li>
+</ol>
 
-   	![][7]
+&emsp;&emsp;![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
-3. Type a name for your notification hub, select your desired region, and then click **Create a New Notification Hub**.
-
-   	![][8]
-
-4. Click the namespace that you just created (usually ***notification hub name*-ns**), and then click the **Configure** tab at the top.
-
-   	![][9]
-
-5. Select the **Notification Hubs** tab at the top, and then click the notification hub that you just created.
-
-   	![][10]
-
-6. Select the **Configure** tab at the top, enter the **Client secret** and **Package SID** values that you obtained from WNS in the previous section, and then click **Save**.
-
-   	![][11]
-
-7. Select the **Dashboard** tab at the top, and then click the **Connection Information** button at the bottom of the page. Take note of the two connection strings.
-
-   	![][12]
 
 Your notification hub is now configured to work with WNS, and you have the connection strings to register your app and send notifications.
 
@@ -161,7 +145,7 @@ Your notification hub is now configured to work with WNS, and you have the conne
 
     This code retrieves the channel URI for the app from WNS, and then registers that channel URI with your notification hub.
 
-    >[AZURE.NOTE]Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab (for example, **mynotificationhub2** in the previous example). Also replace the connection string placeholder with the **DefaultListenSharedAccessSignature** connection string that you obtained in the previous section.
+    >[AZURE.NOTE]Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the [Azure Classic Portal] on the **Notification Hubs** tab (for example, **mynotificationhub2** in the previous example). Also replace the connection string placeholder with the **DefaultListenSharedAccessSignature** connection string that you obtained in the previous section.
 
 5. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
 
@@ -189,7 +173,7 @@ Your app is now ready to receive toast notifications.
 
 ##Send notifications 
 
-You can test receiving notifications in your app by sending notifications in the Azure portal via the debug tab on the notification hub, as shown in the screen below.
+You can test receiving notifications in your app by sending notifications in the [Azure Classic Portal] via the debug tab on the notification hub, as shown in the screen below.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
 
@@ -219,11 +203,11 @@ To send notifications by using a .NET console application follow these steps.
 
 	This adds a new Visual C# console application to the solution. You can also do this in a separate solution.
 
-4. In Visual Studio, click **Tools**, click **NuGet Package Manager**, and then click **Package Manager Console**.
+2. In Visual Studio, click **Tools**, click **NuGet Package Manager**, and then click **Package Manager Console**.
 
 	This displays the Package Manager Console in Visual Studio.
 
-6. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
+3. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
 
         Install-Package Microsoft.Azure.NotificationHubs
 
@@ -232,11 +216,11 @@ To send notifications by using a .NET console application follow these steps.
 	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 
-5. Open the Program.cs file and add the following `using` statement:
+4. Open the Program.cs file and add the following `using` statement:
 
         using Microsoft.Azure.NotificationHubs;
 
-6. In the **Program** class, add the following method:
+5. In the **Program** class, add the following method:
 
         private static async void SendNotificationAsync()
         {
@@ -246,16 +230,16 @@ To send notifications by using a .NET console application follow these steps.
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-   	Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab. Also, replace the connection string placeholder with the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your notification hub."
+   	Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the [Azure Classic Portal] on the **Notification Hubs** tab. Also, replace the connection string placeholder with the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your notification hub."
 
 	>[AZURE.NOTE]Make sure that you use the connection string that has **Full** access, not **Listen** access. The listen-access string does not have permissions to send notifications.
 
-7. Add the following lines in the **Main** method:
+6. Add the following lines in the **Main** method:
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-8. Right-click the console application project in Visual Studio, and click **Set as StartUp Project** to set it as the startup project. Then press the **F5** key to run the application.
+7. Right-click the console application project in Visual Studio, and click **Set as StartUp Project** to set it as the startup project. Then press the **F5** key to run the application.
 
    	![][14]
 
@@ -281,12 +265,7 @@ To learn more general information about Notification Hubs, see [Notification Hub
 [3]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png
 [4]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-select-app-name.png
 [6]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-app-push-auth.png
-[7]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal.png
-[8]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal2.png
-[9]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-select-from-portal.png
-[10]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-select-from-portal2.png
 [11]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png
-[12]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-connection-strings.png
 [13]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
 [14]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-toast.png
 [15]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-scheduler1.png
@@ -296,7 +275,7 @@ To learn more general information about Notification Hubs, see [Notification Hub
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
 <!-- URLs. -->
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md

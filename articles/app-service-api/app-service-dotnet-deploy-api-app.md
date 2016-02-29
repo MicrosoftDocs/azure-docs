@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Deploy an API app in Azure App Service 
+
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## Overview
 
@@ -44,7 +46,7 @@ You use the same **Publish Web** wizard to deploy your code to the new API app.
 
 Since you enabled the Swagger UI in the previous tutorial, you can use that to verify that the API app is running in Azure.
 
-1. In the [Azure preview portal](https://portal.azure.com), go to the **API app** blade for the API app that you deployed.
+1. In the [Azure preview portal](https://portal.azure.com/), go to the **API app** blade for the API app that you deployed.
 
 2. Click the API app's URL.
 
@@ -60,7 +62,7 @@ Since you enabled the Swagger UI in the previous tutorial, you can use that to v
 
 ## View the API definition in the portal
 
-1. In the [Azure preview portal](https://portal.azure.com), go back to the **API app** blade for the API app that you deployed.
+1. In the [Azure preview portal](https://portal.azure.com/), go back to the **API app** blade for the API app that you deployed.
 
 4. Click **API Definition**. 
  

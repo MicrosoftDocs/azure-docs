@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/14/2016" 
 	ms.author="team-pi@sendgrid.com"/>
 
 
@@ -66,9 +66,11 @@ libraries and tools.
 To install the SendGrid NuGet package in your application, do the following:
 
 1.  Created a new project.
+
     ![Create a new project][create-new-project]
 
-2.  Select a template:
+2.  Select a template.
+
     ![Select a template][select-a-template]
 
 3.  In **Solution Explorer**, right-click **References**, then click
@@ -144,7 +146,7 @@ the Web API provided by SendGrid. Alternatively, you may [use .NET's built in li
 Sending email requires that you supply your
 SendGrid account credentials (username and password) or SendGrid API Key. API Key is the preferred method. If you need details about how to configure API keys, please visit our [documentation](https://sendgrid.com/docs/Classroom/Send/api_keys.html)
 
-You may store these credentials via your Azure portal
+You may store these credentials via your Azure Portal
 by clicking CONFIGURE and adding the key/value pairs under "app settings".
 
  ![Azure app settings][azure_app_settings]

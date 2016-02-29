@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="02/26/2016" 
 	ms.author="stefsch"/>	
 
 # Network Architecture Overview of App Service Environments
@@ -29,7 +29,9 @@ The diagram below shows an overview of the various inbound and outbound network 
 
 ![General Network Flows][GeneralNetworkFlows]
 
-An App Service Environment can communicate with a variety of private customer endpoints.  For example, apps running in the App Service Environment can connect to database server(s) running on IaaS virtual machines in the same virtual network topology.  
+An App Service Environment can communicate with a variety of private customer endpoints.  For example, apps running in the App Service Environment can connect to database server(s) running on IaaS virtual machines in the same virtual network topology.
+
+>[AZURE.IMPORTANT] Looking at the network diagram, the "Other Computer Resources" are deployed in a different Subnet from the App Service Environment. Deploying resources in the same Subnet with the ASE will block connectivity from ASE to those resources (except for specific intra-ASE routing). Deploy to a different Subnet instead (in the same VNET). The App Service Environment will then be able to connect. No additional configuration is necessary.
 
 App Service Environments also communicate with Sql DB and Azure Storage resources necessary for managing and operating an App Service Environment.  Some of the Sql and Storage resources that an App Service Environment communicates with are located in the same region as the App Service Environment, while others are located in remote Azure regions.  As a result, outbound connectivity to the Internet is always required for an App Service Environment to function properly. 
 
@@ -44,7 +46,7 @@ If the endpoint being called is **outside** of the virtual network topology, the
  
 ![Outbound IP Address][OutboundIPAddress]
 
-This address can also be determined by creating an app in the App Service Environment, and then performing an *nslookup* on the app's address. The resultant IP address is the both the public VIP, as well as the App Service Environment's outbound NAT address.
+This address can also be determined by creating an app in the App Service Environment, and then performing an *nslookup* on the app's address. The resultant IP address is both the public VIP, as well as the App Service Environment's outbound NAT address.
 
 If the endpoint being called is **inside** of the virtual network topology, the outbound address of the calling app will be the internal IP address of the individual compute resource running the app.  However there is not a persistent mapping of virtual network internal IP addresses to apps.  Apps can move around across different compute resources, and the pool of available compute resources in an App Service Environment can change due to scaling operations.
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Upgrade from the old Visual Studio Online version of Application Insights" 
+	pageTitle="Upgrade from the old Visual Studio Team Services version of Application Insights" 
 	description="Upgrade existing projects"
 	services="application-insights" 
     documentationCenter=""
@@ -15,9 +15,9 @@
 	ms.date="06/19/2015" 
 	ms.author="awills"/>
  
-# Upgrade from the old Visual Studio Online version of Application Insights
+# Upgrade from the old Visual Studio Team Services version of Application Insights
 
-This document is of interest to you only if you have a project that is still using the older version of Application Insights, which was part of Visual Studio Online. That version will be switched off in due course, and so we encourage you to upgrade to the new version, which is a service within Microsoft Azure.
+This document is of interest to you only if you have a project that is still using the older version of Application Insights, which was part of Visual Studio Team Services. That version will be switched off in due course, and so we encourage you to upgrade to the new version, which is a service within Microsoft Azure.
 
 ## Which version have I got?
 

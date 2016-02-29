@@ -1,23 +1,24 @@
 <properties
    pageTitle="Azure Backup FAQ | Microsoft Azure"
-   description="Frequently asked questions on the Azure Backup service"
+   description="Answers to frequently asked questions about the backup agent, backup and retention, recovery, security and other common questions about the Azure Backup solution."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+   manager="jwhit"
+   editor=""
+   keywords="backup solution; backup service"/>
 
 <tags
    ms.service="backup"
    ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="10/07/2015"
-	 ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+	 ms.topic="get-started-article"
+	 ms.date="01/28/2016"
+	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
-# Azure Backup - FAQ
-The following is a list of commonly asked questions about Azure Backup. If you have any additional questions about Azure Backup, please go to the the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) and post your questions. Someone from our community will help you get your answers. If a question is commonly asked, we will add it to this article so that it can be found quickly and easily.
+# Azure Backup service- FAQ
+The following is a list of commonly asked questions about Azure Backup. If you have any additional questions about the Azure Backup solution, please go to the the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) and post your questions. Someone from our community will help you get your answers. If a question is commonly asked, we will add it to this article so that it can be found quickly and easily.
 
 ## Installation & Configuration
 **Q1. What is the list of supported operating systems from which I can backup to Azure using Azure Backup?** <br/>
@@ -54,7 +55,7 @@ A5. Yes. As of July 2015, you can create 25 vaults per subscription. If you need
 A6. Though it is possible to get a detailed bill for each vault, we highly recommend that you consider an Azure subscription as a billing entity. It is consistent across all services and is easier to manage.
 
 **Q7. Are there any limits on the number of servers/machines that can be registered against each vault?** <br/>
-A7. Yes, you can register upto 50 machines per vault. For Azure IaaS virtual machines, limit is 100 VMs per vault. If you need to register more machines, create a new vault.
+A7. Yes, you can register upto 50 machines per vault. For Azure IaaS virtual machines, limit is 200 VMs per vault. If you need to register more machines, create a new vault.
 
 **Q8. Are there any limits on the amount of data that can be backed up from a Windows server/client or SCDPM server?** <br/>
 A8. No.
@@ -90,7 +91,7 @@ A12. The following types are supported:
 - Sparse Stream: Not supported, skipped
 
 **Q13. What's the minimum size requirement for the cache folder?** <br/>
-A13. The size of the cache folder is determined by the amount of data that you are backing up. In general you should expect that 10-15% of the space required for data storage should be allocated for the cache folder.
+A13. The size of the cache folder is determined by the amount of data that you are backing up. In general you should expect that 5% of the space required for data storage should be allocated for the cache folder.
 
 **Q14. How can I isolate specific server data from being recovered by other servers in my organization?**<br/>
 A14. Any servers that are registered using the same vault will be able to recover the data backed up by other servers that use the same passphrase. If you have servers that you want to ensure recovery only occurs to specific servers in your organization, you should use a separate passphrase designated for those servers. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.
@@ -118,6 +119,12 @@ A20. Ensure firewall rules enable communication with URLs below for seamless bac
 - \*.WindowsAzure.com
 - \*.microsoftonline.com
 - \*.windows.net
+
+**Q21. Can I install the Azure Backup agent on an Azure VM already backed by the Azure Backup service using the Vm extension?** <br/>
+A21. Absolutely. Azure Backup provides VM level back up for Azure VMs using the VM extension and you can install the Azure Backup agent on Guest Windows OS to protect files and folders in a guest OS.
+
+**Q22. Can I install the Azure Backup agent on an Azure VM to back up files and folders present on temporary storage provided by the Azure VM?** <br/>
+A22. You can install the Azure Backup agent on the Guest Windows OS and back up files and folders on tempstorage. However, please note that backups will start failing when temporary storage data is wiped out. Also, during restore you can only restore to non-temporary storage if temporary storage data has been deleted. 
 
 
 ## Backup & Retention

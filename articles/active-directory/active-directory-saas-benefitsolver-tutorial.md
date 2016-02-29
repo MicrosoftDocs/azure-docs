@@ -1,7 +1,20 @@
-<properties pageTitle="Tutorial: Azure Active Directory integration with Benefitsolver | Microsoft Azure" description="Learn how to use Benefitsolver with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Azure Active Directory integration with Benefitsolver | Microsoft Azure"
+    description="Learn how to use Benefitsolver with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    services="active-directory" 
+    authors="jeevansd"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="02/02/2016" 
+    ms.author="jeedes" />
+
 #Tutorial: Azure Active Directory integration with Benefitsolver
->[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=615070).
 
 The objective of this tutorial is to show the integration of Azure and Benefitsolver.  
 The scenario outlined in this tutorial assumes that you already have the following items:
@@ -9,7 +22,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 -   A valid Azure subscription
 -   A Benefitsolver single sign-on enabled subscription
 
-After completing this tutorial, the Azure AD users you have assigned to Benefitsolver will be able to single sign into the application using the [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+After completing this tutorial, the Azure AD users you have assigned to Benefitsolver will be able to single sign into the application using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
@@ -72,10 +85,9 @@ The following screenshot shows an example for this.
 
     ![Configure App Settings](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configure App Settings")
 
-    1.  In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Benefitsolver application (e.g.: “*http://azure-dev.benefitsolver.com*
-    2.  In the **Reply URL** textbox, type your Benefitsolver AssertionConsumerService URL (e.g.: “*https://dev.benefitsolver.com/benefits/BenefitSolverView?page\_name=single\_signon\_saml*”).  
+    1.  In the **Sign On URL** textbox, type **http://azure.benefitsolver.com**.
+    2.  In the **Reply URL** textbox, type **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.  
 
-        >[AZURE.NOTE] You can get the actual value for your environment from your Benefitsolver support team.
 
     3.  Click **Next**.
 
@@ -113,10 +125,11 @@ The following screenshot shows an example for this.
     4.  Click **Complete**.
 
 9.  Click **Apply Changes**.
+
 ##Configuring user provisioning
 
 In order to enable Azure AD users to log into Benefitsolver, they must be provisioned into Benefitsolver.  
-In the case of Benefitsolver, users have to be manually created by the Benefitsolver support team.
+In the case of Benefitsolver, employee data is in your application populated through a Census file from your HRIS system (typically nightly).  
 
 >[AZURE.NOTE] You can use any other Benefitsolver user account creation tools or APIs provided by Benefitsolver to provision AAD user accounts.
 
@@ -136,4 +149,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
     ![Yes](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "Yes")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="02/11/2016"
    ms.author="sameerch"/>
 
 
 # Get started with the Salesforce Connector and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Salesforce API](../connectors/create-api-salesforce.md).
+
 Connect to Salesforce and create and modify entities such as Accounts, Leads, and so on. Following are the typical integration scenarios that involve Salesforce:
 
 - Account Synchronization between Salesforce and ERP systems such as SAP and QuickBooks

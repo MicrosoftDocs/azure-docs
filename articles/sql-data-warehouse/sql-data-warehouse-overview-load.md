@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="lodipalm"
    manager="barbkess"
-   editor="jrowlandjones"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="lodipalm;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Load data into SQL Data Warehouse
 SQL Data Warehouse presents numerous options for loading data including:
@@ -44,10 +44,12 @@ In the following sections we will take a look at each step in great depth and pr
 In order to prep your files for movement to Azure, you will need to export them to flat files.  This is best done using the BCP Command-line Utility.  If you do not have the utility yet, it can be downloaded with the [Microsoft Command Line Utilities for SQL Server][].  A sample BCP command might look like the following:
 
 ```
-bcp "<Directory>\<File>" -c -T -S <Server Name> -d <Database Name>
+bcp "select top 10 * from <table>" queryout "<Directory>\<File>" -c -T -S <Server Name> -d <Database Name> -- Export Query
+or
+bcp <table> out "<Directory>\<File>" -c -T -S <Server Name> -d <Database Name> -- Export Table
 ```
 
-This command will take the results of a query and export them to a file in the directory of your choice. You can parallelize the process by running multiple BCP commands for separate tables at once  This will enable you to run up to one BCP process per core of your server, our advice is try a few smaller operations at different configurations to see what works best for your environment.
+To maximize throughput, you can try parallelizing the process by running multiple concurrent BCP commands for separate tables, or seperate partitions in a single table.  This will enable you to spread the CPU consumed by BCP over several cores in the server where BCP is running.  If you are extracting from a SQL DW or PDW system, you will need to add the -q, quoted identifier, argument to your BCP command.  You many also need to add -U and -P to specify user name and password if your environment does not use Active directory.
 
 In addition, as we will be loading using PolyBase, please note that PolyBase does not yet support UTF-16, and all files must be in UTF-8.  This can easily be accomplished by including the '-c' flag in your BCP command or you can also convert flat files from UTF-16 to UTF-8 with the below code:
 
@@ -110,7 +112,6 @@ WITH
     FORMAT_TYPE = DELIMITEDTEXT 
 ,   FORMAT_OPTIONS  (
                         FIELD_TERMINATOR ='|' 
-                    ,   USE_TYPE_DEFAULT = TRUE
                     )
 );
 
@@ -151,7 +152,8 @@ WITH
 CREATE TABLE <Table Name> 
 WITH 
 (
-	CLUSTERED COLUMNSTORE INDEX
+	CLUSTERED COLUMNSTORE INDEX,
+	DISTRIBUTION = <HASH(<Column Name>)>/<ROUND_ROBIN>
 )
 AS 
 SELECT  * 
@@ -163,6 +165,16 @@ Note that you can also load a subsection of the rows from a table using a more d
 
 In addition to the `CREATE TABLE...AS SELECT` statement, you can also load data from external tables into pre-existing tables with a 'INSERT...INTO' statement.
 
+##  Create Statistics on your newly loaded data 
+
+Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the tabled loaded in this example.
+
+
+```
+create statistics [<name>] on [<Table Name>] ([<Column Name>]);
+create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
+```
+
 ## Next steps
 For more development tips, see the [development overview][].
 
@@ -170,11 +182,12 @@ For more development tips, see the [development overview][].
 
 <!--Article references-->
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[Load with PolyBase]: sql-data-warehouse-load-with-polybase.md
+[Load with PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [Migrate schema]: sql-data-warehouse-migrate-schema.md
 [Migrate code]: sql-data-warehouse-migrate-code.md
+[Statistics]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx

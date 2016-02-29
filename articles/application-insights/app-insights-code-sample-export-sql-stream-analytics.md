@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Walkthrough: export telemetry to SQL Database from Application Insights" 
-	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
+	description="Continuously export Application Insights data to SQL using Stream Analytics." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -17,11 +17,11 @@
  
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics
 
-This article shows how to move your telemetry data from [Visual Studio Application Insights][start] into an Azure SQL database by using [Continuous Export][export] and [Azure Stream Analytics](http://azure.microsoft.com/services/stream-analytics/). 
+This article shows how to move your telemetry data from [Visual Studio Application Insights][start] into an Azure SQL database by using [Continuous Export][export] and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 Continuous export moves your telemetry data into Azure Storage in JSON format. We'll parse the JSON objects using Azure Stream Analytics and create rows in a database table.
 
-(More generally, Continuous Export is the way to do your own analysis of the telemetry your apps send to Application Insights. You could adapt this code sample to do other things with the exported telemetry, such as aggregation of data and publishing the data to the PowerBI visualization suite.)
+(More generally, Continuous Export is the way to do your own analysis of the telemetry your apps send to Application Insights. You could adapt this code sample to do other things with the exported telemetry, such as aggregation of data.)
 
 We'll start with the assumption that you already have the app you want to monitor.
 
@@ -35,7 +35,7 @@ To monitor your application, you [add an Application Insights SDK][start] to you
 
 To get started:
 
-1. Get an [account in Microsoft Azure](http://azure.microsoft.com/pricing/).
+1. Get an [account in Microsoft Azure](https://azure.microsoft.com/pricing/).
 2. In the [Azure portal][portal], add a new Application Insights resource for your app:
 
     ![Choose New, Developer Services, Application Insights, and choose the type of application](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
@@ -300,6 +300,7 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 ## Related articles
 
 * [Export to SQL using a worker role](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Export to PowerBI using Stream Analytics](app-insights-export-power-bi.md)
 * [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 * [Continuous Export in Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)

@@ -8,8 +8,6 @@
 ## Standard process (working from master)
 Follow the steps in this article to create a local working branch on your computer so that you can create a new article for the technical documentation section of azure.microsoft.com or update an existing article.
 
-![](./media/git-commands-for-master/githubcommands1.png)
-
 1. Start Git Bash (or the command-line tool you use for Git).
 
  **Note:** If you are working in the public repository, change azure-content-pr to azure-content in all the commands.
@@ -66,8 +64,9 @@ Follow the steps in this article to create a local working branch on your comput
 
 **Notes:**
 
-- At this time, technical articles are published once daily around 10 AM Pacific Standard Time (PST), Monday-Friday. Remember, your pull request has to be accepted before changes are included in the next scheduled publishing run.
-- If you are an employee working in the private repository, all pull requests are subject to validation rules that need to be addressed before the pull request can be accepted. 
+- Articles are published at approximately 10:00 AM and 3:00 PM Pacific Time, Monday-Friday. It can take up to 30 minutes for articles to appear online after publishing. Remember your pull request has to be merged by a pull request reviewer before the changes can be included in the next scheduled publishing run. You need to work with your pull request reviewer ahead of time to ensure a pull request is merged for a specific publishing run. Otherwise, PRs are reviewed in the order they were submitted.
+
+- If you are an employee working in the private repository, all pull requests are subject to validation rules that need to be addressed before the pull request can be merged. 
 
 ## Working with release branches
 

@@ -10,44 +10,27 @@
 <tags
  ms.service="iot-hub"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/29/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
-## Scope of this documentation
-
-These Azure and IoT articles focus on two collections of resources that can help you to implement your own IoT solution based on the Microsoft IoT platform.
-
-- Azure IoT Hub
-- Azure IoT device SDKs
-
-You may also be interested in [Azure IoT Suite][lnk-iot-suite], a collection of preconfigured solutions that enable you to get started quickly and scale IoT projects to address common IoT scenarios such as remote monitoring, asset management and predictive maintenance.
-
-### Azure IoT Hub
-
-IoT Hub is an Azure service that receives device-to-cloud data at scale from your devices and routes that data to a stream event processor. IoT Hub can also send cloud-to-device commands to specific devices using device specific queues.
-
-In addition, the IoT Hub service includes a device identity registry that you can use to provision devices and to manage which devices may connect to an IoT hub.
-
-### Azure IoT device SDKs
-
-Microsoft provides IoT device SDKs that you can use to implement client applications to run on a wide variety of device hardware platforms and operating systems. The IoT device SDKs include libraries that facilitate sending device-to-cloud telemetry data to IoT Hub and receiving cloud-to-device commands from IoT Hub. When you use the SDKs, you can choose from a number of different network protocols to communicate with Azure IoT Hub.
-
 ## Next steps
 
-To get started with IoT on Azure, explore these resources:
+Azure IoT Hub is an Azure service that enables secure and reliable bi-directional communications between your application back end and millions of devices. It allows the application back end to receive telemetry at scale from your devices, route that data to a stream event processor, and also to send cloud-to-device commands to specific devices. You can use IoT Hub to implement your own solution back end. In addition, IoT Hub includes a device identity registry used to provision devices, their security credentials, and their rights to connect to the hub. To learn more, see:
 
+- [What is IoT Hub?][lnk-iot-hub]
 - [Get started with IoT Hub][lnk-getstarted]
-- [Azure IoT Developer Center][lnk-iotdev]
-- [Azure IoT Hub][lnk-iot-hub]
-- [Azure IoT Suite][lnk-iot-suite]  
 
+To implement client applications on a wide variety of device hardware platforms and operating systems, you can use the IoT device SDKs. The IoT device SDKs include libraries that facilitate sending telemetry to an IoT hub and receiving cloud-to-device commands. When you use the SDKs, you can choose from a number of network protocols to communicate with IoT Hub. To learn more, see the [information about device SDKs][lnk-device-sdks].
+
+You may also be interested in [Azure IoT Suite][lnk-iot-suite], which is a collection of preconfigured solutions. IoT Suite enables you to get started quickly and scale IoT projects to address common IoT scenarios--such as remote monitoring, asset management, and predictive maintenance.
 
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-iot-hub]: iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: http://azure.microsoft.com/solutions/iot/
+[lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/

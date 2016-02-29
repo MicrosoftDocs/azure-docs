@@ -14,16 +14,16 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Configure a Virtual Network for ExpressRoute
 
-These steps will walk you through configuring a virtual network and a gateway for use with ExpressRoute using the classic deployment model. This configuration is not currently supported for VNets and gateways created using the Resource Manager model. When it becomes available, we'll provide a link from this page to the documentation.
- 
+These steps will walk you through configuring a virtual network and a gateway for use with ExpressRoute using the classic deployment model and Service Management. Currently, we do not have documentation for configuring a VNet for ExpressRoute using the Resource Manager deployment model. When we do have a published article, we'll add a link to it.
+
 >[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md)
 
-1. Log in to the **Azure Portal**.
+1. Log in to the **Azure Classic Portal**.
 
 2. In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
@@ -55,18 +55,18 @@ These steps will walk you through configuring a virtual network and a gateway fo
 	- **Add gateway subnet** - Click to add the gateway subnet. The gateway subnet is used only for the virtual network gateway and is required for this configuration. 
 	***Important:***  The gateway subnet prefix for ExpressRoute must be /28 or smaller. (/27, /26 etc.)
 
-7. Click the checkmark on the bottom of the page and your virtual network will begin to create. When it completes, you will see **Created** listed under **Status** on the **Networks** page in the Management Portal.
+7. Click the checkmark on the bottom of the page and your virtual network will begin to create. When it completes, you will see **Created** listed under **Status** on the **Networks** page in the Azure Classic Portal.
 
 8. On the **Networks** page, click the virtual network that you just created, then click **Dashboard**.
 9. On the bottom of the Dashboard page, click **CREATE GATEWAY**, then click **Yes**.
 
 10. When the gateway starts creating, you’ll see a message letting you know that the gateway has been started. It may take up to 15 minutes for the gateway to create.
 
-11. Link your network to a circuit. Follow the instructions in the article [How to link VNets to ExpressRoute circuits](expressroute-howto-linkvnets-classic.md).
+11. Link your network to a circuit. Follow the instructions in the article [How to link VNets to ExpressRoute circuits](expressroute-howto-linkvnet-classic.md).
 
 ## Next steps
 
-- If you want to add virtual machines to your virtual network, see [How to Create a Custom Virtual Machine](../virtual-machines-create-custom.md).
+- If you want to add virtual machines to your virtual network, see [Virtual Machines learning paths](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/).
 - If you want to learn more about ExpressRoute, see [ExpressRoute Technical Overview](expressroute-introduction.md).
 
 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Multiple VIPs per cloud service
@@ -28,7 +28,7 @@ In the above scenario, all VIPs use the same public port (443) and traffic is re
 
 VIPs are dynamic by default, which means that the actual IP address assigned to the cloud service may change over time. To prevent that from happening, you can reserve a VIP for your service. To learn more about reserved VIPs, see [Reserved Public IP](../virtual-networks-reserved-public-ip).
 
->[AZURE.NOTE] Please see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/) for information on pricing on VIPs and reserved IPs.
+>[AZURE.NOTE] Please see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/) for information on pricing on VIPs and reserved IPs.
 
 You can use PowerShell to verify the VIPs used by your cloud services, as well as add and remove VIPs, associate a VIP to an endpoint, and configure load balancing on a specific VIP. 
 
@@ -91,7 +91,7 @@ In this example, the cloud service has 3 VIPs:
 - **Vip1** is the default VIP, you know that because the value for IsDnsProgrammedName is set to true.
 - **Vip2** and **Vip3** are not used as they don’t have any IP addresses. They will only be used if you associate an endpoint to the VIP.
 
->[AZURE.NOTE] Your subscription will only be charged for extra VIPs once they are associated with an endpoint. For more information on pricing, see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/).
+>[AZURE.NOTE] Your subscription will only be charged for extra VIPs once they are associated with an endpoint. For more information on pricing, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## How to associate a VIP to an endpoint
 To associate a VIP on a cloud service to an endpoint, run the following PowerShell command:

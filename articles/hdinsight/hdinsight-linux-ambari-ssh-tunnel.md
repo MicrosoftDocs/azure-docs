@@ -10,10 +10,10 @@ editor="cgronlun"/>
 <tags
 ms.service="hdinsight"
 ms.devlang="na"
-ms.topic="article"
+ms.topic="get-started-article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="10/09/2015"
+ms.date="01/12/2016"
 ms.author="larryfr"/>
 
 #Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's
@@ -32,7 +32,6 @@ The following are services that Ambari web UI uses, that cannot be accessed with
 * Thread Stacks,
 * Oozie web UI
 * HBase Master and Logs UI
-* Storm UI
 
 If you use Script Actions to customize your cluster, any services or utilities that you install that expose a web UI will require an SSH tunnel. For example, if you install Hue using a Script Action, you must use an SSH tunnel to access the Hue web UI.
 
@@ -144,21 +143,11 @@ If you have installed FoxyProxy Standard, use the following steps to configure i
 
 4. Select the **URL Patterns** tab, and then select **Add New Pattern**. Use the following to define the pattern, and then click **OK**:
 
-	* **Pattern Name** - **headnode** - This is just a friendly name for the pattern.
+	* **Pattern Name** - **clusternodes** - This is just a friendly name for the pattern.
 
-	* **URL pattern** - **\*headnode\*** - This defines a pattern that matches any URL with the word **headnode** in it.
+	* **URL pattern** - **\*internal.cloudapp.net\*** - This defines a pattern that matches the internal fully qualified domain name of the cluster nodes.
 
 	![foxyproxy pattern](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-
-	> [AZURE.NOTE] If you are using an __HBase__ cluster, you must also add the following pattern, as it hosts a web UI on the zookeeper nodes of the cluster:
-	>
-	> * __Pattern Name__ - __zookeeper__
-	> * __URL pattern__ - __\*zookeeper\*__
-	>
-	> If you are using a __Storm__ cluster, you must add the following patterns, as the Storm UI links to the IP address of the worker nodes when retrieving logs. We are working to change this to use the domain name in a future update.
-	>
-	> * __Pattern Name__ - __nodesbyip__
-	> * __URL pattern__ - __\*10.0.0.\*__
 
 4. Click **OK** to add the proxy and close **Proxy Settings**.
 
@@ -166,7 +155,7 @@ If you have installed FoxyProxy Standard, use the following steps to configure i
 
 	![foxyproxy select mode](./media/hdinsight-linux-ambari-ssh-tunnel/selectmode.png)
 
-After following these steps, only requests for URLs that contain the string **headnode** will be routed over the SSL tunnel.
+After following these steps, only requests for URLs that contain the string __internal.cloudapp.net__ will be routed over the SSL tunnel.
 
 ##Verify with Ambari web UI
 
@@ -193,7 +182,7 @@ Once the cluster has been established, use the following steps to verify that yo
 
 	![Image of the YARN ResourceManager UI](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.TIP] Notice the URL for this page; it should be similar to __http://headnode1.CLUSTERNAME-ssh.j8.internal.cloudapp.net:8088/cluster__. This is using the internal fully qualified domain name (FQDN) of the node, and is not accessible without using an SSH tunnel.
+	> [AZURE.TIP] Notice the URL for this page; it should be similar to __http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. This is using the internal fully qualified domain name (FQDN) of the node, and is not accessible without using an SSH tunnel.
 
 ##Next steps
 

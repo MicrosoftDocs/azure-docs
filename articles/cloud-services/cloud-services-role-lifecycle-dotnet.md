@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Respond to lifecycle events for a Cloud Services using .NET" 
+pageTitle="Handle Cloud Service lifecycle events | Microsoft Azure" 
 description="Learn how the lifecycle methods of a Cloud Service role can be used in .NET" 
 services="cloud-services" 
 documentationCenter=".net" 
@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="09/08/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # Customize the Lifecycle of a Web or Worker role in .NET

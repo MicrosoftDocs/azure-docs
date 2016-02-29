@@ -3,7 +3,7 @@
 	description="Explains the purposes of feature selection and feature engineering and provides examples of their role in the data enhancement process of machine learning."
 	services="machine-learning"
 	documentationCenter=""
-	authors="YanZhangADS"
+	authors="bradsev"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="02/09/2016"
 	ms.author="zhangya;bradsev" />
 
 
@@ -40,7 +40,7 @@ Engineering and selection are the **data enhancement** step of machine learning.
 * **feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data, and to increase predictive power to the learning algorithm.
 * **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem.
 
-This topic only covers the feature engineering and feature selection aspects of the data enhancement process. For additional information on the data pre-processing step, see the [Pre-processing Data in Azure ML Studio](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
+This topic only covers the feature engineering and feature selection aspects of the data enhancement process. For additional information on the data pre-processing step, see the [Pre-processing Data in Azure ML Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
 
 
 ## Creating Features from Your Data - Feature Engineering

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 # Azure Conditional Access Preview for SaaS Apps
@@ -57,7 +57,7 @@ By default the policy will apply to all users that have access to the applicatio
 Security groups can also be explicitly excluded from the policy by selecting the Except option and specifying one or more groups. Users that are a member of a group in the Except list will not be subject to the multi-factor authentication requirement, even if they are a member of a group that the access rule applies to.
 The access rule shown in the below will require all users in the Managers group to use multi-factor authentication when accessing the application.
 
-![Setting conditional access rules with MFA](./media/active-directory-conditional-access/conditionalaccess-saas-apps.jpg)
+![Setting conditional access rules with MFA](./media/active-directory-conditional-access/conditionalaccess-saas-apps.png)
 
 ##Conditional Access Rules with MFA
 If a user has been configured using the per-user multi-factor authentication feature, this setting on the user will take precedence over the app multi-factor authentication rules. This means a user that has been configured for per-user multi-factor authentication will be required to perform multi-factor authentication even if they have been exempted from the application multi-factor authentication rules. Learn more about multi-factor authentication and per-user settings.
@@ -89,3 +89,6 @@ The following example shows how to enable on-premises MFA by using the [Set-Msol
 
 In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for deploying Azure Multi-Factor Authentication on-premises.
 
+##Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

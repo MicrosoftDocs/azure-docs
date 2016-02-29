@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="12/17/2015" 
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Workload: High-availability line of business application
@@ -40,7 +40,7 @@ A cross-premises virtual network is connected to an on-premises network with a s
 
 ![](./media/virtual-machines-workload-high-availability-LOB-application/CreateLOBAppHybridCloud_3.png)
  
-You can create this dev/test environment for free with your [MSDN subscription](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) or an [Azure Trial Subscription](http://azure.microsoft.com/pricing/free-trial/).
+You can create this dev/test environment for free with your [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) or an [Azure Trial Subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 Your next step is to create a high-availability line of business application in Azure.
 
@@ -57,18 +57,6 @@ This consists of:
 - Active Directory Domain Services in the virtual network with two replica domain controllers.
 
 For an overview of line of business applications, see the [Line of Business Applications architecture blueprint](http://msdn.microsoft.com/dn630664).
-
-### Bill of materials
-
-This baseline configuration requires the following set of Azure services and components:
-
-- Seven virtual machines
-- Four extra data disks for the domain controllers and virtual machines running SQL Server
-- Three availability sets
-- One cross-premises virtual network
-- Two storage accounts
-
-### Deployment phases
 
 To deploy this configuration, use the following process:
 
@@ -94,14 +82,7 @@ To deploy this configuration, use the following process:
 
 Once configured, you can easily expand this line of business application by adding more web servers or virtual machines running SQL Servers to the cluster.
 
-## Additional resources
+## Next step
 
-[Deploy a high-availability line of business application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
+- Get an [overview](virtual-machines-workload-high-availability-lob-application-overview.md) of the production workload before diving into the configuration.
 
-[Line of Business Applications architecture blueprint](http://msdn.microsoft.com/dn630664)
-
-[Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)

@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="How to register data sources"
    description="How-to article highlighting how to register data sources with Azure Data Catalog, including the metadata fields extracted, and the data sources supported during preview."
    services="data-catalog"
@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 
@@ -30,30 +30,14 @@ See the [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutor
 Once the data source has been registered, the Catalog tracks its location and indexes its metadata, so that users can search, browse, and discover the data source, and then use its location to connect to it using the application or tool of their choice.
 
 ## Sources supported
-In the current preview, **Azure Data Catalog** supports the registration of these data sources and object types:
-
-* SQL Server Database Engine Tables and Views
-* Oracle Database Tables and Views
-* SQL Server Analysis Services Multidimensional Dimensions, Measures, and KPIs
-* SQL Server Analysis Services Tabular Tables
-* SQL Server Reporting Services Reports
-* Azure Storage Blobs and Directories
-* HDFS Files and Directories
-* HDInsight Hive Tables
-
-> [AZURE.NOTE] SQL Server support also includes Microsoft Azure SQL Database
-
-<br/>
-
-> [AZURE.NOTE] SQL Server Reporting Services support is for native mode servers only – SharePoint mode is not yet supported
-
+Please refer to [Data Catalog DSR](data-catalog-dsr.md) for the list of currently supported data sources.
 <br/>
 
 
 ## Structural metadata
 When you’re registering a data source, the registration tool will extract information about the structure of the objects you select – this is referred to as structural metadata.
 
-For all objects this structural metadata will include the object’s location, so that client tools who discover the data. Other structural metadata includes object name and type, and attribute/column name and data type.
+For all objects, this structural metadata will include the object’s location, so that users who discover the data can use that information to connect to the object in the client tools of their choice. Other structural metadata includes object name and type, and attribute/column name and data type.
 
 ## Descriptive metadata
 In addition to the core structural metadata extracted from the data source, the data source registration tool will also extract descriptive metadata as well. For SQL Server Analysis Services and SQL Server Reporting Services, this is taken from the Description properties exposed by these services. For SQL Server, values provided using the ms_description extended property will be extracted. For Oracle Database, the data source registration tool will extract the COMMENTS column from the ALL_TAB_COMMENTS view.
@@ -84,7 +68,6 @@ The **Azure Data Catalog** data source registration tool allows users to include
 These statistics are then copied into the Catalog along with the structural and descriptive metadata.
 
 > [AZURE.NOTE]  Text and date columns will not include average or standard deviation statistics in their data profile.
-
 
 ## Updating registrations
 

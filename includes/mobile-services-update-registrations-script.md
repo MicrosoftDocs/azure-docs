@@ -1,6 +1,6 @@
 
 
-1. In the Management Portal, click the **Data** tab and then click the **Registrations** table. 
+1. In the [Azure classic portal](https://manage.windowsazure.com/), click the **Data** tab and then click the **Registrations** table. 
 
 	![](./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png)
 

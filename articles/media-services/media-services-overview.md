@@ -3,7 +3,7 @@
 	description="This topic gives an overview of Azure Media Services" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="02/02/2016"
 	ms.author="juliako"/>
 
 #Azure Media Services Overview and Common Scenarios
@@ -29,37 +29,42 @@ You can choose to stream your content live or deliver content on demand. This to
 To build Media Services solutions, you can use:
 
 - [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- One of the available client SDKs: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services for Node.js](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
-- Existing tools: [Azure Management Portal](http://manage.windowsazure.com/) or [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
-
+- One of the available client SDKs: 
+	- [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), 
+	- [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), 
+	- [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php), 
+	- [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs). 
+- Existing tools: 
+	- [Azure Classic Portal](http://manage.windowsazure.com/) 
+	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)
 
 ##Media Services learning paths
 
 You can view AMS learning paths here:
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [AMS Live Streaming Workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Poster
 
-
-[Here](http://azure.microsoft.com/documentation/infographics/media-services/) you can view the Azure Media Services  poster that depicts AMS workflows, from media creation through consumption. 
+[Here](https://azure.microsoft.com/documentation/infographics/media-services/) you can view the Azure Media Services  poster that depicts AMS workflows, from media creation through consumption. 
 
 ##Prerequisites
 
 To start using Azure Media Services, you should have the following:
  
 3. An Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](azure.microsoft.com).
-2. An Azure Media Services account. Use Azure Management Portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-create-account.md).
+2. An Azure Media Services account. Use the Azure Classic Portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-create-account.md).
 3. (Optional) Set up development environment. Choose .NET or REST API for your development environment. For more information, see [Set up environment](media-services-dotnet-how-to-use.md). 
 
 	Also, learn how to connect  programmatically [Connect](media-services-dotnet-connect_programmatically.md).
 4. (Recommended) Allocate one or more scale units. It is recommended to allocate one or more scale units for applications in production environment.   For more information, see [Managing streaming endpoints](media-services-manage-origins.md).
 
-##Concepts
+##Concepts and overview
 
-For more information, see [Concepts](media-services-concepts.md).
+For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
 
+For a how-to series that introduces you to all the main components of Azure Media Services, see [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). This series has a great overview of concepts and it uses the AMSE tool to demonstrate the AME tasks. Note that AMSE tool is a Windows tool. This tool supports most of the tasks you can achieve programmatically with [AMS SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), or  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Delivering Media on-Demand with Azure Media Services: common scenarios and tasks
 
@@ -74,7 +79,7 @@ This section describes common scenarios and provides links to relevant topics. T
 	
 	It is recommended to apply storage encryption option to your asset in order to protect your content during upload and while at rest in storage.
  
-1. Encode to adaptive bitrate MP4 set. 
+1. Encode to a set of adaptive bitrate MP4 files. 
 
 	It is recommended to apply storage encryption option to the output asset in order to protect your content at rest.
 	
@@ -93,7 +98,7 @@ This section describes common scenarios and provides links to relevant topics. T
 To be able to use dynamic encryption, you must first get at least one streaming reserved unit on the streaming endpoint from which you want to stream encrypted content.
 
 1. Upload a high-quality mezzanine file into an asset. Apply storage encryption option to the asset.
-1. Encode to adaptive bitrate MP4 set. Apply storage encryption option to the output asset.
+1. Encode to a set of adaptive bitrate MP4 files. Apply storage encryption option to the output asset.
 1. Create encryption content key for the asset you want to be dynamically encrypted during playback.
 2. Configure content key authorization policy.
 1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
@@ -113,7 +118,7 @@ To be able to use dynamic encryption, you must first get at least one streaming 
 ###Deliver progressive download 
 
 1. Upload a high-quality mezzanine file into an asset.
-1. Encode to adaptive bitrate MP4 set or a single MP4.
+1. Encode to a single MP4 file.
 1. Publish the asset by creating an OnDemand or SAS locator.
 
 	If using OnDemand locator, make sure to have at least one streaming reserved unit on the streaming endpoint from which you plan to progressively download content.
@@ -204,7 +209,7 @@ You can also scale your Media Services account by adding storage accounts to it.
 
 ##Support
 
-[Azure Support](http://azure.microsoft.com/support/options/) provides support options for Azure, including Media Services.
+[Azure Support](https://azure.microsoft.com/support/options/) provides support options for Azure, including Media Services.
 
 ##Patterns & practices guidance
 
@@ -212,6 +217,10 @@ You can also scale your Media Services account by adding storage accounts to it.
 [Online documentation](https://msdn.microsoft.com/library/dn735912.aspx)
 [Downloadable eBook](https://www.microsoft.com/download/details.aspx?id=42629)
 
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##Service Level Agreement (SLA)
 
@@ -221,7 +230,7 @@ You can also scale your Media Services account by adding storage accounts to it.
 - For Content Protection, we guarantee that we will successfully fulfill key requests at least 99.9% of the time.
 - For Indexer, we will successfully service Indexer Task requests processed with an Encoding Reserved Unit 99.9% of the time.
 
-	For more information, see [Microsoft Azure SLA](http://azure.microsoft.com/support/legal/sla/).
+	For more information, see [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png

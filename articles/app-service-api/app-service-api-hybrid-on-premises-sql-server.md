@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
-	ms.author="tarcher"/>
+	ms.date="01/08/2016" 
+	ms.author="tdykstra"/>
 
 # Connect to on-premises SQL Server from an API app in Azure App Service using Hybrid Connections
+
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 Hybrid Connections can connect [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) API apps to on-premises resources that use a static TCP port. Supported resources include Microsoft SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. 
 
@@ -73,7 +75,7 @@ If you already have SQL Server installed in a configuration and in an environmen
 <a name="InstallSQL"></a>
 ## Install SQL Server Express, enable TCP/IP, and create a SQL Server database on-premises
 
-This section shows you how to install SQL Server Express, enable TCP/IP, and create a database so that your API app will work with the [Azure preview portal](https://portal.azure.com).
+This section shows you how to install SQL Server Express, enable TCP/IP, and create a database so that your API app will work with the [Azure preview portal](https://portal.azure.com/).
 
 <a name="InstallSQLDB"></a>
 ### Install SQL Server Express
@@ -330,7 +332,7 @@ Now that you've tested the app locally, it's time to deploy the app to Azure.
 	- If you have multiple Azure subscriptions, select the one you want to use.
 	- Under **App Service Plan**, select from your existing App Service plans, or select **Create new App Service plan** and enter the name of a new plan. 
 	- Under **Resource Group**, select from your existing resource groups, or select **Create new resource group** and enter a name. The name must be unique; consider using the app name as a prefix and appending some personal information such as your Microsoft ID (without the @ sign).  
-	- Under **Access Level**, select **Available to Anyone**. This option will make your API completely public, which is fine for this tutorial. You can restrict access later through the [Azure preview portal](https://portal.azure.com).
+	- Under **Access Level**, select **Available to Anyone**. This option will make your API completely public, which is fine for this tutorial. You can restrict access later through the [Azure preview portal](https://portal.azure.com/).
 	- Select a region.
 
 	Click **OK** to create the API app in your subscription. 
@@ -353,7 +355,7 @@ The **Azure App Service Activity** window shows the deployment progress, and wil
 
 ## Create a Hybrid Connection and a BizTalk Service ##
 
-1. In your browser, navigate to the [Azure preview portal](https://portal.azure.com). 
+1. In your browser, navigate to the [Azure preview portal](https://portal.azure.com/). 
 
 2. Click the **Browse All** option on the left.
 
@@ -361,7 +363,7 @@ The **Azure App Service Activity** window shows the deployment progress, and wil
 
 4. In the **API Apps** blade, locate your API app and click it.
 
-5. In your APII app's blade, click the value under **API app host**.  
+5. In your API app's blade, click the value under **API app host**.  
  
 	![API App blade](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 

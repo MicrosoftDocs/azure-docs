@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="02/01/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service dashboard
@@ -22,8 +22,6 @@
 The StorSimple Manager service dashboard page provides a summary view of all the devices that are connected to the StorSimple Manager service, highlighting those that need a system administrator's attention. This tutorial introduces the dashboard page, explains the dashboard content and function, and describes the tasks that you can perform from this page.
 
 ![Service dashboard](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
-
-**Figure 1: StorSimple Manager service dashboard**
 
 The StorSimple Manager service dashboard displays the following information:
 
@@ -45,7 +43,7 @@ You can use the StorSimple Manager service dashboard page to initiate the follow
 
 ## View or regenerate the service registration key
 
-The service registration key is used to register a Microsoft Azure StorSimple device with the StorSimple Manager service, so that the device appears in the Microsoft Azure Management Portal for further management actions. The key is created on the first device and shared with the rest of your devices. 
+The service registration key is used to register a Microsoft Azure StorSimple device with the StorSimple Manager service, so that the device appears in the Azure classic portal for further management actions. The key is created on the first device and shared with the rest of your devices. 
 
 Clicking **Registration Key** (at the bottom of the page) opens the **Service Registration Key** dialog box, where you can either copy the current service registration key to the clipboard or regenerate the service registration key.
 
@@ -59,7 +57,7 @@ Service data encryption keys are used to encrypt confidential customer data, suc
 
 Changing the service data encryption key is a 3-step process:
 
-1. Using the Management Portal, authorize a device to change the service data encryption key.
+1. Using the Azure classic portal, authorize a device to change the service data encryption key.
 2. Using Windows PowerShell for StorSimple, initiate the service data encryption key change.
 3. If you have more than one StorSimple device, update the service data encryption key on the other devices.
 

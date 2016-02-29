@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+ 	ms.date="02/11/2016"  
 	ms.author="juliako"/>
 
 
@@ -23,6 +23,15 @@
 
 Microsoft Azure Media Services is a service that accepts OData-based HTTP requests and can respond back in verbose JSON or atom+pub. Because Media Services conforms to Azure design guidelines, there is a set of required HTTP headers that each client must use when connecting to Media Services, as well as a set of optional headers that can be used. The following sections describe the headers and HTTP verbs you can use when creating requests and receiving responses from Media Services.
 
+##Considerations 
+
+The following considerations apply when using REST.
+
+
+- If using JSON, you MUST set the Accept header to [JSON Verbose format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/). Odata does not understand the __metadata property in the request, unless you set it to verbose.  
+
+	**Accept**: application/json;odata=verbose
+- When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 ## Standard HTTP request headers supported by Media Services
 
@@ -81,6 +90,10 @@ DELETE|Deletes an object.
 MERGE|Updates an existing object with named property changes.
 HEAD|Returns metadata of an object for a GET response.
 
+##Limitation
+
+When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+
 
 ## Discovering Media Services model
 
@@ -90,21 +103,16 @@ You should append "?api-version=2.x" to the end of the URI if you want to view t
 
 
 
-
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-- Anchors. -->
-
-
-<!-- URLs. -->
   
-  [Management Portal]: http://manage.windowsazure.com/
+  [Azure Classic Portal]: http://manage.windowsazure.com/
 
 
 

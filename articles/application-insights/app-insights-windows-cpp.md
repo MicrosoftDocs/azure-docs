@@ -4,7 +4,7 @@
     services="application-insights" 
     documentationCenter="cpp"
     authors="crystk" 
-    manager="jakubo""/>
+    manager="douge""/>
 
 <tags 
     ms.service="application-insights" 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="universal" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="11/17/2015" 
     ms.author="crystk"/>
 
 # Application Insights for C++ apps
@@ -62,7 +62,7 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 
 #### To update the SDK to future versions
 
-When a new [SDK is released](app-insights-release-notes-windows-cpp.md):
+When a new [SDK is released](https://github.com/Microsoft/ApplicationInsights-CPP/releases):
 
 * In NuGet package manager, select the installed SDK and choose Action: Upgrade.
 * Repeat the installation steps, using the new version number.

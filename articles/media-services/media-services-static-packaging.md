@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/10/2015"   
+	ms.date="02/14/2016"   
 	ms.author="juliako"/>
 
 
 # Using Azure Media Packager to accomplish static packaging tasks
 
->[AZURE.NOTE]Windows Azure Media Packager and Windows Azure Media Encryptor will reach end of life on March 1, 2016. At that time, these components will no longer be available.  The format conversion and encryption capabilities will be available through dynamic packaging and dynamic encryption. 
+>[AZURE.NOTE]The end of life date for Microsoft Azure Media Packager and Microsoft Azure Media Encryptor has been extended to March 1, 2017. Before that date, the functionalities of these processors will be added to Media Encoder Standard (MES). Customers will be provided with instructions on how to migrate their workflows to send Jobs to MES. Format conversion and encryption capabilities may also be available through dynamic packaging and dynamic encryption.
 
 ## Overview
 
@@ -166,7 +166,7 @@ The following code sample uses Azure Media Services .NET SDK Extensions.  Make s
 	
 	            // Get the SDK extension method to  get a reference to the Azure Media Packager.
 	            IMediaProcessor processor = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaPackager);
+	                MediaProcessorNames.WindowsAzureMediaPackager);
 	
 	            // Create a task with the conversion details, using the configuration data. 
 	            ITask task = job.Tasks.AddNew("Mp4 Validation Task",
@@ -1443,7 +1443,8 @@ Make sure to update the following code to point to the folder where your input M
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

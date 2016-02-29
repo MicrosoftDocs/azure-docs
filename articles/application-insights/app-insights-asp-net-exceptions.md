@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Diagnose failures and exceptions in ASP.NET apps with Application Insights" 
-	description="Configure your app to get a compelling diagnostic experience by capturing exceptions along with request telemetry." 
+	description="Capture exceptions from ASP.NET apps along with request telemetry." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,20 +12,44 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
- 
-# Diagnose failures and exceptions in ASP.NET apps with Application Insights  
+
+
+# Set up Application Insights: Diagnose exceptions
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 
 By monitoring your application with [Visual Studio Application Insights][start], you can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.
 
 To monitor an ASP.NET app, you have to [add Application Insights SDK][greenbrown] to your application, or [install Status Monitor on your IIS server][redfield], or, if your app is an Azure Web App, add the [Application Insights Extension][azure].
 
-## Diagnosing failures 
+## Diagnosing exceptions using Visual Studio
 
-From the overview blade, the Failures tile shows you charts of exceptions and failed HTTP requests, together with a list of the request URLs that cause the most frequent failures.
+Open the app solution in Visual Studio to help with debugging.
 
-![Select Failures](./media/app-insights-asp-net-exceptions/012-start.png)
+Run the app, either on your server or on your development machine by using F5.
+
+Open the Application Insights Search window in Visual Studio, and set it to display events from your app. While you're debugging, you can do this just by clicking the Application Insights button.
+
+![Right-click the project and choose Application Insights, Open.](./media/app-insights-asp-net-exceptions/34.png)
+
+Notice that you can filter the report to show just exceptions. 
+
+*No exceptions showing? See [Capture exceptions](#exceptions).*
+
+Click an exception report to show its stack trace.
+
+![Click through an exception.](./media/app-insights-asp-net-exceptions/35.png)
+
+Click a line reference in the stack trace, to open the relevant file.  
+
+## Diagnosing failures using the Azure portal
+
+From the Application Insights overview of your app, the Failures tile shows you charts of exceptions and failed HTTP requests, together with a list of the request URLs that cause the most frequent failures.
+
+![Select Settings, Failures](./media/app-insights-asp-net-exceptions/012-start.png)
 
 Click through one of the failed request types in the list to get to individual occurrences of the failure. From there, click through to the exceptions or any trace data associated with it:
 
@@ -45,6 +69,8 @@ From there you can look at the stack trace and detailed properties of each excep
 ![Drill through](./media/app-insights-asp-net-exceptions/050-exception-properties.png)
 
 [Learn more about Diagnostic Search][diagnostic].
+
+
 
 ## Dependency failures
 
@@ -73,6 +99,9 @@ To see these events, open [Search][diagnostic], open Filter, and then choose Cus
 
 
 ![Drill through](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
+
+
+> [AZURE.NOTE] If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. Events that are part of the same operation will be selected or deselected as a group, so that you can navigate between related events. [Learn about sampling.](app-insights-sampling.md)
 
 ### How to see request POST data
 
@@ -441,7 +470,7 @@ Note that it will be different from the 'Exceptions' count calculated by the App
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md

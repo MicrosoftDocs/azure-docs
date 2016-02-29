@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="How to create NSGs in ARM mode using the preview portal | Microsoft Azure"
-   description="Learn how to create and deploy NSGs in ARM using the preview portal"
+   pageTitle="How to create NSGs in ARM mode using the Azure portal | Microsoft Azure"
+   description="Learn how to create and deploy NSGs in ARM using the Azure portal"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # How to manage NSGs using the preview portal

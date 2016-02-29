@@ -2,7 +2,7 @@
 	pageTitle="Get started with Azure Mobile Engagement"
 	description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Android apps."
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="android"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="12/02/2015"
 	ms.author="piyushjo" />
 
 # Get started with Azure Mobile Engagement for Android apps
@@ -27,7 +27,7 @@
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and how to send push notifications to segmented users of an Android application.
-This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. In it, you create a blank Android app that collects basic data and receives push notifications using Google Cloud Messaging (GCM). 
+This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. In it, you create a blank Android app that collects basic data and receives push notifications using Google Cloud Messaging (GCM).
 
 This tutorial requires the following:
 
@@ -36,7 +36,7 @@ This tutorial requires the following:
 
 > [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Android apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
-##<a id="setup-azme"></a>Setup Mobile Engagement for your iOS app
+##<a id="setup-azme"></a>Setup Mobile Engagement for your Android app
 
 [AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
@@ -57,7 +57,7 @@ We will create a basic app with Android Studio to demonstrate the integration.
     ![][2]
 
 3. Select the target form factor and API level, and click **Next**.
-	
+
 	>[AZURE.NOTE] Mobile Engagement requires API level 10 minimum (Android 2.3.3).
 
     ![][3]
@@ -103,7 +103,7 @@ Download and integrate the SDK library
 		import com.microsoft.azure.engagement.EngagementAgent;
 		import com.microsoft.azure.engagement.EngagementConfiguration;
 
-3. Go back to the Azure portal in your app's **Connection Info** page and copy the **Connection String**.
+3. Go back to the Azure Classic Portal in your app's **Connection Info** page and copy the **Connection String**.
 
 	  ![][9]
 
@@ -134,11 +134,17 @@ Download and integrate the SDK library
 
 ###Send a screen to Mobile Engagement
 
-In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend. 
+In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend.
 
-Go to **MainActivity.java** and add the following to replace the base class of **MainActivity** from **ActionBarActivity** to **EngagementActivity**:
+Go to **MainActivity.java** and add the following to replace the base class of **MainActivity** to **EngagementActivity**:
 
 	public class MainActivity extends EngagementActivity {
+
+You should comment out (exclude) the following line for this simple sample scenario:
+
+    // setSupportActionBar(toolbar);
+
+If you want to keep this around then you should check out the "Basic Reporting" scenario in our [Advanced Android Integration]
 
 ##<a id="monitor"></a>Connect app with real-time monitoring
 
@@ -221,6 +227,10 @@ For real apps, you can use an icon that is suitable for notifications per [Andro
 >[AZURE.TIP] To be sure to use correct icon resolutions, you can look at [these examples](https://www.google.com/design/icons).
 Scroll down to the **Notification** section, click an icon, and then click `PNGS` to download the icon drawable set. You can see what drawable folders with which resolution to use for each version of the icon.
 
+##Create a Google Cloud Messaging project with API key
+
+[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
+
 ###Enable your app to receive GCM push notifications
 
 1. Paste the following into your Manifest.xml between the `<application>` and `</application>` tags after replacing the `project number` obtained from your Google Play console. The \n is intentional so make sure that you end the project number with it.
@@ -256,19 +266,19 @@ To allow Mobile Engagement to send push notifications on your behalf, you need t
 
 1. Navigate to your Mobile Engagement portal
 
-	From your Azure portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
+	From your Azure Classic Portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
 
 	![][15]
 
 2. Then click the **Settings** -> **Native Push** section to enter your GCM Key:
-	  
+
 	![][16]
 
 3. Click the **Edit** icon in front of **API Key** in the **GCM Settings** section as shown below:
-	  
+
 	![][17]
 
-4. In the pop-up, paste the GCM Server Key you obtained in the section [Enable Google Cloud Messaging](#register), and then click **Ok**.
+4. In the pop-up, paste the GCM Server Key you obtained before and then click **Ok**.
 
 	![][18]
 
@@ -277,13 +287,13 @@ To allow Mobile Engagement to send push notifications on your behalf, you need t
 We will now create a simple push notification campaign that sends a push notification to our app.
 
 1. Navigate to the **REACH** tab in your Mobile Engagement portal.
-	 
+
 2. Click **New announcement** to create your push notification campaign.
-	 
+
 	![][20]
 
 3. Set up the first field of your campaign through the following steps:
-	 
+
 	![][21]
 
 	a. Name your campaign.
@@ -303,12 +313,14 @@ We will now create a simple push notification campaign that sends a push notific
 5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
 
 6. Last step: click **Activate** to activate your campaign to send push notifications.
-    
+
 	![][24]
 
 <!-- URLs. -->
-[Mobile Engagement Android SDK]: http://go.microsoft.com/?linkid=9863935
-[Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[Mobile Engagement Android SDK]: https://aka.ms/vq9mfn
+[Mobile Engagement Android SDK documentation]: https://aka.ms/tujlkm
+[Advanced Android Integration]: https://azure.microsoft.com/en-us/documentation/articles/mobile-engagement-android-integrate-engagement/#basic-reporting
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [2]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png

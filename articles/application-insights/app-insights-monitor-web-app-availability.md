@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="02/11/2016"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
@@ -21,7 +21,7 @@ After you've deployed your web application, you can set up web tests to monitor 
 
 ![Web test example](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-You can set up web tests for any HTTP endpoint that is accessible from the public internet.
+You can set up web tests for any HTTP or HTTPS endpoint that is accessible from the public internet.
 
 There are two types of web test:
 
@@ -170,6 +170,8 @@ Use Visual Studio Enterprise or Ultimate to record a web session.
 
     ![Select multi-step webtest.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
+    Set the test locations, frequency, and alert parameters in the same way as for ping tests.
+
 View your test results and any failures in the same way as for single-url tests.
 
 A common reason for failure is that the test runs too long. It mustn't run longer than two minutes.
@@ -205,6 +207,24 @@ Web Test Plug-ins provide the way to do this.
 
 Now, upload your test to the portal. It will use the dynamic values on every run of the test.
 
+## Dealing with sign-in
+
+If your users sign in to your app, you have a number of options for simulating sign-in so that you can test pages behind the sign-in. The approach you use depends on the type of security provided by the app.
+
+In all cases, you should create an account just for the purpose of testing. If possible, restrict its permissions so that it's read-only.
+
+* Simple username and password: Just record a web test in the usual way. Delete cookies first.
+* SAML authentication. For this, you can use the SAML plugin that is available for web tests.
+* Client secret: If your app has a sign-in route that involves a client secret, use that. Azure Active Directory provides this. 
+* Open Authentication - for example, signing in with your Microsoft or Google account. Many apps that use OAuth provide the client secret alternative, so the first tactic is to investigate that. If your test has to sign in using OAuth, the general approach is:
+ * Use a tool such as Fiddler to examine the traffic between your web browser, the authentication site, and your app. 
+ * Perform two or more sign-ins using different machines or browsers, or at long intervals (to allow tokens to expire).
+ * By comparing different sessions, identify the token passed back from the authenticating site, that is then passed to your app server after sign-in. 
+ * Record a web test using Visual Studio. 
+ * Parameterize the tokens, setting the parameter when the token is returned from the authenticator, and using it in the query to the site.
+ (Visual Studio will attempt to parameterize the test, but will not correctly parameterize the tokens.)
+
+
 ## <a name="edit"></a> Edit or disable a test
 
 Open an individual test to edit or disable it.
@@ -215,14 +235,17 @@ You might want to disable web tests while you are performing maintenance on your
 
 ## Questions? Problems?
 
-
-* *Is there a difference between "web tests" and "availability"?*
-
-    We use the two terms interchangeably.
-
 * *Can I call code from my web test?*
 
     No. The steps of the test must be in the .webtest file. And you can't call other web tests or use loops. But there are a number of plug-ins that you might find helpful.
+
+* *Is HTTPS supported?*
+
+    Currently, we support SSL 3.0 and TLS 1.0.
+
+* *Is there a difference between "web tests" and "availability tests"?*
+
+    We use the two terms interchangeably.
 
 ## <a name="video"></a>Video
 

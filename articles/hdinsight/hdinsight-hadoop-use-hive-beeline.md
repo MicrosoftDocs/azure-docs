@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Hadoop Hive and SSH in HDInsight | Microsoft Azure"
-   description="Learn how to use SSH to connect to a Hadoop cluster in HDInsight, and then interactively submit Hive queries by using the Beeline tool."
+   pageTitle="Use Beeline to work with Hive on HDInsight (Hadoop) | Microsoft Azure"
+   description="Learn how to use SSH to connect to a Hadoop cluster in HDInsight, and then interactively submit Hive queries by using Beeline. Beeline is a utility for working with HiveServer2 over JDBC."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/05/2015"
+   ms.date="02/16/2016"
    ms.author="larryfr"/>
 
 #Use Hive with Hadoop in HDInsight with Beeline
@@ -55,17 +55,23 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
 ##<a id="beeline"></a>Use the Beeline command
 
-2. Once connected, start the Hive CLI by using the following command:
+1. Once connected, use the following to get the hostname of the head node:
+
+        hostname -f
+    
+    Save the returned host name, as it will be used later when connecting to HiveServer2 from Beeline.
+    
+2. Start the Hive CLI by using the following command:
 
         beeline
 
-2. From the `beeline>` prompt, use the following to connect to the HiveServer2 service:
+2. From the `beeline>` prompt, use the following to connect to the HiveServer2 service. Replace __HOSTNAME__ with the host name returned for the head node ealier:
 
-        !connect jdbc:hive2://headnode0:10001/;transportMode=http admin
+        !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
 
     When prompted, enter the password for the administrator (admin) account for your HDInsight cluster. Once the connection is established, the prompt will change to the following:
     
-        jdbc:hive2://headnode0:10001/>
+        jdbc:hive2://HOSTNAME:10001/>
 
 3. Beeline commands usually begin with a `!` character, for example `!help` displays help. However the `!` can often be ommited. For example, `help` will also work.
 
@@ -170,9 +176,9 @@ Beeline can also be used to run a file that contains HiveQL statements. Use the 
     
 3. To save the file, use __Ctrl__+___X__, then enter __Y__, and finally __Enter__.
 
-4. Use the following to run the file using Beeline:
+4. Use the following to run the file using Beeline. Replease __HOSTNAME__ with the name obtained earlier for the head node, and __PASSWORD__ with the password for the admin account:
 
-        beeline -u 'jdbc:hive2://headnode0:10001/;transportMode=http' -n admin -p GiantR0b0! -f query.hql
+        beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
 
 5. To verify that the **errorLogs** table was created, start Beeline and connect to HiveServer2, then use the following statement to return all the rows from **errorLogs**:
 
@@ -205,6 +211,12 @@ For information on other ways you can work with Hadoop on HDInsight:
 
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
+If you are using Tez with Hive, see the following documents for debugging information:
+
+* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
+
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
+
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -223,16 +235,11 @@ For information on other ways you can work with Hadoop on HDInsight:
 
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
-[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-get-started.md
 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
-[img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png

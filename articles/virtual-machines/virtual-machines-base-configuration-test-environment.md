@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/12/2016"
 	ms.author="josephd"/>
 
 # Base Configuration test environment
@@ -51,15 +51,15 @@ There are four phases to setting up the Corpnet subnet of the Windows Server 201
 3.	Configure APP1.
 4.	Configure CLIENT1.
 
-If you do not already have an Azure account, you can sign up for a free trial at [Free one-month trial](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure account, you can sign up for a free trial at [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Platforms subscription, see [Azure benefit for MSDN Platform subscribers](https://azure.microsoft.com/offers/ms-azr-0062p/).
 
-> [AZURE.NOTE] Virtual machines in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. For more information about the costs of running Azure virtual machines, see [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Pricing Calculator](http://azure.microsoft.com/pricing/calculator/). To keep costs down, see [Minimizing the costs of test environment virtual machines in Azure](#costs).
+> [AZURE.NOTE] Virtual machines in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN Platforms subscription, or paid subscription. For more information about the costs of running Azure virtual machines, see [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/). To keep costs down, see [Minimizing the costs of test environment virtual machines in Azure](#costs).
 
 ## Phase 1: Create the virtual network
 
 First, you create the TestLab virtual network that will host the Corpnet subnet of the base configuration.
 
-1.	In the task bar of the [Azure portal](https://manage.windowsazure.com), click **New > Network Services > Virtual Network > Custom Create**.
+1.	In the task bar of the [Azure classic portal](https://manage.windowsazure.com), click **New > Network Services > Virtual Network > Custom Create**.
 2.	On the Virtual Network Details page, type **TestLab** in **Name**.
 3.	In **Location**, select the appropriate region.
 4.	Click the Next arrow.
@@ -126,7 +126,7 @@ First, fill in the name of your cloud service and run these commands at the Azur
 
 Next, connect to the DC1 virtual machine.
 
-1.	In the Azure Management Portal, click **Virtual Machines** in the left pane, and then click **Started** in the **Status** column for the DC1 virtual machine.  
+1.	In the Azure classic portal, click **Virtual Machines** in the left pane, and then click **Started** in the **Status** column for the DC1 virtual machine.  
 2.	In the task bar, click **Connect**.
 3.	When prompted to open DC1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
@@ -155,7 +155,7 @@ Next, configure DC1 as a domain controller and DNS server for the corp.contoso.c
 
 After DC1 restarts, reconnect to the DC1 virtual machine.
 
-1.	On the virtual machines page of the Azure Management Portal, click **Running** in the **Status** column for the DC1 virtual machine.
+1.	On the virtual machines page of the Azure classic portal, click **Running** in the **Status** column for the DC1 virtual machine.
 2.	In the task bar, click **Connect**.
 3.	When prompted to open DC1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
@@ -250,15 +250,11 @@ This is your final configuration.
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
-Your base configuration in Azure is now ready for application development and testing or for additional test environments, such as the [simulated hybrid cloud environment](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+Your base configuration in Azure is now ready for application development and testing or for additional test environments.
 
-## Additional resources
+## Next Step
 
-[Azure Test Lab](http://social.technet.microsoft.com/wiki/contents/articles/24092.azure-test-lab.aspx)
-
-[Hybrid cloud test environments](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Base Configuration test environment with Azure Resource Manager](virtual-machines-base-configuration-test-environment-resource-manager.md)
+- Set up the [simulated hybrid cloud environment](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) to test hybrid configurations.
 
 ## <a id="costs"></a>Minimizing the costs of test environment virtual machines in Azure
 

@@ -1,20 +1,20 @@
 
 <properties
-	pageTitle="Enhance your API App for Logic Apps"
-	description="This article demonstrates how to decorate your API App to work nicely with Logic Apps"
-	services="app-service"
+	pageTitle="Enhance your API App for Logic Apps | Microsoft Azure"
+	description="How to decorate your API App to work nicely with Logic Apps"
+	services="app-service\logic"
 	documentationCenter=".net"
 	authors="sameerch"
 	manager="wpickett"
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-logic"
 	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="01/08/2016" 
 	ms.author="sameerch"/>
 
 # Enhance your API App for Logic Apps #

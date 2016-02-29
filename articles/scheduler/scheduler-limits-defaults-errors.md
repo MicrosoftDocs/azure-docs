@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="07/28/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # Scheduler Limits, Defaults, and Error Codes
@@ -49,26 +49,25 @@ For example, an HTTP 404 error can occur for numerous reasons, so having the add
 |ConflictError|Conflict (409)|A conflict occurred to prevent the operation from completing.|
 |TemporaryRedirect|Temporary Redirect (307)|The requested object is not available. A temporary URI for the new location of the object can be obtained from the Location field in the response. The original request can be repeated on the new URI.|
 
-API operations may also return additional error information that is defined by the management service. This additional error information is returned in the response body. The body of the error response follows the basic format shown below.
-
-		<?xml version="1.0" encoding="utf-8"?>  
-		<Error>  
-			<Code>string-code</Code>  
-			<Message>detailed-error-message</Message>  
-		</Error>  
+API operations may also return additional error information that is defined by the management service. This additional error information is returned in the response body. 
 
 ## See Also
 
- [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
 
- [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
+ [What is Scheduler?](scheduler-intro.md)
+ 
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
- [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+ 
+  
