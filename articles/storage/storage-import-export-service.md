@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure"
 	description="Learn how to create import and export jobs in the Azure Classic Portal to transfer data to blob storage."
-	authors="renash"
+	authors="renashahmsft"
 	manager="aungoo"
 	editor="tysonn"
 	services="storage"
