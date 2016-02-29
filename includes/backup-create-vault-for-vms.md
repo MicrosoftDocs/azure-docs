@@ -9,7 +9,7 @@ To create a backup vault:
 
 1. Sign in to the [Azure portal](http://manage.windowsazure.com/).
 
-2. In the new portal click **New** > **Hybrid Integration** > **Backup**. When you click **Backup**, you will automatically switch to the classic portal (shown after the Note).
+2. In the Azure portal click **New** > **Hybrid Integration** > **Backup**. When you click **Backup**, you will automatically switch to the classic portal (shown after the Note).
 
     ![Ibiza portal](./media/backup-create-vault-for-vms/Ibiza-portal-backup01.png)
 
@@ -17,7 +17,7 @@ To create a backup vault:
 
     ![Create backup vault](./media/backup-create-vault-for-vms/backup_vaultcreate.png)
 
-3. In **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription.
+3. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
 
 4. In **Region**, select the geographic region for the vault. The vault must be in the same region as the virtual machines that you want to protect. If you have virtual machines in multiple regions, you must create a backup vault in each region. There is no need to specify storage accounts to store the backup data--the backup vault and the Azure Backup service handle this automatically.
 
@@ -27,7 +27,7 @@ To create a backup vault:
 
     ![Create vault toast notification](./media/backup-create-vault-for-vms/creating-vault.png)
 
-6. A message will confirm that the vault has been successfully created. It will be listed on the **Recovery Services** page as **Active**. Make sure to choose the appropriate storage redundancy option right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#azure-backup---storage-redundancy-options).
+6. A message will confirm that the vault has been successfully created. It will be listed on the **recovery services** page as **Active**. Make sure to choose the appropriate storage redundancy option right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 
     ![List of backup vaults](./media/backup-create-vault-for-vms/backup_vaultslist.png)
 
