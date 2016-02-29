@@ -15,7 +15,7 @@ Maximum document storage per database (100 collections)* |1 TB
 Maximum Length of the Id property|255 characters
 Maximum items per page|No practical limit
 Maximum request size of document and attachment |512KB
-Maximum request size of stored procedure, trigger and UDF|512KB
+Maximum size of stored procedure, trigger and UDF|100KB
 Maximum response size|1MB
 String|All strings must conform to the UTF-8 encoding. Since UTF-8 is a variable width encoding, string sizes are determined using the UTF-8 bytes.
 Maximum length of property or value|No practical limit

@@ -253,6 +253,37 @@ delay | TimeSpan | 00:00:00 | Specify the delay before data processing of the sl
 longRetry | Integer<p>Max value: 10</p> | 1 | The number of long retry attempts before the slice execution is failed.<p>longRetry attempts are spaced by longRetryInterval. So if you need to specify a time between retry attempts, use longRetry. If both Retry and longRetry are specified, each longRetry attempt will include Retry attempts and the max number of attempts will be Retry * longRetry.</p><p>For example, if we have the following in the activity policy:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/></p><p>Assume there is only one slice to execute (status is Waiting) and the activity execution fails every time. Initially there would be 3 consecutive execution attempts. After each attempt the slice status would be Retry. After first 3 attempts are over the slice status would be LongRetry.</p><p>After an hour (i.e. longRetryInteval’s value), there would be another set of 3 consecutive execution attempts. After that, the slice status would be Failed and no more retries would be attempted. Hence overall 6 attempts were made.</p><p>Note: If any execution succeeds, the slice status would be Ready and no more retries will be attempted.</p><p>longRetry may be used in situations where dependent data arrives at non-deterministic times or the overall environment is quite flaky under which data processing occurs. In such cases doing retries one after another may not help and doing so after an interval of time results in the desired output.</p><p>Word of caution: do not set high values for longRetry or longRetryInterval. Typically higher values imply other systemic issues which are being brushed off under this</p> 
 longRetryInterval | TimeSpan | 00:00:00 | The delay between long retry attempts 
 
+## Chain activities
+If you have multiple activities in a pipeline and they do not depend on each other (output of an activity is not an input of another activity), the activities may run in parallel if input data slices for the activities are ready. 
+
+You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. 
+
+For example, consider the following case:
+ 
+1.	Pipeline P1 has Activity A1 that requires external input dataset D1, and produce **output** dataset **D2**.
+2.	Pipeline P2 has Activity A2 that requires **input** from dataset **D2**, and produces output dataset D3.
+ 
+In this scenario, the activity A1 will run when the external data is available, and the scheduled availability frequency is reached.  The activity A2 will run when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 will not run for that slice until it becomes available.
+
+The Diagram View would look like below:
+
+![Chaining activities in two pipelines](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
+
+The Diagram View with both activities in the same pipeline would look like below: 
+
+![Chaining activities in the same pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
+
+## Scheduling and Execution
+So far you have understood what pipelines and activities are. You have also taken a look at how are they defined and a high level view of the activities in Azure Data Factory. Now let us take a look at how they get executed. 
+
+A pipeline is active only between its start time and end time. It is not executed before the start time or after the end time. If the pipeline is paused, it will not get executed irrespective of its start and end time. For a pipeline to run, it should not be paused. In fact, it is not the pipeline that gets executed. It is the activities in the pipeline which get executed. However they do so in the overall context of the pipeline. 
+
+See [Scheduling and Execution](data-factory-scheduling-and-execution.md) to understand how scheduling and execution works in Azure Data Factory.
+
+### Parallel processing of slices
+Set the value of **concurrency** in the activity JSON definition to a value higher than 1 so that multiple slices are processed in parallel by multiple instances of the activity at runtime. This is really helpful when processing back-filled slices from the past. 
+
+
 ## Authoring and managing a pipeline
 Azure Data Factory provides various mechanisms to author and deploy pipelines (which in turn contain one or more activities in it). 
 
@@ -276,15 +307,19 @@ Azure Data Factory provides various mechanisms to author and deploy pipelines (w
 
 	**Note:** during deployment, the Azure Data Factory service performs a few validation checks to help rectify a few common issues. In case there is an error, the corresponding information will show up. Take corrective actions and then re-deploy the authored pipeline. You can use the editor to update and delete a pipeline.
 
+See [Get started with Azure Data Factory (Data Factory Editor)](data-factory-build-your-first-pipeline-using-editor.md) for an end-to-end walkthrough for creating a data factory with a pipeline. 
+
 ### Using Visual Studio plugin
-You can use Visual Studio to author and deploy pipelines to Azure Data Factory. To learn more, refer to [Tutorial: Copy data from Azure Storage to Azure SQL (Visual Studio)](data-factory-get-started-using-vs.md).
+You can use Visual Studio to author and deploy pipelines to Azure Data Factory. To learn more, refer to [See [Get started with Azure Data Factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) for an end-to-end walkthrough for creating a data factory with a pipeline. 
+
 
 ### Using Azure PowerShell
 You can use the Azure PowerShell to create pipelines in Azure Data Factory. Say, you have defined the pipeline JSON in a file at c:\DPWikisample.json. You can upload it to your Azure Data Factory instance as shown in the following example.
 
 	New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-To learn more about this cmdlet, see [New-AzureRmDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/mt619358.aspx).
+See [Get started with Azure Data Factory (Azure PowerShell)](data-factory-build-your-first-pipeline-using-powershell.md) for an end-to-end walkthrough for creating a data factory with a pipeline. 
+
 
 ### Using REST API
 You can create and deploy pipeline using REST APIs too. This mechanism can be leveraged to create pipelines programmatically. To learn more on this, see [Create or Update a Pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
@@ -292,16 +327,12 @@ You can create and deploy pipeline using REST APIs too. This mechanism can be le
 ### Using .NET SDK
 You can create and deploy pipeline via .NET SDK too. This mechanism can be leveraged to create pipelines programmatically. To learn more on this refer to [Create, manage, and monitor data factories programmatically](data-factory-create-data-factories-programmatically.md).
 
+### Using ARM (Azure Resource Manager) template
+You can create and deploy pipeline using an Azure Resource Manager (ARM) template. To learn more on this, see [Get started with Azure Data Factory (Azure Resource Manager)](data-factory-build-your-first-pipeline-using-arm.md).
 
-## Scheduling and Execution
-So far you have understood what pipelines and activities are. You have also taken a look at how are they defined and a high level view of the activities in Azure Data Factory. Now let us take a look at how they get executed. 
-
-A pipeline is active only between its start time and end time. It is not executed before the start time or after the end time. If the pipeline is paused, it will not get executed irrespective of its start and end time. For a pipeline to run, it should not be paused. 
-
-In fact, it is not the pipeline that gets executed. It is the activities in the pipeline which get executed. However they do so in the overall context of the pipeline. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) to understand how scheduling and execution works in Azure Data Factory.
 
 ## Manage & Monitor  
-Once a pipeline is deployed, you can manage and monitor your pipelines, slices and runs. Read more about it here: [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md).
+Once a pipeline is deployed, you can manage and monitor your pipelines, slices and runs. Read more about it here: [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md). 
 
 ## Next Steps
 
