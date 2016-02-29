@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create a Secure Linux VM using a quick template | Microsoft Azure"
 	description="Create a Secure Linux VM on Azure using a quick template."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="vlivech"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

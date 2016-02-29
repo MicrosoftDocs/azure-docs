@@ -1,18 +1,18 @@
 <properties
    pageTitle="Create a Linux VM from the ground up using the Azure CLI | Microsoft Azure"
    description="Create a Linux VM, Storage, Virtual Network & subnet, NIC, Public IP, Network Security Group all from the ground up using the Azure CLI."
-   services="virtual-machines"
-   documentationCenter="dev-center-name"
+   services="virtual-machines-linux"
+   documentationCenter="virtual-machines"
    authors="vlivech"
    manager="squillace"
    editor=""
-   tags="azure-resource-manager;linux"/>
+   tags="azure-resource-manager"/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="Linux"
+   ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="02/10/2016"
    ms.author="v-livech"/>
