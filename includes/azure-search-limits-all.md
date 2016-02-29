@@ -19,7 +19,7 @@ Storage size is either a fixed amount or the number of documents per service, wh
 
 QPS is an approximation based on heuristics, using simulated and actual customer workloads as inputs. Exact QPS throughput will vary depending on your data and the nature of the query.
 
-Search units are the billable unit for either a replica or a partition. You need both for both storage, indexing, and query operations. See [Capacity planning](../search/search-capacity-planning.md) for a chart on valid combinations.
+Search units are the billable unit for either a replica or a partition. You need both for both storage, indexing, and query operations.
 
 Price is for the U.S. market, illustrating relative costs among alternative tiers. Different markets have different prices. Refer to the [Pricing page](https://azure.microsoft.com/pricing/details/search/) for rates in other currencies.
 
