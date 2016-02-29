@@ -3,7 +3,7 @@
 	description="Discover, register, and back up your virtual machines with these procedures for Azure virtual machine backup."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor=""
 	keywords="virtual machine backup; back up virtual machine; backup and disaster recovery; vm backup"/>
