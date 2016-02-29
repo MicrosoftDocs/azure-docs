@@ -49,7 +49,7 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/library/mt126134.aspx).
 
-8. Configure the BIOS to use Local Time instead of UTC.
+8. If your BIOS includes such an option, you should configure it to use the local time instead of UTC time.
 
 9. Log in using a local account with administrator permissions.
 
