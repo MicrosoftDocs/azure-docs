@@ -200,6 +200,14 @@ This configuration is used to setup the federation relationship between AD FS an
 ![Azure AD Domain](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
 
+### Verify the Azure AD domain selected for federation
+
+When you select the domain to be federated with your on-premise directory, Azure AD Connect provides you with the necessary information to verify the domain if it is not already verified. This page will provide you the DNS records that you are required to create at the domain name registrar, or wherever your DNS is hosted, in order to complete domain verification.</br>
+
+![Azure AD Domain](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
+
+> [AZURE.NOTE] AD Connect tries to verify the domain during the configure stage. If you continue to configure without adding the necessary DNS records where your domain DNS is hosted, the wizard will not be able to complete the configuration.</br>
+
 ## Configure and verify pages
 On this page the configuration will actually happen.
 
