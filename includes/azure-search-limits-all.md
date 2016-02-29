@@ -16,8 +16,11 @@ Scale out: maximum search units<sup>3</sup>|N/A|36 units|36 units
 Pricing<sup>4</sup>|N/A|$250 per month|$1000 per month
 
 <sup>1</sup>Storage size is either a fixed amount or the number of documents per service, whichever comes first.
+
 <sup>2</sup>QPS is an approximation based on heuristics, using simulated and actual customer workloads as inputs. Exact QPS throughput will vary depending on your data and the nature of the query.
+
 <sup>3</sup>Search units are the billable unit for either a replica or a partition. You need both for both storage, indexing, and query operations. See [Capacity Planning](../articles/search/search-capacity-planning.md) for valid combinations of replicas and partitions that keep you within the maximum limit of 36 units.
+
 <sup>4</sup>Price is for the U.S. market, illustrating relative costs among alternative tiers. Different markets have different prices. Refer to the [Pricing page](https://azure.microsoft.com/pricing/details/search/) for rates in other currencies.
 
 
