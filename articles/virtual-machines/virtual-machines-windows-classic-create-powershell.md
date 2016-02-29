@@ -20,7 +20,7 @@
 # Create Windows virtual machines with Powershell and the classic deployment model 
 
 > [AZURE.SELECTOR]
-- [Azure classic portal - Windows](virtual-machines-windows-hero-tutorial-classic-portal.md)
+- [Azure classic portal - Windows](virtual-machines-windows-classic-tutorial.md)
 - [Powershell - Windows](virtual-machines-windows-classic-create-powershell.md)
 - [PowerShell - Linux](virtual-machines-linux-classic-createpowershell.md)
 
@@ -263,7 +263,7 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[How to install and configure Azure PowerShell](powershell-install-configure.md)
+[How to install and configure Azure PowerShell](../powershell-install-configure.md)
 
 
 

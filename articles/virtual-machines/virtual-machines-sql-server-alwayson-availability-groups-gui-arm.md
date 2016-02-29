@@ -116,7 +116,7 @@ On **Domain and network settings** blade review the preset values for the domain
 
 - **SQL Server subnet name** is the name of a portion of the virtual network that hosts the SQL Servers and the file share witness. For this tutorial use **subnet-2**. This subnet will use address prefix **10.0.1.0/26**. 
 
-To learn more about virtual networks in [Azure see Virtual Network Overview](virtual-networks-overview.md).  
+To learn more about virtual networks in [Azure see Virtual Network Overview](../virtual-network/virtual-networks-overview.md).  
 
 The **Domain and network settings** should look like this:
 
