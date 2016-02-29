@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -83,19 +83,19 @@ To configure and test Azure AD single sign-on with Yardi eLearning, you need to 
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Yardi eLearning test user](#creating-a-Yardi eLearning-test-user)** - to have a counterpart of Britta Simon in Yardi eLearning that is linked to the Azure AD representation of her.
+4. **[Creating a Yardi eLearning test user](#creating-a-yardi-elearning-test-user)** - to have a counterpart of Britta Simon in Yardi eLearning that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Yardi eLearning application.
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Yardi eLearning application.
 
 
 
 **To configure Azure AD single sign-on with Yardi eLearning, perform the following steps:**
 
-1. In the Azure AD portal, on the **Yardi eLearning** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure classic portal, on the **Yardi eLearning** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to Yardi eLearning** page, select **Azure AD Single Sign-On**, and then click **Next**.
@@ -105,7 +105,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-yardielearning-tutorial/tutorial_yardielearning_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Yardi eLearning application using the following pattern: **“https://companyname.yardielearning.com”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Yardi eLearning application using the following pattern: **“https://\<company name\>.yardielearning.com”**.
+
+    b. Click **Next**.
 
 
 4. On the **Configure single sign-on at Yardi eLearning** page, perform the following steps:
@@ -116,10 +118,10 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Yardi eLearning support team via elearning@yardi.com and attach the downloaded metadata file to your email.
+5. To get SSO configured for your application, contact your Yardi eLearning support team via [elearning@yardi.com](mailto:elearning@yardi.com) and attach the downloaded metadata file to your email.
 
 
-6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  
@@ -129,12 +131,12 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.<br>
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.<br>
 In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<br>
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 <br><br>![Creating an Azure AD test user](./media/active-directory-saas-yardielearning-tutorial/create_aaduser_09.png) <br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -195,7 +197,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 **To assign Britta Simon to Yardi eLearning, perform the following steps:**
 
-1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
 <br><br>![Assign User][201] <br>
 
 2. In the applications list, select **Yardi eLearning**.
