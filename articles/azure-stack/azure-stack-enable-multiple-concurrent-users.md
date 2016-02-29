@@ -76,7 +76,7 @@ This step explains how to configure a point to site VPN connection into the Azur
 
 2.  For the VPN users, you must set up a local user account on the NATVM. Open **Control Panel**, click **User Accounts,** click **User Accounts,** click **User Accounts** again**,** click **Manage another account**, and then click **Add a user account**.
 
-  **Important**: You may have to add additional accounts to increase the amount of concurrent users.
+    **Important**: You may have to add additional accounts to increase the amount of concurrent users.
 
 	![](media/azure-stack-enable-multiple-concurrent-users/image1.png)
 
