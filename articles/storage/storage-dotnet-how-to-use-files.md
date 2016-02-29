@@ -3,9 +3,9 @@
     		description="Store file data in the cloud with Azure File storage, and mount your cloud file share from an Azure virtual machine (VM) or from an on-premises application running Windows."
             services="storage"
             documentationCenter=".net"
-            authors="robinsh"
-            manager="carmonm"
-            editor="" />
+            authors="mine-msft"
+            manager="aungoo"
+            editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,7 +13,7 @@
       ms.devlang="dotnet"
       ms.topic="hero-article"
       ms.date="02/29/2016"
-      ms.author="robinsh" />
+      ms.author="minet" />
 
 # Get started with Azure File storage on Windows
 
