@@ -12,7 +12,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure" 
 	ms.date="12/14/2015" 
