@@ -125,8 +125,6 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 ## Next steps
 
-- [Install and use Spark on HDInsight clusters](hdinsight-hadoop-spark-install-linux.md) for  instructions about how to use cluster customization to install and use Spark on HDInsight Hadoop clusters. Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications.
-
 - [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.
 
 - [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
@@ -136,4 +134,3 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 [powershell-install-configure]: install-configure-powershell-linux.md
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-[hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md

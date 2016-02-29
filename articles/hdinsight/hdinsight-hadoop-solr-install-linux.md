@@ -296,8 +296,6 @@ For more information on working with Solr backup and restores, see [Making and r
 
 - [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.
 
-- [Install and use Spark on HDInsight clusters][hdinsight-install-spark]. Use cluster customization to install Spark on HDInsight Hadoop clusters. Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications.
-
 - [Install R on HDInsight clusters][hdinsight-install-r]. Use cluster customization to install R on HDInsight Hadoop clusters. R is an open-source language and environment for statistical computing. It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
 
 - [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight.
@@ -307,5 +305,4 @@ For more information on working with Solr backup and restores, see [Making and r
 
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
-[hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

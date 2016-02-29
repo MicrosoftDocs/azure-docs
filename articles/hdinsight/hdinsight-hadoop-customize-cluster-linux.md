@@ -95,7 +95,6 @@ Script Action scripts can be used from the Azure Portal, Azure PowerShell, or th
 Name | Script
 ----- | -----
 **Install Hue** | https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh. See [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md).
-**Install Spark** | https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh. See [Install and use Spark on HDInsight clusters](hdinsight-hadoop-spark-install-linux.md).
 **Install R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. See [Install and use R on HDInsight clusters](hdinsight-hadoop-r-scripts-linux.md).
 **Install Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md).
 **Install Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. See [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md).
@@ -589,7 +588,7 @@ There are two types of open-source components that are available in the HDInsigh
 
 > [AZURE.WARNING] Components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
 >
-> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
 
 The HDInsight service provides several ways to use custom components. Regardless of how a component is used or installed on the cluster, the same level of support applies. Below is a list of the most common ways that custom components can be used on HDInsight clusters:
 
@@ -604,7 +603,6 @@ The HDInsight service provides several ways to use custom components. Regardless
 See the following for information and examples on creating and using scripts to customize a cluster:
 
 - [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md)
-- [Install and use Spark on HDInsight clusters](hdinsight-hadoop-spark-install-linux.md)
 - [Install and use R on HDInsight clusters](hdinsight-hadoop-r-scripts-linux.md)
 - [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md)
 - [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)

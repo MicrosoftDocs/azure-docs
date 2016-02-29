@@ -187,7 +187,6 @@ You can use Script Actions to customize HDInsight clusters by using the Azure po
 Microsoft provides sample scripts to install components on an HDInsight cluster. The sample scripts and instructions on how to use them are available at the links below:
 
 - [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md)
-- [Install and use Spark on HDInsight clusters](hdinsight-hadoop-spark-install-linux.md)
 - [Install and use R on HDInsight Hadoop clusters](hdinsight-hadoop-r-scripts-linux.md)
 - [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md)
 - [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)  
