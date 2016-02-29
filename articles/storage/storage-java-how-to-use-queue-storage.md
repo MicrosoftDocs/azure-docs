@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="02/16/2016"
-	ms.author="micurd"/>
+	ms.author="robmcm"/>
 
 # How to use Queue storage from Java
 
