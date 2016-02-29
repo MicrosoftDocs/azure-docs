@@ -40,7 +40,7 @@ Before you begin this article, you must have the following:
 
 ##Login to your Azure subscription
 
-Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](xplat-cli-connect.md) and connect to your subscription using the __login__ method.
+Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the __login__ method.
 
 
 ## Create an Azure Data Lake Store account
