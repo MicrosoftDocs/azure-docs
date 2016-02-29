@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migrating Web and Worker Roles to Service Fabric stateless services | Microsoft Azure"
+   pageTitle="Guide to converting Web and Worker Roles to Service Fabric stateless services | Microsoft Azure"
    description="This guide compares Cloud Services Web and Worker Roles and Service Fabric stateless services to help migrate from Cloud Services to Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/17/2016"
+   ms.date="02/29/2016"
    ms.author="vturecek"/>
  
-#Convert a Web or Worker Role to a Service Fabric stateless service
-This document provides a reference guide for converting Web and Worker Roles to Service Fabric stateless services. This is the simplest migration path from Cloud Services to Service Fabric in which the overall architecture of an application stays roughly the same.
+# Guide to converting Web and Worker Roles to Service Fabric stateless services
+
+This article describes how to migrate your Cloud Serices Web and Worker Roles to Service Fabric stateless services. This is the simplest migration path from Cloud Services to Service Fabric for applications whose overall architecture is going to stay roughly the same.
 
 ## Cloud Service project to Service Fabric application project
  
@@ -29,7 +30,7 @@ The difference is that the Cloud Service project couples the application deploym
  
 ## Worker Role to stateless service 
 
-Conceptually, a Worker Role represents a stateless workload, meaning every instance of the workload is identical and requests can be routed to any instance at any time; each instance is not expected to remember the previous request. State that the workload operates on is managed by an external state store, such as Azure Table Storage or Azure Document DB. In Service Fabric, this type of workload is represented by a Stateless Service. The simplest approach to migrating a Worker Role to Service Fabric can be done by converting Worker Role code to a Stateless Service.
+Conceptually, a Worker Role represents a stateless workload, meaning every instance of the workload is identical and requests can be routed to any instance at any time. Each instance is not expected to remember the previous request. State that the workload operates on is managed by an external state store, such as Azure Table Storage or Azure Document DB. In Service Fabric, this type of workload is represented by a Stateless Service. The simplest approach to migrating a Worker Role to Service Fabric can be done by converting Worker Role code to a Stateless Service.
 
 ![Worker Role to Stateless Service][4]
 
@@ -266,10 +267,12 @@ Both Cloud Services and Service Fabric are integrated with Visual Studio with pr
 
 ##Next Steps
 
- - [Migrating Cloud Services to Service Fabric: conceptual overview](./service-fabric-cloud-services-migration-conceptual.md)
+Read more about Service Fabric Reliable Services and the fundemental differences between Cloud Services and Service Fabric application architecture to understand how to take advantage of the full set of Service Fabric features.
 
  - [Getting started with Service Fabric Reliable Services](./service-fabric-reliable-services-quick-start.md)
 
+ - [Conceptual guide to the differences between Cloud Services and Service Fabric](./service-fabric-cloud-services-migration-conceptual.md)
+ 
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration/worker-role-to-stateless-service.png
