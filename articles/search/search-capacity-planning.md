@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Capacity planning in Azure Search | Microsoft Azure | Hosted cloud search service"
-	description="Capacity in Azure Search is built from partitions and replicas, where each is a billable search unit. Maximum billi"
+	description="Capacity in Azure Search is built from partitions and replicas, where each is a billable search unit."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
