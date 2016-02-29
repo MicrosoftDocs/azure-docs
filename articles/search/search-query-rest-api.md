@@ -3,6 +3,7 @@
     description="Build a search query in Azure search and use search parameters to filter, sort, and facet search results."
     services="search"
     documentationCenter=""
+	authors="ashmaka"
 />
 
 <tags
@@ -153,4 +154,4 @@ A successful query request will result in a Status Code of `200 OK` and the sear
 }
 ```
 
-To learn more, please visit the "Response" section of [this page](https://msdn.microsoft.com/library/azure/dn798927.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [this article](https://msdn.microsoft.com/en-us/library/azure/dn798925.aspx).
+To learn more, please visit the "Response" section of [this page](https://msdn.microsoft.com/library/azure/dn798927.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [this article](https://msdn.microsoft.com/library/azure/dn798925.aspx).

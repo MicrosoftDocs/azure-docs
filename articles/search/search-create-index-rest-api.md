@@ -27,7 +27,7 @@
 
 This article will walk you through the process of creating an Azure Search [index](https://msdn.microsoft.com/library/azure/dn798941.aspx) using the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx). To create an Azure Search index using the REST API, you will issue a single HTTP POST request to your Azure Search service's URL endpoint. Your index definition will be contained in the request body as well-formed JSON content.
 
-Before following this guide and creating an index, you should have already [created an Azure Search service](search-create-service-rest-api.md).
+Before following this guide and creating an index, you should have already [created an Azure Search service](search-create-service-portal.md).
 
 ## I. Identify your Azure Search service's admin api-key
 Now that you have provisioned an Azure Search service, you can issue HTTP requests against your service's URL endpoint using the REST API. However, *all* API requests must include the api-key that was generated for the Search service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
@@ -73,7 +73,7 @@ For our example, we've named our index "hotels" and defined our fields as follow
 
 We have carefully chosen the index attributes for each field based on how we think they will be used in an application. For example, `hotelId` is a unique key that people searching for hotels likely won't know, so we disable full-text search for that field by setting `searchable` to `false`, which saves space in the index.
 Please note that exactly one field in your index of type Edm.String must be the designated as the ‘key’ field.
-The index definition above uses a custom language analyzer for the `description_fr` field because it is intended to store French text. See [the Language support topic on MSDN](https://msdn.microsoft.com/en-us/library/azure/dn879793.aspx) as well as the corresponding [blog post](https://azure.microsoft.com/en-us/blog/language-support-in-azure-search/) for more information about language analyzers.
+The index definition above uses a custom language analyzer for the `description_fr` field because it is intended to store French text. See [the Language support topic on MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) as well as the corresponding [blog post](https://azure.microsoft.com/blog/language-support-in-azure-search/) for more information about language analyzers.
 
 ## III. Issue the HTTP request
 1. Using your index definition as the request body, issue an HTTP POST request to your Azure Search service endpoint URL. In the URL, be sure to use your service name as the host name, and put the proper `api-version` as a query string parameter (the current API version is `2015-02-28` at the time of publishing this document).
@@ -84,7 +84,7 @@ The index definition above uses a custom language analyzer for the `description_
     Content-Type: application/json
     api-key: [api-key]
 
-For a successful request, you should see status code 201 (Created). For more information on creating an index via the REST API, please visit the API reference on [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [this article](https://msdn.microsoft.com/en-us/library/azure/dn798925.aspx).
+For a successful request, you should see status code 201 (Created). For more information on creating an index via the REST API, please visit the API reference on [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [this article](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
 When you're done with an index and want to delete it, just issue an HTTP DELETE request. For example, this is how we would delete the "hotels" index:
 

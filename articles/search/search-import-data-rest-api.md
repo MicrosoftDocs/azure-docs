@@ -163,7 +163,7 @@ A status code of `503` will be returned if none of the items in the request were
 
 > [AZURE.NOTE] In this case, we highly recommend that your client code back off and wait before retrying. This will give the system some time to recover, increasing the chances that future requests will succeed. Rapidly retrying your requests will only prolong the situation.
 
-For more information on document actions and success/error responses, please see [this page](https://msdn.microsoft.com/library/azure/dn798925.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [this article](https://msdn.microsoft.com/en-us/library/azure/dn798925.aspx).
+For more information on document actions and success/error responses, please see [this page](https://msdn.microsoft.com/library/azure/dn798925.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [this article](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
 ## Next
 After populating your Azure Search index, you will be ready to start issuing queries to search for documents.
