@@ -180,17 +180,13 @@ The following table shows the limits for Azure Biztalk Services.
 
 ### Search limits
 
-The pricing tier determines the capacity and limits of your search service.
+Pricing tiers determine the capacity and limits of your search service. Tiers include:
+- Shared: part of a multi-tenant service, **free** to Azure subscribers for evaluation and development)
+- Standard (**S1**): for production workloads. A larger capacity version (**S2**) is available upon request from Microsoft support. See [Choose a price tier]() for instructions on how to leverage S2.
 
-####Standard Tier
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
 
-[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
-
-####Shared Tier (part of a multi-tenant service, free to Azure subscribers)
-
-[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
-
-To learn more about limits on keys, replica-partition combinations, requests, responses, and how to achieve high availability for different workloads, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
+To learn more about other limits unrelated to pricing (such as document size, keys, requests, and responses), see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
 
 ### Media Services limits
 
