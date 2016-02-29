@@ -89,7 +89,6 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		    -vmName "myVM$myNum" `
 		    -windowsOSVersion "2012-R2-Datacenter"
   ```
-
 3.  Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
 
 ## Next steps
