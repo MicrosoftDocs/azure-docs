@@ -31,7 +31,9 @@ A Script Action is simply a Bash script that you provide a URL to, and parameter
 
 * Can be __persisted__ or __ad hoc__.
 
-    __Persisted__ scripts that apply to worker nodes will be ran automatically on new nodes created when scaling up a cluster.
+    __Persisted__ scripts are scripts that are applied to worker nodes and will be ran automatically on new nodes created when scaling up a cluster.
+    
+        > [AZURE.NOTE] A persisted script might also apply changes to another node type, such as a head node, but from a functionality perspective the only reason to persist a script is so it applies to new worker nodes created when a cluster is scaled out.
 
     __Ad hoc__ scripts are not persisted; however, you can subsequently promote an ad hoc script to a persisted script, or demote a persisted script to an ad hoc script.
 
@@ -79,7 +81,7 @@ Unlike script actions used during cluster creation, a failure in a script ran on
 >
 > Scripts actions run with root privileges, so you should make sure that you understand what a script does before applying it to your cluster.
 
-When applying a script to a cluster, the cluster state will change to from __Running__ to __Accepted__, then __HDInsight configuration, and finally back to __Running__ for successful scripts. The script status is logged in the script action history, and you can use this to determine if the script succeeded or failed. For example, the `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet can be used to view the status of a script. It will return information similar to the following:
+When applying a script to a cluster, the cluster state will change to from __Running__ to __Accepted__, then __HDInsight configuration__, and finally back to __Running__ for successful scripts. The script status is logged in the script action history, and you can use this to determine if the script succeeded or failed. For example, the `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet can be used to view the status of a script. It will return information similar to the following:
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 2/23/2016 7:40:55 PM
@@ -494,7 +496,38 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [TBD]().
     
 5. [TBD]
  
-###
+### Using Azure PowerShell
+
+| Use the following... | To ... |
+| ----- | ----- |
+| Get-AzureRmHDInsightPersistedScriptAction | Retrieve information on persisted script actions |
+| Get-AzureRmHDInsightScriptActionHistory | Retrieve a history of script actions applied to the cluster, or details for a specific script |
+| Set-AzureRmHDInsightPersistedScriptAction | Promotes an ad hoc script action to a persisted script action |
+| Remove-AzureRmHDInsightPersistedScriptAction | Demotes a persisted script action to an ad hoc action |
+
+> [AZURE.IMPORTANT] Using `Remove-AzureRmHDInsightPersistedScriptAction` does not undo the actions performed by a script, it only removes the persisted flag so that the script will not be ran against new worker nodes added to the cluster.
+
+The following example script demonstrates using the cmdlets to promote, then demote a script.
+
+    # Get a history of scripts
+    Get-AzureRmHDInsightScriptActionHistory -ClusterName mycluster
+    
+    # From the list, we want to get information on a specific script
+    Get-AzureRmHDInsightScriptActionHistory -ClusterName mycluster -ScriptExecutionId 635920937765978529
+    
+    # Promote this to a persisted script
+    # Note: the script must have a unique name to be promoted
+    # if the name is not unique, you will receive an error
+    Set-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster -ScriptExecutionId 635920937765978529
+    
+    # Demote the script back to ad hoc
+    # Note that demotion uses the unique script name instead of
+    # execution ID.
+    Remove-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster -Name "Install Giraph"
+
+### Using the HDInsight .NET SDK
+
+For an example of using the .NET SDK to retrieve script history from a cluster, promote or demote scripts, see [TBD]().
 
 ## Troubleshooting
 
