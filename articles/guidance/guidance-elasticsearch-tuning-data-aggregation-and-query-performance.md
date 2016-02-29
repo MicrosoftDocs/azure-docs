@@ -787,7 +787,7 @@ Caching is more naturally suited to scenarios where data changes infrequently. T
 
 The variance in the performance of the non-cached tests is due to the difference in resources available between the DS4 and DS14 VMs. In both cases of the cached test the average response time dropped significantly as data was being retrieved directly from memory. It is also worth noting that the response times for the cached DS4 and DS14 cluster tests were very similar despite the disparity with the non-cached results. There is also very little difference between the response times for each query within each test; they all take approximately 220ms. The disk I/O rates and CPU utilization for both clusters were very low as once all the data is in memory little I/O or processing is required. The network I/O rate was similar to that of the uncached tests, confirming that network bandwidth may be a limiting factor in this test. The following graphs present this information for the DS4 cluster. The profile of the DS14 cluster was very similar:
 
-![](./figures/guidance-elasticsearch/query-performance17.png)
+![](./media/guidance-elasticsearch/query-performance17.png)
 
 ***Figure 17. Disk I/O, CPU utilization, and network utilization for the *query-only* test with index caching enabled***
 
