@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure AD Connect: Upgrade from a previous version | Microsoft Azure"
-   description="This topic explains the different methods to upgrade to the latest Azure AD Connect release."
+   description="Explains the different methods to upgrade to the latest release of Azure Active Direcotry Connect, including in-place upgrade and swing migration."
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
@@ -17,7 +17,7 @@
    ms.author="andkjell"/>
 
 # Azure AD Connect: Upgrade from a previous version to the latest
-This topic describes the different methods you can use to upgrade your Azure AD Connect installation to the latest release. The recommendation is to keep current with the releases of Azure AD Connect.
+This topic describes the different methods you can use to upgrade your Azure AD Connect installation to the latest release. We recommendation that you keep current with the releases of Azure AD Connect.
 
 If you want to upgrade from DirSync, see [Upgrade from Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) instead.
 
