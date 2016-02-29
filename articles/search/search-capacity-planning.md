@@ -19,9 +19,11 @@
 
 # Capacity planning in Azure Search
 
-Scale-out becomes available at the Standard tier (both S1 and S2), where resource allocation is adjustable, scaling to whatever level you need. You can independently set the resource levels for partitions (to scale up storage) and replicas (to provide high availability and improved query and indexing performance).
+One of the great strengths of Azure Search is the ability to incrementally adjust capacity of a given service, adding more or less of whichever computational resource you need. You can independently set the resource levels for partitions (to scale up storage) and replicas (to provide high availability and improved query and indexing performance).
 
-Capacity in Azure Search is purchased in increments called *search units* where each partition and replica counts as one search unit apiece. Standard allows for up to 36 search units per Search service. You have to choose a combination of partitions and replicas that stays below the 36 unit limit. For example, you couldn't scale your service up to 12 partitions and 6 replicas, because doing so would require 72 search units (12 x 6), exceeding the limit of 36 search units per service.
+Scale is available at the Standard tier (at both S1 and S2 levels), where resources are dedicated and used only by your service. 
+
+At the Standard tier, capacity is purchased in increments called *search units* where each partition and replica counts as one search unit apiece. Standard allows for up to 36 search units per service. You have to choose a combination of partitions and replicas that stays below the 36 unit limit. For example, you couldn't scale your service up to 12 partitions and 6 replicas, because doing so would require 72 search units (12 x 6), exceeding the limit of 36 search units per service.
 
 ## About partitions and replicas
 
