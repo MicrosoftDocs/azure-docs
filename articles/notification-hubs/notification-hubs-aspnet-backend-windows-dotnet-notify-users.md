@@ -48,7 +48,7 @@ Before you start this tutorial, you must have already completed these Mobile Ser
 
 
 
-> [AZURE.NOTE] If you are using Mobile Services as your backend service, see the [Mobile Services version](../mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) of this tutorial.
+> [AZURE.NOTE] If you are using Mobile Services as your backend service, see the [Mobile Services version](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) of this tutorial.
 
 
 
