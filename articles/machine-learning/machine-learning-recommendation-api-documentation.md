@@ -1170,12 +1170,12 @@ HTTP Status code: 200
 
 The response includes one entry per catalog item. Each entry has the following data:
 
-- `feed/entry/content/properties/ExternalId` – Catalog item external ID, the one provided by the customer.
 - `feed/entry/content/properties/InternalId` – Catalog item internal ID, the one that Azure Machine Learning Recommendations has generated.
 - `feed/entry/content/properties/Name` – Catalog item name.
-- `feed/entry/content/properties/Category` – Catalog item category.
-- `feed/entry/content/properties/Description` – Catalog item description.
-- `feed/entry/content/properties/Metadata` – Catalog item metadata.
+- `feed/entry/content/properties/Rating` –  (for future use)
+- `feed/entry/content/properties/Reasoning` –  (for future use)
+- `feed/entry/content/properties/Metadata` –  (for future use)
+- `feed/entry/content/properties/FormattedRating` – (for future use)
 
 OData XML
 
