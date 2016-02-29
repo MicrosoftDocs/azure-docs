@@ -64,7 +64,7 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 
 2.  In PowerShell, run the following deployment script.
 
-  Replace *username* and *password* with your username and password. On subsequent uses, increment the value for the *$myNum* parameter. If you don’t do this, your previous virtual machine deployment will be overwritten.
+	Replace *username* and *password* with your username and password. On subsequent uses, increment the value for the *$myNum* parameter. If you don’t do this, your previous virtual machine deployment will be overwritten.
 
   ```
 		# Set Deployment Variables
