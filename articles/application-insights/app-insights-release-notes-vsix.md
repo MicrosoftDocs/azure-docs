@@ -3,7 +3,7 @@
 	description="The latest updates for Visual Studio tools for Application Insights." 
 	services="application-insights" 
     documentationCenter=""
-	authors="acearun" 
+	authors="aruna" 
 	manager="douge"/>
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/26/2016" 
-	ms.author="aruna"/>
+	ms.author="acearun"/>
  
 # Release Notes for Application Insights Tools for Visual Studio
 
