@@ -31,7 +31,7 @@ This guide shows you how to perform common scenarios using the Azure Table servi
 
 ## Create a Ruby application
 
-For instructions how to create a Ruby application, see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+For instructions how to create a Ruby application, see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-ruby-rails-linux-classic-web-app.md).
 
 ## Configure your application to access Storage
 
