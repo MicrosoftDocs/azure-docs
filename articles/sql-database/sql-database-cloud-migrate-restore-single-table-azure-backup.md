@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="03/02/2016"
 	ms.author="daleche"/>
 
 
@@ -30,7 +30,7 @@ You may encounter situations where you performed an accidental data modification
 2. Restore a backup of your database to a point in time you wish to recover to. To do this, refer to the steps in [Recover an Azure SQL Database from a user error](../sql-database/sql-database-user-error-recovery.md).
 
 	**Notes**:
-	- The restored database will have a name in the format of DBName+TimeStamp, for example, **MyTestdb_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is part of safety measure, and the intention is to verify the restored database before user drops their current database and rename the restored DB for their production use.
+	- The restored database will have a name in the format of DBName+TimeStamp, for example, **Adventureworks2012_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is part of safety measure, and the intention is to verify the restored database before user drops their current database and rename the restored DB for their production use.
 	- All performance tiers from Basic to Premium are automatically backed up by the service, with varying backup retention based on the tier:
 
 | DB Restore | Basic tier | Standard tiers | Premium tiers |
