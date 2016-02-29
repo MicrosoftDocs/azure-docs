@@ -637,7 +637,7 @@ The improved ingestion rates occur with doc values disabled as less data is bein
 
 In contrast, the ingestion values for the VMs using SSDs show a small increase in the number of documents but also an increase in the response time of the ingestion operations. With one or two small exceptions, the query response times were also worse. The SSDs are less likely to be running close to their IOPS limits with doc values enabled, so changes in performance are more likely due to increased processing activity and the overhead of managing the JVM heap. This is evident by comparing the CPU utilization with doc values enabled and disabled. The next graph highlights this data for the DS4 cluster, where most of the CPU utilization moves from the 30%-40% band with doc values enabled, to the 40%-50% band with doc values disabled (the DS14 cluster showed a similar trend):
 
-![](./media/guidane-elasticsearch/query-performance12.png)
+![](./media/guidance-elasticsearch/query-performance12.png)
 
 ***Figure 12. CPU utilization for the DS4 cluster with doc values enabled and disabled***
 
