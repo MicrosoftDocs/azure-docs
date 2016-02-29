@@ -118,7 +118,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Domo support team and email the attach downloaded certificate. Also please do provide the Issuer URL, SAML SSO URL and Sign Out URL so that they can be configured for SSO integration.
+5. To get SSO configured for your application, contact your Domo support team at [support@domo.com](mailto: support@domo.com), attach the downloaded certificate and provide them with the **Issuer URL**, the **SAML SSO URL** and the **Sign Out URL**.
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
