@@ -35,7 +35,7 @@ Before you can use Windows PowerShell to manage RBAC, you must have the followin
 
 - Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify that the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../install-configure-powershell.md).
+- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 >[AZURE.IMPORTANT] Before you can use the cmdlets in this article, you need to [install the Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
 
@@ -51,7 +51,7 @@ For example, to get help for the `Add-AzureAccount` cmdlet, type:
 
 Please also read the following tutorials to get familiar with setting up and using Azure Resource Manager in Windows PowerShell:
 
-- [How to install and configure Azure PowerShell](../install-configure-powershell.md)
+- [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 - [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md)
 
 
@@ -76,7 +76,7 @@ If you have multiple subscriptions and want to switch to another one, use the fo
     # Use the subscription name to select the one you want to work on.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
 
-For more information, please refer to [How to install and configure Azure PowerShell](../install-configure-powershell.md).
+For more information, please refer to [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 ## Check existing role assignments
 
@@ -151,11 +151,11 @@ Then when you try to run other cmdlets like `New-AzureResourceGroup` you will ge
 
 To learn more about managing role-based access control with Windows PowerShell, and related topics:
 
-- [Role based access control in Azure](../role-based-access-control-configure.md)
+- [Role based access control in Azure](role-based-access-control-configure.md)
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager module.
-- [Using Resource groups to manage your Azure resources](../azure-preview-portal-using-resource-groups.md): Learn how to create and manage resource groups in the Azure Management Portal.
+- [Using the Azure Portal to manage your Azure resources](../azure-portal/resource-group-portal.md): Learn about Azure Resource Manager.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 - ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
-- [Configure role based access control using Azure CLI](role-based-access-control-xplat-cli-install.md)
+- [Configure role based access control using Azure CLI](role-based-access-control-xplat-cli.md)
 - [Troubleshooting role based access control](role-based-access-control-troubleshooting.md)
