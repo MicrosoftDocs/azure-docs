@@ -29,7 +29,7 @@ Transactional replication is a technology built-in and integrated with SQL Serve
  - SQL Server 2014 SP1 CU3 and above
  - SQL Server 2014 RTM CU10 and above
  - SQL Server 2012 SP2 CU8 and above
- - SQL Server 2013 SP3 when it will release
+ - SQL Server 2012 SP3 
 
 You can also use transactional replication to migrate a subset of your on-premises database. The publication that you replicate to Azure SQL Database can be limited to a subset of the tables in the database being replicated. Additionally, for each table being replicated, you can limit the data to a subset of the rows and/or a subset of the columns.
 

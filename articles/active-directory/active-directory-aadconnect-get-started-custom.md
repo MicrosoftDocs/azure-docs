@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/18/2016"
+	ms.date="02/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
@@ -26,7 +26,7 @@ If you did not read the documentation on [Integrating your on-premises identitie
 | Topic |  |
 | --------- | --------- |
 | **Download Azure AD Connect** | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
-| **Hardware and prerequisites** | [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) |
+| **Hardware and prerequisites** | [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md#hardware-requirements-for-azure-ad-connect) |
 | **Accounts used for installation** | [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md) |
 | Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
@@ -199,6 +199,14 @@ This configuration is used to setup the federation relationship between AD FS an
 
 ![Azure AD Domain](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
+
+### Verify the Azure AD domain selected for federation
+
+When you select the domain to be federated with your on-premise directory, Azure AD Connect provides you with the necessary information to verify the domain if it is not already verified. This page will provide you the DNS records that you are required to create at the domain name registrar, or wherever your DNS is hosted, in order to complete domain verification.</br>
+
+![Azure AD Domain](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
+
+> [AZURE.NOTE] AD Connect tries to verify the domain during the configure stage. If you continue to configure without adding the necessary DNS records where your domain DNS is hosted, the wizard will not be able to complete the configuration.</br>
 
 ## Configure and verify pages
 On this page the configuration will actually happen.

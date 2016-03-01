@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Get started with the Facebook API
-Connect to Facebook and post to a timeline, get a page feed, and more. 
+Connect to Facebook and post to a timeline, get a page feed, and more. The Facebook API can be used from:
 
-The Facebook API can be used from logic apps. 
+- Logic apps 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Facebook connector](../app-service-logic/app-service-logic-connector-facebook.md).
 
@@ -53,6 +53,7 @@ After you create the connection, you enter the Facebook properties. The **REST A
 >[AZURE.TIP] You can use this same Facebook connection in other logic apps.
 
 ## Swagger REST API reference
+Applies to version: 1.0.
 
 ### Get feed from my timeline
 Gets the feeds from the logged in user's timeline.  

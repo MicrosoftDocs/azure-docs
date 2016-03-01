@@ -1,6 +1,6 @@
 <properties
-pageTitle="Use the Twilio API in your Logic apps| Microsoft Azure"
-description="Get started using the Twilio API (connector) in your Microsoft Azure App Service Logic apps"
+pageTitle="Add the Twilio API in your Logic apps| Microsoft Azure"
+description="Overview of the Twilio API with REST API parameters"
 services=""	
 documentationCenter="" 	
 authors="msftman"	
@@ -14,55 +14,69 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/18/2016"
-ms.author="deonhe"/>
+ms.date="02/23/2016"
+ms.author="mandia"/>
 
 # Get started with the Twilio API
 
-Twilio enables apps to send and receive global SMS, MMS and IP messages.
+Connect to Twilio to send and receive global SMS, MMS, and IP messages.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Twilio](../app-service-logic/app-service-logic-connector-Twilio.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Twilio](../app-service-logic/app-service-logic-connector-twilio.md).
 
 With Twilio, you can:
 
-* Use it to build logic apps
-
+- Build your business flow based on the data you get from Twilio. 
+- Use actions that get a message, list messages, and more. These actions get a response, and then make the output available for other actions. For example, when  you get a new Twilio message, you can take this message and use it a Service Bus workflow. 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Let's talk about triggers and actions
+## Triggers and actions
+The Twilio API includes the following actions. There are no triggers. 
 
-The Twilio API can be used as an action; there are no triggers. All APIs support data in JSON and XML formats. 
+| Triggers | Actions|
+| --- | --- |
+|None| <ul><li>Get Message</li><li>List Messages</li><li>Send Message</li></ul>|
 
- The Twilio API has the following action(s) and/or trigger(s) available:
+All APIs support data in JSON and XML formats. 
 
-### Twilio actions
-You can take these action(s):
-
-|Action|Description|
-|--- | ---|
-|ListMessages|Returns a list of messages associated with your account|
-|SendMessage|Send a new message to a mobile number.|
-|GetMessage|Returns a single message specified by the provided Message ID.|
 ## Create a connection to Twilio
-To use the Twilio API, you first create a **connection** then provide the details for these properties: 
+When you add this API to your logic apps, enter the following Twilio values:
 
 |Property| Required|Description|
 | ---|---|---|
-|Sid|Yes|Provide Your Twilio Account Id|
-|Token|Yes|Twilio Access Token|
-After you create the connection, TODO TODO TODO
+|Account ID|Yes|Enter your Twilio account ID|
+|Access Token|Yes|Enter your Twilio access token|
 
->[AZURE.TIP] You can use this connection in other logic apps.
+See [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) to create an access token.
 
-## Twilio REST API reference
+After you create the connection, you enter the Twilio properties. The **REST API reference** in this topic describes these properties.
+
+>[AZURE.TIP] You can use this same Twilio connection in other logic apps.
+
+## Swagger REST API reference
 #### This documentation is for version: 1.0
 
+### Get Message
+Returns a single message specified by the provided Message ID.  
+```GET: /Messages/{MessageId}.json```
 
-### Returns a list of messages associated with your account
-**```GET: /Messages.json```** 
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|MessageId|string|yes|path|none|Message ID|
+
+### Response
+|Name|Description|
+|---|---|
+|200|Operation successful|
+|400|Bad Request|
+|404|Message not found|
+|500|Internal Server Error. Unknown error occurred|
+|default|Operation Failed.|
 
 
+### List Messages
+Returns a list of messages associated with your account.  
+```GET: /Messages.json```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -72,607 +86,166 @@ After you create the connection, TODO TODO TODO
 |PageSize|integer|no|query|50|How many resources to return in each list page. Default is 50.|
 |Page|integer|no|query|0|Page number. Default is 0.|
 
-
-### Here are the possible responses:
-
+### Response
 |Name|Description|
 |---|---|
 |200|Operation successful|
 |400|Bad Request|
 |500|Internal Server Error. Unknown error occured|
 |default|Operation Failed.|
-------
 
 
 
-### Send a new message to a mobile number.
-**```POST: /Messages.json```** 
-
-
+### Send Message
+Send a new message to a mobile number.  
+```POST: /Messages.json```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 |sendMessageRequest| |yes|body|none|Message To Send|
 
-
-### Here are the possible responses:
-
+### Response
 |Name|Description|
 |---|---|
 |200|Operation successful|
 |400|Bad Request|
-|500|Internal Server Error. Unknown error occured|
+|500|Internal Server Error. Unknown error occurred|
 |default|Operation Failed.|
-------
 
 
-
-### Returns a single message specified by the provided Message ID.
-**```GET: /Messages/{MessageId}.json```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|MessageId|string|yes|path|none|Message ID|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|Operation successful|
-|400|Bad Request|
-|404|Message not found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
-------
-
-
-
-## Object definition(s): 
-
- **Message**:Yammer Message
-
-Required properties for Message:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|id|integer|
-|content_excerpt|string|
-|sender_id|integer|
-|replied_to_id|integer|
-|created_at|string|
-|network_id|integer|
-|message_type|string|
-|sender_type|string|
-|url|string|
-|web_url|string|
-|group_id|integer|
-|body|not defined|
-|thread_id|integer|
-|direct_message|boolean|
-|client_type|string|
-|client_url|string|
-|language|string|
-|notified_user_ids|array|
-|privacy|string|
-|liked_by|not defined|
-|system_message|boolean|
-
-
-
- **PostOperationRequest**:Represents a post request for Yammer Connector to post to yammer
-
-Required properties for PostOperationRequest:
-
-body
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|body|string|
-|group_id|integer|
-|replied_to_id|integer|
-|direct_to_id|integer|
-|broadcast|boolean|
-|topic1|string|
-|topic2|string|
-|topic3|string|
-|topic4|string|
-|topic5|string|
-|topic6|string|
-|topic7|string|
-|topic8|string|
-|topic9|string|
-|topic10|string|
-|topic11|string|
-|topic12|string|
-|topic13|string|
-|topic14|string|
-|topic15|string|
-|topic16|string|
-|topic17|string|
-|topic18|string|
-|topic19|string|
-|topic20|string|
-
-
-
- **MessageList**:List of messages
-
-Required properties for MessageList:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|messages|array|
-
-
-
- **MessageBody**:Message Body
-
-Required properties for MessageBody:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|parsed|string|
-|plain|string|
-|rich|string|
-
-
-
- **LikedBy**:Liked By
-
-Required properties for LikedBy:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|count|integer|
-|names|array|
-
-
-
- **YammmerEntity**:Liked By
-
-Required properties for YammmerEntity:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|type|string|
-|id|integer|
-|full_name|string|
+## Object definitions
+
+#### SendMessageRequest: Request model for Send Message operation
+
+|Property Name | Data Type | Required|
+|---|---|---|
+|from|string|yes|
+|to|string|yes|
+|body|string|yes|
+|media_url|array|no|
+|status_callback|string|no|
+|messaging_service_sid|string|no|
+|application_sid|string|no|
+|max_price|string|no|
+
+
+#### Message: Model for Message
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|body|string|no|
+|from|string|no|
+|to|string|no|
+|status|string|no|
+|sid|string|no|
+|account_sid|string|no|
+|api_version|string|no|
+|num_segments|string|no|
+|num_media|string|no|
+|date_created|string|no|
+|date_sent|string|no|
+|date_updated|string|no|
+|direction|string|no|
+|error_code|string|no|
+|error_message|string|no|
+|price|string|no|
+|price_unit|string|no|
+|uri|string|no|
+|subresource_uris|array|no|
+|messaging_service_sid|string|no|
+
+#### MessageList: Response model for List Messages operation
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|messages|array|no|
+|page|integer|no|
+|page_size|integer|no|
+|num_pages|integer|no|
+|uri|string|no|
+|first_page_uri|string|no|
+|next_page_uri|string|no|
+|total|integer|no|
+|previous_page_uri|string|no|
+
+#### IncomingPhoneNumberList: Response model for List Messages operation
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|incoming_phone_numbers|array|no|
+|page|integer|no|
+|page_size|integer|no|
+|num_pages|integer|no|
+|uri|string|no|
+|first_page_uri|string|no|
+|next_page_uri|string|no|
+
+
+#### AddIncomingPhoneNumberRequest: Request model for Add Incoming Number operation
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|PhoneNumber|string|yes|
+|AreaCode|string|no|
+|FriendlyName|string|no|
+
+
+#### IncomingPhoneNumber: Incoming Phone Number
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|phone_number|string|no|
+|friendly_name|string|no|
+|sid|string|no|
+|account_sid|string|no|
+|date_created|string|no|
+|date_updated|string|no|
+|capabilities|not defined|no|
+|status_callback|string|no|
+|status_callback_method|string|no|
+|api_version|string|no|
+
+
+#### Capabilities: Phone Number Capabilities
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|mms|boolean|no|
+|sms|boolean|no|
+|voice|boolean|no|
+
+#### AvailablePhoneNumbers: Available Phone Numbers
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|phone_number|string|no|
+|friendly_name|string|no|
+|lata|string|no|
+|latitude|string|no|
+|longitude|string|no|
+|postal_code|string|no|
+|rate_center|string|no|
+|region|string|no|
+|MMS|boolean|no|
+|SMS|boolean|no|
+|voice|boolean|no|
+
+
+#### UsageRecords: Usage Records class
+
+|Property Name | Data Type |Required|
+|---|---|---|
+|category|string|no|
+|usage|string|no|
+|usage_unit|string|no|
+|description|string|no|
+|price|number|no|
+|price_unit|string|no|
+|count|string|no|
+|count_unit|string|no|
+|start_date|string|no|
+|end_date|string|no|
 
 
 ## Next Steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
-## Object definition(s): 
-
- **WebResultModel**:Bing web search results
-
-Required properties for WebResultModel:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|Title|string|
-|Description|string|
-|DisplayUrl|string|
-|Id|string|
-|FullUrl|string|
-
-
-
- **VideoResultModel**:Bing video search results
-
-Required properties for VideoResultModel:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|Title|string|
-|DisplayUrl|string|
-|Id|string|
-|MediaUrl|string|
-|Runtime|integer|
-|Thumbnail|not defined|
-
-
-
- **ThumbnailModel**:Thumbnail properties of the multimedia element
-
-Required properties for ThumbnailModel:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|MediaUrl|string|
-|ContentType|string|
-|Width|integer|
-|Height|integer|
-|FileSize|integer|
-
-
-
- **ImageResultModel**:Bing image search results
-
-Required properties for ImageResultModel:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|Title|string|
-|DisplayUrl|string|
-|Id|string|
-|MediaUrl|string|
-|SourceUrl|string|
-|Thumbnail|not defined|
-
-
-
- **NewsResultModel**:Bing news search results
-
-Required properties for NewsResultModel:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|Title|string|
-|Description|string|
-|DisplayUrl|string|
-|Id|string|
-|Source|string|
-|Date|string|
-
-
-
- **SpellResultModel**:Bing spelling suggestions results
-
-Required properties for SpellResultModel:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|Id|string|
-|Value|string|
-
-
-
- **RelatedSearchResultModel**:Bing related search results
-
-Required properties for RelatedSearchResultModel:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|Title|string|
-|Id|string|
-|BingUrl|string|
-
-
-
- **CompositeSearchResultModel**:Bing composite search results
-
-Required properties for CompositeSearchResultModel:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|WebResultsTotal|integer|
-|ImageResultsTotal|integer|
-|VideoResultsTotal|integer|
-|NewsResultsTotal|integer|
-|SpellSuggestionsTotal|integer|
-|WebResults|array|
-|ImageResults|array|
-|VideoResults|array|
-|NewsResults|array|
-|SpellSuggestionResults|array|
-|RelatedSearchResults|array|
-
-
-## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
-## Object definition(s): 
-
- **PostOperationResponse**:Represents response of post operation of Slack Connector for posting to Slack
-
-Required properties for PostOperationResponse:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|ok|boolean|
-|channel|string|
-|ts|string|
-|message|not defined|
-|error|string|
-
-
-
- **MessageItem**:A channel message.
-
-Required properties for MessageItem:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|text|string|
-|id|string|
-|user|string|
-|created|integer|
-|is_user-deleted|boolean|
-
-
-## Object definition(s): 
-
- **SendMessageRequest**:Request model for Send Message operation
-
-Required properties for SendMessageRequest:
-
-From, To, Body
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|From|string|
-|To|string|
-|Body|string|
-|MediaUrl|array|
-|StatusCallback|string|
-|MessagingServiceSid|string|
-|ApplicationSid|string|
-|MaxPrice|string|
-
-
-
- **Message**:Model for Message
-
-Required properties for Message:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|body|string|
-|from|string|
-|to|string|
-|status|string|
-|sid|string|
-|account_sid|string|
-|api_version|string|
-|num_segments|string|
-|num_media|string|
-|date_created|string|
-|date_sent|string|
-|date_updated|string|
-|direction|string|
-|error_code|string|
-|error_message|string|
-|price|string|
-|uri|string|
-|SubresourceUri|array|
-|MessagingServiceSid|string|
-
-
-
- **MessageList**:Response model for List Messages operation
-
-Required properties for MessageList:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|messages|array|
-|page|integer|
-|page_size|integer|
-|uri|string|
-|first_page_uri|string|
-|next_page_uri|string|
-|previous_page_uri|string|
-
-
-
- **AddIncomingPhoneNumberRequest**:Request model for Add Incoming Number operation
-
-Required properties for AddIncomingPhoneNumberRequest:
-
-PhoneNumber
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|PhoneNumber|string|
-|AreaCode|string|
-|FriendlyName|string|
-
-
-
- **IncomingPhoneNumber**:Response model for Get Incoming Phone Numbers peration
-
-Required properties for IncomingPhoneNumber:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|phone_number|string|
-|friendly_name|string|
-|sid|string|
-|date_created|string|
-|mms|boolean|
-|sms|boolean|
-|voice|boolean|
-
-
-
- **AvailablePhoneNumbers**:Available Phone Numbers
-
-Required properties for AvailablePhoneNumbers:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|phone_number|string|
-|friendly_name|string|
-|lata|string|
-|latitude|string|
-|longitude|string|
-|postal_code|string|
-|rate_center|string|
-|region|string|
-|MMS|boolean|
-|SMS|boolean|
-|voice|boolean|
-
-
-
- **UsageRecords**:Usage Records class
-
-Required properties for UsageRecords:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|category|string|
-|usage|string|
-|usage_unit|string|
-|description|string|
-|price|number|
-|price_unit|string|
-|count|string|
-|count_unit|string|
-|start_date|string|
-|end_date|string|
-
-
-## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).

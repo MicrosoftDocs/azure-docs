@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="02/22/2016"
+ms.date="02/23/2016"
 ms.author="deonhe"/>
 
 # Get started with the CRM API
@@ -27,7 +27,7 @@ With CRM Online, you can:
 - Use actions that delete a record, get entities, and more. These actions get a response, and then make the output available for other actions. For example, when an item is updated in CRM, you can send an email using Office 365.
 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](..powerapps-register-from-available-apis.md).
+For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -41,6 +41,7 @@ The CRM API includes the following actions. There are no triggers.
 All APIs support data in JSON and XML formats.
 
 ## Create a connection to CRM Online
+
 
 ### Add additional configuration in PowerApps
 When you add CRM Online to PowerApps Enterprise, you enter the **Client ID** and **App Key** values of your Dynamics CRM Online Azure Active Directory (AAD) application. The **Redirect URL** value is also used in your CRM Online application. If you don't have an application, you can use the following steps to create the application: 
@@ -69,7 +70,23 @@ When you add CRM Online to PowerApps Enterprise, you enter the **Client ID** and
 Now copy/paste the **Client ID** and **App Key** values in your CRM Online configuration in the Azure portal. 
 
 ### Add additional configuration in logic apps
-When you add this API to your logic apps, you must sign in to Dynamic CRM Online.
+When you add this API to your logic apps, you must sign in to Dynamics CRM Online.
+
+Follow these steps to sign into CRM online and complete the configuration of the **connection** in your logic app:
+
+1. Select **Recurrence**
+2. Select a **Frequency** and enter an **Interval**
+3. Select **Add an action**  
+![Configure CRM Online][13]
+4. Enter CRM in the search box and wait for the search to return all entries with CRM in the name
+5. Select **Dynamics CRM Online - Create a new record**
+6. Select **Sign in to Dynamics CRM Online**:  
+![Configure CRM Online][14]
+7. Provide your CRM Online credentials to sign in to authorize the application
+![Configure CRM Online][15]  
+8. After signing in, return to your logic app to complete it by adding other triggers and actions that you need.
+9. Save your work by selecting **Save** on the menu bar above.
+
 
 After you create the connection, you enter the CRM Online properties, like the table or dataset. The **REST API reference** in this topic describes these properties.
 
@@ -284,3 +301,6 @@ After you add the CRM online API to PowerApps Enterprise, [give users permission
 [9]: ./media/create-api-crmonline/aad-tenant-applications-add-appinfo.png
 [10]: ./media/create-api-crmonline/aad-tenant-applications-add-app-properties.png
 [12]: ./media/create-api-crmonline/contoso-aad-app-configure.png
+[13]: ./media/create-api-crmonline/crmconfig1.png
+[14]: ./media/create-api-crmonline/crmconfig2.png
+[15]: ./media/create-api-crmonline/crmconfig3.png
