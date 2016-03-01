@@ -135,7 +135,7 @@ By default, only the storage account owner can access resources in the storage a
 
 Your storage account is assigned two private access keys on creation that are used for authentication. Having two keys ensures that your application remains available when you regularly regenerate the keys as a common security key management practice.
 
-If you do need to allow users controlled access to your storage resources, then you can create a [shared access signature](storage-dotnet-shared-access-signature-part-1.md). A shared access signature (SAS) is a token that can be appended to a URL that enables delegated access to a storage resource. Anyone who possesses the token can access the resource it points to with the permissions it specifies, for the period of time that it is valid. Beginning with version 2015-04-05, Azure Storage supports two kinds of shared access signatures: service SAS and account SAS.
+If you do need to allow users controlled access to your storage resources, then you can create a shared access signature. A shared access signature (SAS) is a token that can be appended to a URL that enables delegated access to a storage resource. Anyone who possesses the token can access the resource it points to with the permissions it specifies, for the period of time that it is valid. Beginning with version 2015-04-05, Azure Storage supports two kinds of shared access signatures: service SAS and account SAS.
 
 The service SAS delegates access to a resource in just one of the storage services: the Blob, Queue, Table, or File service.
 
@@ -143,7 +143,7 @@ An account SAS delegates access to resources in one or more of the storage servi
 
 Finally, you can specify that a container and its blobs, or a specific blob, are available for public access. When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required.  Public containers and blobs are useful for exposing resources such as media and documents that are hosted on websites.  To decrease network latency for a global audience, you can cache blob data used by websites with the Azure CDN.
 
-See [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
+See [Shared Access Signatures: Understanding the SAS Model](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/) for more information on shared access signatures. See [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
 
 ## Replication for Durability and High Availability
 
@@ -175,7 +175,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 - [Storage Client Library for .NET, Windows Phone, and Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 - [Storage Client Library for Java/Android](/develop/java/)
-- [Storage Client Library for Node.js](/develop/nodejs/)
+- [Storage Client Library for Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
 - [Storage Client Library for PHP](/develop/php/)
 - [Storage Client Library for Ruby](/develop/ruby/)
 - [Storage Client Library for Python](/develop/python/)
@@ -221,9 +221,9 @@ To learn more about Azure Storage, explore these resources:
 
 ### For Java/Android Developers
 
-- [How to use Blob storage from Java/Android](storage-java-how-to-use-blob-storage.md)
-- [How to use Table storage from Java/Android](storage-java-how-to-use-table-storage.md)
-- [How to use Queue storage from Java/Android](storage-java-how-to-use-queue-storage.md)
+- [How to use Blob storage from Java](storage-java-how-to-use-blob-storage.md)
+- [How to use Table storage from Java](storage-java-how-to-use-table-storage.md)
+- [How to use Queue storage from Java](storage-java-how-to-use-queue-storage.md)
 - [How to use File storage from Java](storage-java-how-to-use-file-storage.md) 
 
 ### For Node.js Developers
