@@ -32,7 +32,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 * Visual Studio 2013 or 2015. The instructions below use Visual Studio 2015.
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
-* Create an Azure Active Directory (AAD) application and retrieve it's **Client ID** and and the **Reply URI**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](resource-group-create-service-principal-portal.md). The Reply URI will also be available from the portal once you have the application created.
+* Create an Azure Active Directory (AAD) application and retrieve it's **Client ID** and and the **Reply URI**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md). The Reply URI will also be available from the portal once you have the application created.
 
 ## How do I authenticate using Azure Active Directory?
 
@@ -44,7 +44,7 @@ The code snippet below provides two methods for authentication:
 
 Even though the code snippet below provides methods for both the approaches, this article uses the `AuthenticateUser` method. This method requires you to provide the AAD application client ID and the reply URI. The link in the prerequisite provides instructions on how to obtain these.
 
->[AZURE.NOTE] If you want to modify the code snippet and use the `AuthenticateApplication` method instead, you must also provide client authentication key, in addition to the client ID and the client reply URI, as inputs to the method. The article [Create Active Directory application and service principal using portal](resource-group-create-service-principal-portal.md) also provides information on how to generate and retrieve the client authentication key.
+>[AZURE.NOTE] If you want to modify the code snippet and use the `AuthenticateApplication` method instead, you must also provide client authentication key, in addition to the client ID and the client reply URI, as inputs to the method. The article [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) also provides information on how to generate and retrieve the client authentication key.
 
 
 
@@ -317,6 +317,6 @@ Even though the code snippet below provides methods for both the approaches, thi
 ## Next steps
 
 - [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-- [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
+- [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
