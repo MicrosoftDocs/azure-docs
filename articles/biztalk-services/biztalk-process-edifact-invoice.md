@@ -46,7 +46,7 @@ To complete the scenario, we use Service Bus queues to send invoice from Contoso
 
 ## Prerequisites
 
-*   You must have a Service Bus namespace. For instructions on creating a namespace, see [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/hh690931.aspx). Let us assume that you already have a Service Bus namespace provisioned, called **edifactbts**.
+*   You must have a Service Bus namespace. For instructions on creating a namespace, see [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Let us assume that you already have a Service Bus namespace provisioned, called **edifactbts**.
 
 *   You must have a BizTalk Services subscription. For instructions, see [Create a BizTalk Service using Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=302280). For this tutorial, let us assume you have a BizTalk Services subscription, called **contosowabs**.
 
@@ -113,7 +113,7 @@ Trading partner agreements are created between business profiles of trading part
     3.  On the **Protocol** tab, under the **Schemas** section, upload the **EFACT_D93A_INVOIC.xsd** schema. This schema is available with the sample package.
 
         ![][4]  
-    4.  On the **Transport** tab, specify the details for the Service Bus queues. For the send-side agreement, we use the **northwindreceive** queue to send the EDIFACT invoice to Northwind, and the **suspended** queue to route any messages that fail during processing and are suspended. You created these queues in [Step 1: Create the Service Bus queues](#BKMK_Queue).
+    4.  On the **Transport** tab, specify the details for the Service Bus queues. For the send-side agreement, we use the **northwindreceive** queue to send the EDIFACT invoice to Northwind, and the **suspended** queue to route any messages that fail during processing and are suspended. You created these queues in **Step 1: Create the Service Bus queues** (in this topic).
 
         ![][5]  
 
