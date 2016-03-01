@@ -16,25 +16,25 @@
    ms.date="02/26/2016"
    ms.author="spyros;spyrossak" />
 
-# Pulling SQL data into Azure Event Hubs
+# Pulling data from SQL into an Azure Event Hub
 
 A typical architecture for an application for processing real-time data involves 
-pushing streams of data to an Azure Event Hub. It may be an IoT scenario, such as 
+first pushing it to an Azure Event Hub. It may be an IoT scenario, such as 
 monitoring the traffic on different stretches of a highway, or a gaming scenario, monitoring 
 the actions of a horde of frenzied contestants, or an enterprise scenario, such as
 monitoring building occupancy. In these cases, the data producers are generally external 
 objects producing time-series data that you need to collect, analyse, store, and act upon, 
 and you may have invested a lot of effort into building out the infrastructure for these
 processes. What do you do if you want to bring in data from something like a database rather
-than a source of streaming data, and use it in conjunction with your other streaming data?
-Consider the case where you are using Azure Stream Analytics to generate an alert that some
-threshhold has been reached, and you need possibly variable data from a SQL database as 
-part of the trigger? To solve this problem, we've written and open-sourced a small cloud 
+than a source of streaming data, and use it in conjunction with your other streaming data? 
+Consider the case where you want to use Azure Stream Analytics, Remote Data Explorer (RDX), or 
+some other tool to analyze and act on slowly-changing data from Microsoft Dynamics AX or a 
+custom facilities-management system? To solve this problem, we've written and open-sourced a small cloud 
 sample that you can modify and deploy that will pull the data from a SQL table and push it
-to your Event Hub for including in your Stream Analytics queries. Do realize that this is a 
+to an Azure Event Hub to use as an input in your downstream analytical applications. Do realize that this is a 
 rare scenario, and the opposite of what you normally do with an Event Hub. However, if you 
-do find yourself in the situation where this is what you need to do, you can find the application
-[here](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql).  
+do find yourself in the situation where this is what you need to do, you can find the code in the Azure
+Samples gallery, [here](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql).  
 
 Note that the code in this sample is just that, a sample. It is **not** intended to be a production application, and no attempts have been made to make it suitable for use
 in such an environment - it is stricly a DIY, developer-focused, example. 
@@ -80,7 +80,7 @@ the top 1,000 simple pushes successive batches of 1,000 records to the event hub
 
 ## Next Steps
 
-To deploy the solution, clone or download the [SqlToEventHub](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) 
+To deploy the solution, clone or download the SqlToEventHub 
 application, edit the App.config file, build it, and finally publish it. Once you have published the application, 
 you can see it running in the Azure classic portal under Cloud Services, and monitor the events
 coming in to your event hub. Note that the frequency will be determined by two things: the
