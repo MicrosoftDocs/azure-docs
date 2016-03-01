@@ -61,7 +61,7 @@ This section assumes that you have already installed a RHEL image (from an ISO f
 
 2.	Click **Connect** to open a console window for the virtual machine.
 
-3.	Uninstall Network Manager by running the following command:
+3.	Uninstall NetworkManager by running the following command:
 
         # sudo rpm -e --nodeps NetworkManager
 
@@ -527,7 +527,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 ### <a id="rhel67vmware"> </a>Prepare a RHEL 6.7 virtual machine from VMware###
 
-1.	Uninstall Network Manager by running the following command:
+1.	Uninstall NetworkManager by running the following command:
 
          # sudo rpm -e --nodeps NetworkManager
 
