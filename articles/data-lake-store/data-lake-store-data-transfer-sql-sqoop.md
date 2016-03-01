@@ -69,6 +69,7 @@ Before you begin this article, you must have the following:
 
 2. In **Table1**, add some sample data. Leave **Table2** empty. We will import data from **Table1** into Data Lake Store. Then, we will export data from Data Lake Store into **Table2**. Run the following snippet.
 
+		 
 		INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson'); 
   
 
@@ -80,6 +81,7 @@ An HDInsight cluster already has the Sqoop packages available. If you have confi
 
 2. Verify whether you can access the Data Lake Store account from the cluster. Run the following command from the SSH prompt:
 
+		
 		hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net/
 
 	This should provide a list of files/folders in the Data Lake Store account.
@@ -90,20 +92,24 @@ An HDInsight cluster already has the Sqoop packages available. If you have confi
 
 4. Import the data from **Table1** into the Data Lake Store account. Use the following syntax:
 
+		
 		sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-store-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
 	Note that **sql-database-server-name** placeholder represents the name of the server where the Azure SQL database is running. **sql-database-name** placeholder represents the actual database name.
 
 	For example,
 
+		
 		sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=nitinme@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
 5. Verify that the data has been transferred to the Data Lake Store account. Run the following command:
 
+		
 		hdfs dfs -ls adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/
 
 	You should see the following output.
 
+		
 		-rwxrwxrwx   0 sshuser hdfs          0 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/_SUCCESS
 		-rwxrwxrwx   0 sshuser hdfs         12 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00000
 		-rwxrwxrwx   0 sshuser hdfs         14 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00001
@@ -117,14 +123,17 @@ An HDInsight cluster already has the Sqoop packages available. If you have confi
 
 6. Export the data from Data Lake Store account to the empty table, **Table2**, in the Azure SQL Database. Use the following syntax.
 
+		
 		sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-store-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
 	For example,
 
+		
 		sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=nitinme@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
 6. Verify that the data was uploaded to the SQL Database table. Use [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) or Visual Studio to connect to the Azure SQL Database and then run the following query.
 
+		
 		SELECT * FROM TABLE2
 
 	This should have the following output.
