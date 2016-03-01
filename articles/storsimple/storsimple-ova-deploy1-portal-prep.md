@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/25/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Deploy StorSimple Virtual Array - Prepare the portal (Preview)
+# Deploy StorSimple Virtual Array - Prepare the portal
 
 ![](./media/storsimple-ova-deploy1-portal-prep/getstarted4.png)
 
 ## Overview 
 
-This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0. This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server. This article describes the preparation required to create and configure your StorSimple Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist as well as configuration prerequisites.
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release. This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server. This article describes the preparation required to create and configure your StorSimple Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist as well as configuration prerequisites.
 
 You will need administrator privileges to complete the setup and configuration process. We recommend that you review the deployment configuration checklist before you begin. The portal preparation will take less than 10 minutes.
 
