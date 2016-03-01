@@ -49,6 +49,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [CDN](#cdn-limits)
 - [Cloud Services](#cloud-services-limits)
 - [Data Factory](#data-factory-limits)
+- [Data Lake Analytics](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [IoT Hub](#iot-hub-limits)
@@ -218,6 +219,8 @@ To learn more about other limits, such as document size, keys, requests, and res
 
 [AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
+### Data Lake Analytics Limits
+[AZURE.INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
 
 ### Stream Analytics limits
 
