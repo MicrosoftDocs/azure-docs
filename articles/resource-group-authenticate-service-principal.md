@@ -98,7 +98,7 @@ You can manually provide the credentials for the service principal when executin
 
         PS C:\> $subscription = Get-AzureRmSubscription
 
-     If you created the role assignment in a subscription other than the currently selected subscription, you can specify the **SubscriptoinId** or **SubscriptionName** parameters to retrive a different subscription.
+     If you created the role assignment in a subscription other than the currently selected subscription, you can specify the **SubscriptoinId** or **SubscriptionName** parameters to retrieve a different subscription.
 
 4. Login as the service principal by using **Login-AzureRmAccount** cmdlet, but provide the credentials object and specify that this account is a service principal.
 
@@ -121,7 +121,7 @@ This section shows how to login as the service principal without having to manua
 These steps assume you have set up a Key Vault and a secret that stores the password. To deploy a Key Vault and secret through a template, see [Key Vault template format](). To learn about Key Vault, see 
 [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
 
-1. Retrieve your password (in the example below, stored as secret named named **appPassword**) from the Key Vault.
+1. Retrieve your password (in the example below, stored as secret with the name **appPassword**) from the Key Vault.
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
@@ -137,7 +137,7 @@ These steps assume you have set up a Key Vault and a secret that stores the pass
 
         PS C:\> $subscription = Get-AzureRmSubscription
 
-     If you created the role assignment in a subscription other than the currently selected subscription, you can specify the **SubscriptoinId** or **SubscriptionName** parameters to retrive a different subscription.
+     If you created the role assignment in a subscription other than the currently selected subscription, you can specify the **SubscriptoinId** or **SubscriptionName** parameters to retrieve a different subscription.
 
 5. Login as the service principal by using **Login-AzureRmAccount** cmdlet, but provide the credentials object and specify that this account is a service principal.
     
@@ -247,7 +247,7 @@ service principal. Two options are shown in this topic:
 
         PS C:\> $subscription = Get-AzureRmSubscription
 
-     If you created the role assignment in a subscription other than the currently selected subscription, you can specify the **SubscriptoinId** or **SubscriptionName** parameters to retrive a different subscription.
+     If you created the role assignment in a subscription other than the currently selected subscription, you can specify the **SubscriptoinId** or **SubscriptionName** parameters to retrieve a different subscription.
 
 3. Get the certificate you will use for authentication.
 
@@ -334,10 +334,6 @@ You will start by creating a service principal. To do this we must use create an
 
         azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
 
-5. Determine the **TenantId** of the tenant that the service principal's role assignment resides by listing the accounts and looking for the **TenantId** property in the output.
-
-        azure account list --json
-
 You have created an Active Directory application and a service principal for that application. You have assigned the service principal to a role. Now, you need to login as the service principal to perform operations as the 
 service principal. Three options are shown in this topic:
 
@@ -348,13 +344,22 @@ service principal. Three options are shown in this topic:
 <a id="manually-provide-credentials-through-Azure-cli" />
 ### Manually provide credentials through Azure CLI
 
-If you want to manually sign in as the service principal, you can use the **azure login** command. For the user name, use the **AppId** that you used when creating the service principal. 
-Directly including the password in a script is not secure because the password is stored in the file. See the next section for better 
-option when executing an automated script.
+If you want to manually sign in as the service principal, you can use the **azure login** command. You must provide the tenant id, application id, and password. 
+Directly including the password in a script is not secure because the password is stored in the file. See the next section for better option when executing an automated script.
 
-    azure login -u "<AppId>" --service-principal --tenant "<TenantId>"
+1. Determine the **TenantId** for the subscription that contains the service principal. You must remove the starting and ending double quotes that are returned from the json output before passing it as a parameter.
 
-You prompted to enter the password. For the password, use the one you specified when creating the account.
+        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+
+2. For the user name, use the **AppId** that you used when creating the service principal. If you need to retrieve the application id, use the following command. Provide the name of the Active Directory application in the **search** parameter.
+
+        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+
+3. Login as the service principal.
+
+        azure login -u "$appId" --service-principal --tenant "$tenantId"
+
+When prompted, provide the password you specified when creating the account.
 
     info:    Executing command login
     Password: ********
@@ -372,17 +377,21 @@ These steps assume you have set up a Key Vault and a secret that stores the pass
 Key Vault and secret through a template, see [Key Vault template format](). To learn about Key Vault, see 
 [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
 
-1. Retrieve your password (in the example below, stored as secret named named **appPassword**) from the Key Vault. 
+1. Retrieve your password (in the example below, stored as secret with the name **appPassword**) from the Key Vault. You must remove the starting and ending double quotes that are returned from the json output before passing it as the password parameter.
 
-        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq '.value')
+        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq '.value' | sed -e 's/^"//' -e 's/"$//')
     
-2. You must remove the starting and ending double quotes that are returned from the json output before passing it as the password parameter.
- 
-        parsedSecret=$(sed -e 's/^"//' -e 's/"$//' <<< $s)
-    
-3. Login in as the service principal by providing the application id, the password from Key Vault, the tenant id.
+2. Determine the **TenantId** for the subscription that contains the service principal.
 
-        azure login -u "<AppId>" -p "$parsedsecret" --service-principal --tenant "<TenantId>"
+        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+
+3. For the user name, use the **AppId** that you used when creating the service principal. If you need to retrieve the application id, use the following command. Provide the name of the Active Directory application in the **search** parameter.
+
+        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+
+4. Login in as the service principal by providing the application id, the password from Key Vault, the tenant id.
+
+        azure login -u "$appId" -p "$secret" --service-principal --tenant "$tenantId"
     
 You are now authenticated as the service principal for the Active Directory application that you created.
 
@@ -420,7 +429,7 @@ This topic assumes you have been issued a certificate and you have [OpenSSL](htt
 
 3. Create a new Active Directory Application by running the **azure ad app create** command, and provide the certificate data that you copied in the previous step as the key value.
 
-        azure ad app create -n "<your application name>" --home-page "<https://YourApplicationHomePage>" -i "<https://YouApplicationUri>" --key-value <certificate data>
+        azure ad app create -n "exampleapp" --home-page "https://www.contoso.org" -i "https://www.contoso.org/example" --key-value <certificate data>
 
     The Active Directory application is returned. The AppId property is needed for creating service principals, role assignments and acquiring access tokens. 
 
@@ -449,10 +458,6 @@ This topic assumes you have been issued a certificate and you have [OpenSSL](htt
 
         azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
 
-6. Determine the **TenantId** of the tenant that the service principal's role assignment resides by listing the accounts and looking for the **TenantId** property in the output.
-
-        azure account list --json
-
 You have created an Active Directory application and a service principal for that application. You have assigned the service principal to a role. Now, you need to login as the service principal to perform operations as the 
 service principal. Two options are shown in this topic:
 
@@ -462,17 +467,25 @@ service principal. Two options are shown in this topic:
 <a id="provide-certificate-through-automated-azure-cli-script" />
 ### Provide certificate through automated Azure CLI script
 
-You need to retrieve the certificate thumbprint and remove unneeded characters.
+1. You need to retrieve the certificate thumbprint and remove unneeded characters.
 
-    openssl x509 -in C:\certificates\examplecert.pem -fingerprint -noout | sed 's/SHA1 Fingerprint=//g'  | sed 's/://g'
+        cert=$(openssl x509 -in "C:\certificates\examplecert.pem" -fingerprint -noout | sed 's/SHA1 Fingerprint=//g'  | sed 's/://g')
     
-Which returns a thumbpring value similar to:
+     Which returns a thumbprint value similar to:
 
-    30996D9CE48A0B6E0CD49DBB9A48059BF9355851
+        30996D9CE48A0B6E0CD49DBB9A48059BF9355851
 
-To authenticate with Azure CLI, provide the certificate thumbprint, certificate file, the application id, and tenant id.
+2. Determine the **TenantId** for the subscription that contains the service principal.
 
-    azure login --service-principal --tenant <tenantId> -u <AppId> --certificate-file C:\certificates\examplecert.pem --thumbprint 30996D9CE48A0B6E0CD49DBB9A48059BF9355851
+        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+
+3. For the user name, use the **AppId** that you used when creating the service principal. If you need to retrieve the application id, use the following command. Provide the name of the Active Directory application in the **search** parameter.
+
+        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+
+4. To authenticate with Azure CLI, provide the certificate thumbprint, certificate file, the application id, and tenant id.
+
+        azure login --service-principal --tenant "$tenantId" -u "$appId" --certificate-file C:\certificates\examplecert.pem --thumbprint "$cert"
 
 You are now authenticated as the service principal for the Active Directory application that you created.
 
