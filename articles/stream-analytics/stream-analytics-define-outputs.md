@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="03/02/2016"
 	ms.author="jeffstok"/>
 
 # Target Stream Analytics data transformation outputs to analysis tools and data storage options
@@ -118,7 +118,7 @@ There are a few parameters that are needed to configure Event Hub data streams a
 
 [Power BI](https://powerbi.microsoft.com/) can be used as an output for a Stream Analytics job to provide for a rich visualization experience of analysis results. This capability can be used for operational dashboards, report generation and metric driven reporting.
 
-> [AZURE.NOTE] At this time, creation and configuration of Power BI outputs is not supported in the Azure Preview Portal.
+> [AZURE.NOTE] At this time, creation and configuration of Power BI outputs is supported only in the Azure Classic Portal.
 
 ### Authorize a Power BI account
 
