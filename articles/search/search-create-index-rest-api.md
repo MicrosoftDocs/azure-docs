@@ -55,7 +55,7 @@ For our example, we've named our index "hotels" and defined our fields as follow
 {
     "name": "hotels",  
     "fields": [
-        {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "facetable": false},
+        {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
         {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
@@ -72,7 +72,9 @@ For our example, we've named our index "hotels" and defined our fields as follow
 ```
 
 We have carefully chosen the index attributes for each field based on how we think they will be used in an application. For example, `hotelId` is a unique key that people searching for hotels likely won't know, so we disable full-text search for that field by setting `searchable` to `false`, which saves space in the index.
-Please note that exactly one field in your index of type Edm.String must be the designated as the ‘key’ field.
+
+Please note that exactly one field in your index of type `Edm.String` must be the designated as the 'key' field.
+
 The index definition above uses a custom language analyzer for the `description_fr` field because it is intended to store French text. See [the Language support topic on MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) as well as the corresponding [blog post](https://azure.microsoft.com/blog/language-support-in-azure-search/) for more information about language analyzers.
 
 ## III. Issue the HTTP request
