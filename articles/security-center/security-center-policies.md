@@ -29,13 +29,13 @@ A security policy defines the set of controls which are recommended for resource
 
 For example, resources used for development or test may have different security requirements than those used for production applications. Likewise, applications with regulated data like PII (Personally Identifiable Information) may require a higher level of security. The security policies enabled in Azure Security Center will drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats.
 
-## Setting security policies
+## Setting security policies for subscriptions
 
-Security policies can be configured for each subscription or resource group. To modify a security policy, you must be an Owner or Contributor of that subscription. Follow the steps below to configure security polices in Azure Security Center:
+Security policies can be configured for each subscription or resource group. To modify a security policy, you must be an [Owner or Contributor](role-based-access-control-configure.md) of that subscription. Follow the steps below to configure security polices in Azure Security Center:
 
 1. Click on the **Security Policy** tile in the Azure Security Center dashboard.
 
-2. In the **Security Policy - Define policy per subscription** blade that opens up on the right side, select the subscription that you want to enable the security policy.
+2. In the **Security Policy - Define policy per subscription or resource group** blade that opens up on the right side, select the subscription that you want to enable the security policy. If you prefer to enable the Security Policy for a Resource Group instead of for the entire subscription, scroll down to the next section were we talk about setting up security policies for Resource Groups.
 
     ![Enabling data collection](./media/security-center-policies/security-center-policies-fig01.png)
 
@@ -66,7 +66,7 @@ Security policies can be configured for each subscription or resource group. To 
 | Policy | When State is On |
 |----- |-----|
 | System Updates | Retrieves a list of available updates from Windows Update or WSUS, depending on which service is configured for that virtual machine, every 12 hours and recommends missing security and critical updates be installed on your Windows virtual machines. |
-| Baseline Rules | Analyzes all supported virtual machines every 12 hours to identify any OS configurations that could make the virtual machine more vulnerable to attack and recommends configuration changes to address these vulnerabilities. See the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information on the specific configurations being monitored. |
+| Baseline Rules | Analyzes all supported virtual machines to identify any OS configurations that could make the virtual machine more vulnerable to attack and recommends configuration changes to address these vulnerabilities. See the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information on the specific configurations being monitored. |
 | Antimalware | Recommends antimalware be provisioned for all Windows virtual machines to help identify and remove viruses, spyware, and other malicious software. |
 | Access Control List on endpoints | Recommends that an [Access Controls List](virtual-machines-set-up-endpoints.md) (ACL) be configured to limit access to a Classic virtual machine endpoints. This would typically be used to ensure that only users who are connected to the corporate network can access the virtual machines. |
 | Network Security Groups | Recommends that [Network Security Groups](virtual-networks-nsg.md) (NSGs) be configured to control inbound and outbound traffic to subnets and network interfaces for Resource Manager virtual machines. NSGs configured for a subnet will be inherited by all virtual machine network interfaces unless otherwise specified. In addition to checking that an NSG has been configured, this option assesses inbound security rules to identify if there are any that allow incoming traffic. |
@@ -76,11 +76,13 @@ Security policies can be configured for each subscription or resource group. To 
 
 10.Once you finish configuring all options, click **Save** to commit those changes.
 
-If you prefer to configure your security policies per resource group, you should follow the same steps. The main difference is in step two, there you will need to expand the subscription name and select the resource group that you want to configure the unique security policy:
+## Setting security policies for resource groups
+
+If you prefer to configure your security policies per resource group, the steps are similar to those you use for setting up security policies for subscriptions. The main difference is that you will need to expand the subscription name and select the resource group that you want to configure the unique security policy:
 
 ![Resource group selection](./media/security-center-policies/security-center-policies-fig4.png)
 
-After you select the resource group, the **Security policy** blade will open. By default the option **Inheritance** is enabled, which means all security policies for this resource group are inherited from the subscription level. You can change this configuration in case you want a custom security policy per resource group. If that's the case, you need to select **Unique** and make the desirable changes under **Show recommendations for** option. 
+After you select the resource group, the **Security policy** blade will open. By default, the option **Inheritance** is enabled, which means all security policies for this resource group are inherited from the subscription level. You can change this configuration in case you want a custom security policy per resource group. If that's the case, you need to select **Unique** and make the changes under **Show recommendations for** option. 
 
 
 ![Security policy per resource group](./media/security-center-policies/security-center-policies-fig5.png) 
