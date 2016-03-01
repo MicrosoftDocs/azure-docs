@@ -24,7 +24,6 @@ The objective of this tutorial is to show you how to integrate Trakopolis with A
 - You can control in Azure AD who has access to Trakopolis
 - You can enable your users to automatically get signed-on to Trakopolis (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure Active Directory 
-- 
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -106,8 +105,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Trakopolis application using the following pattern: **“https://companyname.trakopolis.com”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Trakopolis application using the following pattern: **“https://\<company name\>.trakopolis.com”**.
 
+     b. Click **Next**.
 
 4. On the **Configure single sign-on at Trakopolis** page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_05.png) <br>
@@ -117,7 +117,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Trakopolis support team at support@cantelematics.com, attach the downloaded certificate and provide them with the Issuer URL, the SAML SSO URL and the Sign Out URL.
+5. To get SSO configured for your application, contact your Trakopolis support team at [support@cantelematics.com](mailto:support@cantelematics.com), attach the downloaded certificate and provide them with the Issuer URL, the SAML SSO URL and the Sign Out URL.
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
