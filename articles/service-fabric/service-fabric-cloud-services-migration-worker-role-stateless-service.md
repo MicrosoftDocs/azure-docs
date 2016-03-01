@@ -271,8 +271,8 @@ Read more about Service Fabric Reliable Services and the fundemental differences
 
  - [Getting started with Service Fabric Reliable Services](./service-fabric-reliable-services-quick-start.md)
 
- - [Conceptual guide to the differences between Cloud Services and Service Fabric](./service-fabric-cloud-services-migration-conceptual.md)
+ - [Conceptual guide to the differences between Cloud Services and Service Fabric](./service-fabric-cloud-services-migration-differences.md)
  
 <!--Image references-->
-[3]: ./media/service-fabric-cloud-services-migration/service-fabric-cloud-service-projects.png
-[4]: ./media/service-fabric-cloud-services-migration/worker-role-to-stateless-service.png
+[3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
+[4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png

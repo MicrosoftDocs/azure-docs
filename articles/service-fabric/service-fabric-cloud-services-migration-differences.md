@@ -91,12 +91,12 @@ The simplest migration path from Cloud Services to Service Fabric is to replace 
  - [Simple migration: convert a Web or Worker Role to a Service Fabric stateless service](./service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 
 <!--Image references-->
-[1]: ./media/service-fabric-cloud-services-migration/topology-cloud-services.png
-[2]: ./media/service-fabric-cloud-services-migration/topology-service-fabric.png
-[5]: ./media/service-fabric-cloud-services-migration/cloud-service-communication-direct.png
-[6]: ./media/service-fabric-cloud-services-migration/service-fabric-communication-direct.png
-[7]: ./media/service-fabric-cloud-services-migration/cloud-service-communication-queues.png
-[8]: ./media/service-fabric-cloud-services-migration/service-fabric-communication-queues.png
-[9]: ./media/service-fabric-cloud-services-migration/cloud-services-architecture.png
-[10]: ./media/service-fabric-cloud-services-migration/service-fabric-architecture-simple.png
-[11]: ./media/service-fabric-cloud-services-migration/service-fabric-architecture-full.png
+[1]: ./media/service-fabric-cloud-services-migration-differences/topology-cloud-services.png
+[2]: ./media/service-fabric-cloud-services-migration-differences/topology-service-fabric.png
+[5]: ./media/service-fabric-cloud-services-migration-differences/cloud-service-communication-direct.png
+[6]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-communication-direct.png
+[7]: ./media/service-fabric-cloud-services-migration-differences/cloud-service-communication-queues.png
+[8]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-communication-queues.png
+[9]: ./media/service-fabric-cloud-services-migration-differences/cloud-services-architecture.png
+[10]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-simple.png
+[11]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-full.png
