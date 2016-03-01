@@ -45,16 +45,16 @@ Azure Media Encryptor|Depreciated|
 
 The following method shows how to get a media processor instance. The code example assumes the use of a module-level variable named **_context** to reference the server context as described in the section [How to: Connect to Media Services Programmatically].
 
-private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-{
-var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-
-if (processor == null)
-throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-return processor;
-}
+	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+	{
+		var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+		ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+		
+		if (processor == null)
+		throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+		
+		return processor;
+	}
 
 
 ##Media Services learning paths
