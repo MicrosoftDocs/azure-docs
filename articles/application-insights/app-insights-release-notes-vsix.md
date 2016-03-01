@@ -3,7 +3,7 @@
 	description="The latest updates for Visual Studio tools for Application Insights." 
 	services="application-insights" 
     documentationCenter=""
-	authors="dimazaid" 
+	authors="aruna" 
 	manager="douge"/>
 <tags 
 	ms.service="application-insights" 
@@ -11,10 +11,29 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
-	ms.author="dimazaid"/>
+	ms.date="02/26/2016" 
+	ms.author="acearun"/>
  
-# Release Notes for Application Insights Tools for Visual Studio v 4.2
+# Release Notes for Application Insights Tools for Visual Studio
+
+## Version 4.3
+### Search telemetry from local debug sessions
+With this release, we are introducing the ability to search for Application Insights telemetry generated in the Visual Studio debug session. Search was previously only possible if you had registered your app with Application Insights. With this release, your app only needs the Application Insights SDK installed to search for local telemetry.
+
+#### If you have an ASP.NET application with the Application Insights SDK
+
+- Debug your application.
+- Open Application Insights Search using one of these ways
+	- View Menu -> Other Windows -> Application Insights Search
+	- Click on the Application Insights Toolbar button
+	- In Solution Explorer, expand ApplicationInsights.config -> Search debug session telemetry
+- If you haven't signed up with Application Insights, the Search window will open up in 'Debug session telemetry' mode.
+- Click the search icon to see your local telemetry.
+
+![Upload complete](./media/app-insights-release-notes-vsix/LocalSearch.png)
+
+
+
 ##Version 4.2
 In this release we've added features to make searching data easier in context of events, the ability to jump to code from more data events and an effortless experience to send your logging data to Application Insights. This extension is updated monthly, if you have feedback or feature reuests send it to aidevtools@microsoft.com
 ###- 0-click logging experience
