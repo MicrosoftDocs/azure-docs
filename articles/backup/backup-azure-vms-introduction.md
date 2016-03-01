@@ -3,7 +3,7 @@
 	description="Important considerations when planning to back up virtual machines in Azure"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor=""
 	keywords="backup vms, back up virtual machines"/>

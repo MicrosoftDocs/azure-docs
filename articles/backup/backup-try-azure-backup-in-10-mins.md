@@ -62,9 +62,9 @@ To back up files and data from a Windows machine to Azure, you need to create a 
 
     The best time to select the storage redundancy option is right after creating a vault and before any machines are registered to it. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
 
-    If you are using Azure as a primary backup storage endpoint (e.g. you are backing up to Azure from a Windows Server), you should consider picking (the default) Geo-Redundant storage option.
+    If you are using Azure as a primary backup storage endpoint (e.g. you are backing up to Azure from a Windows Server), you should consider picking (the default) [Geo-Redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) option.
 
-    If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises & using Azure for your long term retention needs), you should consider choosing Locally Redundant Storage. This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
+    If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises & using Azure for your long term retention needs), you should consider choosing [Locally Redundant Storage](../storage/storage-redundancy.md#locally-redundant-storage). This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
 
     a. Click on the vault you just created.
 
@@ -77,8 +77,6 @@ To back up files and data from a Windows machine to Azure, you need to create a 
     You will need to click **Save** if you've selected **Locally Redundant**, since **Geo Redundant** is the default option.
 
     ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
-
-    >[AZURE.NOTE] You can learn more about storage redundancy options in this [overview](../storage/storage-redundancy.md) article.
 
     d. Click **Recovery Services**, in the left navigation pane to return to the list of resources for **Recovery Services**.
 
