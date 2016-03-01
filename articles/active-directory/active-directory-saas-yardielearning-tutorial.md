@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate Yardi eLearning w
 
 - You can control in Azure AD who has access to Yardi eLearning
 - You can enable your users to automatically get signed-on to Yardi eLearning (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -57,7 +57,7 @@ To configure the integration of Yardi eLearning into Azure AD, you need to add Y
 
 **To add Yardi eLearning from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. <br><br>
 ![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
