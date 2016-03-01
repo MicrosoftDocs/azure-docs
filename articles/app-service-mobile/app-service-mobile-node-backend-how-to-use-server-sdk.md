@@ -79,6 +79,7 @@ unauthenticated access to an underlying SQL data store using a dynamic schema.  
 client library quick starts:
 
 - [Android Client QuickStart]
+- [Apache Cordova Client QuickStart]
 - [iOS Client QuickStart]
 - [Windows Store Client QuickStart]
 - [Xamarin.iOS Client QuickStart]
@@ -858,6 +859,7 @@ From the editor, you can also execute the code on the site
 
 <!-- URLs -->
 [Android Client QuickStart]: app-service-mobile-android-get-started.md
+[Apache Cordova Client QuickStart]: app-service-mobile-cordova-get-started.md
 [iOS Client QuickStart]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS Client QuickStart]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
