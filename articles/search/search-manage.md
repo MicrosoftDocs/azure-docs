@@ -36,7 +36,7 @@ As the administrator setting up a Search service, one of your first decisions is
 
 At no charge to existing subscribers, you can opt for a shared service, recommended for learning purposes, proof-of-concept testing, and small developmental projects. The shared service is constrained by 50 MB of storage, three indexes, and document count - a hard limit of 10,000 document, even if storage consumption is less than the full 50 MB allowed. There are no performance guarantees with the Shared service, so if you're building a production search application, consider Standard search instead.
 
-Standard search is billable because you are signing up for dedicated resources and infrastructure used only by your subscription. Standard search is allocated in user-defined bundles of partitions (storage) and replicas (service workloads), and priced by search unit. You can scale up on partitions or replicas independently, adding more of whatever resource is needed.
+Basic and Standard search is billable because you are signing up for dedicated resources and infrastructure used only by your subscription. Basic and Standard search are allocated in user-defined bundles of partitions (storage) and replicas (service workloads), and priced by search unit. You can scale up on partitions or replicas independently, adding more of whatever resource is needed.
 
 To plan for capacity and understand the billing impact, we recommend these links:
 

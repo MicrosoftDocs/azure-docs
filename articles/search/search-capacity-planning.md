@@ -21,20 +21,35 @@
 
 One of the great strengths of Azure Search is the ability to incrementally adjust capacity of a given service, adding more or less of whichever computational resource you need. You can independently set the resource levels for partitions (to scale up storage) and replicas (to provide high availability and improved query and indexing performance).
 
-Scale is available at the [Standard tier](search-limits-quotas-capacity.md), where resources are dedicated and used only by your service.  
+Limited scale is available at the [Basic tier](). Maximum scale is available at the [Standard tier](search-limits-quotas-capacity.md).  
 
-At the Standard tier, capacity is purchased in increments called *search units* where each partition and replica counts as one search unit apiece. Standard allows for up to 36 search units per service. You have to choose a combination of partitions and replicas that stays below the 36 unit limit. For example, you couldn't scale your service up to 12 partitions and 6 replicas, because doing so would require 72 search units (12 x 6), exceeding the limit of 36 search units per service.
+At both tiers, capacity is purchased in increments called *search units* where each partition and replica counts as one search unit apiece. 
+- Basic allows for up to 3 search units per service.
+- Standard allows for up to 36 search units per service.
 
-<a id="chart"></a>
-## Supported combinations of partitions and replicas
+You have to choose a combination of partitions and replicas that stays below the tier limit. For example, you couldn't scale your Standard service up to 12 partitions and 6 replicas, because doing so would require 72 search units (12 x 6), exceeding the limit of 36 search units per service.
 
-The effective limit on partitions and replicas is based on the combination of resources you select, while staying within the boundary of 36 search units per service. 
-
-A dedicated service starts with one replica and one partition, counted as one search unit (SU). This is the only instance where both a replica and a partition count as one search unit. Each additional  resource, whether it is a replica or a partition, is counted as its own SU.
+Both tiers start with one replica and one partition, counted as one search unit (SU). This is the only instance where both a replica and a partition count as one search unit. Each additional  resource, whether it is a replica or a partition, is counted as its own SU.
 
 The formula is replicas multiplied by partitions. For example, 3 replicas multiplied by 3 partitions is billed as 9 search units.
 
-The following table lists replicas on the vertical axis, and partitions on the horizontal axis. The intersection is the number of search units required to support each combination, subject to the 36 search unit (SU) limit per service. As a general rule, most search applications tend to need more replicas than partitions.
+Generally, most search applications tend to need more replicas than partitions. See the section on [high availability](#HA) for details.
+
+## Basic tier: Partition and replica combinations using 3 search units
+
+Replicas are on the vertical axis, and partitions on the horizontal axis. The intersection is the number of search units required to support each combination, subject to the 3 search unit (SU) limit.
+
+<table cellspacing="0" border="1">
+<tr><td><b>3 replicas</b></td><td>3 SU</td><td>N/A</td><td>N/A</td></tr>
+<tr><td><b>2 replicas</b></td><td>2 SU</td><td>N/A</td><td>N/A</td></tr>
+<tr><td><b>1 replica</b></td><td>1 SU</td><td>2 SU</td><td>3 SU</td></tr>
+<tr><td>N/A</td><td><b>1 Partition</b></td><td><b>2 Partitions</b></td><td><b>3 Partitions</b></td></tr>
+</table>
+
+<a id="chart"></a>
+## Standard tier: Partition and replica combinations using 36 search units
+
+Replicas are on the vertical axis, and partitions on the horizontal axis. The intersection is the number of search units required to support each combination, subject to the 36 search unit (SU) limit. 
 
 <table cellspacing="0" border="1">
 <tr><td><b>12 replicas</b></td><td>12 SU</td><td>24 SU</td><td>36 SU</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
@@ -51,6 +66,7 @@ Search units, pricing, and capacity are explained in detail on the Azure web sit
 
 > [AZURE.NOTE] The number of replicas and partitions must evenly divide into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread across partitions. For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future release. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
 
+<a id="HA"></a>
 ## Choose a combination of partitions and replicas for high availability
 
 Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build. For many deployments,  one partition provides sufficient storage and IO (at 15 million documents per partition).

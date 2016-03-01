@@ -23,6 +23,8 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 **Free** is a multi-tenant shared service that comes with your Azure subscription. It's a no-additional-cost option for existing subscribers that allows you to experiment with the service before signing up for dedicated resources. 
 
+**Basic (Preview)** provides dedicated computing resources for production workloads at a smaller scale. This tier is currently in Preview and offered at a reduced rate.
+
 **Standard** runs on dedicated machines used only by your service. Sole use of dedicated computing resources gives you the ability to scale up (or down), with more storage and processing capacity at every level, including the minimum configuration.
 
 ## Tier limits
