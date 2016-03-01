@@ -48,7 +48,7 @@ Most of Hadoop jobs are batch jobs. You create a cluster and run some jobs. In t
     - **Cluster login name and password**: The default login name is **admin**.
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
     
-    Other parameters are optional. You can leave them as they are. The cluster default storage account name is *<ClusterName>store*. It is hardcoded in the variables section in the template.
+    Other parameters are optional. You can leave them as they are. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the variables section in the template.
 3. Click **OK** to save the parameters.
 4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource. The resource group location can be different from the cluster location.
 5. Click **Legal terms**, and then click **Create**.
