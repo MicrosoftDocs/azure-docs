@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/25/2016"
+     ms.date="02/28/2016"
      ms.author="hegate"/>
 
 # OS Platforms and hardware compatibility with device SDKs
@@ -58,7 +58,7 @@ The [Microsoft Azure IoT device SDK for C](https://github.com/Azure/azure-iot-sd
 |mbed OS| 2.0 | HTTPS, AMQP |
 |TI-RTOS| 2.x | HTTPS |
 |Ubuntu Linux| 14.04 | HTTPS, AMQP, MQTT |
-|Windows desktop| 7,8,10 | HTTPS, AMPQ, MQTT |
+|Windows desktop| 7,8,10 | HTTPS, AMQP, MQTT |
 |Yocto Linux|2.1  | HTTPS, AMQP|
 
 
@@ -96,7 +96,7 @@ The [Microsoft Azure IoT device SDK for .NET](https://github.com/Azure/azure-iot
 
 |OS platform| Version|Protocols|
 |:---------|:----------:|:----------:|
-|Windows desktop| 7,8,10 | HTTPS, AMPQ|
+|Windows desktop| 7,8,10 | HTTPS, AMQP|
 |Windows IoT Core|10 | HTTPS|
 
 Managed agent code requires Microsoft .NET Framework 4.5
