@@ -37,7 +37,7 @@ prefer to use PowerShell or Azure CLI. The paths are:
 - [Authenticate with password - PowerShell](#authenticate-with-password---powershell)
 - [Authenticate with certificate - PowerShell](#authenticate-with-certificate---powershell)
 - [Authenticate with password - Azure CLI](#authenticate-with-password---azure-cli)
-- [Authenticate with certificate - Azure CLI]($authenticate-with-certificate---azure-cli)
+- [Authenticate with certificate - Azure CLI](#authenticate-with-certificate---azure-cli)
 
 ## Authenticate with password - PowerShell
 
@@ -64,7 +64,7 @@ In this section, you will perform the steps to create a service principal for an
         IdentifierUris          : {https://www.contoso.org/example}
         ReplyUrls               : {}
 
-2. Create a service principal for your application.
+2. Create a service principal for your application by passing in the application id of the Active Directory application.
 
         PS C:\> New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
@@ -84,7 +84,7 @@ service principal. Three options are shown in this topic:
 <a id="manually-provide-credentials-through-powershell" />
 ### Manually provide credentials through PowerShell
 
-You can manually provide the credentials for the service principal when executing ad hoc script or commands.
+You can manually provide the credentials for the service principal when executing on-demand script or commands.
 
 1. Create a new **PSCredential** object which contains your credentials by running the **Get-Credential** command.
 
@@ -125,11 +125,11 @@ These steps assume you have set up a Key Vault and a secret that stores the pass
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
-2. Get your Active Directory application.
+2. Get your Active Directory application. You will the application id when logging in.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
 
-3. Create a new **PSCredential** object with the application id and password.
+3. Create a new **PSCredential** object by providing the application id and password as the credentials.
 
         PS C:\> $creds = New-Object System.Management.Automation.PSCredential ($azureAdApplication.ApplicationId, $secret.SecretValue)
     
@@ -185,7 +185,7 @@ First, you must set up some values in PowerShell that you will use later when cr
         $cert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @("C:\certificates\examplecert.pfx", "yourpassword")
         $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-2. If you are using key credentials, create the key credentials object and sets its value to the `$keyValue` from the previous step. The example below shows a step to add a type from an assembly. The path shown in the example should be similar to your path, but might be a little different. 
+2. If you are using key credentials, create the key credentials object and sets its value to the `$keyValue` from the previous step. The example below includes calling `Add-Type` to add a type from an assembly. The path shown in the example should be similar to your path, but might be a little different. 
 
         Add-Type -Path 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ResourceManager\AzureResourceManager\AzureRM.Resources\Microsoft.Azure.Commands.Resources.dll'
         $currentDate = Get-Date
@@ -207,7 +207,7 @@ First, you must set up some values in PowerShell that you will use later when cr
 
          $azureAdApplication = New-AzureRmADApplication -DisplayName "example" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -KeyCredentials $keyCredential
 
-    Examine the new application object. The **ApplicationId** property is needed for creating service principals, role assignments and acquiring JWT tokens.
+    Examine the new application object. The **ApplicationId** property is needed for creating service principals, role assignments and acquiring access tokens.
 
         PS C:\> $azureAdApplication
 
@@ -220,7 +220,7 @@ First, you must set up some values in PowerShell that you will use later when cr
         IdentifierUris          : {https://www.contoso.org/example}
         ReplyUrls               : {}       
 
-4. Create a service principal for your application.
+4. Create a service principal for your application by passing in the application id of the Active Directory application.
 
         PS C:\> New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
@@ -234,12 +234,12 @@ You have created an Active Directory application and a service principal for tha
 service principal. Two options are shown in this topic:
 
 - [Provide certificate through automated PowerShell script](#provide-certificate-through-automated-powershell-script)
-- [Provide certificate through code in an application](#Provide-certificate-through-code-in-an-application)
+- [Provide certificate through code in an application](#provide-certificate-through-code-in-an-application)
 
 <a id="provide-certificate-through-automated-powershell-script" />
 ### Provide certificate through automated PowerShell script
 
-1. Get your Active Directory application.
+1. Get your Active Directory application. You will the application id when logging in
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -255,7 +255,7 @@ service principal. Two options are shown in this topic:
 
 4. To authenticate in PowerShell, provide the certificate thumbprint, the application id, and tenant id.
 
-    PS C:\> Login-AzureRmAccount -CertificateThumbprint $cert.Thumbprint -ApplicationId $azureAdApplication.ApplicationId -ServicePrincipal -TenantId $subscription.TenantId
+        PS C:\> Login-AzureRmAccount -CertificateThumbprint $cert.Thumbprint -ApplicationId $azureAdApplication.ApplicationId -ServicePrincipal -TenantId $subscription.TenantId
 
 You are now authenticated as the service principal for the Active Directory application that you created.
 
@@ -305,7 +305,7 @@ You will start by creating a service principal. To do this we must use create an
 
         azure ad app create --name "exampleapp" --home-page "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your_Password>
         
-    The Active Directory application is returned. The AppId property is needed for creating service principals, role assignments and acquiring JWT tokens. 
+    The Active Directory application is returned. The AppId property is needed for creating service principals, role assignments and acquiring access tokens. 
 
         data:    AppId:          4fd39843-c338-417d-b549-a545f584a745
         data:    ObjectId:       4f8ee977-216a-45c1-9fa3-d023089b2962
@@ -366,18 +366,23 @@ You are now authenticated as the service principal for the Active Directory appl
 
 This section shows how to login as the service principal without having to manually enter the credentials. 
 
-> [AZURE.NOTE] Including a password in your Azure CLI script is not secure. Instead, use a service like Key Vault to store the password, and retrieve it when executing the script.
+> [AZURE.NOTE] Including a password in your Azure CLI script is not secure because the password is exposed as text. Instead, use a service like Key Vault to store the password, and retrieve it when executing the script.
 
 These steps assume you have set up a Key Vault and a secret that stores the password. To deploy a 
 Key Vault and secret through a template, see [Key Vault template format](). To learn about Key Vault, see 
 [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
 
-For example below, the secret is named **appPassword**. You must remove the starting and ending double quotes that are returned from the json output before passing it as 
-the password parameter.
+1. Retrieve your password (in the example below, stored as secret named named **appPassword**) from the Key Vault. 
 
-    secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq '.value')
-    parsedSecret=$(sed -e 's/^"//' -e 's/"$//' <<< $s)
-    azure login -u "<AppId>" -p "$parsedsecret" --service-principal --tenant "<TenantId>"
+        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq '.value')
+    
+2. You must remove the starting and ending double quotes that are returned from the json output before passing it as the password parameter.
+ 
+        parsedSecret=$(sed -e 's/^"//' -e 's/"$//' <<< $s)
+    
+3. Login in as the service principal by providing the application id, the password from Key Vault, the tenant id.
+
+        azure login -u "<AppId>" -p "$parsedsecret" --service-principal --tenant "<TenantId>"
     
 You are now authenticated as the service principal for the Active Directory application that you created.
 
@@ -409,7 +414,7 @@ This topic assumes you have been issued a certificate and you have [OpenSSL](htt
 
 1. Create a **.pem** file with:
 
-        openssl pkcs12 -in examplecert.pfx -out examplecert.pem -nodes
+        openssl pkcs12 -in C:\certificates\examplecert.pfx -out C:\certificates\examplecert.pem -nodes
 
 2. Open the **.pem** file and copy the certificate data. Look for the long sequence of characters between **-----BEGIN CERTIFICATE-----** and **-----END CERTIFICATE-----**.
 
@@ -417,7 +422,7 @@ This topic assumes you have been issued a certificate and you have [OpenSSL](htt
 
         azure ad app create -n "<your application name>" --home-page "<https://YourApplicationHomePage>" -i "<https://YouApplicationUri>" --key-value <certificate data>
 
-    The Active Directory application is returned. The AppId property is needed for creating service principals, role assignments and acquiring JWT tokens. 
+    The Active Directory application is returned. The AppId property is needed for creating service principals, role assignments and acquiring access tokens. 
 
         data:    AppId:          4fd39843-c338-417d-b549-a545f584a745
         data:    ObjectId:       4f8ee977-216a-45c1-9fa3-d023089b2962
@@ -459,7 +464,7 @@ service principal. Two options are shown in this topic:
 
 You need to retrieve the certificate thumbprint and remove unneeded characters.
 
-    openssl x509 -in examplecert.pem -fingerprint -noout | sed 's/SHA1 Fingerprint=//g'  | sed 's/://g'
+    openssl x509 -in C:\certificates\examplecert.pem -fingerprint -noout | sed 's/SHA1 Fingerprint=//g'  | sed 's/://g'
     
 Which returns a thumbpring value similar to:
 
@@ -467,7 +472,7 @@ Which returns a thumbpring value similar to:
 
 To authenticate with Azure CLI, provide the certificate thumbprint, certificate file, the application id, and tenant id.
 
-    azure login --service-principal --tenant <tenantId> -u <AppId> --certificate-file examplecert.pem --thumbprint 30996D9CE48A0B6E0CD49DBB9A48059BF9355851
+    azure login --service-principal --tenant <tenantId> -u <AppId> --certificate-file C:\certificates\examplecert.pem --thumbprint 30996D9CE48A0B6E0CD49DBB9A48059BF9355851
 
 You are now authenticated as the service principal for the Active Directory application that you created.
 
