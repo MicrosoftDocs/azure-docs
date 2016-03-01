@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/03/2015"
+	ms.date="02/29/2016"
 	ms.author="jgao"/>
 
 
@@ -38,7 +38,7 @@ Apache Zookeeper|3.4.6|3.4.6|3.4.5|3.4.5|
 Apache Storm|0.10.0|0.9.3|0.9.1||
 Apache Mahout|0.9.0+|0.9.0|0.9.0||
 Apache Phoenix|4.4.0|4.2.0|4.0.0.2.1.7.0-2162||
-Apache Spark|1.3.1|1.3.1|||
+Apache Spark|1.5.2 (Linux only)|1.3.1 (Windows-only)|||
 
 
 **Get current component version information**
