@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Get started with the SMTP API
-Connect to an SMTP server to send email. 
+Connect to an SMTP server to send email. The SMTP API can be used from:
 
-The SMTP API can be used from logic apps.
+- Logic apps
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [SMTP connector](../app-service-logic/app-service-logic-connector-smtp.md).
 
@@ -54,6 +54,7 @@ After you create the connection, you enter the SMTP properties, like the To or C
 >[AZURE.TIP] You can use this same SMTP connection in other logic apps.
 
 ## Swagger REST API reference
+Applies to version: 1.0.
 
 ### Send Email
 Sends an email to one or more recipients.  
