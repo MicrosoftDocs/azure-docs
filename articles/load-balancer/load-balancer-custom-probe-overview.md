@@ -69,7 +69,7 @@ This can be useful for implementing your own logic to remove instances from the 
 
 TCP probes initiate a connection by performing a three-way handshake with the defined port.
 
-### What makes a TCP custom probe mark an instance as unhealthy?
+#### What makes a TCP custom probe mark an instance as unhealthy?
 
 - The TCP server does not respond at all after the timeout period. When the probe is marked as down depends on the number of failed probe requests that were configured to go unanswered before marking the probe as down.
 - 	It receives a TCP reset from the role instance.
