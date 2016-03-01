@@ -18,37 +18,84 @@
 
 # Easy application installation and management with Azure Batch application packages
 
-The Applications feature of Batch allows you to manage applications and application versions--called *application packages* in Batch--and easily install those applications on your pools' compute nodes. In this article, you will learn how to upload and manage application packages using the Azure Portal, and then automatically download and install an application package on the compute nodes in a pool using the [Batch .NET][api_net] library.
+The application packages feature of Azure Batch provides an easier alternative to manually storing, retrieving, and managing the task applications and their files for your Batch jobs. With application packages, you can easily upload and manage multiple versions of task applications--called *application packages*--and then install those packages on the compute nodes in your pools.
 
-> [AZURE.NOTE] The application package feature discussed in this article, introduced in Batch REST API 2015-12-01.2.2 and the corresponding Batch .NET 3.1.0 library, replaces the "Batch Apps" feature available in previous versions of the service. We recommend that you always use the latest API version when working with Batch.
+In this article, you will learn how to upload and manage application packages using the Azure Portal, and then automatically download and install them on the compute nodes in a pool using the [Batch .NET][api_net] library.
+
+> [AZURE.NOTE] The application package feature discussed in this article, introduced in Batch REST API 2015-12-01.2.2 and the corresponding Batch .NET 3.1.0 library, supersedes the "Batch Apps" feature available in previous versions of the service. We recommend that you always use the latest API version when working with Batch.
 
 ## Applications and application packages
 
-Within Azure Batch, an **application** refers to a set of versioned binaries that can be automatically downloaded to the compute nodes in your pool. An **application package** refers to a *specific set* of those binaries that represents a given version of the application. An application can contain multiple packages, and it also specifies configuration options for the application, such as the default version to install on compute nodes when no version is specified.
+Within Azure Batch, an **application** refers to a set of versioned binaries that can be automatically downloaded to the compute nodes in your pool. An **application package** refers to a *specific set* of those binaries, and represents a given *version* of the application.
 
 ![Application packages][1]
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+### Applications
+
+An application can contain multiple application packages, and also specifies configuration options for the application. For example, you can set the default application package to install on compute nodes when no version is specified. When you create an application in Batch, you give it an ID, and may also specify a display name. When specifying an application package for install, you'll specify the ID value.
+
+### Application packages
+
+Application packages can contain any set of binaries and their support files, and can even contain more than one executable that your tasks will run. When you create a pool in the Batch service, you can specify one of these applications and (optionally) a version, and that application package will be downloaded to each node as it joins the pool. You can also specify more than one application package for installation on the nodes.
 
 ## Upload and manage applications
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+You can create and configure applications, and upload application packages, using the Azure portal.
+
+*TODO: Screenshots and how-to goes here.*
 
 ## Working with applications in Batch .NET
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+ Rather than specifying individual resource files in Azure Storage for a pool's start task, or some other method to prepare your nodes for runnning your tasks, you can simply specify one or more application packages for the pool. As each node joins the pool, the specified application packages are automatically downloaded to the nodes.
 
-## List the applications in your Batch account
+## List the applications in a Batch account
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+You can list the applications and their packages in a Batch account by using the `BatchClient.ApplicationOperations.ListApplicationSummaries` method.
 
 ```
-// Code sample here.
+// List the applications and their application packages in the Batch account.
+List<ApplicationSummary> applications = await batchClient.ApplicationOperations.ListApplicationSummaries().ToListAsync();
+foreach (ApplicationSummary app in applications)
+{
+    Console.WriteLine("\tID: {0} | Display Name: {1}", app.Id, app.DisplayName);
+
+    foreach (string version in app.Versions)
+    {
+        Console.WriteLine("\t\t{0}", version);
+    }
+}
 ```
 
 ## Install applications on compute nodes
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+To install an application package on the compute nodes in a pool, you specify one or more application package *references* for a pool. In Batch .NET, you do so by adding one or more `ApplicationPackageReference` objects to the `CloudPool.ApplicationPackageReferences` property, either when you create the pool, or on an existing pool.
+
+The `ApplicationPackageReference` class specifies an application ID and version for installation on a pool's compute nodes.
+
+```
+// Create the unbound CloudPool
+CloudPool myCloudPool =
+    batchClient.PoolOperations.CreatePool(poolId: "myPool",
+                                          osFamily: "4",
+                                          virtualMachineSize: "small",
+                                          targetDedicated: "1");
+
+// Specify the application and version to install on the compute nodes
+myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
+{
+    new ApplicationPackageReference {
+        ApplicationId = "litware",
+        Version = "10.7" }
+};
+
+// Commit the pool so that it's created in the Batch service. As the nodes join
+// the pool, the specified application package will be installed on each.
+await myCloudPool.CommitAsync();
+```
+
+## Updating a pool's application packages
+
+If you've already specified an application package for a pool, you can specify a new package for the existing pool. All new nodes that join the pool will install the newly specified package, as will any existing node that is rebooted or reimaged. Compute nodes that are already in the pool when you update the package references do not automatically install the new application package.
 
 ```
 // Code sample here.
