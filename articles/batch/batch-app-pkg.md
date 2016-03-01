@@ -18,19 +18,19 @@
 
 # Easy application installation and management with Azure Batch application packages
 
-The Applications feature of Batch allows you to upload and manage multiple applications and application versions--called *application packages* in Batch--and easily coordinate the installation of application packages on your pools' compute nodes. In this article, you will learn how to upload and manage application packages using the Azure Portal, and then automatically download and install an application package on the compute nodes in a pool using the [Batch .NET][api_net] library.
+The Applications feature of Batch allows you to manage applications and application versions--called *application packages* in Batch--and easily install those applications on your pools' compute nodes. In this article, you will learn how to upload and manage application packages using the Azure Portal, and then automatically download and install an application package on the compute nodes in a pool using the [Batch .NET][api_net] library.
 
-> [AZURE.NOTE] The application packages feature discussed in this article and introduced in REST\_VERSION\_HERE and the corresponding NET\_API\_VERSION\_HERE replaces the "Batch Apps" feature available in previous versions of the service. We recommend always using the latest API version when working with Batch.
+> [AZURE.NOTE] The application package feature discussed in this article, introduced in Batch REST API 2015-12-01.2.2 and the corresponding Batch .NET 3.1.0 library, replaces the "Batch Apps" feature available in previous versions of the service. We recommend that you always use the latest API version when working with Batch.
 
 ## Applications and application packages
 
-Within Azure Batch, an **application** refers to a set of versioned binaries that can be automatically downloaded to the compute nodes in your pool. An **application package** refers to a *specific set* of those binaries that represents a given version of an application. An application can contain multiple packages, and also it also specifies configuration options for the application, such as the default version to install on compute nodes.
+Within Azure Batch, an **application** refers to a set of versioned binaries that can be automatically downloaded to the compute nodes in your pool. An **application package** refers to a *specific set* of those binaries that represents a given version of the application. An application can contain multiple packages, and it also specifies configuration options for the application, such as the default version to install on compute nodes when no version is specified.
 
->> APP PACKAGE DIAGRAM HERE
+![Application packages][1]
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-## Manage applications with the Azure portal
+## Upload and manage applications
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -92,4 +92,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
-[1]: ./media/batch-mpi/batch_mpi_01.png "Multi-instance overview"
+[1]: ./media/batch-app-pkg/app_pkg_01.png "Applications and application packages"
