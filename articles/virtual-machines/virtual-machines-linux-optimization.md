@@ -10,7 +10,7 @@
 	tags="azure-resource-manager" />
 
 <tags
-	ms.service="virtual-machines-linuxy"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
