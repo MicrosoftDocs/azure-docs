@@ -167,17 +167,17 @@ When using the classic deployment model, DNS servers for the virtual network can
 
 ## Next steps
 
-[ARM: Create or update a virtual network](https://msdn.microsoft.com/library/azure/mt163661.aspx)
+Resource Manager deployment model:
+
+- [Create or update a virtual network](https://msdn.microsoft.com/library/azure/mt163661.aspx)
+- [Create or update a network interface card](https://msdn.microsoft.com/library/azure/mt163668.aspx)
+- [New-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx)
+- [New-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx)
+
  
-[ARM: Create or update a network interface card](https://msdn.microsoft.com/library/azure/mt163668.aspx)
+Classic deployment model:
 
-[ARM: New-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx)
-
-[ARM: New-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx)
-
-[Classic: Azure Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710)
-
-[Classic: Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
-
-[Classic: Configure a Virtual Network by Using a Network Configuration File](virtual-networks-using-network-configuration-file.md) 
+- [Azure Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710)
+- [Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
+- [Configure a Virtual Network by Using a Network Configuration File](virtual-networks-using-network-configuration-file.md) 
 
