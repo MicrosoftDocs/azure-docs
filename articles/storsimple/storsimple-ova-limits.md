@@ -16,7 +16,7 @@
    ms.author="alkohli" />
 
 
-# StorSimple Virtual Array limits (preview)
+# StorSimple Virtual Array limits
 
 ##Overview
 
