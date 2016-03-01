@@ -19,31 +19,36 @@
 
 # Capacity planning in Azure Search
 
-One of the great strengths of Azure Search is the ability to incrementally adjust capacity of a given service, adding more or less of whichever computational resource you need. You can independently set the resource levels for partitions (to scale up storage) and replicas (to provide high availability and improved query and indexing performance).
+An important benefit of Azure Search is the ability to incrementally adjust capacity of whichever computational resource you need. You can independently set the resource levels for partitions if you need more storage and IO, or replicas for improved query and indexing performance.
 
-Limited scale is available at the [Basic tier](). Maximum scale is available at the [Standard tier](search-limits-quotas-capacity.md).  
+Scale becomes available when you provision a service at either the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md).  
 
-At both tiers, capacity is purchased in increments called *search units* where each partition and replica counts as one search unit apiece. 
-- Basic allows for up to 3 search units per service.
-- Standard allows for up to 36 search units per service.
+For both tiers, capacity is purchased in increments of *search units* (SU) where each partition and replica counts as one SU apiece. 
+- Basic provides up to 3 SU per service.
+- Standard provides up to 36 SU per service.
 
 You have to choose a combination of partitions and replicas that stays below the tier limit. For example, you couldn't scale your Standard service up to 12 partitions and 6 replicas, because doing so would require 72 search units (12 x 6), exceeding the limit of 36 search units per service.
 
+Generally, search applications tend to need more replicas than partitions. See the section on [high availability](#HA) for details.
+
+**Calculate Search Units for Specific Resourcing Combinations: R X P = SU**
+
+The formula for calcuating how many SUs you need is replicas multiplied by partitions. For example, 3 replicas multiplied by 3 partitions is billed as 9 search units.
+
 Both tiers start with one replica and one partition, counted as one search unit (SU). This is the only instance where both a replica and a partition count as one search unit. Each additional  resource, whether it is a replica or a partition, is counted as its own SU.
 
-The formula is replicas multiplied by partitions. For example, 3 replicas multiplied by 3 partitions is billed as 9 search units.
+Cost per SU is determined by the tier. Cost per SU is lower for the Basic tier than it is for Standard. This is because the hardware profile for Basic costs less to run and those savings are built into a lower per-SU price.
 
-Generally, most search applications tend to need more replicas than partitions. See the section on [high availability](#HA) for details.
 
 ## Basic tier: Partition and replica combinations using 3 search units
 
-Replicas are on the vertical axis, and partitions on the horizontal axis. The intersection is the number of search units required to support each combination, subject to the 3 search unit (SU) limit.
+A Basic service can have 1 partition and up to 3 replicas, for a maximum limit of 3 SUs.
 
 <table cellspacing="0" border="1">
-<tr><td><b>3 replicas</b></td><td>3 SU</td><td>N/A</td><td>N/A</td></tr>
-<tr><td><b>2 replicas</b></td><td>2 SU</td><td>N/A</td><td>N/A</td></tr>
-<tr><td><b>1 replica</b></td><td>1 SU</td><td>2 SU</td><td>3 SU</td></tr>
-<tr><td>N/A</td><td><b>1 Partition</b></td><td><b>2 Partitions</b></td><td><b>3 Partitions</b></td></tr>
+<tr><td><b>3 replicas</b></td><td>3 SU</td></tr>
+<tr><td><b>2 replicas</b></td><td>2 SU</td></tr>
+<tr><td><b>1 replica</b></td><td>1 SU</td></tr>
+<tr><td>N/A</td><td><b>1 Partition</b></td></tr>
 </table>
 
 <a id="chart"></a>
