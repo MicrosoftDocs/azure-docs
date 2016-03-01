@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="03/02/2016"
 	ms.author="micurd"/>
 
 # Transfer data with the AzCopy Command-Line Utility
@@ -44,21 +44,21 @@ Open a command window and navigate to the AzCopy installation directory on your 
 
 The following examples demonstrate a variety of scenarios for copying data to and from Microsoft Azure Blobs, Files, and Tables. Refer to the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
 
-## Blob: Export
+## Blob: Download
 
-### Export single blob
+### Downlaod single blob
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 
-Note that if the folder `C:\myfolder` does not exist, AzCopy will create it and export `abc.txt ` into the new folder.
+Note that if the folder `C:\myfolder` does not exist, AzCopy will create it and download `abc.txt ` into the new folder.
 
-### Export single blob from secondary region
+### Download single blob from secondary region
 
 	AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
 Note that you must have read-access geo-redundant storage enabled.
 
-### Export all blobs
+### Download all blobs
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /S
 
@@ -70,7 +70,7 @@ Assume the following blobs reside in the specified container:
 	vd1\a.txt
 	vd1\abcd.txt
 
-After the export operation, the directory `C:\myfolder` will include the following files:
+After the download operation, the directory `C:\myfolder` will include the following files:
 
 	C:\myfolder\abc.txt
 	C:\myfolder\abc1.txt
@@ -78,13 +78,13 @@ After the export operation, the directory `C:\myfolder` will include the followi
 	C:\myfolder\vd1\a.txt
 	C:\myfolder\vd1\abcd.txt
 
-If you do not specify option `/S`, no blobs will be exported.
+If you do not specify option `/S`, no blobs will be downloaded.
 
-### Export blobs with specified prefix
+### Download blobs with specified prefix
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:a /S
 
-Assume the following blobs reside in the specified container. All blobs beginning with the prefix `a` will be exported:
+Assume the following blobs reside in the specified container. All blobs beginning with the prefix `a` will be downloaded:
 
 	abc.txt
 	abc1.txt
@@ -93,19 +93,19 @@ Assume the following blobs reside in the specified container. All blobs beginnin
 	vd1\a.txt
 	vd1\abcd.txt
 
-After the export operation, the folder `C:\myfolder` will include the following files:
+After the download operation, the folder `C:\myfolder` will include the following files:
 
 	C:\myfolder\abc.txt
 	C:\myfolder\abc1.txt
 	C:\myfolder\abc2.txt
 
-The prefix applies to the virtual directory, which forms the first part of the blob name. In the example shown above, the virtual directory does not match the specified prefix, so it is not exported. In addition, if the option `\S` is not specified, AzCopy will not export any blobs.
+The prefix applies to the virtual directory, which forms the first part of the blob name. In the example shown above, the virtual directory does not match the specified prefix, so it is not downloaded. In addition, if the option `\S` is not specified, AzCopy will not download any blobs.
 
 ### Set the last-modified time of exported files to be same as the source blobs
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT
 
-You can also exclude blobs from the export operation based on their last-modified time. For example, if you want to exclude blobs whose last modified time is the same or newer than the destination file, add the `/XN` option:
+You can also exclude blobs from the download operation based on their last-modified time. For example, if you want to exclude blobs whose last modified time is the same or newer than the destination file, add the `/XN` option:
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XN
 
@@ -113,25 +113,25 @@ Or if you want to exclude blobs whose last modified time is the same or older th
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
 
-## Blob: Import
+## Blob: Upload
 
-### Import single file
+### Upload single file
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:"abc.txt"
 
-If the specified destination container does not exist, AzCopy will create it and import the file into it.
+If the specified destination container does not exist, AzCopy will create it and upload the file into it.
 
-### Import single file to virtual directory
+### Upload single file to virtual directory
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 
-If the specified virtual directory does not exist, AzCopy will import the file to include the virtual directory in its name (*e.g.*, `vd/abc.txt` in the example above).
+If the specified virtual directory does not exist, AzCopy will upload the file to include the virtual directory in its name (*e.g.*, `vd/abc.txt` in the example above).
 
-### Import all files
+### Upload all files
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /S
 
-Specifying option `/S` imports the contents of the specified directory to Blob storage recursively, meaning that all subfolders and their files will be imported as well. For instance, assume the following files reside in folder `C:\myfolder`:
+Specifying option `/S` uploads the contents of the specified directory to Blob storage recursively, meaning that all subfolders and their files will be uploaded as well. For instance, assume the following files reside in folder `C:\myfolder`:
 
 	C:\myfolder\abc.txt
 	C:\myfolder\abc1.txt
@@ -139,7 +139,7 @@ Specifying option `/S` imports the contents of the specified directory to Blob s
 	C:\myfolder\subfolder\a.txt
 	C:\myfolder\subfolder\abcd.txt
 
-After the import operation, the container will include the following files:
+After the upload operation, the container will include the following files:
 
   	abc.txt
 	abc1.txt
@@ -147,13 +147,13 @@ After the import operation, the container will include the following files:
 	subfolder\a.txt
 	subfolder\abcd.txt
 
-If you do not specify option `/S`, AzCopy will not import recursively. After the import operation, the container will include the following files:
+If you do not specify option `/S`, AzCopy will not upload recursively. After the upload operation, the container will include the following files:
 
 	abc.txt
 	abc1.txt
 	abc2.txt
 
-### Import files matching specified pattern
+### Upload files matching specified pattern
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
 
@@ -166,7 +166,7 @@ Assume the following files reside in folder `C:\myfolder`:
 	C:\myfolder\subfolder\a.txt
 	C:\myfolder\subfolder\abcd.txt
 
-After the import operation, the container will include the following files:
+After the upload operation, the container will include the following files:
 
 	abc.txt
 	abc1.txt
@@ -174,7 +174,7 @@ After the import operation, the container will include the following files:
 	subfolder\a.txt
 	subfolder\abcd.txt
 
-If you do not specify option `/S`, AzCopy will only import blobs that don't reside in a virtual directory:
+If you do not specify option `/S`, AzCopy will only upload blobs that don't reside in a virtual directory:
 
 	C:\myfolder\abc.txt
 	C:\myfolder\abc1.txt
@@ -182,7 +182,7 @@ If you do not specify option `/S`, AzCopy will only import blobs that don't resi
 
 ### Specify the MIME content type of a destination blob
 
-By default, AzCopy sets the content type of a destination blob to `application/octet-stream`. Beginning with version 3.1.0, you can explicitly specify the content type via the option `/SetContentType:[content-type]`. This syntax sets the content type for all blobs in an import operation.
+By default, AzCopy sets the content type of a destination blob to `application/octet-stream`. Beginning with version 3.1.0, you can explicitly specify the content type via the option `/SetContentType:[content-type]`. This syntax sets the content type for all blobs in an upload operation.
 
 	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType:video/mp4
 
@@ -230,33 +230,33 @@ The `/SyncCopy` option ensures that the copy operation will get consistent speed
 
 `/SyncCopy` might generate additional egress cost compared to asynchronous copy, the recommended approach is to use this option in an Azure VM that is in the same region as your source storage account to avoid egress cost.
 
-## File: Export
+## File: Download
 
-### Export single file
+### Download single file
 
 	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-If the specified source is an Azure file share, then you must either specify the exact file name, (*e.g.* `abc.txt`) to export a single file, or specify option `/S` to export all files in the share recursively. Attempting to specify both a file pattern and option `/S` together will result in an error.
+If the specified source is an Azure file share, then you must either specify the exact file name, (*e.g.* `abc.txt`) to download a single file, or specify option `/S` to download all files in the share recursively. Attempting to specify both a file pattern and option `/S` together will result in an error.
 
-### Export all files
+### Download all files
 
 	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceKey:key /S
 
-Note that any empty folders will not be exported.
+Note that any empty folders will not be downloaded.
 
-## File: Import
+## File: Upload
 
-### Import single file
+### Upload single file
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:abc.txt
 
-### Import all files
+### Upload all files
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /S
 
-Note that any empty folders will not be imported.
+Note that any empty folders will not be uploaded.
 
-### Import files matching specified pattern
+### Upload files matching specified pattern
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
 
