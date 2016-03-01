@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="03/01/2016"
    ms.author="yurid"/>
 
 # Setting security policies in Azure Security Center
@@ -25,23 +25,23 @@ This document helps you to configure security policies in Azure Security Center 
 Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 ## What are security policies?
-A security policy defines the set of controls which are recommended for resources within the specified subscription. In Azure Security Center, you define policies for your Azure subscriptions according to your company security needs and the type of applications or sensitivity of the data in each subscription.
+A security policy defines the set of controls which are recommended for resources within the specified subscription or resource group. In Azure Security Center, you define policies for your Azure subscriptions or resource group according to your company security needs and the type of applications or sensitivity of the data in each subscription.
 
 For example, resources used for development or test may have different security requirements than those used for production applications. Likewise, applications with regulated data like PII (Personally Identifiable Information) may require a higher level of security. The security policies enabled in Azure Security Center will drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats.
 
 ## Setting security policies
 
-Security policies are configured for each subscription. To modify a security policy, you must be an Owner or Contributor of that subscription. Follow the steps below to configure security polices in Azure Security Center:
+Security policies can be configured for each subscription or resource group. To modify a security policy, you must be an Owner or Contributor of that subscription. Follow the steps below to configure security polices in Azure Security Center:
 
 1. Click on the **Security Policy** tile in the Azure Security Center dashboard.
 
 2. In the **Security Policy - Define policy per subscription** blade that opens up on the right side, select the subscription that you want to enable the security policy.
 
-    ![Enabling data collection](./media/security-center-policies/security-center-policies-fig0.png)
+    ![Enabling data collection](./media/security-center-policies/security-center-policies-fig01.png)
 
 3. The **Security policy**  blade for that subscription will open with a set of options similar to the one shown below:
 
-    ![Enabling data collection](./media/security-center-policies/security-center-policies-fig1.png)
+    ![Enabling data collection](./media/security-center-policies/security-center-policies-fig1-1.png)
 
 4. Make sure **Collect data from virtual machines** options is **On**. This option enables automatic log collection for existing and new resources.
 
@@ -74,7 +74,19 @@ Security policies are configured for each subscription. To modify a security pol
 | SQL Auditing | Recommends that auditing of access to Azure SQL Servers and Databases be enabled for compliance, advanced detection and investigation purposes. |
 | SQL Transparent Data Encryption | Recommends that encryption at rest be enabled for your Azure SQL databases, associated backups and transaction log files so that even if your data is breached, it will not be readable. |
 
-Once you finish configuring all options, click **Save** to commit those changes.
+10.Once you finish configuring all options, click **Save** to commit those changes.
+
+If you prefer to configure your security policies per resource group, you should follow the same steps. The main difference is in step two, there you will need to expand the subscription name and select the resource group that you want to configure the unique security policy:
+
+![Resource group selection](./media/security-center-policies/security-center-policies-fig4.png)
+
+After you select the resource group, the **Security policy** blade will open. By default the option **Inheritance** is enabled, which means all security policies for this resource group are inherited from the subscription level. You can change this configuration in case you want a custom security policy per resource group. If that's the case, you need to select **Unique** and make the desirable changes under **Show recommendations for** option. 
+
+
+![Security policy per resource group](./media/security-center-policies/security-center-policies-fig5.png) 
+
+> [AZURE.NOTE] In case of a conflict between subscription level policy and resource group level policy, the resource level policy takes precedence.
+
 
 ## Next steps
 
