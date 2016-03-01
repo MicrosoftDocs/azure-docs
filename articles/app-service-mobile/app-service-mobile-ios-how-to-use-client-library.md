@@ -384,6 +384,10 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 At minimum, the `id` attribute must be set when making deletes.
 
+##<a name="customapi"></a>How to: Call Custom API
+
+
+
 ##<a name="templates"></a>How to: Register push templates to send cross-platform notifications
 
 To register templates, simply pass along templates with your **client.push registerDeviceToken** method in your client app.
