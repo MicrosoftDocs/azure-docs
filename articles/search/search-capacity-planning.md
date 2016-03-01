@@ -37,8 +37,7 @@ The formula for calcuating how many SUs you need is replicas multiplied by parti
 
 Both tiers start with one replica and one partition, counted as one search unit (SU). This is the only instance where both a replica and a partition count as one search unit. Each additional  resource, whether it is a replica or a partition, is counted as its own SU.
 
-Cost per SU is determined by the tier. Cost per SU is lower for the Basic tier than it is for Standard.
-
+Cost per SU is determined by the tier. Cost per SU is lower for the Basic tier than it is for Standard. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
 
 ## Basic tier: Partition and replica combinations using 3 search units
 
