@@ -141,7 +141,7 @@ The following code sample uses a `CloudTable` object to add a single entity to t
 		    tableBinding.Execute(insertOperation);
 		}
 
-For more information about how to use the `CloudTable` object, see [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables.md). 
+For more information about how to use the `CloudTable` object, see [How to use Table Storage from .NET](../storage/storage-dotnet-how-to-use-tables.md). 
 
 ## <a id="queues"></a>Related topics covered by the queues how-to article
 

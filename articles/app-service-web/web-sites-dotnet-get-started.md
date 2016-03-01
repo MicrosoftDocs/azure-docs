@@ -79,7 +79,7 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 3. Make sure that **.NET Framework 4.5.2** is selected as the target framework.
 
-4.  [Azure Application Insights](app-insights-overview.md) monitors your web app for availability, performance, and usage. Clear the **Add Application Insights to Project** check box if you don't want to try it.
+4.  [Azure Application Insights](../application-insights/app-insights-overview.md) monitors your web app for availability, performance, and usage. Clear the **Add Application Insights to Project** check box if you don't want to try it.
 
 4. Name the application **MyExample**.
 
