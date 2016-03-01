@@ -458,9 +458,9 @@ For example, if you set up Microsoft Account authentication and request the emai
     var table = azureMobileApps.table();
 
     table.columns = {
-    "emailAddress": "string",
-    "text": "string",
-    "complete": "boolean"
+        "emailAddress": "string",
+        "text": "string",
+        "complete": "boolean"
     };
     table.dynamicSchema = false;
     table.access = 'authenticated';
