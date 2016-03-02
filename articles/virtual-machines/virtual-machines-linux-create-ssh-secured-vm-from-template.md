@@ -37,18 +37,20 @@ Templates allow you to create VMs on Azure with settings that you want to custom
 
 ## Introduction
 
-Cloud Templates use json files to instruct Azure on how to build your new VM with the settings you have chosen and written in the template file.  Templates can be used for simple one off tasks like launching an Ubuntu VM like we will do in this article.  Templates can also be used to construct complex Azure configurations of entire environments like a testing, dev or produciton deployment from the networking to the OS.  This template will contain a SSH public key which will be placed into `~/.ssh/authorized_keys` on Ubuntu during creation in Azure.  This will allow for a secure way to login by default.  This template will enable your first login to the new VM using SSH keys instead of passwords.  To completely disable password logins use the Azure article [here - Disable SSH passwords on your Linux VM by configuring SSHD.](https://link.to.doc.com)
+Cloud Templates use json files to instruct Azure on how to build your new VM with the settings you have chosen and written in the template file.  Templates can be used for simple one off tasks like launching an Ubuntu VM like we will do in this article.  Templates can also be used to construct complex Azure configurations of entire environments like a testing, dev or produciton deployment from the networking to the OS.  This template will contain a SSH public key which will be placed into `~/.ssh/authorized_keys` on Ubuntu during creation in Azure.  This will allow for a secure way to login by default.  This template will enable your first login to the new VM using SSH keys instead of passwords.  To completely disable password logins, read [Disable SSH passwords on your Linux VM by configuring SSHD.](virtual-machines-linux-mac-disable-ssh-password-usage.md)
 
 ## Quick Commands
 
-_Seasoned Linux Admins who just want the TLDR version start here.  For everyone else that wants the detailed explanation and walk through skip this section._
+After creating and editing the **azuredeploy.parameters.json** file with your SSH public key and other arguments, this deployment requires only one command:
+
+1. `username@macbook$ azure group create -n <exampleRGname> -l <exampleAzureRegion> azuredeploy.json -e azuredeploy.parameters.json`
 
 ## Detailed Walk Through
 
 Clone the Azure QuickStart Templates repo to your workstation.  Once it is cloned:
 
 ```
-woz@macbook$ cd 101-vm-simple-linux
+username@macbook$ cd 101-vm-simple-linux
 ```
 
 Now edit the `azuredeploy.parameters.json` file to change the Ubuntu settings to your own configuration:
@@ -56,7 +58,7 @@ Now edit the `azuredeploy.parameters.json` file to change the Ubuntu settings to
 _The `UbuntuOSVersion` calls for Ubuntu 14 LTS which is fine for this walk through and can be left unchanged._
 
 ```
-woz@macbook$ vim azuredeploy.parameters.json
+username@macbook$ vim azuredeploy.parameters.json
 
 # Change anything <example> to your own settings
 
@@ -89,10 +91,10 @@ _replace <example> with your own settings_
 
 ```
 # Example Command
-woz@macbook$ azure group create -n <exampleRGname> -l <exampleAzureRegion> azuredeploy.json -e azuredeploy.parameters.json
+username@macbook$ azure group create -n <exampleRGname> -l <exampleAzureRegion> azuredeploy.json -e azuredeploy.parameters.json
 
 # Full command
-woz@macbook$ azure group create -n simpleUbuntu -l westus azuredeploy.json -e azuredeploy.parameters.json
+username@macbook$ azure group create -n simpleUbuntu -l westus azuredeploy.json -e azuredeploy.parameters.json
 ```
 
 This will use the `azuredeploy.parameters.json` file that we edited to create a Resource Group with a single Ubuntu VM inside of it.
@@ -101,8 +103,8 @@ Templates can also be called from URLs, like this example that uses the same fil
 
 ```
 # Example Command
-woz@macbook$ azure group create -n <exampleRGname> -l <exampleAzureRegion> --template-uri <https://raw.githubusercontent.com/repo/template.json> -e  <https://raw.githubusercontent.com/repo/template.parameters.json>
+username@macbook$ azure group create -n <exampleRGname> -l <exampleAzureRegion> --template-uri <https://raw.githubusercontent.com/repo/template.json> -e  <https://raw.githubusercontent.com/repo/template.parameters.json>
 
 # Full Command
-woz@macbook$ azure group create -n simpleUbuntu -l westus --template-uri https://raw.githubusercontent.com/vlivech/SecureUbuntuVMTemplate/master/azuredeploy.json -e https://raw.githubusercontent.com/vlivech/SecureUbuntuVMTemplate/master/azuredeploy.parameters.json
+username@macbook$ azure group create -n simpleUbuntu -l westus --template-uri https://raw.githubusercontent.com/vlivech/SecureUbuntuVMTemplate/master/azuredeploy.json -e https://raw.githubusercontent.com/vlivech/SecureUbuntuVMTemplate/master/azuredeploy.parameters.json
 ```
