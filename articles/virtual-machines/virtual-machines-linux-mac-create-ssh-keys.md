@@ -217,4 +217,4 @@ When `username@macbook$ ssh fedora22` is executed SSH first locates and loads an
 
 ## Next Steps
 
-Now you can go on to use your key files to [create your secure Linux VM in Azure using a template]().
+Now you can go on to use your key files to [create your secure Linux VM in Azure using a template](virtual-machines-linux-create-ssh-secured-vm-from-template.md).
