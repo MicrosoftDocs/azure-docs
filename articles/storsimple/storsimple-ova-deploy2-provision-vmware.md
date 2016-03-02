@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
 
-# Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware (Preview)
+# Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 
 ## Overview 
-This provisioning tutorial applies to StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running v 1.1.1.0 (Public Preview) only. This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above.
+This provisioning tutorial applies to StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running March 2016 general availability (GA) release. This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above.
 
 You will need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
-> [AZURE.IMPORTANT]
-> 
-> This public preview is intended for evaluation only. Installing this preview in a production environment is not supported.
 
 ## Provisioning prerequisites
 
