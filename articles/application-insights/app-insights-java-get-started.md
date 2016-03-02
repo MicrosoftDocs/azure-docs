@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Application Insights in a Java web project | Microsoft Azure"
-	description="Monitor performance and usage of your Java website with Application Insights"
+	pageTitle="Java web app analytics with Application Insights | Microsoft Azure"
+	description="Monitor performance and usage of your Java website with Application Insights. "
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
