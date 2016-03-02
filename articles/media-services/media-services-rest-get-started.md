@@ -81,12 +81,9 @@ Two things are required when accessing Azure Media Services: an access token pro
 The following steps describe the most common workflow when using the Media Services REST API to connect to Media Services:
 
 1. Getting an access token. 
-2. Connecting to the Media Services URI. 
+2. Connecting to the Media Services URI.  
 
->[AZURE.NOTE] After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
-> 
-> You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.
-
+	Remember that after successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI. You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.
 3. Posting your subsequent API calls to the new URL. 
 	
 	For example, if after trying to connect, you got the following:
