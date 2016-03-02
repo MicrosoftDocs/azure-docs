@@ -61,17 +61,17 @@ We recommend that you also first review the tutorials, guides, and videos that c
 
 The fundamental requirements for deploying Windows Server Active Directory on Azure virtual machines differ very little from deploying it in on-premises virtual machines (and, to some extent, physical machines). For example, in the case of Windows Server AD DS, if the domain controllers (DCs) that you deploy on Azure virtual machines are replicas in an existing on-premises corporate domain/forest, then the Azure deployment can largely be treated in the same way as you might treat any other additional Windows Server Active Directory site. That is, subnets must be defined in Windows Server AD DS, a site created, the subnets linked to that site, and connected to other sites using appropriate site-links. There are, however, some differences that are common to all Azure deployments and some that vary according to the specific deployment scenario. Two fundamental differences are outlined below:
 
-1. **Azure virtual machines may need connectivity to the on-premises corporate network.**
+**Azure virtual machines may need connectivity to the on-premises corporate network.**
 
- Connecting Azure virtual machines back to an on-premises corporate network requires Azure virtual network, which includes a site-to-site or site-to-point virtual private network (VPN) component able to seamlessly connect Azure virtual machines and on-premises machines. This VPN component could also enable on-premises domain member computers to access a Windows Server Active Directory domain whose domain controllers are hosted exclusively on Azure virtual machines. It is important to note, though, that if the VPN fails, authentication and other operations that depend on Windows Server Active Directory will also fail. While users may be able to sign in using existing cached credentials, all peer-to-peer or client-to-server authentication attempts for which tickets have yet to be issued or have become stale will fail.
+Connecting Azure virtual machines back to an on-premises corporate network requires Azure virtual network, which includes a site-to-site or site-to-point virtual private network (VPN) component able to seamlessly connect Azure virtual machines and on-premises machines. This VPN component could also enable on-premises domain member computers to access a Windows Server Active Directory domain whose domain controllers are hosted exclusively on Azure virtual machines. It is important to note, though, that if the VPN fails, authentication and other operations that depend on Windows Server Active Directory will also fail. While users may be able to sign in using existing cached credentials, all peer-to-peer or client-to-server authentication attempts for which tickets have yet to be issued or have become stale will fail.
 
- See [Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) for a demonstration video and a list of step-by-step tutorials, including [Configure a Site-to-Site VPN in the Azure portal](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+See [Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) for a demonstration video and a list of step-by-step tutorials, including [Configure a Site-to-Site VPN in the Azure portal](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
- > [AZURE.NOTE] You can also deploy Windows Server Active Directory on an Azure virtual network that does not have connectivity with an on-premises network. The guidelines in this topic, however, assume that an Azure virtual network is used because it provides IP addressing capabilities that are essential to Windows Server.
+> [AZURE.Note] You can also deploy Windows Server Active Directory on an Azure virtual network that does not have connectivity with an on-premises network. The guidelines in this topic, however, assume that an Azure virtual network is used because it provides IP addressing capabilities that are essential to Windows Server.
 
-2. **Static IP addresses must be configured with Azure PowerShell.**
+**Static IP addresses must be configured with Azure PowerShell.**
 
- Dynamic addresses are allocated by default, but use the Set-AzureStaticVNetIP cmdlet to assign a static IP address instead. That sets a static IP address that will persist through service healing and VM shutdown/restart. For more information, see [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
+Dynamic addresses are allocated by default, but use the Set-AzureStaticVNetIP cmdlet to assign a static IP address instead. That sets a static IP address that will persist through service healing and VM shutdown/restart. For more information, see [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
 
 ## <a name="BKMK_Glossary"></a>Terms and definitions
 
@@ -111,7 +111,7 @@ For more information about how DCs are impacted, see [USN and USN Rollback](http
 
 Beginning with Windows Server 2012, [additional safeguards are built in to AD DS](https://technet.microsoft.com/library/hh831734.aspx). These safeguards help protect virtualized domain controllers against the aforementioned problems, as long as the underlying hypervisor platform supports VM-GenerationID. Azure supports VM-GenerationID, which means that domain controllers that run Windows Server 2012 or later on Azure virtual machines have the additional safeguards.
 
-> [Azure.NOTE] You should shut down and restart a VM that runs the domain controller role in Azure within the guest operating system instead of using the **Shut Down** option in the Azure classic portal. Today, using the classic portal to shut down a VM causes the VM to be deallocated. A deallocated VM has the advantage of not incurring charges, but it also resets the VM-GenerationID, which is undesirable for a DC. When the VM-GenerationID is reset, the invocationID of the AD DS database is also reset, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services (AD DS) Virtualization](https://technet.microsoft.com/library/hh831734.aspx) and [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
+> [AZURE.Note] You should shut down and restart a VM that runs the domain controller role in Azure within the guest operating system instead of using the **Shut Down** option in the Azure classic portal. Today, using the classic portal to shut down a VM causes the VM to be deallocated. A deallocated VM has the advantage of not incurring charges, but it also resets the VM-GenerationID, which is undesirable for a DC. When the VM-GenerationID is reset, the invocationID of the AD DS database is also reset, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services (AD DS) Virtualization](https://technet.microsoft.com/library/hh831734.aspx) and [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
 
 ## Why deploy Windows Server AD DS on Azure Virtual Machines?
 
@@ -121,7 +121,7 @@ Azure is also well-suited as a substitute to otherwise costly disaster recovery 
 
 Finally, you may want to deploy a network application on Azure, such as SharePoint, that requires Windows Server Active Directory but has no dependency on the on-premises network or the corporate Windows Server Active Directory. In this case, deploying an isolated forest on Azure to meet the SharePoint server’s requirements is optimal. Again, deploying network applications that do require connectivity to the on-premises network and the corporate Active Directory is also supported.
 
-> [Azure.NOTE] Since it provides a layer-3 connection, the VPN component that provides connectivity between an Azure virtual network and an on-premises network can also enable member servers that run on-premises to leverage DCs that run as Azure virtual machines on Azure virtual network. But if the VPN is unavailable, communication between on-premises computers and Azure-based domain controllers will not function, resulting in authentication and various other errors.  
+> [AZURE.Note] Since it provides a layer-3 connection, the VPN component that provides connectivity between an Azure virtual network and an on-premises network can also enable member servers that run on-premises to leverage DCs that run as Azure virtual machines on Azure virtual network. But if the VPN is unavailable, communication between on-premises computers and Azure-based domain controllers will not function, resulting in authentication and various other errors.  
 
 ## Contrasts between deploying Windows Server Active Directory domain controllers on Azure Virtual Machines versus on-premises
 
@@ -131,7 +131,7 @@ Finally, you may want to deploy a network application on Azure, such as SharePoi
 
 - Deploying VMs on a virtual network does not imply (or require) connectivity back to an on-premises network; the virtual network merely enables that possibility. You must create a virtual network for private communication between Azure and your on-premises network. You need to deploy a VPN endpoint on the on-premises network. The VPN is opened from Azure to the on-premises network. For more information, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) and [Configure a Site-to-Site VPN in the Azure Portal](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-> [Azure.NOTE] An option to [create a point-to-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) is available to connect individual Windows-based computers directly to an Azure virtual network.
+> [AZURE.Note] An option to [create a point-to-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) is available to connect individual Windows-based computers directly to an Azure virtual network.
 
 - Regardless of whether you create a virtual network or not, Azure charges for egress traffic but not ingress. Various Windows Server Active Directory design choices can affect how much egress traffic is generated by a deployment. For example, deploying a read-only domain controller (RODC) limits egress traffic because it does not replicate outbound. But the decision to deploy an RODC needs to be weighed against the need to perform write operations against the DC and the [compatibility](https://technet.microsoft.com/library/cc755190) that applications and services in the site have with RODCs. For more information about traffic charges, see [Azure pricing at-a-glance](http://azure.microsoft.com/pricing/).
 
@@ -143,25 +143,25 @@ Yes, you can deploy Windows Server AD FS on Azure virtual machines, and the [bes
 
 1. **Never expose security token service (STS) servers directly to the Internet.**
 
- This is important because the STS issues security tokens. As a result, STS servers such as AD FS servers should be treated with the same level of protection as a domain controller. If an STS is compromised, malicious users have the ability to issue access tokens potentially containing claims of their choosing to relying party applications and other STS servers in trusting organizations.
+    This is important because the STS issues security tokens. As a result, STS servers such as AD FS servers should be treated with the same level of protection as a domain controller. If an STS is compromised, malicious users have the ability to issue access tokens potentially containing claims of their choosing to relying party applications and other STS servers in trusting organizations.
 
 2. **Deploy Active Directory domain controllers for all user domains in the same network as the AD FS servers.**
 
- AD FS servers use Active Directory Domain Services to authenticate users. It is recommended to deploy domain controllers on the same network as the AD FS servers. This provides business continuity in case the link between the Azure network and your on-premises network is broken, and enables lower latency and increased performance for logins.
+    AD FS servers use Active Directory Domain Services to authenticate users. It is recommended to deploy domain controllers on the same network as the AD FS servers. This provides business continuity in case the link between the Azure network and your on-premises network is broken, and enables lower latency and increased performance for logins.
 
 3. **Deploy multiple AD FS nodes for high availability and balancing the load.**
 
- In most cases, the failure of an application that AD FS enables is unacceptable because the applications that require security tokens are often mission critical. As a result, and because AD FS now resides in the critical path to accessing mission critical applications, the AD FS service must be highly available through multiple AD FS proxies and AD FS servers. To achieve distribution of requests, load balancers are typically deployed in front of both the AD FS Proxies and the AD FS servers.
+    In most cases, the failure of an application that AD FS enables is unacceptable because the applications that require security tokens are often mission critical. As a result, and because AD FS now resides in the critical path to accessing mission critical applications, the AD FS service must be highly available through multiple AD FS proxies and AD FS servers. To achieve distribution of requests, load balancers are typically deployed in front of both the AD FS Proxies and the AD FS servers.
 
 4. **Deploy one or more Web Application Proxy nodes for internet access.**
 
- When users need to access applications protected by the AD FS service, the AD FS service needs to be available from the internet. This is achieved by deploying the Web Application Proxy service. It is strongly recommended to deploy more than one node for the purposes of high availability and load balancing.
+    When users need to access applications protected by the AD FS service, the AD FS service needs to be available from the internet. This is achieved by deploying the Web Application Proxy service. It is strongly recommended to deploy more than one node for the purposes of high availability and load balancing.
 
 5. **Restrict access from the Web Application Proxy nodes to internal network resources.**
 
- To allow external users to access AD FS from the internet, you need to deploy Web Application Proxy nodes (or AD FS Proxy in earlier versions of Windows Server). The Web Application proxy nodes are directly exposed to the Internet. They are not required to be domain-joined and they only need access to the AD FS servers over TCP ports 443 and 80. It is strongly recommended that communication to all other computers (especially domain controllers) is blocked.
+    To allow external users to access AD FS from the internet, you need to deploy Web Application Proxy nodes (or AD FS Proxy in earlier versions of Windows Server). The Web Application proxy nodes are directly exposed to the Internet. They are not required to be domain-joined and they only need access to the AD FS servers over TCP ports 443 and 80. It is strongly recommended that communication to all other computers (especially domain controllers) is blocked.
 
- This is typically achieved on-premises by means of a DMZ. Firewalls use a whitelist mode of operation to restrict traffic from the DMZ to the on-premises network (that is, only traffic from the specified IP addresses and over specified ports is allowed, and all other traffic is blocked).
+    This is typically achieved on-premises by means of a DMZ. Firewalls use a whitelist mode of operation to restrict traffic from the DMZ to the on-premises network (that is, only traffic from the specified IP addresses and over specified ports is allowed, and all other traffic is blocked).
 
 The following diagram shows a traditional on-premises AD FS deployment.
 
@@ -184,16 +184,19 @@ The high-level steps to deploy AD FS in this case are as follows:
 
 4. Create an [internal load balanced set](http://azure.microsoft.com/blog/internal-load-balancing/) that includes the AD FS servers and uses a new private IP address within the virtual network (a dynamic IP address).
 
- a. Update DNS to create the FQDN to point to the private (dynamic) IP address of the internal load balanced set.
+  a. Update DNS to create the FQDN to point to the private (dynamic) IP address of the internal load balanced set.
 
 5. Create a cloud service (or a separate virtual network) for the Web Application Proxy nodes.
 
 6. Deploy the Web Application Proxy nodes in the cloud service or virtual network
 
- a. Create an external load balanced set that includes the Web Application Proxy nodes.
- b. Update the external DNS name (FQDN) to point to the cloud service public IP address (the virtual IP address).
- c. Configure AD FS proxies to use the FQDN that corresponds to the internal load balanced set for the AD FS servers.
- d. Update claims-based web sites to use the external FQDN for their claims provider.
+  a. Create an external load balanced set that includes the Web Application Proxy nodes.
+
+  b. Update the external DNS name (FQDN) to point to the cloud service public IP address (the virtual IP address).
+
+  c. Configure AD FS proxies to use the FQDN that corresponds to the internal load balanced set for the AD FS servers.
+
+  d. Update claims-based web sites to use the external FQDN for their claims provider.
 
 7. Restrict access between Web Application Proxy to any machine in the AD FS virtual network.
 
@@ -206,7 +209,7 @@ Traffic to the AD FS servers would be permitted only by the following sources:
 - The Azure internal load balancer.
 - The IP address of an administrator on the on-premises network.
 
-> [Azure.WARNING] The design must prevent Web Application Proxy nodes from reaching any other VMs in the Azure virtual network or any locations on the on-premises network. That can be done by configuring firewall rules in the on-premises appliance for Express Route connections or the VPN device for site-to-site VPN connections.
+> [AZURE.WARNING] The design must prevent Web Application Proxy nodes from reaching any other VMs in the Azure virtual network or any locations on the on-premises network. That can be done by configuring firewall rules in the on-premises appliance for Express Route connections or the VPN device for site-to-site VPN connections.
 
 A disadvantage to this option is the need to configure the network ACLs for multiple devices, including internal load balancer, the AD FS servers, and any other servers that get added to the virtual network. If any device is added to the deployment without configuring network ACLs to restrict traffic to it, the entire deployment can be at risk. If the IP addresses of the Web Application Proxy nodes ever change, the network ACLs must be reset (which means the proxies should be configured to use [static dynamic IP addresses](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)).
 
@@ -250,7 +253,7 @@ In the Office 365 with DirSync with password sync scenario (no AD FS), single si
 
 - If you decide to use Azure’s native server load balancing capabilities for high availability of AD FS servers, note that load balancing provides probes that are used to determine the health of the virtual machines within the cloud service. In the case of Azure virtual machines (as opposed to web or worker roles), a custom probe must be used since the agent that responds to the default probes is not present on Azure virtual machines. For simplicity, you might use a custom TCP probe — this requires only that a TCP connection (a TCP SYN segment sent and responded to with a TCP SYN ACK segment) be successfully established to determine virtual machine health. You can configure the custom probe to use any TCP port to which your virtual machines are actively listening.
 
->[Azure.NOTE] Machines that need to expose the same set of ports directly to the Internet (such as port 80 and 443) cannot share the same cloud service. It is, therefore, recommended that you create a dedicated cloud service for your Windows Server AD FS servers in order to avoid potential overlaps between port requirements for an application and Windows Server AD FS.
+>[AZURE.NoteOTE] Machines that need to expose the same set of ports directly to the Internet (such as port 80 and 443) cannot share the same cloud service. It is, therefore, recommended that you create a dedicated cloud service for your Windows Server AD FS servers in order to avoid potential overlaps between port requirements for an application and Windows Server AD FS.
 
 ## Deployment scenarios
 
@@ -258,15 +261,15 @@ The following section outlines commonplace deployment scenarios to draw attentio
 
 1. [AD DS: Deploy an AD DS-aware application with no requirement for corporate network connectivity](#BKMK_CloudOnly)
 
- For example, an Internet-facing SharePoint service is deployed on an Azure virtual machine. The application has no dependencies on corporate-network resources. The application does require Windows Server AD DS but does NOT require the corporate Windows Server AD DS.
+  For example, an Internet-facing SharePoint service is deployed on an Azure virtual machine. The application has no dependencies on corporate-network resources. The application does require Windows Server AD DS but does NOT require the corporate Windows Server AD DS.
 
 2. [AD FS: Extend a claims-aware on-premises front-end application to the Internet](#BKMK_CloudOnlyFed)
 
- For example, a claims-aware application that has been successfully deployed on-premises and used by corporate users needs to become accessible from the Internet. The application needs to be accessed directly over the Internet both by business partners using their own corporate identities and by existing corporate users.
+  For example, a claims-aware application that has been successfully deployed on-premises and used by corporate users needs to become accessible from the Internet. The application needs to be accessed directly over the Internet both by business partners using their own corporate identities and by existing corporate users.
 
 3. [AD DS: Deploy a Windows Server AD DS-aware application that requires connectivity to the corporate network](#BKMK_HybridExt)
 
- For example, an LDAP-aware application that supports Windows-integrated authentication and uses Windows Server AD DS as a repository for configuration and user-profile data is deployed on an Azure virtual machine. It is desirable for the application to leverage the existing corporate Windows Server AD DS and provide single sign-on. The application is not claims-aware.
+  For example, an LDAP-aware application that supports Windows-integrated authentication and uses Windows Server AD DS as a repository for configuration and user-profile data is deployed on an Azure virtual machine. It is desirable for the application to leverage the existing corporate Windows Server AD DS and provide single sign-on. The application is not claims-aware.
 
 ### <a name="BKMK_CloudOnly"></a>1. AD DS: Deploy an AD DS-aware application with no requirement for corporate network connectivity
 
@@ -312,7 +315,7 @@ In an effort to simplify and meet the deployment and configuration needs of this
 
 - [Network topology](#BKMK_NetworkTopology): Create an Azure virtual network and [configure cross-premises connectivity](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
- > [Azure.NOTE] For each of the Windows Server AD FS certificates, ensure that the URL defined within the certificate template and the resulting certificates can be reached by the Windows Server AD FS instances running on Azure. This may require cross-premises connectivity to parts of your PKI infrastructure. For example if the CRL's endpoint is LDAP-based and hosted exclusively on-premises, then cross-premises connectivity will be required. If this is not desirable, it may be necessary to use certificates issued by a CA whose CRL is accessible over the Internet.
+ > [AZURE.Note] For each of the Windows Server AD FS certificates, ensure that the URL defined within the certificate template and the resulting certificates can be reached by the Windows Server AD FS instances running on Azure. This may require cross-premises connectivity to parts of your PKI infrastructure. For example if the CRL's endpoint is LDAP-based and hosted exclusively on-premises, then cross-premises connectivity will be required. If this is not desirable, it may be necessary to use certificates issued by a CA whose CRL is accessible over the Internet.
 
 - [Cloud services configuration](#BKMK_CloudSvcConfig): Ensure you have two cloud services in order provide two load-balanced virtual IP addresses. The first cloud service’s virtual IP address will be directed to the two Windows Server AD FS proxy VMs on ports 80 and 443. The Windows Server AD FS proxy VMs will be configured to point to the IP address of the on-premises load-balancer that fronts the Windows Server AD FS STSs. The second cloud service’s virtual IP address will be directed to the two VMs running the web frontend again on ports 80 and 443. Configure a custom probe to ensure the load-balancer only directs traffic to functioning Windows Server AD FS proxy and web frontend VMs.
 
@@ -437,7 +440,7 @@ However, the dynamic address is deallocated if the VM is shutdown. To prevent th
 For name resolution, deploy your own (or leverage your existing) DNS server infrastructure; Azure-provided DNS does not meet the advanced name resolution needs of Windows Server AD DS. For example, it does not support dynamic SRV records, and so on. Name resolution is a critical configuration item for DCs and domain-joined clients. DCs must be capable of registering resource records and resolving other DC’s resource records.
 For fault tolerance and performance reasons, it is optimal to install the Windows Server DNS service on the DCs running on Azure. Then configure the Azure virtual network properties with the name and IP address of the DNS server. When other VMs on the virtual network start, their DNS client resolver settings will be configured with DNS server as part of the dynamic IP address allocation.
 
-> [Azure.NOTE] You cannot join on-premises computers to a Windows Server AD DS Active Directory domain that is hosted on Azure directly over the Internet. The port requirements for Active Directory and the domain-join operation render it impractical to directly expose the necessary ports and in effect, an entire DC to the Internet.
+> [AZURE.Note] You cannot join on-premises computers to a Windows Server AD DS Active Directory domain that is hosted on Azure directly over the Internet. The port requirements for Active Directory and the domain-join operation render it impractical to directly expose the necessary ports and in effect, an entire DC to the Internet.
 
 VMs register their DNS name automatically on startup or when there is a name change.
 
@@ -487,7 +490,7 @@ Do not use SYSPREP to deploy or clone DCs. The ability to clone DCs is only avai
 
 Select where to locate the Windows Server AD DS database, logs, and SYSVOL. They must be deployed on Azure Data disks.
 
-> [Azure.NOTE] Azure Data disks are constrained to 1 TB.
+> [AZURE.Note] Azure Data disks are constrained to 1 TB.
 
 Data disk drives do not cache writes by default. Data disk drives that are attached to a VM use write-through caching. Write-through caching makes sure the write is committed to durable Azure storage before the transaction is complete from the perspective of the VM’s operating system. It provides durability, at the expense of slightly slower writes.
 
