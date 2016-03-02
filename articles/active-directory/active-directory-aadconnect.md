@@ -132,7 +132,7 @@ The configuration model in sync is called [declarative provisioning](active-dire
 | Topic |  |
 | --------- | --------- |
 | Version history | [Version history](active-directory-aadconnect-version-history.md) |
-| Compare DirSync, Azure ADSync, and Azure AD Connect | [Directory integration tools comparison](active-directory-aadconnect-get-started-tools-comparison.md) |
+| Compare DirSync, Azure ADSync, and Azure AD Connect | [Directory integration tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md) |
 | Attributes synchronized | [Attributes synchronized](active-directory-aadconnectsync-attributes-synchronized.md) |
 | Monitoring using Azure AD Connect Health | [Azure AD Connect Health](active-directory-aadconnect-health.md) |
 | Frequently Asked Questions | [Azure AD Connect FAQ](active-directory-aadconnect-faq.md) |

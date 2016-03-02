@@ -49,6 +49,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [CDN](#cdn-limits)
 - [Cloud Services](#cloud-services-limits)
 - [Data Factory](#data-factory-limits)
+- [Data Lake Analytics](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [IoT Hub](#iot-hub-limits)
@@ -183,6 +184,7 @@ The following table shows the limits for Azure Biztalk Services.
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
 
 - **Free** multi-tenant service, shared with other Azure subscribers, intended for evaluation and small development projects.
+- **Basic (Preview)** provides dedicated computing resources for production workloads at a smaller scale. This tier is currently in Preview and offered at a reduced rate.
 - **Standard (S1 and S2)** is for production workloads. A larger capacity version (**S2**) is available upon request (send email to azuresearch_contact@microsoft.com).
 
 [AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
@@ -218,6 +220,8 @@ To learn more about other limits, such as document size, keys, requests, and res
 
 [AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
+### Data Lake Analytics Limits
+[AZURE.INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
 
 ### Stream Analytics limits
 
