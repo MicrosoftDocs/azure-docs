@@ -67,9 +67,9 @@ This section gives suggestions on how to troubleshoot problems related to on-pre
 	
 ###Problem: Would like to see encoder logs 
 
-- **Potential issue**: Would like see logs that might help to debug issues.
+- **Potential issue**: Can't find logs that might help in debugging issues.
 
-	**Troubleshooting steps**: You can commonly find Wirecast logs under C:\Users\{username}\AppData\Roaming\Wirecast\ 
+	**Troubleshooting steps**: You can usually find Wirecast logs under C:\Users{username}\AppData\Roaming\Wirecast\ 
 
 >[AZURE.NOTE] If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure Classic Portal.
 
