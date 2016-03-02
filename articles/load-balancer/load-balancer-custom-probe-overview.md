@@ -26,12 +26,12 @@ TCP or HTTP custom probes must be configured when you use virtual machines behin
 
 ## Understand probe count and timeout
 
-Probe behavior depends on the number of successful/failed probes that are required to mark an instance up/down. This is calculated by SuccessFailCount=timeout/frequency. For the Azure portal, the timeout is set to two times the value of frequency (timeout= frequency*2).
+Probe behavior depends on the number of successful/failed probes that are required to mark an instance up/down. This is determined by SuccessFailCount=timeout/frequency. For the Azure portal, the timeout is set to two times the value of frequency (timeout= frequency*2).
 
 The probe configuration of all load-balanced instances for an endpoint (that is, a load-balanced set) must be the same. This means you cannot have a different probe configuration for each role instance or virtual machine in the same hosted service for a particular endpoint combination. For example, each instance must have identical local ports and timeouts.
 
 
->[AZURE.IMPORTANT] A Load Balancer probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own IP virtual network scenario. The virtual public IP address 168.63.129.16 is used in all regions and will not change. We recommend that you allow this IP address in any local firewall policies. It should not be considered a security risk as only the internal Azure platform can source a message from that address. Not allowing it in your local firewall policies will result in unexpected behavior in a variety of scenarios, such as configuring the same IP address range of 168.63.129.16, and having duplicated IP addresses.  
+>[AZURE.IMPORTANT] A Load Balancer probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own IP virtual network scenario. The virtual public IP address 168.63.129.16 is used in all regions and will not change. We recommend that you allow this IP address in any local firewall policies. It should not be considered a security risk as only the internal Azure platform can source a message from that address. If you don’t allow it in your local firewall policies, you could experience some unexpected behaviors--such as seeing IP addresses configured in the same address range of 168.63.129.16, and seeing duplicated IP addresses.  
 
 
 ## Learn about the types of probes
@@ -42,7 +42,7 @@ This probe is available for cloud services only. Load Balancer utilizes the gues
 
 For more information, see [Configuring the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/jj151530.asp) or [Get started creating an Internet-facing load balancer for cloud services](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
 
-#### What makes a guest agent probe mark an instance as unhealthy?
+### What makes a guest agent probe mark an instance as unhealthy?
 
 If the guest agent fails to respond with HTTP 200 OK, the Load Balancer marks the instance as unresponsive, and stops sending traffic to that instance. Load Balancer continues to ping the instance, and if the guest agent responds with an HTTP 200, Load Balancer sends traffic to that instance again.
 
@@ -53,12 +53,12 @@ When you use a web role, the web site code typically runs in w3wp.exe, which is 
 
 The custom HTTP Load Balancer probe overrides the default guest agent probe, which means that you can create your own custom logic to determine the health of the role instance. Load Balancer probes your endpoint (every 15 seconds, by default) and the instance is considered to be in the Load Balancer rotation if it responds with an HTTP 200 within the timeout period (31 seconds by default).
 
-This can be useful for implementing your own logic to remove instances from the Load Balancer rotation, for example, returning a non-200 status if the instance is above 90% CPU. If you have web roles that use w3wp.exe, this also means you get automatic monitoring of your website, since failures in your website code will return a non-200 status to the Load Balancer probe.
+This can be useful if you want to implement your own logic to remove instances from Load Balancer rotation. For example, you could decide to remove an instance if it is above 90% CPU and returns a non-200 status. If you have web roles that use w3wp.exe, this also means you get automatic monitoring of your website, since failures in your website code will return a non-200 status to the Load Balancer probe.
 
 >[AZURE.NOTE] The HTTP custom probe supports relative paths and HTTP protocol only. HTTPS is not supported.
 
 
-#### What makes an HTTP custom probe mark an instance as unhealthy?
+### What makes an HTTP custom probe mark an instance as unhealthy?
 
 - The HTTP application returns an HTTP response code other than 200 (for example, 403, 404, or 500). This is a positive acknowledgment that the application instance should be taken out of service right away.
 
@@ -69,10 +69,10 @@ This can be useful for implementing your own logic to remove instances from the 
 
 TCP probes initiate a connection by performing a three-way handshake with the defined port.
 
-#### What makes a TCP custom probe mark an instance as unhealthy?
+### What makes a TCP custom probe mark an instance as unhealthy?
 
 - The TCP server does not respond at all after the timeout period. When the probe is marked as down depends on the number of failed probe requests that were configured to go unanswered before marking the probe as down.
-- 	It receives a TCP reset from the role instance.
+- 	The probe receives a TCP reset from the role instance.
 
 For more information about configuring an HTTP health probe or a TCP probe, see [Get started creating an Internet-facing load balancer in Resource Manager using PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
 
