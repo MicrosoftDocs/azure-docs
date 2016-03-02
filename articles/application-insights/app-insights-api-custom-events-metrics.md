@@ -196,7 +196,9 @@ If you have several tabs within different HTML pages, you can specify the URL to
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
+#### Timing page views
 
+The timing of page views 
 
 ## Track Request
 

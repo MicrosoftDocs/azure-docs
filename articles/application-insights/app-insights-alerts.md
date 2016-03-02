@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Set Alerts in Application Insights
@@ -38,11 +38,13 @@ To get an email when a metric crosses a threshold, start either from Metrics Exp
 
 ![In the Alert rules blade, choose Add Alert. Set the your app as the resource to measure, provide a name for the alert, and choose a metric.](./media/app-insights-alerts/01-set-metric.png)
 
-Set the resource before the other properties. **Choose the "(components)" resource** if you want to set alerts on performance or usage metrics.
-
-Be careful to note the units in which you're asked to enter the threshold value.
-
-The name that you give to the alert must be unique within the resource group (not just your application).
+* Set the resource before the other properties. **Choose the "(components)" resource** if you want to set alerts on performance or usage metrics.
+* Be careful to note the units in which you're asked to enter the threshold value.
+* The name that you give to the alert must be unique within the resource group (not just your application).
+* If you check the box "Email owners...", alerts will be sent by email to everyone who has access to this resource.
+* If you specify "Additional emails", alerts will be sent to those individuals or groups (whether or not you checked the "email owners" box). 
+* Set a [webhook address](../azure-portal/insights-webhooks-alerts.md) if you have set up a web app that will respond to alerts. It will be called both when the alert is Activated (that is, triggered) and when it is Resolved.
+* You can Disable or Enable the alert: see the buttons at the top of the blade.
 
 *I don't see the Add Alert button.* - Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at Settings -> Users. [Learn about access control][roles].
 
@@ -55,6 +57,10 @@ The current state of each alert is shown in the Alert rules blade.
 There's a summary of recent activity in the alerts drop-down:
 
 ![](./media/app-insights-alerts/010-alert-drop.png)
+
+* "Activated" means the alert has triggered. That is, the alert condition was previously false, and now it's true. "Resolved" means that the condition as previously true and now it's false.
+* If the alert condition was already true when you created the alert, the alert might not initially go into the activated state. You won't get a notification until after the condition has been false.
+* You get a notification both when the alert is Activated and when it's Resolved.
 
 The history of state changes is in the Operations Events log:
 
