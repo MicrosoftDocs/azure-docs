@@ -467,7 +467,8 @@ In addition to the generally available features of the Free, Basic, and Premium 
 - [Administrative Units](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [HR application Integration](active-directory-saas-workday-inbound-tutorial.md)
-- [Enterprise State Roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
 
