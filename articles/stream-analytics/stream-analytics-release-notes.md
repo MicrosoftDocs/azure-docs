@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Stream Analytics Release Notes | Microsoft Azure" 
-	description="Stream Analytics GA Release Notes" 
+	description="Stream Analytics Release Notes" 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,10 +13,19 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="03/03/2016" 
 	ms.author="jeffstok"/>
 
 #Stream Analytics release notes
+
+## Notes for 03/03/2016 release of Stream Analytics ##
+
+This release contains the following update.
+
+Title | Description
+---|---
+Azure Data Lake Store integration | New in this release is the ability to use Azure Data Lake Stores as outputs in Stream Analytics jobs. See the article [Data Lake Store Output](stream-analytics-datalake-output.md "Stream Analytics Data Lake Store output article") for more information.
+New Stream Analytics Query Language items  | SAQL now has [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "GetType MSDN Page"), [TRY_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "TRY_CAST MSDN Page") and [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "REGEXMATCH MSDN Page").
 
 ## Notes for 12/10/2015 release of Stream Analytics ##
 
