@@ -21,7 +21,7 @@
 
 As a developer, you can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment. Key Vault supports multiple key types and algorithms and can be used with hardware security modules (HSM) for high-value keys. In addition, you can use Key Vault to securely store secrets which are limited size octet objects with no specific semantics. Access control for the types of objects is independently managed.
 
-You can, subject to successful authorization, can do the following:
+You can, subject to successful authorization, do the following:
 
 - Manage cryptographic keys using [Create](https://msdn.microsoft.com/library/azure/dn903634.aspx), [Import](https://msdn.microsoft.com/library/azure/dn903626.aspx), [Update](https://msdn.microsoft.com/library/azure/dn903616.aspx), [Delete](https://msdn.microsoft.com/library/azure/dn903611.aspx) and other operations
 
@@ -65,7 +65,7 @@ These scenarios make use of ARM templates as a method for driving automation in 
 - In this scenario, a Key Vault secret is passed in as a parameter.
 [How to create a key vault and add a secret via an ARM template](resource-manager-template-keyvault.md)
 
-#### How to use secrets in a Key Vault when deploying resources via an ARM template]
+#### How to use secrets in a Key Vault when deploying resources via an ARM template
 
 - ARM passes a secret, as a parameter, from Key Vault to a resource you are creating. You must set the EnabledForTemplateDeployment permission on the key vault for this case. For more information on setting this permission see [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx).
 - ARM reads the secret, an admin password, and passes it to a VM you are creating. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
