@@ -203,7 +203,8 @@ The backup extension is installed if the VM is running. A running VM also provid
 If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
 
 ## Next steps
-Now that you have prepared your environment for backing up your VM, your next logical step is to create a backup.  
+Now that you have prepared your environment for backing up your VM, your next logical step is to create a backup. The planning article provides more detailed information about backing up VMs.
+
 - [Back up virtual machines](backup-azure-vms.md)
 - [Plan your VM backup infrastructure](backup-azure-vms-introduction.md)
 - [Manage virtual machine backups](backup-azure-manage-vms.md)
