@@ -140,7 +140,7 @@ Then when you try to run other cmdlets like `azure group create`, you will get a
 
 To learn more about managing role-based access control with Azure CLI and related topics:
 
-- [Role based access control in Azure](../role-based-access-control-configure.md)
+- [Role based access control in Azure](role-based-access-control-configure.md)
 - [Install and Configure the Azure CLI](../xplat-cli-install.md)
 - [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md)
 - [Using Resource groups to manage your Azure resources](../azure-preview-portal-using-resource-groups.md): Learn how to create and manage resource groups in the Azure Management Portal.
