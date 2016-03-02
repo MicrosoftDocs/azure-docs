@@ -161,7 +161,7 @@ Vulnerabilities are weaknesses in your environment that can be exploited by an a
 
 #### Multi-factor authentication registration not configured 
 
-This vulnerability helps you control the deployment of Azure multi-factor authentication in your organization. 
+This vulnerability helps you control the deployment of Azure Multi-Factor Authentication in your organization. 
 
 Azure multi-factor authentication provides a second layer of security to user authentication. It helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of easy verification options—phone call, text message, or mobile app notification or verification code and 3rd party OATH tokens.
 
