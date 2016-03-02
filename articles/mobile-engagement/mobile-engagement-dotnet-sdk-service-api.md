@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="c#" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="03/01/2016" 
 	ms.author="piyushjo" />
@@ -118,7 +118,6 @@ If you are installing the Nuget from Visual Studio, you need to ensure that you 
 10. Run the console app and you will see the following on successful creation of the campaign:
 
 	**Campaign Id '159' was created successfully and it is in 'draft' state**
-
 
 <!-- Images. -->
 
