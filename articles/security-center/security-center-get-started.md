@@ -46,6 +46,7 @@ In the portal, follow these steps to access Security Center:
 ## Use Security Center
 
 You can configure security policies for your Azure subscriptions and resource groups. Let's configure a security **policy** for your subscription:
+
 1. Select the **Security policy** tile on the **Security Center** blade.
 ![Security Center][3]
 
