@@ -153,7 +153,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 
 2. When editing the file on your local computer, republish the server project.
 
-##<a id="update-service"></a>Add push notifications to your app
+##<a id="update-app"></a>Add push notifications to your app
 
 1. Open the shared **App.xaml.cs** project file and add the following `using` statements:
 
