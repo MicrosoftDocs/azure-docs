@@ -23,6 +23,7 @@ Azure Active Directory Identity Protection is a security product that provides a
 
 > [AZURE.NOTE] The preview of Identity Protection is currently only available for Azure AD tenants that are provisioned in the United States.
  
+
 The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Attackers have become increasingly effective at leveraging third party breaches, and using sophisticated phishing attacks. Once an attacker gains access to even a low privileged user account, it is relatively straightforward for them to gain access to important company resources through lateral movement. It is therefore essential to protect all identities and, when an identity is compromised, proactively prevent the compromised identity from being abused. 
 
 Discovering compromised identities is no easy task. Fortunately, Identity Protection can help: Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised.
@@ -554,7 +555,7 @@ Administrators can also choose to set a Sign-In Risk policy to block users upon 
  
 #### Multi-factor authentication registration
 
-The best user experience for both, the compromised account recovery flow and the risky sign-in flow, the best user experience is when the user can self-recover. If a user is registered for multi-factor authentication, they already have a phone number associated with their account that can be used to pass security challenges. No help desk or administrator involvement is needed to recover from account compromise. Thus, it’s highly recommended to get your users registered for multi-factor authentication. 
+The best user experience for both, the compromised account recovery flow and the risky sign-in flow, is when the user can self-recover. If a user is registered for multi-factor authentication, they already have a phone number associated with their account that can be used to pass security challenges. No help desk or administrator involvement is needed to recover from account compromise. Thus, it’s highly recommended to get your users registered for multi-factor authentication. 
 
 Administrators can:
 
