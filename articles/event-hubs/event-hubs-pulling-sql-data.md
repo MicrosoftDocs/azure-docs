@@ -34,7 +34,7 @@ sample that you can modify and deploy that will pull the data from a SQL table a
 to an Azure Event Hub to use as an input in your downstream analytical applications. Do realize that this is a 
 rare scenario, and the opposite of what you normally do with an Event Hub. However, if you 
 do find yourself in the situation where this is what you need to do, you can find the code in the Azure
-Samples gallery, [here](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql).  
+Samples gallery, [here](https://azure.microsoft.com/en-us/documentation/samples/event-hubs-dotnet-import-from-sql/).  
 
 Note that the code in this sample is just that, a sample. It is **not** intended to be a production application, and no attempts have been made to make it suitable for use
 in such an environment - it is stricly a DIY, developer-focused, example. 
