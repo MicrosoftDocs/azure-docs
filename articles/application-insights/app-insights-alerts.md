@@ -58,10 +58,6 @@ There's a summary of recent activity in the alerts drop-down:
 
 ![](./media/app-insights-alerts/010-alert-drop.png)
 
-* "Activated" means the alert has triggered. That is, the alert condition was previously false, and now it's true. "Resolved" means that the condition as previously true and now it's false.
-* If the alert condition was already true when you created the alert, the alert might not initially go into the activated state. You won't get a notification until after the condition has been false.
-* You get a notification both when the alert is Activated and when it's Resolved.
-
 The history of state changes is in the Operations Events log:
 
 ![On the Overview blade, near the bottom, click 'Events in the past week'](./media/app-insights-alerts/09-alerts.png)
@@ -73,9 +69,11 @@ The history of state changes is in the Operations Events log:
 
 ## How alerts work
 
-* An alert has two states: "alert" and "healthy". 
+* An alert has three states: "Never activated", "Activated", and "Resolved". Activated means the condition you specified was true, when it was last evaluated.
 
-* An email is sent when an alert changes state.
+* A notification is generated when an alert changes state. (If the alert condition was already true when you created the alert, you might not get a notification until the condition goes false.)
+
+* Each notification generates an email if you checked the emails box, or provided email addresses. You can also look at the Notifications drop-down list.
 
 * An alert is evaluated each time a metric arrives, but not otherwise.
 
