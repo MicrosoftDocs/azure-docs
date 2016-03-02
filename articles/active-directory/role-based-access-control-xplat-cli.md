@@ -143,7 +143,7 @@ To learn more about managing role-based access control with Azure CLI and relate
 - [Role based access control in Azure](role-based-access-control-configure.md)
 - [Install and Configure the Azure CLI](../xplat-cli-install.md)
 - [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md)
-- [Using the Azure Portal to manage your Azure resources](./resource-group-portal.md): Learn how to create and manage resource groups in the Azure portal.
+- [Using the Azure Portal to manage your Azure resources](../azure-portal/resource-group-portal.md): Learn how to create and manage resource groups in the Azure portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Configure role based access control using Windows PowerShell](role-based-access-control-powershell.md)
 - [Troubleshooting role based access control](role-based-access-control-troubleshooting.md)
