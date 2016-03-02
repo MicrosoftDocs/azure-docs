@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
 # Protect sensitive data in SQL Database with database encryption and store your encryption keys in the Windows certificate store
@@ -548,4 +548,4 @@ After creating a database that uses Always Encrypted you may want to do the foll
 - [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 - [SQL Server Encryption](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Always Encrypted Blog](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
+- [Always Encrypted Blog](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
