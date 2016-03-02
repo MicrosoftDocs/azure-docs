@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Protect sensitive data in SQL Database with database encryption | Microsoft Azure"
 	description="Protect sensitive data in your SQL database in minutes."
-	keywords="sql database, sql encryption, database encryption, encryption key, sensitive data, Always Encrypted"	
+	keywords="data encryption, encryption keys"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -27,7 +27,7 @@
 
 This article shows you how to secure sensitive data in a SQL database with database encryption using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) and store your encryption keys in the Azure Key Vault.
 
-Always Encrypted is a new encryption technology in Azure SQL Database and SQL Server that protects sensitive data at rest on the server, during movement between client and server, as well as while the data is in-use, ensuring that sensitive data never appears as plaintext inside the database system. Only client applications or app servers, that have access to the keys, can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
+Always Encrypted is a new data encryption technology in Azure SQL Database and SQL Server that protects sensitive data at rest on the server, during movement between client and server, as well as while the data is in-use, ensuring that sensitive data never appears as plaintext inside the database system. After configuring data encryption, only client applications or app servers, that have access to the keys, can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 
 After configuring the database to use Always Encrypted we will create a client application in C# with Visual Studio to work with the encrypted data. 
