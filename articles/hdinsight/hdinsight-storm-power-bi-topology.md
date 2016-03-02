@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="01/08/2016"
+ ms.date="03/01/2016"
  ms.author="larryfr"/>
 
 # Use Power BI to visualize data from an Apache Storm topology
@@ -63,7 +63,7 @@ The following files in this project implement the Power BI specific functionalit
 
 ## Download the example
 
-Download the [HDInsight C# Storm Power BI example](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). To download it, either fork/clone it using [git](http://git-scm.com/), or use the **Download** link to download a .zip of the archive.
+Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samples/hdinsight-dotnet-storm-powerbi). To download it, either fork/clone it using [git](http://git-scm.com/), or use the **Download** link to download a .zip of the archive.
 
 ## Configure the sample
 

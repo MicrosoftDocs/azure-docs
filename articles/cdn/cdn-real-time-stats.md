@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="CDN - Real-Time-Stats" 
-	description="Real-time stats in Microsoft Azure CDN. Real-Time Statistics provides real-time data about the performance of our CDN when delivering content to your clients." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - Real-Time-Stats"
+	description="Real-time stats in Microsoft Azure CDN. Real-Time Statistics provides real-time data about the performance of our CDN when delivering content to your clients."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 # Real-time stats in Microsoft Azure CDN
 
 ## Overview
 
-This document explains real-time stats in Microsoft Azure CDN. This functionality provides real-time data about the performance of our CDN when delivering content to your clients. 
+This document explains real-time stats in Microsoft Azure CDN. This functionality provides real-time data about the performance of our CDN when delivering content to your clients.
 
 > [AZURE.NOTE] Real-time stats is a feature of the Premium CDN tier.  For a comparison of Standard and Premium CDN features, see [Azure CDN Overview](cdn-overview.md).
 
@@ -32,17 +32,17 @@ The following graphs are available when viewing real-time statistics for the HTT
 * [Connections](#connections)
 
 > [AZURE.NOTE] Each of the above graphs displays real-time statistics for a given period of time. A sliding window of data is displayed once the specified time has passed. This means that old data will be removed from the graph to make room for new data. The length of time for this sliding window can be set by the Time span of graphs option.
- 
+
 ## Accessing real-time stats
 
 1. From the CDN profile blade, click the **Manage** button.
 
 	![CDN profile blade manage button](./media/cdn-real-time-stats/cdn-manage-btn.png)
-	
+
 	The CDN management portal opens.
-	
+
 2. Hover over the **Analytics** tab, then hover over the **Real-Time Stats** flyout.  Click on **HTTP Large Platform**.
-	
+
 	Report options are displayed.
 
 ## Bandwidth

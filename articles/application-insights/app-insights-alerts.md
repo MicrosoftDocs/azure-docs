@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Set Alerts in Application Insights
@@ -100,6 +100,10 @@ Popular alerts include:
 * **Server response time** and **Failed requests** for the server side of web applications. As well as setting up alerts, keep an eye on these metrics to see if they vary disproportionately with high request rates: that might indicate that your app is running out of resources.
 * **Server exceptions** - to see them, you have to do some [additional setup](app-insights-asp-net-exceptions.md).
 
+## Automation
+
+* [Use PowerShell to automate setting up alerts](app-insights-powershell-alerts.md)
+* [Use webhooks to automate responding to alerts](../azure-portal/insights-webhooks-alerts.md)
 
 ## See also
 
