@@ -182,7 +182,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 ### Creating a Trakopolis test User
 
-The objective of this section is to create a user called Britta Simon in CTrakopolis.<br>
+The objective of this section is to create a user called Britta Simon in Trakopolis.<br>
 Please work with the Trakopolis support team to add the users in Trakopolis. 
 
 
