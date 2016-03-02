@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -72,6 +72,7 @@ To configure the integration of Yardi eLearning into Azure AD, you need to add Y
 ![Creating an Azure AD test user](./media/active-directory-saas-yardielearning-tutorial/tutorial_yardielearning_01.png)<br>
 7. In the results pane, select **Yardi eLearning**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-yardielearning-tutorial/tutorial_yardielearning_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Yardi eLearning based on a test user called "Britta Simon".
