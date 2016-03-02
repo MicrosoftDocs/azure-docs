@@ -48,24 +48,6 @@ You can create and configure applications and upload application packages using 
 
 > [AZURE.NOTE] At the time of this writing, application management is supported only in the Azure portal. The [Batch Management .NET](batch-management-dotnet.md) library will allow programmatic management of applications and their packages in the near future.
 
-## List the applications in a Batch account
-
-You can list the applications and their packages in a Batch account by using the `BatchClient.ApplicationOperations.ListApplicationSummaries` method.
-
-```
-// List the applications and their application packages in the Batch account.
-List<ApplicationSummary> applications = await batchClient.ApplicationOperations.ListApplicationSummaries().ToListAsync();
-foreach (ApplicationSummary app in applications)
-{
-    Console.WriteLine("ID: {0} | Display Name: {1}", app.Id, app.DisplayName);
-
-    foreach (string version in app.Versions)
-    {
-        Console.WriteLine("  {0}", version);
-    }
-}
-```
-
 ## Install applications on compute nodes
 
 To install an application package on the compute nodes in a pool, you specify one or more application package *references* for a pool. In Batch .NET, you do so by adding one or more `ApplicationPackageReference` objects to the `CloudPool.ApplicationPackageReferences` property, either when you create the pool, or on an existing pool.
@@ -107,6 +89,24 @@ If you've already specified an application package for a pool, you can specify a
 
 ```
 // Code sample here.
+```
+
+## List the applications in a Batch account
+
+You can list the applications and their packages in a Batch account by using the `ApplicationOperations.ListApplicationSummaries` method.
+
+```
+// List the applications and their application packages in the Batch account.
+List<ApplicationSummary> applications = await batchClient.ApplicationOperations.ListApplicationSummaries().ToListAsync();
+foreach (ApplicationSummary app in applications)
+{
+    Console.WriteLine("ID: {0} | Display Name: {1}", app.Id, app.DisplayName);
+
+    foreach (string version in app.Versions)
+    {
+        Console.WriteLine("  {0}", version);
+    }
+}
 ```
 
 ## Next steps
