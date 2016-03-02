@@ -844,30 +844,6 @@ For property “AzureStorageUseV1MD5”
 
 Note that FIPS compliant algorithms is disabled by default on your Windows machine, you can type secpol.msc in your Run window and check this switch at Security Setting->Local Policy->Security Options->System cryptography: Use FIPS compliant algorithms for encryption, hashing and signing.
 
-## AzCopy versions
-
-> [AZURE.NOTE] We recommand you install the latest version of AzCopy to get new features and better performance.
-
-| Version | What's New                                                                                      				| Referenced .NET Client Library Version | Target Storage REST API Version |
-|---------|-----------------------------------------------------------------------------------------------------------------|--------|----------|
-| [**V5.0.0**](http://xdmrelease.blob.core.windows.net/azcopy-5-0-0/MicrosoftAzureStorageTools.msi)  | **Current release version. Includes all functionality from V4.2.0. All features for File and Table storage are now GA.** | **V6.0.0** | **2015-04-05**
-| [V4.2.0](http://xdmrelease.blob.core.windows.net/azcopy-4-2-0-preview/MicrosoftAzureStorageTools.msi)  | Includes all the functionality from V3.2.0. Also supports File Storage Share SAS, File Storage asynchronous copying, exporting Table entities to CSV and specifying manifest name when exporting Table entities | V5.0.0 | 2015-02-21
-| [V3.2.0](http://xdmrelease.blob.core.windows.net/azcopy-3-2-0/MicrosoftAzureStorageTools.msi)  | Supports Append Blob and FIPS compliant MD5 Setting | V5.0.0 | 2015-02-21
-| [V4.1.0](http://xdmrelease.blob.core.windows.net/azcopy-4-1-0-preview/MicrosoftAzureStorageTools.msi)  | Includes all the functionality from V3.1.0. Supports synchronously copying blobs and files and specifying content type for destination blobs and files | V4.3.0 | 2014-02-14
-| [V3.1.0](http://xdmrelease.blob.core.windows.net/azcopy-3-1-0/MicrosoftAzureStorageTools.msi)  | Supports synchronously copying blobs and specifying content type for destination blobs.| V4.3.0 | 2014-02-14
-| [V4.0.0](http://xdmrelease.blob.core.windows.net/azcopy-4-0-0-preview/MicrosoftAzureStorageTools.msi)  | Includes all the functionality from V3.0.0. Also supports copying files to or from Azure File storage, and copying entities to or from Azure Table storage.| V4.2.1 | 2014-02-14
-| [V3.0.0](http://xdmrelease.blob.core.windows.net/azcopy-3-0-0/MicrosoftAzureStorageTools.msi)  | Modifies AzCopy command-line syntax to require parameter names, and redesigns the command-line help. This version only supports copying to and from Azure Blob storage.| V4.2.1 | 2014-02-14
-| V2.5.1  | Optimizes performance when using options /xo and /xn. Fixes bugs related to special characters in source file names and journal file corruption after user input the wrong command-line syntax.| V4.1.0 | 2014-02-14
-| V2.5.0  | Optimizes performance for large-scale copy scenarios, and introduces several important usability improvements.| V4.1.0 | 2014-02-14
-| V2.4.1  | Supports specifying the destination folder in the installation wizard.| V4.0.0 | 2014-02-14
-| V2.4.0  | Supports uploading and downloading files for Azure File storage.| V4.0.0 | 2014-02-14
-| V2.3.0  | Supports read-access geo-redundant storage accounts.| V3.0.3 | 2013-08-15
-| V2.2.2  | Upgraded to use Azure storage client library version 3.0.3.| V3.0.3 | 2013-08-15
-| V2.2.1  | Fixed performance issue when copying large amount files within same storage account.| V2.1.0 |
-| V2.2    | Supports setting the virtual directory delimiter for blob names. Supports specifying the journal file path.| V2.1.0 |
-| V2.1    | Provides more than 20 options to support blob upload, download, and copy operations in an efficient way.| V2.0.5 |
-
-
 ## Next steps
 
 For more information about Azure Storage and AzCopy, refer to the following resources.
