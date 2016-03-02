@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Identity Protection | Microsoft Azure"
+	pageTitle="Azure Active Directory Identity Protection | Microsoft Azure"
 	description="Learn how Azure AD Identity Protection enables you to limit the ability of an attacker to exploit a compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised."
 	services="active-directory"
 	keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
@@ -14,13 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="03/02/2016"
 	ms.author="markvi"/>
 
-#Azure AD Identity Protection 
+#Azure Active Directory Identity Protection 
 
-Azure AD Identity Protection is a security product that provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
+Azure Active Directory Identity Protection is a security service that provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
+
+> [AZURE.NOTE] The preview of Identity Protection is currently available only for Azure AD tenants that are provisioned in the United States.
  
+
 The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Attackers have become increasingly effective at leveraging third party breaches, and using sophisticated phishing attacks. Once an attacker gains access to even a low privileged user account, it is relatively straightforward for them to gain access to important company resources through lateral movement. It is therefore essential to protect all identities and, when an identity is compromised, proactively prevent the compromised identity from being abused. 
 
 Discovering compromised identities is no easy task. Fortunately, Identity Protection can help: Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised.
@@ -159,7 +162,7 @@ Vulnerabilities are weaknesses in your environment that can be exploited by an a
 
 #### Multi-factor authentication registration not configured 
 
-This vulnerability helps you control the deployment of Azure multi-factor authentication in your organization. 
+This vulnerability helps you control the deployment of Azure Multi-Factor Authentication in your organization. 
 
 Azure multi-factor authentication provides a second layer of security to user authentication. It helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of easy verification options—phone call, text message, or mobile app notification or verification code and 3rd party OATH tokens.
 
@@ -552,7 +555,7 @@ Administrators can also choose to set a Sign-In Risk policy to block users upon 
  
 #### Multi-factor authentication registration
 
-The best user experience for both, the compromised account recovery flow and the risky sign-in flow, the best user experience is when the user can self-recover. If a user is registered for multi-factor authentication, they already have a phone number associated with their account that can be used to pass security challenges. No help desk or administrator involvement is needed to recover from account compromise. Thus, it’s highly recommended to get your users registered for multi-factor authentication. 
+The best user experience for both, the compromised account recovery flow and the risky sign-in flow, is when the user can self-recover. If a user is registered for multi-factor authentication, they already have a phone number associated with their account that can be used to pass security challenges. No help desk or administrator involvement is needed to recover from account compromise. Thus, it’s highly recommended to get your users registered for multi-factor authentication. 
 
 Administrators can:
 
@@ -733,6 +736,7 @@ To test Sign in risk, perform the following steps:
 
 ## See also
 
+ - [Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
  - [The Identity Protection glossary](active-directory-identityprotection-glossary.md)
 
 
