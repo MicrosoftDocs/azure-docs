@@ -35,7 +35,7 @@ But Azure Active Directory Identity Protection more than a monitoring and report
 
 - Detecting 6 risk event types using machine learning and heuristic rules 
 
-- Calculating user/account risk level
+- Calculating user risk levels
 
 - Providing custom recommendations to improve overall security posture by highlighting vulnerabilities
 
@@ -460,9 +460,31 @@ You can configure a policy to block a user sign-in when Identity Protection dete
 ### Enforce multi-factor authentication
 You can also configure a policy to require multi-factor authentication when the sign-in risk is at or above a specified level. Multi-factor authentication provides stronger assurance of the user’s identity than username and password alone, and therefore will often prevent an attacker with only the user name and password from signing in. 
 
-###Register users for multi-factor authentication
-Multi-factor authentication is used to gain additional assurance of a user’s identity. Registering for multi-factor authentication is a critical step in preparing your organization to protect and recover from account compromises. 
-Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication registration by enabling you to define which users will be affected by the policy, how long they are allowed to skip registration, and view the current registration state of impacted users. 
+
+## Multi-Factor authentication registration policy
+
+Multi-factor authentication is used to gain additional assurance of a user’s identity.<br> 
+Registering for multi-factor authentication is a critical step in preparing your organization to protect and recover from account compromises. 
+<br>
+![MFA Registration](./media/active-directory-identityprotection/600.png "MFA Registration")
+<br>
+
+Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication registration by enabling you to: 
+
+- define which users will be affected by the policy
+<br>
+![MFA Registration](./media/active-directory-identityprotection/601.png "MFA Registration")
+<br>
+
+- define how long they are allowed to skip registration
+<br>
+![MFA Registration](./media/active-directory-identityprotection/602.png "MFA Registration")
+<br>
+
+- view the current registration state of impacted users. 
+<br>
+![MFA Registration](./media/active-directory-identityprotection/603.png "MFA Registration")
+<br>
 
 
 ##Sign-in risk mitigation flows 
