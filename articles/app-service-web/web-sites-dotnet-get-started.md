@@ -32,7 +32,7 @@ This tutorial shows how to deploy an ASP.NET web application to a [web app in Az
 
 The following illustration shows the completed application:
 
-![Web app home page](./media/web-sites-dotnet-get-started/deployedandazure.png)
+![Web app running in Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
 You'll learn:
 
