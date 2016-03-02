@@ -192,7 +192,7 @@ The output will be similar to:
     
 To register a resource provider provide the namespace:
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
 
 ### Azure CLI
 
