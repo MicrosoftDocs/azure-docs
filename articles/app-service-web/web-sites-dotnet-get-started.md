@@ -44,7 +44,7 @@ At the end of the tutorial, the [Next steps](#next-steps) section provides links
 
 > [Azure.Note] Help us shape the scope and approach of this tutorial -- if there are other topics you'd like to see covered here in a getting-started tutorial leave feedback in a [Disqus comment](#comments) at the end of the tutorial.
 
-[AZURE.INCLUDE [prereqs](../../includes/app-service-web-dotnet-get-started-prereqs)]
+[AZURE.INCLUDE [prereqs](../../includes/app-service-web-dotnet-get-started-prereqs.md)]
 
 ## Create a project and a web app
 
