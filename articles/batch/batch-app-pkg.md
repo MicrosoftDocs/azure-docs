@@ -42,9 +42,11 @@ Rather than specifying individual resource files in Azure Storage for a pool's s
 
 ## Upload and manage applications
 
-You can create and configure applications, and upload application packages, using the Azure portal.
+You can create and configure applications and upload application packages using the Azure portal.
 
 *TODO: Screenshots and how-to goes here.*
+
+> [AZURE.NOTE] At the time of this writing, application management is supported only in the Azure portal. The [Batch Management .NET](batch-management-dotnet.md) library will allow programmatic management of applications and their packages in the near future.
 
 ## List the applications in a Batch account
 
