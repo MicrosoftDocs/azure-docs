@@ -13,13 +13,18 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="02/23/2016"
+ms.date="03/02/2016"
 ms.author="deonhe"/>
 
 # Get started with the CRM API
-Connect to Dynamics CRM Online to create a new record, update an item, and more. 
+Connect to Dynamics CRM Online to create a new record, update an item, and more. The CRM Online API can be be used from:
 
-The CRM Online API can be be used from PowerApps Enterprise and logic apps. 
+- Logic apps
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic apps](../articles/connectors/create-api-crmonline.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-crmonline.md)
 
 With CRM Online, you can:
 
@@ -36,7 +41,7 @@ The CRM API includes the following actions. There are no triggers.
 
 | Triggers | Actions|
 | --- | --- |
-|None.| <ul><li>Create a new record</li><li>Gets records</li><li>Delete a record</li><li>Gets a record</li><li>Gets entities</li><li>Update an item</li></ul>
+|None| <ul><li>Create a new record</li><li>Gets records</li><li>Delete a record</li><li>Gets a record</li><li>Gets entities</li><li>Update an item</li></ul>
 
 All APIs support data in JSON and XML formats.
 
@@ -93,7 +98,7 @@ After you create the connection, you enter the CRM Online properties, like the t
 >[AZURE.TIP] You can use this connection in other logic apps.
 
 ## Swagger REST API reference
-#### This documentation is for version: 1.0
+Applies to version: 1.0.
 
 ### Create a new record 
 Create a new record in an entity.  
@@ -165,7 +170,7 @@ Used for getting a particular record present for a CRM entity.
 |default|Operation Failed.|
 
 ### Delete an Item from a List 
-Delete an Item from a a List. 
+Delete an Item from a a List.  
 ```DELETE: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
