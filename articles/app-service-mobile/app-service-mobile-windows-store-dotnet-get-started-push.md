@@ -32,7 +32,7 @@ To complete this tutorial, you need the following:
 
 * An active [Microsoft Store account](http://go.microsoft.com/fwlink/p/?LinkId=280045).
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* Complete the [quickstart tutorial](../app-service-mobile-windows-store-dotnet-get-started.md).
+* Complete the [quickstart tutorial](app-service-mobile-windows-store-dotnet-get-started.md).
 
 
 ##<a name="create-hub"></a>Create a Notification Hub
