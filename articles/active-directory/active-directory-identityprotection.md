@@ -55,11 +55,12 @@ But Azure Active Directory Identity Protection more than a monitoring and report
 
 **Risk-based conditional access policies:**
 
-- Policy to prevent risky sign-ins
+- Policy to mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges.
 
 - Policy to block or secure risky user accounts
 
-- Policy to set up users for multi-factor authentication 
+- Policy to require users to register users for multi-factor authentication
+
 
 ## Detection and Risk
 
@@ -318,20 +319,48 @@ The console provides two different ways to reset a password:
 ## User risk security policy
 
 A user risk security policy is a conditional access policy that evaluates the risk level to a specific user and applies remediation and mitigation actions based on predefined conditions and rules.
-
-You can set the scope of a sign-in risk policy by selecting the users and groups:
-
-- the policy applies to
-
-- that will be excluded from the policy
-
-You can configure a user risk security policy to block a user sign-in, and to require a password change. 
-For each action, you specify the user risk level threshold (low, medium, or high) that triggers it.
-The action is triggered when the risk level of a sign-in at or above the specified level.
-
+<br><br>
+![User ridk policy](./media/active-directory-identityprotection/500.png "User ridk policy")
 <br>
-![Policy](./media/active-directory-identityprotection/60.png "Policy")
+
+Azure AD Identity Protection helps you manage the mitigation and remidiation of users flagged for risk by enabling you to:
+
+- set the users and groups the policy applies to 
+<br><br>
+![User ridk policy](./media/active-directory-identityprotection/501.png "User ridk policy")
 <br>
+
+- set the user risk level threshold (low, medium, or high) that triggers a password change 
+<br><br>
+![User ridk policy](./media/active-directory-identityprotection/502.png "User ridk policy")
+<br>
+
+- set the user risk level threshold (low, medium, or high) that triggers blocking a user
+<br><br>
+![User ridk policy](./media/active-directory-identityprotection/503.png "User ridk policy")
+<br>
+
+- review and evaluate the impact of a change before activating it
+<br><br>
+![User ridk policy](./media/active-directory-identityprotection/504.png "User ridk policy")
+<br>
+
+
+Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.
+However, it excludes **Low** and **Medium** users flagged for risk from the policy, which may not secure identities or a devices that were previously suspected or known to be compromised.
+
+When setting the policy,
+
+- exclude users who are likely to generate a lot of false-positives (developers, security analysts)
+
+- exclude users in locales where enabling the policy is not practical (for example no access to helpdesk)
+
+- use a **High** threshold during initial policy roll out, or if you must minimize challenges seen by end users.
+
+- use a **Low** threshold if your organization requires greater security. Selecting a **Low** threshold introduces additional user sign-in challenges, but increased security.
+
+The recommended default for most organizations is to configure a rule for a **Medium** threshold to strike a balance between usability and security.
+
 
 
 ### Mitigating user risk events
@@ -411,7 +440,7 @@ You can use conditional access in Azure AD Identity Protection to automatically 
 
 ## Sign-in risk security policy
 
-A conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
+A sign-in risk policy is a conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
 <br><br>
 ![Sign-in risk policy](./media/active-directory-identityprotection/700.png "Sign-in risk policy")
 <br>
@@ -442,11 +471,17 @@ Azure AD Identity Protection helps you manage the mitigation of risky sign-ins b
 Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.<br> 
 However, it excludes **Low** and **Medium** sign-ins flagged for risk from the policy, which may not block an attacker from exploiting a compromised identity. 
 
-When setting a policy, 
+When setting the policy, 
+
+- exclude users who do not/cannot have multi-factor authentication
+
+- exclude users in locales where enabling the policy is not practical (for example no access to helpdesk)
+
+- exclude users who are likely to generate a lot of false-positives (developers, security analysts)
 
 - use a **High** threshold during initial policy roll out, or if you must minimize challenges seen by end users.
 
-- use a **Low**  threshold if your organization requires greater security. Selecting a low threshold introduces additional user sign-in challenges, but increased security.
+- use a **Low**  threshold if your organization requires greater security. Selecting a **Low** threshold introduces additional user sign-in challenges, but increased security.
 
 The recommended default for most organizations is to configure a rule for a **Medium** threshold to strike a balance between usability and security.
 
