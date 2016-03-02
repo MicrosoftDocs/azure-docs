@@ -30,7 +30,7 @@ If you know these conditions already exist in your environment then proceed to t
 
 ## Limitations when backing up and restoring a VM
 
->[Azure.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](resource-manager-deployment-model.md). The following list provides the limitations when deploying in the classic model.
+>[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). The following list provides the limitations when deploying in the classic model.
 
 - Backing up Azure Resource Manager (ARM)-based (aka IaaS V2) virtual machines is not currently supported.
 - Backing up virtual machines with more than 16 data disks is not supported.
@@ -117,47 +117,48 @@ In the example below, the App VM needs to be configured to use the Proxy VM for 
 
 **A) Allow outgoing network connections:**
 
-  1. For Windows machines, run the following command in an elevated command prompt:
+1. For Windows machines, run the following command in an elevated command prompt:
 
-  ```
-  netsh winhttp set proxy http://<proxy IP>:<proxy port>
-  ```
-  This will set up a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
+    ```
+    netsh winhttp set proxy http://<proxy IP>:<proxy port>
+    ```
+    This will set up a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
 
-  2. For Linux machines, add the following line to the ```/etc/environment``` file:
+2. For Linux machines, add the following line to the ```/etc/environment``` file:
 
-  ```
-  http_proxy=http://<proxy IP>:<proxy port>
-  ```
+    ```
+    http_proxy=http://<proxy IP>:<proxy port>
+    ```
 
   Add the following lines to the ```/etc/waagent.conf``` file:
 
-  ```
-  HttpProxy.Host=<proxy IP>
-  HttpProxy.Port=<proxy port>
-  ```
+    ```
+    HttpProxy.Host=<proxy IP>
+    HttpProxy.Port=<proxy port>
+    ```
 
 **B) Allow incoming connections on the proxy server:**
 
-  1. On the proxy server, open Windows Firewall. The easiest way to access the firewall is to search for Windows Firewall with Advanced Security.
+1. On the proxy server, open Windows Firewall. The easiest way to access the firewall is to search for Windows Firewall with Advanced Security.
 
   ![Open the Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
 
-  2. In the Windows Firewall dialog, right-click  **Inbound Rules** and click **New Rule...**.
+2. In the Windows Firewall dialog, right-click  **Inbound Rules** and click **New Rule...**.
 
   ![Create a new rule](./media/backup-azure-vms-prepare/firewall-02.png)
-  3. In the **New Inbound Rule Wizard**, choose the **Custom** option for the **Rule Type** and click **Next**.
-  4. On the page to select the **Program**, choose **All Programs** and click **Next**.
 
-  5. On the **Protocol and Ports** page, use the inputs in the table below and click **Next**:
+3. In the **New Inbound Rule Wizard**, choose the **Custom** option for the **Rule Type** and click **Next**.
+4. On the page to select the **Program**, choose **All Programs** and click **Next**.
+
+5. On the **Protocol and Ports** page, use the inputs in the table below and click **Next**:
 
   ![Create a new rule](./media/backup-azure-vms-prepare/firewall-03.png)
 
-  | Input field | Value |
-  | --- | --- |
-  | Protocol type | TCP |
-  | Local port    | Select **Specific Ports** in the dropdown. In the text box, enter the ```<Proxy Port>``` that has been configured. |
-  | Remote port   | Select **All Ports** in the dropdown. |
+| Input field | Value |
+| --- | --- |
+| Protocol type | TCP |
+| Local port    | Select **Specific Ports** in the dropdown. In the text box, enter the ```<Proxy Port>``` that has been configured. |
+| Remote port   | Select **All Ports** in the dropdown. |
 
   For the rest of the wizard, click all the way to the end and give this rule a name.
 
