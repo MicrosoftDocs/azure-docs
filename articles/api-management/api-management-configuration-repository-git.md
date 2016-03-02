@@ -161,7 +161,7 @@ Each folder can contain one or more files, and in some cases one or more folders
 
 These files can be created, deleted, edited, and managed on your local file system, and the changes deployed back to the your API Management service instance.
 
->[AZURE.NOTE] The following items are not contained in the Git repository and cannot be configured using Git.
+>[AZURE.NOTE] The following entities are not contained in the Git repository and cannot be configured using Git.
 >
 >-    Users
 >-    Subscriptions
