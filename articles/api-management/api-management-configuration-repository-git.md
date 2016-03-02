@@ -251,6 +251,7 @@ The `templates` folder contains configuration for the [email templates](api-mana
 ## Next steps
 
 For information on other ways to manage your service instance, see:
+
 -	Manage your service instance using the following PowerShell cmdlets
 	-	[Service deployment PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt619282.aspx)
 	-	[Service management PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt613507.aspx)
