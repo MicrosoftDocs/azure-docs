@@ -39,7 +39,7 @@
   - [jq](https://stedolan.github.io/jq/)
 
 
-## Introdcution
+## Introduction
 
 This article builds a deployment that is similar to a cloud service deployment with one Linux VM inside a VNetwork Subnet. It walks through the entire basic deployment imperatively, command by command, until you have a working, secure Linux VM to which you can connect from anywhere on the internet. 
 
