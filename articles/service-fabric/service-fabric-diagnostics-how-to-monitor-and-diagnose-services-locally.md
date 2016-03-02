@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/04/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="toddabel"/>
 
 
 # Monitor and diagnose services in a local machine development setup

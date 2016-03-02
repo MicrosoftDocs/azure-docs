@@ -79,6 +79,7 @@ unauthenticated access to an underlying SQL data store using a dynamic schema.  
 client library quick starts:
 
 - [Android Client QuickStart]
+- [Apache Cordova Client QuickStart]
 - [iOS Client QuickStart]
 - [Windows Store Client QuickStart]
 - [Xamarin.iOS Client QuickStart]
@@ -124,7 +125,7 @@ Visual Studio 2015 requires an extension to develop Node.js applications within 
         // Azure Mobile Apps Initialization
         var mobile = azureMobileApps();
         mobile.tables.add('TodoItem');
-        app.use('mobile');
+        app.use(mobile);
 
     Save the file.
 
@@ -443,6 +444,69 @@ The access property can take one of three values
 
 If the access property is undefined, unauthenticated access is allowed.
 
+### <a name="howto-tables-getidentity"></a>How to: Use Authentication Claims with your tables
+
+You can set up a number of claims that are requested when authentication is set up.  These claims are not normally available through the `context.user` object.
+However, they can be retrieved using the `context.user.getIdentity()` method.  The `getIdentity()` method returns a Promise that resolves to an object.  The object
+is keyed by the authentication method (facebook, google, twitter, microsoftaccount or aad).
+
+For example, if you set up Microsoft Account authentication and request the email addresses claim, you can add the email address to the record with the following:
+
+    var azureMobileApps = require('azure-mobile-apps');
+
+    // Create a new table definition
+    var table = azureMobileApps.table();
+
+    table.columns = {
+        "emailAddress": "string",
+        "text": "string",
+        "complete": "boolean"
+    };
+    table.dynamicSchema = false;
+    table.access = 'authenticated';
+
+    /**
+    * Limit the context query to those records with the authenticated user email address
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function queryContextForEmail(context) {
+        return context.user.getIdentity().then((data) => {
+            context.query.where({ emailAddress: data.microsoftaccount.claims.emailaddress });
+            return context.execute();
+        });
+    }
+
+    /**
+    * Adds the email address from the claims to the context item - used for
+    * insert operations
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function addEmailToContext(context) {
+        return context.user.getIdentity().then((data) => {
+            context.item.emailAddress = data.microsoftaccount.claims.emailaddress;
+            return context.execute();
+        });
+    }
+
+    // Configure specific code when the client does a request
+    // READ - only return records belonging to the authenticated user
+    table.read(queryContextForEmail);
+
+    // CREATE - add or overwrite the userId based on the authenticated user
+    table.insert(addEmailToContext);
+
+    // UPDATE - only allow updating of record belong to the authenticated user
+    table.update(queryContextForEmail);
+
+    // DELETE - only allow deletion of records belong to the authenticated uer
+    table.delete(queryContextForEmail);
+
+    module.exports = table;
+
+To see what claims are available, use a web browser to view the `/.auth/me` endpoint of your site.
+
 ### <a name="howto-tables-disabled"></a>How to: Disable access to specific table operations
 
 In addition to appearing on the table, the access property can be used to control individual operations.  There are four operations:
@@ -661,7 +725,7 @@ You can also specify authentication on specific operations:
 		get: function (req, res, next) {
 			var date = { currentTime: Date.now() };
 			res.status(200).type('application/json').send(date);
-		});
+		}
 	};
 	// The GET methods must be authenticated.
 	api.get.access = 'authenticated';
@@ -698,6 +762,39 @@ body-parser to accept larger file uploads:
 You can adjust the 50Mb limit we have shown above.  Note that the file will be base-64 encoded before transmission, which will
 increase the size of the actual upload.
 
+### <a name="howto-customapi-sql"></a>How to: Execute Custom SQL Statements
+
+The Azure Mobile Apps SDK allows access to the entire Context through the request object, allowing you to execute
+parameterized SQL statements to the defined data provider easily:
+
+    var api = {
+        get: function (request, response, next) {
+            // Check for parameters - if not there, pass on to a later API call
+            if (typeof request.params.completed === 'undefined')
+                return next();
+
+            // Define the query - anything that can be handled by the mssql
+            // driver is allowed.
+            var query = {
+                sql: 'UPDATE TodoItem SET complete=@completed',
+                parameters: [{
+                    completed: request.params.completed
+                }]
+            };
+
+            // Execute the query.  The context for Azure Mobile Apps is available through
+            // request.azureMobile - the data object contains the configured data provider.
+            request.azureMobile.data.execute(query)
+            .then(function (results) {
+                response.json(results);
+            });
+        }
+    };
+
+    api.get.access = 'authenticated';
+    module.exports = api;
+
+This endpoint can be accessed by s
 ## <a name="Debugging"></a>Debugging and troubleshooting
 
 The Azure App Service provides several debugging and troubleshooting techniques for Node.js applications.
@@ -762,6 +859,7 @@ From the editor, you can also execute the code on the site
 
 <!-- URLs -->
 [Android Client QuickStart]: app-service-mobile-android-get-started.md
+[Apache Cordova Client QuickStart]: app-service-mobile-cordova-get-started.md
 [iOS Client QuickStart]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS Client QuickStart]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md

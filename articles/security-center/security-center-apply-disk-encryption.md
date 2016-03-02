@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Apply disk encryption | Microsoft Azure"
+   pageTitle="Apply disk encryption in Azure Security Center | Microsoft Azure"
    description="This document shows you how to implement the Azure Security Center recommendation **Apply disk encryption**."
    services="security-center"
    documentationCenter="na"
@@ -10,13 +10,13 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/23/2016"
    ms.author="terrylan"/>
 
-# Apply disk encryption
+# Apply disk encryption in Azure Security Center
 
 Azure Security Center will recommend that you apply disk encryption if you have Windows or Linux VM disks that are not encrypted using Azure Disk Encryption. Disk Encryption lets you encrypt your Windows and Linux IaaS VM disks.  Encryption is recommended for both the OS and data volumes on your VM.
 

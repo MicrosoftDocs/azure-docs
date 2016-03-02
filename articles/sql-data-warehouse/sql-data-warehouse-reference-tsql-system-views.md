@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/16/2016"
+   ms.date="02/26/2016"
    ms.author="barbkess;sonyama"/>
 
 # System views
@@ -27,8 +27,6 @@
 - [sys.pdw_diag_sessions](http://msdn.microsoft.com/library/mt203890.aspx)
 - [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
 - [sys.pdw_index_mappings](http://msdn.microsoft.com/library/mt203912.aspx)
-- [sys.pdw_loader_backup_run_details](http://msdn.microsoft.com/library/mt203877.aspx)
-- [sys.pdw_loader_backup_runs](http://msdn.microsoft.com/library/mt203884.aspx)
 - [sys.pdw_nodes_column_store_dictionaries](http://msdn.microsoft.com/library/mt203902.aspx)
 - [sys.pdw_nodes_column_store_row_groups](http://msdn.microsoft.com/library/mt203880.aspx)
 - [sys.pdw_nodes_column_store_segments](http://msdn.microsoft.com/library/mt203916.aspx)
@@ -182,7 +180,7 @@ This is why each of these DMV's has a specific column called pdw_node_id. This i
 | sys.dm_pdw_nodes_tran_session_transactions | [sys.dm_tran_session_transactions (Transact-SQL)](http://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators | [sys.dm_tran_top_version_generators (Transact-SQL)](http://msdn.microsoft.com/library/ms188778.aspx) |
 
-## SQL Server 2016 PolyBase dmvs available in SQL Data Warehouse
+## SQL Server 2016 PolyBase DMVs available in SQL Data Warehouse
 
 - [sys.dm_exec_compute_node_errors (Transact-SQL)](http://msdn.microsoft.com/library/mt146380.aspx)
 - [sys.dm_exec_compute_node_status (Transact-SQL)](http://msdn.microsoft.com/library/mt146382.aspx)
