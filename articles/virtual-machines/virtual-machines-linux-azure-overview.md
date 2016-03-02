@@ -26,10 +26,10 @@ Azure virtual machines allow you deploy a wide range of computing solutions in a
 
 Use Microsoft Azure Virtual Machines, Storage, and Networking together to provide "infrastructure-as-a-service" at Internet scale for your Linux computing needs. To get started using Linux on Azure, you're going to need:
 
-1. A free trial account. **[Go get one.](https://azure.microsoft.com/pricing/free-trial/)**
-2. The Azure Command-line Interface for Linux, Mac, and Windows (the Azure CLI). **[Install it.](../xplat-cli-install.md)**
-3. Know how to create your Linux VM. **[Create it](virtual-machines-linux-quick-create-cli.md)**.
-4. More information about Linux and Azure, including how to qualify for the Service Level Agreement (SLA). **Read this document**.
+1. A free trial account. [Go get one](https://azure.microsoft.com/pricing/free-trial/).
+2. The Azure Command-line Interface for Linux, Mac, and Windows (the Azure CLI). [Install it](../xplat-cli-install.md).
+3. A Linux VM. [Create it](virtual-machines-linux-quick-create-cli.md).
+4. More information about Linux and Azure, including how to qualify for the Service Level Agreement (SLA). **Read this document, even if you hate legal documents**.
 
 ## Logistics: Regions, Distributions, Availability, VM Sizes and Quotas
 ### Regions

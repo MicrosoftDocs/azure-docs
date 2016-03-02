@@ -37,11 +37,13 @@ Templates allow you to create VMs on Azure with settings that you want to custom
 
 ## Introduction
 
-Cloud Templates use json files to instruct Azure on how to build your new VM with the settings you have chosen and written in the template file.  Templates can be used for simple one off tasks like launching an Ubuntu VM like we will do in this article.  Templates can also be used to construct complex Azure configurations of entire environments like a testing, dev or produciton deployment from the networking to the OS.  This template will contain a SSH public key which will be placed into `~/.ssh/authorized_keys` on Ubuntu during creation in Azure.  This will allow for a secure way to login by default.  This template will enable your first login to the new VM using SSH keys instead of passwords.  To completely disable password logins use the Azure article [here - Disable SSH passwords on your Linux VM by configuring SSHD.](https://link.to.doc.com)
+Cloud Templates use json files to instruct Azure on how to build your new VM with the settings you have chosen and written in the template file.  Templates can be used for simple one off tasks like launching an Ubuntu VM like we will do in this article.  Templates can also be used to construct complex Azure configurations of entire environments like a testing, dev or produciton deployment from the networking to the OS.  This template will contain a SSH public key which will be placed into `~/.ssh/authorized_keys` on Ubuntu during creation in Azure.  This will allow for a secure way to login by default.  This template will enable your first login to the new VM using SSH keys instead of passwords.  To completely disable password logins, read [Disable SSH passwords on your Linux VM by configuring SSHD.](virtual-machines-linux-mac-disable-ssh-password-usage.md)
 
 ## Quick Commands
 
-_Seasoned Linux Admins who just want the TLDR version start here.  For everyone else that wants the detailed explanation and walk through skip this section._
+After creating and editing the **azuredeploy.parameters.json** file with your SSH public key and other arguments, this deployment requires only one command:
+
+1. `username@macbook$ azure group create -n <exampleRGname> -l <exampleAzureRegion> azuredeploy.json -e azuredeploy.parameters.json`
 
 ## Detailed Walk Through
 

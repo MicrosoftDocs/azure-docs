@@ -184,8 +184,8 @@ and then creates the Linux VM inside that environment. This VM is exposed direct
 
 Now you've created a Linux VM quickly to use for testing or demonstration purposes. You can create a more secure execution environment with a Linux VM in Azure by:
 
-- Creating your Linux VM and its environment using a more secure Azure resource manager template
-- Creating your Linux VM and its environment using the Azure Portal
-- Creating your Linux VM and its environment using direct Azure CLI commands
+- [Create a Linux VM in Azure using Azure Templates](virtual-machines-linux-cli-deploy-templates.md)
+- [Create an SSH-Secured Linux VM in Azure using Azure Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Create a Linux VM in Azure using the Azure CLI and customizing the infrastructure](virtual-machines-linux-create-cli-complete.md)
 
 as well as any number of proprietary and open-source infrastructure deployment, configuration, and orchestration tools.
