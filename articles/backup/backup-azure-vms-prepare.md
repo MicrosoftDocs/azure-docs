@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/01/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -142,26 +142,24 @@ In the example below, the App VM needs to be configured to use the Proxy VM for 
 
 1. On the proxy server, open Windows Firewall. The easiest way to access the firewall is to search for Windows Firewall with Advanced Security.
 
-  ![Open the Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
+    ![Open the Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
 
 2. In the Windows Firewall dialog, right-click  **Inbound Rules** and click **New Rule...**.
 
-  ![Create a new rule](./media/backup-azure-vms-prepare/firewall-02.png)
+    ![Create a new rule](./media/backup-azure-vms-prepare/firewall-02.png)
 
 3. In the **New Inbound Rule Wizard**, choose the **Custom** option for the **Rule Type** and click **Next**.
 4. On the page to select the **Program**, choose **All Programs** and click **Next**.
 
-5. On the **Protocol and Ports** page, use the inputs in the table below and click **Next**:
+5. On the **Protocol and Ports** page, enter the following information and click **Next**:
 
-  ![Create a new rule](./media/backup-azure-vms-prepare/firewall-03.png)
+    ![Create a new rule](./media/backup-azure-vms-prepare/firewall-03.png)
 
-| Input field | Value |
-| --- | --- |
-| Protocol type | TCP |
-| Local port    | Select **Specific Ports** in the dropdown. In the text box, enter the ```<Proxy Port>``` that has been configured. |
-| Remote port   | Select **All Ports** in the dropdown. |
+    - for *Protocol type* choose *TCP*
+    - for *Local port* choose *Specific Ports*, in the field below specify the ```<Proxy Port>``` that has been configured.
+    - for *Remote port* select *All Ports*
 
-  For the rest of the wizard, click all the way to the end and give this rule a name.
+    For the rest of the wizard, click all the way to the end and give this rule a name.
 
 **C) Add an exception rule to the NSG:**
 
