@@ -9,10 +9,10 @@
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="02/26/2016"
    ms.author="cherylmc" />
 
 # About VPN devices for Site-to-Site VPN Gateway connections

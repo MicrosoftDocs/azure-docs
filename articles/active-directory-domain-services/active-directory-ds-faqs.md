@@ -56,6 +56,8 @@ No. Group memberships cannot be modified on domains serviced by Azure AD Domain 
 #### Can I extend the schema of the domain provided by Azure AD Domain Services?
 No. The schema is administered by Microsoft for the managed domain. Schema extensions are not supported by Azure AD Domain Services.
 
+### Can I modify DNS records provided by Azure AD Domain Services?
+Yes. Users that are part of the administrative group (i.e. 'AAD DC Administrators') have DNS Admin permissions to modify the DNS records. 
 
 ### Billing and availability
 
