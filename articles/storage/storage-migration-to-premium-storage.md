@@ -45,12 +45,12 @@ Follow the steps specified in the relevant section depending on your scenario.
 ### Prerequisites
 - You will need an Azure subscription. If you don’t have one, you can create a one month [free trial](https://azure.microsoft.com/pricing/free-trial/) subscription or visit [Azure Pricing](https://azure.microsoft.com/pricing/) for more options.
 - To execute PowerShell cmdlets you will need the Microsoft Azure PowerShell module. See [Microsoft Azure Downloads](https://azure.microsoft.com/downloads/) to download the module.
-- When you plan to use Azure VMs running on Premium Storage, you need to use the DS-series or GS-series VMs. You can use both Standard and Premium Storage disks with DS-series VMs. Premium storage disks will be available with more VM types in the future. For more information on all available Azure VM disk types and sizes, see [Sizes for virtual machines](../virtual-machines/virtual-machines-size-specs.md) and [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md).
+- When you plan to use Azure VMs running on Premium Storage, you need to use the DS-series or GS-series VMs. You can use both Standard and Premium Storage disks with DS-series VMs. Premium storage disks will be available with more VM types in the future. For more information on all available Azure VM disk types and sizes, see [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md) and [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md).
 
 ### Considerations
 
 #### VM sizes
-The Azure VM size specifications are listed in [Sizes for virtual machines](../virtual-machines/virtual-machines-linux-sizes.md). Review the performance characteristics of virtual machines that work with Premium Storage and choose the most appropriate VM size that best suits your workload. Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic.
+The Azure VM size specifications are listed in [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md). Review the performance characteristics of virtual machines that work with Premium Storage and choose the most appropriate VM size that best suits your workload. Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic.
 
 
 #### Disk sizes

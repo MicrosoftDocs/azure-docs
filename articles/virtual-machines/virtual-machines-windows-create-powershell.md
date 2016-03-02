@@ -23,7 +23,7 @@
 - [Portal - Windows](virtual-machines-windows-hero-tutorial.md)
 - [PowerShell](virtual-machines-windows-create-powershell.md)
 - [PowerShell - Template](virtual-machines-windows-ps-template.md)
-- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [Portal - Linux](virtual-machines-linux-portal-create.md)
 - [CLI](virtual-machines-linux-cli-create.md)
 
 <br>
@@ -393,4 +393,4 @@ Here is the Azure PowerShell command set to create this virtual machine.
 
 [Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-windows-ps-template.md)
 
-[How to install and configure Azure PowerShell](powershell-install-configure.md)
+[How to install and configure Azure PowerShell](../powershell-install-configure.md)

@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="How to Schedule Planned Maintenance for Azure VMs | Microsoft Azure"
 	description="Learn how to schedule planned maintenance on Azure VMs."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="igalf"
 	manager="timlt"

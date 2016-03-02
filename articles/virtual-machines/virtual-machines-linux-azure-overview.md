@@ -1,14 +1,14 @@
 <properties
    pageTitle="What is Microsoft Azure?"
    description="Describes services related to infrastructure for Azure Compute."
-   services="virtual-machines"
-   documentationCenter="virtual-machines"
+   services="virtual-machines-linux"
+   documentationCenter="virtual-machines-linux"
    authors="rickstercdn"
    manager="madhana"
    editor=""/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"

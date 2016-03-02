@@ -55,7 +55,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 Additionally, multi-instance tasks will execute *only* on nodes in **pools created after 14-Dec-2015**.
 
-> [AZURE.TIP] When you use size [A8 or A9 compute nodes](./../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network. You can see the full list of compute node sizes available for Batch pools in [Sizes for Cloud Services](./../cloud-services/cloud-services-sizes-specs.md).
+> [AZURE.TIP] When you use size [A8 or A9 compute nodes](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network. You can see the full list of compute node sizes available for Batch pools in [Sizes for Cloud Services](./../cloud-services/cloud-services-sizes-specs.md).
 
 ### Use a StartTask for MPI application installation
 
