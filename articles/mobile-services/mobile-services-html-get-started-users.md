@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/30/2015" 
 	ms.author="glenga"/>
 
 # Add authentication to your Mobile Services app 
@@ -35,7 +35,7 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 3. In the app directory, launch one of the following command files from the **server** subfolder.
 
-	+ **.\start-iisexpress.ps1** (Windows computers) 
+	+ **launch-windows** (Windows computers) 
 	+ **launch-mac.command** (Mac OS X computers)
 	+ **launch-linux.sh** (Linux computers)
 
@@ -134,7 +134,5 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 <!-- URLs. -->
 [Get started with Mobile Services]: mobile-services-html-get-started.md
 [Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
  

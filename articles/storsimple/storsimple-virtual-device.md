@@ -12,12 +12,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/16/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # Deploy and manage a StorSimple virtual device in Azure
 
-[AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
 
 ## Overview
 
@@ -55,7 +58,7 @@ Keep the following security considerations in mind when you use the StorSimple v
 
 - The virtual device is secured through your Microsoft Azure subscription. This means that if you are using the virtual device and your Azure subscription is compromised, the data stored on your virtual device is also susceptible.
 
-- The public key of the certificate used to encrypt data stored in Azure StorSimple is securely made available to the Azure portal, and the private key is retained with the StorSimple device. On the StorSimple virtual device, both the public and private keys are stored in Azure.
+- The public key of the certificate used to encrypt data stored in Azure StorSimple is securely made available to the Azure classic portal, and the private key is retained with the StorSimple device. On the StorSimple virtual device, both the public and private keys are stored in Azure.
 
 - The virtual device is hosted in the Microsoft Azure datacenter.
 
@@ -68,7 +71,7 @@ The following sections will help you prepare to use the StorSimple virtual devic
 
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
 
-- For the virtual device, [configure a virtual network on Azure](virtual-networks-create-vnet.md).
+- For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 - It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid, the creation of the virtual device will fail.
 - Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios.
 
@@ -94,7 +97,7 @@ Make the following updates to your Azure StorSimple service before you create a 
 
 Make sure that you have the following information before you begin:
 
-- You have your Azure portal account with access credentials.
+- You have your Azure classic portal account with access credentials.
 
 - You have your Azure storage account access credentials.
 
@@ -115,7 +118,7 @@ After you have created a virtual network, configured a StorSimple Manager servic
 
 Perform the following steps to create the StorSimple virtual device.
 
-1.  In the Azure portal, go to the **StorSimple Manager** service.
+1.  In the Azure classic portal, go to the **StorSimple Manager** service.
 
 2. Go to the **Devices** page.
 
@@ -232,7 +235,7 @@ Perform the following steps to configure remote management for your StorSimple v
 
 ![Video available](./media/storsimple-virtual-device/Video_icon.png) **Video available**
 
-To watch a video that describes how to create a virtual StorSimple device in the cloud, click [here](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-device/).
+To watch a video that describes how to create a virtual StorSimple device in the cloud, click [here](https://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-device/).
 
 ## Work with the StorSimple virtual device
 
@@ -286,7 +289,7 @@ However, if you want to connect directly to the virtual device from another comp
 
 Perform the following steps to create a public endpoint on the virtual device.
 
-1. Sign in to the Azure portal.
+1. Sign in to the Azure classic portal.
 
 - Click **Virtual Machines**, and then select the virtual machine that is being used as your virtual device.
 
@@ -360,17 +363,17 @@ The failover process will begin. When the failover is finished, go to the **Devi
 
 ![Video available](./media/storsimple-virtual-device/Video_icon.png) **Video available**
 
-To watch a video that describes how you can restore a failed over physical device to a virtual device in the cloud, click [here](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+To watch a video that describes how you can restore a failed over physical device to a virtual device in the cloud, click [here](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Shut down or delete the virtual device
 
 If you previously configured and used a StorSimple virtual device but now want to stop accruing compute charges for its use, you can shut down the virtual device. Shutting down the virtual device doesn’t delete its operating system or data disks in storage. It does stop charges accruing on your subscription, but storage charges for the OS and data disks will continue.
 
-If you delete or shut down the virtual device, it will appear as **Offline** on the Devices page of the StorSimple Manager service. You can choose to deactivate it or delete it as a device if you also wish to delete the backups created by the virtual device. For more information, see [Deactivate a device](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+If you delete or shut down the virtual device, it will appear as **Offline** on the **Devices** page of the StorSimple Manager service. You can choose to deactivate it or delete it as a device if you also wish to delete the backups created by the virtual device. For more information, see [Deactivate and delete a StorSimple device](storsimple-deactivate-and-delete-device.md).
 
 ### To shut down the StorSimple virtual device
 
-1. Sign in to the Azure portal.
+1. Sign in to the Azure classic portal.
 
 2. Click **Virtual Machines**, and then select the virtual device.
 
@@ -378,11 +381,11 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 
 ### To delete the StorSimple virtual device
 
-1. Sign in to the Azure portal.
+1. Sign in to the Azure classic portal.
 
-- Click **Virtual Machines**, and then select the virtual device.
+2. Click **Virtual Machines**, and then select the virtual device.
 
-- Click **Delete** and choose to delete all the virtual machine disks.
+3. Click **Delete** and choose to delete all the virtual machine disks.
 
 
 ## Next steps

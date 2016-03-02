@@ -1,5 +1,5 @@
 
-1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
+1. In the [Azure classic portal](https://manage.windowsazure.com/), click the **Data** tab and then click the **TodoItem** table. 
  
 2. In **todoitem**, click the **Script** tab and select **Insert**.
    

@@ -348,7 +348,7 @@ During the deployment, you will see something like this:
 
 During and after deployment, you can check all the requests that were made during provisioning, including any errors that occurred.
 
-To do that, go to the [Azure preview portal](https://portal.azure.com), and do the following:
+To do that, go to the [Azure portal](https://portal.azure.com), and do the following:
 
 - In the left-hand navigation bar, click **Browse**, and then scroll down and click **Resource Groups**.
 - Select the resource group that you just created, to bring up the “Resource Group” blade.

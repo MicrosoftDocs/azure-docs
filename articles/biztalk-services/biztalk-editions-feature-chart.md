@@ -4,8 +4,8 @@
 	services="biztalk-services"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+	manager="erikre"
+	editor=""/>
 
 <tags
 	ms.service="biztalk-services"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="02/29/2016"
 	ms.author="mandia"/>
 
 
@@ -216,7 +216,7 @@ BizTalk Services provides a true Platform-as-a-Service (PaaS) architecture for b
 - Microsoft ensures availability.
 - You control scale on-demand by simply requesting more or less capacity through the Azure portal.
 
-BizTalk Server on Azure Virtual Machines provides an Infrastructure-as-a-Service (IaaS) architecture. You  create virtual machines and configure them exactly like your on-premises environment, making it easier to run existing applications in the cloud with no code changes. With IaaS, you are still responsible for configuring the virtual machines,  managing the virtual machines (for example, installing software and OS patches), and  architecting the application for high availability.
+BizTalk Server on Azure Virtual Machines provides an Infrastructure-as-a-Service (IaaS) architecture. You  create virtual machines and configure them exactly like your on-premises environment, making it easier to run existing applications in the cloud with no code changes. With IaaS, you are still responsible for configuring the virtual machines,  managing the virtual machines (for example, installing software and OS patches), and architecting the application for high availability.
 
 If you are looking at building new integration solutions that minimize your infrastructure management effort, use BizTalk Services. If you are looking to quickly migrate your existing BizTalk solutions or looking for an on-demand environment to develop and test BizTalk Server applications, use BizTalk Server on an Azure Virtual Machine.
 
@@ -225,7 +225,7 @@ The BizTalk Adapter Service is used by an Azure BizTalk Service. The BizTalk Ada
 
 #### What does "Hybrid Connection Data Transfer (GB) per unit" mean? Is this per minute/hour/day/week/month? What happens when the limit is reached?
 
-The Hybrid Connection cost per unit depends on the BizTalk Services edition. Simply put, costs  depend on how much data you transfer. For example, transferring 10 GB data daily costs less than transferring 100 GB daily. Use the [Pricing Calculator](http://azure.microsoft.com/pricing/calculator/?scenario=full) for BizTalk Services to determine specific costs. Typically, the limits are enforced daily. If you exceed the limit, any overage is charged at the rate of $1 per GB.
+The Hybrid Connection cost per unit depends on the BizTalk Services edition. Simply put, costs  depend on how much data you transfer. For example, transferring 10 GB data daily costs less than transferring 100 GB daily. Use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?scenario=full) for BizTalk Services to determine specific costs. Typically, the limits are enforced daily. If you exceed the limit, any overage is charged at the rate of $1 per GB.
 
 #### When I create an agreement in BizTalk Services, why does the number of bridges go up by two instead of just one?
 
@@ -237,7 +237,10 @@ You are not able to deploy any new bridges or create any new agreements. To depl
 
 #### How do I migrate from one tier of BizTalk Services to another?
 
-Use the backup and restore flow for migrating from one tier to another. Only some migration paths are supported. Refer to [BizTalk Services: Backup and Restore](biztalk-backup-restore.md) for more details about the supported migration paths.
+The Free edition cannot be migrated or 'scaled up' to another tier, and cannot be backed up and restored to another tier. If you need another tier, create a new BizTalk Service using the new tier. Any artifacts created using the Free edition, including hybrid connections, need to be recreated in the new BizTalk Service. 
+
+For the remaining editions, use the backup and restore for migrating your artifacts from one tier to another. For example, backup your artifacts in the Standard tier, and then restore them to the Premium tier. [BizTalk Services: Backup and Restore](biztalk-backup-restore.md) describes the supported migration paths and lists what artifacts are backed up. Note that Hybrid Connections are not backed up. After backing up and restoring to a new tier, you then recreate the hybrid connections.  
+
 
 #### Is the BizTalk Adapter Service included in the service? How do I receive the software?
 

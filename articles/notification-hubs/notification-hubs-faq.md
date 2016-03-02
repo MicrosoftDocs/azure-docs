@@ -3,7 +3,7 @@
 	description="FAQs on designing/implementing solutions on Notification Hubs"
 	services="notification-hubs"
 	documentationCenter="mobile"
-	authors="wesmc"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor="" />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="11/25/2015" 
 	ms.author="wesmc" />
 
 #Azure Notification Hubs - Frequently Asked Questions (FAQs)
@@ -23,9 +23,10 @@
 Notification Hubs is offered in three tiers - *Free*, *Basic* & *Standard* tiers. More details here - [Notification Hubs Pricing]. The pricing is charged at the subscription level and is based on the number of pushes so it doesn't matter how many namespaces or notification hubs you have.
 Free tier is offered for development purpose with no SLA guarantee. Basic & Standard Tiers are offered for production usage with the following key features enabled only for Standard Tier:
 
-- *Broadcast* - Basic tier limits the number of Notification Hub tags to 3K (applies to > 5 devices). If you have an audience size greater than 3K then you must move to Standard Tier.
 - *Rich telemetry* - Basic Tier does not allow exporting your telemetry or registrations data. If you need the capability to export your telemetry data for offline viewing and analysis then you must move to Standard Tier.
 - *Multi-tenancy* - If you are creating a mobile app using Notification Hubs to support multiple tenants then you must consider moving to Standard tier. This allows you to set Push Notification Services (PNS) credentials at the Notification Hub namespace level for the app and then you can segregate the tenants providing them individual hubs under this common namespace. This enables ease of maintenance while keeping the SAS keys to send & receive notifications from the notification hubs segregated for each tenant ensuring non cross-tenant overlap.
+- *Scheduled Push* - You can schedule for push notifications to be queued up and sent out.
+- *Bulk import* - You can import registrations in bulk.
 
 ###2.	What is the SLA?
 For Basic and Standard Notification Hub tiers, we guarantee that at least 99.9% of the time, properly configured applications will be able to send notifications or perform registration management operations with respect to a Notification Hub deployed within a Basic or Standard Notification Hub Tier. To learn more about our SLA, please visit the SLA page here - [Notification Hubs SLA]. Note that there are no SLA guarantees for the leg between the Platform Notification Service and the device since Notification Hubs depend on external platform providers to deliver the notification to the device.
@@ -41,7 +42,7 @@ We have a number of customers using Notification Hubs with a few notable ones be
 * Bing Apps – 10s of millions of devices, sending 3 million notifications/day
 
 ###4. How do I upgrade or downgrade my Notification Hubs to change my service tier?
-Go to the [Azure Portal], click Service Bus, and click on your namespace then your notification hub. Under the Scale tab, you will be able to change your Notification Hubs service tier.
+Go to the [Azure Classic Portal], click Service Bus, and click on your namespace then your notification hub. Under the Scale tab, you will be able to change your Notification Hubs service tier.
 
 ##Design & Development
 ###1.	Which service side platforms do you support?
@@ -68,19 +69,19 @@ Azure Notification Hubs is able to process atleast 1 million sends in 1 minute i
 ###8.	Is there any latency guarantee?
 Because of the nature of push notifications that they are delivered by an external platform specific Push Notification Service, there is no latency guarantee. Typically, the majority of the notifications do get delivered within a few minutes.
 
-###9.	What are the considerations we need to take into account which designing a solution with namespaces and Notification Hubs?
+###9.	What are the considerations we need to take into account when designing a solution with namespaces and Notification Hubs?
 *Mobile App/Environment:*
 There should be one Notification Hub per mobile app per environment. In a multi-tenant scenario - each tenant should have a separate hub.
 You must never share the same Notification Hub between test and production environments as this may cause problems down the line while sending notifications. e.g. Apple offers Sandbox and Production Push endpoints with each having separate credentials. If the hub was configured originally with Apple sandbox certificate and then reconfigured to use Apple production certificate, the old device tokens would become invalid with the new certificate and cause pushes to fail. It is best to separate your production and test environments and use different hubs for different environments.
 
 *PNS credentials:*
-When a mobile app is registered with a platform's developer portal (e.g. Apple or Google etc) then you get an app identifier and security tokens which an app backend needs to provide to the Platform's Push Notification services to be able to send push notifications to the devices. These security tokens which can be in the form of certificates (e.g. for Apple iOS or Windows Phone) or security keys (Google Android, Windows) etc need to be configured in Notification Hubs. This is done typically at the notification hub level but can also be done at the namespace level in a multi-tenant scenario.
+When a mobile app is registered with a platform's developer portal (e.g. Apple or Google etc) then you get an app identifier and security tokens which an app backend needs to provide to the Platform's Push Notification services to be able to send push notifications to the devices. These security tokens which can be in the form of certificates (e.g. for Apple iOS or Windows Phone) or security keys (Google Android, Windows etc) need to be configured in Notification Hubs. This is done typically at the notification hub level but can also be done at the namespace level in a multi-tenant scenario.
 
 *Namespaces:*
 Namespaces can also be used for deployment grouping.  It can also be used to represent all Notification hubs for all tenants of the same app in the multi-tenant scenario.
 
 *Geo-distribution:*
-Geo-distribution is not always critical in case of push notifications. It is to be noted that the various Push Notification services (e.g. APNS, GCM etc) which ultimately deliver the push notifications to the devices aren't evenly distributed either. However if you have an application which is used across the world then you can create several hubs in different namespaces taking advantage of the availability of Notification Hubs service in different Azure regions around the world. Note that this will increase the management cost particularly around registrations so this isn't really recommended and must only be done if really required.
+Geo-distribution is not always critical in cases of push notifications. It is to be noted that the various Push Notification services (e.g. APNS, GCM etc) which ultimately deliver the push notifications to the devices aren't evenly distributed either. However, if you have an application which is used across the world then you can create several hubs in different namespaces taking advantage of the availability of Notification Hubs service in different Azure regions around the world. Note that this will increase the management cost particularly around registrations so this isn't really recommended and must only be done if really required.
 
 ###10.	Should we do registrations from the app backend or from the devices directly?
 Registrations from the app backend are useful when you have to do a client authentication before creating the registration or when you have tags which must be created or modified by the app backend based on some app logic. More guidance is available here - [Backend Registration guidance] & [Backend Registration guidance - 2]
@@ -90,7 +91,7 @@ Azure Notification Hubs use a Shared Access Signature (SAS) based security model
 
 ###12.	How do you handle sensitive payload in the notifications?
 All notifications are delivered to the devices by the platforms Push Notification Services (PNS). When a sender sends a notification to Azure Notification Hubs then we process and pass the notification to the respective PNS. All connections from the sender to the Azure Notifications Hubs and then to the PNS use HTTPS. Azure Notifications Hubs does not log the payload of the message in any way.
-For sending sensitive payloads however we recommend a Secure Push pattern where the sender sends a 'ping' notification with a message identifier to the device without the sensitive payload and when the app on the device receives this payload then it calls a secure app backend API directly to fetch the message details. Tutorial to implement the pattern is here - [NH - Secure Push tutorial]
+For sending sensitive payloads however we recommend a Secure Push pattern where the sender sends a 'ping' notification with a message identifier to the device without the sensitive payload and when the app on the device receives this payload then it calls a secure app backend API directly to fetch the message details. A tutorial to implement the pattern is here - [NH - Secure Push tutorial]
 
 ##Operations
 ###1.	What is the Disaster Recovery (DR) story?
@@ -111,18 +112,18 @@ Recommendation is to use an app backend which either:
 If you don’t have a backend then when the app starts up on the devices then they will do a new registration in the secondary NH and eventually the secondary NH will have all the active devices registered but the downside is that there will be a time period when devices where apps haven't opened up will not receive notifications.
 
 ###2.	Is there any audit log capability?
-All Notification Hubs Management operations go to Operation Logs which are exposed in the Azure Management Portal.
+All Notification Hubs Management operations go to Operation Logs which are exposed in the [Azure Classic Portal].
 
 ##Monitoring & Troubleshooting
 ###1.	What troubleshooting capabilities are available?
 Azure Notification Hubs provide several features to do common troubleshooting particularly in the most common scenario around dropped notifications. See details in this troubleshooting whitepaper - [NH - troubleshooting]
 
 ###2.	What telemetry features are available?
-Azure Notification Hubs enable viewing telemetry data in the Azure management portal. Details of the available metrics are available here - [NH - Metrics].
-Note that successful notifications only mean that the notifications have been delivered to the external Push Notification Service (e.g. APNS for Apple, GCM for Google etc) and then it is upto the PNS to deliver the notification to the devices and the PNS do not expose these metrics to us.  
+Azure Notification Hubs enables viewing telemetry data in the [Azure Classic Portal]. Details of the available metrics are available here - [NH - Metrics].
+Note that successful notifications only mean that the notifications have been delivered to the external Push Notification Service (e.g. APNS for Apple, GCM for Google etc) and then it is up to the PNS to deliver the notification to the devices and the PNS do not expose these metrics to us.  
 It also provides the capability to export the telemetry programmatically (in Standard Tier). See this sample for details - [NH - Metrics sample]
 
-[Azure Portal]: https://manage.windowsazure.com
+[Azure Classic Portal]: https://manage.windowsazure.com
 [Notification Hubs Pricing]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [CaseStudy - Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942

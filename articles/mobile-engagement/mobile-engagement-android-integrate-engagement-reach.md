@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #How to Integrate Engagement Reach on Android
@@ -639,10 +639,6 @@ Here is the interesting part of the implementation:
 			}
 
 As you can see, if you called `actionContent(this)` then finished the activity, `exitContent(this)` can be safely called without having any effect.
-
-##Test
-
-Now please verify your integration by reading How to Test Engagement Integration on Android.
 
 [here]:http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html

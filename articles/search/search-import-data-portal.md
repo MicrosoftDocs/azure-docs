@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="Azure portal"/>
+    tags="Azure Portal"/>
 
 <tags
 	ms.service="search"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Import data to Azure Search using the portal
@@ -37,9 +37,11 @@ To use an indexer or the **Import Data** command, your primary data source needs
 
 You can only import from a single table, view, or equivalent data structure. You might need to create this data structure in your application data source first to get the right metadata and data inputs into your search index.
 
+You can try out this workflow using sample data. Visit [Get started with Azure Search in the Azure Portal](search-get-started-portal.md) to get started.
+
 ##Configure data import
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 
 2. Open the service dashboard of your Azure Search service. Here are a few ways to find the dashboard.
 	- In the Jumpbar, click **Home**. The home page has tiles for every service in your subscription. Click the tile to open the service dashboard.

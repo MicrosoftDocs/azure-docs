@@ -5,7 +5,7 @@
 	documentationCenter="ruby"
 	authors="tfitzmac"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 
@@ -31,8 +31,7 @@ This guide shows you how to perform common scenarios using the Azure Table servi
 
 ## Create a Ruby application
 
-For instructions how to create a Ruby application,
-see [Create a Ruby application in Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
+For instructions how to create a Ruby application, see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
 
 ## Configure your application to access Storage
 
@@ -57,15 +56,21 @@ The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT**
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
 
-To obtain these values:
+To obtain these values from a Classic or ARM Storage Account in the Azure Portal:
 
-1. Log in to the [Azure portal](https://manage.windowsazure.com/).
-
+1. Log in to the [Azure Portal](https://portal.azure.com).
 2. Navigate to the storage account you want to use.
+3. In the Settings blade on the right, click **Access Keys**.
+4. In the Access keys blade that appears, you'll see the access key 1 and access key 2. You can use either of these. 
+5. Click the copy icon to copy the key to the clipboard. 
 
-3. Click **MANAGE KEYS** at the bottom of the navigation pane.
+To obtain these values from a Classic Storage Account in the Classic Portal:
 
-4. In the pop-up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can either the primary one or the secondary one.
+1. Log in to the [Classic Portal](https://manage.windowsazure.com).
+2. Navigate to the storage account you want to use.
+3. Click **MANAGE ACCESS KEYS** at the bottom of the navigation pane.
+4. In the pop up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one. 
+5. Click the copy icon to copy the key to the clipboard.
 
 ## Create a table
 
@@ -155,6 +160,5 @@ To delete a table, use the **delete\_table()** method and pass in the name of th
 
 To learn about more complex storage tasks, follow these links:
 
-- MSDN Reference: [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub

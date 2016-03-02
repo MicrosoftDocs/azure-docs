@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Move data from on-premises Oracle using Azure Data Factory 
@@ -26,10 +26,12 @@ For the Azure Data Factory service to be able to connect to your on-premises Ora
 - Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway. 
 - [Oracle Data Access Components (ODAC) for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). It must be installed on the host machine where the gateway is installed.
 
+> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
 
 ## Sample: Copy data from Oracle to Azure Blob
-
-The sample below shows:
+This sample shows how to copy data from an on-premises Oracle database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+ 
+The sample has the following data factory entities:
 
 1.	A linked service of type [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -205,7 +207,17 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
-## Oracle Linked Service properties
+
+You will need to adjust the query string based on how dates are configured in your Oracle database. If you see the following error message: 
+
+	Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+
+you may need to change the query as shown below (using the to_date function):
+
+	"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+
+
+## Oracle linked service properties
 
 The following table provides description for JSON elements specific to Oracle linked service. 
 
@@ -216,7 +228,7 @@ connectionString | Specify information needed to connect to the Oracle Database 
 gatewayName | Name of the gateway that will be used to connect to the onpremises Oracle server | Yes
 
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises Oracle data source.
-## Oracle Dataset type properties
+## Oracle dataset type properties
 
 For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Oracle, Azure blob, Azure table, etc...).
  
@@ -224,9 +236,9 @@ The typeProperties section is different for each type of dataset and provides in
 
 Property | Description | Required
 -------- | ----------- | --------
-tableName | Name of the table in the Oracle Database that the linked service refers to. | Yes
+tableName | Name of the table in the Oracle Database that the linked service refers to. | No (if **oracleReaderQuery** of **SqlSource** is specified)
 
-## Oracle Copy Activity type properties
+## Oracle copy activity type properties
 
 For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities. 
 
@@ -234,16 +246,16 @@ For a full list of sections & properties available for defining activities pleas
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
 
-In case of Copy activity when source is of type SqlSource the following properties are available in typeProperties section:
+In case of Copy activity when source is of type **OracleSource** the following properties are available in **typeProperties** section:
 
 Property | Description |Allowed values | Required
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Use the custom query to read data. | SQL query string. 
-For example: select * from MyTable <p>If not specified, the SQL statement that is executed: select * from MyTable</p> | No
+For example: select * from MyTable <p>If not specified, the SQL statement that is executed: select * from MyTable</p> | No (if **tableName** of **dataset** is specified)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Type Mapping for Oracle
+### Type mapping for Oracle
 
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 

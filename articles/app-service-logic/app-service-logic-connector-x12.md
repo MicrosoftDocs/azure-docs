@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/23/2015"
+   ms.date="02/10/2016"
    ms.author="rajram"/>
 
 # Get started with the BizTalk X12 API App and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
 Use the BizTalk X12 service to receive and send messages per the X12 protocol in business to business communications. X12 is also commonly referred to as ASC X12 or Accredited Standards Committee X12 and is widely used across industries.
 
 You can add the BizTalk X12 API App to your business workflow and process data as part of a business-to-business workflow within a Logic App. 
@@ -33,7 +35,7 @@ To use the BizTalk X12 Connector, you need to first create an instance of the Bi
 ## Configuring BizTalk X12 Connector
 Trading partners are the entities involved in B2B (Business-to-Business) communications. When two partners establish a relationship, this is referred to as an Agreement. The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific.
 
-Steps to create a trading partner agreement are documented [here][2].
+See the steps to [create a trading partner agreement][2].
 
 ## Using X12 Connector in Logic Apps designer surface
 X12 Connector can be used either as a trigger or as an action.

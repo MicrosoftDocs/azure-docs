@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Scaling a Service Fabric cluster up or down | Microsoft Azure"
-   description="Scale a Service Fabric Cluster up or down to match demand by adding or removing virtual machine nodes"
+   pageTitle="Scale a Service Fabric cluster up or down | Microsoft Azure"
+   description="Scale a Service Fabric cluster up or down to match demand by adding or removing virtual machine nodes."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -13,70 +13,71 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/03/2015"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
-# Scaling a Service Fabric Cluster up or down by adding or removing Virtual Machines (VMs) from it.
 
-You can scale Service Fabric clusters up or down to match demand by adding or removing virtual machines.
+# Scale a Service Fabric cluster up or down by adding or removing virtual machines
 
->[AZURE.NOTE] It is assumed that your subscription has enough cores to add the new VMs that will make up this cluster.
+You can scale Azure Service Fabric clusters up or down to match demand by adding or removing virtual machines.
 
+>[AZURE.NOTE] Your subscription must have enough cores to add the new VMs that will make up this cluster.
 
-## Manually scaling a Service Fabric cluster
+## Scale a Service Fabric cluster manually
 
-### Choosing the node type to scale
+### Choose the node type to scale
 
-If your cluster has multiple Node types, you will now have to add or remove VMs from specific Node Types.
+If your cluster has multiple node types, you will have to add or remove VMs from specific node types. Here's how:
 
-1. Log on to the Azure Portal [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Navigate to the Service Fabric Clusters
- ![BrowseServiceFabricClusterResource][BrowseServiceFabricClusterResource]
+2. Navigate to **Service Fabric Clusters**.
+ ![Service Fabric Clusters page in the Azure portal.][BrowseServiceFabricClusterResource]
 
-3. Select the cluster you would like to scale up or down
+3. Select the cluster that you want to scale up or down.
 
-4. Navigate to settings blade on the cluster dashboard. If you do not see the settings blade, then click on "All Settings" on the essential part on the cluster dashboard.
+4. Navigate to the **Settings** blade on the cluster dashboard. If you do not see the **Settings** blade, then click **All Settings** on the essential part on the cluster dashboard.
 
-5. Click on the NodeTypes, which will open up the NodeTypes list blade.
+5. Click **NodeTypes**, which will open the **NodeTypes list** blade.
 
-7. Click on the Node type you want to scale up or down, which will then open up the Node Type detail blade.
+6. Click the node type that you want to scale up or down, which will open the **NodeType detail** blade.
 
-### Scaling up by adding nodes
+### Scale up by adding nodes
 
-Adjust the number of VMs up to what you want it to be and save.The nodes/VMs will now get added once the deployment is complete.
+Adjust the number of VMs up to what you want it to be, and save. The nodes/VMs will be added once the deployment is complete.
 
-### Scaling down by removing nodes
+### Scale down by removing nodes
 
 Removing nodes is a two-step process:
 
-1. Adjust the number of VMs to what you would like and save.The lower end of the slider will indicate the minimum VM requirement for that NodeType.
+1. Adjust the number of VMs to what you want and save. The lower end of the slider indicates the minimum number of VMs required for that node type.
 
-  >[AZURE.NOTE] You must maintain a minimum of 5 VMs for the primary Node Type.
+    >[AZURE.NOTE] You must maintain a minimum of 5 VMs for the primary node type.
 
-	Once that deployment is complete, you will get notified of the VM names that can now be deleted. You now need to navigate to the VM resource and delete it.
+2. Once that deployment is complete, you will be notified of the VM names that can now be deleted. You then need to navigate to the VM resources and delete them:
 
-2. Return to the cluster dashboard and click on the Resource Group. It will open up the Resource Group Blade.
+    a. Return to the cluster dashboard and click **Resource Group**. It will open the **Resource Group** blade.
 
-3. Look under Summary or open up the list of resouces by clicking on "..."
+    b. Look under **Summary** or open the list of resources by clicking "**...**".
 
-4. Click on the VM name that the system had indicated can be deleted.
+    c. Click the VM name that the system indicated could be deleted.
 
-5. Click on the Delete icon to delete the VM.
+    d. Click the **Delete** icon to delete the VM.
 
-## Auto Scaling of the Service Fabric cluster
+>[AZURE.NOTE] Service Fabric clusters require a certain number of nodes to be up at all times in order to maintain availability and preserve state - referred to as "maintaining quorum". Consequently, it is typically not safe to shut down all of the machines in the cluster unless you have first performed a [full backup of your state](service-fabric-reliable-services-backup-restore.md).
 
-At this time, Service Fabric clusters do not support auto-scaling. In the near future, clusters will be built on top of virtual machine scale sets (VMSS), at which time auto-scaling will become possible and will behave similarly to the auto-scale behavior available in Cloud Services.
+## Auto-scale Service Fabric clusters
 
-## Scaling using PowerShell/CLI
+At this time, Service Fabric clusters do not support auto-scaling. In the near future, clusters will be built on top of virtual machine scale sets, at which time auto-scaling will become possible and will behave similarly to the auto-scale behavior available in cloud services.
 
-This article covered scaling clusters using the portal. However, you can perform the same actions from the command line using ARM commands on the cluster resource. The GET response of the ClusterResource will provide the list of nodes which have been disabled.
+## Scale clusters by using PowerShell/CLI
+
+This article covers scaling clusters by using the portal. However, you can perform the same actions from the command line by using Azure Resource Manager commands on the cluster resource. The GET response of the cluster resource will provide the list of nodes that have been disabled.
 
 ## Next steps
 
 - [Learn about cluster upgrades](service-fabric-cluster-upgrade.md)
 - [Learn about partitioning stateful services for maximum scale](service-fabric-concepts-partitioning.md)
-
 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png

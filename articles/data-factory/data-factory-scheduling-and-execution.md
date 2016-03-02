@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/27/2016" 
 	ms.author="spelluru"/>
 
 # Scheduling & Execution with Data Factory
@@ -22,7 +22,7 @@ This article explains the scheduling and execution aspects of Azure Data Factory
 
 ## Scheduling Activities
 
-With the **scheduler** section in the activity JSON, you can specify a recurring schedule for the activity. For example you can schedule activity runs every hour as follows:
+With the **scheduler** section in the activity JSON, you can specify a recurring schedule for the activity. For example you can schedule an activity every hour as follows:
 
 	"scheduler": {
 		"frequency": "Hour",
@@ -31,11 +31,11 @@ With the **scheduler** section in the activity JSON, you can specify a recurring
     
 ![Scheduler example](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
-As shown above, specifying an hourly schedule creates activity runs corresponding to a series of tumbling windows. Tumbling windows are series of fixed-sized, non-overlapping and contiguous time intervals.
+As shown above, specifying a schedule for the activity creates a series of tumbling windows. Tumbling windows are series of fixed-sized, non-overlapping and contiguous time intervals. These logical tumbling windows for the activity are called **activity windows**.
  
-For the currently executing activity run, the window time interval can be accessed with **WindowStart** and **WindowEnd** system variables in the activity JSON. You can use these variables for different purposes in your activity JSON and scripts associated with the activity including selecting data from input, output datasets representing time series data.
+For the currently executing activity window, the time interval associated with the activity window can be accessed with **WindowStart** and **WindowEnd** system variables in the activity JSON. You can use these variables for different purposes in your activity JSON and scripts associated with the activity including selecting data from input, output datasets representing time series data.
 
-For more information on different properties available for scheduler including scheduling at a specific time offset, setting the mode to align processing at the beginning of interval for the window or at the end please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article.
+The **scheduler** property supports the same sub-properties as the **availability** property in a dataset. For more information on different properties available for scheduler including scheduling at a specific time offset, setting the mode to align processing at the beginning of interval for the activity window or at the end please refer to the [Dataset availability](data-factory-create-datasets.md#Availability) article. 
 
 ## Time series Datasets and Data Slices
 
@@ -242,6 +242,25 @@ Once you kick off the rerun and the 9-10AM slice for dataset2 is ready, data fac
 ![Rerun failed slice](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
 For deeper dive on specifying dependency and tracking the dependencies for complex chain of activities and datasets, refer to sections below.
+
+## Chaining activities
+You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. 
+
+For example, consider the following case:
+ 
+1.	Pipeline P1 has Activity A1 that requires external input dataset D1, and produce **output** dataset **D2**.
+2.	Pipeline P2 has Activity A2 that requires **input** from dataset **D2**, and produces output dataset D3.
+ 
+In this scenario, the activity A1 will run when the external data is available, and the scheduled availability frequency is reached.  The activity A2 will run when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 will not run for that slice until it becomes available.
+
+The Diagram View would look like below:
+
+![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+
+The Diagram View with both activities in the same pipeline would look like below: 
+
+![Chaining activities in the same pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+
 
 ## Modeling datasets with different frequencies
 
@@ -475,7 +494,7 @@ The hive activity takes the 2 inputs and produces an output slice every day. You
 	          },
 	          {
 	            "name": "AzureBlobInputWeekly",
-	            "startTime": "Date.AddDays(SliceStart,  -7 - Date.DayOfWeek(SliceStart))",
+	            "startTime": "Date.AddDays(SliceStart, - Date.DayOfWeek(SliceStart))",
 	            "endTime": "Date.AddDays(SliceEnd,  -Date.DayOfWeek(SliceEnd))"  
 	          }
 	        ],
@@ -511,74 +530,9 @@ The hive activity takes the 2 inputs and produces an output slice every day. You
 	}
 
 
-## Chaining activities
-You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. This chaining occurs at the time slice level (a discrete unit within a dataset).   
+## Data Factory functions and system variables   
 
-## Data Factory System Variables
-
-Variable Name | Description | Object Scope | JSON Scope and Use Cases
-------------- | ----------- | ------------ | ------------------------
-WindowStart | Start of time interval for current activity run window | activity | <ol><li>Specify data selection queries. See connector articles referenced in the [Data Movement Activities](data-factory-data-movement-activities.md) article.</li><li>Pass parameters to Hive script (sample shown above).</li>
-WindowEnd | End of time interval for current activity run window | activity | same as above
-SliceStart | Start of time interval for data  slice being produced | activity<br/>dataset | <ol><li>Specify dynamic folder paths and file names while working with [Azure Blob](data-factory-azure-blob-connector.md) and [File System datasets](data-factory-onprem-file-system-connector.md).</li><li>Specify input dependencies with data factory functions in activity inputs collection.</li></ol>
-SliceEnd | End of time interval for current data slice being produced | activity<br/>dataset | same as above. 
-
-> [AZURE.NOTE] Currently data factory requires that the schedule specified in the activity exactly match the schedule specified in availability of the output dataset. This means WindowStart, WindowEnd and SliceStart and SliceEnd always map to the same time period and a single output slice.
- 
-## Data Factory Functions Reference
-
-You can use functions in data factory along with above mentioned system variables for the following purposes:
-
-1.	Specifying data selection queries (see connector articles referenced by the [Data Movement Activities](data-factory-data-movement-activities.md) article.
-
-	The syntax to invoke a data factory function is: **$$<function>** for data selection  queries and other properties in the activity and datasets.  
-2. Specifying input dependencies with data factory functions in activity inputs collection (see sample above).
-
-	$$ is not needed for specifying input dependency expressions. 	
-
-In the following sample, **sqlReaderQuery** property in a JSON file is assigned to a value returned by the **Text.Format** function. This sample also uses a system variable named **WindowStart**, which represents the start time of the activity run window.
-	
-	{
-	    "Type": "SqlSource",
-	    "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
-	}
-
-### Functions
-
-The following tables list all the functions in Azure Data Factory:
-
-Category | Function | Parameters | Description
--------- | -------- | ---------- | ----------- 
-Time | AddHours(X,Y) | X: DateTime <p>Y: int</p> | Adds Y hours to the given time X. <p>Example: 9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM</p>
-Time | AddMinutes(X,Y) | X: DateTime <p>Y: int</p> | Adds Y minutes to X.<p>Example: 9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM</p>
-Time | StartOfHour(X) | X: Datetime | Gets the starting time for the hour represented by the hour component of X. <p>Example: StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM</p>
-Date | AddDays(X,Y) | X: DateTime<p>Y: int</p> | Adds Y days to X.<p>Example: 9/15/2013 12:00:00 PM + 2 days = 9/17/2013 12:00:00 PM</p>
-Date | AddMonths(X,Y) | X: DateTime<p>Y: int</p> | Adds Y months to X.<p>Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM</p> 
-Date | AddQuarters(X,Y) | X: DateTime <p>Y: int</p> | Adds Y * 3 months to X.<p>Example: 9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM</p>
-Date | AddWeeks(X,Y) | X: DateTime<p>Y: int</p> | Adds Y * 7 days to X<p>Example: 9/15/2013 12:00:00 PM + 1 week = 9/22/2013 12:00:00 PM</p>
-Date | AddYears(X,Y) | X: DateTime<p>Y: int</p> | Adds Y years to X.<p>Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM</p>
-Date | Day(X) | X: DateTime | Gets the day component of X.<p>Example: Day of 9/15/2013 12:00:00 PM is 9. </p>
-Date | DayOfWeek(X) | X: DateTime | Gets the day of week component of X.<p>Example: DayOfWeek of 9/15/2013 12:00:00 PM is Sunday.</p>
-Date | DayOfYear(X) | X: DateTime | Gets the day in the year represented by the year component of X.<p>Examples:<br/>12/1/2015: day 335 of 2015<br/>12/31/2015: day 365 of 2015<br/>12/31/2016: day 366 of 2016 (Leap Year)</p>
-Date | DaysInMonth(X) | X: DateTime | Gets the days in the month represented by the month component of parameter X.<p>Example: DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month.</p>
-Date | EndOfDay(X) | X: DateTime | Gets the date-time that represents the end of the day (day component) of X.<p>Example: EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM.</p>
-Date | EndOfMonth(X) | X: DateTime | Gets the end of the month represented by month component of parameter X. <p>Example: EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM (date time that represents the end of September month)</p>
-Date | StartOfDay(X) | X: DateTime | Gets the start of the day represented by the day component of parameter X.<p>Example: StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM.</p>
-DateTime | From(X) | X: String | Parse string X to a date time.
-DateTime | Ticks(X) | X: DateTime | Gets the ticks property of the parameter X. One tick equals 100 nanoseconds. The value of this property represents the number of ticks that have elapsed since 12:00:00 midnight, January 1, 0001. 
-Text | Format(X) | X: String variable | Formats the text.
-
-#### Text.Format example
-
-	"defines": { 
-	    "Year" : "$$Text.Format('{0:yyyy}',WindowStart)",
-	    "Month" : "$$Text.Format('{0:MM}',WindowStart)",
-	    "Day" : "$$Text.Format('{0:dd}',WindowStart)",
-	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
-	}
-
-> [AZURE.NOTE] When using a function within another function, you do not need to use **$$** prefix for the inner function. For example: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In this example, notice that **$$** prefix is not used for the **Time.AddHours** function. 
-  
+See [Data Factory Functions and System Variables](data-factory-functions-variables.md) article for a list of functions and system variables supported by Azure Data Factory. 
 
 ## Data Dependency Deep Dive
 

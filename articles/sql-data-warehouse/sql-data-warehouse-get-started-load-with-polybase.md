@@ -5,16 +5,16 @@
    documentationCenter="NA"
    authors="sahaj08"
    manager="barbkess"
-   editor="jrowlandjones"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
-   ms.author="sahaj08;barbkess"/>
+   ms.date="02/25/2016"
+   ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
 # Load data with PolyBase in SQL Data Warehouse
@@ -72,7 +72,7 @@ To prepare a sample text file:
 
 To find your blob service endpoint:
 
-1. From the Azure portal select **Browse** > **Storage Accounts**.
+1. From the Azure Classic Portal select **Browse** > **Storage Accounts**.
 2. Click the storage account you want to use.
 3. In the Storage account blade, click Blobs
 
@@ -150,7 +150,9 @@ CREATE MASTER KEY;
 
 
 -- B: Create a database scoped credential
--- Provide your Azure storage account key. The identity is associated with the credential. -- It is not used for authentication to Azure storage.
+-- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
+-- SECRET: Provide your Azure storage account key. 
+
 
 CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential 
 WITH 
@@ -160,18 +162,21 @@ WITH
 
 
 -- C: Create an external data source
--- Specify the blob service endpoint and the name of the database-scoped credential.
+-- LOCATION: Provide Azure storage account name and blob container name.
+-- CREDENTIAL: Provide the credential created in the previous step.
 
 CREATE EXTERNAL DATA SOURCE AzureStorage 
 WITH (	
-    TYPE = Hadoop, 
-    LOCATION = 'wasbs://datacontainer@pbdemostorage.blob.core.windows.net',
+    TYPE = HADOOP, 
+    LOCATION = 'wasbs://<blob_container_name>@<azure_storage_account_name>.blob.core.windows.net',
     CREDENTIAL = AzureStorageCredential
 ); 
 
 
 -- D: Create an external file format
--- Specify the way the sample data is formatted in the Azure storage blobs.
+-- FORMAT_TYPE: Type of file format in Azure storage (supported: DELIMITEDTEXT, RCFILE, ORC, PARQUET).
+-- FORMAT_OPTIONS: Specify field terminator, string delimiter, date format etc. for delimited text files.
+-- Specify DATA_COMPRESSION method if data is compressed.
 
 CREATE EXTERNAL FILE FORMAT TextFile 
 WITH (
@@ -181,9 +186,9 @@ WITH (
 
 
 -- E: Create the external table
--- Specify the fields and data types for the table. This needs to match the data
--- in the sample file. Also specify the path to the data from the root directory
--- of the data source.
+-- Specify column names and data types. This needs to match the data in the sample file. 
+-- LOCATION: Specify path to file or directory that contains the data (relative to the blob container). 
+-- To point to all files under the blob container, use LOCATION='.'
 
 CREATE EXTERNAL TABLE dbo.DimDate2External (
     DateId INT NOT NULL, 
@@ -191,13 +196,13 @@ CREATE EXTERNAL TABLE dbo.DimDate2External (
     FiscalQuarter TINYINT NOT NULL
 )
 WITH (
-    LOCATION='datedimension/', 
+    LOCATION='/datedimension/', 
     DATA_SOURCE=AzureStorage, 
     FILE_FORMAT=TextFile
 );
 
 
--- Run a PolyBase query to verify the external table
+-- Run a query on the external table
 
 SELECT count(*) FROM dbo.DimDate2External;
 
@@ -250,9 +255,8 @@ See the [PolyBase guide][] for further information you should know as you develo
 [1]:./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png
 
 <!--Article references-->
-[PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-load-with-polybase.md
+[PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-get-started-load-with-polybase.md
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[Load with PolyBase]: sql-data-warehouse-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [Statistics]: sql-data-warehouse-develop-statistics.md

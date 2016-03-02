@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="01/07/2016" 
 	ms.author="genemi"/>
 
 
@@ -130,6 +130,7 @@ A discussion of the *blocking period* for clients that use ADO.NET is available 
 
 
 For code samples that illustrate retry logic, see:
+
 - [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
 
@@ -145,8 +146,12 @@ When any error occurs with SQL Database, an [SqlException](http://msdn.microsoft
 
 
 For further information see:
+
 - [Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+<!--  (per Penny Lee, 2016/01/07.  MightyPen==GeneMi)
 - [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
+-->
 
 
 <a id="e-technologies" name="e-technologies"></a>

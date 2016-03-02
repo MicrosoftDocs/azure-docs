@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -401,7 +401,7 @@ Windows 10 domain-joined computers(devices) will synchronize some attributes to 
 | displayName | X| |
 | ms-DS-CreatorSID | X| Also called registeredOwnerReference.|
 | objectGUID | X| Also called deviceID.|
-| objectSID | X| Also called omPremisesSecurityIdentifier.|
+| objectSID | X| Also called onPremisesSecurityIdentifier.|
 | operatingSystem | X| Also called deviceOSType.|
 | operatingSystemVersion | X| Also called deviceOSVersion.|
 | userCertificate | X| |
@@ -418,7 +418,7 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 
 | Attribute Name| User| Contact| Group| Comment |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObject| X|  |  | Derived from cloudAnchor in Azure AD.|
+| msDS-ExternalDirectoryObjectID| X|  |  | Derived from cloudAnchor in Azure AD. This is new in Exchange 2016.|
 | msExchArchiveStatus| X|  |  | Online Archive: Enables customers to archive mail.|
 | msExchBlockedSendersHash| X|  |  | Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients.|
 | msExchSafeRecipientsHash| X|  |  | Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients.|
@@ -426,6 +426,27 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 | msExchUCVoiceMailSettings| X|  |  | Enable Unified Messaging (UM) - Online voice mail: Used by Microsoft Lync Server integration to indicate to Lync Server on-premises that the user has voice mail in online services.|
 | msExchUserHoldPolicies| X|  |  | Litigation Hold: Enables cloud services to determine which users are under Litigation Hold.|
 | proxyAddresses| X| X| X| Only the x500 address from Exchange Online is inserted.|
+
+## Device writeback
+Device objects are created in Active Directory. These can be devices joined to Azure AD or domain-joined Windows 10 computers.
+
+| Attribute Name| Device| Comment |
+| --- | :-: | --- |
+| altSecurityIdentities | X| |
+| displayName | X| |
+| dn | X| |
+| msDS-CloudAnchor | X| |
+| msDS-DeviceID | X| |
+| msDS-DeviceObjectVersion | X| |
+| msDS-DeviceOSType | X| |
+| msDS-DeviceOSVersion | X| |
+| msDS-DevicePhysicalIDs | X| |
+| msDS-KeyCredentialLink | X| Only with Windows Server 2016 AD schema |
+| msDS-IsCompliant | X| |
+| msDS-IsEnabled | X| |
+| msDS-IsManaged | X| |
+| msDS-RegisteredOwner | X| |
+
 
 ## Notes about attributes
 - When using an Alternate ID, the on-premises attribute userPrincipalName will be synchronized with the Azure AD attribute onPremisesUserPrincipalName. The Alternate ID attribute, e.g. mail, will be synchronized with the Azure AD attribute userPrincipalName.

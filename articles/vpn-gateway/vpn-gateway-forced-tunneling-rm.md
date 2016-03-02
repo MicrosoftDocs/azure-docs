@@ -18,7 +18,11 @@
 
 # Configure forced tunneling using PowerShell and Azure Resource Manager
 
-This article applies to VNets and VPN Gateways created using the Azure Resource Manager deployment model. If you want to configure forced tunneling using the Service Management deployment model, see [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
+> [AZURE.SELECTOR]
+- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+
+This article applies to VNets and VPN Gateways created using the Azure Resource Manager deployment model. If you want to configure forced tunneling for VNets that were created using Service Management (also known as the classic deployment model), see [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]  
 
@@ -63,11 +67,9 @@ In the example, the virtual network "MultiTier-VNet" has 3 subnets: *Frontend*, 
 
 Verify that you have the following items below before beginning your configuration.
 
-- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- The latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the [Web Platform Installer](http://aka.ms/webpi-azps/). This documentation was written for PowerShell 1.0 or later. The necessary cmdlets for this configuration are not present in earlier versions. For more information about PowerShell 1.0, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)
-
-- If you aren't familiar with using Azure Resource Manager and PowerShell, please see [this article](../articles/powershell-azure-resource-manager.md) for more information.
+- Azure PowerShell cmdlets (1.0 or later). The necessary cmdlets for this configuration are not present in versions earlier than 1.0. You can download and install this version from the Windows PowerShell section of the [Download page](https://azure.microsoft.com/downloads/). If you aren't familiar with installing and configuring PowerShell, please see [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information. 
 
 ### Configuration steps
 
@@ -79,9 +81,9 @@ Verify that you have the following items below before beginning your configurati
 
 		Get-AzureRmSubscription
 
-2. Specify your Azure subscription name. 
+2. Specify the subscription that you want to use. 
 
-		Get-AzureRmSubscription -SubscriptionName "YourSubscriptionName" | Select-AzureRmSubscription
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 		
 3. Create a resource group.
 

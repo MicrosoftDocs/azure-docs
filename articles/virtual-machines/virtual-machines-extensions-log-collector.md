@@ -49,7 +49,7 @@ In both collection modes, additional data collection folders can be specified by
 ## Prerequisites
 
 - You need to have a storage account for extension to save generated zip files.
-- You must make sure that you are using Azure PowerShell Cmdlets V0.8.0 or above. For more information, see [Azure Downloads](http://azure.microsoft.com/downloads/).
+- You must make sure that you are using Azure PowerShell Cmdlets V0.8.0 or above. For more information, see [Azure Downloads](https://azure.microsoft.com/downloads/).
 
 ## Add the extension
 
@@ -94,7 +94,7 @@ Internally, this extension uses the JSON-based PublicConfiguration and PrivateCo
 
 You can follow one of the two following steps to add the AzureLogCollector to one or more instances of a Cloud Service or Virtual Machine of selected roles, which triggers the collections on each VM to run and send the collected files to Azure account specified.
 
-## Add the AzureLogCollector as a Service Extension
+## Adding as a Service Extension
 
 1. Follow the instructions to connect Azure PowerShell to your subscription.
 
@@ -193,7 +193,7 @@ The following is the definition of the parameters passed to the script. (This is
       }
              
             
-## Add the AzureLogCollector as a VM Extension
+## Adding as a VM Extension
 
 Follow the instructions to connect Azure PowerShell to your subscription.
 

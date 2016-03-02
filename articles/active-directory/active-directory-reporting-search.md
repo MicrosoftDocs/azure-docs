@@ -13,10 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="09/29/2015"
+	ms.date="12/07/2015"
 	ms.author="kenhoff"/>
 
 # Azure Active Directory Reporting Search
+
+*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 Azure Active Directory provides directory admins the ability to search for user security, activity, and audit events across multiple reports.
 

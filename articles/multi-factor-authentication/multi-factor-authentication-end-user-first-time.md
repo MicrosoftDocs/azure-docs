@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Signing in for the first time with Azure Multi-Factor Authentication" 
 	description="This page describes what the user experience will be the first time they signin." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords="how to use azure directory, active directory in the cloud, active directory tutorial" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenp" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 # Setup experience for Azure Multi-Factor Authentication
 

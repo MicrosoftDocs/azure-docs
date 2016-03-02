@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="10/30/2015" 
+	ms.date="01/08/2016" 
 	ms.author="bradygaster"/>
 
 # Consume an Azure API App using HTML and JavaScript
+
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## Overview
 
@@ -66,7 +68,7 @@ API App Gateways can be configured to enable CORS using the Azure preview portal
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-The **MS_CrossDomainOrigins** application setting is discussed in detail in the blog post [Azure Mobile Service .NET Updates](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/), so check this post for more details on the details of the setting.
+The **MS_CrossDomainOrigins** application setting is discussed in detail in the blog post [Azure Mobile Service .NET Updates](https://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/), so check this post for more details on the details of the setting.
 
 ### Enabling CORS in Web API Code
 

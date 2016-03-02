@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Cloud App Discovery Security and Privacy Considerations"
+	pageTitle="Cloud App Discovery Security and Privacy Considerations | Microsoft Azure"
 	description="This topic describes the security and privacy considerations related to Cloud App Discovery."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 # Cloud App Discovery Security and Privacy Considerations
@@ -55,7 +55,7 @@ For further instructions on deployment options, see [Cloud App Discovery Group P
 ### Data collected by the agent
 
 The information outlined in the list below is collected by the agent when a connection is made to a Web application. The information is only collected for those applications that the administrator has configured for discovery. <br>
-You can edit the list of cloud apps that the agent monitors through the Cloud App Discovery blade in the Microsoft [Azure portal](https://portal.azure.com), under **Settings**->**Data Collection**->**App Collection list**. For more details, see [Getting Started With Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
+You can edit the list of cloud apps that the agent monitors through the Cloud App Discovery blade in the Microsoft [Azure portal](https://portal.azure.com/), under **Settings**->**Data Collection**->**App Collection list**. For more details, see [Getting Started With Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 <br>
 **Information Category**: User information <br>
 **Description**: <br>
@@ -109,6 +109,8 @@ The following HTTP information:
  For TLS connections, this information is only captured when the ‘Deep Inspection’ setting is turned on in the portal. The setting is ‘ON’ by default.
 For more details, see below, and [Getting Started With Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
+
+In addition to the data that the agent collects about the network activity, it also collects anonymous information about the software and hardware configuration, error reports, and information about how the agent is being used.
 
 <br><br>
 ### How the agent works
@@ -200,7 +202,8 @@ Any user accessing the data in the portal, must be licensed with an Azure AD Pre
 
 
 
-**Additional Resources**
+##Additional Resources
 
 
 * [How can I discover unsanctioned cloud apps that are used within my organization](active-directory-cloudappdiscovery-whatis.md)
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

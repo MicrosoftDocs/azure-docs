@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Recover an Azure SQL Database from an outage
@@ -23,7 +23,7 @@ Azure SQL Database's offers the following capabilities for recovering from an ou
 - Active Geo-Replication [(blog)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
 - Standard Geo-Replication [(blog)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
 - Geo-Restore [(blog)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
-- New Geo-replication capabilities [(blog)](https://azure.microsoft.com/blog/azure-sql-database-geo-replication-october-2015-update/)
+- New Geo-replication capabilities [(blog)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 
 To learn about preparing for disaster and when to recover your database, visit our [Design for business continuity](sql-database-business-continuity-design.md) page. 
 
@@ -64,9 +64,9 @@ Use REST to programmatically initiate failover to a secondary database.
 
 In the event of an outage of a database, you can recover your database from its latest geo redundant backup using Geo-Restore. 
 
-> [AZURE.NOTE] Recovering a database creates a new database. It is important to make sure the server you are recovering to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+> [AZURE.NOTE] Recovering a database creates a new database. It is important to make sure the server you are recovering to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
-###Azure Portal
+###Azure Portal (Recovery to a Stand Alone Database)
 To restore a SQL Database using Geo-Restore in the Azure Portal, use the following steps.
 
 1. Log in to the [Azure Portal](https://portal.Azure.com)
@@ -75,7 +75,20 @@ To restore a SQL Database using Geo-Restore in the Azure Portal, use the followi
 3. Specify the rest of the database properties and then click **Create**.
 4. The database restore process will begin and can be monitored using **NOTIFICATIONS** on the left side of the screen.
 
+###Azure Portal (Recovery into an Elastic Database Pool)
+To restore a SQL Database using Geo-Restore into an Elastic Database Pool using the portal, follow the instructions below.
+
+1. Log in to the [Azure Portal](https://portal.Azure.com)
+2. On the left side of the screen select **Browse**, then select **SQL elastic pools**.
+3. Select the pool you want to Geo-Restore the database into.
+4. At the top of the elastic pool blade, select **Create database**
+5. Select **BACKUP** as the source  and then select the geo redundant backup you want to recover from.
+6. Specify the rest of the database properties and then click **Create**.
+7. The database restore process will begin and can be monitored using **NOTIFICATIONS** on the left side of the screen.
+
 ###PowerShell 
+> [AZURE.NOTE] Currently using Geo-Restore with PowerShell only supports restoring into a stand alone database. To Geo-Restore into an elastic database pool please use the [Azure Portal](https://portal.Azure.com).
+
 To restore a SQL Database using Geo-Restore with PowerShell, start a Geo-Restore request with the [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx) cmdlet.
 
 		$Database = Get-AzureSqlRecoverableDatabase -ServerName "ServerName" –DatabaseName “DatabaseToBeRecovered"

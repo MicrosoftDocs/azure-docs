@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Configuring a custom domain name for an Azure cloud service
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-custom-domain-name.md)
-- [Azure Preview Portal](cloud-services-custom-domain-name-portal.md)
+- [Azure portal](cloud-services-custom-domain-name-portal.md)
+- [Azure classic portal](cloud-services-custom-domain-name.md)
 
 
 When you create a Cloud Service, Azure assigns it to a subdomain of cloudapp.net. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://contoso.cloudapp.net. Azure also assigns a virtual IP address.
@@ -35,7 +35,7 @@ Do you already undestand what CNAME and A records are? [Jump past the explainati
 <p/>
 
 > [AZURE.NOTE]
-> The procedures in this task apply to Azure Cloud Services. For Websites, see [Configuring a Custom Domain Name for an Azure App Service Web App](../web-sites-custom-domain-name.md). For storage accounts, see [Configuring a Custom Domain Name for an Azure Storage Account](../storage-custom-domain-name.md).
+> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/storage-custom-domain-name.md).
 
 
 ## Understand CNAME and A records
@@ -65,7 +65,7 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
 
 1. Use one of these methods to find the **.cloudapp.net** domain name assigned to your cloud service.
 
-    * Login to the [Azure Management Portal], select your cloud service, select **Dashboard**, and then find the **Site URL** entry in the **quick glance** section.
+    * Login to the [Azure classic portal], select your cloud service, select **Dashboard**, and then find the **Site URL** entry in the **quick glance** section.
     
         ![quick glance section showing the site URL][csurl]
     
@@ -107,7 +107,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
 
 1. Use one of the following methods to get the IP address of your cloud service.
     
-    * login to the [Azure Management Portal], select your cloud service, select **Dashboard**, and then find the **Public Virtual IP (VIP) address** entry in the **quick glance** section.
+    * login to the [Azure classic portal], select your cloud service, select **Dashboard**, and then find the **Public Virtual IP (VIP) address** entry in the **quick glance** section.
     
         ![quick glance section showing the VIP][vip]
     
@@ -140,15 +140,16 @@ For example, the following A record forwards all traffic from **contoso.com** to
 | @                   | 137.135.70.239 |
 
 
+
 This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '__*__' as the subdomain.
 
 >[AZURE.WARNING]
->IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](..\virtual-network\virtual-networks-reserved-public-ip.md) to ensure that your IP address does not change.
+>IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](../virtual-network/virtual-networks-reserved-public-ip.md) to ensure that your IP address does not change.
 
 ## Next steps
 
 * [How to Manage Cloud Services](cloud-services-how-to-manage.md)
-* [How to Map CDN Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
+* [How to Map CDN Content to a Custom Domain](../cdn/cdn-map-content-to-custom-domain.md)
 * [General configuration of your cloud service](cloud-services-how-to-configure.md).
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy.md).
 * Configure [ssl certificates](cloud-services-configure-ssl-certificate.md).
@@ -161,7 +162,7 @@ This example demonstrates creating an A record for the root domain. If you wish 
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: http://msdn.microsoft.com/library/ee517253.aspx
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure classic portal]: https://manage.windowsazure.com
 [Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
 [vip]: ./media/cloud-services-custom-domain-name/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png

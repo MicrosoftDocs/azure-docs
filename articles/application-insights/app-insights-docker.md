@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Monitor a Docker host in Application Insights" 
-	description="Docker host perf counters, events and exceptions can be displayed on Application Insights, along with the telemetry from the containerized apps." 
+	pageTitle="Monitor Docker applications in Application Insights" 
+	description="Docker perf counters, events and exceptions can be displayed on Application Insights, along with the telemetry from the containerized apps." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,59 +12,80 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="12/01/2015" 
 	ms.author="awills"/>
  
-# Monitor a Docker host in Application Insights
+# Monitor Docker applications in Application Insights
 
-Performance counters and exception reports from a [Docker](https://www.docker.com/) host can be charted on Application Insights. Install the [Application Insights](app-insights-overview.md)  app in a container in your host, and it will display overall performance counters for the host, as well as for the other images.
+Lifecycle events and performance counters from [Docker](https://www.docker.com/) containers can be charted on Application Insights. Install the [Application Insights](app-insights-overview.md) image in a container in your host, and it will display  performance counters for the host, as well as for the other images.
 
 With Docker you distribute your apps in lightweight containers complete with all dependencies. They'll run on any host machine that runs a Docker Engine.
 
-Application Insights can monitor the performance and activity of your Docker host and containers.
+When you run the [Application Insights image](https://hub.docker.com/r/microsoft/applicationinsights/) on your Docker host, you'll get these benefits:
+
+* Lifecycle telemetry about all the containers running on the host - start, stop, and so on.
+* Performance counters for all the containers. CPU, memory, network usage, and more.
+* If you [installed Application Insights SDK](app-insights-java-live.md) in the apps running in the containers, all the telemetry of those apps will have additional properties identifying the container and host machine. So for example, if you have instances of an app running in more than one host, you'll easily be able to filter your app telemetry by host.
 
 ![example](./media/app-insights-docker/00.png)
 
-(And of course, if you own the source of any of the apps in the containers, [install the Application Insights SDK](app-insights-java-live) on each of them to get detailed performance logging and usage tracking.)
 
-## Create an Application Insights resource
+## Set up your Application Insights resource
 
-An Application Insights resource is the place where you'll view and analyze your data. It's hosted in the Microsoft Azure portal.
+1. Sign into [Microsoft Azure Portal](https://azure.com) and open the Application Insights resource for your app; or [create a new one](app-insights-create-new-resource.md). 
 
-1.	You'll need a subscription to [Microsoft Azure](https://azure.com). (There's a pay-as-you-go option where you don't pay anything if you don't use services, and you can use the free tier of Application Insights.)
-2.	Sign into the [Azure Portal](https://portal.azure.com), and create a new Application Insights resource. Choose Other for the application type. (This choice just affects the initial selection of charts you see, and it isn't too important.)
+    *Which resource should I use?* If the apps that you are running on your host were developed by someone else, then you'll need to [create a new Application Insights resource](app-insights-create-new-resource.md). This is where you view and analyze the telemetry. (Select 'Other' for the app type.)
 
-    ![example](./media/app-insights-docker/01-new.png)
-3.	You can always get to your new monitoring resource by using Browse, All. But you probably also opted to put a tile for your app on the Home dashboard that you see whenever you go to the portal.
+    But if you're the developer of the apps, then we hope you [added Application Insights SDK](app-insights-java-live.md) to each of them. If they're all really components of a single business application, then you might configure all of them to send telemetry to one resource, and you'll use that same resource to display the Docker lifecycle and performance data. 
 
-    Open the new resource now.
-4.	Add the Docker tile: Choose **Edit**, then **Add tiles**, and drag the Docker tile from the gallery. It will just show empty charts at first.
+    A third scenario is that you developed most of the apps, but you are using separate resources to display their telemetry. In that case, you'll probably also want to create a separate resource for the Docker data. 
+
+2.	Add the Docker tile: Choose **Add Tile**, drag the Docker tile from the gallery, and then click **Done**. 
 
     ![example](./media/app-insights-docker/03.png)
 
-5. Click the **Essentials** drop-down and copy the Instrumentation Key. You'll use this to tell the SDK where to send its telemetry.
+
+3. Click the **Essentials** drop-down and copy the Instrumentation Key. You'll use this to tell the SDK where to send its telemetry.
+
+
+    ![example](./media/app-insights-docker/02-props.png)
 
 Keep that browser window handy, as you'll come back to it soon to look at your telemetry.
 
 
-## Install Application Insights on your host
+## Run the Application Insights monitor on your host
  
-Now that you've got somewhere to display the telemetry, you can set up the app that will collect and send it.
-1.	Sign in to your Docker host.
-2.	Search for the Microsoft Application Insights image on Docker Hub and pull it to your host. 
-3.	Set the instrumentation key:
+Now that you've got somewhere to display the telemetry, you can set up the containerized app that will collect and send it.
+
+1.	Connect to your Docker host. 
+2.	Edit your instrumentation key into this command, and then run it:
+ 
+    ```
 
     docker run -v /var/run/docker.sock:/docker.sock -d microsoft/applicationinsights ikey=000000-1111-2222-3333-444444444
+    ```
 
-4. Run the image.
+Only one Application Insights image is required per Docker host. If your application is deployed on multiple Docker hosts, then repeat the command on every host.
+
+## Update your app
+
+If your application is instrumented with the [Application Insights SDK for Java](app-insights-java-get-started.md), add the following line into the ApplicationInsights.xml file in your project, under the `<TelemetryInitializers>` element:
+
+```xml
+
+    <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
+```
+
+This adds Docker information such as container and host id to every telemetry item sent from your app.
 
 ## View your telemetry
 
 Go back to your Application Insights resource in the Azure portal.
 
-You'll shortly see data arriving from the Docker container, especially if you have other containers running on your Docker engine.
+Click through the Docker tile.
 
-Click through any of the charts to see more detail.
+You'll shortly see data arriving from the Docker app, especially if you have other containers running on your Docker engine.
+
 
 Here are some of the views you can get.
 
@@ -73,23 +94,44 @@ Here are some of the views you can get.
 
 ![example](./media/app-insights-docker/10.png)
 
-Click any image name for more detail.
+
+![example](./media/app-insights-docker/11.png)
+
+
+
+Click any host or image name for more detail.
+
+
+
 To customize the view, click any chart, the grid heading, or use Add Chart. 
 
 [Learn more about metrics explorer](app-insights-metrics-explorer.md).
 
-## Individual events
+### Docker container events
 
 
-![example](./media/app-insights-docker/12.png)
+![example](./media/app-insights-docker/13.png)
 
 To investigate individual events, click [Search](app-insights-diagnostic-search.md). Search and filter 
 to find the events you want. Click any event to get more detail.
  
-## Exceptions by container name
+### Exceptions by container name
  
 
 ![example](./media/app-insights-docker/14.png)
+
+### Docker context added to app telemetry
+
+Request telemetry sent from the application instrumented with AI SDK, enriched with Docker context:
+
+![example](./media/app-insights-docker/16.png)
+
+Processor time and available memory performance counters, enriched and grouped by Docker container name:
+
+
+![example](./media/app-insights-docker/15.png)
+
+
 
 
 

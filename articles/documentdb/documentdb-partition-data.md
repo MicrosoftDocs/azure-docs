@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"      
     ms.devlang="na"      
     ms.topic="article"      
-    ms.date="10/05/2015"      
+    ms.date="02/09/2016"      
     ms.author="arramac"/> 
 
 # Partition and scale data in DocumentDB
 
-[Microsoft Azure DocumentDB](../../services/documentdb/) is designed to help you achieve fast, predictable performance and *scale-out* seamlessly along with your application as it grows. DocumentDB has been used to power high-scale production services at Microsoft like the User Data Store that powers the MSN suite of web and mobile apps. 
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is designed to help you achieve fast, predictable performance and *scale-out* seamlessly along with your application as it grows. DocumentDB has been used to power high-scale production services at Microsoft like the User Data Store that powers the MSN suite of web and mobile apps. 
 
 You can achieve near-infinite scale in terms of storage and throughput for your DocumentDB application by horizontally partitioning your data - a concept commonly referred to as **sharding**.  DocumentDB accounts can be scaled linearly with cost via stackable units a.k.a. **collections**. How you best partition your data across collections will depend on your data format and access patterns. 
 
@@ -28,7 +28,7 @@ After reading this article on data scaling you will be able to answer the follow
  - When would you use each partitioning technique and why?
  - How do you go about building a partitioned application on Azure DocumentDB?
 
-This article presents some concepts about sharding. If you're ready to write code that partitions data using the DocumentDB .NET SDK, take a look at [Partitioning data with the DocumentDB .NET SDK](documentdb-sharding.md).
+This article presents some concepts about sharding. If you're ready to write code that partitions data using the DocumentDB SDKs, take a look at [Partitioning data with the DocumentDB SDK](documentdb-sharding.md).
 
 ## Collections = Partitions
 

@@ -22,12 +22,12 @@ ms.author="bbenz" />
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-To create virtual machines based on Oracle images, sign in to the [Azure preview portal](https://ms.portal.azure.com/), click **Marketplace**, click **Compute**, and then type **Oracle** into the Search box. Select an image and follow the instructions to set up the image on Microsoft Azure. Note that Oracle images by Microsoft on the [Azure preview portal](https://ms.portal.azure.com/) run on Windows, and Oracle images by Oracle run on Oracle Linux.
+To create virtual machines based on Oracle images, sign in to the [Azure portal](https://ms.portal.azure.com/), click **Marketplace**, click **Compute**, and then type **Oracle** into the Search box. Select an image and follow the instructions to set up the image on Microsoft Azure. Note that Oracle images by Microsoft on the [Azure portal](https://ms.portal.azure.com/) run on Windows, and Oracle images by Oracle run on Oracle Linux.
 
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
 
 ##Windows-based virtual machine images
-The following is a list of the available Oracle virtual machine images that run on Windows Server on Azure. These images are pay-as-you-go, meaning that Oracle license fees are included in the usage of these images. You can also bring your own license to run Oracle software on Windows or Linux. Here are complete details on [pricing and licensing for Azure Virtual Machines and virtual machine gallery images](http://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Click the **Oracle** tab for details on specific Oracle pricing.
+The following is a list of the available Oracle virtual machine images that run on Windows Server on Azure. These images are pay-as-you-go, meaning that Oracle license fees are included in the usage of these images. You can also bring your own license to run Oracle software on Windows or Linux. Here are complete details on [pricing and licensing for Azure Virtual Machines and virtual machine gallery images](https://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Click the **Oracle** tab for details on specific Oracle pricing.
 
 ###Oracle Database virtual machine images
 - Oracle Database 12c Enterprise Edition on Windows Server 2012

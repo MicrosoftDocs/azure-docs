@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="anuragdalmia" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/23/2015"
+   ms.date="02/11/2016"
    ms.author="rajram"/>
    
 # Get started with the Azure Storage Blob Connector and add it to your Logic App 
+
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Azure Storage Blob API](../connectors/create-api-azureblobstorage.md).
+
 Connect to your Azure Storage Blob to upload, download, and delete blobs from the blob container. Connectors are used in Logic Apps as a part of a "workflow". 
 
 ## Triggers and Actions

@@ -21,7 +21,7 @@
 
 *Application Insights is in preview*
 
-[Microsoft Azure Cloud service apps](http://azure.microsoft.com/services/cloud-services/) can be monitored by [Visual Studio Application Insights][start] for availability, performance, failures and usage. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
+[Microsoft Azure Cloud service apps](https://azure.microsoft.com/services/cloud-services/) can be monitored by [Visual Studio Application Insights][start] for availability, performance, failures and usage. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
 ![Example](./media/app-insights-cloudservices/sample.png)
 
@@ -69,18 +69,19 @@ As an alternative, you could send data from all the roles to just one resource, 
     Set the instrumentation key as a configuration setting in the file `ServiceConfiguration.Cloud.cscfg`. ([Sample code](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
  
     ```XML
-     
      <Role name="WorkerRoleA"> 
-      <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="YOUR IKEY" /> 
      </Role>
     ```
  
     In a suitable startup function, set the instrumentation key from the configuration setting:
 
     ```C#
-
-     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("Telemetry.AI.InstrumentationKey");
+     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
     ```
+
+    Note, the same name `APPINSIGHTS_INSTRUMENTATIONKEY` of the configuration setting will be used by Azure Diagnostics reporting. 
+
 
     Do this for each role in your application. See the examples:
  
@@ -124,7 +125,7 @@ See the two sample worker roles instrumented to report requests: [WorkerRoleA](h
 
 ## Azure Diagnostics
 
-[Azure Diagnostics](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) data includes role management events, performance counters, and application logs. You can have these sent to Application Insights so that you can see them alongside the rest of your telemetry, making it easier to diagnose issues.
+[Azure Diagnostics](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) data includes role management events, performance counters, and application logs. You can have these sent to Application Insights so that you can see them alongside the rest of your telemetry, making it easier to diagnose issues.
 
 Azure diagnostics are particularly useful if a role fails unexpectedly, or fails to start.
 
@@ -259,10 +260,14 @@ That's it! The portal experience is already wired up to help you see all associa
 
 [The example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.
 
+## Exception "method not found" on running in Azure Cloud Services
+
+Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Services roles. [Install 4.6 on each role](../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
+
 ## Related topics
 
 * [Configure sending Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md)
-* [Using PowerShell to send Azure diagnostics to Application Insights])(app-insights-powershell-azure-diagnostics.md)
+* [Using PowerShell to send Azure diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
 
 
 

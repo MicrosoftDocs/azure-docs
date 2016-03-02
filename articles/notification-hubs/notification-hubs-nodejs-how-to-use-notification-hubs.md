@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/10/2015"
 	ms.author="wesmc"/>
 
 # How to use Notification Hubs from Node.js
@@ -78,9 +78,9 @@ module:
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-The connection **connectionstring** value can be obtained from the Azure Management portal by performing the following steps:
+The connection **connectionstring** value can be obtained from the [Azure Classic Portal] by performing the following steps:
 
-1. From the Azure Management portal, select **Service Bus**, and then select the namespace that contains the notification hub.
+1. From the [Azure Classic Portal], select **Service Bus**, and then select the namespace that contains the notification hub.
 
 2. Select **NOTIFICATION HUBS**, and then select the hub you wish to use.
 
@@ -209,7 +209,7 @@ links to learn more.
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Classic Portal]: http://manage.windowsazure.com
   [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
   [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png

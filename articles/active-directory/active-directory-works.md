@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How does Azure AD work?"
-	description="Azure AD creates an identity landscape that is yours in the cloud. It can be connected to your on-premises identity system or used independently."
+	pageTitle="How does Azure Active Directory work? | Microsoft Azure"
+	description="Azure Active Directory creates an identity landscape that is yours in the cloud. It can be connected to your on-premises identity system or used independently."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 
 
 # How does Azure Active Directory work?
-
 
 ###Other articles on this topic
 [What is Azure AD?](active-directory-whatis.md)<br>
@@ -29,11 +28,11 @@
 [Learn more](active-directory-learn-map.md)
 
 
-Azure AD creates an identity landscape that is yours in the cloud. It can be connected to your on-premises identity system or used independently.
+Azure Active Directory (Azure AD) creates an identity landscape that is yours in the cloud. It can be connected to your on-premises identity system or used independently.
 
 You can think of an account in Azure AD as your driver's license for the cloud: it's your unique ID for accessing services online. In that sense, Azure AD works like your own private registrar in the cloud for those driver's licenses.  It enables identities to be used anywhere in the cloud, and improves mobility for users who access resources on-premises.
 
-> [AZURE.NOTE] To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## How does Azure AD support Office 365, Microsoft Intune, and other Azure services?
 The Azure portal, Office 365 Admin Center, Microsoft Intune account portal, and the cmdlets from the Azure AD PowerShell module all read from and write to a single shared instance of Azure AD that is associated with your directory. Portals (or cmdlets) act as a front-end interface that pulls in or changes your directory information. [Learn more about support for other services](active-directory-administer.md#what-is-an-azure-ad-tenant)

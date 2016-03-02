@@ -10,11 +10,11 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
-   ms.author="mausher;barbkess"/>
+   ms.date="02/25/2016"
+   ms.author="mausher;barbkess;sonyama"/>
 
 
 # Load data with bcp

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/20/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
 # Create multiple instances of resources in Azure Resource Manager
@@ -153,6 +153,65 @@ copy element has **name** set to **storagecopy** and the **dependsOn** element f
 	    ],
 	    "outputs": {}
     }
+
+## Looping on a nested resource
+
+You cannot use a copy loop for a nested resource. If you need to create multiple instances of a resource that you typically define as nested within another resource, you must instead create the resource as a top-level resource, and define the relationship with the parent resource through the **type** and **name** properties.
+
+For example, suppose you typically define a dataset as a nested resource within a Data Factory.
+
+    "parameters": {
+        "dataFactoryName": {
+            "type": "string"
+         },
+         "dataSetName": {
+            "type": "string"
+         }
+    },
+    "resources": [
+    {
+        "type": "Microsoft.DataFactory/datafactories",
+        "name": "[parameters('dataFactoryName')]",
+        ...
+        "resources": [
+        {
+            "type": "datasets",
+            "name": "[parameters('dataSetName')]",
+            "dependsOn": [
+                "[parameters('dataFactoryName')]"
+            ],
+            ...
+        }
+    }]
+    
+To create multiple instances of datasets, you would need to change your template as shown below. Notice the full-qualified type and the name includes the data factory name.
+
+    "parameters": {
+        "dataFactoryName": {
+            "type": "string"
+         },
+         "dataSetName": {
+            "type": "array"
+         }
+    },
+    "resources": [
+    {
+        "type": "Microsoft.DataFactory/datafactories",
+        "name": "[parameters('dataFactoryName')]",
+        ...
+    },
+    {
+        "type": "Microsoft.DataFactory/datafactories/datasets",
+        "name": "[concat(parameters('dataFactoryName'), '/', parameters('dataSetName')[copyIndex()])]",
+        "dependsOn": [
+            "[parameters('dataFactoryName')]"
+        ],
+        "copy": { 
+            "name": "datasetcopy", 
+            "count": "[length(parameters('dataSetName'))]" 
+        } 
+        ...
+    }]
 
 ## Next steps
 - If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).

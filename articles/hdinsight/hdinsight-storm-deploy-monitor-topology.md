@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/18/2015"
+   ms.date="02/22/2016"
    ms.author="larryfr"/>
 
 #Deploy and manage Apache Storm topologies on Windows-based HDInsight
@@ -139,7 +139,9 @@ Use the following steps to deploy a sample to your Storm on HDInsight cluster, t
 
 	> [AZURE.NOTE] You can also view **Storm Topologies** from **Server Explorer** by expanding **Azure** > **HDInsight**, and then right-clicking a Storm on HDInsight cluster, and selecting **View Storm Topologies**.
 
-	Use the links for the spouts or bolts to view information about these components. A new window will open for each item selected.
+	Select the shape for the spouts or bolts to view information about these components. A new window will open for each item selected.
+    
+    > [AZURE.NOTE] The name of the topology is the class name of the topology (in this case, `HelloWord`,) with a timestamp appended.
 
 4. From the **Topology Summary** view, select **Kill** to stop the topology.
 
@@ -149,7 +151,7 @@ Use the following steps to deploy a sample to your Storm on HDInsight cluster, t
 
 The Storm UI is built on top of the REST API, so you can perform similar management and monitoring functionality by using the REST API. You can use the REST API to create custom tools for managing and monitoring Storm topologies.
 
-For more information, see [Storm UI REST API](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md). The following information is specific to using the REST API with Apache Storm on HDInsight.
+For more information, see [Storm UI REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md). The following information is specific to using the REST API with Apache Storm on HDInsight.
 
 ###Base URI
 

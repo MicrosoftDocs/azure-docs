@@ -2,7 +2,7 @@
 	pageTitle="Get started with Azure Mobile Engagement for Windows Universal Apps"
 	description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Windows Universal Apps."
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="windows"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 # Get started with Azure Mobile Engagement for Windows Universal Apps

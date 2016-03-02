@@ -115,7 +115,7 @@ Standard and Active Geo-Replication provides similar disaster recovery features 
 For more information, see the [Business Continuity Overview](sql-database-business-continuity.md).
 
 ### Max In-Memory OLTP storage
-**Max In-Memory OLTP storage** refers to the maximum amount of storage available to the [In-Memory OLTP Preview](sql-database-in-memory.md) for Premium databases. This is also sometimes referred to as *XTP In-Memory storage*. You can use the Azure Portal or the **sys.dm_db_resource_stats** view to monitor your In-Memory storage use. For more information on monitoring, see [Monitor In-Memory OLTP Storage](sql-database-in-memory-oltp-monitoring.md). 
+**Max In-Memory OLTP storage** refers to the maximum amount of storage available to the [In-Memory OLTP Preview](sql-database-in-memory.md) for Premium databases. This is also sometimes referred to as *XTP In-Memory storage*. You can use the Azure Classic Portal or the **sys.dm_db_resource_stats** view to monitor your In-Memory storage use. For more information on monitoring, see [Monitor In-Memory OLTP Storage](sql-database-in-memory-oltp-monitoring.md). 
 
 >[AZURE.NOTE] The In-Memory OLTP Preview is currently only supported for single databases and not for databases in elastic database pools.
 
@@ -168,7 +168,7 @@ There are two views that enable you to monitor resource usage for a SQL database
 - [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
->[AZURE.NOTE] It is also possible to use the Azure Management Portal to view resource utilization. For an example, see [Service tiers - Monitoring performance](sql-database-service-tiers.md#monitoring-performance).
+>[AZURE.NOTE] It is also possible to use the Azure Classic Portal to view resource utilization. For an example, see [Service tiers - Monitoring performance](sql-database-service-tiers.md#monitoring-performance).
 
 ### Using sys.dm_db_resource_stats
 The [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) view exists in each SQL database and supplies recent resource utilization data relative to the service tier. Average percentages for CPU, data IO, log writes, and memory are recorded every 15 seconds and are maintained for one hour. 
@@ -292,7 +292,7 @@ While the service tiers are designed to improve performance stability and predic
 This section explains some techniques that you can use to tune Azure SQL Database to gain the best performance out of your application and be able to run in the smallest possible performance level. A number of the techniques match traditional SQL Server tuning best practices, but some techniques are specific to Azure SQL Database. In some cases, traditional SQL Server techniques can be extended to also work on Azure SQL Database by examining the consumed resources for a database to find areas to further tune.
 
 ### Query Performance Insight and Index Advisor
-SQL Database provides two tools in the Azure Portal for analyzing and fixing performance issues with your database:
+SQL Database provides two tools in the Azure Classic Portal for analyzing and fixing performance issues with your database:
 
 - [Query Performance Insight](sql-database-query-performance.md)
 - [Index Advisor](sql-database-index-advisor.md)
@@ -485,7 +485,7 @@ For applications that access data in the fashion of high, frequent ad-hoc queryi
 Some applications are write-intensive. Sometimes, it is possible to reduce the total IO load on a database by considering how to batch writes together. This is often as simple as using explicit transactions instead of auto-commit transactions within stored procedures and ad hoc batches. An evaluation of different techniques that can be used can be found at [Batching Techniques for SQL Database Applications in Azure](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Experiment with your own workload to find the right model for batching, taking care to understand that a given model might have slightly different transactional consistency guarantees. Finding the right workload that minimizes resource use requires finding the right combination of consistency and performance tradeoffs. 
 
 ### Application-tier caching
-Some database applications contain read-heavy workloads. It is possible to utilize caching layers to reduce the load on the database and to potentially reduce the performance level required to support a database using Azure SQL Database. [Azure Redis Cache](https://azure.microsoft.com/services/cache) enables a customer with a read-heavy workload to read the data once (or perhaps once per application-tier machine, depending on how it is configured) and store that data outside of Azure SQL Database. This provides an ability to reduce database load (CPU and Read IO), but there is an impact on transactional consistency since the data being read from the cache may be out of date with the data in the database. While there are many applications where an amount of inconsistency is acceptable, this is not true for all workloads. Please fully understand any application requirements before employing an application-tier caching strategy.
+Some database applications contain read-heavy workloads. It is possible to utilize caching layers to reduce the load on the database and to potentially reduce the performance level required to support a database using Azure SQL Database. [Azure Redis Cache](https://azure.microsoft.com/services/cache/) enables a customer with a read-heavy workload to read the data once (or perhaps once per application-tier machine, depending on how it is configured) and store that data outside of Azure SQL Database. This provides an ability to reduce database load (CPU and Read IO), but there is an impact on transactional consistency since the data being read from the cache may be out of date with the data in the database. While there are many applications where an amount of inconsistency is acceptable, this is not true for all workloads. Please fully understand any application requirements before employing an application-tier caching strategy.
 
 ## Conclusion
 

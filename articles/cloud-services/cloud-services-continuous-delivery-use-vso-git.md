@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Continuous delivery with Git and Visual Studio Team Services in Azure" 
+	pageTitle="Continuous delivery with Git and Visual Studio Team Services in Azure | Microsoft Azure" 
 	description="Learn how to configure your Visual Studio Team Services team projects to use Git to automatically build and deploy to the Web App feature in Azure App Service or cloud services."
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="kempb"/>
+	ms.date="01/30/2016"
+	ms.author="tarcher"/>
 
 # Continuous delivery to Azure using Visual Studio Team Services and Git
 
@@ -46,7 +46,7 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 
 2. You can deploy a web app or a cloud service (Azure Application) by following the steps in this walkthrough. Create a new Azure Cloud Service project,
 or a new ASP.NET MVC project. Make sure that the project targets the .NET Framework 4 or later. If you are creating a cloud service project, add an ASP.NET MVC web role and a worker role.
-If you want to create a web app, choose the **ASP.NET Web Application** project template, and then choose **MVC**. See [Create an ASP.NET web app in Azure App Service](../web-sites-dotnet-get-started.md) for more information.
+If you want to create a web app, choose the **ASP.NET Web Application** project template, and then choose **MVC**. See [Create an ASP.NET web app in Azure App Service](/app-service-web/web-sites-dotnet-get-started.md) for more information.
 
 3. Open the shortcut menu for the solution, and choose **Commit**.
 
@@ -62,7 +62,7 @@ If you want to create a web app, choose the **ASP.NET Web Application** project 
 
 ## Step 3: Connect the project to Azure
 
-1. Now that you have a Git repository in Visual Studio Team Services with some source code in it, you are ready to connect your git repository to Azure.  In the [Azure Management Portal](http://manage.windowsazure.com), select your cloud service or web app, or create a new one by choosing the + icon at the bottom left and choosing **Cloud Service** or **Web App** and then **Quick Create**.
+1. Now that you have a Git repository in Visual Studio Team Services with some source code in it, you are ready to connect your git repository to Azure.  In the [Azure classic portal](http://manage.windowsazure.com), select your cloud service or web app, or create a new one by choosing the + icon at the bottom left and choosing **Cloud Service** or **Web App** and then **Quick Create**.
 
 	![][9]
 
@@ -155,7 +155,7 @@ If you want to create a web app, choose the **ASP.NET Web Application** project 
 
 	![][29]
 
-1. In the [Azure Management Portal](http://manage.windowsazure.com), you can view the associated deployment on the **Deployments** tab when the staging environment is selected.
+1. In the [Azure classic portal](http://manage.windowsazure.com), you can view the associated deployment on the **Deployments** tab when the staging environment is selected.
 
 	![][30]
 
@@ -175,13 +175,13 @@ If you want to create a web app, choose the **ASP.NET Web Application** project 
 
 ## Step 5: Redeploy an earlier build
 
-This step is optional. In the Azure management portal, choose an earlier deployment and choose **Redeploy** to rewind your site to an earlier check-in. Note that this will trigger a new build in TFS and create a new entry in your deployment history.
+This step is optional. In the Azure classic portal, choose an earlier deployment and choose **Redeploy** to rewind your site to an earlier check-in. Note that this will trigger a new build in TFS and create a new entry in your deployment history.
 
 ![][34]
 
 ## Step 6: Change the Production deployment
 
-When you are ready, you can promote the Staging environment to the Production environment by choosing **Swap** in the Azure management portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.
+When you are ready, you can promote the Staging environment to the Production environment by choosing **Swap** in the Azure classic portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.
 
 ![][35]
 
@@ -227,7 +227,7 @@ When you use Git, you usually make changes in a working branch and integrate int
 
 ## Next steps
 
-To learn more tips on using Git with Visual Studio Team Services, see [Develop and share your code in Git using Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and for information about using a Git repository that's not managed by Visual Studio Team Services to publish to Azure, see [Continuous deployment using GIT in Azure App Service](../web-sites-publish-source-control.md). For more information on Visual Studio Team Services, see [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+To learn more tips on using Git with Visual Studio Team Services, see [Develop and share your code in Git using Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and for information about using a Git repository that's not managed by Visual Studio Team Services to publish to Azure, see [Continuous deployment using GIT in Azure App Service](/app-service-web/web-sites-publish-source-control.md). For more information on Visual Studio Team Services, see [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG

@@ -86,7 +86,7 @@ The impact on your performance is very small. Tracking calls non-blocking, and a
 
 1. You'll need a subscription to [Microsoft Azure](http://azure.com). It's free to sign up, and you can choose the free [pricing tier](https://azure.microsoft.com/pricing/details/application-insights/) of Application Insights.
 
-2. Sign into [Azure Portal](http://portal.azure.com)
+2. Sign into [Azure Portal](https://portal.azure.com)
 3. Create an Application Insights resource. This is where you'll see data from your app.
 
     ![Add, Developer Services, Application Insights.](./media/app-insights-overview/11-new.png)
@@ -139,7 +139,7 @@ For more details, choose your app type under Get Started in the navigation bar o
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md

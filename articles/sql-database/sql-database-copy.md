@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Copy an Azure SQL database"
+	pageTitle="Copy an Azure SQL database | Microsoft Azure"
 	description="Create a copy of an Azure SQL database"
 	services="sql-database"
 	documentationCenter=""
@@ -10,11 +10,12 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/16/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
+
 
 
 # Copy an Azure SQL Database
@@ -22,11 +23,11 @@
 **Single database**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-copy.md)
+- [Azure Portal](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [SQL](sql-database-copy-transact-sql.md)
 
-The following steps show you how to copy a SQL database with the [Azure preview portal](https://portal.azure.com). The database copy operation creates a new SQL database. The copy is a snapshot backup of your database that you create on either the same server or a different server.
+The following steps show you how to copy a SQL database with the [Azure Portal](https://portal.azure.com). The database copy operation creates a new SQL database. The copy is a snapshot backup of your database that you create on either the same server or a different server.
 
 > [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
 
@@ -47,7 +48,7 @@ To copy a SQL database you need the following:
 
 Open the SQL database blade for the database you want to copy:
 
-1.	Go to the [Azure Preview Portal](https://portal.azure.com).
+1.	Go to the [Azure Portal](https://portal.azure.com).
 2.	Go to the database you want to copy: Browse > SQL databases
 3.	In the SQL database blade click **Copy** to open the **Copy** blade:
 
@@ -84,7 +85,7 @@ Open the SQL database blade for the database you want to copy:
 
 ## Next steps
 
-- [Connect with SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
 - [Export the database to a BACPAC](sql-database-export.md)
 
 

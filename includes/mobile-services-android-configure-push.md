@@ -1,5 +1,5 @@
 
-1. Log on to the [Azure Management Portal](https://manage.windowsazure.com/), click **Mobile Services**, and then click your app.
+1. Log on to the [Azure classic portal](https://manage.windowsazure.com/), click **Mobile Services**, and then click your app.
 
 2. Click the **Push** tab, enter the **API Key** value obtained from GCM in the previous procedure, then click **Save**.
 

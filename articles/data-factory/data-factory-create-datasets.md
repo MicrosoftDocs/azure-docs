@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creating datasets" 
+	pageTitle="Datasets in Azure Data Factory | Microsoft Azure" 
 	description="Understand Azure Data Factory datasets and learn how to create them." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
-# Datasets
+# Datasets in Azure Data Factory
 
 ## Description
 A Dataset is a logical description of the data. The data being described can vary from simple bytes, semi-structured data like CSV files all the way up to relational tables or even models. The mechanism (address, protocol, authentication scheme) to access the data is defined in the Linked Service and referenced in the dataset definition.
@@ -131,14 +131,14 @@ Daily slices that starts at 6 AM instead of the default midnight.
 
 	"availability":
 	{
-		"frequency": "Daily",
+		"frequency": "Day",
 		"interval": "1",
 		"offset": "06:00:00"
 	}
 
 In this case, SliceStart is shifted by 6 hours and will be 6 AM.
 
-For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 2nd or 3rd (60 days from the beginning of the year if style =  StartOfInterval), depending on the year being leap year or not.
+For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 1st or 2nd (60 days from the beginning of the year if style =  StartOfInterval), depending on the year being leap year or not.
 
 
 

@@ -30,7 +30,7 @@ The following diagram shows the architecture of the deployed system. A system ad
 
 In order to run through the following steps, you'll need:
 
- * An active Azure subscription. If you don't have one, you can get a free trail on [azure.com](https://azure.microsoft.com).
+ * An active Azure subscription. If you don't have one, you can get a free trail on [azure.com](https://azure.microsoft.com/).
  * A work or school id to use Azure resource groups. If you have a personal account and log in with a Microsoft id, you need to [create a work id from your personal one](resource-group-create-work-id-from-personal.md).
  * Either -- depending on your client operating system -- the [Azure PowerShell](powershell-install-configure.md) or the [Azure CLI for Mac, Linux, and Windows](xplat-cli-install.md).
  * [OpenSSL](https://www.openssl.org/). OpenSSL is used to generate the necessary certificates.
@@ -91,9 +91,9 @@ Each CoreOS cluster needs to have a unique token from this free service. Please 
         ./deploy-deis.sh -n "[resource group name]" -l "West US" -f ./azuredeploy.json -e ./azuredeploy-parameters.json
         -c ./cloud-config.yaml  
 
-11. Once the resource group is provisioned, you can see all the resources in the group on Azure Portal. As shown in the following screenshot, the resource group contains a virtual network with three VMs, which are joined to the same availability set. The group also contains a load balancer, which has an associated public IP.
+11. Once the resource group is provisioned, you can see all the resources in the group on Azure classic portal. As shown in the following screenshot, the resource group contains a virtual network with three VMs, which are joined to the same availability set. The group also contains a load balancer, which has an associated public IP.
 
-  ![The provisioned resource group on Azure portal](media/virtual-machines-deis-cluster/resource-group.png)
+  ![The provisioned resource group on Azure classic portal](media/virtual-machines-deis-cluster/resource-group.png)
 
 ## Install the client
 
@@ -114,7 +114,7 @@ You need **deisctl** to control your Deis cluster. Although deisctl is automatic
 
         export DEISCTL_TUNNEL=[public ip of the load balancer]:2223
 
-The template defines inbound NAT rules that map 2223 to instance 1, 2224 to instance 2, and 2225 to instance 3. This provides redundancy for using the deisctl tool. You can examine these rules on Azure Portal:
+The template defines inbound NAT rules that map 2223 to instance 1, 2224 to instance 2, and 2225 to instance 3. This provides redundancy for using the deisctl tool. You can examine these rules on Azure classic portal:
 
 ![NAT rules on the load balancer](media/virtual-machines-deis-cluster/nat-rules.png)
 

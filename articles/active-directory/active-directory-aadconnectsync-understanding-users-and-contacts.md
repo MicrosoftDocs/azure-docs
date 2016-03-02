@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD Connect Sync: Understanding Users and Contacts | Microsoft Azure"
-	description="Explains users and contacts in Azure AD Connect Sync."
+	pageTitle="Azure AD Connect sync: Understanding Users and Contacts | Microsoft Azure"
+	description="Explains users and contacts in Azure AD Connect sync."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect Sync: Understanding Users and Contacts
+# Azure AD Connect sync: Understanding Users and Contacts
 
 There are several different reasons why you would have multiple Active Directory forests and there are several different deployment topologies. Common models include an account-resource deployment and GAL sync’ed forests after a merger & acquisition. But even if there are pure models, hybrid models are common as well. The default configuration in Azure AD Connect sync does not assume any particular model but depending on how user matching was selected in the installation guide, different behaviors can be observed.
 
@@ -26,7 +26,7 @@ In this topic, we will go through how the default configuration behaves in certa
 There are a few general rules the configuration assumes:
 
 - Regardless of which order we import from the source Active Directories, the end result should always be the same.
-- An active account will always contribute login information, including **userPrincipalName** and **sourceAnchor**.
+- An active account will always contribute sign-in information, including **userPrincipalName** and **sourceAnchor**.
 - A disabled account will contribute userPrincipalName and sourceAnchor, unless it is a linked mailbox, if there is no active account to be found.
 - An account with a linked mailbox will never be used for userPrincipalName and sourceAnchor. It is assumed that an active account will be found later.
 - A contact object might be provisioned to Azure AD as a contact or as a user. You don’t really know until all source Active Directory forests have been processed.

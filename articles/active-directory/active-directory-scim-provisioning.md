@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications
@@ -96,9 +96,9 @@ To make this process easier, a set of [code samples](https://github.com/Azure/Az
 **Prerequisites**
 
 * Visual Studio 2013 or later
-* [Azure SDK for .NET](https://azure.microsoft.com/en-us/downloads/)
+* [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
 * Windows machine that supports the ASP.NET framework 4.5 to be used as the SCIM endpoint. This machine must be accessible from the cloud
-* [An Azure subscription with a trial or licensed version of Azure AD Premium](https://azure.microsoft.com/en-us/services/active-directory/)
+* [An Azure subscription with a trial or licensed version of Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
 * The Amazon AWS sample requires libraries from the [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). See the README file included with the sample for additional details
 
 ###Getting Started
@@ -689,6 +689,17 @@ The figure below shows the messages that Azure Active Directory will send to a S
 
 ![][5]
 *Figure: Group provisioning and de-provisioning sequence*
+
+##Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md)
+- [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
+- [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
+- [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
+- [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
+
 
 	
 <!--Image references-->

@@ -1,11 +1,11 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Elastic database Split-Merge tool tutorial | Microsoft Azure"
 	description="Splitting and Merging with elastic database tools"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
-	services="sql-database" documentationCenter=""  
-	manager="jeffreyg"
-	authors="sidneyh"/>
+	services="sql-database"  
+	documentationCenter=""
+	authors="sidneyh"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="02/23/2016"
 	ms.author="sidneyh" />
 
 # Elastic database Split-Merge tool tutorial
@@ -34,20 +34,20 @@ The steps above download the Split-Merge files to the current directory. The fil
 
     ![Allowed services][1]
 
-3. Create an Azure Storage account that will be used for diagnostics output. Go to the Azure preview portal. In the left bar, click **New**, click **Data + Storage**, then **Storage**.
+3. Create an Azure Storage account that will be used for diagnostics output. Go to the Azure Portal. In the left bar, click **New**, click **Data + Storage**, then **Storage**.
 
-4. Create an Azure Cloud Service that will contain your Split-Merge service.  Go to the Azure preview portal. In the left bar, click **New**, then **Compute**, **Cloud Service**, and **Create**. 
+4. Create an Azure Cloud Service that will contain your Split-Merge service.  Go to the Azure Portal. In the left bar, click **New**, then **Compute**, **Cloud Service**, and **Create**. 
 
 
 ## Configuring your Split-Merge service
 
 ### Split-Merge service configuration
 
-1. In the folder where you downloaded the Split/Merge bits, create a copy of the **ServiceConfiguration.Template.cscfg** file that shipped alongside **SplitMergeService.cspkg** and call it **ServiceConfiguration.cscfg**.
+1. In the folder where you downloaded the Split-Merge assemblies, create a copy of the **ServiceConfiguration.Template.cscfg** file that shipped alongside **SplitMergeService.cspkg** and rename it **ServiceConfiguration.cscfg**.
 
-2. Open ServiceConfiguration.cscfg in your favorite text editor. We recommend using Visual Studio as it will validate inputs such as the format of certificate thumbprints.
+2. Open **ServiceConfiguration.cscfg** in a text editor such as Visual Studio that validates inputs such as the format of certificate thumbprints.
 
-3. Either create a new database or choose an existing database to serve as the status database for Split/Merge operations and retrieve the connection string of that database. 
+3. Create a new database or choose an existing database to serve as the status database for Split-Merge operations and retrieve the connection string of that database. 
 
 	**Important** At this time, the status database must use the Latin  collation (SQL\_Latin1\_General\_CP1\_CI\_AS). For more information, see [Windows Collation Name (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
 
@@ -61,7 +61,7 @@ The steps above download the Split-Merge files to the current directory. The fil
 ### Configuring security
 For detailed instructions to configure the security of the service, refer to the [Split-Merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-For the purposes of  a simple test deployment suitable to complete this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
+For the purposes of a simple test deployment for this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
 
 ### Creating a self-signed certificate
 
@@ -92,7 +92,7 @@ Execute the following command from the same window where makecert was executed; 
 
 ### Upload the PFX file to the cloud service
 
-Go to the [Azure preview portal](https://portal.azure.com).
+Go to the [Azure Portal](https://portal.azure.com).
 
 1. Select **Cloud Services**.
 2. Select the cloud service you created above for the Split/Merge service.
@@ -156,7 +156,7 @@ If your worker role fails to come online, but your web role succeeds, it is most
 
 ### Connecting with a web browser
 
-Determine the web endpoint of your Split-Merge service. You can find this in the Azure Management Portal by going to the **Dashboard** of your cloud service and looking under **Site URL** on the right side. Replace **http://** with **https://** since the default security settings disable the HTTP endpoint. Load the page for this URL into your browser.
+Determine the web endpoint of your Split-Merge service. You can find this in the Azure Classic Portal by going to the **Dashboard** of your cloud service and looking under **Site URL** on the right side. Replace **http://** with **https://** since the default security settings disable the HTTP endpoint. Load the page for this URL into your browser.
 
 ### Testing with PowerShell scripts
 

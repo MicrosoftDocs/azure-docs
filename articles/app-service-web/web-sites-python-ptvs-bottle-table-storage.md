@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/18/2015"
+	ms.date="02/20/2016"
 	ms.author="huvalo"/>
 
 
@@ -23,7 +23,7 @@ In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple 
 
 The polls web app defines an abstraction for its repository, so you can easily switch between different types of repositories (In-Memory, Azure Table Storage, MongoDB).
 
-We'll learn how to create an Azure Storage account, how to configure the web app to use Azure Table Storage, and how to publish the web app to [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)s.
+We'll learn how to create an Azure Storage account, how to configure the web app to use Azure Table Storage, and how to publish the web app to [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 See the [Python Developer Center] for more articles that cover development of Azure App Service Web Apps with PTVS using Bottle, Flask and Django web frameworks, with MongoDB, Azure Table Storage, MySQL and SQL Database services. While this article focuses on App Service, the steps are similar when developing [Azure Cloud Services].
 
@@ -69,7 +69,7 @@ To use storage operations, you need an Azure storage account. You can create a s
 
 1.  Log into the [Azure Portal](https://portal.azure.com/).
 
-2. Click the **New** icon on the top left of the portal, then click **Data + Storage** > **Storage Account**.  Click the **Create** button, then give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
+2. Click the **New** icon on the top left of the Portal, then click **Data + Storage** > **Storage Account**.  Click the **Create** button, then give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
 
@@ -189,7 +189,6 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->

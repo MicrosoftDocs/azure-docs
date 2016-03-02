@@ -135,14 +135,14 @@ created. The combination of namespace and SAS key
 provides the credentials for Service Bus to authenticate access to an
 application.
 
-### Set up the namespace using the Azure portal
+### Set up the namespace using the Azure classic portal
 
-1.  Log on to the [Azure portal][].
+1.  Log on to the [Azure classic portal][].
 
-2.  In the left navigation pane of the Azure portal, click
+2.  In the left navigation pane of the portal, click
     **Service Bus**.
 
-3.  In the lower pane of the Azure portal, click **Create**.
+3.  In the lower pane of the portal, click **Create**.
 
     ![][6]
 
@@ -366,7 +366,7 @@ Service Bus queue.
 
 2.  Name the class QueueConnector.cs. Click **Add** to create the class.
 
-3.  Now, add code that encapsulates the connection information and initializes the connection to a Service Bus queue. In QueueConnector.cs, add the following code, and enter values for **Namespace** (your service namespace) and **yourKey**, which is the SAS key you obtained from the [Azure portal][Azure portal] earlier.
+3.  Now, add code that encapsulates the connection information and initializes the connection to a Service Bus queue. In QueueConnector.cs, add the following code, and enter values for **Namespace** (your service namespace) and **yourKey**, which is the SAS key you previously obtained from the [Azure classic portal][].
 
         using System;
         using System.Collections.Generic;
@@ -383,7 +383,7 @@ Service Bus queue.
                 // on every request.
                 public static QueueClient OrdersQueueClient;
 
-                // Obtain these values from the Azure portal.
+                // Obtain these values from the portal.
                 public const string Namespace = "your service bus namespace";
 
                 // The name of your queue.
@@ -635,7 +635,7 @@ To learn how to deploy the front end to an Azure website, see [Create an ASP.NET
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure classic portal]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [8]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png

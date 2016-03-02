@@ -13,16 +13,16 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="09/29/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 # Use Active Directory for authentication in Azure App Service #
 
-[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) enables enterprise line-of-business application scenarios by supporting single sign-on (SSO) of users whether they access the application from your on-premises environment or the public internet. It can be integrated with [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) (AAD) or an on-premises secure token service (STS), such as Active Directory Federation Services (AD FS), to authenticate your internal Active Directory (AD) users and authorize them properly.
+[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) enables enterprise line-of-business application scenarios by supporting single sign-on (SSO) of users whether they access the application from your on-premises environment or the public internet. It can be integrated with [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (AAD) or an on-premises secure token service (STS), such as Active Directory Federation Services (AD FS), to authenticate your internal Active Directory (AD) users and authorize them properly.
 
 ## Zero-friction authentication and authorization ##
 
-With a few clicks of a button, you can enable authentication and authorization for your web app. The checkbox style configuration in every Azure web app provides basic access control for your line-of-business web app. It does so by enforcing HTTPS and authentication to an Azure AD tenant of your choice before granting users access to your web app content. For more information, see [Web Apps Authentication / Authorization](http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/).
+With a few clicks of a button, you can enable authentication and authorization for your web app. The checkbox style configuration in every Azure web app provides basic access control for your line-of-business web app. It does so by enforcing HTTPS and authentication to an Azure AD tenant of your choice before granting users access to your web app content. For more information, see [Web Apps Authentication / Authorization](https://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/).
 
 >[AZURE.NOTE] This feature is currently in preview.
 
@@ -50,5 +50,4 @@ In many scenarios, you want to customize the authentication and authorization be
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  

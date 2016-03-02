@@ -4,8 +4,8 @@
 	documentationCenter="php"
 	services="storage"
 	authors="tfitzmac"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # How to use Queue storage from PHP
@@ -42,7 +42,7 @@ In this guide, you will use Queue storage features that can be called within a P
 
 To use the APIs for Azure Queue storage, you need to:
 
-1. Reference the autoloader file by using the [require_once][require_once] statement.
+1. Reference the autoloader file by using the [require_once] statement.
 2. Reference any classes that you might use.
 
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
@@ -376,12 +376,11 @@ To delete a queue and all the messages in it, call the **QueueRestProxy->deleteQ
 
 Now that you've learned the basics of Azure Queue storage, follow these links to learn about more complex storage tasks:
 
-- See the MSDN reference [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 - Visit the [Azure Storage Team blog](http://blogs.msdn.com/b/windowsazurestorage/).
 
 For more information, see also the [PHP Developer Center](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
-[Azure Management Portal]: http://manage.windowsazure.com/
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure Portal]: https://portal.azure.com
+

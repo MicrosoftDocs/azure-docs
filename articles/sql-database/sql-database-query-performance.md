@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure SQL Database Query Performance Insight" 
-   description="Query performance monitoring identifies the most DTU-consuming queries for an Azure SQL Database." 
+   description="Query performance monitoring identifies the most CPU-consuming queries for an Azure SQL Database." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/30/2015"
+   ms.date="02/03/2016"
    ms.author="sstein"/>
 
 # Azure SQL Database Query Performance Insight
@@ -22,23 +22,19 @@
 Managing and tuning the performance of relational databases is a challenging task that requires significant expertise and time investment. Query Performance Insight allows you to spend less time troubleshooting database performance by providing the following:​
 
 - Deeper insight into your databases resource (DTU) consumption. 
-- The top DTU consuming queries, which can potentially be tuned for improved performance. 
+- The top CPU consuming queries, which can potentially be tuned for improved performance. 
 - The ability to drill down into the details of a query.
 ​
-
-> [AZURE.NOTE] Query Performance Insight is currently in preview and is only available in the [Azure Preview Portal](https://portal.azure.com/).
-
-
 
 ## Prerequisites
 
 - Query Performance Insight is only available with Azure SQL Database V12.
-- Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is running, so it is enabled automatically when you sign up for Query Performance Insight.
- 
+- Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is running on your database. The portal will prompt you to turn Query Store on if it is not already running.
+
  
 ## Permissions
 
-The following [role-based access control](role-based-access-control-configure.md) permissions are required to use Query Performance Insight: 
+The following [role-based access control](../active-directory/role-based-access-control-configure.md) permissions are required to use Query Performance Insight: 
 
 - **Reader**, **Owner**, **Contributor**, **SQL DB Contributor** or **SQL Server Contributor** permissions are required to view the top resource consuming queries and charts. 
 - **Owner**, **Contributor**, **SQL DB Contributor** or **SQL Server Contributor** permissions are required to view query text.
@@ -50,8 +46,9 @@ The following [role-based access control](role-based-access-control-configure.md
 Query Performance Insight is easy to use:
 
 - Review the list of top resource-consuming queries. 
-- Select an individual query to view it's details.
-- **Edit chart** to customize how DTU consumption data is displayed or to show a different time period.
+- Select an individual query to view its details.
+- Click **Settings** to customize how data is displayed or to show a different time period.
+- Open [Index Advisor](sql-database-index-advisor.md) and check if any recommendations are available.
 
 
 
@@ -59,42 +56,103 @@ Query Performance Insight is easy to use:
 
 
 
+## Review top CPU consuming queries
 
-
-## Review top DTU consuming queries
-
-In the [preview portal](https://portal.azure.com) do the following:
+In the [portal](http://portal.azure.com) do the following:
 
 1. Browse to a SQL database and click **Query Performance Insight**. 
 
     ![Query Performance Insight][1]
 
-    The top queries view opens and the list of top DTU consuming queries are listed.
+    The top queries view opens and the top CPU consuming queries are listed.
 
-1. Click around the chart for details.<br>The top line shows overall DTU% for the database, while the bars show DTU% consumed by the selected queries. Select or clear individual queries to include or exclude them from the chart.
+1. Click around the chart for details.<br>The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected each bar represents 1 day).
 
     ![top queries][2]
 
-1. Optionally, click **Edit chart** to customize how DTU consumption data is displayed, or to show a different time period.
+    The bottom grid represents aggregated information for the visible queries.
+
+    -	Average CPU per query during observable interval. 
+    -	Total duration per query.
+    -	Total number of executions for a particular query.
+
+
+	Select or clear individual queries to include or exclude them from the chart. 
+
+
+1. If your data becomes stale, click the **Refresh** button.
+1. Optionally, click **Settings** to customize how CPU consumption data is displayed, or to show a different time period.
+
+    ![settings](./media/sql-database-query-performance/settings.png)
 
 ## Viewing individual query details
 
 To view query details:
 
-1. Click any query in the list of top queries.<br>The details view opens and the queries DTU consumption is broken down over time. 
-3. Click around the chart for details.<br>The top line is overall DTU%, and the bars are DTU% consumed by the selected query.
-4. Review the data to see detailed metrics including duration, number of executions, resource utilization percentage for each interval the query was running.
+1. Click any query in the list of top queries.
+
+    ![details](./media/sql-database-query-performance/details.png)
+
+4. The details view opens and the queries CPU consumption is broken down over time.
+3. Click around the chart for details.<br>The top line is overall DTU%, and the bars are CPU% consumed by the selected query.
+4. Review the data to see detailed metrics including duration, number of executions, and resource utilization percentage for each interval the query was running.
     
     ![query details][3]
 
-1. Optionally, click **View script** to see the query text, and click **Edit chart** to customize how DTU consumption data is displayed, or to show a different time period.
+1. Optionally, click **Settings** to customize how CPU consumption data is displayed, or to show a different time period.
 
 
+## 	Optimizing the Query Store configuration for Query Performance Insight
+
+During your use of Query Performance Insight, you might encounter the following Query Store messages:
+
+- "Query store has reached its capacity and not collecting new data."
+- "Query Store for this database is in read-only mode and not collecting performance insights data."
+- "Query Store parameters are not optimally set for Query Performance Insight."
+
+These messages usually appear when Query Store is not able to collect new data. To fix this you have couple of options:
+
+-	Change the Retention and Capture policy of Query Store
+-	Increase size of Query Store 
+-	Clear Query Store
+
+### Recommended retention and capture policy
+
+There are two types of retention policies:
+
+- Size based – if set to AUTO it will clean data automatically when near max size is reached.
+- Time based - by default we will set it to 30 days, which means, if Query Store will run out of space, it will delete query information older than 30 days. 
+
+Capture policy could be set to:
+
+- **All** – Captures all queries. This is the default option.
+- **Auto** – Infrequent queries and queries with insignificant compile and execution duration are ignored. Thresholds for execution count, compile and runtime duration are internally determined.
+- **None** – Query Store stops capturing new queries.
+	
+We recommend to set all policies to AUTO and clean policy to 30 days:
+
+    ALTER DATABASE [YourDB] 
+    SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
+    	
+    ALTER DATABASE [YourDB] 
+    SET QUERY_STORE (CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30));
+    
+    ALTER DATABASE [YourDB] 
+    SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
+
+Increase size of Query Store. This could be performed by connecting to a database and issuing following query:
+
+    ALTER DATABASE [YourDB]
+    SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
+
+Clear Query Store. Be aware that this will delete all current information in the Query Store:
+
+    ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
 
 ## Summary
 
-Query Performance Insight helps you understand the impact of your query workload and how it relates to database resource consumption. With this feature, you will learn about the top consuming queries, and easily identify the ones to fix before they become a problem. Click the **Query Performance Insight** tile on a database blade to see the top resource (DTU) consuming queries. 
+Query Performance Insight helps you understand the impact of your query workload and how it relates to database resource consumption. With this feature, you will learn about the top consuming queries, and easily identify the ones to fix before they become a problem. Click **Query Performance Insight** on a database to see the top resource (CPU) consuming queries. 
 
 
 
@@ -103,7 +161,10 @@ Query Performance Insight helps you understand the impact of your query workload
 
 Database workloads are dynamic and change continuously. Monitor your queries and continue to fine tune them to refine performance. 
 
-Check out the [Index Advisor](sql-database-index-advisor.md) for additional recommendations for improving the performance of your SQL database.
+For additional recommendations for improving the performance of your SQL database click [Index Advisor](sql-database-index-advisor.md) on the **Query Performance Insight** blade.
+
+![Index Advisor](./media/sql-database-query-performance/ia.png)
+
 
 <!--Image references-->
 [1]: ./media/sql-database-query-performance/tile.png

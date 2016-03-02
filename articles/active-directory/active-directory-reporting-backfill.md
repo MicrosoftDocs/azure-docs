@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
-# Azure Active Directory Report Retention Policies
+# Azure Active Directory Report Backfill Times
+
+*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 After a directory is opted-in to reports, the reports backfill data for a certain number of days, indicated here.
 

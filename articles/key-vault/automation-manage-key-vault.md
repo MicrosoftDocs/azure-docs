@@ -24,7 +24,7 @@ This guide will introduce you to the Azure Automation service and how it can be 
 
 ## What is Azure Automation?
 
-[Azure Automation](http://azure.microsoft.com/services/automation/) is an Azure service for simplifying cloud management through process automation. Using Azure Automation, manual, frequently-repeated, long-running, and error-prone tasks can be automated to increase reliability, efficiency, and time to value for your organization.
+[Azure Automation](https://azure.microsoft.com/services/automation/) is an Azure service for simplifying cloud management through process automation. Using Azure Automation, manual, frequently-repeated, long-running, and error-prone tasks can be automated to increase reliability, efficiency, and time to value for your organization.
 
 Azure Automation provides a highly-reliable, highly-available workflow execution engine that scales to meet your needs. In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.
 
@@ -33,9 +33,9 @@ Reduce operational overhead and free up IT and DevOps staff to focus on work tha
 
 ## How can Azure Automation help manage Azure Key Vault?
 
-Key Vault can be managed in Azure Automation by using the [Azure Key Vault cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) that are available in the [Azure PowerShell tools](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation has these cmdlets available out of the box, so that you can perform many of your Key Vault management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
+Key Vault can be managed in Azure Automation by using the [Azure Key Vault cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) that are available in the [PowerShell Gallery](https://azure.microsoft.com/blog/azps-1-0/). You can import this module into Azure Automation, so that you can perform many of your Key Vault management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
 
-With the Azure Key Vault cmdlets you can perform these tasks: create or import a key, create or update a secret, update attributes of a key, get a key or secret, or delete a key or secret.
+With the Azure Key Vault cmdlets you can perform these tasks among others: create or import a key, create or update a secret, update attributes of a key, get a key or secret, delete a key or secret.
 
 
 ## Next Steps

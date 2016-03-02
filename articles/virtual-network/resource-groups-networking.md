@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/07/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Network Resource Provider
@@ -273,3 +273,5 @@ You can deploy services to Azure from a template by using PowerShell, AzureCLI, 
 [Using Tags in Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn848368.aspx)
 
 [Template deployments](https://msdn.microsoft.com/library/azure/dn790549.aspx) 
+
+today’s

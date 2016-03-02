@@ -14,30 +14,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="01/29/2016"
 	ms.author="jgao"/>
 
-# Access YARN application logs on Hadoop in HDInsight programmatically
+# Access YARN application logs on Windows-based HDInsight
 
-This topic explains how to programmatically enumerate the YARN (Yet Another Resource Negotiator) applications that have finished on a Hadoop cluster in Azure HDInsight, and how to programmatically access the application logs without having to connect to your clusters by using Remote Desktop Protocol (RDP). Specifically, a new component and a new API have been added:
-
-  1. The generic application history server on HDInsight clusters is enabled. It is a component within the YARN Timeline Server that handles the storage and retrieval of generic information about completed applications.
-  2. APIs in the Azure HDInsight .NET SDK are available to programmatically enumerate applications that have run on your clusters and to download the relevant application-specific or container-specific logs (in plain text) to help with debugging any application problems that occur.
+This topic explains how to access the logs for YARN (Yet Another Resource Negotiator) applications that have finished on a Hadoop cluster in Azure HDInsight
 
 > [AZURE.NOTE] The information in this document applies only to Windows-based HDInsight clusters. For information on accessing YARN logs on Linux-based HDInsight clusters, see [Access YARN application logs on Linux-based Hadoop on HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
-## Prerequisites
+### Prerequisites
 
-The Azure HDInsight SDK is required to use the code presented in this topic in a .NET Framework application. The most recently published build of the SDK is available at [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started).
-
-To install the HDInsight SDK from a Visual Studio application, go the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**. Run the following command in the console to install the packages:
-
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
-
-This command adds .NET libraries for HDInsight and adds references to them to the current Visual Studio project.
+- A Windows-based HDInsight cluster.  See [Create Windows-based Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
 
 
-## <a name="YARNTimelineServer"></a>YARN Timeline Server
+## YARN Timeline Server
 
 The <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> provides generic information on completed applications as well as framework-specific application information through two different interfaces. Specifically:
 
@@ -56,9 +47,8 @@ On your HDInsight clusters, this information will be stored by Azure Resource Ma
 
     GET on https://<cluster-dns-name>.azurehdinsight.net/ws/v1/applicationhistory/apps
 
-We have added new APIs to the HDInsight .NET SDK to make it easy to retrieve this data programmatically. Note that the generic data can also be retrieved by running YARN command-line interface (CLI) commands directly on your cluster nodes (after connecting to the cluster by using RDP).
 
-## <a name="YARNAppsAndLogs"></a>YARN applications and logs
+## YARN applications and logs
 
 YARN supports multiple programming models (MapReduce being one of them) by decoupling resource management from application scheduling/monitoring. This is done through a global *ResourceManager* (RM), per-worker-node *NodeManagers* (NMs), and per-application *ApplicationMasters* (AMs). The per-application AM negotiates resources (CPU, memory, disk, network) for running your application with the RM. The RM works with NMs to grant these resources, which are granted as *containers*. The AM is responsible for tracking the progress of the containers assigned to it by the RM. An application may require many containers depending on the nature of the application.
 
@@ -75,96 +65,16 @@ The aggregated logs are not directly readable, as they are written in a [TFile][
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
-The next section talks about how you can access application-specific or container-specific logs programmatically, without having to use RDP to connect to your HDInsight clusters.
 
-## <a name="enumerate-and-download"></a>Enumerating applications and downloading logs programmatically
+## YARN ResourceManager UI
 
-To use the following code samples, you must satisfy the prerequisites outlined above by downloading the latest version of the HDInsight .NET SDK. See the instructions provided there.
+The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Azure portal dashboard: 
 
-The code below illustrates how to use the new APIs to enumerate applications and download the logs for completed applications.
+1. Sign in to [Azure portal](https://portal.azure.com/). 
+2. On the left menu, click **Browse**, click **HDInsight Clusters**, click a Windows-based cluster that you want to access the YARN application logs.
+3. On the top menu, click **Dashboard**. You will see a page opened on a new browser tab called **HDInsight Query Console**.
+4. From **HDInsight Query Console**, click **Yarn UI**.
 
-> [AZURE.NOTE] The APIs below will work only against "Running" Hadoop clusters with version 3.1.1.374 or greater. Add the following directives:
-
-	using Microsoft.Hadoop.Client;
-	using Microsoft.WindowsAzure.Management.HDInsight;
-
-These reference the newly defined APIs in the code below. The following code snippet creates an Application History client against a "Running" cluster in your subscription:
-
-	string subscriptionId = "<your-subscription-id>";
-	string clusterName = "<your-cluster-name>";
-	string certName = "<your-subscription-management-cert-name>";
-
-	// Create an HDInsight client
-	X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
-	store.Open(OpenFlags.ReadOnly);
-	X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>()
-	                            .Single(x => x.FriendlyName == certName);
-
-	HDInsightCertificateCredential creds =
-				new HDInsightCertificateCredential(new Guid(subscriptionId), cert);
-
-	IHDInsightClient client = HDInsightClient.Connect(creds);
-
-	// Get the cluster on which your applications were run
-	// The cluster needs to be in the "Running" state
-	ClusterDetails cluster = client.GetCluster(clusterName);
-
-	// Create an Application History client against your cluster
-	IHDInsightApplicationHistoryClient appHistoryClient =
-				cluster.CreateHDInsightApplicationHistoryClient(TimeSpan.FromMinutes(5));
-
-
-You can now use the Application History client to list completed applications, filter applications based on your criteria, and download relevant application logs. The following code snippet shows how this is done programmatically:
-
-	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\\YarnApplicationLogs";
-
-	// List completed applications on your cluster that were submitted in the last 24 hours but failed
-	// Search for applications based on application name
-	string appNamePrefix = "your-app-name-prefix";
-	DateTime endTime = DateTime.UtcNow;
-	DateTime startTime = endTime.AddHours(-24);
-	IEnumerable<ApplicationDetails> applications = appHistoryClient
-	                .ListCompletedApplications(startTime, endTime)
-	                .Where(app =>
-	                    app.GetApplicationFinalStatusAsEnum() == ApplicationFinalStatus.Failed
-	                    && app.Name.StartsWith(appNamePrefix));
-
-	// Download logs for failed or killed applications
-	// This will generate one log file for each application
-	foreach (ApplicationDetails application in applications)
-	{
-	    appHistoryClient.DownloadApplicationLogs(application, downloadLocation);
-	}
-
-The above code lists/finds applications of interest by using the Application History client, and then downloads logs for those applications to a local folder.
-
-Alternatively, the code snippet below downloads logs for an application whose application ID is known. The application ID is a globally unique identifier of an application, as assigned to it by the RM. It is constructed by using the start time of the RM, along with a monotonically increasing counter for applications submitted to it. The application ID is of the form "application\_&lt;RM-start-time&gt;\_&lt;Counter&gt;". Please note that the application ID and job ID are distinct. The job ID is a concept specific to the MapReduce framework, whereas the application ID is a framework-agnostic YARN concept. In YARN, a job ID identifies a specific MapReduce job, as handled by the AM of a MapReduce application submitted to the RM.
-
-	// Download application logs for an application whose application ID is known
-	string applicationId = "application_1416017767088_0028";
-	ApplicationDetails someApplication = appHistoryClient.GetApplicationDetails(applicationId);
-	appHistoryClient.DownloadApplicationLogs(someApplication, downloadLocation);
-
-If needed, you can also download logs for each container (or any specific container) used by an application, as shown below.
-
-	ApplicationDetails someApplication = appHistoryClient.GetApplicationDetails(applicationId);
-
-	// Download logs separately for each container of application(s) of interest
-	// This will generate one log file per container
-	IEnumerable<ApplicationAttemptDetails> applicationAttempts =
-				appHistoryClient.ListApplicationAttempts(someApplication);
-
-	ApplicationAttemptDetails finalAttempt = applicationAttempts
-	    		.Single(x => x.ApplicationAttemptId == someApplication.LatestApplicationAttemptId);
-
-	IEnumerable<ApplicationContainerDetails> containers =
-				appHistoryClient.ListApplicationContainers(finalAttempt);
-
-	foreach (ApplicationContainerDetails container in containers)
-	{
-	    appHistoryClient.DownloadApplicationLogs(container, downloadLocation);
-	}
 
 
 

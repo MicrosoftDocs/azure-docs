@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/08/2015" 
 	ms.author="byvinyal"/>
 
 #Azure App Service plans in-depth overview#
@@ -62,7 +62,7 @@ To create a new App Service Plan, click **+ Create New**, type the **App Service
  
 ## Move an app to a different App Service plan
 
-You can move an app to a different app service plan in the [Azure Portal](http://portal.azure.com). Apps can be moved between plans in the same geographical region.
+You can move an app to a different app service plan in the [Azure Portal](https://portal.azure.com). Apps can be moved between plans in the same geographical region.
 
 To move an app to another plan, navigate to the app you want to move, then click **Change App Service Plan**.
  
@@ -91,11 +91,7 @@ App Service plans represent a set of features and capacity that you can share ac
 ## What's changed
 
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
- 
- 
- <!-- Images. -->
+   
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png

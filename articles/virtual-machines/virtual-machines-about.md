@@ -36,7 +36,7 @@ Try out a virtual machine by creating a simple virtual machine quickly. For inst
 
 [Create a virtual machine running Linux](virtual-machines-linux-tutorial.md)
 
-[Create a virtual machine running Windows in the Azure preview portal](virtual-machines-windows-tutorial.md)
+[Create a virtual machine running Windows in the Azure portal](virtual-machines-windows-tutorial.md)
 
 Because those tutorials help you create a virtual machine quickly, they show you only one way to do it instead of describing the various tools you can use to create virtual machines. For a summary of these tools and links to instructions, see:
 
