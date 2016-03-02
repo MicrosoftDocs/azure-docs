@@ -478,11 +478,13 @@ view, request, and so on.
 
     ipv4 context.location.clientip      
 * 
-     The IPv4 address of the client in the xxx.xxx.xxx.xxx format.   
+     The IPv4 address of the client in the xxx.xxx.xxx.xxx format.
+
+     The last octet is always set to 0 in order to address privacy concerns.   
 
     *Default:* if null, set to the HTTP IP captured at the data collection endpoint 
 
-    *Examples*<br/> 0.123.63.143<br/>123.203.131.197 
+    *Examples*<br/> 186.123.63.0<br/>123.203.131.0 
 
 **continent**
 
@@ -632,7 +634,7 @@ view, request, and so on.
 
     *Derivation:* Standardize to &lt;telemetryType.name&gt; 
 
-**remoteDependencyType**
+**type**
 
     string remotedependency.remotedependencytype      Max: 100
 * 
