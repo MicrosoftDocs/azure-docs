@@ -16,7 +16,7 @@
  	ms.date="03/01/2016"  
 	ms.author="juliako"/>
 
-#Troubleshooting live streaming guide
+#Troubleshooting live streaming guide 
 
 This topic gives suggestions on how to troubleshoot some live streaming problems.
 
