@@ -28,9 +28,6 @@ The **Synchronization Service Manager** UI is used to configure more advanced as
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
 
-| [Operations](#operations) | [Connectors](#connectors) | [Metaverse Designer](#metaverse-designer) | [Metaverse Search](#metaverse-search) |
-| --- | --- | --- | --- |
-
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
