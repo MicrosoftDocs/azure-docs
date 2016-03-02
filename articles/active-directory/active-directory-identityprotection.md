@@ -735,6 +735,7 @@ To test Sign in risk, perform the following steps:
 
 ## See also
 
+ - [Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
  - [The Identity Protection glossary](active-directory-identityprotection-glossary.md)
 
 
