@@ -67,9 +67,11 @@ On the **Security policy** blade select a subscription to view the policy detail
 - Daily scanning of all supported virtual machines for security monitoring and recommendations.
 - Collection of security events for analysis and threat detection.
 
-**Show recommendations for** (see above) lets you choose the security controls that you want to monitor and recommend based on the security needs of the resources within the subscription.
+**Choose a storage account per region** (see above) lets you choose, for each region in which you have virtual machines running, the storage account where data collected from those virtual machines is stored. If you do not choose a storage account for each region, it will be created for you. The data that's collected is logically isolated from other customers’ data for security reasons.
 
 > [AZURE.NOTE] Data collection and choosing a storage account per region is configured at the subscription level.
+
+**Show recommendations for** (see above) lets you choose the security controls that you want to monitor and recommend based on the security needs of the resources within the subscription.
 
 Next, select a resource group to view policy details.
 
