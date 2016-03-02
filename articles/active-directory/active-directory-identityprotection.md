@@ -438,6 +438,10 @@ To get a user that was blocked by a user risk security policy unblocked, the use
 <br>
 
 
+## What is a sign-in risk level?
+
+A sign-in risk level is an indication (High, Medium, or Low) of the likelihood that for a specific sign-in, someone else is attempting to authenticate with the user’s identity. The sign-in risk level is evaluated at the time of a sign-in and considers risk events and indicators detected in real-time for that specific sign-in. 
+
 ## Mitigating sign-in risk events 
 A mitigation is an action to limit the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous sign-in risk events associated with the identity or device.
 
