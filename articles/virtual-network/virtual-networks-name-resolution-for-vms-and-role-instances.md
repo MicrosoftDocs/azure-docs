@@ -42,7 +42,7 @@ The type of name resolution you use depends on how your VMs and role instances n
 
 ## Azure-provided name resolution
 
-Along with resolution of public DNS names, Azure provides internal name resolution for VMs and role instances that reside within the same virtual network or cloud service.  VMs/instances in a cloud service share the same DNS suffix (so the hostname alone is sufficient) but in classic virtual networks different cloud services have different DNS suffixes so the FQDN is needed to resolve names between different cloud services.  In ARM-based virtual networks, the DNS suffix is consistent across the virtual network (so the FQDN is not needed) and DNS names can be assigned to both NICs and VMs. Although Azure-provided name resolution does not require any configuration, it is not the appropriate choice for all deployment scenarios, as seen on the table above.
+Along with resolution of public DNS names, Azure provides internal name resolution for VMs and role instances that reside within the same virtual network or cloud service.  VMs/instances in a cloud service share the same DNS suffix (so the hostname alone is sufficient) but in classic virtual networks different cloud services have different DNS suffixes so the FQDN is needed to resolve names between different cloud services.  In virtual networks in the Resource Manager deployment model, the DNS suffix is consistent across the virtual network (so the FQDN is not needed) and DNS names can be assigned to both NICs and VMs. Although Azure-provided name resolution does not require any configuration, it is not the appropriate choice for all deployment scenarios, as seen on the table above.
 
 > [AZURE.NOTE] In the case of web and worker roles, you can also access the internal IP addresses of role instances based on the role name and instance number using the Azure Service Management REST API. For more information, see [Service Management REST API Reference](https://msdn.microsoft.com/library/azure/ee460799.aspx).
 
@@ -58,7 +58,7 @@ Along with resolution of public DNS names, Azure provides internal name resoluti
 
 - Name resolution is provided between role instances/VMs within the same cloud service without need for a FQDN.
 
-- Name resolution is provided between VMs in ARM-based virtual networks without need for the FQDN, classic virtual networks require the FQDN when resolving names in different cloud services. 
+- Name resolution is provided between VMs in virtual networks that use the Resource Manager deployment model, without need for the FQDN. Virtual networks in the classic deployment model require the FQDN when resolving names in different cloud services. 
 
 - You can use hostnames that best describe your deployments, rather than working with auto-generated names.
 
@@ -74,7 +74,7 @@ Along with resolution of public DNS names, Azure provides internal name resoluti
 
 - DNS query traffic is throttled for each VM. This shouldn't impact most applications.  If request throttling is observed, ensure that client-side caching is enabled.  For more details, see [Getting the most from Azure-provided name resolution](#Getting-the-most-from-Azure-provided-name-resolution).
 
-- Only VMs in the first 180 cloud services are registered for each classic virtual network.  This does not apply to ARM-based virtual networks.
+- Only VMs in the first 180 cloud services are registered for each virtual network in a classic deployment model. This does not apply to virtual networks in Resource Manager deployment models.
 
 
 ### Getting the most from Azure-provided name resolution
@@ -137,8 +137,8 @@ DNS forwarding also enables inter-vnet DNS resolution and allows your on-premise
 
 When using Azure-provided name resolution, the Internal DNS suffix is provided to each VM using DHCP.  When using your own name resolution solution, this suffix is not supplied to VMs because it interferes with other DNS architectures.  To refer to machines by FQDN, or to configure the suffix on your VMs, the suffix can be determined using PowerShell or the API:
 
--  For ARM-managed vnets, the suffix is available via the [network interface card](https://msdn.microsoft.com/library/azure/mt163668.aspx) resource or via the [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx) cmdlet.    
--  For classic deployments, the suffix is available via the [Get Deployment API](https://msdn.microsoft.com/library/azure/ee460804.aspx) call or via the [Get-AzureVM -Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx) cmdlet.
+-  For virtual networks in Resource Manager deployment models, the suffix is available via the [network interface card](https://msdn.microsoft.com/library/azure/mt163668.aspx) resource or via the [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx) cmdlet.    
+-  In classic deployment models, the suffix is available via the [Get Deployment API](https://msdn.microsoft.com/library/azure/ee460804.aspx) call or via the [Get-AzureVM -Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx) cmdlet.
 
 
 If forwarding queries to Azure doesn't suit your needs, you will need to provide your own DNS solution.  Your DNS solution will need to:
@@ -153,7 +153,7 @@ If forwarding queries to Azure doesn't suit your needs, you will need to provide
 
 ### Specifying DNS servers
 
-When using your own DNS servers, Azure provides the ability to specify multiple DNS servers per virtual network or per network interface (for ARM) / cloud service (for classic).  DNS servers specified for a cloud service/network interface get precedence over those specified for the virtual network.
+When using your own DNS servers, Azure provides the ability to specify multiple DNS servers per virtual network or per network interface (Resource Manager) / cloud service (classic).  DNS servers specified for a cloud service/network interface get precedence over those specified for the virtual network.
 
 > [AZURE.NOTE] Network connection properties, such as DNS server IPs, should not be edited directly within Windows VMs as they may get erased during service heal when the virtual network adaptor gets replaced. 
 
