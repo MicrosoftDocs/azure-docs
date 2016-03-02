@@ -54,7 +54,7 @@ Run the following cmdlet:
 
 		Get-AzureRemoteAppCollection <collectionName>
 
-![Check the collection mode](./media/remoteapp-perapp/araacllevel.png)
+![Check the collection mode](./media/remoteapp-perapp/araacllvel.png)
 
 The AclLevel property can have the following values:
 
