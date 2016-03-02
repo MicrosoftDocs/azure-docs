@@ -3,7 +3,7 @@
    description="Learn how you can publish apps to individual users, instead of depending on groups, in Azure RemoteApp."
    services="remoteapp-preview"
    documentationCenter=""
-   authors="lizap"
+   authors="piotrci"
    manager="mbaldwin"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="compute"
    ms.date="03/01/2016"
-   ms.author="elizapo"/>
+   ms.author="piotrci"/>
 
 # Publish applications to individual users in an Azure RemoteApp collection (Preview)
 
@@ -26,21 +26,24 @@ A common scenario is to include many applications in a single image and deploy o
 
 This is now possible in Azure RemoteApp – currently as a limited preview feature. Here is a brief summary of the new functionality:
 
-1. A collection can be set into one of two modes: 
-	a. the original “collection mode”, where all users in a collection can see all published applications. This is the default mode.
-	b. the new “application mode”, where users only see applications that have been explicitly assigned to them
+1. A collection can be set into one of two modes:
+ 
+  - the original “collection mode”, where all users in a collection can see all published applications. This is the default mode.
+  - the new “application mode”, where users only see applications that have been explicitly assigned to them
 
 2. At the moment the application mode can only be enabled using Azure RemoteApp PowerShell cmdlets.
-	a. When set to application mode, user assignment in the collection cannot be managed through the Azure portal. User assignment has to be managed through PowerShell cmdlets.
+
+  - When set to application mode, user assignment in the collection cannot be managed through the Azure portal. User assignment has to be managed through PowerShell cmdlets.
+
 3. Users will only see the applications published directly to them. However, it may still be possible for a user to launch the other applications available on the image by accessing them directly in the operating system.
-	a. This feature does not provide a secure lockdown of applications, it only limits visibility in the application feed.
-	b. If you need to isolate users from applications, you will need to use separate collections for that.
+  - This feature does not provide a secure lockdown of applications, it only limits visibility in the application feed.
+  - If you need to isolate users from applications, you will need to use separate collections for that.
 
 ## How to get Azure RemoteApp PowerShell cmdlets
 
 To try the new preview functionality, you will need to use Azure PowerShell cmdlets. It is currently not possible to use the Azure Management portal to enable the new application publishing mode.
 
-First, make sure you have the [Azure PowerShell module](https://azure.microsoft.com/documentation/articles/powershell-install-configure) installed.
+First, make sure you have the [Azure PowerShell module](../powershell-install-configure.md) installed.
 
 Then launch the PowerShell console in administrator mode and run the following cmdlet:
 
