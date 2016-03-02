@@ -149,7 +149,7 @@ We recommend that you contact the user to verify if they actually signed in from
 
 #### Sign-in from unfamiliar locations
 
-This risk event type is a real-time sign-in evaluation mechanism that considers past login locations (IP, Latitude / Longitude and ASN) to determine new / unfamiliar locations. The system stores information about previous locations used by a user, and considers these “familiar” locations. The risk even is triggered when the sign-in occurs from a location that's not already in the list of familiar locations. The system has an initial learning period of 14 days, during which it does not flag any new locations as unfamiliar locations. The system also ignores sign-ins from familiar devices, and locations that are geographically close to a familiar location. <br>
+This risk event type is a real-time sign-in evaluation mechanism that considers past sign-in locations (IP, Latitude / Longitude and ASN) to determine new / unfamiliar locations. The system stores information about previous locations used by a user, and considers these “familiar” locations. The risk even is triggered when the sign-in occurs from a location that's not already in the list of familiar locations. The system has an initial learning period of 14 days, during which it does not flag any new locations as unfamiliar locations. The system also ignores sign-ins from familiar devices, and locations that are geographically close to a familiar location. <br>
 Unfamiliar locations can provide a strong indication that an attacker is able attempting to use a stolen identity. False-positives may occur when a user is traveling, trying out a new device or uses a new VPN. As a result of these false positives, the risk level for this event type is “**Medium**”.
 
 ### Vulnerabilities
@@ -199,7 +199,7 @@ Your journey through Identity Protection typically starts with the Identity Prot
 The dashboard gives you access to:
  
 - reports such as **Users flagged for risk**, **Risk events** and **Vulnerabilities**
-- settings such as the configuration of your **Security Policies**, **Notifications** and **MFA registration**
+- settings such as the configuration of your **Security Policies**, **Notifications** and **multi-factor authentication registration**
  
 
 It is typically your starting point for investigation, which is the process of reviewing the activities, logs, and other relevant information related to a risk event to decide whether remediation or mitigation steps are necessary,  and how the identity was compromised, and understand how the compromised identity was used.
@@ -385,7 +385,7 @@ Screenshots of this experience are below.
 
  
 #### Reset password
-If a user is blocked from signing in, the admin can generate a temporary password for them. They will have to change their password the next time they sign in. A password change remediates and closes most types of risk events for the user.
+If a user is blocked from signing in, an administrator can generate a temporary password for them. They will have to change their password the next time they sign in. A password change remediates and closes most types of risk events for the user.
 
 <br>
 ![Remediation](./media/active-directory-identityprotection/160.png "Remediation")
@@ -429,7 +429,7 @@ The action is triggered when a sign-in’s risk level is at or above the specifi
 
  
 Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.<br> 
-However, it excludes **Low** and **Medium** risk sign-ins from the policy, which may not block an attacker from exploiting a compromised identity. 
+However, it excludes **Low** and **Medium** sign-ins flagged for risk from the policy, which may not block an attacker from exploiting a compromised identity. 
 
 When setting a policy, 
 
@@ -468,7 +468,9 @@ Azure AD Identity Protection helps you manage the roll-out of multi-factor authe
 ##Sign-in risk mitigation flows 
 
 #### Risky sign-in recovery flow
-After an admin has configured a policy for sign-in risk, the affected end users are notified when they try to sign-in. 
+
+When an administrator has configured a policy for sign-in risks, the affected users are notified when they try to sign-in. 
+
 The risky sign-in flow has two steps: 
 
 1. The user is informed that something unusual was detected about their sign-in, such as signing in from a new location, device, or app. 
@@ -482,7 +484,7 @@ The risky sign-in flow has two steps:
 <br>
  
 #### Risky sign-in blocked
-Admins can also choose to set a Sign-In Risk policy to block users upon sign-in depending on the risk level. To get unblocked, end users must contact their admin or help desk, or they can try signing in from a familiar location or device. Self-recovering by solving multi-factor authentication is not an option in this case.
+Administrators can also choose to set a Sign-In Risk policy to block users upon sign-in depending on the risk level. To get unblocked, end users must contact an administrator or help desk, or they can try signing in from a familiar location or device. Self-recovering by solving multi-factor authentication is not an option in this case.
 
 <br>
 ![Remediation](./media/active-directory-identityprotection/130.png "Remediation")
@@ -490,7 +492,12 @@ Admins can also choose to set a Sign-In Risk policy to block users upon sign-in 
  
 #### Multi-factor authentication registration
 
-The best user experience for both, the compromised account recovery flow and the risky sign-in flow, the best user experience is when the user can self-recover. If a user is registered for multi-factor authentication, they already have a phone number associated with their account that can be used to pass security challenges. No help desk or administrator involvement is needed to recover from account compromise. Thus, it’s highly recommended to get your users registered for MFA. Admins can set a policy that requires users to set up their accounts for additional security verification. Admins can even allow skipping MFA registration for up to 30 days, in case they want to give users a grace period before registering.
+The best user experience for both, the compromised account recovery flow and the risky sign-in flow, the best user experience is when the user can self-recover. If a user is registered for multi-factor authentication, they already have a phone number associated with their account that can be used to pass security challenges. No help desk or administrator involvement is needed to recover from account compromise. Thus, it’s highly recommended to get your users registered for multi-factor authentication. 
+
+Administrators can:
+
+- set a policy that requires users to set up their accounts for additional security verification. 
+- allow skipping multi-factor authentication registration for up to 30 days, in case they want to give users a grace period before registering.
 
  
  <br>
@@ -508,7 +515,7 @@ The best user experience for both, the compromised account recovery flow and the
 #### Multi-factor authentication registration during a risky sign-in
 
 It is important that users register for multi-factor authentication so that they are prepared and able to pass security challenges. If a user isn’t registered for multi-factor authentication but the policy requires them to be, they could be asked to register during a risky sign-in. This means, an attacker could end up being asked to add a phone number instead of the good user. <br>
-To avoid this situation, require users to register for multi-factor authentication as soon as possible, so that a phone number is already associated with their account in case they ever get compromised. Alternatively, admins could completely block compromised users who aren’t registered for multi-factor authentication.
+To avoid this situation, require users to register for multi-factor authentication as soon as possible, so that a phone number is already associated with their account in case they ever get compromised. Alternatively, administrators can completely block compromised users who aren’t registered for multi-factor authentication.
 
  <br>
 ![Remediation](./media/active-directory-identityprotection/150.png "Remediation")
@@ -552,7 +559,7 @@ You are done! The sign-in should be viewable in Identity Protection within 5 min
 
 
 ####Sign-ins from unfamiliar locations
-Unfamiliar locations risk is a real-time login evaluation mechanism that considers past login locations (IP, Latitude/Longitude and ASN) to determine new/unfamiliar locations. The system stores previous IPs, Latitude/Longitude, and ASNs of a user and considers these to be “familiar” locations. A sign-in location is considered unfamiliar if the sign-in location does not match any of the existing familiar locations. The system has an initial learning period of 14 days during which it does not flag any new locations as unfamiliar locations. The system also ignores sign-ins from familiar devices and locations that are geographically close to an existing familiar location.
+Unfamiliar locations risk is a real-time sign-in evaluation mechanism that considers past sign-in locations (IP, Latitude/Longitude and ASN) to determine new/unfamiliar locations. The system stores previous IPs, Latitude/Longitude, and ASNs of a user and considers these to be “familiar” locations. A sign-in location is considered unfamiliar if the sign-in location does not match any of the existing familiar locations. The system has an initial learning period of 14 days during which it does not flag any new locations as unfamiliar locations. The system also ignores sign-ins from familiar devices and locations that are geographically close to an existing familiar location.
 
 To simulate unfamiliar locations, you will have to sign in from a location and device that the account has not signed in from before. Step by step:
 
@@ -596,7 +603,7 @@ Vulnerabilities are weaknesses in an Azure AD environment that can be exploited 
 
 **To test User compromise risk, perform the following steps**:
 
-1.	Log in to [https://portal.azure.com](https://portal.azure.com) with global admin credentials for your tenant.
+1.	Sign-in to [https://portal.azure.com](https://portal.azure.com) with global administrator credentials for your tenant.
 
 2.	Navigate to **Identity Protection**. 
 
@@ -635,7 +642,7 @@ Vulnerabilities are weaknesses in an Azure AD environment that can be exploited 
 
 To test Sign in risk, perform the following steps:
 
-1.	Log in to [https://portal.azure.com ](https://portal.azure.com) with global admin credentials for your tenant.
+1.	Sign-in to [https://portal.azure.com ](https://portal.azure.com) with global administrator credentials for your tenant.
 
 2.	Navigate to **Identity Protection**.
 
@@ -653,7 +660,7 @@ To test Sign in risk, perform the following steps:
 
 8.	To block, select Medium under Block sign in…
 
-9.	To enforce MFA, select Medium under Require multi-factor authentication…
+9.	To enforce multi-factor authentication, select Medium under Require multi-factor authentication…
 
 10.	Click on **Save**.
 
