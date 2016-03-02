@@ -18,30 +18,30 @@
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-	# Prepare your environment to back up Azure virtual machines
+# Prepare your environment to back up Azure virtual machines
 
-	Before you can back up an Azure virtual machine (VM), there are three conditions that must exist.
-	- You need to create a backup vault or identify an existing backup vault *in the same region as your VM*.
-	- Establish network connectivity between the Azure public Internet addresses and the Azure storage endpoints.
-	- Install the VM agent on the VM.
+Before you can back up an Azure virtual machine (VM), there are three conditions that must exist.
+- You need to create a backup vault or identify an existing backup vault *in the same region as your VM*.
+- Establish network connectivity between the Azure public Internet addresses and the Azure storage endpoints.
+- Install the VM agent on the VM.
 
-	If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](backup-azure-vms.md). Otherwise, read on, this article will lead you through the steps to prepare your environment to back up an Azure VM.
+If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](backup-azure-vms.md). Otherwise, read on, this article will lead you through the steps to prepare your environment to back up an Azure VM.
 
 
 ## Limitations when backing up and restoring a VM
 
-	>[Azure.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](resource-manager-deployment-model.md). The following list provides the limitations when deploying in the classic model.
+>[Azure.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](resource-manager-deployment-model.md). The following list provides the limitations when deploying in the classic model.
 
-	- Backing up Azure Resource Manager (ARM)-based (aka IaaS V2) virtual machines is not supported.
-	- Backing up virtual machines with more than 16 data disks is not supported.
-	- Backing up virtual machines using Premium storage is not supported.
-	- Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
-	- Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup.
-	- Cross-region backup and restore is not supported.
-	- Backing up virtual machines by using the Azure Backup service is supported in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
-	- Backing up virtual machines by using the Azure Backup service is supported only for select operating system versions:
-	  - **Linux**: See [the list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM agent is available on the virtual machine.
-	  - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
+- Backing up Azure Resource Manager (ARM)-based (aka IaaS V2) virtual machines is not currently supported.
+- Backing up virtual machines with more than 16 data disks is not supported.
+- Backing up virtual machines using Premium storage is not supported.
+- Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
+- Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup.
+- Cross-region backup and restore is not supported.
+- Backing up virtual machines by using the Azure Backup service is supported in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
+- Backing up virtual machines by using the Azure Backup service is supported only for select operating system versions:
+  - **Linux**: See [the list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM agent is available on the virtual machine.
+  - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 	- Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 	- Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs that you create by using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
 		- Virtual machines under load balancer configuration (internal and external)
@@ -53,7 +53,7 @@
 A backup vault is an entity that stores all the backups and recovery points that have been created over time. The backup vault also contains the backup policies that will be applied to the virtual machines being backed up.
 
 This image shows the relationships between the various Azure Backup entities:
-    ![Azure Backup entities and relationships](./media/backup-create-vault-for-vms/vault-policy-vm.png)
+    ![Azure Backup entities and relationships](./media/backup-azure-vms-prepare/vault-policy-vm.png)
 
 To create a backup vault:
 
@@ -61,11 +61,11 @@ To create a backup vault:
 
 2. In the Azure portal click **New** > **Hybrid Integration** > **Backup**. When you click **Backup**, you will automatically switch to the classic portal (shown after the Note).
 
-		    ![Ibiza portal](./media/backup-create-vault-for-vms/Ibiza-portal-backup01.png)
+    ![Ibiza portal](./media/backup-azure-vms-prepare/Ibiza-portal-backup01.png)
 
-		    >[AZURE.NOTE] If your subscription was last used in the classic portal, then your subscription may open in the classic portal. In this event, to create a backup vault, click **New** > **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create** (see the image below).
+    >[AZURE.NOTE] If your subscription was last used in the classic portal, then your subscription may open in the classic portal. In this event, to create a backup vault, click **New** > **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create** (see the image below).
 
-		    ![Create backup vault](./media/backup-create-vault-for-vms/backup_vaultcreate.png)
+    ![Create backup vault](./media/backup-azure-vms-prepare/backup_vaultcreate.png)
 
 3. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
 
@@ -75,15 +75,15 @@ To create a backup vault:
 
 6. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
 
-    ![Create vault toast notification](./media/backup-create-vault-for-vms/creating-vault.png)
+    ![Create vault toast notification](./media/backup-azure-vms-prepare/creating-vault.png)
 
 7. A message will confirm that the vault has been successfully created. It will be listed on the **recovery services** page as **Active**. Make sure to choose the appropriate storage redundancy option right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 
-    ![List of backup vaults](./media/backup-create-vault-for-vms/backup_vaultslist.png)
+    ![List of backup vaults](./media/backup-azure-vms-prepare/backup_vaultslist.png)
 
 8. Click the backup vault to go to the **Quick Start** page, where the instructions for backing up Azure virtual machines are shown.
 
-    ![Virtual machine backup instructions on the Dashboard page](./media/backup-create-vault-for-vms/vmbackup-instructions.png)
+    ![Virtual machine backup instructions on the Dashboard page](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 
 
 ## Network connectivity
@@ -187,7 +187,7 @@ The VM agent is already present in VMs that are created from the Azure gallery. 
 | --- | --- | --- |
 | Installing the VM agent | <li>Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation. <li>[Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. | <li> Install the latest [Linux agent](https://github.com/Azure/WALinuxAgent) from GitHub. You will need Administrator privileges to complete the installation. <li> [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |
 | Updating the VM agent | Updating the VM agent is as simple as reinstalling the [VM agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Ensure that no backup operation is running while the VM agent is being updated. | Follow the instructions on [updating the Linux VM agent ](../virtual-machines-linux-update-agent.md). <br><br>Ensure that no backup operation is running while the VM agent is being updated. |
-| Validating the VM agent installation | <li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. | - |
+| Validating the VM agent installation | <li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. | N/A |
 
 
 Learn about the [VM agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
@@ -203,7 +203,7 @@ The backup extension is installed if the VM is running. A running VM also provid
 If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
 
 ## Next steps
-
-- [Plan your VM backup infrastructure](backup-azure-vms-introduction.md)
+Now that you have prepared your environment for backing up your VM, your next logical step is to create a backup.  
 - [Back up virtual machines](backup-azure-vms.md)
+- [Plan your VM backup infrastructure](backup-azure-vms-introduction.md)
 - [Manage virtual machine backups](backup-azure-manage-vms.md)
