@@ -30,7 +30,7 @@ There are some important issues to consider before moving a resource:
 
 1. You cannot change the location of the resource. Moving a resource only moves it to a new resource group. The new resource group may have a different location, but that does 
 not change the location of the resource.
-2. The resource provider of the resource being moved must be registerd in the destination subscription. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used 
+2. The resource provider of the resource being moved must be registered in the destination subscription. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used 
 with that resource type. For example, if you are moving an API Management service instance to a subscription that has not registered the **Microsoft.ApiManagement** resource provider, the move will not succeed. To learn how to 
 check the registration status and register resource providers, see [Resource providers and types](../resource-manager-supported-services/#resource-providers-and-types).
 2. The destination resource group should contain only resources that share the same application lifecycle as the resources you are moving.
