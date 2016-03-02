@@ -1,6 +1,6 @@
 <properties
    pageTitle="Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines | Microsoft Azure"
-   description=""
+   description="If you know how to deploy AD Domain Services and AD Federation Services on premises, learn how they work on Azure virtual machines."
    services="active-directory"
    documentationCenter=""
    authors="femila"
@@ -40,7 +40,7 @@ This article does not discuss the configuration of [Azure Active Directory](http
 
 1. You might run Windows Server AD DS in the cloud on Azure virtual machines when you are using Azure to extend your on-premises datacenter into the cloud.
 2. You might use Azure AD to give your users single sign-on to Software-as-a-Service (SaaS) applications. Microsoft Office 365 uses this technology, for example, and applications running on Azure or other cloud platforms can also use it.
-3. You might use Azure AD (its Access Control Service) to let users log in using identities from Facebook, Google, Microsoft, and other identity providers to applications that are hosted in the cloud or on-premises.
+3. You might use Azure AD (its Access Control Service) to let users sign in using identities from Facebook, Google, Microsoft, and other identity providers to applications that are hosted in the cloud or on-premises.
 
 For more information about these differences, see [Azure Identity](fundamentals-identity.md).
 
@@ -63,7 +63,7 @@ The fundamental requirements for deploying Windows Server Active Directory on Az
 
 1. **Azure virtual machines may need connectivity to the on-premises corporate network.**
 
- Connecting Azure virtual machines back to an on-premises corporate network requires Azure virtual network, which includes a site-to-site or site-to-point virtual private network (VPN) component able to seamlessly connect Azure virtual machines and on-premises machines. This VPN component could also enable on-premises domain member computers to access a Windows Server Active Directory domain whose domain controllers are hosted exclusively on Azure virtual machines. It is important to note, though, that if the VPN fails, authentication and other operations that depend on Windows Server Active Directory will also fail. While users may be able to log on using existing cached credentials, all peer-to-peer or client-to-server authentication attempts for which tickets have yet to be issued or have become stale will fail.
+ Connecting Azure virtual machines back to an on-premises corporate network requires Azure virtual network, which includes a site-to-site or site-to-point virtual private network (VPN) component able to seamlessly connect Azure virtual machines and on-premises machines. This VPN component could also enable on-premises domain member computers to access a Windows Server Active Directory domain whose domain controllers are hosted exclusively on Azure virtual machines. It is important to note, though, that if the VPN fails, authentication and other operations that depend on Windows Server Active Directory will also fail. While users may be able to sign in using existing cached credentials, all peer-to-peer or client-to-server authentication attempts for which tickets have yet to be issued or have become stale will fail.
 
  See [Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) for a demonstration video and a list of step-by-step tutorials, including [Configure a Site-to-Site VPN in the Azure portal](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
@@ -81,9 +81,9 @@ The following is a non-exhaustive list of terms for various Azure technologies w
 
 - **Azure virtual network**: The networking service in Azure that lets customers create and manage virtual networks in Azure and securely link them to their own on-premises networking infrastructure by using a virtual private network (VPN).
 
-- **Virtual IP address (VIP)**: An internet-facing IP address that is not bound to a specific computer or network interface card. Cloud services are assigned a VIP for receiving network traffic which is redirected to an Azure VM. A VIP is a property of a cloud-service which can contain one or more Azure virtual machines. Also note that an Azure virtual network can contain one or more cloud-services. VIPs provide native load-balancing capabilities.
+- **Virtual IP address**: An internet-facing IP address that is not bound to a specific computer or network interface card. Cloud services are assigned a virtual IP address for receiving network traffic which is redirected to an Azure VM. A virtual IP address is a property of a cloud-service which can contain one or more Azure virtual machines. Also note that an Azure virtual network can contain one or more cloud-services. Virtual IP addresses provide native load-balancing capabilities.
 
-- **Dynamic IP address (DIP)**: This is the IP address that is internal only. It should be configured as a static IP address (by using the Set-AzureStaticVNetIP cmdlet) for VMs that host the DC/DNS server roles.
+- **Dynamic IP address**: This is the IP address that is internal only. It should be configured as a static IP address (by using the Set-AzureStaticVNetIP cmdlet) for VMs that host the DC/DNS server roles.
 
 - **Service healing**: The process in which Azure automatically returns a service to a running state again after it detects that the service has failed. Service healing is one of the aspects of Azure that supports availability and resiliency. While unlikely, the result following a service healing incident for a DC running on a VM is similar to an unplanned reboot, but has a few side-effects:
 
@@ -139,7 +139,7 @@ Finally, you may want to deploy a network application on Azure, such as SharePoi
 
 ## Can you deploy Windows Server AD FS on Azure virtual machines?
 
-Yes, you can deploy Windows Server AD FS on Azure virtual machines, and the [best practices for AD FS deployment](https://technet.microsoft.com/library/dn151324.aspx) on-premises apply equally to AD FS deployment on Azure. But some of the best practices such as load balancing and high availability require technologies beyond what AD FS offers itself. They must be provided by the underlying infrastructure. Let’s review some of those best practices and see how they can be achieved by using Azure VMs and an Azure VNet.
+Yes, you can deploy Windows Server AD FS on Azure virtual machines, and the [best practices for AD FS deployment](https://technet.microsoft.com/library/dn151324.aspx) on-premises apply equally to AD FS deployment on Azure. But some of the best practices such as load balancing and high availability require technologies beyond what AD FS offers itself. They must be provided by the underlying infrastructure. Let’s review some of those best practices and see how they can be achieved by using Azure VMs and an Azure virtual network.
 
 1. **Never expose security token service (STS) servers directly to the Internet.**
 
@@ -147,7 +147,7 @@ Yes, you can deploy Windows Server AD FS on Azure virtual machines, and the [bes
 
 2. **Deploy Active Directory domain controllers for all user domains in the same network as the AD FS servers.**
 
- AD FS servers use Active Directory Domain Service to authenticate users. It is recommended to deploy domain controllers on the same network as the AD FS servers. This provides business continuity in case the link between the Azure network and your on-premises network is broken, and enables lower latency and increased performance for logins.
+ AD FS servers use Active Directory Domain Services to authenticate users. It is recommended to deploy domain controllers on the same network as the AD FS servers. This provides business continuity in case the link between the Azure network and your on-premises network is broken, and enables lower latency and increased performance for logins.
 
 3. **Deploy multiple AD FS nodes for high availability and balancing the load.**
 
@@ -182,22 +182,22 @@ The high-level steps to deploy AD FS in this case are as follows:
 
 3. Deploy domain-joined AD FS servers on the virtual network.
 
-4. Create an [internal load balanced set](http://azure.microsoft.com/blog/internal-load-balancing/) that includes the AD FS servers and uses a new private IP address within the virtual network (a DIP).
+4. Create an [internal load balanced set](http://azure.microsoft.com/blog/internal-load-balancing/) that includes the AD FS servers and uses a new private IP address within the virtual network (a dynamic IP address).
 
- a. Update DNS to create the FQDN to point to the private IP address (DIP) of the internal load balanced.
+ a. Update DNS to create the FQDN to point to the private (dynamic) IP address of the internal load balanced set.
 
 5. Create a cloud service (or a separate virtual network) for the Web Application Proxy nodes.
 
 6. Deploy the Web Application Proxy nodes in the cloud service or virtual network
 
  a. Create an external load balanced set that includes the Web Application Proxy nodes.
- b. Update the external DNS name (FQDN) to point to the cloud service public IP address (the VIP).
+ b. Update the external DNS name (FQDN) to point to the cloud service public IP address (the virtual IP address).
  c. Configure AD FS proxies to use the FQDN that corresponds to the internal load balanced set for the AD FS servers.
  d. Update claims-based web sites to use the external FQDN for their claims provider.
 
 7. Restrict access between Web Application Proxy to any machine in the AD FS virtual network.
 
-To restrict traffic, the load-balanced set for the Azure internal load balancer needs to be configured for only traffic to TCP ports 80 and 443, and all other traffic to the internal DIP of the load balanced set is dropped.
+To restrict traffic, the load-balanced set for the Azure internal load balancer needs to be configured for only traffic to TCP ports 80 and 443, and all other traffic to the internal dynamic IP address of the load balanced set is dropped.
 
 ![Diagram of ADFS Network ACLs with TCP 443 + 80 permitted.](media/active-directory-deploying-ws-ad-guidelines/ADFS_ACLs.png)
 
@@ -208,13 +208,13 @@ Traffic to the AD FS servers would be permitted only by the following sources:
 
 > [Azure.WARNING] The design must prevent Web Application Proxy nodes from reaching any other VMs in the Azure virtual network or any locations on the on-premises network. That can be done by configuring firewall rules in the on-premises appliance for Express Route connections or the VPN device for site-to-site VPN connections.
 
-A disadvantage to this option is the need to configure the network ACLs for multiple devices, including internal load balancer, the AD FS servers, and any other servers that get added to the virtual network. If any device is added to the deployment without configuring network ACLs to restrict traffic to it, the entire deployment can be at risk. If the IP addresses of the Web Application Proxy nodes ever change, the network ACLs must be reset (which means the proxies should be configured to use [static DIPs](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)).
+A disadvantage to this option is the need to configure the network ACLs for multiple devices, including internal load balancer, the AD FS servers, and any other servers that get added to the virtual network. If any device is added to the deployment without configuring network ACLs to restrict traffic to it, the entire deployment can be at risk. If the IP addresses of the Web Application Proxy nodes ever change, the network ACLs must be reset (which means the proxies should be configured to use [static dynamic IP addresses](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)).
 
 ![ADFS on Azure with network ACLS.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure.png)
 
 Another option is to use the [Barracuda NG Firewall](https://www.barracuda.com/products/ngfirewall) appliance to control traffic between AD FS proxy servers and the AD FS servers. This option complies with best practices for security and high availability, and requires less administration after the initial setup because the Barracuda NG Firewall appliance provides a whitelist mode of firewall administration and it can be installed directly on an Azure virtual network. That eliminates the need to configure network ACLs any time a new server is added to the deployment. But this option adds initial deployment complexity and cost.
 
-In this case, two virtual networks are deployed instead of one. VNet 1 contains the proxies and VNet2 contains the STSs and the network connection back to the corporate network. VNet1 is therefore physically (albeit virtually) isolated from VNet2 and, in turn, from the corporate network. VNet 1 is then connected to VNet2 using a special tunneling technology known as Transport Independent Network Architecture (TINA). The TINA tunnel is attached to each of the VNets using a Barracuda NG firewall—one Barracuda on each of the VNets.  For high-availability, it is recommended that you deploy two Barracudas on each VNet; one active, the other passive. They offer extremely rich firewalling capabilities which allow us to mimic the operation of a traditional on-premises DMZ in Azure.
+In this case, two virtual networks are deployed instead of one. We'll call them VNet1 and VNet2. VNet1 contains the proxies and VNet2 contains the STSs and the network connection back to the corporate network. VNet1 is therefore physically (albeit virtually) isolated from VNet2 and, in turn, from the corporate network. VNet1 is then connected to VNet2 using a special tunneling technology known as Transport Independent Network Architecture (TINA). The TINA tunnel is attached to each of the virtual networks using a Barracuda NG firewall—one Barracuda on each of the virtual networks.  For high-availability, it is recommended that you deploy two Barracudas on each virtual network; one active, the other passive. They offer extremely rich firewalling capabilities which allow us to mimic the operation of a traditional on-premises DMZ in Azure.
 
 ![ADFS on Azure with firewall.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure_firewall.png)
 
@@ -222,11 +222,11 @@ For more information, see [AD FS: Extend a claims-aware on-premises front-end ap
 
 **An alternative to AD FS deployment if the goal is Office 365 SSO alone**
 
-There is another alternative to deploying AD FS altogether if your goal is only to enable sign on for Office 365. In that case, you can simply deploy DirSync with password sync on-premises and achieve the same end-result with minimal deployment complexity because this approach does not require AD FS or Azure.
+There is another alternative to deploying AD FS altogether if your goal is only to enable sign-in for Office 365. In that case, you can simply deploy DirSync with password sync on-premises and achieve the same end-result with minimal deployment complexity because this approach does not require AD FS or Azure.
 
-The following table compares how the sign on processes work with and without deploying AD FS.
+The following table compares how the sign-in processes work with and without deploying AD FS.
 
-| Office 365 single sign on using AD FS and DirSync | Office 365 same sign on using DirSync + Password Sync |
+| Office 365 single sign-on using AD FS and DirSync | Office 365 same sign-on using DirSync + Password Sync |
 | ------------- | ------------- |
 | 1. The user logs on to a corporate network, and is authenticated to Windows Server Active Directory. | 1. The user logs on to a corporate network, and is authenticated to Windows Server Active Directory. |
 | 2. The user tries to access Office 365 (I am @contoso.com). | 2. The user tries to access Office 365 (I am @contoso.com). |
@@ -234,11 +234,11 @@ The following table compares how the sign on processes work with and without dep
 | 4. Since Azure AD can’t authenticate the user and understands there is a trust with AD FS on-premises, it redirects the user to AD FS. | 4. Azure AD can’t accept Kerberos tickets directly and no trust relationship exists so it requests that the user enter credentials. |
 | 5. The user sends a Kerberos ticket to the AD FS STS. | 5. The user enters the same on-premises password, and Azure AD validates them against the user name and password that was synchronized by DirSync. |
 | 6. AD FS transforms the Kerberos ticket to the required token format/claims and redirects the user to Azure AD. | 6. Azure AD redirects the user to Office 365. |
-| 7. The user authenticates to Azure AD (another transformation occurs). |  7. The user can sign on to Office 365 and OWA using the Azure AD token. |
+| 7. The user authenticates to Azure AD (another transformation occurs). |  7. The user can sign in to Office 365 and OWA using the Azure AD token. |
 | 8. Azure AD redirects the user to Office 365. |  |
 | 9. The user is silently signed on to Office 365. |  |
 
-In the Office 365 with DirSync with password sync scenario (no AD FS), single-sign-on is replaced by “same-sign-on” where “same” simply means that users must re-enter their same on-premises credentials when accessing Office 365. Note that this data can be remembered by the user’s browser to help reduce subsequent prompts.
+In the Office 365 with DirSync with password sync scenario (no AD FS), single sign-on is replaced by “same sign-on” where “same” simply means that users must re-enter their same on-premises credentials when accessing Office 365. Note that this data can be remembered by the user’s browser to help reduce subsequent prompts.
 
 **Additional food for thought**
 
@@ -266,7 +266,7 @@ The following section outlines commonplace deployment scenarios to draw attentio
 
 3. [AD DS: Deploy a Windows Server AD DS-aware application that requires connectivity to the corporate network](#BKMK_HybridExt)
 
- For example, an LDAP-aware application that supports Windows-integrated authentication and uses Windows Server AD DS as a repository for configuration and user-profile data is deployed on an Azure virtual machine. It is desirable for the application to leverage the existing corporate Windows Server AD DS and provide single-sign-on. The application is not claims-aware.
+ For example, an LDAP-aware application that supports Windows-integrated authentication and uses Windows Server AD DS as a repository for configuration and user-profile data is deployed on an Azure virtual machine. It is desirable for the application to leverage the existing corporate Windows Server AD DS and provide single sign-on. The application is not claims-aware.
 
 ### <a name="BKMK_CloudOnly"></a>1. AD DS: Deploy an AD DS-aware application with no requirement for corporate network connectivity
 
@@ -314,11 +314,11 @@ In an effort to simplify and meet the deployment and configuration needs of this
 
  > [Azure.NOTE] For each of the Windows Server AD FS certificates, ensure that the URL defined within the certificate template and the resulting certificates can be reached by the Windows Server AD FS instances running on Azure. This may require cross-premises connectivity to parts of your PKI infrastructure. For example if the CRL's endpoint is LDAP-based and hosted exclusively on-premises, then cross-premises connectivity will be required. If this is not desirable, it may be necessary to use certificates issued by a CA whose CRL is accessible over the Internet.
 
-- [Cloud services configuration](#BKMK_CloudSvcConfig): Ensure you have two cloud services in order provide two load-balanced VIPs. The first cloud service’s VIP will be directed to the two Windows Server AD FS proxy VMs on ports 80 and 443. The Windows Server AD FS proxy VMs will be configured to point to the IP address of the on-premises load-balancer that fronts the Windows Server AD FS STSs. The second cloud service’s VIP will be directed to the two VMs running the web frontend again on ports 80 and 443. Configure a custom probe to ensure the load-balancer only directs traffic to functioning Windows Server AD FS proxy and web frontend VMs.
+- [Cloud services configuration](#BKMK_CloudSvcConfig): Ensure you have two cloud services in order provide two load-balanced virtual IP addresses. The first cloud service’s virtual IP address will be directed to the two Windows Server AD FS proxy VMs on ports 80 and 443. The Windows Server AD FS proxy VMs will be configured to point to the IP address of the on-premises load-balancer that fronts the Windows Server AD FS STSs. The second cloud service’s virtual IP address will be directed to the two VMs running the web frontend again on ports 80 and 443. Configure a custom probe to ensure the load-balancer only directs traffic to functioning Windows Server AD FS proxy and web frontend VMs.
 
 - [Federation server configuration](#BKMK_FedSrvConfig): Configure Windows Server AD FS as a federation server (STS) to generate security tokens for the Windows Server Active Directory forest created in the cloud. Set federation claims provider trust relationships with the different partners you wish to accept identities from, and configure relying party trust relationships with the different applications you want to generate tokens to.
 
- In most scenarios, Windows Server AD FS proxy servers are deployed in an Internet-facing capacity for security purposes while their Windows Server AD FS federation counterparts remain isolated from direct Internet connectivity. Regardless of your deployment scenario, you must configure your cloud service with a VIP that will provide a publicly exposed IP address and port that is able to load-balance across either your two Windows Server AD FS STS instances or proxy instances.
+ In most scenarios, Windows Server AD FS proxy servers are deployed in an Internet-facing capacity for security purposes while their Windows Server AD FS federation counterparts remain isolated from direct Internet connectivity. Regardless of your deployment scenario, you must configure your cloud service with a virtual IP address that will provide a publicly exposed IP address and port that is able to load-balance across either your two Windows Server AD FS STS instances or proxy instances.
 
 - [Windows Server AD FS high availability configuration](#BKMK_ADFSHighAvail): It is advisable to deploy a Windows Server AD FS farm with at least two servers for failover and load balancing. You might want to consider using the Windows Internal Database (WID) for Windows Server AD FS configuration data, and use the internal load balancing capability of Azure to distribute incoming requests across the servers in the farm.
 
@@ -332,7 +332,7 @@ In an effort to simplify and meet the deployment and configuration needs of this
 
 #### Description
 
-An LDAP-aware application is deployed on an Azure virtual machine. It supports Windows-integrated authentication and uses Windows Server AD DS as a repository for configuration and user profile data. The goal is for the application to leverage the existing corporate Windows Server AD DS and provide single-sign-on. The application is not claims-aware. Users also need to access the application directly from the Internet. To optimize for performance and cost, it is decided that two additional domain controllers that are part of the corporate domain be deployed alongside the application on Azure.
+An LDAP-aware application is deployed on an Azure virtual machine. It supports Windows-integrated authentication and uses Windows Server AD DS as a repository for configuration and user profile data. The goal is for the application to leverage the existing corporate Windows Server AD DS and provide single sign-on. The application is not claims-aware. Users also need to access the application directly from the Internet. To optimize for performance and cost, it is decided that two additional domain controllers that are part of the corporate domain be deployed alongside the application on Azure.
 
 #### Scenario considerations and how technology areas apply to the scenario
 
@@ -366,22 +366,22 @@ This table summarizes the Windows Server Active Directory technology areas that 
 
 For example, if you deploy a replica DC on a virtual network and your forest has only a single domain, then choosing to deploy a global catalog server in that case will not be critical to the deployment scenario because it will not create any additional replication requirements. On the other hand, if the forest has several domains, then the decision to deploy a global catalog on a virtual network could affect available bandwidth, performance, authentication, directory lookups, and so on.
 
-| Item number | Windows Server Active Directory technology area | Decisions | Factors |
-| ---- | ---- | ---- | ---- |
-| 1 | [Network topology](#BKMK_NetworkTopology) | Do you create a virtual network? | <li>Requirements to access Corp resources</li> <li>Authentication</li> <li>Account management</li> |
-| 2 | [DC deployment configuration](#BKMK_DeploymentConfig) | <li>Deploy a separate forest without any trusts?</li> <li>Deploy a new forest with federation?</li> <li>Deploy a new forest with Windows Server Active Directory forest trust or Kerberos?</li> <li>Extend Corp forest by deploying a replica DC?</li> <li>Extend Corp forest by deploying a new child domain or domain tree?</li> | <li>Security</li> <li>Compliance</li> <li>Cost</li> <li>Resiliency and fault-tolerance</li> <li>Application compatibility</li> |
-| 3 | [Windows Server Active Directory site topology](#BKMK_ADSiteTopology) | How do you configure subnets, sites, and site links with Azure Virtual Network to optimize traffic and minimize cost? | <li>Subnet and site definitions</li> <li>Site link properties and change notification</li> <li>Replication compression</li> |
-| 4 | [IP addressing and DNS](#BKMK_IPAddressDNS) | How to configure IP addresses and name resolution? | <li>Use the Use the Set-AzureStaticVNetIP cmdlet to assign a static IP address</li> <li>Install Windows Server DNS server and configure the virtual network properties with the name and IP address of the VM that hosts the DC and DNS server roles</li> |
-| 5 | [Geo-distributed DCs](#BKMK_DistributedDCs) | How to replicate to DCs on separate virtual networks? | If your Active Directory site topology requires DCs in geographies that corresponds to different Azure regions, than you want to create Active Directory sites accordingly. [Configure VNet to VNet Connectivity](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) to replicate between domain controllers on separate VNets. |
-| 6 | [Read-only DCs](#BKMK_RODC) | Use read-only or writeable DCs? | <li>Filter HBI/PII attributes</li> <li>Filter secrets</li> <li>Limit outbound traffic</li> |
-| 7 | [Global catalog](#BKMK_GC) | Install global catalog? | <li>For single-domain forest, make all DCs GCs</li> <li>For multidomain forest, GCs are required for authentication</li> |
-| 8 | [Installation method](#BKMK_InstallMethod) | How to install DC in Azure? | Either: <li>Install AD DS using Windows PowerShell or Dcpromo</li> <li>Move VHD of an on-premises virtual DC</li> |
-| 9 | [Placement of the Windows Server AD DS database and SYSVOL](#BKMK_PlaceDB) | Where to store Windows Server AD DS database, logs, and SYSVOL? | Change Dcpromo.exe default values. These critical Active Directory files *must* be placed on Azure Data Disks instead of Operating System disks that implement write caching. |
-| 10 | [Backup and Restore](#BKMK_BUR) | How to safeguard and recover data? | Create system state backups |
-| 11 | [Federation server configuration](#BKMK_FedSrvConfig) | <li>Deploy a new forest with federation in the cloud?</li> <li>Deploy AD FS on-premises and expose a proxy in the cloud?</li> | <li>Security</li> <li>Compliance</li> <li>Cost</li> <li>Access to applications by business partners</li> |
-| 12 | [Cloud services configuration](#BKMK_CloudSvcConfig) | A cloud service is implicitly deployed the first time you create a virtual machine. Do you need to deploy additional cloud services? | <li>Does a VM or VMs require direct exposure to the Internet?</li> <li> Does the service require load-balancing?</li> |
-| 13 | [Federation server requirements for public and private IP addressing (DIP vs. VIP)](#BKMK_FedReqVIPDIP) | <li>Does the Windows Server AD FS instance need to be reached directly from the Internet?</li> <li>Does the application being deployed in the cloud require its own Internet-facing IP address and port?</li> | Create one cloud-service for each VIP that is required by your deployment |
-| 14 | [Windows Server AD FS high availability configuration](#BKMK_ADFSHighAvail) | <li>How many nodes in my Windows Server AD FS server farm?</li> <li>How many nodes to deploy in my Windows Server AD FS proxy farm?</li> | Resiliency and fault tolerance |
+| Windows Server Active Directory technology area | Decisions | Factors |
+| ---- | ---- | ---- |
+| [Network topology](#BKMK_NetworkTopology) | Do you create a virtual network? | <li>Requirements to access Corp resources</li> <li>Authentication</li> <li>Account management</li> |
+| [DC deployment configuration](#BKMK_DeploymentConfig) | <li>Deploy a separate forest without any trusts?</li> <li>Deploy a new forest with federation?</li> <li>Deploy a new forest with Windows Server Active Directory forest trust or Kerberos?</li> <li>Extend Corp forest by deploying a replica DC?</li> <li>Extend Corp forest by deploying a new child domain or domain tree?</li> | <li>Security</li> <li>Compliance</li> <li>Cost</li> <li>Resiliency and fault-tolerance</li> <li>Application compatibility</li> |
+| [Windows Server Active Directory site topology](#BKMK_ADSiteTopology) | How do you configure subnets, sites, and site links with Azure Virtual Network to optimize traffic and minimize cost? | <li>Subnet and site definitions</li> <li>Site link properties and change notification</li> <li>Replication compression</li> |
+| [IP addressing and DNS](#BKMK_IPAddressDNS) | How to configure IP addresses and name resolution? | <li>Use the Use the Set-AzureStaticVNetIP cmdlet to assign a static IP address</li> <li>Install Windows Server DNS server and configure the virtual network properties with the name and IP address of the VM that hosts the DC and DNS server roles</li> |
+| [Geo-distributed DCs](#BKMK_DistributedDCs) | How to replicate to DCs on separate virtual networks? | If your Active Directory site topology requires DCs in geographies that corresponds to different Azure regions, than you want to create Active Directory sites accordingly. [Configure virtual network to virtual network Connectivity](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) to replicate between domain controllers on separate virtual networks. |
+| [Read-only DCs](#BKMK_RODC) | Use read-only or writeable DCs? | <li>Filter HBI/PII attributes</li> <li>Filter secrets</li> <li>Limit outbound traffic</li> |
+| [Global catalog](#BKMK_GC) | Install global catalog? | <li>For single-domain forest, make all DCs GCs</li> <li>For multidomain forest, GCs are required for authentication</li> |
+| [Installation method](#BKMK_InstallMethod) | How to install DC in Azure? | Either: <li>Install AD DS using Windows PowerShell or Dcpromo</li> <li>Move VHD of an on-premises virtual DC</li> |
+| [Placement of the Windows Server AD DS database and SYSVOL](#BKMK_PlaceDB) | Where to store Windows Server AD DS database, logs, and SYSVOL? | Change Dcpromo.exe default values. These critical Active Directory files *must* be placed on Azure Data Disks instead of Operating System disks that implement write caching. |
+| [Backup and Restore](#BKMK_BUR) | How to safeguard and recover data? | Create system state backups |
+| [Federation server configuration](#BKMK_FedSrvConfig) | <li>Deploy a new forest with federation in the cloud?</li> <li>Deploy AD FS on-premises and expose a proxy in the cloud?</li> | <li>Security</li> <li>Compliance</li> <li>Cost</li> <li>Access to applications by business partners</li> |
+| [Cloud services configuration](#BKMK_CloudSvcConfig) | A cloud service is implicitly deployed the first time you create a virtual machine. Do you need to deploy additional cloud services? | <li>Does a VM or VMs require direct exposure to the Internet?</li> <li> Does the service require load-balancing?</li> |
+| [Federation server requirements for public and private IP addressing (dynamic IP vs. virtual IP)](#BKMK_FedReqVIPDIP) | <li>Does the Windows Server AD FS instance need to be reached directly from the Internet?</li> <li>Does the application being deployed in the cloud require its own Internet-facing IP address and port?</li> | Create one cloud-service for each virtual IP address that is required by your deployment |
+| [Windows Server AD FS high availability configuration](#BKMK_ADFSHighAvail) | <li>How many nodes in my Windows Server AD FS server farm?</li> <li>How many nodes to deploy in my Windows Server AD FS proxy farm?</li> | Resiliency and fault tolerance |
 
 ### <a name="BKMK_NetworkTopology"></a>Network topology
 
@@ -451,7 +451,7 @@ Azure offers advantages when hosting multiple DCs on different virtual networks:
 
 - Physical proximity to branch offices (lower latency)
 
-For information about configuring direct communication between virtual networks, see [Configure VNet to VNet connectivity](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+For information about configuring direct communication between virtual networks, see [Configure virtual network to virtual network connectivity](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 ### <a name="BKMK_RODC"></a>Read-only DCs
 
@@ -543,13 +543,13 @@ Note that in either scenario, you can establish trusts relationships with more i
 
 ### <a name="BKMK_CloudSvcConfig"></a>Cloud services configuration
 
-Cloud services are necessary if you want to expose a VM directly to the Internet or to expose an Internet-facing load-balanced application. This is possible because each cloud service offers a single configurable VIP.
+Cloud services are necessary if you want to expose a VM directly to the Internet or to expose an Internet-facing load-balanced application. This is possible because each cloud service offers a single configurable virtual IP address.
 
-### <a name="BKMK_FedReqVIPDIP"></a>Federation server requirements for public and private IP addressing (DIP vs. VIP)
+### <a name="BKMK_FedReqVIPDIP"></a>Federation server requirements for public and private IP addressing (dynamic IP vs. virtual IP)
 
-Each Azure virtual machine receives a DIP. A DIP is a private address accessible only within Azure. In most cases, however, it will be necessary to configure a VIP for your Windows Server AD FS deployments. The VIP is necessary to expose Windows Server AD FS endpoints to the Internet, and will be used by federated partners and clients for authentication and ongoing management. A VIP is a property of a cloud service which contains one or more Azure virtual machines. If the claims-aware application deployed on Azure and Windows Server AD FS are both Internet-facing and share common ports, each will require a VIP of its own and it will therefore be necessary to create one cloud service for the application and a second for Windows Server AD FS.
+Each Azure virtual machine receives a dynamic IP address. A dynamic IP address is a private address accessible only within Azure. In most cases, however, it will be necessary to configure a virtual IP address for your Windows Server AD FS deployments. The virtual IP is necessary to expose Windows Server AD FS endpoints to the Internet, and will be used by federated partners and clients for authentication and ongoing management. A virtual IP address is a property of a cloud service which contains one or more Azure virtual machines. If the claims-aware application deployed on Azure and Windows Server AD FS are both Internet-facing and share common ports, each will require a virtual IP address of its own and it will therefore be necessary to create one cloud service for the application and a second for Windows Server AD FS.
 
-For definitions of the terms VIP and DIP, see [Terms and definitions](#BKMK_Glossary).
+For definitions of the terms virtual IP address and dynamic IP address, see [Terms and definitions](#BKMK_Glossary).
 
 ### <a name="BKMK_ADFSHighAvail"></a>Windows Server AD FS high availability configuration
 
