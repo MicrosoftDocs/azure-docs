@@ -161,6 +161,13 @@ Each folder can contain one or more files, and in some cases one or more folders
 
 These files can be created, deleted, edited, and managed on your local file system, and the changes deployed back to the your API Management service instance.
 
+>[AZURE.NOTE] The following items are not contained in the Git repository and cannot be configured using Git.
+>
+>-    Users
+>-    Subscriptions
+>-    Properties
+>-    Developer portal entities other than styles
+
 ### Root api-management folder
 
 The root `api-management` folder contains a `configuration.json` file that contains top-level information about the service instance in the following format.
