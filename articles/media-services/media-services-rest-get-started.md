@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
+ 	ms.date="03/01/2016" 
 	ms.author="juliako"/>
 
 #Get started with delivering content on demand using REST API
@@ -82,11 +82,11 @@ The following steps describe the most common workflow when using the Media Servi
 
 1. Getting an access token. 
 2. Connecting to the Media Services URI. 
-	
-	>[AZURE.NOTE]
-	After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
-	> 
-	> You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.
+
+>[AZURE.NOTE] After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
+> 
+> You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.
+
 3. Posting your subsequent API calls to the new URL. 
 	
 	For example, if after trying to connect, you got the following:
@@ -369,7 +369,7 @@ The following example shows how to create an AccessPolicy:
 	
 	{"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
 
-**HTTP Request**
+**HTTP Response**
 
 	If successful, the following response is returned:
 	
@@ -1202,10 +1202,6 @@ To test progressive download, paste a URL into a browser (for example, IE, Chrom
 ## Looking for something else?
 
 If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
-
-##Additional Resources
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Dynamic Packaging and Mobile Devices</a>
 
 
 
