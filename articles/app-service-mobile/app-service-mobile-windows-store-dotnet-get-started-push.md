@@ -185,7 +185,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 
     This guarantees that the short-lived ChannelURI is registered each time the application is launched.
 
-    [AZURE.NOTE]If you also have authentication enabled, make sure that the user signs-in before trying to register for push notifications. For more information, see [Authenticate first](https://github.com/Azure-Samples/app-service-mobile-windows-quickstart/blob/master/README.md#authenticate-first) in the quick start complete sample.
+    >[AZURE.NOTE] If you also have authentication enabled, make sure that the user signs-in before trying to register for push notifications. For more information, see [Authenticate first](https://github.com/Azure-Samples/app-service-mobile-windows-quickstart/blob/master/README.md#authenticate-first) in the quick start complete sample.
 
 4. In Solution Explorer double-click **Package.appxmanifest** of the Windows Store app, in **Notifications**, set **Toast capable** to **Yes**.
 
