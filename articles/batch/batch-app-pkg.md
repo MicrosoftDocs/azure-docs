@@ -18,9 +18,9 @@
 
 # Easy application installation and management with Azure Batch application packages
 
-The application packages feature of Azure Batch provides an easier alternative to manually storing, retrieving, and managing the task applications and their files for your Batch jobs. With application packages, you can easily upload and manage multiple versions of applications and automatically install them on the compute nodes in your pools.
+The application packages feature of Azure Batch provides an easier alternative to manually storing, retrieving, and managing the task applications and their files for your Batch jobs. With application packages, you can easily upload and manage multiple versions of applications, and automatically install them on the compute nodes in your pools.
 
-In this article, you will learn how to upload and manage application packages using the Azure Portal, and then automatically download and install them on the compute nodes in a pool using the [Batch .NET][api_net] library.
+In this article, you will learn how to upload and manage application packages using the Azure Portal, and then install them on the compute nodes in a pool using the [Batch .NET][api_net] library.
 
 > [AZURE.NOTE] The application package feature discussed in this article, introduced in Batch REST API 2015-12-01.2.2 and the corresponding Batch .NET 3.1.0 library, supersedes the "Batch Apps" feature available in previous versions of the service. We recommend that you always use the latest API version when working with Batch.
 
@@ -42,11 +42,15 @@ Rather than specifying individual resource files in Azure Storage for a pool's s
 
 ## Upload and manage applications
 
-You can create and configure applications and upload application packages using the Azure portal.
+You can create and configure applications and upload application packages using the Azure portal. At the time of this writing, application management is supported only in the Azure portal.
+
+Each Batch account support 20 applications, and 40 application packages per application.
+
+> [AZURE.WARNING] When you upload application packages, these packages are stored in Azure Storage, and you are charged as you would be for the storage of any other data in Storage.
 
 *TODO: Screenshots and how-to goes here.*
 
-> [AZURE.NOTE] At the time of this writing, application management is supported only in the Azure portal. The [Batch Management .NET](batch-management-dotnet.md) library will allow programmatic management of applications and their packages in the near future.
+> [AZURE.NOTE] The [Batch Management .NET](batch-management-dotnet.md) library will allow programmatic management of applications and their packages in the near future.
 
 ## Install applications on compute nodes
 
