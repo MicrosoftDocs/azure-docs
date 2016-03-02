@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/29/2016"
+   ms.date="03/02/2016"
    ms.author="femila"/>
 
 # Guidelines for deploying Windows Server Active Directory on Azure virtual machines
