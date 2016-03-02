@@ -45,6 +45,7 @@ In order to determine what's wrong, take the following steps:
 
 3. If your authentication fails locally, this means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.  
 
+
 ### Scenario: Unable to find the Azure subscription
 
 **Error:**
@@ -75,7 +76,8 @@ If you have multi-factor authentication on your Azure account, you can't use an 
 To use a certificate with the Azure Service Management cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](./resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](./resource-group-authenticate-service-principal.md)
 
 
-## Troubleshoot common errors when working with runbooks  
+## Troubleshoot common errors when working with runbooks
+
 ### Scenario: Runbook fails because of deserialized object
 
 **Error:**
@@ -212,6 +214,7 @@ You have upgraded your WMF version and have corrupted WMI.
 
 **Troubleshooting tips:**
 Follow the instructions in the [DSC known issues and limitations](https://msdn.microsoft.com/powershell/wmf/limitation_dsc) blog post to fix the issue.
+
 
 ### Scenario:  Unable to use a credential in a DSC configuration
 
