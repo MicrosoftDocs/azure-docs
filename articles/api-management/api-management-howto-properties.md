@@ -53,7 +53,7 @@ To use a property in a policy, place the property name inside a double pair of b
 
 In this example, `ContosoHeader` is used as the name of a header in a `set-header` policy, and `ContosoHeaderValue` is used as the value of that header. When this policy is evaluated during a request or response to the API Management gateway, `{{ContosoHeader}}` and `{{ContosoHeaderValue}}` are replaced with their respective property values.
 
-Properties can be used as complete attribute or element values as shown in the previous example, but they can also be inserted into or combined with part of a literal text expressions as shown in the following example: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
+Properties can be used as complete attribute or element values as shown in the previous example, but they can also be inserted into or combined with part of a literal text expression as shown in the following example: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
 Properties can also contain policy expressions. In the following example, the `ExpressionProperty` is used.
 
@@ -87,7 +87,7 @@ When a new property is saved, the **Search property** textbox is populated with 
 
 ![Properties][api-management-properties-property-saved]
 
-For information on creating a property using the REST API, see [Create a property using the REST API](http://TODO).
+For information on creating a property using the REST API, see [Create a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put).
 
 ## To edit a property
 
@@ -99,7 +99,7 @@ Make any desired changes, and click **Save**. If you change the property name, a
 
 ![Edit property][api-management-properties-edit-property]
 
-For information on editing a property using the REST API, see [Edit a property using the REST API](http://TODO).
+For information on editing a property using the REST API, see [Edit a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
 
 ## To delete a property
 
@@ -113,7 +113,7 @@ Click **Yes, delete it** to confirm.
 
 >[AZURE.IMPORTANT] If the property is referenced by any policies, you will be unable to successfully delete it until you remove the property from all policies that use it.
 
-For information on deleting a property using the REST API, see [Delete a property using the REST API](http://TODO).
+For information on deleting a property using the REST API, see [Delete a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
 
 ## To search and filter properties
 
