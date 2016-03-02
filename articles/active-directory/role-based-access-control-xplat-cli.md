@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Managing Role-Based Access Control with Azure Command-Line Interface"
-	description="Managing role-based access control with Azure Command-Line Interface"
+	pageTitle="Managing Role-Based Access Control with the Azure Command-Line Interface"
+	description="Managing role-based access control with the Azure Command-Line Interface"
 	services="active-directory"
 	documentationCenter="na"
 	authors="kgremban"
@@ -30,7 +30,7 @@ In this tutorial, you'll learn how to use Azure CLI to manage RBAC. It walks you
 
 ## Prerequisites ##
 
-Before you can use Azure CLI to manage RBAC, you must have the following:
+Before you can use the Azure CLI to manage RBAC, you must have the following:
 
 - Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](../xplat-cli-install.md).
 - Please also read the following tutorial to get familiar with set up and using Azure Resource Manager in Azure CLI: [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md)
