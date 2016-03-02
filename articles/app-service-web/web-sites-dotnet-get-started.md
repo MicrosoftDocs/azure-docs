@@ -72,8 +72,6 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 5. In the **New ASP.NET Project** dialog box, select the **MVC** template.
 
-	[MVC](http://www.asp.net/mvc) is an ASP.NET framework for developing web apps.
-
 7. Click **Change Authentication**.
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started/GS13changeauth.png)
@@ -82,7 +80,7 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 	![No Authentication](./media/web-sites-dotnet-get-started/GS13noauth.png)
 
-	The sample application that you're creating won't enable users to log in. The [Next steps](#next-steps) section links to tutorials that implement authentication and authorization.
+	The application that you're creating for this tutorial is a simple one that doesn't support user log-in.
 
 5. In the **Microsoft Azure** section of the **New ASP.NET Project** dialog box, make sure that **Host in the cloud** is selected and that **App Service** is selected in the drop-down list.
 
@@ -108,13 +106,13 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 	This combo box lets you select an existing resource group or create a new one by typing in a name that is different from any existing resource group in your subscription.
 
-	A resource group is a collection of Azure resources such as API apps, databases, VMs, and so forth.	For this tutorial it's best to create a new resource group because that will make it easy to delete in one step all the Azure resources that you create for the tutorial. For more information, see [Azure Resource Manager overview](../resource-group-overview.md)
+	A resource group is a collection of Azure resources such as API apps, databases, VMs, and so forth.	For a tutorial it's generally best to create a new resource group because that will make it easy to delete in one step any Azure resources that you create for the tutorial. For more information, see [Azure Resource Manager overview](../resource-group-overview.md)
 
 4. Click the **New** button next to the **App Service Plan** drop-down.
 
-	The screen shot shows sample values for **Web App Name**, **Subscription**, and **Resource Group** -- your values will be different.
-
 	![](./media/web-sites-dotnet-get-started/createas.png)
+
+	The screen shot shows sample values for **Web App Name**, **Subscription**, and **Resource Group** -- your values will be different.
 
 	In the following steps you create an App Service plan for the new resource group. An App Service plan specifies the compute resources that your API app runs on. For example, if you choose the free tier, your API app runs on shared VMs, while for some paid tiers it runs on dedicated VMs. For more information, see [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
@@ -135,8 +133,6 @@ The diagram illustrates what you're doing in the create and deploy steps.
 7. In the **Create App Service** dialog box, click **Create**.
 
 	![](./media/web-sites-dotnet-get-started/clickcreate.png)
-
-	Visual Studio creates the web app.
 
 	In a short time, usually less than a minute, Visual Studio creates the web project and the web app.  
 
@@ -180,7 +176,7 @@ In this section you deploy web project to the web app, as illustrated in step 2 
 
 	![Settings tab](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
-	The **Preview** tab gives you an opportunity to see what files are going to be copied from your project to the API app. When you're deploying a project to an API app that you already deployed to earlier, only changed files are copied. If you want to see a list of what will be copied, you can click the **Start Preview** button.
+	The **Preview** tab is next. Here you have an opportunity to see what files are going to be copied from your project to the API app. When you're deploying a project to an API app that you already deployed to earlier, only changed files are copied. If you want to see a list of what will be copied, you can click the **Start Preview** button.
 
 11. On the **Preview** tab, click **Publish**.
 
@@ -196,9 +192,8 @@ In this section you deploy web project to the web app, as illustrated in step 2 
 
 	![Web app running in Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-**Tip:** You can enable the **Web One Click Publish** toolbar for quick deployment. Click **View > Toolbars**, and then select **Web One Click Publish**. You can use the toolbar to select a profile, click a button to publish, or click a button to open the **Publish Web** wizard.
-
-![Web One Click Publish Toolbar](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+> [AZURE.TIP] You can enable the **Web One Click Publish** toolbar for quick deployment. Click **View > Toolbars**, and then select **Web One Click Publish**. You can use the toolbar to select a profile, click a button to publish, or click a button to open the **Publish Web** wizard.
+> ![Web One Click Publish Toolbar](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## Monitor and manage the web app in the Azure Portal
 
@@ -220,6 +215,8 @@ The [Azure portal](/services/management-portal/) is a web interface that you can
 
 	![](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
+	There area more sections to this blade than are shown in this screen shot.
+
 4. Click **Application settings** from the **General** section of the **Settings** blade to see an example of the kinds of settings that you can configure in the Portal.
 
 	For example, you can control the .NET version that's used for the web app, enable features such as [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/), and set [connection string values](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
@@ -230,7 +227,7 @@ These are just a few of the Portal's features. You can create new web apps, dele
 
 ## Next steps
 
-In this tutorial, you've seen how to create a simple web application and deploy it to an Azure web app. Here are some related topics and resources for learning more about web apps in Azure App Service:
+In this tutorial, you've seen how to create a simple web application and deploy it to an Azure web app. Here are some related topics and resources for learning more about Azure App Service:
 
 * Other ways to create web apps
 
