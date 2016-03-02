@@ -21,6 +21,7 @@
 # Prepare your environment to back up Azure virtual machines
 
 Before you can back up an Azure virtual machine (VM), there are three conditions that must exist.
+
 - You need to create a backup vault or identify an existing backup vault *in the same region as your VM*.
 - Establish network connectivity between the Azure public Internet addresses and the Azure storage endpoints.
 - Install the VM agent on the VM.
