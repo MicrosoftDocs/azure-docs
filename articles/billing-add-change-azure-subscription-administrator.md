@@ -29,7 +29,28 @@ There are three kinds of administrator roles in Microsoft Azure:
 
 > [AZURE.NOTE] Azure Active Directory Role-based Access Control (RBAC) allows users to be added to multiple roles. For more information, see [Azure Active Directory Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
-## How to add a Co-Administrator for a subscription
+## How to add an admin for a subscription
+
+**Azure new portal**
+
+
+1. Sign in to the [Azure new portal](https://portal.azure.com/).
+
+2. On the Hub menu, Select **Subscription** > *the subscription that you want manage*
+
+	![newselectsub](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
+
+3. In the subscription blade, Select **Settings**> **Users**.
+
+	![newsettings](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
+4. In the Users blade, select Add>**Select a role** > **Owner**
+
+	![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
+5. Type the email address of the person you want to add as Owner, click the user and then click **Select**.
+
+	![newadduser](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
+
+**Azure classical portal**
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/).
 
@@ -59,12 +80,14 @@ The following email address can be added as a Co-Administrator:
 
  * Now that it is possible to log into Azure with an organizational account, here are the changes to Service Administrator and Co-administrator account requirements:
 
-	| Login Method| Add Microsoft Account or users within Default Directory as CA or SA?  |Add organizational account in the same organization as CA or SA? |Add organizational account in different organization as CA or SA?
-	| ------------- | ------------- |---------------|---------------|
-	|Microsoft Account |Yes|No|No|
-	|Organizational Account|Yes|Yes|No|
+	Login Method| Add Microsoft Account or users within Default Directory as CA or SA?  |Add organizational account in the same organization as CA or SA? |Add organizational account in different organization as CA or SA?
+	------------- | ------------- |---------------|---------------
+	Microsoft Account |Yes|No|No
+	Organizational Account|Yes|Yes|No
 
 ## How to change Service Administrator for a subscription
+
+Azure classic portal
 Only the Account Administrator can change the Service Administrator for a subscription.
 
 1. Log on into [Account Management Portal](https://account.windowsazure.com/subscriptions) by using the Account Administrator.
