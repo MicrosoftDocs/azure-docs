@@ -410,21 +410,32 @@ You can use conditional access in Azure AD Identity Protection to automatically 
 
 
 ## Sign-in risk security policy
-A sign-in risk security policy is a conditional access policy that evaluates the risk level to a specific sign-in and applies mitigations based on predefined conditions and rules.
 
-You set the scope of a sign-in risk policy by selecting the users and groups:
-
-- the policy applies to
-
-- that will be excluded from the policy
- 
-
-You can configure a sign-in risk policy to block a user sign-in and to require multi-factor authentication.
-For each action, you specify the sign-in risk level threshold (low, medium, or high) that triggers it.
-The action is triggered when a sign-in’s risk level is at or above the specified value.
-
+A conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
+<br><br>
+![Sign-in risk policy](./media/active-directory-identityprotection/700.png "Sign-in risk policy")
 <br>
-![Remediation](./media/active-directory-identityprotection/61.png "Remediation")
+
+Azure AD Identity Protection helps you manage the mitigation of risky sign-ins by enabling you to:
+
+- set the users and groups the policy applies to 
+<br><br>
+![Sign-in risk policy](./media/active-directory-identityprotection/701.png "Sign-in risk policy")
+<br>
+
+- set the sign-in risk level threshold (low, medium, or high) that triggers a multi-factor authentication challenge for the affected sign-ins 
+<br><br>
+![Sign-in risk policy](./media/active-directory-identityprotection/702.png "Sign-in risk policy")
+<br>
+
+- set the sign-in risk level threshold (low, medium, or high) that blocks the affected sign-ins.  
+<br><br>
+![Sign-in risk policy](./media/active-directory-identityprotection/703.png "Sign-in risk policy")
+<br>
+
+- review and evaluate the impact of a change before activating it 
+<br><br>
+![Sign-in risk policy](./media/active-directory-identityprotection/704.png "Sign-in risk policy")
 <br>
 
  
@@ -439,29 +450,21 @@ When setting a policy,
 
 The recommended default for most organizations is to configure a rule for a **Medium** threshold to strike a balance between usability and security.
 
-Before enabling or changing a policy, you can evaluate the potential impact of the change simulating the impact an enabled policy based on data from the past 30 days:
-
-<br>
-![Remediation](./media/active-directory-identityprotection/300.png "Remediation")
-<br>
  
 The sign-in risk policy is:
 
 - applied to all browser traffic and sign-ins using modern authentication.
 - not applied to applications using older security protocols by disabling the WS-Trust endpoint at the federated IDP, such as ADFS.
 
-The **Risk Events** page in the Identity Protection console lists all events where the policy was applied, where you can review the activity and determine whether the action was appropriate or not. 
+The **Risk Events** page in the Identity Protection console lists all events:
+
+- this policy was applied to
+- you can review the activity and determine whether the action was appropriate or not 
 
 
-###Block
-
-You can configure a policy to block a user sign-in when Identity Protection detects a sign-in risk at or above a specified level. This option blocks the user from signing in. When a user’s access is blocked, an administrator can review activity through the policy page in Identity Protection to determine the cause. 
-
-### Enforce multi-factor authentication
-You can also configure a policy to require multi-factor authentication when the sign-in risk is at or above a specified level. Multi-factor authentication provides stronger assurance of the user’s identity than username and password alone, and therefore will often prevent an attacker with only the user name and password from signing in. 
 
 
-## Multi-Factor authentication registration policy
+## Multi-factor authentication registration policy
 
 Multi-factor authentication is used to gain additional assurance of a user’s identity.<br> 
 Registering for multi-factor authentication is a critical step in preparing your organization to protect and recover from account compromises. 
@@ -471,18 +474,18 @@ Registering for multi-factor authentication is a critical step in preparing your
 
 Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication registration by enabling you to: 
 
-- define which users will be affected by the policy
-<br>
+- set the users and groups the policy applies to
+<br><br>
 ![MFA Registration](./media/active-directory-identityprotection/601.png "MFA Registration")
 <br>
 
 - define how long they are allowed to skip registration
-<br>
+<br><br>
 ![MFA Registration](./media/active-directory-identityprotection/602.png "MFA Registration")
 <br>
 
 - view the current registration state of impacted users. 
-<br>
+<br><br>
 ![MFA Registration](./media/active-directory-identityprotection/603.png "MFA Registration")
 <br>
 
