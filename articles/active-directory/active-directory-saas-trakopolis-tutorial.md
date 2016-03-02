@@ -117,7 +117,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Trakopolis support team at [support@cantelematics.com](mailto:support@cantelematics.com), attach the downloaded certificate and provide them with the Issuer URL, the SAML SSO URL and the Sign Out URL.
+5. To get SSO configured for your application, contact your Trakopolis support team at [support@cantelematics.com](mailto:support@cantelematics.com), attach the downloaded certificate and provide them with the **Issuer URL**, the **SAML SSO URL** and the **Sign Out URL**.
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
@@ -182,9 +182,9 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 ### Creating a Trakopolis test User
 
-The objective of this section is to create a user called Britta Simon in CTrakopolis. Please work with the Trakopolis support team to add the users in Trakopolis. 
+The objective of this section is to create a user called Britta Simon in CTrakopolis.<br>
+Please work with the Trakopolis support team to add the users in Trakopolis. 
 
-> [AZURE.NOTE] If you need to create an user manually, you need to contact the Trakopolis support team.
 
 
 ### Assigning the Azure AD test user
