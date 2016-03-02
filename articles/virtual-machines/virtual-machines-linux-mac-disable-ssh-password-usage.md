@@ -58,7 +58,7 @@ For this article it is very important to keep one login to your Linux VM open fo
 _Seasoned Linux Admins who just want the TLDR version start here.  For everyone else that wants the detailed explanation and walk through skip this section._
 
 ```
-woz@macbook$ sudo vim /etc/ssh/sshd_config
+username@macbook$ sudo vim /etc/ssh/sshd_config
 
 # Change PasswordAuthentication to this:
 PasswordAuthentication no
@@ -73,10 +73,10 @@ PermitRootLogin no
 ChallengeResponseAuthentication no
 
 # On the Debian Family
-woz@macbook$ sudo service ssh restart
+username@macbook$ sudo service ssh restart
 
 # On the RedHat Family
-woz@macbook$ sudo service sshd restart
+username@macbook$ sudo service sshd restart
 ```
 
 ## Detailed Walk Through
@@ -86,7 +86,7 @@ Login to the Linux VM on terminal 1 (T1).  Login to the Linux VM on terminal 2 (
 On T2 we are going to edit the SSHD configuration file.  
 
 ```
-woz@macbook$ sudo vim /etc/ssh/sshd_config
+username@macbook$ sudo vim /etc/ssh/sshd_config
 ```
 
 From here we will edit just the settings to disable passwords and enable SSH key logins.  There are many settings in this file that you should research and change to make Linux & SSH as secure as you need.
@@ -94,7 +94,7 @@ From here we will edit just the settings to disable passwords and enable SSH key
 #### Disable Password logins
 
 ```
-woz@macbook$ sudo vim /etc/ssh/sshd_config
+username@macbook$ sudo vim /etc/ssh/sshd_config
 
 # Change PasswordAuthentication to this:
 PasswordAuthentication no
@@ -103,7 +103,7 @@ PasswordAuthentication no
 #### Enable Public Key Authentication
 
 ```
-woz@macbook$ sudo vim /etc/ssh/sshd_config
+username@macbook$ sudo vim /etc/ssh/sshd_config
 
 # Change PubkeyAuthentication to this:
 PubkeyAuthentication yes
@@ -112,7 +112,7 @@ PubkeyAuthentication yes
 #### Disable Root Login
 
 ```
-woz@macbook$ sudo vim /etc/ssh/sshd_config
+username@macbook$ sudo vim /etc/ssh/sshd_config
 
 # Change PermitRootLogin to this:
 PermitRootLogin no
@@ -134,13 +134,13 @@ From T2 run:
 ##### On the Debian Family
 
 ```
-woz@macbook$ sudo service ssh restart
+username@macbook$ sudo service ssh restart
 ```
 
 ##### On the RedHat Family
 
 ```
-woz@macbook$ sudo service sshd restart
+username@macbook$ sudo service sshd restart
 ```
 
 Passwords are now disabled on your VM protecting it from brute force password login attempts.  With only SSH Keys allowed you will be able to login faster and much more secure.

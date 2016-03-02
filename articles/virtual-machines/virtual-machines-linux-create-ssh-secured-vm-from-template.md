@@ -48,7 +48,7 @@ _Seasoned Linux Admins who just want the TLDR version start here.  For everyone 
 Clone the Azure QuickStart Templates repo to your workstation.  Once it is cloned:
 
 ```
-woz@macbook$ cd 101-vm-simple-linux
+username@macbook$ cd 101-vm-simple-linux
 ```
 
 Now edit the `azuredeploy.parameters.json` file to change the Ubuntu settings to your own configuration:
@@ -56,7 +56,7 @@ Now edit the `azuredeploy.parameters.json` file to change the Ubuntu settings to
 _The `UbuntuOSVersion` calls for Ubuntu 14 LTS which is fine for this walk through and can be left unchanged._
 
 ```
-woz@macbook$ vim azuredeploy.parameters.json
+username@macbook$ vim azuredeploy.parameters.json
 
 # Change anything <example> to your own settings
 
@@ -89,10 +89,10 @@ _replace <example> with your own settings_
 
 ```
 # Example Command
-woz@macbook$ azure group create -n <exampleRGname> -l <exampleAzureRegion> azuredeploy.json -e azuredeploy.parameters.json
+username@macbook$ azure group create -n <exampleRGname> -l <exampleAzureRegion> azuredeploy.json -e azuredeploy.parameters.json
 
 # Full command
-woz@macbook$ azure group create -n simpleUbuntu -l westus azuredeploy.json -e azuredeploy.parameters.json
+username@macbook$ azure group create -n simpleUbuntu -l westus azuredeploy.json -e azuredeploy.parameters.json
 ```
 
 This will use the `azuredeploy.parameters.json` file that we edited to create a Resource Group with a single Ubuntu VM inside of it.
@@ -101,8 +101,8 @@ Templates can also be called from URLs, like this example that uses the same fil
 
 ```
 # Example Command
-woz@macbook$ azure group create -n <exampleRGname> -l <exampleAzureRegion> --template-uri <https://raw.githubusercontent.com/repo/template.json> -e  <https://raw.githubusercontent.com/repo/template.parameters.json>
+username@macbook$ azure group create -n <exampleRGname> -l <exampleAzureRegion> --template-uri <https://raw.githubusercontent.com/repo/template.json> -e  <https://raw.githubusercontent.com/repo/template.parameters.json>
 
 # Full Command
-woz@macbook$ azure group create -n simpleUbuntu -l westus --template-uri https://raw.githubusercontent.com/vlivech/SecureUbuntuVMTemplate/master/azuredeploy.json -e https://raw.githubusercontent.com/vlivech/SecureUbuntuVMTemplate/master/azuredeploy.parameters.json
+username@macbook$ azure group create -n simpleUbuntu -l westus --template-uri https://raw.githubusercontent.com/vlivech/SecureUbuntuVMTemplate/master/azuredeploy.json -e https://raw.githubusercontent.com/vlivech/SecureUbuntuVMTemplate/master/azuredeploy.parameters.json
 ```

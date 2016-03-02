@@ -47,7 +47,7 @@ This article creates *ssh-rsa* format key files, as those are recommended for de
 In the following command examples, replace the values between &lt; and &gt; with the values from your own environment. 
 
 ```
-[woz@fedora22 ~]$ ssh-keygen -t rsa -b 4096 -C "<your_user@yourdomain.com>"
+[username@fedora22 ~]$ ssh-keygen -t rsa -b 4096 -C "<your_user@yourdomain.com>"
 
 #Enter the name of the file that will be saved in the `~/.ssh/` directory.
 
@@ -61,20 +61,20 @@ correct horse battery staple
 
 #Add the newly created key to `ssh-agent` on Linux and Mac (also added to OSX Keychain).
 
-[woz@fedora22 ~]$ eval "$(ssh-agent -s)"
+[username@fedora22 ~]$ eval "$(ssh-agent -s)"
 
-[woz@fedora22 ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa
+[username@fedora22 ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa
 
 #Copy the SSH public key to your Linux Server.
 
-[woz@fedora22 ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
+[username@fedora22 ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
 
 #Test the login using keys instead of a password.
 
-[woz@fedora22 ~]$ ssh -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
+[username@fedora22 ~]$ ssh -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
 
 Last login: Tue Dec 29 07:07:09 2015 from 66.215.21.201
-[woz@fedora22 ~]$
+[username@fedora22 ~]$
 
 ```
 
@@ -88,7 +88,7 @@ Azure requires at least 2048-bit, ssh-rsa format public and private keys. To cre
 
 This command will create a SSH Keypair using 2048 bit RSA and it will be commented to easily identify it.
 
-    woz@macbook$ ssh-keygen -t rsa -b 4096 -C "woz@fedoraVMAzure"
+    username@macbook$ ssh-keygen -t rsa -b 4096 -C "username@fedoraVMAzure"
 
 ##### Command explained
 
@@ -98,12 +98,12 @@ This command will create a SSH Keypair using 2048 bit RSA and it will be comment
 
 `-b 2048` = bits of the key
 
-`-C "woz@fedoraVMAzure"` = a comment for the key to easy identify it. The comment is appended to the end of the public key file.  A commonly used comment is an email address but for this article we are going to enable using multiple SSH keys so a generic comment is suggested.
+`-C "username@fedoraVMAzure"` = a comment for the key to easy identify it. The comment is appended to the end of the public key file.  A commonly used comment is an email address but for this article we are going to enable using multiple SSH keys so a generic comment is suggested.
 
 #### `ssh-keygen` walk through
 
 ```
-woz@macbook$ ssh-keygen -t rsa -b 4096 -C "woz@fedoraVMAzure"
+username@macbook$ ssh-keygen -t rsa -b 4096 -C "username@fedoraVMAzure"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/steve/.ssh/id_rsa): azure_fedora_id_rsa
 Enter passphrase (empty for no passphrase):
@@ -111,7 +111,7 @@ Enter same passphrase again:
 Your identification has been saved in azure_fedora_id_rsa.
 Your public key has been saved in azure_fedora_id_rsa.pub.
 The key fingerprint is:
-14:a3:cb:3e:79:ad:25:cc:65:e9:0c:07:e5:d1:a9:08 woz@fedoraVMAzure
+14:a3:cb:3e:79:ad:25:cc:65:e9:0c:07:e5:d1:a9:08 username@fedoraVMAzure
 The key's randomart image is:
 +--[ RSA 4096]----+
 |        o o. .   |
@@ -125,9 +125,9 @@ The key's randomart image is:
 |        .        |
 +-----------------+
 
-woz@macbook$ ls -al ~/.ssh
--rw------- 1 woz staff  1675 Aug 25 18:04 azure_fedora_id_rsa
--rw-r--r-- 1 woz staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
+username@macbook$ ls -al ~/.ssh
+-rw------- 1 username staff  1675 Aug 25 18:04 azure_fedora_id_rsa
+-rw-r--r-- 1 username staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
 ```
 
 `Enter file in which to save the key (/Users/steve/.ssh/id_rsa): azure_fedora_id_rsa`
@@ -136,7 +136,7 @@ The key pair name for this article.  Having a key pair named **id_rsa** is the d
 `Enter passphrase (empty for no passphrase):`
 It is strongly recommended to add a password (`ssh-keygen` calls this a "passphrase") to your key pairs. Without a password protecting the key pair, anyone with a copy of the private key file can use it to login to any server -- your servers -- that have the corresponding the public key. Adding a password therefore offers much more protection in case someone is able to gain access to your private key file, given you time to change the keys used to authenticate you.
 
-`woz@macbook$ ls -al ~/.ssh`
+`username@macbook$ ls -al ~/.ssh`
 This shows your new key pairs and their permissions. `ssh-keygen` creates the `~/.ssh` directory if it is not present and also sets the correct ownership and file modes.
 
 ## Create and configure a SSH config file
@@ -148,18 +148,18 @@ The following example shows a standard configuration.
 ### Create the file
 
 ```
-woz@macbook$ touch ~/.ssh/config
+username@macbook$ touch ~/.ssh/config
 ```
 
 ### Edit the file to add the new SSH configuration
 
 ```
-woz@macbook$ vim ~/.ssh/config
+username@macbook$ vim ~/.ssh/config
 
 #Azure Keys
 Host fedora22
   Hostname 102.160.203.241
-  User woz
+  User username
   PubkeyAuthentication yes
   IdentityFile /Users/steve/.ssh/azure_fedora_id_rsa
 # ./Azure Keys
@@ -209,11 +209,11 @@ This SSH config gives you sections for each service to enable each to have its o
 
 Now that you have a SSH key pair and a configured SSH config file, you can login to your Linux VM quickly and securely. The first time you login to a server using a SSH key the command prompts you for the passphrase for that key file. 
 
-`woz@macbook$ ssh fedora22`
+`username@macbook$ ssh fedora22`
 
 ##### Command explained
 
-When `woz@macbook$ ssh fedora22` is executed SSH first locates and loads any settings from the `Host fedora22` block, and then loads all the remaining settings from the last block, `Host *`.
+When `username@macbook$ ssh fedora22` is executed SSH first locates and loads any settings from the `Host fedora22` block, and then loads all the remaining settings from the last block, `Host *`.
 
 ## Next Steps
 

@@ -59,4 +59,4 @@ Each Azure Subscription has default quota limits in place that could impact the 
 
 ## Next steps
 
-A free trial account. **[Go get one.](https://azure.microsoft.com/pricing/free-trial/)** If you already have one, to try it out, **[install the Azure CLI.](../xplat-cli-install.md)**. If you've done that, then [go create your Linux VM now.](virtual-machines-linux-quick-create-cli.md).
+A free trial account. **[Go get one.](https://azure.microsoft.com/pricing/free-trial/)** If you already have one, to try it out, **[install the Azure CLI.](../xplat-cli-install.md)**. If you've done that, then [go create your Linux VM now](virtual-machines-linux-quick-create-cli.md).

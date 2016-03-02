@@ -22,27 +22,27 @@ Azure VM unique ID is a 128bits identifier encoded and stored in all Azure IaaS 
 
 Azure VM unique ID is a Read-only property. Azure Unique VM ID won’t change upon reboot shutdown (either planned for unplanned), Start/Stop de-allocate, service healing or restore in place. However, if the VM is a snapshot and copied to create a new instance, new Azure VM ID is configured.
 
-> [AZURE.NOTE] If you have older VMs created and running since this new feature got rolled out (9/18/2014), please restart your VM to automatically get an Azure unique ID.
+> [AZURE.NOTE] If you have older VMs created and running since this new feature got rolled out (September 18, 2014), please restart your VM to automatically get an Azure unique ID.
 
 
 To access Azure Unique VM ID from within the VM:
 
 
-## Step 1 - Create a VM
+## Create a VM
  
 
-For more information, see **[Create a Virtual Machine](virtual-machines-linux-choices-create-vm/)
+For more information, see [Create a Virtual Machine](virtual-machines-linux-creation-choices.md)
 
 
-## Step 2 - Connect to the VM
+## Connect to the VM
  
 
-For more information, see **[Log on to a Virtual Machine](virtual-machines-linux-how-to-log-on.md)
+For more information, see [SSH from Linux](virtual-machines-linux-ssh-from-linux.md)
 
 
-## Step 3 – Query VM Unique ID
+## Query VM Unique ID
 
-Command (Ubuntu):
+Command (example uses **Ubuntu**):
 
     sudo dmidecode | grep UUID
     
