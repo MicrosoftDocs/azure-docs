@@ -47,15 +47,13 @@ Replace __CLUSTERNAME__ with the name of your HDInsight cluster.
 
 ##Authentication
 
-When establishing the connection, you must use the HDInsight cluster admin name and password to authenticate to the cluster gateway. For example, the following Java code opens a new connection using the connection string, admin name, and password:
+When establishing the connection, you must use the HDInsight cluster admin name and password to authenticate to the cluster gateway. When connecting from JDBC clients such as SQuirreL SQL, you must enter the admin name and password in client settings. 
+
+From a Java application, you must use the name and password when establishing a connection. For example, the following Java code opens a new connection using the connection string, admin name, and password:
 
     DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
-##Example Java project
-
-An example of using a Java client to query Hive on HDInsight is available at [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Follow the instructions in the repository to build and run the sample.
-
-##SQuirreL SQL client
+##Connect with SQuirreL SQL client
 
 SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with your HDInsight cluster. The following steps assume that you have already installed SQuirreL SQL, and will walk you through downloading and configuring the drivers for Hive.
 
@@ -146,6 +144,10 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
         select * from hivesampletable limit 10;
     
     ![sql query dialog, including results](./media/hdinsight-connect-hive-jdbc-driver/sqlquery.png)
+
+##Connect from an example Java application
+
+An example of using a Java client to query Hive on HDInsight is available at [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Follow the instructions in the repository to build and run the sample.
 
 ##Next steps
 
