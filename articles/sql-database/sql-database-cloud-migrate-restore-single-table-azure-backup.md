@@ -20,55 +20,55 @@
 
 # How to restore a single table in Azure SQL Database backup
 
-You may encounter situations where you performed an accidental data modification and want to recover the single affected table. This article describes the steps to restore a single table in a database from one of the backups automatically that are performed by Azure SQL Database, based on your selected performance tier.
+You may encounter a situation in which you accidentally modified some data in a SQL database and now you want to recover the single affected table. This article describes how to restore a single table in a database from one of the backups that are automatically that are performed by Azure SQL Database, based on your selected performance tier.
 
 ## Preparation steps: Rename the table and restore a copy of the database
-1. Identify the table in your Azure SQL Database that you want to replace with the restored copy. Rename the table by using Microsoft SQL Management Studio. For example, rename the table to &lt;table name&gt;_old.
+1. Identify the table in your Azure SQL database that you want to replace with the restored copy. Use Microsoft SQL Management Studio to rename the table. For example, rename the table as &lt;table name&gt;_old.
 
-	**Note** To avoid being blocked, make sure that there's no activity on the table that's being renamed. If you encounter issues, please do this procedure during maintenance window.
+	**Note** To avoid being blocked, make sure that there's no activity running on the table that you are renaming. If you encounter issues, make sure that perform this procedure during a maintenance window.
 
-2. Restore a backup of your database to a point in time you wish to recover to. To do this, refer to the steps in [Recover an Azure SQL Database from a user error](../sql-database/sql-database-user-error-recovery.md).
+2. Restore a backup of your database to a point in time that you want to recover to. To do this, see the steps in [Recover an Azure SQL Database from a user error](../sql-database/sql-database-user-error-recovery.md).
 
 	**Notes**:
-	- The restored database will have a name in the format of DBName+TimeStamp, for example, **Adventureworks2012_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is part of safety measure, and the intention is to verify the restored database before user drops their current database and rename the restored DB for their production use.
-	- All performance tiers from Basic to Premium are automatically backed up by the service, with varying backup retention based on the tier:
+	- The name of the restored database will be in the DBName+TimeStamp format; for example, **Adventureworks2012_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is a safety measure, and it's intended to let the user verify the restored database before they drop their current database and rename the restored database for production use.
+	- All performance tiers from Basic to Premium are automatically backed up by the service, with varying backup retention metrics, depending on the tier:
 
 | DB Restore | Basic tier | Standard tiers | Premium tiers |
 | :-- | :-- | :-- | :-- |
 |  Point In Time Restore |  Any restore point within 7 days|Any restore point within 14 days| Any restore point within 35 days|
 
-## Copying the table from the restored database by using SQL Database Migration tool
-1. Download and install [SQL Database Migration Wizard](https://sqlazuremw.codeplex.com).
+## Copying the table from the restored database by using the SQL Database Migration tool
+1. Download and install the [SQL Database Migration Wizard](https://sqlazuremw.codeplex.com).
 
-2. Open **SQL Database Migration wizard**, in the **Select Process** page, select **Database under Analyze/migrate**, and then click **Next**.
+2. Open the SQL Database Migration Wizard, on the **Select Process** page, select **Database under Analyze/Migrate**, and then click **Next**.
 ![SQL Database Migration wizard - Select Process](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/1.png)
-3. In **Connect to Server** dialog box, use the following settings:
+3. In the **Connect to Server** dialog box, apply the following settings:
  - **Server name**: Your SQL Azure instance
- - **Authentication**: **SQL Server Authentication**. Fill in the corresponding login credentials.
+ - **Authentication**: **SQL Server Authentication**. Enter your login credentials.
  - **Database**: **Master DB (List all databases)**.
- - **Note** By default the wizard saves your Login information. You can select **Forget Login information**.
+ - **Note** By default the wizard saves your login information. If you don't want it to, select **Forget Login Information**.
 ![SQL Database Migration wizard - Select Source - step 1](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/2.png)
-4. On **Select Source** dialog box, select the restored DB name from the **Preparation steps** section as source, and then click **Next**.
+4. In the **Select Source** dialog box, select the restored database name from the **Preparation steps** section as your source, and then click **Next**.
 
 	![SQL Database Migration wizard - Select Source - step 2](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/3.png)
 
-5. In **Choose Objects** dialog box, select **Select specific database objects**, and then select the table(s) that you want to migrate to the target server.
+5. In the **Choose Objects** dialog box, select the **Select specific database objects** option, and then select the table(or tables) that you want to migrate to the target server.
 ![SQL Database Migration wizard - Choose Objects](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/4.png)
 
-6. In **Script Wizard Summary**, click **Yes** to Ready to generate SQL Script prompt. Optionally, you get an option to save the TSQL Script for later use.
+6. On the **Script Wizard Summary** page, click **Yes** when you’re prompted about whether you’re ready to generate a SQL script. You also have the option to save the TSQL Script for later use.
 ![SQL Database Migration wizard - Script Wizard Summary](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/5.png)
 
-7. In **Results Summary**, click **Next**.
+7. On the **Results Summary** page, click **Next**.
 ![SQL Database Migration wizard - Results Summary](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/6.png)
 
-8. In **Setup Target Server**,  click **Connect to Server**, and then fill the details as follows:
-	- **Server Name**: Target Server instance
-	- **Authentication**: **SQL Server authentication**. Fill in the corresponding login credentials.
+8. On the **Setup Target Server Connection** page,  click **Connect to Server**, and then enter the details as follows:
+	- **Server Name**: Target server instance
+	- **Authentication**: **SQL Server authentication**. Enter your login credentials.
 	- **Database**: **Master DB (List all databases)**. This option lists all the databases on the target server.
 
 	![SQL Database Migration wizard - Setup Target Server Connection](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/7.png)
 
-9. Click **Connect**, and then select the target database that you want to move the table to, and then click **Next**. This should complete executing the previously generated script and you should see the table that's moved copied to the target database.
+9. Click **Connect**, select the target database that you want to move the table to, and then click **Next**. This should finish running the previously generated script, and you should see the newly moved table copied to the target database.
 
 ## Verification step
-1. Query and test the newly copied table to make sure the data is intact. Upon confirmation, you can drop the renamed table that is form **Preparation steps** section. For example, &lt;table name&gt;_old.
+1. Query and test the newly copied table to make sure that the data is intact. Upon confirmation, you can drop the renamed table form **Preparation steps** section. (for example, &lt;table name&gt;_old).
