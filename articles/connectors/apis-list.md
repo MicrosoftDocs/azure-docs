@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="03/02/2016"
 	ms.author="deonhe"/>
 
-# List of Microsoft-managed APIs
+# List of Managed APIs
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Connectors List](../app-service-logic/app-service-logic-connectors-list.md). 
 
@@ -33,7 +33,7 @@ For pricing information and a list of what is included with each Service Tier, s
 |[![API Icon][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][facebookicon]<br/>**Facebook**][facebookdoc]|[![API Icon][ftpicon]<br/>**FTP**][ftpdoc]|[![API Icon][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
 |[![API Icon][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Users**][office365usersdoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|
 |[![API Icon][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![API Icon][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![API Icon][servicebusicon]<br/>**Service Bus**][servicebusdoc]|[![API Icon][sftpicon]<br/>**SFTP**][sftpdoc]|
-|[![API Icon][sharepointicon]<br/>**SharePoint**<br/>**Server**][sharepointdoc]|[![API Icon][slackicon]<br/>**Slack**<br/>][slackdoc]|[![API Icon][smtpicon]<br/>**SMTP**][smtpdoc]|[![API Icon][sqlicon]<br/>**SQL Azure**][sqldoc]|
+|[![API Icon][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![API Icon][slackicon]<br/>**Slack**<br/>][slackdoc]|[![API Icon][smtpicon]<br/>**SMTP**][smtpdoc]|[![API Icon][sqlicon]<br/>**SQL Azure**][sqldoc]|
 |[![API Icon][twilioicon]<br/>**Twilio**][twiliodoc]|[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 
@@ -72,7 +72,7 @@ APIs can also be used as actions within your apps. Actions are useful for lookin
 [onedrivedoc]: ./create-api-onedrive.md "Connects to your personal Microsoft OneDrive and upload, delete, list files, and more."
 [salesforcedoc]: ./create-api-salesforce.md "Connect to your Salesforce account and manage  accounts, leads, opportunities, and more."
 [servicebusdoc]: ./create-api-servicebus.md "Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions."
-[sharepointdoc]: ./create-api-sharepointserver.md "Connects to on-premises Microsoft SharePoint Server or SharePoint Online to manage documents, and list items. Different authentication methods such as default credentials, OAuth 2.0, Windows authentication, and Form-Based authentication are supported."
+[sharepointdoc]: ./create-api-sharepointonline.md "Connects to SharePoint Online to manage documents and list items."
 [slackdoc]: ./create-api-slack.md "Connect to Slack and post messages to Slack channels."
 [sftpdoc]: ./create-api-sftp.md "Connects to SFTP and can upload, get, delete files, and more."
 [smtpdoc]: ./create-api-smtp.md "Connects to a SMTP server and can send email with attachments."
