@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="DocumentDB notifications using polling | Microsoft Azure" 
+    pageTitle="DocumentDB change notifications using Logic Apps | Microsoft Azure" 
     description="." 
     keywords="change notification"
     services="documentdb" 
@@ -17,7 +17,7 @@
     ms.date="03/03/2016" 
     ms.author="b-hoedid"/>
 
-# Notifications for new or changed DocumentDB resources
+# Notifications for new or changed DocumentDB resources using Logic Apps
 
 This article came about from a question I saw posted one of the DocumentDB community forums. The question was **Does DocumentDB support notifications for modified resources**?
 
@@ -25,7 +25,8 @@ I have worked with BizTalk Server for many years, and this is a very common scen
 
 This article provides an overview of the components of the change notification solution, which includes a [trigger](documentdb-programming.md#trigger) and a [Logic App](../app-service-logic/app-service-logic-what-are-logic-apps). Important code snippets are provided inline and the entire solution is available on [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
 
-## Use case  
+## Use case
+
 The following story is the use case for this article.
 
 DocumentDB is the repository for Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR)  documents. Let's assume that your DocumentDB database combined with your API and Logic App make up an HL7 FHIR Server.  A healthcare facility is storing patient data in the DocumentDB "Patients" database. There are several collections within the patient database; Clinical, Identification, etc. Patient information falls under identification.  You have a collection named "Patient".
@@ -77,7 +78,7 @@ If you're not familiar with [Logic Apps](../app-service-logic/app-service-logic-
 
 When you create a new Logic App, you are asked "How would you like to start?"
 
-When you click inside the text box,  you have a choice of events. For this Logic App, select **Manual - When an HTTP request is received** as shown below.
+When you click inside the text box, you have a choice of events. For this Logic App, select **Manual - When an HTTP request is received** as shown below.
 
 ![Starting Off](./media/documentdb-change-notification/starting-off.png)
 
@@ -306,7 +307,7 @@ Let's see what each action in our Logic App does.
 
 ```
 
-This HTTP action performs a GET operation.  It calls the API APP GetUtcDate method. The Uri uses the 'GetUtcDate_HoursBack'  property passed into the Trigger body.  The 'GetUtcDate_HoursBack' value is set in the first Logic App. You will learn more about the Trigger Logic App later in the tutorial.
+This HTTP action performs a GET operation.  It calls the API APP GetUtcDate method. The Uri uses the 'GetUtcDate_HoursBack' property passed into the Trigger body.  The 'GetUtcDate_HoursBack' value is set in the first Logic App. You will learn more about the Trigger Logic App later in the tutorial.
 
 This action calls your API App to return the Utc Date string value.
 
@@ -576,7 +577,7 @@ The next action is to save the documents to Google Drive.
 
 The code is generated from action in the designer. You don't have to modify the code.
 
-If you are not familiar with using the Google Drive API,  see [Get started with the Google Drive API](../connectors/create-api-googledrive.md).
+If you are not familiar with using the Google Drive API, see [Get started with the Google Drive API](../connectors/create-api-googledrive.md).
 
 #### Operations
 
