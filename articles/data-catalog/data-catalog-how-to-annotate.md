@@ -60,4 +60,4 @@ Just as the metadata extracted from the data source during registration is added
 Registering a data source with **Azure Data Catalog** makes that data discoverable by copying structural and descriptive metadata from the data source into the Catalog service. Once a data source has been registered, users can provide annotations to make easier to discover and understand from within the **Azure Data Catalog** portal.
 
 ## See also
-- [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for more step-by-step details.
+- [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to annotate data sources.

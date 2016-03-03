@@ -79,4 +79,4 @@ Re-registering an already-registered data source performs a merge “upsert” o
 Registering a data source with **Azure Data Catalog** makes that data source easier to discover and understand, by copying structural and descriptive metadata from the data source into the Catalog service. Once a data source has been registered, it can then be annotated, managed, and discovered using the **Azure Data Catalog** portal.
 
 ## See also
-- [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for more step-by-step details.
+- [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to register data sources.
