@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
 # Create a new Office 365 Outlook API in PowerApps Enterprise
@@ -23,7 +23,7 @@
 - [Logic apps](../articles/connectors/create-api-office365-outlook.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
 
-When you add the Office 365 Outlook API, you add the API to your organization's (tenant) app service environment. 
+Add the Office 365 Outlook API to your organization's (tenant) app service environment. 
 
 ## Create the API in the Azure portal
 
