@@ -15,13 +15,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
 
 # Create a new SQL Server API in PowerApps Enterprise
 
-When you add the SQL Server API, you add the API to your organization's (tenant) app service environment. 
+Add the SQL Server API to your organization's (tenant) app service environment. 
 
 ## Create the API in the Azure portal
 
