@@ -49,6 +49,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [CDN](#cdn-limits)
 - [Cloud Services](#cloud-services-limits)
 - [Data Factory](#data-factory-limits)
+- [Data Lake Analytics](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [IoT Hub](#iot-hub-limits)
@@ -180,17 +181,15 @@ The following table shows the limits for Azure Biztalk Services.
 
 ### Search limits
 
-The pricing tier determines the capacity and limits of your search service.
+Pricing tiers determine the capacity and limits of your search service. Tiers include:
 
-####Standard Tier
+- **Free** multi-tenant service, shared with other Azure subscribers, intended for evaluation and small development projects.
+- **Basic (Preview)** provides dedicated computing resources for production workloads at a smaller scale. This tier is currently in Preview and offered at a reduced rate.
+- **Standard (S1 and S2)** is for production workloads. A larger capacity version (**S2**) is available upon request (send email to azuresearch_contact@microsoft.com).
 
-[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
 
-####Shared Tier (part of a multi-tenant service, free to Azure subscribers)
-
-[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
-
-To learn more about limits on keys, replica-partition combinations, requests, responses, and how to achieve high availability for different workloads, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
+To learn more about other limits, such as document size, keys, requests, and responses, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
 
 ### Media Services limits
 
@@ -221,6 +220,8 @@ To learn more about limits on keys, replica-partition combinations, requests, re
 
 [AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
+### Data Lake Analytics Limits
+[AZURE.INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
 
 ### Stream Analytics limits
 
