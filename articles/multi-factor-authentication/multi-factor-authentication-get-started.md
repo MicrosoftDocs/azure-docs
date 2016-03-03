@@ -65,7 +65,7 @@ One-way SMS as second factor | ● | ●
 Two-way SMS as second factor |  | ● 
 Hardware Tokens as second factor |  | ● 
 App passwords for clients that don’t support MFA | ● |  
-Admin control over authentication methods |  | ● 
+Admin control over authentication methods | (Public Preview) | ● 
 PIN mode |  | ●
 Fraud alert | ● | ●
 MFA Reports | ● | ● 
