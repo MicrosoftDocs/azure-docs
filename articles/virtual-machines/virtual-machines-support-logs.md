@@ -1,18 +1,17 @@
 <properties
-	pageTitle= "Microsoft Azure Virtual Machine support logs | Microsoft Azure"
+	pageTitle="Microsoft Azure Virtual Machine support logs | Microsoft Azure"
 	description="Lists the logs that may be collected during troubleshooting the Azure issues"
-	services="virtual-machines"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="felixwu"
 	editor=""
-	tags=""
-	/>
+	tags="virtual-machines"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="na"
-	ms.tgt_pltfrm="ibiza"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/01/2016"
