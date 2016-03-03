@@ -19,15 +19,15 @@
 
 # Notifications for new or changed DocumentDB Resources
 
-This article came about from a question I saw posted. The question was **Does DocumentDB support notifications for modified resources**?
+This article came about from a question I saw posted one of the DocumentDB community forums. The question was **Does DocumentDB support notifications for modified resources**?
 
-I have worked with BizTalk Server for many years, and this is a very common scenario when using the [WCF LOB Adapter](https://msdn.microsoft.com/en-us/library/bb798128.aspx) . So I decided to see if I could duplicate this functionality in DocumentDB for new and/ or modified documents.
+I have worked with BizTalk Server for many years, and this is a very common scenario when using the [WCF LOB Adapter](https://msdn.microsoft.com/library/bb798128.aspx) . So I decided to see if I could duplicate this functionality in DocumentDB for new and/or modified documents.
 
 ## Use case  
 The following story is the use case for this article.
 
-> DocumentDB is the repository for HL7 FHIR documents.  Let's assume that your DocumentDB Database combined with API and Logic App make up an HL7 FHIR Server.  A Healthcare facility is storing Patient data in the DocumentDB "Patients" database. 
-There are several Collections within the Patient database; Clinical, Identification, etc. Patient information falls under Identification.  You have a collection named "Patient".
+> DocumentDB is the repository for HL7 FHIR documents.  Let's assume that your DocumentDB database combined with API and Logic App make up an HL7 FHIR Server.  A healthcare facility is storing patient data in the DocumentDB "Patients" database. 
+There are several collections within the patient database; Clinical, Identification, etc. Patient information falls under identification.  You have a collection named "Patient".
 
 > The Cardiology department is tracking personal heath and exercise data.  Searching for new or modified Patient records is time consuming.  They asked the IT department if there was a way that they could receive a notification for new or modified Patient records.  
 
@@ -35,7 +35,7 @@ There are several Collections within the Patient database; Clinical, Identificat
 
 ## How the IT department solved the problem
 
-In order to create this application, they was decided to model it first.  The nice thing about using Business Process Model and Notation (BPMN) is that both technical and non-technical people can easily understand it. This is considered this a business process. 
+In order to create this application, they decided to model it first.  The nice thing about using Business Process Model and Notation (BPMN) is that both technical and non-technical people can easily understand it. This is considered this a business process. 
 
 ## High-Level view of notification process
 
@@ -227,7 +227,7 @@ Let's take a look at the completed Logic App in code view.
 	
 ```
 
-If you are not familiar with what the different sections in the code represents, you can view the [ Logic App Workflow Definition Language](https://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/) documentation.
+If you are not familiar with what the different sections in the code represents, you can view the [Logic App Workflow Definition Language](../app-service-logic/app-service-logic-what-are-logic-apps/) documentation.
 
 For this workflow you are using an [HTTP Webhook Trigger ](https://sendgrid.com/blog/whats-webhook/). If you look at the code above, you will see parameters like the following example.
 
@@ -563,7 +563,7 @@ The next action is to save the documents to Google Drive.
 
 The code is generated from action in the designer. You don't have to modify the code.
 
-If you are not familiar with using the Google Drive Api,  you can view the documentation [here](https://azure.microsoft.com/en-us/documentation/articles/create-api-googledrive/).
+If you are not familiar with using the Google Drive Api,  you can view the documentation [here](https://azure.microsoft.com/documentation/articles/create-api-googledrive/).
 
 #### Operations
 
@@ -653,6 +653,7 @@ Your last step is to send an email notification
 	    "type": "Http"
 	}
 ```
+
 In this action you send an email notification.  You are using [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20(English)&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).   
 
 The code for this was generated using a Template for Logic App and SendGrid that is in the template Github repository.
@@ -747,6 +748,7 @@ This returns the same value that is sent in the email body. The following figure
 
 ## Metrics
 You can configure Monitoring for the main Logic App in the portal. This would allow you to view the Run Latency and other events as show in the following figure.
+
 ![](./media/documentdb-change-notification/metrics.png)
 
 ## DocDb Trigger
@@ -985,7 +987,7 @@ Previously we talked about the CallbackURL.  In order to start the workflow in y
 
 ## CallbackURL
 
-To start off, you will need your Azure AD Token.  It can be difficult to get this token. I was looking for an easy method and Jeff Hollan, who is an Azure Logic App program manager, recommended using the [armclient](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)in Powershell.  You can install it following the directions provided.
+To start off, you will need your Azure AD Token.  It can be difficult to get this token. I was looking for an easy method and Jeff Hollan, who is an Azure Logic App program manager, recommended using the [armclient](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) in Powershell.  You can install it following the directions provided.
 
 The operations you want to use are Login and Call ARM Api.
  
