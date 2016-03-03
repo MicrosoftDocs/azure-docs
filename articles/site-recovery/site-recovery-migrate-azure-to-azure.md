@@ -39,23 +39,20 @@ Here's what you need before you start:
 2. [[Deploy a management server](site-recovery-vmware-to-azure-classic.md#Step-5-install-the-management-server).
 3. After you've deployed the management server validate that it it can communicate with the VMs that you want to migrate.
 4. [Create a protection group](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group). A protection group contains protected machines that share the same replication settings. You specify replication settings for a group and they'll be applied to all machines that you add to the group.
-5. [Install the Mobility service](site-recovery-vmware-to-azure-classic.md#step-9-install-the-mobility-service). Each VM you want to protect needs the Mobility service installed. This service sends data to the process server. The Mobility service can be installed manually or pushed and installed automatically by the process server when protection for the VM is enabled. Note that firewall rules on IaaS virtual machines that you want to migrate should be configured to allow push installation of this service. The following firewall rules are required:
-
-	![firewall rules](./media/site-recovery-migrate-azure-to-azure/migrate-firewall.png)
-
-5. [[Enable protection for machines](site-recovery-vmware-to-azure-classic.md#step-10-enable-protection-for-a-machine). Add machines you want to protect to the replication group. 
-6. You can discover the IaaS virtual machines that you want to migrate to Azure using the private IP address of the virtual machines. Find this address on the virtual machine dashboard in Azure.
-7. On the tab for the protection group you created, click **Add Machines** > **Physical Machines**.
+5. [Install the Mobility service](site-recovery-vmware-to-azure-classic.md#step-9-install-the-mobility-service). Each VM you want to protect needs the Mobility service installed. This service sends data to the process server. The Mobility service can be installed manually or pushed and installed automatically by the process server when protection for the VM is enabled. Note that firewall rules on IaaS virtual machines that you want to migrate should be configured to allow push installation of this service.
+6. [[Enable protection for machines](site-recovery-vmware-to-azure-classic.md#step-10-enable-protection-for-a-machine). Add machines you want to protect to the replication group. 
+7. You can discover the IaaS virtual machines that you want to migrate to Azure using the private IP address of the virtual machines. Find this address on the virtual machine dashboard in Azure.
+8. On the tab for the protection group you created, click **Add Machines** > **Physical Machines**.
 
 	![EC2 discovery](./media/site-recovery-migrate-azure-to-azure/migrate-add-machines.png)
 
-8. Specify the private IP address of the virtual machine.
+9. Specify the private IP address of the virtual machine.
 
 		- ![EC2 discovery](./media/site-recovery-migrate-azure-to-azure/migrate-machine-ip.png)
 	
 	After adding a machine to the group,  protection will be enabled and initial replication will run in accordance with the protection group settings.
 
-9. [ Run an unplanned failover](site-recovery-failover.md#run-an-unplanned-failover). After initial replication is complete you can run an unplanned failover from one Azure region to another. Optionally, you can create a recovery plan and run an unplanned failover, to migrate multiple virtual machines between regions. [Learn more](site-recovery-create-recovery-plans.md) about recovery plans.
+10. [ Run an unplanned failover](site-recovery-failover.md#run-an-unplanned-failover). After initial replication is complete you can run an unplanned failover from one Azure region to another. Optionally, you can create a recovery plan and run an unplanned failover, to migrate multiple virtual machines between regions. [Learn more](site-recovery-create-recovery-plans.md) about recovery plans.
 		
 ## Next steps
 
