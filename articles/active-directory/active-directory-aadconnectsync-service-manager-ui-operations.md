@@ -24,9 +24,9 @@
 - [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 - [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
 
-The operations tab shows the results from the most recent operations. This tab is key to understand and troubleshoot issues.
-
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
+
+The operations tab shows the results from the most recent operations. This tab is key to understand and troubleshoot issues.
 
 ## Understand the information visible in the operations tab
 The top half shows all runs in a chronical order. By default the operations log will keep information about the last 7 days, but this can be changed with the [scheduler](active-directory-aadconnectsync-feature-scheduler.md). You want to look for any run which does not show a success status. You can change the sorting by clicking on the headers.

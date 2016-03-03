@@ -24,9 +24,9 @@
 - [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 - [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
 
-The **Synchronization Service Manager** UI is used to configure more advanced aspects of the sync engine and to see the operational aspects of the service.
-
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
+
+The **Synchronization Service Manager** UI is used to configure more advanced aspects of the sync engine and to see the operational aspects of the service.
 
 You start the **Synchronization Service Manager** UI from the start menu. It is named **Synchronization Service** and can be found in the **Azure AD Connect** group.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
