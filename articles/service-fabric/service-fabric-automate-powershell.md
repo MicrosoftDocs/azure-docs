@@ -16,9 +16,9 @@
 	ms.date="03/02/2016"
 	ms.author="ryanwi"/>
 
-# Deploy, upgrade, test, and remove Service Fabric applications by using PowerShell
+# Automate the application lifecycle using PowerShell
 
-This article shows how to use PowerShell to automate common tasks for deploying, upgrading, removing, and testing Azure Service Fabric applications.  
+Many aspects of the [Service Fabric application lifecycle](service-fabric-application-lifecycle.md) can be automated.  This article shows how to use PowerShell to automate common tasks for deploying, upgrading, removing, and testing Azure Service Fabric applications.  
 
 ## Prerequisites
 
@@ -27,11 +27,11 @@ Before you move on to the tasks in the article, be sure to:
 - [Install the runtime, SDK, and tools](service-fabric-get-started.md), which also installs the **ServiceFabric** PowerShell module.
 - [Enable PowerShell script execution](service-fabric-get-started.md#enable-powershell-script-execution).
 - Start a local cluster.  Launch a new PowerShell window as an administrator and then run the cluster setup script from the SDK folder: `& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"`
-- The following tasks require a v1 application package to deploy and a v2 application package to for upgrade.
+- The following tasks require a v1 application package to deploy and a v2 application package for upgrade. To create v1 and v2 application packages of the WordCount sample:
    1. Download the [**WordCount** sample application](http://aka.ms/servicefabricsamples) (located in the Getting Started samples). Build and package the application in Visual Studio (right-click on **WordCount** in Solution Explorer and select **Package**).
-   2. Copy `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug` to `C:\Temp\WordCount`. This creates the WordCount application package.
-   3. Copy `C:\Temp\WordCount` to `C:\Temp\WordCountV2`. This creates the WordCountUpgrade application package.
-   4. Open `C:\Temp\WordCountUpgrade\ApplicationManifest.xml` in a text editor. In the **ApplicationManifest** element, change the **ApplicationTypeVersion** attribute to "2.0.0". This updates the version number of the application.
+   2. Copy the v1 package in `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug` to `C:\Temp\WordCount`.
+   3. Copy `C:\Temp\WordCount` to `C:\Temp\WordCountV2`, creating the v2 application package for upgrade.
+   4. Open `C:\Temp\WordCountV2\ApplicationManifest.xml` in a text editor. In the **ApplicationManifest** element, change the **ApplicationTypeVersion** attribute from "1.0.0" to "2.0.0". This updates the version number of the application.
    5. Save the changed ApplicationManifest.xml file.
 - Before you run any PowerShell commands in this article, first connect to the local Service Fabric cluster by using [**Connect-ServiceFabricCluster**](https://msdn.microsoft.com/library/azure/mt125938.aspx): `Connect-ServiceFabricCluster localhost:19000`
 
