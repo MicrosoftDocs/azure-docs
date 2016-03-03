@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/02/2016"
 	ms.author="glenga"/>
 
 # How to use the managed client for Azure Mobile Apps
@@ -582,7 +582,7 @@ The code needed for each platform follows:
 
 ## <a name="package-sid"></a>How to: Obtain a Windows Store package SID
 
-For Windows apps, a package SID is needed for enabling push notifications and certain authentication modes. To obtain this value:
+For Windows apps, a package SID is needed for enabling push notifications. To obtain this value:
 
 1. In Visual Studio Solution Explorer, right-click the Windows Store app project, click **Store** > **Associate App with the Store...**.
 2. In the wizard, click **Next**, sign in with your Microsoft account, type a name for your app in **Reserve a new app name**, then click **Reserve**.
@@ -675,7 +675,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 
 ####Single sign-in using Microsoft Account with the Live SDK
 
-To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
+To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](app-service-mobile-how-to-configure-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
 
 The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend.
 
@@ -843,7 +843,7 @@ This property converts all properties to lower case during serialization.
 
 
 <!-- URLs. -->
-[Add authentication to your app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
+[Add authentication to your app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Work with the .NET backend server SDK for Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
@@ -853,8 +853,6 @@ This property converts all properties to lower case during serialization.
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services
-[Optimistic Concurrency Tutorial]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx

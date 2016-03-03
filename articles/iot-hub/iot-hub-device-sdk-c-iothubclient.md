@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/10/2015"
+     ms.date="02/23/2016"
      ms.author="obloch"/>
 
 # Microsoft Azure IoT device SDK for C – more about IoTHubClient
