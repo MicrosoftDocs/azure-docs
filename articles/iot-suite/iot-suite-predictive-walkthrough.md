@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="12/02/2015"
+ ms.date="03/02/2016"
  ms.author="araguila"/>
 
 # Predictive maintenance preconfigured solution walkthrough
