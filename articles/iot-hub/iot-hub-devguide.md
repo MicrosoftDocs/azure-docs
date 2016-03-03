@@ -126,7 +126,7 @@ The IoT Hub device identity registry exposes the following operations:
 
 All these operations allow the use of optimistic concurrency as specified in [RFC7232][lnk-rfc7232].
 
-> [AZURE.IMPORTANT] The only way to retrieve all identities in a hub's identity registry is to use the [Export](#importexport) functionality.
+> [AZURE.IMPORTANT] The only way to retrieve all identities in a hub's identity registry is to use the [export](#importexport) functionality.
 
 An IoT Hub device identity registry:
 

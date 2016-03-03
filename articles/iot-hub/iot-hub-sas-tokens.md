@@ -104,14 +104,14 @@ For instance, a token created to access all functionalities of a device would ha
 
 An example using the Node function above would be:
 
-    var endpoint ="eliotutorial.azure-devices.net/devices/device1";
-    var deviceKey ="p4lwJm9gCzjdbWtGVOuys2XpFONHU1zVg1QUOza4Ev4=";
+    var endpoint ="myhub.azure-devices.net/devices/device1";
+    var deviceKey ="...";
 
     var token = generateSasToken(endpoint, deviceKey, null, 60);
 
 The result, which would grant access to all functionalities for `device1`, would be:
 
-    SharedAccessSignature sr=eliotutorial.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
+    SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
 
 ### Using a shared access policy
 
@@ -133,15 +133,15 @@ As an example, a token service using the precreated shared access policy called 
 
 An example using the Node function above would be:
 
-    var endpoint ="eliotutorial.azure-devices.net/devices/device1";
+    var endpoint ="myhub.azure-devices.net/devices/device1";
     var policyName = 'device';
-    var policyKey = 'U9+wnTAiocbU4tdQNZNKiXjRYuqujogi886ij6Xfjow=';
+    var policyKey = '...';
 
     var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 The result, which would grant access to all functionalities for `device1`, would be:
 
-    SharedAccessSignature sr=eliotutorial.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
+    SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
 
 A protocol gateway could use the same token for all devices simply putting the resource URI to `eliotutorial.azure-devices.net/devices`.
 
@@ -165,15 +165,15 @@ As an example, a service generating using the precreated shared access policy ca
 * policy name: `registryRead`,
 * any expiration time.
 
-    var endpoint ="eliotutorial.azure-devices.net/devices";
+    var endpoint ="myhub.azure-devices.net/devices";
     var policyName = 'device';
-    var policyKey = 'U9+wnTAiocbU4tdQNZNKiXjRYuqujogi886ij6Xfjow=';
+    var policyKey = '...';
 
     var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 The result, which would grant access to read all device identities, would be:
 
-    SharedAccessSignature sr=eliotutorial.azure-devices.net%2fdevices&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=registryRead
+    SharedAccessSignature sr=myhub.azure-devices.net%2fdevices&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=registryRead
 
 
 [lnk-apis-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
