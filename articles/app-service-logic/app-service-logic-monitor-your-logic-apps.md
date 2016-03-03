@@ -2,7 +2,7 @@
 	pageTitle="Monitor your Logic Apps in Azure App Service | Microsoft Azure" 
 	description="How to see what your Logic Apps have done" 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/29/2016"
 	ms.author="stepsic"/>
 
 # Monitor your Logic Apps
 
-After you created a Logic App (steps at [create a Logic App](app-service-logic-create-a-logic-app.md)), you can see the full history of its execution in the Azure portal. To view the history, select **Browse**, select **Web + Mobile**, and select **Logic Apps**. A list of all Logic Apps in your subscription are displayed. A Logic App can be **Enabled** or **Disabled**. **Enabled** Logic Apps means that triggers run your Logic App in response to trigger events. **Disabled** Logic App do not run in response to events.
+After you [create a Logic App](app-service-logic-create-a-logic-app.md), you can see the full history of its execution in the Azure portal. To view the history, select **Browse**, and select **Logic Apps**. A list of all Logic Apps in your subscription is displayed. You can select any logic app, and can **Enable** or **Disable** it. **Enabled** Logic Apps means that triggers run your Logic App in response to trigger events. **Disabled** Logic App do not run in response to events.
 
 ![Overview](./media/app-service-logic-monitor-your-logic-apps/overview.png)
 
 When the blade for your Logic App appears, there are 2 sections that are useful:
 
-- **Summary**, which tells you the latest status and is an entry point to editing your Logic App.
-- **All runs**, which shows you a list of the runs this Logic App has had.
+- **Summary** shows you the latest status and is an entry point to editing your Logic App.
+- **All runs** shows you a list of the runs this Logic App has had.
 
 ## View the runs of your app
 
@@ -33,7 +33,7 @@ When the blade for your Logic App appears, there are 2 sections that are useful:
 
 This list of runs shows the **Start time**, the **Run identifier** (you can use this when calling the REST API), and the **Duration** of the particular run. Select any row to see details on that run.
 
-The details blade shows a graph with the execution time and sequence of all of the actions in the run. Below that is the full list of all of the actions that were executed:  
+The details blade shows a graph with the execution time and sequence of all of the actions in the run. The following is the full list of all of the actions that were executed:  
 
 ![Run and Actions](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
 
@@ -53,5 +53,5 @@ Note that for *Push* triggers, you do *not* see the times that the runs started 
 
 ## Enable versioning
 
-There is an additional capability that is not currently possible in the UI (coming soon) but is available using the [REST api](http://go.microsoft.com/fwlink/p/?LinkID=525617&clcid=0x409). When you update the definition of a Logic App, the previous version of the definition is stored. This is because if you already have a run in progress, that run references the version of the Logic App that existed when the run started. Definitions of runs cannot change while they are in progress. The Version history REST API gives you access to this information.
+There is an additional capability that is not currently possible in the UI (coming soon) but is available using the [REST API](https://msdn.microsoft.com/library/azure/mt643788.aspx). When you update the definition of a Logic App, the previous version of the definition is stored. This is because if you already have a run in progress, that run references the version of the Logic App that existed when the run started. Definitions of runs cannot change while they are in progress. The Version history REST API gives you access to this information.
  

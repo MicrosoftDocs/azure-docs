@@ -13,8 +13,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.topic="get-started-article"
+	ms.date="02/29/2016"
 	ms.author="jgao"/>
 
 
@@ -38,7 +38,7 @@ Apache Zookeeper|3.4.6|3.4.6|3.4.5|3.4.5|
 Apache Storm|0.10.0|0.9.3|0.9.1||
 Apache Mahout|0.9.0+|0.9.0|0.9.0||
 Apache Phoenix|4.4.0|4.2.0|4.0.0.2.1.7.0-2162||
-Apache Spark|1.3.1|1.3.1|||
+Apache Spark|1.5.2 (Linux only/Experimental build)|1.3.1 (Windows-only)|||
 
 
 **Get current component version information**
@@ -123,7 +123,7 @@ The SLA is defined in terms of a "Support Window". A Support Window refers to th
 
 The **Deprecation Date** is the date after which the cluster version cannot be created on HDInsight.
 
-> [AZURE.NOTE] Both HDInsight 2.1 and 3.0 clusters run on Azure Guest OS [Family 4](../cloud-services-guestos-update-matrix.md), which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5. and 4.5.1.
+> [AZURE.NOTE] Both HDInsight 2.1 and 3.0 clusters run on Azure Guest OS [Family 4](../cloud-services/cloud-services-guestos-update-matrix.md), which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5. and 4.5.1.
 
 ## Hortonworks release notes associated with HDInsight versions##
 

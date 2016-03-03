@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Who's using Azure Search: case studies and customer stories | Microsoft Azure | Hosted cloud search service"
+	pageTitle="Who's using Azure Search: case studies and customer stories | Microsoft Azure | User scenarios"
 	description="Case studies and customer stories about Azure Search, a hosted cloud search service on Microsoft Azure."
 	services="search"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="11/13/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Who's using Azure Search: case studies and customer stories

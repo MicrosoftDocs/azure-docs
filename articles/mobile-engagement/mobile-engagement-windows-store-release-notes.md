@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Windows Universal Apps SDK Release Notes
+
+##3.3.1 (02/18/2016)
+
+-   Fix conflicts between web announcement's HTML content and SDK's HTML page.
+-   Stability improvements.
 
 ##3.3.0 (01/22/2016)
 

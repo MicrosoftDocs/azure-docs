@@ -1,4 +1,4 @@
-## What is Blob Storage
+## What is Blob Storage?
 
 Azure Blob storage is a service for storing large amounts of
 unstructured data, such as text or binary data, that can be accessed from anywhere in the world via

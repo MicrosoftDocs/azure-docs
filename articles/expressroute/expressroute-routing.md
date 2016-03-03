@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/08/2016"
+   ms.date="02/12/2016"
    ms.author="cherylmc"/>
 
 
@@ -118,7 +118,7 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 
 Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.
 
-| **Geopolitical Region** | **Microsoft Azure region (Same applies to Office 365)** | **BGP community value** |
+| **Geopolitical Region** | **Microsoft Azure region** | **BGP community value** |
 |---|---|---|
 | **North America** |    |  |
 |    | East US | 12076:51004 |
