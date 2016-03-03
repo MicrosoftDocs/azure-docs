@@ -16,7 +16,6 @@
 	ms.date="03/01/2016" 
 	ms.author="awills"/>
 
-[AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
  
 # Statements in Application Analytics
@@ -25,6 +24,8 @@
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
 Application Analytics query lanuage, CSL.
 
+
+[AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ## Data model
 

@@ -16,14 +16,17 @@
 	ms.date="03/01/2016" 
 	ms.author="awills"/>
 
-[AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
  
 # Scalar expressions in Application Analytics
 
+
 [Application Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
 Application Analytics query lanuage, CSL.
+
+[AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
+
 
 "Scalar" means values like numbers or strings that can occupy a single cell in a CSL table. Scalar expressions are built from scalar functions and operators and evaluate to scalar values. `sqrt(score)/100 > target+2` is a scalar expression.
 

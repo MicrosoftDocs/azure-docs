@@ -16,17 +16,18 @@
 	ms.date="03/01/2016" 
 	ms.author="awills"/>
 
-[AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 
 
 # Application Analytics: Language Overview
 
 
-
 [Application Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
 Application Analytics query lanuage, CSL.
+
+[AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
+
  
 A typical CSL query is a *source* table followed by a series of *operators* each prefixed by `|`. For example:
 

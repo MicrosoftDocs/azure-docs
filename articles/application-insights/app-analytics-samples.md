@@ -16,18 +16,18 @@
 	ms.date="03/01/2016" 
 	ms.author="awills"/>
 
-[AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 # Samples for Application Analytics
-
-
 
 [Application Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
 Application Analytics query lanuage, CSL. There's also 
 a [tour of the language](app-analytics-tour.md), which is recommended for getting started.
 
-# Query best practices 
+
+[AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
+
+## Query best practices 
 
 There are several do's and don'ts you can follow to make your query run faster.
 
@@ -49,7 +49,7 @@ AVOID:
 
 
 <a name="activities"></a>
-# Get sessions from start and stop events
+## Get sessions from start and stop events
 
 Let's suppose we have a log of events, in which some events mark the start or end of an extended activity or session. 
 
@@ -268,7 +268,7 @@ X
 This can be rendered as a bar chart or time chart.
 
 
-# Join flavors
+## Join flavors
 
 The exact flavor of the join operator is specified with the kind keyword. As of today, Application Analytics supports six flavors of the join operator: inner join with left side deduplication (the default), standard inner join, left outer, right outer, full outer and left anti join. 
  
@@ -408,7 +408,7 @@ Result:
 Anti-join models the "NOT IN" query. 
 
 <a href="anomaly"></a>
-# Get more out of your data using Machine Learning 
+## Get more out of your data using Machine Learning 
 
 There are many interesting use cases for leveraging machine learning algorithms and derive interesting insights out of telemetry data. While often these algorithms require a very structured dataset as their input, the raw log data will usually not match the required structure and size. For example, the anomaly detection service published on Azure ML market place, requires a dataset which contains a fixed interval time series column and a single numeric column to evaluate for anomalies. This is where you can use Application Analytics powerful query engine to produce the necessary dataset from the raw logs data. 
 
@@ -488,7 +488,7 @@ Logs
 
 
 
-# Mapping values from one set to another
+## Mapping values from one set to another
 
 A common use-case is using static mapping of values that can help in adopting results into more presentable way.  
 For example, consider having next table. DeviceModel  specifies a model of the device, which is not a very convenient form of referencing to the device name.  
@@ -548,7 +548,7 @@ Result:
 |iPhone 6 |55 
 |iPhone5 |66 
 
-# Join with inline dictionary mapping
+## Join with inline dictionary mapping
 
 ```
 

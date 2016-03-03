@@ -16,13 +16,15 @@
 	ms.date="03/01/2016" 
 	ms.author="awills"/>
 
-[AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
  
 # A tour through Application Analytics
 
 
 Application Analytics is a powerful diagnostic search engine for your [Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-overview/) telemetry.
+
+
+[AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
  
 Let's take a walk through some basic queries to get you started.
 
