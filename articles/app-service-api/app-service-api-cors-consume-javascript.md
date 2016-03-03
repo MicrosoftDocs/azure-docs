@@ -210,7 +210,7 @@ In this section you configure the ToDoListAPI API app to allow JavaScript calls 
 
 	![](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
-	After you click **Save**, the API app will accept JavaScript calls from the specified URL(s).
+	After you click **Save**, the API app will accept JavaScript calls from the specified URL(s). In this screen shot, the ToDoListAPI0223 API app will accept JavaScript client calls from the ToDoListAngular web app.
 
 ### Test the application with CORS enabled
 
