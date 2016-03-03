@@ -22,7 +22,8 @@
 > [AZURE.SELECTOR]		
  - [PowerShell](virtual-machines-windows-ps-manage.md)		
  - [CLI](virtual-machines-windows-cli-deploy-templates.md)		
-		
+
+</br> 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. You can't use templates in the classic deployment model.
 
