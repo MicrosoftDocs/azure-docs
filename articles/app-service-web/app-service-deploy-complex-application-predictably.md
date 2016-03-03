@@ -76,7 +76,7 @@ So now let’s get right to it.
  
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 
-4.	Next, click **Deploy** to start the deployment process. Once the process runs to completion, click the http://todoapp*XXXX*.azure.websites.net link to browse the deployed application. 
+4.	Next, click **Deploy** to start the deployment process. Once the process runs to completion, click the http://todoapp*XXXX*.azurewebsites.net link to browse the deployed application. 
 
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
 
