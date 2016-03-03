@@ -28,6 +28,8 @@ Connect to Dropbox to manage files, such us create files, get files, and more. T
 - [Logic apps](../articles/connectors/create-api-dropbox.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
 
+&nbsp; 
+
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Dropbox connector](../app-service-logic/app-service-logic-connector-dropbox.md).
 
 
