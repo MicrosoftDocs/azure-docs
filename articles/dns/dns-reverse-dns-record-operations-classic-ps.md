@@ -52,4 +52,4 @@ To ensure a third party can’t create reverse DNS records mapping to your DNS d
 - The reverse DNS FQDN forward resolves to the name or IP of the Cloud Service for which it has been specified, or to any Cloud Service name or IP within the same subscription e.g., reverse DNS is “app1.contoso.com.” which is a CName alias for contosoapp1.cloudapp.net.
 Validation checks are only performed when the reverse DNS property for a Cloud Service is set or modified. Periodic re-validation is not performed.
 
-[FAQ](../../includes/dns-reverse-dns-record-operations-faq-include.md)
+[AZURE.INCLUDE [FAQ](../../includes/dns-reverse-dns-record-operations-faq-include.md)]
