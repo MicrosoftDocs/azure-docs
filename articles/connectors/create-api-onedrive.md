@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/02/2016"
+ms.date="03/03/2016"
 ms.author="mandia"/>
 
 # Get started with the OneDrive API
@@ -27,6 +27,8 @@ Connect to OneDrive to manage your files, including upload, get, delete files, a
 > [AZURE.SELECTOR]
 - [Logic apps](../articles/connectors/create-api-onedrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
+
+&nbsp; 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [OneDrive API](../app-service-logic/app-service-logic-connector-onedrive.md).
 
