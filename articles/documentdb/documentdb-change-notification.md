@@ -41,7 +41,7 @@ In order to create this application, the IT department decided to model it first
 ## High-Level view of notification process
 
 1. You start with a Logic App that has a timer trigger. By default, the trigger runs every hour.
-2. Next you do an Http Post to the Logic App.
+2. Next you do an HTTP POST to the Logic App.
 3. The Logic App does all the work.
 
 ![High level view](./media/documentdb-change-notification/high-level-view.png)
@@ -63,7 +63,7 @@ The steps are as follows:
      	SELECT * FROM Patients p WHERE (p._ts >= @unixTimeStamp)
     ```
 
-> [AZURE.NOTE] The _ts represents the TimeStamp metadata for all DocumentDB resources.
+    > [AZURE.NOTE] The _ts represents the TimeStamp metadata for all DocumentDB resources.
 
 4. If there are documents found, the response body is sent to your Google Drive
 
@@ -86,7 +86,7 @@ The following figure shows the design view for the Logic App, which is named Doc
 
 ![Logic App Workflow](./media/documentdb-change-notification/logicapp-workflow.png)
 
-When editing the actions in the Logic App Designer, you have the option of selecting **Outputs** from the Http Request or from the previous action as shown in the sendMail action below.
+When editing the actions in the Logic App Designer, you have the option of selecting **Outputs** from the HTTP Request or from the previous action as shown in the sendMail action below.
 
 ![Choose outputs](./media/documentdb-change-notification/choose-outputs.png)
 
@@ -274,7 +274,7 @@ If you do it in code view, then you define which properties require a value as s
 	    }
 ```
 
-What you are doing is creating a JSON schema that will be passed in from the body of the Http POST.
+What you are doing is creating a JSON schema that will be passed in from the body of the HTTP POST.
 To fire your trigger, you will need a CallbackURL.  You will learn how to generate it later in the tutorial.  
 
 ## Actions
@@ -455,7 +455,7 @@ For the GetDocuments action you are going to pass in the response body from the 
 
 ```
 
-The QueryDocuments action does a Http POST operation to the API App. 
+The QueryDocuments action does a HTTP POST operation to the API App. 
 
 The method called is **QueryForNewPatientDocuments**
 
@@ -671,7 +671,7 @@ In this action you send an email notification.  You are using [SendGrid](https:/
 
 The code for this was generated using a Template for Logic App and SendGrid that is in the template Github repository.
  
-The Http operation is a POST. 
+The HTTP operation is a POST. 
 
 The authorization parameters are in the trigger properties
 
@@ -814,7 +814,7 @@ The following figure shows the Designer View.
 ```
 
 The Trigger is set for a recurrence of twenty-four hours. 
-The Action is an Http Post that uses the Callback URL for the main Logic App. 
+The Action is an HTTP POST that uses the Callback URL for the main Logic App. 
 The body contains the parameters that are specified in the JSON Schema. 
 
 #### Operations
@@ -1067,8 +1067,8 @@ In this walkthrough, you've learned the following:
 * It is possible to implement notifications in DocumentDB.
 * By using Logic Apps, you can automate the process.
 * By using Logic Apps, you can reduce the time it takes to deliver an application.
-* By using Http you can easy consume an API App within a Logic App.
-* You can easily create a CallBackURL that replaces the Http Listener.
+* By using HTTP you can easy consume an API App within a Logic App.
+* You can easily create a CallBackURL that replaces the HTTP Listener.
 * You can easily create custom workflows with Logic Apps Designer.
 
 The key is to plan ahead and model your workflow.
