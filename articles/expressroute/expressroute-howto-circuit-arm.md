@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="03/03/2016"
    ms.author="cherylmc"/>
 
 # Create and modify an ExpressRoute circuit by using Resource Manager and PowerShell
@@ -340,7 +340,7 @@ You can enable the ExpressRoute premium add-on for your existing circuit by usin
 ```
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-$ckt.Sku.Name = "Premium"
+$ckt.Sku.Tier = "Premium"
 $ckt.sku.Name = "Premium_MeteredData"
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
