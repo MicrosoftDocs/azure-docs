@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="11/23/2015"
+	ms.date="02/25/2016"
 	ms.author="awills"/>
 
 # Using the Application Insights portal
