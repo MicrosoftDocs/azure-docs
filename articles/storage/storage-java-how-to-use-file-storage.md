@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/03/2016"
-	ms.author="rmcmurray"/>
+	ms.date="02/29/2016"
+	ms.author="robmcm"/>
 
 # How to use File Storage from Java
 
@@ -208,10 +208,10 @@ Deleting a share is done by calling the **deleteIfExists** method on a CloudFile
 
 If you would like to learn more about other Azure storage APIs, follow these links.
 
-- [Azure SDK for Java](http://azure.microsoft.com/develop/java/)
+- [Java Developer Center](http://azure.microsoft.com/develop/java/)
 - [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
 - [Azure Storage SDK for Android](https://github.com/azure/azure-storage-android)
 - [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
-- [Azure Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
-- [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
+- [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)

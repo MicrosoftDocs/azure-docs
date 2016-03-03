@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users with .NET backend
@@ -48,7 +48,7 @@ Before you start this tutorial, you must have already completed these Mobile Ser
 
 
 
-> [AZURE.NOTE] If you are using Mobile Services as your backend service, see the [Mobile Services version](../mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) of this tutorial.
+> [AZURE.NOTE] If you are using Mobile Services as your backend service, see the [Mobile Services version](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) of this tutorial.
 
 
 

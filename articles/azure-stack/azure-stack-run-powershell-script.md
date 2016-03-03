@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="02/29/2016"
 	ms.author="erikje"/>
 
 # Deploy Azure Stack POC
@@ -49,7 +49,7 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/library/mt126134.aspx).
 
-8. Configure the BIOS to use Local Time instead of UTC.
+8. If your BIOS includes such an option, you should configure it to use the local time instead of UTC time.
 
 9. Log in using a local account with administrator permissions.
 
@@ -62,7 +62,7 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 12. Verify network connectivity to Azure.com.
 
-**Important**: Only one NIC is allowed during the deployment process. If you want to use a specific NIC, you must disable all the others.
+**Important**: Only one NIC is allowed during the deployment process. If you have multiple NICs, you'll need to make sure all but one is disabled before running the deployment script below. If you used the VHD boot steps defined above, you’ll need to do this after booting into the VHD and before starting the deployment script.
 
 ## Run the PowerShell deployment script
 

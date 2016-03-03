@@ -14,17 +14,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="02/16/2016"
+	ms.date="02/17/2016"
 	ms.author="jeffstok"/>
 
 
-# Query examples for common Stream Analytics usage patterns #
+# Query examples for common Stream Analytics usage patterns
 
-## Introduction ##
+## Introduction
 
 Queries in Azure Stream Analytics are expressed in a SQL-like query language, which is documented in the [Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) guide.  This article outlines solutions to several common query patterns based on real world scenarios.  It is a work in progress and will continue to be updated with new patterns on an ongoing basis.
 
-## Query example: Data type conversions ##
+## Query example: Data type conversions
 **Description**: Define the types of the properties on the input stream.
 e.g. Car weight is coming on the input stream as strings and needs to be converted to INT to perform SUM it up.
 
@@ -55,7 +55,8 @@ e.g. Car weight is coming on the input stream as strings and needs to be convert
 **Explanation**:
 Use a CAST statement on the Weight field to specify its type (see the list of supported Data Types [here](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
 
-## Query example: Using Like/Not like to do pattern matching ##
+
+## Query example: Using Like/Not like to do pattern matching
 **Description**: Check that a field value on the event matches a certain pattern
 e.g. Return license plates that start with A and end with 9
 
@@ -86,7 +87,7 @@ e.g. Return license plates that start with A and end with 9
 **Explanation**:
 Use the LIKE statement to check that the LicensePlate field value starts with A then has any string of zero or more characters and it ends with 9. 
 
-## Query example: Specify logic for different cases/values (CASE statements) ##
+## Query example: Specify logic for different cases/values (CASE statements)
 **Description**: Provide different computation for a field based on some criteria.
 e.g. Provide a string description for how many cars passed of the same make with a special case for 1.
 
@@ -122,7 +123,7 @@ e.g. Provide a string description for how many cars passed of the same make with
 **Explanation**:
 The CASE clause allows us to provide a different computation based on some criteria (in our case the count of cars in the aggregate window).
 
-## Query example: Send data to multiple outputs ##
+## Query example: Send data to multiple outputs
 **Description**: Send data to multiple output targets from a single job.
 e.g. Analyze data for a threshold-based alert and archive all events to blob storage
 
@@ -179,7 +180,7 @@ e.g. Analyze data for a threshold-based alert and archive all events to blob sto
 The INTO clause tells Stream Analytics which of the outputs to write the data from this statement.
 The first query is a pass-through of the data we received to an output that we named ArchiveOutput.
 The second query does some simple aggregation and filtering and sends the results to a downstream alerting system.
-*Note*: You can also reuse results of CTEs (i.e. WITH statements) in multiple output statements – this has the added benefit of opening less readers to the input source.
+*Note*: You can also reuse results of CTEs (i.e. WITH statements) in multiple output statements – this has the added benefit of opening fewer readers to the input source.
 e.g. 
 
 	WITH AllRedCars AS (
@@ -239,7 +240,7 @@ e.g. How many unique make of cars passed through the toll booth in a 2 second wi
 We do an initial aggregation to get unique makes with their count over the window.
 We then do an aggregation of how many makes we got – given all unique values in a window get the same timestamp then the second aggregation window needs to be minimal to not aggregate 2 windows from the first step.
 
-## Query example: Determine if a value has changed ##
+## Query example: Determine if a value has changed#
 **Description**: Look at a previous value to determine if it is different than the current value
 e.g. Is the previous car on the Toll Road the same make as the current car?
 
@@ -269,7 +270,7 @@ e.g. Is the previous car on the Toll Road the same make as the current car?
 **Explanation**:
 Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are different.
 
-## Query example: Find first event in a window ##
+## Query example: Find first event in a window
 **Description**: Find first car in every 10 minute interval?
 
 **Input**:
@@ -323,7 +324,7 @@ Now let’s change the problem and find first car of particular Make in every 10
 	WHERE 
 		IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## Query example: Find last event in a window ##
+## Query example: Find last event in a window
 **Description**: Find last car in every 10 minute interval.
 
 **Input**:
@@ -369,7 +370,7 @@ Now let’s change the problem and find first car of particular Make in every 10
 **Explanation**:
 There are two steps in the query – the first one finds latest timestamp in 10 minute windows. The second step joins results of the first query with original stream to find events matching last timestamps in each window. 
 
-## Query example: Detect the absence of events ##
+## Query example: Detect the absence of events
 **Description**: Check that a stream has no value that matches a certain criteria.
 e.g. Have 2 consecutive cars from the same make entered the toll road within 90 seconds?
 
@@ -434,9 +435,9 @@ Use LAG to peek into the input stream one event back and get the Make value. The
 **Explanation**:
 Use LAST function to retrieve last Time value when event type was ‘Start’. Note that LAST function uses PARTITION BY [user] to indicate that result shall be computed per unique user.  The query has a 1 hour maximum threshold for time difference between ‘Start’ and ‘Stop’ events but is configurable as needed (LIMIT DURATION(hour, 1).
 
-## Query example: Detect duration of a condition ##
+## Query example: Detect duration of a condition
 **Description**: Find out how long a condition occurred for.
-e.g. Suppose that a bug that resulted in all cars having an incorrect (above 20,000 pounds) – we want to compute the duration of the bug.
+e.g. Suppose that a bug that resulted in all cars having an incorrect weight (above 20,000 pounds) – we want to compute the duration of the bug.
 
 **Input**:
 
@@ -476,6 +477,51 @@ WHERE
 
 **Explanation**:
 Use LAG to view the input stream for 24 hours and look for instances where StartFault and StopFault are spanned by weight < 20000.
+
+## Query example: Fill missing values
+**Description**: For the stream of events that have missing values, produce a stream of events with regular intervals.
+For example, generate event every 5 seconds that will report the most recently seen data point.
+
+**Input**:
+
+| t | value |
+|--------------------------|-------|
+| "2014-01-01T06:01:00" | 1 |
+| "2014-01-01T06:01:05" | 2 |
+| "2014-01-01T06:01:10" | 3 |
+| "2014-01-01T06:01:15" | 4 |
+| "2014-01-01T06:01:30" | 5 |
+| "2014-01-01T06:01:35" | 6 |
+
+**Output (first 10 rows)**:
+
+| windowend | lastevent.t | lastevent.value |
+|--------------------------|--------------------------|--------|
+| 2014-01-01T14:01:00.000Z | 2014-01-01T14:01:00.000Z | 1 |
+| 2014-01-01T14:01:05.000Z | 2014-01-01T14:01:05.000Z | 2 |
+| 2014-01-01T14:01:10.000Z | 2014-01-01T14:01:10.000Z | 3 |
+| 2014-01-01T14:01:15.000Z | 2014-01-01T14:01:15.000Z | 4 |
+| 2014-01-01T14:01:20.000Z | 2014-01-01T14:01:15.000Z | 4 |
+| 2014-01-01T14:01:25.000Z | 2014-01-01T14:01:15.000Z | 4 |
+| 2014-01-01T14:01:30.000Z | 2014-01-01T14:01:30.000Z | 5 |
+| 2014-01-01T14:01:35.000Z | 2014-01-01T14:01:35.000Z | 6 |
+| 2014-01-01T14:01:40.000Z | 2014-01-01T14:01:35.000Z | 6 |
+| 2014-01-01T14:01:45.000Z | 2014-01-01T14:01:35.000Z | 6 |
+
+    
+**Solution**:
+
+    SELECT
+    	System.Timestamp AS windowEnd,
+    	TopOne() OVER (ORDER BY t DESC) AS lastEvent
+    FROM
+    	input TIMESTAMP BY t
+    GROUP BY HOPPINGWINDOW(second, 300, 5)
+
+
+**Explanation**:
+This query will generate events every 5 second and will output the last event that was received before. [Hopping Window](https://msdn.microsoft.com/library/dn835041.aspx "Hopping Window - Azure Stream Analytics") duration determines how far back the query will look to find the latest event (300 seconds in this example).
+
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
