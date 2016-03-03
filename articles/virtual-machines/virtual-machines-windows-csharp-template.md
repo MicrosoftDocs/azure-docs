@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Deploy Azure Resources using a template | Microsoft Azure"
 	description="Learn to use some of the available clients in the Azure Resource Management Library to deploy a virtual machine, virtual network, and storage account"
-	services="virtual-machines,virtual-networks,storage"
+	services="virtual-machines-windows,virtual-networks,storage"
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
