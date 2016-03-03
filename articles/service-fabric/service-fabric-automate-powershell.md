@@ -52,7 +52,7 @@ Registering the application package makes the application type and version decla
 ```powershell
 Register-ServiceFabricApplicationType WordCount
 ```
-To see all the application types registered in the cluster, run the [Get-ServiceFabricApplicationType](https://msdn.microsoft.com/en-us/library/azure/mt125871.aspx) cmdlet:
+To see all the application types registered in the cluster, run the [Get-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125871.aspx) cmdlet:
 
 ```powershell
 Get-ServiceFabricApplicationType
