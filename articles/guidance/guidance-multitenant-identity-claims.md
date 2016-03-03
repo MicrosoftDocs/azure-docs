@@ -118,11 +118,12 @@ Here are some basic patterns for checking claims.
      IEnumerable<Claim> groups = User.FindAll("groups");
     ```
 
-For more information, see [Claims-Based Authorization] in the ASP.NET 1.0 documentation.
+For more information, see [Role-based and resource-based authorization in multitenant applications][authorization].
 
 ## Next steps
 
-- Read the next article in this series: [Role-based and resource-based authorization in multitenant applications][Authorization]
+- Read the next article in this series: [Sign-up and tenant onboarding in a multitenant application][signup]
+- Learn more about [Claims-Based Authorization] in the ASP.NET Core 1.0 documentation
 
 <!-- Links -->
 [part of a series]: guidance-multitenant-identity.md
@@ -131,6 +132,6 @@ For more information, see [Claims-Based Authorization] in the ASP.NET 1.0 docume
 [issuer]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
 [Authentication events]: guidance-multitenant-identity-authenticate.md#authentication-events
 [signup]: guidance-multitenant-identity-signup.md
-[Authorization]: guidance-multitenant-identity-authorize.md
 [Claims-Based Authorization]: https://docs.asp.net/en/latest/security/authorization/claims.html
 [sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[Authorization]: guidance-multitenant-identity-authorize.md

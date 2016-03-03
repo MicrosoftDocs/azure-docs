@@ -268,4 +268,4 @@ static readonly Dictionary<OperationAuthorizationRequirement, Func<List<UserPerm
 [Configuring the authentication middleware]: guidance-multitenant-identity-authenticate.md#configuring-the-authentication-middleware
 [SurveyAuthorizationHandler.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Security/Policy/SurveyAuthorizationHandler.cs
 [sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
-[web-api]: guidance-multitenant-identity-web-api
+[web-api]: guidance-multitenant-identity-web-api.md
