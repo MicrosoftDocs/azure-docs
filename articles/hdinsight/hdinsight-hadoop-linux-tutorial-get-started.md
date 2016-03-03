@@ -31,11 +31,11 @@ If you are new to Hadoop and big data, you can read more about the terms: [Apach
 
 Before you begin this tutorial, you must have:
 
-- **Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Azure subscription**: To create a free trial account, browse to [azure.microsoft.com/free](https://azure.microsoft.com/free).
 
 ## Create cluster
 
-Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, delete the cluster. In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](../resource-group-template-deploy.md). ARM template is fully customizable, it makes easy to create Azure services like HDInsight. The Azure ARM template experience is not required for following this tutorial. For other cluster creation methods and understanding the properties used in the ARM template, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using ARM template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md). The ARM template is located in a public blob container with the URL *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json*. 
+Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](../resource-group-template-deploy.md). ARM template is fully customizable; it makes easy to create Azure resources like HDInsight. Azure ARM template experience is not required for following this tutorial. For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using ARM template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md). The ARM template used in this tutorial is located in a public blob container, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json*. 
 
 1. Click the following image to open the ARM template in the Azure Portal. 
 
@@ -49,7 +49,7 @@ Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, delete 
     
     Other parameters are optional. You can leave them as they are. 
     
-    Each cluster has an Azure Blob storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the variables section in the template.
+    Each cluster has an Azure Blob storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the template variables section.
     
 3. Click **OK** to save the parameters.
 4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource. The resource group location can be different from the cluster location.
@@ -66,7 +66,7 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 
 ##Run Hive queries
 
-[Apache Hive](hdinsight-use-hive.md) is the most popular tools used in HDInsight. There are many ways to run Hive jobs in HDInsight. In this tutorial, you will use the Ambari Hive view from the portal to run some Hive jobs. For other methods for running Hive queries, see [Use Hive in HDInsight](hdinsight-use-hive.md).
+[Apache Hive](hdinsight-use-hive.md) is the most popular tools used in HDInsight. There are many ways to run Hive jobs in HDInsight. In this tutorial, you will use the Ambari Hive view from the portal to run some Hive jobs. For other methods for submitting Hive queries, see [Use Hive in HDInsight](hdinsight-use-hive.md).
 
 1. Browse to  **https://&lt;ClusterName>.azurehdinsight.net**, where &lt;ClusterName> is the cluster you created in the previous section to open Ambari.
 2. Enter the Hadoop username and password that you specified in the previous section. The default username is **admin**.
@@ -75,7 +75,7 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
     ![Selecting ambari views](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
 4. In the __Query Editor__ section of the page, paste the following HiveQL statements into the worksheet:
 
-		SHOW tables;
+		SHOW TABLES;
 5. Click __Execute__. A __Query Process Results__ section should appear beneath the Query Editor and display information about the job. 
 
     Once the query has finished, The __Query Process Results__ section will display the results of the operation. You shall see one table called **hivesampletable**. This sample Hive table comes with all the HDInsight clusters.
