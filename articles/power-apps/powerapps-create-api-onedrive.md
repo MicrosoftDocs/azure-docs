@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
 # Create a new OneDrive API in PowerApps Enterprise
@@ -23,7 +23,7 @@
 - [Logic apps](../articles/connectors/create-api-onedrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
 
-When you add the Onedrive API, you add the API to your organization's (tenant) app service environment. 
+Add the Onedrive API to your organization's (tenant) app service environment. 
 
 ## Create the API in the Azure portal
 
