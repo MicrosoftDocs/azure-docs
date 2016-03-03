@@ -102,25 +102,25 @@ In this exercise you use the **Azure Data Catalog** registration tool to registe
 
 7.	The next page is where you register the metadata of your data source. In this example, you register **Production/Product** objects from the AdventureWorks Production namespace. Here’s how to do it:
 
-  a. In the **Server Hierarchy** tree, click **Production**.
+    a. In the **Server Hierarchy** tree, click **Production**.
 
     ![](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
 
-  b. Ctrl+click Product, ProductCategory, ProductDescription, and ProductPhoto.
+    b. Ctrl+click Product, ProductCategory, ProductDescription, and ProductPhoto.
 
-  c. Click the move selected arrow (**>**). This will move all selected Product objects into the **Objects to be registered** list.
+    c. Click the move selected arrow (**>**). This will move all selected Product objects into the **Objects to be registered** list.
 
     ![](media/data-catalog-get-started/data-catalog-available-objects.png)
 
-  d. In the **Add tags**, enter description, photo. This will add search tags for these data assets. Tags are a great way to help users find a registered data source.
+    d. In the **Add tags**, enter description, photo. This will add search tags for these data assets. Tags are a great way to help users find a registered data source.
 
     ![](media/data-catalog-get-started/data-catalog-objects-register.png)
 
-  e.	**Optional**: You can **Include a Preview**, and **Add a data source expert**.
+    e.	**Optional**: You can **Include a Preview**, and **Add a data source expert**.
 
-  f.	Click **REGISTER**. **Azure Data Catalog** registers your selected objects. In this exercise, the selected objects from Adventure Works are registered.
+    f.	Click **REGISTER**. **Azure Data Catalog** registers your selected objects. In this exercise, the selected objects from Adventure Works are registered.
 
-  g.	To see your registered data source objects, click **View Portal**. In the **Azure Data Catalog** portal, you can view data source objects in **Tiles** or a **List**.
+    g.	To see your registered data source objects, click **View Portal**. In the **Azure Data Catalog** portal, you can view data source objects in **Tiles** or a **List**.
 
     ![](media/data-catalog-get-started/data-catalog-view-portal.png)
 
