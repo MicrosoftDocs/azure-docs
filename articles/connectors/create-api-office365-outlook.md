@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/02/2016"
+ms.date="03/03/2016"
 ms.author="mandia"/>
 
 # Get started with the Office 365 Outlook API 
@@ -27,6 +27,8 @@ Connect to Office 365 Outlook to get email, reply to an email, update your calen
 > [AZURE.SELECTOR]
 - [Logic apps](../articles/connectors/create-api-office365-outlook.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
+
+&nbsp; 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Office 365 API](../app-service-logic/app-service-logic-connector-office365.md).
 
