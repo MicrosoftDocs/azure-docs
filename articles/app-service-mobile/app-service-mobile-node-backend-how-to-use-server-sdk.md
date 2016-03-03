@@ -79,6 +79,7 @@ unauthenticated access to an underlying SQL data store using a dynamic schema.  
 client library quick starts:
 
 - [Android Client QuickStart]
+- [Apache Cordova Client QuickStart]
 - [iOS Client QuickStart]
 - [Windows Store Client QuickStart]
 - [Xamarin.iOS Client QuickStart]
@@ -124,7 +125,7 @@ Visual Studio 2015 requires an extension to develop Node.js applications within 
         // Azure Mobile Apps Initialization
         var mobile = azureMobileApps();
         mobile.tables.add('TodoItem');
-        app.use('mobile');
+        app.use(mobile);
 
     Save the file.
 
@@ -442,6 +443,69 @@ The access property can take one of three values
   - *disabled* indicates that this table is currently disabled
 
 If the access property is undefined, unauthenticated access is allowed.
+
+### <a name="howto-tables-getidentity"></a>How to: Use Authentication Claims with your tables
+
+You can set up a number of claims that are requested when authentication is set up.  These claims are not normally available through the `context.user` object.
+However, they can be retrieved using the `context.user.getIdentity()` method.  The `getIdentity()` method returns a Promise that resolves to an object.  The object
+is keyed by the authentication method (facebook, google, twitter, microsoftaccount or aad).
+
+For example, if you set up Microsoft Account authentication and request the email addresses claim, you can add the email address to the record with the following:
+
+    var azureMobileApps = require('azure-mobile-apps');
+
+    // Create a new table definition
+    var table = azureMobileApps.table();
+
+    table.columns = {
+        "emailAddress": "string",
+        "text": "string",
+        "complete": "boolean"
+    };
+    table.dynamicSchema = false;
+    table.access = 'authenticated';
+
+    /**
+    * Limit the context query to those records with the authenticated user email address
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function queryContextForEmail(context) {
+        return context.user.getIdentity().then((data) => {
+            context.query.where({ emailAddress: data.microsoftaccount.claims.emailaddress });
+            return context.execute();
+        });
+    }
+
+    /**
+    * Adds the email address from the claims to the context item - used for
+    * insert operations
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function addEmailToContext(context) {
+        return context.user.getIdentity().then((data) => {
+            context.item.emailAddress = data.microsoftaccount.claims.emailaddress;
+            return context.execute();
+        });
+    }
+
+    // Configure specific code when the client does a request
+    // READ - only return records belonging to the authenticated user
+    table.read(queryContextForEmail);
+
+    // CREATE - add or overwrite the userId based on the authenticated user
+    table.insert(addEmailToContext);
+
+    // UPDATE - only allow updating of record belong to the authenticated user
+    table.update(queryContextForEmail);
+
+    // DELETE - only allow deletion of records belong to the authenticated uer
+    table.delete(queryContextForEmail);
+
+    module.exports = table;
+
+To see what claims are available, use a web browser to view the `/.auth/me` endpoint of your site.
 
 ### <a name="howto-tables-disabled"></a>How to: Disable access to specific table operations
 
@@ -795,6 +859,7 @@ From the editor, you can also execute the code on the site
 
 <!-- URLs -->
 [Android Client QuickStart]: app-service-mobile-android-get-started.md
+[Apache Cordova Client QuickStart]: app-service-mobile-cordova-get-started.md
 [iOS Client QuickStart]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS Client QuickStart]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
