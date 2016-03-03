@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Data Factory (Azure Portal)"
+	pageTitle="Get started with Azure Data Factory (Azure Portal) | Microsoft Azure"
 	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Data Factory Editor in the Azure Portal."
 	services="data-factory"
 	documentationCenter=""

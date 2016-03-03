@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Data Factory"
+	pageTitle="Get started with Azure Data Factory | Microsoft Azure"
 	description="This tutorial shows you how to create a sample data pipeline that transforms data using Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""

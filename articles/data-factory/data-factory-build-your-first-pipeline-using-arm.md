@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Data Factory (Azure Resource Manager template)"
+	pageTitle="Get started with Azure Data Factory (Azure Resource Manager template) | Microsoft Azure"
 	description="In this tutorial, you will create a sample Azure Data Factory pipeline using an Azure Resource Manager template."
 	services="data-factory"
 	documentationCenter=""

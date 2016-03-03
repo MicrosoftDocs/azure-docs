@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Data Factory (Azure PowerShell)"
+	pageTitle="Get started with Azure Data Factory (Azure PowerShell) | Microsoft Azure"
 	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
