@@ -25,7 +25,7 @@ Lets look at a very simple architecture:
 * A single NIC and VM IP address for each virtual machine.
 * A load balancer with a load balancing rule on port 80
 
-![alt tag](media/resource-group-overview/arm_arch.png)
+![architecture](./media/resource-group-overview/arm_arch.png)
 
 The full template can be found in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) directly though this [link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules).
 Skipping the parameters and variables section of the template, we will go though each resource definition in the resources section.
