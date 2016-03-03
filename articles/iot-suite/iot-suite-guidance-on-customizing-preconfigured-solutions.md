@@ -46,7 +46,7 @@ By default, the application is provisioned with **Administrator**, **Read Only**
 
 The remote monitoring solution includes three [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobs to implement device information, telemetry and rules logic displayed  for the solution.
 
-The three stream analytics jobs and their syntax is described in depth in the [Remote monitoring preconfigured solution walkthrough](https://azure.microsoft.com/en-us/documentation/articles/iot-suite-remote-monitoring-sample-walkthrough/). 
+The three stream analytics jobs and their syntax is described in depth in the [Remote monitoring preconfigured solution walkthrough](https://azure.microsoft.com/documentation/articles/iot-suite-remote-monitoring-sample-walkthrough/). 
 
 You can edit these jobs directly to alter the logic, or add logic specific to your scenario. You can find the Stream Analytics jobs as follows:
  

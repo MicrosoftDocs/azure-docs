@@ -42,6 +42,6 @@ Explore these resources for more information about IoT on Azure:
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub/
 [Azure Event Hubs]: https://azure.microsoft.com/services/event-hubs/
 [Azure Stream Analytics]: https://azure.microsoft.com/services/stream-analytics/
-[Azure Machine Learning]: https://azure.microsoft.com/en-us/services/machine-learning/
-[Azure storage]: https://azure.microsoft.com/en-us/services/storage/
+[Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning/
+[Azure storage]: https://azure.microsoft.com/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md

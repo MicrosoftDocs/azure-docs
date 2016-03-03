@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
+     ms.date="02/03/2016"
      ms.author="elioda"/>
 
 # Tutorial: How to send cloud-to-device messages with IoT Hub
@@ -37,7 +37,7 @@ In order to complete this tutorial you'll need the following:
 
 + Microsoft Visual Studio 2015,
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="_blank").
++ An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="_blank").
 
 [AZURE.INCLUDE [iot-hub-c2d-device-csharp](../../includes/iot-hub-c2d-device-csharp.md)]
 
@@ -46,7 +46,7 @@ In order to complete this tutorial you'll need the following:
 
 ## Next steps
 
-In this tutorial, you learned how to send and receive cloud-to-device messages. You can continue explore IoT hub features and scenario with the following tutorials:
+In this tutorial, you learned how to send and receive cloud-to-device messages. You can continue to explore IoT hub features and scenarios with the following tutorials:
 
 - [Process Device-to-Cloud messages], shows how to reliably process telemetry and interactive messages coming from devices.
 - [Uploading files from devices], describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
