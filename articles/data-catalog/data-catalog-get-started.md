@@ -26,7 +26,7 @@ Before you begin this tutorial you must have the following:
 
 - **An Azure subscription** -  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/) for details.
 - **Azure Active Directory** -  Azure Data Catalog uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for identity and access management.
-- **Data sources** - Azure Data Catalog has capabilities to discover data sources. This tutorial uses the Adventure Works sample database, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](https://azure.microsoft.com/en-us/documentation/articles/data-catalog-dsr).
+- **Data sources** - Azure Data Catalog has capabilities to discover data sources. This tutorial uses the Adventure Works sample database, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](https://azure.microsoft.com/documentation/articles/data-catalog-dsr).
 
 Let's get started installing the Adventure Works sample database.
 
@@ -72,7 +72,7 @@ To install the Adventure Works sample database, you can restore an AdventureWork
     ,REPLACE
     GO
 
-As an alternative to running a T-SQL script, you can restore the database using SQL Server Management Studio. See [Restore a Database Backup (SQL Server Management Studio)](http://msdn.microsoft.com/en-us/library/ms177429.aspx).
+As an alternative to running a T-SQL script, you can restore the database using SQL Server Management Studio. See [Restore a Database Backup (SQL Server Management Studio)](http://msdn.microsoft.com/library/ms177429.aspx).
 
 In this exercise you installed the Adventure Works sample database that is used in the remaining exercises. In the next exercise, you learn how to register **Azure Data Catalog** data sources from tables in the Adventure Works sample database.
 
@@ -82,7 +82,7 @@ In this exercise you use the Azure Data Catalog registration tool to register Ad
 
 ### Here’s how to register a data source
 
-1.	Go to https://azure.microsoft.com/en-us/services/data-catalog, and click **Get started**.
+1.	Go to https://azure.microsoft.com/services/data-catalog, and click **Get started**.
 2.	Log into the Azure Data Catalog portal, and click **Publish data**.
 
 ![](media/data-catalog-get-started/data-catalog-publish-data.png)
