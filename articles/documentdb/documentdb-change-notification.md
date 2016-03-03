@@ -65,7 +65,7 @@ The steps are as follows:
 
     > [AZURE.NOTE] The _ts represents the TimeStamp metadata for all DocumentDB resources.
 
-4. If there are documents found, the response body is sent to your Google Drive
+4. If there are documents found, the response body is sent to your Google Drive.
 
 5. Finally, an email is sent that notifies the recipient of the number of documents found. If no documents were found, the email body would be "0 Documents Found". 
 
@@ -73,16 +73,16 @@ Now that you have an idea of what the workflow does, let's take a look at how yo
 
 ### Let's start with the main Logic App
 
-[Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) are available in the [Azure portal](https://portal.azure.com/), in the **Marketplace**. 
+If you're not familiar with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md), they are available in the [Azure portal](https://portal.azure.com/) **Marketplace**, and you can learn more about them in [What are Logic Apps?](../app-service-logic/app-service-logic-what-are-logic-apps.md)
 
-When you create a new Logic App your are presented with "How would you like to start?"
+When you create a new Logic App, you are asked "How would you like to start?"
 
 When you click inside the text box,  you have a choice of events. For this Logic App, select **Manual - When an HTTP request is received** as shown below.
 
 ![Starting Off](./media/documentdb-change-notification/starting-off.png)
 
 ### Design View of your completed Logic App
-The following figure shows the design view for the Logic App, which is named DocDB.
+Let's jump ahead and look at the completed design view for the Logic App, which is named DocDB.
 
 ![Logic App Workflow](./media/documentdb-change-notification/logicapp-workflow.png)
 
@@ -278,7 +278,7 @@ What you are doing is creating a JSON schema that will be passed in from the bod
 To fire your trigger, you will need a CallbackURL.  You will learn how to generate it later in the tutorial.  
 
 ## Actions
-Let's see what each action does.
+Let's see what each action in our Logic App does.
 
 ### GetUTCDate
 
@@ -344,7 +344,7 @@ This action calls your API App to return the Utc Date string value.
 
 ```
 
-The next step is too convert the UTC DateTime value to the Unix TimeStamp, which is a .NET double type.
+The next step is to convert the UTC DateTime value to the Unix TimeStamp, which is a .NET double type.
 
 ### Conversion
 
@@ -377,7 +377,7 @@ The next step is too convert the UTC DateTime value to the Unix TimeStamp, which
 
 ```
 
-In this step you pass in the value returned from the GetUTCDate.  There is a dependsOn condition, which means that the GetUTCDate action must complete successfully. If not then this action is skipped. 
+In this step you pass in the value returned from the GetUTCDate.  There is a dependsOn condition, which means that the GetUTCDate action must complete successfully. If not, then this action is skipped. 
 
 This action calls your API App to handle the conversion.
 
@@ -446,7 +446,7 @@ In the next action, you will do a POST operation to our API App.
 
 ```
 
-For the GetDocuments action you are going to pass in the response body from the Conversion action. This is a parameter in the Uri;
+For the GetDocuments action you are going to pass in the response body from the Conversion action. This is a parameter in the Uri:
 
  
 ```C#
@@ -667,7 +667,7 @@ Your last step is to send an email notification
 	}
 ```
 
-In this action you send an email notification.  You are using [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20(English)&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).   
+In this action you send an email notification.  You are using [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).   
 
 The code for this was generated using a Template for Logic App and SendGrid that is in the template Github repository.
  
@@ -702,7 +702,7 @@ The authorization parameters are in the trigger properties
 
 ```
 
-The emailBody is concatenating the number of Documents returned from the query, which can be "0" or more, along with, "Records Found". The rest of the parameters are set from the Trigger parameters.
+The emailBody is concatenating the number of documents returned from the query, which can be "0" or more, along with, "Records Found". The rest of the parameters are set from the Trigger parameters.
 
 This action depends on the **GetDocuments** action.
 
@@ -859,6 +859,7 @@ Now let's look at the API App.
 ## DocDBNotificationApi
 
 Although there are several operations in the app, you are only going to use three.
+
 * GetUtcDate
 * ConvertToTimeStamp
 * QueryForNewPatientDocuments
@@ -988,15 +989,15 @@ This operation converts the response from the GetUtcDate operation to a double v
 
 ```
 
-This operation uses the DocumentDB NET SDK to create a document query; 
+This operation uses the [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) to create a document query. 
 
 ```C#
      CreateDocumentQuery<Document>(collectionLink, filterQuery, options).AsEnumerable();
 ```
 
-The response from the ConvertToTimeStamp operation (unixTimeStamp) is passed in.   The operation returns a List of documents, IList<Document>.
+The response from the ConvertToTimeStamp operation (unixTimeStamp) is passed in. The operation returns a List of documents, `IList<Document>`.
 
-Previously we talked about the CallbackURL.  In order to start the workflow in you main Logic App, you will need to call it using the CallbackURL.
+Previously we talked about the CallbackURL. In order to start the workflow in your main Logic App, you will need to call it using the CallbackURL.
 
 ## CallbackURL
 
@@ -1028,7 +1029,15 @@ You can use a tool like [postman](http://www.getpostman.com/) to test you main L
 
 ![Postman](./media/documentdb-change-notification/newpostman.png)
 
-The following table lists the Trigger parameters that make up the body of the DocDB Trigger Logic App
+The following table lists the Trigger parameters that make up the body of the DocDB Trigger Logic App.
+
+Parameter | Description 
+--- | --- 
+GetUtcDate_HoursBack | Used to set the number of hours for the search start date
+sendgridUsername | Used to set the number of hours for the search start date
+sendgridPassword | The user name for Send Grid email
+EmailTo | The email address that will receive the email notification
+Subject | The Subject for the email
 
 <pre><table>
   <tr>
@@ -1076,4 +1085,4 @@ The key is to plan ahead and model your workflow.
 ## Next steps
 Please download and use the Logic App code provided on [Github](https://github.com/HEDIDIN/DocDbNotifications). I invite you to build on the application and submit changes to the repo. 
 
-You are welcome to use the code as foundation for your own polling application.  I just created a basic application and there is always room for improvements.
+To learn more about DocumentDB, visit the [Learning Path](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
