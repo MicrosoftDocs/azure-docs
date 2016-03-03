@@ -13,24 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="03/03/2016"
 	ms.author="andkjell"/>
 
 
 # Azure AD Connect sync: Synchronization Service Manager
-The **Synchronization Service Manager** UI is used to configure more advanced aspects of the sync engine and to see the operational aspects of the service.
+> [AZURE.SELECTOR]
+- [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md)
+- [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md)
+- [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
+- [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
 
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
-
-| [Operations](#operations) | [Connectors](#connectors) | [Metaverse Designer](#metaverse-designer) | [Metaverse Search](#metaverse-search) |
-| --- | --- | --- | --- |
-
-## Operations
 The operations tab shows the results from the most recent operations. This tab is key to understand and troubleshoot issues.
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
-### Understand the information visible in the operations tab
+## Understand the information visible in the operations tab
 The top half shows all runs in a chronical order. By default the operations log will keep information about the last 7 days, but this can be changed with the [scheduler](active-directory-aadconnectsync-feature-scheduler.md). You want to look for any run which does not show a success status. You can change the sorting by clicking on the headers.
 
 The **Status** column is the most important information and shows the most severe problem for a run. Here is a quick summary of the most common statuses in order of priority to investigate (where * indicate several possible error strings).
@@ -45,7 +43,7 @@ The **Status** column is the most important information and shows the most sever
 
 When you select a row, the bottom will update to show the details of that run. To the far left of the bottom you might have a list saying **Step #**. This will only appear if you have multiple domains in your forest where each domain is represented by a step. The domain name can be found under the heading **Partition**. Under **Synchronization Statistics** you can find more information about the number of changes which were processed. You can click on the links to get a list of the changed objects. If you have objects with an error, those will show up under **Synchronization Errors**.
 
-### Troubleshoot errors in operations tab
+## Troubleshoot errors in operations tab
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorsync.png)  
 When you have errors, both the object in error and the error itself are links which will provide more information.
 
@@ -57,40 +55,7 @@ Start by clicking on the error string (in the picture above **sync-rule-error-fu
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorinnerexception.png)  
 The line after will show the error. In the picture above the error is from a custom Sync Rule Fabrikam created.
 
-If the error itself does not give enough information, then it is time to look at the data itself. You can click on the link with the object identifier and [Follow an object and its data through the system](#follow-an-object-and-its-data-through-the-system).
-
-## Connectors
-The Connectors tab is used to manage all systems the sync engine is connected to.
-
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
-
-### Connector actions
-
-| Action | Comment |
-| --- | --- |
-| Create | Do not use. For connecting to additional AD forests, use the installation wizard. |
-| Properties | Used for domain and OU filtering. |
-| Delete | Used to either delete the data in the connector space or to delete connection to a forest. |
-| Configure Run Profiles | With the exception of domain filtering, nothing to configure here. |
-| Run | Used to start a one-off run of a profile. |
-| Stop | Stops a Connector currently running a profile. |
-| Export Connector | Do not use. |
-| Import Connector | Do not use. |
-| Update Connector | Do not use. |
-| Refresh Schema | Refreshes the cached schema. It is preferred to use the option in the installation wizard instead since that will also update sync rules.
-| Search Connector Space | Used to find objects and to [Follow an object and its data through the system](#follow-an-object-and-its-data-through-the-system). |
-
-
-### Follow an object and its data through the system
-When you are troubleshooting a problem with data
-
-## Metaverse Designer
-
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvdesigner.png)
-
-## Metaverse Search
-
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
+If the error itself does not give enough information, then it is time to look at the data itself. You can click on the link with the object identifier and [Follow an object and its data through the system](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system).
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
