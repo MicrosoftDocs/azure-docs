@@ -46,8 +46,7 @@ Metrics such as performance counters are stored in a table called metrics. Each 
 
 	metrics | count
 
-* *Syntax:* A query is: `<data source> { | <operator> }*`
-
+> [AZURE.NOTE] Put the cursor somewhere in the statement before you click Go. You can split a statement over more than one line, but don't leave a blank line between different parts of a statement.
 
 Here's the result:
 
@@ -66,22 +65,15 @@ Let's see some data - what's in a sample 10 rows?
 
 And here's what we get:
 
-![](./media/app-analytics-tour/020.png)
+![results](./media/app-analytics-tour/020.png)
 
-That's raw data. But there are two ways to make it look neater.
+Choose columns and adjust their positions:
 
-* Choose the table layout:
+![Click column selection at upper right of results](./media/app-analytics-tour/030.png)
 
-    ![Choose Table, and use Configure Columns](./media/app-analytics-tour/030.png)
-
-* And/or expand any item:
+Expand any item to see the detail:
  
-    ![Choose Table, and use Configure Columns](./media/app-analytics-tour/040.png)
-
-The table layout might not initially show all the columns available, but you can adjust the selection and positions of columns:
-
-
-![Click Configure Columns to select columns. Click the left and right chevrons to re-order columns. Click the up or down arrow to sort items by the column.](./media/app-analytics-tour/280.png)
+![Choose Table, and use Configure Columns](./media/app-analytics-tour/040.png)
 
 
 ## Sort and top
@@ -111,7 +103,7 @@ The column headers in the table view can also be used to sort the results on the
 Use `project` to pick out just the columns you want:
 
     metrics | top 10 by timestamp desc
-           | project timestamp, metricName, value
+            | project timestamp, metricName, value
 
 
 ![](./media/app-analytics-tour/240.png)
@@ -120,7 +112,7 @@ Use `project` to pick out just the columns you want:
 You can also rename columns and define new ones:
 
     metrics | top 10 by timestamp desc 
-           | project timestamp, 
+            | project timestamp, 
                timeOfDay = floor(timestamp % 1d, 1s), 
                metric = metricName, 
                value
@@ -141,7 +133,7 @@ In the scalar expression:
 If you just want to add columns to the existing ones, use `extend`:
 
     metrics | top 10 by timestamp desc
-           | extend timeOfDay = floor(timestamp % 1d, 1s)
+            | extend timeOfDay = floor(timestamp % 1d, 1s)
 
 
 Using `extend` is less verbose than `project` if you want to keep all the existing columns.
@@ -203,7 +195,6 @@ We can do better than the table view here. Let's look at the results in the char
 ![Click Chart, then choose Vertical bar chart and assign x and y axes](./media/app-analytics-tour/230.png)
 
 
-
 ## Where: filtering on a condition
 
 If you've set up Application Insights monitoring for both the [client](app-insights-javascript.md) and server sides of your app, some of the telemetry in the database comes from browsers.
@@ -242,9 +233,6 @@ Summarize the different responses. Notice that we must always cast any value tha
     | summarize count() 
       by responseCode
 
-
-
-
 ## Timecharts
 
 Show how many events there are each day:
@@ -257,7 +245,7 @@ Show how many events there are each day:
 
 Select the Chart display option:
 
-![](./media/app-analytics-tour/080.png)
+![timechart](./media/app-analytics-tour/080.png)
 
 The x axis for line charts has to be of type DateTime. (But you can make vertical bar charts with any type of x-axis).
 
@@ -294,9 +282,9 @@ Count requests by the time modulo one day, binned into hours:
     | summarize event_count=count() by hour
 ```
 
-![](./media/app-analytics-tour/120.png)
+![Line chart of hours in an average day](./media/app-analytics-tour/120.png)
 
-Notice we have to convert time durations to datetimes in order to display on the timechart.
+>[AZURE.NOTE] Notice we currently have to convert time durations to datetimes in order to display on the a chart.
 
 
 ## Compare multiple daily series
@@ -313,7 +301,7 @@ How does usage vary over the time of day in different states?
 
 Split the chart by state:
 
-![](./media/app-analytics-tour/130.png)
+![Split By location_StateOrProvince](./media/app-analytics-tour/130.png)
 
 
 ## Plot a distribution
