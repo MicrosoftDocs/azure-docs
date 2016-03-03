@@ -37,7 +37,7 @@ There are many approaches that can be used to setup the prerequisites and to con
 > [AZURE.NOTE] To learn more about alternate approaches to configuring encryption for Azure virtual machines, please see [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 
 ## Install and Configure Azure PowerShell
-You need Azure PowerShell version 1.2.1 or above installed on your computer. The article [How to install and configure Azure PowerShell](powershell-install-configure.md) contains all the steps you need to provision your computer to work with Azure PowerShell. The most straightforward approach is to use the Web PI installation approach mentioned in that article. Even if you already have Azure PowerShell installed, install again using the Web PI approach so that you have the latest version of Azure PowerShell.
+You need Azure PowerShell version 1.2.1 or above installed on your computer. The article [How to install and configure Azure PowerShell](../powershell-install-configure.md) contains all the steps you need to provision your computer to work with Azure PowerShell. The most straightforward approach is to use the Web PI installation approach mentioned in that article. Even if you already have Azure PowerShell installed, install again using the Web PI approach so that you have the latest version of Azure PowerShell.
 
 
 ## Obtain and run the Azure disk encryption prerequisites configuration script
@@ -74,7 +74,7 @@ The Azure Disk Encryption Prerequisites script will ask you for the following in
 - **Location** - Location of the Key Vault. Make sure the Key Vault and VMs to be encrypted are in the same location. If you don’t know the location, there are steps later in this article that will show you how to find out. 
 - **Azure Active Directory Application Name** - Name of the Azure Active Directory application that will be used to write secrets to the Azure Key Vault. A new application with this name will be created if one doesn't exist. If you already have an Azure Active Directory Application that you want to use, enter the name of that Azure Active Directory Application.
 
-> [AZURE.NOTE] If you’re curious as to why you need to create an Azure Active Directory application, please see *Register an application with Azure Active Directory* section in the article [Getting Started with Azure Key Vault](key-vault-get-started.md).
+> [AZURE.NOTE] If you’re curious as to why you need to create an Azure Active Directory application, please see *Register an application with Azure Active Directory* section in the article [Getting Started with Azure Key Vault](../key-vault/key-vault-get-started.md).
 
 Perform the following steps to encrypt an Azure Virtual Machine:
 
