@@ -110,7 +110,7 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 4. Click the **New** button next to the **App Service Plan** drop-down.
 
-	![](./media/web-sites-dotnet-get-started/createas.png)
+	![Create App Service dialog](./media/web-sites-dotnet-get-started/createas.png)
 
 	The screen shot shows sample values for **Web App Name**, **Subscription**, and **Resource Group** -- your values will be different.
 
@@ -128,11 +128,11 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 6. In the **Configure App Service Plan** dialog, click **OK**.
 
-	![](./media/web-sites-dotnet-get-started/configasp.png)
+	![Configure App Service dialog](./media/web-sites-dotnet-get-started/configasp.png)
 
 7. In the **Create App Service** dialog box, click **Create**.
 
-	![](./media/web-sites-dotnet-get-started/clickcreate.png)
+	![Create App Service dialog box](./media/web-sites-dotnet-get-started/clickcreate.png)
 
 	In a short time, usually less than a minute, Visual Studio creates the web project and the web app.  
 
@@ -180,7 +180,7 @@ In this section you deploy web project to the web app, as illustrated in step 2 
 
 11. On the **Preview** tab, click **Publish**.
 
-	![](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
+	![Preview tab](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
 
 	When you click **Publish** Visual Studio begins the process of copying the files to the Azure server. This may take a minute or two.
 
@@ -203,7 +203,7 @@ The [Azure portal](/services/management-portal/) is a web interface that you can
 
 2. Click **App Services**, and then click the name of your web app.
 
-	![](./media/web-sites-dotnet-get-started/selinportal.png)
+	![App Services in portal](./media/web-sites-dotnet-get-started/selinportal.png)
 
 	The **Web app** blade displays an overview of settings and usage statistics for your web app. (Windows that open to the right in the portal are called *blades*.)
 
@@ -213,7 +213,7 @@ The [Azure portal](/services/management-portal/) is a web interface that you can
 
 3. The **Settings** blade shows more options for configuring your web app.
 
-	![](./media/web-sites-dotnet-get-started/portalconfigure1.png)
+	![Settings blade](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
 	There area more sections to this blade than are shown in this screen shot.
 
@@ -221,7 +221,7 @@ The [Azure portal](/services/management-portal/) is a web interface that you can
 
 	For example, you can control the .NET version that's used for the web app, enable features such as [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/), and set [connection string values](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
-	![Portal web app configure tab](./media/web-sites-dotnet-get-started/portalconfigure2.png)
+	![Web app configure tab](./media/web-sites-dotnet-get-started/portalconfigure2.png)
 
 These are just a few of the Portal's features. You can create new web apps, delete existing web apps, stop and restart web apps, and manage other kinds of Azure services, such as databases and virtual machines.  
 
