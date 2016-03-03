@@ -21,7 +21,7 @@
 # A tour through Application Analytics
 
 
-Application Analytics is a powerful diagnostic search engine for your [Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-overview/) telemetry.
+Application Analytics is a powerful diagnostic search engine for your [Application Insights](app-insights-overview.md) telemetry.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -206,7 +206,7 @@ We can do better than the table view here. Let's look at the results in the char
 
 ## Where: filtering on a condition
 
-If you've set up Application Insights monitoring for both the [client](https://azure.microsoft.com/documentation/articles/app-insights-javascript/) and server sides of your app, some of the telemetry in the database comes from browsers.
+If you've set up Application Insights monitoring for both the [client](app-insights-javascript.md) and server sides of your app, some of the telemetry in the database comes from browsers.
 
 Let's see just exceptions reported from browsers:
 
