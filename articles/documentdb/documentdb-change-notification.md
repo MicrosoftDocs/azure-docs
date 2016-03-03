@@ -23,11 +23,12 @@ This article came about from a question I saw posted one of the DocumentDB commu
 
 I have worked with BizTalk Server for many years, and this is a very common scenario when using the [WCF LOB Adapter](https://msdn.microsoft.com/library/bb798128.aspx) . So I decided to see if I could duplicate this functionality in DocumentDB for new and/or modified documents.
 
+This article provides an overview of the components of the change notification solution, which includes a [trigger](documentdb-programming.md#trigger) and a [Logic App](../app-service-logic/app-service-logic-what-are-logic-apps). Important code snippets are provided inline and the entire solution is available on [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
+
 ## Use case  
 The following story is the use case for this article.
 
-> DocumentDB is the repository for HL7 FHIR documents.  Let's assume that your DocumentDB database combined with API and Logic App make up an HL7 FHIR Server.  A healthcare facility is storing patient data in the DocumentDB "Patients" database. 
-There are several collections within the patient database; Clinical, Identification, etc. Patient information falls under identification.  You have a collection named "Patient".
+> DocumentDB is the repository for Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR)  documents. Let's assume that your DocumentDB database combined with your API and Logic App make up an HL7 FHIR Server.  A healthcare facility is storing patient data in the DocumentDB "Patients" database. There are several collections within the patient database; Clinical, Identification, etc. Patient information falls under identification.  You have a collection named "Patient".
 
 > The Cardiology department is tracking personal heath and exercise data.  Searching for new or modified Patient records is time consuming.  They asked the IT department if there was a way that they could receive a notification for new or modified Patient records.  
 
@@ -35,47 +36,53 @@ There are several collections within the patient database; Clinical, Identificat
 
 ## How the IT department solved the problem
 
-In order to create this application, they decided to model it first.  The nice thing about using Business Process Model and Notation (BPMN) is that both technical and non-technical people can easily understand it. This is considered this a business process. 
+In order to create this application, the IT department decided to model it first.  The nice thing about using Business Process Model and Notation (BPMN) is that both technical and non-technical people can easily understand it. This is considered this a business process. 
 
 ## High-Level view of notification process
 
+1. You start with a Logic App that has a timer trigger. By default, the trigger runs every hour.
+2. Next you do an Http Post to the Logic App.
+3. The Logic App does all the work.
+
 ![High level view](./media/documentdb-change-notification/high-level-view.png)
 
-1. You start off with a Logic App the has a Timer Trigger. The default value is to run every hour.
-1. Next you do a Http Post to the Logic App which does all the work.
-
 ### Let's take a look at what this Logic App does
-If you look at the following figure there are several steps in the workflow.
+If you look at the following figure there are several steps in the LogicApp workflow.
 
 ![Main Logic Process](./media/documentdb-change-notification/main-logic-app-process.png)
 
-These steps are as follows.
+The steps are as follows:
+
 1. You need to get the current UTC DateTime from an API App.  The default value is one hour previous.
 
-2. Then it's converted to a Unix Timestamp format. This is the default format for timestamps in DocumentDB.
+2. The UTD DateTime is converted to a Unix Timestamp format. This is the default format for timestamps in DocumentDB.
 
 3. You POST the value to an API App, which does a DocumentDB query. The value is used in a query.
 
-```SQL
+    ```SQL
      	SELECT * FROM Patients p WHERE (p._ts >= @unixTimeStamp)
-```
+    ```
 
-> NOTE: The _ts represents the TimeStamp metadata for all DocumentDB resources.
+> [AZURE.NOTE] The _ts represents the TimeStamp metadata for all DocumentDB resources.
 
-4. If there are documents found, the response body is sent to you Google Drive
+4. If there are documents found, the response body is sent to your Google Drive
 
 5. Finally, an email is sent that notifies the recipient of the number of documents found. If no documents were found, the email body would be "0 Documents Found". 
 
 Now that you have an idea of what the workflow does, let's take a look at how you implement it.
 
 ### Let's start with the main Logic App
-When you create a new Logic App, your are presented with "How would you like to start?"  
-When you click inside the text box,  you have a choice of events. For this Logic App, you select "Manual When a HTTP request is received" as shown below.
+
+[Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) are available in the [Azure portal](https://portal.azure.com/), in the **Marketplace**. 
+
+When you create a new Logic App your are presented with "How would you like to start?"
+
+When you click inside the text box,  you have a choice of events. For this Logic App, select **Manual - When an HTTP request is received** as shown below.
 
 ![Starting Off](./media/documentdb-change-notification/starting-off.png)
 
 ### Design View of your completed Logic App
-The following figure show the design view for the Logic App, which is named DocDB.
+The following figure shows the design view for the Logic App, which is named DocDB.
 
 ![Logic App Workflow](./media/documentdb-change-notification/logicapp-workflow.png)
 
@@ -83,13 +90,13 @@ When editing the actions in the Logic App Designer, you have the option of selec
 
 ![Choose outputs](./media/documentdb-change-notification/choose-outputs.png)
 
-Before each action in your workflow,  you can make a decision; **Add an action**  or **Add a condition** as shown in the following figure.
+Before each action in your workflow, you can make a decision; **Add an action** or **Add a condition** as shown in the following figure.
 
 ![Make a decision](./media/documentdb-change-notification/add-action-or-condition.png)
 
-If you select **Add a condition**, you are presented with a form, as shown in the following figure, to enter your logic.  This is in essence, a business rule.  If you click inside a field, you have a choice of selecting parameters from the previous action.  You can also enter the values directly.
+If you select **Add a condition**, you are presented with a form, as shown in the following figure, to enter your logic.  This is in essence, a business rule.  If you click inside a field, you have a choice of selecting parameters from the previous action. You can also enter the values directly.
 
-> TIP: You also have the capability to enter everything in Code View.
+> [AZURE.NOTE] You also have the capability to enter everything in Code View.
 
 Let's take a look at the completed Logic App in code view.  
 
@@ -227,9 +234,9 @@ Let's take a look at the completed Logic App in code view.
 	
 ```
 
-If you are not familiar with what the different sections in the code represents, you can view the [Logic App Workflow Definition Language](../app-service-logic/app-service-logic-what-are-logic-apps/) documentation.
+If you are not familiar with what the different sections in the code represents, you can view the [Logic App Workflow Definition Language](http://aka.ms/logicappsdocs) documentation.
 
-For this workflow you are using an [HTTP Webhook Trigger ](https://sendgrid.com/blog/whats-webhook/). If you look at the code above, you will see parameters like the following example.
+For this workflow you are using an [HTTP Webhook Trigger](https://sendgrid.com/blog/whats-webhook/). If you look at the code above, you will see parameters like the following example.
 
 ```C#
 
@@ -237,9 +244,9 @@ For this workflow you are using an [HTTP Webhook Trigger ](https://sendgrid.com/
 
 ```
 
-The triggerBody() represents the parameters that are included in the body of an REST POST to the Logic App REST API. The ()['Subject'] represents the field. All these parameters make up the JSON formatted body. 
+The `triggerBody()` represents the parameters that are included in the body of an REST POST to the Logic App REST API. The `()['Subject']` represents the field. All these parameters make up the JSON formatted body. 
 
-> TIP: By using a Web hook, you can have full access to the header and body of the trigger's request. In this application you want the body.
+> [AZURE.NOTE] By using a Web hook, you can have full access to the header and body of the trigger's request. In this application you want the body.
 
 As mentioned previously, you can use the designer to assign parameters or do it in code view.
 If you do it in code view, then you define which properties require a value as shown in the following code sample. 
@@ -267,7 +274,7 @@ If you do it in code view, then you define which properties require a value as s
 	    }
 ```
 
-What you are doing is creating a JSON schema. that will be passed in from the body of the Http POST.
+What you are doing is creating a JSON schema that will be passed in from the body of the Http POST.
 To fire your trigger, you will need a CallbackURL.  You will learn how to generate it later in the tutorial.  
 
 ## Actions
@@ -275,7 +282,8 @@ Let's see what each action does.
 
 ### GetUTCDate
 
-Designer View
+**Designer View**
+
 ![](./media/documentdb-change-notification/getutcdate.png)
 
 **Code View**
@@ -297,7 +305,8 @@ Designer View
 		},
 
 ```
-This HTTP action performs a GET operation.  It calls the API APP GetUtcDate method. The Uri uses the 'GetUtcDate_HoursBack'  property passed into the Trigger body.  The 'GetUtcDate_HoursBack' value is set in the first Logic App.  (You will learn more about the Trigger Logic App later in the tutorial.
+
+This HTTP action performs a GET operation.  It calls the API APP GetUtcDate method. The Uri uses the 'GetUtcDate_HoursBack'  property passed into the Trigger body.  The 'GetUtcDate_HoursBack' value is set in the first Logic App. You will learn more about the Trigger Logic App later in the tutorial.
 
 This action calls your API App to return the Utc Date string value.
 
@@ -315,6 +324,7 @@ This action calls your API App to return the Utc Date string value.
 	}
 
 ```
+
 **Response**
 
 ```JSON
@@ -333,7 +343,8 @@ This action calls your API App to return the Utc Date string value.
 	}
 
 ```
-The next step is too convert the UTC DateTime value to the Unix TimeStamp, which is a NET double type.
+
+The next step is too convert the UTC DateTime value to the Unix TimeStamp, which is a .NET double type.
 
 ### Conversion
 
@@ -434,7 +445,9 @@ In the next action, you will do a POST operation to our API App.
 	},
 
 ```
+
 For the GetDocuments action you are going to pass in the response body from the Conversion action. This is a parameter in the Uri;
+
  
 ```C#
 
@@ -442,7 +455,7 @@ For the GetDocuments action you are going to pass in the response body from the 
 
 ```
 
-The QueryDocuments action does a Http POST operation to the API App. . 
+The QueryDocuments action does a Http POST operation to the API App. 
 
 The method called is **QueryForNewPatientDocuments**
 
@@ -563,7 +576,7 @@ The next action is to save the documents to Google Drive.
 
 The code is generated from action in the designer. You don't have to modify the code.
 
-If you are not familiar with using the Google Drive Api,  you can view the documentation [here](https://azure.microsoft.com/documentation/articles/create-api-googledrive/).
+If you are not familiar with using the Google Drive Api,  see [Get started with the Google Drive API](https://azure.microsoft.com/documentation/articles/create-api-googledrive/).
 
 #### Operations
 
@@ -689,7 +702,7 @@ The authorization parameters are in the trigger properties
 
 ```
 
-The emailBody is concatenating the number of Documents returned from the query, which can be "0" or more, along with,  "Records Found".  The rest of the parameters are set from the Trigger parameters.
+The emailBody is concatenating the number of Documents returned from the query, which can be "0" or more, along with, "Records Found". The rest of the parameters are set from the Trigger parameters.
 
 This action depends on the **GetDocuments** action.
 
@@ -741,17 +754,17 @@ Lastly you want to be able to see the results from your Logic App on the Azure P
 
 ```
 
-This returns the same value that is sent in the email body. The following figure shows an example where "37 Records Found"
-
+This returns the same value that is sent in the email body. The following figure shows an example where "37 Records Found".
 
 ![Results](./media/documentdb-change-notification/logic-app-run.png)
 
 ## Metrics
-You can configure Monitoring for the main Logic App in the portal. This would allow you to view the Run Latency and other events as show in the following figure.
+You can configure monitoring for the main Logic App in the portal. This enables you to view the Run Latency and other events as show in the following figure.
 
 ![](./media/documentdb-change-notification/metrics.png)
 
 ## DocDb Trigger
+
 This Logic App is the trigger that starts the workflow on your main Logic App.
 
 The following figure shows the Designer View.
@@ -853,7 +866,7 @@ Although there are several operations in the app, you are only going to use thre
 ### DocDBNotificationApi Operations
 Let's take a look at the Swagger documentation
 
-> NOTE: To allow you to call the operations externally, you need to add a CORS allowed origin value of "*" (without quotes) in the settings of your API App as shown in the following figure.
+> [AZURE.NOTE] To allow you to call the operations externally, you need to add a CORS allowed origin value of "*" (without quotes) in the settings of your API App as shown in the following figure.
 
 ![Cors Configuration](./media/documentdb-change-notification/cors.png)
 
@@ -981,7 +994,7 @@ This operation uses the DocumentDB NET SDK to create a document query;
      CreateDocumentQuery<Document>(collectionLink, filterQuery, options).AsEnumerable();
 ```
 
-The response from the ConvertToTimeStamp operation (unixTimeStamp) is passed in.   The operation returns a List of documents. IList<Document>
+The response from the ConvertToTimeStamp operation (unixTimeStamp) is passed in.   The operation returns a List of documents, IList<Document>.
 
 Previously we talked about the CallbackURL.  In order to start the workflow in you main Logic App, you will need to call it using the CallbackURL.
 
@@ -989,7 +1002,7 @@ Previously we talked about the CallbackURL.  In order to start the workflow in y
 
 To start off, you will need your Azure AD Token.  It can be difficult to get this token. I was looking for an easy method and Jeff Hollan, who is an Azure Logic App program manager, recommended using the [armclient](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) in Powershell.  You can install it following the directions provided.
 
-The operations you want to use are Login and Call ARM Api.
+The operations you want to use are Login and Call ARM API.
  
 Login: You use the same credentials for logging in to the Azure Portal. 
 
@@ -1048,14 +1061,19 @@ The following table lists the Trigger parameters that make up the body of the Do
 ---
 
 ## Summary
-* You have learned that it is possible, to implement Notifications in DocumentDB.
-* You discovered that by using Logic Apps, you can automate the process.
+
+In this walkthrough, you've learned the following:
+
+* It is possible to implement notifications in DocumentDB.
+* By using Logic Apps, you can automate the process.
 * By using Logic Apps, you can reduce the time it takes to deliver an application.
 * By using Http you can easy consume an API App within a Logic App.
-* How easy it is to create a CallBackURL that replaces the Http Listener.
-* How easy it is too create custom workflows with Logic Apps Designer
-* The key is to plan ahead and model your workflow.
+* You can easily create a CallBackURL that replaces the Http Listener.
+* You can easily create custom workflows with Logic Apps Designer.
+
+The key is to plan ahead and model your workflow.
 
 ## Next steps
-Please download and use the API and Logic app code provided on Github. I invite you to build on the application and submit changes to the repo. 
+Please download and use the Logic App code provided on [Github](https://github.com/HEDIDIN/DocDbNotifications). I invite you to build on the application and submit changes to the repo. 
+
 You are welcome to use the code as foundation for your own polling application.  I just created a basic application and there is always room for improvements.
