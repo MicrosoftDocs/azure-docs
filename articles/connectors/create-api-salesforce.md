@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/02/2016"
+ms.date="03/03/2016"
 ms.author="deonhe"/>
 
 # Get started with the Salesforce API
@@ -26,6 +26,8 @@ Connect to Salesforce and create objects, get objects, and more. The Salesforce 
 > [AZURE.SELECTOR]
 - [Logic apps](../articles/connectors/create-api-salesforce.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
+
+&nbsp; 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Salesforce connector](../app-service-logic/app-service-logic-connector-salesforce.md).
 
