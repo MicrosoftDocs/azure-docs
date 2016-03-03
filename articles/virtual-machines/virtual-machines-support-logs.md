@@ -27,6 +27,8 @@ These logs are listed in the following categories of VMs:
 
 • [Disk "Extended Information" for Linux VM](#linuxlog)
 
+Click [here](https://support.microsoft.com/kb/2598970) to see more information about the Microsoft Automated Troubleshooting Services and the Support Diagnostics Platform.
+
 <a id="windowslog"></a>
 
 ## Disk "Extended Information" for Windows VM
