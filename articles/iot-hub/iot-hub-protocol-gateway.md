@@ -21,8 +21,6 @@
 Azure IoT Hub natively supports communication over the AMQP, MQTT, and HTTP/1 protocols. In some cases, devices or field gateways might not be able to use one of these standard protocols and will require protocol adaptation. In such cases, you can use a custom gateway. A custom gateway can enable protocol adaptation for IoT Hub endpoints by bridging the traffic to and from IoT Hub. You can use the [Azure IoT protocol gateway](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) as a custom gateway to enable protocol adaptation for IoT Hub.
 
 ## Azure IoT protocol gateway
-Azure IoT protocol gateway is a framework for protocol adaptation designed for high-scale, bi-directional device communication with IoT Hub. The protocol gateway is a pass-through component accepting device connections over a specific protocol and bridging the traffic to IoT Hub over AMQP 1.0. 
-
 The Azure IoT protocol gateway is a framework for protocol adaptation that is designed for high-scale, bidirectional device communication with IoT Hub. The protocol gateway is a pass-through component that accepts device connections over a specific protocol. It bridges the traffic to IoT Hub over AMQP 1.0. The IoT protocol gateway is available as an open-source software project to provide flexibility for adding support for a variety of protocols and protocol versions.
 
 You can deploy the protocol gateway in Azure in a highly scalable way by using Azure Cloud Services worker roles. In addition, the protocol gateway can be deployed in on-premises environments, such as field gateways.
