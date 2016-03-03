@@ -55,8 +55,7 @@ You can configure security policies for your Azure subscriptions and resource gr
 
 3. On the **Security policy** blade, turn on **Data collection** to automatically collect logs. Turning on **Data collection** will also provision the monitoring extension on all current and new VMs in the subscription.
 4. Select **Choose a storage account per region**. For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. If you do not choose a storage account for each region, it will be created for you. The data that's collected is logically isolated from other customers’ data for security reasons.
-
-  > [AZURE.NOTE] We recommend that you turn on data collection and choose a storage account at the subscription level first.  Security policies can be set at the Azure subscription level and resource group level but configuration of data collection and storage account occurs at the subscription level only.
+ > [AZURE.NOTE] We recommend that you turn on data collection and choose a storage account at the subscription level first.  Security policies can be set at the Azure subscription level and resource group level but configuration of data collection and storage account occurs at the subscription level only.
 
 5. Turn on the **Recommendations** you’d like to see as part of your security policy. Examples:
 
