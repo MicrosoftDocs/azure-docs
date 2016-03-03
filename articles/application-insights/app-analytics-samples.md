@@ -202,7 +202,7 @@ on UnitOfWorkId
 ```
 
 <a name="concurrent-activities"><a/>
-# Chart concurrent sessions over time
+## Chart concurrent sessions over time
 
 Suppose we have a table of activities with their start and end times.  We'd like to see a chart over time that shows how many are running concurrently at any time.
 
