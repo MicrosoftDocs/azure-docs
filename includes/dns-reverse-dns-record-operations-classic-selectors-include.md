@@ -1,2 +1,2 @@
 > [AZURE.SELECTOR] 
-[PowerShell](DNS-reverse-dns-record-operations-classic-ps.md)
+[PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
