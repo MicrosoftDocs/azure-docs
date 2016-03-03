@@ -60,13 +60,13 @@ The following articles and scenarios provide task specific guidance:
 
 The following scenarios make use of ARM templates as a method for driving automation in your Key Vault work.
 
-- How to create a Key Vault and add a secret using an ARM template
+- **How to create a Key Vault and add a secret using an ARM template**
 In this scenario, a Key Vault secret is passed in as a parameter.
 [How to create a key vault and add a secret via an ARM template](resource-manager-template-keyvault.md)
 
-- How to use secrets in a Key Vault when deploying resources via an ARM template
+- **How to use secrets in a Key Vault when deploying resources via an ARM template**
 Creating a VM and passing in a secret (admin password). In this case, you are creating a VM and ARM passes an admin password to this VM as part of the template driven creation process. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
-**Note:** You must set the `EnabledForTemplateDeployment` permission on your key vault for this case. For more information on setting this permission see [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx).
+*Note:* You must set the `EnabledForTemplateDeployment` permission on your key vault for this case. For more information on setting this permission see [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx).
 
 ## Examples
 
