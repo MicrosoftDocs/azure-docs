@@ -288,29 +288,7 @@ Security credentials, such as symmetric keys, are never sent over the wire.
 
 > [AZURE.NOTE] The Azure IoT Hub resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager][lnk-azure-resource-manager].
 
-#### Security token format <a id="tokenformat"></a>
-
-The security token has the following format:
-
-	SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}
-
-These are the expected values:
-
-| Value | Description |
-| ----- | ----------- |
-| {signature} | An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to perform the HMAC-SHA256 computation. |
-| {resourceURI} | URI prefix (by segment) of the endpoints that can be accessed with this token. For example, `/events` |
-| {expiry} | UTF8 strings for number of seconds since the epoch 00:00:00 UTC on 1 January 1970. |
-| {URL-encoded-resourceURI} | Lower case URL-encoding of the lower case resource URI |
-| {policyName} | The name of the shared access policy to which this token refers. Absent in the case of tokens referring to device-registry credentials. |
-
-**Note on prefix**: The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
-
-You can find implementations of the signature algorithm in the IoT device and service SDKs:
-
-* [IoT service SDK for Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/service/iothub-service-sdk/src/main/java/com/microsoft/azure/iot/service/auth)
-* [IoT device SDK for Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/device/iothub-java-client/src/main/java/com/microsoft/azure/iothub/auth)
-* [IoT device and service SDKs for Node.js](https://github.com/Azure/azure-iot-sdks/blob/master/node/common/core/lib/shared_access_signature.js)
+Refer to the [IoT Hub security tokens][lnk-sas-tokens] article, for more information.
 
 #### Protocol specifics
 
@@ -327,7 +305,7 @@ For SASL PLAIN, the **username** can be:
 * `{policyName}@sas.root.{iothubName}` in the case of hub-level tokens.
 * `{deviceId}` in the case of device-scoped tokens.
 
-In both cases, the password field contains the token, as described in the [Token format](#tokenformat) section.
+In both cases, the password field contains the token, as described in the [IoT Hub security tokens][lnk-sas-tokens] article.
 
 When using MQTT, the CONNECT packet has the deviceId as the ClientId, {iothubhostname}/{deviceId} in the Username field and a SAS token in the Password field. {iothubhostname} should be the full CName of the IoT hub (for example, contoso.azure-devices.net).
 
@@ -342,7 +320,7 @@ When using SASL PLAIN, a client connecting to an IoT hub can use a single token 
 
 ### Scoping hub-level credentials
 
-You can scope hub-level security policies by creating tokens with a restricted resource URI. For example, the endpoint to send device-to-cloud messages from a device is **/devices/{deviceId}/events**. You can also use a hub-level shared access policy with **DeviceConnect** permissions to sign a token whose resourceURI is **/devices/{deviceId}**, creating a token that is only usable to send devices on behalf of device **deviceId**.
+You can scope hub-level security policies by creating tokens with a restricted resource URI. For example, the endpoint to send device-to-cloud messages from a device is **/devices/{deviceId}/messages/events**. You can also use a hub-level shared access policy with **DeviceConnect** permissions to sign a token whose resourceURI is **/devices/{deviceId}**, creating a token that is only usable to send devices on behalf of device **deviceId**.
 
 This mechanism is similar to the [Event Hubs publisher policy][lnk-event-hubs-publisher-policy] and enables you to implement custom authentication methods as explained in the security section of [Design your solution][lnk-guidance-security].
 
@@ -615,6 +593,7 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
+[lnk-sas-tokens]: iot-hub-sas-tokens
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#field-gateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
