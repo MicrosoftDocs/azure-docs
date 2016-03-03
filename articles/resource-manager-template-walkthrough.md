@@ -28,13 +28,18 @@ Lets look at a very simple architecture:
 ![architecture](./media/resource-group-overview/arm_arch.png)
 
 The full template can be found in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) directly though this [link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules).
-Skipping the parameters and variables section of the template, we will go though each resource definition in the resources section.
 
 <a href="http://armviz.io/#/?load=https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json" target="_blank">
   <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
+Skipping the parameters and variables section of the template, we will go though each resource definition in the resources section.
+
+## API Versions
+Each resources has a different schema, and might be using a different api version. Check the [schema definitions](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) for the api version, or the [REST API reference](https://msdn.microsoft.com/en-us/library/azure/mt420159.aspx) for each resource provider. 
+
 ## Storage Account
+Create a storage account to be used by the virtual machines.
 ```json
     {
       "type": "Microsoft.Storage/storageAccounts",
@@ -46,4 +51,14 @@ Skipping the parameters and variables section of the template, we will go though
       }
     }
 ```
-
+## Availability Set
+Create an availaibty set for the virtual machines.
+```json
+   {
+      "type": "Microsoft.Compute/availabilitySets",
+      "name": "[variables('availabilitySetName')]",
+      "apiVersion": "2015-05-01-preview",
+      "location": "[resourceGroup().location]",
+      "properties": {}
+   }
+```
