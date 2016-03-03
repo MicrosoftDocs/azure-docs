@@ -42,12 +42,12 @@ The Adventure Works database supports standard online transaction processing sce
 
 Here's how to install the Adventure Works sample database.
 
-To install the Adventure Works sample database, you can restore an AdventureWorks2014.bak backup located in [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) on CodePlex. One way to restore the database is to run a T-SQL script in SQL Server Management Studio.
+To install the Adventure Works sample database, you can restore an AdventureWorks2014 backup located in [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) on CodePlex. One way to restore the database is to run a T-SQL script in SQL Server Management Studio.
 
-## Install Adventure Works sample database with a T-SQL script
+**Install Adventure Works sample database with a T-SQL script**
 
 1.	Create a folder named C:\DataCatalog_GetStarted. If you use another folder name, make sure you change the path in the T-SQL script below.
-2.	Download Adventure Works 2014 Full Database Backup.zip.
+2.	Download [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661).
 3.	Extract Adventure Works 2014 Full Database Backup.zip to C:\DataCatalog_GetStarted. The script below assumes that the backup file is located at C:\DataCatalog_GetStarted\Adventure Works 2014 Full Database Backup\AdventureWorks2014.bak.
 4.	From **SQL Server Management Studio**, on the **Standard** toolbar, click **New Query**.
 5.	Execute the following T-SQL code in the query window.
@@ -78,57 +78,58 @@ In this exercise you installed the Adventure Works sample database that is used 
 
 ## Exercise 2: Registering data sources
 
-In this exercise you use the Azure Data Catalog registration tool to register Adventure Works data sources with the catalog. Registration is the process of extracting key structural metadata – such as names, types, and locations – from the data source and the assets it contains, and copying that metadata to the catalog. The data sources and their data remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
+In this exercise you use the **Azure Data Catalog** registration tool to register Adventure Works data sources with the catalog. Registration is the process of extracting key structural metadata – such as names, types, and locations – from the data source and the assets it contains, and copying that metadata to the catalog. The data sources and their data remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
 
 ### Here’s how to register a data source
 
 1.	Go to https://azure.microsoft.com/services/data-catalog, and click **Get started**.
-2.	Log into the Azure Data Catalog portal, and click **Publish data**.
+2.	Log into the **Azure Data Catalog** portal, and click **Publish data**.
 
-![](media/data-catalog-get-started/data-catalog-publish-data.png)
+  ![](media/data-catalog-get-started/data-catalog-publish-data.png)
 
 3.	Click **Launch Application**.
 
-![](media/data-catalog-get-started/data-catalog-launch-application.png)
+  ![](media/data-catalog-get-started/data-catalog-launch-application.png)
 
 4. In the **Welcome** page, click **Sign in**, and enter your credentials.
 5. In the **Microsoft Azure Data Catalog** page, double click **SQL Server**, or click **SQL Server**, and **Next**.
 
-![](media/data-catalog-get-started/data-catalog-data-sources.png)
+  ![](media/data-catalog-get-started/data-catalog-data-sources.png)
 
 6.	Enter the SQL Server connection properties for AdventureWorks2014 (see example below), and click **CONNECT**.
 
-![](media/data-catalog-get-started/data-catalog-sql-server-connection.png)
+  ![](media/data-catalog-get-started/data-catalog-sql-server-connection.png)
 
 7.	The next page is where you register the metadata of your data source. In this example, you register **Production/Product** objects from the AdventureWorks Production namespace. Here’s how to do it:
 
-a.	In the **Server Hierarchy** tree, click **Production**.
+  a. In the **Server Hierarchy** tree, click **Production**.
 
+  ![](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
 
-![](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
+  b. Ctrl+click Product, ProductCategory, ProductDescription, and ProductPhoto.
 
-b.	Ctrl+click Product, ProductCategory, ProductDescription, and ProductPhoto.
+  c. Click the move selected arrow (**>**). This will move all selected Product objects into the **Objects to be registered** list.
 
-c.	Click the move selected arrow (**>**). This will move all selected Product objects into the **Objects to be registered** list.
+  ![](media/data-catalog-get-started/data-catalog-available-objects.png)
 
-![](media/data-catalog-get-started/data-catalog-available-objects.png)
+  d. In the **Add tags**, enter description, photo. This will add search tags for these data assets. Tags are a great way to help users find a registered data source.
 
-d.	In the **Add tags**, enter description, photo. This will add search tags for these data assets. Tags are a great way to help users find a registered data source.
+  ![](media/data-catalog-get-started/data-catalog-objects-register.png)
 
-![](media/data-catalog-get-started/data-catalog-objects-register.png)
+  e.	**Optional**: You can **Include a Preview**, and **Add a data source expert**.
 
-e.	**Optional**: You can **Include a Preview**, and **Add a data source expert**.
-f.	Click **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from Adventure Works are registered.
-g.	To see your registered data source objects, click **View Portal**. In the Azure Data Catalog portal, you can view data source objects in **Tiles** or a **List**.
+  f.	Click **REGISTER**. **Azure Data Catalog** registers your selected objects. In this exercise, the selected objects from Adventure Works are registered.
 
-   		![](media/data-catalog-get-started/data-catalog-view-portal.png)
+  g.	To see your registered data source objects, click **View Portal**. In the **Azure Data Catalog** portal, you can view data source objects in **Tiles** or a **List**.
+
+   ![](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 In this exercise you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization.
 In the next exercise you learn how to discover registered data assets.
 
 ## Exercise 3: Discovering Registered Data Assets
 
-In this exercise you will use the Azure Data Catalog portal to discover registered data assets and view their metadata. Azure Data Catalog provides multiple tools for discovering data assets, including simple keyword search, interactive filters, and an advanced search syntax for “power” users.
+In this exercise you will use the **Azure Data Catalog** portal to discover registered data assets and view their metadata. **Azure Data Catalog** provides multiple tools for discovering data assets, including simple keyword search, interactive filters, and an advanced search syntax for “power” users.
 
 ### Here’s how you discover registered data assets
 
@@ -163,7 +164,7 @@ In this example, you do a **Grouping** search for data assets where name equals 
 2. In the **Search Data Catalog** box, enter a **Grouping** as: query: (tags:description OR tags:photo).
 3. Click the search icon, or press Enter. **Azure Data Catalog** will display data assets for this search query.
 
-![](media/data-catalog-get-started/data-catalog-search-box.png)
+  ![](media/data-catalog-get-started/data-catalog-search-box.png)
 
 In this exercise you used the **Azure Data Catalog** portal to discover and view Adventure Works data assets registered with the catalog.
 
@@ -180,13 +181,13 @@ In this exercise you use the **Azure Data Catalog** portal to annotate data asse
 4. Enter a **Description** that will help others discover and understand why and how to use the selected data asset. For example, enter “Product images”. You can also add more tags, and view columns.
 5. Now you can try searching and filtering to discover data assets using the descriptive metadata you’ve added to the catalog.
 
-![](media/data-catalog-get-started/data-catalog-annotate.png)
+  ![](media/data-catalog-get-started/data-catalog-annotate.png)
 
 In this exercise you added descriptive information to registered data assets so that catalog users can discover data sources using terms they understand.
 
 ## Exercise 5: Crowdsourcing metadata
 
-In this exercise you work with another user to add metadata to data assets in the catalog. Azure Data Catalog’s crowdsourced approach to annotations allows any user to add tags, descriptions, and other metadata, so that any user with a perspective on a data asset and its use can have that perspective captured and available to other users.
+In this exercise you work with another user to add metadata to data assets in the catalog. **Azure Data Catalog’s** crowdsourced approach to annotations allows any user to add tags, descriptions, and other metadata, so that any user with a perspective on a data asset and its use can have that perspective captured and available to other users.
 
 > [AZURE.NOTE] If you don’t have another user to work with on this tutorial, don’t worry! Any user who accesses the data catalog can add his own perspective when he chooses to do so. This crowdsourcing approach to metadata allows the contents of the catalog and the richness of the catalog’s metadata to grow over time.
 
@@ -196,7 +197,7 @@ Ask a colleague to repeat the [Annotating Registered Data Sources](#annotating) 
 
 ![](media/data-catalog-get-started/data-catalog-crowdsource.png)
 
-In this exercise you explored Azure Data Catalog’s capabilities for crowdsourced metadata, where any catalog user can annotate the data assets he discovers.
+In this exercise you explored **Azure Data Catalog’s** capabilities for crowdsourced metadata, where any catalog user can annotate the data assets he discovers.
 
 ## Exercise 6: Connecting to data sources
 
@@ -211,7 +212,7 @@ In this exercise you will use the **Azure Data Catalog** portal to connect to a 
 3. Choose a data asset. In this example, choose ProductCategory.
 4. Choose **Open In** > **Excel**.
 
-![](media/data-catalog-get-started/data-catalog-connect1.png)
+  ![](media/data-catalog-get-started/data-catalog-connect1.png)
 
 5. In the **Microsoft Excel Security Notice** window, click **Enable**.
 6. Open the **ProductCategory.odc** file.
@@ -253,7 +254,7 @@ In **Azure Data Catalog**, you can take ownership of data assets, add co-owners 
 4. In the **Properties** panel, **Management** section, click **Take Ownership**.
 5. To restrict visibility, click **Owners & These Users**.
 
-       ![](media/data-catalog-get-started/data-catalog-ownership.png)
+  ![](media/data-catalog-get-started/data-catalog-ownership.png)
 
 In this exercise you explored the management capabilities of **Azure Data Catalog**, and restricted visibility on selected data assets.
 
