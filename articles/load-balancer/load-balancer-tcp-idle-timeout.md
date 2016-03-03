@@ -161,7 +161,7 @@ Update the configuration of the specified load-balanced input endpoints on all V
 
 [Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started Configuring an Internet facing load balancer](load-balancer-internet-getstarted.md)
+[Get started Configuring an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md)
 
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
