@@ -19,7 +19,7 @@
 
 ## Overview
 
-The following release notes identify the critical open issues for the March 2016 general availability (GA) release of the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device). 
+The following release notes identify the critical open issues for the March 2016 general availability (GA) release of the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device). This release corresponds to software version 10.0.10271.0.
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes. 
 
