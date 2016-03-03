@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/02/2016"
+ms.date="03/03/2016"
 ms.author="deonhe"/>
 
 # Get started with the Office 365 Users API
@@ -27,6 +27,8 @@ Connect to Office 365 Users to get profiles, search users, and more. The Office 
 > [AZURE.SELECTOR]
 - [Logic apps](../articles/connectors/create-api-office365-users.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-users.md)
+
+&nbsp; 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Office 365 API](../app-service-logic/app-service-logic-connector-office365.md).   
 
