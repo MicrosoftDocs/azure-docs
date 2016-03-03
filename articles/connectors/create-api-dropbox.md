@@ -15,14 +15,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Get started with the Dropbox API 
 Connect to Dropbox to manage files, such us create files, get files, and more. The Dropbox API can be be used from:
 
-- PowerApps  
 - Logic apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic apps](../articles/connectors/create-api-dropbox.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
 
 With Dropbox, you can: 
 
