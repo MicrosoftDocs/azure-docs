@@ -37,11 +37,11 @@ In the cloud, an IoT solution back end is where most of the data processing in t
 - Provides device registration capabilities that enable you to provision devices and to control which devices are permitted to connect to your infrastructure.
 - Enables you to track the state of your devices and monitor their activities.
 
-IoT solutions can include automatic feedback loops. For example, a machine learning module in the back end can identify from telemetry that the temperature of a specific device is above normal operating levels and then send a command to the device, enabling it to take corrective action.
+IoT solutions can include automatic feedback loops. For example, an analytics module in the back end can identify from telemetry that the temperature of a specific device is above normal operating levels and then send a command to the device, enabling it to take corrective action.
 
-### Presentation
+### Presentation and business connectivity
 
-Many IoT solutions enable users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports that enable human operators to act on the data. For example, an operator can check on the status of particular shipping trucks and see any alerts raised by the system.
+The presentation and business connectivity layer allows end users to interact with the IoT solution and the devices. It enables users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports. For example, an operator can check on the status of particular shipping trucks and see any alerts raised by the system. This layer also allows integration of the IoT solution back end with existing line-of-business applications to tie into enterprise business processes or workflows.
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 
