@@ -1,5 +1,5 @@
 <properties
-pageTitle="Add the Excel API in PowerApps Enterprise and Logic Apps | Microsoft Azure"
+pageTitle="Add the Excel API in PowerApps Enterprise | Microsoft Azure"
 description="Overview of the Excel API with REST API parameters"
 services=""	
 documentationCenter="" 	
@@ -14,26 +14,20 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/18/2016"
+ms.date="02/25/2016"
 ms.author="deonhe"/>
 
 # Get started with the Excel API
 
-Excel Connector
+Connect to Excel to insert a row, delete a row, and more. The Excel API can be be used from:
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version of this connector, click [Excel](../app-service-logic/app-service-logic-connector-Excel.md).
+- PowerApps
 
->[AZURE.TIP] "Connector" and "API" are used interchangeably.
+With Excel, you can:
 
-With the Excel connector, you can:
-
-* Use it to build logic apps
-* Use it to build power apps
-
+- Add the Excel API to PowerApps Enterprise. Then, your users can use this API within their apps. 
 
 For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
-
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 Excel includes the following action. There are no triggers. 
@@ -44,22 +38,11 @@ Excel includes the following action. There are no triggers.
 
 All APIs support data in JSON and XML formats. 
 
-
-## Create a connection to Excel
-To use the Excel API, you first create a **connection** then provide the details for these properties: 
-
-|Property| Required|Description|
-| ---|---|---|
-|fileSource|Yes|Provide a Connection to file source|  
-
->[AZURE.TIP] You can use this connection in other logic apps.
-
 ## Swagger REST API reference
-#### This documentation is for version: 1.0
-
+Applies to version: 1.0.
 
 ### Inserts a new row into an Excel table
-**```POST: /datasets/{dataset}/tables/{table}/items```** 
+```POST: /datasets/{dataset}/tables/{table}/items``` 
 
 
 
@@ -70,18 +53,18 @@ To use the Excel API, you first create a **connection** then provide the details
 |item| |yes|body|none|Row to insert into the specified Excel table|
 
 
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
+
 
 
 
 ### Retrieves a single row from an Excel table
-**```GET: /datasets/{dataset}/tables/{table}/items/{id}```** 
+```GET: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
@@ -92,18 +75,18 @@ To use the Excel API, you first create a **connection** then provide the details
 |id|string|yes|path|none|Unique identifier of row to retrieve|
 
 
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
+
 
 
 
 ### Deletes a row from an Excel table
-**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```** 
+```DELETE: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
@@ -114,18 +97,18 @@ To use the Excel API, you first create a **connection** then provide the details
 |id|string|yes|path|none|Unique identifier of the row to delete|
 
 
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
+
 
 
 
 ### Updates an existing row in an Excel table
-**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```** 
+```PATCH: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
@@ -137,17 +120,17 @@ To use the Excel API, you first create a **connection** then provide the details
 |item| |yes|body|none|Row with updated values|
 
 
-### Here are the possible responses:
+### Response
 
 |Name|Description|
 |---|---|
 |200|OK|
 |default|Operation Failed.|
-------
 
 
 
-## Object definition
+
+## Object definitions
 
 #### DataSetsMetadata
 
