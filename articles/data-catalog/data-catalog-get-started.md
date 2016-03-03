@@ -18,7 +18,7 @@
 
 # Get started with Azure Data Catalog
 
-This article is an end-to-end tutorial of the scenarios and capabilities of Azure Data Catalog public preview. Once you sign up for the preview, follow these steps to create a Data Catalog, and register, annotate, and discover data sources.
+This article is an end-to-end tutorial of the scenarios and capabilities of **Azure Data Catalog** public preview. Once you sign up for the preview, follow these steps to create a Data Catalog, and register, annotate, and discover data sources.
 
 ## Tutorial prerequisites
 
