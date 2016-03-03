@@ -38,12 +38,12 @@ This article provides the information you will need to open a ticket with Azure 
 
 3. In the **Problem** blade, provide the following information:
 
- * **Severity**, choose an option that represents the severity of your request. For more information about the severity types, refer to the [Microsoft Azure Incident Severity Table](http://support.microsoft.com/gp/AzureSevDetails).
- * **Problem type**, choose a problem type.
- * **Details**, provide an incident title for your request and then use the text boxes provide required information and to include any additional information about your request.
- * **Time frame** (Optional), if possible, provide date, time and time zone information for the most recent occurrence of your issue.
+ * **Severity**. Choose an option that represents the severity of your request. For more information about the severity types, see to the [Microsoft Azure Incident Severity Table](http://support.microsoft.com/gp/AzureSevDetails).
+ * **Problem type**. Choose a problem type.
+ * **Details**. Provide an incident title for your request and then use the text boxes provide required information and to include any additional information about your request.
+ * **Time frame** (optional). If possible, provide date, time and time zone information for the most recent occurrence of your issue.
  * Use the **File Upload** tool to attach related documentation to your request.
 
-4. In the **Contact Information** blade, check the contact information, choose your preferred contact method, and then click **Create**.
+4. In the **Contact Information** blade, verify your contact information and preferred contact method, and then click **Create**.
 
 You will be contacted by an Azure Support representative in accordance with the terms of the agreement.
