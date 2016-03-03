@@ -36,7 +36,7 @@ There are many approaches that can be used to setup the prerequisites and to con
 
 > [AZURE.NOTE] To learn more about alternate approaches to configuring encryption for Azure virtual machines, please see [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 
-## Install and Configure Azure PowerShell
+## Install and configure Azure PowerShell
 You need Azure PowerShell version 1.2.1 or above installed on your computer. The article [How to install and configure Azure PowerShell](../powershell-install-configure.md) contains all the steps you need to provision your computer to work with Azure PowerShell. The most straightforward approach is to use the Web PI installation approach mentioned in that article. Even if you already have Azure PowerShell installed, install again using the Web PI approach so that you have the latest version of Azure PowerShell.
 
 
@@ -48,11 +48,11 @@ The Azure Disk Encryption Prerequisites Configuration Script will set up all the
 3.	Use **CTRL-A** to select all the text on the page and then use **CTRL-C** to copy all the text on the page to the clipboard.
 4.	Open **Notepad** and paste the copied text into Notepad. 
 5.	Create a new folder on your C: drive named **AzureDiskEncryptionScript**.
-6.	Save the Notepad file – click **File**, then click **Save As**. In the File name textbox, enter **“ADEPrereqScript.ps1”** and click **Save**. (make sure you put the quotation marks around the name, otherwise it will have the file with a .txt file extension). 
+6.	Save the Notepad file – click **File**, then click **Save As**. In the File name textbox, enter **“ADEPrereqScript.ps1”** and click **Save**. (make sure you put the quotation marks around the name, otherwise it will save the file with a .txt file extension). 
 
 Now that the script content is saved, open the script in the PowerShell ISE:
 
-1.	In the Start Menu, click **Cortana**. Ask **Cortana** “PowerShell” by typing **PowerShell** in to the Cortana search text box. 
+1.	In the Start Menu, click **Cortana**. Ask **Cortana** “PowerShell” by typing **PowerShell** in the Cortana search text box. 
 2.	Right click **Windows PowerShell ISE** and click **Run as administrator**.
 3.	In the **Administrator: Windows PowerShell ISE** window, click **View** and then click **Show Script Pane**. 
 4.	If you see the **Commands** pane on the right side of the window, click the **“x”** in the top right corner of the pane to close it. If the text is too small for you to see, use **CTRL+Add** (“Add” is the “+” sign). If the text is too large, use **CTRL+Subtract** (Subtract is the “-“ sign). 
@@ -65,7 +65,7 @@ You should now see something like the figure below.
 
 The top pane is referred to as the “script pane” and the bottom pane is referred to as the “command pane”. We will use these terms later in this article. 
 
-## Run the Azure Disk Encryption Prerequisites PowerShell command
+## Run the Azure disk encryption prerequisites PowerShell command
 
 The Azure Disk Encryption Prerequisites script will ask you for the following information after you start the script:
 
@@ -82,7 +82,7 @@ Perform the following steps to encrypt an Azure Virtual Machine:
 2.	In the command pane of the PowerShell ISE (the bottom pane of the PowerShell ISE), change the focus to the local of the script by typing **cd c:\AzureADEScript** and press **ENTER**.
 3.	Set the Execution Policy on your machine so that you can run the script. Type **Set-ExecutionPolicy Unrestricted** in the command pane and then press ENTER. If you see a dialog box telling about the effects of the change to Execution Policy, click either **Yes to all** or **Yes** (if you see **Yes to all**, select that option – if you do not see **Yes to all**, then click **Yes**). 
 4.	Log into your Azure account. In the command pane, type **Login-AzureRmAccount** and press **ENTER**. A dialog box will appear in which you enter your credentials (make sure you have rights to change the virtual machines – if you do not have rights, you will not be able to encrypt them. If you are not sure, ask your subscription owner or administrator). You should see information about your **Environment**, **Account**, **TenantId**, **SubscriptionId** and **CurrentStorageAccount**. Copy the **SubscriptionId** to notepad. You will need to use this in step #6.
-5.	Find what subscription your virtual machine belongs to and its location. Go to https://portal.azure.com and log in.  On the left side of the page, click **Virtual Machines**. You will see a list of your virtual machines and the subscriptions they belong to.
+5.	Find what subscription your virtual machine belongs to and its location. Go to [https://portal.azure.com](ttps://portal.azure.com) and log in.  On the left side of the page, click **Virtual Machines**. You will see a list of your virtual machines and the subscriptions they belong to.
 
 	![Virtual Machines](./media/security-center-disk-encryption\security-center-disk-encryption-fig3.png)
 
@@ -103,7 +103,7 @@ The output of the script should look something like the screen below:
 
 ![PowerShell output](./media/security-center-disk-encryption\security-center-disk-encryption-fig5.png)
 
-## Encrypt the Azure Virtual Machine 
+## Encrypt the Azure virtual machine 
 
 You are now ready to encrypt your virtual machine. If your virtual machine is located in the same Resource Group as your Azure Key Vault, you can move on to the encryption steps section. However, if your virtual machine is not in the same Resource Group as your Key Vault, you will need to enter the following in the command pane in the PowerShell ISE:
 
@@ -118,7 +118,7 @@ Press **ENTER**. You should see the name of Resource Group that your Azure Virtu
 
 ![PowerShell output](./media/security-center-disk-encryption\security-center-disk-encryption-fig6.png)
 
-### Encryption Steps
+### Encryption steps
 
 First, you need to tell PowerShell the name of the virtual machine you want to encrypt. In the command pane, type:
 
@@ -148,7 +148,7 @@ The second method is to click in the script pane (the top pane of the PowerShell
 
 Regardless of the method you use, a dialog box will appear informing you that it will take 10-15 minutes for the operation to complete. Click **Yes**. 
 
-While the encryption process is taking place, you can return to the Azure Portal and see the status of the virtual machine. On the left side of the page, click **Virtual Machines**, then in the **Virtual Machines** blade, click the name of the virtual machine you’re encrypting. In the blade that appears, you’ll notice that the Status says that it’s Updating. This demonstrates that encryption is in process. 
+While the encryption process is taking place, you can return to the Azure Portal and see the status of the virtual machine. On the left side of the page, click **Virtual Machines**, then in the **Virtual Machines** blade, click the name of the virtual machine you’re encrypting. In the blade that appears, you’ll notice that the **Status** says that it’s **Updating**. This demonstrates that encryption is in process. 
 
 ![More details about the VM](./media/security-center-disk-encryption\security-center-disk-encryption-fig9.png)
 
@@ -167,7 +167,7 @@ On the **Disks** blade, you will see that **Encryption** is **Enabled**.
 
 ## Next steps
 
-In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
+In this document, you learned how to encrypt an Azure Virtual Machine. To learn more about Azure Security Center, see the following:
 
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md) – Learn how to monitor the health of your Azure resources
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts
