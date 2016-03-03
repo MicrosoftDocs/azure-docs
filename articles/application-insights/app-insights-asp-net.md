@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights for ASP.NET" 
-	description="Analyze performance, availability and usage patterns of your on-premises or Microsoft Azure web application by using Application Insights." 
+	pageTitle="Web app analytics for ASP.NET with Application Insights" 
+	description="Performance, availability and usage analytics for your ASP.NET website, hosted on-premises or in Azure." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-The Application Insights SDK sends telemetry from your live web application to the Azure portal, where you can sign in and see charts of your app's performance and usage. 
+The Application Insights SDK sends analytics telemetry from your live web application to the Azure portal, where you can sign in and see charts of your app's performance and usage. 
 
 ![Example performance monitoring charts](./media/app-insights-asp-net/10-perf.png)
 
