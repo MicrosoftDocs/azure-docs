@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/08/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;jrj;nicw;sonyama"/>
 
 # Performance and scale overview
