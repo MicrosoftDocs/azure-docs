@@ -135,7 +135,7 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 |    | North Europe | 12076:51003 |
 |    | West Europe | 12076:51002 |
 |    | UK North    | 12076:51022 |
-|    | UK South    | 12076:51023 |
+|    | UK South 2 | 12076:51023 |
 | **Asia Pacific** |    |   |
 |    | East Asia | 12076:51010 |
 |    | Southeast Asia | 12076:51011 |
