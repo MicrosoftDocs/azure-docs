@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
+   ms.date="02/29/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using .NET SDK
@@ -32,6 +32,21 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 * Visual Studio 2013 or 2015. The instructions below use Visual Studio 2015.
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
+* Create an Azure Active Directory (AAD) application and retrieve it's **Client ID** and and the **Reply URI**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md). The Reply URI will also be available from the portal once you have the application created.
+
+## How do I authenticate using Azure Active Directory?
+
+The code snippet below provides two methods for authentication:
+
+* **Interactive**, where a user-signs in using the application. This is implemented in the method `AuthenticateUser` in the code snippet below.
+
+* **Non-interactive**, where the application provides its own credentials. This is implemented in the method `AuthenticateAppliaction`  in the code snippet below.
+
+Even though the code snippet below provides methods for both the approaches, this article uses the `AuthenticateUser` method. This method requires you to provide the AAD application client ID and the reply URI. The link in the prerequisite provides instructions on how to obtain these.
+
+>[AZURE.NOTE] If you want to modify the code snippet and use the `AuthenticateApplication` method instead, you must also provide client authentication key, in addition to the client ID and the client reply URI, as inputs to the method. The article [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) also provides information on how to generate and retrieve the client authentication key.
+
+
 
 ## Create a .NET application
 
@@ -55,15 +70,19 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 	2. In the **Nuget Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include Prerelease** check box is selected.
 	3. Search for and install the following Data Lake Store packages:
 	
-		* Microsoft.Azure.Management.DataLake.Store
-		* Microsoft.Azure.Management.DataLake.StoreUploader
-        * Microsoft.IdentityModel.Clients.ActiveDirectory
+		* `Microsoft.Azure.Management.DataLake.Store`
+		* `Microsoft.Azure.Management.DataLake.StoreUploader`
 
 		![Add a Nuget source](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
 
-	4. Close the **Nuget Package Manager**.
+	4. Also install the `Microsoft.IdentityModel.Clients.ActiveDirectory` package for Azure Active Directory authentication.
 
-7. Open **Program.cs** and replace the existing code block with the following code. Also, provide the values for parameters in the code snippet, such as subscriptionId, dataLakeAccountName, and localPath. 
+		![Add a Nuget source](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "Create a new Azure Data Lake account")
+
+
+	5. Close the **Nuget Package Manager**.
+
+7. Open **Program.cs** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as **_adlsAccountName**, **_resourceGroupName** and replace placeholders for **APPLICATION-CLIENT-ID**, **APPLICATION-REPLY-URI**, and **SUBSCRIPTION-ID**. 
 
 	This code goes through the process of creating a Data Lake Store account, creating folders in the store, uploading files, downloading files, and finally deleting the account. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 	
@@ -103,10 +122,8 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
                     string remoteFilePath = remoteFolderPath + "file.txt";
                     
                     // Authenticate the user
-                    // For more information about applications and instructions on how to get a client ID, see: 
-                    //   https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
                     var tokenCreds = AuthenticateUser("common", "https://management.core.windows.net/",
-                        "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REDIRECT-URI>")); // TODO: Replace bracketed values.
+                        "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REPLY-URI>")); // TODO: Replace bracketed values.
                     
                     SetupClients(tokenCreds, "<SUBSCRIPTION-ID>"); // TODO: Replace bracketed value.
 
@@ -300,6 +317,6 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 ## Next steps
 
 - [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-- [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
+- [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
