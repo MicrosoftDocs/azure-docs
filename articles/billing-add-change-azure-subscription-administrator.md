@@ -33,7 +33,6 @@ There are three kinds of administrator roles in Microsoft Azure:
 
 **Azure new portal**
 
-
 1. Sign in to the [Azure new portal](https://portal.azure.com/).
 
 2. On the Hub menu, Select **Subscription** > *the subscription that you want the admin to access*.
@@ -50,7 +49,7 @@ There are three kinds of administrator roles in Microsoft Azure:
 
 	![newadduser](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
 
-**Azure classical portal**
+**Azure classic portal**
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/).
 
