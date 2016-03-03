@@ -108,7 +108,7 @@ Mobile app as a second factor|* | * | *
 Phone call as a second factor|* | * | *
 SMS as a second factor|* | * | *
 App passwords for clients that don't support MFA|* | * | *
-Admin control over authentication methods| | | *
+Admin control over authentication methods| (Public Preview)|(Public Preview) | *
 PIN mode| | | *
 Fraud alert| | | *
 MFA Reports| | | *
@@ -120,7 +120,7 @@ Trusted IPs| | | *
 Remember MFA for trusted devices |* | * | *
 MFA SDK| | | *
 MFA for on-premises applications using MFA server| | | *
-Selectable verification options (Public Preview)|* | * | *
+
 
 
 ## How to get Azure Multi-Factor Authentication
@@ -201,7 +201,7 @@ One-Time Bypass | ● | ●
 Custom greetings for phone calls | ● | ●
 Customizable caller ID for phone calls | ● | ●
 Trusted IPs | ● | ●
-Remember MFA for trusted devices (Public Preview) | ● |  
+Remember MFA for trusted devices| ● |  
 Conditional access | ● | ●
 Cache | ● | ●
 
