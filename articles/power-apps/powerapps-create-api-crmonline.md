@@ -23,7 +23,7 @@
 - [Logic apps](../articles/connectors/create-api-crmonline.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-crmonline.md)
 
-When you add the Dynamics CRM Online API, you add the API to your organization's (tenant) app service environment. 
+Add the Dynamics CRM Online API to your organization's (tenant) app service environment. 
 
 ## Create the API in the Azure portal
 
