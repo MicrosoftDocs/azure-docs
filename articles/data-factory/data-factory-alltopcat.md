@@ -1,6 +1,6 @@
 <properties
 	pageTitle="All topics for Data Factory service | Microsoft Azure"
-	description="Table of all topics for the Azure service named Data Factory that exist on http://azure.microsoft.com/documentation/articles/, Title and description."
+	description="List of all topics for the Azure Data Factory service that exist on http://azure.microsoft.com/documentation/articles/, Title and description."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
