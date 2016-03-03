@@ -34,8 +34,6 @@ Let's get started installing the Adventure Works sample database.
 
 In this exercise, you install the Adventure Works sample for SQL Server Database Engine. These samples are used in the exercises that follow.
 
-Here are the steps to install Adventure Works.
-
 ### Install the Adventure Works 2014 OLTP database
 
 The Adventure Works database supports standard online transaction processing scenarios for a fictitious bicycle manufacturer (Adventure Works Cycles) which includes Products, Sales, and Purchasing. In this tutorial you register information about products into **Azure Data Catalog**.
