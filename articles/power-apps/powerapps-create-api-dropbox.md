@@ -23,7 +23,7 @@
 - [Logic apps](../articles/connectors/create-api-dropbox.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
 
-When you add the Dropbox API, you add the API to your organization's (tenant) app service environment. 
+Add the Dropbox API to your organization's (tenant) app service environment. 
 
 ## Create the API in the Azure portal
 
