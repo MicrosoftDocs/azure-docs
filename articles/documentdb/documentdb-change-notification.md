@@ -1039,36 +1039,6 @@ sendgridPassword | The user name for Send Grid email
 EmailTo | The email address that will receive the email notification
 Subject | The Subject for the email
 
-<pre><table>
-  <tr>
-	<th>Parameter</th>
-	<th>Description</th>
-  </tr>
-  <tr>
-	<td>GetUtcDate_HoursBack</td>
-	<td>Used to set the number of hours for the search start date </td>
-  </tr>
-  <tr>
-	<td>sendgridUsername</td>
-	<td>The user name for Send Grid email</td>
-  </tr>
-  <tr>
-	<td>sendgridPassword</td>
-	<td>The password for the Send Grid email</td>
-  </tr>
-  <tr>
-	<td>EmailTo</td>
-	<td>The email address that will receive the email notification </td>
-  </tr>
-    <tr>
-	<td>Subject</td>
-	<td>The Subject for the email</td>
-  </tr>
-  </table>
-</pre>
-  
----
-
 ## Summary
 
 In this walkthrough, you've learned the following:
