@@ -98,7 +98,7 @@ If you don't validate claims in code in the protected API app, and if you use a 
 
 If you are following the Node.js or Java getting-started series for API apps, skip to the [Next steps](#next-steps) section. 
 
-The remainder of this article continues the .NET getting-started series for API apps and assumes that you have completed the [user authentication tutorial](app-service-api-user-principal-auth.md) and have the sample application running in Azure with user authentication enabled.
+The remainder of this article continues the .NET getting-started series for API apps and assumes that you have completed the [user authentication tutorial](app-service-api-dotnet-user-principal-auth.md) and have the sample application running in Azure with user authentication enabled.
 
 ## Set up authentication in Azure
 
@@ -391,4 +391,4 @@ For more information about Azure Active Directory, see the following resources.
 * [Azure AD scenarios](http://aka.ms/aadscenarios)
 * [Azure AD samples](http://aka.ms/aadsamples) The [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) sample is similar to what is shown in this tutorial, but without using App Service authentication.
 
-For information about other ways to deploy Visual Studio projects to API apps, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to deploy an Azure App Service app](web-sites-deploy.md).
+For information about other ways to deploy Visual Studio projects to API apps, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to deploy an Azure App Service app](../app-service-web/web-sites-deploy.md).
