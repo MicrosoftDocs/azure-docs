@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="03/03/2016"
 	ms.author="jgao"/>
 
 #Use Sqoop with Hadoop in HDInsight (Windows)
@@ -72,29 +72,30 @@ mobile device data back to HDInsight by using the following path:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    The ARM template is located in a public blob container with the URL *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json*. 
+    The ARM template is located in a public blob container, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json*. 
     
-    The ARM template calls a bacpac package to deploy the table schemas.  The bacpac is also located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values:
+    The ARM template calls a bacpac package to deploy the table schemas to SQL database.  The bacpac package is also located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
     
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
     
 2. From the Parameters blade, enter the following:
 
-    - ClusterName: Enter a name for the Hadoop cluster that you will create.
-    - Cluster login name and password: The default login name is admin.
-    - SSH user name and password.
-    - SQL database server login name and password.
+    - **ClusterName**: Enter a name for the Hadoop cluster that you will create.
+    - **Cluster login name and password**: The default login name is admin.
+    - **SSH user name and password**.
+    - **SQL database server login name and password**.
 
     The following values are hardcoded in the variables section:
     
     |Default storage account name|<CluterName>store|
+    |----------------------------|-----------------|
     |Azure SQL database server name|<ClusterName>dbserver|
     |Azure SQL database name|<ClusterName>db|
     
-    Please make a note of these values.  You will need them later in the tutorial.
+    Please write down these values.  You will need them later in the tutorial.
     
-3.Click **OK to save the parameters.
+3.Click **OK** to save the parameters.
 
 4.From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group. The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
 
@@ -127,7 +128,7 @@ If you choose to use existing Azure SQL database or Microsoft SQL Server
 
 ## Run Sqoop using PowerShell
 
-The following PowerShell script pre-processes the source file, and export it to an Azure SQL database:
+The following PowerShell script pre-processes the source file, and exports it to an Azure SQL database:
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $hdinsightClusterName = "<HDInsightClusterName>"
@@ -211,7 +212,6 @@ The following PowerShell script pre-processes the source file, and export it to 
     $destBlob.UploadFromStream($memStream)
         
     #endregion
-
         
     #region - export the log file from the cluster to the SQL database
         
@@ -249,7 +249,6 @@ The following PowerShell script pre-processes the source file, and export it to 
     Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardError
     Write-Host "Standard Output" -BackgroundColor Green
     Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardOutput
-        
     #endregion
 
 ## Run Sqoop using .NET SDK
