@@ -18,11 +18,9 @@
 
 
 # Azure AD Connect sync: Synchronization Service Manager
-> [AZURE.SELECTOR]
-- [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md)
-- [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md)
-- [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
-- [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+
+| [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
+| --- | --- | --- | --- |
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvdesigner.png)
 
