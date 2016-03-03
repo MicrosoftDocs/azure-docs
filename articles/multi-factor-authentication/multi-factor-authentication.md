@@ -197,13 +197,13 @@ Admin control over authentication methods |  | ●
 PIN mode |  | ●
 Fraud alert | ● | ●
 MFA Reports | ● | ●
-One-Time Bypass | ● | ●
+One-Time Bypass |  | ●
 Custom greetings for phone calls | ● | ●
 Customizable caller ID for phone calls | ● | ●
 Trusted IPs | ● | ●
 Remember MFA for trusted devices| ● |  
 Conditional access | ● | ●
-Cache | ● | ●
+Cache | | ●
 
 Now that we have determined whether to use cloud multi-factor authentication or the MFA Server on-premises, we can get started setting up and using Azure Multi-Factor Authentication.   **Select the icon that represents your scenario!**
 
