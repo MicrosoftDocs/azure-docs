@@ -1,5 +1,5 @@
 
-If you have been facing difficulties [troubleshooting Remote Desktop (RDP) connection to Windows based Azure virtual machine](../articles/virtual-machines/virtual-machines-troubleshoot-remote-desktop-connections.md) or in [troubleshooting SSH connection to Linux based Azure virtual machine](../articles/virtual-machines/virtual-machines-troubleshoot-ssh-connections.md), then this article will help you mitigate them all by yourself, without looping in support and resizing the virtual machine.  Microsoft Azure will redeploy your virtual machine when you invoke redeploy operation through Azure PowerShell. 
+If you have been facing difficulties troubleshooting Remote Desktop (RDP) connection to Windows based Azure virtual machine or in troubleshooting SSH connection to Linux based Azure virtual machine, then this article will help you mitigate them all by yourself, without looping in support and resizing the virtual machine.  Microsoft Azure will redeploy your virtual machine when you invoke redeploy operation through Azure PowerShell. 
 
 Please note that after this operation is completed, ephemeral disk data will be lost and dynamic IP addresses associated with virtual machine will be updated. 
 
