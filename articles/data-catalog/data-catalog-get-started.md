@@ -32,7 +32,7 @@ Let's get started installing the Adventure Works sample database.
 
 ## Exercise 1: Install Adventure Works sample database
 
-In this exercise, you install the Adventure Works sample for SQL Server Database Engine. These samples are used in the exercises that follow.
+In this exercise, you install the Adventure Works sample for SQL Server Database Engine which is used in the exercises that follow.
 
 ### Install the Adventure Works 2014 OLTP database
 
