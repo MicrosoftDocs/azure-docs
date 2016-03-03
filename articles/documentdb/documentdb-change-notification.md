@@ -576,7 +576,7 @@ The next action is to save the documents to Google Drive.
 
 The code is generated from action in the designer. You don't have to modify the code.
 
-If you are not familiar with using the Google Drive Api,  see [Get started with the Google Drive API](https://azure.microsoft.com/documentation/articles/create-api-googledrive/).
+If you are not familiar with using the Google Drive API,  see [Get started with the Google Drive API](../connectors/create-api-googledrive.md).
 
 #### Operations
 
