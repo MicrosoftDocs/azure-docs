@@ -56,7 +56,7 @@ We have a large number of customers using Notification Hubs with a few notable o
 ###4. How do I upgrade or downgrade my Notification Hubs to change my service tier?
 Go to the [Azure Classic Portal], click Service Bus, and click on your namespace then your notification hub. Under the Scale tab, you will be able to change your Notification Hubs service tier.
 
-![](/media/notification-hubs-faq/notification-hubs-classic-portal-scale.png)
+![](./media/notification-hubs-faq/notification-hubs-classic-portal-scale.png)
 
 ##Design & Development
 ###1.	Which server-side platforms do you support?
