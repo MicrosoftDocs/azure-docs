@@ -81,7 +81,7 @@ In this step, you use the Azure Portal to create an Azure data factory named **A
 9. On **Specify the Azure SQL database** page, enter **AzureSqlLinkedService** for the Linked service name field. Confirm that the **Server/database selection method** is set to **From Azure subscriptions**. Select **Server name**, **Database**, enter **User name** and **Password**, and click **Next**.  
 9. On the **Table mapping** page, select **emp** for the Destination field from the drop-down list, click down arrow (optional) to see the schema and to preview the data.
 
-	![Copy Tool - Table mapping](/media/data-factory-code-free-authoring/CopyToolTableMappingPage.png) 
+	![Copy Tool - Table mapping](/media/data-factory-code-free-authoring/copy-tool-table-mapping-page.png) 
 10. On the **Schema mapping** page, click **Next**.
 11. Review information in the **Summary** page, and click **Finish**. This will create two linked services, two datasets (input and output), and one pipeline in the data factory (from where you launched the code-free authoring experience). 
 12. On the **Deployment succeeded** page, click **Click here to monitor copy pipeline**.
