@@ -59,4 +59,4 @@ For more advanced topics related to Service Fabric, see the following articles:
 
 - [Using system health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-- [Placement constraints overview](service-fabric-placement-constraint.md)
+- [Configuring Services with the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-configure-services.md)

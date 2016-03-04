@@ -16,7 +16,8 @@
    ms.date="03/03/2016"
    ms.author="masnider"/>
 
-## Throttles
+
+# Throttles
 Sometimes, even if you’ve configured the resource manager correctly, the cluster can get disrupted (many node or fault domain failures, while upgrades are going on, while updates are being applied… etc etc). The Resource Manager will try its best to fix everything, but in times like this you may want to consider a backstop so that the cluster itself has a chance to stabilize (the nodes which are going to come back come back, the network conditions health themselves, corrected bits get deployed). To help with these sorts of situations, the Resource Manager does include several throttles. Note that these are fairly “big hammers” and generally shouldn’t be used unless there’s been some careful math done around the amount of parallel work that can actually be done in the cluster, as well as a frequent need to respond to these sorts of (ahem) unplanned macroscopic reconfiguration events (AKA: “Very Bad Days”).
 
 Generally, we recommend avoiding very bad days through other options (like regular code updates and avoiding overscheduling the cluster to begin with) rather than throttling your cluster to prevent it from using resources when it is trying to fix itself). That said you may determine that there are cases which (until you can remedy them) where you need to have a couple of throttles in place, even if it means the cluster will take longer to stabilize.
