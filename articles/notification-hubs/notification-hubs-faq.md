@@ -100,7 +100,7 @@ Because of the nature of push notifications (they are delivered by an external, 
 ####Mobile App/Environment
 
 * There should be one Notification Hub per mobile app, per environment. 
-* In a multi-tenant scenario - each tenant should have a separate hub.
+* In a multi-tenant scenario, each tenant should have a separate hub.
 * You must never share the same Notification Hub between test and production environments as this may cause problems down the line while sending notifications. e.g. Apple offers Sandbox and Production Push endpoints with each having separate credentials. 
 * By default, you can send test notifications to your registered devices through the Azure Portal or the Azure integrated component in Visual Studio. The threshold is set to 10 devices that are selected at random from the registration pool.
 
