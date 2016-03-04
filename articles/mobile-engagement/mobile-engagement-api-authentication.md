@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/17/2016"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - Using the APIs for authentication
@@ -93,9 +93,7 @@ While doing this, please note the following information as you will need it late
 
 This is an alternative way to accomplish the steps mentioned previously using a PowerShell script.
 
-1. Get the latest version of Azure PowerShell.
-
-	Currently version 1.2.1 available for download [here](https://github.com/Azure/azure-powershell/releases/tag/v1.2.1-February2016).
+1. Get the latest version of Azure PowerShell. See this [link](../powershell-install-configure.md) for download instructions. 
 
 2. Open Windows PowerShell in Admin mode and make sure that you have installed the [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx).
 
