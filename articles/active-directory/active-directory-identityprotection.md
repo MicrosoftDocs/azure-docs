@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Identity Protection | Microsoft Azure"
+	pageTitle="Azure Active Directory Identity Protection | Microsoft Azure"
 	description="Learn how Azure AD Identity Protection enables you to limit the ability of an attacker to exploit a compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised."
 	services="active-directory"
 	keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
@@ -14,13 +14,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="03/02/2016"
 	ms.author="markvi"/>
 
-#Azure AD Identity Protection 
+#Azure Active Directory Identity Protection 
 
-Azure AD Identity Protection is a security product that provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
+Azure Active Directory Identity Protection is a security service that provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
+
+> [AZURE.NOTE] The preview of Azure Active Directory Identity Protection is currently available only for directories with a **Country or Region** value of **United States**. <br><br>
+![Remediation](./media/active-directory-identityprotection/222.png "Remediation")
+
+.
  
+
 The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Attackers have become increasingly effective at leveraging third party breaches, and using sophisticated phishing attacks. Once an attacker gains access to even a low privileged user account, it is relatively straightforward for them to gain access to important company resources through lateral movement. It is therefore essential to protect all identities and, when an identity is compromised, proactively prevent the compromised identity from being abused. 
 
 Discovering compromised identities is no easy task. Fortunately, Identity Protection can help: Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised.
@@ -59,7 +65,7 @@ But Azure Active Directory Identity Protection more than a monitoring and report
 
 - Policy to block or secure risky user accounts
 
-- Policy to require users to register users for multi-factor authentication
+- Policy to require users to register for multi-factor authentication
 
 
 ## Detection and Risk
@@ -159,7 +165,7 @@ Vulnerabilities are weaknesses in your environment that can be exploited by an a
 
 #### Multi-factor authentication registration not configured 
 
-This vulnerability helps you control the deployment of Azure multi-factor authentication in your organization. 
+This vulnerability helps you control the deployment of Azure Multi-Factor Authentication in your organization. 
 
 Azure multi-factor authentication provides a second layer of security to user authentication. It helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of easy verification options—phone call, text message, or mobile app notification or verification code and 3rd party OATH tokens.
 
@@ -270,7 +276,7 @@ You can use the user risk levels to create conditional access policies to block 
 ## Closing risk events manually
 
 In most cases, you will take remediation actions such as a secure password reset to automatically close risk events. However, this might not always be possible. <br> 
-Because risk events that are **Active** contribute to the user risk calculation, you may have to manually lower a risk level bu closing risk events manually. <br>
+Because risk events that are **Active** contribute to the user risk calculation, you may have to manually lower a risk level by closing risk events manually. <br>
 During the course of investigation, you can choose to take any of these actions to change the status of a risk event:
 
 <br>
@@ -279,7 +285,7 @@ During the course of investigation, you can choose to take any of these actions 
 
 - **Resolve** - If after investigating a risk event, you took an appropriate remediation action outside Identity Protection, and you believe that the risk event should be considered closed, mark the event as Resolved. Resolved events will set the risk event’s status to Closed and the risk event will no longer contribute to user risk.
 
-- **Mark as false-positive** - In some cases, you may investigate a risk event and discover that it was incorrectly flagged as a risky. You can help reduce the number of such occurrences by marking the risk event as False-positive. This will help the machine learning algorithms to improve the classification of similar events in the future. The stauts of false-positive events is to **Closed** and they will no longer contribute to user risk.
+- **Mark as false-positive** - In some cases, you may investigate a risk event and discover that it was incorrectly flagged as a risky. You can help reduce the number of such occurrences by marking the risk event as False-positive. This will help the machine learning algorithms to improve the classification of similar events in the future. The status of false-positive events is to **Closed** and they will no longer contribute to user risk.
 
 - **Ignore** - If you have not taken any remediation action, but want the risk event to be removed from the active list, you can mark a risk event Ignore and the event status will be Closed. Ignored events do not contribute to user risk. This option should only be used under unusual circumstances. 
 
@@ -323,7 +329,7 @@ A user risk security policy is a conditional access policy that evaluates the ri
 ![User ridk policy](./media/active-directory-identityprotection/500.png "User ridk policy")
 <br>
 
-Azure AD Identity Protection helps you manage the mitigation and remidiation of users flagged for risk by enabling you to:
+Azure AD Identity Protection helps you manage the mitigation and remediation of users flagged for risk by enabling you to:
 
 - set the users and groups the policy applies to 
 <br><br>
@@ -347,7 +353,7 @@ Azure AD Identity Protection helps you manage the mitigation and remidiation of 
 
 
 Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.
-However, it excludes **Low** and **Medium** users flagged for risk from the policy, which may not secure identities or a devices that were previously suspected or known to be compromised.
+However, it excludes **Low** and **Medium** users flagged for risk from the policy, which may not secure identities or devices that were previously suspected or known to be compromised.
 
 When setting the policy,
 
@@ -363,20 +369,19 @@ The recommended default for most organizations is to configure a rule for a **Me
 
 
 
-### Mitigating user risk events
+## Mitigating user risk events
 Administrators can set a user risk security policy to block users upon sign-in depending on the risk level. 
 
 Blocking a sign-in:
  
 - prevents the generation of new user risk events for the affected user
 
-- enables administrators to remediate the risk events affecting the user's identity and restore it to a secure state
+- enables administrators to manually remediate the risk events affecting the user's identity and restore it to a secure state
 
 
 
 
-
-### User risk remediation and mitigation flows  
+## User risk remediation and mitigation flows  
 
 The following sections provide an overview of the user experience for user risk remediation and mitigation flows.
 
@@ -431,6 +436,10 @@ To get a user that was blocked by a user risk security policy unblocked, the use
 ![Remediation](./media/active-directory-identityprotection/104.png "Remediation")
 <br>
 
+
+## What is a sign-in risk level?
+
+A sign-in risk level is an indication (High, Medium, or Low) of the likelihood that for a specific sign-in, someone else is attempting to authenticate with the user’s identity. The sign-in risk level is evaluated at the time of a sign-in and considers risk events and indicators detected in real-time for that specific sign-in. 
 
 ## Mitigating sign-in risk events 
 A mitigation is an action to limit the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous sign-in risk events associated with the identity or device.
@@ -552,7 +561,7 @@ Administrators can also choose to set a Sign-In Risk policy to block users upon 
  
 #### Multi-factor authentication registration
 
-The best user experience for both, the compromised account recovery flow and the risky sign-in flow, the best user experience is when the user can self-recover. If a user is registered for multi-factor authentication, they already have a phone number associated with their account that can be used to pass security challenges. No help desk or administrator involvement is needed to recover from account compromise. Thus, it’s highly recommended to get your users registered for multi-factor authentication. 
+The best user experience for both, the compromised account recovery flow and the risky sign-in flow, is when the user can self-recover. If a user is registered for multi-factor authentication, they already have a phone number associated with their account that can be used to pass security challenges. No help desk or administrator involvement is needed to recover from account compromise. Thus, it’s highly recommended to get your users registered for multi-factor authentication. 
 
 Administrators can:
 
@@ -733,6 +742,7 @@ To test Sign in risk, perform the following steps:
 
 ## See also
 
+ - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
  - [The Identity Protection glossary](active-directory-identityprotection-glossary.md)
 
 

@@ -41,7 +41,6 @@ No. Azure AD Domain Services can be configured only in the older Azure managemen
 #### Can I add domain controllers to an Azure AD Domain Services managed domain?
 No. The domain provided by Azure AD Domain Services is a managed domain. You do not need to provision, configure or otherwise manage domain controllers for this domain - these management activities are provided as a service by Microsoft. Therefore, you will not be able to add additional domain controllers (neither read-write nor read-only) for the managed domain.
 
-
 ### Administration and Operations
 
 #### I’ve enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?
@@ -56,7 +55,7 @@ No. Group memberships cannot be modified on domains serviced by Azure AD Domain 
 #### Can I extend the schema of the domain provided by Azure AD Domain Services?
 No. The schema is administered by Microsoft for the managed domain. Schema extensions are not supported by Azure AD Domain Services.
 
-### Can I modify DNS records provided by Azure AD Domain Services?
+#### Can I modify DNS records provided by Azure AD Domain Services?
 Yes. Users that are part of the administrative group (i.e. 'AAD DC Administrators') have DNS Admin permissions to modify the DNS records. 
 
 ### Billing and availability

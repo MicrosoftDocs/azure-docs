@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/08/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;jrj;nicw;sonyama"/>
 
 # Performance and scale overview
@@ -43,7 +43,7 @@ SQL Data Warehouse is a distributed system with multiple components where the nu
 
 Based on telemetry data gathered, the reliability of SQL Data Warehouse is estimated at 98% for typical data warehousing workloads. This means that, in average, 2 out of 100 queries may fail due to system errors. This is not a SLA for the preview rather an indicator of the expected reliability of queries being executed. Notice that the probability of a query failing increases with its execution time (e.g. a query taking longer than 2 hours has much higher probability of failing than a query taking less than 10 minutes). During preview we will make continuous enhancements to guarantee the same level of reliability for operations irrespective of their execution time. We will update the expected reliability as we release these enhancements with a goal of delivering a full SLA with the GA release.
 
-During the preview, SQL Data Warehouse may have up to 5 maintenance events per month to install critical fixes. Each event may cause query failures for up to 2 hours with the time dependent on the amount of DWU used by the SQL Data Warehouse instance. We will make every attempt to notify customers of these events 48 hours in advance to allow for proper planning.
+During the preview, SQL Data Warehouse will periodically be upgraded in order to add new features and install critical fixes.  These upgrades can be disruptive and at this time upgrades are not done on a predictable schedule.  If you find that this process is too disruptive, we encourage you to [create a support ticket][] so that we can help you work around this process.
 
 ## Performance and scalability
 SQL Data Warehouse introduces Data Warehouse Units (DWUs) as an abstraction of computational resources (CPUs, memory, storage I/O) aggregated across a number of nodes. Increasing the number of DWUs increases the aggregated computational resources of a SQL Data Warehouse instance. SQL Data Warehouse distributes operations (e.g. data load or query) across all of the compute infrastructure in the instance to increase or decrease the performance of loads and queries as the system is scaled up or down.
@@ -77,6 +77,7 @@ Please refer to the [development overview][] article to get some guidance on bui
 [choose a hash distribution key for your table]: sql-data-warehouse-develop-hash-distribution-key.md
 [statistics to improve performance]: sql-data-warehouse-develop-statistics.md
 [development overview]: sql-data-warehouse-overview-develop.md
+[create a support ticket]:sql-data-warehouse-get-started-create-support-ticket.md
 
 <!--MSDN references-->
 
