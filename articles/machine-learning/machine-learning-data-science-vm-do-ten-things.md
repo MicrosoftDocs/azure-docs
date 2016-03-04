@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/13/2016"
+	ms.date="03/04/2016"
 	ms.author="gokuma;weig;bradsev" />
 
 # Ten things you can do on the Data science Virtual Machine 
@@ -327,7 +327,7 @@ First, import required packages:
 	from time import time
 	import pyodbc
 	import os
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	import tables
 	import time
 	import zipfile
