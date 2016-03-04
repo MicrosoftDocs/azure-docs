@@ -195,20 +195,6 @@ Microsoft provides sample scripts to install components on an HDInsight cluster.
 
 ##Troubleshooting
 
-###History doesn't show scripts used during cluster creation
-
-If your cluster was created before March 15th, 2016, you may not see an entry in Script Action history for any scripts used during cluster creation. However, if you resize the cluster after March 15th, 2016, the scripts using during cluster creation will appear in history as they are applied to new nodes in the cluster as part of the resize operation.
-
-There are two exceptions:
-
-* If your cluster was created before September 1st, 2015. This is when Script Actions were introduced, so any cluster created before this date could not have used Script Actions for cluster creation.
-
-* If you used multiple Script Actions during cluster creation, and used the same name for multiple scripts. In this case, you will receive the following error.
-
-    No new script actions can be executed on this cluster due to conflicting script names in existing scripts. Script names provided at cluster create must be all unique. Existing scripts will still be executed on resize.
-
-###Errors
-
 The following are errors you may encounter when using scripts you have developed:
 
 __Error__: `$'\r': command not found`. Sometimes followed by `syntax error: unexpected end of file`.
@@ -238,6 +224,10 @@ _Resolution_: Save the file either as ASCII, or as UTF-8 without a BOM. You may 
 
 For the above command, replace __INFILE__ with the file containing the BOM. __OUTFILE__ should be a new file name, which will contain the script without the BOM.
 
-## <a name="seeAlso"></a>See also
+## <a name="seeAlso"></a>Next steps
 
-[Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
+* Learn how to [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
+
+* Use the [HDInsight .NET SDK reference](https://msdn.microsoft.com/en-us/library/mt271028.aspx) to learn more about creating .NET applications that manage HDInsight
+
+* Use the [HDInsight REST API](https://msdn.microsoft.com/en-us/library/azure/mt622197.aspx) to learn how to use REST to perform management actions on HDInsight clusters.

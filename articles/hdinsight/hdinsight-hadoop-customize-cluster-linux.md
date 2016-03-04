@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/04/2016"
 	ms.author="larryfr"/>
 
 # Customize Linux-based HDInsight clusters using Script Action
@@ -32,8 +32,10 @@ A Script Action is simply a Bash script that you provide a URL to, and parameter
 * Can be __persisted__ or __ad hoc__.
 
     __Persisted__ scripts are scripts that are applied to worker nodes and will be ran automatically on new nodes created when scaling up a cluster.
-    
-        > [AZURE.NOTE] A persisted script might also apply changes to another node type, such as a head node, but from a functionality perspective the only reason to persist a script is so it applies to new worker nodes created when a cluster is scaled out.
+
+        A persisted script might also apply changes to another node type, such as a head node, but from a functionality perspective the only reason to persist a script is so it applies to new worker nodes created when a cluster is scaled out.
+
+        > [AZURE.IMPORTANT] Persisted script actions must have a unique name.
 
     __Ad hoc__ scripts are not persisted; however, you can subsequently promote an ad hoc script to a persisted script, or demote a persisted script to an ad hoc script.
 
@@ -351,7 +353,7 @@ Perform the following steps:
 
         # LOGIN TO ZURE
         Login-AzureRmAccount
-        
+
 		# PROVIDE VALUES FOR THESE VARIABLES
 		$subscriptionId = "<SubscriptionId>"		# ID of the Azure subscription
 		$clusterName = "<HDInsightClusterName>"			# HDInsight cluster name
@@ -450,20 +452,20 @@ Before proceeding, make sure you have installed and configured Azure PowerShell.
 
         # LOGIN TO ZURE
         Login-AzureRmAccount
-        
+
 		# PROVIDE VALUES FOR THESE VARIABLES
 		$clusterName = "<HDInsightClusterName>"			# HDInsight cluster name
         $saName = "<ScriptActionName>"                  # Name of the script action
         $saURI = "<URI to the script>"                  # The URI where the script is located
         $nodeTypes = "headnode", "workernode"
-        
+
 
 2. Use the following command to apply the script to the cluster:
 
         Submit-AzureRmHDInsightScriptAction -ClusterName $clusterName -Name $saName -Uri $saURI -NodeTypes $nodeTypes -PersistOnSuccess
 
     Once the job completes, you should receive information similar to the following:
-    
+
         OperationState  : Succeeded
         ErrorMessage    :
         Name            : R
@@ -492,9 +494,9 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [TBD]().
 4. A list of the persisted scripts, as well as a history of scripts applied to the cluster, is displayed on the Script Actions blade.
 
     ![Script Actions blade]
-    
+
 5. [TBD]
- 
+
 ### Using Azure PowerShell
 
 | Use the following... | To ... |
@@ -510,15 +512,15 @@ The following example script demonstrates using the cmdlets to promote, then dem
 
     # Get a history of scripts
     Get-AzureRmHDInsightScriptActionHistory -ClusterName mycluster
-    
+
     # From the list, we want to get information on a specific script
     Get-AzureRmHDInsightScriptActionHistory -ClusterName mycluster -ScriptExecutionId 635920937765978529
-    
+
     # Promote this to a persisted script
     # Note: the script must have a unique name to be promoted
     # if the name is not unique, you will receive an error
     Set-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster -ScriptExecutionId 635920937765978529
-    
+
     # Demote the script back to ad hoc
     # Note that demotion uses the unique script name instead of
     # execution ID.
@@ -597,6 +599,20 @@ The HDInsight service provides several ways to use custom components. Regardless
 2. Cluster customization - During cluster creation, you can specify additional settings and custom components that will be installed on the cluster nodes.
 
 3. Samples - For popular custom components, Microsoft and others may provide samples of how these components can be used on the HDInsight clusters. These samples are provided without support.
+
+##Troubleshooting
+
+###History doesn't show scripts used during cluster creation
+
+If your cluster was created before March 15th, 2016, you may not see an entry in Script Action history for any scripts used during cluster creation. However, if you resize the cluster after March 15th, 2016, the scripts using during cluster creation will appear in history as they are applied to new nodes in the cluster as part of the resize operation.
+
+There are two exceptions:
+
+* If your cluster was created before September 1st, 2015. This is when Script Actions were introduced, so any cluster created before this date could not have used Script Actions for cluster creation.
+
+* If you used multiple Script Actions during cluster creation, and used the same name for multiple scripts, or the same name, same URI, but different parameters for multiple scripts. In these cases, you will receive the following error.
+
+    No new script actions can be executed on this cluster due to conflicting script names in existing scripts. Script names provided at cluster create must be all unique. Existing scripts will still be executed on resize.
 
 ## Next steps
 
