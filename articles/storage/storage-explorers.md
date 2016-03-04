@@ -22,7 +22,7 @@ Users of Azure Storage frequently want to be able to view their data in an “ex
 
 In the below table, we list each Azure Storage explorer, and then put an “X” in each block if it provides the ability to either enumerate and/or access the data abstraction. The table also shows if the explorer is free or not. “Trial” indicates that there is a free trial, but the full product is not free. “Y/N” indicates that a version is available for free, while a different version is available for purchase.
 
-We have not verified the functionality or quality claimed by these utilities and their listing does not imply an endorsement by Microsoft - with the exception of the [Microsoft Azure Portal](https://azure.microsoft.com/en-us/features/azure-portal/), the [Microsoft Azure Storage Explorer](http://storageexplorer.com/), and the [Microsoft Visual Studio Server Explorer](https://www.visualstudio.com/en-us/features/azure-tools-vs.aspx).
+We have not verified the functionality or quality claimed by these utilities and their listing does not imply an endorsement by Microsoft - with the exception of the [Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/), the [Microsoft Azure Storage Explorer](http://storageexplorer.com/), and the [Microsoft Visual Studio Server Explorer](https://www.visualstudio.com/features/azure-tools-vs.aspx).
 
 The table below is a snapshot of what we are currently aware of and these tools may continue to evolve and grow in functionality. If there are corrections or updates, please leave a comment to let us know. The same is true if you know of tools that ought to be here - we’d be happy to add them.
 
@@ -45,7 +45,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td>Linux</td>
   </tr>
   <tr>
-    <td>[Microsoft Azure Portal](https://azure.microsoft.com/en-us/features/azure-portal/)</td>
+    <td>[Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/)</td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -73,7 +73,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td>X</td>
   </tr>
   <tr>
-    <td>[Microsoft Visual Studio Server Explorer](https://www.visualstudio.com/en-us/features/azure-tools-vs.aspx)</td>
+    <td>[Microsoft Visual Studio Server Explorer](https://www.visualstudio.com/features/azure-tools-vs.aspx)</td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
