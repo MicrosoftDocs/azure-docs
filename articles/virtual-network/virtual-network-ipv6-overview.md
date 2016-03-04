@@ -19,7 +19,7 @@
 
 The IPv6 protocol was initially introduced in 1998 by the Internet Engineering Task Force (IETF) to address the limitation of 32-bit IPv4 addresses on the public Internet. With the increased number of Internet-connected mobile devices, and the rise of the Internet of Things (IoT), IPv6 addresses are becoming more frequent on the public Internet.
 
-You can now use IPv6 addresses on your Azure IaaS VMs in Resource Manger deployments for outbound and inbound connectivity to the public Internet. The list below describes the IPv6 capabilities in Azure.
+You can use IPv6 addresses on your Azure IaaS VMs in Resource Manager deployments for outbound and inbound connectivity to the public Internet. The following list describes the IPv6 capabilities in Azure.
 
 - **IaaS VMs in Resource Manager**
 	- VMs have both an IPv4 and an IPv6 endpoint.
