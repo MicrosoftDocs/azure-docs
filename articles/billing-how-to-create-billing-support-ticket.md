@@ -28,11 +28,6 @@ This article provides the information you will need to open a ticket with Azure 
 
  ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
- You can also submit an support request from the Azure Support web site or from the Azure Accounts Center:
-
- * To submit a support ticket from the [Azure Support web site](https://azure.microsoft.com/support/options/), click **Get support**.
- * To submit a support ticket from the [Azure Account Center](https://account.windowsazure.com/Subscriptions), select a subscription, and then click **Contact Microsoft Support**.
-
 2. In the **Basics** blade, choose the issue type, subscription and support plan.
 3. In the **Problem** blade, provide the following information:
 
@@ -44,3 +39,8 @@ This article provides the information you will need to open a ticket with Azure 
 4. In the **Contact Information** blade, verify your contact information and preferred contact method, and then click **Create**.
 
 You will be contacted by an Azure Support representative in accordance with the terms of the agreement.
+
+You can also submit an support request from the Azure Support web site or from the Azure Accounts Center:
+
+ * To submit a support ticket from the [Azure Support web site](https://azure.microsoft.com/support/options/), click **Get support**.
+ * To submit a support ticket from the [Azure Account Center](https://account.windowsazure.com/Subscriptions), select a subscription, and then click **Contact Microsoft Support**.
