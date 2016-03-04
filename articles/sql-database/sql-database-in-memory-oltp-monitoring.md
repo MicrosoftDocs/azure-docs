@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/28/2015"
+	ms.date="02/11/2016"
 	ms.author="jodebrui"/>
 
 
 # Monitor In-Memory OLTP Storage
 
-When using [In-Memory](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in in-memory OLTP storage. Each Premium service tier has a maximum in-memory storage size, which is documented in the [SQL Database Service Tiers article](sql-database-service-tiers.md#service-tiers-for-single-databases). Once this limit is exceeded, insert and update operations may start failing (with error 41805). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
+When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in in-memory OLTP storage. Each Premium service tier has a maximum in-memory storage size, which is documented in the [SQL Database Service Tiers article](sql-database-service-tiers.md#service-tiers-for-single-databases). Once this limit is exceeded, insert and update operations may start failing (with error 41805). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
 
 ## Determine whether data will fit within the in-memory storage cap
 

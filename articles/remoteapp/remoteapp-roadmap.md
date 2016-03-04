@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="01/19/2016"
+    ms.date="02/16/2016"
     ms.author="elizapo" />
 
 # What's coming in Azure RemoteApp
@@ -27,6 +27,7 @@ We are always working to improve Azure RemoteApp based on your feedback. Here ar
 |Windows client redistributable MSI package ([feedback](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/))| X| |
 |HTML5-based client for Azure RemoteApp|X ||
 |Azure Resource Manager (ARM) support||X|
+|Azure v2 resource support| |X|
 |Cloud Solution Provider (CSP)||X|
 |Availability in India region|X||
 |Availability in UK region||X|

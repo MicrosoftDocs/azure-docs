@@ -390,7 +390,7 @@ In this step, you will create the following pipelines:
 
 	![RawGameEventsTable DATA SLICE blade][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	If there was an error, you would see a **Failed **status here.  You might also see either both slices with status **Ready**, or both with status **PendingValidation**, depending on how quickly the slices are processed.
+	If there was an error, you would see a **Failed **status here.  You might also see either both slices with status **Ready**, or both with status **Waiting**, depending on how quickly the slices are processed.
 
 	If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list.
  

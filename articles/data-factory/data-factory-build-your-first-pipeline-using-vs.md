@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="12/18/2015"
+	ms.date="02/16/2016"
 	ms.author="spelluru"/>
 
-# Build your first Azure Data Factory pipeline using Visual Studio
+# Get started with Azure Data Factory (Visual Studio)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -418,6 +418,14 @@ Add a configuration file for each environment by performing the following steps:
             "name": "$.properties.structure[1].type",
             "value": "String"
         }
+
+### Property names with spaces
+If a property name has spaces in it, use square brackets as shown in the following example (Database server name): 
+
+     {
+         "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+         "value": "MyAsqlServer.database.windows.net"
+     }
 
 
 ### Deploy solution using a configuration

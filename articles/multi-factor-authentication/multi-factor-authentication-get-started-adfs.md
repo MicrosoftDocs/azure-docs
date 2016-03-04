@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.topic="get-started-article" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Getting started with Azure Multi-Factor Authentication and Active Directory Federation Services

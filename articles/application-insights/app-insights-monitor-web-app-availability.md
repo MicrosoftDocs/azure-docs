@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/11/2016"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
@@ -207,19 +207,23 @@ Web Test Plug-ins provide the way to do this.
 
 Now, upload your test to the portal. It will use the dynamic values on every run of the test.
 
-## OAuth sign-in
+## Dealing with sign-in
 
-If your users sign in to your app using their OAuth password (such as Microsoft, Google or Facebook), you can simulate the sign-in in your multi-step web test by using the SAML plugin.
+If your users sign in to your app, you have a number of options for simulating sign-in so that you can test pages behind the sign-in. The approach you use depends on the type of security provided by the app.
 
-![Sample web test for OAuth](./media/app-insights-monitor-web-app-availability/81.png)
+In all cases, you should create an account just for the purpose of testing. If possible, restrict its permissions so that it's read-only.
 
-The sample test performs these steps:
+* Simple username and password: Just record a web test in the usual way. Delete cookies first.
+* SAML authentication. For this, you can use the SAML plugin that is available for web tests.
+* Client secret: If your app has a sign-in route that involves a client secret, use that. Azure Active Directory provides this. 
+* Open Authentication - for example, signing in with your Microsoft or Google account. Many apps that use OAuth provide the client secret alternative, so the first tactic is to investigate that. If your test has to sign in using OAuth, the general approach is:
+ * Use a tool such as Fiddler to examine the traffic between your web browser, the authentication site, and your app. 
+ * Perform two or more sign-ins using different machines or browsers, or at long intervals (to allow tokens to expire).
+ * By comparing different sessions, identify the token passed back from the authenticating site, that is then passed to your app server after sign-in. 
+ * Record a web test using Visual Studio. 
+ * Parameterize the tokens, setting the parameter when the token is returned from the authenticator, and using it in the query to the site.
+ (Visual Studio will attempt to parameterize the test, but will not correctly parameterize the tokens.)
 
-1. Ask the web app under test for the address of the OAuth endpoint.
-2. Sign in using the SAML plug-in.
-3. Perform the rest of the test in the signed-in state.
-
-The SAML plug-in sets a variable `Assert` which is used in step 2.
 
 ## <a name="edit"></a> Edit or disable a test
 
