@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Restore a single table from Azure SQL Database backup | Microsoft Azure"
 	description="Learn how to restore a single table from Azure SQL Database backup."
-	keywords="sql restore,restore a single table,Azure SQL Database backup,SQL Database Migration Wizard"
+	keywords="sql restore,restore tables,Azure SQL Database backup,SQL Database Migration Wizard"
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/04/2016"
 	ms.author="daleche"/>
 
 
