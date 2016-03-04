@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Data Factory (Visual Studio)"
+	pageTitle="Build your first data factory (Visual Studio) | Microsoft Azure"
 	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Visual Studio."
 	services="data-factory"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="02/16/2016"
 	ms.author="spelluru"/>
 
-# Get started with Azure Data Factory (Visual Studio)
+# Build your Azure first data factory using Microsoft Visual Studio
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)

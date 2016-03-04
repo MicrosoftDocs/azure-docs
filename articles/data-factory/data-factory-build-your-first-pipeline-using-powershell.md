@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Data Factory (Azure PowerShell)"
+	pageTitle="Build your first data factory (PowerShell) | Microsoft Azure"
 	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="12/18/2015"
 	ms.author="spelluru"/>
 
-# Get started with Azure Data Factory (Azure PowerShell)
+# Build your first Azure data factory using Azure PowerShell
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
