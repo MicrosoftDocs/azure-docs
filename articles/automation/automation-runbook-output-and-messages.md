@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/03/2016"
    ms.author="magoedte;bwren" />
 
 # Runbook output and messages in Azure Automation
@@ -167,7 +167,7 @@ The following example starts a sample runbook and then waits for it to complete.
 
 For graphical runbooks, extra logging is available in the form of activity-level tracing.  There are two levels of tracing: Basic and Detailed.  In Basic tracing, you can see the start and end time of each activity in the runbook plus information related to any activity retries, such as number of attempts and start time of the activity.  In Detailed tracing, you get Basic tracing plus input and output data for each activity.  Note that currently the trace records are written using the verbose stream, so you must enable Verbose logging when you enable tracing.  For graphical runbooks with tracing enabled there is no need to log progress records, because the Basic tracing serves the same purpose and is more informative.
 
-![Graphical Authoring Job Streams View](media/automation-runbook-output-and-messages/job_streams_view_blade.png)
+![Graphical Authoring Job Streams View](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
 You can see from the above screenshot that when you enable Verbose logging and tracing for Graphical runbooks, much more information is available in the production Job Streams view.  This extra information can be essential for troubleshooting production problems with a runbook, and therefore you should only enable it for that purpose and not as a general practice.    
 The Trace records can be especially numerous.  With Graphical runbook tracing you can get two to four records per activity depending on whether you have configured Basic or Detailed tracing.  Unless you need this information to track the progress of a runbook for troubleshooting, you might want to keep Tracing turned off.
@@ -184,7 +184,7 @@ The Trace records can be especially numerous.  With Graphical runbook tracing yo
 
  5. On the Logging and Tracing blade, under Log verbose records, click **On** to enable verbose logging and udner Activity-level tracing, change the trace level to **Basic** or **Detailed** based on the level of tracing you require.<br>
 
-    ![Graphical Authoring Logging and Tracing Blade](media/automation-runbook-output-and-messages/logging_and_tracing_settings_blade.png)
+    ![Graphical Authoring Logging and Tracing Blade](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ## Related articles
 
