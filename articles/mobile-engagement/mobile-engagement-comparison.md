@@ -49,7 +49,7 @@ With this set of differentiation in hand, here is how we compare against other s
 	
 	The focus here is on DevOps and collecting performance analytics data about the mobile apps. You may end up with integrating both HockeyApps and Mobile Engagement in your app and that will not be unusual because even though there is some overlap in the collected data, the core focus of the products is different and they help in achieving different objectives for you.  
 
-2.	[Application Insights](../app-insights-overview.md)
+2.	[Application Insights](../application-insights/app-insights-overview.md)
 	If your mobile app has a server side, then you will use Application Insights to monitor the web server side of your app but for the client side mobile apps, you should use HockeyApp. 
 
 3.	[Notification Hubs](https://azure.microsoft.com/services/notification-hubs/)
@@ -67,3 +67,6 @@ Let’s take some scenarios:
 In this scenario, it is possible however that as the mobile app matures, there is a requirement to do much richer segmentation and get details about the app user’s behavior. At this time, Robin will have to evaluate Azure Mobile Engagement. 
  
 To recap, the purpose of Mobile Engagement is not just to collect analytics - it is not "yet another Analytics product from Microsoft". It is about sending targeted push notifications and for this targeting, we collect behavioral analytics data but the focus remains on sending push notifications which make the most sense to the app users so that it does not come across as spam. 
+
+For more details - take a look at this [quick video](mobile-engagement-overview.md) about Mobile Engagement in a nutshell. 
+
