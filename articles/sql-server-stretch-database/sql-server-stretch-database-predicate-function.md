@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Write an Inline Table-Valued Function to Select Rows to Migrate (Stretch Database) | Microsoft Azure"
-	description="Learn how to create a filter predicate to select the rows to migrate."
+	pageTitle="Use a Filter Predicate to Select Rows to Migrate (Stretch Database) | Microsoft Azure"
+	description="Learn how to use a filter predicate to select the rows to migrate."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
