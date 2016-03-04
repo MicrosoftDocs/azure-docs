@@ -25,7 +25,7 @@ The Azure App Service has two forms.
 1. The multi-tenant systems that support the full range of pricing plans
 1. The App Service Environment (ASE) premium feature which deploys into your VNET.  
 
->[AZURE.NOTE] This article does not describe putting an ASE in a V2 VNET.  That is still not yet supported and is unrelated to this article.  This article is about enabling your apps to consume resources in a V1 or V2 VNET.
+This article does not describe putting an ASE in a V2 VNET.  That is still not yet supported and is unrelated to this article.  This article is about enabling your apps to consume resources in a V1 or V2 VNET.
 
 VNET Integration gives your web app access to resources in your virtual network but does not grant private access to your web app from the virtual network.  A common scenario where you would use this feature is enabling your web app access to a database or a web services that are running in a virtual machine in your Azure virtual network.  With VNET Integration you don't need to expose a public endpoint for applications on your VM but can use the private non-internet routable addresses instead.  
 
