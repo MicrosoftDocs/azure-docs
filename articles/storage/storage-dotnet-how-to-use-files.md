@@ -256,7 +256,7 @@ To mount the file share from an on-premises client, you must first take these st
 
 ## Develop with File storage
 
-To work with File storage programmatically, you can use the storage client libraries for .NET and Java, or the Azure Storage REST API. The example in this section demonstrates how to work with a file share by using the [Azure .NET Storage Client Library](https://msdn.microsoft.com/library/mt347887.aspx) from a simple console application running on the desktop.
+To work with File storage programmatically, you can use the storage client libraries for .NET and Java, or the Azure Storage REST API. The example in this section demonstrates how to work with a file share by using the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/mt347887.aspx) from a simple console application running on the desktop.
 
 [AZURE.INCLUDE [storage-dotnet-install-library-include](../../includes/storage-dotnet-install-library-include.md)]
 
@@ -269,7 +269,7 @@ To work with File storage programmatically, you can use the storage client libra
 Open the program.cs file from Solution Explorer, and add the following namespace declarations to the top of the file.
 
 	using Microsoft.Azure; // Namespace for Azure Configuration Manager
-	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.WindowsAzure.Storage; // Namespaces for Storage Client Library
 	using Microsoft.WindowsAzure.Storage.Blob;
 	using Microsoft.WindowsAzure.Storage.File;
 
