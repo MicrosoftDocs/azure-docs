@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="03/03/2016"
    ms.author="seanmck"/>
 
 # Disaster recovery in Azure Service Fabric
@@ -30,7 +30,7 @@ When you create a Service Fabric cluster in Azure, you are required to choose a 
 
 By default, the VMs in the cluster will be evenly spread across logical groups known as fault domains (FDs), which segment the machines based on potential failures in the host hardware. Specifically, if two VMs reside in two distinct FDs, you can be sure that they do not share the same power source or network switch. As a result, a local network or power failure affecting one VM will not affect the other, allowing Service Fabric to rebalance the work load of the unresponsive machine within the cluster.
 
-Service Fabric clusters are laid out across five FDs, which you visualize using the cluster map provided in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+You can visualize the layout of your cluster across fault domains using the cluster map provided in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md):
 
 ![Nodes spread across fault domains in Service Fabric Explorer][sfx-cluster-map]
 
@@ -54,10 +54,17 @@ While fault domains significantly reduce the risk of concurrent machine failures
 
 In general, as long as a majority of the nodes remain available, the cluster will continue to operate, albeit at lower capacity as stateful replicas get packed into a smaller set of machines and fewer stateless instances are available to spread load.
 
+#### Quorum loss
+
 If a majority of the replicas for a stateful service's partition go down, that partition will enter a state known as "quorum loss". At this point, Service Fabric will stop allowing writes to that partition to ensure that its state remains consistent and reliable. In effect, we are choosing to accept a period of unavailability to ensure that clients will not be told that their data was saved when in fact it was not. Note that if you have opted in to allowing reads from secondary replicas for that stateful service, you can continue to perform those read operations while in this state. A partition will remain in quorum loss until a sufficient number of replicas come back or until the cluster administrator forces the system to move on using the [Repair-ServiceFabricPartition API](repair-partition-ps). Performing this action when the primary replica is down will result in data loss.
 
 System services can also suffer quorum loss, with the impact being specific to the service in question. For instance, quorum loss in the naming service will impact name resolution, whereas quorum loss in the failover manager service will block new service creation and failovers. Note that unlike for your own services, attempting to repair system services is *not* recommended. Instead, it is preferable to simply wait until the down replicas return.
 
+#### Minimizing the risk of quorum loss
+
+You can minimize your risk of quorum loss by increasing the target replica set size for your service. It is helpful to think of the number of replicas you need in terms of the number of unavailable nodes you can tolerate at once while remaining available for writes, keeping in mind that application or cluster upgrades can make nodes temporarily unavailable, in addition to hardware failures.
+
+Consider the following examples assuming that you've configured your services to have a MinReplicaSetSize of three, the smallest number recommended for production services. With a TargetReplicaSetSize of three (one primary and two secondaries), a hardware failure during an upgrade (two replicas down) will result in quorum loss and your service will become read-only. Alternatively, if you have five replicas, you would be able to withstand two failures during upgrade (three replicas down) as the remaining two replicas can still form a quorum within the minimum replica set.
 
 ### Data center outages or destruction
 
@@ -65,9 +72,19 @@ In rare cases, physical data centers can become temporarily unavailable due to l
 
 In the highly unlikely event that an entire physical data center is destroyed, any Service Fabric clusters hosted there will be lost, along with their state.
 
-To protect against this possibility, it is critically important to periodically [backup your state](service-fabric-reliable-services-backup-restore.md) to a geo-redundant store and ensure that you have validated the ability to restore it. How often you perform a backup will be dependent on your recovery point objective (RPO).
+To protect against this possibility, it is critically important to periodically [backup your state](service-fabric-reliable-services-backup-restore.md) to a geo-redundant store and ensure that you have validated the ability to restore it. How often you perform a backup will be dependent on your recovery point objective (RPO). Even if you have not fully implemented backup and restore yet, you should implement a handler for the `OnDataLoss` event so that you can log when it occurs as follows:
+
+```c#
+protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
+{
+  ServiceEventSource.Current.ServiceMessage(this, "OnDataLoss event received.");
+  return Task.FromResult(true);
+}
+```
 
 >[AZURE.NOTE] Backup and restore is currently only available for the Reliable Services API. Backup and restore for Reliable Actors will be available in an upcoming release.
+
+
 
 ### Software failures and other sources of data loss
 
@@ -75,11 +92,11 @@ As a cause of data loss, code defects in services, human operational errors, and
 
 ## Other resources
 
-Microsoft has published a large amount of guidance concerning disaster recovery and highly availability. While some of these documents refer to specific techniques for use in other products, they contain many general best practices as well:
+ Microsoft has published a large amount of guidance concerning disaster recovery and highly availability. While some of these documents refer to specific techniques for use in other products, they contain many general best practices as well:
 
-- [Availability checklist](azure-availability-checklist)
-- [Performing a disaster recovery drill](disaster-recovery-drill)
-- [Disaster recovery and high availability for Azure applications](dr-ha-guide)
+ - [Availability checklist](azure-availability-checklist)
+ - [Performing a disaster recovery drill](disaster-recovery-drill)
+ - [Disaster recovery and high availability for Azure applications](dr-ha-guide)
 
 ## Next Steps
 
@@ -88,14 +105,9 @@ Microsoft has published a large amount of guidance concerning disaster recovery 
 <!-- External links -->
 
 [repair-partition-ps]: https://msdn.microsoft.com/en-us/library/mt163522.aspx
-
 [azure-status-dashboard]:https://azure.microsoft.com/en-us/status/
-
 [azure-availability-checklist]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-availability-checklist/
-
 [disaster-recovery-drill]: https://azure.microsoft.com/en-us/documentation/articles/sql-database-disaster-recovery-drills/
-
-[dr-ha-guide]: https://msdn.microsoft.com/en-us/library/azure/dn251004.aspx
 
 <!-- Images -->
 
