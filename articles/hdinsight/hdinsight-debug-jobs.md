@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/02/2016"
 	ms.author="jgao"/>
 
 # Analyze HDInsight logs
@@ -337,6 +337,6 @@ Some of these error messages could also be seen in the Azure Portal when it is u
 
 ## Next steps
 
-[Use Ambari Views to debug Tez Jobs on HDInsight](hdinsight-debug-ambari-tez-view.md)
-[Enable heap dumps for Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-[Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
+- [Use Ambari Views to debug Tez Jobs on HDInsight](hdinsight-debug-ambari-tez-view.md)
+- [Enable heap dumps for Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+- [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
