@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/29/2016"
+    ms.date="03/04/2016"
     ms.author="larryfr"/>
 
 # Script Action development with HDInsight
 
-Script Actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings or installing additional services, tools, or other software on the cluster. You can use script actions during cluster creation or with a running cluster.
+Script Actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings or installing additional services, tools, or other software on the cluster. You can use script actions during cluster creation or on a running cluster.
 
 > [AZURE.NOTE] The information in this document is specific to Linux-based HDInsight clusters. For information on using Script Actions with Windows-based clusters, see [Script action development with HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
 
@@ -94,7 +94,7 @@ For example, the following copies the giraph-examples.jar file from the local fi
 
 Information written to STDOUT and STDERR during script execution is logged, and can be viewed using the Ambari web UI.
 
-> [AZURE.NOTE] Ambari will only be available if the cluster is successfuly created. If you use a script action during cluster creation, and creation fails, see the troubleshooting section [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) for other ways of accessing logged information.
+> [AZURE.NOTE] Ambari will only be available if the cluster is successfully created. If you use a script action during cluster creation, and creation fails, see the troubleshooting section [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) for other ways of accessing logged information.
 
 Most utilities and installation packages will already write information to STDOUT and STDERR, however you may want to add additional logging. To send text to STDOUT use `echo`. For example:
 
@@ -102,7 +102,7 @@ Most utilities and installation packages will already write information to STDOU
 
 By default, `echo` will send the string to STDOUT. To direct it to STDERR, add `>&2` before `echo`. For example:
 
-        >&2 echo "An error occured installing Foo"
+        >&2 echo "An error occurred installing Foo"
 
 This redirects information sent to STDOUT (1, which is default so not listed here,) to STDERR (2). For more information on IO redirection, see [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
@@ -194,6 +194,20 @@ Microsoft provides sample scripts to install components on an HDInsight cluster.
 > [AZURE.NOTE] The documents linked above are specific to Linux-based HDInsight clusters. For a scripts that work with Windows-based HDInsight, see [Script action development with HDInsight (Windows)](hdinsight-hadoop-script-actions.md) or use the links available at the top of each article.
 
 ##Troubleshooting
+
+###History doesn't show scripts used during cluster creation
+
+If your cluster was created before March 15th, 2016, you may not see an entry in Script Action history for any scripts used during cluster creation. However, if you resize the cluster after March 15th, 2016, the scripts using during cluster creation will appear in history as they are applied to new nodes in the cluster as part of the resize operation.
+
+There are two exceptions:
+
+* If your cluster was created before September 1st, 2015. This is when Script Actions were introduced, so any cluster created before this date could not have used Script Actions for cluster creation.
+
+* If you used multiple Script Actions during cluster creation, and used the same name for multiple scripts. In this case, you will receive the following error.
+
+    No new script actions can be executed on this cluster due to conflicting script names in existing scripts. Script names provided at cluster create must be all unique. Existing scripts will still be executed on resize.
+
+###Errors
 
 The following are errors you may encounter when using scripts you have developed:
 
