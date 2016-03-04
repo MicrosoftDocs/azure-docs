@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Secure a database in SQL Data Warehouse
@@ -35,7 +35,7 @@ When you created the logical server for your database, you specified a "server a
 
 However, as a best practice your organization’s users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. To create a database user based on server login:
 
-First, connect to the master database on your server with your server admin login and create a new server login. 
+First, connect to the master database on your server with your server admin login and create a new server login.
 
 ```
 -- Connect to master database and create a login
@@ -111,7 +111,7 @@ For more development tips, see [development overview][].
 [Database roles]: https://msdn.microsoft.com/library/ms189121.aspx
 [Managing databases and logins in Azure SQL Database]: https://msdn.microsoft.com/library/ee336235.aspx
 [Permissions]: https://msdn.microsoft.com/library/ms191291.aspx
-[Stored procedures]: https://msdn.microsoft.com/library/ms190782.aspx 
+[Stored procedures]: https://msdn.microsoft.com/library/ms190782.aspx
 [Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
 [Get started with SQL Database Auditing]: sql-database-auditing-get-started.md
 [Azure Classic Portal]: https://portal.azure.com/
