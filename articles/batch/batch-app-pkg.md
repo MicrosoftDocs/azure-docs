@@ -18,9 +18,9 @@
 
 # Easy application installation and management with Azure Batch application packages
 
-The application packages feature of Azure Batch provides an easier alternative to manually storing, retrieving, and managing the task applications and their files for your Batch jobs. With application packages, you can easily upload and manage multiple versions of applications, and automatically install them on the compute nodes in your pools.
+The application packages feature of Azure Batch provides an easy option for storing, retrieving, and managing the applications that your tasks execute in Batch. With application packages, you can easily upload and manage multiple versions of applications in Batch, including their binaries and other support files, then automatically install one or more of these applications on the compute nodes in your pool.
 
-In this article, you will learn how to upload and manage application packages using the Azure Portal, and then install them on the compute nodes in a pool using the [Batch .NET][api_net] library.
+In this article, you will learn how to upload and manage application packages using the Azure Portal, then install them on a pool's compute nodes using the [Batch .NET][api_net] library.
 
 > [AZURE.NOTE] The application package feature discussed in this article, introduced in Batch REST API 2015-12-01.2.2 and the corresponding Batch .NET 3.1.0 library, supersedes the "Batch Apps" feature available in previous versions of the service. We recommend that you always use the latest API version when working with Batch.
 
@@ -32,23 +32,49 @@ Within Azure Batch, an **application** refers to a set of versioned binaries tha
 
 ### Applications
 
-An application can contain multiple application packages, and also specifies configuration options for the application. For example, you can set the default application package to install on compute nodes when no version is specified. When you create an application in Batch, you give it an ID, and may also specify a display name. When specifying an application package for install, you'll specify the ID value.
+An application in Batch contains one or more application packages, and also specifies configuration options for the application, such as the default application package to install on compute nodes when no version is specified.
 
 ### Application packages
 
-Application packages can contain any set of binaries and their support files, and can even contain more than one executable that your tasks will run. When you create a pool in the Batch service, you can specify one of these applications and (optionally) a version, and that application package will be downloaded to each node as it joins the pool. You can also specify more than one application package for installation on the nodes.
+An application packages is a ZIP file containing the application binaries and supporting files required for execution of the application by your tasks. When you create a pool in the Batch service, you can specify one of these applications and (optionally) a version, and that application package will be downloaded and extracted onto each node as it joins the pool. You can also specify more than one application package if you wish to install multiple applications.
 
-Rather than specifying individual resource files in Azure Storage for a pool's start task, or using some other method to prepare nodes for runnning your tasks, you can simply specify one or more application packages for the pool. As each node joins the pool, the specified application packages are automatically downloaded to the nodes.
+Rather than specifying individual resource files in Azure Storage for a pool's start task, or using some other method to prepare your nodes for running tasks, you simply specify one or more application packages for the pool. As each node joins the pool, the specified application packages are automatically downloaded and extracted onto the nodes.
+
+> [AZURE.IMPORTANT] There are restrictions on the number of applications and application packages within a Batch account, as well as the maximum application package size. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details on these limits.
 
 ## Upload and manage applications
 
-You can create and configure applications and upload application packages using the Azure portal. At the time of this writing, application management is supported only in the Azure portal.
+At the time of this writing, application management is supported only in the Azure portal. Using the portal, you can add, update, and delete application packages, configure default application package versions for each application, and remove application packages you no longer need.
 
-Each Batch account support 20 applications, and 40 application packages per application.
+> [AZURE.WARNING] Because Batch stores your application packages in Azure Storage, you are charged as you would be for any other blob data in Storage. Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize cost.
 
-> [AZURE.WARNING] When you upload application packages, these packages are stored in Azure Storage, and you are charged as you would be for the storage of any other data in Storage.
+### View current applications
 
-*TODO: Screenshots and how-to goes here.*
+To view the applications in your Batch account, click the **Applications** tile in the Batch account blade.
+
+![List applications][2]
+
+This opens the Applications blade:
+
+![List applications][3]
+
+The Applications blade displays the following information for the applications in your Batch account:
+
+* **Packages** - The number of versions associated with this application.
+* **Default Version** – If no version is specified for a pool's application, this version will be installed.
+* **Allow Updates** – If this is set to *No*, package update and delete is disabled for that application--only new application packages can be added.
+
+### Add a new application
+
+To create a new application, you add an application package using a new, unique application ID. When you add an application with a unique application ID, the application is created within the portal, and that application package will appear in the application's details pane.
+
+
+
+### Add a new application package
+
+### Update an application package
+
+### Delete an application package
 
 > [AZURE.NOTE] The [Batch Management .NET](batch-management-dotnet.md) library will allow programmatic management of applications and their packages in the near future.
 
@@ -58,7 +84,7 @@ To install an application package on the compute nodes in a pool, you specify on
 
 The `ApplicationPackageReference` class specifies an application ID and version for installation on a pool's compute nodes.
 
-```
+```csharp
 // Create the unbound CloudPool
 CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(poolId: "myPool",
@@ -83,7 +109,7 @@ await myCloudPool.CommitAsync();
 
 Applications are downloaded to each compute node as it joins a pool, is rebooted, or reimaged. Each package is placed in a `<PACKAGE LOCATION HERE>` directory on the node, and can be accessed by the tasks in your jobs.
 
-```
+```csharp
 // Code sample here.
 ```
 
@@ -99,7 +125,7 @@ If you've already specified an application package for a pool, you can specify a
 
 You can list the applications and their packages in a Batch account by using the `ApplicationOperations.ListApplicationSummaries` method.
 
-```
+```csharp
 // List the applications and their application packages in the Batch account.
 List<ApplicationSummary> applications = await batchClient.ApplicationOperations.ListApplicationSummaries().ToListAsync();
 foreach (ApplicationSummary app in applications)
@@ -152,3 +178,8 @@ foreach (ApplicationSummary app in applications)
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
 [1]: ./media/batch-app-pkg/app_pkg_01.png "Applications and application packages"
+[2]: ./media/batch-app-pkg/app_pkg_02.png "List applications"
+[3]: ./media/batch-app-pkg/app_pkg_03.png "List applications"
+[4]: ./media/batch-app-pkg/app_pkg_04.png "List applications"
+[5]: ./media/batch-app-pkg/app_pkg_05.png "List applications"
+[6]: ./media/batch-app-pkg/app_pkg_06.png "List applications"
