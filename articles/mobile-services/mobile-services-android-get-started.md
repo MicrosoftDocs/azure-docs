@@ -19,7 +19,7 @@
 # Get started with Mobile Services for Android  (JavaScript backend)
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-> For the equivalent Mobile Apps version of this topic, see [app-service-mobile-android-get-started.md](../app-service-mobile/app-service-mobile-android-get-started.md).
+> For the equivalent Mobile Apps version of this topic, see [Create an Android app](../app-service-mobile/app-service-mobile-android-get-started.md).
 
 &nbsp;
 
