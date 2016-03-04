@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/16/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Load Data with Azure Data Factory
@@ -40,7 +40,7 @@ To familiarize yourself with Azure Data Factory, see [Introduction to Azure Data
 
 Before starting this tutorial, you need to have the following resources.
 
-   + **Azure Storage Blob**: This tutorial uses Azure Storage Blob as the data source for the Azure Data Factory pipeline, and so you need to have one available to store the sample data. If you don't have one already, learn how to [Create a storage account](../storage/storage-create-storage-account/#create-a-storage-accoun/). 
+   + **Azure Storage Blob**: This tutorial uses Azure Storage Blob as the data source for the Azure Data Factory pipeline, and so you need to have one available to store the sample data. If you don't have one already, learn how to [Create a storage account](../storage/storage-create-storage-account/#create-a-storage-accoun/).
 
    + **SQL Data Warehouse**: This tutorial moves the data from Azure Storage Blob to  SQL Data Warehouse and so need to have a data warehouse online that is loaded with the AdventureWorksDW sample data. If you do not already have a data warehouse, learn how to [provision one](sql-data-warehouse-get-started-provision.md). If you have a data warehouse but didn't provision it with the sample data, you can [load it manually](sql-data-warehouse-get-started-manually-load-samples.md).
 
@@ -54,7 +54,7 @@ Once you have all of the pieces ready, you are ready to copy sample data to your
 
 1. [Download sample data](https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv). This data will add another three years of sales data to your AdventureWorksDW sample data.
 
-2. Use this AZCopy command to copy the three years of data to your Azure Storage Blob. 
+2. Use this AZCopy command to copy the three years of data to your Azure Storage Blob.
 
 ````
 AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core.windows.net/<container name> /DestKey:<storage key> /Pattern:FactInternetSales.csv
@@ -158,7 +158,7 @@ In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipel
     "name": "<Pipeline Name>",
     "properties": {
         "description": "<Description>",
-        "activities": [ 
+        "activities": [
           {
             "type": "Copy",
     		"typeProperties": {
@@ -214,8 +214,3 @@ These topics provide detailed information about Azure Data Factory. They discuss
 - [Tutorial: Get started with Azure Data Factory](../data-factory/data-factory-build-your-first-pipeline.md). This is the core tutorial for processing data with Azure Data Factory. In this tutorial you will build your first pipeline that uses HDInsight to transform and analyze web logs on a monthly basis. Note, there is no copy activity in this tutorial.
 - [Tutorial: Copy data from Azure Storage Blob to Azure SQL Database](../data-factory/data-factory-get-started.md). In this tutorial, you will create a pipeline in Azure Data Factory to copy data from Azure Storage Blob to Azure SQL Database.
 - [Real-world scenario tutorial](../data-factory/data-factory-tutorial.md). This is an in-depth tutorial for using Azure Data Factory.
-
-
-
-
-
