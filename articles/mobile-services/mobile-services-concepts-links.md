@@ -20,8 +20,6 @@
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
-&nbsp;
-
 The topics linked below provide information about specific behaviors of Microsoft Azure Mobile Services. These same topics are available as help in the Azure classic portal.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
