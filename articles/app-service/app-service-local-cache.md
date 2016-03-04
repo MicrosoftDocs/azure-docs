@@ -29,10 +29,6 @@ Web applications running on Local Cache enjoy the following benefits:
 Local Cache is configured using a combination of reserved App Settings. These App Settings can be configured using the following methods:
 
 * [Azure Portal](#Configure-Local-Cache-Portal)
-<!--
-* [Azure CLI](#Configure-Local-Cache-CLI)
-* [Azure PowerShell](#Configure-Local-Cache-PowerShell)
--->
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### How to: Configure Local Cache using the Azure Portal
@@ -41,28 +37,6 @@ Local Cache is enabled on a per web application basis by using an AppSetting. `W
 
 ![Azure Portal App Settings: Local Cache](media/app-service-local-cache/app-service-local-cache-configure-portal.png)
 
-<!--
-### How to: Configure Local Cache using Azure CLI
-
-#### Azure Service Management
-
-``` azure ```
-
-#### Azure Resource Manager
-
-``` azure ```
-
-### How to: Configure Local Cache using Azure PowerShell
-
-#### Azure Service Management
-
-``` Set-AzureWebsite -AppSettings ```
-
-
-#### Azure Resource Manager
-
-``` Set-AzureRM ```
--->
 ### How to: Configure Local Cache using Azure Resource Manager
 
 ```
@@ -110,7 +84,7 @@ See above section on Best Practices when using Local Cache.
  
 ### How can I tell if my site has switched to using local cache? 
 
-If using the Local Cache feature with Staging Environments, the swap operation will not complete till Local Cache is warmed up. To check if your site is running against local cache, you can check the worker process environment variable WEBSITE_LOCALCACHE_READY. Use the instructions here to access the worker process environment variable on multiple instances.  
+If using the Local Cache feature with Staging Environments, the swap operation will not complete till Local Cache is warmed up. To check if your site is running against local cache, you can check the worker process environment variable `WEBSITE_LOCALCACHE_READY`. Use the instructions here to access the worker process environment variable on multiple instances.  
  
 ### I just published new changes- but my web application does not seem to have them. Why? 
 If your web application uses Local Cache, then you need to restart your site to get the latest changes. Don’t want to that to a production site? See slot options above. 
