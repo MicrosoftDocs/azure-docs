@@ -198,12 +198,11 @@ For example, here's the result of a query on an Application Insights event. The 
 
 ![](./media/app-analytics-scalars/310.png)
 
-In some cases, you must cast the value to an explicit type before using it. For example, in the `by` clause of a `summarize` operator:
+In some cases, you must cast a dynamic value to an explicit type before using it. For example:
 
     requests | summarize count()
     by tostring(customMeasurements.Result)
 
-Queries that return dynamic values encode them as JSON strings.
 
 
 ### Dynamic literals
@@ -216,13 +215,15 @@ To create a dynamic literal, use `parsejson` with a JSON string argument:
 * `parsejson('"21"')` - a single value of dynamic type containing a string
 
 Note that, unlike JavaScript, JSON mandates the use of double-quotes (`"`) around strings. Therefore, it is generally easier to quote a JSON-encoded string literals using single-quotes (`'`).
-  
-The following example shows how one might define a table that holds a `dynamic` column (as well as
-a `datetime` column) and then ingest into it a single record. it also demonstrates how one
-can encode JSON strings in CSV files:
+
+This example creates a dynamic value and then uses its fields:
 
 ```
 
+T
+| extend person = parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')
+| extend n = person.name, add = person.address.street
+```
 
 
 ### Casting dynamic objects
@@ -270,6 +271,15 @@ Cast functions are:
 |[`summarize makelist(`column`)` ](app-analytics-queries.md#summarize-operator)| Flattens groups of rows and puts the values of the column in an array.
 |[`summarize makeset(`column`)`](app-analytics-queries.md#summarize-operator) | Flattens groups of rows and puts the values of the column in an array, without duplication.
 
+### Dynamic objects in let clauses
+
+
+[Let clauses](app-analytics-queries.md#let-clause) store dynamic values as strings, so these two clauses are equivalent, and both need the `parsejson` (or `todynamic`) before being used:
+
+    let list1 = '{"a" : "somevalue"}';
+    let list2 = parsejson('{"a" : "somevalue"}');
+
+    T | project parsejson(list1).a, parsejson(list2).a
 
 
 ## Reference: scalar functions
@@ -428,63 +438,8 @@ dayofweek(1947-11-29 10:00:05)  // time(6.00:00:00), indicating Saturday
 dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
 ```
 
-## substring
 
-    substring("abcdefg", 1, 2) == "bc"
 
-Extract a substring from a given source string starting from a given index. Optionally, the length of the requested substring can be specified.
-
-**Syntax**
-
-    substring(*source*, *startingIndex* [, *length*])
-
-**Arguments**
-
-* *source*: The source string that the substring will be taken from.
-* *startingIndex*: The zero-based starting character position of the requested substring.
-* *length*: An optional parameter that can be used to specify the requested number of characters in the substring. 
-
-**Returns**
-
-A substring from the given string. The substring starts at startingIndex (zero-based) character position and continues to the end of the string or length characters if specified.
-
-**Examples**
-
-```
-substring("123456", 1)        // 23456
-substring("123456", 2, 2)     // 34
-substring("ABCD", 0, 2)       // AB
-```
-
-## split
-
-    split("aaa_bbb_ccc", "_") == ["aaa","bbb","ccc"]
-
-Splits a given string according to a given delimiter and returns a string array with the conatined substrings. Optionally, a specific substring can be returned if exists.
-
-**Syntax**
-
-    split(*source*, *delimiter* [, *requestedIndex*])
-
-**Arguments**
-
-* *source*: The source string that will be splitted according to the given delimiter.
-* *delimiter*: The delimiter that will be used in order to split the source string.
-* *requestedIndex*: An optional zero-based index `int`. If provided, the returned string array will contain the requested substring if exists. 
-
-**Returns**
-
-A string array that contains the substrings of the given source string that are delimited by the given delimiter.
-
-**Examples**
-
-```
-split("aa_bb", "_")           // ["aa","bb"]
-split("aaa_bbb_ccc", "_", 1)  // ["bbb"]
-split("", "_")                // [""]
-split("a__b")                 // ["a","","b"]
-split("aabbcc", "bb")         // ["aa","cc"]
-```
 
 ## extract
 
@@ -577,35 +532,6 @@ The [bracket] notatation and dot notation are equivalent:
 * Consider having the JSON parsed at ingestion by declaring the type of the column to be dynamic.
 
 
-## extentid
-
-The `extentid()` function returns a unique identifier that identifies the data shard ("extent") that the current record resides in. Applying this function to calculated data which is not attached to a data shard returns an empty guid (all zeros).
-
-**Syntax**
-
-    extentid()
-
-**Returns**
-
-A value of type `guid` that identifies the current record's data shard,
-or an empty guid (all zeros).
-
-**Example**
-
-The following example shows how to get a list of all the data shards
-that have records from an hour ago with a specific value for the
-column `ActivityId`. It demonstrates that some query operators (here,
-the `where` operator, but this is also true for `extend` and `project`)
-preserve the information about the data shard hosting the record.
-
-```CSL
-T
-| where Timestamp > ago(1h)
-| where ActivityId == 'dd0595d4-183e-494e-b88e-54c52fe90e5a'
-| extend eid=extentid()
-| summarize by eid
-```
-
 ## floor
 
 An alias for [`bin()`](#bin).
@@ -655,6 +581,30 @@ Get the year from a datetime.
     ... | extend year = getyear(datetime(2015-10-12))
 
     --> year == 2015
+
+
+## hash
+
+**Syntax**
+
+    hash(*source* [, *mod*])
+
+**Arguments**
+
+* *source*: The source scalar the hash is calculated on.
+* *mod*: The modulo value to be applied on the hash result.
+
+**Returns**
+
+The xxhash (long)value of the given scalar, modulo the given mod value (if specified).
+
+**Examples**
+
+```
+hash("World")                   // 1846988464401551951
+hash("World", 100)              // 51 (1846988464401551951 % 100)
+hash(datetime("2015-01-01"))    // 1380966698541616202
+```
 
 ## iff
 
@@ -903,6 +853,39 @@ Has the following results:
 | 5    | Number is 5.000000  | Number was: 5.000000|
  
 
+
+
+## split
+
+    split("aaa_bbb_ccc", "_") == ["aaa","bbb","ccc"]
+
+Splits a given string according to a given delimiter and returns a string array with the conatined substrings. Optionally, a specific substring can be returned if exists.
+
+**Syntax**
+
+    split(*source*, *delimiter* [, *requestedIndex*])
+
+**Arguments**
+
+* *source*: The source string that will be splitted according to the given delimiter.
+* *delimiter*: The delimiter that will be used in order to split the source string.
+* *requestedIndex*: An optional zero-based index `int`. If provided, the returned string array will contain the requested substring if exists. 
+
+**Returns**
+
+A string array that contains the substrings of the given source string that are delimited by the given delimiter.
+
+**Examples**
+
+```
+split("aa_bb", "_")           // ["aa","bb"]
+split("aaa_bbb_ccc", "_", 1)  // ["bbb"]
+split("", "_")                // [""]
+split("a__b")                 // ["a","","b"]
+split("aabbcc", "bb")         // ["aa","cc"]
+```
+
+
 ## sqrt
 
 The square root function.  
@@ -946,6 +929,34 @@ Concatenates between 1 and 16 arguments, which must be strings.
 
 Length of a string.
 
+## substring
+
+    substring("abcdefg", 1, 2) == "bc"
+
+Extract a substring from a given source string starting from a given index. Optionally, the length of the requested substring can be specified.
+
+**Syntax**
+
+    substring(*source*, *startingIndex* [, *length*])
+
+**Arguments**
+
+* *source*: The source string that the substring will be taken from.
+* *startingIndex*: The zero-based starting character position of the requested substring.
+* *length*: An optional parameter that can be used to specify the requested number of characters in the substring. 
+
+**Returns**
+
+A substring from the given string. The substring starts at startingIndex (zero-based) character position and continues to the end of the string or length characters if specified.
+
+**Examples**
+
+```
+substring("123456", 1)        // 23456
+substring("123456", 2, 2)     // 34
+substring("ABCD", 0, 2)       // AB
+```
+
 ## tolower
 
     tolower("HELLO") == "hello"
@@ -958,34 +969,12 @@ Converts a string to lower case.
 
 Converts a string to upper case.
 
-## hash
-
-**Syntax**
-
-    hash(*source* [, *mod*])
-
-**Arguments**
-
-* *source*: The source scalar the hash is calculated on.
-* *mod*: The modulo value to be applied on the hash result.
-
-**Returns**
-
-The xxhash (long)value of the given scalar, modulo the given mod value (if specified).
-
-**Examples**
-
-```
-hash("World")                   // 1846988464401551951
-hash("World", 100)              // 51 (1846988464401551951 % 100)
-hash(datetime("2015-01-01"))    // 1380966698541616202
-```
 
 ## treepath
 
     treepath(*dynamic object*)
 
-Enumerates all the path expressions that identify leaves in a dynamic object.
+Enumerates all the path expressions that identify leaves in a dynamic object. 
 
 **Returns**
 
@@ -993,13 +982,14 @@ An array of path expressions.
 
 **Examples**
 
-|Expression|Evaluates to|
-|---|---|
-|`treepath(parsejson('{"a":"b", "c":123}'))` | `["['a']","['c']"]`|
-|`treepath(parsejson('{"prop1":[1,2,3,4], "prop2":"value2"}'))`|`["['prop1']","['prop1'][0]","['prop2']"]`|
-|`treepath(parsejson('{"listProperty":[100,200,300,"abcde",{"x":"y"}]}'))`|`["['listProperty']","['listProperty'][0]","['listProperty'][0]['x']"]`|
+    treepath(parsejson('{"a":"b", "c":123}')) 
+    =>       ["['a']","['c']"]
+    treepath(parsejson('{"prop1":[1,2,3,4], "prop2":"value2"}'))
+    =>       ["['prop1']","['prop1'][0]","['prop2']"]
+    treepath(parsejson('{"listProperty":[100,200,300,"abcde",{"x":"y"}]}'))
+    =>       ["['listProperty']","['listProperty'][0]","['listProperty'][0]['x']"]
 
-
+Note that "[0]" indicates the presence of an array, but does not specify the index used by a specific path.
 
 
 
