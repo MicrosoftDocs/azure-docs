@@ -19,7 +19,13 @@
 
 #Azure Active Directory Identity Protection flows
 
-With Azure Active Directory Identity Protection, you can handle risky sign-ins and compromised users. The response of the system to these issues has an impact on a user's sign-in experience.
+With Azure Active Directory Identity Protection, you can:
+
+- require users to register for multi-factor authentication
+
+- handle risky sign-ins and compromised users
+
+The response of the system to these issues has an impact on a user's sign-in experience.
 
 This topic gives you an overview of a user's sign-in experience for all cases that can occur:  
 
