@@ -1,14 +1,14 @@
 <properties
    pageTitle="What is Microsoft Azure?"
    description="Describes services related to infrastructure for Azure Compute."
-   services="virtual-machines"
-   documentationCenter="virtual-machines"
+   services="virtual-machines-linux"
+   documentationCenter="virtual-machines-linux"
    authors="rickstercdn"
    manager="madhana"
    editor=""/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
@@ -26,10 +26,10 @@ Azure virtual machines allow you deploy a wide range of computing solutions in a
 
 Use Microsoft Azure Virtual Machines, Storage, and Networking together to provide "infrastructure-as-a-service" at Internet scale for your Linux computing needs. To get started using Linux on Azure, you're going to need:
 
-1. A free trial account. **[Go get one.](https://azure.microsoft.com/pricing/free-trial/)**
-2. The Azure Command-line Interface for Linux, Mac, and Windows (the Azure CLI). **[Install it.](../xplat-cli-install.md)**
-3. Know how to create your Linux VM. **[Create it](virtual-machines-linux-quick-create-cli.md)**.
-4. More information about Linux and Azure, including how to qualify for the Service Level Agreement (SLA). **Read this document**.
+1. A free trial account. [Go get one](https://azure.microsoft.com/pricing/free-trial/).
+2. The Azure Command-line Interface for Linux, Mac, and Windows (the Azure CLI). [Install it](../xplat-cli-install.md).
+3. A Linux VM. [Create it](virtual-machines-linux-quick-create-cli.md).
+4. More information about Linux and Azure, including how to qualify for the Service Level Agreement (SLA). **Read this document, even if you hate legal documents**.
 
 ## Logistics: Regions, Distributions, Availability, VM Sizes and Quotas
 ### Regions
@@ -59,4 +59,4 @@ Each Azure Subscription has default quota limits in place that could impact the 
 
 ## Next steps
 
-A free trial account. **[Go get one.](https://azure.microsoft.com/pricing/free-trial/)** If you already have one, to try it out, **[install the Azure CLI.](../xplat-cli-install.md)**. If you've done that, then [go create your Linux VM now.](virtual-machines-linux-quick-create-cli.md).
+A free trial account. **[Go get one.](https://azure.microsoft.com/pricing/free-trial/)** If you already have one, to try it out, **[install the Azure CLI.](../xplat-cli-install.md)**. If you've done that, then [go create your Linux VM now](virtual-machines-linux-quick-create-cli.md).

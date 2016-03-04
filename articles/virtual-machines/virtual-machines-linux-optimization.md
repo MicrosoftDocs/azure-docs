@@ -2,7 +2,7 @@
 	pageTitle="Optimizing your Linux VM on Azure | Microsoft Azure"
 	description="Learn some optimization tips to make sure you have set up your Linux VM for optimal performance on Azure"
 	keywords="linux virtual machine,virtual machine linux,ubuntu virtual machine" 
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="rickstercdn"
 	manager="madhana"
@@ -10,7 +10,7 @@
 	tags="azure-resource-manager" />
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

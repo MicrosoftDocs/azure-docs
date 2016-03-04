@@ -1,14 +1,14 @@
 <properties
    pageTitle="Create a Linux VM from the CLI | Microsoft Azure"
    description="Create a new Linux VM on Microsoft Azure using the Azure CLI from Mac, Linux, or Windows."
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="vlivech"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
@@ -25,9 +25,10 @@ This topic shows how to quickly create a new Linux-based Azure Virtual Machine u
 
 Quick links for other ways to create Linux VMs in Azure:
 
-- [Create a Linux VM in Azure using the Azure Portal]()
-- [Create a Linux VM in Azure using Azure Templates]()
-- [Create a Linux VM in Azure using the Azure CLI and customizing the infrastructure]()
+- [Create a Linux VM in Azure using the Azure Portal](virtual-machines-linux-portal-create.md)
+- [Create a Linux VM in Azure using Azure Templates](virtual-machines-linux-cli-deploy-templates.md)
+- [Create an SSH-Secured Linux VM in Azure using Azure Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Create a Linux VM in Azure using the Azure CLI and customizing the infrastructure](virtual-machines-linux-create-cli-complete.md)
 
 ## Prerequisites
 
@@ -57,7 +58,7 @@ In the following command examples, please replace values between &lt; and &gt; w
 
 ```
 # Create a resource group to deploy the VM into
-woz@macbook$ azure group create <my-group-name> westus
+username@macbook$ azure group create <my-group-name> westus
 info:    Executing command group create
 + Getting resource group myuniquegroupname
 + Creating resource group myuniquegroupname
@@ -78,7 +79,7 @@ In the following command, you can use any image you want, but this example uses 
 
 ```
 # Create the Linux VM using prompts
-woz@macbook$ azure vm quick-create
+username@macbook$ azure vm quick-create
 azure vm quick-create
 info:    Executing command vm quick-create
 Resource group name: myuniquegroupname
@@ -183,8 +184,8 @@ and then creates the Linux VM inside that environment. This VM is exposed direct
 
 Now you've created a Linux VM quickly to use for testing or demonstration purposes. You can create a more secure execution environment with a Linux VM in Azure by:
 
-- Creating your Linux VM and its environment using a more secure Azure resource manager template
-- Creating your Linux VM and its environment using the Azure Portal
-- Creating your Linux VM and its environment using direct Azure CLI commands
+- [Create a Linux VM in Azure using Azure Templates](virtual-machines-linux-cli-deploy-templates.md)
+- [Create an SSH-Secured Linux VM in Azure using Azure Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Create a Linux VM in Azure using the Azure CLI and customizing the infrastructure](virtual-machines-linux-create-cli-complete.md)
 
 as well as any number of proprietary and open-source infrastructure deployment, configuration, and orchestration tools.

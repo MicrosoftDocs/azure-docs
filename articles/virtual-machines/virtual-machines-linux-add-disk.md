@@ -2,7 +2,7 @@
 	pageTitle="Add a disk to Linux VM | Microsoft Azure"
 	description="Learn to add a persistant disk to your Linux VM"
 	keywords="linux virtual machine,add resource disk" 
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="rickstercdn"
 	manager="madhana"
@@ -10,7 +10,7 @@
 	tags="azure-resource-manager" />
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

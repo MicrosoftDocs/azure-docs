@@ -1,7 +1,7 @@
 <properties
    pageTitle="Using SAP on Windows virtual machines (VMs) | Microsoft Azure"
    description="Lear about using SAP on Windows virtual machines (VMs) in Microsoft Azure"
-   services="virtual-machines,virtual-network,storage"
+   services="virtual-machines-windows,virtual-network,storage"
    documentationCenter="saponazure"
    authors="MSSedusch"
    manager="juergent"

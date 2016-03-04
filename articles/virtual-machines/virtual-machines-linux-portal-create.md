@@ -19,21 +19,13 @@
 
 # Create a Virtual Machine Running Linux using the Azure portal
 
-> [AZURE.SELECTOR]
-- [Portal - Windows](virtual-machines-windows-hero-tutorial.md)
-- [PowerShell](virtual-machines-windows-create-powershell.md)
-- [PowerShell - Template](virtual-machines-windows-ps-template.md)
-- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [CLI](virtual-machines-linux-cli-create.md)
-
-<br>
-
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 Creating an Azure virtual machine (VM) that runs Linux is easy to do. This tutorial shows you how to use the Azure portal to create one quickly, and uses the `~/.ssh/id_rsa.pub` public key file to secure your **SSH** connection to the VM. You can also create Linux VMs using [your own images as templates](virtual-machines-linux-classic-create-upload-vhd.md).
 
-> [AZURE.NOTE] This tutorial creates an Azure virtual machine that is managed by the Azure resource group API. For details, see [Azure resource group overview](../resource-group-overview.md).
+
+[AZURE.NOTE] This tutorial creates an Azure virtual machine that is managed by the Azure resource group API. For details, see [Azure resource group overview](../resource-group-overview.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -130,7 +122,7 @@ To learn more about Linux on Azure, see:
 
 - [Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource-links.md)
 
-- [How to use the Azure Command-Line Tools for Mac and Linux](virtual-machines-command-line-tools.md)
+- [How to use the Azure Command-Line Tools for Mac and Linux](azure-cli-arm-commands.md)
 
 - [Deploy a LAMP app using the Azure CustomScript Extension for Linux](virtual-machines-linux-classic-lamp-script.md)
 

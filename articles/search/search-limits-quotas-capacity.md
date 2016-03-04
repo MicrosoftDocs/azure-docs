@@ -19,11 +19,11 @@
 
 # Service limits in Azure Search
 
-Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you add Azure Search at the **Free**, **Standard 1 (S1)**, or **Standard 2 (S2)** pricing tiers.
+Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you add Azure Search at a **Free**, **Basic**, or **Standard** pricing tier.
 
-**Free** is a multi-tenant shared service that comes with your Azure subscription. It's a no-additional-cost option for existing subscribers that allows you to experiment with the service before signing up for dedicated resources. 
-
-**Standard** runs on dedicated machines used only by your service. Sole use of dedicated computing resources gives you the ability to scale up (or down), with more storage and processing capacity at every level, including the minimum configuration.
+- **Free** is a multi-tenant shared service that comes with your Azure subscription. It's a no-additional-cost option for existing subscribers that allows you to experiment with the service before signing up for dedicated resources. 
+- **Basic (Preview)** provides dedicated computing resources for production workloads at a smaller scale. This tier is currently in Preview and offered at a [reduced rate](https://azure.microsoft.com/pricing/details/search/).
+- **Standard** runs on dedicated machines used only by your service, with more storage and processing capacity at every level, including the minimum configuration. Standard comes in two levels (S1 and S2). 
 
 ## Tier limits
 

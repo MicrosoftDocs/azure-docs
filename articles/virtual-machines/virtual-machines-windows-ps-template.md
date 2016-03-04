@@ -23,7 +23,7 @@
 - [Portal - Windows](virtual-machines-windows-hero-tutorial.md)
 - [PowerShell](virtual-machines-windows-create-powershell.md)
 - [PowerShell - Template](virtual-machines-windows-ps-template.md)
-- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [Portal - Linux](virtual-machines-linux-portal-create.md)
 - [CLI](virtual-machines-linux-cli-create.md)
 
 <br>
