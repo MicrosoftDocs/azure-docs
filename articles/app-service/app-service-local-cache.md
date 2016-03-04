@@ -29,15 +29,17 @@ Web applications running on Local Cache enjoy the following benefits:
 Local Cache is configured using a combination of reserved App Settings. These App Settings can be configured using the following methods:
 
 * [Azure Portal](#Configure-Local-Cache-Portal)
-<!--* [Azure CLI](#Configure-Local-Cache-CLI)
-* [Azure PowerShell](#Configure-Local-Cache-PowerShell)-->
+<!--
+* [Azure CLI](#Configure-Local-Cache-CLI)
+* [Azure PowerShell](#Configure-Local-Cache-PowerShell)
+-->
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### How to: Configure Local Cache using the Azure Portal
 
 Local Cache is enabled on a per web application basis by using an AppSetting. `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
-![Azure Portal App Settings: Local Cache](.\media\app-service-local-cache\app-service-local-cache-configure-portal.png)
+![Azure Portal App Settings: Local Cache](media/app-service-local-cache/app-service-local-cache-configure-portal.png)
 
 <!--
 ### How to: Configure Local Cache using Azure CLI
