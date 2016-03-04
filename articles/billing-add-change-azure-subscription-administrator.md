@@ -69,7 +69,7 @@ The following email address can be added as a Co-Administrator:
  An organizational account is an account that is created under Azure Active Directory. The organizational account address resembles the following:
 	user@&lt;your domain&gt;.onmicrosoft.com
 
-## Limitations and restrictions
+### Limitations and restrictions
 
  * Each subscription is associated with an Azure AD directory (also known as the Default Directory). To find the Default Directory the subscription is associated with, go to the [Azure classic portal](https://manage.windowsazure.com/), select **Settings** > **Subscriptions**. Check the subscription ID to find the Default Directory.
 
