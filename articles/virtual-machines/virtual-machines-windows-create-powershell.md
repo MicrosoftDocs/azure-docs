@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create and configure a VM | Microsoft Azure"
+	pageTitle="Create a VM with Powershell | Microsoft Azure"
 	description="Create and configure an Azure virtual machine with the Powershell and the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="03/04/2016"
 	ms.author="cynthn"/>
 
 # Create and configure a Windows Virtual Machine with Resource Manager and Azure PowerShell
@@ -38,7 +38,7 @@ These steps follow a fill-in-the-blanks approach for creating Azure PowerShell c
 
 ## Step 1: Install Azure PowerShell
 
-For this topic, you need Azure Powershell 1.0 or higher. There are two main options for installation, (PowerShell Gallery)[https://www.powershellgallery.com/profiles/azure-sdk/] and (WebPI)[http://aka.ms/webpi-azps]. WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. If you are comfortable with installing from PowerShell Gallery, that will be the first channel for the latest and greatest in Azure PowerShell.
+There are two main options for installation, (PowerShell Gallery)[https://www.powershellgallery.com/profiles/azure-sdk/] and (WebPI)[http://aka.ms/webpi-azps]. WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. 
 
 For more information, see [Azure Powershell 1.0](https://azure.microsoft.com/en-us/blog/azps-1-0/).
 
