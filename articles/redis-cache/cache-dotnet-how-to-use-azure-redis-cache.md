@@ -4,7 +4,7 @@
 	services="redis-cache,app-service" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -57,7 +57,7 @@ To create a cache, first sign in to the [Azure Portal][], and click **New**, **D
 
 ![New cache][NewCacheMenu]
 
->[AZURE.NOTE] If you don't have an Azure account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
+>[AZURE.NOTE] If you don't have an Azure account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial][].
 
 In the **New Redis Cache** blade, specify the desired configuration for the cache.
 
