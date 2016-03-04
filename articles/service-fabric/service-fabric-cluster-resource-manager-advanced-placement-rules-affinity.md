@@ -23,7 +23,8 @@ Affinity is one of those things that, at least at first glance, doesn’t make a
 Let’s say you’re bringing a larger app, or one that just wasn’t designed with microservices in mind, to Service Fabric. This is actually pretty common, and we’ve had several customers (both internal and external) in this situation. You start by lifting the entire app up into the environment, getting it packaged and running. Then you start breaking it down into different smaller services that all talk to each other.
 
 Then there’s an “Oops”. The “Oops” usually falls into one of these categories:
-1.	Turns out that component X in the monolithic app had an undocumented dependency on component Y that we just turned into a service and moved across the cluster. Now it’s broken.
+
+1. Turns out that component X in the monolithic app had an undocumented dependency on component Y that we just turned into a service and moved across the cluster. Now it’s broken.
 2.	These things communicate via (local named pipes| shared memory | files on disk) but I just really need to be able to update it independently to speed things up a bit.
 3.	Everything is fine, but it turns out that these two components are actually very chatty/performance sensitive and so when I moved them into separate services my perf tanked.
 
