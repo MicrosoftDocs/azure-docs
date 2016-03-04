@@ -751,6 +751,8 @@ To test Sign in risk, perform the following steps:
 ## See also
 
  - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
- - [The Identity Protection glossary](active-directory-identityprotection-glossary.md)
+ - [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types)
+ - [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md)
+ - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md)
 
 

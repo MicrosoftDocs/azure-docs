@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Types of risk events detected by Azure Active Directory Identity Protection | Microsoft Azure"
-	description="Learn how Azure AD Identity Protection enables you to limit the ability of an attacker to exploit a compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised."
+	description="This topic gives you a detailed overview of the available types of risk events in Azure Active Directory Identity Protection"
 	services="active-directory"
 	keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
 	documentationCenter=""
