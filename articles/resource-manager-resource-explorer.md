@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="stuartleeks"
-   manager="wpickett"
+   manager="ankodu"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/23/2016"
+   ms.date="03/04/2016"
    ms.author="stuartle;tomfitz"/>
 
 # Azure Resource Explorer
