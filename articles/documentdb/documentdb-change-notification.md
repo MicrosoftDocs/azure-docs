@@ -31,7 +31,7 @@ The following story is the use case for this article.
 
 DocumentDB is the repository for Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR)  documents. Let's assume that your DocumentDB database combined with your API and Logic App make up an HL7 FHIR Server.  A healthcare facility is storing patient data in the DocumentDB "Patients" database. There are several collections within the patient database; Clinical, Identification, etc. Patient information falls under identification.  You have a collection named "Patient".
 
-The Cardiology department is tracking personal heath and exercise data.  Searching for new or modified Patient records is time consuming.  They asked the IT department if there was a way that they could receive a notification for new or modified Patient records.  
+The Cardiology department is tracking personal heath and exercise data. Searching for new or modified Patient records is time consuming. They asked the IT department if there was a way that they could receive a notification for new or modified Patient records.  
 
 The IT department said that they could easily provide this. They also said that they could push the documents to Google Drive so the Cardiology department could easily access them.
 
@@ -884,7 +884,7 @@ Let's take a look at the Swagger documentation
 
 ![Query](./media/documentdb-change-notification/patientswagger.png)
 
-Let's take a look at the code behind this operations
+Let's take a look at the code behind this operation.
 
 #### GetUtcDate
 
@@ -966,7 +966,7 @@ This operation converts the response from the GetUtcDate operation to a double v
             )]
         [SwaggerOperation("QueryForNewDocuments")]
         [SwaggerResponse(HttpStatusCode.OK, type: typeof (Task<IList<Document>>))]
-        [SwaggerResponse(HttpStatusCode.BadRequest, "The syntax of the SQL Statement is incoreect")]
+        [SwaggerResponse(HttpStatusCode.BadRequest, "The syntax of the SQL Statement is incorrect")]
         [SwaggerResponse(HttpStatusCode.NotFound, "No Documents were found")]
         [SwaggerResponse(HttpStatusCode.InternalServerError, "Internal Server Operation Error")]
         // ReSharper disable once ConsiderUsingAsyncSuffix
