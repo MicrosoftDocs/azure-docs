@@ -1,18 +1,18 @@
-<properties 
-   pageTitle="Use Data Lake Store .NET SDK to develop applications | Azure" 
-   description="Use Azure Data Lake Store .NET SDK to develop applications" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Use Data Lake Store .NET SDK to develop applications | Azure"
+   description="Use Azure Data Lake Store .NET SDK to develop applications"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="02/29/2016"
    ms.author="nitinme"/>
 
@@ -64,12 +64,12 @@ Even though the code snippet below provides methods for both the approaches, thi
 
 4. Click **OK** to create the project.
 
-5. Add the Nuget packages to your project. 
+5. Add the Nuget packages to your project.
 
 	1. Right-click the project name in the Solution Explorer and click **Manage NuGet Packages**.
 	2. In the **Nuget Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include Prerelease** check box is selected.
 	3. Search for and install the following Data Lake Store packages:
-	
+
 		* `Microsoft.Azure.Management.DataLake.Store`
 		* `Microsoft.Azure.Management.DataLake.StoreUploader`
 
@@ -82,10 +82,10 @@ Even though the code snippet below provides methods for both the approaches, thi
 
 	5. Close the **Nuget Package Manager**.
 
-7. Open **Program.cs** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as **_adlsAccountName**, **_resourceGroupName** and replace placeholders for **APPLICATION-CLIENT-ID**, **APPLICATION-REPLY-URI**, and **SUBSCRIPTION-ID**. 
+7. Open **Program.cs** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as **_adlsAccountName**, **_resourceGroupName** and replace placeholders for **APPLICATION-CLIENT-ID**, **APPLICATION-REPLY-URI**, and **SUBSCRIPTION-ID**.
 
 	This code goes through the process of creating a Data Lake Store account, creating folders in the store, uploading files, downloading files, and finally deleting the account. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
-	
+
         using System;
         using System.IO;
         using System.Security;
@@ -115,16 +115,16 @@ Even though the code snippet below provides methods for both the approaches, thi
                     _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name for a NEW Store account.
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value. This resource group should already exist.
                     _location = "East US 2";
-                    
+
                     string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = @"C:\local_path\file.txt"; // TODO: Make sure this exists and can be overwritten.
                     string remoteFolderPath = "/data_lake_path/";
                     string remoteFilePath = remoteFolderPath + "file.txt";
-                    
+
                     // Authenticate the user
                     var tokenCreds = AuthenticateUser("common", "https://management.core.windows.net/",
                         "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REPLY-URI>")); // TODO: Replace bracketed values.
-                    
+
                     SetupClients(tokenCreds, "<SUBSCRIPTION-ID>"); // TODO: Replace bracketed value.
 
                     // Run sample scenarios
@@ -185,7 +185,7 @@ Even though the code snippet below provides methods for both the approaches, thi
 
                 // Authenticate the user with AAD through an interactive popup.
                 // You need to have an application registered with AAD in order to authenticate.
-                //   For more information and instructions on how to register your application with AAD, see: 
+                //   For more information and instructions on how to register your application with AAD, see:
                 //   https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
                 {
@@ -199,7 +199,7 @@ Even though the code snippet below provides methods for both the approaches, thi
 
                 // Authenticate the application with AAD through the application's secret key.
                 // You need to have an application registered with AAD in order to authenticate.
-                //   For more information and instructions on how to register your application with AAD, see: 
+                //   For more information and instructions on how to register your application with AAD, see:
                 //   https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
                 {
@@ -240,7 +240,7 @@ Even though the code snippet below provides methods for both the approaches, thi
                 {
                     var response = _adlsClient.Account.List(_adlsAccountName);
                     var accounts = new List<DataLakeStoreAccount>(response);
-                    
+
                     while (response.NextPageLink != null)
                     {
                         response = _adlsClient.Account.ListNext(response.NextPageLink);
@@ -319,4 +319,3 @@ Even though the code snippet below provides methods for both the approaches, thi
 - [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 - [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-
