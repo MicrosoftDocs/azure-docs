@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/21/2016"
+   ms.date="03/04/2016"
    ms.author="joaoma"/>
 
 # How to manage DNS records using PowerShell
@@ -24,7 +24,7 @@
 - [PowerShell](dns-operations-recordsets.md)
 
 
-This guide will show how to manage record sets and records for your DNS zone.
+This guide will show how to manage record sets and records for your DNS zone using Azure PowerShell.
 
 It is important to understand the distinction between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type.  For more details, see [Understanding record sets and records](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
 
@@ -38,13 +38,14 @@ For a record set at the zone apex, use "@" as the record set name, including quo
 
 Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT.  Record sets of type SOA are created automatically with each zone, they cannot be created separately.
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www -Zone $zone -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -ZoneName contoso.com -ResouceGroupName MyAzureResouceGroup [-Tag $tags] [-Overwrite] [-Force]
 
 If a record set already exists, the command will fail unless the -Overwrite switch is used.  The ‘-Overwrite’ option will trigger a confirmation prompt, which can be suppressed using the -Force switch.
 
-In the above example, the zone is specified using a zone object, as returned by Get-AzureRmDnsZone or New-AzureRmDnsZone. Alternatively, you can also specify the zone by zone name and resource group name:
+In the above example, the zone is specified using the zone name and resource group name.  Alternatively, you can specify a zone object, as returned by Get-AzureRmDnsZone or New-AzureRmDnsZone.
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www –ZoneName contoso.com –ResourceGroupName MyAzureResourceGroup -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
+	PS C:\> $zone = Get-AzureRmDnsZone -ZoneName contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 –Zone $zone [-Tag $tags] [-Overwrite] [-Force]
 
 New-AzureRmDnsRecordSet returns a local object representing the record set created in Azure DNS.
 
@@ -62,13 +63,13 @@ Wildcard record sets are supported for all record types except NS and SOA.
 
 To retrieve an existing record set, use ‘Get-AzureRmDnsRecordSet’, specifying the record set relative name, the record type, and the zone:
 
-	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name www –RecordType A -Zone $zone
-
-As with New-AzureRmDnsRecordSet, the record name must be a relative name, i.e. excluding the zone name.  The zone can be specified using either a zone object (as above) or by zone name and resource group name:
-
 	PS C:\> $rs = Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
+As with New-AzureRmDnsRecordSet, the record name must be a relative name, i.e. excluding the zone name.  The zone can be specified using either the zone name and resource group name, or using a zone object:
+
+	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name www –RecordType A -Zone $zone
+	
 Get-AzureRmDnsRecordSet returns a local object representing the record set created in Azure DNS.
 
 ## List record sets
@@ -174,7 +175,7 @@ The Set-AzureRmDnsRecordSet cmdlet uses ‘etag’ checks to ensure concurrent c
 
 ### Modify SOA record
 
->[AZURE.NOTE] You cannot add or remove records from the automatically-created SOA record set at the zone apex (name = ‘@’), but you can modify the parameters within the SOA record and the record set TTL.
+>[AZURE.NOTE] You cannot add or remove records from the automatically-created SOA record set at the zone apex (name = ‘@’), but you can modify any of the parameters within the SOA record (except 'Host') and the record set TTL.
 
 The following example shows how to change the ‘Email’ property of the SOA record:
 
