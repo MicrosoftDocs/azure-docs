@@ -134,4 +134,4 @@ For more information, see [Role-based and resource-based authorization in multit
 [signup]: guidance-multitenant-identity-signup.md
 [Claims-Based Authorization]: https://docs.asp.net/en/latest/security/authorization/claims.html
 [sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
-[Authorization]: guidance-multitenant-identity-authorize.md
+[authorization]: guidance-multitenant-identity-authorize.md
