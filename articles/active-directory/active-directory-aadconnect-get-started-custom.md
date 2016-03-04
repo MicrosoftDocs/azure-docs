@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/22/2016"
+	ms.date="03/04/2016"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
@@ -108,7 +108,7 @@ The filtering on groups feature allows you to run a small pilot where only a sma
 To use this feature, in the customized path you will see this page:
 ![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
->[AZURE.WARNING] This feature is only intended to support a pilot deployment and should not be used in a full-blow production deployment.
+>[AZURE.WARNING] This feature is only intended to support a pilot deployment and should not be used in a full-blown production deployment.
 
 In a full-blown production deployment it is going to be hard to maintain a single group with all objects to synchronize. Instead you should use one of the methods in [Configure filtering](active-directory-aadconnectsync-configure-filtering.md).
 
