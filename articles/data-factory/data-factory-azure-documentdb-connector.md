@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data to and from DocumentDB | Azure Data Factory" 
+	pageTitle="Move data to/from DocumentDB | Microsoft Azure" 
 	description="Learn how move data to/from Azure DocumentDB collection using Azure Data Factory" 
 	services="data-factory, documentdb" 
 	documentationCenter="" 
