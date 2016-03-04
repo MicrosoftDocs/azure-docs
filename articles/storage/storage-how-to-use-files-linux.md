@@ -3,8 +3,8 @@
         description="Create an Azure file share in the cloud with this step-by-step tutorial. Manage your file share content, and mount a file share from an Azure virtual machine (VM) running Linux or an on-premises application that supports SMB 3.0."
         services="storage"
         documentationCenter="na"
-        authors="jasontang501"
-        manager="jahogg"
+        authors="mine-msft"
+        manager="aungoo"
         editor="tysonn" />
 
 <tags ms.service="storage"
@@ -12,8 +12,8 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="12/17/2015"
-      ms.author="jutang" />
+      ms.date="02/29/2016"
+      ms.author="minet" />
 
 
 # How to use Azure File Storage with Linux
@@ -121,13 +121,12 @@ See these links for more information about Azure File storage.
 ### Conceptual articles and videos
 
 - [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-- [How to use Azure File Storage with Windows](storage-dotnet-how-to-use-files.md)
-- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
+- [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 
 ### Tooling support for File storage
 
-- [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
-- [Using the Azure CLI with Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
+- [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
+- [Create and manage file shares](storage-azure-cli.md#create-and-manage-file-shares) using the Azure CLI
 
 ### Reference
 
@@ -135,7 +134,7 @@ See these links for more information about Azure File storage.
 
 ### Blog posts
 
-- [Azure File storage is now generally available](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Deep dive with Azure File storage](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
+- [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+- [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

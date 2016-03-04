@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Application Insights in a Java web project | Microsoft Azure"
-	description="Monitor performance and usage of your Java website with Application Insights"
+	pageTitle="Java web app analytics with Application Insights | Microsoft Azure"
+	description="Monitor performance and usage of your Java website with Application Insights. "
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/24/2016"
+	ms.date="03/02/2016"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
@@ -52,7 +52,7 @@ You'll need:
 
 *Choose the appropriate way for your project.*
 
-#### If you're creating a Dynamic Web project in Eclipse...
+#### If you're using Eclipse to create a Maven or Dynamic Web project ...
 
 Use the [Application Insights SDK for Java plug-in][eclipse].
 
@@ -80,7 +80,7 @@ Then, refresh the project dependencies to get the binaries downloaded.
     </dependencies>
 
 
-* *Build or checksum validation errors?* Try using a specific version, such as: `<version>1.0.n</version>`. You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Build or checksum validation errors?* Try using a specific version, such as: `<version>1.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Need to update to a new SDK?* Refresh your project's dependencies.
 
 #### If you're using Gradle...
@@ -98,7 +98,7 @@ Then refresh the project dependencies to get the binaries downloaded.
       // or applicationinsights-core for bare API
     }
 
-* *Build or checksum validation errors? Try using a specific version, such as:* `version:'1.0.n'`. *You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md).*
+* *Build or checksum validation errors? Try using a specific version, such as:* `version:'1.0.n'`. *You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *To update to a new SDK*
  * Refresh your project's dependencies.
 
@@ -118,7 +118,7 @@ Manually add the SDK:
 
 * *To update the SDK when we publish changes*
  * Download the latest [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) and replace the old ones.
- * Changes are described in the [SDK release notes](app-insights-release-notes-java.md).
+ * Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
 

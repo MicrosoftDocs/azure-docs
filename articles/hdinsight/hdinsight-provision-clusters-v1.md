@@ -49,7 +49,7 @@ Before you begin the instructions in this article, you must have the following:
 
 	You can provision HDInsight clusters on one of the following two operating systems:
 	- **HDInsight on Windows (Windows Server 2012 R2 Datacenter)**:
-	- **HDInsight on Linux (Ubuntu 12.04 LTS for Linux) (Preview)**: HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). 
+	- **HDInsight on Linux (Ubuntu 12.04 LTS for Linux)**: HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). 
 
 
 - **HDInsight version**
@@ -63,7 +63,7 @@ Before you begin the instructions in this article, you must have the following:
 	- Hadoop clusters: for query and analysis workloads
 	- HBase clusters:  for NoSQL workloads
 	- Storm clusters: for real time event processing workloads
-	- Spark clusters (preview): for in-memory processing, interactive queries, stream, and machines learning workloads.
+	- Spark clusters: for in-memory processing, interactive queries, stream, and machines learning workloads.
 
 	![HDInsight clusters](./media/hdinsight-provision-clusters-v1/hdinsight.clusters.png)
  
@@ -697,8 +697,9 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 
 6. Run the following command in the console to install the packages:
 
-		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Common.Authentication -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+		Install-Package Microsoft.Azure.Management.Resources -Pre
 
 	These commands add .NET libraries and references to them to the current Visual Studio project.
 
@@ -711,6 +712,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
+		using Microsoft.Azure.Management.Resources;
 
 		namespace CreateHDICluster
 		{
@@ -739,6 +741,9 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 		        {
 		            var tokenCreds = GetTokenCloudCredentials();
 		            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+		            
+		            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+		            resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 		
 		            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 		

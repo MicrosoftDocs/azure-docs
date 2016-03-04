@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -21,7 +21,10 @@ Want to do some customised analysis on your telemetry? Or maybe you'd like an em
 
 Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](https://azure.microsoft.com/pricing/details/application-insights/).
 
-(If you just want to do a [one-off export](app-insights-metrics-explorer.md#export-to-excel) of what you see on a metrics or search blade, click Export at the top of the blade. And if you'd like to see data in Power BI, use [the adapter](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) - which *doesn't* use Continuous Export.)
+>[AZURE.NOTE] If you're looking to [explore your data in Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), you can do that without using Continuous Export.
+>
+>And if you just want to do a [one-off export](app-insights-metrics-explorer.md#export-to-excel) of what you see on a metrics or search blade, click Export at the top of the blade. 
+
 
 ## Create a storage account
 
@@ -42,7 +45,7 @@ On your application's Overview blade in the Application Insights portal, open Co
 
 ![Scroll down and click Continuous Export](./media/app-insights-export-telemetry/01-export.png)
 
-Add an export, and choose an [Azure storage account](../storage-introduction.md) where you want to put the data:
+Add an export, and choose an [Azure storage account](../storage/storage-introduction.md) where you want to put the data:
 
 ![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/app-insights-export-telemetry/02-add.png)
 
@@ -170,7 +173,6 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 
     If the account is owned by your organization, you have to be a member of the owners or contributors groups.
 
-    <!-- Your account has to be either a paid-for account, or in the free trial period. -->
 
 * *Can I export straight to my own on-premises store?* 
 

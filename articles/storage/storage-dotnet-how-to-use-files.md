@@ -3,17 +3,17 @@
     		description="Store file data in the cloud with Azure File storage, and mount your cloud file share from an Azure virtual machine (VM) or from an on-premises application running Windows."
             services="storage"
             documentationCenter=".net"
-            authors="robinsh"
-            manager="carmonm"
-            editor="" />
+            authors="mine-msft"
+            manager="aungoo"
+            editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/03/2016"
-      ms.author="robinsh" />
+      ms.date="02/29/2016"
+      ms.author="minet" />
 
 # Get started with Azure File storage on Windows
 
@@ -210,7 +210,7 @@ When a client accesses File storage, the SMB version used depends on the SMB ver
 
 To demonstrate how to mount an Azure file share, we'll now create an Azure virtual machine running Windows, and remote into it to mount the share.
 
-1. First, create a new Azure virtual machine by following the instructions in [Create a virtual machine running Windows Server](../virtual-machines/virtual-machines-windows-tutorial.md).
+1. First, create a new Azure virtual machine by following the instructions in [Create a Windows virtual machine in the Azure Portal](../virtual-machines/virtual-machines-windows-tutorial.md).
 2. Next, remote into the virtual machine by following the instructions in [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-arm-log-on-windows-vm.md).
 3. Open a PowerShell window on the virtual machine.
 
@@ -426,7 +426,7 @@ For more information about creating and using shared access signatures, see [Sha
 
 Beginning with version 5.x of the Azure Storage Client Library, you can copy a file to another file, a file to a blob, or a blob to a file. In the next sections, we demonstrate how to perform these copy operations programmatically.
 
-You can also use AzCopy to copy one file to another or to copy a blob to a file or vice versa. See [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy) for details about copying files with AzCopy.
+You can also use AzCopy to copy one file to another or to copy a blob to a file or vice versa. See [Copy files in Azure File storage with AzCopy](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy).
 
 > [AZURE.NOTE] If you are copying a blob to a file, or a file to a blob, you must use a shared access signature (SAS) to authenticate the source object, even if you are copying within the same storage account.
 
@@ -580,6 +580,14 @@ You can enable metrics for File storage from the [Azure Portal](https://portal.a
 12. **My performance was slow when trying to unzip files into in File storage. What should I do?**
 
 	To transfer large numbers of files into File storage, we recommend that you use AzCopy, Azure Powershell (Windows), or the Azure CLI (Linux/Unix), as these tools have been optimized for network transfer.
+
+13. **Patch released to fix slow-performance issue with Azure Files**
+
+	The Windows team recently released a patch to fix a slow performance issue when the customer accesses Azure Files Storage from Windows 8.1 or Windows Server 2012 R2. For more information, please check out the associated KB article, [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025). 
+
+14. **Using Azure File Storage with IBM MQ**
+
+	IBM has released a document to guide IBM MQ customers when configuring Azure File Storage with their service. For more information, please check out [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
 ## Next steps
 

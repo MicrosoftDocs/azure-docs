@@ -1,18 +1,18 @@
-<properties 
-	 pageTitle="How to Enable the Content Delivery Network (CDN) for Azure" 
-	 description="This topic shows how to enable the Content Delivery Network (CDN) for Azure." 
-	 services="cdn" 
-	 documentationCenter="" 
-	 authors="camsoper" 
-	 manager="dwrede" 
+<properties
+	 pageTitle="How to Enable the Content Delivery Network (CDN) for Azure"
+	 description="This topic shows how to enable the Content Delivery Network (CDN) for Azure."
+	 services="cdn"
+	 documentationCenter=""
+	 authors="camsoper"
+	 manager="erikre"
 	 editor=""/>
-<tags 
-	 ms.service="cdn" 
-	 ms.workload="media" 
-	 ms.tgt_pltfrm="na" 
-	 ms.devlang="na" 
-	 ms.topic="article" 
-	 ms.date="01/20/2016" 
+<tags
+	 ms.service="cdn"
+	 ms.workload="media"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="get-started-article"
+	 ms.date="02/25/2016" 
 	 ms.author="casoper"/>
 
 
@@ -35,14 +35,14 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 1. In the [Azure Management Portal](https://portal.azure.com), in the upper left, click **New**.  In the **New** blade, select **Media + CDN**, then **CDN**.
 
     The new CDN profile blade appears.
-    
+
     ![New CDN Profile][new-cdn-profile]
 
-2. Enter a name for your CDN profile. 
+2. Enter a name for your CDN profile.
 
 3. Select a **Pricing tier** or use the default.
 
-4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview/#resource-groups). 
+4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview/#resource-groups).
 
 5. Select the **Subscription** for this CDN profile.
 
@@ -57,21 +57,21 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 1. In the [Azure Management Portal](https://portal.azure.com), navigate to your CDN profile.  You may have pinned it to the dashboard in the previous step.  If you not, you can find it by clicking **Browse**, then **CDN profiles**, and clicking on the profile you plan to add your endpoint to.
 
     The CDN profile blade appears.
-    
+
     ![CDN profile][cdn-profile-settings]
-    
+
 2. Click the **Add Endpoint** button.
 
     ![Add endpoint button][cdn-new-endpoint-button]
 
     The **Add an endpoint** blade appears.
-    
+
     ![Add endpoint blade][cdn-add-endpoint]
 
 3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<EndpointName>.azureedge.net`.
 
 4. In the **Origin type** dropdown, select your origin type.
-	
+
 	![CDN origin type](./media/cdn-create-new-endpoint/cdn-origin-type.png)
 
 5. In the **Origin hostname** dropdown, select or type your origin domain.  The dropdown will list all available origins of the type you specified in step 4.  If you selected *Custom origin* as your **Origin type**, you will type in the domain of your custom origin.
@@ -98,5 +98,4 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 [cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
-[cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png 
- 
+[cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png

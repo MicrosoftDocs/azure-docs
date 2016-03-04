@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.topic="get-started-article"
+	ms.date="02/17/2016"
 	ms.author="billmath"/>
 
 
@@ -179,7 +179,23 @@ You can use the following command to read the currently configured proxy setting
 	Get-AzureAdConnectHealthProxySettings
 
 
-[//]: # (End of Agent Proxy Configuration Section)
+## Test Connectivity to Azure AD Connect Health Service
+It is possible that issues may arise that cause the Azure AD Connect Health agent to lose connectivity with the Azure AD Connect Health service.  These include network issues, permission issues, or various other reasons.
+
+If the agent is unable to send data to the Azure AD Connect Health service for more than 2 hours, you will see an Alert indicating "Health Service data is not up to date."  Should this occur you can now test whether or not the Azure AD Connect Health agents are able to upload data to the Azure AD Connect Health service by running the following PowerShell command from the machine whose agent is having the issue.
+
+    Test-AzureADConnectHealthConnectivity -Role Adfs
+
+The role parameter currently takes the following values:
+	
+- Adfs
+- Sync
+
+You can use the -ShowResults flag in the command to view detailed logs.  Use the following example:
+
+    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
+
+>[AZURE.NOTE]In order to use the connectivity tool, you must first complete the agent registration.  If you are not able to complete the agent registration, make sure that you have met all of the [requirements](active-directory-aadconnect-health.md#requirements) for Azure AD Connect Health.  This connectivity test is performed by default during agent registration.
 
 
 ## Related links
@@ -189,3 +205,5 @@ You can use the following command to read the currently configured proxy setting
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
+

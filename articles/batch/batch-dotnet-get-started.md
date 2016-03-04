@@ -28,9 +28,9 @@ This article assumes that you have a working knowledge of C# and Visual Studio. 
 
 ### Accounts
 
-- **Azure account**--If you do not already have an Azure subscription, you can create a free trial account in minutes at [Azure free trial](http://azure.microsoft.com/pricing/free-trial/).
+- **Azure account**--If you don't already have an Azure subscription, you can [create a free Azure account][azure_free_account].
 - **Batch account**--Once you have an Azure subscription, [create and manage an Azure Batch account](batch-account-create-portal.md).
-- **Storage account**--See the "Create a storage account" section in [About Azure storage accounts](../storage-create-storage-account.md).
+- **Storage account**--See the "Create a storage account" section in [About Azure storage accounts](./../storage/storage-create-storage-account.md).
 
 ### Visual Studio
 
@@ -642,6 +642,7 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 - Check out a different implementation of processing the "top N words" workload by using Batch in the [TopNWords][github_topnwords] sample.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
+[azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/

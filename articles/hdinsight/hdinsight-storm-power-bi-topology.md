@@ -14,12 +14,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="01/08/2016"
+ ms.date="03/01/2016"
  ms.author="larryfr"/>
 
-# Use Power BI (preview) to visualize data from an Apache Storm topology
+# Use Power BI to visualize data from an Apache Storm topology
 
-The Power BI preview allows you to visually display data as reports, or dashboards. Using the Power BI REST API, you can easily use data from a topology running on an Apache Storm on HDInsight cluster to Power BI.
+The Power BI allows you to visually display data as reports, or dashboards. Using the Power BI REST API, you can easily use data from a topology running on an Apache Storm on HDInsight cluster to Power BI.
 
 In this document, you will learn how to use Power BI to create a report and dashboard from data created by a Storm topology.
 
@@ -63,7 +63,7 @@ The following files in this project implement the Power BI specific functionalit
 
 ## Download the example
 
-Download the [HDInsight C# Storm Power BI example](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). To download it, either fork/clone it using [git](http://git-scm.com/), or use the **Download** link to download a .zip of the archive.
+Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samples/hdinsight-dotnet-storm-powerbi). To download it, either fork/clone it using [git](http://git-scm.com/), or use the **Download** link to download a .zip of the archive.
 
 ## Configure the sample
 
