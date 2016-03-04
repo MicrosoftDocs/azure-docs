@@ -20,7 +20,6 @@
 #Azure Active Directory Identity Protection flows
 
 
-
 ## User risk remediation and mitigation flows  
 
 The following sections provide an overview of the user experience for user risk remediation and mitigation flows.
