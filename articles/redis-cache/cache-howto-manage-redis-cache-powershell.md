@@ -81,7 +81,7 @@ To create a cache in the Azure Government Cloud, use one of the following locati
 -	USGov Virginia
 -	USGov Iowa
 
-For more information about the Azure Government Cloud, see [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) and [Microsoft Azure Government Developer Guide](azure-government-developer-guide.md).
+For more information about the Azure Government Cloud, see [Microsoft Azure Government](https://azure.microsoft.com/features/gov/).
 
 ### To connect to the Azure China Cloud
 
