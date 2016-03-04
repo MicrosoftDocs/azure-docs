@@ -1,6 +1,6 @@
 <style>
 .note.note-warning {
-    background-color: #f0ad4e !important;
+    background-color: #e3dc6c !important;
 }
 </style>
 
