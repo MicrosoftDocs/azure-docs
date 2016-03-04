@@ -1,7 +1,8 @@
 <properties
    pageTitle="Detailed walkthrough of using the Azure Active Directory B2B collaboration preview | Microsoft Azure"
-   description="Azure Active Directory B2B supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
+   description="Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -10,10 +11,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/03/2016"
+   ms.date="02/10/2016"
    ms.author="viviali"/>
 
 # Azure AD B2B collaboration preview: Detailed walkthrough
@@ -27,7 +28,7 @@ This walkthrough outlines how to use Azure AD B2B collaboration. As the IT admin
 After invitations are sent out to partner users, we can configure them in Azure AD to grant access to apps and membership to groups through the Azure portal. Let's start by adding Alice.
 
 ## Adding Alice to Contoso's directory
-1. Create a .csv file with the headers as shown, populating only Alice's **Email**, **DisplayName**, and **InviteContactUsUrl**. **DisplayName** is the name that will appear in the invite, and also the name that will appear in Contoso's Azure AD directory. **InviteContactUsUrl** is a way for Alice to contact Contoso. In the example below, is specifies Contoso's LinkedIn profile. It is important to have the labels in the first row of the .csv file in the same order and spelled the same way as shown. See the CSV Format section below.  
+1. Create a .csv file with the headers as shown, populating only Alice's **Email**, **DisplayName**, and **InviteContactUsUrl**. **DisplayName** is the name that will appear in the invite, and also the name that will appear in Contoso's Azure AD directory. **InviteContactUsUrl** is a way for Alice to contact Contoso. In the example below, is specifies Contoso's LinkedIn profile. It is important to have the labels in the first row of the .csv file in the same order and spelled in the same way as shown. See the CSV Format section below.  
 ![Example CSV file for Alice](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
 
 2. In the Azure portal, add a user into the Contoso directory (Active Directory > Contoso > Users > Add User). In the "Type of User" drop down, select "Users in partner companies". Upload the .csv file. Make sure that the .csv file is closed prior to uploading.  
@@ -93,3 +94,4 @@ Browse our other articles on Azure AD B2B collaboration:
 - [External user token format](active-directory-b2b-references-external-user-token-format.md)
 - [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

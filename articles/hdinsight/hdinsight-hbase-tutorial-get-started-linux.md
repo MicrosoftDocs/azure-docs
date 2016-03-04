@@ -32,7 +32,7 @@ The information in this document is specific to Linux-based HDInsight clusters. 
 Before you begin this HBase tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Secure Shell(SSU)](hdinsight-hadoop-linux-use-ssh-unixl.md). 
+- [Secure Shell(SSU)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 - [curl](http://curl.haxx.se/download.html).
 
 ## Create HBase cluster
