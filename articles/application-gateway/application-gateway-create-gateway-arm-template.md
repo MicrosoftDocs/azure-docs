@@ -54,7 +54,7 @@ In this scenario you will:
 
 You can download the existing Azure Resource Manager template to create a virtual network and two subnets from GitHub, make any changes you might want, and reuse it. To do so, follow the steps below:
 
-1. Navigate to [Create Application Gateway] (https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-create).
+1. Navigate to [Create Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-create).
 2. Click **azuredeploy.json**, and then click **RAW**.
 3. Save the file to a local folder on your computer.
 4. If you are familiar with Azure Resource Manager templates, skip to step 7.
