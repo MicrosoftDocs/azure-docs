@@ -41,7 +41,7 @@ For Azure CLI, see:
 
 * [Create a Linux virtual machine](virtual-machines-linux-cli-create.md) 
 
-* [Deploy and mnage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md)
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md)
 
 ## Operating system and image choices
 
