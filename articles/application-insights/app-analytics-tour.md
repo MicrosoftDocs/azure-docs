@@ -44,7 +44,7 @@ Sign in with the same credentials.
 
 Metrics such as performance counters are stored in a table called metrics. Each row is a telemetry data point received from the Application Insights SDK in an app. To find out how big the table is, we'll pipe its content into an operator that simply counts the rows:
 
-```
+```CSL
 	
     metrics | count
 ```
@@ -64,7 +64,7 @@ Here's the result:
 
 Let's see some data - what's in a sample 10 rows?
 
-```
+```CSL
 
 	metrics | take 10
 ```
@@ -88,7 +88,7 @@ Expand any item to see the detail:
 
 Show me the first n rows, ordered by a particular column:
 
-```
+```CSL
 
 	metrics | top 10 by timestamp desc 
 ```
@@ -100,7 +100,7 @@ Show me the first n rows, ordered by a particular column:
 
 `top...` is a more performant way of saying `sort ... | take...`. We could have written:
 
-```
+```CSL
 
 	metrics | sort by timestamp desc | take 10
 ```
@@ -114,7 +114,7 @@ The column headers in the table view can also be used to sort the results on the
 
 Use `project` to pick out just the columns you want:
 
-```
+```CSL
 
     metrics | top 10 by timestamp desc
             | project timestamp, metricName, value
@@ -125,7 +125,7 @@ Use `project` to pick out just the columns you want:
 
 You can also rename columns and define new ones:
 
-```
+```CSL
 
     metrics 
     | top 10 by timestamp desc 
@@ -149,7 +149,7 @@ In the scalar expression:
 
 If you just want to add columns to the existing ones, use `extend`:
 
-```
+```CSL
 
     metrics 
     | top 10 by timestamp desc
@@ -164,7 +164,7 @@ By looking at a sample of a table, we can see the fields where the different tel
 
 But instead of plowing through individual instances, let's ask how many exceptions have been reported, of each type:
 
-```
+```CSL
 
 	exceptions 
     | summarize count() by outerExceptionType
@@ -179,7 +179,7 @@ There's a range of [aggregation functions](app-analytics-aggregations.md), and y
 
 For example, let's list the HTTP requests for which these exceptions occur. Again by inspecting a sample of  the exception table, you'll notice that the HTTP request paths are reported in a column named `operation_Name`. 
 
-```
+```CSL
 
     exceptions 
     | summarize count(), makeset(operation_Name)
@@ -203,7 +203,7 @@ The result of a summarize has:
 
 You can use scalar (numeric, time, or interval) values in the by clause. But numbers usually fill a continuous range. To group the data points, you'll want to assign them to bins of discrete values. The `bin` function is useful for this:
 
-```
+```CSL
 
     exceptions 
        | summarize count()  
@@ -225,7 +225,7 @@ If you've set up Application Insights monitoring for both the [client](app-insig
 
 Let's see just exceptions reported from browsers:
 
-```
+```CSL
 
     exceptions 
     | where device_Id == "browser" 
@@ -247,7 +247,7 @@ Read all about [scalar expressions](app-analytics-scalars.md).
 
 Find unsuccessful requests:
 
-```
+```CSL
 
     requests 
     | where responseCode >= 400
@@ -255,7 +255,7 @@ Find unsuccessful requests:
 
 Summarize the different responses. Notice that we must always cast any value that comes out of a property bag or array when using it in a `by` clause:
 
-```
+```CSL
 
     requests
     | summarize count() 
@@ -266,7 +266,7 @@ Summarize the different responses. Notice that we must always cast any value tha
 
 Show how many events there are each day:
 
-```
+```CSL
 
     requests
       | summarize event_count=count()
@@ -283,7 +283,7 @@ The x axis for line charts has to be of type DateTime. (But you can make vertica
 
 Use multiple values in a `summarize by` clause to create a separate row for each combination of values:
 
-```
+```CSL
 
     requests 
       | summarize event_count=count()   
@@ -304,7 +304,7 @@ How does usage vary over the average day?
 
 Count requests by the time modulo one day, binned into hours:
 
-```
+```CSL
 
     requests
     | extend hour = floor(timestamp % 1d , 1h) 
@@ -321,7 +321,7 @@ Count requests by the time modulo one day, binned into hours:
 
 How does usage vary over the time of day in different states?
 
-```
+```CSL
     requests
      | extend hour= floor( timestamp % 1d , 1h)
            + datetime("2001-01-01")
@@ -338,7 +338,7 @@ Split the chart by state:
 
 How many sessions are there of different lengths?
 
-```
+```CSL
 
     requests 
     | where isnotnull(session_Id) and isnotempty(session_Id) 
@@ -365,7 +365,7 @@ What ranges of durations cover different percentages of sessions?
 
 Use the above query, but replace the last line:
 
-```
+```CSL
 
     requests 
     | where isnotnull(session_Id) and isnotempty(session_Id) 
@@ -389,7 +389,7 @@ From which we can see that:
 
 To get a separate breakdown for each city, we just have to bring the location_City column separately through both summarize operators:
 
-```
+```CSL
 
     requests 
     | where isnotnull(session_Id) and isnotempty(session_Id) 
@@ -413,7 +413,7 @@ We have access to three tables: metric, exceptions, and event. `event` contains 
 
 To find the exceptions related to a request that returned a failure response, we can join the tables on `session_Id`:
 
-```
+```CSL
 
     requests 
     | where toint(responseCode) >= 500 
@@ -431,7 +431,7 @@ In the same clauses, we rename the timestamp column.
 
 Use [let](./app-analytics-syntax.md#let-statements) to separate out the parts of the previous expression. The results are unchanged:
 
-```
+```CSL
 
     let bad_requests = 
       requests

@@ -223,29 +223,11 @@ can encode JSON strings in CSV files:
 
 ```
 
-// dynamic is just like any other type:
-.create table Logs (Timestamp:datetime, Trace:dynamic)
 
-// Everything between the "[" and "]" is parsed as a CSV line would:
-// 1. Since the JSON string includes double-quotes and commas (two characters
-//    that have a special meaning in CSV), we must CSV-quote the entire second field.
-// 2. CSV-quoting means adding double-quotes (") at the immediate beginning and end
-//    of the field (no spaces allows before the first double-quote or after the second
-//    double-quote!)
-// 3. CSV-quoting also means doubling-up every instance of a double-quotes within
-//    the contents
-.ingest inline into table Logs
-  [2015-01-01,"{""EventType"":""Demo"", ""EventValue"":""Double-quote love!""}"]
-
-```
-
-|Timestamp                   | Trace                                                 |
-|----------------------------|-------------------------------------------------------|
-|2015-01-01 00:00:00.0000000 | {"EventType":"Demo","EventValue":"Double-quote love!"}|
 
 ### Casting dynamic objects
 
-> After subscripting a dynamic object, you must cast the value to a simple type.
+After subscripting a dynamic object, you must cast the value to a simple type.
 
 |Expression | Value | Type|
 |---|---|---|
@@ -304,7 +286,7 @@ for all instantiations.
 
 **Syntax**
 
-`ago(`*a_timespan*`)`
+    ago(a_timespan)
 
 **Arguments**
 
@@ -313,13 +295,13 @@ for all instantiations.
 
 **Returns**
 
-`now() - a_timespan`
+    now() - a_timespan
 
 **Example**
 
 All rows with a timestamp in the past hour:
 
-```
+```CSL
 T | where Timestamp > ago(1h)
 ```
 
@@ -329,7 +311,7 @@ The number of elements in a dynamic array.
 
 **Syntax**
 
-`arraylength(`*array*`)`
+    arraylength(*array*)
 
 **Arguments**
 
@@ -358,7 +340,7 @@ Alias `floor`.
 
 **Syntax**
 
-`bin(`*value*`,`*roundTo*`)`
+     bin(*value*,*roundTo*)
 
 **Arguments**
 
@@ -369,7 +351,7 @@ Alias `floor`.
 
 The nearest multiple of *roundTo* below *value*.  
  
- `(toint((value/roundTo))) * roundTo`
+    (toint((value/roundTo))) * roundTo
 
 **Examples**
 
@@ -383,7 +365,7 @@ Expression | Result
 The following expression calculates a histogram of durations,
 with a bucket size of 1 second:
 
-```
+```CSL
 T | summarize Hits=count() by bin(Duration, 1s)
 ```
 
@@ -396,7 +378,7 @@ Counts occurrences of a substring in a string. Plain string matches may overlap;
 
 **Syntax**
 
-`countof(`*text*`,` *search* [`,` *kind*]`)`
+    countof(*text*, *search* [, *kind*])
 
 **Arguments**
 
@@ -429,7 +411,7 @@ The integer number of days since the preceding Sunday, as a `timespan`.
 
 **Syntax**
 
-`dayofweek(`*a_date*`)`
+    dayofweek(*a_date*)
 
 **Arguments**
 
@@ -441,7 +423,7 @@ The `timespan` since midnight at the beginning of the preceding Sunday, rounded 
 
 **Examples**
 
-```
+```CSL
 dayofweek(1947-11-29 10:00:05)  // time(6.00:00:00), indicating Saturday
 dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
 ```
@@ -454,7 +436,7 @@ Extract a substring from a given source string starting from a given index. Opti
 
 **Syntax**
 
-`substring(`*source*`,` *startingIndex* [`,` *length*]`)`
+    substring(*source*, *startingIndex* [, *length*])
 
 **Arguments**
 
@@ -482,7 +464,7 @@ Splits a given string according to a given delimiter and returns a string array 
 
 **Syntax**
 
-`split(`*source*`,` *delimiter* [`,` *requestedIndex*]`)`
+    split(*source*, *delimiter* [, *requestedIndex*])
 
 **Arguments**
 
@@ -512,7 +494,7 @@ Get a match for a [regular expression](app-analytics-reference.md#regular-expres
 
 **Syntax**
 
-`extract(`*regex*`,` *captureGroup*`,` *text* [`,` *typeLiteral*]`)`
+    extract(*regex*, *captureGroup*, *text* [, *typeLiteral*])
 
 **Arguments**
 
@@ -533,7 +515,7 @@ If there's no match, or the type conversion fails: `null`.
 The example string `Trace` is searched for a definition for `Duration`. 
 The match is converted to `real`, then multiplied it by a time constant (`1s`) so that `Duration` is of type `timespan`. In this example, it is equal to 123.45 seconds:
 
-```
+```CSL
 ...
 | extend Trace="A=1, B=2, Duration=123.45, ..."
 | extend Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s) 
@@ -541,7 +523,7 @@ The match is converted to `real`, then multiplied it by a time constant (`1s`) s
 
 This example is equivalent to `substring(Text, 2, 4)`:
 
-```
+```CSL
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
@@ -601,7 +583,7 @@ The `extentid()` function returns a unique identifier that identifies the data s
 
 **Syntax**
 
-`extentid()`
+    extentid()
 
 **Returns**
 
@@ -616,8 +598,7 @@ column `ActivityId`. It demonstrates that some query operators (here,
 the `where` operator, but this is also true for `extend` and `project`)
 preserve the information about the data shard hosting the record.
 
-<!-- csl -->
-```
+```CSL
 T
 | where Timestamp > ago(1h)
 | where ActivityId == 'dd0595d4-183e-494e-b88e-54c52fe90e5a'
@@ -683,7 +664,7 @@ is `true` or `false`. The second and third arguments must be of the same type.
 
 **Syntax**
 
- `iff(`*predicate*`,` *ifTrue*`,` *ifFalse*`)`
+    iff(*predicate*, *ifTrue*, *ifFalse*)
 
 
 **Arguments**
@@ -712,13 +693,13 @@ True if the argument is an empty string or is null.
 
 **Syntax**
 
-`isempty(`[*value*]`)`
+    isempty([*value*])
 
 
-`isnotempty(`[*value*]`)`
+    isnotempty([*value*])
 
 
-`notempty(`[*value*]`)` -- alias of `isnotempty`
+    notempty([*value*]) // alias of isnotempty
 
 **Returns**
 
@@ -748,13 +729,13 @@ Takes a single argument and tells whether it is null.
 **Syntax**
 
 
-`isnull(`[*value*]`)`
+    isnull([*value*])
 
 
-`isnotnull(`[*value*]`)`
+    isnotnull([*value*])
 
 
-`notnull(`[*value*]`)` - alias for `isnotnull`
+    notnull([*value*])  // alias for isnotnull
 
 **Returns**
 
@@ -786,7 +767,7 @@ The current UTC clock time, optionally offset by a given timespan. This function
 
 **Syntax**
 
-`now(`[*offset*]`)`
+    now([*offset*])
 
 **Arguments**
 
@@ -796,13 +777,13 @@ The current UTC clock time, optionally offset by a given timespan. This function
 
 The current UTC clock time as a `datetime`.
 
-`now()` + *offset* 
+    now() + *offset* 
 
 **Example**
 
 Determines the interval since the event identified by the predicate:
 
-```
+```CSL
 T | where ... | extend Elapsed=now() - Timestamp
 ```
 
@@ -812,7 +793,7 @@ Interprets a `string` as a [JSON value](http://json.org/)) and returns the value
 
 **Syntax**
 
-`parsejson(`*json*`)`
+    parsejson(*json*)
 
 **Arguments**
 
@@ -835,8 +816,7 @@ then the following CSL Fragment retrieves the value of the `duration` slot
 in the object, and from that it retrieves two slots, `duration.value` and
  `duration.min` (`118.0` and `110.0`, respectively).
 
-<!-- csl -->
-```
+```CSL
 T
 | ...
 | extend d=parsejson(context_custom_metrics) 
@@ -858,7 +838,7 @@ generates a dynamic array holding a series of equally-spaced values.
 
 **Syntax**
 
-`range(`*start*`,` *stop*`,` *step*`)`
+    range(*start*, *stop*, *step*)
 
 **Arguments**
 
@@ -873,14 +853,14 @@ the array.
 
 The following example returns `[1, 4, 7]`:
 
-```
+```CSL
 range(1, 8, 3)
 ```
 
 The following example returns an array holding all days
 in the year 2015:
 
-```
+```CSL
 range(datetime(2015-01-01), datetime(2015-12-31), 1d)
 ```
 
@@ -890,7 +870,7 @@ Replace all regex matches with another string.
 
 **Syntax**
 
-`replace(`*regex*`,` *rewrite*`,` *text*`)`
+    replace(*regex*, *rewrite*, *text*)
 
 **Arguments**
 
@@ -906,8 +886,7 @@ Replace all regex matches with another string.
 
 This statement:
 
-<!-- csl-->
-```
+```CSL
 range x from 1 to 5 step 1
 | extend str=strcat('Number is ', tostring(x))
 | extend replaced=replace(@'is (\d+)', @'was: \1', str)
@@ -930,7 +909,7 @@ The square root function.
 
 **Syntax**
 
-`sqrt(`*x*`)`
+    sqrt(*x*)
 
 **Arguments**
 
@@ -969,7 +948,7 @@ Length of a string.
 
 ## tolower
 
-    tolower("HELLOR") == "hellow"
+    tolower("HELLO") == "hello"
 
 Converts a string to lower case.
 
@@ -983,7 +962,7 @@ Converts a string to upper case.
 
 **Syntax**
 
-`hash(`*source* [`,` *mod*]`)`
+    hash(*source* [, *mod*])
 
 **Arguments**
 
@@ -1004,7 +983,7 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 
 ## treepath
 
-`treepath(`*dynamic object*`)`
+    treepath(*dynamic object*)
 
 Enumerates all the path expressions that identify leaves in a dynamic object.
 

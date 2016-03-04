@@ -31,13 +31,25 @@ Application Analytics query lanuage, CSL.
 A query over your telemetry is made up of a reference to a source stream, followed by a pipeline of filters. For example:
 
 
-```
+```CSL
 requests
 | where location_City == "London" and timestamp > ago(3d)
 | count
 ```
     
 Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](app-analytics-scalars.md) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
+
+A query may be prefixed by one or more [let clauses](#let-clause), which define scalars, tables, or functions that can be used within the query.
+
+```CSL
+
+    let interval = 3d ;
+    let city = "London" ;
+    let req = (city:string) {
+      requests
+      | where location_City == city and timestamp > ago(interval) };
+    req(city) | count
+```
 
 > `T` is used in query examples below to denote the preceding pipeline or source table.
 
@@ -47,7 +59,7 @@ The `count` operator returns the number of records (rows) in the input record se
 
 **Syntax**
 
-`T | count`
+    T | count
 
 **Arguments**
 
@@ -60,7 +72,7 @@ This function returns a table with a single record and column of type
 
 **Example**
 
-```
+```CSL
 requests | count
 ```
 
@@ -75,7 +87,7 @@ Append one or more calculated columns to a table.
 
 **Syntax**
 
-*T* `| extend` *ColumnName* `=` *Expression* [`,` ...]
+    *T* | extend *ColumnName* = *Expression* [, ...]
 
 **Arguments**
 
@@ -96,7 +108,7 @@ A copy of the input table, with the specified additional columns.
 
 **Example**
 
-```
+```CSL
 traces
 | extend
     Age = now() - timestamp
@@ -112,7 +124,7 @@ Merges the rows of two tables by matching values of the specified column.
 
 **Syntax**
 
-*Table1* `| join [kind=`*kind*`] (`*Table2*`) on` *CommonColumn* [`,` ...]
+    *Table1* | join [kind=*kind*] (*Table2*) on *CommonColumn* [, ...]
 
 **Arguments**
 
@@ -158,7 +170,7 @@ For best performance:
 
 Get extended activities from a log in which some entries mark the start and end of an activity. 
 
-```
+```CSL
     let Events = MyLogTable | where type=="Event" ;
     Events
     | where Name == "Start"
@@ -191,7 +203,7 @@ Get extended activities from a log in which some entries mark the start and end 
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-A let clause binds a name to a tablular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is the query that immediately follows. (It doesn't persist to later queries in your session.)
+A let clause binds a name to a tablular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
 
 **Syntax**
 
@@ -316,7 +328,7 @@ A table that has the columns named as arguments, and as many rows as the input t
 The following example shows several kinds of manipulations that can be done
 using the `project` operator. The input table `T` has three columns of type `int`: `A`, `B`, and `C`. 
 
-```
+```CSL
 T
 | project
     X=C,                       // Rename column C to X
@@ -387,7 +399,7 @@ below will extend the table with two columns: `SwathSize`, and `FellLocation`.
 |The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16. Flood stage at Woodbury is 33 feet. Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water.|
 |The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18. Flood stage at Tell City is 38 feet. At this level, the river begins to overflow its banks above the gage. Indiana Highway 66 floods between Rome and Derby.|
 
-```
+```CSL
 
 StormEvents 
 |  parse EventNarrative 
@@ -411,7 +423,7 @@ StormEvents
 
 It is also possible to match using regular expressions. Will the same result but all as strings type:
 
-```
+```CSL
 
 StormEvents
 | parse kind=regex EventNarrative 
@@ -460,7 +472,7 @@ whose values are *start*, *start* `+` *step*, ... up to and until *stop*.
 
 **Example**  
 
-```
+```CSL
 range Steps from 1 to 8 step 3
 ```
 
@@ -475,7 +487,7 @@ A table of midnight at the past seven days. The bin (floor) function reduces eac
 
 **Example**  
 
-```
+```CSL
 range TIMESTAMP from ago(4h) to now() step 1m
 | join kind=fullouter
   (Traces
@@ -541,7 +553,7 @@ Sort the rows of the input table into order by one or more columns.
 
 **Example**
 
-```
+```CSL
 Traces
 | where ActivityId == "479671d99b7b"
 | sort by Timestamp asc
@@ -674,7 +686,7 @@ A table with as many rows as there are in all the input tables.
 
 **Example**
 
-```
+```CSL
 
 let ttrr = requests | where timestamp > ago(1h);
 let ttee = exceptions | where timestamp > ago(1h);
@@ -682,7 +694,7 @@ union tt* | count
 ```
 Union of all tables whose names begin "tt".
 
-```
+```CSL
 
 union e* | where * has "timestamp"
 ```
@@ -692,7 +704,7 @@ Rows from all tables in the database whose name starts with `e`, and in which an
 
 **Example**
 
-```
+```CSL
 
 union withsource=SourceTable kind=outer Query, Command
 | where Timestamp > ago(1d)
@@ -701,7 +713,7 @@ union withsource=SourceTable kind=outer Query, Command
 The number of distinct users that have produced
 either a `exceptions` event or a `traces` event over the past day. In the result, the 'SourceTable' column will indicate either "Query" or "Command".
 
-```
+```CSL
 exceptions
 | where Timestamp > ago(1d)
 | union withsource=SourceTable kind=outer 
@@ -745,7 +757,7 @@ To get the fastest performance:
 
 **Example**
 
-```
+```CSL
 Traces
 | where Timestamp > ago(1h)
     and Source == "Kuskus"
