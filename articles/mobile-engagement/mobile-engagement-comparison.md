@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Mobile Engagement concepts | Microsoft Azure"
-	description="Azure Mobile Engagement concepts"
+	pageTitle="Comparing Azure Mobile Engagement with other similar Azure services"
+	description="Comparing Azure Mobile Engagement with other similar Azure services - HockeyApp, AppInsights, Notification Hubs"
 	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="erikre" 
 	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/26/2016"
+	ms.topic="article"
+	ms.date="03/3/2016"
 	ms.author="piyushjo" />
 
 # Comparing Azure Mobile Engagement with other similar Azure services
