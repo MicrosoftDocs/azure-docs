@@ -23,9 +23,7 @@ This document describes the Azure App Service virtual network integration featur
 The Azure App Service has two forms.  
 
 1. The multi-tenant systems that support the full range of pricing plans
-1. The App Service Environment (ASE) premium feature which deploys into a customers VNET.  
-
-With an App Service Environment you normally do not need to use VNET Integration as the system is already in your VNET and has access to all the resources in that VNET.  The one reason you would still use the VNET Integration feature with an ASE is if you wish to access resources in another VNET that is not connected to the VNET hosting your ASE.  
+1. The App Service Environment (ASE) premium feature which deploys into your VNET.  
 
 >[AZURE.NOTE] This article does not describe putting an ASE in a V2 VNET.  That is still not yet supported and is unrelated to this article.  This article is about enabling your apps to consume resources in a V1 or V2 VNET.
 
@@ -85,7 +83,7 @@ The VNET Integration UI allows you to select from a list of your VNETs.  The V1 
 To enable integration simply click on the VNET you wish to integrate with.  After you select the VNET, your app will be automatically restarted for the changes to take effect.  
 
 ##### Enable Point to Site in a V1 VNET #####
-If your VNET does not have a gateway nor has Point to Site then you have to set that up first.  To do this for a V1 VNET, go to the Azure Portal and bring up the list of Virtual Networks(classic).  From here click on the network you want to integrate with and click on the big box under Essentials called VPN Connections.  From here you can create your point to site VPN and even have it create a gateway.  After you go through the point to site with gateway creation experience it will be about 30 minutes before it is ready.  
+If your VNET does not have a gateway nor has Point to Site then you have to set that up first.  To do this for a V1 VNET, go to the [Azure Portal][AzurePortal] and bring up the list of Virtual Networks(classic).  From here click on the network you want to integrate with and click on the big box under Essentials called VPN Connections.  From here you can create your point to site VPN and even have it create a gateway.  After you go through the point to site with gateway creation experience it will be about 30 minutes before it is ready.  
 
 ![][8]
 
@@ -93,10 +91,10 @@ If your VNET does not have a gateway nor has Point to Site then you have to set 
 
 To configure a V2 VNET with a gateway and Point to Site you need to use PowerShell as documented here, [Configure a Point-to-Site connection to a virtual network using PowerShell][V2VNETP2S].  The UI to perform this capability is not yet available. 
 
-### Creating a VNET and integrating with it ###
+### Creating a pre-configured VNET ###
 If you want to create a new VNET that is configured with a gateway and Point-to-Site, then the App Service networking UI has the capability to do that but only for a V2 VNET.  If you wish to create a V1 VNET with a gateway and Point-to-Site then you need to do this manually through the Networking user interface. 
 
-To create a V2 VNET through the VNET Integration UI, simply select "Create New Virtual Network" and provide the:
+To create a V2 VNET through the VNET Integration UI, simply select **Create New Virtual Network** and provide the:
 
 - Virtual Network Name
 - Virtual Network Address Block
@@ -178,7 +176,7 @@ If those certificates or network information is changed then you will need to cl
 
 One of the benefits of the VNET Integration feature is that if your VNET is connected to your on premise network with a Site to Site VPN then your apps can have access to your on premise resources from your app.  For this to work though you may need to update your on premise VPN gateway with the routes for your Point to Site IP range.  When the Site to Site VPN is first set up then the scripts used to configure it should set up routes including your Point to Site VPN.  If you add the Point to Site VPN after your create your Site to Site VPN then you will need to update the routes manually.  Details on how to do that will vary per gateway and are not described here.  
 
->[AZURE.NOTE] While the VNET Integration feature will work with a Site to Site VPN to access on premise resources it currently will not work with an ExpressRoute VPN to do the same.  This is true when integrating with either a V1 or V2 VNET.  
+>[AZURE.NOTE] While the VNET Integration feature will work with a Site to Site VPN to access on premise resources it currently will not work with an ExpressRoute VPN to do the same.  This is true when integrating with either a V1 or V2 VNET.  If you need to access resources through an ExpressRoute VPN then you can use an ASE which can run in your VNET. 
 
 ##Pricing details##
 There are a few pricing nuances that you should be aware of when using the VNET Integration feature.  There are 3 related charges to the use of this feature:
@@ -287,6 +285,7 @@ Beyond the functional differences there are also pricing differences.  The App S
 
 <!--Links-->
 [VNETOverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
+[AzurePortal]: http://portal.azure.com/
 [ASPricing]: http://azure.microsoft.com/pricing/details/app-service/
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
