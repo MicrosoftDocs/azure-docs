@@ -3,7 +3,7 @@
    description="Describes Azure Resource Explorer and how it can be used to view and update deployments through Azure Resource Manager"
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="stuartleeks;tfitzmac"
+   authors="stuartleeks"
    manager="wpickett"
    editor=""/>
 
