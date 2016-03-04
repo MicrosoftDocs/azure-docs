@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/29/2016"
+      ms.date="03/03/2016"
       ms.author="minet" />
 
 # Get started with Azure File storage on Windows
@@ -268,7 +268,7 @@ To work with File storage programmatically, you can use the storage client libra
 
 Open the program.cs file from Solution Explorer, and add the following namespace declarations to the top of the file.
 
-	using Microsoft.Azure;
+	using Microsoft.Azure; // Namespace for Azure Configuration Manager
 	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Blob;
 	using Microsoft.WindowsAzure.Storage.File;
@@ -408,7 +408,7 @@ For more information about creating and using shared access signatures, see [Sha
 
 Beginning with version 5.x of the Azure Storage Client Library, you can copy a file to another file, a file to a blob, or a blob to a file. In the next sections, we demonstrate how to perform these copy operations programmatically.
 
-You can also use AzCopy to copy one file to another or to copy a blob to a file or vice versa. See [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md#file-copy).
+You can also use AzCopy to copy one file to another or to copy a blob to a file or vice versa. See [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
 > [AZURE.NOTE] If you are copying a blob to a file, or a file to a blob, you must use a shared access signature (SAS) to authenticate the source object, even if you are copying within the same storage account.
 
