@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/17/2015"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # Register a Microsoft managed API or an IT managed API
@@ -22,13 +22,12 @@ There are **Microsoft managed** and **IT managed** APIs. When you enable PowerAp
 
 Using the IT managed APIs, you control and monitor everything, including memory, connectivity, trust, and more. The IT managed APIs also include the APIs that can connect to an on-premises system, like SQL Server and SharePoint Server. 
 
-To use the **Microsoft managed** or **IT managed** APIs, you must "register" the APIs in the Azure portal. Once registered, you can use these APIs in your apps. The following options are available: 
+> [AZURE.SELECTOR]
+- [Managed APIs](../articles/power-apps/powerapps-register-from-available-apis.md)
+- [APIs in your ASE](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
+- [Swagger APIs](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
 
-- Register a pre-built Microsoft managed API or an IT managed API (in this topic).
-- Register a web app, API app, and mobile app hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md).
-- Register one of your own Swagger APIs using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md).
-
-This article focuses on **registering pre-built Microsoft managed APIs and the IT managed APIs**. 
+In this topic, we focus on the first option - **registering the Microsoft managed APIs and the IT managed APIs**. 
 
 #### Prerequisites to get started
 
@@ -107,19 +106,20 @@ The following table compares the capabilities of the Microsoft managed and IT ma
 
 ## Register a Microsoft managed or IT managed API
 
-1. In the [Azure portal](https://portal.azure.com/), select **PowerApps**, and then select **Manage APIs**:  
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account (*yourUserName*@*YourCompany*.com). You are automatically signed in to your company subscription.
+2. Select **Browse**, select **PowerApps**, and then select **Manage APIs**:  
 ![][17]
-2. In Manage APIs, select **Add**:  
+3. In Manage APIs, select **Add**:  
 ![][18]  
-3. In **Add API**, enter the API properties:  
+4. In **Add API**, enter the API properties:  
 
 	- In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.
 	- In **Source**, select **From available APIs**:  
 	![][19]
-4. Select **API** and then choose the API you want to register:  
+5. Select **API** and then choose the API you want to register:  
 ![][20]
-5. Select your specific API and add any configurable properties.
-6. Select **ADD** to complete these steps.
+6. Select your specific API and add any configurable properties.
+7. Select **ADD** to complete these steps.
 
 > [AZURE.TIP] When you register an API, you're registering the API to your app service environment. Once in the app service environment, it can be used by other apps within the same app service environment.
 

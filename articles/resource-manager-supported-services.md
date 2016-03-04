@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/23/2016"
+   ms.date="03/01/2016"
    ms.author="tomfitz"/>
 
 # Resource Manager providers, regions, API versions and schemas
@@ -158,9 +158,11 @@ Azure Active Directory works with Resource Manager to enable role-based access c
 
 When deploying resources, you frequently need to retrieve information about the resource providers and types. You can retrieve this information through REST API, Azure PowerShell, or Azure CLI.
 
+To work with a resource provider, that resource provider must be registered with your account. By default, many resource providers are automatically registered; however, you may need to manually register some resource providers. The examples below show how to get the registration status of a resource provider, and register the resource provider, if needed.
+
 ### REST API
 
-To get all of the available resource providers, including their types, locations, API versions, and registration status, use the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. 
+To get all of the available resource providers, including their types, locations, API versions, and registration status, use the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. If you need to register a resource provider, see [Register a subscription with a resource provider](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 ### PowerShell
 
@@ -188,11 +190,34 @@ The output will be similar to:
     sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} {20...
     ...
     
+To register a resource provider provide the namespace:
+
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+
 ### Azure CLI
 
-You can save the information for a resource provider to a file with the following command.
+The following example shows how to get all of the available resource providers.
+
+    azure provider list
+    
+The output will be similar to:
+
+    info:    Executing command provider list
+    + Getting ARM registered providers
+    data:    Namespace                        Registered
+    data:    -------------------------------  -------------
+    data:    Microsoft.ApiManagement          Unregistered
+    data:    Microsoft.AppService             Registered
+    data:    Microsoft.Authorization          Registered
+    ...
+
+You can save the information for a particular resource provider to a file with the following command.
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
+
+To register a resource provider provide the namespace:
+
+    azure provider register -n Microsoft.ServiceBus
 
 ## Supported regions
 

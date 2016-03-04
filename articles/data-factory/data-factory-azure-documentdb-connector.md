@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data to and from DocumentDB | Azure Data Factory" 
+	pageTitle="Move data to/from DocumentDB | Microsoft Azure" 
 	description="Learn how move data to/from Azure DocumentDB collection using Azure Data Factory" 
 	services="data-factory, documentdb" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="02/24/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from DocumentDB using Azure Data Factory
@@ -379,6 +379,14 @@ Example:
 	    }
 	  }
 	}
+
+### Schema by Data Factory
+For schema-free data stores such as DocumentDB, the Data Factory service infers the schema in one of the following ways:  
+
+1.	If you specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service honors this structure as the schema. In this case, if a row does not contain a value for a column, a null value will be provided for it.
+2.	If you do not specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service infers the schema by using the first row in the data. In this case, if the first row does not contain the full schema, some columns will be missing in the result of copy operation.
+
+Therefore, for schema-free data sources, the best practice is to specify the structure of data using the **structure** property.
 
 ## Azure DocumentDB Copy Activity type properties
 

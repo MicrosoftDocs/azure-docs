@@ -122,7 +122,7 @@ For more details, see [Sharing an ExpressRoute circuit across multiple subscript
 No. All virtual networks linked to the same ExpressRoute circuit are part of the same routing domain and are not isolated from each other from a routing perspective. If you need route isolation, you’ll need to create a separate ExpressRoute circuit.
 
 ### Can I have one virtual network connected to more than one ExpressRoute circuit?
-Yes. You can link a single virtual network with up to 4 ExpressRoute circuits. They must be ordered through 4 different locations.
+Yes. You can link a single virtual network with up to 4 ExpressRoute circuits. They must be ordered through 4 different [ExpressRoute locations](expressroute-locations.md).
 
 ### Can I access the internet from my virtual networks connected to ExpressRoute circuits?
 Yes. If you have not advertised default routes (0.0.0.0/0) or internet route prefixes through the BGP session, you will be able to connect to the internet from a virtual network linked to an ExpressRoute circuit.
@@ -143,7 +143,7 @@ Yes. You will have to create an ExpressRoute gateway within your virtual network
 You must establish an ExpressRoute circuit and configure routes for public peering.
 
 ### Are there limits on the number of routes I can advertise?
-Yes. We accept up to 4000 route prefixes for private peering and public peering. You can increase this to 10,000 routes if you enable the ExpressRoute premium feature.
+Yes. We accept up to 4000 route prefixes for private peering and 200 each for public peering and Microsoft peering. You can increase this to 10,000 routes for private peering if you enable the ExpressRoute premium feature.
 
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 Prefixes advertised through BGP must be /29 or larger (/28 to /8).

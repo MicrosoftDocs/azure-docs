@@ -11,9 +11,9 @@
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="get-started-article" 
-	ms.date="11/17/2015"
+	ms.devlang="python"
+	ms.topic="hero-article" 
+	ms.date="02/25/2016"
 	ms.author="huvalo"/>
 
 # Django and MySQL on Azure with Python Tools 2.2 for Visual Studio 
@@ -39,6 +39,7 @@ See the [Python Developer Center] for more articles that cover development of Az
  - [Python Tools 2.2 for Visual Studio Samples VSIX]
  - [Azure SDK Tools for VS 2013] or [Azure SDK Tools for VS 2015]
  - [Python 2.7 32-bit]
+ - Django 1.6 or earlier
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 

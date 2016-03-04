@@ -13,21 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/22/2016" 
 	ms.author="ccompy"/>
 
 # Integrate your app with an Azure Virtual Network #
 
 This document describes the Azure App Service virtual network integration feature and shows how to set it up with apps in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).  If you are unfamiliar with Azure Virtual Networks (VNETs), this is a capability that allows you to place many of your Azure resources in a non-internet routeable network that you control access to.  These networks can then be connected to your on premise networks using a variety of VPN technologies.  To learn more about Azure Virtual Networks start with the information here: [Azure Virtual Network Overview][VNETOverview].  
 
-The Azure App Service has two forms.  The first and most common form is the multi-tenant systems that support the full range of pricing plans.  The second is the App Service Environment (ASE) premium feature which deploys into a customers VNET.  With an App Service Environment you normally do not need to use VNET Integration as the system is already in your VNET and has access to all the resources in that VNET.  The one reason you would still use the VNET Integration feature with an ASE is if you wish to access resources in another VNET that is not connected to the VNET hosting your ASE.  
+The Azure App Service has two forms.  
+
+1. The multi-tenant systems that support the full range of pricing plans
+1. The App Service Environment (ASE) premium feature which deploys into your VNET.  
+
+This article does not describe putting an ASE in a V2 VNET.  That is still not yet supported and is unrelated to this article.  This article is about enabling your apps to consume resources in a V1 or V2 VNET.
 
 VNET Integration gives your web app access to resources in your virtual network but does not grant private access to your web app from the virtual network.  A common scenario where you would use this feature is enabling your web app access to a database or a web services that are running in a virtual machine in your Azure virtual network.  With VNET Integration you don't need to expose a public endpoint for applications on your VM but can use the private non-internet routable addresses instead.  
 
 The VNET Integration feature:
 
 - requires a Standard or Premium pricing plan 
-- currently will only work with V1 or Classic VNETs 
+- will work with V1(Classic) or V2(Resource Manager) VNET 
 - supports TCP and UDP
 - works with Web, Mobile and API apps
 - enables an app to connect to only 1 VNET at a time
@@ -66,28 +71,41 @@ If your app is not in the correct pricing plan the UI will helpfully enable you 
 ![][1]
  
 ###Enabling VNET Integration with a pre-existing VNET###
-The VNET Integration UI allows you to select from a list of your V1 VNETs.  In the image shown below you can see that only one VNET is selectable.  There are multiple reasons that a VNET will be greyed out including:
+The VNET Integration UI allows you to select from a list of your VNETs.  The V1 VNETs will indicate that they are such with the word "Classic" in parenthesis next to the VNET name.  The list is sorted such that the V2 VNETs are listed first.  In the image shown below you can see that only one VNET can be selected.  There are multiple reasons that a VNET will be greyed out including:
 
 - the VNET is in another subscription that your account has access to
 - the VNET does not have Point to Site enabled
 - the VNET does not have a dynamic routing gateway
 
-It is also worth noting that since we do not yet support integrating with V2 VNETs, they are not listed. 
 
 ![][2]
 
 To enable integration simply click on the VNET you wish to integrate with.  After you select the VNET, your app will be automatically restarted for the changes to take effect.  
 
-If your VNET does not have a gateway nor has Point to Site then you have to set that up first.  To do this go to the Azure Portal and bring up the list of Virtual Networks(classic).  From here click on the network you want to integrate with and click on the big box under Essentials called VPN Connections.  From here you can create your point to site VPN and even have it create a gateway.  After you go through the point to site with gateway creation experience it will be about 30 minutes before it is ready.  
+##### Enable Point to Site in a V1 VNET #####
+If your VNET does not have a gateway nor has Point to Site then you have to set that up first.  To do this for a V1 VNET, go to the [Azure Portal][AzurePortal] and bring up the list of Virtual Networks(classic).  From here click on the network you want to integrate with and click on the big box under Essentials called VPN Connections.  From here you can create your point to site VPN and even have it create a gateway.  After you go through the point to site with gateway creation experience it will be about 30 minutes before it is ready.  
 
 ![][8]
 
-### Creating a VNET and integrating with it ###
-If you want to create a new VNET then be aware that you are currently are only able to create a V1 or classic VNET.  To create a V1 VNET through the VNET Integration UI experience simply select Create new virtual network and provide then name you want for the VNET and it's address space. 
+##### Enabling Point to Site in a V2 VNET #####
 
-Be warned that if you want this VNET to connect to any of your other network then you should try to avoid picking IP address space that overlaps with those networks.  
+To configure a V2 VNET with a gateway and Point to Site you need to use PowerShell as documented here, [Configure a Point-to-Site connection to a virtual network using PowerShell][V2VNETP2S].  The UI to perform this capability is not yet available. 
 
->[AZURE.NOTE] It can take up to 30 minutes for a new VNET to be provided complete with operating gateways.  The UI will update when it is complete.  
+### Creating a pre-configured VNET ###
+If you want to create a new VNET that is configured with a gateway and Point-to-Site, then the App Service networking UI has the capability to do that but only for a V2 VNET.  If you wish to create a V1 VNET with a gateway and Point-to-Site then you need to do this manually through the Networking user interface. 
+
+To create a V2 VNET through the VNET Integration UI, simply select **Create New Virtual Network** and provide the:
+
+- Virtual Network Name
+- Virtual Network Address Block
+- Subnet Name
+- Subnet Address Block
+- Gateway Address Block
+- Point-to-Site Address Block
+
+If you want this VNET to connect to any of your other network then you should avoid picking IP address space that overlaps with those networks.  
+
+>[AZURE.NOTE] V2 VNET creation with a gateway takes about 30 minutes and currently will not integrate the VNET with your app.  After your VNET is created with the gateway you need to come back to your app VNET Integration UI and select your new VNET.
 
 ![][3]
 
@@ -109,7 +127,6 @@ Under the covers this feature builds on top of Point-to-Site VPN technology to c
 ![][4]
  
 If you haven’t configured a DNS server with your virtual network you will need to use IP addresses.  While using IP addresses, remember that the major benefit of this feature is that it enables you to use the private addresses within your private network.  If you set your app up to use public IP addresses for one of your VMs then you aren't using the VNET Integration feature and are communicating over the internet.
-
 
 
 ##Managing the VNET Integrations##
@@ -159,7 +176,7 @@ If those certificates or network information is changed then you will need to cl
 
 One of the benefits of the VNET Integration feature is that if your VNET is connected to your on premise network with a Site to Site VPN then your apps can have access to your on premise resources from your app.  For this to work though you may need to update your on premise VPN gateway with the routes for your Point to Site IP range.  When the Site to Site VPN is first set up then the scripts used to configure it should set up routes including your Point to Site VPN.  If you add the Point to Site VPN after your create your Site to Site VPN then you will need to update the routes manually.  Details on how to do that will vary per gateway and are not described here.  
 
->[AZURE.NOTE] While the VNET Integration feature will work with a Site to Site VPN to access on premise resources it currently will not work with an ExpressRoute VPN to do the same.  
+>[AZURE.NOTE] While the VNET Integration feature will work with a Site to Site VPN to access on premise resources it currently will not work with an ExpressRoute VPN to do the same.  This is true when integrating with either a V1 or V2 VNET.  If you need to access resources through an ExpressRoute VPN then you can use an ASE which can run in your VNET. 
 
 ##Pricing details##
 There are a few pricing nuances that you should be aware of when using the VNET Integration feature.  There are 3 related charges to the use of this feature:
@@ -170,13 +187,13 @@ There are a few pricing nuances that you should be aware of when using the VNET 
 
 For your apps to be able to use this feature, they need to be in a Standard or Premium App Service Plan.  You can see more details on those costs here: [App Service Pricing][ASPricing]. 
 
-Due to the way Point to Site VPNs are handled, you always have a charge for outbound data through your VNET Integration connection even if the VNET is in the same data center.  To see what those charges are take a look here:[Data Transfer Pricing Details][DataPricing].  
+Due to the way Point to Site VPNs are handled, you always have a charge for outbound data through your VNET Integration connection even if the VNET is in the same data center.  To see what those charges are take a look here: [Data Transfer Pricing Details][DataPricing].  
 
 The last item is the cost of the VNET gateways.  If you don't need the gateways for something else such as Site to Site VPNs then you are paying for gateways to support the VNET Integration feature.  There are details on those costs here: [VPN Gateway Pricing][VNETPricing].  
 
 ##Troubleshooting##
 
-While the feature is easy to set up that doesn't mean that your experience will be problem free.  Should you encounter problems accessing your desired endpoint there are some utilities you can use to test connectivity from the app console.  There are two console experiences you can use.  One is from the Kudu console and the other is the console that you can reach in the Azure Portal.  To get to the Kudu console then from your app go to Tools -> Kudu.  This is the same as going to [sitename].scm.azurewebsites.net.  Once that opens simply go to the Debug console tab.  To get to the Azure portal hosted console then from your app go to Tools -> Console.  
+While the feature is easy to set up that doesn't mean that your experience will be problem free.  Should you encounter problems accessing your desired endpoint there are some utilities you can use to test connectivity from the app console.  There are two console experiences you can use.  One is from the Kudu console and the other is the console that you can reach in the Azure Portal.  To get to the Kudu console from your app go to Tools -> Kudu.  This is the same as going to [sitename].scm.azurewebsites.net.  Once that opens simply go to the Debug console tab.  To get to the Azure portal hosted console then from your app go to Tools -> Console.  
 
 
 ####Tools####
@@ -198,7 +215,7 @@ This tool will tell you if you can reach a specific host and port but will not p
 
 There are a number of things that can prevent your app from reaching a specific host and port.  To break the problem down start with the easy things like:  
 
-- Does the Gateway shows as being up in the Portal?
+- Does the Gateway show as being up in the Portal?
 - Do certificates show as being in sync?
 - Did anybody change the network configuration without doing a "Sync Network" in the affected ASPs?
 
@@ -268,6 +285,8 @@ Beyond the functional differences there are also pricing differences.  The App S
 
 <!--Links-->
 [VNETOverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
+[AzurePortal]: http://portal.azure.com/
 [ASPricing]: http://azure.microsoft.com/pricing/details/app-service/
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
+[V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/

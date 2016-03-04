@@ -4,7 +4,7 @@
 	services="sql-database"  
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sidneyh" />
 
 # Elastic database Split-Merge tool tutorial
@@ -43,11 +43,11 @@ The steps above download the Split-Merge files to the current directory. The fil
 
 ### Split-Merge service configuration
 
-1. In the folder where you downloaded the Split/Merge bits, create a copy of the **ServiceConfiguration.Template.cscfg** file that shipped alongside **SplitMergeService.cspkg** and call it **ServiceConfiguration.cscfg**.
+1. In the folder where you downloaded the Split-Merge assemblies, create a copy of the **ServiceConfiguration.Template.cscfg** file that shipped alongside **SplitMergeService.cspkg** and rename it **ServiceConfiguration.cscfg**.
 
-2. Open ServiceConfiguration.cscfg in your favorite text editor. We recommend using Visual Studio as it will validate inputs such as the format of certificate thumbprints.
+2. Open **ServiceConfiguration.cscfg** in a text editor such as Visual Studio that validates inputs such as the format of certificate thumbprints.
 
-3. Either create a new database or choose an existing database to serve as the status database for Split/Merge operations and retrieve the connection string of that database. 
+3. Create a new database or choose an existing database to serve as the status database for Split-Merge operations and retrieve the connection string of that database. 
 
 	**Important** At this time, the status database must use the Latin  collation (SQL\_Latin1\_General\_CP1\_CI\_AS). For more information, see [Windows Collation Name (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
 

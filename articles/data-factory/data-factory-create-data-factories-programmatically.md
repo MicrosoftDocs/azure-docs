@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create, monitor, and manage Azure data factories by using Data Factory SDK" 
+	pageTitle="Create, monitor, and manage Azure data factories by using Data Factory SDK | Microsoft Azure" 
 	description="Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -204,6 +204,8 @@ You can create, monitor, and manage Azure data factories programmatically using 
             });
 
 11. Add the following code that **creates and activates a pipeline** to the **Main** method. This pipeline has a **CopyActivity** that takes **BlobSource** as a source and **BlobSink** as a sink.
+
+The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
 
             // create a pipeline
         Console.WriteLine("Creating a pipeline");

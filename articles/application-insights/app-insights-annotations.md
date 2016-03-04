@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Deployment annotations for Application Insights | Microsoft Azure"
+    pageTitle="Release annotations for Application Insights | Microsoft Azure"
     description="Add deployment or build markers to your metrics explorer charts in Application Insights."
     services="application-insights"
     documentationCenter=".net"
@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="03/03/2016"
     ms.author="awills"/>
 
 # Release annotations in Application Insights
 
-Release annotations on [Metrics Explorer](app-insights-metrics-explorer.md) charts show where you deployed a new build. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs).
+Release annotations on [Metrics Explorer](app-insights-metrics-explorer.md) charts show where you deployed a new build. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs), and you can also [create them from PowerShell](#create-annotations-from-powershell).
 
 ![Example of annotations with visible correlation with server response time](./media/app-insights-annotations/00.png)
 
@@ -42,7 +42,7 @@ You need to do this for each release template that you want to create release an
 1. Sign in to the [Microsoft Azure Portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. (Or [create one now](app-insights-overview.md), if you haven't done so yet.)
 2. Open **Settings**, **API Access**, and take a copy of **Application Insights Id**.
 
-    ![In portal.azure.com, open your Application Insights resource and choose Settings. Open API Access. Copy the ](./media/app-insights-annotations/20.png)
+    ![In portal.azure.com, open your Application Insights resource and choose Settings. Open API Access. Copy the Application ID](./media/app-insights-annotations/20.png)
 
 2. In a separate browser window, open (or create) the release template that manages your deployments from Visual Studio Team Services. 
 
@@ -69,6 +69,29 @@ You need to do this for each release template that you want to create release an
 
 5. Finally, **Save** the release definition.
 
-## Deployment annotations
+## Create annotations from PowerShell
+
+You can also create annotations from any process you like (without using VS Team System). 
+
+Get the [Powershell script from GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+
+Use it like this:
+
+    .\CreateReleaseAnnotation.ps1 `
+      -applicationId "<applicationId>" `
+      -apiKey "<apiKey>" `
+      -releaseName "<myReleaseName>" `
+      -releaseProperties @{
+          "ReleaseDescription"="a description";
+          "TriggerBy"="My Name" }
+
+Get the `applicationId` and an `apiKey` from your Application Insights resource: Open Settings, API Access, and copy the Application ID. Then click Create API Key and copy the key. 
+
+## Release annotations
 
 Now, whenever you use the release template to deploy a new release, an annotation will be sent to Application Insights. The annotations will appear on charts in Metrics Explorer.
+
+Click on any annotation marker to open details about the release, including requestor, source control branch, release definition, environment, and more.
+
+
+![Click any release annotation marker.](./media/app-insights-annotations/60.png)

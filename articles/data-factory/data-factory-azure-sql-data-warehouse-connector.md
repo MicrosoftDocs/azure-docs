@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data to and from Azure SQL Data Warehouse | Azure Data Factory" 
+	pageTitle="Move data to/from Azure SQL Data Warehouse | Microsoft Azure" 
 	description="Learn how to move data to/from Azure SQL Data Warehouse using Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -18,9 +18,14 @@
 
 # Move data to and from Azure SQL Data Warehouse using Azure Data Factory
 
-This article outlines how you can use data factory copy activity to move data to Azure SQL Data Warehouse from another data store and move data from another data store to Azure SQL. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use Copy Activity in Azure Data Factory to move data from Azure SQL Data Warehouse to another data store and from another data store to Azure SQL Data Warehouse. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data sources and sinks for SQL Data Warehouse. 
 
-The following sample(s) show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+The following sample(s) show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article using the Copy Activity in Azure Data Factory.  
+
+> [AZURE.NOTE] 
+> For an overview of the Azure Data Factory service, see [Introduction to Azure Data Factory](data-factory-introduction.md). 
+> 
+> This article provides JSON examples but does not provide step-by-step instructions for creating a data factory. See [Tutorial: Copy data from Azure Blob to Azure SQL Database](data-factory-get-started.md) for a quick walkthrough with step-by-step instructions for using the Copy Activity in Azure Data Factory. 
 
 
 ## Sample: Copy data from Azure SQL Data Warehouse to Azure Blob
