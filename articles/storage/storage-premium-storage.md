@@ -33,19 +33,15 @@ To get started with Azure Premium Storage, visit [Get started for free](https://
 
 >[AZURE.NOTE] Premium Storage is currently supported in some regions. You can find the list of available regions in [Azure Services by Region](https://azure.microsoft.com/regions/#services).
 
-Check out this video that gives you a 5 minute overview of Premium Storage:
-
-> [AZURE.VIDEO azure-premium-storage-5-minute-overview]
-
 ## Premium Storage Features
 
 **Premium Storage Disks**: Azure Premium Storage supports VM disks that can be attached to DS or GS series Azure VMs. When using Premium Storage you have a choice of three disk sizes namely, P10 (128GiB), P20 (512GiB) and P30 (1024GiB), each with its own performance specifications. Depending on your application requirement you can attach one or more of these disks to your DS or GS series VM. In the following section on [Premium Storage Scalability and Performance Targets ](#premium-storage-scalability-and-performance-targets) we will describe the specifications in more detail.
 
-**Page Blob**: Premium Storage supports Azure Page Blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs). Currently, Premium Storage does not support Azure Block Blobs, Azure Append Blobs, Azure Files, Azure Tables, or Azure Queues.
+**Premium Page Blob**: Premium Storage supports Azure Page Blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs). Currently, Premium Storage does not support Azure Block Blobs, Azure Append Blobs, Azure Files, Azure Tables, or Azure Queues.
 
 **Premium_LRS account**: To start using Premium Storage, you must create a Premium Storage account. Create a storage account of the type “Premium_LRS” using [Azure Portal](https://portal.azure.com) or the following SDK libraries: [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later (Classic deployments); [Azure Storage Resource Provider REST API Reference](http://msdn.microsoft.com/library/azure/mt163683.aspx) (ARM deployments); and [Azure PowerShell](../powershell-install-configure.md) version 0.8.10 or later. Learn about premium storage account limits, in the following section on  [Premium Storage Scalability and Performance Targets ](#premium-storage-scalability-and-performance-targets).
 
-**Locally Redundant Storage**: A Premium Storage account is locally redundant (LRS) and keeps three copies of the data within a single region. For considerations regarding geo replication when using Premium Storage, see the [Snapshots and Copy Blob](#snapshots-and-copy-blob) section in this article.
+**Premium Locally Redundant Storage**: A Premium Storage account is locally redundant (LRS) and keeps three copies of the data within a single region. For considerations regarding geo replication when using Premium Storage, see the [Snapshots and Copy Blob](#snapshots-and-copy-blob) section in this article.
 
 Azure uses the storage account as a container for your operating system (OS) and data disks. When you create an Azure DS or GS VM and select an Azure Premium Storage account, your operating system and data disks are stored in that storage account.
 
@@ -484,38 +480,59 @@ Note that the caching policy options can be ReadOnly, None, or ReadWrite. For mo
 
 ## FAQs
 
-Can I attach both premium and standard data disks to a DS or GS series VM?
-- Yes.
+1. **Can I attach both premium and standard data disks to a DS or GS series VM?**
 
-Can I attach both premium and standard data disks to a D or G series VM?
-- No. You can only attach a standard data disk to all VMs that are not DS or GS series.
+	Yes. You can attach both premium and standard data disks to a DS or GS series VM.
 
-If I create a premium data disk from an existing VHD that was 80 GB in size, how much will that cost me?
-- A premium data disk created from 80 GB VHD will be treated as the next available premium disk size, a P10 disk. You will be charged as per the P10 disk pricing.
+2. **Can I attach both premium and standard data disks to a D or G series VM?**
 
-Are there any transaction costs when using Premium Storage?
-- There is a fixed cost for each disk size which comes provisioned with certain number of IOPS and Throughput. The only other costs are outbound bandwidth and snapshots capacity, if applicable. See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for more details.
+	No. You can only attach a standard data disk to all VMs that are not DS or GS series.
 
-Where can I store boot diagnostics for my DS or GS series VM?
-- Create a standard storage account to store the boot diagnostics of your DS or GS series VM.
+3. **If I create a premium data disk from an existing VHD that was 80 GB in size, how much will that cost me?**
 
-How many IOPS and Throughput can I get from the disk cache?
-- The combined limits for cache and local SSD for a DS series are 4000 IOPS per core and 33 MB per second per core. GS series offers 5000 IOPS per core and 50 MB per second per core.
+	A premium data disk created from 80 GB VHD will be treated as the next available premium disk size, a P10 disk. You will be charged as per the P10 disk pricing.
 
-What is the local SSD in a DS or GS series VM?
-- The local SSD is a temporary storage that is included with a DS or GS series VM. There is no extra cost for this temporary storage. It is recommended that you do not use this temporary storage or local SSD for storing your application data as it is not persisted in Azure Blob Storage.
+4. **Are there any transaction costs when using Premium Storage?**
 
-Can I convert my standard storage account to a premium storage account?
-- No. It is not possible to convert standard storage account to premium storage account or vice versa. You must create a new storage account with the desired type and copy data to new storage account, if applicable.
+	There is a fixed cost for each disk size which comes provisioned with certain number of IOPS and Throughput. The only other costs are outbound bandwidth and snapshots capacity, if applicable. See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for more details.
 
-How can I convert my D series VM to a DS series VM?
-- Please refer to the migration guide, [Migrating to Azure Premium Storage](storage-migration-to-premium-storage.md) to move your workload from a D series VM using standard storage account to a DS series VM using premium storage account.
+5. **Where can I store boot diagnostics for my DS or GS series VM?**
+
+	Create a standard storage account to store the boot diagnostics of your DS or GS series VM.
+
+6. **How many IOPS and Throughput can I get from the disk cache?**
+
+	The combined limits for cache and local SSD for a DS series are 4000 IOPS per core and 33 MB per second per core. GS series offers 5000 IOPS per core and 50 MB per second per core.
+
+7. **What is the local SSD in a DS or GS series VM?**
+
+	The local SSD is a temporary storage that is included with a DS or GS series VM. There is no extra cost for this temporary storage. It is recommended that you do not use this temporary storage or local SSD for storing your application data as it is not persisted in Azure Blob Storage.
+
+8. **Can I convert my standard storage account to a premium storage account?**
+
+	No. It is not possible to convert standard storage account to premium storage account or vice versa. You must create a new storage account with the desired type and copy data to new storage account, if applicable.
+
+9. **How can I convert my D series VM to a DS series VM?**
+
+	Please refer to the migration guide, [Migrating to Azure Premium Storage](storage-migration-to-premium-storage.md) to move your workload from a D series VM using standard storage account to a DS series VM using premium storage account.
 
 ## Next steps
 
+For more information about Azure Premium Storage refer to the following articles.
+
+### Design and implement with Azure Premium Storage
+
 - [Design for Performance with Premium Storage](storage-premium-storage-performance.md)
-- [Migrating to Azure Premium Storage](storage-migration-to-premium-storage.md)
 - [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
+
+### Operational guidance
+
+- [Migrating to Azure Premium Storage](storage-migration-to-premium-storage.md)
+
+### Blog Posts
+
+- [Azure Premium Storage Generally Available](https://azure.microsoft.com/en-us/blog/azure-premium-storage-now-generally-available-2/)
+- [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud](https://azure.microsoft.com/en-us/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
 
 [Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
 [Image2]: ./media/storage-premium-storage/Azure_attach_premium_disk.png 
