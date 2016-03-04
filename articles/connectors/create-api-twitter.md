@@ -14,15 +14,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="mandia"/>
 
 
 # Get started with the Twitter API
 Connect to Twitter to post a tweet, get a user's timeline, and more. The Twitter API can be be used from:
 
-- PowerApps 
 - Logic apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic apps](../articles/connectors/create-api-twitter.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-twitter.md)
+
+&nbsp; 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Twitter connector](../app-service-logic/app-service-logic-connector-twitter.md).
 
@@ -50,26 +56,6 @@ All APIs support data in JSON and XML formats.
 
 ## Create the connection to Twitter
 
-### Add additional configuration in PowerApps
-When you add Twitter to PowerApps Enterprise, you enter the **Consumer Key** and **Consumer Secret** values of your Twitter application. The **Redirect URL** value is also used in your Twitter application. If you don't have a Twitter application, you can use the following steps to create the application: 
-
-1. Sign in to [Twitter](https://apps.twitter.com).
-
-2. Select **Create New App**:  
-![Twitter apps page][6]
-
-3. In **Create an application**:  
-   
-	1. Enter any value you want in **Name**, **Description**, and **Website**.
-	2. In **Callback url**, enter the **Redirect URL** value shown when you add the Twitter API in the Azure Portal.
-	5. Agree to the agreement, and **Create your Twitter application**.  
-
-	![Twitter app create][7]
-
-Now copy/paste the **Consumer Key** and **Consumer Secret** values in your Twitter configuration in the Azure portal. 
-
-
-### Add additional configuration in logic apps
 When you add this API to your logic apps, you must authorize logic apps to connect to your Twitter account.
 
 1. Sign in to your Twitter account.
@@ -329,9 +315,10 @@ Retrieves users that I am following.
 
 
 ## Next steps
-After you add the Dropbox API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
 
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Go back to the [APIs list](apis-list.md).
 
 <!--References-->
 
