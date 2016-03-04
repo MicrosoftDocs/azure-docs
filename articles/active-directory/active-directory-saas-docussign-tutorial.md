@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -54,7 +54,7 @@ The objective of this section is to outline how to enable the application integr
 
 ### To enable the application integration for DocuSign, perform the following steps:
 
-1. In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 <br><br>![Configuring single sign-on ][1]<br>
 
 2. From the Directory list, select the directory for which you want to enable directory integration.
@@ -85,7 +85,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ### To configure single sign-on, perform the following steps:
 
-1. In the Azure AD portal, on the **Docusign application integration** page, click **Configure single sign-on** to open the Configure Single Sign On dialog.
+1. In the Azure classic portal, on the **Docusign application integration** page, click **Configure single sign-on** to open the Configure Single Sign On dialog.
 <br><br>![Configuring single sign-on ][7]<br>
 
 2. On the **How would you like users to sign on to Docusign** page, select **Microsoft Azure AD Single Sign-On**, and then click Next.
@@ -117,7 +117,7 @@ The URL has the following schema: *https://<yourcompanyname>.docusign.net/Member
 <br><br>![Configuring single sign-on ][13]<br>
 
 
-    a. In the Azure portal, on the **Configure single sign-on at Docusign** dialogue page, copy the Issuer URL** value, and then paste it into the **Identity Provider Endpoint URL** textbox.
+    a. In the Azure classic portal, on the **Configure single sign-on at Docusign** dialogue page, copy the Issuer URL** value, and then paste it into the **Identity Provider Endpoint URL** textbox.
 
     > [AZURE.IMPORTANT] If this configuration option is unavailable, please contact your Docusign account manager or contact the SSO support team by email ([SSOSetup@docusign.com](mailto:SSOSetup@docusign.com)).
  
@@ -130,7 +130,7 @@ The URL has the following schema: *https://<yourcompanyname>.docusign.net/Member
     d. Click **Save**.
 
 
-9. On the Azure AD portal, select the **single sign-on configuration confirmation**, and then click **Next**.
+9. On the Azure classic portal, select the **single sign-on configuration confirmation**, and then click **Next**.
 <br><br>![Applications][14]<br>
 
 10. On the **Single sign-on confirmation** page, click **Complete**.
@@ -145,7 +145,7 @@ The objective of this section is to outline how to enable user provisioning of A
 
 ### To configure user provisioning, perform the following steps:
 
-1. In the **Azure Management Portal**, on the **DocuSign application integration** page, click **Configure account provisioning** to open the Configure User Provisioning dialog.
+1. In the **Azure classic portal**, on the **DocuSign application integration** page, click **Configure account provisioning** to open the Configure User Provisioning dialog.
 <br><br>![Configuring account provisioning][30]<br>
  
 
@@ -166,7 +166,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ### To assign users to Docusign, perform the following steps:
 
-1. In the **Azure AD portal**, create a test account.
+1. In the **Azure classic portal**, create a test account.
 
 2. On the **Docusign application integration** page, click **Assign users**.
 <br><br>![Assigning users][40]<br>
@@ -179,7 +179,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 You should now wait for 10 minutes and verify that the account has been synchronized to Docusign.
 
-As a first verification step, you can check the provisioning status, by clicking Dashboard in the D on the Docusign application integration page on the Azure Management Portal.
+As a first verification step, you can check the provisioning status, by clicking Dashboard in the D on the Docusign application integration page on the Azure classic portal.
 <br><br>![Assigning users][42]<br>
 
 A successfully completed user provisioning cycle is indicated by a related status:

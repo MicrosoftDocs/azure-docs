@@ -1,6 +1,6 @@
 A new insert script is registered that generates an SAS when a new Todo item is inserted.
 
-0. If you haven't yet created your storage account, see [How To Create a Storage Account](../storage/storage-create-storage-account.md).
+0. If you haven't yet created your storage account, see [How To Create a Storage Account](../articles/storage/storage-create-storage-account.md).
 
 1. In the [Azure classic portal](https://manage.windowsazure.com/), click **Storage**, click the storage account, then click **Manage Keys**. 
 

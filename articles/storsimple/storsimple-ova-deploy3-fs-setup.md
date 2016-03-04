@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Deploy StorSimple Virtual Array - Set up as file server (Preview)
+# Deploy StorSimple Virtual Array - Set up as file server
 
 ![](./media/storsimple-ova-deploy3-fs-setup/fileserver4.png)
 
 ## Introduction 
 
-This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (preview) only. This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares. This is the last article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server.
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release. This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares. This is the last article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server.
 
 The setup and configuration process can take around 10 minutes to complete.
 
-> [AZURE.IMPORTANT]
-> 
-> This public preview is intended for evaluation only. Installing this preview in a production environment is not supported.
 
 ## Setup prerequisites
 
@@ -69,7 +66,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image5.png)
 
-	If you added more than one network interface during the provisioning of the device, you can configure them here. Note you can 		configure your network interface as IPv4 only or as both IPv4 and IPv6. IPv6 only configurations are not supported.
+	If you added more than one network interface during the provisioning of the device, you can configure them here. Note you can configure your network interface as IPv4 only or as both IPv4 and IPv6. IPv6 only configurations are not supported.
 
 1.  DNS servers are required because they are used when your device attempts to communicate with your cloud storage service providers or to resolve your device by name when configured as a file server. In the **Network settings** page under the **DNS servers**:
 
