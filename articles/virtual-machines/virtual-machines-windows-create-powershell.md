@@ -38,7 +38,7 @@ These steps follow a fill-in-the-blanks approach for creating Azure PowerShell c
 
 ## Step 1: Install Azure PowerShell
 
-There are two main options for installation, (PowerShell Gallery)[https://www.powershellgallery.com/profiles/azure-sdk/] and (WebPI)[http://aka.ms/webpi-azps]. WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. 
+There are two main options for installation, [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) and [WebPI](http://aka.ms/webpi-azps). WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. 
 
 For more information, see [Azure Powershell 1.0](https://azure.microsoft.com/en-us/blog/azps-1-0/).
 
