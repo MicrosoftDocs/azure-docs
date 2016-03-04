@@ -369,20 +369,20 @@ The recommended default for most organizations is to configure a rule for a **Me
 
 
 
-### Mitigating user risk events
+## Mitigating user risk events
 Administrators can set a user risk security policy to block users upon sign-in depending on the risk level. 
 
 Blocking a sign-in:
  
 - prevents the generation of new user risk events for the affected user
 
-- enables administrators to remediate the risk events affecting the user's identity and restore it to a secure state
+- enables administrators to manually remediate the risk events affecting the user's identity and restore it to a secure state
 
 
 
 
 
-### User risk remediation and mitigation flows  
+## User risk remediation and mitigation flows  
 
 The following sections provide an overview of the user experience for user risk remediation and mitigation flows.
 
