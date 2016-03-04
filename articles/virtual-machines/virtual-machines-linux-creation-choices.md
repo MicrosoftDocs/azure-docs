@@ -19,7 +19,7 @@
 
 # Different ways to create a Linux virtual machine with Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 Azure offers different ways to create a VM, to suit different users and purposes. This article summarizes these differences and the choices you can make for creating your Linux virtual machines.
 
@@ -39,9 +39,9 @@ If you prefer working in a command shell, use the Azure command-line interface (
 
 For Azure CLI, see:
 
-[Create a Linux virtual machine](virtual-machines-linux-cli-create.md) 
+* [Create a Linux virtual machine](virtual-machines-linux-cli-create.md) 
 
-[Deploy and mnage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md)
+* [Deploy and mnage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md)
 
 ## Operating system and image choices
 
@@ -53,7 +53,13 @@ In all of the above articles, you can easily use an existing Azure image to crea
 
 ### Use your own image
 
-Use an image based on an existing Azure virtual machine by *capturing* that VM, or upload an image of your own, stored in a virtual hard disk (VHD). For more information, see [How to capture a Linux virtual machine as a Resource Manager template](virtual-machines-linux-capture-image.md).
+Use an image based on an existing Azure virtual machine by *capturing* that VM, or upload an image of your own, stored in a virtual hard disk (VHD). For more information, see:
+
+* [Azure endorsed distributions](virtual-machines-linux-endorsed-distributions.md)
+
+* [Information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md)
+
+* [How to capture a Linux virtual machine as a Resource Manager template](virtual-machines-linux-capture-image.md). 
 
 ## Next steps
 
