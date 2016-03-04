@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Azure"
-	description="Describes the Synchronization Service Manager UI."
+	description="Understand the Connectors tab in the Synchronization Service Manager for Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
