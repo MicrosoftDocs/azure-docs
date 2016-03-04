@@ -4,8 +4,8 @@
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
-	manager="jhubbard"
-	editor="monicar"/>
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
