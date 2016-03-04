@@ -63,5 +63,5 @@ The final thing to notice about affinity is that affinity relationships aren’t
 ## Next steps
 - [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
 
-[Image1]:/media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
-[Image2]:/media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
+[Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
+[Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png

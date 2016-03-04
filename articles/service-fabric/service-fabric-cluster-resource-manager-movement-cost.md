@@ -42,4 +42,4 @@ Move Cost helps us find the solutions that cause overall the least disruption wh
 - [Learn about Metrics](service-fabric-cluster-resource-manager-metrics.md)
 - [Learn about how the Cluster Resource Manager Balances Load in the Cluster](service-fabric-cluster-resource-manager-balancing.md)
 
-[Image1]:/media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
+[Image1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png

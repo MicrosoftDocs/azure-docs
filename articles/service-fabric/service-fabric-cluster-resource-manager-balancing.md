@@ -96,8 +96,8 @@ The Resource Manager automatically figures out what services are related every t
 - [Learn about Service Movement Cost](service-fabric-cluster-resource-manager-movement-cost.md)
 
 
-[Image1]:/media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
-[Image2]:/media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png
-[Image3]:/media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-activity-thresholds.png
-[Image4]:/media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
-[Image5]:/media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
+[Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
+[Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png
+[Image3]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-activity-thresholds.png
+[Image4]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
+[Image5]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png

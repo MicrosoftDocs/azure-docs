@@ -53,4 +53,4 @@ ClusterManifest.xml:
 - [Describe the cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 - [Learn about Metrics](service-fabric-cluster-resource-manager-metrics.md)
 
-[Image1]: media/service-fabric-resource-balancer-proactive-metric-packing/PMP.png
+[Image1]:./media/service-fabric-resource-balancer-proactive-metric-packing/PMP.png
