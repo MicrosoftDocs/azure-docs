@@ -28,7 +28,7 @@ Verify that you have installed the Azure PowerShell cmdlets needed for this conf
 
 [AZURE.INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 
-## To verify that the gateway has been created
+## Verify the gateway was created
 
 Use the command below to verify that the gateway has been created.
 
