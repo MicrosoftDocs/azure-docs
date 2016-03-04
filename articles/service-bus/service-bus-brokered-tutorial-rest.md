@@ -256,7 +256,7 @@ private static string ReceiveAndDeleteMessage(string resourceName)
     WebClient webClient = new WebClient();
     webClient.Headers[HttpRequestHeader.Authorization] = token;
 
-    byte[] response = webClient.UploadData(fullAddress, "DELETE", newbyte[0]);
+    byte[] response = webClient.UploadData(fullAddress, "DELETE", new byte[0]);
     string responseStr = Encoding.UTF8.GetString(response);
 
     Console.WriteLine(responseStr);

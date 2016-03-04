@@ -99,7 +99,7 @@ The following **New-AzureStorageAccountPowerShell** command with the "Premium_LR
 
 The main difference between creating disks that are part of a Premium Storage account is the disk cache setting. For SQL Server Data volume disks it is recommended that you use ‘**Read Caching**’. For Transaction log volumes, the disk cache setting should be set to ‘**None**’. This is different from the recommendations for Standard Storage accounts.
 
-Once the VHDs have been attached, the cache setting cannot be altered. You would need to detach and reattach the VHD with an updated cahce setting.
+Once the VHDs have been attached, the cache setting cannot be altered. You would need to detach and reattach the VHD with an updated cache setting.
 
 ### Windows storage spaces
 
