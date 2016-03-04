@@ -381,7 +381,6 @@ Blocking a sign-in:
 
 
 
-
 ## User risk remediation and mitigation flows  
 
 The following sections provide an overview of the user experience for user risk remediation and mitigation flows.
