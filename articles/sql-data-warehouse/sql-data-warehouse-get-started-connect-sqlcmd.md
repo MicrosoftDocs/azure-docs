@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Connect and query with SQLCMD
@@ -61,7 +61,7 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 
 ## Run sample queries
 
-After connection, you can issue any supported Transact-SQL statements against the instance. 
+After connection, you can issue any supported Transact-SQL statements against the instance.
 
 ```
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
@@ -78,7 +78,7 @@ For additional information about sqlcmd refer to the [sqlcmd documentation](http
 Now that you can connect and query, try [connecting with PowerBI][].
 
 [connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
- 
+
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png

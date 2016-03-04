@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/11/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;jrj;sonyama"/>
 
 # SQL Data Warehouse service characteristics
@@ -104,4 +104,3 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 [SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-
