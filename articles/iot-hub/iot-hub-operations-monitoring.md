@@ -106,7 +106,7 @@ The cloud-to-device commands category tracks errors which occur at the IoT hub a
 
 ### Connections
 
-The connections category tracks events caused by devices connecting or disconnecting from an IoT hub. Tracking this category is useful for identifying unauthorized connection attempts and for tracking when a connection is lost for devices in areas of poor connectivity.
+The connections category tracks errors when devices connect or disconnect from an IoT hub. Tracking this category is useful for identifying unauthorized connection attempts and for tracking when a connection is lost for devices in areas of poor connectivity.
 
     {
          "durationMs": 1234,
