@@ -38,9 +38,9 @@ Resource|Maximum Limit
 Tasks per compute node                | 4 x number of node cores
 Applications per Batch account        | 20
 Application packages per application | 40
-Application package size (each)       | Approx. 195GB*
+Application package size (each)       | Approx. 195GB<sup>1</sup>
 
-\* * Azure Storage limit for maximum block blob size*
+<sup>1</sup> Azure Storage limit for maximum block blob size
 
 ## View Batch quotas
 
