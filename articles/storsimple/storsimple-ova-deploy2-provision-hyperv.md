@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/03/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V
@@ -144,7 +144,7 @@ Perform the following steps to provision a device in your hypervisor.
 
     b.  Click **Next**.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image8.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
 1.  Review the **Summary** presented to you. Click **Finish** to create the virtual machine.
 
@@ -236,13 +236,13 @@ Perform the following steps to start your virtual device and connect to it.
 
 1.  Steps 6-8 only apply when booting up in a non DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 9. If you booted up your device in non DHCP environment, you will see the following screen. 
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image28.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image28m.png)
 
  	You will now need to configure the network.
 
 1.  Use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image29.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image29m.png)
 
 1.  Use the `Set-HcsIpAddress` cmdlet to configure the network. An example is shown below:
 
@@ -252,7 +252,7 @@ Perform the following steps to start your virtual device and connect to it.
 
 1.  After the initial setup is complete and the device has booted up, you will see the device banner text. Make a note of the IP address and the URL displayed in the banner text to manage the device. You will use this IP address to connect to the web UI of your virtual device and complete the local setup and registration.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image31.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image31m.png)
 
 	If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step 1: Ensure that the host system meets minimum virtual device requirements](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
 
