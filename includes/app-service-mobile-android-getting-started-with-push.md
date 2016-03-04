@@ -63,7 +63,7 @@
 		import android.support.v4.app.NotificationCompat;
 
 
-12. Next add the following members for the `MyHandler` class:
+12. Next add this member to the `MyHandler` class:
 
 		public static final int NOTIFICATION_ID = 1;
 
