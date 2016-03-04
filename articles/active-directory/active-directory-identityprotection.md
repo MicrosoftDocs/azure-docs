@@ -72,7 +72,9 @@ But Azure Active Directory Identity Protection more than a monitoring and report
 
 ### Risk events
 
-Risk events are events that were flagged as suspicious by Identity Protection, and indicate that an identity may have been compromised. For a complete list of risk events, see [Types of Risk Events](#types-of-risk-events). Some of these risk events have been available through the Azure AD Anomalous Activity reports in the Azure Management Portal. 
+Risk events are events that were flagged as suspicious by Identity Protection, and indicate that an identity may have been compromised. For a complete list of risk events, see [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types). 
+
+Some of these risk events have been available through the Azure AD Anomalous Activity reports in the Azure Management Portal. 
 The table below lists the various risk event types and the corresponding **Azure AD Anomalous Activity** report. Microsoft is continuing to invest in this space, and plans to continuously improve the detection accuracy of existing risk events and add new risk event types on an ongoing basis. 
 
 
@@ -512,7 +514,7 @@ The **Risk Events** page in the Identity Protection console lists all events:
 
 Multi-factor authentication is used to gain additional assurance of a user’s identity.<br> 
 Registering for multi-factor authentication is a critical step in preparing your organization to protect and recover from account compromises. 
-<br>
+<br><br>
 ![MFA Registration](./media/active-directory-identityprotection/600.png "MFA Registration")
 <br>
 
@@ -536,6 +538,12 @@ Azure AD Identity Protection helps you manage the roll-out of multi-factor authe
 
 ##Sign-in risk mitigation flows 
 
+There are two types of sign-in risk mitigation flows:
+
+- Risky sign-in recovery flow
+
+- Risky sign-in blocked flow
+
 #### Risky sign-in recovery flow
 
 When an administrator has configured a policy for sign-in risks, the affected users are notified when they try to sign-in. 
@@ -552,7 +560,7 @@ The risky sign-in flow has two steps:
 ![Remediation](./media/active-directory-identityprotection/121.png "Remediation")
 <br>
  
-#### Risky sign-in blocked
+#### Risky sign-in blocked flow
 Administrators can also choose to set a Sign-In Risk policy to block users upon sign-in depending on the risk level. To get unblocked, end users must contact an administrator or help desk, or they can try signing in from a familiar location or device. Self-recovering by solving multi-factor authentication is not an option in this case.
 
 <br>
