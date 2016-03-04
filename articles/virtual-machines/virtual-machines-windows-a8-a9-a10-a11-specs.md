@@ -1,7 +1,7 @@
 <properties
  pageTitle="About the A8 - A11 instances with Windows | Microsoft Azure"
  description="Get background information and considerations for using the Azure A8, A9, A10, and A11 compute-intensive sizes for Windows VMs and cloud services"
- services="virtual-machines, cloud-services"
+ services="virtual-machines-windows, cloud-services"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
