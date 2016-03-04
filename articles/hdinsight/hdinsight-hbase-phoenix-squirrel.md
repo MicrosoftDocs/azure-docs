@@ -16,11 +16,13 @@
    ms.date="03/04/2016"
    ms.author="jgao"/>
 
-# Use Apache Phoenix and SQuirreL with HBase clusters in HDinsight  
+# Use Apache Phoenix and SQuirreL with Windows-based HBase clusters in HDinsight  
 
 Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Phoenix Grammar](http://phoenix.apache.org/language/index.html).
 
 >[AZURE.NOTE] For the Phoenix version information in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions].
+>
+> The information in this document is specific to Windows-based HDInsight clusters. For information on using Phoenix on Linux-based HDInsight, see [Use Apache Phoenix with Linux-based HBase clusters in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 
 ##Use SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) is a command line utility to execute SQL. 
