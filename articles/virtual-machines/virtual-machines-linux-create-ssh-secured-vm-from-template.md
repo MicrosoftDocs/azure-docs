@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a Secure Linux VM using a quick template | Microsoft Azure"
-	description="Create a Secure Linux VM on Azure using a quick template."
+	pageTitle="Create a Secure Linux VM using a Azure template | Microsoft Azure"
+	description="Create a Secure Linux VM on Azure using an Azure Resource Manager template."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="vlivech"
@@ -17,7 +17,7 @@
 	ms.date="12/15/2015"
 	ms.author="vlivech"/>
 
-# Create a Secure Linux VM using a quick template
+# Create a secured Linux VM using an Azure template
 
 Templates allow you to create VMs on Azure with settings that you want to customize during the launch, things like usernames and hostnames.  For this article we will focus on launching an Ubuntu VM using a quick template that is on Azure repo on GitHub.  
 
@@ -31,9 +31,7 @@ Templates allow you to create VMs on Azure with settings that you want to custom
 ## Prerequisites
 
 - An Azure account. [Get a free trial.](https://azure.microsoft.com/pricing/free-trial/)
-- A Github account.
-- SSH Public & Private key pair
-- An Azure Resource Group to launch the VM into
+- [SSH key pair](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## Introduction
 
