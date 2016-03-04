@@ -463,7 +463,7 @@ The following diagram shows the lifecycle state graph for a cloud-to-device mess
 
 ![Cloud-to-device message lifecycle][img-lifecycle]
 
-When the service sends a message, it is considered *Enqueued*. When a device wants to *receive* a message, IoT Hub *locks* the message (sets the state to **Invisible**) in order to allow other threads on the same device to start receiving other messages. When a device thread completes the processing of a device, it notifies IoT Hub by *completing* the message.
+When the service sends a message, it is considered *Enqueued*. When a device wants to *receive* a message, IoT Hub *locks* the message (sets the state to **Invisible**) in order to allow other threads on the same device to start receiving other messages. When a device thread completes the processing of a message, it notifies IoT Hub by *completing* the message.
 
 A device can also:
 - *Reject* the message, which causes IoT Hub to set it to the **Deadlettered** state.
