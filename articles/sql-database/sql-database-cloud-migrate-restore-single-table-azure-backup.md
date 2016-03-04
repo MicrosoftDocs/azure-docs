@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Restore a single table from Azure SQL Database backup | Microsoft Azure"
 	description="Learn how to restore a single table from Azure SQL Database backup."
-	keywords="sql connection,connection string,connectivity issues,transient error,connection error"
+	keywords="sql restore,restore a single table,Azure SQL Database backup,SQL Database Migration Wizard"
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
