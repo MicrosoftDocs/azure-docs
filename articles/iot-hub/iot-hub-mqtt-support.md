@@ -43,9 +43,26 @@ The following table contains links to code samples for each supported language a
 
 If a device cannot use the device client SDKs, it can still connect to the public device endpoints using the MQTT protocol. In the **CONNECT** packet the device should use the following values:
 
-- The **deviceId** as the **ClientId**
-- `{iothubhostname}/{device_id}` in the **Username** field, where {iothubhostname} is the full CName of the IoT hub (for example, contoso.azure-devices.net).
+- The **deviceId** as the **ClientId**. Use `{iothubhostname}/{device_id}` in the **Username** field, where {iothubhostname} is the full CName of the IoT hub.
+
+    For example, if the name of your IoT hub is **contoso.azure-devices.net** and the name of your device is **MyDevice01**, the full **Username** field should contain `contoso.azure-devices.net/MyDevice01`.
+
 - A SAS token in the **Password** field. The [format of the SAS token][lnk-iothub-security] is the same as described for the HTTP and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
+
+    For an example of how to create the SAS token using Node.js, see [shared_access_signature.js][lnk-node-sas] in the [Microsoft Azure IoT SDKs][lnk-device-sdks] GitHub repository. This repository also contains the C, C#, and Java library source code, all of which contain code to generate SAS tokens.
+    
+    You can also use the [Device Explorer][lnk-device-explorer] tool to generate a SAS token that you can copy and paste into your own code:
+    
+    1. Go to the **Management** tab in Device Explorer.
+    2. Click **SAS Token** (top right).
+    3. On **SASTokenForm**, select your device in the **DeviceID** drop down. Set your **TTL**.
+    4. Click **Generate** to create your token.
+    
+    The SAS token that's generated looks like this:
+    `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
+
+    The part of this to use as in the **Password** field to connect using MQTT is:
+    `SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802g%3d&se=1456481802`.
 
 For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel.
 
@@ -80,3 +97,5 @@ To learn more about the MQTT protocol, see the [MQTT documentation][lnk-mqtt-doc
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
+[lnk-node-sas]: https://github.com/Azure/azure-iot-sdks/blob/master/node/common/core/lib/shared_access_signature.js
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
