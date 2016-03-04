@@ -58,7 +58,7 @@ This opens the Applications blade:
 
 ![List applications][3]
 
-The Applications blade displays the following information for the applications in your Batch account:
+The Applications blade displays the ID of each application in your account, as well as the following properties:
 
 * **Packages** - The number of versions associated with this application.
 * **Default Version** – If no version is specified for a pool's application, this version will be installed.
@@ -117,7 +117,7 @@ Applications are downloaded to each compute node as it joins a pool, is rebooted
 
 If you've already specified an application package for a pool, you can specify a new package for the existing pool. All new nodes that join the pool will install the newly specified package, as will any existing node that is rebooted or reimaged. Compute nodes that are already in the pool when you update the package references do not automatically install the new application package.
 
-```
+```csharp
 // Code sample here.
 ```
 
