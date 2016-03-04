@@ -66,11 +66,56 @@ The Applications blade displays the ID of each application in your account, as w
 
 ### Add a new application
 
-To create a new application, you add an application package using a new, unique application ID. When you add an application with a unique application ID, the application is created within the portal, and that application package will appear in the application's details pane.
+To create a new application, add an application package using a new, unique application ID. The first application package that you add using the new application ID will also create the application. The new application package will appear in the application details pane.
 
+Click the **Add** button on the *Applications* blade to open the *New application blade*.
 
+![List applications][5]
+
+The *New application blade* provides the following fields for specifying the settings for your new application and application package.
+
+**Metadata**
+
+Specifies additional metadata for your new application. You can either select to enter the application metadata (name, version), or upload a JSON file that contains your application metadata. Application metadata JSON is specified using the following format:
+
+```
+{
+    "id": "litware",
+    "version": "1.1001.2b"
+}
+```
+
+**Application**
+
+Specifies the ID of your new application. Application IDs are subject to the standard Azure Batch ID validation rules:
+
+* Can contain any combination of alphanumeric characters, including hyphens and underscores.
+* Cannot contain more than 64 characters.
+* Must be unique within the Batch account.
+* Case preserving, and case insensitive.
+
+**Version**
+
+Specifies the version of the application package you are uploading. Version strings are subject to the following validation rules:
+
+* Can contain any combination of alphanumeric characters, including hyphens, underscores, and periods.
+* Cannot contain more than 64 characters.
+* Must be unique within the application.
+* Case preserving, and case insensitive.
+
+**Application Package**
+
+Specifies the path to a ZIP file containing the application binaries and any support files required to execute the application. You may enter the path to the ZIP manually, or browse to the file by clicking the folder icon next to the *Select a file* text box.
+
+Once you've entered the required information, click "OK" button at the bottom of the *New application* blade and the file will begin uploading to Azure Storage. You will be notified and the blade will close once the upload has completed. Note that depending on the size of the file that you are uploading and the speed of your network connection, this operation may take some time.
 
 ### Add a new application package
+
+To add a new application package to an existing application, select an application in the Applications blade, then click the "Add" button to display the *New application package* blade.
+
+![List applications][8]
+
+As you can see, the fields in the *New application package* blade match those of the *New application* blade, except for the disabled *Application* text box that displays the ID of the selected application.
 
 ### Update an application package
 
@@ -183,3 +228,5 @@ foreach (ApplicationSummary app in applications)
 [4]: ./media/batch-app-pkg/app_pkg_04.png "List applications"
 [5]: ./media/batch-app-pkg/app_pkg_05.png "List applications"
 [6]: ./media/batch-app-pkg/app_pkg_06.png "List applications"
+[7]: ./media/batch-app-pkg/app_pkg_07.png "List applications"
+[8]: ./media/batch-app-pkg/app_pkg_08.png "Add application package"
