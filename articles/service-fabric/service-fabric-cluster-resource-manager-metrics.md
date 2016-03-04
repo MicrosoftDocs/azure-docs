@@ -55,8 +55,10 @@ Note that when you start defining custom metrics you need to explicitly add back
 Let’s say you wanted to configure a service which would report a metric called “Memory” (in addition to the default metrics). For memory, let’s say that you’ve done some basic measurements and know that normally a primary replica of that service takes up 20Mb of Memory, while secondaries of that same service will take up 5Mb. You know that Memory is the most important metric in terms of managing the performance of this particular service, but you still want primary replicas to be balanced so that the loss of some node or fault domain doesn’t take an inordinate number of primary replicas along with it. Other than that you’ll take the defaults.
 
 Here’s what you’d do:
+
 Code:
-``` csharp
+
+```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
 ServiceLoadMetricDescription memoryMetric = new ServiceLoadMetricDescription();
 memoryMetric.Name = "MemoryInMb";
@@ -91,13 +93,15 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
 Powershell:
-``` posh
+
+```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,20,5”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
 ```
 
 (Reminder that if you just want to use the default metrics, you don’t need to touch the metrics collection at all.)
 
 Now that we’ve shown you how to define your own metrics, let’s talk about the different properties that metrics can have. We’ve already shown them to you, but it’s time to talk about what they actually mean! There are four different properties a metric can have today:
+
 -	Metric Name: This is the name of the metric. This is a unique identifier for the metric within the cluster from the Resource Manager’s perspective.
 -	PrimaryDefaultLoad: The default amount of load that this service will exert for this metric as a primary
 -	SecondaryDefaultLoad: The default amount of load that this service will exert for this metric as a secondary replica
@@ -119,7 +123,8 @@ What to do? Well, your service could be reporting load on the fly!
 Dynamic Load reports allow replicas or instances to adjust their allocation/reported use of metrics in the cluster over their lifetime. A service replica or instance that was cold and not doing any work would usually report that it was using low amounts of resources, while busy replicas or instances report that they are using more. This general level of churn in the cluster allows us to reorganize the service replicas and instances in the cluster on the fly in order to ensure that the services and instances are getting the resources they require – in effect that busy services are able to reclaim resources from other replicas or instances which are currently cold or doing less work. Reporting load on the fly can be done via the ReportLoad method, available on the ServicePartition, available as a property on the base StatefulService. Within your service the code would look like this:
 
 Code:
-``` csharp
+
+```csharp
 this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("Foo", 42) });
 ```
 
@@ -130,7 +135,8 @@ Does it make sense to have a default load specified for a service which is going
 So let’s take our previous example and see what happens when we add some custom load and then when after the service is created it gets updated dynamically. In this example, we’ll use “Memory” as an example, and let’s presume that we initially created the stateful service with the following command:
 
 Powershell:
-``` posh
+
+```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,21,11”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
 ```
 
@@ -146,6 +152,7 @@ Some things that are worth noting:
 -	Overall the metrics look pretty good, with the difference between the maximum and minimum load on a node (for memory – the custom metric we said we cared the most about) of only a factor of 1.75 (the node with the most load for the memory is N3, the least is N2, and 28/16 = 1.75) – pretty balanced!
 
 There are some things that we still need to explain
+
 -	What determined whether a ratio of 1.75 was reasonable or not? How do we know that’s good enough or if there is more work to do?
 -	When does balancing happen?
 -	What does it mean that Memory was weighted “High”?

@@ -25,7 +25,7 @@ The Resource Manager constantly tracks the rules you have defined for your servi
 
 Another example of a time when you’ll see the Resource Manager emit health warnings is if you have defined a placement constraint (such as “NodeColor == Blue”) and the Resource Manager detects a violation of that constraint. We do this both for custom constraints as well as the default constraints (like fault and upgrade domain distribution) that the Resource Manager enforces for you. Here’s an example of one such health report. In this case the health report is for one of the system service’s partitions because the replicas of that partition are temporarily packed into too few fault domains, like could happen due to a string of failures:
 
-``` posh
+```posh
 PS C:\Users\User > Get-WindowsFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
 
 
@@ -66,6 +66,7 @@ HealthEvents          :
 ```
 
 Here's what this health message is telling us is:
+
 1.	All the replicas themselves are healthy (this is Service Fabric’s first priority)
 2.	That the fault domain distribution constraint is currently being violated (meaning that a particular fault domain has more of the replicas for this partition than it should)
 3.	Which node contains the replica causing the violation (The node with ID: 3d1a4a68b2592f55125328cd0f8ed477)
@@ -73,6 +74,7 @@ Here's what this health message is telling us is:
 This is great data for an alert that fires in production to let you know something has gone wrong and you probably want to go take a look. In this case, for example, we’d want to see if we can figure out why the Resource Manager didn’t feel like it had any choice but to pack the replicas into the fault domain. This could be because all of the nodes in the other fault domains were down and there weren’t enough spare other domains, or if there were enough domains up something else which caused the nodes in those other fault domains to be invalid (like an InvalidDomain policy on the service, for example).
 
 Let’s say however that you want to create a service, or the Resource Manager is trying to find a place to place some services, but there doesn’t appear to be any solutions that work. This could be for many reasons, but usually it is due to one of the two following conditions:
+
 1.	Some transient condition has made it impossible to place this service instance or replica correctly
 2.	The service’s requirements are misconfigured in a way that causes its requirements to be unsatisfiable.
 

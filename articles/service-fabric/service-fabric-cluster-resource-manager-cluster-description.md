@@ -18,15 +18,14 @@
 
 # Describing a Service Fabric cluster
 
-The Service Fabric Cluster Resource Manager provides several mechanisms for describing a cluster. During run time, the Resource Manager this information to ensure high availability of the services running in the cluster while also ensuring that the resources in the cluster are being used appropriately. The Resource Balancer features that describe a cluster are
-- Fault Domains
-- Upgrade Domains
-- Node Properties and Placement Constraints
-- Node Capacities
-
-Additionally, Resource Balancer has some configuration options that you can use to describe.
+The Service Fabric Cluster Resource Manager provides several mechanisms for describing a cluster. During run time, the Resource Manager this information to ensure high availability of the services running in the cluster while also ensuring that the resources in the cluster are being used appropriately.
 
 ## Key concepts
+The Cluster Resource Manager features that describe a cluster are:
+- Fault Domains
+- Upgrade Domains
+- Node Properties
+- Node Capacities
 
 ### Fault domains
 
@@ -75,7 +74,8 @@ Defining Fault Domains and Upgrade Domains is done automatically in Azure hosted
 If you’re standing up your own cluster (or just want to try running a particular topology on your development machine) you’ll need to provide the fault domain and upgrade domain information yourself. In this example we define a 9 node cluster that spans three “datacenters” (each with three racks), and three upgrade domains striped across those three datacenters. In your cluster manifest, it looks something like this:
 
 ClusterManifest.xml
-``` xml
+
+```xml
   <Infrastructure>
     <!-- IsScaleMin indicates that this cluster runs on one-box /one single server -->
     <WindowsServer IsScaleMin="true">
@@ -113,7 +113,8 @@ Service Fabric also defines some default properties which can be used automatica
 
 Let’s say that the following node properties were defined for a given node type:
 ClusterManifest.xml
-``` xml
+
+```xml
     <NodeType Name="NodeType01">
       <PlacementProperties>
         <Property Name="HasDisk" Value="true"/>
@@ -136,6 +137,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
 Powershell:
+
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceType -Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementConstraint "HasDisk == true && Value >= 4"
 ```
@@ -145,6 +147,7 @@ If you are sure that all nodes of NodeType01 are valid, you could also just sele
 One of the cool things about a service’s placement constraints is that they can be updated dynamically during runtime. So if you need to, you can move a service around in the cluster, add and remove requirements, etc. Service Fabric takes care of ensuring that the service stays up and available even when these types of changes are ongoing.
 
 C#:
+
 ```csharp
 StatefulServiceUpdateDescription updateDescription = new StatefulServiceUpdateDescription();
 updateDescription.PlacementConstraints = "NodeType == NodeType01";
@@ -152,6 +155,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/app/servic
 ```
 
 Powershell:
+
 ```posh
 Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstraints "NodeType == NodeType01"
 ```
@@ -162,11 +166,14 @@ Placement constraints (along with many other properties that we’re going to ta
 One of the most important jobs of any orchestrator is to help manage resource consumption in the cluster. The last thing you want if you’re trying to run services efficiently is a bunch of nodes which are hot (leading to resource contention and poor performance) while others are cold (wasted resources). But let’s think even more basic than balancing (which we’ll get to in a minute) – what about just ensuring that nodes don’t run out of resources in the first place?
 
 It turns out that Service Fabric represents resources as things called “Metrics”. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are things like “WorkQueueDepth” or “MemoryInMb”. Metrics are different from constraints and node properties in that node properties are generally static descriptors of the nodes themselves, whereas metrics are about physical resources that services consume when they are running on a node. So a property would be something like HasSSD and could be set to true or false, but the amount of space available on that SSD (and consumed by services) would be a metric like “DriveSpaceInMb”. Capacity on the node would set the “DriveSpaceInMb” to the amount of total non-reserved space on the drive, and services would report how much of the metric they used during runtime.
+
 If you turned off all resource balancing Service Fabric’s Resource Manager would still be able to ensure that no node ended up over its capacity (unless the cluster as a whole was too full). Capacities are the mechanism that Service Fabric uses to understand how much of a resource a node has, from which we subtract consumption by different services (more on that later) in order to know how much is left. Both the capacity and the consumption at the service level are expressed in terms of metrics.
 
 During runtime, the Resource Manager tracks how much of each resource is present on each node (defined by its capacity) and how much is remaining (by subtracting any declared usage from each service). With this information, the Service Fabric Resource Manager can figure out where to place or move replicas so that nodes don’t go over capacity.
+
 C#:
-``` csharp
+
+```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
 ServiceLoadMetricDescription metric = new ServiceLoadMetricDescription();
 metric.Name = "Memory";
@@ -178,7 +185,8 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
 Powershell:
-``` posh
+
+```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,1024,1024”)
 ```
 
@@ -187,6 +195,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 You can see these in the cluster manifest:
 
 ClusterManifest.xml
+
 ```xml
     <NodeType Name="NodeType02">
       <Capacities>
@@ -209,7 +218,8 @@ Note that since the requirement is only that there be 15 units available, this s
 Another thing we did that helped people manage overall cluster capacity was to add the notion of some reserved buffer to the capacity specified at each node. This setting is optional, but allows people to reserve some portion of the overall node capacity so that it is only used to place services during upgrades and failures – cases where the capacity of the cluster is otherwise reduced. Today buffer is specified globally per metric for all nodes via the ClusterManifest. The value you pick for the reserved capacity will be a function of which resources your services are more constrained on, as well as the number of fault and upgrade domains you have in the cluster. Generally more fault and upgrade domains means that you can pick a lower number for your buffered capacity, as you will expect smaller amounts of your cluster to be unavailable during upgrades and failures. Note that specifying the buffer percentage only makes sense if you have also specified the node capacity for a metric.
 
 ClusterManifest.xml
-``` xml
+
+```xml
         <Section Name=" NodeBufferPercentage">
             <Parameter Name="DiskSpace" Value="10" />
             <Parameter Name="Memory" Value="15" />

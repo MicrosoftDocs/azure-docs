@@ -28,6 +28,7 @@ The first set of controls that govern balancing a set of timers that govern how 
 Each of these different stages is controlled by a different timer which governs its frequency. So for example, if you only want to deal with placing new service workloads in the cluster every hour (to batch them up), but want regular balancing checks every few seconds, you can enforce that. When each timer fires, a flag is set saying that we need to deal with that portion of the Resource Manager’s duties, and it is picked up in the next overall sweep through the state machine (that’s why these configurations are defined as “minimum intervals”). By default the Resource Manager scans its state and applies updates every 1/10th of a second, sets the placement and constraint check flags every second, and the balancing flag every 5 seconds.
 
 ClusterManifest.xml:
+
 ``` xml
         <Section Name="PlacementAndLoadBalancing">
             <Parameter Name="PLBRefreshGap" Value="0.1" />
@@ -68,6 +69,7 @@ As an example let’s say that we have reports with the following totals for con
 ![Activity Threshold Example][Image3]
 
 Just like Balancing Thresholds, Activity Thresholds are defined per-metric via the Cluster Manifest:
+
 ``` xml
       <Section Name="MetricActivityThresholds">
         <Parameter Name="Memory" Value="1536"/>
