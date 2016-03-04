@@ -531,8 +531,8 @@ For more information about Azure Premium Storage refer to the following articles
 
 ### Blog Posts
 
-- [Azure Premium Storage Generally Available](https://azure.microsoft.com/en-us/blog/azure-premium-storage-now-generally-available-2/)
-- [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud](https://azure.microsoft.com/en-us/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+- [Azure Premium Storage Generally Available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
+- [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
 
 [Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
 [Image2]: ./media/storage-premium-storage/Azure_attach_premium_disk.png 
