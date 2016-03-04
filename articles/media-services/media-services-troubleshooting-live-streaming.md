@@ -28,7 +28,7 @@ This section gives suggestions on how to troubleshoot problems related to on-pre
 
 - **Potential issue**: Can't find encoder logs that might help in debugging issues.
 	
-	- **Telestream Wirecast**: You can usually find logs under C:\Users\{username}\AppData\Roaming\Wirecast\ 
+	- **Telestream Wirecast**: You can usually find logs under C:\Users\ {username}\AppData\Roaming\Wirecast\ 
 	- **Elemental Live**: You can find has links to logs on the management portal. Click on **Stats**, then **Logs**. On the **Log Files** page, you will see a list of logs for all the LiveEvent items; select the one matching your current session. 
 	- **Flash Media Live Encoder**: You can find the **Log Directory...** by navigating to the **Encoding Log** tab.
 	
