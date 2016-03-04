@@ -66,9 +66,6 @@
 12. Next add the following members for the `MyHandler` class:
 
 		public static final int NOTIFICATION_ID = 1;
-		private NotificationManager mNotificationManager;
-		NotificationCompat.Builder builder;
-		Context ctx;
 
 
 13. In the `MyHandler` class, add the following code to override the **onRegistered** method, which registers your device with the mobile service Notification Hub.
@@ -93,34 +90,28 @@
 		}
 
 
-
 14. In the `MyHandler` class, add the following code to override the **onReceive** method, which causes the notification to display when it is received.
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
-		    ctx = context;
-		    String nhMessage = bundle.getString("message");
+        		String msg = bundle.getString("message");
 
-		    sendNotification(nhMessage);
-		}
+        		PendingIntent contentIntent = PendingIntent.getActivity(context,
+                		0, // requestCode
+                		new Intent(context, ToDoActivity.class),
+                		0); // flags
 
-		private void sendNotification(String msg) {
-			mNotificationManager = (NotificationManager)
-		              ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+        		Notification notification = new NotificationCompat.Builder(context)
+                		.setSmallIcon(R.drawable.ic_launcher)
+                		.setContentTitle("Notification Hub Demo")
+                		.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
+                		.setContentText(msg)
+                		.setContentIntent(contentIntent)
+                		.build();
 
-		    PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-		          new Intent(ctx, ToDoActivity.class), 0);
-
-		    NotificationCompat.Builder mBuilder =
-		          new NotificationCompat.Builder(ctx)
-		          .setSmallIcon(R.drawable.ic_launcher)
-		          .setContentTitle("Notification Hub Demo")
-		          .setStyle(new NotificationCompat.BigTextStyle()
-		                     .bigText(msg))
-		          .setContentText(msg);
-
-		     mBuilder.setContentIntent(contentIntent);
-		     mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+        		NotificationManager notificationManager = (NotificationManager)
+                		context.getSystemService(Context.NOTIFICATION_SERVICE);
+        		notificationManager.notify(NOTIFICATION_ID, notification);
 		}
 
 

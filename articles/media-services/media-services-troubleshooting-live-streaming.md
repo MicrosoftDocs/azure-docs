@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="03/01/2016"  
 	ms.author="juliako"/>
 
-#Troubleshooting live streaming guide
+#Troubleshooting live streaming guide 
 
 This topic gives suggestions on how to troubleshoot some live streaming problems.
 
@@ -65,6 +65,12 @@ This section gives suggestions on how to troubleshoot problems related to on-pre
 
 	**Troubleshooting steps**: Navigate to the "Streaming Endpoint" tab in the AMSE tool, and confirm there is a Streaming Endpoint running with one streaming unit. 
 	
+###Problem: Would like to see encoder logs 
+
+- **Potential issue**: Can't find logs that might help in debugging issues.
+
+	**Troubleshooting steps**: You can usually find Wirecast logs under C:\Users{username}\AppData\Roaming\Wirecast\ 
+
 >[AZURE.NOTE] If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure Classic Portal.
 
 ##Media Services learning paths

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/28/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Facebook login
@@ -24,10 +24,6 @@ This topic shows you how to configure Azure App Service to use Facebook as an au
 
 To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com].
 
-> [AZURE.NOTE]
-This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
-
-
 ## <a name="register"> </a>Register your application with Facebook
 
 1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Facebook app.
@@ -36,48 +32,40 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 
 3. (Optional) If you have not already registered, click **Apps** > **Register as a Developer**, then accept the policy and follow the registration steps.
 
-4. Click **My Apps** > **Add a New App** > **Website** enter a unique name for your app, then click **Create New Facebook App ID**.
+4. Click **My Apps** > **Add a New App** > **Website** > **Skip and Create App ID**. 
 
-6. Pick a category for your application from the dropdown, then click **Create App ID** and on the next page, click **Skip Quick Start**. This takes you to the developer dashboard for your application.
+5. In **Display Name**, enter a unique name for your app, choose a **Category** for you app, then click **Create App ID** and complete the security check. This takes you to the developer dashboard for your new Facebook app.
 
-8. On the **App Secret** field, click **Show**, provide your password if requested, then make a note of the values of **App ID** and **App Secret**. You will configure your application to use these later.
+6. On the **App Secret** field, click **Show**, provide your password if requested, then make a note of the values of **App ID** and **App Secret**. You will uses these later to configure your application in Azure.
 
-	> [AZURE.NOTE] **Security Note**
-	The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
+	> [AZURE.IMPORTANT] The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
 
-9. On the left navigation bar, click **Settings**, type the **URL** of your Mobile App in **App Domains**, and enter a **Contact Email**.
+7. On the left navigation bar, click **Settings**, type the **URL** of your Mobile App in **App Domains**, and enter a **Contact Email**.
 
     ![][0]
 
-10. If you don't see a website section below, click **Add Platform** > **Website**, enter the **URL** of your Mobile App in the **Site URL** field, then click **Save Changes**.
+8. If you don't see a website section below, click **Add Platform** > **Website**, enter the **URL** of your Mobile App in the **Site URL** field, then click **Save Changes**.
 
-11. Click the **Advanced** tab, add your application's **Redirect URI** to **Valid OAuth redirect URIs**, then click **Save Changes**. Your redirect URI is the URL of your application appended with the path, _/.auth/login/facebook/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Make sure that you are using the HTTPS scheme.
+9. Click the **Advanced** tab, add your application's **Redirect URI** to **Valid OAuth redirect URIs**, then click **Save Changes**. 
 
+	> [AZURE.NOTE] Your redirect URI is the URL of your application appended with the path, _/.auth/login/facebook/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Make sure that you are using the HTTPS scheme.
 
-	> [AZURE.NOTE]
-	If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your redirect URL instead uses the gateway URL with the _/signin-facebook_ path.
-
-
-12. The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click **Status & Review** in the left navigation bar. Then click **Yes** to enable general public access.
+10. The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click **App Review** and enable **Make todolist-complete-nodejs public** to enable general public access using Facebook authentication.
 
 
 ## <a name="secrets"> </a>Add Facebook information to your application
 
-> [AZURE.NOTE]
-If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Facebook**. Paste in the values you obtained earlier and click **Save**.
+1. Back in the [Azure portal], navigate to your application. Click **Settings** > **Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
 
-
-13. Back in the [Azure portal], navigate to your application. Click **Settings** > **Authentication/Authorization**, and make sure that **App Service Authentication** is **On**.
-
-15. Click **Facebook**, paste in the App ID and App Secret values which you obtained previously, optionally enable any scopes needed by your application, then click **OK**.
+2. Click **Facebook**, paste in the App ID and App Secret values which you obtained previously, optionally enable any scopes needed by your application, then click **OK**.
 
     ![][1]
 
 	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
-17. (Optional) To restrict access to your site to only users authenticated by Facebook, set **Action to take when request is not authenticated** to **Facebook**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Facebook for authentication.
+3. (Optional) To restrict access to your site to only users authenticated by Facebook, set **Action to take when request is not authenticated** to **Facebook**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Facebook for authentication.
 
-17. Click **Save**.
+4. When done configuring authentication, click **Save**.
 
 You are now ready to use Facebook for authentication in your app.
 

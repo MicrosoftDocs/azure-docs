@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/26/2016" 
 	ms.author="erikre"/>
 
 # Create an ASP.NET 5 web app in Visual Studio Code
@@ -55,7 +55,7 @@ This tutorial is designed to get you started building applications with the late
 
 	![dnvm location](./media/web-sites-create-web-app-using-vscode/00-where-dnvm.png)
 
-3. Now that you have DNVM, you must to use it to download DNX to run your applications. Run the following at the command prompt:
+3. Now that you have DNVM, you must use it to download DNX to run your applications. Run the following at the command prompt:
 
 		dnvm upgrade
 
@@ -169,7 +169,7 @@ Git is a distributed version control system that you can use to deploy your Azur
 
 4. Select the web app you created in this tutorial.
 
-5. In the web app blade, scroll down to locate the **Deployment** section, and click **Set up continuous deployment**. 
+5. In the web app blade, click **Settings** > **Continuous deployment**. 
 
 	![Azure web app host](./media/web-sites-create-web-app-using-vscode/14-azure-deployment.png)
 

@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/25/2016"
 	ms.author="brandwe"/>
 
 # Web App Sign In & Sign Out with Azure AD
