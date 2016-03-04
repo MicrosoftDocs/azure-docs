@@ -104,7 +104,7 @@ Pin the most important tags to your Startboard for quick access and you're ready
 
 Tags exist directly on resources and resource groups, so to see what tags are already applied, we can simply get a resource or resource group with **Get-AzureRmResource** or **Get-AzureRmResourceGroup**. Let's start with a resource group.
 
-    PS C:\> Get-AzureRmResourceGroup tag-demo-group
+    PS C:\> Get-AzureRmResourceGroup -Name tag-demo-group
 
     ResourceGroupName : tag-demo-group
     Location          : westus
@@ -134,14 +134,9 @@ When getting metadata for a resource, the tags are not directly displayed. You'l
 
 You can view the actual tags by retrieving the **Tags** property.
 
-    PS C:\> (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags
-
-    Name                           Value
-    ----                           -----
-    Value                          Finance
-    Name                           Dept
-    Value                          Production
-    Name                           Environment
+    PS C:\Users\tomfitz> (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
+    Dept: Finance
+    Environment: Production
 
 Instead of viewing the tags for a particular resource group or resource, you will often want to retrieve all of the resources or resource groups that have a particular tag and value. To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cmdlet with the **-Tag** parameter.
 
@@ -155,35 +150,28 @@ To get all of the resources with a particular tag and value, use the **Find-Azur
     tfsqlserver
     tfsqldatabase
 
-To tag a resource group, simply use the **Set-AzureRmResourceGroup** command and specify a tag name and value.
+To add a tag to a resource group that has no existing tags, simply use the **Set-AzureRmResourceGroup** command and specify a tag object.
 
-    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
+    PS C:\> Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
 
-    ResourceGroupName : tag-demo
+    ResourceGroupName : test-group
     Location          : southcentralus
     ProvisioningState : Succeeded
     Tags              :
-                    Name     Value
-                    =======  =====
-                    project  tags
-                    env      demo
+                    Name          Value
+                    =======       =====
+                    Dept          IT
+                    Environment   Test
+                    
+You can add tags to a resource that has no existing tags by using the **SetAzureRmResource** command 
 
-Tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you'll need to use an array with all the tags you want to keep. To do this, you can first select the existing tags and add a new one.
+    PS C:\> Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
+
+Tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you'll need to use an array with all the tags you want to keep. To do this, you can first select the existing tags, add a new one to that set, and re-apply all of the tags.
 
     PS C:\> $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     PS C:\> $tags += @{Name="status";Value="approved"}
-    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag $tags
-
-    ResourceGroupName : tag-demo
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name     Value
-                    =======  ========
-                    project  tags
-                    env      demo
-                    status   approved
-
+    PS C:\> Set-AzureRmResourceGroup -Name test-group -Tag $tags
 
 To remove one or more tags, simply save the array without the ones you want to remove.
 
