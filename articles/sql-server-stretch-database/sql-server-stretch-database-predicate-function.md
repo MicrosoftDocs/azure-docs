@@ -16,7 +16,7 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# Write an Inline Table-Valued Function to Select Rows to Migrate (Stretch Database)
+# Use a Filter Predicate to Select Rows to Migrate (Stretch Database)
 
 If you store historical data in a separate table, you can configure Stretch Database to migrate the entire table. If your table contains both historical and current data, on the other hand, you can specify a filter predicate to select the rows to migrate. The filter predicate must call an inline table\-valued function. This topic describes how to write an inline table\-valued function to select rows to migrate.
 
