@@ -75,7 +75,5 @@ Unfamiliar locations can provide a strong indication that an attacker is able at
 ## See also
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-- [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
-- [The Identity Protection glossary](active-directory-identityprotection-glossary.md)
 
 
