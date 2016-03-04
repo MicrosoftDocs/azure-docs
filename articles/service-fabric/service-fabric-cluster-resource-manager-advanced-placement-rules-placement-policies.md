@@ -16,7 +16,7 @@
    ms.date="03/03/2016"
    ms.author="masnider"/>
 
-## Placement Policies
+# Placement Policies
 There are many different additional rules that you may end up caring about if your Service Fabric cluster is spanned across a geographic distance, say multiple datacenters or Azure regions, or if your environment spans multiple areas of geopolitical control (or some other case where you have legal or policy boundaries you care about). Most of these could be configured via node properties and placement constraints (which we talked about earlier), but some are more complicated. In any case, we provide these shortcuts – just like placement constraints, placement policies can be configured on a per-service basis
 
 •	InvalidDomain – Allows you to specify that a particular Fault Domain is invalid for this workload. Good for ensuring that a particular service never runs in a particular area, for example for geopolitical or corporate policy reasons.

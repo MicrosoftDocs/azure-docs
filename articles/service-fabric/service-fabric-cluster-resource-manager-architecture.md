@@ -37,5 +37,5 @@ Let’s take a look at the next diagram (Fig. 2) and see what happens in this ex
 - [Learn about the Cluster Resource Manager Architecture](service-fabric-cluster-resource-manager-architecture.md)
 - [Describe the cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 
-[Image1]:./media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
-[Image2]:./media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png
+[Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
+[Image2]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png

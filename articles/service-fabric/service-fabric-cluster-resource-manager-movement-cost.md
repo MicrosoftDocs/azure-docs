@@ -16,8 +16,8 @@
    ms.date="03/03/2016"
    ms.author="masnider"/>
 
-Movement Cost
-The last and perhaps most important factor that we take into consideration when trying to determine what changes to make to a cluster and the score of a given solution is the overall Cost of achieving that solution.
+# Movement Cost
+Another important factor that we take into consideration when trying to determine what changes to make to a cluster and the score of a given solution is the overall Cost of achieving that solution.
 
 Moving service instances or replicas around costs CPU time and network bandwidth at a minimum, and for stateful services it also costs the amount of space on disk that you need to create a copy of the state before shutting down old replicas. Clearly you’d want to minimize the cost of any solution that the Resource Manager comes up with, but you also don’t want to ignore solutions that would significantly improve the allocation of resources in the cluster.
 

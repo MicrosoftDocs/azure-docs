@@ -16,6 +16,8 @@
    ms.date="03/03/2016"
    ms.author="masnider"/>
 
+# Affinity
+
 Affinity is one of those things that, at least at first glance, doesn’t make a lot of sense for a microservice environment. And that’s because it doesn’t make a lot of sense in a microservice environment. Affinity is a control that is provided mainly to help ease the transition of larger previously-monolithic applications into the cloud and microservices world.
 
 Let’s say you’re bringing a larger app, or one that just wasn’t designed with microservices in mind, to Service Fabric. This is actually pretty common, and we’ve had several customers (both internal and external) in this situation. You start by lifting the entire app up into the environment, getting it packaged and running. Then you start breaking it down into different smaller services that all talk to each other.
