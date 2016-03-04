@@ -42,7 +42,7 @@ This topic gives you an overview of a user's sign-in experience for all cases th
 
 - [Risky sign-in blocked](#risky-sign-in-blocked)
 
-- [Multi-factor authentication registration during a risky sign-in][#multi-factor-authentication-registration-during-a-risky-sign-in]
+- [Multi-factor authentication registration during a risky sign-in](#multi-factor-authentication-registration-during-a-risky-sign-in)
  
 
 **User at risk**
