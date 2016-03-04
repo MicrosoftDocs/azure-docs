@@ -42,7 +42,7 @@ The Azure Stack POC is a one-node deployment of Azure Stack Technical Preview 1.
 
 Storage services in the operating system on the physical host include:
 
-**CS Blob Service** Azure Consistent Storage Blob service, which provides blob and table storage services.
+**ACS Blob Service** Azure Consistent Storage Blob service, which provides blob and table storage services.
 **SoFS** Scale-out File Server.
 **ReFS CSV** Resilient File System Cluster Shared Volume.
 **Virtual Disk**, **Storage Space**, and **Storage Spaces Direct** are the respective underlying storage technology in Windows Server to enable the Microsoft Azure Stack core storage resource provider.

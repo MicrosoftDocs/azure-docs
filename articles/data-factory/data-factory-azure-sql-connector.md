@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data to and from Azure SQL | Azure Data Factory" 
+	pageTitle="Move data to/from Azure SQL Database | Microsoft Azure" 
 	description="Learn how to move data to/from Azure SQL Database using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 

@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="01/26/2016" 
+	ms.topic="article"
+	ms.date="03/04/2016" 
 	ms.author="tdykstra"/>
 
 # Service principal authentication for API Apps in Azure App Service
@@ -98,7 +98,7 @@ If you don't validate claims in code in the protected API app, and if you use a 
 
 If you are following the Node.js or Java getting-started series for API apps, skip to the [Next steps](#next-steps) section. 
 
-The remainder of this article continues the .NET getting-started series for API apps and assumes that you have completed the [user authentication tutorial](app-service-api-user-principal-auth.md) and have the sample application running in Azure with user authentication enabled.
+The remainder of this article continues the .NET getting-started series for API apps and assumes that you have completed the [user authentication tutorial](app-service-api-dotnet-user-principal-auth.md) and have the sample application running in Azure with user authentication enabled.
 
 ## Set up authentication in Azure
 
@@ -206,7 +206,9 @@ Make the following changes in the ToDoListAPI project in Visual Studio.
 
 3. Deploy the ToDoListAPI project. (Right-click the project, then click **Publish > Publish**.)
 
-4. Close the browser window that opens after the project is successfully deployed.
+	Visual Studio deploys the project and opens a browser to the web app's base URL. This will show a 403 error page, which is normal for an attempt to go to a Web API base URL from a browser.
+
+4. Close the browser.
 
 ### Get Azure AD configuration values
 
@@ -249,11 +251,13 @@ Make the following changes in the ToDoListAPI project in Visual Studio.
 	|Key|Value|Example
 	|---|---|---|
 	|ida:Authority|https://login.microsoftonline.com/{your Azure AD tenant name}|https://login.microsoftonline.com/contoso.onmicrosoft.com|
-	|ida:ClientId|Client ID of the calling application (ToDoListAPI)|960adec2-b74a-484a-960adec2-b74a-484a|
-	|ida:ClientSecret|App key of the calling application (ToDoListAPI)|oCgdj3EYLfnR0p6iR3UvHFAfkn+zQB+0VqZT/6=
-	|ida:Resource|Client ID of the called application (ToDoListDataAPI)|e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8|
+	|ida:ClientId|Client ID of the calling application (middle tier - ToDoListAPI)|960adec2-b74a-484a-960adec2-b74a-484a|
+	|ida:ClientSecret|App key of the calling application (middle tier - ToDoListAPI)|oCgdj3EYLfnR0p6iR3UvHFAfkn+zQB+0VqZT/6=
+	|ida:Resource|Client ID of the called application (data tier - ToDoListDataAPI)|e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8|
 
-	If you were using a single Azure AD application for both the calling API app and the protected API app, you would use the same value in both `ida:ClientId` and `ida:Resource`.
+	**Note**: Make sure you use the called application's **client ID** and not its **App ID URI** for `ida:Resource`.
+
+	`ida:ClientId` and `ida:Resource` are different values for this tutorial because you're using separate Azure AD applicaations for the middle tier and data tier. If you were using a single Azure AD application for the calling API app and the protected API app, you would use the same value in both `ida:ClientId` and `ida:Resource`.
 
 	The code uses ConfigurationManager to get these values, so they could be stored in the project's Web.config file or in the Azure runtime environment. While an ASP.NET application is running in Azure App Service, environment settings automatically override settings from Web.config. Environment settings are generally a [more secure way to store sensitive information compared to a Web.config file](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
@@ -373,14 +377,9 @@ For information about how to  create an AngularJS single-page application with a
 
 ## Troubleshooting
 
-If you successfully run the application without authentication, and then it doesn't work when you implement authentication, most of the time the problem will be incorrect or inconsistent configuration settings.  Start by double-checking all settings in Azure App Service and Azure Active Directory. Here are some specific suggestions:
+[AZURE.INCLUDE [troubleshooting](../../includes/app-service-api-auth-troubleshooting.md)]
 
-* After configuring code in a project, make sure that you redeployed that project and not one of the other ones.
-* For settings configured in the Azure portal **Application Settings** blade, make sure that the correct API app or web app was selected when the settings were entered.
-* Make sure that you are going to HTTPS URLs in your browser, not HTTP URLs.
-* Make sure that CORS is still enabled on the middle tier API app, allowing calls to the middle tier from the front end HTTPS URL.  If in doubt about whether the problem is CORS-related, try "*" as the allowed origin URL. **Important:** some browser Developer Tools Console error messages may report a CORS error when the real issue is data tier authentication. You can check if this is the case by temporarily disabling authentication for the ToDoListDataAPI API app. 
-* Make sure you have are getting as much information in error messages as possible by setting [customErrors mode to Off](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
-* If other methods fail, try a [remote debugging session](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), and examine the values of the variables that are passed to code that acquires the bearer token in ToDoListAPI, and code that validates Azure AD values received in ToDoListDataAPI. Note that your code can pick up configuration values from many different sources, so it's possible to find surprises this way. For example, if you misname `ida:ClientId` as `ida:ClientID` when configuring App Service settings, the code might get the `ida:ClientId` value that it's looking for from the Web.config file, ignoring the App Service setting. 
+* Make sure that you don't confuse ToDoListAPI (middle tier) and ToDoListDataAPI (data tier). For example, you add authentication to the data tier API app, **but the app key must come from the Azure AD application that you created for the middle tier API app**.
 
 ## Next steps
 
@@ -392,4 +391,4 @@ For more information about Azure Active Directory, see the following resources.
 * [Azure AD scenarios](http://aka.ms/aadscenarios)
 * [Azure AD samples](http://aka.ms/aadsamples) The [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) sample is similar to what is shown in this tutorial, but without using App Service authentication.
 
-For information about other ways to deploy Visual Studio projects to API apps, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to deploy an Azure App Service app](web-sites-deploy.md).
+For information about other ways to deploy Visual Studio projects to API apps, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to deploy an Azure App Service app](../app-service-web/web-sites-deploy.md).
