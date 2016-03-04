@@ -44,7 +44,10 @@ Sign in with the same credentials.
 
 Metrics such as performance counters are stored in a table called metrics. Each row is a telemetry data point received from the Application Insights SDK in an app. To find out how big the table is, we'll pipe its content into an operator that simply counts the rows:
 
-	metrics | count
+```
+	
+    metrics | count
+```
 
 > [AZURE.NOTE] Put the cursor somewhere in the statement before you click Go. You can split a statement over more than one line, but don't leave a blank line between different parts of a statement.
 
@@ -61,7 +64,10 @@ Here's the result:
 
 Let's see some data - what's in a sample 10 rows?
 
+```
+
 	metrics | take 10
+```
 
 And here's what we get:
 
@@ -82,8 +88,11 @@ Expand any item to see the detail:
 
 Show me the first n rows, ordered by a particular column:
 
+```
+
 	metrics | top 10 by timestamp desc 
-	
+```
+
 * *Syntax:* Most operators have keyword parameters such as `by`.
 * `desc` = descending order, `asc` = ascending.
 
@@ -91,7 +100,10 @@ Show me the first n rows, ordered by a particular column:
 
 `top...` is a more performant way of saying `sort ... | take...`. We could have written:
 
+```
+
 	metrics | sort by timestamp desc | take 10
+```
 
 The result would be the same, but it would run a bit more slowly. (You could also write `order`, which is an alias of `sort`.)
 
@@ -102,23 +114,28 @@ The column headers in the table view can also be used to sort the results on the
 
 Use `project` to pick out just the columns you want:
 
+```
+
     metrics | top 10 by timestamp desc
             | project timestamp, metricName, value
-
+```
 
 ![](./media/app-analytics-tour/240.png)
 
 
 You can also rename columns and define new ones:
 
-    metrics | top 10 by timestamp desc 
-            | project timestamp, 
+```
+
+    metrics 
+    | top 10 by timestamp desc 
+    | project timestamp, 
                timeOfDay = floor(timestamp % 1d, 1s), 
                metric = metricName, 
                value
+```
 
-
-![](./media/app-analytics-tour/270.png)
+![result](./media/app-analytics-tour/270.png)
 
 In the scalar expression:
 
@@ -132,9 +149,12 @@ In the scalar expression:
 
 If you just want to add columns to the existing ones, use `extend`:
 
-    metrics | top 10 by timestamp desc
-            | extend timeOfDay = floor(timestamp % 1d, 1s)
+```
 
+    metrics 
+    | top 10 by timestamp desc
+    | extend timeOfDay = floor(timestamp % 1d, 1s)
+```
 
 Using `extend` is less verbose than `project` if you want to keep all the existing columns.
 
@@ -144,7 +164,11 @@ By looking at a sample of a table, we can see the fields where the different tel
 
 But instead of plowing through individual instances, let's ask how many exceptions have been reported, of each type:
 
-	exceptions | summarize count() by outerExceptionType
+```
+
+	exceptions 
+    | summarize count() by outerExceptionType
+```
 
 ![](./media/app-analytics-tour/210.png)
 
@@ -223,21 +247,27 @@ Read all about [scalar expressions](app-analytics-scalars.md).
 
 Find unsuccessful requests:
 
+```
+
     requests 
     | where responseCode >= 400
-
+```
 
 Summarize the different responses. Notice that we must always cast any value that comes out of a property bag or array when using it in a `by` clause:
+
+```
 
     requests
     | summarize count() 
       by responseCode
+```
 
 ## Timecharts
 
 Show how many events there are each day:
 
 ```
+
     requests
       | summarize event_count=count()
         by bin(timestamp, 1d)
@@ -308,6 +338,8 @@ Split the chart by state:
 
 How many sessions are there of different lengths?
 
+```
+
     requests 
     | where isnotnull(session_Id) and isnotempty(session_Id) 
     | summarize min(timestamp), max(timestamp) 
@@ -316,6 +348,7 @@ How many sessions are there of different lengths?
     | where duration > 0 and duration < 3m 
     | summarize count() by floor(duration, 3s) 
     | project d = duration + datetime("2016-01-01"), count_
+```
 
 The last line is required to convert to datetime so that we can display the results on a chart.
 
@@ -332,6 +365,8 @@ What ranges of durations cover different percentages of sessions?
 
 Use the above query, but replace the last line:
 
+```
+
     requests 
     | where isnotnull(session_Id) and isnotempty(session_Id) 
     | summarize min(timestamp), max(timestamp) 
@@ -340,10 +375,11 @@ Use the above query, but replace the last line:
     | where duration > 0 
     | summarize count() by floor(duration, 3s) 
     | summarize percentiles(duration, 5, 20, 50, 80, 95)
+```
 
 We also removed the upper limit in the where clause, so as to get correct figures including all sessions with more than one request:
 
-![](./media/app-analytics-tour/180.png)
+![result](./media/app-analytics-tour/180.png)
 
 From which we can see that:
 
@@ -354,6 +390,7 @@ From which we can see that:
 To get a separate breakdown for each city, we just have to bring the location_City column separately through both summarize operators:
 
 ```
+
     requests 
     | where isnotnull(session_Id) and isnotempty(session_Id) 
     | summarize min(timestamp), max(timestamp) 
@@ -405,9 +442,6 @@ Use [let](./app-analytics-syntax.md#let-statements) to separate out the parts of
 ```
 
 > Tip: In the Application Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
-
-
-
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]

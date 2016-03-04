@@ -200,8 +200,8 @@ For example, here's the result of a query on an Application Insights event. The 
 
 In some cases, you must cast the value to an explicit type before using it. For example, in the `by` clause of a `summarize` operator:
 
-    event | summarize count()
-    by tostring(typeDimensions.responseCode)
+    requests | summarize count()
+    by tostring(customMeasurements.Result)
 
 Queries that return dynamic values encode them as JSON strings.
 

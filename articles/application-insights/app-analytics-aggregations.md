@@ -44,10 +44,10 @@ Produces a table that aggregates the content of the input table.
 
 ### Syntax
 
-    *T* `| summarize`
-           [[*Column* `=`] *Aggregation* [`,` ...]]
-         [`by`
-           [*Column* `=`] *GroupExpression* [`,` ...]]
+    T | summarize
+         [  [Column =] Aggregation [`,` ...]]
+         [ by
+            [Column =] GroupExpression [`,` ...]]
 
 **Arguments**
 
@@ -179,7 +179,7 @@ requests
 
 ## Aggregation functions
 
-### any 
+## any 
 
 * `any(`*Expr*`)`
 
@@ -197,7 +197,7 @@ traces
 | top 10 by count_level desc 
 ```
 
-### argmin, argmax
+## argmin, argmax
 
 * `argmin(`*ExprToMinimize*, `*` | *ExprToReturn*  [`,` ...]`)`
 * `argmax(`*ExprToMaximize*, `*` | *ExprToReturn*  [`,` ...]`)`: 
@@ -228,13 +228,13 @@ Find the southernmost city in each continent, with its country:
  
 
 
-### avg
+## avg
 
 * `avg(`*Expr*`)`
 
     Calculates the average of *Expr* across the group.
 
-### buildschema
+## buildschema
 
 * `buildschema(`*DynamicExpr*`)`
 
@@ -248,7 +248,7 @@ The parameter column type should be `dynamic`.
 
 Assume the input column has three dynamic values:
 
-||
+| |
 |---|
 |`{"x":1, "y":3.5}`
 |`{"x":"somevalue", "z":[1, 2, 3]}`
@@ -295,7 +295,7 @@ They are equivalent to a subset of the TypeScript type annotations, encoded as a
     }
 
 
-### count
+## count
 
 * `count(`[*Predicate*]`)`
 
@@ -304,7 +304,7 @@ They are equivalent to a subset of the TypeScript type annotations, encoded as a
     **Perf tip**: use `summarize count(filter)` instead of `where filter | summarize count()`
    
 
-### dcount
+## dcount
 
 * `dcount(`*Expr* [`,` *Accuracy*]`)`
 
@@ -324,7 +324,7 @@ They are equivalent to a subset of the TypeScript type annotations, encoded as a
 
 ![](./media/app-analytics-aggregations/dcount.png)
 
-### makelist
+## makelist
 
 * `makelist(`*Expr*` [`,` *MaxListSize*]`)`
 
@@ -332,7 +332,7 @@ They are equivalent to a subset of the TypeScript type annotations, encoded as a
 
 * *MaxListSize* is an optional integer limit on the maximum number of elements returned (default is *128*).
 
-### makeset
+## makeset
 
 * `makeset(`*Expr* [`,` *MaxSetSize*]`)`
 
@@ -351,7 +351,7 @@ They are equivalent to a subset of the TypeScript type annotations, encoded as a
 See also the [`mvexpand` operator](app-analytics-queries.md#mvexpand-operator) for the opposite function.
 
 
-### max, min
+## max, min
 
 * `max(`*Expr*`)`
 
@@ -363,7 +363,7 @@ See also the [`mvexpand` operator](app-analytics-queries.md#mvexpand-operator) f
 
 **Tip**: This gives you the min or max on its own - for example, the highest or lowest price. But if you want other columns in the row - for example, the name of the supplier with the lowest price - use [argmin or argmax](#argmin-argmax).
 
-### percentile, percentiles
+## percentile, percentiles
 
 * `percentile(`*Expr*`,` *Percentile*`)`
 
@@ -406,19 +406,19 @@ A few important points:
 * The bounds on the estimation error vary with the value of the requested percentile. The best accuracy is at the ends of [0..100] scale, percentiles 0 and 100 are the exact minimum and maximum values of the distribution. The accuracy gradually decreases towards the middle of the scale. It is worst at the median and is capped at 1%. 
 * Error bounds are observed on the rank, not on the value. Suppose percentile(X, 50) returned value of Xm. The estimation guarantees that at least 49% and at most 51% of the values of X are less than Xm. There is no theoretical limit on the difference  between Xm and actual median value of X.
 
-### stdev
+## stdev
 
 * `stdev(`*Expr*`)`
 
     Returns the standard deviation of *Expr* over the group.
 
-### variance
+## variance
 
 * `variance(`*Expr*`)`
 
     Returns the variance of *Expr* over the group.
 
-### sum
+## sum
 
 * `sum(`*Expr*`)`
 

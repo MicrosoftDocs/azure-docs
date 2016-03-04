@@ -112,7 +112,7 @@ Merges the rows of two tables by matching values of the specified column.
 
 **Syntax**
 
-*Table1* `| join` [`kind=`*kind*] (`*Table2*`) on` *CommonColumn* [`,` ...]
+*Table1* `| join [kind=`*kind*`] (`*Table2*`) on` *CommonColumn* [`,` ...]
 
 **Arguments**
 
@@ -128,19 +128,19 @@ A table with:
 * A column for every column in each of the two tables, including the matching keys. The columns of the right side will be automatically renamed if there are name clashes.
 * A row for every match between the input tables. A match is a row selected from one table that has the same value for all the `on` fields as a row in the other table. 
 
- * `Kind` unspecified
+* `Kind` unspecified
 
     Only one row from the left side is matched for each value of the `on` key. The output contains a row for each match of this row with rows from the right.
 
- * `Kind=inner`
+* `Kind=inner`
  
      There's a row in the output for every combination of matching rows from left and right.
 
- * `kind=leftouter` (or `kind=rightouter` or `kind=fullouter`)
+* `kind=leftouter` (or `kind=rightouter` or `kind=fullouter`)
 
      In addition to the inner matches, there's a row for every row on the left (and/or right), even if it has no match. In that case, the unmatched output cells contain nulls.
 
- * `kind=leftanti`
+* `kind=leftanti`
 
      Returns all the records from the left side that do not have matches from the right. The result table just has the columns from the left side. 
  
@@ -225,6 +225,7 @@ Multiple rows for each of the values in any array in the named column or in the 
 The expanded column always has dynamic type. Use a cast such as `todatetime()` or `toint()` if you want to compute or aggregate values.
 
 Two modes of property-bag expansions are supported:
+
 * `bagexpansion=bag`: Property bags are expanded into single-entry property bags. This is the default expansion.
 * `bagexpansion=array`: Property bags are expanded into two-element `[`*key*`,`*value*`]` array structures,
   allowing uniform access to keys and values (as well as, for example, running a distinct-count aggregation
@@ -337,9 +338,15 @@ below will extend the table with two columns: `SwathSize`, and `FellLocation`.
 ```
 
 StormEvents 
-|parse EventNarrative with RiverName:string "at" Location:string "crested at" Height:double 
-  "feet around" Time:string "on" Month:string " " Day:long "." notImportant:string
-|project RiverName , Location , Height , Time , Month , Day
+|  parse EventNarrative 
+   with RiverName:string "at" 
+        Location:string "crested at" 
+        Height:double  "feet around" 
+        Time:string "on" 
+        Month:string " " 
+        Day:long "." 
+        notImportant:string
+| project RiverName , Location , Height , Time , Month , Day
 
 ```
 
@@ -352,13 +359,18 @@ StormEvents
 
 It is also possible to match using regular expressions. Will the same result but all as strings type:
 
-<!-- csl -->
 ```
+
 StormEvents
-|parse kind=regex EventNarrative with RiverName:regex("(\\s?[a-zA-Z]+\\s?)+") "at" Location:regex(".*") 
-  "crested at " Height:regex("\\d+\\.\\d+") " feet around" Time:regex(".*") "on " 
-  Month:regex("(December|November|October)") " " Day:regex("\\d+") "." notImportant:regex(".*")
-|project RiverName , Location , Height , Time , Month , Day
+| parse kind=regex EventNarrative 
+  with RiverName:regex("(\\s?[a-zA-Z]+\\s?)+") 
+  "at" Location:regex(".*") 
+  "crested at " Height:regex("\\d+\\.\\d+") 
+  " feet around" Time:regex(".*") 
+  "on " Month:regex("(December|November|October)") 
+   " " Day:regex("\\d+") 
+   "." notImportant:regex(".*")
+| project RiverName , Location , Height , Time , Month , Day
 ```
 ## range operator
 
@@ -505,10 +517,10 @@ A table that shows how many items have prices in each interval  [0,10.0], [10.0,
 
 **Syntax**
 
-*T* `| summarize`
-      [[*Column* `=`] *Aggregation* [`,` ...]]
-    [`by`
-      [*Column* `=`] *GroupExpression* [`,` ...]]
+    T | summarize
+         [  [Column =] Aggregation [`,` ...]]
+         [ by
+            [Column =] GroupExpression [`,` ...]]
 
 **Arguments**
 
