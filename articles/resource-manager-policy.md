@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/18/2015"
+	ms.date="02/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
@@ -143,16 +143,15 @@ The defintion of an alias looks like below. As you can see, a alias defines path
       }
     ]
 
-currently, supported aliases are 
+Currently, the supported aliases are:
 
-| Alias name             | Description                                     | 
-| :------------- | :------------- |
-| {resourceType}/sku.name   | Supported resource types are: Microsoft.Storage/storageAccounts, Microsoft.Scheduler/jobcollections, Microsoft.DocumentDB/databaseAccounts, Microsoft.Cache/Redis， Microsoft.CDN/profiles  |
-| {resourceType}/sku.family | Supported resource types are Microsoft.Cache/Redis|
-| {resource'Type}/sku.capacity | Supported resource types are Microsoft.Cache/Redis|
-| Microsoft.Cache/Redis/enableNonSslPort||
-|Microsoft.Cache/Redis/shardCount||
-
+| Alias name | Description |
+| ---------- | ----------- |
+| {resourceType}/sku.name | Supported resource types are: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
+| Microsoft.Cache/Redis/enableNonSslPort |  |
+| Microsoft.Cache/Redis/shardCount |  |
 
 
 To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). Currently, policy only works on PUT requests. 

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="01/22/2016"
+   	ms.date="02/29/2016"
    	ms.author="larryfr"/>
 
 #Create Linux-based clusters in HDInsight using the Azure CLI
@@ -57,8 +57,8 @@ The following steps should be performed from a command-prompt, shell or terminal
 
 4. Create a template for your HDInsight cluster. The following are some basic example templates:
 
-    * [Linux-based cluster, using an SSH public key](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-publickey)
-    * [Linux-based cluster, using a password for the SSH account](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-password)
+    * [Linux-based cluster, using an SSH public key](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-publickey)
+    * [Linux-based cluster, using a password for the SSH account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)
 
     Both of these templates also create the default Azure Storage Account used by HDInsight.
 
@@ -83,7 +83,7 @@ The following steps should be performed from a command-prompt, shell or terminal
 5. Use the following to create an empty resource group. Replace __RESOURCEGROUPNAME__ with the name you wish to use for this group. Replace __LOCATION__ with the data center that you want to create your HDInsight cluster in:
 
         azure group create RESOURCEGROUPNAME LOCATION
-    
+
     > [AZURE.NOTE] If the location name contains spaces, put it in quotes. For example "South Central US".
 
 6. Use the following command to create the initial deployment for this resource group. Replace __PATHTOTEMPLATE__ with the path to the __azuredeploy.json__ template file. Replace __PATHTOPARAMETERSFILE__ with the path to the __azuredeploy.parameters.json__ file. Replace __RESOURCEGROUPNAME__ with the name of the group you created in the previous step:
@@ -95,7 +95,7 @@ The following steps should be performed from a command-prompt, shell or terminal
 7. It may take some time for the deployment to complete, around 15 minutes. you can view information about the deployment using the following command. Replace __RESOURCEGROUPNAME__ with the name of the resource group used in the previous step:
 
         azure group log show -l RESOURCEGROUPNAME
-    
+
     Once the deployment completes, the __Status__ field will contain the value __Succeeded__.  If a failure occurs during deployment, you can get more information on the failure using the following command
 
         azure group log show -l -v RESOURCEGROUPNAME
