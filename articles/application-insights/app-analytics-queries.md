@@ -173,6 +173,58 @@ Get extended activities from a log in which some entries mark the start and end 
 
 [About join flavors](app-analytics-samples.md#join-flavors).
 
+## let clause
+
+**Tabular let - naming a table**
+
+    let recentReqs = requests | where timestamp > ago(3d); 
+    recentReqs | count
+
+**Scalar let - naming a value**
+
+    let interval = 3d; 
+    requests | where timestamp > ago(interval)
+
+**Lambda let - naming a function**
+
+    let Recent = 
+       (interval:timespan) { requests | where timestamp > ago(interval) };
+    Recent(3h) | count
+
+A let clause binds a name to a tablular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is the query that immediately follows. (It doesn't persist to later queries in your session.)
+
+**Syntax**
+
+    let name = scalar_constant_expression ; query
+
+    let name = query ; query
+
+    let name = (parameterName : type [, ...]) { plain_query }; query
+
+* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](app-analytics-scalars.md#dynamic-type)
+* *plain_query:* A query not prefixed by a let-clause.
+
+**Examples**
+
+
+
+
+    let rows(n:long) = range steps from 1 to n step 1;
+    rows(10) | ...
+
+
+Self-join:
+
+    let Recent = Events | where timestamp > ago(7d);
+    Recent | where name contains "session_started" 
+    | project start = timestamp, session_id
+    | join (Recent 
+        | where name contains "session_ended" 
+        | project stop = timestamp, session_id)
+      on session_id
+    | extend duration = stop - start 
+
+
 
 ## mvexpand operator
 
@@ -623,10 +675,19 @@ A table with as many rows as there are in all the input tables.
 **Example**
 
 ```
+
+let ttrr = requests | where timestamp > ago(1h);
+let ttee = exceptions | where timestamp > ago(1h);
+union tt* | count
+```
+Union of all tables whose names begin "tt".
+
+```
+
 union e* | where * has "timestamp"
 ```
 
-Rows from all tables in the database whose name starts with `e`, and in which any column includes the word `timestamp`.
+Rows from all tables in the database whose name starts with `e`, and in which any column name includes the word `timestamp`.
 
 
 **Example**
@@ -638,10 +699,10 @@ union withsource=SourceTable kind=outer Query, Command
 | summarize dcount(UserId)
 ```
 The number of distinct users that have produced
-either a `Query` event or a `Command` event over the past day. In the result, the 'SourceTable' column will indicate either "Query" or "Command".
+either a `exceptions` event or a `traces` event over the past day. In the result, the 'SourceTable' column will indicate either "Query" or "Command".
 
 ```
-Query
+exceptions
 | where Timestamp > ago(1d)
 | union withsource=SourceTable kind=outer 
    (Command | where Timestamp > ago(1d))

@@ -112,15 +112,15 @@ and then performs a self-join on Window:
 
 
 ```
-let Window=Logs | where Timestamp > ago(1h);
-Window | where  ... | join (Window | where …) on ActivityId| ...
+let Window=Logs | where Timestamp > ago(1h);
+Window | where  ... | join (Window | where …) on ActivityId| ...
 ```
 
 The following two examples show the use of a let statement with a lambda expression:
 
 
 ```
-let Test = () { range x from 1 to 10 step 1 };
+let Test = () { range x from 1 to 10 step 1 };
 Test | count
 
 let step=1;
