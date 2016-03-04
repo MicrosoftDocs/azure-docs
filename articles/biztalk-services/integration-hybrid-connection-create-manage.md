@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,7 +33,7 @@ This topic lists these steps.
 
 A Hybrid Connection can be created in the Azure portal using Web Apps **or** using BizTalk Services. 
 
-**To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../web-sites-hybrid-connection-get-started.md).
+**To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 **To create Hybrid Connections in BizTalk Services**:
 
@@ -62,9 +62,9 @@ Port | Enter the port number of the on-premises resource. For example, if you're
 
 ## <a name="LinkWebSite"></a>Link your Azure Web Apps or Azure Mobile Apps
 
-To link the Azure Web Apps to an existing Hybrid Connection, select **use an existing Hybrid Connection** in the Hybrid Connections blade. See [Connect Azure Web Apps to an On-Premises Resource](../web-sites-hybrid-connection-get-started.md).
+To link the Azure Web Apps to an existing Hybrid Connection, select **use an existing Hybrid Connection** in the Hybrid Connections blade. See [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
-To link the Azure Mobile Apps to an existing Hybrid Connection, select **add hybrid connection** when changing or creating a Mobile Service. See [Azure Mobile Services and Hybrid Connections](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
+To link the Azure Mobile Apps to an existing Hybrid Connection, select **add hybrid connection** when changing or creating a Mobile Service. See [Azure Mobile Services and Hybrid Connections](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 
 ## <a name="InstallHCM"></a>Install the Hybrid Connection Manager on-premises
@@ -145,9 +145,9 @@ Once copied, you can use Group Policy Editor to change the policy.
 
 ## Next
 
-[Connect Azure Web Apps to an On-Premises Resource](../web-sites-hybrid-connection-get-started.md)  
-[Connect to on-premises SQL Server from Azure Web Apps](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)  
-[Azure Mobile Services and Hybrid Connections](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)  
+[Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md)  
+[Connect to on-premises SQL Server from Azure Web Apps](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)  
+[Azure Mobile Services and Hybrid Connections](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)  
 [Hybrid Connections Overview](integration-hybrid-connection-overview.md)
 
 

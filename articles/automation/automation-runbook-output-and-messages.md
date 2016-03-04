@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Runbook Output and Messages in Azure Automation | Microsoft Azure"
    description="Desribes how to create and retrieve output and error messages from runbooks in Azure Automation."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="03/03/2016"
+   ms.author="magoedte;bwren" />
 
 # Runbook output and messages in Azure Automation
 
@@ -51,7 +51,7 @@ Consider the following sample runbook.
 	   Write-Verbose "Verbose outside of function"
 	   Write-Output "Output outside of function"
 	   $functionOutput = Test-Function
-	
+
 	   Function Test-Function
 	   {
 	      Write-Verbose "Verbose inside of function"
@@ -77,7 +77,7 @@ The following sample runbook outputs a string object and includes a declaration 
 	Workflow Test-Runbook
 	{
 	   [OutputType([string])]
-	
+
 	   $output = "This is some string output."
 	   Write-Output $output
 	}
@@ -93,7 +93,7 @@ The Warning and Error streams are intended to log problems that occur in a runbo
 Create a warning or error message using the [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) or [Write-Error](http://technet.microsoft.com/library/hh849962.aspx) cmdlet. Activities may also write to these streams.
 
 	#The following lines create a warning message and then an error message that will suspend the runbook.
-	
+
 	$ErrorActionPreference = "Stop"
 	Write-Warning –Message "This is a warning message."
 	Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
@@ -107,7 +107,7 @@ When [testing a runbook](http://msdn.microsoft.com/library/azure/dn879147.aspx),
 Create a verbose message using the [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) cmdlet.
 
 	#The following line creates a verbose message.
-	
+
 	Write-Verbose –Message "This is a verbose message."
 
 ### Debug stream
@@ -152,16 +152,39 @@ In Windows PowerShell, you can retrieve output and messages from a runbook using
 
 The following example starts a sample runbook and then waits for it to complete. Once completed, its output stream is collected from the job.
 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" 
-	
+	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+
 	$doLoop = $true
 	While ($doLoop) {
 	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
 	   $status = $job.Status
-	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
+	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
 	}
-	
+
 	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+
+### Graphical Authoring
+
+For graphical runbooks, extra logging is available in the form of activity-level tracing.  There are two levels of tracing: Basic and Detailed.  In Basic tracing, you can see the start and end time of each activity in the runbook plus information related to any activity retries, such as number of attempts and start time of the activity.  In Detailed tracing, you get Basic tracing plus input and output data for each activity.  Note that currently the trace records are written using the verbose stream, so you must enable Verbose logging when you enable tracing.  For graphical runbooks with tracing enabled there is no need to log progress records, because the Basic tracing serves the same purpose and is more informative.
+
+![Graphical Authoring Job Streams View](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
+
+You can see from the above screenshot that when you enable Verbose logging and tracing for Graphical runbooks, much more information is available in the production Job Streams view.  This extra information can be essential for troubleshooting production problems with a runbook, and therefore you should only enable it for that purpose and not as a general practice.    
+The Trace records can be especially numerous.  With Graphical runbook tracing you can get two to four records per activity depending on whether you have configured Basic or Detailed tracing.  Unless you need this information to track the progress of a runbook for troubleshooting, you might want to keep Tracing turned off.
+
+**To enable activity-level tracing, perform the following steps.**
+
+ 1. In the Azure Portal, open your Automation account.
+
+ 2. Click on the **Runbooks** tile to open the list of runbooks.
+
+ 3. On the Runbooks blade, click to select a graphical runbook from your list of runbooks.
+
+ 4. On the Settings blade for the selected runbook, click **Logging and Tracing**.
+
+ 5. On the Logging and Tracing blade, under Log verbose records, click **On** to enable verbose logging and udner Activity-level tracing, change the trace level to **Basic** or **Detailed** based on the level of tracing you require.<br>
+
+    ![Graphical Authoring Logging and Tracing Blade](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ## Related articles
 

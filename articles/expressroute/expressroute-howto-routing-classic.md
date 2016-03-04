@@ -84,7 +84,7 @@ This section provides instructions on how to create, get, update, and delete the
 	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you are not using 65515.
 	- MD5 hash if you choose to use one. **This is optional**.
 	
-	You can run the following cmdlet to configure Azure private pering for your circuit.
+	You can run the following cmdlet to configure Azure private peering for your circuit.
 
 		New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
 

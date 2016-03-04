@@ -60,7 +60,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supported | Supported | Amsterdam, Dallas, London, Silicon Valley, Singapore, Washington DC |
 | **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Tokyo, Washington DC |
 |**China Telecom Global** | Supported | Not Supported | Hong Kong |
-|**Cologix** | Coming soon | Not Supported | Montreal+, Toronto+ |
+|**Cologix** | Coming soon | Coming soon | Montreal+, Toronto+ |
 | **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**  |  Supported | Supported | Amsterdam, Dublin, London |
 | **Comcast** | Supported | Not Supported | Silicon Valley, Washington DC |
 | **CoreSite** | Supported | Supported | Los Angeles | 

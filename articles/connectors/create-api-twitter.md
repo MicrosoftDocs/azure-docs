@@ -14,14 +14,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/23/2016"
+   ms.date="03/03/2016"
    ms.author="mandia"/>
 
 
 # Get started with the Twitter API
-Connect to Twitter to post a tweet, get a user's timeline, and more.
+Connect to Twitter to post a tweet, get a user's timeline, and more. The Twitter API can be be used from:
 
-The Twitter API can be be used from PowerApps Enterprise and logic apps. 
+- Logic apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic apps](../articles/connectors/create-api-twitter.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-twitter.md)
+
+&nbsp; 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Twitter connector](../app-service-logic/app-service-logic-connector-twitter.md).
 
@@ -49,26 +56,6 @@ All APIs support data in JSON and XML formats.
 
 ## Create the connection to Twitter
 
-### Add additional configuration in PowerApps
-When you add Twitter to PowerApps Enterprise, you enter the **Consumer Key** and **Consumer Secret** values of your Twitter application. The **Redirect URL** value is also used in your Twitter application. If you don't have a Twitter application, you can use the following steps to create the application: 
-
-1. Sign in to [Twitter](https://apps.twitter.com).
-
-2. Select **Create New App**:  
-![Twitter apps page][6]
-
-3. In **Create an application**:  
-   
-	1. Enter any value you want in **Name**, **Description**, and **Website**.
-	2. In **Callback url**, enter the **Redirect URL** value shown when you add the Twitter API in the Azure Portal.
-	5. Agree to the agreement, and **Create your Twitter application**.  
-
-	![Twitter app create][7]
-
-Now copy/paste the **Consumer Key** and **Consumer Secret** values in your Twitter configuration in the Azure portal. 
-
-
-### Add additional configuration in logic apps
 When you add this API to your logic apps, you must authorize logic apps to connect to your Twitter account.
 
 1. Sign in to your Twitter account.
@@ -80,9 +67,10 @@ After you create the connection, you enter the Twitter properties, like the twee
 
 
 ## Swagger REST API reference
+Applies to version: 1.0.
 
 ### Post a new tweet 
-Tweet. 
+Tweet.  
 ```POST: /posttweet``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -103,7 +91,7 @@ Tweet.
 
 
 ### When a new tweet appears 
-Triggers a workflow when a new tweet is posted which matches your search query. 
+Triggers a workflow when a new tweet is posted which matches your search query.  
 ```GET: /onnewtweet``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -124,7 +112,7 @@ Triggers a workflow when a new tweet is posted which matches your search query.
 
 
 ### Get home timeline 
-Retrieves the most recent tweets and re-tweets posted me and my followers. 
+Retrieves the most recent tweets and re-tweets posted me and my followers.  
 ```GET: /hometimeline``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -144,7 +132,7 @@ Retrieves the most recent tweets and re-tweets posted me and my followers.
 
 
 ### Get user 
-Retrieves details about the specified user (example: user name, description, followers count, etc.). 
+Retrieves details about the specified user (example: user name, description, followers count, etc.).  
 ```GET: /user``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -164,7 +152,7 @@ Retrieves details about the specified user (example: user name, description, fol
 
 
 ### Get user timeline 
-Retrieves a collection of the most recent tweets posted by the specified user. 
+Retrieves a collection of the most recent tweets posted by the specified user.  
 ```GET: /usertimeline``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -185,7 +173,7 @@ Retrieves a collection of the most recent tweets posted by the specified user.
 
 
 ### Search tweet 
-Retrieves a collection of relevant tweets matching a specified query. 
+Retrieves a collection of relevant tweets matching a specified query.  
 ```GET: /searchtweets``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -206,7 +194,7 @@ Retrieves a collection of relevant tweets matching a specified query.
 
 
 ### Get followers 
-Retrieves users following the specified user. 
+Retrieves users following the specified user.  
 ```GET: /followers``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -227,7 +215,7 @@ Retrieves users following the specified user.
 
 
 ### Get my followers 
-Retrieves users who are following me. 
+Retrieves users who are following me.  
 ```GET: /myfollowers``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -247,7 +235,7 @@ Retrieves users who are following me.
 
 
 ### Get following 
-Retrieves users who the specified user is following. 
+Retrieves users who the specified user is following.  
 ```GET: /friends``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -268,7 +256,7 @@ Retrieves users who the specified user is following.
 
 
 ### Get my following 
-Retrieves users that I am following. 
+Retrieves users that I am following.  
 ```GET: /myfriends``` 
 
 | Name| Data Type|Required|Located In|Default Value|Description|
@@ -327,9 +315,10 @@ Retrieves users that I am following.
 
 
 ## Next steps
-After you add the Dropbox API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
 
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Go back to the [APIs list](apis-list.md).
 
 <!--References-->
 
