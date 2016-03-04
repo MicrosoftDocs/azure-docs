@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -59,7 +59,7 @@ The system is made up of the following components:
 
 ## <a name="create-service-instance"> </a>Create an API Management instance
 
->[AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
+>[AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial][].
 
 The first step in working with API Management is to create a service instance. Sign in to the [Azure Classic Portal][] and click **New**, **App Services**, **API Management**, **Create**.
 
