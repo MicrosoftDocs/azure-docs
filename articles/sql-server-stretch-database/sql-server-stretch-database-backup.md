@@ -3,7 +3,7 @@
 	description="Learn how to back up and restore Stretch\-enabled databases."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
+	authors="douglaslMS"
 	manager="jhubbard"
 	editor="monicar"/>
 
