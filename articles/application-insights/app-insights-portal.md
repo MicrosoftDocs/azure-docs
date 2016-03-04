@@ -82,7 +82,7 @@ The overview blade (page) for your app shows a summary of the key diagnostic met
 Click:
 
 * **Any chart or tile** to see more detail.
-* **Diagnostics** to get to predefined pages of other metrics.
+* **Settings** to get to predefined pages of other metrics.
 * **Metrics Explorer** to create metrics pages of your own choice.
 * **Search** to investigate specific instances of events such as requests, exceptions or log traces.
 
