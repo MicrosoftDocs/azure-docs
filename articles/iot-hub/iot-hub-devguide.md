@@ -479,6 +479,8 @@ For a tutorial on cloud-to-device messages, see [Get started with Azure IoT Hub 
 
 Every cloud-to-device message has an expiration time. This can be explicitly set by the service (in the **ExpiryTimeUtc** property), or it is set by IoT Hub using the default *time to live* specified as an IoT Hub property. See [Cloud-to-device configuration options](#c2dconfiguration).
 
+> [AZURE.NOTE] A common way to take advantage of message expiration is set short time to live values in order to avoid sending messages to disconnected devices. This achieves the same result of maintaining the device connection state, while being significantly more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices were able to receive the messages and which were not online or failed. 
+
 #### Message feedback <a id="feedback"></a>
 
 When you send a cloud-to-device message, the service can request the delivery of per-message feedback regarding the final state of that message.
