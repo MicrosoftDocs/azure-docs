@@ -198,6 +198,7 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
 
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
+		Install-Package Microsoft.Azure.Management.Resources -Pre
 
 2. Use the following using statements in the Program.cs file:
 
@@ -210,6 +211,7 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
+		using Microsoft.Azure.Management.Resources;
 
 3. Place the code in the class with the following:
 
@@ -235,6 +237,9 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
 
             var tokenCreds = GetTokenCloudCredentials();
             var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+            
+            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+            resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
             _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
