@@ -288,7 +288,7 @@ Security credentials, such as symmetric keys, are never sent over the wire.
 
 > [AZURE.NOTE] The Azure IoT Hub resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager][lnk-azure-resource-manager].
 
-Refer to the [IoT Hub security tokens][lnk-sas-tokens] article, for more information.
+Refer to the [IoT Hub security tokens][lnk-sas-tokens] article, for more information about how to construct and use security tokens.
 
 #### Protocol specifics
 

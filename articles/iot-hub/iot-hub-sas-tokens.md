@@ -18,7 +18,7 @@
 
 # Using IoT Hub security tokens
 
-IoT Hub uses security token to authenticate devices and services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope.
+IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope.
 [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These include the direct use of the AMQP, MQTT, or HTTP surfaces, or the implementation of the token service pattern, as explained in [IoT Hub guidance][lnk-guidance-security].
 
 In the rest of this article we describe:
