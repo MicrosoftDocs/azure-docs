@@ -19,7 +19,7 @@ Configuration reference list:
 - Gateway Public IP Name = "gwpip"
 
 
-## To add a gateway
+## Add a gateway
 
 1. Connect to your Azure Subscription. 
 
