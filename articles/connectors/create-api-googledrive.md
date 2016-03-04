@@ -15,14 +15,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Get started with the Google Drive API
 Connect to Google Drive to create files, get rows, and more. The Google Drive API can be used from:
 
-- PowerApps 
 - Logic apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic apps](../articles/connectors/create-api-googledrive.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-googledrive.md)
 
 With Google Drive, you can: 
 
@@ -47,39 +51,6 @@ All APIs support data in JSON and XML formats.
 
 ## Create the connection to Google Drive
 
-### Add additional configuration in PowerApps
-When you add Google Drive to PowerApps Enterprise, you enter the **App Key** and **App Secret** values of your Google Drive application. The **Redirect URL** value is also used in your Google application. If you don't have a Google Drive application, you can use the following steps to create the application: 
-
-1. Sign in to [Google Developers Console][5], and select **Create an empty project**:  
-![Google developers console][6]
-
-2. Enter your application properties, select **Create**. 
-3. Select **Use Google APIs**:  
-![Use google apis][8]  
-4. In overview, select **Drive API**:  
-![Google Drive API overview][9]  
-5. Select **Enable API**:  
-![Enable Google Drive API][10]  
-6. On enabling the Drive API, select **Credentials**, and select **OAuth 2.0 Client ID**:  
-![Add credentials][12]  
-7. Select **Configure consent screen**.
-8. In **OAuth consent screen**, enter a **Product Name**, and select **Save**:  
-![Configure consent screen][13]  
-9. In the create client id page:  
-
-	1. In **Application type**, select **Web application**.
-	2. Enter a name for the client.
-	3. Enter the redirect URL value shows when you added the Google Drive API in the Azure Portal.
-	4. Select **Create**.  
-
-	![Create client id][14] 
-
-11. The client id and client secret of the registered application are displayed. 
-
-Now copy/paste these **App Key** and **App Secret** values in your Goole Drive API configuration in the Azure portal. 
-
-
-### Add additional configuration in logic apps
 When you add this API to your logic apps, you must authorize logic apps to connect to your Google Drive.
 
 1. Sign in to your Google Drive account.
@@ -382,9 +353,10 @@ Updates a row in a Google Sheet.
 
 
 ## Next steps
-After you add Google Drive to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
 
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Go back to the [APIs list](apis-list.md).
 
 
 <!--References-->

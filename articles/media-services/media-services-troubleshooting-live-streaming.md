@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+ 	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
 #Troubleshooting live streaming guide 
@@ -24,6 +24,14 @@ This topic gives suggestions on how to troubleshoot some live streaming problems
 
 This section gives suggestions on how to troubleshoot problems related to on-premises encoders that are configured to send a single bitrate stream to AMS channels that are enabled for live encoding.
 
+###Problem: Would like to see logs 
+
+- **Potential issue**: Can't find encoder logs that might help in debugging issues.
+	
+	- **Telestream Wirecast**: You can usually find logs under C:\Users\{username}\AppData\Roaming\Wirecast\ 
+	- **Elemental Live**: You can find has links to logs on the management portal. Click on **Stats**, then **Logs**. On the **Log Files** page, you will see a list of logs for all the LiveEvent items; select the one matching your current session. 
+	- **Flash Media Live Encoder**: You can find the **Log Directory...** by navigating to the **Encoding Log** tab.
+	
 ###Problem: There is no option for outputting a progressive stream
 
 - **Potential issue**: The encoder being used doesn't automatically deinterlace. 
@@ -65,11 +73,7 @@ This section gives suggestions on how to troubleshoot problems related to on-pre
 
 	**Troubleshooting steps**: Navigate to the "Streaming Endpoint" tab in the AMSE tool, and confirm there is a Streaming Endpoint running with one streaming unit. 
 	
-###Problem: Would like to see encoder logs 
 
-- **Potential issue**: Can't find logs that might help in debugging issues.
-
-	**Troubleshooting steps**: You can usually find Wirecast logs under C:\Users{username}\AppData\Roaming\Wirecast\ 
 
 >[AZURE.NOTE] If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure Classic Portal.
 
