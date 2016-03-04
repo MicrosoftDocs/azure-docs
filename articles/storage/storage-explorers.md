@@ -24,7 +24,7 @@ In the below table, we list each Azure Storage explorer, and then put an “X”
 
 We have not verified the functionality or quality claimed by these utilities and their listing does not imply an endorsement by Microsoft - with the exception of the [Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/), the [Microsoft Azure Storage Explorer](http://storageexplorer.com/), and the [Microsoft Visual Studio Server Explorer](https://www.visualstudio.com/features/azure-tools-vs.aspx).
 
-The table below is a snapshot of what we are currently aware of and these tools may continue to evolve and grow in functionality. If there are corrections or updates, please leave a comment to let us know. The same is true if you know of tools that ought to be here - we’d be happy to add them.
+The table below is only a snapshot of the available Azure Storage Explorers. These tools may continue to evolve and grow in functionality. If there are corrections or updates, please leave a comment to let us know. The same is true if you know of tools that ought to be here - we’d be happy to add them.
 
 <table>
   <tr>
@@ -45,7 +45,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td>Linux</td>
   </tr>
   <tr>
-    <td>[Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/)</td>
+    <td><a href="https://azure.microsoft.com/features/azure-portal/">Microsoft Azure Poral</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -59,7 +59,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td></td>
   </tr>
   <tr>
-    <td>[Microsoft Azure Storage Explorer](http://storageexplorer.com/)</td>
+    <td><a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -73,7 +73,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td>X</td>
   </tr>
   <tr>
-    <td>[Microsoft Visual Studio Server Explorer](https://www.visualstudio.com/features/azure-tools-vs.aspx)</td>
+    <td><a href="https://www.visualstudio.com/features/azure-tools-vs.aspx">Microsoft Visual Studio Server Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -87,7 +87,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td></td>
   </tr>
   <tr>
-    <td>[Cloud Portam](http://www.cloudportam.com/)</td>
+    <td><a href="http://www.cloudportam.com/">Cloud Portam</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -101,7 +101,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td></td>
   </tr>
   <tr>
-    <td>[Cerabrata: Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction)</td>
+    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata: Azure Management Studio</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -115,7 +115,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td></td>
   </tr>
   <tr>
-    <td>[Cerabrata: Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction)</td>
+    <td><a href="http://www.cerebrata.com/products/azure-explorer/introduction">Cerabrata: Azure Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -129,7 +129,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td></td>
   </tr>
   <tr>
-    <td>[Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/)</td>
+    <td><a href="http://azurestorageexplorer.codeplex.com/">Azure Storage Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -143,7 +143,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td></td>
   </tr>
   <tr>
-    <td>[CloudBerry Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx)</td>
+    <td><a href="http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx">CloudBerry Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -157,7 +157,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td></td>
   </tr>
   <tr>
-    <td>[Cloud Combine](http://www.gapotchenko.com/cloudcombine)</td>
+    <td><a href="http://www.gapotchenko.com/cloudcombine">Cloud Combine</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -171,7 +171,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td></td>
   </tr>
   <tr>
-    <td>[ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer](http://clumsyleaf.com)</td>
+    <td><a href="http://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -185,7 +185,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td></td>
   </tr>
   <tr>
-    <td>[Gladinet Cloud](http://www.gladinet.com/Azure-Storage/index.htm)</td>
+    <td><a href="http://www.gladinet.com/Azure-Storage/index.htm">Gladinet Cloud</a></td>
     <td>X</td>
     <td></td>
     <td></td>
@@ -199,7 +199,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td></td>
   </tr>
   <tr>
-    <td>[Azure Web Storage Explorer](http://storageexplorer.codeplex.com/)</td>
+    <td><a href="http://storageexplorer.codeplex.com/">Azure Web Storage Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -213,7 +213,7 @@ The table below is a snapshot of what we are currently aware of and these tools 
     <td></td>
   </tr>
   <tr>
-    <td>[Zudio](https://zudio.co/)</td>
+    <td><a href="https://zudio.co/">Zudio</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
