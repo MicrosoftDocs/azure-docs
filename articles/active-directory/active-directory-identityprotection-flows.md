@@ -65,21 +65,25 @@ Administrators can:
 - set a policy that requires users to set up their accounts for additional security verification. 
 - allow skipping multi-factor authentication registration for up to 30 days, in case they want to give users a grace period before registering.
 
- 
- <br>
+The multi-factor authentication registration has three steps:
+
+1. In the first step, the user gets a notification about the requirement to set the account up for multi-factor authentication. 
+<br><br>
 ![Remediation](./media/active-directory-identityprotection-flows/140.png "Remediation")
 <br>
- <br>
+
+
+2. To set multi-factor authentication up, you need to let the system know how you want to be contacted.
+<br><br>
 ![Remediation](./media/active-directory-identityprotection-flows/141.png "Remediation")
 <br>
- <br>
+ 
+3. The system submits a challenge to you and you need to respond.
+<br><br>
 ![Remediation](./media/active-directory-identityprotection-flows/142.png "Remediation")
 <br>
 
  
-
-
-
 
 
 
