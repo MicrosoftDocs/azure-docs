@@ -25,31 +25,32 @@ With Azure Active Directory Identity Protection, you can:
 
 - handle risky sign-ins and compromised users
 
-The response of the system to these issues has an impact on a user's sign-in experience.
+The response of the system to these issues has an impact on a user's sign-in experience.<br>
+This topic gives you an overview of a user's sign-in experience for all cases that can occur.  
 
-This topic gives you an overview of a user's sign-in experience for all cases that can occur:  
 
+## Scenario index
 
 **Multi-factor authentication**
 
-- [Multi-factor authentication registration](#multi-factor-authentication-registration)
+- Multi-factor authentication registration
 
 
 
 **Sign-in at risk**
 
-- [Risky sign-in recovery](#risky-sign-in-recovery)
+- Risky sign-in recovery
 
-- [Risky sign-in blocked](#risky-sign-in-blocked)
+- Risky sign-in blocked
 
-- [Multi-factor authentication registration during a risky sign-in](#multi-factor-authentication-registration-during-a-risky-sign-in)
+- Multi-factor authentication registration during a risky sign-in
  
 
 **User at risk**
 
-- [Compromised account recovery](#compromised-account-recovery)
+- Compromised account recovery
 
-- [Compromised account blocked](#compromised-account-blocked)
+- Compromised account blocked
 
 
 
