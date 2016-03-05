@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/05/2016" 
 	ms.author="awills"/>
 
 
@@ -41,25 +41,40 @@ The supported types are:
 | Type      | Additional name(s)   | Equivalent .NET type |
 | --------- | -------------------- | -------------------- |
 | `bool`    | `boolean`            | `System.Boolean`     |
-| `date`    | `datetime`           | `System.DateTime`    |
+| `datetime`| `date`               | `System.DateTime`    |
 | `dynamic` |                      | `System.Object`      |
 | `guid`    | `uuid`, `uniqueid`   | `System.Guid`        |
 | `int`     |                      | `System.Int32`       |
 | `long`    |                      | `System.Int64`       |
-| `real`    | `double`             | `System.Double`      |
+| `double`  | `real`               | `System.Double`      |
 | `string`  |                      | `System.String`      |
-| `time`    | `timespan`           | `System.TimeSpan` 
+| `timespan`| `time`               | `System.TimeSpan`    |
 
-## Numbers: int, long and real
+### Casts
 
-### Numeric literals
+You can cast from one type to another. In general, if the conversion makes sense, it will work:
+
+    todouble(10), todouble("10.6")
+    toint(10.6) == 11
+    floor(10.6) == 10
+	toint("200")
+    todatetime("2016-04-28 13:02")
+    totimespan("1.5d"), totimespan("1.12:00:00")
+    toguid("00000000-0000-0000-0000-000000000000")
+    tostring(42.5)
+    todynamic("{a:10, b:20}")
+    
+
+### Numbers: int, long and real
+
+#### Numeric literals
 
 |||
 |---|---
 |`42`|`long`
 |`42.0`|`real`
 
-### Arithmetic operators
+#### Arithmetic operators
 
 |Operator| Meaning|
 |---|-------------|
@@ -69,10 +84,10 @@ The supported types are:
 | / | Divide      |
 | % | Modulo      |
 
-## Date and time
+### Date and time
 
 
-### Date and time literals
+#### Date and time literals
 
 |||
 ---|---
@@ -94,7 +109,7 @@ The supported types are:
 `time("2")`| 2 days
 `time("0.12:34:56.7")`|`0d+12h+34m+56.7s`
 
-### Date and time expressions
+#### Date and time expressions
 
 Expression |Result
 ---|---
@@ -108,7 +123,7 @@ Expression |Result
 
 Numeric comparisons also work with `datetime` and `timespan`.
 
-## Scalar comparisons
+### Scalar comparisons
 
 ||
 ---|---
@@ -121,23 +136,23 @@ Numeric comparisons also work with `datetime` and `timespan`.
 `in`| Right operand is a (dynamic) array and left operand is equal to one of its elements.
 `!in`| Right operand is a (dynamic) array and left operand is not equal to any of its elements.
 
-## Boolean 
+### Boolean 
 
-### Boolean Literals
+#### Boolean Literals
 
 	true == 1
     false == 0
     gettype(true) == "int8"
     typeof(bool) == typeof(int8)
 
-### Boolean operators
+#### Boolean operators
 
 	and 
     or 
 
-## String
+### String
 
-### String Literals
+#### String Literals
 
 The rules are the same as in JavaScript.
 
@@ -149,7 +164,7 @@ Backslash (`\`) is used to escape characters such as `\t` (tab), `\n` (newline) 
 * `"this is a 'string' literal in double \" quotes"`
 * `@"C:\backslash\not\escaped\with @ prefix"`
 
-### Obfuscated String Literals
+#### Obfuscated String Literals
 
 Obfuscated string literals are strings that Application Analytics will obscure when outputting the string (for example, when tracing). The obfuscation process replaces all obfuscated characters by a start (`*`) character.
 
@@ -161,7 +176,7 @@ h@'world'
 h"hello"
 ```
 
-### String comparisons
+#### String comparisons
 
 Operator|Description|Case-Sensitive|True example
 ---|---|---|---
@@ -185,12 +200,12 @@ Use `has` or `in` if you're testing for the presence of a whole lexical term - t
 	EventLog | where continent contains "nor" | count
 
 
-## GUID literals
+### GUID literals
 
     guid(00000000-1111-2222-3333-055567f333de)
 
 
-## Dynamic type
+### Dynamic type
 
 Dynamic type means that an object might be of any type: its type is determined at run time. The elements in arrays and property bags have dynamic type - each element can have its own type.
 
@@ -205,7 +220,7 @@ In some cases, you must cast a dynamic value to an explicit type before using it
 
 
 
-### Dynamic literals
+#### Dynamic literals
 
 To create a dynamic literal, use `parsejson` with a JSON string argument:
 
@@ -226,7 +241,7 @@ T
 ```
 
 
-### Casting dynamic objects
+#### Casting dynamic objects
 
 After subscripting a dynamic object, you must cast the value to a simple type.
 
@@ -256,7 +271,7 @@ Cast functions are:
 * `toguid()`
 * `todynamic()`
 
-### Operators and functions over dynamic types
+#### Operators and functions over dynamic types
 
 |||
 |---|---|
@@ -271,7 +286,7 @@ Cast functions are:
 |[`summarize makelist(`column`)` ](app-analytics-queries.md#summarize-operator)| Flattens groups of rows and puts the values of the column in an array.
 |[`summarize makeset(`column`)`](app-analytics-queries.md#summarize-operator) | Flattens groups of rows and puts the values of the column in an array, without duplication.
 
-### Dynamic objects in let clauses
+#### Dynamic objects in let clauses
 
 
 [Let clauses](app-analytics-queries.md#let-clause) store dynamic values as strings, so these two clauses are equivalent, and both need the `parsejson` (or `todynamic`) before being used:
@@ -282,7 +297,7 @@ Cast functions are:
     T | project parsejson(list1).a, parsejson(list2).a
 
 
-## Reference: scalar functions
+## === Functions ===
 
 "Scalar" denotes values that can occupy a single cell in a CSL table. (Scalar expressions are distinct from [queries](app-analytics-queries.md), whose results are tables.)
 

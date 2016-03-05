@@ -234,6 +234,10 @@ Open an individual test to edit or disable it.
 
 You might want to disable web tests while you are performing maintenance on your service.
 
+## Automation
+
+You can [use PowerShell scripts to set up a web test](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automatically. 
+
 ## Questions? Problems?
 
 * *Can I call code from my web test?*

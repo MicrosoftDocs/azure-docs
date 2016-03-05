@@ -694,13 +694,6 @@ union tt* | count
 ```
 Union of all tables whose names begin "tt".
 
-```CSL
-
-union e* | where * has "timestamp"
-```
-
-Rows from all tables in the database whose name starts with `e`, and in which any column name includes the word `timestamp`.
-
 
 **Example**
 
