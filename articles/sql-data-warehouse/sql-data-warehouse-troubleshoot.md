@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Troubleshooting
@@ -56,11 +56,11 @@ FROM
 	JOIN sys.tables          AS tb	ON	co.[object_id]		= tb.[object_id]
 	JOIN sys.schemas         AS sm	ON	tb.[schema_id]		= sm.[schema_id]
 WHERE
-	1=1 
+	1=1
 	AND st.[user_created] = 1;
 ```
 
-See our [Statistics](sql-data-warehouse-develop-statistics.md) page to learn more. 
+See our [Statistics](sql-data-warehouse-develop-statistics.md) page to learn more.
 
 ## Key performance concepts
 

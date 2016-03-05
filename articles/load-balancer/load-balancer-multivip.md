@@ -148,7 +148,7 @@ You can also update your load balancer to use a different VIP. For instance, if 
 
 [Internet facing load balancer overview](load-balancer-internet-overview.md)
 
-[Get started on Internet facing load balancer](load-balancer-internet-getstarted.md)
+[Get started on Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md)
 
 [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
