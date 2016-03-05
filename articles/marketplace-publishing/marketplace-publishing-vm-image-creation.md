@@ -632,7 +632,7 @@ After you are done with the SKU details, you can move forward to the [Azure Mark
 
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-github-waagent]:https://github.com/Azure/WALinuxAgent
-[link-azure-codeplex]:http://storageexplorer.com/
+[link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
 [link-azure-2]:../storage/storage-dotnet-shared-access-signature-part-2/
 [link-azure-1]:../storage/storage-dotnet-shared-access-signature-part-1/
 [link-msft-download]:http://www.microsoft.com/download/details.aspx?id=44299
