@@ -22,7 +22,7 @@
 - [Azure CLI](dns-operations-dnszones-cli.md)
 - [PowerShell](dns-operations-dnszones.md)
 
-This guide will show how to manage your DNS zone. It will help understanding the sequence of operations to be done in order to administer your DNS zone.
+This guide will show how to manage your DNS zone resources using the cross-platform Azure CLI.
 
 >[AZURE.NOTE] Azure DNS is an Azure Resource Manager-only service.  It does not have an ASM API.  You will therefore need to ensure the Azure CLI is configured to use Resource Manager mode, using the 'azure config mode arm' command.
 

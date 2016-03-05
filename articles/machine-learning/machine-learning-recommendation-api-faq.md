@@ -3,7 +3,7 @@
 	description="Microsoft RECOMMENDATIONS API built with Azure Machine Learning FAQ" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/01/2016" 
 	ms.author="luisca"/> 
 
 #Setting up and using Machine Learning Recommendations API FAQ

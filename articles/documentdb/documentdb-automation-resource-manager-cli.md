@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="mimig"/>
 
 # Automate DocumentDB account creation using Azure Resource Manager templates and Azure CLI
@@ -75,9 +75,10 @@ You'll receive the following confirmation screen when you're successfully logged
 
 The command shell also provides the following output.
 
-    -info:    Added subscription Visual Studio Ultimate with MSDN
-	+
-	info:    login command OK
+    /info:    Added subscription Visual Studio Ultimate with MSDN
+    info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
+    +
+    info:    login command OKK
 
 In addition to the interactive login method described here, there are additional Azure CLI login methods available. For more information about the other methods and information about handling multiple subscriptions, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md).
 
@@ -89,7 +90,9 @@ By default, the Azure CLI starts in the service management mode (**asm** mode). 
 
 Which provides the following output:
 
-	info:    New mode is arm
+    info:    Executing command config mode
+    info:    New mode is arm
+    info:    config mode command OK
 
 You can switch back to the default set of commands by typing `azure config mode asm`.
 
@@ -268,8 +271,8 @@ To use a parameter file:
 
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
 
- - `<PathToTemplate>` is the path to the azuredeploy.json file created in step 1.
- - `<PathToParameterFile>` is the path to the azuredeploy.parameters.json file created in step 1.
+ - `<PathToTemplate>` is the path to the azuredeploy.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
+ - `<PathToParameterFile>` is the path to the azuredeploy.parameters.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
  - `<resourcegroupname>` is the name of the existing resource group in which to add a DocumentDB database account. 
  - `<deploymentname>` is the optional name of the deployment.
 
