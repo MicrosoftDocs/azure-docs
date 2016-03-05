@@ -11,9 +11,9 @@
 
 <tags
    ms.service="app-service"
-   ms.devlang=""
+   ms.devlang="multiple"
    ms.topic="article"
-   ms.tgt_pltfrm=""
+   ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="03/04/2016"
    ms.author="cfowler"/>
@@ -89,7 +89,7 @@ It is recommended that Local Cache is used in conjunction with the [Staging Envi
 * Add a _sticky_ Appsetting `WEBSITE_LOCAL_CACHE_OPTION` with value `Always` to your **Production slot**. If using `WEBSITE_LOCAL_CACHE_SIZEINMB`, also add it as a sticky setting to your production  slot. 
 * Create a Staging slot and publish to your Staging slot.  The staging slot typically does not use local cache to enable a seamless build-deploy-test lifecycle for staging while getting the benefits of Local Cache for the production slot. 
 *	Test your site against your Staging slot.  
-*	Once you are ready, issue a [swap operation]() between your **Staging** and **Production** slots.  
+*	Once you are ready, issue a [swap operation](../app-service-web/web-sites-staged-publishing.md#to-swap-deployment-slots) between your **Staging** and **Production** slots.  
 *	Sticky settings are by name and sticky to a slot. So when the Staging slot gets swapped into Production, it will inherit the Local Cache App settings. The newly swapped Production slot will run against the Local Cache after a few minutes and will be warmed up as part of slot warmup after swap. So when slot swap is complete, your production slot will be running against Local Cache.
 
 ## Frequently Asked Questions
