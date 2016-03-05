@@ -61,7 +61,7 @@ Administrators can:
 - set a policy that requires users to set up their accounts for additional security verification. 
 - allow skipping multi-factor authentication registration for up to 30 days, in case they want to give users a grace period before registering.
 
-The multi-factor authentication registration has three steps:
+**The multi-factor authentication registration has three steps:**
 
 1. In the first step, the user gets a notification about the requirement to set the account up for multi-factor authentication. 
 <br><br>
@@ -87,7 +87,7 @@ The multi-factor authentication registration has three steps:
 
 When an administrator has configured a policy for sign-in risks, the affected users are notified when they try to sign-in. 
 
-The risky sign-in flow has two steps: 
+**The risky sign-in flow has two steps:** 
 
 1. The user is informed that something unusual was detected about their sign-in, such as signing in from a new location, device, or app. 
 <br><br>
@@ -116,6 +116,8 @@ It is important that users register for multi-factor authentication so that they
 
 To avoid this situation, require users to register for multi-factor authentication as soon as possible, so that a phone number is already associated with their account in case they ever get compromised. Alternatively, administrators can completely block compromised users who aren’t registered for multi-factor authentication.
 
+**The multi-factor authentication registration during a risky sign-in has two steps:** 
+
 1. The user is notified that the account is at risk. 
 <br><br>
 ![Remediation](./media/active-directory-identityprotection-flows/150.png "Remediation")
@@ -135,7 +137,7 @@ For the next steps, see [Multi-factor authentication registration](#multi-factor
 
 When a user risk security policy has been configured, users who meet the user risk level specified in the policy (and are therefore assumed compromised) must go through the user compromise recovery flow before they can sign-in. 
 
-The user compromise recovery flow has three steps:
+**The user compromise recovery flow has three steps:**
 
 1. The user is informed that their account security is at risk because of suspicious activity or leaked credentials.
 
