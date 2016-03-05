@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migrate your solution to SQL Data Warehouse
@@ -28,7 +28,7 @@ Before embarking on your migration make sure you have read through these article
 - [Migrate your schema][]
 - [Migrate your data][]
 - [Migrate your code][]
- 
+
 ## Next steps
 For additional development tips, see the [development overview][].
 
@@ -51,4 +51,3 @@ Finally, check out the [loading overview][] that discusses various data loading 
 
 
 <!--Other Web references-->
-
