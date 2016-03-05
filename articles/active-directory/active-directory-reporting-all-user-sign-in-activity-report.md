@@ -3,8 +3,8 @@
    description="A report containing all sign ins from users in your Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="dhanyahk"
-   manager="mbaldwin"
+   authors="SSalahAhmed"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/17/2016"
-   ms.author="dhanyahk"/>
+   ms.date="03/04/2016"
+   ms.author="saah"/>
 
 # Azure Active Directory All User Sign In Activity report
 

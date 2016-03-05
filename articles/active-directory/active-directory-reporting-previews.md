@@ -3,7 +3,7 @@
    description="Azure Active Directory Reports in Public and Private Preview"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="SSalahAhmed"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/04/2016"
+   ms.author="saah"/>
 
 # Azure Active Directory Report Previews
 

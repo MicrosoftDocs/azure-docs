@@ -3,7 +3,7 @@
 	description="Explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
+	authors="SSalahAhmed"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="kenhoff;Justinha;curtand"/>
+	ms.date="03/04/2016"
+	ms.author="saah"/>
 
 
 # View your access and usage reports
