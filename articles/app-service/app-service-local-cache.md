@@ -1,3 +1,23 @@
+<properties
+   pageTitle="Azure App Service Local Cache Overview"
+   description="This article describes how to enable, resize and query the status of the Azure App Service Local Cache feature"
+   services="app-service"
+   documentationCenter="app-service"
+   authors="SyntaxC4"
+   manager="yochayk"
+   editor=""
+   tags="optional"
+   keywords="For use by SEO champs only. Separate terms with commas. Check with your SEO champ before you change content in this article containing these terms."/>
+
+<tags
+   ms.service="app-service"
+   ms.devlang=""
+   ms.topic="article"
+   ms.tgt_pltfrm=""
+   ms.workload="na"
+   ms.date="03/04/2016"
+   ms.author="cfowler"/>
+
 # Azure App Service Local Cache Overview
 
 Azure web applications' content is stored on Azure Storage and surfaced up in a durable manner as a content share. This design is intended to work with a variety of applications and has the following attributes:  
@@ -64,7 +84,7 @@ By default local cache size is **300 MB**. This includes the Site, SiteExtension
 
 ## Best Practices for using App Service Local Cache
 
-It is recommended that Local Cache is used in conjunction with the [Staging Environments](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/) feature.
+It is recommended that Local Cache is used in conjunction with the [Staging Environments](articles/web-sites-staged-publishing/) feature.
 
 * Add a _sticky_ Appsetting `WEBSITE_LOCAL_CACHE_OPTION` with value `Always` to your **Production slot**. If using `WEBSITE_LOCAL_CACHE_SIZEINMB`, also add it as a sticky setting to your production  slot. 
 * Create a Staging slot and publish to your Staging slot.  The staging slot typically does not use local cache to enable a seamless build-deploy-test lifecycle for staging while getting the benefits of Local Cache for the production slot. 
