@@ -32,7 +32,7 @@ The email is sent to all global admins who have been assigned an Active Director
 
 ## How often are these emails sent?
 
-The email is sent if 10 new irregular sign-in Activities occur in the last 30 days, or since the last email was sent, whichever is less.
+The email is sent if 10 new irregular sign-in activities occur in the last 30 days, or since the last email was sent, whichever is less.
 
 ## How do I access the report mentioned in the email?
 

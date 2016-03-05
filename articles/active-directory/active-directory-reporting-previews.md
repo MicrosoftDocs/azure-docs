@@ -23,13 +23,13 @@
 Report                                                  | Availability
 ------------------------------------------------------- | --------------------
 **Security Reports**                                    |
-Irregular sign in activity                              | General Availability
-Sign ins from unknown sources                           | General Availability
-Sign ins after multiple failures                        | General Availability
-Sign ins from multiple geographies                      | General Availability
-Sign ins from IP addresses with suspicious activity     | General Availability
-Sign ins from possibly infected devices                 | General Availability
-Users with anomalous sign in activity                   | Public Preview
+Irregular sign-in activity                              | General Availability
+Sign-ins from unknown sources                           | General Availability
+Sign-ins after multiple failures                        | General Availability
+Sign-ins from multiple geographies                      | General Availability
+Sign-ins from IP addresses with suspicious activity     | General Availability
+Sign-ins from possibly infected devices                 | General Availability
+Users with anomalous sign-in activity                   | Public Preview
 Users with leaked credentials                           | Public Preview
 **Application Reports**                                 |
 Account provisioning activity                           | General Availability
