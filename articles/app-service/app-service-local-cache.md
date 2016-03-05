@@ -84,7 +84,7 @@ By default local cache size is **300 MB**. This includes the Site, SiteExtension
 
 ## Best Practices for using App Service Local Cache
 
-It is recommended that Local Cache is used in conjunction with the [Staging Environments](articles/web-sites-staged-publishing/) feature.
+It is recommended that Local Cache is used in conjunction with the [Staging Environments](../app-service-web/web-sites-staged-publishing.md) feature.
 
 * Add a _sticky_ Appsetting `WEBSITE_LOCAL_CACHE_OPTION` with value `Always` to your **Production slot**. If using `WEBSITE_LOCAL_CACHE_SIZEINMB`, also add it as a sticky setting to your production  slot. 
 * Create a Staging slot and publish to your Staging slot.  The staging slot typically does not use local cache to enable a seamless build-deploy-test lifecycle for staging while getting the benefits of Local Cache for the production slot. 
