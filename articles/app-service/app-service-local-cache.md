@@ -52,12 +52,14 @@ Local Cache is configured using a combination of reserved App Settings. These Ap
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### How to: Configure Local Cache using the Azure Portal
+<a name="Configure-Local-Cache-Portal"></a>
 
 Local Cache is enabled on a per web application basis by using an AppSetting. `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
 ![Azure Portal App Settings: Local Cache](media/app-service-local-cache/app-service-local-cache-configure-portal.png)
 
 ### How to: Configure Local Cache using Azure Resource Manager
+<a name="Configure-Local-Cache-ARM"></a>
 
 ```
 ...
