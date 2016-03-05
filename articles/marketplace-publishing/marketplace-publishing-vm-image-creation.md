@@ -250,7 +250,7 @@ All images in the Azure Marketplace must be reusable in a generic fashion. In ot
 - For Windows, the image should be "sysprepped," and no configurations should be done that do not support the **sysprep** command.
 - You can run the following command from the directory %windir%\System32\Sysprep.
 
-        sysprep.exe /generalize /oobe /sshutdown
+        sysprep.exe /generalize /oobe /shutdown
 
   Guidance on how to sysprep the operating system is provided in Step of the following MSDN article: [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server/).
 
