@@ -19,7 +19,12 @@
 
 # Vulnerabilities detected by Azure Active Directory Identity Protection 
 
-Vulnerabilities are weaknesses in your environment that can be exploited by an attacker. We recommend that you address these vulnerabilities to improve the security posture of your organization, and prevent attackers from exploiting these vulnerabilities.
+Vulnerabilities are weaknesses in your environment that can be exploited by an attacker. We recommend that you address these vulnerabilities to improve the security posture of your organization, and prevent attackers from exploiting them.
+<br><br>
+![vulnerabilities](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilities")
+<br>
+
+The following sections provide you with an overview of the vulnerabilities reported by Identity Protection.
 
 ## Multi-factor authentication registration not configured 
 
@@ -27,7 +32,7 @@ This vulnerability helps you control the deployment of Azure Multi-Factor Authen
 
 Azure multi-factor authentication provides a second layer of security to user authentication. It helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of easy verification options—phone call, text message, or mobile app notification or verification code and 3rd party OATH tokens.
 
-We recommend that you require multi-factor authentication for user sign-ins. Multi-factor authentication play a key role in risk-based conditional access policies available through Identity Protection.
+We recommend that you require Azure Multi-Factor Authentication for user sign-ins. Multi-factor authentication plays a key role in risk-based conditional access policies available through Identity Protection.
 
 For more details, see [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 

@@ -130,44 +130,9 @@ The dashboard gives you access to:
 
 It is typically your starting point for investigation, which is the process of reviewing the activities, logs, and other relevant information related to a risk event to decide whether remediation or mitigation steps are necessary,  and how the identity was compromised, and understand how the compromised identity was used.
 
+You can tie your investigation activities to the [notifications](active-directory-identityprotection-notifications.md) Azure Active Directory Protection sends per email.
 
-### Notifications
-
-Azure AD Identity Protection sends two types of automated notification emails to help you manage user risk and risk events:
-
-- User compromised alert email
-
-- Weekly digest email
-
-#### User compromised alert email
-
-A user compromised email alert is generated when Azure AD Identity Protection identifies an account as compromised. The email includes a link to the Users flagged for risk report in the Identity Protection Console. We recommend that notifications of compromised users be investigated immediately.
-
-
-#### Weekly digest email
-
-The weekly digest email contains a summary of new risk events.<br>
-It includes:
-- Users at risk
-- Reported risk events
-- Detected vulnerabilities
-- Links to the related reports in Identity Protection
-
-
-<br>
-![Remediation](./media/active-directory-identityprotection/400.png "Remediation")
-<br> 
-
-By default, the compromised user alert is sent to all Azure Active Directory administrators. You can customize the recipients by:
-
-- Following the manage recipients link at the bottom of the alert
-
-- Clicking Notifications under Identity Protection settings
- 
-<br>
-![User risks](./media/active-directory-identityprotection/62.png "User risks")
-<br>
- 
+The following sections provide you with more details and the steps that are related to an investigation.  
 
 
 
@@ -195,6 +160,11 @@ You can use the user risk levels to create conditional access policies to block 
 ## Closing risk events manually
 
 In most cases, you will take remediation actions such as a secure password reset to automatically close risk events. However, this might not always be possible. <br> 
+This is, for example, the case, when:
+
+- a user with Active risk events has been deleted
+- an investigation reveals that a reported risk event has been perform by the legitimate user
+
 Because risk events that are **Active** contribute to the user risk calculation, you may have to manually lower a risk level by closing risk events manually. <br>
 During the course of investigation, you can choose to take any of these actions to change the status of a risk event:
 
@@ -210,7 +180,17 @@ During the course of investigation, you can choose to take any of these actions 
 
 - **Reactivate** - Risk events that were manually closed (by choosing **Resolve**, **False positive**, or **Ignore**) can be reactivated, setting the event status back to **Active**. Reactivated risk events contribute to the user risk level calculation. Risk events closed through remediation (such as a secure password reset) cannot be reactivated. 
 
+**To open the related configuration dialog**:
 
+1. On the **Azure AD Identity Protection** blade, click **Users flagged for risk**.
+<br><br>
+![Manual password reset](./media/active-directory-identityprotection/408.png "Manual password reset")
+<br>
+
+2. Right-click the affected user.
+<br><br>
+![Manual password reset](./media/active-directory-identityprotection/437.png "Manual password reset")
+<br>
 
 ## Remediating user risk events
 
@@ -225,11 +205,11 @@ To remediate user risk events, you can:
 - re-image the infected device  
 
 
-### Secure password reset
+### Manual secure password reset
 
-A secure password reset is an effective remediation for many risk events, and when performed, automatically closes these risk events and recalculates the user risk level. You can use the Identity Protection console to initiate a password reset for a risky user. 
+A secure password reset is an effective remediation for many risk events, and when performed, automatically closes these risk events and recalculates the user risk level. You can use the Identity Protection dashboard to initiate a password reset for a risky user. 
 
-The console provides two different ways to reset a password:
+The related dialog provides two different methods to reset a password:
 
 **Reset password** - Select **Require user to reset password** to allow the user to self-recover if the user has registered for multi-factor authentication. During the user's next sign-in, the user will be required to solve a multi-factor authentication challenge successfully and then, forced to change the password. This option isn't available if the user account is not already registered multi-factor authentication.
 
@@ -238,6 +218,25 @@ The console provides two different ways to reset a password:
 <br>
 ![Policy](./media/active-directory-identityprotection/71.png "Policy")
 <br>
+
+**To open the related configuration dialog**:
+
+1. On the **Azure AD Identity Protection** blade, click **Users flagged for risk**.
+<br><br>
+![Manual password reset](./media/active-directory-identityprotection/408.png "Manual password reset")
+<br>
+
+2. Click the affected user
+<br><br>
+![Manual password reset](./media/active-directory-identityprotection/404.png "Manual password reset")
+<br>
+
+2. Click Reset password
+<br><br>
+![Manual password reset](./media/active-directory-identityprotection/420.png "Manual password reset")
+<br>
+
+
 
 
 
@@ -265,6 +264,11 @@ Azure AD Identity Protection helps you manage the mitigation and remediation of 
 ![User ridk policy](./media/active-directory-identityprotection/503.png "User ridk policy")
 <br>
 
+- switch the state of your policy
+<br><br>
+![MFA Registration](./media/active-directory-identityprotection/403.png "MFA Registration")
+<br>
+
 - review and evaluate the impact of a change before activating it
 <br><br>
 ![User ridk policy](./media/active-directory-identityprotection/504.png "User ridk policy")
@@ -285,6 +289,28 @@ When setting the policy,
 - use a **Low** threshold if your organization requires greater security. Selecting a **Low** threshold introduces additional user sign-in challenges, but increased security.
 
 The recommended default for most organizations is to configure a rule for a **Medium** threshold to strike a balance between usability and security.
+
+For an overview of the related user experience, see:
+
+- [Compromised account recovery flow](active-directory-identityprotection-flows.md/#compromised-account-recovery).  
+
+- [Compromised account blocked flow](active-directory-identityprotection-flows.md/#Compromised-account-blocked).  
+
+
+**To open the related configuration dialog**:
+
+1. On the **Azure AD Identity Protection** blade, click **Settings**.
+<br><br>
+![User risk policy](./media/active-directory-identityprotection/401.png "User risk policy")
+<br>
+
+2. In the **Security Policies** section, click **User risk**.
+<br><br>
+![User risk policy](./media/active-directory-identityprotection/500.png "User risk policy")
+<br>
+
+
+
 
 
 
@@ -333,6 +359,11 @@ Azure AD Identity Protection helps you manage the mitigation of risky sign-ins b
 ![Sign-in risk policy](./media/active-directory-identityprotection/703.png "Sign-in risk policy")
 <br>
 
+- switch the state of your policy
+<br><br>
+![MFA Registration](./media/active-directory-identityprotection/403.png "MFA Registration")
+<br>
+
 - review and evaluate the impact of a change before activating it 
 <br><br>
 ![Sign-in risk policy](./media/active-directory-identityprotection/704.png "Sign-in risk policy")
@@ -367,18 +398,51 @@ The **Risk Events** page in the Identity Protection console lists all events:
 - this policy was applied to
 - you can review the activity and determine whether the action was appropriate or not 
 
+For an overview of the related user experience, see:
+
+- [Risky sign-in recovery](active-directory-identityprotection-flows.md/#risky-sign-in-recovery).  
+
+- [Risky sign-in blocked](active-directory-identityprotection-flows.md/#risky-sign-in-blocked).  
+
+- [Multi-factor authentication registration during a risky sign-in](active-directory-identityprotection-flows.md/#multi-factor-authentication-registration-during-a-risky-sign-in).  
+
+
+
+
+
+**To open the related configuration dialog**:
+
+1. On the **Azure AD Identity Protection** blade, click **Settings**.
+<br><br>
+![MFA Registration](./media/active-directory-identityprotection/401.png "MFA Registration")
+<br>
+
+1. In the **Security Policies** section, click **Sign-in risk**.
+<br><br>
+![MFA Registration](./media/active-directory-identityprotection/700.png "MFA Registration")
+<br>
+
 
 
 
 ## Multi-factor authentication registration policy
 
-Multi-factor authentication is used to gain additional assurance of a user’s identity.<br> 
-Registering for multi-factor authentication is a critical step in preparing your organization to protect and recover from account compromises. 
-<br><br>
-![MFA Registration](./media/active-directory-identityprotection/600.png "MFA Registration")
-<br>
+Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides a second layer of security to user sign-ins and transactions. <br>
+We recommend that you require Azure Multi-Factor Authentication for user sign-ins because it:
 
-Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication registration by enabling you to: 
+- delivers strong authentication with a range of easy verification options
+
+- plays a key role in preparing your organization to protect and recover from account compromises
+
+For more details, see [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+
+
+Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication registration by configuring a policy that enables you to: 
+
+- view the current registration status 
+<br><br>
+![MFA Registration](./media/active-directory-identityprotection/603.png "MFA Registration")
+<br>
 
 - set the users and groups the policy applies to
 <br><br>
@@ -390,9 +454,31 @@ Azure AD Identity Protection helps you manage the roll-out of multi-factor authe
 ![MFA Registration](./media/active-directory-identityprotection/602.png "MFA Registration")
 <br>
 
-- view the current registration state of impacted users. 
+- switch the state of your policy
 <br><br>
-![MFA Registration](./media/active-directory-identityprotection/603.png "MFA Registration")
+![MFA Registration](./media/active-directory-identityprotection/403.png "MFA Registration")
+<br>
+
+For an overview of the related user experience, see:
+
+- [Multi-factor authentication registration flow](active-directory-identityprotection-flows.md/#multi-factor-authentication-registration).  
+
+- [Multi-factor authentication registration during a risky sign-in](active-directory-identityprotection-flows.md/#multi-factor-authentication-registration-during-a-risky-sign-in).  
+
+
+
+
+
+**To open the related configuration dialog**:
+
+1. On the **Azure AD Identity Protection** blade, click **Settings**.
+<br><br>
+![MFA Registration](./media/active-directory-identityprotection/401.png "MFA Registration")
+<br>
+
+2. In the **Multi-Factor Authentication** section, click **Registration**.
+<br><br>
+![MFA Registration](./media/active-directory-identityprotection/402.png "MFA Registration")
 <br>
 
 
@@ -403,6 +489,7 @@ Azure AD Identity Protection helps you manage the roll-out of multi-factor authe
  - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
  - [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types)
  - [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
+ - [Azure Active Directory Identity Protection notifications](active-directory-identityprotection-notifications.md)
  - [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md)
  - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md)
 

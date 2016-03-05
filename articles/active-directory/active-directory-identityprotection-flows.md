@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory Identity Protection flows| Microsoft Azure"
-	description="Learn how Azure AD Identity Protection enables you to limit the ability of an attacker to exploit a compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised."
+	description="Provides an overview of the user experience when Identity Protection has mitigated or remediated a user or when multi-factor authentication is required by a policy."
 	services="active-directory"
 	keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/07/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection flows
@@ -25,7 +25,8 @@ With Azure Active Directory Identity Protection, you can:
 
 - handle risky sign-ins and compromised users
 
-The response of the system to these issues has an impact on a user's sign-in experience.<br>
+The response of the system to these issues has an impact on a user's sign-in experience because just directly signing-in by providing a user name and a password won't be possible anymore. Additional steps are required to get a user safely back into business.
+
 This topic gives you an overview of a user's sign-in experience for all cases that can occur.
 
 **Multi-factor authentication**
