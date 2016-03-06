@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 
