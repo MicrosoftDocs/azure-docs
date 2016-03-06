@@ -124,7 +124,7 @@ A string representing the underlying storage type of its single argument. This i
 
 **Syntax**
 
-    hash(*source* [, *mod*])
+    hash(source [, mod])
 
 **Arguments**
 
@@ -150,14 +150,14 @@ is `true` or `false`. The second and third arguments must be of the same type.
 
 **Syntax**
 
-    iff(*predicate*, *ifTrue*, *ifFalse*)
+    iff(predicate, ifTrue, ifFalse)
 
 
 **Arguments**
 
-* *predicate*: An expression that evaluates to a `boolean` value.
-* *ifTrue*: An expression that gets evaluated and its value returned from the function if *predicate* evaluates to `true`.
-* *ifFalse*: An expression that gets evaluated and its value returned from the function if *predicate* evaluates to `false`.
+* *predicate:* An expression that evaluates to a `boolean` value.
+* *ifTrue:* An expression that gets evaluated and its value returned from the function if *predicate* evaluates to `true`.
+* *ifFalse:* An expression that gets evaluated and its value returned from the function if *predicate* evaluates to `false`.
 
 **Returns**
 
@@ -182,13 +182,13 @@ Takes a single argument and tells whether it is null.
 **Syntax**
 
 
-    isnull([*value*])
+    isnull([value])
 
 
-    isnotnull([*value*])
+    isnotnull([value])
 
 
-    notnull([*value*])  // alias for isnotnull
+    notnull([value])  // alias for isnotnull
 
 **Returns**
 
@@ -274,8 +274,8 @@ Alias `floor`.
 
 **Arguments**
 
-* *value*: A number, date, or timespan. 
-* *roundTo*: The "bin size". A number, date or timespan that divides *value*. 
+* *value:* A number, date, or timespan. 
+* *roundTo:* The "bin size". A number, date or timespan that divides *value*. 
 
 **Returns**
 
@@ -321,11 +321,11 @@ The square root function.
 
 **Syntax**
 
-    sqrt(*x*)
+    sqrt(x)
 
 **Arguments**
 
-* *x*: A real number >= 0.
+* *x:* A real number >= 0.
 
 **Returns**
 
@@ -496,17 +496,17 @@ The current UTC clock time, optionally offset by a given timespan. This function
 
 **Syntax**
 
-    now([*offset*])
+    now([offset])
 
 **Arguments**
 
-* *offset*: A `timespan`, added to the current UTC clock time. Default: 0.
+* *offset:* A `timespan`, added to the current UTC clock time. Default: 0.
 
 **Returns**
 
 The current UTC clock time as a `datetime`.
 
-    now() + *offset* 
+    now() + offset
 
 **Example**
 
@@ -615,13 +615,13 @@ Counts occurrences of a substring in a string. Plain string matches may overlap;
 
 **Syntax**
 
-    countof(*text*, *search* [, *kind*])
+    countof(text, search [, kind])
 
 **Arguments**
 
-* *text*: A string.
-* *search*: The plain string or [regular expression](app-analytics-reference.md#regular-expressions) to match inside *text*.
-* *kind*: `"normal"|"regex"` Default `normal`. 
+* *text:* A string.
+* *search:* The plain string or [regular expression](app-analytics-reference.md#regular-expressions) to match inside *text*.
+* *kind:* `"normal"|"regex"` Default `normal`. 
 
 **Returns**
 
@@ -649,15 +649,15 @@ Get a match for a [regular expression](app-analytics-reference.md#regular-expres
 
 **Syntax**
 
-    extract(*regex*, *captureGroup*, *text* [, *typeLiteral*])
+    extract(regex, captureGroup, text [, typeLiteral])
 
 **Arguments**
 
-* *regex*: A [regular expression](app-analytics-reference.md#regular-expressions).
-* *captureGroup*: A positive `int` constant indicating the
+* *regex:* A [regular expression](app-analytics-reference.md#regular-expressions).
+* *captureGroup:* A positive `int` constant indicating the
 capture group to extract. 0 stands for the entire match, 1 for the value matched by the first '('parenthesis')' in the regular expression, 2 or more for subsequent parentheses.
-* *text*: A `string` to search.
-* *typeLiteral*: An optional type literal (e.g., `typeof(long)`). If provided, the extracted substring is converted to this type. 
+* *text:* A `string` to search.
+* *typeLiteral:* An optional type literal (e.g., `typeof(long)`). If provided, the extracted substring is converted to this type. 
 
 **Returns**
 
@@ -695,13 +695,13 @@ See also [isnull](#isnull).
 
 **Syntax**
 
-    isempty([*value*])
+    isempty([value])
 
 
-    isnotempty([*value*])
+    isnotempty([value])
 
 
-    notempty([*value*]) // alias of isnotempty
+    notempty([value]) // alias of isnotempty
 
 **Returns**
 
@@ -730,13 +730,13 @@ Replace all regex matches with another string.
 
 **Syntax**
 
-    replace(*regex*, *rewrite*, *text*)
+    replace(regex, rewrite, text)
 
 **Arguments**
 
-* *regex*: The [regular expression](https://github.com/google/re2/wiki/Syntax) to search *text*. It can contain capture groups in '('parentheses')'. 
-* *rewrite*: The replacement regex for any match made by *matchingRegex*. Use `\0` to refer to the whole match, `\1` for the first capture group, `\2` and so on for subsequent capture groups.
-* *text*: A string.
+* *regex:* The [regular expression](https://github.com/google/re2/wiki/Syntax) to search *text*. It can contain capture groups in '('parentheses')'. 
+* *rewrite:* The replacement regex for any match made by *matchingRegex*. Use `\0` to refer to the whole match, `\1` for the first capture group, `\2` and so on for subsequent capture groups.
+* *text:* A string.
 
 **Returns**
 
@@ -773,7 +773,7 @@ Splits a given string according to a given delimiter and returns a string array 
 
 **Syntax**
 
-    split(*source*, *delimiter* [, *requestedIndex*])
+    split(source, delimiter [, requestedIndex])
 
 **Arguments**
 
@@ -818,13 +818,13 @@ Extract a substring from a given source string starting from a given index. Opti
 
 **Syntax**
 
-    substring(*source*, *startingIndex* [, *length*])
+    substring(source, startingIndex [, length])
 
 **Arguments**
 
-* *source*: The source string that the substring will be taken from.
-* *startingIndex*: The zero-based starting character position of the requested substring.
-* *length*: An optional parameter that can be used to specify the requested number of characters in the substring. 
+* *source:* The source string that the substring will be taken from.
+* *startingIndex:* The zero-based starting character position of the requested substring.
+* *length:* An optional parameter that can be used to specify the requested number of characters in the substring. 
 
 **Returns**
 
@@ -966,11 +966,11 @@ The number of elements in a dynamic array.
 
 **Syntax**
 
-    arraylength(*array*)
+    arraylength(array)
 
 **Arguments**
 
-* *array*: A `dynamic` value.
+* *array:* A `dynamic` value.
 
 **Returns**
 
@@ -1046,11 +1046,11 @@ Interprets a `string` as a [JSON value](http://json.org/)) and returns the value
 
 **Syntax**
 
-    parsejson(*json*)
+    parsejson(json)
 
 **Arguments**
 
-* *json*: A JSON document.
+* *json:* A JSON document.
 
 **Returns**
 
@@ -1085,15 +1085,15 @@ generates a dynamic array holding a series of equally-spaced values.
 
 **Syntax**
 
-    range(*start*, *stop*, *step*)
+    range(start, stop, step)
 
 **Arguments**
 
-* *start*: The value of the first element in the resulting array. 
-* *stop*: The value of the last element in the resulting array,
+* *start:* The value of the first element in the resulting array. 
+* *stop:* The value of the last element in the resulting array,
 or the least value that is greater than the last element in the resulting
 array and within an integer multiple of *step* from *start*.
-* *step*: The difference between two consecutive elements of
+* *step:* The difference between two consecutive elements of
 the array.
 
 **Examples**
@@ -1120,7 +1120,7 @@ Converts a string to a dynamic value.
 
 ### treepath
 
-    treepath(*dynamic object*)
+    treepath(dynamic_object)
 
 Enumerates all the path expressions that identify leaves in a dynamic object. 
 
