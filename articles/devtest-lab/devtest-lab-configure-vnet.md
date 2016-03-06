@@ -32,7 +32,7 @@ The following steps walk you through adding an existing VNET (and subnet) to a D
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
-1. From the list of labs, tap the lab in which you want create the new VM.  
+1. From the list of labs, select a lab.  
 
 1. Tap **Virtual options**.
 
