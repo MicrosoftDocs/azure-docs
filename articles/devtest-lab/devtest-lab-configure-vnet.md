@@ -20,7 +20,7 @@
 
 ## Overview
 
-As explained in the article, [Add a VM with artifacts to an Azure DevTest Lab](devtest-lab-add-vm-with-artifacts), when you create a VM in a lab, 
+As explained in the article, [Add a VM with artifacts to an Azure DevTest Lab](./devtest-lab-add-vm-with-artifacts), when you create a VM in a lab, 
 you can specify a configured VNET (and subnet) for that VM. One scenario for doing this is if you want to be able to access your corpnet resources 
 from your VMs. The following sections show you how to add your existing VNET into the lab's Virtual Network settings so that it will be available 
 to choose when creating your VMs.
@@ -60,7 +60,7 @@ as the default VNET that is created for your lab.
 1. Tap **Save**.
 
 1. Now that the VNET is configured, it can be selected when creating a new VM. 
-This is explained in the article, [Add a VM with artifacts to an Azure DevTest Lab](devtest-lab-add-vm-with-artifacts). 
+This is explained in the article, [Add a VM with artifacts to an Azure DevTest Lab](./devtest-lab-add-vm-with-artifacts). 
 
 ## Add an existing VNET into a DevTest Lab using an ARM template
 This section explains how to use an ARM template to add an existing VNET into a DevTest Lab.
