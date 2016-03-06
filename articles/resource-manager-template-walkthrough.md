@@ -29,10 +29,6 @@ Let's take a look at a common architecture:
 
 The full template can be found in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) directly though this [link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules).
 
-<a href="http://armviz.io/#/?load=https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json" target="_blank">
-  <img src="http://armviz.io/visualizebutton.png"/>
-</a>
-
 Skipping the parameters and variables section of the template, we will go through each resource definition in the resources section.
 
 ## API Versions
@@ -245,8 +241,8 @@ We will create 2 virtual machines, using copyIndex() function, same as was done 
 The VM creation depends on the storage account, network interface and availability set. This VM will be created from a marketplace image, as defined in the `storageProfile` property - `imageReferece` is used to define the image publisher, offer, sku and version. 
 Finally, a diagnostic profile is configured to enable diagnostics for the VM. 
 
-To find the relevant properties for a marketplace image, follow [this](https://azure.microsoft.com/en-us/documentation/articles/resource-groups-vm-searching/) tutorial.
-For images published by 3rd party vendors, you will need to specify another property named `plan`. An example can be found in [this](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) template from the image gallery. 
+To find the relevant properties for a marketplace image, follow the [VM searching](./virtual-machines/resource-groups-vm-searching.md) article.
+For images published by 3rd party vendors, you will need to specify another property named `plan`. An example can be found in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) from the quickstart gallery. 
 
 
 ```json
