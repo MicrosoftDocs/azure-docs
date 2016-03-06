@@ -242,10 +242,12 @@ The network interface depends on creation of the virtual network and the load ba
 
 # Virtual Machine
 We will create 2 virtual machines, using copyIndex() function, same as was done in creation of the [network interfaces](#network-interface).
-The VM creation depends on the storage account, network interface and availability set. This VM will be created from an image, as defined in the `storageProfile` property - `imageReferece` is used to define the image publisher, offer, sku and version. 
-To find the relevant properties for a marketplace image, follow [this](https://azure.microsoft.com/en-us/documentation/articles/resource-groups-vm-searching/) tutorial.
-For images published by vendors, you will need to specify another property names `plan`. An example can be found in [this](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) template in the image gallery. 
+The VM creation depends on the storage account, network interface and availability set. This VM will be created from a marketplace image, as defined in the `storageProfile` property - `imageReferece` is used to define the image publisher, offer, sku and version. 
 Finally, a diagnostic profile is configured to enable diagnostics for the VM. 
+
+To find the relevant properties for a marketplace image, follow [this](https://azure.microsoft.com/en-us/documentation/articles/resource-groups-vm-searching/) tutorial.
+For images published by 3rd party vendors, you will need to specify another property named `plan`. An example can be found in [this](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) template from the image gallery. 
+
 
 ```json
    {
