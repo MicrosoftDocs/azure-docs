@@ -696,10 +696,8 @@ When an authenticated user registers for push notifications, a user ID tag is au
 		// Send a template notification to the current user.
         context.push.send(context.user.id, payload, function (error) {
             if (error) {
-                logger.error('Error while sending push notification: ', error);
-            } else {
-                logger.info('Push notification sent successfully!');
-            }
+                // Do something or log the error.   
+            } 
         });
     }
 
