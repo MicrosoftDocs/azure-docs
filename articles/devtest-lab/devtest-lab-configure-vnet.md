@@ -36,18 +36,18 @@ The following steps walk you through adding an existing VNET (and subnet) to a D
 
 1. Tap **Virtual options**.
 
-	![VNETs can be configured from the lab's Settings blade](./media/lab-settings-vnet.png)
+	![VNETs can be configured from the lab's Settings blade](./media/devtest-lab-configure-vnet/lab-settings-vnet.png)
 	
 1. On the **Virtual networks** blade, you'll see a list of VNETs you've configured for the current lab as well
 as the default VNET that is created for your lab. 
 
 1. Tap **+ Add**.
 
-	![Add an existing VNET to your lab](./media/lab-settings-vnet-add.png)
+	![Add an existing VNET to your lab](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
 	
 1. On the **Virtual network** blade, tap **[Select virtual network]**.
 
-	![Select an existing VNET](./media/lab-settings-vnets-vnet.png)
+	![Select an existing VNET](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet.png)
 	
 1. On the **Choose virtual network** blade, select the desired VNET.
 
