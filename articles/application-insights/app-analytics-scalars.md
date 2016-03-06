@@ -44,7 +44,11 @@ Application Analytics query lanuage, CSL.
 
 Scalar expressions are distinct from [queries](app-analytics-queries.md), whose results are tables.
 
-## Scalar Types
+## Scalars
+
+[casts](#casts) [comparisons](#scalar-comparisons)
+
+[gettype](#gettype) [hash](#hash) [iff](#iff) [isnull](#isnull) [isnotnull](#isnotnull) [notnull](#notnull)
 
 The supported types are:
 
@@ -87,9 +91,7 @@ You can cast from one type to another. In general, if the conversion makes sense
 `in`| Right operand is a (dynamic) array and left operand is equal to one of its elements.
 `!in`| Right operand is a (dynamic) array and left operand is not equal to any of its elements.
 
-## General functions
 
-[gettype](#gettype) [hash](#hash) [iff](#iff) [isnull](#isnull) [isnotnull](#isnotnull) [notnull](#notnull)
 
 
 ### gettype
@@ -227,7 +229,11 @@ Notice that there are other ways of achieving this effect:
 
     
 
-## Numbers: int, long and real
+## Numbers
+
+
+[bin](#bin) [floor](#floor) [rand](#rand) [range](#range) [sqrt](#sqrt) 
+[todouble](#todouble) [toint](#toint) [tolong](#tolong)
 
 ### Numeric literals
 
@@ -253,10 +259,8 @@ Notice that there are other ways of achieving this effect:
 |`<>`|Not Equals
 |`!=`|Not Equals 
 
-## bin, floor, rand, range, sqrt
 
-[bin](#bin) [floor](#floor) [rand](#rand) [range](#range) [sqrt](#sqrt) 
-[todouble](#todouble) [toint](#toint) [tolong](#tolong)
+
 
 ### bin
 
@@ -361,6 +365,8 @@ The square root function.
 ## Date and time
 
 
+[ago](#ago) [dayofweek](#dayofweek) [getmonth](#getmonth) [getyear](#getyear) [now](#now) [startofmonth](#startofmonth) [startofyear](#startofyear) [todatetime](#todatetime) [totimespan](#totimespan)
+
 ### Date and time literals
 
 |||
@@ -383,7 +389,7 @@ The square root function.
 `time("2")`| 2 days
 `time("0.12:34:56.7")`|`0d+12h+34m+56.7s`
 
-#### Date and time expressions
+### Date and time expressions
 
 Expression |Result
 ---|---
@@ -403,10 +409,7 @@ Expression |Result
 `!=`|Not Equals 
 
 
-## Date and time functions
 
-
-[ago](#ago) [dayofweek](#dayofweek) [getmonth](#getmonth) [getyear](#getyear) [now](#now) [startofmonth](#startofmonth) [startofyear](#startofyear) [todatetime](#todatetime) [totimespan](#totimespan)
 
 ### ago
 
@@ -549,7 +552,12 @@ Alias `timespan()`.
 
 ## String
 
-#### String Literals
+
+
+[countof](#countof) [extract](#extract) [extractjson](#extractjson)  [isempty](#isempty) [isnotempty](#isnotempty) [notempty](#notempty) [replace](#replace) [split](#split) [strcat](#strcat) [strlen](#strlen) [substring](#substring) [tolower](#tolower) [tostring](#tostring) [toupper](#toupper)
+
+
+### String Literals
 
 The rules are the same as in JavaScript.
 
@@ -561,7 +569,7 @@ Backslash (`\`) is used to escape characters such as `\t` (tab), `\n` (newline) 
 * `"this is a 'string' literal in double \" quotes"`
 * `@"C:\backslash\not\escaped\with @ prefix"`
 
-#### Obfuscated String Literals
+### Obfuscated String Literals
 
 Obfuscated string literals are strings that Application Analytics will obscure when outputting the string (for example, when tracing). The obfuscation process replaces all obfuscated characters by a start (`*`) character.
 
@@ -573,7 +581,7 @@ h@'world'
 h"hello"
 ```
 
-#### String comparisons
+### String comparisons
 
 Operator|Description|Case-Sensitive|True example
 ---|---|---|---
@@ -597,10 +605,6 @@ Use `has` or `in` if you're testing for the presence of a whole lexical term - t
 	EventLog | where continent contains "nor" | count
 
 
-## String functions
-
-
-[countof](#countof) [extract](#extract) [extractjson](#extractjson)  [isempty](#isempty) [isnotempty](#isnotempty) [notempty](#notempty) [replace](#replace) [split](#split) [strcat](#strcat) [strlen](#strlen) [substring](#substring) [tolower](#tolower) [tostring](#tostring) [toupper](#toupper)
 
 
 
@@ -857,6 +861,10 @@ Converts a string to upper case.
 
 ## Dynamic type
 
+[literals](#dynamic-literals) [casting](#casting-dynamic-objects) [operators](#operators) [let clauses](#dynamic-objects-in-let-clauses)
+
+[arraylength](#arraylength) [extractjson](#extractjson) [parsejson](#parsejson) [range](#range) [treepath](#treepath) [todynamic](#todynamic)
+
 Dynamic type means that an object might be of any type: its type is determined at run time. The elements in arrays and property bags have dynamic type - each element can have its own type.
 
 For example, here's the result of a query on an Application Insights event. The values in typeDimensions and typeMeasurements are dynamic.
@@ -869,8 +877,7 @@ In some cases, you must cast a dynamic value to an explicit type before using it
     by tostring(customMeasurements.Result)
 
 
-
-#### Dynamic literals
+### Dynamic literals
 
 To create a dynamic literal, use `parsejson` with a JSON string argument:
 
@@ -891,7 +898,7 @@ T
 ```
 
 
-#### Casting dynamic objects
+### Casting dynamic objects
 
 After subscripting a dynamic object, you must cast the value to a simple type.
 
@@ -921,7 +928,8 @@ Cast functions are:
 * `toguid()`
 * `todynamic()`
 
-#### Operators and functions over dynamic types
+<a name="operators"></a>
+### Operators and functions over dynamic types
 
 |||
 |---|---|
@@ -936,7 +944,7 @@ Cast functions are:
 |[`summarize makelist(`column`)` ](app-analytics-queries.md#summarize-operator)| Flattens groups of rows and puts the values of the column in an array.
 |[`summarize makeset(`column`)`](app-analytics-queries.md#summarize-operator) | Flattens groups of rows and puts the values of the column in an array, without duplication.
 
-#### Dynamic objects in let clauses
+### Dynamic objects in let clauses
 
 
 [Let clauses](app-analytics-queries.md#let-clause) store dynamic values as strings, so these two clauses are equivalent, and both need the `parsejson` (or `todynamic`) before being used:
@@ -946,9 +954,7 @@ Cast functions are:
 
     T | project parsejson(list1).a, parsejson(list2).a
 
-## Dynamic value functions
 
-[arraylength](#arraylength) [extractjson](#extractjson) [parsejson](#parsejson) [range](#range) [treepath](#treepath) [todynamic](#todynamic)
 
 
 ### arraylength
