@@ -87,6 +87,130 @@ You can cast from one type to another. In general, if the conversion makes sense
 `in`| Right operand is a (dynamic) array and left operand is equal to one of its elements.
 `!in`| Right operand is a (dynamic) array and left operand is not equal to any of its elements.
 
+## General functions
+
+[gettype](#gettype) [hash](#hash) [iff](#iff) [isnull](#isnull) [isnotnull](#isnotnull) [notnull](#notnull)
+
+
+### gettype
+
+**Returns**
+
+A string representing the underlying storage type of its single argument. This is particularly useful when have values of kind `dynamic`: in this case `gettype()` will reveal how a value is encoded.
+
+**Examples**
+
+|||
+---|---
+`gettype("a")` |`"string" `
+`gettype(111)` |`"long" `
+`gettype(1==1)` |`"int8" (*) `
+`gettype(now())` |`"datetime" `
+`gettype(1s)` |`"timespan" `
+`gettype(parsejson('1'))` |`"int" `
+`gettype(parsejson(' "abc" '))` |`"string" `
+`gettype(parsejson(' {"abc":1} '))` |`"dictionary"` 
+`gettype(parsejson(' [1, 2, 3] '))` |`"array"` 
+`gettype(123.45)` |`"real" `
+`gettype(guid(12e8b78d-55b4-46ae-b068-26d7a0080254))` |`"guid"` 
+`gettype(parsejson(''))` |`"null"`
+
+
+
+### hash
+
+**Syntax**
+
+    hash(*source* [, *mod*])
+
+**Arguments**
+
+* *source*: The source scalar the hash is calculated on.
+* *mod*: The modulo value to be applied on the hash result.
+
+**Returns**
+
+The xxhash (long)value of the given scalar, modulo the given mod value (if specified).
+
+**Examples**
+
+```
+hash("World")                   // 1846988464401551951
+hash("World", 100)              // 51 (1846988464401551951 % 100)
+hash(datetime("2015-01-01"))    // 1380966698541616202
+```
+### iff
+
+The `iff()` function evaluates the first argument (the predicate), and returns either
+the value of either the second or third arguments depending on whether the predicate
+is `true` or `false`. The second and third arguments must be of the same type.
+
+**Syntax**
+
+    iff(*predicate*, *ifTrue*, *ifFalse*)
+
+
+**Arguments**
+
+* *predicate*: An expression that evaluates to a `boolean` value.
+* *ifTrue*: An expression that gets evaluated and its value returned from the function if *predicate* evaluates to `true`.
+* *ifFalse*: An expression that gets evaluated and its value returned from the function if *predicate* evaluates to `false`.
+
+**Returns**
+
+This function returns the value of *ifTrue* if *predicate* evaluates to `true`,
+or the value of *ifFalse* otherwise.
+
+**Example**
+
+```
+iff(floor(Timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
+```
+
+<a name="isnull"/></a>
+<a name="isnotnull"/></a>
+<a name="notnull"/></a>
+### isnull, isnotnull, notnull
+
+    isnull(parsejson("")) == true
+
+Takes a single argument and tells whether it is null.
+
+**Syntax**
+
+
+    isnull([*value*])
+
+
+    isnotnull([*value*])
+
+
+    notnull([*value*])  // alias for isnotnull
+
+**Returns**
+
+True or false depending on the whether the value is null or not null.
+
+
+|x|isnull(x)
+|---|---
+| "" | false
+|"x" | false
+|parsejson("")|true
+|parsejson("[]")|false
+|parsejson("{}")|false
+
+**Example**
+
+    T | where isnotnull(PossiblyNull) | count
+
+Notice that there are other ways of achieving this effect:
+
+    T | summarize count(PossiblyNull)
+
+
+
+
 ## Boolean 
 
 ### Boolean Literals
@@ -1005,125 +1129,6 @@ An array of path expressions.
     =>       ["['listProperty']","['listProperty'][0]","['listProperty'][0]['x']"]
 
 Note that "[0]" indicates the presence of an array, but does not specify the index used by a specific path.
-
-
-
-
-## gettype
-
-**Returns**
-
-A string representing the underlying storage type of its single argument. This is particularly useful when have values of kind `dynamic`: in this case `gettype()` will reveal how a value is encoded.
-
-**Examples**
-
-|||
----|---
-`gettype("a")` |`"string" `
-`gettype(111)` |`"long" `
-`gettype(1==1)` |`"int8" (*) `
-`gettype(now())` |`"datetime" `
-`gettype(1s)` |`"timespan" `
-`gettype(parsejson('1'))` |`"int" `
-`gettype(parsejson(' "abc" '))` |`"string" `
-`gettype(parsejson(' {"abc":1} '))` |`"dictionary"` 
-`gettype(parsejson(' [1, 2, 3] '))` |`"array"` 
-`gettype(123.45)` |`"real" `
-`gettype(guid(12e8b78d-55b4-46ae-b068-26d7a0080254))` |`"guid"` 
-`gettype(parsejson(''))` |`"null"`
-
-
-
-## hash
-
-**Syntax**
-
-    hash(*source* [, *mod*])
-
-**Arguments**
-
-* *source*: The source scalar the hash is calculated on.
-* *mod*: The modulo value to be applied on the hash result.
-
-**Returns**
-
-The xxhash (long)value of the given scalar, modulo the given mod value (if specified).
-
-**Examples**
-
-```
-hash("World")                   // 1846988464401551951
-hash("World", 100)              // 51 (1846988464401551951 % 100)
-hash(datetime("2015-01-01"))    // 1380966698541616202
-```
-
-## iff
-
-The `iff()` function evaluates the first argument (the predicate), and returns either
-the value of either the second or third arguments depending on whether the predicate
-is `true` or `false`. The second and third arguments must be of the same type.
-
-**Syntax**
-
-    iff(*predicate*, *ifTrue*, *ifFalse*)
-
-
-**Arguments**
-
-* *predicate*: An expression that evaluates to a `boolean` value.
-* *ifTrue*: An expression that gets evaluated and its value returned from the function if *predicate* evaluates to `true`.
-* *ifFalse*: An expression that gets evaluated and its value returned from the function if *predicate* evaluates to `false`.
-
-**Returns**
-
-This function returns the value of *ifTrue* if *predicate* evaluates to `true`,
-or the value of *ifFalse* otherwise.
-
-**Example**
-
-```
-iff(floor(Timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
-```
-
-
-## isnull, isnotnull, notnull
-
-    isnull(parsejson("")) == true
-
-Takes a single argument and tells whether it is null.
-
-**Syntax**
-
-
-    isnull([*value*])
-
-
-    isnotnull([*value*])
-
-
-    notnull([*value*])  // alias for isnotnull
-
-**Returns**
-
-True or false depending on the whether the value is null or not null.
-
-
-|x|isnull(x)
-|---|---
-| "" | false
-|"x" | false
-|parsejson("")|true
-|parsejson("[]")|false
-|parsejson("{}")|false
-
-**Example**
-
-    T | where isnotnull(PossiblyNull) | count
-
-Notice that there are other ways of achieving this effect:
-
-    T | summarize count(PossiblyNull)
-
 
 
 
