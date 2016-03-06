@@ -66,7 +66,7 @@ Open Application Analytics from your app's [overview blade](app-insights-dashboa
 
 *Early adopter? If the button isn't working yet, open Application Analytics by navigating to this URL:*
 
-`https://loganalytics.applicationinsights.io/subscriptions/{subscription-id}/resourcegroups/{resource-group}/components/{app-insights-name}`
+`https://analytics.applicationinsights.io/subscriptions/{subscription-id}/resourcegroups/{resource-group}/components/{app-insights-name}`
 
 
 
