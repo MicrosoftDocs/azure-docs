@@ -236,6 +236,25 @@ Self-join:
       on session_id
     | extend duration = stop - start 
 
+## limit operator
+
+     T | take 5
+
+Returns up to the specified number of rows from the input table. There is no guarantee which records are returned. (To return specific records, use [`top`](#top-operator).)
+
+**Alias** `take`
+
+**Syntax**
+
+*T* `| take` *NumberOfRows*
+
+
+**Tips**
+
+`Take` is a simple and efficient way to see a sample of your results when you're working interactively. Be aware that it doesn't guarantee to produce any particular rows, or to produce them in any particular order.
+
+There's an implicit limit on the number of rows returned to the client, even if you don't use `take`. To lift this limit, use the `notruncation` client request option.
+
 
 
 ## mvexpand operator
@@ -612,22 +631,7 @@ Although you can provide arbitrary expressions for both the aggregation and grou
 
 ## take operator
 
-     T | take 5
-
-Returns up to the specified number of rows from the input table. There is no guarantee which records are returned. (To return specific records, use [`top`](#top-operator).)
-
-**Alias** `limit`
-
-**Syntax**
-
-*T* `| take` *NumberOfRows*
-
-
-**Tips**
-
-`Take` is a simple and efficient way to see a sample of your results when you're working interactively. Be aware that it doesn't guarantee to produce any particular rows, or to produce them in any particular order.
-
-There's an implicit limit on the number of rows returned to the client, even if you don't use `take`. To lift this limit, use the `notruncation` client request option.
+Alias of [limit](#limit-operator)
 
 
 ## top operator

@@ -29,10 +29,11 @@ Application Analytics query lanuage, CSL.
 
 ---
 
-[ago](#ago) [arraylength](#arraylength) [bin](#bin) [countof](#countof) [dayofweek](#dayofweek) [extract](#extract) [extractjson](#extractjson) [floor](#floor) [getmonth](#getmonth) [gettype](#gettype) [getyear](#getyear) 
-<br/>[hash](#hash) [iff](#iff) [isempty](#isempty) [isnotempty](#isnotempty) [isnull](#isnull) [isnotnull](#isnotnull) [now](#now) [notempty](#notempty) [notnull](#notnull) [parsejson](#parsejson)
-<br/>[rand](#rand) [range](#range) [replace](#replace) [split](#split) [sqrt](#sqrt) [startofmonth](#startofmonth) [startofyear](#startofyear) [strcat](#strcat) [strlen](#strlen) [substring](#substring) 
-<br/>[tolower](#tolower) [toupper](#toupper) [treepath](#treepath)
+[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) 
+<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull)
+<br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) 
+<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) 
+| [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
@@ -46,9 +47,9 @@ Scalar expressions are distinct from [queries](app-analytics-queries.md), whose 
 
 ## Scalars
 
-[casts](#casts) [comparisons](#scalar-comparisons)
-
-[gettype](#gettype) [hash](#hash) [iff](#iff) [isnull](#isnull) [isnotnull](#isnotnull) [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons)
+<br/>
+[gettype](#gettype) | [hash](#hash) | [iff](#iff)|  [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 The supported types are:
 
@@ -231,9 +232,8 @@ Notice that there are other ways of achieving this effect:
 
 ## Numbers
 
-
-[bin](#bin) [floor](#floor) [rand](#rand) [range](#range) [sqrt](#sqrt) 
-[todouble](#todouble) [toint](#toint) [tolong](#tolong)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
+| [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Numeric literals
 
@@ -365,7 +365,7 @@ The square root function.
 ## Date and time
 
 
-[ago](#ago) [dayofweek](#dayofweek) [getmonth](#getmonth) [getyear](#getyear) [now](#now) [startofmonth](#startofmonth) [startofyear](#startofyear) [todatetime](#todatetime) [totimespan](#totimespan)
+[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
 
 ### Date and time literals
 
@@ -552,9 +552,7 @@ Alias `timespan()`.
 
 ## String
 
-
-
-[countof](#countof) [extract](#extract) [extractjson](#extractjson)  [isempty](#isempty) [isnotempty](#isnotempty) [notempty](#notempty) [replace](#replace) [split](#split) [strcat](#strcat) [strlen](#strlen) [substring](#substring) [tolower](#tolower) [tostring](#tostring) [toupper](#toupper)
+[countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
 
 ### String Literals
@@ -861,21 +859,26 @@ Converts a string to upper case.
 
 ## Dynamic type
 
-[literals](#dynamic-literals) [casting](#casting-dynamic-objects) [operators](#operators) [let clauses](#dynamic-objects-in-let-clauses)
-
-[arraylength](#arraylength) [extractjson](#extractjson) [parsejson](#parsejson) [range](#range) [treepath](#treepath) [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
+<br/>
+[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 Dynamic type means that an object might be of any type: its type is determined at run time. The elements in arrays and property bags have dynamic type - each element can have its own type.
 
-For example, here's the result of a query on an Application Insights event. The values in typeDimensions and typeMeasurements are dynamic.
+For example, here's the result of a query on an Application Insights event. The value in customDimensions is dynamic.
 
 ![](./media/app-analytics-scalars/310.png)
 
-In some cases, you must cast a dynamic value to an explicit type before using it. For example:
 
-    requests | summarize count()
-    by tostring(customMeasurements.Result)
+**To get the values out of this, you must convert it `todynamic`, and then cast the result:**
 
+    exceptions | take 1
+    | extend clientReqId = tostring(todynamic(customDimensions).ClientRequestId),
+             retries = toint(todynamic(customDimensions).RetryCount)
+
+`todynamic` is required because the structured object is sent in the telemetry as a JSON string. The outer cast (`toint` or `tostring` in this example) is required because when you get a field from a structured object, its type is not known to the compiler.
+
+It's sometimes difficult to see the paths you need to access a deeply structured object. Use [treepath](#treepath) to enumerate them.
 
 ### Dynamic literals
 
