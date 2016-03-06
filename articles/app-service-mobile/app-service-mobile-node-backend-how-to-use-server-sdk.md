@@ -652,13 +652,64 @@ authentication using the `table.access` property.
 
 You can also add the Swagger option to your `azureMobile.js` file if you only want Swagger support when developing locally.
 
+## <a name="push"></a>Push notifications
+Mobile Apps integrates with Azure Notification Hubs to enable you to send targeted push notifications to millions of devices across all major platforms. By using Notification Hubs, you can send push notifications to iOS, Android and Windows devices. To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
+
+### <a name="send-push"></a>How to: Send push notifications
+
+The following code shows how to use the push object to send a broadcast push notification to registered iOS devices:
+
+	// Create an APNS payload.
+    var payload = '{"aps": {"alert": "This is an APNS payload."}}';
+
+    // Only do the push if configured
+    if (context.push) {
+	    // Send a push notification using APNS.
+        context.push.apns.send(null, payload, function (error) {
+            if (error) {
+                // Do something or log the error. 
+	        }           
+        });
+    }
+
+By creating a template push registration from the client, you can instead send a template push message to devices on all supported platforms. The following code shows how to send a template notification:
+
+	// Define the template payload.
+	var payload = '{"messageParam": "This is a template payload."}'; 
+
+    // Only do the push if configured
+    if (context.push) {
+		// Send a template notification.
+        context.push.send(null, payload, function (error) {
+            if (error) {
+                // Do something or log the error.   
+            } 
+        });
+    }
+
+
+###<a name="push-user"></a>How to: Send push notifications to an authenticated user using tags
+When an authenticated user registers for push notifications, a user ID tag is automatically added to the registration. By using this tag, you can send push notifications to all devices registered by a specific user. The following code gets the SID of user making the request and sends a template push notification to every device registration for that user:
+
+    // Only do the push if configured
+    if (context.push) {
+		// Send a template notification to the current user.
+        context.push.send(context.user.id, payload, function (error) {
+            if (error) {
+                logger.error('Error while sending push notification: ', error);
+            } else {
+                logger.info('Push notification sent successfully!');
+            }
+        });
+    }
+
+When registering for push notifications from an authenticated client, make sure that authentication is complete before attempting registration. 
+
 ## <a name="CustomAPI"></a>Custom APIs
 
-In addition to the data access API via the /tables endpoint, Azure Mobile Apps can provide custom API coverage.  Custom APIs are defined in
-a similar way to the table definitions and can access all the same facilities, including authentication.
+In addition to the data access API via the /tables endpoint, Azure Mobile Apps can provide custom API coverage.  Custom APIs are defined in a similar way to the table definitions and can access all the same facilities, including authentication.
 
-If you wish to use App Service Authentication with a Custom API, you must configure App Service Authentication in the [Azure Portal] first.  For
-more details about configuring authentication in an  Azure App Service, review the Configuration Guide for the identity provider you intend to use:
+If you wish to use App Service Authentication with a Custom API, you must configure App Service Authentication in the [Azure Portal] first.  For more details about configuring authentication in an  Azure App Service, review the Configuration Guide for the identity provider you intend to use:
 
 - [How to configure Azure Active Directory Authentication]
 - [How to configure Facebook Authentication]
