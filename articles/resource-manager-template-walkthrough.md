@@ -27,7 +27,7 @@ Let's take a look at a common architecture:
 
 ![architecture](./media/resource-group-overview/arm_arch.png)
 
-The full template can be found in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) directly though this [link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules).
+The full template can be found in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) directly in this [link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules).
 
 Skipping the parameters and variables section of the template, we will go through each resource definition in the resources section.
 
