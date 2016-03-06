@@ -25,7 +25,7 @@
 - Deploy a Resource Group
 - Deploy a Storage Account
 - Deploy a Virtual Network & Subnet
-- Configure a Network Security Group & rules
+- Configure a Network Security Group and inbound rules
 - Assign a public IP to the NIC
 - Assign the NSG to the NIC
 - Deploy a Ubuntu 14.04 LTS VM
@@ -35,8 +35,7 @@
 - Azure Account
   - [Get a free trial.](https://azure.microsoft.com/pricing/free-trial/) 
   - [Azure Portal](https://portal.azure.com)
-- A JSON parsing tool
-  - [jq](https://stedolan.github.io/jq/)
+- A JSON parsing tool: this example uses [jq](https://stedolan.github.io/jq/)
 
 
 ## Introduction
@@ -51,7 +50,7 @@ Let's build a simple network with a VM useful to development and simple compute,
 
 _The naming in this Quick Commands section has several examples that you would want to replace with your own settings, edit as needed._
 
-```
+```bash
 # Create the Resource Group
 azure group create TestRG westeurope
 
@@ -121,11 +120,11 @@ azure vm show testrg testvm
 ```
 
 
-## Detailed Walk Through
+## Detailed Walkthrough
 
 ### Create resource group and choose deployment locations 
 
-Azure Resource Groups are logical deployment entities that contain configuration and other metadata to enable deployments, but they do not 
+Azure Resource Groups are logical deployment entities that contain configuration and other metadata to enable logical management of resource deployments.
 
     azure group create TestRG westeurope                        
     info:    Executing command group create
@@ -177,9 +176,9 @@ Here we use the `azure storage account create` command, passing the location of 
     data:
     info:    group show command OK
     
-Let's use the [jq](https://stedolan.github.io/jq/) tool (you can use jsawk or any language library you prefer to parse the JSON) along with the --json Azure CLI option to examine our resource group using the `azure group show` command.
+Let's use the [jq](https://stedolan.github.io/jq/) tool (you can use **jsawk** or any language library you prefer to parse the JSON) along with the `--json` Azure CLI option to examine our resource group using the `azure group show` command.
 
-    azure group show testrg --json | jq '.'                                                                                        [16:24:51]
+    azure group show testrg --json | jq '.'                                                                                        
     {
       "tags": {},
       "id": "/subscriptions/<guid>/resourceGroups/TestRG",
@@ -212,7 +211,7 @@ To investigate the storage account using the CLI, you need to first set the acco
 
         AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show computeteststore --resource-group testrg --json | jq -r '.string')"
 
-Then you'll be able to view your storage information very easily:
+Then you'll be able to view your storage information easily:
 
         azure storage container list 
         info:    Executing command storage container list
@@ -431,11 +430,11 @@ Now we create your newtork security group (NSG) and the inbound rules that gover
 
         azure network nsg create testrg testnsg westeurope
 
-Let's add the inbound rule for the nsg:
+Let's add the inbound rule for the nsg to allow inbound connections on port 22 (to support SSH):
 
         azure network nsg rule create --protocol tcp --direction inbound --priority 1000  --destination-port-range 22 --access allow testrg testnsg testnsgrule
 
-> [AZURE.NOTE] Unlike classic deployments, the inbound rule says what inbound requests on which ports will be passed through. In this example, we will bind the NSG to the VMs virtual network interface card (nic), which means that any request to port 22 will be passed through to the nic on our VM. Unlike classic deployments, there is no endpoint mapping because 
+> [AZURE.NOTE] The inbound rule is a filter for inbound network connections. In this example, we will bind the NSG to the VMs virtual network interface card (nic), which means that any request to port 22 will be passed through to the nic on our VM. Because this is a rule about a network connection -- and not an endpoint as in classic deployments -- to open a port, you must leave the `--source-port-range` set to '\*' (the default value) in order to accept inbound requests from **any** requesting port, which are typically dynamic. 
 
 ### Create your Public IP address (PIP)
 
@@ -537,7 +536,7 @@ Bind the NSG to the NIC:
 
 ### Create your Linux VM
 
-You've created the storage and network resources to support an internet accessible VM. Now let's create that VM, and secure it with an ssh key with no password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We'll locate that image information using `azure vm image list`, as described [here](resource-groups-vm-searching.md). We seleted an image using the command `azure vm image list westeurope canonical | grep LTS`, and in this case we'll use `canonical:UbuntuServer:14.04.3-LTS:14.04.201509080`, but for the last field we'll pass `latest` so that in the future we always get the most recent build (the string we use will be `canonical:UbuntuServer:14.04.3-LTS:latest`).
+You've created the storage and network resources to support an internet accessible VM. Now let's create that VM, and secure it with an ssh key with no password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We'll locate that image information using `azure vm image list`, as described in [finding Azure VM images](resource-groups-vm-searching.md). We seleted an image using the command `azure vm image list westeurope canonical | grep LTS`, and in this case we'll use `canonical:UbuntuServer:14.04.3-LTS:14.04.201509080`, but for the last field we'll pass `latest` so that in the future we always get the most recent build (the string we use will be `canonical:UbuntuServer:14.04.3-LTS:latest`).
 
 > [AZURE.NOTE] This next step is familiar to anyone who has already created an ssh rsa public and private key pair on Linux or Mac using **ssh-keygen -t rsa -b 2048**. If you do not have any certificate key pairs in your `~/.ssh` directory, you can either create them:
 <br />
@@ -562,7 +561,7 @@ We create the VM by bringing all of our resources and information together with 
         --admin-username ops
         info:    Executing command vm create
         + Looking up the VM "testvm"
-        info:    Verifying the public key SSH file: /Users/rasquill/.ssh/id_rsa.pub
+        info:    Verifying the public key SSH file: /Users/user/.ssh/id_rsa.pub
         info:    Using the VM Size "Standard_A1"
         info:    The [OS, Data] Disk or image configuration requires storage account
         + Looking up the storage account computeteststore
@@ -575,7 +574,7 @@ We create the VM by bringing all of our resources and information together with 
 
 Immediately, you can connect to your vm using your default ssh keys.
 
-        ssh ops@testsubdomain.westeurope.cloudapp.azure.com -p 22            
+        ssh ops@testsubdomain.westeurope.cloudapp.azure.com           
         The authenticity of host 'testsubdomain.westeurope.cloudapp.azure.com (XX.XXX.XX.XXX)' can't be established.
         RSA key fingerprint is b6:a4:7g:4b:cb:cd:76:87:63:2d:84:83:ac:12:2d:cd.
         Are you sure you want to continue connecting (yes/no)? yes
@@ -609,7 +608,7 @@ Immediately, you can connect to your vm using your default ssh keys.
         
         ops@testvm:~$
 
-And you can now use the `azure vm show testrg testvm` command t examine what you've created. At this point, you have a running Ubuntu VM in Azure that you can only log into with the ssh key pair that you have; passwords are disabled.
+And you can now use the `azure vm show testrg testvm` command to examine what you've created. At this point, you have a running Ubuntu VM in Azure that you can only log into with the ssh key pair that you have; passwords are disabled.
 
         azure vm show testrg testvm 
         info:    Executing command vm show
