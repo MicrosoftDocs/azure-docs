@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
-# Automatic device registration with Azure Active Directory for Windows Domain-Joined Devices
+# Automatic device registration with Azure Active Directory for Windows domain-joined devices
 
 As an IT Administrator, you can choose to automatically and silently register your domain-joined Windows devices with Azure Active Directory (Azure AD). This can be useful if you have configured device based conditional access polices to Office365 applications or applications managed on-premises by AD FS. You can learn more about the device registration scenarios by reading the [Azure Active Directory Device Registration Overview](active-directory-conditional-access-device-registration-overview.md).
 
@@ -24,7 +24,7 @@ Automatic Device Registration with Azure Active Directory is available for Windo
 
 To begin registering your domain joined Windows devices with Azure AD, follow the prerequisites below. Once you complete the prerequisites, configure automatic device registration for your domain joined Windows devices.
 
-## Prerequisites for Automatic Device Registration of Domain Joined Windows devices with Azure Active Directory
+## Prerequisites for Automatic device registration of domain joined Windows devices with Azure Active Directory
 
 Deploy AD FS and connect to Azure Active Directory using Azure Active Directory Connect
 ----------------------------------------------------------------------------------------------
@@ -87,6 +87,8 @@ Configure Automatic Device Registration for your Windows 7 and Windows 8.1 domai
 
 * [Configure Automatic Device Registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
+* [Automatic device registration with Azure Active Directory for Windows 10 Domain-Joined Devices](active-directory-azureadjoin-devices-group-policy.md)
+
 Additional Notes
 --------------------------------------------------------------------
 
@@ -101,3 +103,4 @@ You can learn more about deploying device registration with AD FS [here](https:/
 - [Azure Active Directory Device Registration overview](active-directory-conditional-access-device-registration-overview.md)
 - [Configure automatic device registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md)
 - [Configure automatic device registration for Windows 8.1 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Automatic device registration with Azure Active Directory for Windows 10 domain-joined devices](active-directory-azureadjoin-devices-group-policy.md)
