@@ -46,6 +46,7 @@ This article assumes that you have already installed an Oracle Linux operating s
 
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
+- Make sure that the `Addons` repository is enabled. Edit the file `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux ), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
 
 ## <a id="oracle6"> </a> Oracle Linux 6.4+ ##
 
@@ -107,7 +108,7 @@ You must complete specific configuration steps in the operating system for the v
 
 10.	Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
-11. Install the Azure Linux Agent by running the following command:
+11. Install the Azure Linux Agent by running the following command. The latest version is 2.0.15.
 
 		# sudo yum install WALinuxAgent
 
@@ -212,7 +213,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 
 13.	Do not create swap space on the OS disk.
 
-	The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+	The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see the previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
