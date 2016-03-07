@@ -3,7 +3,7 @@
    description="How to get started with the Azure Active Directory Reporting API"
    services="active-directory"
    documentationCenter=""
-   authors="dsk-2015"
+   authors="dhanyahk"
    manager="stevenpo"
    editor=""/>
 
