@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Near Real Time Proactive Diagnostics
@@ -27,7 +27,7 @@ Here's a sample alert:
 
 ![Sample Intelligent Alert showing cluster analysis around failure](./media/app-insights-nrt-proactive-diagnostics/010.png)
 
-To get failure alerts, you must set up [Application Insights for your ASP.NET](app-insights-asp-net.md) or [for your Java web app](app-insights-java-get-started.md).
+Proactive diagnostics are switched on as soon as you set up [Application Insights for your project](app-insights-get-started.md).
 
 ## How it works
 

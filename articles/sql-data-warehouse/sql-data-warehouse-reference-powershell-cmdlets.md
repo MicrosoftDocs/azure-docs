@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/22/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;mausher;sonyama"/>
 
 # Using PowerShell cmdlets and REST APIs with SQL Data Warehouse
 
-SQL Data Warehouse can be managed using either Azure PowerShell cmdlets or REST APIs. 
+SQL Data Warehouse can be managed using either Azure PowerShell cmdlets or REST APIs.
 
 The commands defined for **Azure SQL Database** are also used for **SQL Data Warehouse**. For a current list, see [Azure SQL Cmdlets](https://msdn.microsoft.com/library/mt574084.aspx). The cmdlets **Suspend-AzureRmSqlDatabase** and **Resume-AzureRmSqlDatabase** (below) are additions designed for SQL Data Warehouse.
 
@@ -26,7 +26,7 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
 
 ## Get and run the Azure PowerShell cmdlets
 
-1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
+1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 2. To run the module, at the start window type **Windows PowerShell**.
 3. If you have not already added your account to the machine, run the following cmdlet. (For more information, see [How to install and configure Azure PowerShell]():
 
@@ -76,7 +76,7 @@ Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "
 
 ### Example 2: Resuming a database object
 
-This example retrieves a database named "Database02" from a server named "Server01" that is contained in a resource group named "ResourceGroup1." The object is piped to **Resume-AzureRmSqlDatabase**. 
+This example retrieves a database named "Database02" from a server named "Server01" that is contained in a resource group named "ResourceGroup1." The object is piped to **Resume-AzureRmSqlDatabase**.
 
 ```
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
@@ -97,7 +97,7 @@ RestorePointCreationDate |Backup Snapshot Time (Populated when restorePointType 
 ### Example 1: Retrieving a database’s restore points by name on a server
 This example retrieves the restore points for a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1."
 
-```	
+```
 $restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints
 ```
