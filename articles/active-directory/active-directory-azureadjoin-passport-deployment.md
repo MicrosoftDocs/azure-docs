@@ -26,7 +26,8 @@ To deploy user certificates based on Microsoft Passport keys, you need the follo
 
 - **System Center Configuration Manager version 1509 for Technical Preview**. For more information, see [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update). and [System Center Configuration Manager Team Blog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
 - **PKI infrastructure**: To enable Microsoft Passport for Work using user certificates you must have a PKI infrastructure in place. If you don’t have one or you don’t want to use it for user certificates you can deploy a domain controllers (DC) of the new version of Windows Server:
- - **Deploy a DC of new version of Windows Server**: On a brand new Windows Server build 10551 or newer (The ISOs are available for download on [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true)) follow the steps to [install a replica DC in an existing domain](https://technet.microsoft.com/en-us/library/jj574134.aspx) or to [install a new Active Directory forest if creating a brand new environment](https://technet.microsoft.com/library/jj574134.aspx).
+ - **Deploy a DC of new version of Windows Server**: On a brand new Windows Server build 10551 or newer (The ISOs are available for download on [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true)) follow the steps to [install a replica DC in an existing domain](https://technet.microsoft.com/library/jj574134.aspx) or to [install a new Active Directory forest if creating a brand new 
+ - environment](https://technet.microsoft.com/library/jj574134.aspx).
 
 ## Configure Microsoft Passport for work via Group Policy in Active Directory
 
