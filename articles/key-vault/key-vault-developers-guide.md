@@ -19,12 +19,13 @@
 
 > [AZURE.VIDEO azure-key-vault-developer-quick-start]
 
-Using Key Vault, you can securely access sensitive information from within your application in such scenarios as:
+Using Key Vault, you will be able to securely access sensitive information from within your applications in such that:
 
-- An application for Azure that uses keys for signing and encryption, yet keeps the key management external from my application so that the solution is suitable for an application that is geographically distributed. The keys and secrets will be protected, without having to write the code yourself, and you will be easily able to use them from your applications, with optimal performance.
-- You'll be able to have your customers own and manage their own keys so you can concentrate on providing the core software features. In this way you will not have the responsibility or potential liability for your customers’ tenant keys and secrets.
-- Your organization will be in control of the key life cycle and can monitor key usage such that your applications can comply with FIPS 140-2 Level 2 HSMs for secure key management.
-- Although you may use multiple Azure services and resources, you will be able to manage keys from a single location in Azure.
+- An application for Azure can uses keys for signing and encryption, yet keeps the key management external from your application so that the solution is suitable for an application that is geographically distributed.
+- Keys and secrets will be protected, without having to write the code yourself and, you will be easily able to use them from your applications, with optimal performance.
+- You'll be able to have your customers own and manage their own keys so you can concentrate on providing the core software features. In this way your applications will not own the responsibility or potential liability for your customers’ tenant keys and secrets.
+- Your customer's organization will be in control of the key life cycle and can monitor key usage such that your applications can comply with FIPS 140-2 Level 2 HSMs for secure key management.
+- Although your customers may use multiple Azure services and resources, they will be able to manage their keys from a single location in Azure.
 
 For more general information on Azure Key Vault see [What is Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/)
 
