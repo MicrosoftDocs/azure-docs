@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Easy application management and installation in Azure Batch | Microsoft Azure"
+	pageTitle="Easy application installation and management in Azure Batch | Microsoft Azure"
 	description="Use the Applications feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes."
 	services="batch"
 	documentationCenter=".net"
@@ -16,9 +16,9 @@
 	ms.date="03/04/2016"
 	ms.author="marsma" />
 
-# Easy application installation and management with Azure Batch application packages
+# Install and manage task applications with Azure Batch application packages
 
-The application packages feature of Azure Batch provides easy management and deployment of applications that your tasks execute in Batch. With application packages, you can easily upload and manage multiple versions of applications in Batch, including binaries and their support files, then automatically install one or more of these applications on the compute nodes in your pool.
+The application packages feature of Azure Batch provides easy management and deployment of applications for your jobs' tasks. With application packages, you can easily upload and manage multiple versions of your task applications, including binaries and support files, then automatically deploy one or more of these applications to the compute nodes in your pool.
 
 In this article, you will learn how to upload and manage application packages using the Azure Portal, then install them on a pool's compute nodes using the [Batch .NET][api_net] library.
 
@@ -26,7 +26,7 @@ In this article, you will learn how to upload and manage application packages us
 
 Application packages can simplify the code in your Batch solution, as well as lower the overhead required in managing the applications your tasks run.
 
-With application packages, your pool's start task doesn't have to specify a huge list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of these files in Azure Storage, or on your nodes. And you don't need to worry about generating SAS URLs to provide secure access to the files in Azure Storage.
+With application packages, your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of these files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide secure access to the files in Azure Storage.
 
 Because Batch handles the details of working with Azure Storage in the background to securely store and deploy your application packages to compute nodes, both your code and your management overhead can be simplified.
 
@@ -40,21 +40,21 @@ Within Azure Batch, an **application** refers to a set of versioned binaries tha
 
 ### Applications
 
-An application in Batch contains one or more application packages, and also specifies configuration options for the application, such as the default application package to install on compute nodes when no version is specified.
+An application in Batch contains one or more application packages. It specifies configuration options for the application such as the default application package to install on compute nodes, and whether its packages may be updated or deleted.
 
 ### Application packages
 
-An application packages is a ZIP file containing the application binaries and supporting files required for execution of the application by your tasks. When you create a pool in the Batch service, you can specify one of these applications and (optionally) a version, and that application package will be downloaded and extracted onto each node as it joins the pool. You can also specify more than one application package if you wish to install multiple applications.
+An application package is a ZIP file containing the application binaries and supporting files required for execution by your tasks. Each application package represents a specific version of the application. When you create a pool in the Batch service, you can specify one or more of these applications and (optionally) a version, and those application packages will be downloaded automatically and extracted onto each node as the node joins the pool.
 
 > [AZURE.IMPORTANT] There are restrictions on the number of applications and application packages within a Batch account, as well as the maximum application package size. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details on these limits.
 
 ## Upload and manage applications
 
-Using the Azure portal, you can add, update, and delete application packages, configure default application package versions for each application, and delete application packages you no longer need. At the time of this writing, application management is supported only in the Azure portal.
+Using the Azure portal, you can add, update, and delete application packages, and configure default versions for each application. While application management is supported only in the Azure portal at the time of this writing, additional methods including programmatic management using the [Batch Management .NET](batch-management-dotnet.md) library will be supported in the future.
 
-In the next few sections, we'll go over the various application package management features available in the Azure portal.
+In the next few sections we'll go over the various application package management features available in the Azure portal.
 
-> [AZURE.WARNING] Because Batch stores your application packages in Azure Storage, you are charged as you would be for any other blob data in Storage. Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize cost.
+> [AZURE.WARNING] Because Batch stores your application packages using Azure Storage, you are [charged as normal][storage_pricing] for the block blob data. Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize cost.
 
 ### View current applications
 
@@ -69,34 +69,36 @@ This opens the Applications blade:
 The Applications blade displays the ID of each application in your account, as well as the following properties:
 
 * **Packages** - The number of versions associated with this application.
-* **Default Version** – If no version is specified for a pool's application, this version will be installed.
-* **Allow Updates** – If this is set to *No*, package update and delete is disabled for that application--only new application packages can be added.
+* **Default Version** – If you do not specify a version when setting the application for a pool, this version will be installed.
+* **Allow Updates** – If this is set to *No*, package updates and deletions are disabled for that application--only new application packages can be added.
 
 ### View application details
 
-Clicking on an application in the Applications blade displays the the details blade for that application.
+Clicking on an application in the *Applications* blade displays the details blade for that application.
 
 ![Application details][4]
 
 In the application details blade, you can configure the following settings for your application.
 
-* **Allow updates** - Specify whether its application packages can be updated or deleted (see *Update or Delete an application package* below).
+* **Allow updates** - Specify whether its application packages can be updated or deleted (see "Update or Delete an application package" below).
 * **Default version** - Specify a default application package to deploy to compute nodes. Setting this allows you to omit doing so when you create or update the properies of your pool--the version specified here will be deployed. This also allows you to change the version to install on your pools' compute nodes without having to modify any code. Note that if you do not specify a version in code, *and* also do not specify a version here, you will receive an HTTP error 403, as well as an InvalidApplicationPackageReferences error.
-* **Display name** - This is a "friendly" display name that your Batch solution can use when displaying information about the application, such as in a management application for your Batch solution, or UI that you provide your customers for a service you provide through Batch.
+* **Display name** - This is a "friendly" name that your Batch solution can use when displaying information about the application, such as in a management application for your Batch solution, or UI that you provide your customers for a service you provide through Batch.
 
 ### Add a new application
 
-To create a new application, add an application package using a new, unique application ID. The first application package that you add using the new application ID will also create the application. The new application package will appear in the application details pane.
+To create a new application, add an application package using a new, unique application ID. The first application package that you add using the new application ID will also create the new application.
 
-Click the **Add** button on the *Applications* blade to open the *New application blade*.
+Click the **Add** button on the *Applications* blade to open the *New application* blade.
 
 ![New application][5]
 
-The *New application blade* provides the following fields for specifying the settings for your new application and application package.
+The *New application* blade provides the following fields for specifying the settings for your new application and application package.
 
 **Metadata**
 
-Specifies additional metadata for your new application. You can either select to enter the application metadata (name, version), or upload a JSON file that contains your application metadata. Application metadata JSON is specified using the following format:
+This provides an optional method for supplying the application ID and package version. You can either supply the application metadata manually, or upload a JSON file that contains the metadata. When you use the Metadata method to specify the ID and version, the "Application" and "Version" fields described below are populated automatically.
+
+Use the following JSON format to specify the application package metadata:
 
 ```
 {
@@ -105,9 +107,10 @@ Specifies additional metadata for your new application. You can either select to
 }
 ```
 
+
 **Application**
 
-Specifies the ID of your new application. Application IDs are subject to the standard Azure Batch ID validation rules:
+This specifies the ID of your new application. Application IDs are subject to the standard Azure Batch ID validation rules:
 
 * Can contain any combination of alphanumeric characters, including hyphens and underscores.
 * Cannot contain more than 64 characters.
@@ -125,41 +128,37 @@ Specifies the version of the application package you are uploading. Version stri
 
 **Application Package**
 
-Specifies the path to a ZIP file containing the application binaries and any support files required to execute the application. You may enter the path to the ZIP manually, or browse to the file by clicking the folder icon next to the *Select a file* text box.
+This specifies the path to a ZIP file containing the application binaries and any support files required to execute the application. You may enter the path to the ZIP file manually, or browse to the file by clicking the folder icon next to the "Select a file" text box.
 
-Once you've entered the required information, click "OK" button at the bottom of the *New application* blade and the file will begin uploading to Azure Storage. You will be notified and the blade will close once the upload has completed. Note that depending on the size of the file that you are uploading and the speed of your network connection, this operation may take some time.
-
-> [AZURE.NOTE] The [Batch Management .NET](batch-management-dotnet.md) library will allow programmatic management of applications and their packages in the near future.
+Once you've entered the required information, click the "OK" button at the bottom of the *New application* blade and the file will begin uploading to Azure Storage. When the upload operation completes, you will be notified and the blade will close. Note that depending on the size of the file that you are uploading and the speed of your network connection, this operation may take some time.
 
 ### Add a new application package
 
-To add a new application package to an existing application, select an application in the Applications blade, then click the "Add" button to display the *New application package* blade.
+To add a new application package to an existing application, select an application in the *Applications* blade, then click the "Add" button to display the *New application package* blade.
 
 ![New application package][8]
 
-As you can see, the fields in the *New application package* blade match those of the *New application* blade, except for the disabled *Application* text box that displays the ID of the selected application.
+As you can see, the fields in the *New application package* blade match those of the *New application* blade, except for the disabled *Application* text box that displays the ID of the selected application. As above, specify the version for your new package, supply a path to the ZIP file containing the application files, and click "OK" to upload the package.
 
 ### Update or Delete an application package
 
-Within the application details blade, click the ellipses on the application package and select the action you wish to perform.
+To update or delete an existing application package, open the details blade for the application, click the ellipses on the application package row you wish to modify, and select the action you wish to perform.
 
 ![Update or delete packages][7]
 
 **Update**
 
-When you click Update, the *Update application package* blade is displayed. This blade is similar to the *New application package* blade, however only the package selection field is enabled, allowing you to specify a new ZIP file to upload.
+When you click "Update", the *Update application package* blade is displayed. This blade is similar to the *New application package* blade, however only the package selection field is enabled, allowing you to specify a new ZIP file to upload.
 
 **Delete**
 
-When you click Delete, you are asked to confirm the deletion of the package, and Batch deletes the package from Storage.
-
-> [AZURE.IMPORTANT]
+When you click "Delete", you are asked to confirm the deletion of the package, and Batch deletes the package from Storage. If you delete the default version of an application, the default version setting is removed for the application.
 
 ## Install applications on compute nodes
 
-To install an application package on the compute nodes in a pool, you specify one or more application package *references* for a pool. In Batch .NET, you do so by adding one or more `ApplicationPackageReference` objects to the `CloudPool.ApplicationPackageReferences` property, either when you create the pool, or on an existing pool.
+To install an application package on the compute nodes in a pool, you specify one or more application package *references* for the pool. In Batch .NET, you do so by adding one or more `CloudPool.ApplicationPackageReferences` when you create the pool, or to an existing pool.
 
-The `ApplicationPackageReference` class specifies an application ID and version for installation on a pool's compute nodes.
+The `ApplicationPackageReference` class specifies an application ID and version to install on a pool's compute nodes.
 
 ```csharp
 // Create the unbound CloudPool
@@ -184,19 +183,19 @@ await myCloudPool.CommitAsync();
 
 ## Execute the installed applications
 
-As each compute node joins a pool, or is rebooted or reimaged, the packages you've specified are downloaded and extracted to a named directory within `AZ_BATCH_ROOT_DIR` on the node. Batch also creates an environment variable that your tasks should use when referencing the application's binaries in their command lines--this variable adheres to the following naming scheme:
+As each compute node joins a pool (or is rebooted or reimaged) the packages you've specified are downloaded and extracted to a named directory within `AZ_BATCH_ROOT_DIR` on the node. Batch also creates an environment variable for your task command lines to use when calling the application binaries--this variable adheres to the following naming scheme:
 
 `AZ_BATCH_APP_PACKAGE_appid#version`
 
-For example, if you have specified that application package 2.7 for an application with an ID of *blender* be installed, your tasks can access those binaries by referencing the following environment variable:
+For example, if you specify that version 2.7 of application *blender* be installed, your tasks can access its binaries by referencing the following environment variable in their command lines:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
-If your application specifies a default version, you have the added benefit of being able to reference a similar environment variable that omits the version. For example, if you have specified a default version of 2.7 for the *blender* application within the Azure portal, your tasks can reference the following environment variable:
+If your application specifies a default version, you have the added benefit referencing the environment variable without specifying the version string. For example, if you have specified default version 2.7 for the *blender* application within the Azure portal, your tasks can reference the following environment variable:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
-The follow code snippet shows how a task might be configured when a default version has been specified for the *blender* application.
+The following code snippet shows how a task might be configured when a default version has been specified for the *blender* application.
 
 ```csharp
 string taskId = "blendertask01";
@@ -210,9 +209,21 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 If you've already specified an application package for a pool, you can specify a new package for the existing pool. All new nodes that join the pool will install the newly specified package, as will any existing node that is rebooted or reimaged. Compute nodes that are already in the pool when you update the package references do not automatically install the new application package.
 
+In this example, the existing pool has version 2.7 of the *blender* application configured as one of its `CloudPool.ApplicationPackageReferences`. To update the pool's nodes with version 2.76b, specify a new `ApplicationPackageReference` with the new version, and commit the change.
+
 ```csharp
-// Code sample here.
+string newVersion = "2.76b";
+CloudPool boundPool = await batchClient.PoolOperations.GetPoolAsync("myPool");
+boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
+{
+    new ApplicationPackageReference {
+        ApplicationId = "blender",
+        Version = newVersion }
+};
+await boundPool.CommitAsync();
 ```
+
+Now that the new version has been configured, any *new* node joining the pool will have version 2.76b deployed to it. To install 2.76b on the nodes that are *already* in the pool, reboot (or reimage) them.
 
 ## List the applications in a Batch account
 
@@ -267,6 +278,7 @@ foreach (ApplicationSummary app in applications)
 [net_task_listsubtasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listsubtasks.aspx
 [net_task_listnodefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listnodefiles.aspx
 [poolops_getnodefile]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getnodefile.aspx
+[storage_pricing]: https://azure.microsoft.com/pricing/details/storage/
 
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
