@@ -3,7 +3,7 @@
 	description="How to search your Azure Active Directory's security, activity and audit reports"
 	services="active-directory"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dhanyahk"
 	manager="stevenpo"
 	editor=""/>
 
