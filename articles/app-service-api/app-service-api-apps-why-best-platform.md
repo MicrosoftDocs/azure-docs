@@ -40,7 +40,7 @@ API Apps provides the following features:
 
 In addition, the features offered by API Apps, Web Apps, and Mobile Apps are interchangeable. This means that an instance of API Apps can take advantage of features for web and mobile development and hosting that Web Apps and Mobile Apps offer. The reverse is also true: for example, you can use a web app to host an API and still take advantage of Swagger metadata for client code generation and CORS for cross-domain browser access. For more information, see the [Web Apps overview](../app-service-web/app-service-web-overview.md) and [Mobile Apps overview](../app-service-mobile/app-service-mobile-value-prop.md).
 
-## Azure API Management versus API Apps 
+## Augmenting API Apps by using Azure API Management 
 
 API Apps and [Azure API Management](../api-management/api-management-key-concepts.md) are complementary services:
 
