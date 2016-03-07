@@ -53,16 +53,18 @@ When using these steps for your environment, be sure to substitute the values fo
 
 In the steps below, you will create a VNet, add a gateway subnet, a gateway, a local site, and a connection. This is in addition to configuring your VPN device. When using these steps as an exercise, you can use the following values:
 
-<a name="values"/>**Values for TestVNet1:**
+
+
+<a name="values"/>**Configuration values for TestVNet1:**
 
 - VNet Name: TestVNet1
-- Resource Group: TestRG1
-- Location: East US
-- TestVNet1 Address Space: 10.11.0.0/16 & 10.12.0.0/16
+- TestVNet1 Address Space: 10.11.0.0/16 and 10.12.0.0/16
 - Subnets: 
 	- FrontEnd: 10.11.0.0/24
 	- BackEnd: 10.12.0.0/24
 	- GatewaySubnet: 10.12.255.0.0/27
+- Resource Group: TestRG1
+- Location: East US
 - DNS Server: 8.8.8.8
 - GatewayName: VNet1GW (not the same thing as a Gateway Subnet name)
 - Public IP: VNet1GWIP
@@ -70,8 +72,6 @@ In the steps below, you will create a VNet, add a gateway subnet, a gateway, a l
 - Connection: VNet1toVNet4
 - ConnectionType: Vpn
 - Local Site: VNet1GWLocal
-
-
 
 
 ## Create a virtual network 

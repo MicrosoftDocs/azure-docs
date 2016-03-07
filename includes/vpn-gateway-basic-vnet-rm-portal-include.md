@@ -22,12 +22,14 @@ To create a VNet based on the scenario above by using the Azure portal, follow t
 
 8. Once your VNet has been created, you can make changes to it such as adding additional address space, subnets, and DNS servers.
 
-9. To add additional address space to your VNet, in the blade for your VNet, click **Settings** to open the Settings blade. Then click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
+## Add additional address space and subnets to your VNet
 
-10. To add additional subnets to your address spaces, in the Settings blade, click **Subnets** to open the Subnets blade. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, then click **OK** at the bottom of the blade.
+1. To add additional address space to your VNet, in the blade for your VNet, click **Settings** to open the Settings blade. Then click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
+
+2. To add additional subnets to your address spaces, in the Settings blade, click **Subnets** to open the Subnets blade. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, then click **OK** at the bottom of the blade.
 
 	![Subnet settings](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
 
-10. To view the list of subnets:
+3. To view the list of subnets:
 
 	![List of subnets in VNet](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
