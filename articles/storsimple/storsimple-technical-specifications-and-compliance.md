@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/29/2016"
+   ms.date="03/07/2016"
    ms.author="alkohli" />
 
 # Technical specifications and compliance for the StorSimple device
@@ -77,7 +77,7 @@ The StorSimple devices have a mix of hard disk drives and solid state drives for
 | Maximum solution capacity (including cloud)    | 200 TB                                                  | 500 TB                                                  |
 
 
-<sup>* </sup>- *The total usable capacity includes the capacity available for customer data, metadata, and buffers for tiering.*
+<sup>* </sup>- *The total usable capacity includes the capacity available for data, metadata, and buffers.*
 
 ## Enclosure dimensions and weight specifications  
 
