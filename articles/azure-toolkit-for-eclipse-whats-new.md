@@ -28,8 +28,8 @@ This article contains information on the various releases and latest updates to 
 
 The Azure Toolkit for Eclipse - March 2016 release includes the following enhancements:
 
-* **Support for Quick Deployment of Lightweight Java Applications**. The Azure Toolkit for Eclipse now supports the rapid deployment of lightweight Java applications into Azure Web App Containers, so deploying Java applications now takes seconds instead of minutes.
-* **Support for Web App Management using the Azure Explorer view**. The Azure Explorer view in the toolkit now supports for listing, starting and stopping Azure Web Apps.
+* **Support for quick deployment of lightweight Java applications**. The Azure Toolkit for Eclipse now supports the rapid deployment of lightweight Java applications into Azure Web App Containers, so deploying Java applications now takes seconds instead of minutes.
+* **Support for Web App management using the Azure Explorer view**. The Azure Explorer view in the toolkit now supports for listing, starting and stopping Azure Web Apps.
 * **Updated Tomcat, Jetty, and Zulu OpenJDK distributions**. The Azure Toolkit for Eclipse provides support for updated versions of Tomcat, Jetty and Zulu OpenJDK for Java deployments into Azure cloud services.
 
 ### January 4, 2015
