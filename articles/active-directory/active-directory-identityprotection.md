@@ -24,8 +24,6 @@ Azure Active Directory Identity Protection is a security service that provides a
 > [AZURE.NOTE] The preview of Azure Active Directory Identity Protection is currently available only for directories with a **Country or Region** value of **United States**. <br><br>
 ![Remediation](./media/active-directory-identityprotection/222.png "Remediation")
 
-.
- 
 
 The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Attackers have become increasingly effective at leveraging third party breaches, and using sophisticated phishing attacks. Once an attacker gains access to even a low privileged user account, it is relatively straightforward for them to gain access to important company resources through lateral movement. It is therefore essential to protect all identities and, when an identity is compromised, proactively prevent the compromised identity from being abused. 
 
