@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/01/2016"
+   ms.date="03/07/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connecting to SQL Database By Using Azure Active Directory Authentication
@@ -134,11 +134,13 @@ The following procedures provide step by step instructions on how to change the 
 
 Each Azure SQL Server starts with a single server administrator account which is the administrator of the entire Azure SQL Server. A second server administrator must be created, that is an Azure AD account. This principal is created as a contained database user in the master database. As administrators, the server administrator accounts are members of the **db_owner** role in every user database, and enter each user database as the **dbo** user. For more information about the server administrator accounts, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md) and the **Logins and Users** section of [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
 
+When using Azure Active Directory with Geo-Replication, the Azure Active Directory administrator must be configured for both the primary and the secondary servers. If a server does not have an Azure Active Directory administrator, then Azure Active Directory logins and users will will receive a "Cannot connect" to server error.
+
 > [AZURE.NOTE] Users that are not based on an Azure AD account (including the Azure SQL Server administrator account) cannot create Azure AD based users because they do not have permission to validate proposed database users with the Azure AD.
 
-### Provision an Azure Active Directory administrator for your Azure SQL Server by using the Azure Classic Portal
+### Provision an Azure Active Directory administrator for your Azure SQL Server by using the Azure Portal
 
-1. In the [Azure Classic Portal](https://portal.azure.com/), in the upper-right corner, click your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription association with Active Directory with Azure SQL Database making sure that the same subscription is used for both Azure AD and SQL Server.
+1. In the [Azure Portal](https://portal.azure.com/), in the upper-right corner, click your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription association with Active Directory with Azure SQL Database making sure that the same subscription is used for both Azure AD and SQL Server.
 
 	![choose-ad][8]
 2. In the left banner select **SQL servers**, select your **SQL server**, and then in the **SQL Server** blade, at the top click **Settings**.
@@ -272,9 +274,9 @@ To create a contained database user representing an Azure AD federated or manage
 	CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;
 	CREATE USER [alice@fabrikam.onmicrosoft.com] FROM EXTERNAL PROVIDER;
 
-To create a contained database user representing an Azure AD or federated domain group:
+To create a contained database user representing an Azure AD or federated domain group, provide the display name of a security group:
 
-	CREATE USER [Nurses] FROM EXTERNAL PROVIDER;
+	CREATE USER [ICU Nurses] FROM EXTERNAL PROVIDER;
 
 
 For more information about creating contained database users based on Azure Active Directory identities, see [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
