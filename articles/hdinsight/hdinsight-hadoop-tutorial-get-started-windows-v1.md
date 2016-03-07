@@ -11,7 +11,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="02/25/2016"
@@ -29,6 +29,8 @@ To help you learn Hadoop on Windows and start using HDInsight, this tutorial sho
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
 * [Get started with Hadoop in HDInsight on Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## What does this Hadoop tutorial accomplish?
 
