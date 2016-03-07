@@ -27,7 +27,7 @@ Using Key Vault, you will be able to securely access sensitive information from 
 - Your customer's will be in control their key life cycle and can monitor key usage such that your applications can comply with FIPS 140-2 Level 2 HSMs for secure key management.
 - Your customers may use multiple Azure services and resources and they will be able to manage their keys from a single location in Azure.
 
-For more general information on Azure Key Vault, see [What is Key Vault](key-vault-whatis.md)
+For more general information on Azure Key Vault, see [What is Key Vault](key-vault-whatis.md).
 
 ## Creating and Managing Key Vaults
 
@@ -38,7 +38,7 @@ Before working with Azure Key Vaults in your code, you can create and manage vau
 - [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli.md)
 - [Create a key vault and add a secret via an ARM template](resource-manager-template-keyvault.md)
 
->[Azure NOTE] Operations against key vaults are authenticated through AAD and, authorization through Key Vault’s own Access Policy, defined per vault.
+>[AZURE.NOTE] Operations against key vaults are authenticated through AAD and, authorization through Key Vault’s own Access Policy, defined per vault.
 
 ## Coding with Key Vault
 
@@ -52,7 +52,7 @@ You can, subject to successful authorization, do the following:
 
 - Use cryptographic keys with [Sign](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[Verify](https://msdn.microsoft.com/library/azure/dn878082.aspx), [WrapKey](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[UnwrapKey](https://msdn.microsoft.com/library/azure/dn878079.aspx) and [Encrypt](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[Decrypt](https://msdn.microsoft.com/library/azure/dn878097.aspx) operations
 
-- The following SDKs are available:
+The following SDKs are available:
 
 |[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
@@ -60,7 +60,7 @@ You can, subject to successful authorization, do the following:
 |[.NET SDK Package](https://azure.microsoft.com/documentation/api/)|[Node.js SDK Package](https://www.npmjs.com/package/azure-keyvault)|
 
 
-For complete examples of using Key Vault with your applications, see:
+For complete **examples** of using Key Vault with your applications, see:
 
 - .NET sample application *HelloKeyVault* and an Azure web service example. [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343)
 - Tutorial to help you learn how to use Azure Key Vault from a web application in Azure. [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md)
