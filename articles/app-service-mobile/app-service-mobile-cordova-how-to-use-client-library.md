@@ -55,6 +55,8 @@ authentication experience, as it relies on the provider's web authentication int
 for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific
 device-specific SDKs.
 
+[AZURE.INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
+
 ##<a name="register-for-push"></a>How to: Register for Push Notifications
 
 Install the [phonegap-plugin-push] to handle push notifications.  This can be easily added using the `cordova plugin add`
