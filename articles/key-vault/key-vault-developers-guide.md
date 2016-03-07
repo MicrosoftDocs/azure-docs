@@ -21,10 +21,10 @@
 
 Using Key Vault, you will be able to securely access sensitive information from within your applications in such that:
 
-- An application for Azure can uses keys for signing and encryption, yet keeps the key management external from your application so that the solution is suitable for an application that is geographically distributed.
 - Keys and secrets will be protected, without having to write the code yourself and, you will be easily able to use them from your applications, with optimal performance.
 - You'll be able to have your customers own and manage their own keys so you can concentrate on providing the core software features. In this way your applications will not own the responsibility or potential liability for your customers’ tenant keys and secrets.
-- Your customer's organization will be in control of the key life cycle and can monitor key usage such that your applications can comply with FIPS 140-2 Level 2 HSMs for secure key management.
+- Your application can use keys for signing and encryption yet keeps the key management external from your application so that the solution is suitable for an application that is geographically distributed.
+- Your customer's will be in control their key life cycle and can monitor key usage such that your applications can comply with FIPS 140-2 Level 2 HSMs for secure key management.
 - Although your customers may use multiple Azure services and resources, they will be able to manage their keys from a single location in Azure.
 
 For more general information on Azure Key Vault see [What is Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/)
@@ -52,12 +52,13 @@ You can, subject to successful authorization, do the following:
 
 - Use cryptographic keys with [Sign](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[Verify](https://msdn.microsoft.com/library/azure/dn878082.aspx), [WrapKey](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[UnwrapKey](https://msdn.microsoft.com/library/azure/dn878079.aspx) and [Encrypt](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[Decrypt](https://msdn.microsoft.com/library/azure/dn878097.aspx) operations
 
-- The following SDKs are available
+- The following SDKs are available:
 
 |[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
 |[.NET SDK Documentation](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[.NET SDK Package](https://azure.microsoft.com/en-us/documentation/api/)|[Node.js SDK Package](https://www.npmjs.com/package/azure-keyvault)|
+
 
 For complete examples of using Key Vault with your applications, see:
 
