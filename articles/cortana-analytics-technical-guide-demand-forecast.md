@@ -46,7 +46,7 @@ For this template the data source used is generated from a desktop
 application that you will download and run locally after successful
 deployment. You will find the instructions to download and install this application in the properties bar when you select the first node called Energy Forecasting Data Simulator on the solution template diagram. This application feeds the [Azure Event Hub](#azure-event-hub) service
 with data points, or events, that will be used in the rest of the solution flow.
- 
+
 The event generation application will populate the Azure Event Hub only
 while it's executing on your computer.
 
@@ -127,18 +127,18 @@ will require modifications when a new dataset is introduced.
 
 ### Azure Event Hub
 
-The [Azure Event Hub](https://azure.microsoft.com/en-us/services/event-hubs/) service is very generic, such that data can be posted to the hub in either CSV or JSON format. No special processing occurs in the Azure Event Hub, but it is important you understand the data that is fed into it.
+The [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) service is very generic, such that data can be posted to the hub in either CSV or JSON format. No special processing occurs in the Azure Event Hub, but it is important you understand the data that is fed into it.
 
 This document does not describe how to ingest your data, but one can easily send events or data to an Azure Event Hub, using the [Event Hub
-API](https://azure.microsoft.com/en-us/documentation/articles/event-hubs-programming-guide/).
+API](event-hubs-programming-guide.md/).
 
 ### Azure Stream Analytics
 
-The [Azure Stream Analytics](https://azure.microsoft.com/en-us/services/stream-analytics/) service is used to provide near real-time analytics by reading from data streams and outputting data to any number of sources.
+The [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) service is used to provide near real-time analytics by reading from data streams and outputting data to any number of sources.
 
 For the Demand Forecasting for Energy Solution Template, the Azure Stream Analytics query consists of two sub-queries, each consuming events from the Azure Event Hub service as inputs and having outputs to two distinct locations. These outputs consist of one Power BI dataset and one Azure Storage location.
 
-The [Azure Stream Analytics](https://azure.microsoft.com/en-us/services/stream-analytics/) query can be found by:
+The [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) query can be found by:
 
 -   Logging into the [Azure management portal](https://manage.windowsazure.com/)
 
@@ -229,9 +229,9 @@ These [pipelines](data-factory-create-pipelines.md) contain several activities a
 The activities contained in this are:
 -	[HDInsightHive](data-factory-hive-activity.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a  Hive script to perform aggregations and feature engineering necessary for the Azure Machine Learning experiment. The Hive scripts for this task are respective ***PrepareMLInputRegionX.hql***.
 
--	[Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the results from the [HDInsightHive](data-factory-hive-activity.md) activity to a single Azure Storage blob that can be access by the  [AzureMLBatchScoring](https://msdn.microsoft.com/en-us/library/azure/dn894009.aspx) activity.
+-	[Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the results from the [HDInsightHive](data-factory-hive-activity.md) activity to a single Azure Storage blob that can be access by the  [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activity.
 
--	[AzureMLBatchScoring](https://msdn.microsoft.com/en-us/library/azure/dn894009.aspx) activity that calls the Azure Machine Learning experiment which results in the results being put in a single Azure Storage blob.
+-	[AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activity that calls the Azure Machine Learning experiment which results in the results being put in a single Azure Storage blob.
 
 #### *CopyScoredResultRegionXPipeline*
 These [pipelines](data-factory-create-pipelines.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the results of the Azure Machine Learning experiment from the respective ***MLScoringRegionXPipeline*** to the Azure SQL Database that was provisioned as part of the solution template installation.
@@ -324,7 +324,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 ### Setup Cold Path Dashboard
 In cold path data pipeline, the essential goal is to get the demand forecast of each region. Power BI connects to an Azure SQL database as its data source, where the prediction results are stored.
 
-> [AZURE.NOTE] 1) It takes few hours to collect enough forecast results for the dashboard. We recommend you start this process 2-3 hours after you lunch the data generator. 2) In this step, the prerequisite is to download and install the free software [Power BI desktop](https://powerbi.microsoft.com/en-us/desktop).
+> [AZURE.NOTE] 1) It takes few hours to collect enough forecast results for the dashboard. We recommend you start this process 2-3 hours after you lunch the data generator. 2) In this step, the prerequisite is to download and install the free software [Power BI desktop](https://powerbi.microsoft.com/desktop).
 
 
 
@@ -344,7 +344,7 @@ In cold path data pipeline, the essential goal is to get the demand forecast of 
 	the username and password previously recorded during deployment of the solution.
 
 2.	Update the data source of the cold path Power BI file
-	-  Make sure you have installed the latest version of [Power BI desktop](https://powerbi.microsoft.com/en-us/desktop).
+	-  Make sure you have installed the latest version of [Power BI desktop](https://powerbi.microsoft.com/desktop).
 
 	-	In the **"DemandForecastingDataGeneratorv1.0"** folder you downloaded, double click the **‘Power BI Template\DemandForecastPowerBI.pbix’** file. The initial visualizations are based on dummy data. **Note:** If you see an error massage, please make sure you have installed the latest version of Power BI Desktop.
 
