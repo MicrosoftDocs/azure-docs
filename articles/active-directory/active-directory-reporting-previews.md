@@ -3,7 +3,7 @@
    description="Azure Active Directory Reports in Public and Private Preview"
    services="active-directory"
    documentationCenter=""
-   authors="dsk-2015"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
