@@ -38,7 +38,7 @@ Before working with Azure Key Vaults in your code, you can create and manage vau
 - [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli.md)
 - [Create a key vault and add a secret via an ARM template](resource-manager-template-keyvault.md)
 
->[AZURE.NOTE] Operations against key vaults are authenticated through AAD and, authorization through Key Vault’s own Access Policy, defined per vault.
+>[AZURE.NOTE] Operations against key vaults are authenticated through AAD and authorized through Key Vault’s own Access Policy, defined per vault.
 
 ## Coding with Key Vault
 
