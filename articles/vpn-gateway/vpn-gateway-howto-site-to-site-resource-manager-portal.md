@@ -61,7 +61,7 @@ In the steps below, you will create a VNet, add a gateway subnet, a gateway, a l
 - Subnets: 
 	- FrontEnd: 10.11.0.0/24
 	- BackEnd: 10.12.0.0/24
-	- GatewaySubnet: 10.12.255.0.0/27
+	- GatewaySubnet: 10.12.255.0/27
 - Resource Group: TestRG1
 - Location: East US
 - DNS Server: 8.8.8.8
@@ -89,11 +89,11 @@ If you are doing this as an exercise, refer to these [values](#values) when spec
 
 ### Create a gateway subnet
 
-Before connecting your virtual network to a gateway, you'll first need to create the gateway subnet for the virtual network to which you want to connect. The gateway subnet you create must be named *GatewaySubnet* or it will not work properly.
+Before connecting your virtual network to a gateway, you'll first need to create the gateway subnet for the virtual network to which you want to connect. The gateway subnet you create must be named *GatewaySubnet* or it will not work properly. If you are going through these steps as an exercise, refer to these [values](#values) when creating your gateway subnet.
 
-**Important:** The gateway subnet prefix for some configurations requires a subnet of /28 or larger in order to accommodate the number of IP addresses needed in the pool. This means the gateway subnet prefix needs to be /28, /27, /26 etc. You may want to create a larger subnet here in order to accommodate possible future configuration additions.
+The gateway subnet prefix for some configurations requires a subnet of /28 or larger in order to accommodate the number of IP addresses needed in the pool. This means the gateway subnet prefix needs to be /28, /27, /26 etc. You may want to create a larger subnet here in order to accommodate possible future configuration additions.
 
-If you are doing this as an exercise, refer to these [values](#values) when creating your gateway subnet.
+
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
