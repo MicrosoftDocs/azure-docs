@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create and configure a VM | Microsoft Azure"
+	pageTitle="Create a VM with Powershell | Microsoft Azure"
 	description="Create and configure an Azure virtual machine with the Powershell and the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="03/04/2016"
 	ms.author="cynthn"/>
 
 # Create and configure a Windows Virtual Machine with Resource Manager and Azure PowerShell
@@ -38,11 +38,13 @@ These steps follow a fill-in-the-blanks approach for creating Azure PowerShell c
 
 ## Step 1: Install Azure PowerShell
 
-[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
+There are two main options for installation, [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) and [WebPI](http://aka.ms/webpi-azps). WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. 
+
+For more information, see [Azure Powershell 1.0](https://azure.microsoft.com/en-us/blog/azps-1-0/).
 
 ## Step 2: Set your subscription
 
-First, start an Azure PowerShell prompt.
+First, start a PowerShell prompt.
 
 Login to your account.
 
@@ -50,7 +52,7 @@ Login to your account.
 
 Get your subscription name using the following command.
 
-	Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
 Set your Azure subscription. Replace everything within the quotes, including the < and > characters, with the correct names.
 
@@ -75,10 +77,6 @@ You can use this command to list your existing resource groups.
 
 	Get-AzureRmResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
-To see a list of the Azure locations where you can create Resource Manager-based virtual machines.
-
-	$loc=Get-AzureRmLocation | where { $_.Name –eq "Microsoft.Compute/virtualMachines" }
-	$loc.Locations
 
 ### Storage account
 
@@ -93,7 +91,7 @@ VMs created with the Resource Manager deployment model require a Resource Manage
 
 You must pick a globally unique name for your storage account that contains only lowercase letters and numbers. You can use this command to list the existing storage accounts.
 
-	Get-AzureRmStorageAccount | Sort Name | Select Name
+	Get-AzureRmStorageAccount
 
 To test whether a chosen storage account name is globally unique, you need to run the **Test-AzureName** command.
 
@@ -394,3 +392,4 @@ Here is the Azure PowerShell command set to create this virtual machine.
 [Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-windows-ps-template.md)
 
 [How to install and configure Azure PowerShell](../powershell-install-configure.md)
+

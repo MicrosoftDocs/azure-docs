@@ -1,6 +1,6 @@
 <properties
-   pageTitle="What is Microsoft Azure?"
-   description="Describes services related to infrastructure for Azure Compute."
+   pageTitle="Azure and Linux | Microsoft Azure"
+   description="Describes Azure Compute, Storage, and Networking services with Linux virtual machines."
    services="virtual-machines-linux"
    documentationCenter="virtual-machines-linux"
    authors="rickstercdn"
@@ -16,7 +16,7 @@
    ms.date="02/01/2016"
    ms.author="rickstercdn"/>
 
-# What is Microsoft Azure
+# Azure and Linux
 Microsoft Azure is a growing collection of integrated public cloud services including analytics, Virtual Machines, databases, mobile, networking, storage, and web — ideal for hosting your solutions.  Microsoft Azure provides a scalable computing platform that allows you to only pay for what you use, when you want it - without having to invest in on premises hardware.  Azure is ready when you are to scale your solutions up and out to whatever scale you require to service the needs of your clients.
  
 ## Azure Virtual Machines
