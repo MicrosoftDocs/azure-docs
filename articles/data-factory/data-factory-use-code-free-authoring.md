@@ -22,6 +22,7 @@
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
+- [Using code-free authoring](data-factory-use-code-free-authoring.md)
 
 
 > [AZURE.IMPORTANT] 
