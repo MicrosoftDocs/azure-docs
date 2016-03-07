@@ -11,10 +11,10 @@
 <tags
 	ms.service="virtual-machines-linux"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="01/20/2016"
+	ms.date="03/07/2016"
 	ms.author="dkshir"/>
 
 # Different ways to create a Linux virtual machine with Resource Manager
@@ -31,17 +31,17 @@ Azure Resource Manager templates were recently introduced as a way to create and
 
 The graphical user interface of the [Azure portal](https://portal.azure.com) is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use the Azure portal to create the VM:
 
-[Create a virtual machine running Linux using the Azure portal](virtual-machines-linux-portal-create.md) 
+* [Create a virtual machine running Linux using the Azure portal](virtual-machines-linux-portal-create.md) 
 
 ### Command shell: Azure CLI 
 
 If you prefer working in a command shell, use the Azure command-line interface (CLI) for Mac, Linux and Windows users.
 
-For Azure CLI, see:
+For Azure CLI, see these tutorials:
 
-* [Create a Linux virtual machine](virtual-machines-linux-cli-create.md) 
+* [Create a Linux VM from the CLI for dev and test](virtual-machines-linux-quick-create-cli.md) 
 
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md)
+* [Create a secured Linux VM using an Azure template](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
 ## Operating system and image choices
 
@@ -63,9 +63,6 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 
 ## Next steps
 
-[Add a data disk](virtual-machines-linux-add-disk.md)
+* Try one of the tutorials to create a Linux VM from the [portal](virtual-machines-linux-portal-create.md), with the [CLI](virtual-machines-linux-quick-create-cli.md), or using an Azure Resource Manager [template](virtual-machines-linux-cli-deploy-templates).
 
-## Additional resources
-
-[Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows](virtual-machines-linux-cli-manage.md)
-
+* After creating a Linux VM, you can easily [add a data disk](virtual-machines-linux-add-disk.md).
