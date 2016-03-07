@@ -7,5 +7,6 @@ To create a gateway subnet in the Azure portal, do the following:
 5. Add the IP **address range** for your gateway. Please verify the gateway subnet setting is correct for your configuration.
 6. Click **OK** to create the subnet.
 
-	![Gateway Subnet](./media/vpn-gateway-add-gwsubnet-rm-portal/gwsubnet.png)
+	![Gateway Subnet](./media/vpn-gateway-add-gwsubnet-rm-portal/gwsub.png)
+
 
