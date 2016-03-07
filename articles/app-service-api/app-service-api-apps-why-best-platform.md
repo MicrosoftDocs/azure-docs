@@ -49,7 +49,7 @@ API Apps and [Azure API Management](../api-management/api-management-key-concept
 
 You can use API Management to manage APIs that are hosted by API Apps, or you can use API Apps without API Management. 
 
-Some features of API Management and API Apps have similar functions.  For example, both can automate CORS support. When you use the two services together, you would use API Mnagement for CORS since it functions as the front end to your API apps. 
+Some features of API Management and API Apps have similar functions.  For example, both can automate CORS support. When you use the two services together, you would use API Management for CORS since it functions as the front end to your API apps. 
 
 ## <a id="concepts"></a> API Apps concepts
 
