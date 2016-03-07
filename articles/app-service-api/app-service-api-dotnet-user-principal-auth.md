@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.topic="article"
+	ms.date="03/04/2016"
 	ms.author="tdykstra"/>
 
 # User authentication for API Apps in Azure App Service
@@ -32,7 +32,7 @@ The article contains two sections:
 
 * The [How to configure user authentication in Azure App Service](#authconfig) section explains in general how to configure user authentication for any API app and applies equally to all frameworks supported by App Service, including .NET, Node.js, and Java.
 
-* The [remainder of the article](#tutorialstart) guides you through configuring a .NET sample application running in App Service so that it uses Azure Active Directory for user authentication. 
+* Starting with the [Continuing the .NET getting-started tutorials](#tutorialstart) section, the article guides you through configuring a sample application with a .NET back end and an AngularJS front end so that it uses Azure Active Directory for user authentication. 
 
 ## <a id="authconfig"></a> How to configure user authentication in Azure App Service
 
@@ -90,6 +90,8 @@ At this point you have the application running in Azure App Service without requ
 * Create an Azure AD application.
 * Configure the Azure AD application to send the bearer token after logon to the AngularJS front end. 
 
+If you run into problems while following the tutorial directions, see the [Troubleshooting](#troubleshooting) section at the end of the tutorial. 
+ 
 ### Configure authentication in App Service
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to the **API App** blade of the API app that you created for the ToDoListAPI project.
@@ -151,6 +153,8 @@ Now only users in your Azure AD tenant can call the API app.
 ### Configure the Azure AD application
 
 When you configured Azure AD authentication, App Service created an Azure AD application for you. By default the new Azure AD application was configured to provide the bearer token to the API app's URL. In this section you configure the Azure AD application to provide the bearer token to the AngularJS front end instead of directly to the middle tier API app. The AngularJS front end will send the token to the API app when it calls the API app.
+
+>[AZURE.NOTE] To keep the process as simple as possible, this tutorial uses a single Azure AD application for both the front end and the middle tier API app. Another option is to use two Azure AD applications. In that case you would have to give the front end's Azure AD application permission to call the middle tier's Azure AD application. This multi-application approach would give you more granular control over permissions to each tier.
 
 11. In the [Azure classic portal](https://manage.windowsazure.com/), go to **Azure Active Directory**.
 
@@ -260,7 +264,7 @@ Make the following changes to files in the ToDoListAngular project.
 
 9. Click **Publish**.
 
-	Visual Studio deploys the project and opens a browser to the web app's base URL.
+	Visual Studio deploys the project and opens a browser to the web app's base URL. This will show a 403 error page, which is normal for an attempt to go to a Web API base URL from a browser.
 
 	You still have to make a change to the middle tier API app before you can test the application.
 
@@ -275,6 +279,8 @@ Make the following changes in the ToDoListAPI project.
 1. Open the *Controllers/ToDoListController.cs* file, and uncomment the line in each action method that sets `owner` to the Azure AD `NameIdentifier` claim value. For example:
 
 		owner = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier).Value;
+
+	**Important**: Don't uncomment code in the `ToDoListDataAPI` method; you'll do that later for the service principal authentication tutorial.
 
 ### Deploy the ToDoListAPI project to Azure
 
@@ -322,16 +328,10 @@ For information about how to  create an AngularJS single-page application with a
 
 ## Troubleshooting
 
-If you successfully run the application without authentication, and then it doesn't work when you implement authentication, most of the time the problem will be incorrect or inconsistent configuration settings.  Start by double-checking all settings in Azure App Service and Azure Active Directory. Here are some specific suggestions:
+[AZURE.INCLUDE [troubleshooting](../../includes/app-service-api-auth-troubleshooting.md)]
 
-* In the Azure AD **Configure** tab, double-check **Reply URL**.
-* In Azure AD, download the manifest and make sure that `oauth2AllowImplicitFlow` was successfully changed to `true`. 
-* In the AngularJS source code, double-check the middle tier API app URL and the Azure AD client ID.
-* After configuring code in a project, make sure that you redeployed that project and not one of the other ones.
-* Make sure that you are going to HTTPS URLs in your browser, not HTTP URLs.
-* Make sure that CORS is still enabled on the middle tier API app, allowing calls to the middle tier from the front end HTTPS URL.  If in doubt about whether the problem is CORS-related, try "*" as the allowed origin URL. 
-* Make sure you are getting as much information in error messages as possible by setting [customErrors mode to Off](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
-* Your browser's Developer Tools Console tab often has more error information, and you can examine HTTP requests on the Network tab.
+* Make sure that you don't confuse ToDoListAPI (middle tier) and ToDoListDataAPI (data tier). For example, verify that you added authentication to the middle tier API app, not the data tier. 
+* Make sure that the AngularJS source code references the middle tier API app URL (ToDoListAPI, not ToDoListDataAPI)and the correct Azure AD client ID. 
 
 ## Next steps
 

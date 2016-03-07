@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/12/2016"
+   ms.date="03/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -127,11 +127,15 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 |    | North Central US | 12076:51007 |
 |    | South Central US | 12076:51008 |
 |    | Central US | 12076:51009 |
+|    | Canada Central | 12076:51020 |
+|    | Canada East | 12076:51021 |
 | **South America** |  |  |
 |    | Brazil South | 12076:51014 |
 | **Europe** |    |  |
 |    | North Europe | 12076:51003 |
 |    | West Europe | 12076:51002 |
+|    | UK North    | 12076:51022 |
+|    | UK South 2 | 12076:51023 |
 | **Asia Pacific** |    |   |
 |    | East Asia | 12076:51010 |
 |    | Southeast Asia | 12076:51011 |

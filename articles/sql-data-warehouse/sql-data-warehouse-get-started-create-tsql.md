@@ -14,10 +14,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-#Create SQL Data Warehouse with TSQL 
+#Create SQL Data Warehouse with TSQL
 
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-data-warehouse-get-started-provision.md)
@@ -38,7 +38,7 @@ You can also create a SQL Data Warehouse by opening the command line and running
 
         sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
 
-When running the above TSQL Statements note the MAXSIZE and SERVICE_OBJECTIVE parameters, these will dictate the initial storage size and compute allotted to your Data Warehouse instance.  MAXSIZE will accept the following sizes and we suggest choosing a large size to allow room for growth: 
+When running the above TSQL Statements note the MAXSIZE and SERVICE_OBJECTIVE parameters, these will dictate the initial storage size and compute allotted to your Data Warehouse instance.  MAXSIZE will accept the following sizes and we suggest choosing a large size to allow room for growth:
 
 + 250 GB
 + 500 GB
@@ -51,7 +51,7 @@ When running the above TSQL Statements note the MAXSIZE and SERVICE_OBJECTIVE pa
 + 40960 GB
 + 51200 GB
 
-SERVICE_OBJECTIVE will indicate the number of DWUs that your instance will start with and will accept the following values: 
+SERVICE_OBJECTIVE will indicate the number of DWUs that your instance will start with and will accept the following values:
 
 + DW100
 + DW200
