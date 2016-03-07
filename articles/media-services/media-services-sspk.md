@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016"  
+	ms.date="03/07/2016"  
 	ms.author="xpouyat"/>
 
 #Licensing Microsoft® Smooth Streaming Client Porting Kit
@@ -101,12 +101,12 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Liberty Global Services BV
 - MediaTek Inc.
 - MStar Co, Ltd
+- Nintendo Co., Ltd.
 - OpenTV, Inc.
 - Research In Motion Limited
 - Saffron Digital Limited
 - Sichuan Changhong Electric Co., Ltd
 - Tatung Technology Inc.
-- Telechips Inc.
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VisualOn, Inc.
 - ZTE Corporation
@@ -124,6 +124,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - CastPal Technology Inc., Shenzhen
 - Compal Electronics, Inc.
 - Dongguan Digital AV Technology Corp., Ltd.
+- EchoStar Purchasing Corporation
 - Enseo, Inc.
 - Filmflex Movies Limited
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
