@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/24/2016"
+   ms.date="03/07/2016"
    ms.author="cherylmc"/>
 
 # Create a resource manager VNet with a Site-to-Site VPN connection using the Azure Portal
@@ -25,7 +25,7 @@
 
 This article will walk you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the Azure Resource Manager deployment model and the Azure portal. 
 
-**add graphic**
+![Site-to-Site](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
