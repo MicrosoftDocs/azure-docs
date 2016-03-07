@@ -51,11 +51,9 @@ When using these steps for your environment, be sure to substitute the values fo
 
 ### VNet scenario
 
-In the steps below, you will create a VNet, add a gateway subnet, a gateway, a local site, and a connection. This is in addition to configuring your VPN device.
+In the steps below, you will create a VNet, add a gateway subnet, a gateway, a local site, and a connection. This is in addition to configuring your VPN device. When using these steps as an exercise, you can use the following values:
 
-When using these steps as an exercise, you can use the following values:
-
-<a name="values"/>Values for TestVNet1:- not yet verified.
+<a name="values"/>**Values for TestVNet1:**
 
 - VNet Name: TestVNet1
 - Resource Group: TestRG1

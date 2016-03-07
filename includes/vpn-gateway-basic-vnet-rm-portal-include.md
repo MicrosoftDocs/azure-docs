@@ -2,17 +2,19 @@ To create a VNet based on the scenario above by using the Azure portal, follow t
 
 1. From a browser, navigate to the [Azure Portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
 
-2. Click **NEW** > **Networking** > **Virtual network**, then click **Resource Manager** from the **Select a deployment model** list, and then click **Create**.
+2. Click **NEW** > **Networking** > **Virtual network**. 
 
-3. On the **Create virtual network** blade, configure the VNet settings as shown in the figure below.
+3. Click **Resource Manager** from the **Select a deployment model** list, and then click **Create**.
+
+3. On the **Create virtual network** blade, configure the VNet settings. The values that you use will depend on the configuration you want to create. Be sure to refer to your planned configuration values to avoid configuration mistakes.
 
 	![Create virtual network blade](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. In the example below, the  new resource group is called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. Name the Resource Group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
 
 	![Resource group](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
-5. If necessary, change the **Subscription** and **Location** settings for your VNet. 
+5. If necessary, change the **Subscription** and **Location** settings for your VNet. Note that the location will determine where the resources that you deploy to this VNet will reside. You can't change this later without redeploying your resources.
 
 6. Click **Create** and notice the tile named **Creating Virtual network** as shown in the figure below.
 
