@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="03/01/2016" 
 	ms.author="chriscompy"/>	
 
 # Add a Web Apps resource provider to Azure Stack
@@ -101,7 +101,7 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 
 - Go to the following path and ensure 
 \\\\sofs\Share\CRP\GuestArtifactRepository and ensure Microsoft.Powershell.DSC.2.11.0.0.zip exists in the path (or a higher version) 
--  Go to the \\\\sofs\Share\CRP\PlatformImages folder. You should see the WindowsServer2012R2DatacenterEval.VHD image file. But you need to create an image that includes .NET 3.5 and save it here. For instructions on how to create that image, see [create a .NET 3.5 compatible base server image in your Azure Stack Platform Image Repository](azure-stack-add-image-pir.md#Create-an-image-of-WindowsServer2012R2-including-.NET-3.5). Then use the new image filename when you define the manifest file's **Filename** parameter.
+-  Go to the \\\\sofs\Share\CRP\PlatformImages folder. You should see the WindowsServer2012R2DatacenterEval.VHD image file. But you need to create an image that includes .NET 3.5 and save it here. For instructions on how to create that image, see [create a .NET 3.5 compatible base server image in your Azure Stack Platform Image Repository](azure-stack-add-image-pir.md#create-an-image-of-windowsserver2012r2-including-net-35). Then use the new image filename when you define the manifest file's **Filename** parameter.
 -  This new image should either be set as the default image on the Azure Stack Technical Preview installation (SKU value is 2012-R2-Datacenter), or the **SqlServiceDSCTemplate.json** template should be edited to point to the new SKU you just created.
 -  You may not need to create this new image, if you have already done so for another resource provider, like the SQL Server Resource Provider
  

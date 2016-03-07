@@ -98,7 +98,7 @@ The next step in `Main` is to populate the newly-created index. This is done in 
 
         try
         {
-            var batch = IndexBatch.Upload(sitecoreItems);
+            var batch = IndexBatch.Upload(documents);
             indexClient.Documents.Index(batch);
         }
         catch (IndexBatchException e)
