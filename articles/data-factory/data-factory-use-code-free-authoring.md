@@ -58,7 +58,7 @@ In this step, you use the Azure Portal to create an Azure data factory named **A
 9. Click **NOTIFICATIONS** hub on the left and look for notifications from the creation process. Click **X** to close the **NOTIFICATIONS** blade if it is open. 
 10. After the creation is complete, you will see the **DATA FACTORY** blade as shown below.
 
-    ![Data factory home page](/media/data-factory-code-free-authoring/getstarted-data-factory-home-page.png)
+    ![Data factory home page](./media/data-factory-code-free-authoring/getstarted-data-factory-home-page.png)
 
 ## Create a pipeline using code-free authoring experience
 
@@ -69,25 +69,25 @@ In this step, you use the Azure Portal to create an Azure data factory named **A
 	3. Note the **Start date time** and the **End date time**. 
 	3. Click **Next**.  
 
-	![Copy Tool - Properties page](/media/data-factory-code-free-authoring/copy-tool-properties-page.png) 
+	![Copy Tool - Properties page](./media/data-factory-code-free-authoring/copy-tool-properties-page.png) 
 3. On the **Source data store** page, click **Azure Blob Storage** tile. You use this page to specify the source data store for the copy task. You can use an existing data store linked service (or) specify a new data store. To use an existing linked service, you would click on **FROM EXISTING LINKED SERVICES** and select the right linked service. 
 
-	![Copy Tool - Source data store page](/media/data-factory-code-free-authoring/copy-tool-source-data-store-page.png)
+	![Copy Tool - Source data store page](./media/data-factory-code-free-authoring/copy-tool-source-data-store-page.png)
 5. On the **Specify the Azure Blob storage account** page:
 	1. Enter **AzureStorageLinkedService** for **Linked service name**.
 	2. Confirm that **From Azure subscriptions** for **Account selection method**. 
 	3. Select an **Azure storage account** from the list of Azure storage accounts available in the subscription you selected. You can also choose to enter storage account settings manually by selecting **Enter manually** option for the **Account selection method**, and then click **Next**. 
 
-	![Copy Tool - Specify the Azure Blob storage account](/media/data-factory-code-free-authoring/copy-tool-specify-azure-blob-storage-account.png)
+	![Copy Tool - Specify the Azure Blob storage account](./media/data-factory-code-free-authoring/copy-tool-specify-azure-blob-storage-account.png)
 6. On **Choose the input file or folder** page:
 	1. Navigate to the **adftutorial** folder.
 	2. Select **emp.txt**, and click **Choose**
 	3. Click **Next**. 
 
-	![Copy Tool - Choose the input file or folder](/media/data-factory-code-free-authoring/copy-tool-choose-input-file-or-folder.png)
+	![Copy Tool - Choose the input file or folder](./media/data-factory-code-free-authoring/copy-tool-choose-input-file-or-folder.png)
 7. On the **File format settings** page, select **default** values and click **Next**.
 
-	![Copy Tool - File format settings](/media/data-factory-code-free-authoring/copy-tool-file-format-settings.png)  
+	![Copy Tool - File format settings](./media/data-factory-code-free-authoring/copy-tool-file-format-settings.png)  
 8. On the Destination data store page, click **Azure SQL Database** tile, and click **Next**.
 9. On **Specify the Azure SQL database** page:
 	1. Enter **AzureSqlLinkedService** for the **Linked service name** field. 
@@ -97,13 +97,13 @@ In this step, you use the Azure Portal to create an Azure data factory named **A
 	5. Click **Next**.  
 9. On the **Table mapping** page, select **emp** for the **Destination** field from the drop-down list, click **down arrow** (optional) to see the schema and to preview the data.
 
-	![Copy Tool - Table mapping](/media/data-factory-code-free-authoring/copy-tool-table-mapping-page.png) 
+	![Copy Tool - Table mapping](./media/data-factory-code-free-authoring/copy-tool-table-mapping-page.png) 
 10. On the **Schema mapping** page, click **Next**.
 11. Review information in the **Summary** page, and click **Finish**. This will create two linked services, two datasets (input and output), and one pipeline in the data factory (from where you launched the code-free authoring experience). 
 12. On the **Deployment succeeded** page, click **Click here to monitor copy pipeline**.
 
-	![Copy Tool - Deployment succeeded](/media/data-factory-code-free-authoring/copy-tool-deployment-succeeded.png)  
+	![Copy Tool - Deployment succeeded](./media/data-factory-code-free-authoring/copy-tool-deployment-succeeded.png)  
 13. Use instructions from [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) to learn about how to monitor the pipeline you just created.
 
-	![Monitoring App](/media/data-factory-code-free-authoring/monitoring-app.png) 
+	![Monitoring App](./media/data-factory-code-free-authoring/monitoring-app.png) 
   
