@@ -3,7 +3,7 @@
    description="Lists the various available reports in Azure Active Directory reporting"
    services="active-directory"
    documentationCenter=""
-   authors="dsk-2015"
+   authors="dhanyahk"
    manager="stevenpo"
    editor=""/>
 
