@@ -26,7 +26,11 @@ HDInsight clusters are billed hourly, so you should always delete your cluster w
 
 1. Login to the [Azure portal](https://portal.azure.com) and select your HDInsight cluster. If your HDInsight cluster is not pinned to the dashboard, you can search for it by name using the search field (magnifying glass icon,) on the right side of the navigation bar.
 
+    ![portal search](./media/hdinsight-delete-cluster/navbar.png)
+
 2. Once the blade opens for the cluster, select the __Delete__ icon. When prompted, select __Yes__ to delete the cluster.
+
+    ![delete icon](./media/hdinsight-delete-cluster/deletecluster.png)
 
 ##Azure PowerShell
 
