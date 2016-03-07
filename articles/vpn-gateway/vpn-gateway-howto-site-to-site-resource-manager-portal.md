@@ -94,7 +94,6 @@ Before connecting your virtual network to a gateway, you'll first need to create
 The gateway subnet prefix for some configurations requires a subnet of /28 or larger in order to accommodate the number of IP addresses needed in the pool. This means the gateway subnet prefix needs to be /28, /27, /26 etc. You may want to create a larger subnet here in order to accommodate possible future configuration additions.
 
 
-
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## Create the gateway
