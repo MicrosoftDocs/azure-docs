@@ -33,9 +33,9 @@ Azure Resource Manager templates are JSON files that can be used for simple one-
 
 ## Quick Command Summary
 
-This deployment requires only one command:
+This deployment requires only one command, along with the selection of an option indicating where the Azure Resource Manager template resides. This topic uses a template directly from the Azure quickstart template Github repo as an example.
 
-1. `azure group create -n <exampleRGname> -l <exampleAzureRegion> azuredeploy.json -e azuredeploy.parameters.json`
+1. `azure group create -n <exampleRGname> -l <exampleAzureRegion> [--template-uri <URL> | --template-file <path> | <template-file> -e <parameters.json file>]`
 
 ## Create the Linux VM
 
