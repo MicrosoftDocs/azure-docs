@@ -63,6 +63,6 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 
 ## Next steps
 
-* Try one of the tutorials to create a Linux VM from the [portal](virtual-machines-linux-portal-create.md), with the [CLI](virtual-machines-linux-quick-create-cli.md), or using an Azure Resource Manager [template](virtual-machines-linux-cli-deploy-templates).
+* Try one of the tutorials to create a Linux VM from the [portal](virtual-machines-linux-portal-create.md), with the [CLI](virtual-machines-linux-quick-create-cli.md), or using an Azure Resource Manager [template](virtual-machines-linux-cli-deploy-templates.md).
 
 * After creating a Linux VM, you can easily [add a data disk](virtual-machines-linux-add-disk.md).
