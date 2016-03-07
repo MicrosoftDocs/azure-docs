@@ -75,7 +75,7 @@ In the steps below, you will create a VNet, add a gateway subnet, a gateway, a l
 
 ## Create a virtual network 
 
-If you already have a virtual network, verify that the settings are correct, then skip to Specify the DNS server.
+If you already have a virtual network, verify that the settings are correct, you can jump to the next section, Specify a DNS server.
 If you are doing this as an exercise, refer to these [values](#values) when creating your VNet.
 
 
