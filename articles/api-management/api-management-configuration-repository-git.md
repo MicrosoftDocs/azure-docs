@@ -140,7 +140,7 @@ Once your local changes are committed and pushed to the server repository, you c
 
 ![Deploy][api-management-configuration-deploy]
 
-For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://msdn.microsoft.com/en-US/library/dn781420.aspx#DeployChanges).
+For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#DeployChanges).
 
 ## File and folder structure reference of local Git repository
 
