@@ -4,28 +4,30 @@ To create a VNet based on the scenario above by using the Azure portal, follow t
 
 2. Click **NEW** > **Networking** > **Virtual network**. 
 
-3. Click **Resource Manager** from the **Select a deployment model** list, and then click **Create**.
+3. Near the bottom of the Virtual Network blade, from the **Select a deployment model** list, select **Resource Manager** and then click **Create**.
 
-3. On the **Create virtual network** blade, configure the VNet settings. The values that you use will depend on the configuration you want to create. Be sure to refer to your planned configuration values to avoid configuration mistakes.
+4. On the **Create virtual network** blade, configure the VNet settings. In this blade, you'll add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces. This is a current limitation of the portal. The values that you use will depend on the configuration you want to create. Be sure to refer to your planned configuration values. 
 
 	![Create virtual network blade](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. Name the Resource Group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+5. Click **Resource group** and select a resource group to which you want to associate your new VNet. If you want to create a new resource group, select **Create new**. Name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
 
 	![Resource group](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
-5. If necessary, change the **Subscription** and **Location** settings for your VNet. Note that the location will determine where the resources that you deploy to this VNet will reside. You can't change this later without redeploying your resources.
+6. Next, select the **Subscription** and **Location** settings for your VNet. Note that the location will determine where the resources that you deploy to this VNet will reside. You can't change this later without redeploying your resources.
 
-6. Click **Create** and notice the tile named **Creating Virtual network** as shown in the figure below.
+7. Click **Create** and notice the tile named **Creating Virtual network** as shown in the figure below.
 
 	![Creating virtual network tile](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
 
-7. Wait for the VNet to be created, then in the **Virtual network** blade, click **All settings** > **Subnets** > **Add**.
+8. Once your VNet has been created, you can make changes to it such as adding additional address space, subnets, and DNS servers.
 
-8. Specify the subnet settings for any additional subnets. In this example we are adding the  *BackEnd* subnet. Click **OK**. 
+9. To add additional address space to your VNet, in the blade for your VNet, click **Settings** to open the Settings blade. Then click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
+
+10. To add additional subnets to your address spaces, in the Settings blade, click **Subnets** to open the Subnets blade. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, then click **OK** at the bottom of the blade.
 
 	![Subnet settings](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
 
-9. View the list of subnets.
+10. To view the list of subnets:
 
 	![List of subnets in VNet](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
