@@ -20,7 +20,7 @@
 
 *This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
-Azure Active Directory (azure AD) reports retain data for a certain number of days, indicated here.
+Azure Active Directory (Azure AD) reports retain data for a certain number of days, indicated here.
 
 Report                                                  | Description
 ------------------------------------------------------- | -----------
