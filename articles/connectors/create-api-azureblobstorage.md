@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/23/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Get started with the Azure blob storage API
-Connect to an Azure Blob to manage files in a blob container, such as creating files, deleting files, and more.
+Connect to an Azure Blob to manage files in a blob container, such as creating files, deleting files, and more. The Azure blob storage API can be used from:
 
-The Azure blob storage API can be used from logic apps. 
+- Logic apps 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Azure Storage Blob connector](../app-service-logic/app-service-logic-connector-azurestorageblob.md).
 
@@ -152,7 +152,7 @@ Retrieves file contents from Azure Blob Storage using path.
 
 
 ### Get File Metadata
-Retrieves file metadata from Azure Blob Storage using file id. 
+Retrieves file metadata from Azure Blob Storage using file id.  
 ```GET: /datasets/default/files/{id}```
 
 | Name|Data Type|Required|Located In|Default Value|Description|

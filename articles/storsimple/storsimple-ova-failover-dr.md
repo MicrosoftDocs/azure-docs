@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Disaster recovery and device failover for your StorSimple Virtual Array (Preview)
+# Disaster recovery and device failover for your StorSimple Virtual Array
 
 
 ## Overview
@@ -27,7 +27,7 @@ Device failover is orchestrated via the disaster recovery (DR) feature and is in
 
 ![](./media/storsimple-ova-failover-dr/image16.png)
 
-This article is applicable to StorSimple Virtual Arrays (preview) only. To fail over an 8000 series device, go to [Failover and Disaster Recovery of your StorSimple device](storsimple-device-failover-disaster-recovery.md).
+This article is applicable to StorSimple Virtual Arrays only. To fail over an 8000 series device, go to [Failover and Disaster Recovery of your StorSimple device](storsimple-device-failover-disaster-recovery.md).
 
 
 ## What is disaster recovery?

@@ -12,8 +12,8 @@
 	ms.workload="identity"
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.topic="hero-article"
+	ms.date="02/25/2016"
 	ms.author="brandwe"/>
 
 

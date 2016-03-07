@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="12/22/2015"
 	ms.author="dastrock"/>
 

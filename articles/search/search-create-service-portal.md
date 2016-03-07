@@ -21,7 +21,7 @@
 
 Microsoft Azure Search is a hosted cloud search service that allows you to embed search functionality into custom applications. It provides a search engine and storage of your search data, which you can access and manage through the Azure Portal, a .NET SDK, or a REST API. Key features include auto-complete queries, fuzzy matching, hit-highlighting, faceted navigation, scoring profiles, and multi-language support. To learn more about what Azure Search does, see [What is Azure Search](search-what-is-azure-search.md).
 
-Azure Search is available at pricing levels ranging from free (shared) to Standard, where cost is based on how much capacity you sign up for. 
+Azure Search is available at pricing levels ranging from free (shared) to Basic to Standard, where costs are prorated based on how much capacity you sign up for. 
 
 ## Add Azure Search to your subscription for free
 
@@ -42,7 +42,8 @@ As an administrator, you can add Azure Search to an existing Azure subscription 
 	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels.
 
 		- **Free**  runs on clusters that are shared with other subscribers. It offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. Deploying a free service typically only takes a few minutes.
-		- **Standard** runs on dedicated resources and is highly scalable. Initially, a standard service is provisioned with one replica and one partition, but you can adjust capacity once the service is created. Deploying a standard service takes longer, usually about 15 minutes.
+		- **Basic (Preview)** runs on dedicated resources but with lower limits and pricing for smaller production workloads. You can scale up to 3 replicas and 1 partition, sufficient for high availability for query execution.
+		- **Standard** runs on dedicated resources and is highly scalable. Initially, a standard service is provisioned with one replica and one partition, but you can up capacity to a maximum of 36 search units once the service is created. Deploying a standard service takes longer, usually about 15 minutes.
 
 	- **Resource Groups** are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, the Web Apps feature in Azure App Service, and Azure Blob storage, you could create a resource group that keeps these services together in the portal management pages.
 

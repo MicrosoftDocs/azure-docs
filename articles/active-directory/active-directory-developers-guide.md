@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/01/2016"
+   ms.date="02/25/2016"
    ms.author="mbaldwin"/>
 
 

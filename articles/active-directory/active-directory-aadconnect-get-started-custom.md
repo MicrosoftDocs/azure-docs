@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/22/2016"
+	ms.date="03/04/2016"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
@@ -40,7 +40,7 @@ When you install the synchronization services, you can leave the optional config
 | Optional Configuration  | Description |
 | ------------- | ------------- |
 | Use an existing SQL Server | Allows you to specify the SQL Server name and the instance name.  Choose this option if you already have a database server that you would like to use. If your SQL Server does not have browsing enabled and you must specify a port number then in the **Instance Name** box enter the instance name followed by a comma and port number.  |
-| Use an existing service account | By default Azure AD Connect will create a local service account for the synchronization services to use. The password is generated automatically and unknown to the person installing Azure AD Connect. If you use a remote SQL server you need a service account in the domain and know the password. In those cases, enter the service account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created. See [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
+| Use an existing service account | By default Azure AD Connect will create a local service account for the synchronization services to use. The password is generated automatically and unknown to the person installing Azure AD Connect. If you use a remote SQL server or use a proxy which requires authentication you need a service account in the domain and know the password. In those cases, enter the service account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created. See [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 | Specify custom sync groups | By default Azure AD Connect will create four groups local to the server when the synchronization services are installed.  These groups are: Administrators group, Operators group, Browse group, and the Password Reset Group.  If you wish to specify your own groups you can do so here. The groups must be local on the server and cannot be located in the domain. |
 
 ## User sign-in
@@ -108,7 +108,7 @@ The filtering on groups feature allows you to run a small pilot where only a sma
 To use this feature, in the customized path you will see this page:
 ![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
->[AZURE.WARNING] This feature is only intended to support a pilot deployment and should not be used in a full-blow production deployment.
+>[AZURE.WARNING] This feature is only intended to support a pilot deployment and should not be used in a full-blown production deployment.
 
 In a full-blown production deployment it is going to be hard to maintain a single group with all objects to synchronize. Instead you should use one of the methods in [Configure filtering](active-directory-aadconnectsync-configure-filtering.md).
 
@@ -199,6 +199,14 @@ This configuration is used to setup the federation relationship between AD FS an
 
 ![Azure AD Domain](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
+
+### Verify the Azure AD domain selected for federation
+
+When you select the domain to be federated with your on-premise directory, Azure AD Connect provides you with the necessary information to verify the domain if it is not already verified. This page will provide you the DNS records that you are required to create at the domain name registrar, or wherever your DNS is hosted, in order to complete domain verification.</br>
+
+![Azure AD Domain](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
+
+> [AZURE.NOTE] AD Connect tries to verify the domain during the configure stage. If you continue to configure without adding the necessary DNS records where your domain DNS is hosted, the wizard will not be able to complete the configuration.</br>
 
 ## Configure and verify pages
 On this page the configuration will actually happen.

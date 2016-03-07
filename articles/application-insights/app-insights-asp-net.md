@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights for ASP.NET" 
-	description="Analyze performance, availability and usage patterns of your on-premises or Microsoft Azure web application by using Application Insights." 
+	pageTitle="Web app analytics for ASP.NET with Application Insights" 
+	description="Performance, availability and usage analytics for your ASP.NET website, hosted on-premises or in Azure." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -11,8 +11,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.topic="get-started-article" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-The Application Insights SDK sends telemetry from your live web application to the Azure portal, where you can sign in and see charts of your app's performance and usage. 
+The Application Insights SDK sends analytics telemetry from your live web application to the Azure portal, where you can sign in and see charts of your app's performance and usage. 
 
 ![Example performance monitoring charts](./media/app-insights-asp-net/10-perf.png)
 
@@ -68,13 +68,13 @@ The command did these steps (which you could instead [do manually](app-insights-
 2. Creates an Application Insights resource in [the Azure portal][portal]. This is where you'll see your data. It retrieves the *instrumentation key,* which identifies the resource.
 3. Inserts the instrumentation key in `ApplicationInsights.config`, so that the SDK can send telemetry to the portal.
 
-If you don't sign in to Azure initially, the SDK will be installed without connecting it to a resource. You'll be able to see and search the Application Insights telemetry in Visual Studio diagnostics hub while you're debugging. You can complete the other steps later. 
+If you don't sign in to Azure initially, the SDK will be installed without connecting it to a resource. You'll be able to see and search the Application Insights telemetry in Visual Studio search window while you're debugging. You can complete the other steps later. 
 
 ## <a name="run"></a> Run your project
 
 Run your application with F5 and try it out: open different pages to generate some telemetry.
 
-In Visual Studio, you'll see a count of the events that have been sent.
+In Visual Studio, you'll see a count of the events that have been logged.
 
 ![In Visual Studio, the Application Insights button shows during debugging.](./media/app-insights-asp-net/appinsights-09eventcount.png)
 
@@ -83,7 +83,7 @@ Click this button to open diagnostic search.
 
 ### Diagnostic search
 
-The Search window shows events that have been sent to the Application Insights portal. (There's an equivalent search feature in the portal.)
+The Search window shows events that have been logged. (If you signed in to Azure when you set up Application Insights, you'll be able to search the same events in the portal.)
 
 ![Right-click the project and choose Application Insights, Search](./media/app-insights-asp-net/34.png)
 
@@ -105,6 +105,8 @@ Click an exception to get a stack trace. If the code of the app is open in Visua
 Open your Application Insights resource in the [Azure portal][portal].
 
 ![Right-click your project and open the Azure portal](./media/app-insights-asp-net/appinsights-04-openPortal.png)
+
+If you didn't sign in to Azure when you added the Application Ingsights to this app, do that now. Select **Configure Application Insights**. Doing that will enable you to continue to see telemetry from your live app after you've deployed it. The telemetry will appear in the Application Insights portal.
 
 ### Metrics: aggregated data
 

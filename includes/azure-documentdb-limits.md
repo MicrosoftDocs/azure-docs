@@ -24,7 +24,7 @@ Maximum number of JOINs per query* |5
 Maximum number of AND clauses per query* |20
 Maximum number of OR clauses per query* |20
 Maximum number of values per IN expression* |200
-Maximum number of points in a polygon argument in a ST_WITHIN query* |16
+Maximum number of points in a polygon argument in a ST_WITHIN query* |256
 Maximum number of collection creates per minute* |5
 Maximum number of scale operations per minute* |5
 

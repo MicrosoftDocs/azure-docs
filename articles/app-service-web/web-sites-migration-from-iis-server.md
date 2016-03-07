@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 # Migrate an enterprise web app to Azure App Service
@@ -94,7 +94,7 @@ This section steps through an example to to migrate a few websites that use a SQ
  
 	![](./media/web-sites-migration-from-iis-server/readiness-assessment.png)
 
-12.	Click **Begin Migration** to start the migration.You will now be redirected to Azure to log into your account. It is important that you log in with an account that has an active Azure Subscription. If you do not have an Azure account then you can sign up for a free trial here. 
+12.	Click **Begin Migration** to start the migration.You will now be redirected to Azure to log into your account. It is important that you log in with an account that has an active Azure Subscription. If you do not have an Azure account then you can sign up for a free trial [here](https://azure.microsoft.com/pricing/free-trial/?WT.srch=1&WT.mc_ID=SEM_). 
 
 13.	Select the tenant account, Azure subscription and region to use for your migrated Azure web apps and databases, and then click **Start Migration**. You can select the websites to migrate later.
 

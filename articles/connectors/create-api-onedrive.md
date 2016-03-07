@@ -14,14 +14,21 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/22/2016"
-ms.author="deonhe"/>
+ms.date="03/03/2016"
+ms.author="mandia"/>
 
 # Get started with the OneDrive API
 
-Connect to OneDrive to manage your files. You can perform various actions such as upload, update, get, and delete on files in OneDrive.
+Connect to OneDrive to manage your files, including upload, get, delete files, and more. The OneDrive API can be be used from:
 
-The OneDrive API can be be used from PowerApps Enterprise and logic apps. 
+- Logic apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic apps](../articles/connectors/create-api-onedrive.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
+
+&nbsp; 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [OneDrive API](../app-service-logic/app-service-logic-connector-onedrive.md).
 
@@ -47,25 +54,6 @@ All APIs support data in JSON and XML formats.
 
 ## Create a connection to OneDrive
 
-### Add additional configuration in PowerApps
-When you add OneDrive to PowerApps Enterprise, you enter the **App Key** and **App Secret** values of your OneDrive application. The **Redirect URL** value is also used in your OneDrive application. If you don't have a OneDrive application, you can use the following steps to create the application: 
-
-1. Go to the [app creation page][5] in _Microsoft account developer center_ and sign in with your _Microsoft Account_.
-
-2. Enter your **Application name**, and accept the agreement:  
-![OneDrive new app][6]
-
-3. In settings:  
-
-	1. Select **API Settings**.  
-	2. Set the **Redirect URL** to the value shown when you add the new OneDrive API in the Azure Portal.  
-	3. **Save** your changes.  
-
-	![OneDrive app API settings][7]
-
-Now copy/paste the **App Key** and **App Secret** values in your OneDrive configuration in the Azure portal. 
-
-### Add additional configuration in logic apps
 When you add this API to your logic apps, you must authorize logic apps to connect to your OneDrive.
 
 1. Sign in to your OneDrive account.
@@ -76,7 +64,7 @@ After you create the connection, you enter the OneDrive properties, like the fol
 >[AZURE.TIP] You can use this same connection in other logic apps.
 
 ## Swagger REST API reference
-#### This documentation is for version: 1.0
+Applies to version: 1.0.
 
 
 ### Get file metadata using id
@@ -326,10 +314,10 @@ Extracts a folder to OneDrive.
 
 
 ## Next Steps
-After you add the OneDrive API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
 
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
+Go back to the [APIs list](apis-list.md).
 
 [5]: https://account.live.com/developers/applications/create
 [6]: ./media/create-api-onedrive/onedrive-new-app.png
