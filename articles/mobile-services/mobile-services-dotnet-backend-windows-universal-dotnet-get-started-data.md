@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="03/07/2016"
 	ms.author="glenga"/>
 
 # Add Mobile Services to an existing app
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
+ 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [How to use the managed client for Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md).
 
 ##Overview
 

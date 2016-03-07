@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,21 +13,18 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/10/2016"
+	ms.date="03/05/2016"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+
 &nbsp;
 
->[AZURE.TIP] If you are new to mobile development using Microsoft Azure, [get started with Azure Mobile Apps](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) instead of Azure Mobile Services; Mobile Apps gives you [additional advantages](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Create a Windows app with Mobile Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md).
 
 This tutorial shows you how to add a cloud-based backend service to a universal Windows app using Azure Mobile Services. Universal Windows app solutions include projects for both Windows Store 8.1 and Windows Phone Store 8.1 apps and a common shared project. For more information, see [Build universal Windows apps that target Windows and Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx).
 
