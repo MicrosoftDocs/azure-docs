@@ -30,15 +30,9 @@ Let's take a walk through some basic queries to get you started.
 
 ## Connect to your Application Insights data
 
-For now, open Application Analytics by navigating to a URL in this form:
+Open Application Analytics from your app's [overview blade](app-insights-dashboards.md) in Application Insights:
 
-`https://loganalytics.applicationinsights.io/subscriptions/{subscription-id}/resourcegroups/{resource-group}/components/{app-insights-name}`
-
-You can copy the parameters from the Essentials tab on your Application Insights overview blade: 
-
-![Copy Subscription Id, Resource group and Name from the Essentials tab.](./media/app-analytics-tour/001.png)
-
-Sign in with the same credentials.
+![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-analytics/001.png)
 
 ## Count rows
 
@@ -49,7 +43,7 @@ Metrics such as performance counters are stored in a table called metrics. Each 
     metrics | count
 ```
 
-> [AZURE.NOTE] Put the cursor somewhere in the statement before you click Go. You can split a statement over more than one line, but don't leave a blank line between different parts of a statement.
+> [AZURE.NOTE] Put the cursor somewhere in the statement before you click Go. You can split a statement over more than one line, but don't put blank lines in one statement. To keep several queries in the window, separate them with blank lines.
 
 Here's the result:
 
@@ -57,16 +51,16 @@ Here's the result:
 ![](./media/app-analytics-tour/010.png)
 
 	
-[Query reference page](app-analytics-queries.md).
+`Count` is one of many [Query operators](app-analytics-queries.md) that we can arrange in a pipe, filtering, reshaping and joining the data in multiple stages.
 	
 ## Take: show me n rows
 
 
-Let's see some data - what's in a sample 10 rows?
+Let's see some data - what's in a sample 5 rows?
 
 ```CSL
 
-	metrics | take 10
+	metrics | take 5
 ```
 
 And here's what we get:
@@ -107,7 +101,7 @@ Show me the first n rows, ordered by a particular column:
 
 The result would be the same, but it would run a bit more slowly. (You could also write `order`, which is an alias of `sort`.)
 
-The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to display just part of a table, you'll only re-order that part.
+The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, you'll only re-order the records you've retrieved.
 
 
 ## Project: select, rename and compute columns
@@ -218,6 +212,8 @@ We can do better than the table view here. Let's look at the results in the char
 
 ![Click Chart, then choose Vertical bar chart and assign x and y axes](./media/app-analytics-tour/230.png)
 
+Notice that although we didn't sort the results by time (as you can see in the table display), the chart display always shows datetimes in correct order.
+
 
 ## Where: filtering on a condition
 
@@ -250,14 +246,17 @@ Find unsuccessful requests:
 ```CSL
 
     requests 
-    | where responseCode >= 400
+    | where isnotempty(responseCode) and toint(responseCode) >= 400
 ```
 
-Summarize the different responses. Notice that we must always cast any value that comes out of a property bag or array when using it in a `by` clause:
+`responseCode` has type string, so we must [cast it](app-analytics-scalars.md#casts) for a numeric comparison.
+
+Summarize the different responses:
 
 ```CSL
 
     requests
+    | where isnotempty(responseCode) and toint(responseCode) >= 400
     | summarize count() 
       by responseCode
 ```
@@ -277,7 +276,7 @@ Select the Chart display option:
 
 ![timechart](./media/app-analytics-tour/080.png)
 
-The x axis for line charts has to be of type DateTime. (But you can make vertical bar charts with any type of x-axis).
+The x axis for line charts has to be of type DateTime. 
 
 ## Multiple series 
 
