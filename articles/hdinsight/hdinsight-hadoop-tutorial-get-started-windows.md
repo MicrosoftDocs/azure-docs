@@ -46,6 +46,8 @@ HDInsight Emulator for Azure, formerly known as *Microsoft HDInsight Developer P
 The Emulator targets developer scenarios and only supports single-node deployments. For 
 information about using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ### Prerequisites
 
 Before you begin this tutorial for Hadoop on Windows, you must have the following:
