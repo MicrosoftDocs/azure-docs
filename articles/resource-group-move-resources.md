@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="03/04/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
 
-This topic shows how to move resources from one resource group to another resource group. You can also move resources to a new subscription. You may need to move resources when you decide that:
+This topic shows how to move resources from one resource group to another resource group. You can also move resources to a new subscription (however the subscription must exist within the same [tenant](./active-directory/active-directory-howto-tenant.md)). You may need to move resources when you decide that:
 
 1. For billing purposes, a resource needs to live in a different subscription.
 2. A resource no longer shares the same lifecycle as the resources it was previously grouped with. You want to move it to a new resource group so you can manage that resource separately from the other resources.
