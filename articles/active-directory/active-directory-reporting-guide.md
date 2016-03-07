@@ -3,7 +3,7 @@
    description="A guide containing all Azure Active Directory Reporting articles"
    services="active-directory"
    documentationCenter=""
-   authors="dsk-2015"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
