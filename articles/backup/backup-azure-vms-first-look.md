@@ -5,8 +5,7 @@
 	documentationCenter=""
 	authors="markgalioto"
 	manager="jwhit"
-	editor=""
-	keywords="backups; backing up; Azure virtual machine; protect virtual machine"/>
+	editor=""/>
 
 <tags
 	ms.service="backup"
