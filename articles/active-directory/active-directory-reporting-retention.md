@@ -3,7 +3,7 @@
 	description="Retention policies on report data in your Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dhanyahk"
 	manager="stevenpo"
 	editor=""/>
 
