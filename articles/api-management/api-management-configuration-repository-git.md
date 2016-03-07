@@ -156,7 +156,7 @@ The files and folders in the local git repository contain the configuration info
 | products folder            | Contains the configuration for the products in the service instance                        |
 | templates folder           | Contains the configuration for the email templates in the service instance                 |
 
-Each folder can contain one or more files, and in some cases one or more folders, for example a folder for each API, product, or group. The files within each folder are specific for the entity type descried by the folder name.
+Each folder can contain one or more files, and in some cases one or more folders, for example a folder for each API, product, or group. The files within each folder are specific for the entity type described by the folder name.
 
 | File type | Purpose                                                                |
 |-----------|------------------------------------------------------------------------|
