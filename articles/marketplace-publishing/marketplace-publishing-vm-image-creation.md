@@ -76,7 +76,7 @@ The agent configuration file is placed at /etc/waagent.conf.
 ### 2.3 Verify that required libraries are included
 In addition to the Azure Linux Agent, the following libraries should also be included:
 
-1. The [Linux Integration Services][link-intsvc] 3.0 or higher must be enabled in your kernel. See [Linux kernel requirements](../virtual-machines/virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements).
+1. The [Linux Integration Services][link-intsvc] 3.0 or higher must be enabled in your kernel. See [Linux kernel requirements](./virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements).
 2. [Kernel patch](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c) for Azure I/O stability (likely not needed for any recent kernel, but it should be verified)
 3. [Python][link-python] 2.6 or above
 4. Python pyasn1 package, if not already installed
@@ -100,7 +100,7 @@ The following are networking requirements for an Azure-compatible Linux VM image
 
 - In many cases, it is best to disable NetworkManager.  One exception is with systems based on CentOS 7.x (and derivatives), which should keep NetworkManager enabled.
 - Networking configuration should be controllable via the **ifup** and **ifdown** scripts. The Linux Agent may use these commands to restart networking during provisioning.
-- There should be no custom network configuration. The Resolv.conf file should be deleted as a final step. This is typically done as part of deprovisioning (see the [Azure Linux Agent user guide](../virtual-machines/virtual-machines-linux-agent-user-guide/)). You can also perform this step manually with the following command.
+- There should be no custom network configuration. The Resolv.conf file should be deleted as a final step. This is typically done as part of deprovisioning (see the [Azure Linux Agent user guide](./virtual-machines-linux-agent-user-guide/)). You can also perform this step manually with the following command.
 
         rm /etc/resolv.conf
 
@@ -250,9 +250,9 @@ All images in the Azure Marketplace must be reusable in a generic fashion. In ot
 - For Windows, the image should be "sysprepped," and no configurations should be done that do not support the **sysprep** command.
 - You can run the following command from the directory %windir%\System32\Sysprep.
 
-        sysprep.exe /generalize /oobe /sshutdown
+        sysprep.exe /generalize /oobe /shutdown
 
-  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article: [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server/).
+  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article: [Create and upload a Windows Server VHD to Azure](./virtual-machines-create-upload-vhd-windows-server/).
 
 ## 4. Deploy a VM from your VHDs
 After you have uploaded your VHDs (the generalized operating system VHD and zero or more data disk VHDs) to an Azure storage account, you can register them as a user VM image. Then you can test that image. Note that because your operating system VHD is generalized, you cannot directly deploy the VM by providing the VHD URL.
@@ -632,7 +632,7 @@ After you are done with the SKU details, you can move forward to the [Azure Mark
 
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-github-waagent]:https://github.com/Azure/WALinuxAgent
-[link-azure-codeplex]:http://storageexplorer.com/
+[link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
 [link-azure-2]:../storage/storage-dotnet-shared-access-signature-part-2/
 [link-azure-1]:../storage/storage-dotnet-shared-access-signature-part-1/
 [link-msft-download]:http://www.microsoft.com/download/details.aspx?id=44299
@@ -650,9 +650,9 @@ After you are done with the SKU details, you can move forward to the [Azure Mark
 [link-datactr-2012]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
 [link-datactr-2008-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
-[link-azure-vm-1]:../virtual-machines/virtual-machines-linux-create-upload-vhd/
+[link-azure-vm-1]:./virtual-machines-linux-create-upload-vhd/
 [link-technet-1]:https://technet.microsoft.com/library/hh848454.aspx
-[link-azure-vm-2]:../virtual-machines/virtual-machines-linux-agent-user-guide/
+[link-azure-vm-2]:./virtual-machines-linux-agent-user-guide/
 [link-openssl]:https://www.openssl.org/
 [link-intsvc]:http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]:https://www.python.org/
