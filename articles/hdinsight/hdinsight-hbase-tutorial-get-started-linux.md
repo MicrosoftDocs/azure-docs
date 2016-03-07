@@ -27,6 +27,8 @@ Learn how to create an HBase cluster in HDInsight, create HBase tables, and quer
 
 The information in this document is specific to Linux-based HDInsight clusters. For information on Windows-based clusters, use the tab selector on the top of the page to switch.
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ###Prerequisites
 
 Before you begin this HBase tutorial, you must have the following:

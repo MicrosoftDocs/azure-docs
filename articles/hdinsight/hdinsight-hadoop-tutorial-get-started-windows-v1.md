@@ -30,6 +30,8 @@ To help you learn Hadoop on Windows and start using HDInsight, this tutorial sho
 
 * [Get started with Hadoop in HDInsight on Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## What does this Hadoop tutorial accomplish?
 
 Assume you have a large unstructured data set and you want to run a Hive query on it to extract some meaningful information. That's exactly what we are going to do in this tutorial. Here's how we achieve this:
