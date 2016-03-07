@@ -19,17 +19,17 @@
 
 > [AZURE.VIDEO azure-key-vault-developer-quick-start]
 
-Using Key Vault, you will be able to securely access sensitive information from within your applications in such that:
+Using Key Vault, you will be able to securely access sensitive information from within your applications such that:
 
 - Keys and secrets will be protected, without having to write the code yourself and, you will be easily able to use them from your applications, with optimal performance.
 - You'll be able to have your customers own and manage their own keys so you can concentrate on providing the core software features. In this way your applications will not own the responsibility or potential liability for your customers’ tenant keys and secrets.
 - Your application can use keys for signing and encryption yet keeps the key management external from your application so that the solution is suitable for an application that is geographically distributed.
 - Your customer's will be in control their key life cycle and can monitor key usage such that your applications can comply with FIPS 140-2 Level 2 HSMs for secure key management.
-- Although your customers may use multiple Azure services and resources, they will be able to manage their keys from a single location in Azure.
+- Your customers may use multiple Azure services and resources and they will be able to manage their keys from a single location in Azure.
 
-For more general information on Azure Key Vault see [What is Key Vault](key-vault-whatis.md)
+For more general information on Azure Key Vault, see [What is Key Vault](key-vault-whatis.md)
 
-## Creating Managing Key Vaults
+## Creating and Managing Key Vaults
 
 Before working with Azure Key Vaults in your code, you can create and manage vaults through REST, Resource Manager Templates, PowerShell or CLI, as described in the following articles:
 
@@ -38,7 +38,7 @@ Before working with Azure Key Vaults in your code, you can create and manage vau
 - [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli.md)
 - [Create a key vault and add a secret via an ARM template](resource-manager-template-keyvault.md)
 
-Operations against key vaults are authenticated through AAD and, authorization through Key Vault’s own Access Policy, defined per vault.
+>[Azure NOTE] Operations against key vaults are authenticated through AAD and, authorization through Key Vault’s own Access Policy, defined per vault.
 
 ## Coding with Key Vault
 
