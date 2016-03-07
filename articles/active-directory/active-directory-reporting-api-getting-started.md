@@ -3,7 +3,7 @@
    description="How to get started with the Azure Active Directory Reporting API"
    services="active-directory"
    documentationCenter=""
-   authors="SSalahAhmed"
+   authors="dsk-2015"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/04/2016"
-   ms.author="saah"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 
 # Getting started with the Azure AD Reporting API
