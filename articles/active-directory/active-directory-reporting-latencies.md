@@ -3,7 +3,7 @@
    description="Amount of time it takes for reporting events to show up in your Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="dsk-2015"
+   authors="dhanyahk"
    manager="stevenpo"
    editor=""/>
 
