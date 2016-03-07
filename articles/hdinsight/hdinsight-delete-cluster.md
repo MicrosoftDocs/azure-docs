@@ -9,14 +9,14 @@ editor="cgronlun"/>
 
 <tags
 ms.service="hdinsight"
-ms.devlang=""
+ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
 ms.date="03/07/2016"
 ms.author="larryfr"/>
 
-##How to delete an HDInsight cluster
+#How to delete an HDInsight cluster
 
 HDInsight clusters are billed hourly, so you should always delete your cluster when it is no longer in use. In this document, you will learn how to delete a cluster using the Azure Portal, Azure PowerShell, and the Azure CLI.
 
