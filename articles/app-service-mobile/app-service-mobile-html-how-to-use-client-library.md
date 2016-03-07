@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/07/2016"
 	ms.author="adrianha"/>
 
 # How to Use the JavaScript Client Library for Azure Mobile Apps
