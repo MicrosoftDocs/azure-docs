@@ -19,7 +19,7 @@
 
 # Configure a Virtual Network for ExpressRoute
 
-These steps will walk you through configuring a virtual network and a gateway for use with ExpressRoute using the classic deployment model and Service Management. Currently, we don't have an article yet for configuring a VNet for ExpressRoute using the Resource Manager deployment model. However, you can use the following articles to [create a virtual network by using PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md) and to [add a VPN Gateway to a Resource Manager VNet](howto-add-gateway-resource-manager.md).
+These steps will walk you through configuring a virtual network and a gateway for use with ExpressRoute using the classic deployment model and Service Management. Currently, we don't have an article yet for configuring a VNet for ExpressRoute using the Resource Manager deployment model. However, you can use the following articles to [Create a virtual network by using PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md) and to [Add a VPN Gateway to a Resource Manager VNet](expressroute-howto-add-gateway-resource-manager.md).
 
 >[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md)
 
