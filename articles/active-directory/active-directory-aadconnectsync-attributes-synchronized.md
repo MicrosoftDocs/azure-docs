@@ -23,7 +23,7 @@ This topic lists the attributes that are synchronized by Azure AD Connect sync.
 The attributes are grouped by the related Azure AD app.
 
 ## Attributes to synchronize
-A common question is what is the list of minimum attributes to synchronize. The default and recommended approach is to keep the default attributes so a full GAL (Global Address List) can be constructed in the cloud. In some cases there are some attributes which your organization do not want synchronized to the cloud. In this case, start with the list of attributes below and identify those which would contain PII (Personally identifiable information) and cannot be synchronized. Then deselect those during installation using [Azure AD app and attribute filtering](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+A common question is *what is the list of minimum attributes to synchronize*. The default and recommended approach is to keep the default attributes so a full GAL (Global Address List) can be constructed in the cloud. In some cases there are some attributes which your organization do not want synchronized to the cloud. In this case, start with the list of attributes below and identify those which would contain PII (Personally identifiable information) and cannot be synchronized. Then deselect those during installation using [Azure AD app and attribute filtering](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
 
 When deselecting attributes, you should be cautious and only deselect those absolutely not possible to synchronize.
 

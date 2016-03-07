@@ -289,7 +289,7 @@ Converts a string to a reference attribute
 `ref CRef(str value)`
 
 **Example:**  
-`CRef("CN=LC Services,CN=Microsoft,CN=lcspool01, CN=Pools,CN=RTC Service," & %Forest.LDAP%)`
+`CRef("CN=LC Services,CN=Microsoft,CN=lcspool01,CN=Pools,CN=RTC Service," & %Forest.LDAP%)`
 
 ----------
 ### CStr
@@ -408,7 +408,7 @@ The EscapeDNComponent function takes one component of a DN and escapes it so it 
 `str EscapeDNComponent(str value)`
 
 **Example:**  
-`EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%`  
+`EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
 Makes sure the object can be created in an LDAP directory even if the displayName attribute has characters which must be escaped in LDAP.
 
 ----------
@@ -432,7 +432,7 @@ The possible values for the format can be found here: [User-Defined Date/Time Fo
 Results in "2007-12-25".
 
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
-Can result in “20140905081453.0Z”
+Can result in "20140905081453.0Z"
 
 ----------
 ### GUID
@@ -654,7 +654,7 @@ The Item function is useful together with the Contains function since the latter
 Throws an error if index is out of bounds.
 
 **Example:**  
-`Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:"")),6)`  
+`Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)`  
 Returns the primary email address.
 
 ----------
@@ -891,7 +891,7 @@ The RandomNum function returns a random number between a specified interval.
 
 **Example:**  
 `Random(100,999)`  
-Returns 734.
+Can return 734.
 
 ----------
 ### RemoveDuplicates
@@ -956,7 +956,7 @@ The format is {source1}:{target1},{source2}:{target2},{sourceN},{targetN} where 
 - Spaces and other white characters in the ReplacePattern string are ignored.
 
 **Example:**  
-'%ReplaceString% = ’:,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o'
+`%ReplaceString% = ’:,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o`
 
 `ReplaceChars("Räksmörgås",%ReplaceString%)`  
 Returns Raksmorgas
@@ -1020,7 +1020,7 @@ The Split function takes a string separated with a delimiter and makes it a mult
 
 **Example:**  
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
-Returns a multi-valued string with 2 elements useful for the proxyAddress attribute
+Returns a multi-valued string with 2 elements useful for the proxyAddress attribute.
 
 ----------
 ### StringFromGuid
