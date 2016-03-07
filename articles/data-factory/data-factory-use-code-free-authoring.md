@@ -31,7 +31,7 @@
 ## <a name="CreateDataFactory"></a>Step 1: Create an Azure data factory
 In this step, you use the Azure Portal to create an Azure data factory named **ADFTutorialDataFactory**.
 
-1.	After logging into the [Azure Portal][azure-portal], click **+ NEW** from the top-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** in the **Data analytics** blade. 
+1.	After logging into the [Azure Portal](https://portal.azure.com), click **+ NEW** from the top-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** in the **Data analytics** blade. 
 
 	![New->DataFactory](./media/data-factory-code-free-authoring/new-data-factory-menu.png)
 
