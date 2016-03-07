@@ -36,7 +36,7 @@ Now that you've created a subscription, test that your tenants can provision a v
 
 	![](media/azure-stack-subscribe-plan-provision-vm/image8.png)
 
-5.  In the Summary blade, click **OK** to create the virtual machine.  
+5.  In the **Summary** blade, click **OK** to create the virtual machine.  
 
 	![](media/azure-stack-subscribe-plan-provision-vm/image9.png)
 

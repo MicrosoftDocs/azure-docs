@@ -1,6 +1,6 @@
 <properties
-	pageTitle="All topics for data-factory service | Microsoft Azure"
-	description="Table of all topics for the Azure service named data-factory that exist on http://azure.microsoft.com/documentation/articles/, Title and description."
+	pageTitle="All topics for Data Factory service | Microsoft Azure"
+	description="List of all topics for the Azure Data Factory service that exist on http://azure.microsoft.com/documentation/articles/, Title and description."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="03/03/2015"
 	ms.author="spelluru"/>
 
 
-# All topics for Azure data-factory service
+# All topics for Azure Data Factory service
 
-This topic lists every topic that applies directly to the data-factory service of Azure. You can search this webpage for keywords by using **Ctrl+F**, to find the topics of current interest.
+This topic lists every topic that applies directly to the Data Factory service of Azure. You can search this webpage for keywords by using **Ctrl+F**, to find the topics of current interest.
 
 
 
@@ -136,6 +136,7 @@ This topic lists every topic that applies directly to the data-factory service o
 
 | Title | Description |
 | :-- | :-- |
+| [Data Factory Functions and Variables](data-factory-functions-variables.md) | Provides a list of Azure Data Factory functions and system variables |  
 | [Azure Data Factory - Frequently Asked Questions](data-factory-faq.md) | Frequently asked questions about Azure Data Factory. |
 | [Azure Data Factory - Naming Rules](data-factory-naming-rules.md) | Describes naming rules for Data Factory entities. |
 | [Azure Data Factory release notes](data-factory-release-notes.md) | Data Factory release notes |
@@ -147,6 +148,6 @@ This topic lists every topic that applies directly to the data-factory service o
 - [Learning Path graphic for Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 - [Search the documentation of Microsoft Azure](https://azure.microsoft.com/search/documentation/)
 - [Alternative search for the documentation of Microsoft Azure](https://azure.microsoft.com/searchresults/?query=)
-- [View the latest updates to the data-factory service](https://azure.microsoft.com/updates/?service=data-factory)
+- [View the latest updates to the Data Factory service](https://azure.microsoft.com/updates/?service=data-factory)
 - [Learning Path graphics for Microsoft Azure services](https://azure.microsoft.com/documentation/learning-paths/)
 

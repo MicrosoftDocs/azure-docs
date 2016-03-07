@@ -31,7 +31,7 @@ tutorials. This guide also assumes that you have added the Apache Cordova Plugin
 Cordova plugin to your project on the command-line:
 
 ```
-cordova plugin add ms-azure-mobile-apps
+cordova plugin add cordova-plugin-ms-azure-mobile-apps
 ```
 
 For more information on creating [your first Apache Cordova app], see their documentation.

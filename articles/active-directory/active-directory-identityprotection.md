@@ -65,7 +65,7 @@ But Azure Active Directory Identity Protection more than a monitoring and report
 
 - Policy to block or secure risky user accounts
 
-- Policy to require users to register users for multi-factor authentication
+- Policy to require users to register for multi-factor authentication
 
 
 ## Detection and Risk
@@ -276,7 +276,7 @@ You can use the user risk levels to create conditional access policies to block 
 ## Closing risk events manually
 
 In most cases, you will take remediation actions such as a secure password reset to automatically close risk events. However, this might not always be possible. <br> 
-Because risk events that are **Active** contribute to the user risk calculation, you may have to manually lower a risk level bu closing risk events manually. <br>
+Because risk events that are **Active** contribute to the user risk calculation, you may have to manually lower a risk level by closing risk events manually. <br>
 During the course of investigation, you can choose to take any of these actions to change the status of a risk event:
 
 <br>
@@ -285,7 +285,7 @@ During the course of investigation, you can choose to take any of these actions 
 
 - **Resolve** - If after investigating a risk event, you took an appropriate remediation action outside Identity Protection, and you believe that the risk event should be considered closed, mark the event as Resolved. Resolved events will set the risk event’s status to Closed and the risk event will no longer contribute to user risk.
 
-- **Mark as false-positive** - In some cases, you may investigate a risk event and discover that it was incorrectly flagged as a risky. You can help reduce the number of such occurrences by marking the risk event as False-positive. This will help the machine learning algorithms to improve the classification of similar events in the future. The stauts of false-positive events is to **Closed** and they will no longer contribute to user risk.
+- **Mark as false-positive** - In some cases, you may investigate a risk event and discover that it was incorrectly flagged as a risky. You can help reduce the number of such occurrences by marking the risk event as False-positive. This will help the machine learning algorithms to improve the classification of similar events in the future. The status of false-positive events is to **Closed** and they will no longer contribute to user risk.
 
 - **Ignore** - If you have not taken any remediation action, but want the risk event to be removed from the active list, you can mark a risk event Ignore and the event status will be Closed. Ignored events do not contribute to user risk. This option should only be used under unusual circumstances. 
 
@@ -329,7 +329,7 @@ A user risk security policy is a conditional access policy that evaluates the ri
 ![User ridk policy](./media/active-directory-identityprotection/500.png "User ridk policy")
 <br>
 
-Azure AD Identity Protection helps you manage the mitigation and remidiation of users flagged for risk by enabling you to:
+Azure AD Identity Protection helps you manage the mitigation and remediation of users flagged for risk by enabling you to:
 
 - set the users and groups the policy applies to 
 <br><br>
@@ -353,7 +353,7 @@ Azure AD Identity Protection helps you manage the mitigation and remidiation of 
 
 
 Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.
-However, it excludes **Low** and **Medium** users flagged for risk from the policy, which may not secure identities or a devices that were previously suspected or known to be compromised.
+However, it excludes **Low** and **Medium** users flagged for risk from the policy, which may not secure identities or devices that were previously suspected or known to be compromised.
 
 When setting the policy,
 
@@ -369,20 +369,19 @@ The recommended default for most organizations is to configure a rule for a **Me
 
 
 
-### Mitigating user risk events
+## Mitigating user risk events
 Administrators can set a user risk security policy to block users upon sign-in depending on the risk level. 
 
 Blocking a sign-in:
  
 - prevents the generation of new user risk events for the affected user
 
-- enables administrators to remediate the risk events affecting the user's identity and restore it to a secure state
+- enables administrators to manually remediate the risk events affecting the user's identity and restore it to a secure state
 
 
 
 
-
-### User risk remediation and mitigation flows  
+## User risk remediation and mitigation flows  
 
 The following sections provide an overview of the user experience for user risk remediation and mitigation flows.
 
@@ -743,7 +742,7 @@ To test Sign in risk, perform the following steps:
 
 ## See also
 
- - [Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+ - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
  - [The Identity Protection glossary](active-directory-identityprotection-glossary.md)
 
 

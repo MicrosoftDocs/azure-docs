@@ -143,8 +143,13 @@ In our case, we decided not to handle these two events.
 - For concurrency, last write wins. That's OK, because tokens are stored independently for each user + client, so a conflict would only happen if the same user had two concurrent login sessions.
 - For reading, we load the cache on every request. Requests are short lived. If the cache gets modified in that time, the next request will pick up the new value.
 
+## Next steps
+
+- Read the next article in this series: [Federating with a customer's AD FS for multitenant apps in Azure][adfs]
+
 <!-- links -->
 [ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
+[adfs]: guidance-multitenant-identity-adfs.md
 [data-protection]: https://docs.asp.net/en/latest/security/data-protection/index.html
 [distributed-cache]: https://docs.asp.net/en/latest/fundamentals/distributed-cache.html
 [DistributedTokenCache]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.TokenStorage/DistributedTokenCache.cs
