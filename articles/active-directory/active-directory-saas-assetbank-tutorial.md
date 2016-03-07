@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/2/2016"
+	ms.date="03/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate Asset Bank with A
 
 - You can control in Azure AD who has access to Asset Bank
 - You can enable your users to automatically get signed-on to Asset Bank (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -57,7 +57,7 @@ To configure the integration of Asset Bank into Azure AD, you need to add Asset 
 
 **To add Asset Bank from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. <br><br>
 ![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -89,13 +89,13 @@ To configure and test Azure AD single sign-on with Asset Bank, you need to compl
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Asset Bank application.
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Asset Bank application.
 
 
 
 **To configure Azure AD single sign-on with Asset Bank, perform the following steps:**
 
-1. In the Azure AD portal, on the **Asset Bank** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure classic portal, on the **Asset Bank** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to Asset Bank** page, select **Azure AD Single Sign-On**, and then click **Next**.
@@ -105,8 +105,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Asset Bank application using the following pattern: **“https://companyname.assetbank.com”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Asset Bank application using the following pattern: **“https://\<company name\>.assetbank.com”**.
 
+    b. Click **Next**.
 
 4. On the **Configure single sign-on at Asset Bank** page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_05.png) <br>
@@ -119,7 +120,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 5. To get SSO configured for your application, contact your Asset Bank support team via support@assetbank.co.uk and attach the metadata file to your email.
 
 
-6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  
@@ -129,12 +130,12 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.<br>
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.<br>
 In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<br>
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
+1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
 <br><br>![Creating an Azure AD test user](./media/active-directory-saas-assetbank-tutorial/create_aaduser_09.png) <br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -195,7 +196,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 **To assign Britta Simon to Asset Bank, perform the following steps:**
 
-1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
 <br><br>![Assign User][201] <br>
 
 2. In the applications list, select **Asset Bank**.
