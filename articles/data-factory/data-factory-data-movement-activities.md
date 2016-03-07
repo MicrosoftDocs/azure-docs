@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # Data movement activities
@@ -109,3 +109,34 @@ In case of Copy Activity the **typeProperties** section varies depending on the 
 
 ### Copy Activity Performance & Tuning 
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) article, which describes key factors that impact performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing, and discusses various ways to optimize the performance of the Copy Activity.
+
+
+## Code-free data movement experience
+Data Factory service now allows you to create a pipeline to copy data from supported sources to destinations without writing JSON definitions for linked services, datasets, and pipelines. To do so, launch **Copy data wizard** by clicking on **Copy data** tile on the home page of your data factory. 
+
+<< Screenshot >>
+
+### Features
+
+#### An intuitive wizard for copying data: 
+This wizard allows you to easily move data from a source to a destination in minutes with the following easy steps: 
+
+1. **Specify Properties**. Specify properties for the copy task/pipeline on this tab. 
+2. **Select Source**. Specify settings for the source data store for the copy operation. 
+3. **Select Destination**. Specify settings for the destination data store for the copy operation. 
+4. **Review Summary**. Review summary of settings from **Properties**, **Source**, and **Destination** pages. 
+
+When you click **Finish**, the application creates and deploys Data Factory linked services, datasets, and a pipeline with a Copy Activity in the selected data factory. If you click **Click here to monitor pipeline**, it launches the **Monitoring and Management App**. See [Monitor and manage pipelines using Monitoring and Management App](data-factory-monitor-manage-app.md) article to learn about how to use this application.    
+
+#### Rich data exploration and schema mappings
+You can browse tables/folders, preview data, map schema, validate expressions and perform simple data transformations within the wizard. 
+
+#### Scalable experience for diverse data and object types
+The experience is designed with big data in mind from the start. It is simple and efficient to author Data Factory pipelines that move hundreds of folders, files or tables.
+
+#### Richer scheduling options
+You can schedule the copy operation to run just once or schedule it to run periodically (hourly, daily, etc...).
+
+### Walkthrough
+For a quick walkthrough of using the code-free authoring experience to create a pipeline with a Copy Activity, see [Tutorial: Create a pipeline using Code-free Authoring](data-factory-use-code-free-authoring.md).
+
