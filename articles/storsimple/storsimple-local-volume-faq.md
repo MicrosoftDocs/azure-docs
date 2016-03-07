@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="03/07/2016"
    ms.author="manuaery" />
 
 # StorSimple locally pinned volumes: frequently asked questions (FAQ)
@@ -90,7 +90,7 @@ You can view these jobs in the **Jobs** page of the Azure StorSimple Manager ser
 
 **Q.** Are locally pinned volumes supported on the cloud appliance?
 
-**A.** Locally pinned volumes are not supported on the cloud appliance.
+**A.** Locally pinned volumes are not supported on the cloud appliance (8010 and 8020 devices formerly referred to as the StorSimple virtual device).
 
 **Q.** Can I use the Azure PowerShell cmdlets to create and manage locally pinned volumes? 
 
@@ -185,7 +185,7 @@ More information on how to [convert a tiered volume to a locally pinned volume](
 
 **A.** Yes, you can. However, the locally pinned volume will be cloned as a tiered volume by default. More information on how to [clone a  locally pinned volume](storsimple-clone-volume-u2)
 
-## Questions about failing over a locally pinned volume.
+## Questions about failing over a locally pinned volume
 
 **Q.** I need to fail over my device to another physical device. Will my locally pinned volumes be failed over as locally pinned or tiered?
 
