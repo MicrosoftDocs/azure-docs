@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="03/07/2016"
 	ms.author="cjiang"/>
 
 # Understand your Azure Marketplace charges
@@ -29,7 +29,7 @@ To view or download your bill:
 1. Sign in to the Azure Accounts Portal using your Org ID.
 2. Click **Marketplace**.
 The list being displayed is a complete list of all Marketplace orders that have been placed by your Azure account. You’ll notice that the orders are grouped by the parent Azure subscription name and ID.
-![Marketplace orders](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.jpg)
+![Marketplace orders](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
 3. Clicking any of the displayed orders will take you to the summary overview of that order for the current billing cycle. An explanation of the different pricing models can be found on [Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/).
 ![Order summary](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
