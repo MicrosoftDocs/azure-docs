@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="03/07/2016"
 	ms.author="dariac"/>
     
 # Sync content from a cloud folder to Azure App Service
@@ -37,17 +37,14 @@ To enable content sync from the Azure Portal, follow these steps:
 
     ![Deployment Source](./media/app-service-deploy-content-sync/onedrive.png)
 
-3. Complete the authorization workflow to enable App Service to access a specific pre-defined designated path for OneDrive or Dropbox where all of your App Service content will be stored.
-
-    ![OneDrive](./media/app-service-deploy-content-sync/authorization.png)
-
+3. Complete the authorization workflow to enable App Service to access a specific pre-defined designated path for OneDrive or Dropbox where all of your App Service content will be stored.  
     After authorization the App Service platform will give you the option to create a content folder under the designated content path, or to choose an existing content folder under this designated content path. The designated content paths under your cloud storage accounts used for App Service sync are the following:  
     * **OneDrive**: `Apps\Azure Web Apps` 
     * **Dropbox**: `Dropbox\Apps\Azure`
 
 4. After the initial content sync the content sync can be initiated on demand from the Azure portal. Deployment history is available with the **Deployments** blade.
 
-    ![Deployment History](./media/app-service-deploy-content-sync/history.png)
+    ![Deployment History](./media/app-service-deploy-content-sync/onedrive_sync.png)
  
 More information for Dropbox deployment is available under [Deploy from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). 
 
