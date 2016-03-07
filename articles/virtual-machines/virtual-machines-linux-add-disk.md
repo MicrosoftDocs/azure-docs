@@ -14,27 +14,16 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="hero-article"
 	ms.date="02/01/2016"
-	ms.author="rickstercdn"/>
+	ms.author="rclaus"/>
 
 # Add a disk to a Linux VM
 
-This topic will add a persistent disk to a Linux based Azure Virtual machine using the Azure Command-line interface for Mac, Linux and Windows.  By attaching a persistent disk to your virtual Machine, you are able to preserve your data - should your VM be re-provisioned due to maintenance or resizing.
+This topic will add a persistent disk to a Linux based Azure Virtual machine using the Azure Command-line interface for Mac and Linux.  By attaching a persistent disk to your virtual Machine, you are able to preserve your data - should your VM be re-provisioned due to maintenance or resizing.
 
 ## Prerequisites
-- a working Azure subscription
-    - [free trial signup](https://azure.microsoft.com/pricing/free-trial/)
-    - [Azure portal](http://portal.azure.com)
-- The Azure CLI
-    - [Linux installer](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409), [Mac OSX installer](http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409)
-    - you can also install the Azure CLI using popular package managers and as a Linux container:
-        - Mac via **Homebrew** `brew install azure-cli`
-        - Mac & Linux via **npm** `npm install -g azure-cli`
-        - Mac & Linux via **Docker** `docker run -it microsoft/azure-cli`
-- A running Linux VM on Azure. [AZURE.INCLUDE [virtual-machines-create-linuxvm](../../includes/virtual-machines-create-linuxvm.md)]
 
-- You will need to know the Resource Group Name, Your VM name and the Region they are located in order to proceed. 
+This topic assumes you already have a working Azure Subscription ([free trial signup](https://azure.microsoft.com/pricing/free-trial/)), [installed the Azure CLI](../xplat-cli-install.md) and have already provisioned a VM into your Azure Subscription. You will need to know the Resource Group name, your VM name and the Region they are located in order to proceed. 
 
 ## Connect your AzureCLI terminal to your Azure subscription
 Before doing anything with Azure - you have to authenticate to your subscription. To do this with AzureCLI, simply type `azure login` to start the interactive process. This will connect your session to your Azure subscription and keep it active for up to 30 minutes. 
