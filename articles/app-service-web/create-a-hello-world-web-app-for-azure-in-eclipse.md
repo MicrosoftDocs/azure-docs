@@ -28,8 +28,8 @@ When you have completed this tutorial, your application will look similar to the
 
 * A Java Developer Kit (JDK), v 1.7 or later.
 * Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
-* A distribution of a Java-based web server or application server, such as Apache Tomcat, GlassFish, JBoss Application Server, Jetty, or IBM® WebSphere® Application Server Liberty Core.
-* An Azure subscription, which can be acquired from <http://azure.microsoft.com/pricing/purchase-options/>.
+* A distribution of a Java-based web server or application server, such as Apache Tomcat or Jetty.
+* An Azure subscription, which can be acquired from <https://azure.microsoft.com/en-us/free/> or <http://azure.microsoft.com/pricing/purchase-options/>.
 * The Azure Toolkit for Eclipse. For more information, see [Installing the Azure Toolkit for Eclipse].
 
 ## To Create a Hello World Application
