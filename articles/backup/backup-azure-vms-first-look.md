@@ -1,6 +1,6 @@
 <properties
-	pageTitle="First look: Backing up Azure VMs | Microsoft Azure"
-	description="Complete procedure for preparing your environment and backing up virtual machines in Azure"
+	pageTitle="Protect VMs in Azure with Azure Backup | Microsoft Azure"
+	description="Protect Azure VMs with Azure Backup service. Tutorial explains create vault, register VMs, create policy, and protect VMs in Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
