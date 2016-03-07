@@ -12,7 +12,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="java"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="02/05/2016"
