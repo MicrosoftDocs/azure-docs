@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/29/2015"
+   ms.date="03/08/2016"
    ms.author="piyushjo"/>
 
 
@@ -53,7 +53,13 @@ Here is how you should interpret these details:
 	4. On iOS devices, messages sometimes do not get delivered if either the device is on low battery or if the app is consuming significant amount of power when processing remote notifications. This is a limitation of the iOS devices.   
 
 3.	**Displayed** - This specifies the number of messages which are successfully shown to the app user on the device in the form of a system push/out-of-app notification in the notification center or an in-app notification within the mobile app.  The **Advanced** tab will tell you how many were system notifications and how many were in-app notifications. 
-
+	
+	*Reasons for Displayed count being less than Delivered count (waiting to be displayed)*
+	
+	1. If the notification campaign had an end date on it then it is possible that the notification was delivered but when the time came to open and display it to the app user, it was already expired so it was never displayed.   
+	2. If the notification is an in-app notification then the notification is only displayed when the app user opens the app. In cases where the app user hasn't opened the app, the SDK will report that the notification was delivered but not yet displayed until the app is opened. 
+	2. If the notification is an in-app notification and configured to be shown on a specific activity/screen then also the notification will be reported as delivered but not yet delivered until the user opens the app on a specific screen. 
+	
 4.	**User Interactions** - This specifies the number of messages which the app user has interacted with and will include the messages which are either actioned or exited. 
 
 	- *The app user can action a notification in either of the following ways:*
