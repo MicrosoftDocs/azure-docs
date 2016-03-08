@@ -1,8 +1,8 @@
-When adding a site-to-site connection to your virtual network gateway, you first need to create a local network gateway in order to refer to it from your configuration. Verify that you have a local network gateway configured. You can look for local network gateways by using **Browse** and filtering for **Local network gateways**.
+When adding a site-to-site connection to your virtual network gateway, you first need to create a local network gateway to refer to it from your configuration. Verify that you have a local network gateway configured. You can look for local network gateways by using **Browse** and filtering for **Local network gateways**.
 
 1. Locate your virtual network and click to open the blade. On the blade, you will see your gateway listed as a *Connected device*.
 2. Click on the ***name of your virtual network gateway*** -> **Virtual network gateway** -> **Settings** -> **Connections** and then click **Add**.
-3. On the **Add connection blade**, **Name** your connection. 
+3. On the **Add connection** blade, **Name** your connection. 
 4. For **Connection type**, select **Site-to-site(IPSec)**.
 5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
 6. For **Local network gateway**, click **Choose a local network gateway** and select the local network gateway that you want to use. 

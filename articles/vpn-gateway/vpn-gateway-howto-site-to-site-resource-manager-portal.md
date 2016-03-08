@@ -39,7 +39,7 @@ If you want to connect VNets together, but are not creating a connection to an o
 
 Verify that you have the following items before beginning your configuration.
 
-- A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you'll need to coordinate with someone who can provide those details for you.
+- A compatible VPN device and someone who can configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you'll need to coordinate with someone who can provide those details for you.
 
 - An externally-facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 	
@@ -92,7 +92,7 @@ If you are doing this as an exercise, refer to these [values](#values) when spec
 
 Before connecting your virtual network to a gateway, you'll first need to create the gateway subnet for the virtual network to which you want to connect. The gateway subnet you create must be named *GatewaySubnet* or it will not work properly. If you are going through these steps as an exercise, refer to these [values](#values) when creating your gateway subnet.
 
-The gateway subnet prefix for some configurations requires a subnet of /28 or larger in order to accommodate the number of IP addresses needed in the pool. This means the gateway subnet prefix needs to be /28, /27, /26 etc. You may want to create a larger subnet here in order to accommodate possible future configuration additions.
+The gateway subnet prefix for some configurations requires a subnet of /28 or larger to accommodate the number of IP addresses needed in the pool. This means the gateway subnet prefix needs to be /28, /27, /26 etc. You may want to create a larger subnet here in order to accommodate possible future configuration additions.
 
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
@@ -117,7 +117,7 @@ If you are doing this as an exercise, refer to these [values](#values) when addi
 
 ## Create the Site-to-Site VPN connection
 
-Next, you'll create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values for your own. The shared key must match the value you used for your VPN device configuration.
+Next, you'll create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration.
 
 If you are doing this as an exercise, refer to these [values](#values) when creating your connection.
 
