@@ -57,6 +57,40 @@ You must have an Azure subscription to use the Azure portal.
 
 16. Log in to `https://portal.azurestack.local` with the new account to see the tenant portal.
 
+## Create an Azure Stack tenant account using the PowerShell
+
+If you don't have an Azure subscription, you could not be able to use the Azure portal to add tenant account. In that case, you may use AAD PowerShell instead.
+
+> [AZURE.NOTE] If you are using Microsoft Account (Live ID) to deploy Azure Stack PoC, you could not use AAD PowerShell to create tenant account. 
+
+1.  Install the [Microsoft Online Services Sign-In Assistant for IT Professionals RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
+
+2.  Install the [Azure Active Directory Module for Windows PowerShell (64-bit version)](http://go.microsoft.com/fwlink/p/?linkid=236297) and open it.
+
+3.  Run the following cmdlets:
+
+
+
+
+```
+# Provide the AAD credential you use to deploy Azure Stack PoC
+		
+		$msolcred = get-credential
+
+# Add a tenant account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
+
+		connect-msolservice -credential $msolcred
+		$user = new-msoluser -DisplayName "Tenant Admin" -UserPrincipalName <username>@<yourdomainname> -Password <password>
+		Add-MsolRoleMember -RoleName "Company Administrator" -RoleMemberType User -RoleMemberObjectId $user.ObjectId
+
+```
+
+4.  Log in to Microsoft Azure with the new account. Change the password when prompted.
+
+5.  Log in to `https://portal.azurestack.local` with the new account to see the tenant portal.
+
+
+
 ## Next steps
 
 [Enable multiple concurrent user connections](azure-stack-enable-multiple-concurrent-users.md)

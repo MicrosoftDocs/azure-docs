@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Move data to and from Azure Data Lake Store | Azure Data Factory"
+	pageTitle="Move data to/from Azure Data Lake Store | Azure Data Factory"
 	description="Learn how to move data to/from Azure Data Lake Store using Azure Data Factory"
 	services="data-factory"
 	documentationCenter=""
