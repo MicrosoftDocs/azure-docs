@@ -3,7 +3,7 @@
 	description="Frequently Asked Questions" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="LuisCabrer" 
+	authors="bharaths" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="luisca"/> 
+	ms.date="03/07/2016" 
+	ms.author="bharaths"/> 
 
 #Publishing and using Machine Learning apps in the Azure Marketplace: FAQ
 
