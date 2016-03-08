@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure CLI commands with Resource Manager | Microsoft Azure"
+	pageTitle="Azure CLI commands in Resource Manager mode | Microsoft Azure"
 	description="Azure command line interface (CLI) commands to manage resources in the Resource Manager deployment model"
 	services="virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="03/07/2016"
 	ms.author="danlep"/>
 
-# Azure CLI commands in Resource Manager mode
+# Azure CLI commands in Azure Resource Manager (arm) mode
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-machines-command-line-tools.md).
 

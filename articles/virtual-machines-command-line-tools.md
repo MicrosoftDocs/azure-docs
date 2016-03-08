@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Use the Azure CLI with Service Management | Microsoft Azure"
-	description="Learn about using the command-line tools for Mac, Linux, and Windows to manage Azure using the Azure CLI in classic (Azure Service Management) mode."
-	services="virtual-machines, mobile-services, cloud-services"
+	pageTitle="Azure CLI commands in Service Management mode | Microsoft Azure"
+	description="Azure command line interface (CLI) commands in Service Management mode to manage deployments in the classic deployment model"
+	services="virtual-machines-linux,virtual-machines-windows,mobile-services, cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
@@ -14,25 +14,22 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="03/08/2016"
 	ms.author="danlep"/>
 
-# Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management
+# Azure CLI commands in Azure Service Management (asm) mode
 
 [AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](azure-cli-arm-commands.md).
 
-This article describes how to use the Azure CLI in the Service Management mode (asm mode) to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform many of the same tasks using the various libraries of the Azure SDKs, with Azure PowerShell, and using the Azure classic portal. Using Azure services with the Service Management mode is conceptually similar to creating and managing individual Azure concepts and services like Websites, Virtual Machines, Virtual Networks, Storage, and so on.  
+This article provides syntax and options for Azure CLI commands you'd commonly use to create and manage Azure resources in the classic deployment model. You access these commands by running the CLI in Azure Service Management (asm) mode. This is not a complete reference, and your CLI version may show slightly different commands or parameters. 
 
-> [AZURE.NOTE]
-To get started, first [install the Azure CLI](xplat-cli-install.md) and [log on to use Azure resources associated with your account](xplat-cli-connect.md).
+To get started, first [install the Azure CLI](xplat-cli-install.md) and [connect to your Azure subscription](xplat-cli-connect.md).
 
-## Scope of article
+For current command syntax and options at the command line in Service Management mode, type `azure help` or, to display help for a specific command, `azure help [command]`. You'll also find CLI examples in the documentation for creating and managing specific Azure services.
 
-This article provides syntax and options for commonly used Azure CLI commands for the classic (Service Management) deployment model. It is not a complete reference, and your CLI version may show some different commands or parameters. For current command syntax and options at the command line in Service Management mode, type `azure help` or, to display help for a specific command, `azure help [command]`. You'll also find CLI examples in the documentation for creating and managing specific Azure services.
+Optional parameters are shown in square brackets (for example, `[parameter]`). All other parameters are required.
 
-Optional parameters are shown in square brackets (for example, [parameter]). All other parameters are required.
-
-In addition to command-specific optional parameters documented here, there are three optional parameters that can be used to display detailed output such as request options and status codes. The -v parameter provides verbose output, and the -vv parameter provides even more detailed verbose output. The --json option will output the result in raw json format.
+In addition to command-specific optional parameters documented here, there are three optional parameters that can be used to display detailed output such as request options and status codes. The `-v` parameter provides verbose output, and the `-vv` parameter provides even more detailed verbose output. The `--json` option will output the result in raw json format.
 
 ## Setting the Service Management mode
 
@@ -43,7 +40,7 @@ Currently the Service Management mode is enabled by default when you first insta
 >[AZURE.NOTE] The Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
 ## Manage your account information and publish settings
-Your Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Azure classic portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the tool will use for subsequent operations. You only need to import your publish settings once.
+One way the CLI can connect to your account is by using your Azure subscription information. (See [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md) for other options.) This information can be obtained from the Azure classic portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the CLI will use for subsequent operations. You only need to import your publish settings once.
 
 **account download [options]**
 
@@ -189,8 +186,8 @@ This command sets the account environment
 
 This command deletes the specified environment from the account
 
-## Commands to manage your Azure virtual machines
-The following diagram shows how Azure virtual machines are hosted in the production deployment environment of an Azure cloud service.
+## Commands to manage your classic virtual machines
+The following diagram shows how classic Azure virtual machines are hosted in the production deployment environment of an Azure cloud service.
 
 ![Azure Technical Diagram](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
@@ -351,7 +348,7 @@ This command exports an Azure virtual machine image to a file
 	info:   vm export command OK
 
 ##  Commands to manage your Azure virtual machine endpoints
-The following diagram shows the architecture of a typical deployment of multiple instances of a virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (for example, 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine. This internal IP address can also be used for communication between virtual machines.
+The following diagram shows the architecture of a typical deployment of multiple instances of a classic virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (for example, 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine. This internal IP address can also be used for communication between virtual machines.
 
 ![azurenetworkdiagram](./media/virtual-machines-command-line-tools/networkdiagram.jpg)
 
@@ -2300,7 +2297,7 @@ Show details of a Virtual Network.
 	data:    Subnets 0 AddressPrefix "10.0.0.0/11"
 	info:    network vnet show command OK
 
-**vnet list**
+**network vnet list**
 
 List all existing Virtual Networks.
 
@@ -2368,3 +2365,4 @@ Removes a DNS server entry from the network configuration.
 	Delete the DNS server entry dns-4 ( 77.88.99.11 ) %s ? (y/n) y
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
+
