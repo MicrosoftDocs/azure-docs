@@ -31,7 +31,7 @@ The following articles will help you get started using Azure Toolkit for Eclipse
 * [What's New in the Azure Toolkit for Eclipse]
 * [Installing the Azure Toolkit for Eclipse]
 * [Creating a Hello World Application for Azure in Eclipse]
-* [Create a Hello World Web App for Azure in Eclipse]
+* [Create a Hello World Web App for Azure in Eclipse](./app-service-web/create-a-hello-world-web-app-for-azure-in-eclipse.md)
 * [Displaying Javadoc Content in Eclipse for the Package for Azure Libraries for Java]
 
 ## Configuring Azure Project Settings ##
@@ -78,7 +78,6 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Azure Service Endpoints]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/create-a-hello-world-web-app-for-azure-in-eclipse.md
 [Debugging Azure Applications in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
 [Displaying Javadoc Content in Eclipse for the Package for Azure Libraries for Java]: http://go.microsoft.com/fwlink/?LinkID=699537
