@@ -371,10 +371,15 @@ Make the following changes to the TodoListDataAPI project.
 
 3. In the **App settings** section, add the following keys and values:
 
-	|Key|Value|Example
-	|---|---|---|
-	|todo:TrustedCallerServicePrincipalId|Service principal id of calling application|4f4a94a4-6f0d-4072-4f4a94a4-6f0d-4072|
-	|todo:TrustedCallerClientId|Client ID of calling application - copied from the TodoListAPI AAD application|960adec2-b74a-484a-960adec2-b74a-484a|
+	| **Key** | todo:TrustedCallerServicePrincipalId |
+	|---|---|
+	| **Value** | Service principal id of calling application |
+	| **Example** | 4f4a94a4-6f0d-4072-4f4a94a4-6f0d-4072 |
+
+	| **Key** | todo:TrustedCallerClientId |
+	|---|---|
+	| **Value** | Client ID of calling application - copied from the TodoListAPI Azure AD application |
+	| **Example** | 960adec2-b74a-484a-960adec2-b74a-484a |
 
 6. Click **Save**.
 
