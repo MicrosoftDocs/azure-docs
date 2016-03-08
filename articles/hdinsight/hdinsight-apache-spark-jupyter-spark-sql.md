@@ -54,7 +54,7 @@ In this section, you create an HDInsight version 3.3 cluster, which is based on 
 
     ![Creating a new cluster in the Azure preview portal](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.1.png "Creating a new cluster in the Azure preview portal")
 
-3. Enter a **Cluster Name**, select **Hadoop** for the **Cluster Type**, from the **Cluster Operating System** drop-down menu, select **Ubuntu**, and then select the version of Spark. A green check appears beside the cluster name if it is available.
+3. Enter a **Cluster Name**, select **Spark** for the **Cluster Type**, from the **Cluster Operating System** drop-down menu, select **Linux**, and then select the version of Spark. A green check appears beside the cluster name if it is available.
 
 	![Enter cluster name and type](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.2.png "Enter cluster name and type")
 
