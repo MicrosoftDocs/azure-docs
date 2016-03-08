@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure AD Connect sync: Generic SQL Connector step-by step | Microsoft Azure"
-   description="This article describes how to configure Microsoft's Generic SQL Connector."
+   description="This article is walking you through a simple HR system step-by-step using the Generic SQL Connector."
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="03/08/2016"
    ms.author="andkjell"/>
 
 # Generic SQL Connector step-by-step
@@ -79,6 +79,29 @@ We now have the file we need and can start creating the Connector.
 10. On the **Select Object Types** and **Select Attributes**, select both object types and all attributes. On the **Configure Anchors** page, click **Finish**.
 
 ## Create Run Profiles
+
+1. In the Synchronization Service Manager UI, select **Connectors**, and **Configure Run Profiles**. Click on **New Profile**. We will start with **Full Import**.  
+![Runprofile1](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile1.png)
+2. Select the type **Full Import (Stage Only)**.  
+![Runprofile2](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile2.png)
+3. Select the partition **OBJECT=User**.  
+![Runprofile3](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile3.png)
+4. Select **Table** and type **[USERS]**. Scroll down to the multi-valued object type section and enter the data as in below. Select **Finish** to save the step.
+![Runprofile4a](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile4a.png)  
+![Runprofile4b](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile4b.png)  
+5. Select **New Step**. This time, select **OBJECT=Group**. On the last page, use the configuration below. Click on **Finish**.
+![Runprofile5a](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile5a.png)  
+![Runprofile5b](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\Runprofile5b.png)  
+6. Optional: You can configure additional run profiles if you want to. For this walkthrough only the Full Import is used.
+7. Click on **OK** to finish changing run profiles.
+
+## Add some test data and test the import
+
+Fill out some test data in your sample database. When you are ready, select **Run** and **Full import**.
+
+Here is a user with two phone numbers and a group with some members.  
+![cs1](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\cs1.png)  
+![cs2](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\cs2.png)  
 
 ## Appendix A
 **SQL script to create the sample database**

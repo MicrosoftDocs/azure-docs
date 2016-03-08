@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="03/08/2016"
    ms.author="andkjell"/>
 
 # Generic SQL Connector technical reference
@@ -25,6 +25,8 @@ This article describes the Generic SQL Connector. The article applies to the fol
     -   Must use hotfix 4.1.3461.0 or later [KB2870703](https://support.microsoft.com/kb/2870703).
 
 For MIM2016 and FIM2010R2 the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
+
+To see this Connector in action, see the [Generic SQL Connector step-by-step](active-directory-aadconnectsync-connector-genericsql-step-by-step.md) article.
 
 ## Overview of the Generic SQL Connector
 
