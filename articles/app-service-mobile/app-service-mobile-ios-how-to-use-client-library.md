@@ -390,12 +390,12 @@ With a custom API, you can expose any backend functionality. It doesn't have to 
 
 To call a custom API with JSON, call `invokeAPI` on `MSClient`. 
 
-In the example below, if you were making a `GET` request instead of a `POST` request, change `body` to `nil` and change `HTTPMethod` from `POST` to `GET`.
+In the example below, if you were making a `GET` request instead of a `POST` request, change `body` to `nil` and change `HTTPMethod` from `"POST"` to `"GET"`.
 
 **Objective-C**:
 ```
     [self.client invokeAPI:@"sendEmail"
-                      body:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+                      body:@{ @"body": @"Hello world!" }
                 HTTPMethod:@"POST"
                 parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
                    headers:nil
@@ -410,7 +410,21 @@ In the example below, if you were making a `GET` request instead of a `POST` req
 
 **Swift**:
 
-
+```
+client.invokeAPI("sendEmail",
+            body: [ "body": "Hello World" ],
+            HTTPMethod: "POST",
+            parameters: [ "to": "bill@contoso.com", "subject" : "Hi!" ],
+            headers: nil)
+            {
+                (result, response, error) -> Void in
+                if let err = error {
+                    print("ERROR ", err)
+                } else if let res = result {
+                          // Do something with result
+                }
+        }
+```
 
 ##<a name="templates"></a>How to: Register push templates to send cross-platform notifications
 
