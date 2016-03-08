@@ -16,11 +16,14 @@
    ms.date="03/18/2016"
    ms.author="cherylmc"/>
 
-# Configure ExpressRoute and site-to-site VPN connections to coexist for a VNet using the classic deployment  model
+# Configure ExpressRoute and site-to-site VPN connections to coexist for a VNet using the classic deployment model
 
 Having the ability to configure site-to-site VPN and ExpressRoute has several advantages. You can configure site-to-site VPN as a secure failover path for ExressRoute, or use site-to-site VPNs to connect to sites that are not part of your network, but that are connected through ExpressRoute. We will cover the steps to configure both scenarios in this article. Currently you can only create this configuration by using the classic deployment model. When we have documentation that applies to the Resource Manager deployment model, we will link to it from here.
 
->[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md)
+
+**About Azure deployment models**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 
 ExpressRoute circuits must be pre-configured before you follow the instructions below. Make sure that you have followed the guides to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and [configure routing](expressroute-howto-routing-classic.md) before you follow the steps below.
