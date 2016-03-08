@@ -192,17 +192,17 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 
 	`Remove-AzureVNetGateway –VnetName MyAzureVNET`
 
-2. Export the virtual network schema. Use the following PowerShell cmdlet, replacing the values with your own.
+3. Export the virtual network schema. Use the following PowerShell cmdlet, replacing the values with your own.
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
 
-3. Edit the network configuration file schema so that the gateway subnet is /27 or a shorter prefix (such as /26 or /25). See the following example. For more information about the configuration schema, see [Azure Virtual Network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+4. Edit the network configuration file schema so that the gateway subnet is /27 or a shorter prefix (such as /26 or /25). See the following example. For more information about the configuration schema, see [Azure Virtual Network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
           </Subnet>
 
-4. If your previous gateway was a Site-to-Site VPN, you must also change the connection type to **Dedicated**.
+5. If your previous gateway was a Site-to-Site VPN, you must also change the connection type to **Dedicated**.
 
 		         <Gateway>
 		          <ConnectionsToLocalNetwork>
@@ -212,7 +212,7 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-5. At this point, you'll have a VNet with no gateways. To create new gateways and complete your connections, you can proceed with [Step 4](#gw) in the preceding set of steps.
+6. At this point, you'll have a VNet with no gateways. To create new gateways and complete your connections, you can proceed with [Step 4 - Create an ExpressRoute gateway](#gw), found in the preceding set of steps.
 
 ## Next steps
 
