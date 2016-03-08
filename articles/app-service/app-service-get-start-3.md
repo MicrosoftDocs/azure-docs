@@ -21,7 +21,7 @@
 # Get started with Azure App Service - Part 2
 
 In [Get started with Azure App Service](app-service-get-start-2), you deployed a web app to Azure App Service and are all setup for fast and easy updates.
-In this article, you'll quickly add some crucial functionality to keep your app humming along beautifully. In doing so, you'll find out for yourself that App 
+In this article, you'll quickly add some crucial functionality to your deployed app to keep it humming along beautifully. In doing so, you'll find out for yourself that App 
 Service is so much more than a website hoster. It brings enterprise-class capabilities to your great app, so you can focus your creative energy on delighting 
 your users with your app and not on meeting the real-world demands of scalability, performance, management, etc.
 
@@ -60,7 +60,7 @@ your default directory.
     But once it opens the app in a new tab, the URL box redirects several times and finishes on your app with an HTTPS address. What you're seeing is that
     you're already logged into the Microsoft account with your Azure subscription, and you're automatically logged into the app using that account.  
     ![](./media/app-service-get-start/aad-login-browse-http-postclick.png)  
-    So if you now open another browser (to ensure that you're not already logged in), you'll see a login screen when you navigate to the same app's URL:
+    So if you now open another browser (to ensure that you're not already logged in), you'll see a login screen when you navigate to the same app's URL:  
     ![](./media/app-service-get-start/aad-login-browse.png)  
     If you've never done anything with Azure Active Directory, your default directory might not have any Azure AD users. In that case, probably the only account
     in there is the Microsoft account with you Azure subscription, which is why you could be automatically logged into the app in the same browser earlier. 
@@ -145,7 +145,7 @@ and then click **OK**.
     When Azure finishes creating the alert, you'll see it in the **Alerts** blade.  
     ![](./media/app-service-get-start/alert-done.png)
 
-### Congratulations! You're now getting alerts! 
+Congratulations! You're now getting alerts. 
 
 This alert setting will now check CPU utilization every 5 minutes. If that number goes above 90%,
 you'll receive an email alert, along with anyone who is authorized. To see everyone who is authorized to receive the alerts, go back to your app's blade

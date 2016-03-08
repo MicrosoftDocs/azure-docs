@@ -52,15 +52,15 @@ Let's deploy a web app to Azure App Service.
 
         git clone <github_sample_url>
 
-    For &lt;github_sample_url>, use one of the following URLs, depending on the framework you like. 
+    For &lt;github_sample_url>, use one of the following URLs, depending on the framework you like: 
 
-    - ASP.NET: https://github.com/cephalin/aspnet-get-started.git
-    - PHP (CodeIgniter): https://github.com/cephalin/php-get-started.git
-    - Node.js (Express): https://github.com/cephalin/nodejs-get-started.git 
-    - Python (Django): https://github.com/cephalin/python-get-started.git
-    - Java: https://github.com/cephalin/java-get-started.git
+    - ASP.NET: [https://github.com/cephalin/aspnet-get-started.git](https://github.com/cephalin/aspnet-get-started.git)
+    - PHP (CodeIgniter): [https://github.com/cephalin/php-get-started.git](https://github.com/cephalin/php-get-started.git)
+    - Node.js (Express): [https://github.com/cephalin/nodejs-get-started.git](https://github.com/cephalin/nodejs-get-started.git) 
+    - Python (Django): [https://github.com/cephalin/python-get-started.git](https://github.com/cephalin/python-get-started.git)
+    - Java: [https://github.com/cephalin/java-get-started.git](https://github.com/cephalin/java-get-started.git)
 
-2. `CD` into your app's project root. For example, 
+2. `CD` into your sample app's project root. For example, 
 
         cd aspnet-get-started
 
@@ -70,14 +70,14 @@ Let's deploy a web app to Azure App Service.
     
     Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
 
-4. Create the App Service app resource in Azure like so:
+4. Create the App Service app resource in Azure with a unique app name, like so:
 
         azure site create --git <app_name>
     
-    Not only is your app created in Azure now, but your current directory is also Git-initialized and connected to the App Service app as a Git remote.
+    Not only is your app created in Azure now, but your current directory is also Git-initialized and connected to the new App Service app as a Git remote.
 
-    >[AZURE.IMPORTANT] **Java sample only**: Before you proceed, take a look at the sample's [Requirement](https://github.com/cephalin/java-get-started#requirements)
-    section. 
+    >[AZURE.IMPORTANT] **Java sample only**: Before you proceed, be sure to follow the instructions at the sample's 
+    [Requirement](https://github.com/cephalin/java-get-started#requirements) section. 
 
 4. Now, deploy your app to the App Service app you just created like you would push any code with Git:
 
@@ -139,10 +139,10 @@ familiarize yourself with this interface by performing some simple tasks:
 
 ## Next steps
 
-Take the next step with the app you deployed. Secure it with authentication. Scale it based on demand. Set up some performance alerts. All with a few clicks. See 
-[](app-service-get-start-3.md).
+Take the app you deployed to the next level. Secure it with authentication. Scale it based on demand. Set up some performance alerts. All with a few clicks. See 
+[Get started with Azure App Service - Part 2](app-service-get-start-3.md).
 
-There is also a lot of content that shows you the range of apps you can build on Azure App Service 
+There is also a lot of content that shows you the range of apps you can build on Azure App Service, including web apps, mobile app backends, and API apps. 
 
 - [Create web apps](/documentation/learning-paths/appservice-webapps/)
 - [Create mobile apps](/documentation/learning-paths/appservice-mobileapps/)
