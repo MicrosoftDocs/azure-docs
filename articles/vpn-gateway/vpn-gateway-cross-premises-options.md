@@ -63,7 +63,7 @@ A Site-to-Site VPN allows you to create a secure connection between your on-prem
 - The VPN device you use must be compatible with the gateway type that is required for your solution. See [About VPN Gateways](vpn-gateway-about-vpngateways.md).
 - The Gateway SKU will also impact aggregate throughput. See [Gateway SKUs](vpn-gateway-about-vpngateways.md#gateway-skus) for more information. 
 
-For information about configuring a Site-to-Site VPN gateway connection using the Azure Classic Portal and the classic deployment model, see [Configure a virtual network with a Site-to-Site VPN connection](vpn-gateway-site-to-site-create.md). For information about configuring a Site-to-Site VPN using the Resource Manager deployment model, see [Create a virtual network with a Site-to-Site VPN connection](vpn-gateway-create-site-to-site-rm-powershell.md).
+For information about configuring a Site-to-Site VPN gateway connection using the Azure Classic Portal and the classic deployment model, see [Configure a virtual network with a Site-to-Site VPN connection for the classic deployment model](vpn-gateway-site-to-site-create.md). For information about configuring a Site-to-Site VPN using the Resource Manager deployment model, see [Create a virtual network with a Site-to-Site VPN connection for the Resource Manager deployment model](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
 ## Point-to-Site connections
@@ -84,7 +84,7 @@ Point-to-Site and Site-to-Site configurations can exist concurrently, but unlike
 
 - You do not have an Internet facing IPv4 IP address for your VPN device.
 
-For more information about configuring a Point-to-Site connection, see [Configure a Point-to-Site VPN connection to a virtual network](vpn-gateway-point-to-site-create.md).
+For more information about configuring a Point-to-Site connection for the classic deployment model, see [Configure a Point-to-Site VPN connection to a virtual network for the classic deployment model](vpn-gateway-point-to-site-create.md). For more information about configuring a Point-to-Site connection for the Resource Manager deployment model, see [Configure a Point-to-Site VPN connection to a virtual network for the Resource Manager deployment model](vpn-gateway-point-to-site-rm-ps.md). 
 
 ## ExpressRoute connections
 
