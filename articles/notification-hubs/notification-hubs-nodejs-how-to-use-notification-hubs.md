@@ -65,9 +65,9 @@ To use Azure Notification Hubs, you need to download and use the Node.js [azure 
 		|-- xml2js@0.2.6 (sax@0.4.2)
 		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
->[AZURE.NOTE] You can learn more about installing NPM on the official [NPM blog](http://blog.npmjs.org/post/85484771375/how-to-install-npm). 
-
 3.  You can manually run the **ls** or **dir** command to verify that a **node\_modules** folder was created. Inside that folder, find the **azure** package, which contains the libraries you need to access the Notification Hub.
+
+>[AZURE.NOTE] You can learn more about installing NPM on the official [NPM blog](http://blog.npmjs.org/post/85484771375/how-to-install-npm). 
 
 ### Import the module
 
@@ -196,7 +196,7 @@ The following code uses the **WnsService** instance exposed by the **Notificatio
 
 The sample snippets above allow you to easily build service infrastructure to deliver push notifications to a wide variety of devices. Now that you've learned the basics of using Notification Hubs with node.js, follow these links to learn more about how you can extend these capabilities further.
 
--   See the MSDN Reference for [Azure Notification Hubs][].
+-   See the MSDN Reference for [Azure Notification Hubs](https://msdn.microsoft.com/en-us/library/azure/jj927170.aspx).
 -   Visit the [Azure SDK for Node] repository on GitHub for more samples and implementation details.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
