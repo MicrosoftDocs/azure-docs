@@ -390,9 +390,9 @@ With a custom API, you can expose any backend functionality. It doesn't have to 
 
 To call a custom API with JSON, call `invokeAPI` on `MSClient`. 
 
-In the example below, if you were making a `GET` request instead of a `POST` request, change `body` to `nil` and change `HTTPMethod` from `"POST"` to `"GET"`.
+In the example below, if you were making a `GET` request instead of a `POST` request, you'd change `body` to `nil` and change `HTTPMethod` from `"POST"` to `"GET"`.
 
-The HTTP request and response content are treated as JSON. If you'd like to use another other media type, use the other overload of `invokeAPI`, which takes a parameter `data` of type `NSData` instead of the parameter `body`.
+The HTTP request and response content are treated as JSON. If you'd like to use another other media type, you'd [call the other overload of `invokeAPI`](http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:)
 
 **Objective-C**:
 ```
