@@ -252,14 +252,27 @@ Make the following changes in the ToDoListAPI project in Visual Studio.
 
 3. In the **App settings** section, add the following keys and values:
 
-	|Key|Value|Example
-	|---|---|---|
-	|ida:Authority|https://login.microsoftonline.com/{your Azure AD tenant name}|https://login.microsoftonline.com/contoso.onmicrosoft.com|
-	|ida:ClientId|Client ID of the calling application (middle tier - ToDoListAPI)|960adec2-b74a-484a-960adec2-b74a-484a|
-	|ida:ClientSecret|App key of the calling application (middle tier - ToDoListAPI)|oCgdj3EYLfnR0p6iR3UvHFAfkn+zQB+0VqZT/6=
-	|ida:Resource|Client ID of the called application (data tier - ToDoListDataAPI)|e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8|
+	| **Key** | ida:Authority |
+	|---|---|
+	| **Value** | https://login.microsoftonline.com/{your Azure AD tenant name} |
+	| **Example** | https://login.microsoftonline.com/contoso.onmicrosoft.com |
 
-	**Note**: Make sure you use the called application's **client ID** and not its **App ID URI** for `ida:Resource`.
+	| **Key** | ida:ClientId |
+	|---|---|
+	| **Value** | Client ID of the calling application (middle tier - ToDoListAPI) |
+	| **Example** | 960adec2-b74a-484a-960adec2-b74a-484a |
+
+	| **Key** | ida:ClientSecret |
+	|---|---|
+	| **Value** | App key of the calling application (middle tier - ToDoListAPI) |
+	| **Example** | e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8 |
+
+	| **Key** | ida:Resource |
+	|---|---|
+	| **Value** | Client ID of the called application (data tier - ToDoListDataAPI) |
+	| **Example** | e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8 |
+
+	**Note**: For `ida:Resource`, make sure you use the called application's **client ID** and not its **App ID URI**.
 
 	`ida:ClientId` and `ida:Resource` are different values for this tutorial because you're using separate Azure AD applicaations for the middle tier and data tier. If you were using a single Azure AD application for the calling API app and the protected API app, you would use the same value in both `ida:ClientId` and `ida:Resource`.
 
