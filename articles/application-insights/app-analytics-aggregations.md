@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
 
 
@@ -61,10 +61,9 @@ If you don't provide a *GroupExpression,* the whole table is summarized in a sin
 
 You must use a simple type, not a dynamic type in the `by` clause. For example, the `tostring` cast here is essential:
 
-    event 
-	| where telemetryType == "request" 
+    exceptions
 	| summarize count()
-      by tostring(typeDimensions.responseCode)
+      by tostring(customDimensions.ClientRequestId)
 
 ### Summarize by columns with discrete values
 
@@ -72,7 +71,7 @@ Query to show average response times to different HTTP requests, separating out 
 
     requests 
     | summarize count(), avg(duration) 
-      by operation_Name, responseCode
+      by operation_Name, resultCode
 
 ![result](./media/app-analytics-aggregations/03.png)
 
@@ -116,7 +115,7 @@ Find the minimum and maximum timestamp of all records in the Activities table. T
 
 ```
 
-requests | summarize Min = min(Timestamp), Max = max(Timestamp)
+requests | summarize Min = min(timestamp), Max = max(timestamp)
 ```
 
 |`Min`|`Max`
@@ -150,9 +149,9 @@ Now let's find the average session durations for clients in different cities:
     requests
     | where isnotempty(session_Id)
     | summarize start=min(timestamp), stop=max(timestamp) 
-      by session_Id, location_City 
+      by session_Id, client_City 
     | extend duration = stop - start
-    | summarize duration_by_city=bin(avg(duration),1s) by location_City
+    | summarize duration_by_city=bin(avg(duration),1s) by client_City
     | top 50 by duration_by_city
 ```
 
@@ -168,7 +167,7 @@ Find the busiest time of day in each client city. By 'busiest' here we mean the 
 
 ```
 requests  
-| summarize start=min(timestamp) by session_Id, city=location_City 
+| summarize start=min(timestamp) by session_Id, city=client_City 
 | extend timeofday=start % 1d 
 | summarize popularity=dcount(session_Id) by bin(timeofday, 1h), city 
 | summarize argmax(popularity, *) by city  
@@ -181,28 +180,28 @@ requests
 
 ## any 
 
-* `any(`*Expr*`)`
+    any(Expression)
 
-    Randomly selects one row of the group and returns the value of the specified expression.
+Randomly selects one row of the group and returns the value of the specified expression.
 
 This is useful, for example, when some column has a large number of similar values (e.g., an "error text" column) and you want to sample that column once per a unique value of the compound group key. 
 
 **Example**  
 
 ```
+
 traces 
 | where timestamp > now(-15min)  
-| where level == 'Error' 
-| summarize count(level), any(eventText) by SourceId, Source 
+| summarize count(), any(message) by operation_Name 
 | top 10 by count_level desc 
 ```
 
 ## argmin, argmax
 
-* `argmin(`*ExprToMinimize*, `*` | *ExprToReturn*  [`,` ...]`)`
-* `argmax(`*ExprToMaximize*, `*` | *ExprToReturn*  [`,` ...]`)`: 
+    argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
+    argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
 
-    Finds a row in the group that minimizes/maximises *ExprToMaximize*, and returns the value of *ExprToReturn* (or `*` to return the entire row).
+Finds a row in the group that minimizes/maximises *ExprToMaximize*, and returns the value of *ExprToReturn* (or `*` to return the entire row).
 
 **Tip**: The passed-through columns are automatically renamed. To make sure you're using the right names, inspect the results using `take 5` before you pipe the results into another operator.
 
@@ -217,11 +216,11 @@ Show all the details, not just the supplier name:
     Supplies | summarize argmin(Price, *) by Product
 
 
-Find the southernmost city in each continent, with its country:
+Find the lowest value of each metric, together with its timestamp and other data:
 
-    PageViewLog 
-    | summarize latitude=argmin(latitude, City, country) 
-      by continent
+    metrics 
+    | summarize minValue=argmin(value, *) 
+      by name
 
 
 ![](./media/app-analytics-aggregations/argmin.png)
@@ -230,15 +229,15 @@ Find the southernmost city in each continent, with its country:
 
 ## avg
 
-* `avg(`*Expr*`)`
+    avg(Expression)
 
-    Calculates the average of *Expr* across the group.
+Calculates the average of *Expression* across the group.
 
 ## buildschema
 
-* `buildschema(`*DynamicExpr*`)`
+    buildschema(DynamicExpression)
 
-    Returns the minimal schema that admits all values of *DynamicExpr*. 
+Returns the minimal schema that admits all values of *DynamicExpression*. 
 
 The parameter column type should be `dynamic`. 
 
@@ -297,18 +296,18 @@ They are equivalent to a subset of the TypeScript type annotations, encoded as a
 
 ## count
 
-* `count(`[*Predicate*]`)`
+    count([ Predicate ])
 
-    Returns a count of rows for which *Predicate* evaluates to `true`. If no *Predicate* is specified, returns the total number of records in the group. 
+Returns a count of rows for which *Predicate* evaluates to `true`. If no *Predicate* is specified, returns the total number of records in the group. 
 
-    **Perf tip**: use `summarize count(filter)` instead of `where filter | summarize count()`
+**Perf tip**: use `summarize count(filter)` instead of `where filter | summarize count()`
    
 
 ## dcount
 
-* `dcount(`*Expr* [`,` *Accuracy*]`)`
+    dcount( Expression [ ,  Accuracy ])
 
-    Returns an estimate of the number of distinct values of *Expr* in the group. (To list the distinct values, use [`makeset`](#makeset).)
+Returns an estimate of the number of distinct values of *Expr* in the group. (To list the distinct values, use [`makeset`](#makeset).)
 
 *Accuracy*, if specified, controls the balance between speed and accuracy.
 
@@ -319,32 +318,32 @@ They are equivalent to a subset of the TypeScript type annotations, encoded as a
 **Example**
 
     pageViews 
-    | summarize countries=dcount(location_CountryOrRegion) 
-      by location_Continent
+    | summarize countries=dcount(client_City) 
+      by client_CountryOrRegion
 
 ![](./media/app-analytics-aggregations/dcount.png)
 
 ## makelist
 
-* `makelist(`*Expr*` [`,` *MaxListSize*]`)`
+    makelist(Expr [ ,  MaxListSize ] )
 
-    Returns a `dynamic` (JSON) array of all the values of *Expr* in the group. 
+Returns a `dynamic` (JSON) array of all the values of *Expr* in the group. 
 
 * *MaxListSize* is an optional integer limit on the maximum number of elements returned (default is *128*).
 
 ## makeset
 
-* `makeset(`*Expr* [`,` *MaxSetSize*]`)`
+    makeset(Expression [ , MaxSetSize ] )
 
-    Returns a `dynamic` (JSON) array of the set of distinct values that *Expr* takes in the group. (Tip: to just count the distinct values, use [`dcount`](#dcount).)
+Returns a `dynamic` (JSON) array of the set of distinct values that *Expr* takes in the group. (Tip: to just count the distinct values, use [`dcount`](#dcount).)
   
 *  *MaxSetSize* is an optional integer limit on the maximum number of elements returned (default is *128*).
 
 **Example**
 
     pageViews 
-    | summarize countries=makeset(location_CountryOrRegion) 
-      by location_Continent
+    | summarize countries=makeset(client_City) 
+      by client_CountryOrRegion
 
 ![](./media/app-analytics-aggregations/makeset.png)
 
@@ -353,25 +352,25 @@ See also the [`mvexpand` operator](app-analytics-queries.md#mvexpand-operator) f
 
 ## max, min
 
-* `max(`*Expr*`)`
+    max(Expr)
 
-    Calculates the maximum of *Expr*.
+Calculates the maximum of *Expr*.
     
-* `min(`*Expr*`)`
+    min(Expr)
 
-    Calculates the minimum of *Expr*.
+Calculates the minimum of *Expr*.
 
 **Tip**: This gives you the min or max on its own - for example, the highest or lowest price. But if you want other columns in the row - for example, the name of the supplier with the lowest price - use [argmin or argmax](#argmin-argmax).
 
 ## percentile, percentiles
 
-* `percentile(`*Expr*`,` *Percentile*`)`
+    percentile(Expression, Percentile)
 
-    Returns an estimate for *Expr* of the specified percentile in the group. The accuracy depends on the density of population in the region of the percentile.
+Returns an estimate for *Expression* of the specified percentile in the group. The accuracy depends on the density of population in the region of the percentile.
     
-* `percentiles(`*Expr*`,` *Percentile1* [`,` *Percentile2*]`)`
+    percentiles(Expression, Percentile1 [ , Percentile2 ] )
 
-    Like `percentile()`, but calculates a number of percentile values (which is faster than calculating each percentile individually).
+Like `percentile()`, but calculates a number of percentile values (which is faster than calculating each percentile individually).
 
 **Examples**
 
@@ -408,21 +407,21 @@ A few important points:
 
 ## stdev
 
-* `stdev(`*Expr*`)`
+     stdev(Expr)
 
-    Returns the standard deviation of *Expr* over the group.
+Returns the standard deviation of *Expr* over the group.
 
 ## variance
 
-* `variance(`*Expr*`)`
+    variance(Expr)
 
-    Returns the variance of *Expr* over the group.
+Returns the variance of *Expr* over the group.
 
 ## sum
 
-* `sum(`*Expr*`)`
+    sum(Expr)
 
-    Returns the sum of *Expr* over the group.                      
+Returns the sum of *Expr* over the group.                      
 
 
 
