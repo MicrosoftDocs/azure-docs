@@ -70,11 +70,8 @@ In the steps below, you will create a VNet, add a gateway subnet, a gateway, a l
 - VPN Type: RouteBased
 - Connection Type: Vpn
 - Local Network Gateway Name: VNet1LocalNet
+- Connection Name: VNet1s2s
 
-
-- Local Site: 
-- Connection: VNet1toVNet4
-- 
 
 
 ## Create a virtual network 
