@@ -25,6 +25,7 @@ This article provides the information you will need to open a ticket with Azure 
 >[AZURE.NOTE]Only the Azure account administrator has permission to access the Account Center.
 
 1. Sign into the [Azure portal](https://portal.azure.com/). Select **Help + support**>**New support request**.
+
 	![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 2. In the **Basics** blade, choose the issue type, subscription and support plan.
 3. In the **Problem** blade, provide the following information:
