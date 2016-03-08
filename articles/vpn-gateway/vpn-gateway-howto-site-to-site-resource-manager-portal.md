@@ -104,7 +104,7 @@ The gateway subnet prefix for some configurations requires a subnet of /28 or la
 
 If you are doing this as an exercise, refer to these [values](#values) when creating your gateway.
 
-[AZURE.INCLUDE [vpn-gateway-create-gw-rm-portal](../../includes/vpn-gateway-create-gw-rm-portal-include.md)]
+[AZURE.INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 ## Add your local site
 
