@@ -388,9 +388,9 @@ At minimum, the `id` attribute must be set when making deletes.
 
 With a custom API, you can expose any backend functionality. It doesn't have to map to a table operation. Not only do you gain more control over messaging, you can even read/set headers and change the response body format. To learn how to create a custom API on the backend, read [Custom APIs](app-service-mobile-node-backend-how-to-use-server-sdk.md#CustomAPI)
 
-To call a custom API with JSON, call `invokeAPI` on `MSClient`, as shown below. The HTTP request and response content are treated as JSON. To use another other media type, [call the other overload of `invokeAPI`](http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:)
+To call a custom API, call `invokeAPI` on `MSClient` as shown below. The HTTP request and response content are treated as JSON. To use another other media type, [call the other overload of `invokeAPI`](http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:)
 
-To make a `GET` request instead of a `POST` request, change `body` to `nil` (since GET requests do not have message bodies) and change `HTTPMethod` from `"POST"` to `"GET"`. If you try to call a GET-only API with a message body, your'll see unexpected errors in Xcode. If your custom API supports other HTTP verbs, change `HTTPMethod` appropriately.
+To make a `GET` request instead of a `POST` request, set parameter `body` to `nil` (since GET requests do not have message bodies) and parameter `HTTPMethod` to `"GET"`. If your custom API supports other HTTP verbs, change `HTTPMethod` appropriately.
 
 **Objective-C**:
 ```
