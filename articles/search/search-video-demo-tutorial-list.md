@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="01/23/2016"
+	ms.date="03/08/2016"
 	ms.author="heidist"/>
 
 #Azure Search: tutorials, video demos, and samples
@@ -57,7 +57,6 @@ Walkthrough|Description
 -----------|-----------
 [How to search StackExchange data using Azure Search](search-howto-stackexchange-data.md)|Full-text search over StackExchange data in an application integrated with Azure Search.
 [How to use Azure Search with D3.js to Build Interactive Data Visualizations](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|Blog post and sample code that demonstrates how to add visual search capabilities to your custom app.
-[Get started with Azure Search in .NET](search-get-started-dotnet.md)|Learn how to work with Azure Search in managed code.
 [Get started with Azure Search in NodeJS](search-get-started-nodejs.md)|Learn how to work with Azure Search in NodeJS.
 [Get started with Azure Search in Java](search-get-started-java.md)|Tutorial for Java programmers using Eclipse and Apache Tomcat server to build and run a sample application that uses Azure Search.
 [Azure Search scenarios and capabilities](https://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)|Blog post covering the primary scenarios enabled by the current functionality.
