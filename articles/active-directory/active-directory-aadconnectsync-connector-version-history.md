@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="03/08/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Connector Version Release History
@@ -34,16 +34,31 @@ Related links:
 Released: 2016 March
 
 **New Connector**  
-Initial release of the [Generic SQL Connector](active-directory-aadconnectsync-connector-genericsql.md)
+Initial release of the [Generic SQL Connector](active-directory-aadconnectsync-connector-genericsql.md).
+
+**New features:**
+
+- Generic LDAP Connector:
+    - Added support for delta import with Isode.
+- Web Services Connector:
+    - Updated the csEntryChangeResult activity and setImportErrorCode activity to allow object level errors to be returned back to the sync engine.
+    - Updated the SAP6 and SAP6User templates to use the new object level error functionality.
+- Lotus Domino Connector:
+    - When exporting you need one certifier per address book. You can now use the same password for all certifiers to make the management easier.
 
 **Fixed issues:**
 
 - Generic LDAP Connector:
-    - TBA
+    - For IBM Tivoli DS, some reference attributes were not detected correctly.
+    - For Open LDAP during a delta import, whitespaces at the beginning and end of strings were truncated.
+    - For Novell and NetIQ, an export which both moved an object between OUs/containers and at the same time renamed the object failed.
 - Web Services Connector:
-    - TBA
+    - If the web service had multiple end-points for same binding, then the Connector did not correctly discover these end-points.
 - Lotus Domino Connector:
-    - TBA
+    - An export of the fullName attribute to a mail-in database did not work.
+    - If the option **Multivalued Transformation** - **Append item** for export was selected, the Connector did a replace instead.
+    - An export which both added and removed member from a group only exported the added members.
+    - If a Notes Document is invalid (the attribute isValid set to false) then the Connector fails.
 
 ## Older releases
 Before March 2016, the Connectors were released as support topics.
