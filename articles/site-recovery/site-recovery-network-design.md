@@ -75,6 +75,8 @@ The following pictures shows the subnets before the failover. Subnet 192.168.0.1
 
 Before Failover
 
+
+The picture below shows networks and subnets after failover.
 	
 ![After Failover](./media/site-recovery-network-design/network-design3.png)
 
@@ -126,6 +128,8 @@ To help Woodgrove fulfill their business requirements, we need to implement the 
 Once the failover is triggered and the virtual machines are created in the Recovery Network with the desired IP, connectivity to this network can be established using a [Vnet to Vnet Connection](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). If required this action can be scripted.  As we discussed in the previous section about subnet failover, even in the case of failover to Azure, routes would have to be appropriately modified to reflect that 192.168.1.0/24 has now moved to Azure. 
 
 ![After Subnet Failover](./media/site-recovery-network-design/network-design9.png)
+
+After Failover
 
 If you don't have a 'Azure Network' as shown in the picture above. You can create a site to site vpn connection between your 'Primary Site' and 'Recovery Network' after the failover.  
 
