@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="awills"/>
 
 
@@ -111,7 +111,7 @@ Use `project` to pick out just the columns you want:
 ```CSL
 
     metrics | top 10 by timestamp desc
-            | project timestamp, metricName, value
+            | project timestamp, name, value
 ```
 
 ![](./media/app-analytics-tour/240.png)
@@ -125,7 +125,7 @@ You can also rename columns and define new ones:
     | top 10 by timestamp desc 
     | project timestamp, 
                timeOfDay = floor(timestamp % 1d, 1s), 
-               metric = metricName, 
+               metric = name, 
                value
 ```
 
@@ -246,7 +246,7 @@ Find unsuccessful requests:
 ```CSL
 
     requests 
-    | where isnotempty(responseCode) and toint(responseCode) >= 400
+    | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
 `responseCode` has type string, so we must [cast it](app-analytics-scalars.md#casts) for a numeric comparison.
@@ -256,9 +256,9 @@ Summarize the different responses:
 ```CSL
 
     requests
-    | where isnotempty(responseCode) and toint(responseCode) >= 400
+    | where isnotempty(resultCode) and toint(resultCode) >= 400
     | summarize count() 
-      by responseCode
+      by resultCode
 ```
 
 ## Timecharts
@@ -286,7 +286,7 @@ Use multiple values in a `summarize by` clause to create a separate row for each
 
     requests 
       | summarize event_count=count()   
-        by bin(timestamp, 1d), location_StateOrProvince
+        by bin(timestamp, 1d), client_StateOrProvince
 ```
 
 ![](./media/app-analytics-tour/090.png)
@@ -325,12 +325,12 @@ How does usage vary over the time of day in different states?
      | extend hour= floor( timestamp % 1d , 1h)
            + datetime("2001-01-01")
      | summarize event_count=count() 
-       by hour, location_StateOrProvince
+       by hour, client_StateOrProvince
 ```
 
 Split the chart by state:
 
-![Split By location_StateOrProvince](./media/app-analytics-tour/130.png)
+![Split By client_StateOrProvince](./media/app-analytics-tour/130.png)
 
 
 ## Plot a distribution
@@ -386,18 +386,18 @@ From which we can see that:
 * 50% of sessions last less than 1m 3s;
 * 5% of sessions last at least 2m 48s.
 
-To get a separate breakdown for each city, we just have to bring the location_City column separately through both summarize operators:
+To get a separate breakdown for each city, we just have to bring the client_City column separately through both summarize operators:
 
 ```CSL
 
     requests 
     | where isnotnull(session_Id) and isnotempty(session_Id) 
     | summarize min(timestamp), max(timestamp) 
-      by session_Id, location_City 
+      by session_Id, client_City 
     | extend duration = max_timestamp - min_timestamp 
     | where duration > 0
     | summarize count() 
-      by floor(duration, 3s), location_City 
+      by floor(duration, 3s), client_City 
       
     | summarize percentiles (duration, 5, 20, 50, 80, 95) 
       by continent
@@ -434,7 +434,7 @@ Use [let](./app-analytics-syntax.md#let-statements) to separate out the parts of
 
     let bad_requests = 
       requests
-        | where  toint(responseCode) >= 500  ;
+        | where  toint(resultCode) >= 500  ;
     bad_requests
     | join (exceptions) on session_Id 
     | take 30
