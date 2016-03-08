@@ -25,6 +25,9 @@ Learn how to create HDInsight clusters using Azure Resource Manager(ARM) templat
 
 ###Prerequisites:
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+
 Before you begin the instructions in this article, you must have the following:
 
 - [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

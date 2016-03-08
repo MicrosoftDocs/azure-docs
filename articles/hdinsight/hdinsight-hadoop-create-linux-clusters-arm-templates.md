@@ -25,6 +25,8 @@ Learn how to create HDInsight clusters using Azure Resource Manager(ARM) templat
 
 ###Prerequisites:
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 Before you begin the instructions in this article, you must have the following:
 
 - [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -48,8 +50,8 @@ The following procedure creates Linux-based HDInsight cluster.
 
 **To deploy a cluster using ARM template**
 
-1. Save the json file in [Appendix A](#appx-a-arm-template) to your workstation.
-2. Set the parameters if needed.
+1. Save the json file in [Appendix A](#appx-a-arm-template) to your workstation. In the PowerShell script, the file name is *C:\HDITutorials-ARM\hdinsight-arm-template.json*.
+2. Set the parameters and variables if needed.
 3. Run the template using the following PowerShell script:
 
         ####################################
@@ -100,7 +102,7 @@ The following procedure creates Linux-based HDInsight cluster.
         # List cluster
         Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName 
 
-	The PowerShell script only configures the cluster name and the storage account name.  You can set other values in the ARM template. 
+	The PowerShell script only configures the cluster name. The storage account name is hardcoded in the template. You will be prompt to enter the cluster user password (the default username is *admin*.), and the SSH user password (the default SSH username is *sshuser*).  
 	
 For more information, see  [Deploy with PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
 
@@ -110,8 +112,12 @@ The following sample creates a cluster and its dependent storage account and con
 
 	azure login
 	azure config mode arm
-    azure group create -n hdi1229rg -l "East US 2"
-    azure group deployment create "hdi1229rg" "hdi1229" --template-file "C:\HDITutorials-ARM\hdinsight-arm-linux-template.json" -p "{\"clusterName\":{\"value\":\"hdi1229win\"},\"clusterStorageAccountName\":{\"value\":\"hdi1229store\"},\"location\":{\"value\":\"East US 2\"},\"clusterLoginPassword\":{\"value\":\"Pass@word1\"}}"
+    azure group create -n hdi1229rg -l "East US"
+    azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "C:\HDITutorials-ARM\hdinsight-arm-template.json"
+    
+You will be prmopt to enter the cluster name, cluster user password (the default username is *admin*), and the ssh user password (the default ssh username is *sshuser*). To provide in-line paramters:
+
+    azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "c:\Tutorials\HDInsightARM\create-linux-based-hadoop-cluster-in-hdinsight.json" --parameters '{\"clusterName\":{\"value\":\"hdi1229\"},\"clusterLoginPassword\":{\"value\":\"Pass@word1\"},\"sshPassword\":{\"value\":\"Pass@word1\"}}'
 
 ## Deploy with REST API
 
@@ -136,157 +142,171 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 
 The following Azure Resource Manger template creates a Linux-based Hadoop cluster with the dependent Azure storage account.
 
-	{
-	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "location": {
-	      "type": "string",
-	      "defaultValue": "North Europe",
-	      "allowedValues": [
-	        "North Europe"
-	      ],
-	      "metadata": {
-	        "description": "The location where all azure resources will be deployed."
-	      }
-	    },
-	    "clusterName": {
-	      "type": "string",
-	      "metadata": {
-	        "description": "The name of the HDInsight cluster to create."
-	      }
-	    },
-	    "clusterLoginUserName": {
-	      "type": "string",
-	      "defaultValue": "admin",
-	      "metadata": {
-	        "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
-	      }
-	    },
-	    "clusterLoginPassword": {
-	      "type": "securestring",
-	      "metadata": {
-	        "description": "The password for the cluster login."
-	      }
-	    },
-	    "sshUserName": {
-	      "type": "string",
-	      "defaultValue": "username",
-	      "metadata": {
-	        "description": "These credentials can be used to remotely access the cluster and the edge node virtual machine."
-	      }
-	    },
-	    "sshPassword": {
-	      "type": "securestring",
-	      "metadata": {
-	        "description": "The password for the ssh user."
-	      }
-	    },
-	    "clusterStorageAccountName": {
-	      "type": "string",
-	      "metadata": {
-	        "description": "The name of the storage account to be created and be used as the cluster's storage."
-	      }
-	    },
-	    "clusterStorageType": {
-	      "type": "string",
-	      "defaultValue": "Standard_LRS",
-	      "allowedValues": [
-	        "Standard_LRS",
-	        "Standard_GRS",
-	        "Standard_ZRS"
-	      ]
-	    },
-	    "clusterWorkerNodeCount": {
-	      "type": "int",
-	      "defaultValue": 4,
-	      "metadata": {
-	        "description": "The number of nodes in the HDInsight cluster."
-	      }
-	    }
-	  },
-	  "variables": {},
-	  "resources": [
-	    {
-	      "name": "[parameters('clusterStorageAccountName')]",
-	      "type": "Microsoft.Storage/storageAccounts",
-	      "location": "[parameters('location')]",
-	      "apiVersion": "2015-05-01-preview",
-	      "dependsOn": [],
-	      "tags": {},
-	      "properties": {
-	        "accountType": "[parameters('clusterStorageType')]"
-	      }
-	    },
-	    {
-	      "name": "[parameters('clusterName')]",
-	      "type": "Microsoft.HDInsight/clusters",
-	      "location": "[parameters('location')]",
-	      "apiVersion": "2015-03-01-preview",
-	      "dependsOn": [
-	        "[concat('Microsoft.Storage/storageAccounts/',parameters('clusterStorageAccountName'))]"
-	      ],
-	      "tags": {},
-	      "properties": {
-	        "clusterVersion": "3.2",
-	        "osType": "Linux",
-	        "clusterDefinition": {
-	          "kind": "hadoop",
-	          "configurations": {
-	            "gateway": {
-	              "restAuthCredential.isEnabled": true,
-	              "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
-	              "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
-	            }
-	          }
-	        },
-	        "storageProfile": {
-	          "storageaccounts": [
-	            {
-	              "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
-	              "isDefault": true,
-	              "container": "[parameters('clusterName')]",
-	              "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
-	            }
-	          ]
-	        },
-	        "computeProfile": {
-	          "roles": [
-	            {
-	              "name": "headnode",
-	              "targetInstanceCount": "1",
-	              "hardwareProfile": {
-	                "vmSize": "Large"
-	              },
-	              "osProfile": {
-	                "linuxOperatingSystemProfile": {
-	                  "username": "[parameters('sshUserName')]",
-	                  "password": "[parameters('sshPassword')]"
-	                }
-	              }
-	            },
-	            {
-	              "name": "workernode",
-	              "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
-	              "hardwareProfile": {
-	                "vmSize": "Large"
-	              },
-	              "osProfile": {
-	                "linuxOperatingSystemProfile": {
-	                  "username": "[parameters('sshUserName')]",
-	                  "password": "[parameters('sshPassword')]"
-	                }
-	              }
-	            }
-	          ]
-	        }
-	      }
-	    }
-	  ],
-	  "outputs": {
-	    "cluster": {
-	      "type": "object",
-	      "value": "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
-	    }
-	  }
-	}
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "clusterName": {
+        "type": "string",
+        "metadata": {
+            "description": "The name of the HDInsight cluster to create."
+        }
+        },
+        "clusterLoginUserName": {
+        "type": "string",
+        "defaultValue": "admin",
+        "metadata": {
+            "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
+        }
+        },
+        "clusterLoginPassword": {
+        "type": "securestring",
+        "metadata": {
+            "description": "The password for the cluster login."
+        }
+        },
+        "sshUserName": {
+        "type": "string",
+        "defaultValue": "sshuser",
+        "metadata": {
+            "description": "These credentials can be used to remotely access the cluster and the edge node virtual machine."
+        }
+        },
+        "sshPassword": {
+        "type": "securestring",
+        "metadata": {
+            "description": "The password for the ssh user."
+        }
+        },
+        "location": {
+        "type": "string",
+        "defaultValue": "East US",
+        "allowedValues": [
+            "East US",
+            "East US 2",
+            "North Central US",
+            "South Central US",
+            "West US",
+            "North Europe",
+            "West Europe",
+            "East Asia",
+            "Southeast Asia",
+            "Japan East",
+            "Japan West",
+            "Australia East",
+            "Australia Southeast"
+        ],
+        "metadata": {
+            "description": "The location where all azure resources will be deployed."
+        }
+        },
+        "clusterType": {
+        "type": "string",
+        "defaultValue": "hadoop",
+        "allowedValues": [
+            "hadoop",
+            "hbase",
+            "storm",
+            "spark"
+        ],
+        "metadata": {
+            "description": "The type of the HDInsight cluster to create."
+        }
+        },  
+        "clusterWorkerNodeCount": {
+        "type": "int",
+        "defaultValue": 2,
+        "metadata": {
+            "description": "The number of nodes in the HDInsight cluster."
+        }
+        }      
+    },
+    "variables": {
+        "defaultApiVersion": "2015-05-01-preview",
+        "clusterApiVersion": "2015-03-01-preview",
+        "clusterStorageAccountName": "[concat(parameters('clusterName'),'store')]"      
+    },
+    "resources": [
+        {
+        "name": "[variables('clusterStorageAccountName')]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "location": "[parameters('location')]",
+        "apiVersion": "[variables('defaultApiVersion')]",
+        "dependsOn": [],
+        "tags": {},
+        "properties": {
+            "accountType": "Standard_LRS"
+        }
+        },
+        {
+        "name": "[parameters('clusterName')]",
+        "type": "Microsoft.HDInsight/clusters",
+        "location": "[parameters('location')]",
+        "apiVersion": "[variables('clusterApiVersion')]",
+        "dependsOn": [
+            "[concat('Microsoft.Storage/storageAccounts/',variables('clusterStorageAccountName'))]"
+        ],
+        "tags": {},
+        "properties": {
+            "clusterVersion": "3.2",
+            "osType": "Linux",
+            "clusterDefinition": {
+            "kind": "[parameters('clusterType')]",
+            "configurations": {
+                "gateway": {
+                "restAuthCredential.isEnabled": true,
+                "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
+                "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
+                }
+            }
+            },
+            "storageProfile": {
+            "storageaccounts": [
+                {
+                "name": "[concat(variables('clusterStorageAccountName'),'.blob.core.windows.net')]",
+                "isDefault": true,
+                "container": "[parameters('clusterName')]",
+                "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('clusterStorageAccountName')), variables('defaultApiVersion')).key1]"
+                }
+            ]
+            },
+            "computeProfile": {
+            "roles": [
+                {
+                "name": "headnode",
+                "targetInstanceCount": "1",
+                "hardwareProfile": {
+                    "vmSize": "Large"
+                },
+                "osProfile": {
+                    "linuxOperatingSystemProfile": {
+                    "username": "[parameters('sshUserName')]",
+                    "password": "[parameters('sshPassword')]"
+                    }
+                }
+                },
+                {
+                "name": "workernode",
+                "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
+                "hardwareProfile": {
+                    "vmSize": "Large"
+                },
+                "osProfile": {
+                    "linuxOperatingSystemProfile": {
+                    "username": "[parameters('sshUserName')]",
+                    "password": "[parameters('sshPassword')]"
+                    }
+                }
+                }
+            ]
+            }
+        }
+        }
+    ],
+    "outputs": {
+        "cluster": {
+        "type": "object",
+        "value": "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
+        }
+    }
+    }

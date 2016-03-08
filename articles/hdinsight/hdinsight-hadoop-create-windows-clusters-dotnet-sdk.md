@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/13/2016"
+   ms.date="03/08/2016"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using .NET SDK
@@ -26,6 +26,8 @@ Learn how to create HDInsight clusters using .NET SDK. For other cluster creatio
 
 
 ###Prerequisites:
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Before you begin the instructions in this article, you must have the following:
 
