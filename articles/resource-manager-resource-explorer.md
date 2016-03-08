@@ -50,7 +50,7 @@ Once you have navigated to a resource, you can select the Edit button to make th
 
 ![database - PUT request](./media/resource-manager-resource-explorer/are-05-database-put.png)
 
-Be selecting **PUT** you submit the request. 
+By selecting **PUT** you submit the request. 
 
 Once the request has been submitted Resource Explorer re-issues the GET request to refresh the status. In this case we can see that the `requestedServiceObjectiveId` has been updated and is different from the `currentServiceObjectiveId` indicating that a scaling operation is in progress. You can click the GET button to refresh the status manually.
 
