@@ -393,18 +393,18 @@ To call a custom API with JSON, call `invokeAPI` on `MSClient`:
 **Objective-C**:
 
 ```
-[self.client invokeAPI:@"sendEmail"
-     body:@"Hello world"
-     HTTPMethod:@"POST"
-     parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" };
-     headers:nil
-     completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
-	if(error) {
-		NSLog(@"ERROR %@", error);
-	} else {
-		// Do something with result
-	}
- ];
+    [self.client invokeAPI:@"sendEmail"
+                      body:nil
+                HTTPMethod:@"GET"
+                parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+                   headers:nil
+                completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
+                    if(error) {
+                        NSLog(@"ERROR %@", error);
+                    } else {
+                        // Do something with result
+                    }
+                }];
 ```
 
 
