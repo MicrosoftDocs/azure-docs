@@ -4,7 +4,7 @@
    services="virtual-machines-linux"
    documentationCenter="virtual-machines-linux"
    authors="rickstercdn"
-   manager="madhana"
+   manager="timlt"
    editor=""/>
 
 <tags
