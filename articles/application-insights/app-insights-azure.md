@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
 
 #  Application Insights for Microsoft Azure apps
@@ -28,8 +28,13 @@ What type of app do you have?
 
 * [Azure web app](app-insights-asp-net.md)
 * [Azure Cloud Services App - web and worker roles](app-insights-cloudservices.md)
-* [Web app on IIS in Azure VM](../app-insights-asp-net.md)
+* [Web app on IIS in Azure VM](app-insights-asp-net.md)
 * [Application outside Azure](app-insights-overview.md)
+
+
+Additional telemetry
+
+* [Show Azure diagnostic logs in Application Insights](app-insights-azure-diagnostics.md)
 
 
 

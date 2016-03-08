@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="awills"/>
 
 
@@ -33,7 +33,7 @@ A query over your telemetry is made up of a reference to a source stream, follow
 
 ```CSL
 requests
-| where location_City == "London" and timestamp > ago(3d)
+| where client_City == "London" and timestamp > ago(3d)
 | count
 ```
     
@@ -47,7 +47,7 @@ A query may be prefixed by one or more [let clauses](#let-clause), which define 
     let city = "London" ;
     let req = (city:string) {
       requests
-      | where location_City == city and timestamp > ago(interval) };
+      | where client_City == city and timestamp > ago(interval) };
     req(city) | count
 ```
 
@@ -227,7 +227,7 @@ A let clause binds a name to a tablular result, scalar value or function. The cl
 
 Self-join:
 
-    let Recent = Events | where timestamp > ago(7d);
+    let Recent = events | where timestamp > ago(7d);
     Recent | where name contains "session_started" 
     | project start = timestamp, session_id
     | join (Recent 
@@ -508,13 +508,13 @@ A table of midnight at the past seven days. The bin (floor) function reduces eac
 **Example**  
 
 ```CSL
-range TIMESTAMP from ago(4h) to now() step 1m
+range timestamp from ago(4h) to now() step 1m
 | join kind=fullouter
-  (Traces
-      | where TIMESTAMP > ago(4h)
-      | summarize Count=count() by bin(TIMESTAMP, 1m)
-  ) on TIMESTAMP
-| project Count=iff(isnull(Count), 0, Count), TIMESTAMP
+  (traces
+      | where timestamp > ago(4h)
+      | summarize Count=count() by bin(timestamp, 1m)
+  ) on timestamp
+| project Count=iff(isnull(Count), 0, Count), timestamp
 | render timechart  
 ```
 
@@ -585,10 +585,10 @@ All rows in table Traces that have a specific `ActivityId`, sorted by their time
 Produces a table that aggregates the content of the input table.
  
     requests
-	| summarize count(), avg(duration), makeset(location_Country) 
-      by location_Continent
+	| summarize count(), avg(duration), makeset(client_City) 
+      by client_CountryOrRegion
 
-A table that shows the number, average duration of  of each fruit from each supplier. There's a row in the output for each distinct combination of fruit and supplier. The output columns show the count, average price, fruit and supplier. All other input columns are ignored.
+A table that shows the number, average request duration and set of cities in each country. There's a row in the output for each distinct country. The output columns show the count, average duration, cities and country. All other input columns are ignored.
 
 
     T | summarize count() by price_range=bin(price, 10.0)
