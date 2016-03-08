@@ -3,7 +3,7 @@
 	description="NRT Proactive Diagnostics automatically notifies you if your server response time shows unusual behavior. No configuration is needed." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="yorac" 
 	manager="douge"/>
 
 <tags 

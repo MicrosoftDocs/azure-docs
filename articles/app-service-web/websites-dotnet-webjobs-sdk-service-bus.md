@@ -65,7 +65,7 @@ To write a function that the WebJobs SDK calls when a queue message is received,
 
 The SDK receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
 
-Serice Bus does its own poison queue handling, so that is neither controlled by, nor configurable in, the WebJobs SDK. 
+Service Bus does its own poison queue handling which cannot be controlled or configured by the WebJobs SDK. 
 
 ### String queue message
 
