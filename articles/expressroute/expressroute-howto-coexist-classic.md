@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/18/2016"
+   ms.date="03/08/2016"
    ms.author="cherylmc"/>
 
 # Configure ExpressRoute and site-to-site VPN connections to coexist for a VNet using the classic deployment model
@@ -74,7 +74,7 @@ There are two different sets of procedures to choose from in order to configure 
 
 This procedure will walk you through creating a VNet and create Site-to-Site and ExpressRoute connections that will coexist.
 
-1. Verify that you have the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](https://azure.microsoft.com/downloads/).
+1. Verify that you have the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](https://azure.microsoft.com/downloads/). Note that the cmdlets that you use for this configuration may be slightly different than what you use for other configurations. Use the cmdlets specified in these instructions. 
 
 2. Create a schema for your virtual network. For more information about working with the network configuration file, see [Configure a Virtual Network using a network configuration file](../virtual-network/virtual-networks-create-vnet-classic-portal.md). For more information about the configuration schema, see [Azure Virtual Network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -186,7 +186,7 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 
 **Before you begin configuration:** Verify that you have enough IP addresses left in your virtual network so that you can increase the gateway subnet size. Note that you will have to delete the gateway and recreate it even if you have enough IP addresses. This is because the gateway must be recreated in order to accommodate the coexisting connections.
 
-1. Download the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](https://azure.microsoft.com/downloads/).
+1. Download the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](https://azure.microsoft.com/downloads/). Note that the cmdlets that you use for this configuration may be slightly different than what you use for other configurations. Use the cmdlets specified in these instructions. 
 
 2. Delete the existing Site-to-Site VPN gateway. Use the following cmdlet, replacing the values with your own.
 
