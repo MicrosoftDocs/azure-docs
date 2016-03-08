@@ -120,7 +120,7 @@ requirements will be crucial in how you modify this template to work
 with your own data. If this is your first exposure to the Azure Machine
 Learning service, you can get an introduction to it by using the example
 in [How to create your first
-experiment](machine-learning-create-experiment.md).
+experiment](machine-learning\machine-learning-create-experiment.md).
 
 The following sections will discuss the sections of the template that
 will require modifications when a new dataset is introduced.
@@ -130,7 +130,7 @@ will require modifications when a new dataset is introduced.
 The [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) service is very generic, such that data can be posted to the hub in either CSV or JSON format. No special processing occurs in the Azure Event Hub, but it is important you understand the data that is fed into it.
 
 This document does not describe how to ingest your data, but one can easily send events or data to an Azure Event Hub, using the [Event Hub
-API](event-hubs-programming-guide.md/).
+API](event-hubs\event-hubs-programming-guide.md).
 
 ### Azure Stream Analytics
 
@@ -170,12 +170,12 @@ Hub](https://azure.microsoft.com/services/event-hubs/) events to
 The [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 service orchestrates the movement and processing of data. In the Demand Forecasting for Energy Solution Template the data factory is made up of twelve
-[pipelines](data-factory-create-pipelines.md)
+[pipelines](data-factory\data-factory-create-pipelines.md)
 that move and process the data using various technologies.
 
   You can access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This will take you to the data factory on your Azure management portal. If you see errors under your datasets, you can ignore those as they are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
 
-This section discusses the necessary [pipelines](data-factory-create-pipelines.md) and [activities](data-factory-create-pipelines.md) contained in the [Azure Data
+This section discusses the necessary [pipelines](data-factory\data-factory-create-pipelines.md) and [activities](data-factory\data-factory-create-pipelines.md) contained in the [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/). Below is the diagram view of the solution.
 
 ![](media\cortana-analytics-technical-guide-demand-forecast\ADF2.png)
@@ -193,15 +193,15 @@ queries, the
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts have implicit knowledge about the incoming data format, these
 queries would need to be altered based on your data format and [feature
-engineering](machine-learning-feature-selection-and-engineering.md)
+engineering](machine-learning\machine-learning-feature-selection-and-engineering.md)
 requirements.
 
 #### *AggregateDemandDataTo1HrPipeline*
 
 This
-[pipeline](data-factory-create-pipelines.md)
+[pipeline](data-factory\data-factory-create-pipelines.md)
 pipeline contains a single activity - an
-[HDInsightHive](data-factory-hive-activity.md)
+[HDInsightHive](data-factory\data-factory-hive-activity.md)
 activity using a
 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
 that runs a
@@ -215,8 +215,8 @@ script for this partitioning task is ***AggregateDemandRegion1Hr.hql***
 
 #### *LoadHistoryDemandDataPipeline*
 
-This [pipeline](data-factory-create-pipelines.md) contains two activities:
-- [HDInsightHive](data-factory-hive-activity.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a  Hive script to aggregate the hourly history demand data in substation level to hourly region level and put in Azure Storage during the Azure Stream Analytics job
+This [pipeline](data-factory\data-factory-create-pipelines.md) contains two activities:
+- [HDInsightHive](data-factory\data-factory-hive-activity.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a  Hive script to aggregate the hourly history demand data in substation level to hourly region level and put in Azure Storage during the Azure Stream Analytics job
 
 - [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the aggregated data from Azure Storage blob to the Azure SQL Database that was provisioned as part of the solution template installation.
 
@@ -225,22 +225,22 @@ The [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started
 
 #### *MLScoringRegionXPipeline*
 
-These [pipelines](data-factory-create-pipelines.md) contain several activities and whose end result is the scored predictions from the Azure Machine Learning experiment associated with this solution template. They are almost identical except each of them only handles the different region which is being done by different RegionID passed in the ADF pipeline and the hive script for each region.  
+These [pipelines](data-factory\data-factory-create-pipelines.md) contain several activities and whose end result is the scored predictions from the Azure Machine Learning experiment associated with this solution template. They are almost identical except each of them only handles the different region which is being done by different RegionID passed in the ADF pipeline and the hive script for each region.  
 The activities contained in this are:
--	[HDInsightHive](data-factory-hive-activity.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a  Hive script to perform aggregations and feature engineering necessary for the Azure Machine Learning experiment. The Hive scripts for this task are respective ***PrepareMLInputRegionX.hql***.
+-	[HDInsightHive](data-factory\data-factory-hive-activity.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a  Hive script to perform aggregations and feature engineering necessary for the Azure Machine Learning experiment. The Hive scripts for this task are respective ***PrepareMLInputRegionX.hql***.
 
--	[Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the results from the [HDInsightHive](data-factory-hive-activity.md) activity to a single Azure Storage blob that can be access by the  [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activity.
+-	[Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the results from the [HDInsightHive](data-factory\data-factory-hive-activity.md) activity to a single Azure Storage blob that can be access by the  [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activity.
 
 -	[AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activity that calls the Azure Machine Learning experiment which results in the results being put in a single Azure Storage blob.
 
 #### *CopyScoredResultRegionXPipeline*
-These [pipelines](data-factory-create-pipelines.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the results of the Azure Machine Learning experiment from the respective ***MLScoringRegionXPipeline*** to the Azure SQL Database that was provisioned as part of the solution template installation.
+These [pipelines](data-factory\data-factory-create-pipelines.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the results of the Azure Machine Learning experiment from the respective ***MLScoringRegionXPipeline*** to the Azure SQL Database that was provisioned as part of the solution template installation.
 
 #### *CopyAggDemandPipeline*
-This [pipelines](data-factory-create-pipelines.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the aggregated ongoing demand data from ***LoadHistoryDemandDataPipeline*** to the Azure SQL Database that was provisioned as part of the solution template installation.
+This [pipelines](data-factory\data-factory-create-pipelines.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the aggregated ongoing demand data from ***LoadHistoryDemandDataPipeline*** to the Azure SQL Database that was provisioned as part of the solution template installation.
 
 #### *CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
-These [pipelines](data-factory-create-pipelines.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the reference data of Region/Substation/Topologygeo that are uploaded to Azure Storage blob as part of the solution template installation to the Azure SQL Database that was provisioned as part of the solution template installation.
+These [pipelines](data-factory\data-factory-create-pipelines.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the reference data of Region/Substation/Topologygeo that are uploaded to Azure Storage blob as part of the solution template installation to the Azure SQL Database that was provisioned as part of the solution template installation.
 
 ### Azure Machine Learning
 The [Azure Machine
@@ -285,7 +285,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 1.  Add Power BI output in Azure Stream Analytics (ASA).
 
     -  You will need to follow the instructions in
-    [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics-power-bi-dashboard.md)
+    [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics\stream-analytics-power-bi-dashboard.md)
     to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
 
 	- Locate the stream analytics job in your [Azure management portal](https://manage.windowsazure.com). The name of the job should be: YourSoutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
