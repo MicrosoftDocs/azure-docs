@@ -102,7 +102,7 @@ The following procedure creates Linux-based HDInsight cluster.
         # List cluster
         Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName 
 
-	The PowerShell script only configures the cluster name. The storage account name is hardcoded in the template. You will be prompt to enter the cluster user password (the default username is *admin*.), and the SSH user password (the default SSH username is *sshuser*).  
+	The PowerShell script only configures the cluster name. The storage account name is hardcoded in the template. You will be prompted to enter the cluster user password (the default username is *admin*); and the SSH user password (the default SSH username is *sshuser*).  
 	
 For more information, see  [Deploy with PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
 
@@ -115,7 +115,7 @@ The following sample creates a cluster and its dependent storage account and con
     azure group create -n hdi1229rg -l "East US"
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "C:\HDITutorials-ARM\hdinsight-arm-template.json"
     
-You will be prmopt to enter the cluster name, cluster user password (the default username is *admin*), and the ssh user password (the default ssh username is *sshuser*). To provide in-line paramters:
+You will be prompted to enter the cluster name, cluster user password (the default username is *admin*), and the SSH user password (the default SSH username is *sshuser*). To provide in-line paramters:
 
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "c:\Tutorials\HDInsightARM\create-linux-based-hadoop-cluster-in-hdinsight.json" --parameters '{\"clusterName\":{\"value\":\"hdi1229\"},\"clusterLoginPassword\":{\"value\":\"Pass@word1\"},\"sshPassword\":{\"value\":\"Pass@word1\"}}'
 
