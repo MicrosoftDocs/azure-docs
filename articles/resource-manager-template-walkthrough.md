@@ -3,7 +3,7 @@
    description="A step by step walkthrough of a resource manager template provisioning a basic Azure IaaS architecture."
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="navalev;tfitzmac"
+   authors="navalev"
    manager=""
    editor=""/>
 
