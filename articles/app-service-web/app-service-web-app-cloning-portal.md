@@ -35,7 +35,7 @@ The web app must be running in the **Premium** mode in order for you to create a
 	![][1]
 
 	> [AZURE.NOTE]
-	> If the web app is not already in the **Premium** mode, you will receive a message indicating the supported modes for enabling staged publishing. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your web app before continuing.
+	> If the web app is not already in the **Premium** mode, you will receive a message indicating the supported modes for app cloning. At this point, you have the option to select **Upgrade**.
 	
 3. In the **Clone App** blade provide a name of the new web app, Resource Group, and App Service Plan. Also the user will be able to choose whether to clone a number of source web app settings or not.
 
