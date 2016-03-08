@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/07/2016"
 	ms.author="genli"/>
 
 # How to create a support ticket for Azure billing and subscription issues
