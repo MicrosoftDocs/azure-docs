@@ -23,9 +23,11 @@ The steps in this article will walk you through configuring a virtual network an
 
 If you are looking instructions for the Resource Manager deployment model, you can use the following articles which will walk you through how to [Create a virtual network by using PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md) and to [Add a VPN Gateway to a Resource Manager VNet](expressroute-howto-add-gateway-resource-manager.md).
 
->[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md)
+**About Azure deployment models**
 
-## To configure a virtual network using the classic deployment model 
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+
+## To configure a VNet and gateway
 
 1. Log in to the [Azure classic portal](http://manage.windowsazure.com).
 
