@@ -167,7 +167,7 @@ or the value of *ifFalse* otherwise.
 **Example**
 
 ```
-iff(floor(Timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
+iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
 <a name="isnull"/></a>
@@ -437,7 +437,7 @@ All rows with a timestamp in the past hour:
 
 ```CSL
 
-    T | where Timestamp > ago(1h)
+    T | where timestamp > ago(1h)
 ```
 
 
@@ -513,7 +513,7 @@ The current UTC clock time as a `datetime`.
 Determines the interval since the event identified by the predicate:
 
 ```CSL
-T | where ... | extend Elapsed=now() - Timestamp
+T | where ... | extend Elapsed=now() - timestamp
 ```
 
 ### startofmonth

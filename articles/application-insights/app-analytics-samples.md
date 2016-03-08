@@ -124,8 +124,8 @@ Then we can add some code to count the durations in conveniently-sized bins. We'
     | summarize count() by duration=bin(min_duration/1s, 10) 
       // Cut off the long tail:
     | where duration < 300
-      // Display in a bar chart:
-    | sort by duration asc | render barchart 
+      // Prepare for display in a bar chart:
+    | sort by duration asc 
 
 
 ![](./media/app-analytics-samples/050.png) 
@@ -406,85 +406,6 @@ Result:
 |a |1 
  
 Anti-join models the "NOT IN" query. 
-
-<a href="anomaly"></a>
-## Get more out of your data using Machine Learning 
-
-There are many interesting use cases for leveraging machine learning algorithms and derive interesting insights out of telemetry data. While often these algorithms require a very structured dataset as their input, the raw log data will usually not match the required structure and size. For example, the anomaly detection service published on Azure ML market place, requires a dataset which contains a fixed interval time series column and a single numeric column to evaluate for anomalies. This is where you can use Application Analytics powerful query engine to produce the necessary dataset from the raw logs data. 
-
-Our journey starts with looking for anomalies in the error rate of a specific Bing Inferences service. The Logs table has 65B records, and the simple query below filters 250K errors, and creates a time series data of errors count that is sent to Azure ML anomaly detection service. The anomalies detected by the service, are highlighted as red dots on the time series chart.
-
-```
-Logs
-| where Timestamp >= datetime(2015-08-22) and Timestamp < datetime(2015-08-23) 
-| where Level == "e" and Service == "Inferences.UnusualEvents_Main" 
-| summarize count() by bin(Timestamp, 5min)
-| render anomalychart 
-```
-
-The service identified few time buckets with suspicious error rate. I'm using Application Analytics to zoom into this time frame, running a query that aggregates on the ‘Message' column trying to look for the top errors. I've trimmed the relevant parts out of the entire stack trace of the message to better fit into the page. You can see that I had nice success with the top eight errors, but then reached a long tail of errors since the error message was created by a format string that contained changing data. 
-
-```
-Logs
-| where Timestamp >= datetime(2015-08-22 05:00) and Timestamp < datetime(2015-08-22 06:00)
-| where Level == "e" and Service == "Inferences.UnusualEvents_Main"
-| summarize count() by Message 
-| top 10 by count_ 
-| project count_, Message 
-```
-
-|count_|Message
-|---|---
-|7125|ExecuteAlgorithmMethod for method 'RunCycleFromInterimData' has failed...
-|7125|InferenceHostService call failed..System.NullReferenceException: Object reference not set to an instance of an object...
-|7124|Unexpected Inference System error..System.NullReferenceException: Object reference not set to an instance of an object... 
-|5112|Unexpected Inference System error..System.NullReferenceException: Object reference not set to an instance of an object..
-|174|InferenceHostService call failed..System.ServiceModel.CommunicationException: There was an error writing to the pipe:...
-|10|ExecuteAlgorithmMethod for method 'RunCycleFromInterimData' has failed...
-|10|Inference System error..Microsoft.Bing.Platform.Inferences.Service.Managers.UserInterimDataManagerException:...
-|3|InferenceHostService call failed..System.ServiceModel.CommunicationObjectFaultedException:...
-|1|Inference System error... SocialGraph.BOSS.OperationResponse...AIS TraceId:8292FC561AC64BED8FA243808FE74EFD...
-|1|Inference System error... SocialGraph.BOSS.OperationResponse...AIS TraceId: 5F79F7587FF943EC9B641E02E701AFBF...
-
-This is where the new `reduce` operator comes to help. The `reduce` operator identified 63 different errors as originated by the same trace instrumentation point in the code, and helped me focus on additional meaningful error trace in that time window.
-
-```
-Logs
-| where Timestamp >= datetime(2015-08-22 05:00) and Timestamp < datetime(2015-08-22 06:00)
-| where Level == "e" and Service == "Inferences.UnusualEvents_Main"
-| reduce by Message with threshold=0.35
-| project Count, Pattern
-```
-
-|Count|Pattern
-|---|---
-|7125|ExecuteAlgorithmMethod for method 'RunCycleFromInterimData' has failed...
-|  7125|InferenceHostService call failed..System.NullReferenceException: Object reference not set to an instance of an object...
-|  7124|Unexpected Inference System error..System.NullReferenceException: Object reference not set to an instance of an object... 
-|  5112|Unexpected Inference System error..System.NullReferenceException: Object reference not set to an instance of an object..
-|  174|InferenceHostService call failed..System.ServiceModel.CommunicationException: There was an error writing to the pipe:...
-|  63|Inference System error..Microsoft.Bing.Platform.Inferences.*.*.*: * write * * * to write to the Object * BOSS *.  * * *: SocialGraph.BOSS.Reques...
-|  10|ExecuteAlgorithmMethod for method 'RunCycleFromInterimData' has failed...
-|  10|Inference System error..Microsoft.Bing.Platform.Inferences.Service.Managers.UserInterimDataManagerException:...
-|  3|InferenceHostService call failed..System.ServiceModel.*: The * object, System.ServiceModel.Channels.*+*, * * * for * * * is * the * *...   at Syst...
-
-Now that I have a good view into the top errors that contributed to the detected anomalies, I want to understand the impact of these errors across my system. The 'Logs' table contains additional dimensional data such as 'Component', 'Cluster', etc... The new 'oneclass' plugin can help me derive that insight with a simple query. In this example below, I can clearly see that each of the top four errors are specific to a component, and while the top three errors are specific to DB4 cluster, the fourth one happens across all clusters.
-
-```
-
-Logs
-| where Timestamp >= datetime(2015-08-22 05:00) and Timestamp < datetime(2015-08-22 06:00)
-| where Level == "e" and Service == "Inferences.UnusualEvents_Main"
-| evaluate oneclass()
-```
-
-|Count |Percent (%)|Component|Cluster|Message
-|---|---|---|---|---
-|7125|26.64|InferenceHostService|DB4|ExecuteAlgorithmMethod for method ....
-|7125|26.64|Unknown Component|DB4|InferenceHostService call failed....
-|7124|26.64|InferenceAlgorithmExecutor|DB4|Unexpected Inference System error...
-|5112|19.11|InferenceAlgorithmExecutor|*|Unexpected Inference System error... 
-
 
 
 
