@@ -49,7 +49,7 @@ In this section, you'll create a Node.js console app that simulates a device tha
     ```
     var connectCallback = function (err) {
       if (err) {
-        console.err('Could not connect: ' + err.message);
+        console.log('Could not connect: ' + err);
       } else {
         console.log('Client connected');
 
@@ -76,4 +76,4 @@ In this section, you'll create a Node.js console app that simulates a device tha
 > [AZURE.NOTE] To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
 
 <!-- Links -->
-[lnk-transient-faults]: https://msdn.microsoft.com/en-us/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

@@ -22,7 +22,7 @@ API Apps is one of four app types offered by [Azure App Service](../app-service/
 
 ![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-[App Service](../app-service/app-service-value-prop-what-is.md) is a fully managed platform that brings a rich set of capabilities to web, mobile and integration scenarios. API Apps in App Service offer features that make it easier to build, host, and consume APIs in the cloud and on-premises. Deploy your API as an API app in App Service and benefit from enterprise grade security, simple access control, hybrid connectivity, automatic SDK generation, and seamless integration with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+[App Service](../app-service/app-service-value-prop-what-is.md) is a fully managed platform that brings a rich set of capabilities to web, mobile, and integration scenarios. API Apps in App Service offer features that make it easier to build, host, and consume APIs in the cloud and on-premises. Deploy your API as an API app in App Service and benefit from enterprise grade security, simple access control, hybrid connectivity, automatic SDK generation, and seamless integration with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 ## Why API Apps?
 
@@ -40,7 +40,16 @@ API Apps provides the following features:
 
 In addition, the features offered by API Apps, Web Apps, and Mobile Apps are interchangeable. This means that an instance of API Apps can take advantage of features for web and mobile development and hosting that Web Apps and Mobile Apps offer. The reverse is also true: for example, you can use a web app to host an API and still take advantage of Swagger metadata for client code generation and CORS for cross-domain browser access. For more information, see the [Web Apps overview](../app-service-web/app-service-web-overview.md) and [Mobile Apps overview](../app-service-mobile/app-service-mobile-value-prop.md).
 
->[AZURE.NOTE] You can use [Azure API Management](../api-management/api-management-key-concepts.md) to control client access to APIs that are hosted by App Service API Apps. While API Apps provides authentication services, there are other access management features it does not offer which API Management does offer, such as endpoint consolidation and throttling.
+## Augmenting API Apps by using Azure API Management 
+
+API Apps and [Azure API Management](../api-management/api-management-key-concepts.md) are complementary services:
+
+* API Management is about managing APIs. You put an API Management front end on an API to monitor and throttle usage, manipulate input and output, consolidate several APIs into one, and so forth. The APIs being managed can be hosted anywhere.
+* API Apps is about hosting APIs. The service includes features that facilitate developing and consuming APIs, but it doesn't do the kinds of monitoring, throttling, manipulating, or consolidating that API Management does. 
+
+You can use API Management to manage APIs that are hosted by API Apps, or you can use API Apps without API Management. 
+
+Some features of API Management and API Apps have similar functions.  For example, both can automate CORS support. When you use the two services together, you would use API Management for CORS since it functions as the front end to your API apps. 
 
 ## <a id="concepts"></a> API Apps concepts
 
