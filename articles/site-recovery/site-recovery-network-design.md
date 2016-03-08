@@ -71,10 +71,14 @@ In the following illustration the routes between primary site and recovery site,
 
 The following pictures shows the subnets before the failover. Subnet 192.168.0.1/24 is active on the Primary Site before the failover and becomes active of the Recovery Site after the failover 
 
-![Retain IP address](./media/site-recovery-network-design/network-design2.png)
-	
-![Retain IP address](./media/site-recovery-network-design/network-design3.png)
+![Before Failover](./media/site-recovery-network-design/network-design2.png)
 
+Before Failover
+
+	
+![After Failover](./media/site-recovery-network-design/network-design3.png)
+
+After Failover
 
 In your secondary site is on-premises and you are using a VMM server to manage it then when enabling protection for a specific virtual machine, ASR will allocate networking resources according to the following workflow:
 
@@ -108,8 +112,9 @@ Woodgrove has decided to assign IP addresses from IP address range (172.16.1.0/2
 
 For Woodgrove to be able to replicate its virtual machines to Azure while retaining the IP addresses, an Azure Virtual Network needs to be created. It should be an extension of the on-premises network so that applications can failover from the on-premises site to Azure seamlessly. Azure allows you to add site-to-site as well as point-to-site VPN connectivity to the virtual networks created in Azure. When setting up your site-to-site connection, Azure network allows you to route traffic to the on-premises location (Azure calls it local-network) only if the IP address range is different from the on-premises IP address range, because Azure doesn’t support stretching subnets.  This means that if you have a subnet 192.168.1.0/24 on-premises, you can’t add a local-network 192.168.1.0/24 in the Azure network. This is expected because Azure doesn’t know that there are no active VMs in the subnet and that the subnet is being created only for DR purposes. To be able to correctly route network traffic out of an Azure network the subnets in the network and the local-network must not conflict. 
 
-![Subnet failover](./media/site-recovery-network-design/network-design7.png)
+![Before Subnet Failover](./media/site-recovery-network-design/network-design7.png)
 
+Before Failover
 
 To help Woodgrove fulfill their business requirements, we need to implement the following workflows:
 
@@ -120,7 +125,7 @@ To help Woodgrove fulfill their business requirements, we need to implement the 
 
 Once the failover is triggered and the virtual machines are created in the Recovery Network with the desired IP, connectivity to this network can be established using a [Vnet to Vnet Connection](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). If required this action can be scripted.  As we discussed in the previous section about subnet failover, even in the case of failover to Azure, routes would have to be appropriately modified to reflect that 192.168.1.0/24 has now moved to Azure. 
 
-![Network properties](./media/site-recovery-network-design/network-design9.png)
+![After Subnet Failover](./media/site-recovery-network-design/network-design9.png)
 
 If you don't have a 'Azure Network' as shown in the picture above. You can create a site to site vpn connection between your 'Primary Site' and 'Recovery Network' after the failover.  
 
@@ -133,7 +138,7 @@ This approach seems to be the most prevalent based on what we have seen. It take
 
 Let us look at the scenario where you are planning to use different IPs across the primary and the recovery sites. In the following example we also have a third site from where the applications hosted on primary or recovery site can be accessed.
 
-![Different IP](./media/site-recovery-network-design/network-design10.png)
+![Different IP - Before Failover](./media/site-recovery-network-design/network-design10.png)
 
 Figure 11
 
@@ -141,7 +146,7 @@ In Figure 11 there are some applications hosted in subnet 192.168.1.0/24 subnet 
  
 As figure 12 shows, after failing over one or more applications, they will be restored in the recovery subnet. In this case we are not constrained to failover the entire subnet at the same time. No changes are required to reconfigure VPN or network routes. A failover and some DNS updates will make sure that applications remain accessible. If the DNS is configured to allow dynamic updates then the virtual machines would register themselves using the new IP once they start after a failover. 
 
-![Different IP](./media/site-recovery-network-design/network-design11.png)
+![Different IP - After Failover](./media/site-recovery-network-design/network-design11.png)
 
 Figure 12
 
