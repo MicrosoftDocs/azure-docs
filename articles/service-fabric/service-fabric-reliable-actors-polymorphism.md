@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/06/2016"
+   ms.date="03/08/2016"
    ms.author="seanmck"/>
 
 # Polymorphism in the Reliable Actors framework
