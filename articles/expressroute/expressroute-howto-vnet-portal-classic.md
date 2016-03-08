@@ -17,9 +17,9 @@
    ms.date="03/08/2016"
    ms.author="cherylmc"/>
 
-# Configure a Virtual Network for ExpressRoute using the classic deployment model
+# Configure a Virtual Network for ExpressRoute in the classic portal
 
-The steps in this article will walk you through configuring a virtual network and a gateway for use with ExpressRoute using the classic deployment model.
+The steps in this article will walk you through configuring a virtual network and a gateway for use with ExpressRoute using the classic deployment model and the classic portal.
 
 If you are looking instructions for the Resource Manager deployment model, you can use the following articles which will walk you through how to [Create a virtual network by using PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md) and to [Add a VPN Gateway to a Resource Manager VNet](expressroute-howto-add-gateway-resource-manager.md).
 
