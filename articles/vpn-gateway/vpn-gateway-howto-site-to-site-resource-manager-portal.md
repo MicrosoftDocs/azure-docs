@@ -65,12 +65,16 @@ In the steps below, you will create a VNet, add a gateway subnet, a gateway, a l
 - Resource Group: TestRG1
 - Location: East US
 - DNS Server: 8.8.8.8
-- GatewayName: VNet1GW (not the same thing as a Gateway Subnet name)
+- Gateway Name: VNet1GW (not the same thing as a Gateway Subnet name)
 - Public IP: VNet1GWIP
-- VPNType: RouteBased
+- VPN Type: RouteBased
+- Connection Type: Vpn
+- Local Network Gateway Name: VNet1LocalNet
+
+
+- Local Site: 
 - Connection: VNet1toVNet4
-- ConnectionType: Vpn
-- Local Site: VNet1GWLocal
+- 
 
 
 ## Create a virtual network 
@@ -104,7 +108,7 @@ If you are doing this as an exercise, refer to these [values](#values) when crea
 
 ## Add your local site
 
-In a virtual network, the *local site* typically refers to your on-premises location. You'll give that site a name by which Azure can refer to it. This collection of settings is referred to as an Azure Local Network Gateway. You can modify the prefixes that you add here, but there are specific steps to follow when doing so. You can find the information at the end of this article.
+In a virtual network, the *local site* typically refers to your on-premises location. You'll give that site a name by which Azure can refer to it. This collection of settings is referred to as an Azure Local Network Gateway. You can modify the prefixes that you add here, but there are specific steps that you'll have to follow. The steps are in the [To modify IP address prefixes for a local site](#modifyls) section of this article.
 
 If you are doing this as an exercise, refer to these [values](#values) when adding your local site.
 
@@ -126,7 +130,7 @@ If you are doing this as an exercise, refer to these [values](#values) when crea
 
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
-## To modify IP address prefixes for a local site
+## <a name="modifyls"/>To modify IP address prefixes for a local site
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
