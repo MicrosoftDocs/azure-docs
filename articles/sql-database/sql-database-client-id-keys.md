@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Enable your app to communicate with your SQL Database servers and databases | Microsoft Azure"
-   description="Enable your app to communicate with your SQL Database servers and databases. Get the needed client values for connecting your app to SQL Database."
+   pageTitle="Register your app to talk with Azure SQL Database | Microsoft Azure"
+   description="Enable your app to communicate with SQL Database and get the needed client values for connecting your app to SQL Database."
    services="sql-database"
    documentationCenter=""
    authors="stevestein"
@@ -17,11 +17,10 @@
    ms.date="03/05/2016"
    ms.author="sstein"/>
 
-# Enable your app to communicate with your SQL Database servers and databases
+# Register your app to talk with Azure SQL Database
 
 
-
-## Get the Client ID for a native client application
+## Register a native client application and get the client id
 
 To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Currently, registering applications need to be done in the [Classic Portal](https://manage.windowsazure.com/). 
 
@@ -70,7 +69,7 @@ To create a new application and register it do the following:
 
 
 
-## Get the client id and key for a web application
+## Register a web app (or web api) and get the client id and key
 
 To create a new application and register it in the correct active directory do the following:
 
@@ -148,17 +147,17 @@ For specific code examples related to Azure AD authentication see the [SQL Serve
 
 
 <!--Image references-->
-[1]: ./media/sql-database-aad-client/aad.png
-[2]: ./media/sql-database-aad-client/permissions.png
-[3]: ./media/sql-database-aad-client/getdomain.png
-[4]: ./media/sql-database-aad-client/aad2.png
-[5]: ./media/sql-database-aad-client/aad-applications.png
-[6]: ./media/sql-database-aad-client/add.png
-[7]: ./media/sql-database-aad-client/add-application.png
-[8]: ./media/sql-database-aad-client/add-application2.png
-[9]: ./media/sql-database-aad-client/clientid.png
-[10]: ./media/sql-database-aad-client/add-application-web.png
-[11]: ./media/sql-database-aad-client/add-application-app-properties.png
-[12]: ./media/sql-database-aad-client/configure.png
-[13]: ./media/sql-database-aad-client/key-duration.png
-[14]: ./media/sql-database-aad-client/web-secrets.png
+[1]: ./media/sql-database-client-id-keys/aad.png
+[2]: ./media/sql-database-client-id-keys/permissions.png
+[3]: ./media/sql-database-client-id-keys/getdomain.png
+[4]: ./media/sql-database-client-id-keys/aad2.png
+[5]: ./media/sql-database-client-id-keys/aad-applications.png
+[6]: ./media/sql-database-client-id-keys/add.png
+[7]: ./media/sql-database-client-id-keys/add-application.png
+[8]: ./media/sql-database-client-id-keys/add-application2.png
+[9]: ./media/sql-database-client-id-keys/clientid.png
+[10]: ./media/sql-database-client-id-keys/add-application-web.png
+[11]: ./media/sql-database-client-id-keys/add-application-app-properties.png
+[12]: ./media/sql-database-client-id-keys/configure.png
+[13]: ./media/sql-database-client-id-keys/key-duration.png
+[14]: ./media/sql-database-client-id-keys/web-secrets.png
