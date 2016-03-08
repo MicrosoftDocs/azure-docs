@@ -18,7 +18,7 @@
 
 # Install and manage task applications with Azure Batch application packages
 
-The application packages feature of Azure Batch provides easy management and deployment of applications for your jobs' tasks. With application packages, you can easily upload and manage multiple versions of your task applications, including binaries and support files, then automatically deploy one or more of these applications to the compute nodes in your pool.
+The application packages feature of Azure Batch provides easy management and deployment of applications for your jobs' tasks. With application packages, you can easily upload and manage multiple versions of the applications run by your tasks, including binaries and support files, then automatically deploy one or more of these applications to the compute nodes in your pool.
 
 In this article, you will learn how to upload and manage application packages using the Azure Portal, then install them on a pool's compute nodes using the [Batch .NET][api_net] library.
 
@@ -28,7 +28,7 @@ Application packages can simplify the code in your Batch solution, as well as lo
 
 With application packages, your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of these files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide secure access to the files in Azure Storage.
 
-Because Batch handles the details of working with Azure Storage in the background to securely store and deploy your application packages to compute nodes, both your code and your management overhead can be simplified.
+Batch handles the details of working with Azure Storage in the background to securely store and deploy your application packages to compute nodes, so both your code and your management overhead can be simplified.
 
 > [AZURE.NOTE] The application package feature discussed in this article, introduced in Batch REST API version 2015-12-01.2.2 and the corresponding Batch .NET version 3.1.0 library, supersedes the "Batch Apps" feature available in previous versions of the service. We recommend that you always use the latest API version when working with Batch.
 
@@ -52,7 +52,17 @@ An application package is a ZIP file containing the application binaries and sup
 
 Using the Azure portal, you can add, update, and delete application packages, and configure default versions for each application. While application management is supported only in the Azure portal at the time of this writing, additional methods including programmatic management using the [Batch Management .NET](batch-management-dotnet.md) library will be supported in the future.
 
-In the next few sections we'll go over the various application package management features available in the Azure portal.
+In the next few sections, we'll first cover associating a Storage account with your Batch account, then review the package management features available in the Azure portal.
+
+### Associate a Storage account
+
+In order to use application packages, you must first associate an Azure Storage account with your Batch account. If have not yet configured a Storage account for your Batch account, the Azure portal will notify you the first time you click the *Applications* tile in the Batch account blade.
+
+![Associate Storage account][9]
+
+The Batch service uses the associated Storage account for the storage and retrieval of application packages. Once you've associated the two accounts, Batch can automatically--and securely--deploy application packages to your compute nodes.
+
+If you do not have a storage account, see the "Create a storage account" section of [About Azure storage accounts](../storage/storage-create-storage-account.md) for step-by-step instructions. Once you've created a storage account, you may then link it to your Batch account using the *Storage Account* blade.
 
 > [AZURE.WARNING] Because Batch stores your application packages using Azure Storage, you are [charged as normal][storage_pricing] for the block blob data. Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize cost.
 
@@ -69,7 +79,7 @@ This opens the Applications blade:
 The Applications blade displays the ID of each application in your account, as well as the following properties:
 
 * **Packages** - The number of versions associated with this application.
-* **Default Version** – If you do not specify a version when setting the application for a pool, this version will be installed.
+* **Default version** – If you do not specify a version when setting the application for a pool, this version will be installed.
 * **Allow Updates** – If this is set to *No*, package updates and deletions are disabled for that application--only new application packages can be added.
 
 ### View application details
@@ -81,7 +91,7 @@ Clicking on an application in the *Applications* blade displays the details blad
 In the application details blade, you can configure the following settings for your application.
 
 * **Allow updates** - Specify whether its application packages can be updated or deleted (see "Update or Delete an application package" below).
-* **Default version** - Specify a default application package to deploy to compute nodes. Setting this allows you to omit doing so when you create or update the properies of your pool--the version specified here will be deployed. This also allows you to change the version to install on your pools' compute nodes without having to modify any code. Note that if you do not specify a version in code, *and* also do not specify a version here, you will receive an HTTP error 403, as well as an InvalidApplicationPackageReferences error.
+* **Default version** - Specify a default application package to deploy to compute nodes. Setting this allows you to omit doing so when you create or update the properties of your pool--the version specified here will be deployed. This also allows you to change the version to install on your pools' compute nodes without having to modify any code. Note that if you do not specify a version in code, *and* also do not specify a version here, you will receive an HTTP error 403, as well as an InvalidApplicationPackageReferences error.
 * **Display name** - This is a "friendly" name that your Batch solution can use when displaying information about the application, such as in a management application for your Batch solution, or UI that you provide your customers for a service you provide through Batch.
 
 ### Add a new application
@@ -132,6 +142,8 @@ This specifies the path to a ZIP file containing the application binaries and an
 
 Once you've entered the required information, click the "OK" button at the bottom of the *New application* blade and the file will begin uploading to Azure Storage. When the upload operation completes, you will be notified and the blade will close. Note that depending on the size of the file that you are uploading and the speed of your network connection, this operation may take some time.
 
+> [AZURE.WARNING] Do not close the *New application* blade before the upload operation is complete. Doing so will abort the upload process.
+
 ### Add a new application package
 
 To add a new application package to an existing application, select an application in the *Applications* blade, then click the "Add" button to display the *New application package* blade.
@@ -155,6 +167,8 @@ When you click "Update", the *Update application package* blade is displayed. Th
 When you click "Delete", you are asked to confirm the deletion of the package, and Batch deletes the package from Storage. If you delete the default version of an application, the default version setting is removed for the application.
 
 ## Install applications on compute nodes
+
+Now that we've covered uploading and managing the application packages in the Azure portal, we are ready to discuss actually using those applications for your Batch tasks.
 
 To install an application package on the compute nodes in a pool, you specify one or more application package *references* for the pool. In Batch .NET, you do so by adding one or more `CloudPool.ApplicationPackageReferences` when you create the pool, or to an existing pool.
 
@@ -202,8 +216,6 @@ string taskId = "blendertask01";
 string commandLine = @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -my -awesome -args";
 CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
-
-> [AZURE.TIP] You can minimize the need for code modification and maximize code reuse in your Batch solutions if you always specify a default version for your applications.
 
 ## Update a pool's application packages
 
@@ -290,3 +302,4 @@ foreach (ApplicationSummary app in applications)
 [6]: ./media/batch-app-pkg/app_pkg_06.png "List applications"
 [7]: ./media/batch-app-pkg/app_pkg_07.png "Update or delete packages"
 [8]: ./media/batch-app-pkg/app_pkg_08.png "New application package"
+[9]: ./media/batch-app-pkg/app_pkg_09.png "Associate Storage account"
