@@ -57,15 +57,15 @@ You can deploy Site Recovery to replicate virtual machines and physical servers 
 **Feature** | **Support** | **Details**
 ---|---|---
 Hyper-V host operating system | Windows Server 2012 R2 | Prerequisites check will fail if unsupported
-VMware hypervisor operating system | Running a supported operating system | [Details](site-recovery-vmware-to-azure.md#before-you-start)
-Guest operating system |  For Hyper-V to Azure replication Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> For VMware and physical server replication check the Windows and Linux [prerequisites](site-recovery-vmware-to-azure.md#before-you-start) | Prerequisites check will fail if unsupported.
+VMware hypervisor operating system | Running a supported operating system | [Details](site-recovery-vmware-to-azure-classic.md#before-you-start)
+Guest operating system |  For Hyper-V to Azure replication Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> For VMware and physical server replication check the Windows and Linux [prerequisites](site-recovery-vmware-to-azure-classic.md#before-you-start) | Prerequisites check will fail if unsupported.
 Guest operating system architecture | 64-bit | Prerequisites check will fail if unsupported
 Operating system disk size |  Up to 1023 GB | Prerequisites check will fail if unsupported
 Operating system disk count | 1 | Prerequisites check will fail if unsupported.
 Data disk count | 16 or less (maximum value is a function of the size of the virtual machine being created. 16 = XL) | Prerequisites check will fail if unsupported
 Data disk VHD size | Upto 1023 GB | Prerequisites check will fail if unsupported
 Network adapters | Multiple adapters are supported |
-Static IP address | Supported | If the primary virtual machine is using a static IP address you can specify the static IP address for the virtual machine that will be created in Azure
+Static IP address | Supported | If the primary virtual machine is using a static IP address you can specify the static IP address for the virtual machine that will be created in Azure. Note that static IP address for a linux virtual machine running on Hyper-v is not supported. 
 iSCSI disk | Not supported | Prerequisites check will fail if unsupported
 Shared VHD | Not supported | Prerequisites check will fail if unsupported
 FC disk | Not supported | Prerequisites check will fail if unsupported
