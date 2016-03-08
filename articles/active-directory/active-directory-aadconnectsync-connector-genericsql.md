@@ -82,7 +82,7 @@ The database should support one of the authentication methods mentioned below.
 
 - **Windows authentication**: The authenticating database will use the Windows credentials to verify the user. In this case the service account used by the synchronization service will be used. This account will need permissions to the database.
 - **SQL authentication**: The authenticating database will use the user name/password defined one the Connectivity screen to connect to the database. If you store the user name/pasword in the DSN file, the credentials provided on the Connectivity screen has precedence.
-- **Azure SQL Database authentication**: For more information see [Connect to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
+- **Azure SQL Database authentication**: For more information see [Connect to SQL Database By Using Azure Active Directory Authentication](..\sql-database\sql-database-aad-authentication.md)
 
 **DN is Anchor**: If you select this option, the DN will also be used as the anchor attribute. It can be used for a simple implementation but also has the following limitations:
 

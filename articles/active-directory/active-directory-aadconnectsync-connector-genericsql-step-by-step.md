@@ -91,7 +91,7 @@ We now have the file we need and can start creating the Connector.
 ![Runprofile4b](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile4b.png)  
 5. Select **New Step**. This time, select **OBJECT=Group**. On the last page, use the configuration below. Click on **Finish**.
 ![Runprofile5a](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile5a.png)  
-![Runprofile5b](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\Runprofile5b.png)  
+![Runprofile5b](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile5b.png)  
 6. Optional: You can configure additional run profiles if you want to. For this walkthrough only the Full Import is used.
 7. Click on **OK** to finish changing run profiles.
 
