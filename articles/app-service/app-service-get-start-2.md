@@ -124,7 +124,7 @@ Now, let's go to the Azure portal to see what you created:
 
 3. Click the App Service app that you just created to open its blade in the portal. You will see that the **Settings** blade is also opened by default for your convenience.
 
-![](./media/app-service-get-start/social-login-start.png) 
+![](./media/app-service-get-start/portal-view.png) 
 
 Your App Service app's blade surfaces a rich set of settings and tools for you to configure, monitor, and secure, and troubleshoot your app. Take a moment to 
 familiarize yourself with this interface by performing some simple tasks:
@@ -134,8 +134,6 @@ familiarize yourself with this interface by performing some simple tasks:
 - click the **Resource Group** link to see all the resources deployed in the resource group
 - click **Settings** > **Properties** to see other information about your app
 - click **Tools** to access useful tools for monitoring and troubleshooting  
-
-![](./media/app-service-get-start/social-login-portal.png)
 
 ## Next steps
 
