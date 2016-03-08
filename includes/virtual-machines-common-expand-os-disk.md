@@ -73,4 +73,10 @@ Though in this article, we focused primarily on expanding the OS disk of the VM,
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
-Similarly you may reference other data disks attached to the VM, either by using an index or a disk label. If you want to find out how to attach disks to an Azure Resource Manager VM, check this [article](virtual-machines-common-attach-disk-portal.md).
+Similarly you may reference other data disks attached to the VM, either by using an index as shown above or the ```Name``` property of the disk as illustrated below:
+
+```Powershell
+($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
+```
+
+- If you want to find out how to attach disks to an Azure Resource Manager VM, check this [article](virtual-machines-common-attach-disk-portal.md).
