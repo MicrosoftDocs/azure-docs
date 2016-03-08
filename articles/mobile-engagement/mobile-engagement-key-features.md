@@ -41,7 +41,7 @@ Azure Mobile Engagement being part of the Azure family follows all the standard 
 ## **Actionable Analytics:**
 
 1. **Monitor data in real time**
-You can track real time analytics using our Monitor module which shows details like sessions, events, errors & crashes all in real-time. Take a look at this [article](https://azure.microsoft.com/en-us/documentation/articles/mobile-engagement-concepts/) to get an understanding of the basic concepts. 
+You can track real time analytics using our Monitor module which shows details like sessions, events, errors & crashes all in real-time. Take a look at this [article](mobile-engagement-concepts.md) to get an understanding of the basic concepts. 
 
 	![][1]
 
