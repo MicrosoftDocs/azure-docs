@@ -94,7 +94,7 @@ Let's deploy a web app to Azure App Service.
 
 To see your app running live in Azure, run this command:
 
-    azure site browse <app_service_name>
+    azure site browse <app_name>
 
 If you see the error message: `Site <app_name> does not exist or has no hostnames`, retry the command in a few seconds. Some apps (especially Java) take longer
 to wrap up deployment. You'll notice it only if you're a fast typer.
