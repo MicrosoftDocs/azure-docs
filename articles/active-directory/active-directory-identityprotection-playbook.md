@@ -20,6 +20,7 @@
 #Azure Active Directory Identity Protection playbook 
 
 This playbook helps you to:
+
 - populate data in the Identity Protection environment by simulating risk events and vulnerabilities
 - set up risk-based conditional access policies and test the impact of these policies
 
