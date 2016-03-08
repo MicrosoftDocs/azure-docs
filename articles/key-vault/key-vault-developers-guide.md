@@ -35,7 +35,7 @@ Before working with Azure Key Vault in your code, you can create and manage vaul
 - [Create and Manage Key Vaults with REST](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 - [Create and Manage Key Vaults with PowerShell](key-vault-get-started.md)
 - [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli.md)
-- [Create a key vault and add a secret via an ARM template](..\resource-manager-template-keyvault.md)
+- [Create a key vault and add a secret via an ARM template](../resource-manager-template-keyvault.md)
 
 >[AZURE.NOTE] Operations against key vaults are authenticated through AAD and authorized through Key Vault’s own Access Policy, defined per vault.
 
@@ -69,7 +69,7 @@ For complete examples of using Key Vault with your applications, see:
 The following articles and scenarios provide task specific guidance:
 
 - [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](key-vault-hsm-protected-keys.md)
-- [Pass secure values (such as passwords) during deployment](..\resource-manager-keyvault-parameter.md).
+- [Pass secure values (such as passwords) during deployment](../resource-manager-keyvault-parameter.md).
 - For task-specific guidance on integrating and using Key Vaults with Azure, see [Ryan Jones ARM template examples for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)
 
 ## Supporting Libraries
