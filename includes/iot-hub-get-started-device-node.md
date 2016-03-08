@@ -49,7 +49,7 @@ In this section, you'll create a Node.js console app that simulates a device tha
     ```
     var connectCallback = function (err) {
       if (err) {
-        console.err('Could not connect: ' + err.message);
+        console.log('Could not connect: ' + err);
       } else {
         console.log('Client connected');
 
