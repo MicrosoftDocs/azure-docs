@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Table design in SQL Data Warehouse #
@@ -123,7 +123,7 @@ Partial support:
 
 There are two choices for distributing data in SQL Data Warehouse:
 
-1. Distribute data evenly but randomly 
+1. Distribute data evenly but randomly
 2. Distribute data based on hashing values from a single column
 
 Data distribution is decided at the table level. All tables are distributed. You will assign distribution for each table in your SQL Data Warehouse database.

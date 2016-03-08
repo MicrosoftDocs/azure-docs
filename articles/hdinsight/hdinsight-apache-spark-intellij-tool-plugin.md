@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="03/03/2016" 
 	ms.author="nitinme"/>
 
 
@@ -55,7 +55,9 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
 
 1. If you are back on the IntelliJ IDEA welcome screen, click click **Configure** and then click **Plugins** again.
 
-2. In the next screen, click **Browse Repositories** from the lower left corner. In the **Browse Repositories** dialog box that opens, search for **HDInsight**, select the **Microsoft Azure HDInsight Tools for IntelliJ**, and then click **Install**.
+2. In the next screen, click **Browse Repositories** from the lower left corner. In the **Browse Repositories** dialog box that opens, search for **HDInsight**, select the **Microsoft Azure HDInsight Tools for IntelliJ (Preview)**, and then click **Install**.
+
+	![Install HDInsight plugin](./media/hdinsight-apache-spark-intellij-tool-plugin/install-hdinsight-plugin.png)
 
 3. When prompted, click the **Restart IntelliJ IDEA** button to restart the IDE.
 
@@ -71,8 +73,6 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
 
 2. In the next window, provide the project details.
 
-	![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
-
 	* Provide a project name and project location.
 	* For **Project SDK**, make sure you provide a Java version greater than 7.
 	* For **Scala SDK**, click **Create**, click **Download**, and then select the version of Scala to use. **Make sure you do not use version 2.11.x**. This sample uses version **2.10.6**.
@@ -80,6 +80,9 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
 		![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
 	* For **Spark SDK**, download and use the SDK from [here](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
+
+		![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
+
 	* Click **Finish**.
 
 3. Define the project structure to create an artifact (packaged jar) that will eventually contain the code that runs on the cluster. 
@@ -140,7 +143,7 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
 
 		* The **Build Artifacts** drop-down should list the JAR name you specified in the previous steps.
 
-		* Against the **Main class name** text box, click the ellipsis (![ellipsis](./media/hdinsight-apache-spark-intellij-tool-plugin/ellipsis.png) ), select the main class in your applicaiton source code, and then click **OK**.
+		* Against the **Main class name** text box, click the ellipsis (![ellipsis](./media/hdinsight-apache-spark-intellij-tool-plugin/ellipsis.png) ), select the main class in your application source code, and then click **OK**.
 
 			![Submit Spark application](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
 	
@@ -204,8 +207,6 @@ While running the local Spark Scala application on a Windows computer, you might
 
 2. In the next window, provide the project details.
 
-	![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
-
 	* Provide a project name and project location.
 	* For **Project SDK**, make sure you provide a Java version greater than 7.
 	* For **Scala SDK**, click **Create**, click **Download**, and then select the version of Scala to use. **Make sure you do not use version 2.11.x**. This sample uses version **2.10.6**.
@@ -214,6 +215,8 @@ While running the local Spark Scala application on a Windows computer, you might
 
 	* For **Spark SDK**, download and use the SDK from [here](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
 	* Click **Finish**.
+
+		![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
 
 3. Define the project structure to create an artifact (packaged jar) that will eventually contain the code that runs on the cluster. 
 

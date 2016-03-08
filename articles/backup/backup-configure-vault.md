@@ -30,7 +30,7 @@ This article lists the things you need to do to prepare your environment to back
 If you've already done all of the high-level steps above, you can start [backing up your Windows machines](backup-azure-backup-windows-server.md). Otherwise, continue through the detailed steps below to make sure your environment is ready.
 
 ## Before you start
-To prepare your environment for backing up Windows machines, you need an Azure account. If you don't have one, you can create a [free trial account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+To prepare your environment for backing up Windows machines, you need an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
 ## Create a Backup Vault
 To back up files and data from a Windows machine or Data Protection Manager (DPM) to Azure or when backing up IaaS VMs to Azure, you need to create a backup vault in the geographic region where you want to store the data.
@@ -54,11 +54,34 @@ To back up files and data from a Windows machine or Data Protection Manager (DPM
     ![Creating Vault](./media/backup-configure-vault/creatingvault1.png)
 
     After the backup vault has been created, you'll see a message saying the vault has been successfully created. The vault is also listed in the resources for Recovery Services as **Active**.
+
     ![Creating Vault status](./media/backup-configure-vault/backupvaultstatus1.png)
 
-> [AZURE.IMPORTANT] The best time to identify your storage redundancy option is right after vault creation and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
->
-> **Learn more about choosing storage redundancy options in this [overview](backup-azure-storage-redundancy-options.md).**
+    >[AZURE.IMPORTANT] The best time to identify your storage redundancy option is right after vault creation and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
+
+4. Select **storage redundancy** options.
+
+    If you are using Azure as a primary backup storage endpoint (e.g. you are backing up to Azure from a Windows Server), you should consider picking (the default) [geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) option.
+
+    If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises & using Azure for your long term retention needs), you should consider choosing [locally redundant Storage](../storage/storage-redundancy.md#locally-redundant-storage). This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
+
+    Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in this [overview](../storage/storage-redundancy.md).
+
+    a. Click on the vault you just created.
+
+    b. On the Quick Start page, select **Configure**.
+
+    ![Configure Vault status](./media/backup-try-azure-backup-in-10-mins/configure-vault.png)
+
+    c. Choose the appropriate storage redundancy option.
+
+    You will need to click **Save** if you've selected **Locally Redundant**, since **Geo Redundant** is the default option.
+
+    ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
+
+    d. Click **Recovery Services**, in the left navigation pane to return to the list of resources for **Recovery Services**.
+
+    ![Select backup vault](./media/backup-try-azure-backup-in-10-mins/rs-left-nav.png)
 
 ## Download the vault credential file
 The on-premises server (Windows client or Windows Server or Data Protection Manager server) needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved using “vault credentials”. The vault credential file is downloaded through a secure channel from the Azure portal and the Azure Backup service is unaware of the private key of the certificate, which does not persist in the portal or the service.
@@ -137,7 +160,7 @@ After creating the Azure Backup vault, an agent should be installed on each of y
     The machine is now registered successfully to the vault and you are ready to start backing up to Microsoft Azure.
 
 ## Next steps
-- Sign up for a [free Azure trial account](https://azure.microsoft.com/pricing/free-trial/)
+- Sign up for a [free Azure account](https://azure.microsoft.com/free/)
 - [Back up a Windows server or client machine](backup-azure-backup-windows-server.md).
 - If you still have unanswered questions, take a look at the [Azure Backup FAQ](backup-azure-backup-faq.md).
 - Visit the [Azure Backup forum](http://go.microsoft.com/fwlink/p/?LinkId=290933)

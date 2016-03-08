@@ -14,6 +14,7 @@ Property name length | 100 | 100
 Property value length | 1000 | 1000
 Trace and Exception message length | 10000 | 10000
 Metric name length |  100 | 100
+Availability tests | 10 | 10
 
 <sup>1</sup> A data point is an individual metric value or event, with attached properties and measurements.
 

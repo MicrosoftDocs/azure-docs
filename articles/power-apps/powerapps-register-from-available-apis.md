@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="01/21/2016"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # Register a Microsoft managed API or an IT managed API
@@ -22,13 +22,12 @@ There are **Microsoft managed** and **IT managed** APIs. When you enable PowerAp
 
 Using the IT managed APIs, you control and monitor everything, including memory, connectivity, trust, and more. The IT managed APIs also include the APIs that can connect to an on-premises system, like SQL Server and SharePoint Server. 
 
-To use the **Microsoft managed** or **IT managed** APIs, you must "register" the APIs in the Azure portal. Once registered, you can use these APIs in your apps. The following options are available: 
+> [AZURE.SELECTOR]
+- [Managed APIs](../articles/power-apps/powerapps-register-from-available-apis.md)
+- [APIs in your ASE](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
+- [Swagger APIs](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
 
-- Register a pre-built Microsoft managed API or an IT managed API (in this topic).
-- Register a web app, API app, and mobile app hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md).
-- Register one of your own Swagger APIs using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md).
-
-This article focuses on **registering pre-built Microsoft managed APIs and the IT managed APIs**. 
+In this topic, we focus on the first option - **registering the Microsoft managed APIs and the IT managed APIs**. 
 
 #### Prerequisites to get started
 

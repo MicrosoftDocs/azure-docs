@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/17/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # System views
@@ -27,8 +27,6 @@
 - [sys.pdw_diag_sessions](http://msdn.microsoft.com/library/mt203890.aspx)
 - [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
 - [sys.pdw_index_mappings](http://msdn.microsoft.com/library/mt203912.aspx)
-- [sys.pdw_loader_backup_run_details](http://msdn.microsoft.com/library/mt203877.aspx)
-- [sys.pdw_loader_backup_runs](http://msdn.microsoft.com/library/mt203884.aspx)
 - [sys.pdw_nodes_column_store_dictionaries](http://msdn.microsoft.com/library/mt203902.aspx)
 - [sys.pdw_nodes_column_store_row_groups](http://msdn.microsoft.com/library/mt203880.aspx)
 - [sys.pdw_nodes_column_store_segments](http://msdn.microsoft.com/library/mt203916.aspx)

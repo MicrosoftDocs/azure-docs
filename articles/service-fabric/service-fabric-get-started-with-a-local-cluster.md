@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/20/2015"
+   ms.date="02/26/2016"
    ms.author="seanmck"/>
 
 # Get started with deploying and upgrading applications on your local cluster
@@ -116,6 +116,10 @@ Now that we have deployed the application, let's look at some of the app details
     Note that the application is made up of two services--the web front end and the stateful service that manages the words.
 
 3. Finally, take a look at the list of partitions for WordCountService:
+
+    ```powershell
+    Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
+    ```
 
     ![View the service partitions in PowerShell][ps-getsfpartitions]
 

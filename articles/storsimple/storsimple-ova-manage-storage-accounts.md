@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/05/2016"
+   ms.date="03/02/2016"
    ms.author="alkohli" />
 
-# Use the StorSimple Manager service to manage your storage account (Preview)
+# Use the StorSimple Manager service to manage your storage account
 
 ## Overview
 
@@ -24,7 +24,7 @@ The **Configure** page presents the global service parameters that can be create
 - Storage accounts 
 - Access control records 
 
-This tutorial explains how you can use the **Configure** page to add, edit, or delete storage accounts for your StorSimple Virtual Array. The information in this tutorial only applies to the StorSimple Virtual Array running Public Preview software.
+This tutorial explains how you can use the **Configure** page to add, edit, or delete storage accounts for your StorSimple Virtual Array. The information in this tutorial only applies to the StorSimple Virtual Array running March 2016 GA release software.
 
  ![Configure page](./media/storsimple-ova-manage-storage-accounts/configure_service_page.png)  
 
