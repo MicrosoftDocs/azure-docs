@@ -856,7 +856,7 @@ All of these techniques are available:
 
 Node.js applications have access to a wide range of diagnostic log tools.  Internally, the Azure Mobile Apps Node.js SDK uses [Winston] for diagnostic logging.  This is automatically enabled by enabling debug mode or by setting the **MS_DebugMode** app setting to true in the [Azure Portal].  Logs generated will appear in the Diagnostic Logs on the [Azure Portal].
 
-## <a name="work-easy-tables"></a>How to: Work with Easy Tables in the Azure portal
+## <a name="in-portal-editing"></a><a name="work-easy-tables"></a>How to: Work with Easy Tables in the Azure portal
 
 Easy Tables in the portal let you create and work with tables right in the portal. You can even edit table operations using the Visual Studio online editor.
 
