@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="03/08/2016"
    ms.author="tomfitz"/>
 
 # Create multiple instances of resources in Azure Resource Manager
@@ -212,6 +212,295 @@ To create multiple instances of datasets, you would need to change your template
         } 
         ...
     }]
+
+## Creating multiple data disks for a Virtual Machine
+
+A common scenario is to create multiple data disks for a Virtual Machine. You cannot use **copy** with the data disks because **dataDisks** is a property on the Virtual Machine, not its own resource type. **copy** only works with resources. Instead, you create a linked template that defines as many data disks as you will need, and outputs an array with the specified number of data disks. From your deployment template, you link to this template and pass in the number of data disks to return. In your deployment template, you set the **dataDisks** property to the value of the output from the linked template.
+
+A full example of this pattern is show in the [Create a VM with a dynamic selection of data disks](https://azure.microsoft.com/documentation/templates/201-vm-dynamic-data-disks-selection/) template.
+
+The relevant sections of the deployment template are shown below. A lot of the template has been removed to highlight the sections involved in dynamically creating a number of data disks. Notice the parameter **numDataDisks** that enables you to pass in the number of disks to create. A linked template named **diskSelection** is specified in the resources section. The output from that linked template is assigned to the **dataDisks** property on the Virtual Machine.
+
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        ...
+        "numDataDisks": {
+          "type": "string",
+          "allowedValues": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "32",
+            "64"
+          ],
+          "metadata": {
+            "description": "This parameter allows the user to select the number of disks they want"
+          }
+        }
+      },
+      "variables": {
+        "artifactsLocation": "https://raw.githubusercontent.com/singhkay/azure-quickstart-templates/master/201-vm-dynamic-data-disks-selection/", 
+        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'dynamicdisk')]",
+        "sizeOfDataDisksInGB": 100,
+        "diskCaching": "ReadWrite",
+        ...
+      },
+      "resources": [
+        {
+          "apiVersion": "2015-01-01",
+          "name": "diskSelection",
+          "type": "Microsoft.Resources/deployments",
+          "properties": {
+            "mode": "Incremental",
+            "templateLink": {
+              "uri": "[concat(variables('artifactsLocation'), 'disksSelector', '.json')]",
+              "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+              "numDataDisks": {
+                "value": "[parameters('numDataDisks')]"
+              },
+              "diskStorageAccountName": {
+                "value": "[variables('storageAccountName')]"
+              },
+              "diskCaching": {
+                "value": "[variables('diskCaching')]"
+              },
+              "diskSizeGB": {
+                "value": "[variables('sizeOfDataDisksInGB')]"
+              }
+            }
+          }
+        },
+        ...
+        {
+          "type": "Microsoft.Compute/virtualMachines",
+          "properties": {
+            "storageProfile": {
+              ...
+              "dataDisks": "[reference('diskSelection').outputs.dataDiskArray.value]"
+            },
+            ...
+          }
+        }
+      ]
+    }
+
+The linked template defines the array to return. The template shown below omits the repetion of disk definitions between 4 and 16, between 17 and 32, and between 33 and 64.
+
+```
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "numDataDisks": {
+      "type": "string",
+      "allowedValues": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "32",
+        "64"
+      ],
+      "metadata": {
+        "description": "This parameter allows the user to select the number of disks they want"
+      }
+    },
+    "diskStorageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the storage account where the data disks are stored"
+      }
+    },
+    "diskCaching": {
+      "type": "string",
+      "allowedValues": [
+        "None",
+        "ReadOnly",
+        "ReadWrite"
+      ],
+      "metadata": {
+        "description": "Caching type for the data disks"
+      }
+    },
+    "diskSizeGB": {
+      "type": "int",
+      "minValue": 1,
+      "maxValue": 1023,
+      "metadata": {
+        "description": "Size of the data disks"
+      }
+    }
+  },
+  "variables": {
+    "disksArray": {
+      "1": "[variables('diskDeltas')['1']]",
+      "2": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'])]",
+      "3": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'])]",
+      "4": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'])]",
+      "5": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'])]",
+      "6": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'])]",
+      "7": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'])]",
+      "8": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'])]",
+      "9": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'])]",
+      "10": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'], variables('diskDeltas')['10delta'])]",
+      "11": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'], variables('diskDeltas')['10delta'], variables('diskDeltas')['11delta'])]",
+      "12": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'], variables('diskDeltas')['10delta'], variables('diskDeltas')['11delta'], variables('diskDeltas')['12delta'])]",
+      "13": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'], variables('diskDeltas')['10delta'], variables('diskDeltas')['11delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['13delta'])]",
+      "14": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'], variables('diskDeltas')['10delta'], variables('diskDeltas')['11delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['13delta'], variables('diskDeltas')['14delta'])]",
+      "15": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'], variables('diskDeltas')['10delta'], variables('diskDeltas')['11delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['13delta'], variables('diskDeltas')['14delta'], variables('diskDeltas')['15delta'])]",
+      "16": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['16delta'])]",
+      "32": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['16delta'], variables('diskDeltas')['32delta'])]",
+      "64": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['16delta'], variables('diskDeltas')['32delta'], variables('diskDeltas')['64delta'])]"
+    },
+    "_comment2": "The delta arrays below build the difference from 1 to 2, 2 to 3, 3 to 4, 4 to 5 disks and so on",
+    "diskDeltas": {
+      "1": [
+        {
+          "name": "datadisk1",
+          "lun": 0,
+          "vhd": {
+            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk1.vhd')]"
+          },
+          "createOption": "Empty",
+          "caching": "[parameters('diskCaching')]",
+          "diskSizeGB": "[parameters('diskSizeGB')]"
+        }
+      ],
+      "2delta": [
+        {
+          "name": "datadisk2",
+          "lun": 1,
+          "vhd": {
+            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk2.vhd')]"
+          },
+          "createOption": "Empty",
+          "caching": "[parameters('diskCaching')]",
+          "diskSizeGB": "[parameters('diskSizeGB')]"
+        }
+      ],
+      "3delta": [
+        {
+          "name": "datadisk3",
+          "lun": 2,
+          "vhd": {
+            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk3.vhd')]"
+          },
+          "createOption": "Empty",
+          "caching": "[parameters('diskCaching')]",
+          "diskSizeGB": "[parameters('diskSizeGB')]"
+        }
+      ],
+      "4delta": [
+        {
+          "name": "datadisk4",
+          "lun": 3,
+          "vhd": {
+            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk4.vhd')]"
+          },
+          "createOption": "Empty",
+          "caching": "[parameters('diskCaching')]",
+          "diskSizeGB": "[parameters('diskSizeGB')]"
+        }
+      ],
+      ...
+      "16delta": [
+        {
+          "name": "datadisk16",
+          "lun": 15,
+          "vhd": {
+            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk16.vhd')]"
+          },
+          "createOption": "Empty",
+          "caching": "[parameters('diskCaching')]",
+          "diskSizeGB": "[parameters('diskSizeGB')]"
+        }
+      ],
+      "32delta": [
+        {
+          "name": "datadisk17",
+          "lun": 16,
+          "vhd": {
+            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk17.vhd')]"
+          },
+          "createOption": "Empty",
+          "caching": "[parameters('diskCaching')]",
+          "diskSizeGB": "[parameters('diskSizeGB')]"
+        },
+        ...
+        {
+          "name": "datadisk32",
+          "lun": 31,
+          "vhd": {
+            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk32.vhd')]"
+          },
+          "createOption": "Empty",
+          "caching": "[parameters('diskCaching')]",
+          "diskSizeGB": "[parameters('diskSizeGB')]"
+        }
+      ],
+      "64delta": [
+        {
+          "name": "datadisk33",
+          "lun": 32,
+          "vhd": {
+            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk33.vhd')]"
+          },
+          "createOption": "Empty",
+          "caching": "[parameters('diskCaching')]",
+          "diskSizeGB": "[parameters('diskSizeGB')]"
+        },
+        ...
+        {
+          "name": "datadisk64",
+          "lun": 63,
+          "vhd": {
+            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk64.vhd')]"
+          },
+          "createOption": "Empty",
+          "caching": "[parameters('diskCaching')]",
+          "diskSizeGB": "[parameters('diskSizeGB')]"
+        }
+      ]
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "dataDiskArray": {
+      "type": "array",
+      "value": "[variables('disksArray')[parameters('numDataDisks')]]"
+    }
+  }
+}
+```
 
 ## Next steps
 - If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
