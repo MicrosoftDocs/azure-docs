@@ -20,7 +20,7 @@
 	
 # Get started with Azure App Service
 
-Welcome to [Azure App Service](app-service-value-prop-what-is)! This tutorial helps you to get started quickly with this feature-rich service. With very little action on your part, you will: 
+This tutorial helps you to get started quickly with [Azure App Service](app-service-value-prop-what-is.md). With very little action on your part, you will: 
 
 - deploy a sample web app to App Service
 - see your app running live in seconds
@@ -37,7 +37,7 @@ used up, you can keep the account and use free Azure services and features, such
 * [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Your Visual Studio subscription gives you credits every 
 month that you can use for paid Azure services.
 
-To see Azure App Service in action before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, 
+>[AZURE.NOTE] To see Azure App Service in action before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, 
 you can immediately create a short-lived starter app in App Service—no credit card required, no commitments.
 
 ## Deploy a web app
@@ -79,7 +79,7 @@ Let's deploy a web app to Azure App Service.
     >[AZURE.IMPORTANT] **Java sample only**: Before you proceed, be sure to follow the instructions at the sample's 
     [Requirement](https://github.com/cephalin/java-get-started#requirements) section. 
 
-4. Now, deploy your app to the App Service app you just created like you would push any code with Git:
+4. Now, deploy your sample code to the new App Service app like you would push any code with Git:
 
         git push azure master 
     

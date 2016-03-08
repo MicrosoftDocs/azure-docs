@@ -140,8 +140,6 @@ example. Let's quickly set up an alert for this.
 and then click **OK**.   
     ![](./media/app-service-get-start/alert-configure.png)
     
-    As a subscription 
-
     When Azure finishes creating the alert, you'll see it in the **Alerts** blade.  
     ![](./media/app-service-get-start/alert-done.png)
 
