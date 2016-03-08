@@ -36,7 +36,7 @@ In this section, you'll modify the simulated device application you created in t
     > [AZURE.NOTE] For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
 
 <!-- Links -->
-[Transient Fault Handling]: https://msdn.microsoft.com/en-us/library/hh675232.aspx
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 
 
