@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="The summarize statement and aggregation functions in Application Analytics" 
-	description="Reference for aggregation functions and the summarize statement in Application Analytics, 
+	pageTitle="The summarize statement and aggregation functions in Application Insights Analytics" 
+	description="Reference for aggregation functions and the summarize statement in Application Insights Analytics, 
 	             the powerful search tool for Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
@@ -17,11 +17,11 @@
 	ms.author="awills"/>
 
 
-# Aggregation in Application Analytics
+# Aggregation in Application Insights Analytics
 
-[Application Analytics](app-analytics.md) is a powerful search engine for your 
+[Application Insights Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Analytics query lanuage, CSL.
+Application Insights Analytics query language, AIQL.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -55,7 +55,7 @@ Produces a table that aggregates the content of the input table.
 * *Aggregation:* A call to an aggregation function such as `count()` or `avg()`, with column names as arguments. See the list of aggregation functions below.
 * *GroupExpression:* An expression over the columns, that provides a set of distinct values. Typically it's either a column name that already provides a restricted set of values, or `bin()` with a numeric or time column as argument. 
 
-If you provide a numeric or time expression without using `bin()`, Application Analytics automatically applies it with an interval of `1h` for times, or `1.0` for numbers.
+If you provide a numeric or time expression without using `bin()`, AI Analytics automatically applies it with an interval of `1h` for times, or `1.0` for numbers.
 
 If you don't provide a *GroupExpression,* the whole table is summarized in a single output row.
 
@@ -176,7 +176,7 @@ requests
 
 
 
-## Aggregation functions
+## =======
 
 ## any 
 
@@ -207,13 +207,13 @@ Finds a row in the group that minimizes/maximises *ExprToMaximize*, and returns 
 
 **Examples**
 
-Show cheapest supplier of each product:
+For each request name, show when the longest request occurred:
 
-    Supplies | summarize argmin(Price, Supplier) by Product
+    requests | summarize argmax(duration, timestamp) by name
 
-Show all the details, not just the supplier name:
+Show all the details of the longest request, not just the timestamp:
 
-    Supplies | summarize argmin(Price, *) by Product
+    requests | summarize argmax(duration, *) by name
 
 
 Find the lowest value of each metric, together with its timestamp and other data:
@@ -239,9 +239,36 @@ Calculates the average of *Expression* across the group.
 
 Returns the minimal schema that admits all values of *DynamicExpression*. 
 
-The parameter column type should be `dynamic`. 
+The parameter column type should be `dynamic` - an array or property bag. 
 
-**Tip:** If `buildschema(json_column)` gives a syntax error: Is your `json_column` a string rather than a dynamic object? If so, you need `buildschema(parsejson(json_column))`.
+**Example**
+
+    exceptions | summarize buildschema(details)
+
+Result:
+
+    { "`indexer`":
+     {"id":"string",
+       "parsedStack":
+       { "`indexer`": 
+         {  "level":"int",
+            "assembly":"string",
+            "fileName":"string",
+            "method":"string",
+            "line":"int"
+         }},
+      "outerId":"string",
+      "message":"string",
+      "type":"string",
+      "rawStack":"string"
+    }}
+
+Notice that `indexer` is used to mark where you should use a numeric index. For this schema, some valid paths would be (assuming these example indexes are in range):
+
+    details[0].parsedStack[2].level
+    details[0].message
+    arraylength(details)
+    arraylength(details[0].parsedStack)
 
 **Example**
 
@@ -283,7 +310,7 @@ The syntax of the returned schema is:
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
-They are equivalent to a subset of the TypeScript type annotations, encoded as a CSL dynamic value. In Typescript, the example schema would be:
+They are equivalent to a subset of the TypeScript type annotations, encoded as a AIQL dynamic value. In Typescript, the example schema would be:
 
     var someobject: 
     { 
