@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/16/2016"
+   ms.date="03/04/2016"
    ms.author="andkjell;billmath"/>
 
 # Prerequisites for Azure AD Connect
@@ -66,7 +66,7 @@ Before you install Azure AD Connect, there are a few things that you will need.
     </system.net>
 ```
 
-If your proxy server requires authentication, then the section should look like this instead.
+- If your proxy server requires authentication, then the [service account](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) must be located in the domain and you must use the customized settings installation path to specify a [custom service account](active-directory-aadconnect-get-started-custom.md#install-required-components). You also need a different machine.config; with this change in machine.config the installation wizard and sync engine will respond to authentication requests from the proxy server. In all installation wizard pages, excluding the **Configure** page, the signed in user's credentials are used. On the **Configure** page at the end of the installation wizard, the context is switched to the [service account](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) which was created by you. The machine.config section should look like this.
 
 ```
     <system.net>
@@ -80,7 +80,6 @@ If your proxy server requires authentication, then the section should look like 
     </system.net>
 ```
 
-With this change in machine.config the installation wizard and sync engine will respond to authentication requests from the proxy server. In all installation wizard pages, excluding the **Configure** page, the signed in user's credentials are used. On the **Configure** page at the end of the installation wizard, the context is switched to the [service account](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) which was created.
 See MSDN for more information about the [default proxy Element](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
 
 If you have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).

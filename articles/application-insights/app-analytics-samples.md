@@ -32,6 +32,7 @@ a [tour of the language](app-analytics-tour.md), which is recommended for gettin
 There are several do's and don'ts you can follow to make your query run faster.
 
 DO:
+
 -	Use time filters first. Application Analytics is highly optimized to utilize time filters.
 -	Put filters that are expected to get rid most of the data in the beginning of the query (right after time filters)
 -	Check that most of your filters are appearing in the beginning of the query (before you start using 'extend') 
@@ -40,6 +41,7 @@ DO:
 -	When using join - project only needed columns from both sides of the join (this will reduce payload pulled from one machine to another)
 
 AVOID: 
+
 -	Trying new queries without 'limit [small number]' or 'count' at the end. 
     Running unbound queries over unknown data set may yield GBs of results to be returned to the client, resulting in slow response and cluster being busy.
 -	If you find that you're applying conversions (JSON, string, etc) over 1B+ records - reshape your query to reduce amount of data fed into the conversion
@@ -64,8 +66,7 @@ Let's suppose we have a log of events, in which some events mark the start or en
 
 Every event has an SessionId, so the problem is to match up the start and stop events with the same id.
 
-<!-- csl -->
-```
+```CSL
 let Events = MyLogTable | where ... ;
 
 Events
@@ -91,8 +92,7 @@ Use [`let`](app-analytics-syntax.md#let-statements) to name a projection of the 
 
 Now let's suppose that the start and stop events don't conveniently have a session id that we can match on. But we do have an IP address of the client where the session took place. Assuming each client address only conducts one session at a time, we can match each start event to the next stop event from the same IP address.
 
-<!-- csl -->
-```
+```CSL
 Events 
 | where Name == "Start" 
 | project City, ClientIp, StartTime = timestamp
@@ -133,8 +133,8 @@ Then we can add some code to count the durations in conveniently-sized bins. We'
 
 ### Real example
 
-<!-- csl -->
-```
+```CSL
+
 Logs  
 | filter ActivityId == "ActivityId with Blablabla" 
 | summarize max(Timestamp), min(Timestamp)  
@@ -488,69 +488,9 @@ Logs
 
 
 
-## Mapping values from one set to another
-
-A common use-case is using static mapping of values that can help in adopting results into more presentable way.  
-For example, consider having next table. DeviceModel  specifies a model of the device, which is not a very convenient form of referencing to the device name.  
-
-|DeviceModel |Count 
-|---|---
-|iPhone5,1 |32 
-|iPhone3,2 |432 
-|iPhone7,2 |55 
-|iPhone5,2 |66 
-  
-A better representation may be:  
-
-|FriendlyName |Count 
-|---|---
-|iPhone 5 |32 
-|iPhone 4 |432 
-|iPhone 6 |55 
-|iPhone5 |66 
-  
-The approach below shows how the mapping can be achieved using a persistent table and join operator.
- 
-Create the mapping table (just once):
-
-    .create table Devices (DeviceModel: string, FriendlyName: string) 
-
-    .ingest inline into table Devices 
-      ["iPhone5,1","iPhone 5"]["iPhone3,2","iPhone 4"]["iPhone7,2","iPhone 6"]["iPhone5,2","iPhone5"] 
-  
-Content of Devices now: 
-
-|DeviceModel |FriendlyName 
-|---|---
-|iPhone5,1 |iPhone 5 
-|iPhone3,2 |iPhone 4 
-|iPhone7,2 |iPhone 6 
-|iPhone5,2 |iPhone5 
-  
-Same trick for creating test table Source:
-
-    .create table Source (DeviceModel: string, Count: int) 
-
-    .ingest inline into table Source ["iPhone5,1",32]["iPhone3,2",432]["iPhone7,2",55]["iPhone5,2",66] 
-  
-Join and project:
-
-    Devices  
-    | join (Source) on DeviceModel  
-    | project FriendlyName, Count 
-
-Result:
-
-|FriendlyName |Count 
-|---|---
-|iPhone 5 |32 
-|iPhone 4 |432 
-|iPhone 6 |55 
-|iPhone5 |66 
-
 ## Join with inline dictionary mapping
 
-```
+```CSL
 
 let TeamFoundationJobResult = range i from 1 to 1 step 1 
   | extend recordsJson = "[ 
