@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/08/2016"
 	ms.author="glenga"/>
 
 # How to use the managed client for Azure Mobile Apps
