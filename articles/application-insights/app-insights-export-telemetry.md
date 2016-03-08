@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -31,7 +31,7 @@ Continuous Export is available in the free trial period and on the [Standard and
 If you don't already have a "classic" storage account, create one now.
 
 
-1. Create a "classic" storage account in your subscription in the [Azure portal](https://portal.azure.com).
+1. Create a storage account in your subscription in the [Azure portal](https://portal.azure.com).
 
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-telemetry/030.png)
 
