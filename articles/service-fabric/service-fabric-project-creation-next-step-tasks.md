@@ -33,7 +33,7 @@ The application project consists of:
 
 - A deployment script that you can use to deploy your application from the command line or as part of an automated continuous integration and deployment pipeline.
 
-- The application manifest, which describes the application. The manifest is found under the ApplicationPackageRoot folder.
+- The application manifest, which describes the application. You can find the manifest under the ApplicationPackageRoot folder.
 
 ### Reliable services
 When you add a new reliable service, Visual Studio adds a service project to your solution. The service project contains a class that extends from either `StatelessService` or `StatefulService`, depending on the type you chose.
