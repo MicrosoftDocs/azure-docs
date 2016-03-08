@@ -126,7 +126,7 @@ Open Search to investigate individual requests and their associated events.
 
 [Learn more about search](app-insights-diagnostic-search.md)
 
-* *No associated events?* Set up [server exceptions](app-insights-asp-net-exception-mvc.md) and [dependencies](app-insights-asp-net-dependencies.md).
+* *No associated events?* Set up [server exceptions](app-insights-asp-net-exceptions.md) and [dependencies](app-insights-asp-net-dependencies.md).
 
 
 ## No data?
@@ -173,7 +173,7 @@ This is particularly useful if you have some [custom telemetry](app-insights-api
 ## Next steps
 
 - [User & page data](../article/application-insights/app-insights-javascript.md#selector1)
-- [Exceptions](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [Exceptions](../article/application-insights/app-insights-asp-net-exceptions.md#selector1)
 - [Dependencies](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
