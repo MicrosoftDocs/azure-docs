@@ -17,32 +17,13 @@
    ms.author="v-livech"/>
 
 
-# Create a Linux VM from the Azure CLI
+# Create a Linux VM from the Azure CLI for Dev and Test
 
-This topic shows how to quickly create a new Linux-based Azure Virtual Machine using the `azure vm quick-create` command in Azure Command-line Interface for Mac, Linux, and Windows [the Azure CLI](../xplat-cli-install.md). It assumes you are using either Mac OS X or a Linux distribution as your client operating system, but the same commands work on a Windows computer as well. 
-
-> [AZURE.NOTE] This topic shows how to quickly create a Linux VM in a basic Azure environment for trial, testing, and other short-lived scenarios. You should create more secure Azure environments for your Linux VMs to use them for production or other longer-running scenarios. 
-
-Quick links for other ways to create Linux VMs in Azure:
-
-- [Create a Linux VM in Azure using the Azure Portal](virtual-machines-linux-portal-create.md)
-- [Create a Linux VM in Azure using Azure Templates](virtual-machines-linux-cli-deploy-templates.md)
-- [Create an SSH-Secured Linux VM in Azure using Azure Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-- [Create a Linux VM in Azure using the Azure CLI and customizing the infrastructure](virtual-machines-linux-create-cli-complete.md)
+This topic shows how to quickly create a Linux VM in a basic Azure environment using the `azure vm quick-create` command from [the Azure CLI](../xplat-cli-install.md) for trial, testing, and other short-lived scenarios. The VM is accessed by password and is open to the internet. For production or other longer-running scenarios, you should create a secured [Linux VM using Azure templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md).
 
 ## Prerequisites
 
-You'll need the following:
-
-  - An Azure account. [Get a free trial.](https://azure.microsoft.com/pricing/free-trial/)
-  - The Azure CLI. Current version: 0.9.16.
-    - [Mac OSX installer](http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409), [Linux installer](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409), [Windows installer](http://go.microsoft.com/?linkid=9828653&clcid=0x409)
-    
-You can also install the Azure CLI using popular package managers and as a Linux container:
-
-    - Mac via **Homebrew** `brew install azure-cli`
-    - Mac & Linux via **npm** `npm install -g azure-cli`
-    - Mac & Linux via **Docker** `docker run -it microsoft/azure-cli`
+You'll need the following an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md). Current version: 0.9.16.
 
 ## Quick Command Summary
 
@@ -56,7 +37,7 @@ In the following command examples, please replace values between &lt; and &gt; w
 
 In the following command, you can use any image you want, but this example uses `canonical:ubuntuserver:14.04.2-LTS:latest` to create a VM quickly. (To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).) It will look something like the following.
 
-```
+```bash
 # Create the Linux VM using prompts
 username@macbook$ azure vm quick-create
 info:    Executing command vm quick-create
