@@ -392,10 +392,12 @@ To call a custom API with JSON, call `invokeAPI` on `MSClient`.
 
 In the example below, if you were making a `GET` request instead of a `POST` request, change `body` to `nil` and change `HTTPMethod` from `"POST"` to `"GET"`.
 
+The HTTP request and response content are treated as JSON. If you'd like to use another other media type, use the other overload of `invokeAPI`, which takes a parameter `data` of type `NSData` instead of the parameter `body`.
+
 **Objective-C**:
 ```
     [self.client invokeAPI:@"sendEmail"
-                      body:@{ @"body": @"Hello world!" }
+                      body:@{ @"contents": @"Hello world!" }
                 HTTPMethod:@"POST"
                 parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
                    headers:nil
@@ -412,7 +414,7 @@ In the example below, if you were making a `GET` request instead of a `POST` req
 
 ```
 client.invokeAPI("sendEmail",
-            body: [ "body": "Hello World" ],
+            body: [ "contents": "Hello World" ],
             HTTPMethod: "POST",
             parameters: [ "to": "bill@contoso.com", "subject" : "Hi!" ],
             headers: nil)
