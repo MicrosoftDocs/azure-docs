@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure Expressroute and site-to-site VPN connections that can coexist | Microsoft Azure"
-   description="This article walks you through configuring ExpressRoute and a site-to-site VPN connection that can coexist for the classic deployment model."
+   pageTitle="Configure Expressroute and Site-to-Site VPN connections that can coexist | Microsoft Azure"
+   description="This article walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist for the classic deployment model."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
@@ -16,9 +16,9 @@
    ms.date="03/08/2016"
    ms.author="cherylmc"/>
 
-# Configure ExpressRoute and site-to-site coexisting connections
+# Configure ExpressRoute and Site-to-Site coexisting connections
 
-Having the ability to configure site-to-site VPN and ExpressRoute has several advantages. You can configure site-to-site VPN as a secure failover path for ExressRoute, or use site-to-site VPNs to connect to sites that are not part of your network, but that are connected through ExpressRoute. We will cover the steps to configure both scenarios in this article. **Currently you can only create this configuration for VNets using the classic deployment model**. When we have documentation that applies to the Resource Manager deployment model, we will link to it from here.
+Having the ability to configure Site-to-Site VPN and ExpressRoute has several advantages. You can configure Site-to-Site VPN as a secure failover path for ExressRoute, or use Site-to-Site VPNs to connect to sites that are not part of your network, but that are connected through ExpressRoute. We will cover the steps to configure both scenarios in this article. **Currently you can only create this configuration for VNets using the classic deployment model**. When we have documentation that applies to the Resource Manager deployment model, we will link to it from here.
 
 
 **About Azure deployment models**
@@ -30,25 +30,25 @@ ExpressRoute circuits must be pre-configured before you follow the instructions 
 
 ## Limits and limitations
 
-- **Transit routing is not supported:** You cannot route (via Azure) between your local network connected via site-to-site VPN and your local network connected via ExpressRoute.
+- **Transit routing is not supported:** You cannot route (via Azure) between your local network connected via Site-to-Site VPN and your local network connected via ExpressRoute.
 - **Point-to-site is not supported:** You can't enable point-to-site VPN connections to the same VNet that is connected to ExpressRoute. Point-to-site VPN and ExpressRoute cannot coexist for the same VNet.
-- **Forced tunneling cannot be enabled on the site-to-site VPN gateway:** You can only "force" all Internet-bound traffic back to your on-premises network via ExpressRoute. 
-- **Only standard or high performance gateways:** You must use a standard or high performance gateway for both the ExpressRoute gateway and the site-to-site VPN gateway. See [Gateway SKUs](../vpn-gateway/vpn-gateway-about-vpngateways.md) for information about gateway SKUs.
-- **Static route requirement:** If your local network is connected to both ExpressRoute and a site-to-site VPN, you must have a static route configured in your local network to route the site-to-site VPN connection to the public Internet.
-- **ExpressRoute gateway must be configured first:** You must create the ExpressRoute gateway first before you add the site-to-site VPN gateway.
+- **Forced tunneling cannot be enabled on the Site-to-Site VPN gateway:** You can only "force" all Internet-bound traffic back to your on-premises network via ExpressRoute. 
+- **Only standard or high performance gateways:** You must use a standard or high performance gateway for both the ExpressRoute gateway and the Site-to-Site VPN gateway. See [Gateway SKUs](../vpn-gateway/vpn-gateway-about-vpngateways.md) for information about gateway SKUs.
+- **Static route requirement:** If your local network is connected to both ExpressRoute and a Site-to-Site VPN, you must have a static route configured in your local network to route the Site-to-Site VPN connection to the public Internet.
+- **ExpressRoute gateway must be configured first:** You must create the ExpressRoute gateway first before you add the Site-to-Site VPN gateway.
 
 
 ## Configuration designs
 
-### Configure a site-to-site VPN as a failover path for ExpressRoute
+### Configure a Site-to-Site VPN as a failover path for ExpressRoute
 
-You can configure a site-to-site VPN connection as a backup for ExpressRoute. This applies only to virtual networks linked to the Azure private peering path. There is no VPN-based failover solution for services accessible through Azure public and Microsoft peerings. The ExpressRoute circuit is always the primary link. Data will flow through the site-to-site VPN path only if the ExpressRoute circuit fails. 
+You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. This applies only to virtual networks linked to the Azure private peering path. There is no VPN-based failover solution for services accessible through Azure public and Microsoft peerings. The ExpressRoute circuit is always the primary link. Data will flow through the Site-to-Site VPN path only if the ExpressRoute circuit fails. 
 
 ![Coexist](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
-### Configure a site-to-site VPN to connect to sites not connected through ExpressRoute
+### Configure a Site-to-Site VPN to connect to sites not connected through ExpressRoute
 
-You can configure your network where some sites connect directly to Azure over site-to-site VPN, and some sites connect through ExpressRoute. 
+You can configure your network where some sites connect directly to Azure over Site-to-Site VPN, and some sites connect through ExpressRoute. 
 
 ![Coexist](media/expressroute-howto-coexist-classic/scenario2.jpg)
 
