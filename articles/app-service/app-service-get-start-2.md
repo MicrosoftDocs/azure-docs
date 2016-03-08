@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with Azure App Service" 
+	pageTitle="Get started with web apps in Azure App Service" 
 	description="Learn how easy it is to run your web app live in App Service. Start doing real development in 5 minutes and see results immediately." 
 	services="app-service"
 	documentationCenter=""
@@ -18,11 +18,12 @@
 	ms.author="cephalin"
 />
 	
-# Get started with Azure App Service
+# Get started with web apps in Azure App Service
 
-This tutorial helps you to get started quickly with [Azure App Service](app-service-value-prop-what-is.md). With very little action on your part, you will: 
+This tutorial helps you to get started quickly with deploying web apps to [Azure App Service](app-service-value-prop-what-is.md). With very little action on your 
+part, you will: 
 
-- deploy a sample web app to App Service
+- deploy a sample web app (choose between ASP.NET, PHP, Node.js, Java, or Python)
 - see your app running live in seconds
 - update your web app the same way you would push [Git](http://www.git-scm.com/) commits
 
@@ -52,7 +53,7 @@ Let's deploy a web app to Azure App Service.
 
         git clone <github_sample_url>
 
-    For &lt;github_sample_url>, use one of the following URLs, depending on the framework you like: 
+    For *&lt;github_sample_url>*, use one of the following URLs, depending on the framework you like: 
 
     - ASP.NET: [https://github.com/cephalin/aspnet-get-started.git](https://github.com/cephalin/aspnet-get-started.git)
     - PHP (CodeIgniter): [https://github.com/cephalin/php-get-started.git](https://github.com/cephalin/php-get-started.git)
@@ -76,19 +77,19 @@ Let's deploy a web app to Azure App Service.
     
     Not only is your app created in Azure now, but your current directory is also Git-initialized and connected to the new App Service app as a Git remote.
 
-    >[AZURE.IMPORTANT] **Java sample only**: Before you proceed, be sure to follow the instructions at the sample's 
+    >[AZURE.IMPORTANT] **Java sample only**: Before you proceed, be sure to follow the instructions in the sample's 
     [Requirement](https://github.com/cephalin/java-get-started#requirements) section. 
 
 4. Now, deploy your sample code to the new App Service app like you would push any code with Git:
 
         git push azure master 
     
-    `git push` not only puts code in Azure, but also triggers deployment tasks. If you have any package.json 
+    `git push` not only puts code in Azure, but also triggers deployment tasks in the deployment engine. If you have any package.json 
     (Node.js) or requirements.txt (Python) in your project (repository) root, or if you have a packages.config in your ASP.NET project, the deployment 
     scripts will restore the required packages for you. You can also [enable the Composer extension]() to automatically process composer.json files
     in your PHP app.  
 
-5. Congratulations, you have deployed your app to Azure App Service. 
+Congratulations, you have deployed your app to Azure App Service. 
 
 ## See your app running live
 
@@ -139,6 +140,14 @@ familiarize yourself with this interface by performing some simple tasks:
 
 Take the app you deployed to the next level. Secure it with authentication. Scale it based on demand. Set up some performance alerts. All with a few clicks. See 
 [Get started with Azure App Service - Part 2](app-service-get-start-3.md).
+
+Or, further explore how to create a web app for App Service from the ground up:
+
+- [Create an ASP.NET web app in Azure App Service](../app-service-web/web-sites-dotnet-get-started.md)
+- [Create a PHP web app in Azure App Service](../app-service-web/web-sites-php-mysql-deploy-use-git.md)
+- [Create a Node.js web app in Azure App Service](../app-service-web/web-sites-nodejs-develop-deploy-mac.md)
+- [Create a Java web app in Azure App Service](../app-service-web/web-sites-java-get-started.md)
+- [Create a Python web app in Azure App Service](web-sites-python-ptvs-django-mysql.md)
 
 There is also a lot of content that shows you the range of apps you can build on Azure App Service, including web apps, mobile app backends, and API apps. 
 
