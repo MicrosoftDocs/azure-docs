@@ -11,6 +11,7 @@
 
 <tags
 	ms.service="virtual-machines-linux"
+	ms.topic="article"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
