@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/07/2016" 
 	ms.author="awills"/>
 
 
@@ -36,10 +36,10 @@ For example, let's find out what time of day the citizens of Hyderabad try our w
 ```CSL
 
     requests 
-    | where timestamp > ago(30d) and location_City == "Hyderabad"
-    | summarize clients = dcount(location_ClientIP) 
-      by tod_UTC=bin(timestamp % 1d, 1h), responseCode
-    | extend local_hour = (tod_UTC + 5h + 30min) % 24h 
+    | where timestamp > ago(30d) and client_City == "Hyderabad"
+    | summarize clients = dcount(client_IP) 
+      by tod_UTC=bin(timestamp % 1d, 1h), resultCode
+    | extend local_hour = (tod_UTC + 5h + 30min) % 24h + datetime("2001-01-01" 
 ```
 
 We count distinct client IP addresses, grouping them by the hour of the day over the past 30 days. 

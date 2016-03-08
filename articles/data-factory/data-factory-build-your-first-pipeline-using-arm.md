@@ -16,7 +16,7 @@
 	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# # Tutorial: Build your first Azure data factory using Azure Resource Manager template
+# Tutorial: Build your first Azure data factory using Azure Resource Manager template
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
