@@ -14,16 +14,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="03/08/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection playbook 
 
+This playbook helps you to:
+- populate data in the Identity Protection environment by simulating risk events and vulnerabilities
+- set up risk-based conditional access policies and test the impact of these policies
 
 
+## Simulating Risk Events
+
+This section provides you with steps for simulating the following risk event types:
+
+- Sign-ins from anonymous IP addresses (easy)
+- Sign-ins from unfamiliar locations (moderate)
+- Impossible travel to atypical locations (difficult)
+
+Other risk events cannot be simulated in a secure manner.
 
 
-## Sign-ins from anonymous IP addresses
+### Sign-ins from anonymous IP addresses
 
 This risk event type identifies users who have successfully signed in from an IP address that has been identified as an anonymous proxy IP address. These proxies are used by people who want to hide their device’s IP address and may be used for malicious intent.
 
@@ -36,7 +48,7 @@ To simulate a sign-in from an anonymous IP, follow these steps:
 You are done! The sign-in should be viewable in Identity Protection within 5 minutes. 
 
 
-##Sign-ins from unfamiliar locations
+###Sign-ins from unfamiliar locations
 Unfamiliar locations risk is a real-time sign-in evaluation mechanism that considers past sign-in locations (IP, Latitude/Longitude and ASN) to determine new/unfamiliar locations. The system stores previous IPs, Latitude/Longitude, and ASNs of a user and considers these to be “familiar” locations. A sign-in location is considered unfamiliar if the sign-in location does not match any of the existing familiar locations. The system has an initial learning period of 14 days during which it does not flag any new locations as unfamiliar locations. The system also ignores sign-ins from familiar devices and locations that are geographically close to an existing familiar location.
 
 To simulate unfamiliar locations, you will have to sign in from a location and device that the account has not signed in from before. Step by step:
@@ -51,7 +63,7 @@ To simulate unfamiliar locations, you will have to sign in from a location and d
 
 You are done! The sign-in should be viewable in Identity Protection within 5 minutes.
  
-## Impossible travel to atypical location
+### Impossible travel to atypical location
 Simulating the impossible travel condition is difficult because the algorithm uses machine learning to weed out false-positives, such as impossible travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 3 to 14 days for the user before it begins generating risk events.
 
 1.	Using your standard browser, navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com)  
