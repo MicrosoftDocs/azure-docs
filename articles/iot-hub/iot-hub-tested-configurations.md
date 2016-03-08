@@ -80,7 +80,7 @@ The [Microsoft Azure IoT device SDK for Java](https://github.com/Azure/azure-iot
 
 |Runtime| Version|Protocols|
 |:---------|:----------:|----|
-|Java SE (Windows)| 1.7 | HTTPS, AMQP, MQTT |
+|Java SE (Windows)| 1.8 | HTTPS, AMQP, MQTT |
 |Java SE (Linux)| 1.8 | HTTPS, AMQP, MQTT|
 
 The Microsoft Azure IoT service SDK for Java has been tested on the following configurations:

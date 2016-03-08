@@ -20,12 +20,12 @@
 
 Maximum values to support the most demanding analytics workloads while also ensuring each individual query has the resources it needs for optimal performance.
 
-## Connections
+## Service
 
 | Category          | Description                                  | Maximum            |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Session           | Concurrent open sessions                     | 1024<br/><br/>We support a maximum of 1024 active connections which can submit requests to the data warehouse concurrently. Note, there are limits on the number of queries that can actually execute concurrently. When a limit is exceeded the request goes into an internal queue where it waits to be processed.|
-| Session           | Maximum memory for prepared statements       | 20 MB              |
+| Database           | Concurrent open sessions                     | 1024<br/><br/>We support a maximum of 1024 active connections which can submit requests to each SQL Data Warehouse database at the same time. Note, there are limits on the number of queries that can actually execute concurrently. When a limit is exceeded the request goes into an internal queue where it waits to be processed.|
+| Database connection | Maximum memory for prepared statements       | 20 MB              |
 
 
 ## Query Processing

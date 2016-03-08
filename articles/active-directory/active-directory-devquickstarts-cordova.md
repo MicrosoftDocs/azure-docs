@@ -79,25 +79,27 @@ Each target platform has different prerequisites.
 
 ## *1.	Register an application with Azure AD*
 
-Note: this step is optional. The tutorial provided pre-provisioned values that will allow you to see the sample in action without doing any provisioning in your own tenant. However it is recommended that you do perform this step and become familiar with the process, as it will be required when you will create your own applications.
+Note: this __step is optional__. The tutorial provided pre-provisioned values that will allow you to see the sample in action without doing any provisioning in your own tenant. However it is recommended that you do perform this step and become familiar with the process, as it will be required when you will create your own applications.
 
 Azure AD will only issue tokens to known applications. Before you can use Azure AD from your app, you need to create an entry for it in your tenant.  To register a new application in your tenant,
 
-- Sign into the Azure Management Portal
-- In the left hand nav, click on Active Directory
-- Select the tenant where you wish to register the application
-- Click the Applications tab, and click add in the bottom drawer.
-- Follow the prompts and create a new “Native Client Application”
-    - The name of the application will describe your application to end-users
-    -	The “Redirect URI” is the URI used to return tokens to your app. Enter `http://MyDirectorySearcherApp`.
+-	Sign into the [Azure Management Portal](https://manage.windowsazure.com)
+-	In the left hand nav, click on **Active Directory**
+-	Select the tenant where you wish to register the application.
+-	Click the **Applications** tab, and click **Add** in the bottom drawer.
+-	Follow the prompts and create a new **Native Client Application** (despite the fact that Cordova apps are HTML based, we are creating native client application here so `Native Client Application` option must be selected; otherwise, the application won't work).
+    -	The **Name** of the application will describe your application to end-users
+    -	The **Redirect URI** is the URI used to return tokens to your app. Enter `http://MyDirectorySearcherApp`.
 
-Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections: you can find it in the Configure tab of the newly created app.
+Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections: you can find it in the **Configure** tab of the newly created app.
 
-## *2. Clone the repositories required for the tutorial*
+In order to run `DirSearchClient Sample`, grant the newly created app permission to query the _Azure AD Graph API_:
+-	In **Configure** tab, locate the "Permissions to Other Applications" section.  For the "Azure Active Directory" application, add the **Access the directory as the signed-in user** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
+
+## *2. Clone the sample app repository required for the tutorial*
 
 From your shell or command line, type the following command:
 
-    git clone https://github.com/AzureAD/azure-activedirectory-library-for-cordova.git
     git clone -b skeleton https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova.git
 
 ## *3. Create the Cordova app*
@@ -115,17 +117,17 @@ Move to the new DirSearchClient folder.
 
 Add the whitelist plugin, necessary for invoking the Graph API.
 
-     cordova plugin add https://github.com/apache/cordova-plugin-whitelist.git
+     cordova plugin add cordova-plugin-whitelist
 
 Next, add all of the platforms you want to support. In order to have a working sample, you will need to execute at least one of the commands below. Note that you will not be able to emulate iOS on Windows, or Windows/Windows Phone on a Mac.
 
-    cordova platform add android@97718a0a25ec50fedf7b023ae63bfcffbcfafb4b
+    cordova platform add android
     cordova platform add ios
     cordova platform add windows
 
 Finally, you can add the ADAL for Cordova plugin to your project.
 
-    cordova plugin add ../azure-activedirectory-library-for-cordova
+    cordova plugin add cordova-plugin-ms-adal
 
 ## *3. Add code to authenticate users and obtain tokens from AAD*
 
@@ -227,22 +229,29 @@ The starting point files supplied a barebone UX for entering a user's alias in a
 Your app is finally ready to run! Operating it is very simple: once the app starts, enter in the text box the alias of the user you want to look up - then click the button. You will be prompted for authentication. Upon successful authentication and successful search, the attributes of the searched user will be displayed. Subsequent runs will perform the search without showing any prompt, thanks to the presence in cache of the token previously acquired.
 The concrete steps for running the app vary by platform.
 
+####Windows 10:
 
-##### To build and run Windows Tablet/PC application version
+   Tablet/PC: `cordova run windows --archs=x64 -- --appx=uap`
+
+   Mobile (requires Windows10 Mobile device connected to PC): `cordova run windows --archs=arm -- --appx=uap --phone`
+
+   __Note__: During first run you may be asked to sign in for a developer license. See [Developer license](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) for more details.
+
+####Windows 8.1 Tablet/PC:
 
    `cordova run windows`
 
    __Note__: During first run you may be asked to sign in for a developer license. See [Developer license](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) for more details.
 
-
-##### To build and run application on Windows Phone 8.1
+####Windows Phone 8.1:
 
    To run on connected device: `cordova run windows --device -- --phone`
 
    To run on default emulator: `cordova emulate windows -- --phone`
 
    Use `cordova run windows --list -- --phone` to see all available targets and `cordova run windows --target=<target_name> -- --phone` to run application on specific device or emulator (for example,  `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
-##### To build and run on Android device
+
+####Android:
 
    To run on connected device: `cordova run android --device`
 
@@ -252,7 +261,7 @@ The concrete steps for running the app vary by platform.
 
    Use `cordova run android --list` to see all available targets and `cordova run android --target=<target_name>` to run application on specific device or emulator (for example,  `cordova run android --target="Nexus4_emulator"`).
 
-##### To build and run on iOS device
+####iOS:
 
    To run on connected device: `cordova run ios --device`
 
@@ -264,7 +273,7 @@ The concrete steps for running the app vary by platform.
 
 Use `cordova run --help` to see additional build and run options.
 
-For reference, the completed sample (without your configuration values) is provided here.  You can now move on to more advanced (ok, and more interesting) scenarios.  You may want to try:
+For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).  You can now move on to more advanced (ok, and more interesting) scenarios.  You may want to try:
 
 [Secure a Node.js Web API with Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
