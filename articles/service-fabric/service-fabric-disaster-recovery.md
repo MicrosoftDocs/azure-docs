@@ -84,23 +84,18 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 
 >[AZURE.NOTE] Backup and restore is currently only available for the Reliable Services API. Backup and restore for Reliable Actors will be available in an upcoming release.
 
-
-
 ### Software failures and other sources of data loss
 
 As a cause of data loss, code defects in services, human operational errors, and security breaches are more common than widespread data center failures. However, in all cases, the recovery strategy is the same: take regular backups of all stateful services and exercise your ability to restore that state.
 
-## Other resources
+## Next Steps
 
- Microsoft has published a large amount of guidance concerning disaster recovery and highly availability. While some of these documents refer to specific techniques for use in other products, they contain many general best practices as well:
-
+- Learn how to simulate various failures using the [testability framework](service-fabric-testability-overview.md)
+- Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. While some of these documents refer to specific techniques for use in other products, they contain many general best practices you can apply in the Service Fabric context as well:
  - [Availability checklist](azure-availability-checklist)
  - [Performing a disaster recovery drill](disaster-recovery-drill)
  - [Disaster recovery and high availability for Azure applications](dr-ha-guide)
 
-## Next Steps
-
-- Learn how to simulate various failures using the [testability framework](service-fabric-testability-overview.md)
 
 <!-- External links -->
 
