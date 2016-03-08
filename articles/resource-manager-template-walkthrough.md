@@ -3,7 +3,7 @@
    description="A step by step walkthrough of a resource manager template provisioning a basic Azure IaaS architecture."
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="navalev"
+   authors="navalev;tfitzmac"
    manager=""
    editor=""/>
 
@@ -108,7 +108,7 @@ Notice under **properties** is an element named **accountType**. This element is
     }
 ```
 ## Availability Set
-Define an availably set for the virtual machines. This one does not require any additional properties so its definition is fairly simple.
+Define an availably set for the virtual machines. In this case, there is no additional properties required, so its definition is fairly simple. See the [REST API for creating an Availability Set](https://msdn.microsoft.com/en-us/library/azure/mt163607.aspx) for the full properties section, in case you want to define the update domain count and fault domain count values.
 
 ```json
    {
@@ -139,7 +139,7 @@ Define a public IP address. Again, look at the [REST API for public IP addresses
 ```
 
 ## Virtual Network and Subnet
-Create a virtual network with one subnet.
+Create a virtual network with one subnet. Look at the [REST API for virtual networks](https://msdn.microsoft.com/en-us/library/azure/mt163661.aspx) for all the properties to set.
 
 ```json
    {
@@ -168,7 +168,7 @@ Create a virtual network with one subnet.
 ## Load Balancer
 Now you will create an external facing load balancer. Because this load balancer uses the public IP address, you must declare a dependency on the public IP address in the **dependsOn** section. This means the load balancer will not get deployed until the public IP address has finished deploying. Without defining this dependency, you will receive an error because Resource Manager will attempt to deploy the resources in parallel, and will try to set the load balancer to public IP address that doesn't exist yet. 
 
-You will also create a backend address pool, a couple of inbound NAT rules to RDP into the VMs, and a load balancing rule with a tcp probe on port 80 in this resource definition.
+You will also create a backend address pool, a couple of inbound NAT rules to RDP into the VMs, and a load balancing rule with a tcp probe on port 80 in this resource definition. Checkout the [REST API for load balancer](https://msdn.microsoft.com/en-us/library/azure/mt163574.aspx) for all the properties.
 
 ```json
    {
@@ -260,6 +260,7 @@ You will also create a backend address pool, a couple of inbound NAT rules to RD
 ## Network Interface
 You will create 2 network interfaces, one for each VM. Rather than having to include duplicate entries for the network interfaces, you can use the [copyIndex() function](resource-group-create-multiple.md) to iterate over the copy loop (referred to as nicLoop) and create the number network interfaces as defined in the `numberOfInstances` variables. 
 The network interface depends on creation of the virtual network and the load balancer. It uses the subnet defined in the virtual network creation, and the load balancer id to configure the load balancer address pool and the inbound NAT rules.
+Look at the [REST API for network interfaces](https://msdn.microsoft.com/en-us/library/azure/mt163668.aspx) for all the properties.
 
 ```json
    {
