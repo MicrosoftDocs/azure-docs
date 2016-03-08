@@ -16,26 +16,14 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/04/2016"
-	ms.author="rickstercdn"/>
+	ms.author="rclaus"/>
 
 # Optimize your Linux VM on Azure
 
 Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to ensure you have set it up to optimize its performance on the Microsoft Azure platform. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](virtual-machines-linux-create-upload-generic.md).  
 
 ## Prerequisites
-- a working Azure subscription
-    - [free trial signup](https://azure.microsoft.com/pricing/free-trial/)
-    - [Azure portal](http://portal.azure.com)
-- The Azure CLI
-    - [Linux installer](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409), [Mac OSX installer](http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409)
-    - you can also install the Azure CLI using popular package managers and as a Linux container:
-        - Mac via **Homebrew** `brew install azure-cli`
-        - Mac & Linux via **npm** `npm install -g azure-cli`
-        - Mac & Linux via **Docker** `docker run -it microsoft/azure-cli`
-- A running Linux VM on Azure. [AZURE.INCLUDE [virtual-machines-create-linuxvm](../../includes/virtual-machines-create-linuxvm.md)]
-
-- Connect your Azure CLI terminal to your Azure subscription
-    - Before doing anything with Azure - you have to authenticate to your subscription. To do this with Azure CLI, simply type `azure login` to start the interactive process. 
+This topic assumes you already have a working Azure Subscription ([free trial signup](https://azure.microsoft.com/pricing/free-trial/)), [installed the Azure CLI](../xplat-cli-install.md) and have already provisioned a VM into your Azure Subscription. Before doing anything with Azure - you have to authenticate to your subscription. To do this with Azure CLI, simply type `azure login` to start the interactive process. 
 
 ## Azure OS Disk
 Once you create a Linux Vm in Azure, it has two disks associated with it. /dev/sda is your OS disk, /dev/sdb is your temporary disk.  Do not use the main OS disk (/dev/sda) for anything except the operating system as it is optimized for fast VM boot time and will not provide good performance for your workloads. You will want to attach one or more disks to your VM in order to get persistent and optimized storage for your data. 
