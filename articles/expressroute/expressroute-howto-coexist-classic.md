@@ -74,7 +74,7 @@ There are two different sets of procedures to choose from in order to configure 
 
 This procedure will walk you through creating a VNet and create Site-to-Site and ExpressRoute connections that will coexist.
 
-1. - You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets. Note that the cmdlets that you'll use for this configuration may be slightly different than what you might be familir with using for other configurations. Use the cmdlets specified in these instructions. 
+1. - You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets. Note that the cmdlets that you'll use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions. 
 
 2. Create a schema for your virtual network. For more information about the configuration schema, see [Azure Virtual Network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -186,7 +186,7 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 
 **Before you begin configuration:** Verify that you have enough IP addresses left in your virtual network so that you can increase the gateway subnet size. Note that you will have to delete the gateway and recreate it even if you have enough IP addresses. This is because the gateway must be recreated in order to accommodate the coexisting connections.
 
-1. You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets. Note that the cmdlets that you'll use for this configuration may be slightly different than what you might be familir with using for other configurations. Use the cmdlets specified in these instructions.  
+1. You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets. Note that the cmdlets that you'll use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions. 
 
 2. Delete the existing Site-to-Site VPN gateway. Use the following cmdlet, replacing the values with your own.
 
