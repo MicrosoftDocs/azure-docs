@@ -97,11 +97,11 @@ With Service Fabric, though the scale of failures would be different in the diff
 
 ### Using Testability in C#
 
-The Testability features are in the System.Fabric.Testability.dll. This dll is in the Microsoft.ServiceFabric.Testability.nupack nuget package. To use the Testability features, include the nuget package as a reference in your project.
+The Testability features are in the System.Fabric.dll. This dll is in the Microsoft.ServiceFabric.nupack nuget package. To use the Testability features, include the nuget package as a reference in your project.
 
 ### Using Testability in PowerShell
 
-To use Testability PowerShell, you must install the runtime MSI. After the MSI is installed, the ServiceFabricTestability PowerShell module is auto loaded for developers to use.
+To use Testability PowerShell, you must install the runtime MSI. After the MSI is installed, the ServiceFabric PowerShell module is auto loaded for developers to use.
 
 ## Conclusion
 

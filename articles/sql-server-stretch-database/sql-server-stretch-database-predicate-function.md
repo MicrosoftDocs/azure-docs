@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Write an Inline Table-Valued Function to Select Rows to Migrate (Stretch Database) | Microsoft Azure"
-	description="Learn how to create a filter predicate to select the rows to migrate."
+	pageTitle="Use a Filter Predicate to Select Rows to Migrate (Stretch Database) | Microsoft Azure"
+	description="Learn how to use a filter predicate to select the rows to migrate."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -16,7 +16,7 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# Write an Inline Table-Valued Function to Select Rows to Migrate (Stretch Database)
+# Use a Filter Predicate to Select Rows to Migrate (Stretch Database)
 
 If you store historical data in a separate table, you can configure Stretch Database to migrate the entire table. If your table contains both historical and current data, on the other hand, you can specify a filter predicate to select the rows to migrate. The filter predicate must call an inline table\-valued function. This topic describes how to write an inline table\-valued function to select rows to migrate.
 

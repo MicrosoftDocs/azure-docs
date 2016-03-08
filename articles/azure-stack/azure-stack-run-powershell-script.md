@@ -39,7 +39,7 @@ To deploy the Azure Stack POC, you'll first need to [prepare the deployment mach
 
 	-   WindowsServer2012R2DatacenterEval.vhd
 
-	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Data Center VHD (includes KB 3124262)
+	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Datacenter VHD (includes KB 3124262)
 
 	**Important**: You must have at least 128GB of free space on the physical boot volume.
 
@@ -76,11 +76,11 @@ To deploy the Azure Stack POC, you'll first need to [prepare the deployment mach
 
 3.  Run the deploy command:
 
-    	.\DeployAzureStack.ps1 –verbose
+    	.\DeployAzureStack.ps1 –Verbose
 
     In China, use the following command instead:
 
-    	.\DeployAzureStack.ps1 –verbose -UseAADChina $true
+    	.\DeployAzureStack.ps1 –Verbose -UseAADChina $true
 
     Deployment starts and the Azure Stack POC domain name is hardcoded as azurestack.local.
 
@@ -88,15 +88,15 @@ To deploy the Azure Stack POC, you'll first need to [prepare the deployment mach
 
 5.  At the **Please login to your Azure account in the pop-up Azure authentication page**, hit any key to open the Microsoft Azure sign-in dialog box.
 
-6.  Enter the credentials for your Azure Active Directory Account. This user must be the Global Admin in the directory tenant
+6.  Enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant
 
-7.  Back in PowerShell, at the account selection confirmation prompt, enter *y*. This creates two users and three applications for Azure stack in that directory tenant: an admin user for Azure Stack, a tenant user for the TiP tests, and one application each for the Portal, API, and Monitoring resource providers. In addition to this, the installer adds consents for the Azure PowerShell, XPlat CLI, and Visual Studio to that Directory Tenant.
+7.  Back in PowerShell, at the account selection confirmation prompt, enter *y*. This creates two users and three applications for Azure Stack in that directory tenant: an admin user for Azure Stack, a tenant user for the TiP tests, and one application each for the Portal, API, and Monitoring resource providers. In addition to this, the installer adds consents for the Azure PowerShell, XPlat CLI, and Visual Studio to that Directory Tenant.
 
 8.  At the **Microsoft Azure Stack POC is ready to deploy. Continue?** prompt, enter *y*.
 
 9.  The deployment process will take a few hours, during which several automated system reboots will occur. Signing in during deployment will automatically launch a PowerShell window that will display deployment progress. The PowerShell window closes after deployment completes.
 
-10. On the Azure Stack POC machine, sign in as an AzureStack/administrator, open **Server Manager**, and turn off **IE Enhanced Security Configuration** for both admins and users.
+10. On the Azure Stack POC machine, sign in as an AzureStack\administrator, open **Server Manager**, and turn off **IE Enhanced Security Configuration** for both admins and users.
 
 If the deployment fails with a time or date error, configure the BIOS to use Local Time instead of UTC. Then redeploy.
 
@@ -115,18 +115,18 @@ You can find the script logs on the POC host `C:\ProgramData\microsoft\azurestac
 **Force** (Switch) - Sets the cmdlet to run without confirmations.
 
 **NATVMStaticGateway** (String) - Sets the default gateway used in the static IP address for the NATVM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. If this parameter is used, then you must also use the NATVMStaticIP parameter.
-For example, `.\DeployAzureStack.ps1 –verbose -NATVMStaticIP 10.10.10.10/24 – NATVMStaticGateway 10.10.10.1`
+For example, `.\DeployAzureStack.ps1 –Verbose -NATVMStaticIP 10.10.10.10/24 – NATVMStaticGateway 10.10.10.1`
 
 **NATVMStaticIP** (string) - Sets an additional static IP address for the NATVM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.
-For example, `.\DeployAzureStack.ps1 –verbose -NATVMStaticIP 10.10.10.10/24`
+For example, `.\DeployAzureStack.ps1 –Verbose -NATVMStaticIP 10.10.10.10/24`
 
-**NoAutoReboot** (switch) - Sets the script to run without automatic reboots.
+**NoAutoReboot** (Switch) - Sets the script to run without automatic reboots.
 
 **ProxyServer** (String) - Sets the proxy information. Only use this parameter if your environment must use a proxy to access the Internet. Proxy servers that require credentials are not supported.
 For example, `.\DeployAzureStack.ps1 -Verbose -ProxyServer 172.11.1.1:8080`
 
 **PublicVLan** (String) - Sets the VLAN ID. Only use this parameter if the host and NATVM must configure VLAN ID to access the physical network (and Internet).
-For example, `.\DeployAzureStack.ps1 –verbose –PublicVLan 305`
+For example, `.\DeployAzureStack.ps1 –Verbose –PublicVLan 305`
 
 **TIPServiceAdminCredential** (PSCredential) - Sets the credentials of an existing service administrator Azure Active Directory account. This account is used by TiP (Test in Production). If this parameter is not provided, an account is automatically created.
 
