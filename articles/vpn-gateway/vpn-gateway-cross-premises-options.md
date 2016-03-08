@@ -1,6 +1,6 @@
 <properties 
    pageTitle="About secure cross-premises connectivity for virtual networks | Microsoft Azure"
-   description="Learn about the types of secure cross-premises connections for virtual networks, including site-to-site, point-to-site, and ExpressRoute connections."
+   description="Learn about the types of secure cross-premises connections for virtual networks, including Site-to-Site, Point-to-Site, and ExpressRoute connections."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
