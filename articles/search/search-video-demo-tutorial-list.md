@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="03/8/2016"
+	ms.date="03/88/2016"
 	ms.author="heidist"/>
 
 #Azure Search: tutorials, video demos, and samples
