@@ -24,9 +24,9 @@
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
 - [Using code-free authoring](data-factory-use-code-free-authoring.md)
 
+In this tutorial, you will use code-free authoring experience by supported by Azure Data Factory to create a pipeline with a Copy Activity in a data factory. First, you create a data factory by using the Azure Portal and then use code-free authoring experience to create Data Factory linked services, datasets, and a pipeline with a Copy Activity that copies data from an Azure blob storage to an Azure SQL database.
 
-> [AZURE.IMPORTANT] 
-> Please go through the [Tutorial Overview](data-factory-get-started.md) article and complete the prerequisite steps before performing this tutorial.
+> [AZURE.IMPORTANT] Please go through the [Tutorial Overview](data-factory-get-started.md) article and complete the prerequisite steps before performing this tutorial.
 
 ## <a name="CreateDataFactory"></a>Step 1: Create an Azure data factory
 In this step, you use the Azure Portal to create an Azure data factory named **ADFTutorialDataFactory**.
