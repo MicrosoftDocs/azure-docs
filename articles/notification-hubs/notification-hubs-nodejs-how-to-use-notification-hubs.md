@@ -196,7 +196,7 @@ The following code uses the **WnsService** instance exposed by the **Notificatio
 
 The sample snippets above allow you to easily build service infrastructure to deliver push notifications to a wide variety of devices. Now that you've learned the basics of using Notification Hubs with node.js, follow these links to learn more about how you can extend these capabilities further.
 
--   See the MSDN Reference for [Azure Notification Hubs](https://msdn.microsoft.com/en-us/library/azure/jj927170.aspx).
+-   See the MSDN Reference for [Azure Notification Hubs](https://msdn.microsoft.com/library/azure/jj927170.aspx).
 -   Visit the [Azure SDK for Node] repository on GitHub for more samples and implementation details.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
