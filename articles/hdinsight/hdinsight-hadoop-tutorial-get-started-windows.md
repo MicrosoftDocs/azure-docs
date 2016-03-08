@@ -12,7 +12,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="02/25/2016"
@@ -45,6 +45,8 @@ In conjunction with the general availability of Azure HDInsight, Microsoft also 
 HDInsight Emulator for Azure, formerly known as *Microsoft HDInsight Developer Preview*. 
 The Emulator targets developer scenarios and only supports single-node deployments. For 
 information about using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ### Prerequisites
 
