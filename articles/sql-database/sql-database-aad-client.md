@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Enable your app to communicate with and manage your SQL Database servers and databases | Microsoft Azure"
-   description="Enable your app to communicate with and manage your SQL Database servers and databases. Get the needed client values for connecting to SQL Database with Azure Active Directory Authentication."
+   pageTitle="Enable your app to communicate with your SQL Database servers and databases | Microsoft Azure"
+   description="Enable your app to communicate with your SQL Database servers and databases. Get the needed client values for connecting your app to SQL Database."
    services="sql-database"
    documentationCenter=""
    authors="stevestein"
@@ -17,17 +17,18 @@
    ms.date="03/05/2016"
    ms.author="sstein"/>
 
-# Enable your app to communicate with and manage your SQL Database servers and databases
+# Enable your app to communicate with your SQL Database servers and databases
 
 
 
 ## Get the Client ID for a native client application
 
-To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Registering the application can be done in the [Classic Portal](https://manage.windowsazure.com/). 
+To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Currently, registering applications need to be done in the [Classic Portal](https://manage.windowsazure.com/). 
 
-To create a new application and register it in the correct active directory do the following:
+To create a new application and register it do the following:
 
-1. Scroll the menu on the left side to locate the **Active Directory** service and open it.
+1. Login to the [Classic Portal](https://manage.windowsazure.com/).
+1. Locate **Active Directory** in the menu and open it.
 
     ![AAD][1]
 
@@ -61,7 +62,7 @@ To create a new application and register it in the correct active directory do t
 1. On the bottom of the page click on **Add application**.
 1. Select **Microsoft Apps**.
 1. Select **Azure Service Management API**, and then complete the wizard.
-2. With the API selected you now need to grant the permissions required to access this API by selecting **Access Azure Service Management (preview)**.
+2. With the API selected you now need to grant the permissions required to access this API by selecting **Access Azure Service Management...**.
 
     ![permissions][2]
 
@@ -73,7 +74,8 @@ To create a new application and register it in the correct active directory do t
 
 To create a new application and register it in the correct active directory do the following:
 
-1. Scroll the menu on the left side to locate the **Active Directory** service and open it.
+1. Login to the [Classic Portal](https://manage.windowsazure.com/).
+1. Locate **Active Directory** in the menu and open it.
 
     ![AAD][1]
 
