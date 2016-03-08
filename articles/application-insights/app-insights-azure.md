@@ -28,7 +28,7 @@ What type of app do you have?
 
 * [Azure web app](app-insights-asp-net.md)
 * [Azure Cloud Services App - web and worker roles](app-insights-cloudservices.md)
-* [Web app on IIS in Azure VM](../app-insights-asp-net.md)
+* [Web app on IIS in Azure VM](app-insights-asp-net.md)
 * [Application outside Azure](app-insights-overview.md)
 
 

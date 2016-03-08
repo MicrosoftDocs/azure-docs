@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/02/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
 
 
@@ -94,7 +94,7 @@ The free text search works on any fields in the events. For example, search for 
 
 ### Exceptions
 
-If you have [set up exception monitoring](app-insights-asp-net-exception-mvc.md), exception reports will show in the Search window. 
+If you have [set up exception monitoring](app-insights-asp-net-exceptions.md), exception reports will show in the Search window. 
 
 Click an exception to get a stack trace. If the code of the app is open in Visual Studio, you can click through from the stack trace to the relevant line of the code.
 
