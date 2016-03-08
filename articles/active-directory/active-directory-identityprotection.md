@@ -21,9 +21,24 @@
 
 Azure Active Directory Identity Protection is a security service that provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
 
-> [AZURE.NOTE] The preview of Azure Active Directory Identity Protection is currently available only for directories with a **Country or Region** value of **United States**. <br><br>
+## Limitations of the current preview
+This section lists limitations that apply to the current preview of Azure Active Directory Identity Protection.
+
+### Country or Region limitation
+
+The preview of Azure Active Directory Identity Protection is currently available only for directories with a **Country or Region** value of **United States**. <br><br>
 ![Remediation](./media/active-directory-identityprotection/222.png "Remediation")
 
+
+### Identity Protection and federated domains
+
+The preview of Azure Active Directory Identity Protection has the following limitations in conjunction with federated domains:
+
+- Security policies do not work for federated domains
+
+- Risk events are not detected for federated domains?
+
+##Getting Started
 
 The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Attackers have become increasingly effective at leveraging third party breaches, and using sophisticated phishing attacks. Once an attacker gains access to even a low privileged user account, it is relatively straightforward for them to gain access to important company resources through lateral movement. It is therefore essential to protect all identities and, when an identity is compromised, proactively prevent the compromised identity from being abused. 
 
