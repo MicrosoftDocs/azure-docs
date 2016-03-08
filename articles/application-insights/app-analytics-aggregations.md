@@ -155,7 +155,7 @@ Now let's find the average session durations for clients in different cities:
     | top 50 by duration_by_city
 ```
 
-We added the `location_City` column to the `by` clause so that it will pass through the first summarize operation. Assuming all the events of one client session happen in the same city, it won't add to the number of outputs of the summarize.
+We added the `client_City` column to the `by` clause so that it will pass through the first summarize operation. Assuming all the events of one client session happen in the same city, it won't add to the number of outputs of the summarize.
 
 
 ![](./media/app-analytics-aggregations/durationcity.png)
@@ -174,9 +174,7 @@ requests
 | sort by max_pop_tod asc
 ```
 
-
-
-## =======
+## AGGREGATION FUNCTIONS
 
 ## any 
 
@@ -402,26 +400,35 @@ Like `percentile()`, but calculates a number of percentile values (which is fast
 **Examples**
 
 
-The value of `Duration` that is larger than 95% of the sample set and smaller than 5% of the sample set:
+The value of `duration` that is larger than 95% of the sample set and smaller than 5% of the sample set, calculated for each request name:
 
-    CallDetailRecords | summarize percentile(Duration, 95) by continent
+    request 
+    | summarize percentile(duration, 95)
+      by name
 
+Omit "by..." to calculate for the whole table.
 
-Simultaneously calculate 5, 50 (median) and 95:
+Simultaneously calculate several percentiles for different request names:
 
-    CallDetailRecords 
-    | summarize percentiles(Duration, 5, 50, 95) by continent
+    
+    requests 
+    | summarize 
+        percentiles(duration, 5, 20, 50, 80, 95) 
+      by name
 
 ![](./media/app-analytics-aggregations/percentiles.png)
 
-The results show that in Europe, 5% of calls are shorter than 11.55s, 50% of calls are shorter than 3 minutes 18.46 seconds, and 95% of calls are shorter than 40 minutes 48 seconds.
+The results show that for the request /Events/Index, 5% of requests are responded to in less than 2.44s,  half of them in 3.52s, and 5% are slower than 6.85s.
 
 
 Calculate multiple statistics:
 
-    CallDetailRecords 
-    | summarize percentiles(Duration, 5, 50, 95), avg(Duration)
-
+    requests 
+    | summarize 
+        count(), 
+        avg(Duration),
+        percentiles(Duration, 5, 50, 95)
+      by name
 
 #### Estimation error in percentiles
 
