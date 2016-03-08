@@ -14,7 +14,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 

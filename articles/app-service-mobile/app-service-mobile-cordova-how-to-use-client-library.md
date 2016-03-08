@@ -41,7 +41,7 @@ For more information on creating [your first Apache Cordova app], see their docu
 Create a client connection by creating a `WindowsAzure.MobileServicesClient` object.  Replace `appUrl` with the URL to your Mobile App.
 
 ```
-var client = WindowsAzure.MobileServicesClient(appUrl);
+var client = new WindowsAzure.MobileServicesClient(appUrl);
 ```
 
 ##<a name="table-reference"></a>How to: Create Table Reference
