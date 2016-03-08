@@ -110,7 +110,7 @@ This procedure will walk you through creating a VNet and create Site-to-Site and
 
 		Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'
 
-4. Create an ExpressRoute gateway. Be sure to specify the GatewaySKU as *Standard* or *HighPerformance* and the GatewayType as *DynamicRouting*.
+4. <a name ="gw"/>Create an ExpressRoute gateway. Be sure to specify the GatewaySKU as *Standard* or *HighPerformance* and the GatewayType as *DynamicRouting*.
 
 	Use the following sample, substituting the values for your own.
 
@@ -212,7 +212,7 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-5. At this point, you'll have a VNet with no gateways. To create new gateways and complete your connections, you can proceed with **Step 4** in this section of this article, [Create a new virtual network with both ExpressRoute and site-to-site connectivity](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity).
+5. At this point, you'll have a VNet with no gateways. To create new gateways and complete your connections, you can proceed with [Step 4](#gw) in the preceding set of steps.
 
 ## Next steps
 
