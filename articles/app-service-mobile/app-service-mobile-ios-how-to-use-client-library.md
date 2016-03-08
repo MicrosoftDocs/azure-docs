@@ -388,14 +388,15 @@ At minimum, the `id` attribute must be set when making deletes.
 
 With a custom API, you can expose any backend functionality. It doesn't have to map to a table operation. Not only do you gain more control over messaging, you can even read/set headers and change the response body format. To learn how to create a custom API on the backend, refer to [Custom APIs](app-service-mobile-node-backend-how-to-use-server-sdk.md#CustomAPI)
 
-To call a custom API with JSON, call `invokeAPI` on `MSClient`:
+To call a custom API with JSON, call `invokeAPI` on `MSClient`. 
+
+In the example below, if you were making a `GET` request instead of a `POST` request, change `body` to `nil` and change `HTTPMethod` from `POST` to `GET`.
 
 **Objective-C**:
-
 ```
     [self.client invokeAPI:@"sendEmail"
-                      body:nil
-                HTTPMethod:@"GET"
+                      body:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+                HTTPMethod:@"POST"
                 parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
                    headers:nil
                 completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
@@ -406,6 +407,9 @@ To call a custom API with JSON, call `invokeAPI` on `MSClient`:
                     }
                 }];
 ```
+
+**Swift**:
+
 
 
 ##<a name="templates"></a>How to: Register push templates to send cross-platform notifications
