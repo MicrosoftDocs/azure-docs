@@ -89,7 +89,7 @@ We now have the file we need and can start creating the Connector.
 4. Select **Table** and type **[USERS]**. Scroll down to the multi-valued object type section and enter the data as in below. Select **Finish** to save the step.
 ![Runprofile4a](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile4a.png)  
 ![Runprofile4b](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile4b.png)  
-5. Select **New Step**. This time, select **OBJECT=Group**. On the last page, use the configuration below. Click on **Finish**.
+5. Select **New Step**. This time, select **OBJECT=Group**. On the last page, use the configuration below. Click on **Finish**.  
 ![Runprofile5a](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile5a.png)  
 ![Runprofile5b](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile5b.png)  
 6. Optional: You can configure additional run profiles if you want to. For this walkthrough only the Full Import is used.
