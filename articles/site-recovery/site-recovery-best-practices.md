@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/15/2016"
+	ms.date="03/08/2016"
 	ms.author="raynew"/>
 
 # Prepare for Azure Site Recovery deployment
