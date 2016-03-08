@@ -860,7 +860,6 @@ Node.js applications have access to a wide range of diagnostic log tools.  Inter
 
 Easy Tables in the portal let you create and work with tables right in the portal. You can even edit table operations using the Visual Studio online editor.
 
-
 When you click **Easy tables** in your backend site settings, you can add a new table or modify or delete an existing table. You can also see data in the table.
 
 ![Work with Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
@@ -893,8 +892,6 @@ The Azure portal lets you edit your Node.js backend script files in Visual Studi
 	![Visual Studio Team Services code editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Make your changes to the code file in the online editor. Changes are saved automatically as you type.
-
-From the editor, you can also execute the code on the site
 
 
 <!-- Images -->
