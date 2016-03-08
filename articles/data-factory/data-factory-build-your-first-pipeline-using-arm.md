@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Data Factory (Azure Resource Manager template)"
+	pageTitle="Build your first data factory (ARM template) | Microsoft Azure"
 	description="In this tutorial, you will create a sample Azure Data Factory pipeline using an Azure Resource Manager template."
 	services="data-factory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/05/2016"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# Build your first Azure Data Factory pipeline using Azure Resource Manager template
+# # Tutorial: Build your first Azure data factory using Azure Resource Manager template
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)

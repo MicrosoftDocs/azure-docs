@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 
@@ -46,6 +46,10 @@ You can write your own SDK calls to monitor other dependencies using the [TrackD
 You need a [Microsoft Azure](http://azure.com) subscription.
 
 ### If your app runs on your IIS server
+
+If your web app runs on .NET 4.6 or later, you'll get dependency tracking automatically if you [install the Application Insights SDK](app-insights-asp-net.md) in your app. You don't need anything else.
+
+Otherwise, install Application Insights Status Monitor on the server:
 
 1. On your IIS web server, login with administrator credentials.
 2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
@@ -91,7 +95,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 ### If it's an Azure cloud services project
 
-[Add scripts to web and worker roles](app-insights-cloudservices.md).
+[Add scripts to web and worker roles](app-insights-cloudservices.md#dependencies). Or [install .NET framework 4.6 or later](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 ## <a name="diagnosis"></a> Diagnosing dependency performance issues
 

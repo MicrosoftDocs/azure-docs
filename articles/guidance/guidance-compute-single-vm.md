@@ -1,5 +1,5 @@
 <properties
-   pageTitle=" Running a Virtual Machine (Windows) | Blueprint | Microsoft Azure"
+   pageTitle=" Running a single VM (Windows) | Blueprint | Microsoft Azure"
    description="How to run a single VM on Azure, paying attention to scalability, resiliency, manageability, and security."
    services=""
    documentationCenter="na"
@@ -19,15 +19,15 @@
 
 # Running a Single Windows VM on Azure
 
-This article outlines a set of proven practices for running a single Windows VM on Azure, paying attention to scalability, resiliency, manageability, and security.  
+This article outlines a set of proven practices for running a single Windows VM on Azure, paying attention to scalability, availability, manageability, and security.  
 
 > [AZURE.WARNING] There is no up-time SLA for single VMs on Azure. Use this configuration for development and test, but not as a production deployment.
 
 Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments. There are several ways to use Resource Manager, including the [Azure Portal][azure-portal], [Azure PowerShell][azure-powershell], [Azure CLI][azure-cli] commands, or [Resource Manager templates][arm-templates]. This article includes an example using the Azure CLI.
 
-![IaaS: single VM](media/guidance-compute-single-vm.png)
-
 Provisioning a single VM in Azure involves more moving parts than the core VM itself. There are compute, networking, and storage elements.  
+
+![IaaS: single VM](media/blueprints/compute-single-vm.png)
 
 - **Resource group.** Create a [resource group][resource-manager-overview] to hold the resources for this VM. A _resource group_ is a container that holds related resources.
 
@@ -43,9 +43,13 @@ Provisioning a single VM in Azure involves more moving parts than the core VM it
 
 - **Public IP address.** A public IP address is needed to communicate with the VM&mdash;for example over remote desktop (RDP).
 
-- **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the VM. The default NSG rules disallow all incoming Internet traffic.
+- **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.
 
-- **Network interface card (NIC)**. The NIC enables the VM to communicate with the virtual network.
+- **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the subnet. The default NSG rules disallow all incoming Internet traffic.
+
+    You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet. In this case, there is just one VM in the subnet.
+
+    > [AZURE.NOTE] Microsoft recommends NSGs over Access Control Lists (ACLs).
 
 - **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
 
@@ -55,7 +59,7 @@ Provisioning a single VM in Azure involves more moving parts than the core VM it
 
     - If your workload does not require high-performance, low-latency disk access, consider the other Standard tier VM sizes, such as A-series or D-series.
 
-- When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM SKUs may be available in all locations. For details, see [Services by region][services-by-region].
+- When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region].
 
 - For information about choosing a published VM image, see [Navigate and select Azure virtual machine images][select-vm-image].
 
@@ -81,7 +85,7 @@ We recommend [Premium Storage][premium-storage], for the best disk I/O performan
 
 - The public IP address can be dynamic or static. The default is dynamic.
 
-    - Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be whitelisted. .
+    - Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be whitelisted.
 
     - By default, the IP address does not have a fully qualified domain name (FQDN). For more information, see [Create a Fully Qualified Domain Name in the Azure portal][fqdn].
 
@@ -91,22 +95,39 @@ We recommend [Premium Storage][premium-storage], for the best disk I/O performan
 
 ## Scalability
 
-You can scale a VM up or down by changing the VM size. The following Azure CLI command resizes a VM:
+You can scale a VM up or down by changing the VM size. In some cases, you will need to deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is hosting the VM. For more information, see [Resize virtual machines].
 
-```text
-azure vm set -g <<resource-group>> --vm-size <<new-vm-size>
-    --boot-diagnostics-storage-uri <<storage-account-uri>> <<vm-name>>
-```
+To resize a VM:
 
-Resizing the VM will trigger a system restart, and remap your existing OS and data disks after the restart. Anything on the temporary disk will be lost. The `--boot-diagnostics-storage-uri` option enables [boot diagnostics][boot-diagnostics] to log any errors related to startup.
+1. Go to the [Azure Regions web page][services-by-region], and verify that the desired VM size is supported in the location where you deployed the VM.
 
-You might not be able to scale from one SKU family to another (for example, from A series to G series). Use the following CLI command to get a list of available sizes for an existing VM:
+2. If the VM size is supported in that location, run the following CLI command. This command lists the sizes that are available on the hardware cluster.
 
-```text
-azure vm sizes -g <<resource-group>> --vm-name <<vm-name>>
-```
+    ```text
+    azure vm sizes -g <<resource-group>> --vm-name <<vm-name>>
+    ```
 
-To scale to a size that is not listed, you must delete the VM instance and create a new one. Deleting a VM does not delete the VHDs.
+3. If the desired size is listed, run the following command to resize the VM.
+
+    ```text
+    azure vm set -g <<resource-group>> --vm-size <<new-vm-size>
+        --boot-diagnostics-storage-uri <<storage-account-uri>> <<vm-name>>
+    ```
+
+    The VM will restart during this process. After the restart, your existing OS and data disks will be remapped, but anything on the temporary disk will be lost.
+
+    The `--boot-diagnostics-storage-uri` option enables [boot diagnostics][boot-diagnostics] to log any errors related to startup.
+
+4. Otherwise, if the desired size is not listed, run the following commands to deallocate the VM, resize it, and then restart the VM.
+
+    ```text
+    azure vm deallocate -g <<resource-group>> <<vm-name>>
+    azure vm set -g <<resource-group>> --vm-size <<new-vm-size>
+        --boot-diagnostics-storage-uri <<storage-account-uri>> <<vm-name>>
+    azure vm start -g <<resource-group>> <<vm-name>>
+    ```
+
+   > [AZURE.WARNING] Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
 
 ## Availability
 
@@ -122,56 +143,65 @@ To scale to a size that is not listed, you must delete the VM instance and creat
 
 ## Manageability
 
-- Run the following CLI command to enable VM diagnostics:
-    
+- **Resource groups.** Put tightly coupled resources that share the same life cycle into a same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group, and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. (Deploy a set of resources to a test resource group, and then delete it when you're done.)
+
+    - Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
+
+- **VM diagnostics.** Run the following CLI command to enable diagnostics:
+
     ```text
     azure vm enable-diag <<resource-group>> <<vm-name>>
     ```
-    
+
     This command enables basic health metrics, diagnostics infrastructure logs, and boot diagnostics. For more information, see [Enable monitoring and diagnostics][enable-monitoring].
 
-- Use the [Azure Log Collection][log-collector] extension to collect logs and upload them to Azure storage.
+    Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.
 
-- Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM de-allocated. (See the [Azure VM FAQ][vm-faq].)
+- **Stopping a VM.** Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM de-allocated. (See the [Azure VM FAQ][vm-faq].)
 
     Use the following CLI command to de-allocate a VM:
-    
+
     ```text
     azure vm deallocate <<resource-group>> <<vm-name>>
     ```
-    
+
     Note: The **Stop** button in the Azure portal also deallocates the VM. However, if you shut down from inside Windows (via RDP), the VM is stopped but _not_ de-allocated, so you will still be charged.
 
-- If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [blob storage][blog-storage].
-
-- To resize the OS disk, download the .vhd file, and use a tool like [Resize-VHD][Resize-VHD] to resize the VHD. Upload the resized VHD to Blob storage, then delete the VM instance and provision a new instance that uses the resized VHD.
+- **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [blob storage][blob-storage].
 
 
 ## Security
 
 - Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues such as system updates, antimalware, and endpoint ACLs, and provides a comprehensive picture of the security health of your deployment. **Note:** At the time of writing, Security Center is still in preview.
 
-- Use [role-based access control][rbac] (RBAC) to define which members of your DevOps team can manage the Azure resources (VM, network, etc) that you deploy.
+    - Security Center is configured per Azure subscription. Enable security data collection as described in [Use Security Center].
+    - Once data collection is enabled, Security Center automatically scans any VMs created under that subscription.
 
-- Consider installing [security extensions][security-extensions].
+- **Patch management.** If enabled, Security Center checks whether security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
+
+- **Antimalware.** If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure Portal.
+
+- Use [role-based access control][rbac] (RBAC) to define which members of your DevOps team can manage the Azure resources (VM, network, etc) that you deploy.
 
 - Use [Azure Disk Encryption][disk-encryption] to encrypt the OS and data disks. **Note:** At the time of writing, Azure Disk Encryption is still in preview.
 
 ## Troubleshooting
 
 - To reset the local admin password, run the `vm reset-access` Azure CLI command.
-    
+
     ```text
     azure vm reset-access -u <<user>> -p <<new-password>> <<resource-group>> <<vm-name>>
     ```
-    
+
 - If your VM gets into a non-bootable state, use [Boot Diagnostics][boot-diagnostics] to diagnose boot failures.
 
 - Look at [audit logs][audit-logs] to see provisioning actions and other VM events.
 
 ## Azure CLI commands (example)
 
-The following Windows batch script executes the [Azure CLI][azure-cli] commands to deploy a single VM instance and the related network and storage resources, as shown in the previous diagrm.
+The following Windows batch script executes the [Azure CLI][azure-cli] commands to deploy a single VM instance and the related network and storage resources, as shown in the previous diagram.
+
+The script uses the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
 
 ```bat
 ECHO OFF
@@ -230,21 +260,20 @@ CALL azure group create --name %RESOURCE_GROUP% --location %LOCATION%
 CALL azure network vnet create --address-prefixes 172.17.0.0/16 ^
   --name %VNET_NAME% %POSTFIX%
 
+:: Create the network security group
+CALL azure network nsg create --name %NSG_NAME% %POSTFIX%
+
 :: Create the subnet
 CALL azure network vnet subnet create --vnet-name %VNET_NAME% --address-prefix ^
-  172.17.0.0/24 --name %SUBNET_NAME% --resource-group %RESOURCE_GROUP% ^
-  --subscription %SUBSCRIPTION%
+  172.17.0.0/24 --name %SUBNET_NAME% --network-security-group-name %NSG_NAME% ^
+  --resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
 
 :: Create the public IP address (dynamic)
 CALL azure network public-ip create --name %IP_NAME% %POSTFIX%
 
-:: Create the network security group
-CALL azure network nsg create --name %NSG_NAME% %POSTFIX%
-
 :: Create the NIC
-CALL azure network nic create --network-security-group-name %NSG_NAME% ^
-  --public-ip-name %IP_NAME% --subnet-name %SUBNET_NAME% --subnet-vnet-name ^
-  %VNET_NAME%  --name %NIC_NAME% %POSTFIX%
+CALL azure network nic create --public-ip-name %IP_NAME% --subnet-name ^
+  %SUBNET_NAME% --subnet-vnet-name %VNET_NAME%  --name %NIC_NAME% %POSTFIX%
 
 :: Create the storage account for the OS VHD
 CALL azure storage account create --type PLRS %POSTFIX% %VHD_STORAGE%
@@ -255,7 +284,7 @@ CALL azure storage account create --type LRS %POSTFIX% %DIAGNOSTICS_STORAGE%
 :: Create the VM
 CALL azure vm create --name %VM_NAME% --os-type Windows --image-urn ^
   %WINDOWS_BASE_IMAGE% --vm-size %VM_SIZE%   --vnet-subnet-name %SUBNET_NAME% ^
-  --nic-name %NIC_NAME% --vnet-name %VNET_NAME% --storage-account-name ^
+  --vnet-name %VNET_NAME% --nic-name %NIC_NAME% --storage-account-name ^
   %VHD_STORAGE% --os-disk-vhd "%VM_NAME%-osdisk.vhd" --admin-username ^
   "%USERNAME%" --admin-password "%PASSWORD%" --boot-diagnostics-storage-uri ^
   "https://%DIAGNOSTICS_STORAGE%.blob.core.windows.net/" %POSTFIX%
@@ -270,6 +299,10 @@ CALL azure network nsg rule create -g %RESOURCE_GROUP% --nsg-name %NSG_NAME% ^
   --source-port-range * --priority 100 --access Allow RDPAllow
 ```
 
+## Next steps
+
+In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an Availability Set. For more information, see [Running multiple Windows VM instances on Azure (single tier, Internet-facing)][multi-vm]
+
 <!-- links -->
 
 [arm-templates]: ../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md
@@ -279,14 +312,17 @@ CALL azure network nsg rule create -g %RESOURCE_GROUP% --nsg-name %NSG_NAME% ^
 [azure-powershell]: ../powershell-azure-resource-manager.md
 [azure-storage]: ../storage/storage-introduction.md
 [blob-snapshot]: ../storage/storage-blob-snapshots.md
-[blog-storage]: ../storage/storage-introduction.md
+[blob-storage]: ../storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [data-disk]: ../virtual-machines/virtual-machines-disks-vhds.md
 [disk-encryption]: ../azure-security-disk-encryption.md
 [enable-monitoring]: ../azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../virtual-machines/virtual-machines-create-fqdn-on-portal.md
+[group-policy]: https://technet.microsoft.com/en-us/library/dn595129.aspx
 [log-collector]: https://azure.microsoft.com/en-us/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: ../virtual-machines/virtual-machines-manage-availability.md
+[multi-vm]: guidance-compute-multi-vm.md
+[naming conventions]: guidance-naming-conventions.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
 [password-reset]: ../virtual-machines/virtual-machines-windows-reset-password.md
 [planned-maintenance]: ../virtual-machines/virtual-machines-planned-maintenance.md
@@ -294,6 +330,7 @@ CALL azure network nsg rule create -g %RESOURCE_GROUP% --nsg-name %NSG_NAME% ^
 [rbac]: ../active-directory/role-based-access-control-configure.md
 [reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
 [Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
+[Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
 [resource-manager-overview]: ../resource-group-overview.md
 [security-center]: https://azure.microsoft.com/en-us/services/security-center/
 [security-extensions]: ../virtual-machines/virtual-machines-extensions-features.md#security-and-protection
@@ -301,6 +338,8 @@ CALL azure network nsg rule create -g %RESOURCE_GROUP% --nsg-name %NSG_NAME% ^
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [static-ip]: ../virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
+[Use Security Center]: ../security-center/security-center-get-started.md#use-security-center
 [virtual-machine-sizes]: ../virtual-machines/virtual-machines-size-specs.md
 [vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-faq]: ../virtual-machines/virtual-machines-questions.md
+[vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
