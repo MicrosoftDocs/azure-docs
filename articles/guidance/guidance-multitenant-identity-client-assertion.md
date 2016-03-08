@@ -46,7 +46,7 @@ The secret is just a string, so you have to make sure not to leak the value. The
 
 However, anyone with access to the Azure subscription can view the app settings. Further, there is always a temptation to check secrets into source control (e.g., in deployment scripts), share them by email, and so on.
 
-For additional security, you can use _client assertion_ instead of a client secret. With client assertion, the client uses an X.509 certificate to prove the token request came from the client. The client certificate is installed on the web server. Generally, it will be easier to restrict access to the certificate, than to ensure that nobody inadvertently reveals a client secret.
+For additional security, you can use [client assertion] instead of a client secret. With client assertion, the client uses an X.509 certificate to prove the token request came from the client. The client certificate is installed on the web server. Generally, it will be easier to restrict access to the certificate, than to ensure that nobody inadvertently reveals a client secret. For more information about configuring certificates in a web app, see [Using Certificates in Azure Websites Applications][using-certs-in-websites]
 
 Here is a token request using client assertion:
 
@@ -152,18 +152,16 @@ This section shows how to configure the Tailspin Surveys application to use clie
 
 At run time, the web application reads the certificate from the certificate store. The certificate must be installed on the same machine as the web app.
 
-## Additional resources
+## Next steps
 
-- [Using Certificates in Azure Websites Applications][using-certs-in-websites]
-- [RFC 7521][RFC7521]. Defines the general mechanism for sending a client assertion.
-- [RFC 7523][RFC7523]. Defines how to use JWT tokens for client assertion.
+- Read the next article in this series: [Using Azure Key Vault to protect application secrets][key vault]
 
 
 <!-- Links -->
 [configure-web-app]: ../app-service-web/web-sites-configure.md
 [azure-management-portal]: https://manage.windowsazure.com
-[RFC7521]: https://tools.ietf.org/html/rfc7521
-[RFC7523]: https://tools.ietf.org/html/rfc7523
+[client assertion]: https://tools.ietf.org/html/rfc7521
+[key vault]: guidance-multitenant-identity-keyvault.md
 [Setup-KeyVault]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/scripts/Setup-KeyVault.ps1
 [Surveys]: guidance-multitenant-identity-tailspin.md
 [using-certs-in-websites]: https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/

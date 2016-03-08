@@ -53,12 +53,12 @@ The [Microsoft Azure IoT device SDK for C](https://github.com/Azure/azure-iot-sd
 
 |OS Platform| Version|Protocols|
 |:---------|:----------:|:----------:|
-|Debian Linux| 7.5 | HTTPS, AMQP, MQTT |
-|Fedora Linux| 20 | HTTPS, AMQP, MQTT |
+|Debian Linux| 7.5 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
+|Fedora Linux| 20 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 |mbed OS| 2.0 | HTTPS, AMQP |
 |TI-RTOS| 2.x | HTTPS |
-|Ubuntu Linux| 14.04 | HTTPS, AMQP, MQTT |
-|Windows desktop| 7,8,10 | HTTPS, AMQP, MQTT |
+|Ubuntu Linux| 14.04 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
+|Windows desktop| 7,8,10 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 |Yocto Linux|2.1  | HTTPS, AMQP|
 
 
@@ -70,7 +70,7 @@ The [Microsoft Azure IoT device SDK for Node.js](https://github.com/Azure/azure-
 
 |Runtime| Version|Protocols|
 |:---------|:----------:|:----:|
-|Node.js| 4.1.0 | HTTPS|
+|Node.js| 4.1.0 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 
 
 
@@ -80,14 +80,14 @@ The [Microsoft Azure IoT device SDK for Java](https://github.com/Azure/azure-iot
 
 |Runtime| Version|Protocols|
 |:---------|:----------:|----|
-|Java SE (Windows)| 1.7 | HTTPS, AMQP |
-|Java SE (Linux)| 1.8 | HTTPS, AMQP|
+|Java SE (Windows)| 1.8 | HTTPS, AMQP, MQTT |
+|Java SE (Linux)| 1.8 | HTTPS, AMQP, MQTT|
 
 The Microsoft Azure IoT service SDK for Java has been tested on the following configurations:
 
 |Runtime| Version|Protocols|
 |:---------|:----------:|:-----|
-|Java SE| 1.8 | HTTPS, AMQP |
+|Java SE| 1.8 | HTTPS, AMQP, MQTT |
 
 
 ## CSharp
@@ -96,8 +96,8 @@ The [Microsoft Azure IoT device SDK for .NET](https://github.com/Azure/azure-iot
 
 |OS platform| Version|Protocols|
 |:---------|:----------:|:----------:|
-|Windows desktop| 7,8,10 | HTTPS, AMQP|
-|Windows IoT Core|10 | HTTPS|
+|Windows desktop| 7,8,10 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
+|Windows IoT Core|10 | HTTPS |
 
 Managed agent code requires Microsoft .NET Framework 4.5
 

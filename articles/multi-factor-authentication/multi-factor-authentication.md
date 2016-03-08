@@ -13,8 +13,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
-	ms.date="02/26/2016"
+	ms.topic="article" 
+	ms.date="03/03/2016"
 	ms.author="billmath"/>
 
 # What is Azure Multi-Factor Authentication?
@@ -108,7 +108,7 @@ Mobile app as a second factor|* | * | *
 Phone call as a second factor|* | * | *
 SMS as a second factor|* | * | *
 App passwords for clients that don't support MFA|* | * | *
-Admin control over authentication methods| | | *
+Admin control over authentication methods| (Public Preview)|(Public Preview) | *
 PIN mode| | | *
 Fraud alert| | | *
 MFA Reports| | | *
@@ -120,7 +120,7 @@ Trusted IPs| | | *
 Remember MFA for trusted devices |* | * | *
 MFA SDK| | | *
 MFA for on-premises applications using MFA server| | | *
-Selectable verification options (Public Preview)|* | * | *
+
 
 
 ## How to get Azure Multi-Factor Authentication
@@ -193,17 +193,17 @@ One-way SMS as second factor | ● | ●
 Two-way SMS as second factor |  | ●
 Hardware Tokens as second factor |  | ●
 App passwords for clients that don’t support MFA | ● |  
-Admin control over authentication methods |  | ●
+Admin control over authentication methods | (Public Preview) | ●
 PIN mode |  | ●
 Fraud alert | ● | ●
 MFA Reports | ● | ●
-One-Time Bypass | ● | ●
+One-Time Bypass |  | ●
 Custom greetings for phone calls | ● | ●
 Customizable caller ID for phone calls | ● | ●
 Trusted IPs | ● | ●
-Remember MFA for trusted devices (Public Preview) | ● |  
+Remember MFA for trusted devices| ● |  
 Conditional access | ● | ●
-Cache | ● | ●
+Cache | | ●
 
 Now that we have determined whether to use cloud multi-factor authentication or the MFA Server on-premises, we can get started setting up and using Azure Multi-Factor Authentication.   **Select the icon that represents your scenario!**
 

@@ -13,30 +13,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="02/10/2016" 
 	ms.author="bradsev" />
 
 # Move Data to and from Azure Blob Storage using Azure Storage Explorer
 
 ## Introduction 
 
-Azure Storage Explorer is a free windows based tool for inspecting and altering data in an Azure storage account. This topic describes how to use it to upload and download data from Azure blob storage. The tool can be downloaded from [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/).
+Azure Storage Explorer is a free windows based tool for inspecting and altering data in an Azure storage account. This topic describes how to use it to upload and download data from Azure blob storage. The tool can be downloaded from [Azure Storage Explorer](http://storageexplorer.com/).
 
 Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
-
-[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
-
-
-> [AZURE.NOTE] If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](machine-learning-data-science-virtual-machines.md), then Azure Storage Explorer is already installed on the VM.
-
-> [AZURE.NOTE] For a complete introduction to Azure blob storage, please refer to [Azure Blob Basics](../storage-dotnet-how-to-use-blobs.md) and  [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx). 
+ 
+[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]   
+ 
+&nbsp; 
+ 
+> [AZURE.NOTE] If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](machine-learning-data-science-virtual-machines.md), then Azure Storage Explorer is already installed on the VM.  
+ 
+&nbsp; 
+ 
+> [AZURE.NOTE] For a complete introduction to Azure blob storage, please refer to [Azure Blob Basics](../storage/storage-dotnet-how-to-use-blobs.md) and  [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).   
 
 ## Prerequisites
 
 This document assumes that you have an Azure subscription, a storage account and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key. 
 
 - To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-- For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../storage-create-storage-account.md).
+- For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 
 <a id="explorer"></a>

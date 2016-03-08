@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -194,7 +194,7 @@ What you see is what gets exported. Change the time range or filters if you want
 
 ### Continuous Export
 
-If you want data continuously exported so that you can process it externally, consider using [Continous export](app-insights-export-telemetry.md).
+If you want data continuously exported so that you can process it externally, consider using [Continuous export](app-insights-export-telemetry.md).
 
 ### Power BI
 

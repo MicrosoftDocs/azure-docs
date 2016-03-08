@@ -79,6 +79,7 @@ unauthenticated access to an underlying SQL data store using a dynamic schema.  
 client library quick starts:
 
 - [Android Client QuickStart]
+- [Apache Cordova Client QuickStart]
 - [iOS Client QuickStart]
 - [Windows Store Client QuickStart]
 - [Xamarin.iOS Client QuickStart]
@@ -443,6 +444,69 @@ The access property can take one of three values
 
 If the access property is undefined, unauthenticated access is allowed.
 
+### <a name="howto-tables-getidentity"></a>How to: Use Authentication Claims with your tables
+
+You can set up a number of claims that are requested when authentication is set up.  These claims are not normally available through the `context.user` object.
+However, they can be retrieved using the `context.user.getIdentity()` method.  The `getIdentity()` method returns a Promise that resolves to an object.  The object
+is keyed by the authentication method (facebook, google, twitter, microsoftaccount or aad).
+
+For example, if you set up Microsoft Account authentication and request the email addresses claim, you can add the email address to the record with the following:
+
+    var azureMobileApps = require('azure-mobile-apps');
+
+    // Create a new table definition
+    var table = azureMobileApps.table();
+
+    table.columns = {
+        "emailAddress": "string",
+        "text": "string",
+        "complete": "boolean"
+    };
+    table.dynamicSchema = false;
+    table.access = 'authenticated';
+
+    /**
+    * Limit the context query to those records with the authenticated user email address
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function queryContextForEmail(context) {
+        return context.user.getIdentity().then((data) => {
+            context.query.where({ emailAddress: data.microsoftaccount.claims.emailaddress });
+            return context.execute();
+        });
+    }
+
+    /**
+    * Adds the email address from the claims to the context item - used for
+    * insert operations
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function addEmailToContext(context) {
+        return context.user.getIdentity().then((data) => {
+            context.item.emailAddress = data.microsoftaccount.claims.emailaddress;
+            return context.execute();
+        });
+    }
+
+    // Configure specific code when the client does a request
+    // READ - only return records belonging to the authenticated user
+    table.read(queryContextForEmail);
+
+    // CREATE - add or overwrite the userId based on the authenticated user
+    table.insert(addEmailToContext);
+
+    // UPDATE - only allow updating of record belong to the authenticated user
+    table.update(queryContextForEmail);
+
+    // DELETE - only allow deletion of records belong to the authenticated uer
+    table.delete(queryContextForEmail);
+
+    module.exports = table;
+
+To see what claims are available, use a web browser to view the `/.auth/me` endpoint of your site.
+
 ### <a name="howto-tables-disabled"></a>How to: Disable access to specific table operations
 
 In addition to appearing on the table, the access property can be used to control individual operations.  There are four operations:
@@ -497,7 +561,7 @@ will provide this functionality:
     table.insert(function (context) {
 	    context.item.userId = context.user.id;
 	    return context.execute();
-    }
+    });
 
     module.exports = table;
 
@@ -588,13 +652,62 @@ authentication using the `table.access` property.
 
 You can also add the Swagger option to your `azureMobile.js` file if you only want Swagger support when developing locally.
 
+## <a name="push"></a>Push notifications
+Mobile Apps integrates with Azure Notification Hubs to enable you to send targeted push notifications to millions of devices across all major platforms. By using Notification Hubs, you can send push notifications to iOS, Android and Windows devices. To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
+
+### <a name="send-push"></a>How to: Send push notifications
+
+The following code shows how to use the push object to send a broadcast push notification to registered iOS devices:
+
+	// Create an APNS payload.
+    var payload = '{"aps": {"alert": "This is an APNS payload."}}';
+
+    // Only do the push if configured
+    if (context.push) {
+	    // Send a push notification using APNS.
+        context.push.apns.send(null, payload, function (error) {
+            if (error) {
+                // Do something or log the error. 
+	        }           
+        });
+    }
+
+By creating a template push registration from the client, you can instead send a template push message to devices on all supported platforms. The following code shows how to send a template notification:
+
+	// Define the template payload.
+	var payload = '{"messageParam": "This is a template payload."}'; 
+
+    // Only do the push if configured
+    if (context.push) {
+		// Send a template notification.
+        context.push.send(null, payload, function (error) {
+            if (error) {
+                // Do something or log the error.   
+            } 
+        });
+    }
+
+
+###<a name="push-user"></a>How to: Send push notifications to an authenticated user using tags
+When an authenticated user registers for push notifications, a user ID tag is automatically added to the registration. By using this tag, you can send push notifications to all devices registered by a specific user. The following code gets the SID of user making the request and sends a template push notification to every device registration for that user:
+
+    // Only do the push if configured
+    if (context.push) {
+		// Send a notification to the current user.
+        context.push.send(context.user.id, payload, function (error) {
+            if (error) {
+                // Do something or log the error.   
+            } 
+        });
+    }
+
+When registering for push notifications from an authenticated client, make sure that authentication is complete before attempting registration. 
+
 ## <a name="CustomAPI"></a>Custom APIs
 
-In addition to the data access API via the /tables endpoint, Azure Mobile Apps can provide custom API coverage.  Custom APIs are defined in
-a similar way to the table definitions and can access all the same facilities, including authentication.
+In addition to the data access API via the /tables endpoint, Azure Mobile Apps can provide custom API coverage.  Custom APIs are defined in a similar way to the table definitions and can access all the same facilities, including authentication.
 
-If you wish to use App Service Authentication with a Custom API, you must configure App Service Authentication in the [Azure Portal] first.  For
-more details about configuring authentication in an  Azure App Service, review the Configuration Guide for the identity provider you intend to use:
+If you wish to use App Service Authentication with a Custom API, you must configure App Service Authentication in the [Azure Portal] first.  For more details about configuring authentication in an  Azure App Service, review the Configuration Guide for the identity provider you intend to use:
 
 - [How to configure Azure Active Directory Authentication]
 - [How to configure Facebook Authentication]
@@ -795,6 +908,7 @@ From the editor, you can also execute the code on the site
 
 <!-- URLs -->
 [Android Client QuickStart]: app-service-mobile-android-get-started.md
+[Apache Cordova Client QuickStart]: app-service-mobile-cordova-get-started.md
 [iOS Client QuickStart]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS Client QuickStart]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md

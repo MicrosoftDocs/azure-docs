@@ -15,14 +15,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Get started with the Bing Search API 
 Connect to Bing Search to search news, search videos, and more. The Bing Search API can be used from:
 
-- PowerApps 
 - Logic apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic apps](../articles/connectors/create-api-bingsearch.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
+
 
 With Bing Search, you can: 
 
@@ -42,9 +47,6 @@ Triggers | Actions
 None | <ul><li>Search web</li><li>Search videos</li><li>Search images</li><li>Search news</li><li>Search related</li><li>Search spellings</li><li>Search all</li></ul>
 
 All APIs support data in JSON and XML formats.
-
-## Add additional configuration
-When you add Bing Search to PowerApps Enterprise, you are prompted for an account key. If you don't have a Bing Search key, use the free [Bing Search offer](https://datamarket.azure.com/dataset/bing/search) to get one. 
 
 
 ## Swagger REST API reference
@@ -299,6 +301,6 @@ Retrieves all web sites, videos, images, etc. from a Bing search.
 
 ## Next steps
 
-After you add the Bing Search API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
-
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Go back to the [APIs list](apis-list.md).

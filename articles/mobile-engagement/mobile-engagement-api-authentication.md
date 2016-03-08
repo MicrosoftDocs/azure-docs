@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Getting Started with Azure Mobile Engagement Authentication APIs"
-	description="This is a migration guide to help customers who were using authentication with Capptain APIs and now need to authenticate using the new Azure Mobile Enagagement APIs." 
+	pageTitle="Authenticate with Mobile Engagement REST APIs"
+	description="Describes how to authenticate with Azure Mobile Engagement REST APIs" 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="wesmc7777"
+	authors="piyushjo"
 	manager="erikre"
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/17/2016"
+	ms.date="03/07/2016"
 	ms.author="wesmc"/>
 
-# Azure Mobile Engagement - Using the APIs for authentication
+# Authenticate with Mobile Engagement REST APIs
 
 ## Overview
 
@@ -93,9 +93,7 @@ While doing this, please note the following information as you will need it late
 
 This is an alternative way to accomplish the steps mentioned previously using a PowerShell script.
 
-1. Get the latest version of Azure PowerShell.
-
-	Currently version 1.2.1 available for download [here](https://github.com/Azure/azure-powershell/releases/tag/v1.2.1-February2016).
+1. Get the latest version of Azure PowerShell. See this [link](../powershell-install-configure.md) for download instructions. 
 
 2. Open Windows PowerShell in Admin mode and make sure that you have installed the [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx).
 
