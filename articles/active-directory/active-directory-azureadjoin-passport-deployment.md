@@ -8,7 +8,6 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<<<<<<< HEAD
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
@@ -16,15 +15,6 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/19/2015"
-=======
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/07/2016" 
->>>>>>> 2c568e7204c308aa827b931f121f739af135f815
 	ms.author="femila"/>
 
 
