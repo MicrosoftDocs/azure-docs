@@ -84,7 +84,7 @@ Point-to-Site and Site-to-Site configurations can exist concurrently, but unlike
 
 - You do not have an Internet facing IPv4 IP address for your VPN device.
 
-For more information about configuring a Point-to-Site connection for the classic deployment model, see [Configure a Point-to-Site VPN connection to a virtual network for the classic deployment model](vpn-gateway-point-to-site-create.md). For more information about configuring a Point-to-Site connection for the Resource Manager deployment model, see [Configure a Point-to-Site VPN connection to a virtual network for the Resource Manager deployment model](vpn-gateway-point-to-site-rm-ps.md). 
+For more information about configuring a Point-to-Site connection for the classic deployment model, see [Configure a Point-to-Site VPN connection to a virtual network for the classic deployment model](vpn-gateway-point-to-site-create.md). For more information about configuring a Point-to-Site connection for the Resource Manager deployment model, see [Configure a Point-to-Site VPN connection to a virtual network for the Resource Manager deployment model](vpn-gateway-howto-point-to-site-rm-ps.md). 
 
 ## ExpressRoute connections
 
