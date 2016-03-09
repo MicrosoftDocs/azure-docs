@@ -153,11 +153,11 @@ This topic lists every topic that applies directly to the Data Factory service o
 
 #### Extras
 
-- Learning Path graphic: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
+- Learning Path graphic: [Data Factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
 - [Search the documentation of Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 
-- [View the latest updates to the data-factory service](http://azure.microsoft.com/updates/?service=data-factory)
+- [View the latest updates to the Data Factory service](http://azure.microsoft.com/updates/?service=data-factory)
 
 - [Learning Path graphics for Microsoft Azure services](http://azure.microsoft.com/documentation/learning-paths/)
 
