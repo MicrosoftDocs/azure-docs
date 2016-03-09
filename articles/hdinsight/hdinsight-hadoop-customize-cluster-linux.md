@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="03/09/2016"
 	ms.author="larryfr"/>
 
 # Customize Linux-based HDInsight clusters using Script Action
@@ -491,11 +491,17 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [TBD]().
 
     ![Script Actions link](./media/hdinsight-hadoop-customize-cluster-linux/settings.png)
 
-4. A list of the persisted scripts, as well as a history of scripts applied to the cluster, is displayed on the Script Actions blade.
+4. A list of the persisted scripts, as well as a history of scripts applied to the cluster, is displayed on the Script Actions blade. In the screenshot below, you can see that the Solr script has been ran on this cluster, but that no script actions have been persisted.
 
-    ![Script Actions blade]
+    ![Script Actions blade](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionhistory.png)
 
-5. [TBD]
+5. Selecting a script from the history will display the Properties blade for this script. From the top of the blade, you can rerun the script or promote it.
+
+    ![Script actions properties blade](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionproperties.png)
+
+6. You can also use the __...__ to the right of entries on the Script Actions blade to perform actions such as rerun, persist, or (for persisted actions,) delete.
+
+    ![Script actions ... usage](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 
 ### Using Azure PowerShell
 
