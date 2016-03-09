@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/19/2016"
+	ms.date="03/09/2016"
 	ms.author="cephalin"/>
 
 # Set up staging environments for web apps in Azure App Service
