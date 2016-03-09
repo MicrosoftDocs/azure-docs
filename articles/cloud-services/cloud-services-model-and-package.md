@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/21/2016"
+    ms.date="03/08/2016"
     ms.author="adegeo"/>
 
 # What is the Cloud Service model and how do I package it?
@@ -86,29 +86,29 @@ The **ServiceDefinition.csdef** file specifies the settings that are used by Azu
 
 You can refer to the [Service Definition Schema][] for a better understanding of the XML schema used here, however, here is a quick explanation of some of the elements:
 
->**Sites**  
->Contains the definitions for websites or web applications that are hosted in IIS7.
->
->**InputEndpoints**  
->Contains the definitions for endpoints that are used to contact the cloud service.
->
->**InternalEndpoints**  
->Contains the definitions for endpoints that are used by role instances to communicate with each other.
->
->**ConfigurationSettings**  
->Contains the setting definitions for features of a specific role.
->
->**Certificates**  
->Contains the definitions for certificates that are needed for a role. The previous code example shows a certificate that is used for the configuration of Azure Connect.
->
->**LocalResources**  
->Contains the definitions for local storage resources. A local storage resource is a reserved directory in the file system of the virtual machine in which an instance of a role is running.
->
->**Imports**  
->Contains the definitions for imported modules. The previous code example shows the modules for Remote Desktop Connection and Azure Connect.
->
->**Startup**  
->Contains tasks that are run when the role starts. The tasks are defined in a .cmd or executable file.
+**Sites**  
+Contains the definitions for websites or web applications that are hosted in IIS7.
+
+**InputEndpoints**  
+Contains the definitions for endpoints that are used to contact the cloud service.
+
+**InternalEndpoints**  
+Contains the definitions for endpoints that are used by role instances to communicate with each other.
+
+**ConfigurationSettings**  
+Contains the setting definitions for features of a specific role.
+
+**Certificates**  
+Contains the definitions for certificates that are needed for a role. The previous code example shows a ertificate that is used for the configuration of Azure Connect.
+
+**LocalResources**  
+Contains the definitions for local storage resources. A local storage resource is a reserved directory n the file system of the virtual machine in which an instance of a role is running.
+
+**Imports**  
+Contains the definitions for imported modules. The previous code example shows the modules for Remote esktop Connection and Azure Connect.
+
+**Startup**  
+Contains tasks that are run when the role starts. The tasks are defined in a .cmd or executable file.
 
 
 
@@ -138,14 +138,14 @@ The service configuration file is not packaged with the application, but is uplo
 
 You can refer to the [Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710.aspx) for better understanding the XML schema used here, however, here is a quick explanation of the elements:
 
->**Instances**  
->Configures the number of running instances for the role. To prevent your cloud service from potentially becoming unavailable during upgrades, it is recommend that you deploy more than one instance of your web-facing roles. By doing this, you are adhering to the guidelines in the [Azure Compute Service Level Agreement (SLA)](http://azure.microsoft.com/support/legal/sla/), which guarantees 99.95% external connectivity for Internet-facing roles when two or more role instances are deployed for a service.
+**Instances**  
+Configures the number of running instances for the role. To prevent your cloud service from potentially becoming unavailable during upgrades, it is recommend that you deploy more than one instance of your web-facing roles. By doing this, you are adhering to the guidelines in the [Azure Compute Service Level Agreement (SLA)](http://azure.microsoft.com/support/legal/sla/), which guarantees 99.95% external connectivity for Internet-facing roles when two or more role instances are deployed for a service.
 
->**ConfigurationSettings**  
->Configures the settings for the running instances for a role. The name of the `<Setting>` elements must match the setting definitions in the service definition file.
+**ConfigurationSettings**  
+Configures the settings for the running instances for a role. The name of the `<Setting>` elements must match the setting definitions in the service definition file.
 
->**Certificates**  
->Configures the certificates that are used by the service. The previous code example shows how to define the certificate for the RemoteAccess module. The value of the *thumbprint* attribute must be set to the thumbprint of the certificate to use.
+**Certificates**  
+Configures the certificates that are used by the service. The previous code example shows how to define the certificate for the RemoteAccess module. The value of the *thumbprint* attribute must be set to the thumbprint of the certificate to use.
 
 <p/>
 
@@ -217,7 +217,7 @@ Occurs after the configuration change is applied to a specified instance of a ro
 ## ServicePackage.cspkg
 To deploy an application as a cloud service in Azure, you must first package the application in the appropriate format. You can use the **CSPack** command-line tool (installed with the [Azure SDK](https://azure.microsoft.com/downloads/)) to create the package file as an alternative to Visual Studio.
 
-**CSPack** uses the contents of the service definition file and service configuration file to define the contents of the package. **CSPack** generates an application package file (.cspkg) that you can upload to Azure by using the [Azure classic portal](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service). By default, the package is named `[ServiceDefinitionFileName].cspkg`, but you can specify a different name by using the `/out` option of **CSPack**.
+**CSPack** uses the contents of the service definition file and service configuration file to define the contents of the package. **CSPack** generates an application package file (.cspkg) that you can upload to Azure by using the [Azure portal](cloud-services-how-to-create-deploy-portal.md/#create-and-deploy). By default, the package is named `[ServiceDefinitionFileName].cspkg`, but you can specify a different name by using the `/out` option of **CSPack**.
 
 ###### Location of the CSPack tool (on windows)
 | SDK Version | Path |
