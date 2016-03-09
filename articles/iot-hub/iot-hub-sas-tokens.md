@@ -21,15 +21,15 @@
 IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope.
 [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These include the direct use of the AMQP, MQTT, or HTTP surfaces, or the implementation of the token service pattern, as explained in [IoT Hub guidance][lnk-guidance-security].
 
-In the rest of this article we describe:
+This article describes:
 
-* the format of the security tokens and generation process, and
-* the main use cases for using security tokens to authenticate both devices and back-end services.
+* The format of the security tokens and how to generate them.
+* The main use cases for using security tokens to authenticate both devices and back-end services.
 
 ## Security token structure
-Security tokens are used to grant time-bounded access to devices and services to specific functionalities of IoT Hub. In order to ensure that only authorized devices and services are able to connect, security tokens have to be signed with either a shared access policy key or a symmetric key stored in a device identity in the identity registry.
+You use security tokens to grant time-bounded access to devices and services to specific functionality in IoT Hub. To ensure that only authorized devices and services can connect, security tokens must be signed with either a shared access policy key or a symmetric key stored with a device identity in the identity registry.
 
-A token signed with a shared access policy key can grant access to all functionalities associated with permission of said shared access policy. Refer to the [security section of the IoT Hub developer guide][lnk-devguide-security]. On the other hand, a token signed with a device identity's symmetric key can only grant **DeviceConnect** permission for the associated device identity.
+A token signed with a shared access policy key grants access to all the functionality associated with the shared access policy permissions. Refer to the [security section of the IoT Hub developer guide][lnk-devguide-security]. On the other hand, a token signed with a device identity's symmetric key only grants the **DeviceConnect** permission for the associated device identity.
 
 The security token has the following format:
 
@@ -80,11 +80,11 @@ This is a Node function that computes the token from the inputs `resourceUri, si
 
 There are two ways to obtain **DeviceConnect** permissions with IoT Hub with security tokens: using a device identity key, or a shared access policy key.
 
-Moreover, it is important to note that all functionalities accessible from devices are exposed by design on endpoints with prefix `/devices/{deviceId}`.
+Moreover, it is important to note that all functionality accessible from devices is exposed by design on endpoints with prefix `/devices/{deviceId}`.
 
-> [AZURE.IMPORTANT] The only way that IoT Hub authenticate a specific device is using the device identity symmetric key. In cases when a shared access policy is used to access device functionalities, the solution has to consider the component issueing the security token as a trusted subcomponent.
+> [AZURE.IMPORTANT] The only way that IoT Hub authenticates a specific device is using the device identity symmetric key. In cases when a shared access policy is used to access device functionality, the solution must consider the component issuing the security token as a trusted subcomponent.
 
-The devices-facing endpoints are (irrespective of the protocol):
+The device-facing endpoints are (irrespective of the protocol):
 
 | Endpoint | Functionality |
 | ----- | ----------- |
@@ -95,7 +95,7 @@ The devices-facing endpoints are (irrespective of the protocol):
 
 When using a device identity's symmetric key to generate a token the policyName (`skn`) element of the token is omitted.
 
-For instance, a token created to access all functionalities of a device would have the following parameters:
+For example, a token created to access all device functionality should have the following parameters:
 
 * resource URI: `{IoT hub name}.azure-devices.net/devices/{device id}`,
 * signing key: any symmetric key for the `{device id}` identity,
@@ -109,15 +109,17 @@ An example using the Node function above would be:
 
     var token = generateSasToken(endpoint, deviceKey, null, 60);
 
-The result, which would grant access to all functionalities for `device1`, would be:
+The result, which grants access to all functionality for device1, would be:
 
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
 
+> [AZURE.NOTE] It is possible to generate a secure token using the .NET tool [Device Explorer][lnk-device-explorer].
+
 ### Using a shared access policy
 
-When creating a token from a shared access policy the policy name field `skn` has to be set to the name of the policy used. It is also required that the policy grant **DeviceConnect** permissions.
+When creating a token from a shared access policy, the policy name field `skn` must be set to the name of the policy used. It is also required that the policy grants the **DeviceConnect** permission.
 
-The two main scenarios for using shared access policies to access device functionalities are:
+The two main scenarios for using shared access policies to access device functionality are:
 
 * [cloud protocol gateways][lnk-azure-protocol-gateway],
 * [token services][lnk-devguide-security] used to implement custom authentication schemes.
@@ -139,17 +141,17 @@ An example using the Node function above would be:
 
     var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
-The result, which would grant access to all functionalities for `device1`, would be:
+The result, which grants access to all functionality for device1, would be:
 
-    SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
+    SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697&skn=device
 
-A protocol gateway could use the same token for all devices simply putting the resource URI to `eliotutorial.azure-devices.net/devices`.
+A protocol gateway could use the same token for all devices simply setting the resource URI to `myhub.azure-devices.net/devices`.
 
 ## Using security tokens from service components
 
 Service components can only generate security tokens using shared access policies granting the appropriate permissions as explained in the [security section of the IoT Hub developer guide][lnk-devguide-security].
 
-These are the service functionalities exposed on the endpoints:
+These are the service functions exposed on the endpoints:
 
 | Endpoint | Functionality |
 | ----- | ----------- |
@@ -180,3 +182,4 @@ The result, which would grant access to read all device identities, would be:
 [lnk-guidance-security]: iot-hub-guidance.md#customauth
 [lnk-devguide-security]: iot-hub-devguide.md#security
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md

@@ -105,7 +105,7 @@ In the heartbeat pattern, the device sends device-to-cloud messages at least onc
 
 A more complex implementation could include the information from [operations monitoring][lnk-devguide-opmon] to identify devices that are trying to connect or communicate but failing. When you implement the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles][].
 
-> [AZURE.NOTE] If an IoT solution needs the device connection state uniquely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, a much simpler pattern to consider is to simply use a short Expiry time. This achieves the same result of maintaining a device connection state registry using the heartbeat pattern, while being significantly more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices were able to receive the messages and which were not online or failed. Refer to the [IoT Hub Developer Guide][lnk-devguide-messaging] for more information on C2D messages.
+> [AZURE.NOTE] If an IoT solution needs the device connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, a much simpler pattern to consider is to use a short Expiry time. This achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being significantly more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices are able to receive messages and which are not online or are failed. Refer to the [IoT Hub Developer Guide][lnk-devguide-messaging] for more information on C2D messages.
 
 ## Next steps
 
