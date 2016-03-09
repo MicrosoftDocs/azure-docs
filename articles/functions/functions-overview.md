@@ -16,6 +16,6 @@
 	ms.date="03/07/2016"
 	ms.author="glenga"/>
 
-# How to use the Azure Mobile Apps Node.js SDK
+# Welcome to Azure Functions
 
 This is a test topic to make sure the repo is set up correctly.
