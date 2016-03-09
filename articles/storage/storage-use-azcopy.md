@@ -46,7 +46,7 @@ The following examples demonstrate a variety of scenarios for copying data to an
 
 ## Blob: Download
 
-### Downlaod single blob
+### Download single blob
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 
