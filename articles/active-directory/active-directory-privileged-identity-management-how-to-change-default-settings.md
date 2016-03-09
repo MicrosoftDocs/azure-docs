@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/09/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: How to change or view the default activation settings for a role
@@ -26,10 +26,25 @@
 5. Click **Enable** or **Disable** to allow administrators to enter tickeing information into their activation request or not.
 6. Click **Enable** or **Disable** to require multi-factor authentication for an activation request or not.
 
-    MFA is always required when activating highly privileged roles for Azure AD and Office365, including directory writer, partner tier1 support, partner tier2 support, and all administrator roles. For more information about using MFA with PIM see [How to Require MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
+    MFA is always required when activating highly privileged roles for Azure AD and Office365, including:
+
+    - Global administrator
+    - User account administrator
+    - Directory writer
+    - Partner tier1 support
+    - Partner tier2 support
+    - Billing administrator
+    - Security administrator
+    - Exchange administrator
+    - Mailbox administrator
+    - Skype for Business administrator
+    - SharePoint administrator
+    - Compliance administrator
 
 7. Click **Enable** or **Disable** to allow Global Administrators to be temporary.
 8. Click **Save**.
+
+For more information about using MFA with PIM see [How to Require MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
 

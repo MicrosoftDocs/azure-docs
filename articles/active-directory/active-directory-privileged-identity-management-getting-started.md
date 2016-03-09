@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/09/2016"
    ms.author="kgremban"/>
 
 # Getting started with Azure AD Privileged Identity Management
@@ -26,12 +26,12 @@
     >[AZURE.NOTE] Make sure you set up users with their work or school accounts. Microsoft accounts cannot currently sign up for Azure AD PIM.
 
 3. Sign in to the [Azure portal](https://portal.azure.com/) as a global administrator of that directory.
-4. Click on the **username** in the upper left hand corner of the Azure portal.
-5. Select the **directory** you just created.
+4. Click on your username in the upper right hand corner of the Azure portal.
+5. Select the directory you just created.
 6. Click the **New** icon in the left navigation.
 7. Select **Security + Identity** from the Create menu.
 8. Select **Azure AD Privileged Identity Management**.
-9. Leave the **Pin to dashboard** checked and then click the **Create** button. The Privileged Identity Management dashboard will open.
+9. Leave **Pin to dashboard** checked and then click the **Create** button. The Privileged Identity Management dashboard will open.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
