@@ -500,7 +500,7 @@ For an overview of the related user experience, see:
 ## See also
 
  - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
- - [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types)
+ - [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
  - [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
  - [Azure Active Directory Identity Protection notifications](active-directory-identityprotection-notifications.md)
  - [Azure Active Directory Identity Protection flows](active-directory-identityprotection-flows.md)
