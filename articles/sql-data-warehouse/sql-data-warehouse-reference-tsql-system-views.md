@@ -56,7 +56,6 @@
 - [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
 - [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
 
-
 ## SQL Server catalog views
 
 - [sys.all_columns](http://msdn.microsoft.com/library/ms177522.aspx)
@@ -125,7 +124,7 @@
 - [sys.types](http://msdn.microsoft.com/library/ms188021.aspx)
 - [sys.views](http://msdn.microsoft.com/library/ms190334.aspx)
 
-## List of SQL Server DMVs available in SQL Data Warehouse
+## SQL Server DMVs available in SQL Data Warehouse
 
 SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL Data Warehouse, are reporting the state of SQL Database running on the distributions.
 
@@ -138,85 +137,85 @@ This is why each of these DMV's has a specific column called pdw_node_id. This i
 
 | DMV name in SQL Data Warehouse | Link to SQL Server Transact-SQL topic on MSDN |
 | :----------------------------- | :-------------------------------------------- |
-| sys.dm_pdw_nodes_db_file_space_usage | [sys.dm_db_file_space_usage (Transact-SQL)](http://msdn.microsoft.com/library/ms174412.aspx) |
-| sys.dm_pdw_nodes_db_index_usage_stats | [sys.dm_db_index_usage_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms188755.aspx) |
-| sys.dm_pdw_nodes_db_partition_stats | [sys.dm_db_partition_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms187737.aspx) |
-| sys.dm_pdw_nodes_db_session_space_usage | [sys.dm_db_session_space_usage (Transact-SQL)](http://msdn.microsoft.com/library/ms187938.aspx) |
-| sys.dm_pdw_nodes_db_task_space_usage | [sys.dm_db_task_space_usage (Transact-SQL)](http://msdn.microsoft.com/library/ms190288.aspx) |
-| sys.dm_pdw_nodes_exec_background_job_queue | [sys.dm_exec_background_job_queue (Transact-SQL)](http://msdn.microsoft.com/library/ms173512.aspx) |
-| sys.dm_pdw_nodes_exec_background_job_queue_stats | [sys.dm_exec_background_job_queue_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms176059.aspx) |
-| sys.dm_pdw_nodes_exec_cached_plans | [sys.dm_exec_cached_plans (Transact-SQL)](http://msdn.microsoft.com/library/ms187404.aspx) |
-| sys.dm_pdw_nodes_exec_connections | [sys.dm_exec_connections (Transact-SQL)](http://msdn.microsoft.com/library/ms181509.aspx) |
-| sys.dm_pdw_nodes_exec_procedure_stats | [sys.dm_exec_procedure_stats (Transact-SQL)](http://msdn.microsoft.com/library/cc280701.aspx) |
-| sys.dm_pdw_nodes_exec_query_memory_grants | [sys.dm_exec_query_memory_grants (Transact-SQL)](http://msdn.microsoft.com/library/ms365393.aspx) |
-| sys.dm_pdw_nodes_exec_query_optimizer_info | [sys.dm_exec_query_optimizer_info (Transact-SQL)](http://msdn.microsoft.com/library/ms175002.aspx) |
-| sys.dm_pdw_nodes_exec_query_resource_semaphores | [sys.dm_exec_query_resource_semaphores (Transact-SQL)](http://msdn.microsoft.com/library/ms366321.aspx) |
-| sys.dm_pdw_nodes_exec_query_stats | [sys.dm_exec_query_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms189741.aspx) |
-| sys.dm_pdw_nodes_exec_requests | [sys.dm_exec_requests (Transact-SQL)](http://msdn.microsoft.com/library/ms177648.aspx) |
-| sys.dm_pdw_nodes_exec_sessions | [sys.dm_exec_sessions (Transact-SQL)](https://msdn.microsoft.com/en-us/library/ms176013.aspx) |
-| sys.dm_pdw_nodes_io_pending_io_requests | [sys.dm_io_pending_io_requests (Transact-SQl)](http://msdn.microsoft.com/library/ms188762.aspx) |
-| sys.dm_pdw_nodes_os_buffer_descriptors | [sys.dm_os_buffer_descriptors (Transact-SQL)](http://msdn.microsoft.com/library/ms173442.aspx) |
-| sys.dm_pdw_nodes_os_child_instances | [sys.dm_os_child_instances (Transact-SQL)](http://msdn.microsoft.com/library/ms165698.aspx) |
-| sys.dm_pdw_nodes_os_cluster_nodes | [sys.dm_os_cluster_nodes (Transact-SQL)](http://msdn.microsoft.com/library/ms187341.aspx) |
-| sys.dm_pdw_nodes_os_dispatcher_pools | [sys.dm_os_dispatcher_pools (Transact-SQL)](http://msdn.microsoft.com/library/bb630336.aspx) |
+| sys.dm_pdw_nodes_db_file_space_usage | [sys.dm_db_file_space_usage](http://msdn.microsoft.com/library/ms174412.aspx) |
+| sys.dm_pdw_nodes_db_index_usage_stats | [sys.dm_db_index_usage_stats](http://msdn.microsoft.com/library/ms188755.aspx) |
+| sys.dm_pdw_nodes_db_partition_stats | [sys.dm_db_partition_stats](http://msdn.microsoft.com/library/ms187737.aspx) |
+| sys.dm_pdw_nodes_db_session_space_usage | [sys.dm_db_session_space_usage](http://msdn.microsoft.com/library/ms187938.aspx) |
+| sys.dm_pdw_nodes_db_task_space_usage | [sys.dm_db_task_space_usage](http://msdn.microsoft.com/library/ms190288.aspx) |
+| sys.dm_pdw_nodes_exec_background_job_queue | [sys.dm_exec_background_job_queue](http://msdn.microsoft.com/library/ms173512.aspx) |
+| sys.dm_pdw_nodes_exec_background_job_queue_stats | [sys.dm_exec_background_job_queue_stats](http://msdn.microsoft.com/library/ms176059.aspx) |
+| sys.dm_pdw_nodes_exec_cached_plans | [sys.dm_exec_cached_plans](http://msdn.microsoft.com/library/ms187404.aspx) |
+| sys.dm_pdw_nodes_exec_connections | [sys.dm_exec_connections](http://msdn.microsoft.com/library/ms181509.aspx) |
+| sys.dm_pdw_nodes_exec_procedure_stats | [sys.dm_exec_procedure_stats](http://msdn.microsoft.com/library/cc280701.aspx) |
+| sys.dm_pdw_nodes_exec_query_memory_grants | [sys.dm_exec_query_memory_grants](http://msdn.microsoft.com/library/ms365393.aspx) |
+| sys.dm_pdw_nodes_exec_query_optimizer_info | [sys.dm_exec_query_optimizer_info](http://msdn.microsoft.com/library/ms175002.aspx) |
+| sys.dm_pdw_nodes_exec_query_resource_semaphores | [sys.dm_exec_query_resource_semaphores](http://msdn.microsoft.com/library/ms366321.aspx) |
+| sys.dm_pdw_nodes_exec_query_stats | [sys.dm_exec_query_stats](http://msdn.microsoft.com/library/ms189741.aspx) |
+| sys.dm_pdw_nodes_exec_requests | [sys.dm_exec_requests](http://msdn.microsoft.com/library/ms177648.aspx) |
+| sys.dm_pdw_nodes_exec_sessions | [sys.dm_exec_sessions](https://msdn.microsoft.com/en-us/library/ms176013.aspx) |
+| sys.dm_pdw_nodes_io_pending_io_requests | [sys.dm_io_pending_io_requests](http://msdn.microsoft.com/library/ms188762.aspx) |
+| sys.dm_pdw_nodes_os_buffer_descriptors | [sys.dm_os_buffer_descriptors](http://msdn.microsoft.com/library/ms173442.aspx) |
+| sys.dm_pdw_nodes_os_child_instances | [sys.dm_os_child_instances](http://msdn.microsoft.com/library/ms165698.aspx) |
+| sys.dm_pdw_nodes_os_cluster_nodes | [sys.dm_os_cluster_nodes](http://msdn.microsoft.com/library/ms187341.aspx) |
+| sys.dm_pdw_nodes_os_dispatcher_pools | [sys.dm_os_dispatcher_pools](http://msdn.microsoft.com/library/bb630336.aspx) |
 | sys.dm_pdw_nodes_os_dispatchers | Transact-SQL Documentation is not available. |
-| sys.dm_pdw_nodes_os_hosts | [sys.dm_os_hosts (Transact-SQL)](http://msdn.microsoft.com/library/ms187800.aspx) |
-| sys.dm_pdw_nodes_os_latch_stats | [sys.dm_os_latch_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms175066.aspx) |
-| sys.dm_pdw_nodes_os_memory_brokers | [sys.dm_os_memory_brokers (Transact-SQL)](http://msdn.microsoft.com/library/bb522548.aspx) |
-| sys.dm_pdw_nodes_os_memory_cache_clock_hands | [sys.dm_os_memory_cache_clock_hands (Transact-SQL)](http://msdn.microsoft.com/library/ms173786.aspx) |
-| sys.dm_pdw_nodes_os_memory_cache_counters | [sys.dm_os_memory_cache_counters (Transact-SQL)](http://msdn.microsoft.com/library/ms188760.aspx) |
-| sys.dm_pdw_nodes_os_memory_cache_entries | [sys.dm_os_memory_cache_entries (Transact-SQL)](http://msdn.microsoft.com/library/ms189488.aspx) |
-| sys.dm_pdw_nodes_os_memory_cache_hash_tables | [sys.dm_os_memory_cache_hash_tables (Transact-SQL)](http://msdn.microsoft.com/library/ms182388.aspx) |
-| sys.dm_pdw_nodes_os_memory_clerks | [sys.dm_os_memory_clerks (Transact-SQL)](http://msdn.microsoft.com/library/ms175019.aspx) |
+| sys.dm_pdw_nodes_os_hosts | [sys.dm_os_hosts](http://msdn.microsoft.com/library/ms187800.aspx) |
+| sys.dm_pdw_nodes_os_latch_stats | [sys.dm_os_latch_stats](http://msdn.microsoft.com/library/ms175066.aspx) |
+| sys.dm_pdw_nodes_os_memory_brokers | [sys.dm_os_memory_brokers](http://msdn.microsoft.com/library/bb522548.aspx) |
+| sys.dm_pdw_nodes_os_memory_cache_clock_hands | [sys.dm_os_memory_cache_clock_hands](http://msdn.microsoft.com/library/ms173786.aspx) |
+| sys.dm_pdw_nodes_os_memory_cache_counters | [sys.dm_os_memory_cache_counters](http://msdn.microsoft.com/library/ms188760.aspx) |
+| sys.dm_pdw_nodes_os_memory_cache_entries | [sys.dm_os_memory_cache_entries](http://msdn.microsoft.com/library/ms189488.aspx) |
+| sys.dm_pdw_nodes_os_memory_cache_hash_tables | [sys.dm_os_memory_cache_hash_tables](http://msdn.microsoft.com/library/ms182388.aspx) |
+| sys.dm_pdw_nodes_os_memory_clerks | [sys.dm_os_memory_clerks](http://msdn.microsoft.com/library/ms175019.aspx) |
 | sys.dm_pdw_nodes_os_memory_node_access_stats | Transact-SQL Documentation is not available. |
-| sys.dm_pdw_nodes_os_memory_nodes | [sys.dm_os_memory_nodes (Transact-SQL)](http://msdn.microsoft.com/library/bb510622.aspx) |
-| sys.dm_pdw_nodes_os_memory_objects | [sys.dm_os_memory_objects (Transact-SQL)](https://msdn.microsoft.com/library/ms179875.aspx) |
-| sys.dm_pdw_nodes_os_memory_pools | [sys.dm_os_memory_pools (Transact-SQL)](http://msdn.microsoft.com/library/ms175022.aspx) |
-| sys.dm_pdw_nodes_os_nodes | [sys.dm_os_nodes (Transact-SQL)](http://msdn.microsoft.com/library/bb510628.aspx) |
-| sys.dm_pdw_nodes_os_performance_counters | [sys.dm_os_performance_counters (Transact-SQL)](http://msdn.microsoft.com/library/ms187743.aspx) |
-| sys.dm_pdw_nodes_os_process_memory | [sys.dm_os_process_memory (Transact-SQL)](http://msdn.microsoft.com/library/bb510747.aspx) |
-| sys.dm_pdw_nodes_os_schedulers | [sys.dm_os_schedulers (Transact-SQL)](http://msdn.microsoft.com/library/ms177526.aspx) |
+| sys.dm_pdw_nodes_os_memory_nodes | [sys.dm_os_memory_nodes](http://msdn.microsoft.com/library/bb510622.aspx) |
+| sys.dm_pdw_nodes_os_memory_objects | [sys.dm_os_memory_objects](https://msdn.microsoft.com/library/ms179875.aspx) |
+| sys.dm_pdw_nodes_os_memory_pools | [sys.dm_os_memory_pools](http://msdn.microsoft.com/library/ms175022.aspx) |
+| sys.dm_pdw_nodes_os_nodes | [sys.dm_os_nodes](http://msdn.microsoft.com/library/bb510628.aspx) |
+| sys.dm_pdw_nodes_os_performance_counters | [sys.dm_os_performance_counters](http://msdn.microsoft.com/library/ms187743.aspx) |
+| sys.dm_pdw_nodes_os_process_memory | [sys.dm_os_process_memory](http://msdn.microsoft.com/library/bb510747.aspx) |
+| sys.dm_pdw_nodes_os_schedulers | [sys.dm_os_schedulers](http://msdn.microsoft.com/library/ms177526.aspx) |
 | sys.dm_pdw_nodes_os_spinlock_stats | Transact-SQL Documentation is not available. |
-| sys.dm_pdw_nodes_os_sys_info | [sys.dm_os_sys_info (Transact-SQL)](http://msdn.microsoft.com/library/ms175048.aspx) |
-| sys.dm_pdw_nodes_os_sys_memory | [sys.dm_os_memory_nodes (Transact-SQL)](http://msdn.microsoft.com/library/bb510622.aspx) |
-| sys.dm_pdw_nodes_os_tasks | [sys.dm_os_tasks (Transact-SQL)](http://msdn.microsoft.com/library/ms174963.aspx) |
-| sys.dm_pdw_nodes_os_threads | [sys.dm_os_threads (Transact-SQL)](http://msdn.microsoft.com/library/ms187818.aspx) |
-| sys.dm_pdw_nodes_os_virtual_address_dump | [sys.dm_os_virtual_address_dump (Transact-SQL)](https://msdn.microsoft.com/library/ms186294.aspx) |
-| sys.dm_pdw_nodes_os_wait_stats | [sys.dm_os_wait_stats (Transact-SQL)](https://msdn.microsoft.com/library/ms179984.aspx) |
-| sys.dm_pdw_nodes_os_waiting_tasks | [sys.dm_os_waiting_tasks (Transact-SQL)](https://msdn.microsoft.com/library/ms188743.aspx) |
-| sys.dm_pdw_nodes_os_workers | [sys.dm_os_workers (Transact-SQL)](https://msdn.microsoft.com/library/ms178626.aspx) |
-| sys.dm_pdw_nodes_resource_governor_resource_pools | [sys.dm_resource_governor_resource_pools (Transact-SQL)](http://msdn.microsoft.com/library/bb934023.aspx) |
-| sys.dm_pdw_nodes_resource_governor_workload_groups | [sys.dm_resource_governor_workload_groups (Transact-SQL)](http://msdn.microsoft.com/library/bb934197.aspx) |
-| sys.dm_pdw_nodes_tran_active_snapshot_database_transactions | [sys.dm_tran_active_snapshot_database_transactions (Transact_SQL)](http://msdn.microsoft.com/library/ms180023.aspx) |
-| sys.dm_pdw_nodes_tran_active_transactions | [sys.dm_tran_active_transactions (Transact-SQL)](http://msdn.microsoft.com/library/ms174302.aspx) |
-| sys.dm_pdw_nodes_tran_commit_table | Transact-SQL documentation is not available. |
-| sys.dm_pdw_nodes_tran_current_snapshot | [sys.dm_tran_current_snapshot (Transact-SQL)](http://msdn.microsoft.com/library/ms184390.aspx) |
-| sys.dm_pdw_nodes_tran_current_transaction | [sys.dm_tran_current_transaction (Transact-SQL)](https://msdn.microsoft.com/library/ms186327.aspx) |
-| sys.dm_pdw_nodes_tran_database_transactions | [sys.dm_tran_database_transactions (Transact-SQL)](https://msdn.microsoft.com/library/ms186957.aspx) |
-| sys.dm_pdw_nodes_tran_locks | [sys.dm_tran_locks (Transact-SQL)](http://msdn.microsoft.com/library/ms190345.aspx) |
-| sys.dm_pdw_nodes_tran_session_transactions | [sys.dm_tran_session_transactions (Transact-SQL)](http://msdn.microsoft.com/library/ms188739.aspx) |
-| sys.dm_pdw_nodes_tran_top_version_generators | [sys.dm_tran_top_version_generators (Transact-SQL)](http://msdn.microsoft.com/library/ms188778.aspx) |
+| sys.dm_pdw_nodes_os_sys_info | [sys.dm_os_sys_info](http://msdn.microsoft.com/library/ms175048.aspx) |
+| sys.dm_pdw_nodes_os_sys_memory | [sys.dm_os_memory_nodes](http://msdn.microsoft.com/library/bb510622.aspx) |
+| sys.dm_pdw_nodes_os_tasks | [sys.dm_os_tasks](http://msdn.microsoft.com/library/ms174963.aspx) |
+| sys.dm_pdw_nodes_os_threads | [sys.dm_os_threads](http://msdn.microsoft.com/library/ms187818.aspx) |
+| sys.dm_pdw_nodes_os_virtual_address_dump | [sys.dm_os_virtual_address_dump](https://msdn.microsoft.com/library/ms186294.aspx) |
+| sys.dm_pdw_nodes_os_wait_stats | [sys.dm_os_wait_stats](https://msdn.microsoft.com/library/ms179984.aspx) |
+| sys.dm_pdw_nodes_os_waiting_tasks | [sys.dm_os_waiting_tasks](https://msdn.microsoft.com/library/ms188743.aspx) |
+| sys.dm_pdw_nodes_os_workers | [sys.dm_os_workers](https://msdn.microsoft.com/library/ms178626.aspx) |
+| sys.dm_pdw_nodes_resource_governor_resource_pools | [sys.dm_resource_governor_resource_pools](http://msdn.microsoft.com/library/bb934023.aspx) |
+| sys.dm_pdw_nodes_resource_governor_workload_groups | [sys.dm_resource_governor_workload_groups](http://msdn.microsoft.com/library/bb934197.aspx) |
+| sys.dm_pdw_nodes_tran_active_snapshot_database_transactions | [sys.dm_tran_active_snapshot_database_transactions](http://msdn.microsoft.com/library/ms180023.aspx) |
+| sys.dm_pdw_nodes_tran_active_transactions | [sys.dm_tran_active_transactions](http://msdn.microsoft.com/library/ms174302.aspx) |
+| sys.dm_pdw_nodes_tran_commit_table | [sys.dm_tran_commit_table](https://msdn.microsoft.com/library/cc645959.aspx) |
+| sys.dm_pdw_nodes_tran_current_snapshot | [sys.dm_tran_current_snapshot](http://msdn.microsoft.com/library/ms184390.aspx) |
+| sys.dm_pdw_nodes_tran_current_transaction | [sys.dm_tran_current_transaction](https://msdn.microsoft.com/library/ms186327.aspx) |
+| sys.dm_pdw_nodes_tran_database_transactions | [sys.dm_tran_database_transactions](https://msdn.microsoft.com/library/ms186957.aspx) |
+| sys.dm_pdw_nodes_tran_locks | [sys.dm_tran_locks](http://msdn.microsoft.com/library/ms190345.aspx) |
+| sys.dm_pdw_nodes_tran_session_transactions | [sys.dm_tran_session_transactions](http://msdn.microsoft.com/library/ms188739.aspx) |
+| sys.dm_pdw_nodes_tran_top_version_generators | [sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
 ## SQL Server 2016 PolyBase DMVs available in SQL Data Warehouse
 
-- [sys.dm_exec_compute_node_errors (Transact-SQL)](http://msdn.microsoft.com/library/mt146380.aspx)
-- [sys.dm_exec_compute_node_status (Transact-SQL)](http://msdn.microsoft.com/library/mt146382.aspx)
-- [sys.dm_exec_compute_nodes (Transact-SQL)](https://msdn.microsoft.com/library/mt130700.aspx)
-- [sys.dm_exec_distributed_request_steps (Transact-SQL)](https://msdn.microsoft.com/library/mt130701.aspx)
-- [sys.dm_exec_distributed_requests (Transact-SQL)](http://msdn.microsoft.com/library/mt146385.aspx)
-- [sys.dm_exec_distributed_sql_requests (Transact-SQL)](http://msdn.microsoft.com/library/mt146390.aspx)
-- [sys.dm_exec_dms_services (Transact-SQL)](https://msdn.microsoft.com/library/mt146374.aspx)
-- [sys.dm_exec_dms_workers (Transact-SQL)](https://msdn.microsoft.com/library/mt146392.aspx)
-- [sys.dm_exec_external_operations (Transact-SQL)](https://msdn.microsoft.com/library/mt146391.aspx)
-- [sys.dm_exec_external_work (Transact-SQL)](https://msdn.microsoft.com/library/mt146375.aspx)
+- [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
+- [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
+- [sys.dm_exec_compute_nodes](https://msdn.microsoft.com/library/mt130700.aspx)
+- [sys.dm_exec_distributed_request_steps](https://msdn.microsoft.com/library/mt130701.aspx)
+- [sys.dm_exec_distributed_requests](http://msdn.microsoft.com/library/mt146385.aspx)
+- [sys.dm_exec_distributed_sql_requests](http://msdn.microsoft.com/library/mt146390.aspx)
+- [sys.dm_exec_dms_services](https://msdn.microsoft.com/library/mt146374.aspx)
+- [sys.dm_exec_dms_workers](https://msdn.microsoft.com/library/mt146392.aspx)
+- [sys.dm_exec_external_operations](https://msdn.microsoft.com/library/mt146391.aspx)
+- [sys.dm_exec_external_work](https://msdn.microsoft.com/library/mt146375.aspx)
 
 ## SQL Server INFORMATION_SCHEMA views
 
-- [CHECK_CONSTRAINTS (Transact-SQL)](http://msdn.microsoft.com/library/ms189772.aspx)
-- [COLUMNS (Transact-SQL)](http://msdn.microsoft.com/library/ms188348.aspx)
-- [PARAMETERS (Transact-SQL)](http://msdn.microsoft.com/library/ms173796.aspx)
-- [TABLES (Transact-SQL)](http://msdn.microsoft.com/library/ms186224.aspx)
-- [VIEWS (Transact-SQL)](http://msdn.microsoft.com/library/ms181381.aspx)
+- [CHECK_CONSTRAINTS](http://msdn.microsoft.com/library/ms189772.aspx)
+- [COLUMNS](http://msdn.microsoft.com/library/ms188348.aspx)
+- [PARAMETERS](http://msdn.microsoft.com/library/ms173796.aspx)
+- [TABLES](http://msdn.microsoft.com/library/ms186224.aspx)
+- [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Next steps
 For more reference information, see [SQL Data Warehouse reference overview][].
