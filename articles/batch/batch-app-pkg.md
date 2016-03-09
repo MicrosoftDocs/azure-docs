@@ -16,13 +16,13 @@
 	ms.date="03/04/2016"
 	ms.author="marsma" />
 
-# Install and manage task applications with Azure Batch application packages
+# Easy task application deployment with Azure Batch application packages
 
 The application packages feature of Azure Batch provides easy management and deployment of applications for your jobs' tasks. With application packages, you can easily upload and manage multiple versions of the applications run by your tasks, including binaries and support files, then automatically deploy one or more of these applications to the compute nodes in your pool.
 
-In this article, you will learn how to upload and manage application packages using the Azure Portal, then install them on a pool's compute nodes using the [Batch .NET][api_net] library.
+In this article, you will learn how to upload and manage application packages using the Azure portal, then install them on a pool's compute nodes using the [Batch .NET][api_net] library.
 
-> [AZURE.IMPORTANT] The application packages feature discussed in this article is compatible *only* with Batch pools created *after* 10 March 2016. Application packages will not be deployed to compute nodes in pools created before this date.
+> [AZURE.IMPORTANT] The application packages feature discussed in this article is compatible *only* with Batch pools created after 10 March 2016. Application packages will not be deployed to compute nodes in pools created before this date.
 
 ## Benefits of application packages
 
@@ -30,9 +30,9 @@ Application packages can simplify the code in your Batch solution, as well as lo
 
 With application packages, your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of these files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide secure access to the files in Azure Storage.
 
-Batch handles the details of working with Azure Storage in the background to securely store and deploy your application packages to compute nodes, so both your code and your management overhead can be simplified.
+Batch handles the details of working with Azure Storage in the background to securely store and deploy application packages to compute nodes, so both your code and your management overhead can be simplified.
 
-> [AZURE.NOTE] The application packages feature supersedes the "Batch Apps" feature available in previous versions of the service. We recommend that you always use the latest API version when working with Batch.
+> [AZURE.NOTE] The application packages feature supersedes the "Batch Apps" feature available in previous versions of the service. We recommend that you always use the latest API version when working with Batch. The application packages feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2, and the corresponding [Batch .NET][api_net] library version 3.1.0.
 
 ## Applications and application packages
 
@@ -54,15 +54,15 @@ An application package is a ZIP file containing the application binaries and sup
 
 Using the Azure portal, you can add, update, and delete application packages, and configure default versions for each application. While application management is supported only in the Azure portal at the time of this writing, additional methods including programmatic management using the [Batch Management .NET](batch-management-dotnet.md) library will be supported in the future.
 
-In the next few sections, we'll first cover associating a Storage account with your Batch account, then review the package management features available in the Azure portal.
+In the next few sections, we'll first cover associating a Storage account with your Batch account, then review the package management features available in the Azure portal. After that, you'll learn how to deploy these packages to compute nodes.
 
 ### Associate a Storage account
 
-In order to use application packages, you must first associate an Azure Storage account with your Batch account. If have not yet configured a Storage account for your Batch account, the Azure portal will notify you the first time you click the *Applications* tile in the Batch account blade.
+In order to use application packages, you must first associate an Azure Storage account with your Batch account. If have not yet configured a Storage account for your Batch account, the Azure portal will display a warning the first time you click the *Applications* tile in the Batch account blade.
 
 ![Associate Storage account][9]
 
-The Batch service uses the associated Storage account for the storage and retrieval of application packages. Once you've associated the two accounts, Batch can automatically--and securely--deploy application packages to your compute nodes.
+The Batch service uses the associated Storage account for the storage and retrieval of application packages. Once you've linked the two accounts, Batch can automatically--and securely--deploy application packages to your compute nodes.
 
 If you do not have a storage account, see the "Create a storage account" section of [About Azure storage accounts](../storage/storage-create-storage-account.md) for step-by-step instructions. Once you've created a storage account, you may then link it to your Batch account using the *Storage Account* blade.
 
@@ -81,8 +81,8 @@ This opens the Applications blade:
 The Applications blade displays the ID of each application in your account, as well as the following properties:
 
 * **Packages** - The number of versions associated with this application.
-* **Default version** – If you do not specify a version when setting the application for a pool, this version will be installed.
-* **Allow Updates** – If this is set to *No*, package updates and deletions are disabled for that application--only new application packages can be added.
+* **Default version** – If you do not specify a version when setting the application for a pool, this version will be installed. This setting is optional.
+* **Allow updates** – If this is set to *No*, package updates and deletions are disabled for the application--only new application packages can be added. The default is *Yes*.
 
 ### View application details
 
@@ -104,11 +104,11 @@ Click the **Add** button on the *Applications* blade to open the *New applicatio
 
 ![New application][5]
 
-The *New application* blade provides the following fields for specifying the settings for your new application and application package.
+The *New application* blade provides the following fields for specifying the settings of your new application and application package.
 
 **Metadata**
 
-This provides an optional method for supplying the application ID and package version. You can either supply the application metadata manually, or upload a JSON file that contains the metadata. When you use the Metadata method to specify the ID and version, the "Application" and "Version" fields described below are populated automatically.
+The metadata setting provides an *optional* method for supplying the application ID and package version. You can either supply the application metadata manually, such as pasting a JSON string into the text box, or upload a JSON file that contains the metadata.
 
 Use the following JSON format to specify the application package metadata:
 
@@ -119,6 +119,7 @@ Use the following JSON format to specify the application package metadata:
 }
 ```
 
+> [AZURE.NOTE] IF you specify JSON metadata for the ID and version, you cannot also edit the "Application" and "Version" text boxes.
 
 **Application**
 
