@@ -23,7 +23,7 @@
 1. Create a directory in Azure Active Directory.
 2. Add users to your new directory, including a few global administrators.
 
-  >[AZURE.NOTE] Make sure you set up users with their work or school accounts. Microsoft accounts cannot currently sign up for Azure AD PIM.
+    >[AZURE.NOTE] Make sure you set up users with their work or school accounts. Microsoft accounts cannot currently sign up for Azure AD PIM.
 
 3. Sign in to the [Azure portal](https://portal.azure.com/) as a global administrator of that directory.
 4. Click on the **username** in the upper left hand corner of the Azure portal.

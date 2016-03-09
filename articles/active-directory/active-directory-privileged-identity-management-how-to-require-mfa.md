@@ -28,9 +28,9 @@ Additionally, you can change the MFA requirement for a specific role by clicking
 
 ## How Azure AD PIM validates MFA
 
-There are two options for validating MFA when a user activates a role.
-
 > [AZURE.IMPORTANT] Since Microsoft accounts (e.g. @outlook.com, @live.com, or @hotmail.com) are not currently supported to register for Azure MFA, they will not be permitted as temporary admins for highly privileged roles. If users need to continue managing workloads using a Microsoft account, please convert them to permanent administrators for now. 
+
+There are two options for validating MFA when a user activates a role.
 
 The simplest way is to rely on Azure MFA for users activating a privileged role. To do this, first check that those users are licensed if necessary, and have registered for Azure MFA. More information on how to do this is in [Getting started with Azure Multi-Factor Authentication in the cloud](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md#assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users). Please note that it is recommended, but not required, to configure Azure AD to enforce MFA for these users when they sign in. This is because the MFA checks will be made by Azure AD PIM itself.
 
