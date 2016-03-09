@@ -41,6 +41,16 @@ Once installed, the library is located in `node_modules/azure-mobile-apps-client
 <script src="path/to/MobileServices.Web.js"></script>
 ```
 
+The library can also be used as an ES2015 module, within CommonJS environments such as Browserify and
+Webpack and as an AMD library.  For example:
+
+```
+# For ECMAScript 5.1 CommonJS
+var WindowsAzure = require('azure-mobile-apps-client');
+# For ES2015 modules
+import * as WindowsAzure from 'azure-mobile-apps-client';
+```
+
 [AZURE.INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
 ##<a name="auth"></a>How to: Authenticate Users
