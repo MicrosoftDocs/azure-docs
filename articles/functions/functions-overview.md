@@ -9,8 +9,8 @@
 
 <tags
 	ms.service="functions"
-	ms.workload=""
-	ms.tgt_pltfrm=""
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
 	ms.devlang="mutiple"
 	ms.topic="hero-article"
 	ms.date="03/07/2016"
