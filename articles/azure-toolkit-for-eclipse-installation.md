@@ -65,7 +65,6 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Web Platform Installer (WebPI)]: http://go.microsoft.com/fwlink/?LinkID=252838 
 [What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
