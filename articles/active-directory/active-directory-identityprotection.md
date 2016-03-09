@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/09/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -305,9 +305,9 @@ The recommended default for most organizations is to configure a rule for a **Me
 
 For an overview of the related user experience, see:
 
-- [Compromised account recovery flow](active-directory-identityprotection-flows.md/#compromised-account-recovery).  
+- [Compromised account recovery flow](active-directory-identityprotection-flows.md#compromised-account-recovery).  
 
-- [Compromised account blocked flow](active-directory-identityprotection-flows.md/#Compromised-account-blocked).  
+- [Compromised account blocked flow](active-directory-identityprotection-flows.md#Compromised-account-blocked).  
 
 
 **To open the related configuration dialog**:
@@ -413,11 +413,11 @@ The **Risk Events** page in the Identity Protection console lists all events:
 
 For an overview of the related user experience, see:
 
-- [Risky sign-in recovery](active-directory-identityprotection-flows.md/#risky-sign-in-recovery).  
+- [Risky sign-in recovery](active-directory-identityprotection-flows.md#risky-sign-in-recovery).  
 
-- [Risky sign-in blocked](active-directory-identityprotection-flows.md/#risky-sign-in-blocked).  
+- [Risky sign-in blocked](active-directory-identityprotection-flows.md#risky-sign-in-blocked).  
 
-- [Multi-factor authentication registration during a risky sign-in](active-directory-identityprotection-flows.md/#multi-factor-authentication-registration-during-a-risky-sign-in).  
+- [Multi-factor authentication registration during a risky sign-in](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in).  
 
 
 
@@ -474,9 +474,9 @@ Azure AD Identity Protection helps you manage the roll-out of multi-factor authe
 
 For an overview of the related user experience, see:
 
-- [Multi-factor authentication registration flow](active-directory-identityprotection-flows.md/#multi-factor-authentication-registration).  
+- [Multi-factor authentication registration flow](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).  
 
-- [Multi-factor authentication registration during a risky sign-in](active-directory-identityprotection-flows.md/#multi-factor-authentication-registration-during-a-risky-sign-in).  
+- [Multi-factor authentication registration during a risky sign-in](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in).  
 
 
 
@@ -503,6 +503,7 @@ For an overview of the related user experience, see:
  - [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types)
  - [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
  - [Azure Active Directory Identity Protection notifications](active-directory-identityprotection-notifications.md)
+ - [Azure Active Directory Identity Protection flows](active-directory-identityprotection-flows.md)
  - [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md)
  - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md)
 
