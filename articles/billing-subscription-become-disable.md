@@ -36,7 +36,7 @@ To reactivate a subscription, you must create a support ticket: sign into the [A
 
 ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
-If you cannot access Azure portal, submit the support request from the Azure Support web site or from the Azure Accounts Center:
+If you cannot access the portal, submit the support request from the Azure Support web site or from the Azure Accounts Center:
 
  * To submit a support ticket from the [Azure Support web site](https://azure.microsoft.com/support/options/), click **Get support**.
  * To submit a support ticket from the [Azure Account Center](https://account.windowsazure.com/Subscriptions), select a subscription, and then click **Contact Microsoft Support**.
