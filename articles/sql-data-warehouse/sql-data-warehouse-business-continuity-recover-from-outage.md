@@ -20,7 +20,7 @@
 
 Geo-restore provides the ability to restore a database from a geo-redundant backup to create a new database. The database can be created on any server in any Azure region. Because it uses a geo-redundant backup as its source it can be used to recover a database even if the database is inaccessible due to an outage. Besides recovering from an outage, geo-restore can also be used for other scenarios like migrating the database or creating a copy of the database on a different server/region etc.
 
-# When to initiate recovery
+## When to initiate recovery
 
 The recovery operation requires changing the SQL connection string upon recovery and could result in permanent data loss. Therefore, it should be done only when the outage is likely to last longer than your application's RTO. Use the following data points to assert that the recovery is warranted:
 
