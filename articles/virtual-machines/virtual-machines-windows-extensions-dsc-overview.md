@@ -2,6 +2,7 @@
    pageTitle="Desired State Configuration for Azure Overview | Microsoft Azure"
    description="Overview for using the Microsoft Azure extension handler for PowerShell Desired State Configuration. Including prerequisites, architecture, cmdlets.."
    services="virtual-machines-windows"
+   documentationCenter = ""
    authors="zjalexander"
    manager="timlt"
    editor=""
@@ -17,9 +18,9 @@
    ms.date="01/25/2016"
    ms.author="zachal"/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)
-
 # Introduction to the Azure Desired State Configuration Extension Handler #
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)
 
 The Azure VM Agent and associated Extensions are part of the Microsoft Azure Infrastructure Services. VM Extensions are software components that extend the VM functionality and simplify various VM management operations; for example, the VMAccess extension can be used to reset a VM’s password, or the Custom Script extension can be used to execute a script on the VM.
 

@@ -2,6 +2,7 @@
    pageTitle="Passing credentials to Azure using DSC | Microsoft Azure"
    description="Overview on securely passing credentials to Azure virtual machines using PowerShell Desired State Configuration"
    services="virtual-machines-windows"
+   documentationCenter = ""
    authors="zjalexander"
    manager="timlt"
    editor=""
@@ -17,9 +18,9 @@
    ms.date="01/25/2016"
    ms.author="zachal"/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)
-
 # Passing Credentials to the Azure DSC Extension Handler #
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)
 
 As a part of the configuration process, you may need to set up user accounts, access services, or install a program in a user context. In order to do these things, you need to provide credentials. 
 
