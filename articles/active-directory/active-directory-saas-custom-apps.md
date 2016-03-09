@@ -21,7 +21,7 @@ The Azure Active Directory application gallery provides a listing of application
 
 Customers with [Azure Active Directory Premium](active-directory-editions.md) licenses also get these additional capabilities:
 
-* Self-service integration of any application that supports SAML 2.0 identity providers
+* Self-service integration of any application that supports SAML 2.0 identity providers (SP-initiated or IdP-initiated)
 * Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)
 * Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](active-directory-scim-provisioning))
 * Ability to add links to any application in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)
@@ -52,8 +52,27 @@ Adding an application this way provides a very similar experience to the one ava
 Select this option to configure SAML-based authentication for the application. This requires that the application support SAML 2.0, and you should collect information on how to use the SAML capabilities of the application before continuing. After selecting **Next**, you will be prompted to enter three different URLs corresponding to the SAML endpoints for the application. 
 
 ![][4]
+ 
+These are:
 
-The tooltip icons in the dialog provide details about what each URL is and how it is used. After these have been entered, click **Next** to proceed to the next screen. This screen provides information about what needs to be configured on the application side to enable it to accept a SAML token from Azure AD. 
+* **Sign On URL (SP-initiated only)** – Where the user goes to sign-in to this application. If the application is configured to perform service provider-initiated single sign on, then when a user navigates to this URL, the service provider will do the necessary redirection to Azure AD to authenticate and log on the user in. If this field is populated, then Azure AD will use this URL to launch the application from Office 365 and the Azure AD Access Panel. If this field is ommited, then Azure AD will instead perform identity provider -initiated sign on when the app is launched from Office 365, the Azure AD Access Panel, or from the Azure AD single sign-on URL (copiable from the Dashboard tab).
+
+* **Issuer URL** - The issuer URL should uniquely identify the application for which single sign on is being configured. This is the value that Azure AD sends back to application as the **Audience** parameter of the SAML token, and the application is expected to validate it. This value also appears as the **Entity ID** in any SAML metadata provided by the application. Check the application’s SAML documentation for details on what it's Entity ID or Audience value is. Below is an example of how the Audience URL appears in the SAML token returned to the application:
+
+```
+    <Subject>
+    <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:unspecificed">chad.smith@example.com</NameID>
+        <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
+      </Subject>
+      <Conditions NotBefore="2014-12-19T01:03:14.278Z" NotOnOrAfter="2014-12-19T02:03:14.278Z">
+        <AudienceRestriction>
+          <Audience>https://tenant.example.com</Audience>
+        </AudienceRestriction>
+      </Conditions>
+```
+
+* **Reply URL** - The reply URL is where the application expects to receive the SAML token. This is also referred to as the **Assertion Consumer Service (ACS) URL**. Check the application’s SAML documentation for details on what its SAML token reply URL or ACS URL is.
+ After these have been entered, click **Next** to proceed to the next screen. This screen provides information about what needs to be configured on the application side to enable it to accept a SAML token from Azure AD. 
 
 ![][5]
 
