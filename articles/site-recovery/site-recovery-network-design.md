@@ -39,17 +39,16 @@ While designing the network for the recovery site, the administrator has two cho
 - Use a different IP address range for the network at recovery site. In this scenario the virtual machine after failover will get a new IP address and the administrator would have to do a DNS update. Read more about how to do the DNS update [here](site-recovery-vmm-to-vmm.md#test-your-deployment) 
 - Use same IP address range for the network at the recovery site. In certain scenarios administrators prefer to retain the IP addresses that they have on the primary site even after the failover. In a normal scenario an administrator would have to update the routes to indicate the new location of the IP addresses. But in the scenario where a stretched VLAN is deployed between the primary and the recovery sites, retaining the IP addresses for the virtual machines becomes an attractive option. Keeping the same IP addresses simplifies the recovery process by taking away any network related post-failover steps.
 
-## Designing the network address space in a disaster recovery environment
 
 When administrators are planning to deploy a disaster recovery solution, one of the key questions in their mind is how the applications will be reachable after the failover is completed. Modern applications are almost always dependent on networking to some degree, so physically moving a service from one site to another represents a networking challenge. There are two main ways that this problem is dealt with in disaster recovery solutions. The first approach is to maintain fixed IP addresses. Despite the services moving and the hosting servers being in different physical locations, applications take the IP address configuration with them to the new location. The second approach involves completely changing the IP address during the transition into the recovered site. Each approach has several implementation variations which are summarized below.
 
 While designing the network for the recovery site, the administrator has two choices:
 
-### Option 1: Retain IP addresses 
+## Option 1: Retain IP addresses 
 
 From a disaster recovery process perspective, using fixed IP addresses appears to be the easiest method to implement, but it has a number of potential challenges which in practice make it the least popular approach. Azure Site Recovery provides the capability to retain the IP addresses in all scenarios. Before one decides to retain IP, appropriate thought should be given to the constraints it imposes on the failover capabilities. Let us look at the factors that can help you to make a decision to retain IP addresses, or not. This can be achieved in two ways, by using a stretched subnet or by doing a full subnet failover.
 
-#### Stretched Subnet
+### Stretched subnet
 
 Here the subnet is made available simultaneously in both primary and DR locations. In simple terms this means you can move a server and its IP (Layer 3) configuration to the second site and the network will route the traffic to the new location automatically. This is trivial to deal with from a server perspective but it has a number of challenges:
 
@@ -57,13 +56,13 @@ Here the subnet is made available simultaneously in both primary and DR location
 - Stretched subnet is not possible if you are using Microsoft Azure as the DR site.
 
 
-#### Subnet Failover
+### Subnet failover
 
 It is possible to implement subnet failover to obtain the benefits of the stretched subnet solution described above without stretching the subnet across multiple sites. Here any given subnet would be present at Site 1 or Site 2, but never at both sites simultaneously. In order to maintain the IP address space in the event of a failover, it is possible to programmatically arrange for the router infrastructure to move the subnets from one site to another. In a failover scenario the subnets would move with the associated protected VMs. The main drawback to this approach is in the event of a failure you have to move the whole subnet, which may be OK but it may affect the failover granularity considerations. 
 
 Let’s examine how a fictional enterprise named Contoso is able to replicate its VMs to a recovery location while failing over the entire subnet. We will first look at how Contoso is able to manage their subnets while replicating VMs between two on-premises locations, and then we will discuss how subnet failover works when [Azure is used as the disaster recovery site](#failover-to-azure).
 
-##### Failover to an Secondary On-premises Site
+#### Failover to a secondary on-premises site
 
 Let us look at a scenario where we want retain the IP of each of the VMs and fail-over the complete subnet together. The primary site has applications running in subnet 192.168.1.0/24. When the failover happens, all the virtual machines that are part of this subnet will be failed over to the recovery site and retain their IP addresses. Routes will have to be appropriately modified to reflect the fact that all the virtual machines belonging to subnet 192.168.1.0/24 have now moved to the recovery site. 
 
@@ -73,14 +72,14 @@ The following pictures shows the subnets before the failover. Subnet 192.168.0.1
 
 ![Before Failover](./media/site-recovery-network-design/network-design2.png)
 
-Before Failover
+Before failover
 
 
 The picture below shows networks and subnets after failover.
 	
 ![After Failover](./media/site-recovery-network-design/network-design3.png)
 
-After Failover
+After failover
 
 In your secondary site is on-premises and you are using a VMM server to manage it then when enabling protection for a specific virtual machine, ASR will allocate networking resources according to the following workflow:
 
@@ -104,7 +103,7 @@ After the VM is enabled for protection you can use following sample script to ve
 
 >[AZURE.NOTE] In the scenario where virtual machines use DHCP, the management of IP addresses is completely outside the control of ASR. An administrator has to ensure that the DHCP server serving the IP addresses on the recovery site can serve from the same range as that of the primary site.
 
-##### Failover to Azure
+#### Failover to Azure
 
 Azure Site Recovery (ASR) allows Microsoft Azure to be used as a disaster recovery site for your virtual machines. In this case, you will need to deal with one more constraint. 
 
@@ -116,7 +115,7 @@ For Woodgrove to be able to replicate its virtual machines to Azure while retain
 
 ![Before Subnet Failover](./media/site-recovery-network-design/network-design7.png)
 
-Before Failover
+Before failover
 
 To help Woodgrove fulfill their business requirements, we need to implement the following workflows:
 
@@ -129,16 +128,16 @@ Once the failover is triggered and the virtual machines are created in the Recov
 
 ![After Subnet Failover](./media/site-recovery-network-design/network-design9.png)
 
-After Failover
+After failover
 
 If you don't have a 'Azure Network' as shown in the picture above. You can create a site to site vpn connection between your 'Primary Site' and 'Recovery Network' after the failover.  
 
 
-### Option 2: Changing IP Addresses
+## Option 2: Changing IP addresses
 
 This approach seems to be the most prevalent based on what we have seen. It takes the form of changing the IP address of every VM that is involved in the failover. A drawback of this approach requires the incoming network to ‘learn’ that the application that was at IPx is now at IPy. Even if IPx and IPy are logical names, DNS entries typically have to be changed or flushed throughout the network, and cached entries in network tables have to be updated or flushed, therefore a downtime could be seen depending upon how the DNS infrastructure has been setup. These issues can be mitigated by using low TTL values in the case of intranet applications and using [Azure Traffic Manger with ASR](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) for internet based applications
 
-#### Changing the IP addresses - Enterprise Grade DR
+### Changing the IP addresses after failover
 
 Let us look at the scenario where you are planning to use different IPs across the primary and the recovery sites. In the following example we also have a third site from where the applications hosted on primary or recovery site can be accessed.
 

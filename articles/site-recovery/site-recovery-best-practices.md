@@ -57,8 +57,8 @@ You can deploy Site Recovery to replicate virtual machines and physical servers 
 **Feature** | **Support** | **Details**
 ---|---|---
 Hyper-V host operating system | Windows Server 2012 R2 | Prerequisites check will fail if unsupported
-VMware hypervisor operating system | Running a supported operating system | [Details](site-recovery-vmware-to-azure-classic.md#before-you-start)
-Guest operating system |  For Hyper-V to Azure replication Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> For VMware and physical server replication check the Windows and Linux [prerequisites](site-recovery-vmware-to-azure-classic.md#before-you-start) | Prerequisites check will fail if unsupported.
+VMware hypervisor operating system | Running a supported operating system | [Details](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)
+Guest operating system |  For Hyper-V to Azure replication Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> For VMware and physical server replication check the Windows and Linux [prerequisites](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) | Prerequisites check will fail if unsupported.
 Guest operating system architecture | 64-bit | Prerequisites check will fail if unsupported
 Operating system disk size |  Up to 1023 GB | Prerequisites check will fail if unsupported
 Operating system disk count | 1 | Prerequisites check will fail if unsupported.
