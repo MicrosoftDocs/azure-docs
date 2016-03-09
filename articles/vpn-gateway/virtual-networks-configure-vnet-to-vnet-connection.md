@@ -84,7 +84,7 @@ You may want to connect virtual networks for the following reasons:
 
 In this procedure, we’ll walk you through connecting two virtual networks, VNet1 and VNet2. You’ll need to be comfortable with networking in order to substitute the IP address ranges that are compatible with your network design requirements. From an Azure virtual network, connecting to another Azure virtual network is the same as connecting to an on premises network via site-to-site (S2S) VPN.
 
-This procedure primarily uses the Azure Classic Portal, however, you must use Microsoft Azure PowerShell cmdlets to connect the VPN gateways.
+This procedure primarily uses the Azure classic portal, however, you must use Microsoft Azure PowerShell cmdlets to connect the VPN gateways.
 
 
 
@@ -109,7 +109,7 @@ VNet1: Address Space = 10.1.0.0/16; Region=US West
 
 VNet2: Address Space = 10.2.0.0/16; Region=Japan East
 
-1. Log in to the [Azure Classic Portal](http://manage.windowsazure.com). Note that these steps do not use the newer Azure Portal.
+1. Log in to the [Azure classic portal](http://manage.windowsazure.com). Note that these steps do not use the newer Azure Portal.
 
 2. In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
@@ -140,7 +140,7 @@ VNet2: Address Space = 10.2.0.0/16; Region=Japan East
   - **Address Space** - including Starting IP and Address Count. Verify that the address spaces you specify don’t overlap any of the address spaces that you have on your on-premises network. For this example, we’ll use 10.1.0.0/16 for VNet1.
   - **Add subnet** - including Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that is separate from your other role instances.
 
-**Click the checkmark** on the lower right of the page and your virtual network will begin to create. When it completes, you will see *Created* listed under *Status* on the *Networks* page in the Azure Classic Portal.
+**Click the checkmark** on the lower right of the page and your virtual network will begin to create. When it completes, you will see *Created* listed under *Status* on the *Networks* page in the Azure classic portal.
 
 ## Step 3 - Create another virtual network
 
@@ -152,7 +152,7 @@ Next, repeat the preceding steps to create another virtual network. In this exer
 
 ## Step 4 - Add local networks
 
-When you create a VNet-to-VNet configuration, you need to configure each VNet to identify each other as a local network site. In this procedure, you’ll configure each VNet as a local network. If you already have previously configured VNets, this is how you would add them as local networks in the Azure Classic Portal.
+When you create a VNet-to-VNet configuration, you need to configure each VNet to identify each other as a local network site. In this procedure, you’ll configure each VNet as a local network. If you already have previously configured VNets, this is how you would add them as local networks in the Azure classic portal.
 
 1. In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Add Local Network**
 
@@ -164,7 +164,7 @@ When you create a VNet-to-VNet configuration, you need to configure each VNet to
 
 4. After configuring VNet1 as a local network, go back and configure VNet2 using the values that correspond to that VNet.
 
-5. Now you’ll point each VNet to the other as a local network. In the Azure Classic Portal, go to the **Configure** page for VNet1. Under **site-to-site connectivity**, select **Connect to the local network**, then select **VNET2** as the local network.
+5. Now you’ll point each VNet to the other as a local network. In the Azure classic portal, go to the **Configure** page for VNet1. Under **site-to-site connectivity**, select **Connect to the local network**, then select **VNET2** as the local network.
 
   ![Connect to local network](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736058.jpg)  
 
