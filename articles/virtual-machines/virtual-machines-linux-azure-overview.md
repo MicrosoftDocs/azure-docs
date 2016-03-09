@@ -1,4 +1,4 @@
-<properties
+ <properties
    pageTitle="Azure and Linux | Microsoft Azure"
    description="Describes Azure Compute, Storage, and Networking services with Linux virtual machines."
    services="virtual-machines-linux"
@@ -43,7 +43,7 @@ If your preferred Linux distro of choice is not currently present in the gallery
 In order for your deployment to qualify for our 99.95 VM Service Level Agreement, you need to deploy two or more VMs running your workload inside of an availability set. This will ensure your VMs are distributed across multiple fault domains in our data centers as well as deployed onto hosts with different maintenance windows. For full details of our SLA you can view it **[online here](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/)**.  
 
 ## VM Sizes and Quotas
-When you deploy a VM in Azure, you will select a VM size within one of our series of sizes that is suitable to your workload. The size also affects the processing power, memory and storage capacity of the virtual machine. You are billed based on the amount of time the VM is running and consuming its allocated resources. For a more complete list, see the following article on [Sizes of Virtual Machines](virtual-machines-linux-a8-a9-a10-a11-specs.md).
+When you deploy a VM in Azure, you will select a VM size within one of our series of sizes that is suitable to your workload. The size also affects the processing power, memory and storage capacity of the virtual machine. You are billed based on the amount of time the VM is running and consuming its allocated resources. For a more complete list, see the following article on [Sizes of Virtual Machines](virtual-machines-linux-sizes.md).
 
 Here are some basic guidelines for selecting a VM size from one of our series (A, D, DS, G and GS).
 
