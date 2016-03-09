@@ -27,6 +27,7 @@ In Azure Active Directory Identity Protection, risk events are events that:
 
 This topic gives you a detailed overview of the available types of risk events.
 
+
 ## Leaked credentials
 
 Leaked credentials are found posted publicly in the dark web by Microsoft security researchers. These credentials are usually found in plain text. They are checked against Azure AD credentials, and if there is a match, they are reported as “Leaked credentials” in Identity Protection.
