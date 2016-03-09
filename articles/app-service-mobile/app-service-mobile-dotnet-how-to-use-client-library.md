@@ -57,7 +57,7 @@ To learn how to create new tables in your Mobile Apps backend, see the informati
 or the [Node.js Server SDK HOWTO](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). If you
 created your Mobile App backend in the Azure Portal using the QuickStart, you can also use the **Easy tables** setting in the [Azure portal].
 
-##<a name="create-client"></a>How to: Create the Mobile App client
+##<a name="create-client"></a>Create the Mobile App client
 
 The following code creates the [MobileServiceClient] object that is used to access your Mobile App backend.
 
@@ -66,7 +66,7 @@ The following code creates the [MobileServiceClient] object that is used to acce
 In the code above, replace `MOBILE_APP_URL` with the URL of the Mobile App backend, which is found in the blade for your Mobile App backend in the [Azure portal].
 It is normal and recommended that the client instance be a Singleton.
 
-## How to Work with Tables
+## Work with Tables
 
 The following section details how to search and retrieve records and modify the data within the table.  The following
 topics are covered:
@@ -256,7 +256,7 @@ When executing a query using an untyped table object, you must explicitly specif
 
 You get back JSON values that you can use like a property bag. For more information on JToken and Newtonsoft Json.NET, see the [Json.NET] site.
 
-##<a name="inserting"></a>How to: Insert data into a Mobile App backend
+### <a name="inserting"></a>How to: Insert data into a Mobile App backend
 
 All client types must contain a member named **Id**, which is by default a string. This **Id** is required to perform CRUD operations and for offline. The following
 code illustrates how to use the [InsertAsync] method to insert new rows into a table. The parameter contains the data to be inserted as a .NET object.
@@ -471,7 +471,7 @@ it's expected that some times this loading will fail. To handle such failures, y
 Finally, imagine that your table has many fields, but you only want to display some of them in your control. You may use the guidance in the
 section "[Select specific columns](#selecting)" above to select specific columns to display in the UI.
 
-##<a name="#customapi"></a>How to: Call a custom API
+##<a name="#customapi"></a>Work with a custom API
 
 A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a
 custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.
@@ -484,7 +484,7 @@ the **completeAll** API on the backend:
 Note that this a typed method call, which requires that the **MarkAllResult** return type be defined. Both typed and untyped methods are supported.
 
 
-##<a name="authentication"></a>How to: Authenticate users
+##<a name="authentication"></a>Authenticate users
 
 Mobile Apps supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account,
 Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You
@@ -785,7 +785,7 @@ The following topics cover Push Notifications:
 * [Obtain a Windows Store package SID](#package-sid)
 * [Register with Cross-platform templates](#register-xplat)
 
-##<a name="register-for-push"></a>How to: Register for Push Notifications
+###<a name="register-for-push"></a>How to: Register for Push Notifications
 
 The Mobile Apps client enables you to register for push notifications with Azure Notification Hubs. When registering, you obtain a handle that you obtain from the
 platform-specific Push Notification Service (PNS). You then provide this value along with any tags when you create the registration. The following code registers your
