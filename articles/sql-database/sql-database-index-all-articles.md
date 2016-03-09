@@ -107,7 +107,7 @@ This topic lists every topic that applies directly to the sql-database service o
 | 48 | [Use In-Memory OLTP (preview) to improve your application performance in SQL Database](sql-database-in-memory-oltp-migration.md) | Adopt In-Memory OLTP to improve transactional performance in an existing SQL database. |
 
 
-## Elastic scale
+## Elastic tools
 
 
 | &nbsp; | Title | Description |
