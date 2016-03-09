@@ -20,7 +20,7 @@
 
 # Passing Credentials to the Azure DSC Extension Handler #
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 As a part of the configuration process, you may need to set up user accounts, access services, or install a program in a user context. In order to do these things, you need to provide credentials. 
 
