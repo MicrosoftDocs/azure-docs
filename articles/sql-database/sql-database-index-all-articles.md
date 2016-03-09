@@ -34,7 +34,7 @@ This topic lists every topic that applies directly to the SQL Database service o
 | 3 | [What is SQL Database? Introduction to SQL Database, technical details, and an explanation of DTUs](sql-database-technical-overview.md) | Get an introduction to SQL Database: technical details and capabilities of Microsoft's relational database management system (RDBMS) in the cloud. |
 
 
-## Getting started
+## Get started
 
 
 | &nbsp; | Title | Description |
@@ -315,7 +315,7 @@ This topic lists every topic that applies directly to the SQL Database service o
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
 | 153 | [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn708514.aspx) | Guide to PowerShell documentation for Azure. |
-| 154 | [Azure Reference](https://msdn.microsoft.com/library/azure/mt420159.aspx) | ".NET, REST, and other Azure reference areas are detailed." |
+| 154 | [Azure Reference](https://msdn.microsoft.com/library/azure/mt420159.aspx) | .NET, REST, and other Azure reference areas are detailed. |
 | 155 | [Azure SQL Database resource limits](sql-database-resource-limits.md) | This page describes some common resource limits for Azure SQL Database. |
 | 156 | [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) | Transact-SQL statements that are less than fully supported in Azure SQL Database |
 | 157 | [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md) | Lists the minimum version number for each driver that client programs can use to connect to Azure SQL Database or to Microsoft SQL Server. A link is provided for version information about drivers that are released by the community rather than by Microsoft. |
@@ -327,22 +327,11 @@ This topic lists every topic that applies directly to the SQL Database service o
 
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
-| 159 | ["SQL Server 2016 Technical Documentation, on MSDN"](http://msdn.microsoft.com/library/ms130214.aspx) | "On MSDN, the starting top node in the Table of Contents (TOC) for Microsoft SQL Server 2016 documentation. Much of the SQL Server documentation on MSDN also applies to Azure SQL Databse. |
-| 160 | [Azure SQL Database General Limitations and Guidelines](sql-database-general-limitations.md) | This page describes some general limitations for Azure SQL Database as well as areas of interoperability and support. |
-| 161 | [Create a copy of an Azure SQL database using PowerShell](sql-database-copy-powershell.md) | Create copy of an Azure SQL database using PowerShell |
-| 162 | [Create a copy of an Azure SQL database using Transact-SQL](sql-database-copy-transact-sql.md) | Create copy of an Azure SQL database using Transact-SQL |
-| 163 | [SQL Database pricing tier recommendations](sql-database-service-tier-advisor.md) | When changing pricing tiers in the Azure portal, pricing tier recommendations are provided that recommend the tier that is best suited for running an existing Azure SQL Database’s workload. Pricing tiers describe the service tier and performance level of a SQL database. |
-
-
-## Special links
-
-
-| &nbsp; | Title | Description |
-| --: | :-- | :-- |
-| 164 | [Learning Path graphics for Microsoft Azure services](http://azure.microsoft.com/documentation/learning-paths/) | Annotated list of Learning Paths across all Azure services. |
-| 165 | [Learning Path: Learn Azure SQL Database](http://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/) | "Graphic layout of links to the major articles in the major categories, for Azure SQL Database." |
-| 166 | [Search the documentation of Microsoft Azure](http://azure.microsoft.com/search/documentation/) | "UI offering powerful search with filters for Azure re MSDN, videos, and more." |
-| 167 | [Updates announced for sql-database](https://azure.microsoft.com/en-us/updates/?service=sql-database) | Official posts in our formal micro-blog about updates to particular Azure services. |
+| 159 | [Azure SQL Database General Limitations and Guidelines](sql-database-general-limitations.md) | This page describes some general limitations for Azure SQL Database as well as areas of interoperability and support. |
+| 160 | [Create a copy of an Azure SQL database using PowerShell](sql-database-copy-powershell.md) | Create copy of an Azure SQL database using PowerShell |
+| 161 | [Create a copy of an Azure SQL database using Transact-SQL](sql-database-copy-transact-sql.md) | Create copy of an Azure SQL database using Transact-SQL |
+| 162 | [SQL Database pricing tier recommendations](sql-database-service-tier-advisor.md) | When changing pricing tiers in the Azure portal, pricing tier recommendations are provided that recommend the tier that is best suited for running an existing Azure SQL Database’s workload. Pricing tiers describe the service tier and performance level of a SQL database. |
+| 163 | [SQL Server 2016 Technical Documentation, on MSDN](http://msdn.microsoft.com/library/ms130214.aspx) | On MSDN, the starting top node in the Table of Contents (TOC) for Microsoft SQL Server 2016 documentation. Much of the SQL Server documentation on MSDN also applies to Azure SQL Databse. |
 
 
 #### Extras
