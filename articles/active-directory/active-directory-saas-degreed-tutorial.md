@@ -83,7 +83,7 @@ To configure and test Azure AD single sign-on with Degreed, you need to complete
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Degreed test user](#creating-a-Degreed-test-user)** - to have a counterpart of Britta Simon in Degreed that is linked to the Azure AD representation of her.
+4. **[Creating a Degreed test user](#creating-a-degreed-test-user)** - to have a counterpart of Britta Simon in Degreed that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -105,7 +105,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Degreed application using the following pattern: **“https://companyname.degreed.com”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Degreed application using the following pattern: **“https://\<company name\>.degreed.com”**.
+
+    b. Click **Next**.
 
 
 4. On the **Configure single sign-on at Degreed** page, perform the following steps:
@@ -116,7 +118,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Degreed support team via admin@degreed.com and attach the metadata file to your email.
+5. To get SSO configured for your application, contact your Degreed support team via [admin@degreed.com](mailto:admin@degreed.com) and attach the metadata file to your email.
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
@@ -148,9 +150,9 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 5. On the **Tell us about this user** dialog page, perform the following steps:
 <br><br> ![Creating an Azure AD test user](./media/active-directory-saas-degreed-tutorial/create_aaduser_05.png) <br>
 
-    a. As Type Of User, select New user in your organization.
+    a. As **Type Of User**, select **New user in your organization**.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. In the **User Name** textbox, type **BrittaSimon**.
 
     c. Click **Next**.
 
@@ -183,7 +185,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 The objective of this section is to create a user called Britta Simon in Degreed. Degreed supports just-in-time provisioning, which is by default enabled.
 
-There is no action item for you in this section. A new user will be created during an attempt to access Degreed if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+There is no action item for you in this section. A new user will be created during an attempt to access Degreed if it doesn't exist yet.
 
 > [AZURE.NOTE] If you need to create an user manually, you need to contact the Degreed support team.
 
