@@ -18,8 +18,6 @@
 
 # Microsoft Azure Machine Learning Competition FAQ
 
-http://aka.ms/cascompetitionfaq
-
 **Where can I ask general questions about data science?**
 
 Please use our [Microsoft Azure Machine Learning
