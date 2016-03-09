@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="03/07/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guide to create a virtual machine image for the Azure Marketplace
