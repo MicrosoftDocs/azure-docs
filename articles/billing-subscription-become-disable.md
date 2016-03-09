@@ -28,7 +28,7 @@ For more information about spending limits see [Azure Spending Limit](https://az
 
 ### Payment of an invoice is past due
 
-To resolve this, see the article [Why have you received a notification that your Azure subscription has a past due balance?](../billing-azure-subscription-past-due-balance.md)
+To resolve this, see the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md)
 
 ### The Azure subscription is cancelled
 
@@ -41,4 +41,4 @@ If you cannot access Azure portal, submit the support request from the Azure Sup
  * To submit a support ticket from the [Azure Support web site](https://azure.microsoft.com/support/options/), click **Get support**.
  * To submit a support ticket from the [Azure Account Center](https://account.windowsazure.com/Subscriptions), select a subscription, and then click **Contact Microsoft Support**.
 
-For more information see [How to Create a Support Ticket for Azure Billing and Subscription Issues](../billing-how-to-create-billing-support-ticket.md).
+For more information see [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
