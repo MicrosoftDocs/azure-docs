@@ -788,8 +788,9 @@ Often, you need to use this function when using a storage account or virtual net
 Returns details about the subscription in the following format.
 
     {
-        "id": "/subscriptions/#####"
-        "subscriptionId": "#####"
+        "id": "/subscriptions/#####",
+        "subscriptionId": "#####",
+        "tenantId": "#####"
     }
 
 The following example shows the subscription function called in the outputs section. 
