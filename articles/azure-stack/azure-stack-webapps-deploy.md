@@ -51,13 +51,13 @@ By using this portal, you can:
 
 By using this portal, you can:
 - Create an empty web app and a web app with SQL.
-- Create Wordpress, Django, Orchard, and DNN web apps.
+- Create WordPress, Django, Orchard, and DNN (DotNetNuke) web apps.
 - Create multiple App Service plans, as in Azure.
 - View web app properties.
 
-## Turn off IE Enhanced Security and enable cookies
+## Turn off IE enhanced security and enable cookies
 
-To deploy a resource provider, you must run your PowerShell ISE as an administrator. For this reason, you need to allow cookies and JavaScript in the Internet Explorer profile you use to sign in to Azure Active Directory.
+To deploy a resource provider, you must run your PowerShell Integrated Scripting Environment (ISE) as an administrator. For this reason, you need to allow cookies and JavaScript in the Internet Explorer profile that you use to sign in to Azure Active Directory.
 
 ### Turn off Internet Explorer enhanced security
 
@@ -68,47 +68,47 @@ To deploy a resource provider, you must run your PowerShell ISE as an administra
 
 ### Enable cookies  
 
-1. Select **Start**, then **All apps**, and then **Windows accessories**. Right-click on **Internet Explorer**, and then select **More** and **Run as an administrator**.  
-2. If you are prompted, select **Use recommended security**, and then **OK**.  
-3. In Internet Explorer, select **Tools** (the gear icon), and then **Internet Options** and the **Privacy** tab.  
+1. Select **Start** > **All apps** > **Windows accessories**. Right-click **Internet Explorer**, and then select **More** and **Run as an administrator**.  
+2. If you are prompted, select **Use recommended security** and then **OK**.  
+3. In Internet Explorer, select **Tools** (the gear icon) > **Internet Options** > **Privacy** tab.  
 4. Select **Advanced**. Make sure that both **Accept** check boxes are selected, and then select **OK** and **OK** again.  
-5. Close Internet Explorer and restart PowerShell ISE as an administrator.  
+5. Close Internet Explorer, and then restart PowerShell ISE as an administrator.  
 
 ## Install the latest version of Azure PowerShell
 
-1. Sign in to the Azure Stack POC machine as **AzureStack/administrator**.  
-2. Use the remote desktop connection to sign in to the `ClientVM.AzureStack.local` virtual machine as an administrator.  
-3. Open **Control Panel** and select **Uninstall a program**. Right-click on **Microsoft Azure PowerShell - November 2015** and select **Uninstall**.  
-4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).  
+1. Sign in to the Azure Stack POC machine as an Azure Stack administrator.  
+2. Using Remote Desktop Connection, sign in to the `ClientVM.AzureStack.local` virtual machine as an administrator.  
+3. Open **Control Panel**, and select **Uninstall a program**. Right-click **Microsoft Azure PowerShell - November 2015**, and select **Uninstall**.  
+4. Download and install the latest version of Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).  
 
 ## Prerequisites for installing Azure Stack Web App
 
-To install Azure Stack Web Apps there are a few items that you will need. Those items are:
+To install Azure Stack Web Apps, there are a few items that you will need. Those items are:
 
 - A completed deployment of Azure Stack Technical Preview 1.
-- Enough space in your Azure Stack system to deploy a small deployment of Azure Stack Web Apps. The space required is roughly 20 Gb of Ram.
+- Enough space in your Azure Stack system to deploy a small deployment of Azure Stack Web Apps. The space that is required is roughly 20 GB of RAM.
 - A SQL Server database.
 - The DNS name for your Azure Stack deployment.
-- A storage account [created](azure-stack-provision-storage-account.md) in the "Default Provider Subscription" as the Service Admin.
+- A storage account that was [created](azure-stack-provision-storage-account.md) in the "Default Provider Subscription" as the service admin.
 - The key to the storage account.
 
-### SQL server
+### SQL Server
 
-By default the Azure Stack App Service ARM template has defaults set to use the SQL Server that is installed along with the Azure Stack SQL RP. When you install the SQL RP keep track of the resource group that was used to install it as well as the SA password. Both are needed when installing Azure Stack Web Apps.
+By default, the Azure Stack App Service ARM template has its defaults set to use the instance of SQL Server that is installed, along with the Azure Stack SQL resource provider. When you install the SQL resource provider, keep track of the resource group that was used to install it, as well as the SA password. You need both when you install Azure Stack Web Apps.
 
 ## Install Azure Stack Web Apps
 
-Azure Stack Web App installation has 5 steps:
+There are five steps for installing Azure Stack Web App:
 
 1. Create certificates to be used by Azure Stack Web Apps.
 2. Use the installer to download and stage Azure Stack Web Apps.
 3. Deploy the ARM template.
-4. Create DNS records for the Front End and Management Server load balancers.
+4. Create DNS records for the front-end and management server load balancers.
 5. Register the newly deployed Web Apps resource provider with ARM.
 
-The installation experience for Azure Stack Web Apps starts with the download of the [Azure Stack App Service preview installer][Azure_Stack_App_Service_preview_installer] and a zip file with [Azure Stack App Service deployment helper scripts][AppServiceHelperScripts].
+Before you start installation, download the [Azure Stack App Service preview installer][Azure_Stack_App_Service_preview_installer] and a .zip file with [Azure Stack App Service deployment helper scripts][AppServiceHelperScripts].
 
-After downloading the AppServiceHelperScripts.zip, extract the files from it. The zip file has three scripts:
+After downloading AppServiceHelperScripts.zip, extract the files from it. The .zip file has three scripts:
 
 - Create-AppServiceCerts.ps1
 - Create-AppServiceDnsRecords.ps1
@@ -116,25 +116,25 @@ After downloading the AppServiceHelperScripts.zip, extract the files from it. Th
 
 ### Step 1: Create certificates to be used by Azure Stack Web Apps
 
-This first script works with the Azure Stack certificate authority to create 3 certificates that are needed by Web Apps. Run the script as follows:
+This first script works with the Azure Stack certificate authority to create three certificates that are needed by Web Apps. Run the script as follows:
 
 Create-AppServiceCerts.ps1 <pfxPassword>
 
-During the next step you need to browse to these files so they can be consumed by the installer. The password is used when starting ARM deployment.
+During the next step, you need to browse to these files so that they can be used by the installer. The password is used when starting ARM deployment.
 
 ### Step 2: Use the installer to download and stage Azure Stack Web Apps
 
 The appservice.exe installer will:
 
-1.	Prompt the user to approve of the Microsoft and third party EULAs.
+1.	Prompt the user to approve the Microsoft and third-party Software License Terms.
 2.	Collect Azure Stack deployment information.
-3.	Create a blob container in the Azure Stack storage account specified.
-4.	Download the files needed to install the Azure Stack Web App resource provider.
+3.	Create a blob container in the Azure Stack storage account that is specified.
+4.	Download the files that are needed to install the Azure Stack Web App resource provider.
 5.	Prepare the install to deploy the Web App resource provider in the Azure Stack environment.
-6.	Upload the files to the Azure Stack storage account specified.
-7.	Present information needed to kick off the Azure Resource Manager template.
+6.	Upload the files to the Azure Stack storage account that is specified.
+7.	Present information that is needed to kick off the Azure Resource Manager template.
 
-As administrator run appservice.exe. The UI screens for the installer appear as shown:
+As an administrator, run appservice.exe. The UI screens for the installer appear as shown:
 
 >[AZURE.NOTE] You must use an elevated account (local or domain administrator) to execute the installer. If you sign in as `azurestack\azurestackuser`, you will be prompted for elevated credentials.
 
@@ -142,7 +142,7 @@ Select **Install** in the upper-left corner.
 
 ![Azure Stack App Service Technical Preview 1 Azure Resource Manager deployment][1]
 
-Approve the Microsoft Software Pre-Release License Terms, and then select **Next**.
+Approve the Microsoft Pre-Release Software License Terms, and then select **Next**.
 
 ![Azure Stack App Service Technical Preview 1 Microsoft Software Pre-Release License Terms][2]
 
@@ -150,7 +150,7 @@ Approve the license terms, and then select **Next**.
 
 ![Azure Stack App Service Technical Preview 1 Microsoft Software License Terms][3]
 
-In this step, provide the storage account and storage account access key you created for this Web Apps deployment. You can copy the storage account name and key from the Azure Stack portal. You can also get the name and key by going to the storage account resource, and then selecting **Settings** and **Access keys**. The Azure Stack DNS suffix will be the domain for the Azure Stack. In this case, it's `azurestack.local`.
+In this step, provide the storage account and storage account access key that you created for this Web Apps deployment. You can copy the storage account name and key from the Azure Stack portal. You can also get the name and key by going to the storage account resource, and then selecting **Settings** and **Access keys**. The Azure Stack DNS suffix will be the domain for the Azure Stack. In this case, it's `azurestack.local`.
 
 ![Azure Stack App Service Technical Preview 1 storage account and storage account access key][4]
 
@@ -162,11 +162,11 @@ When the installer has successfully completed all of its steps, select **Deploy 
 
 ![Azure Stack App Service Technical Preview 1 installer Deploy to Azure Stack prompt][6]
 
-Option 1 requires additional support in the Azure Stack Portal and so cannot be used at this time. For that reason you need to use Option 2. In the dialog box, select **Option 2 Use Power Shell cmdlet to deploy** and then select **Copy**.  
+Option 1 requires additional support in the Azure Stack portal, so it cannot be used at this time. For that reason, you need to use Option 2. In the dialog box, select **Option 2: Use PowerShell cmdlet to deploy** and then select **Copy**.  
 
 ![Azure Stack App Service Technical Preview 1 Azure Resource Manager template prompt][7]
 
-Open Notepad and paste the contents of your clipboard immediately.  The Power Shell command cannot be immediately executed but rather needs some edits prior to execution.
+Open Notepad and paste the contents of your clipboard immediately.  You can't immediately execute the PowerShell command--you need to make some edits before executing it.
 
 >[AZURE.NOTE] If this information is lost, you can get everything you need by accessing the storage account blob container directly.
 
@@ -176,23 +176,23 @@ After this command is kicked off with the correct information, it will:
 
 - Create a storage account.
 - Create VMs for each Web App role type.
-- Create VM to act as the file server.
+- Create a VM to act as the file server.
 - Install the Azure Stack Web App resource provider software.
 - Install the certificates that were obtained in Step 1.
-- Create SLBs to operate in front of the Management Server and Front End servers.
+- Create software load balancers to operate in front of the management server and front-end server.
 
 Edit the PowerShell command and populate the following items:
 
 - The storage account name.
-- The environment DNS suffix, which is the subdomain that is used for web apps created in this environment (example: webapps.azurestack.local).
-- The SA password that was set when installing the SQL RP.
-- The number of workers, which only creates Shared workers.
-- The number of instances per role type. There may not be a lot of resources left for additional VMs in the single-host TP1 POC environment so it is usually best to just go with 1 instance of each role type.
-- The resource group used for deploying web apps which must be the same as the one used to deploy the SQL server.
-- The default SSL pfx file password.
-- The resource provider SSL pfx file password.
+- The environment DNS suffix, which is the subdomain that is used for web apps that are created in this environment (example: webapps.azurestack.local).
+- The SA password that was set when installing the SQL resource provider.
+- The number of workers (which only creates Shared workers).
+- The number of instances per role type. There might not be a lot of resources left for additional VMs in the single-host TP1 POC environment, so it is usually best to just go with one instance of each role type.
+- The resource group that is used for deploying web apps. This must be the same as the one you used to deploy the computer running SQL Server.
+- The default SSL .pfx file password.
+- The resource provider SSL .pfx file password.
 
-The two SSL pfx file passwords are both the same as the password that was entered when running the script in Step 1. There are two entries here as the ARM template is forward looking to where there are more options available and different passwords can be used between the certificates.
+The two SSL .pfx file passwords are both the same as the password that you entered when running the script in Step 1. There are two entries here because the ARM template is forward looking to where there are more options available and different passwords can be used between the certificates.
 
 Here is an example deployment command:
 
@@ -216,44 +216,44 @@ New-AzureRmResourceGroupDeployment
 
 When your command is ready, run it and authenticate as the Azure Stack service administrator.
 
-To make sure the deployment was successful, in the Azure Stack portal, click **Resource Groups** and then click the **WebSitesSQL** resource group. A green check mark next to the resource provider name indicates that it deployed successfully.
+To make sure the deployment was successful, in the Azure Stack portal, click **Resource Groups**, and then click the **WebSitesSQL** resource group. A green check mark next to the resource provider name indicates that it deployed successfully.
 
-### Step 4: Create DNS records for the Front End and Management Server load balancers
+### Step 4: Create DNS records for the front-end and management server load balancers
 
-During ARM deployment of Web Apps, two Software Load Balancers (SLBs), were created in the network resource provider. They point to the Management Servers and the Front End servers. The portal and ARM based requests to the Azure Stack App Service resource provider go to the Management Server. Web app requests to to the Front End servers. Those two SLBs need DNS entries in order to enable the portal and web app requests.  
+During the ARM deployment of Web Apps, two software load balancers (SLBs) were created in the network resource provider. They point to the management servers and the front-end servers. The portal and ARM-based requests to the Azure Stack App Service resource provider go to the management servers. Web app requests go to the front-end servers. Those two software load balancers need DNS entries in order to enable the portal and web app requests.  
 
-To create DNS records as described, run the Create-AppServiceDnsRecords.ps1 script that was in the zip file you download in the beginning. The syntax is:
+To create DNS records as described, run the Create-AppServiceDnsRecords.ps1 script that was in the .zip file you downloaded in the beginning. The syntax is:
 
 ```
 Create-AppServiceDns <AAD tenant ID> <Azure account credential>
 ```
 
-You will be prompted for the AAD tenant id and credential. An example of those items looks like:
+You will be prompted for the Azure Active Directory tenant ID and credential. An example of those items looks like:
 
 AAD tenant ID = contoso.onmicrosoft.com
 Azure account credential = administrator@contoso.onmicrosoft.com
 
 ### Step 5: Register the newly deployed Azure Stack Web Apps resource provider with ARM
 
-This step could be performed by going into the portal and doing it manually but to make things more consistent with the earlier steps a script has been provided for this purpose. Run the Register-AppServiceResourceProvider.ps1 script. The syntax is:
+This step could be performed by going into the portal and doing it manually. But to make things more consistent with the earlier steps, a script has been provided for this purpose. Run the Register-AppServiceResourceProvider.ps1 script. The syntax is:
 
 ```
 Register-AppServiceResourceProvider.ps1 <AAD tenant ID> <Azure account credential> <resource provider admin credential>
 ```
 
-## Test drive your new Azure Stack Web Apps deployment
+## Test-drive your new Azure Stack Web Apps deployment
 
-**Deploy a new Web App**
+**Deploy a new web app**
 
 Now that you have deployed and registered the Web Apps resource provider, you can test it to make sure that tenants can deploy web apps.
 
-1. In the Azure Stack portal, click **New**, click **Web + Mobile**, and click **Web App**.
+1. In the Azure Stack portal, click **New**, click **Web + Mobile**, and then click **Web App**.
 
 2. In the **Web App** blade, type a name in the **Web app** box.
 
 3. Under **Resource Group**, click **New**, and then type a name in the **Resource Group** box.
 
-4. Click **App Service plan/Location** and click **Create New**.
+4. Click **App Service plan/Location**, and then click **Create New**.
 
 5. In the **App Service plan** blade, type a name in the **App Service plan** box.
 
@@ -265,15 +265,15 @@ Now that you have deployed and registered the Web Apps resource provider, you ca
 
 **Deploy a WordPress, DNN, or Django website (optional)**
 
-1. In Azure Stack management portal, click “+”, go to marketplace, deploy a Django website, and wait for successful completion. The Django web platform uses a file system based database and doesn’t require any additional RPs like SQL or MySQL.  
+1. In the Azure Stack portal, click “+”, go to the Azure Marketplace, deploy a Django website, and wait for successful completion. The Django web platform uses a file system-based database and doesn’t require any additional resource providers like SQL or MySQL.  
 
-2. If you also deployed MySQL RP, you can deploy a WordPress website from the marketplace. When prompted for database parameters input the username as *User1@Server1* (with the username and server name of your choice).
+2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, input the user name as *User1@Server1* (with the user name and server name of your choice).
 
-3. If you also deployed SQLServer RP, you can deploy a DNN (.Net Nuke) website from the marketplace. When prompted for database parameters pick a database in the SQL Server connected to your Resource Provider.
+3. If you also deployed a SQL Server resource provider, you can deploy a DNN website from the Marketplace. When you're prompted for database parameters, pick a database in the computer running SQL Server that is connected to your resource provider.
 
 ## Next steps
 
-You can also try out other [PaaS services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sqlrp-deploy.md) and [MySQL resource provider](azure-stack-mysqlrp-deploy.md).
+You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sqlrp-deploy.md) and [MySQL resource provider](azure-stack-mysqlrp-deploy.md).
 
 <!--Image references-->
 [1]: ./media/azure-stack-webapps-deploy/appsvcinstall-1.png
