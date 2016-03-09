@@ -107,8 +107,6 @@ Now that your service is created, you can take the next steps: build an [index](
 
 - [Query an Azure Search index using Search Explorer in the Azure Portal](search-explorer.md)
 
-- [Get started with Azure Search in .NET](search-get-started-dotnet.md)
-
 - [How to use Azure Search in .NET](search-howto-dotnet-sdk.md)
 
 - [Manage your search solution in Microsoft Azure](search-manage.md)

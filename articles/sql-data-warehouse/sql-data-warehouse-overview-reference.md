@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # Reference topics for SQL Data Warehouse
@@ -21,8 +21,11 @@
 These articles contain reference information for SQL Data Warehouse.
 
 [Transact-SQL language elements][]
+
 [Transact-SQL statements][]
+
 [Transact-SQL system views][]
+
 [PowerShell cmdlets][]
 
 
