@@ -109,7 +109,7 @@ VNet1: Address Space = 10.1.0.0/16; Region=US West
 
 VNet2: Address Space = 10.2.0.0/16; Region=Japan East
 
-1. Log in to the [Azure classic portal](http://manage.windowsazure.com). Note that these steps do not use the newer Azure Portal.
+1. Log in to the [Azure classic portal](https://manage.windowsazure.com). Note that these steps do not use the newer Azure Portal.
 
 2. In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
@@ -220,7 +220,7 @@ Wait for the connections to initialize. Once the gateway has initialized, the ga
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [How to Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more information.
 
 
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
