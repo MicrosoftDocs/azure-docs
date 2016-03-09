@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to Use Apache Cordova Plugin for Azure Mobile Apps"
-	description="How to Use Apache Cordova Plugin for Azure Mobile Apps"
+	pageTitle="How to Use the JavaScript SDK for Azure Mobile Apps"
+	description="How to Use v for Azure Mobile Apps"
 	services="app-service\mobile"
 	documentationCenter="javascript"
 	authors="adrianhall"
@@ -10,33 +10,48 @@
 <tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-html"
+	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
 	ms.date="03/07/2016"
 	ms.author="adrianha"/>
 
-# How to Use Apache Cordova Client Library for Azure Mobile Apps
+# How to Use the JavaScript Client Library for Azure Mobile Apps
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-This guide teaches you to perform common scenarios using the latest [Apache Cordova Plugin for Azure Mobile Apps]. If you are new to Azure Mobile
-Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built Apache Cordova project. In this
-guide, we focus on the client-side Apache Cordova Plugin.
+This guide teaches you to perform common scenarios using the latest [JavaScript SDK for Azure Mobile Apps]. If you are new to Azure Mobile
+Apps, first complete [Azure Mobile Apps Quick Start] to create a backend and create a table. In this guide, we focus on using the mobile
+backend in HTML/JavaScript Web applications.
 
 ##<a name="Setup"></a>Setup and Prerequisites
 
 This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those
-tutorials. This guide also assumes that you have added the Apache Cordova Plugin to your code.  If you have not done so, you may add the Apache
-Cordova plugin to your project on the command-line:
+tutorials.
+
+Installing the Azure Mobile Apps JavaScript SDK can be done via the `npm` command:
 
 ```
-cordova plugin add cordova-plugin-ms-azure-mobile-apps
+npm install azure-mobile-apps-client --save
 ```
 
-For more information on creating [your first Apache Cordova app], see their documentation.
+Once installed, the library is located in `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.js`.  Copy this file to your web area.
 
-[AZURE.INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
+```
+<script src="path/to/MobileServices.Web.js"></script>
+```
+
+The library can also be used as an ES2015 module, within CommonJS environments such as Browserify and
+Webpack and as an AMD library.  For example:
+
+```
+# For ECMAScript 5.1 CommonJS
+var WindowsAzure = require('azure-mobile-apps-client');
+# For ES2015 modules
+import * as WindowsAzure from 'azure-mobile-apps-client';
+```
+
+[AZURE.INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
 ##<a name="auth"></a>How to: Authenticate Users
 
@@ -45,17 +60,11 @@ providers: Facebook, Google, Microsoft Account, and Twitter.   You can set permi
 access for specific operations to only authenticated users. You can also use the identity of authenticated
 users to implement authorization rules in server scripts. For more information, see the [Get started with authentication] tutorial.
 
-When using authentication in an Apache Cordova app, the following Cordova plugins must be available:
-
-* [cordova-plugin-device]
-* [cordova-plugin-inappbrowser]
-
 Two authentication flows are supported: a server flow and a client flow.  The server flow provides the simplest
-authentication experience, as it relies on the provider's web authentication interface. The client flow allows
-for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific
-device-specific SDKs.
+authentication experience, as it relies on the provider's web authentication interface. The client flow allows for
+deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific SDKs.
 
-[AZURE.INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
+[AZURE.INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
 ##<a name="register-for-push"></a>How to: Register for Push Notifications
 
