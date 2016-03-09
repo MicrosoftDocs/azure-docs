@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Get started with Azure Data Factory (Azure PowerShell)"
+	pageTitle="Build your first data factory (PowerShell) | Microsoft Azure"
 	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
 	manager="jhubbard"
-	editor="monicar"/>
+	editor="monicar"
+/>
 
 <tags
 	ms.service="data-factory"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/18/2015"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# Get started with Azure Data Factory (Azure PowerShell)
+# Build your first Azure data factory using Azure PowerShell
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -42,6 +43,8 @@ If you are using Azure PowerShell of **version < 1.0**, You will need to use cmd
 	2. Run **Get-AzureSubscription** to view all the subscriptions for this account.
 	3. Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
 4. Switch to AzureResourceManager mode as the Azure Data Factory cmdlets are available in this mode: **Switch-AzureMode AzureResourceManager**.
+
+Please see [Deprecation of Switch AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell) for details. 
 
 
 ## Step 1: Create the data factory

@@ -56,8 +56,6 @@ As a first step, setup the data management gateway as per the instructions in th
 	        "type": "OnPremisesTeradata",
 	        "typeProperties": {
 	            "server": "<server>",
-	            "database": "<database>",
-	            "schema": "<schema>",
 	            "authenticationType": "<authentication type>",
 	            "username": "<username>",
 	            "password": "<password>",
@@ -92,7 +90,6 @@ Setting “external”: true and specifying externalData policy tells data facto
 	        "type": "RelationalTable",
 	        "linkedServiceName": "OnPremTeradataLinkedService",
 	        "typeProperties": {
-	            "tableName": "MyTable"
 	        },
 	        "availability": {
 	            "frequency": "Hour",
@@ -228,8 +225,6 @@ Property | Description | Required
 -------- | ----------- | --------
 type | The type property must be set to: **OnPremisesTeradata** | Yes
 server | Name of the Teradata server. | Yes
-database | Name of the Teradata database. | Yes 
-schema  | Name of the schema in the database. | No
 authenticationType | Type of authentication used to connect to the Teradata database. Possible values are: Anonymous, Basic, and Windows. | Yes
 username | Specify user name if you are using Basic or Windows authentication. | No 
 password | Specify password for the user account you specified for the username. | No 
@@ -241,11 +236,8 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for dataset of type **RelationalTable** (which includes Teradata dataset) has the following properties.
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type properties supported for the Teradata dataset at this time. 
 
-Property | Description | Required
--------- | ----------- | --------
-tableName | Name of the table in the Teradata Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) 
 
 ## Teradata copy activity type properties
 
@@ -257,7 +249,7 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
-query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No (if **tableName** of **dataset** is specified)
+query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | Yes
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

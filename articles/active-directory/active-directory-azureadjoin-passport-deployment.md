@@ -8,6 +8,7 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
+<<<<<<< HEAD
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
@@ -15,6 +16,15 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/19/2015"
+=======
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/07/2016" 
+>>>>>>> 2c568e7204c308aa827b931f121f739af135f815
 	ms.author="femila"/>
 
 
@@ -25,9 +35,16 @@ After connecting Windows 10 domain-joined devices with Azure Active Directory (A
 ## Deploy System Center Configuration Manager Version 1509 for Technical Preview
 To deploy user certificates based on Microsoft Passport keys, you need the following:
 
+<<<<<<< HEAD
 - **System Center Configuration Manager Version 1509 for Technical Preview**. For more information, see [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) and [System Center Configuration Manager Team Blog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
 - **Public key infrastructure (PKI)**: To enable Microsoft Passport for Work by using user certificates, you must have a PKI in place. If you don’t have one, or you don’t want to use it for user certificates, you can do this:
  - **Deploy a domain controller**: Deploy a new domain controller that has Windows Server 2016 build 10551 (or newer) installed, and follow the steps to [install a replica domain controller in an existing domain](https://technet.microsoft.com/library/jj574134.aspx) or to [install a new Active Directory forest, if you're creating a new environment](https://technet.microsoft.com/library/jj574166). (The ISOs are available for download on [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
+=======
+- **System Center Configuration Manager version 1509 for Technical Preview**. For more information, see [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update). and [System Center Configuration Manager Team Blog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
+- **PKI infrastructure**: To enable Microsoft Passport for Work using user certificates you must have a PKI infrastructure in place. If you don’t have one or you don’t want to use it for user certificates you can deploy a domain controllers (DC) of the new version of Windows Server:
+ - **Deploy a DC of new version of Windows Server**: On a brand new Windows Server build 10551 or newer (The ISOs are available for download on [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true)) follow the steps to [install a replica DC in an existing domain](https://technet.microsoft.com/library/jj574134.aspx) or to [install a new Active Directory forest if creating a brand new 
+ - environment](https://technet.microsoft.com/library/jj574134.aspx).
+>>>>>>> 2c568e7204c308aa827b931f121f739af135f815
 
 ## Configure Microsoft Passport for Work via Group Policy in Active Directory
 

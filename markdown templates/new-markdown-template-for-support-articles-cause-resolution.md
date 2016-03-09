@@ -27,7 +27,7 @@
 - Exceptions (optional) - List the relevant scenarios that are not covered in this article. For example, you describe that the Linux/OSS scenarios aren't covered.
 
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 Select one of the following disclaimers depending on your scenario.
 

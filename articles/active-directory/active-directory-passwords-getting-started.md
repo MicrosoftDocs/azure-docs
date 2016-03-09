@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Getting Started: Azure AD Password Management | Microsoft Azure"
-	description="Password management enabling users to reset their own passwords, discover pre-requisites for password reset, and enable Password Writeback to manage on-premises passwords in Active Directory."
+	description="Enable users to reset their own passwords, discover pre-requisites for password reset, and enable Password Writeback to manage on-premises passwords in Active Directory."
 	services="active-directory"
 	keywords="Active directory password management, password management, reset Azure AD password"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/10/2016" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Getting started with Password Management
@@ -48,12 +48,12 @@ Before you can enable and use self-service password reset, you must complete the
 - Create an AAD tenant. For more information, see [Getting Started with Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
 - Obtain an Azure subscription. For more information, see [What is an Azure AD tenant?](active-directory-administer.md#what-is-an-azure-ad-tenant).
 - Associate your AAD tenant with your Azure subscription. For more information, see [How Azure subscriptions are associated with Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
-- Upgrade to Azure AD Premium or Basic. For more information, see [Azure Active Directory Editions](https://azure.microsoft.com/pricing/details/active-directory/).
+- Upgrade to Azure AD Premium, Basic, or use an O365 paid license. For more information, see [Azure Active Directory Editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
-  >[AZURE.NOTE] To enable self-service password reset, you must upgrade to Azure AD Premium or Azure AD Basic. For more information, Azure Active Directory Editions. This information includes detailed instructions on how to sign up for Azure AD Premium or Basic, how to activate your license plan and activate your Azure AD access, and how to assign access to administrator and user accounts.
+  >[AZURE.NOTE] To enable self-service password reset for cloud users, you must upgrade to Azure AD Premium, Azure AD Basic, or a paid O365 license.  To enable-self-service password reset for your on-premises users, you must upgrade to Azure AD Premium. For more information, Azure Active Directory Editions. This information includes detailed instructions on how to sign up for Azure AD Premium or Basic, how to activate your license plan and activate your Azure AD access, and how to assign access to administrator and user accounts.
 
 - Create at least one administrator account and one user account in your AAD directory.
-- Assign an AAD Premium or Basic license to the administrator and user account that you created.
+- Assign an AAD Premium, Basic, or O365 paid license to the administrator and user account that you created.
 
 ### Step 1: Configure password reset policy
 To configure user password reset policy, complete the following steps:

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli" />
 
 # Manage your StorSimple device controllers
@@ -170,6 +170,8 @@ Perform the following steps to reset your Microsoft Azure StorSimple device to f
 	
 	> - Use the `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` command to skip the firmware version check if the factory reset cmdlet (as used above) reports the firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions. You must skip the firmware check (by using the `–SkipFirmwareCheck` option) when performing a factory reset on a device that was previously updated using Microsoft Update or a hotfix mechanism.
 	
+	> - The factory reset procedure may fail for StorSimple devices that are running Update 1 or 1.1 in the Government portal and have performed a successful single or dual controller replacement (with replacement controllers that were shipped with pre-Update 1 software). This happens when the factory reset image is validated for the presence of a SHA1 file on the controller that does not exist for pre-Update 1 software. If you see this factory reset failure, contact Microsoft Support to assist you with the next steps. This issue is not seen with replacement controllers that were shipped from the factory with Update 1 or later software.	
+
 	> - For more information on how to use this cmdlet, go to the [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
 

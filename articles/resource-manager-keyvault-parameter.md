@@ -22,8 +22,6 @@ When you need to pass a secure value (like a password) as a parameter during dep
 in your template so the secret is never exposed, and you do not need to manually enter the value for the secret each time you deploy the resources. You specify which users or 
 service principals can access the secret.  
 
-> [AZURE.NOTE] Currently, only Azure CLI supports the ability to reference a key vault secret. Azure PowerShell will add this ability as soon as possible. 
-
 ## Deploy a key vault and secret
 
 To create key vault that can be referenced from other Resource Manager templates, you must set the **enabledForTemplateDeployment** property to **true**, and you must grant access to the user or 

@@ -14,16 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/18/2015"
+   ms.date="02/17/2016"
    ms.author="jgao"/>
 
 # Create HBase clusters on Azure Virtual Network 
 
 Learn how to create Azure HDInsight HBase clusters on an [Azure Virtual Network][1].
-
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Create HBase clusters on Azure Virtual Network](hdinsight-hbase-provision-vnet-v1.md)
 
 With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly. The benefits include:
 
@@ -36,16 +32,7 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). For instructions, see [Install and configure Azure PowerShell](../powershell-install-configure.md). To execute Azure PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Using the Set-ExecutionPolicy cmdlet][2].
-
-	Before running Azure PowerShell scripts, make sure you are connected to your Azure subscription by using the following cmdlet:
-
-		Add-AzureAccount
-
-	If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
-
-		Select-AzureSubscription <AzureSubscriptionName>
-
+- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). 
 
 ## Create HBase cluster into virtual network
 

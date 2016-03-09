@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
@@ -50,7 +50,7 @@ Once your data is saved as a Hive table, in the next section we will connect to 
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Create a new notebook. Click **New**, and then click **Python 2**.
+2. Create a new notebook. Click **New**, and then click **PySpark**.
 
 	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 
@@ -58,22 +58,12 @@ Once your data is saved as a Hive table, in the next section we will connect to 
 
 	![Provide a name for the notebook](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
-4. Import the required modules and create the Spark and Hive contexts. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**.
+4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark, SQL, and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
 
-		from pyspark import SparkContext
 		from pyspark.sql import *
-		from pyspark.sql import HiveContext
-		from pyspark.sql import Row
 		
-		# Create Spark and Hive contexts
-		sc = SparkContext('yarn-client')
-		hiveCtx = HiveContext(sc)
-
-	Everytime you run a job in Jupyter, your web browser window title will show a **(Busy)** status along with the notebook title. You will also see a solid circle next to the **Python 2** text in the top-right corner. After the job completes, this will change to a hollow circle.
-
-	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-use-bi-tools/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
-
-4. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
+	
+5. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
 
 	In an empty cell, paste the following snippet and press **SHIFT + ENTER**. This snippet registers the data into a Hive table called **hvac**.
 
@@ -94,9 +84,10 @@ Once your data is saved as a Hive table, in the next section we will connect to 
 		dfw = DataFrameWriter(hvacTable)
 		dfw.saveAsTable('hvac')
 
-5. Verify that the table was successfully created. In an empty cell in the notebook, copy the following snippet and press **SHIFT + ENTER**.
+5. Verify that the table was successfully created. You can use the `%%hive` magic to run Hive queries directly. For more information about the `%%hive` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 
-		hiveCtx.sql("SHOW TABLES").show()
+		%%hive
+		SHOW TABLES
 
 	You will see an output like the following:
 
@@ -113,7 +104,8 @@ Once your data is saved as a Hive table, in the next section we will connect to 
 
 6. Verify that the table contains the intended data. In an empty cell in the notebook, copy the following snippet and press **SHIFT + ENTER**.
 
-		hiveCtx.sql("SELECT * FROM hvac LIMIT 10").show()
+		%%hive
+		SELECT * FROM hvac LIMIT 10
 	
 7. You can now shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
 

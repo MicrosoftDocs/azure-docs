@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="rajram"/>
 
 
 # Get started with the SMTP Connector and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [SMTP API](../connectors/create-api-smtp.md).
+
 Connect to a SMTP server and send email, including emails with attachments. SMTP connector "Send Email" action lets you send email to the specified email address(es).
 
 Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of a workflow. You can add the SMTP Connector to your business workflow and process data as part of this workflow within a Logic App. 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 .NET Native App | Microsoft Azure"
+	pageTitle="Azure AD v2.0 .NET Native App | Microsoft Azure"
 	description="How to build a .NET native app that signs users in with both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter=""
@@ -13,15 +13,15 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# App model v2.0 preview: Add sign-in to a Windows Desktop app
+# Add sign-in to a Windows Desktop app
 
-With the v2.0 app model, you can quickly add authentication to your desktop apps with support for both personal Microsoft accounts and work or school accounts.  It also enables your app to securely communicate with a backend web api, as well as a few of the [Office 365 Unified APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
+With the the v2.0 endpoint, you can quickly add authentication to your desktop apps with support for both personal Microsoft accounts and work or school accounts.  It also enables your app to securely communicate with a backend web api, as well as [the Microsoft Graph](https://graph.microsoft.io) and a few of the [Office 365 Unified APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 For [.NET native apps that run on a device](active-directory-v2-flows.md#mobile-and-native-apps), Azure AD provides the Active Directory Authentication Library, or ADAL.  ADAL's sole purpose in life is to make it easy for your app to get tokens for calling web services.  To demonstrate just how easy it is, here we'll build a .NET WPF To-Do List app that:
 
@@ -29,11 +29,7 @@ For [.NET native apps that run on a device](active-directory-v2-flows.md#mobile-
 -	Securely calls a backend To-Do List web service, which is also secured by OAuth 2.0.
 -	Signs users out.
 
-To build the complete working app, you'll need to:
-
-2. Register your app.
-3. Install & Configure ADAL.
-5. Use ADAL to get tokens from Azure AD.
+## Download sample code
 
 The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) or clone the skeleton:
 
@@ -41,14 +37,14 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 
 The completed app is provided at the end of this tutorial as well.
 
-## 1. Register an App
+## Register an app
 Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.
 - Add the **Mobile** platform for your app.
 - Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
 
-## 2. Install & Configure ADAL
+## Install & Configure ADAL
 Now that you have an app registered with Microsoft, you can install ADAL and write your identity-related code.  In order for ADAL to be able to communicate the v2.0 endpoint, you need to provide it with some information about your app registration.
 
 -	Begin by adding ADAL to the TodoListClient project using the Package Manager Console.
@@ -63,7 +59,7 @@ PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory
 - In the TodoList-Service project, open `web.config` in the root of the project.  
     - Replace the `ida:Audience` value with the same **Application Id** from the portal.
 
-## 3. Use ADAL to Get Tokens
+## Use ADAL to get tokens
 The basic principle behind ADAL is that whenever your app needs an access token, you simply call `authContext.AcquireToken(...)`, and ADAL does the rest.  
 
 -	In the `TodoListClient` project, open `MainWindow.xaml.cs` and locate the `OnInitialized(...)` method.  The first step is to initialize your app's `AuthenticationContext` - ADAL's primary class.  This is where you pass ADAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.
@@ -237,6 +233,8 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 		...
 ```
 
+## Run
+
 Congratulations! You now have a working .NET WPF app that has the ability to authenticate users & securely call Web APIs using OAuth 2.0.  Run your both projects, and sign in with either a personal Microsoft account or a work or school account.  Add tasks to that user's To-Do list.  Sign out, and sign back in as another user to view their To-Do list.  Close the app, and re-run it.  Notice how the user's session remains intact - that is becuase the app caches tokens in a local file.
 
 ADAL makes it easy to incorporate common identity features into your app, using both personal and work accounts.  It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more.  All you really need to know is a single API call, `authContext.AcquireTokenAsync(...)`.
@@ -245,12 +243,12 @@ For reference, the completed sample (without your configuration values) [is prov
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
-## Next Steps
+## Next steps
 
 You can now move onto more advanced topics.  You may want to try:
 
-- [Securing the TodoListService Web API with the v2.0 app model >>](active-directory-v2-devquickstarts-dotnet-api.md)
+- [Securing the TodoListService Web API with the v2.0 endpoint >>](active-directory-v2-devquickstarts-dotnet-api.md)
 
 For additional resources, check out:
-- [The App Model v2.0 Preview >>](active-directory-appmodel-v2-overview.md)
+- [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "adal" tag >>](http://stackoverflow.com/questions/tagged/adal)

@@ -3,7 +3,7 @@
 	description="This FAQ answers questions about Azure AD Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support."
 	services="active-directory"
 	documentationCenter=""
-	authors="karavar"
+	authors="billmath"
 	manager="samueld"
 	editor="curtand"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="vakarand"/>
+	ms.date="02/17/2016"
+	ms.author="billmath;vakarand"/>
 
 
 # Azure AD Connect Health Frequently Asked Questions (FAQ)
@@ -102,3 +102,5 @@ You will need to have TCP/UDP ports 80, 443 and 5671 open for the Azure AD Conne
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
+* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
+

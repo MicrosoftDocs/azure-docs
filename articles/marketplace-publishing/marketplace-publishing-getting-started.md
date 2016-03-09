@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="02/12/2016"
    ms.author="hascipio" />
 
 # How to publish an offer to the Azure Marketplace
@@ -47,6 +47,7 @@ Some steps are shared between the different types of solutions. This article pro
 - [Get support as a publisher][suppt-general]
 - [Understanding seller insights reporting][suppt-rpt-insights]
 - [Understanding payout reporting][suppt-rpt-payouts]
+- [How to change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
 - [Troubleshooting common publishing problems in the Marketplace][suppt-common]
 
 ## Additional resources

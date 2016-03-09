@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Windows Universal SDK Overview for Azure Mobile Engagement
@@ -32,11 +32,9 @@ Click to see the [SDK Content](mobile-engagement-windows-store-sdk-content.md)
 
 ##Release notes
 
-###3.3.0 (01/22/2016)
+###3.3.1 (02/18/2016)
 
--   Fix crash formatting on UWP apps running in release mode.
--   Fix 1px margin on notifications for Universal 8.1 apps.
--   ms-appx and ms-appdata schemes available on action urls.
+-   Fix conflicts between web announcement's HTML content and SDK's HTML page.
 -   Stability improvements.
 
 For earlier version please see the [complete release notes](mobile-engagement-windows-store-release-notes.md)

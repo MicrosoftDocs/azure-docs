@@ -10,16 +10,16 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/09/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
 # What is Azure SQL Data Warehouse?
 
-Azure SQL Data Warehouse is an enterprise-class, distributed database capable of processing massive volumes of relational and non-relational data. It is the industry's first cloud data warehouse that combines proven SQL capabilities with the ability to grow, shrink, and pause in seconds. SQL Data Warehouse is also deeply ingrained into Azure, and it easily deploys in seconds. In addition to this, the service is fully managed and removes the hassle of spending time on software patching, maintenance, and back-ups. SQL Data Warehouse's automatic, built-in backups support fault-tolerance and self-service restore. 
+Azure SQL Data Warehouse is an enterprise-class, distributed database capable of processing massive volumes of relational and non-relational data. It is the industry's first cloud data warehouse that combines proven SQL capabilities with the ability to grow, shrink, and pause in seconds. SQL Data Warehouse is also deeply ingrained into Azure, and it easily deploys in seconds. In addition to this, the service is fully managed and removes the hassle of spending time on software patching, maintenance, and back-ups. SQL Data Warehouse's automatic, built-in backups support fault-tolerance and self-service restore.
 
 In creating SQL Data Warehouse, we focused on a few key attributes in order to ensure that we were fully taking advantage of Azure and creating a data warehouse that could meet any enterprise workload.
 
@@ -47,7 +47,7 @@ This MPP approach allows SQL Data Warehouse to take a divide and conquer approac
 
 - In addition to creating optimal query plans, SQL Data Warehouse incorporates advanced algorithms and techniques that efficiently move data among the computing resources as necessary to perform the query. These operations are built into the Data Movement Services of the data warehouse, and optimizations happen automatically.
 
-- The inclusion of clustered columnstore indexes to the appliance is also key to achieving fast query performance. By using column-based storage, SQL Data Warehouse can get up to 5x compression gains over traditional row-oriented storage, and up to 10x query performance gains. Data warehouse queries work great on columnstore indexes because they often scan the entire table or entire partition of a table and they minimize the impact of moving data for query steps.
+- The inclusion of clustered columnstore indexes to SQL Data Warehouse is also key to achieving fast query performance. By using column-based storage, SQL Data Warehouse can get up to 5x compression gains over traditional row-oriented storage, and up to 10x query performance gains. Data warehouse queries work great on columnstore indexes because they often scan the entire table or entire partition of a table and they minimize the impact of moving data for query steps.
 
 ## Scalable
 
@@ -129,7 +129,7 @@ Now that you know a bit about SQL Data Warehouse, learn about the [data warehous
 >[AZURE.NOTE] We want to make this article better. If you choose to answer "no" to the "Was this article helpful?" question, please include a brief suggestion about what is missing or how to improve the article. Thanks in advance!!
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png 
+[1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
 [data warehouse workload]: ./sql-data-warehouse-overview-workload.md
