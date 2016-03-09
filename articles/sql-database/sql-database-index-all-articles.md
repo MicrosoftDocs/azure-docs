@@ -1,6 +1,6 @@
 <properties
-	pageTitle="All topics for sql-database service | Microsoft Azure"
-	description="Table of all topics for the Azure service named sql-database that exist on http://azure.microsoft.com/documentation/articles/, Title and description."
+	pageTitle="All topics for SQL Database service | Microsoft Azure"
+	description="Table of all topics for the Azure service named SQL Database that exist on http://azure.microsoft.com/documentation/articles/, Title and description."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/09/2016"
 	ms.author="genemi"/>
 
 
-# All topics for Azure sql-database service
+# All topics for Azure SQL Database service
 
-This topic lists every topic that applies directly to the sql-database service of Azure. You can search this webpage for keywords by using **Ctrl+F**, to find the topics of current interest.
+This topic lists every topic that applies directly to the SQL Database service of Azure. You can search this webpage for keywords by using **Ctrl+F**, to find the topics of current interest.
 
 
 
