@@ -136,10 +136,10 @@ Daily slices that starts at 6 AM instead of the default midnight.
 		"offset": "06:00:00"
 	}
 
-In this case, SliceStart is shifted by 6 hours and will be 6 AM.
+The **frequency** is set to **Month** and **interval** is set to **1** (once a month): 
+If you want the slice to be produced on 9th day of each month at 6 AM, set offset to "09.06:00:00". Remember that this is UTC time. 
 
 For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 1st or 2nd (60 days from the beginning of the year if style =  StartOfInterval), depending on the year being leap year or not.
-
 
 
 ## <a name="Policy"></a>Dataset Policy
