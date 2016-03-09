@@ -56,7 +56,6 @@ Initial release of the [Generic SQL Connector](active-directory-aadconnectsync-c
     - If the web service had multiple end-points for same binding, then the Connector did not correctly discover these end-points.
 - Lotus Domino Connector:
     - An export of the fullName attribute to a mail-in database did not work.
-    - If the option **Multivalued Transformation** - **Append item** for export was selected, the Connector did a replace instead.
     - An export which both added and removed member from a group only exported the added members.
     - If a Notes Document is invalid (the attribute isValid set to false) then the Connector fails.
 
