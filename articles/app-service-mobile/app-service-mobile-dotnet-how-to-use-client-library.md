@@ -66,7 +66,26 @@ The following code creates the [MobileServiceClient] object that is used to acce
 In the code above, replace `MOBILE_APP_URL` with the URL of the Mobile App backend, which is found in the blade for your Mobile App backend in the [Azure portal].
 It is normal and recommended that the client instance be a Singleton.
 
-##<a name="instantiating"></a>How to: Create a table reference
+## How to Work with Tables
+
+The following section details how to search and retrieve records and modify the data within the table.  The following
+topics are covered:
+
+* [Create a table reference](#instantiating)
+* [Query data](#querying)
+* [Filter returned data](#filtering)
+* [Sort returned data](#sorting)
+* [Return data in pages](#paging)
+* [Select specific columns](#selecting)
+* [Look up a record by Id](#lookingup)
+* [Dealing with untyped queries](#untypedqueries)
+* [Inserting data](#inserting)
+* [Updating data](#updating)
+* [Deleting data](#deleting)
+* [Conflict Resolution and Optimistic Concurrency](#optimisticconcurrency)
+* [Binding to a Windows User Interface](#binding)
+
+###<a name="instantiating"></a>How to: Create a table reference
 
 All of the code that accesses or modifies data in a backend table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the
 [GetTable] method on an instance of the `MobileServiceClient`, as follows:
@@ -80,7 +99,7 @@ This is the typed serialization model. An untyped serialization model is also su
 
 In untyped queries, you must specify the underlying OData query string.
 
-##<a name="querying"></a>How to: Query data from your Mobile App
+###<a name="querying"></a>How to: Query data from your Mobile App
 
 This section describes how to issue queries to the Mobile App backend, which includes the following functionality:
 
@@ -94,7 +113,7 @@ This section describes how to issue queries to the Mobile App backend, which inc
 > for large data sets from negatively impacting the service.  To return more than 50 rows, use the `Take` method, as
 > described in [Return data in pages].
 
-### <a name="filtering"></a>How to: Filter returned data
+###<a name="filtering"></a>How to: Filter returned data
 
 The following code illustrates how to filter data by including a `Where` clause in a query. It returns all items from
 `todoTable` whose `Complete` property is equal to `false`. The [Where] function applies a row filtering predicate to
@@ -149,7 +168,7 @@ EndsWith), date properties (Year, Month, Day, Hour, Minute, Second), access prop
 expressions combining all of these.  When considering what the Server SDK supports, you can consider
 the [OData v3 Documentation].
 
-### <a name="sorting"></a>How to: Sort returned data
+###<a name="sorting"></a>How to: Sort returned data
 
 The following code illustrates how to sort data by including an [OrderBy] or [OrderByDescending] function
 in the query. It returns items from `todoTable` sorted ascending by the `Text` field.
@@ -164,7 +183,7 @@ in the query. It returns items from `todoTable` sorted ascending by the `Text` f
 					.OrderByDescending(todoItem => todoItem.Text)
  	List<TodoItem> items = await query.ToListAsync();
 
-### <a name="paging"></a>How to: Return data in pages
+###<a name="paging"></a>How to: Return data in pages
 
 By default, the backend returns only the first 50 rows. You can increase the number of returned rows by calling the [Take] method. Use `Take` along with the [Skip] method
 to request a specific "page" of the total dataset returned by the query. The following query, when executed, returns the top three items in the table.
@@ -228,7 +247,7 @@ The [LookupAsync] function can be used to look up objects from the database with
 	// This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
 	TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 
-### <a name="lookingup"></a>How to: Execute untyped queries
+### <a name="untypedqueries"></a>How to: Execute untyped queries
 
 When executing a query using an untyped table object, you must explicitly specify the OData query string by calling [ReadAsync], as in the following example:
 
@@ -278,7 +297,7 @@ to generate your own ID values, either on the client or in the backend.
     JObject jo = new JObject();
     jo.Add("id", Guid.NewGuid().ToString("N"));
 
-##<a name="modifying"></a>How to: Modify data in a Mobile App backend
+###<a name="modifying"></a>How to: Modify data in a Mobile App backend
 
 The following code illustrates how to use the [UpdateAsync] method to update an existing record with the same ID with new information. The
 parameter contains the data to be updated as a .NET object.
@@ -296,7 +315,7 @@ To insert untyped data, you may take advantage of [Json.NET] as follows:
 An `id` field must be specified when making an update. This is how the backend identifies which instance to update. The `id` field can be obtained from the
 result of the `InsertAsync` call. An `ArgumentException` is raised if you try to update an item without providing the `id` value.
 
-##<a name="deleting"></a>How to: Delete data in a Mobile App backend
+###<a name="deleting"></a>How to: Delete data in a Mobile App backend
 
 The following code illustrates how to use the [DeleteAsync] method to delete an existing instance. The instance is identified by the `id` field set on the `todoItem`.
 
@@ -312,19 +331,7 @@ Note that when you make a delete request, an ID must be specified. Other propert
 `DeleteAsync` call is usually `null`. The ID to pass in can be obtained from the result of the `InsertAsync` call. A `MobileServiceInvalidOperationException` is
 thrown when you try to delete an item without specifying the `id` field.
 
-##<a name="#customapi"></a>How to: Call a custom API
-
-A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a
-custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.
-
-You call a custom API by calling one of the [InvokeApiAsync] method overloads on the client. For example, the following line of code sends a POST request to
-the **completeAll** API on the backend:
-
-    var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Net.Http.HttpMethod.Post, null);
-
-Note that this a typed method call, which requires that the **MarkAllResult** return type be defined. Both typed and untyped methods are supported.
-
-##<a name="optimisticconcurrency"></a>How to: Use Optimistic Concurrency for conflict resolution
+###<a name="optimisticconcurrency"></a>How to: Use Optimistic Concurrency for conflict resolution
 
 Two or more clients may write changes to the same item at the same time. Without any conflict detection, the last write would overwrite any previous updates even
 if this was not the desired result. *Optimistic concurrency control* assumes that each transaction can commit and therefore does not use any resource locking. Before
@@ -421,7 +428,7 @@ a write conflict once detected:
 
 For more information, see the [Offline Data Sync in Azure Mobile Apps] topic.
 
-##<a name="binding"></a>How to: Bind Mobile Apps data to a Windows user interface
+###<a name="binding"></a>How to: Bind Mobile Apps data to a Windows user interface
 
 This section shows how to display returned data objects using UI elements in a Windows app. You can run the following example code to
 bind to the source of the list with a query for incomplete items in `todoTable` and display it in a very simple list.  [MobileServiceCollection]
@@ -464,6 +471,19 @@ it's expected that some times this loading will fail. To handle such failures, y
 Finally, imagine that your table has many fields, but you only want to display some of them in your control. You may use the guidance in the
 section "[Select specific columns](#selecting)" above to select specific columns to display in the UI.
 
+##<a name="#customapi"></a>How to: Call a custom API
+
+A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a
+custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.
+
+You call a custom API by calling one of the [InvokeApiAsync] method overloads on the client. For example, the following line of code sends a POST request to
+the **completeAll** API on the backend:
+
+    var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Net.Http.HttpMethod.Post, null);
+
+Note that this a typed method call, which requires that the **MarkAllResult** return type be defined. Both typed and untyped methods are supported.
+
+
 ##<a name="authentication"></a>How to: Authenticate users
 
 Mobile Apps supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account,
@@ -479,7 +499,7 @@ In either case, you must register your app with your identity provider.  Your id
 must then configure Azure App Service Authentication / Authorization with the client ID and cleint secret provided by your identity provider.  For
 more information, follow the detailed instructions in the tutorial [Add authentication to your app].
 
-###Server flow
+###<a name="serverflow"></a>Server flow
 Once you have registered your identity provider, call the MobileServiceCleint.[LoginAsync method] with the [MobileServiceAuthenticationProvider] value
 of your provider. For example, the following code initiates a server flow sign-in by using Facebook.
 
@@ -645,7 +665,7 @@ For Windows Phone apps, you may encrypt and cache data using the [ProtectedData]
 
 -->
 
-## <a name="adal"></a>How to: Authenticate users with the Active Directory Authentication Library
+### <a name="adal"></a>Authenticate users with the Active Directory Authentication Library
 
 You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure Active Directory. This is
 often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
@@ -757,7 +777,15 @@ The code needed for each platform follows:
         AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
     }
 
-##How to: Register for push notifications
+##<a name="pushnotifications">Push Notifications
+
+The following topics cover Push Notifications:
+
+* [Register for Push Notifications](#register-for-push)
+* [Obtain a Windows Store package SID](#package-sid)
+* [Register with Cross-platform templates](#register-xplat)
+
+##<a name="register-for-push"></a>How to: Register for Push Notifications
 
 The Mobile Apps client enables you to register for push notifications with Azure Notification Hubs. When registering, you obtain a handle that you obtain from the
 platform-specific Push Notification Service (PNS). You then provide this value along with any tags when you create the registration. The following code registers your
@@ -779,9 +807,12 @@ Note that requesting tags from the client is not supported.  Tag Requests are si
 create a Custom API that uses the Notification Hubs API to perform the registration on your behalf.  [Call the Custom API](#customapi) instead of the
 `RegisterNativeAsync()` method.
 
-## <a name="package-sid"></a>How to: Obtain a Windows Store package SID for Push Notification
+###<a name="package-sid"></a>How to: Obtain a Windows Store package SID
 
-A package SID is needed for enabling push notifications in Windows Store apps. To obtain this value:
+A package SID is needed for enabling push notifications in Windows Store apps.  The package SID is also used for other things (such as Windows Single Sign-in).  You
+need to register your application with the Windows Store in order to receive a package SID.
+
+To obtain this value:
 
 1. In Visual Studio Solution Explorer, right-click the Windows Store app project, click **Store** > **Associate App with the Store...**.
 2. In the wizard, click **Next**, sign in with your Microsoft account, type a name for your app in **Reserve a new app name**, then click **Reserve**.
@@ -797,7 +828,7 @@ Cloud Messaging (GCM) services, respectively. For more information see the topic
 * [Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md#add-push)
 * [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-push.md#add-push)
 
-## How to: Register push templates to send cross-platform notifications
+###<a name="register-xplat"></a>How to: Register push templates to send cross-platform notifications
 
 To register templates, use the `RegisterAsync()` method with the templates, as follows:
 
@@ -836,7 +867,9 @@ Note that all tags will be stripped away for security. To add tags to installati
 
 To send notifications utilizing these registered templates, refer to the [Notification Hubs APIs].
 
-##<a name="errors"></a>How to: Handle errors
+##<a name="misc"></a>Miscellaneous Topics
+
+###<a name="errors"></a>How to: Handle errors
 
 When an error occurs in the backend, the client SDK will raise a `MobileServiceInvalidOperationException`.  The following example shows
 how to handle an exception that is returned by the backend:
@@ -856,7 +889,7 @@ how to handle an exception that is returned by the backend:
 		}
 	}
 
-### <a name="headers"></a>How to: Customize request headers
+###<a name="headers"></a>How to: Customize request headers
 
 To support your specific app scenario, you might need to customize communication with the Mobile App backend. For example, you may want to add a
 custom header to every outgoing request or even change responses status codes. You can do this by providing a custom [DelegatingHandler], as in
