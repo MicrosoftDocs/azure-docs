@@ -35,7 +35,7 @@ In order to push documents into your index using the .NET SDK, you will need to:
   2. Create an `IndexBatch` containing the documents to be added, modified, or deleted.
   3. Call the `Documents.Index` method of your `SearchIndexClient` to send the `IndexBatch` to your search index.
 
-## I. Create an instance of the `SearchIndexClient` class
+## I. Create an instance of the SearchIndexClient class
 To import data into your index using the Azure Search .NET SDK, you will need to create an instance of the `SearchIndexClient` class. You can construct this instance yourself, but it's easier if you already have a `SearchServiceClient` instance to call its `Indexes.GetClient` method. For example, here is how you would obtain a `SearchIndexClient` for the index named "hotels" from a `SearchServiceClient` named `serviceClient`:
 
 ```csharp
@@ -58,7 +58,7 @@ Action | Description | Necessary fields for each document | Notes
 
 You can specify what action you want to use with the various static methods of the `IndexBatch` and `IndexAction` classes, as shown in the next section.
 
-## III. Construct your `IndexBatch`
+## III. Construct your IndexBatch
 Now that you know which actions to perform on your documents, you are ready to construct the `IndexBatch`. The example below shows how to create a batch with a few different actions. Note that our example uses a custom class called `Hotel` that maps to a document in the "hotels" index.
 
 ```csharp

@@ -46,7 +46,7 @@ Your service will have *admin keys* and *query keys*.
 For the purposes of creating an index, you can use either your primary or secondary admin key.
 
 <a name="CreateSearchServiceClient"></a>
-## II. Create an instance of the `SearchServiceClient` class
+## II. Create an instance of the SearchServiceClient class
 To start using the Azure Search .NET SDK, you will need to create an instance of the `SearchServiceClient` class. This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
 The code below creates a new `SearchServiceClient` using values for the search service name and api-key that are stored in the application's config file (`app.config` or `web.config`):
