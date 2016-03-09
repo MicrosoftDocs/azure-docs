@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Configure automatic device registration for Windows 8.1 domain joined devices
@@ -58,6 +58,6 @@ The Group Policy enables a Scheduled Task on the system that runs in the user’
 
 ## Additional topics
 - [Azure Active Directory Device Registration overview](active-directory-conditional-access-device-registration-overview.md)
-- [Automatic device registration with Azure Active Directory for Windows Domain-Joined Devices](active-directory-conditional-access-automatic-device-registration.md)
+- [Automatic device registration with Azure Active Directory for Windows 10 domain-joined devices](active-directory-conditional-access-automatic-device-registration.md)
 - [Configure automatic device registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md)
 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="A tour through Application Analytics" 
-	description="Short samples of all the main queries in Application Analytics, 
+	pageTitle="A tour through Application Insights Analytics" 
+	description="Short samples of all the main queries in Application Insights Analytics, 
 	             the powerful search tool for Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="awills"/>
 
 
  
-# A tour through Application Analytics
+# A tour through Application Insights Analytics
 
 
-Application Analytics is a powerful diagnostic search engine for your [Application Insights](app-insights-overview.md) telemetry.
+Application Insights Analytics is a powerful diagnostic search engine for your [Application Insights](app-insights-overview.md) telemetry.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -30,26 +30,20 @@ Let's take a walk through some basic queries to get you started.
 
 ## Connect to your Application Insights data
 
-For now, open Application Analytics by navigating to a URL in this form:
+Open Analytics from your app's [overview blade](app-insights-dashboards.md) in Application Insights:
 
-`https://loganalytics.applicationinsights.io/subscriptions/{subscription-id}/resourcegroups/{resource-group}/components/{app-insights-name}`
-
-You can copy the parameters from the Essentials tab on your Application Insights overview blade: 
-
-![Copy Subscription Id, Resource group and Name from the Essentials tab.](./media/app-analytics-tour/001.png)
-
-Sign in with the same credentials.
+![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-analytics/001.png)
 
 ## Count rows
 
 Metrics such as performance counters are stored in a table called metrics. Each row is a telemetry data point received from the Application Insights SDK in an app. To find out how big the table is, we'll pipe its content into an operator that simply counts the rows:
 
-```CSL
+```AIQL
 	
-    metrics | count
+    requests | count
 ```
 
-> [AZURE.NOTE] Put the cursor somewhere in the statement before you click Go. You can split a statement over more than one line, but don't leave a blank line between different parts of a statement.
+> [AZURE.NOTE] Put the cursor somewhere in the statement before you click Go. You can split a statement over more than one line, but don't put blank lines in one statement. To keep several queries in the window, separate them with blank lines.
 
 Here's the result:
 
@@ -57,16 +51,16 @@ Here's the result:
 ![](./media/app-analytics-tour/010.png)
 
 	
-[Query reference page](app-analytics-queries.md).
+`Count` is one of many [Query operators](app-analytics-queries.md) that we can arrange in a pipe, filtering, reshaping and joining the data in multiple stages.
 	
 ## Take: show me n rows
 
 
-Let's see some data - what's in a sample 10 rows?
+Let's see some data - what's in a sample 5 rows?
 
-```CSL
+```AIQL
 
-	metrics | take 10
+	requests | take 5
 ```
 
 And here's what we get:
@@ -82,15 +76,15 @@ Expand any item to see the detail:
 ![Choose Table, and use Configure Columns](./media/app-analytics-tour/040.png)
 
 
-## Sort and top
+## Top and sort
 
 `take` is useful to get a quick sample of a result, but it shows rows from the table in no particular order. To get an ordered view, use `top` (for a sample) or `sort` (over the whole table).
 
 Show me the first n rows, ordered by a particular column:
 
-```CSL
+```AIQL
 
-	metrics | top 10 by timestamp desc 
+	requests | top 10 by timestamp desc 
 ```
 
 * *Syntax:* Most operators have keyword parameters such as `by`.
@@ -100,24 +94,24 @@ Show me the first n rows, ordered by a particular column:
 
 `top...` is a more performant way of saying `sort ... | take...`. We could have written:
 
-```CSL
+```AIQL
 
-	metrics | sort by timestamp desc | take 10
+	requests | sort by timestamp desc | take 10
 ```
 
 The result would be the same, but it would run a bit more slowly. (You could also write `order`, which is an alias of `sort`.)
 
-The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to display just part of a table, you'll only re-order that part.
+The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, you'll only re-order the records you've retrieved.
 
 
 ## Project: select, rename and compute columns
 
 Use `project` to pick out just the columns you want:
 
-```CSL
+```AIQL
 
-    metrics | top 10 by timestamp desc
-            | project timestamp, metricName, value
+    requests | top 10 by timestamp desc
+             | project timestamp, name, resultCode
 ```
 
 ![](./media/app-analytics-tour/240.png)
@@ -125,14 +119,14 @@ Use `project` to pick out just the columns you want:
 
 You can also rename columns and define new ones:
 
-```CSL
+```AIQL
 
-    metrics 
+    requests 
     | top 10 by timestamp desc 
     | project timestamp, 
                timeOfDay = floor(timestamp % 1d, 1s), 
-               metric = metricName, 
-               value
+               name, 
+               response = resultCode
 ```
 
 ![result](./media/app-analytics-tour/270.png)
@@ -149,9 +143,9 @@ In the scalar expression:
 
 If you just want to add columns to the existing ones, use `extend`:
 
-```CSL
+```AIQL
 
-    metrics 
+    requests 
     | top 10 by timestamp desc
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
@@ -164,7 +158,7 @@ By looking at a sample of a table, we can see the fields where the different tel
 
 But instead of plowing through individual instances, let's ask how many exceptions have been reported, of each type:
 
-```CSL
+```AIQL
 
 	exceptions 
     | summarize count() by outerExceptionType
@@ -179,7 +173,7 @@ There's a range of [aggregation functions](app-analytics-aggregations.md), and y
 
 For example, let's list the HTTP requests for which these exceptions occur. Again by inspecting a sample of  the exception table, you'll notice that the HTTP request paths are reported in a column named `operation_Name`. 
 
-```CSL
+```AIQL
 
     exceptions 
     | summarize count(), makeset(operation_Name)
@@ -203,7 +197,7 @@ The result of a summarize has:
 
 You can use scalar (numeric, time, or interval) values in the by clause. But numbers usually fill a continuous range. To group the data points, you'll want to assign them to bins of discrete values. The `bin` function is useful for this:
 
-```CSL
+```AIQL
 
     exceptions 
        | summarize count()  
@@ -218,6 +212,8 @@ We can do better than the table view here. Let's look at the results in the char
 
 ![Click Chart, then choose Vertical bar chart and assign x and y axes](./media/app-analytics-tour/230.png)
 
+Notice that although we didn't sort the results by time (as you can see in the table display), the chart display always shows datetimes in correct order.
+
 
 ## Where: filtering on a condition
 
@@ -225,7 +221,7 @@ If you've set up Application Insights monitoring for both the [client](app-insig
 
 Let's see just exceptions reported from browsers:
 
-```CSL
+```AIQL
 
     exceptions 
     | where device_Id == "browser" 
@@ -247,26 +243,29 @@ Read all about [scalar expressions](app-analytics-scalars.md).
 
 Find unsuccessful requests:
 
-```CSL
+```AIQL
 
     requests 
-    | where responseCode >= 400
+    | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-Summarize the different responses. Notice that we must always cast any value that comes out of a property bag or array when using it in a `by` clause:
+`responseCode` has type string, so we must [cast it](app-analytics-scalars.md#casts) for a numeric comparison.
 
-```CSL
+Summarize the different responses:
+
+```AIQL
 
     requests
+    | where isnotempty(resultCode) and toint(resultCode) >= 400
     | summarize count() 
-      by responseCode
+      by resultCode
 ```
 
 ## Timecharts
 
 Show how many events there are each day:
 
-```CSL
+```AIQL
 
     requests
       | summarize event_count=count()
@@ -277,17 +276,17 @@ Select the Chart display option:
 
 ![timechart](./media/app-analytics-tour/080.png)
 
-The x axis for line charts has to be of type DateTime. (But you can make vertical bar charts with any type of x-axis).
+The x axis for line charts has to be of type DateTime. 
 
 ## Multiple series 
 
 Use multiple values in a `summarize by` clause to create a separate row for each combination of values:
 
-```CSL
+```AIQL
 
     requests 
       | summarize event_count=count()   
-        by bin(timestamp, 1d), location_StateOrProvince
+        by bin(timestamp, 1d), client_StateOrProvince
 ```
 
 ![](./media/app-analytics-tour/090.png)
@@ -304,7 +303,7 @@ How does usage vary over the average day?
 
 Count requests by the time modulo one day, binned into hours:
 
-```CSL
+```AIQL
 
     requests
     | extend hour = floor(timestamp % 1d , 1h) 
@@ -321,38 +320,38 @@ Count requests by the time modulo one day, binned into hours:
 
 How does usage vary over the time of day in different states?
 
-```CSL
+```AIQL
     requests
      | extend hour= floor( timestamp % 1d , 1h)
            + datetime("2001-01-01")
      | summarize event_count=count() 
-       by hour, location_StateOrProvince
+       by hour, client_StateOrProvince
 ```
 
 Split the chart by state:
 
-![Split By location_StateOrProvince](./media/app-analytics-tour/130.png)
+![Split By client_StateOrProvince](./media/app-analytics-tour/130.png)
 
 
 ## Plot a distribution
 
 How many sessions are there of different lengths?
 
-```CSL
+```AIQL
 
     requests 
     | where isnotnull(session_Id) and isnotempty(session_Id) 
     | summarize min(timestamp), max(timestamp) 
       by session_Id 
-    | extend duration = max_timestamp - min_timestamp 
-    | where duration > 0 and duration < 3m 
-    | summarize count() by floor(duration, 3s) 
-    | project d = duration + datetime("2016-01-01"), count_
+    | extend sessionDuration = max_timestamp - min_timestamp 
+    | where sessionDuration > 1s and sessionDuration < 3m 
+    | summarize count() by floor(sessionDuration, 3s) 
+    | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
-The last line is required to convert to datetime so that we can display the results on a chart.
+The last line is required to convert to datetime - currently the x axis of a line chart can only be a datetime.
 
-The `where` clause excludes one-shot sessions (duration==0) and sets the length of the x-axis.
+The `where` clause excludes one-shot sessions (sessionDuration==0) and sets the length of the x-axis.
 
 
 ![](./media/app-analytics-tour/290.png)
@@ -365,16 +364,16 @@ What ranges of durations cover different percentages of sessions?
 
 Use the above query, but replace the last line:
 
-```CSL
+```AIQL
 
     requests 
     | where isnotnull(session_Id) and isnotempty(session_Id) 
     | summarize min(timestamp), max(timestamp) 
       by session_Id 
-    | extend duration = max_timestamp - min_timestamp 
-    | where duration > 0 
-    | summarize count() by floor(duration, 3s) 
-    | summarize percentiles(duration, 5, 20, 50, 80, 95)
+    | extend sesh = max_timestamp - min_timestamp 
+    | where sesh > 1s
+    | summarize count() by floor(sesh, 3s) 
+    | summarize percentiles(sesh, 5, 20, 50, 80, 95)
 ```
 
 We also removed the upper limit in the where clause, so as to get correct figures including all sessions with more than one request:
@@ -383,25 +382,23 @@ We also removed the upper limit in the where clause, so as to get correct figure
 
 From which we can see that:
 
-* 5% of sessions have a duration of less than 3s; 
-* 50% of sessions last less than 1m 3s;
-* 5% of sessions last at least 2m 48s.
+* 5% of sessions have a duration of less than 3 minutes 34s; 
+* 50% of sessions last less than 36 minnutes;
+* 5% of sessions last more than 7 days
 
-To get a separate breakdown for each city, we just have to bring the location_City column separately through both summarize operators:
+To get a separate breakdown for each country, we just have to bring the client_CountryOrRegion column separately through both summarize operators:
 
-```CSL
+```AIQL
 
     requests 
     | where isnotnull(session_Id) and isnotempty(session_Id) 
     | summarize min(timestamp), max(timestamp) 
-      by session_Id, location_City 
-    | extend duration = max_timestamp - min_timestamp 
-    | where duration > 0
-    | summarize count() 
-      by floor(duration, 3s), location_City 
-      
-    | summarize percentiles (duration, 5, 20, 50, 80, 95) 
-      by continent
+      by session_Id, client_CountryOrRegion
+    | extend sesh = max_timestamp - min_timestamp 
+    | where sesh > 1s
+    | summarize count() by floor(sesh, 3s), client_CountryOrRegion
+    | summarize percentiles(sesh, 5, 20, 50, 80, 95)
+	  by client_CountryOrRegion
 ```
 
 ![](./media/app-analytics-tour/190.png)
@@ -413,7 +410,7 @@ We have access to three tables: metric, exceptions, and event. `event` contains 
 
 To find the exceptions related to a request that returned a failure response, we can join the tables on `session_Id`:
 
-```CSL
+```AIQL
 
     requests 
     | where toint(responseCode) >= 500 
@@ -431,17 +428,17 @@ In the same clauses, we rename the timestamp column.
 
 Use [let](./app-analytics-syntax.md#let-statements) to separate out the parts of the previous expression. The results are unchanged:
 
-```CSL
+```AIQL
 
     let bad_requests = 
       requests
-        | where  toint(responseCode) >= 500  ;
+        | where  toint(resultCode) >= 500  ;
     bad_requests
     | join (exceptions) on session_Id 
     | take 30
 ```
 
-> Tip: In the Application Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
+> Tip: In the AI Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
