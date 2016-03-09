@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="03/04/2016"
+	ms.date="03/11/2016"
 	ms.author="marsma" />
 
-# Easy task application deployment with Azure Batch application packages
+# Task application deployment with Azure Batch application packages
 
-The application packages feature of Azure Batch provides easy management and deployment of applications for your jobs' tasks. With application packages, you can easily upload and manage multiple versions of the applications run by your tasks, including binaries and support files, then automatically deploy one or more of these applications to the compute nodes in your pool.
+The application packages feature of Azure Batch provides easy management and deployment of applications for your jobs' tasks. With application packages, you can upload and manage multiple versions of the applications run by your tasks, including binaries and support files, then automatically deploy one or more of these applications to the compute nodes in your pool.
 
 In this article, you will learn how to upload and manage application packages using the Azure portal, then install them on a pool's compute nodes using the [Batch .NET][api_net] library.
 
@@ -108,7 +108,7 @@ The *New application* blade provides the following fields for specifying the set
 
 **Metadata**
 
-The metadata setting provides an *optional* method for supplying the application ID and package version. You can either supply the application metadata manually, such as pasting a JSON string into the text box, or upload a JSON file that contains the metadata.
+The metadata setting provides an *optional* method for supplying the application ID and package version. You can either supply the application metadata manually, such as by pasting a JSON string into the text box, or upload a JSON file that contains the metadata.
 
 Use the following JSON format to specify the application package metadata:
 
@@ -119,7 +119,7 @@ Use the following JSON format to specify the application package metadata:
 }
 ```
 
-> [AZURE.NOTE] IF you specify JSON metadata for the ID and version, you cannot also edit the "Application" and "Version" text boxes.
+> [AZURE.NOTE] If you specify JSON metadata for the ID and version, you cannot also edit the "Application" and "Version" text boxes.
 
 **Application**
 
@@ -143,7 +143,7 @@ Specifies the version of the application package you are uploading. Version stri
 
 This specifies the path to a ZIP file containing the application binaries and any support files required to execute the application. You may enter the path to the ZIP file manually, or browse to the file by clicking the folder icon next to the "Select a file" text box.
 
-Once you've entered the required information, click the "OK" button at the bottom of the *New application* blade and the file will begin uploading to Azure Storage. When the upload operation completes, you will be notified and the blade will close. Note that depending on the size of the file that you are uploading and the speed of your network connection, this operation may take some time.
+Once you've entered the required information, click the "OK" button at the bottom of the *New application* blade to begin the upload to Azure Storage. When the upload operation completes, you will be notified and the blade will close. Note that depending on the size of the file that you are uploading and the speed of your network connection, this operation may take some time.
 
 > [AZURE.WARNING] Do not close the *New application* blade before the upload operation is complete. Doing so will abort the upload process.
 
@@ -157,7 +157,7 @@ As you can see, the fields in the *New application package* blade match those of
 
 ### Update or Delete an application package
 
-To update or delete an existing application package, open the details blade for the application, click the ellipses on the application package row you wish to modify, and select the action you wish to perform.
+To update or delete an existing application package, open the details blade for the application, click the ellipses in the row of the application package you wish to modify, and select the action you wish to perform.
 
 ![Update or delete packages][7]
 
@@ -167,11 +167,11 @@ When you click "Update", the *Update application package* blade is displayed. Th
 
 **Delete**
 
-When you click "Delete", you are asked to confirm the deletion of the package, and Batch deletes the package from Storage. If you delete the default version of an application, the default version setting is removed for the application.
+When you click "Delete", you are asked to confirm the deletion of the package, and Batch deletes the package from Azure Storage. If you delete the default version of an application, the default version setting is removed for the application.
 
 ## Install applications on compute nodes
 
-Now that we've covered uploading and managing the application packages in the Azure portal, we are ready to discuss actually using those applications for your Batch tasks.
+Now that we've covered uploading and managing application packages using the Azure portal, we are ready to discuss actually deploying them to compute nodes and running them with Batch tasks.
 
 To install an application package on the compute nodes in a pool, you specify one or more application package *references* for the pool. In Batch .NET, you do so by adding one or more `CloudPool.ApplicationPackageReferences` when you create the pool, or to an existing pool.
 
@@ -216,13 +216,13 @@ The following code snippet shows how a task might be configured when a default v
 
 ```csharp
 string taskId = "blendertask01";
-string commandLine = @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -my -awesome -args";
+string commandLine = @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -my -command -args";
 CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 ## Update a pool's application packages
 
-If you've already specified an application package for a pool, you can specify a new package for the existing pool. All new nodes that join the pool will install the newly specified package, as will any existing node that is rebooted or reimaged. Compute nodes that are already in the pool when you update the package references do not automatically install the new application package.
+If an existing pool has already been configured with an application package, you can specify a new package for the pool. All new nodes that join the pool will install the newly specified package, as will any existing node that is rebooted or reimaged. Compute nodes that are already in the pool when you update the package references do not automatically install the new application package.
 
 In this example, the existing pool has version 2.7 of the *blender* application configured as one of its `CloudPool.ApplicationPackageReferences`. To update the pool's nodes with version 2.76b, specify a new `ApplicationPackageReference` with the new version, and commit the change.
 
@@ -238,7 +238,7 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Now that the new version has been configured, any *new* node joining the pool will have version 2.76b deployed to it. To install 2.76b on the nodes that are *already* in the pool, reboot (or reimage) them. Note that rebooted nodes will retain files from previous package deployments.
+Now that the new version has been configured, any *new* node joining the pool will have version 2.76b deployed to it. To install 2.76b on the nodes that are *already* in the pool, reboot (or reimage) them. Note that rebooted nodes will retain the files from previous package deployments.
 
 ## List the applications in a Batch account
 
@@ -257,6 +257,10 @@ foreach (ApplicationSummary app in applications)
     }
 }
 ```
+
+## Wrapping up
+
+With application packages, you can more easily provide your customers with the ability to select the applications for their jobs, and specify the exact version to use, when processing jobs with your Batch-enabled service. You might also provide the ability for your customers to upload and track their own applications in your service.
 
 ## Next steps
 
