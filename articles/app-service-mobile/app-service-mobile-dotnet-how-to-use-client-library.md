@@ -904,30 +904,30 @@ the following example:
 [How to configure App Service for Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
-[Azure Mobile Apps .NET Client Reference]: https://msdn.microsoft.com/en-us/library/azure/mt419521.aspx
-[MobileServiceClient]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
-[MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636.aspx
-[MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/en-us/library/azure/dn268408.aspx
-[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
-[MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
-[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
-[GetTable]: https://msdn.microsoft.com/en-us/library/azure/jj554275.aspx
-[creates a reference to an untyped table]: https://msdn.microsoft.com/en-us/library/azure/jj554278.aspx
-[DeleteAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296407.aspx
-[IncludeTotalCount]: https://msdn.microsoft.com/en-us/library/azure/dn250560.aspx
-[InsertAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296400.aspx
-[InvokeApiAsync]: https://msdn.microsoft.com/en-us/library/azure/dn268343.aspx
-[LoginAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296411.aspx
-[LookupAsync]: https://msdn.microsoft.com/en-us/library/azure/jj871654.aspx
-[OrderBy]: https://msdn.microsoft.com/en-us/library/azure/dn250572.aspx
-[OrderByDescending]: https://msdn.microsoft.com/en-us/library/azure/dn250568.aspx
-[ReadAsync]: https://msdn.microsoft.com/en-us/library/azure/jj871655.aspx
-[Take]: https://msdn.microsoft.com/en-us/library/azure/dn250574.aspx
-[Select]: https://msdn.microsoft.com/en-us/library/azure/dn250569.aspx
-[Skip]: https://msdn.microsoft.com/en-us/library/azure/dn250573.aspx
-[UpdateAsync]: https://msdn.microsoft.com/en-us/library/azure/dn250536.aspx
-[UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
-[Where]: https://msdn.microsoft.com/en-us/library/azure/dn250579.aspx
+[Azure Mobile Apps .NET Client Reference]: https://msdn.microsoft.com/en-us/library/azure/mt419521(v=azure.10).aspx
+[MobileServiceClient]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
+[MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
+[MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/en-us/library/azure/dn268408(v=azure.10).aspx
+[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
+[MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
+[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
+[GetTable]: https://msdn.microsoft.com/en-us/library/azure/jj554275(v=azure.10).aspx
+[creates a reference to an untyped table]: https://msdn.microsoft.com/en-us/library/azure/jj554278(v=azure.10).aspx
+[DeleteAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296407(v=azure.10).aspx
+[IncludeTotalCount]: https://msdn.microsoft.com/en-us/library/azure/dn250560(v=azure.10).aspx
+[InsertAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296400(v=azure.10).aspx
+[InvokeApiAsync]: https://msdn.microsoft.com/en-us/library/azure/dn268343(v=azure.10).aspx
+[LoginAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296411(v=azure.10).aspx
+[LookupAsync]: https://msdn.microsoft.com/en-us/library/azure/jj871654(v=azure.10).aspx
+[OrderBy]: https://msdn.microsoft.com/en-us/library/azure/dn250572(v=azure.10).aspx
+[OrderByDescending]: https://msdn.microsoft.com/en-us/library/azure/dn250568(v=azure.10).aspx
+[ReadAsync]: https://msdn.microsoft.com/en-us/library/azure/jj871655(v=azure.10).aspx
+[Take]: https://msdn.microsoft.com/en-us/library/azure/dn250574(v=azure.10).aspx
+[Select]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
+[Skip]: https://msdn.microsoft.com/en-us/library/azure/dn250573(v=azure.10).aspx
+[UpdateAsync]: https://msdn.microsoft.com/en-us/library/azure/dn250536.(v=azure.10)aspx
+[UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
+[Where]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
 [Azure portal]: https://portal.azure.com/
 [Azure Classic portal]: https://manage.windowsazre.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
