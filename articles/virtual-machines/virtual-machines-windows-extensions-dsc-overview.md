@@ -2,7 +2,7 @@
    pageTitle="Desired State Configuration for Azure Overview | Microsoft Azure"
    description="Overview for using the Microsoft Azure extension handler for PowerShell Desired State Configuration. Including prerequisites, architecture, cmdlets.."
    services="virtual-machines-windows"
-   documentationCenter = ""
+   documentationCenter =""
    authors="zjalexander"
    manager="timlt"
    editor=""
