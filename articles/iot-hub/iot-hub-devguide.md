@@ -632,5 +632,5 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
-[lnk-eventhub-partitions]: event-hubs-overview.md#partitions
+[lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md

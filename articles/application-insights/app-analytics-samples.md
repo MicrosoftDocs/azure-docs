@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Samples of queries in Application Analytics" 
-	description="Samples of queries in Application Analytics, 
+	pageTitle="Samples of queries in Application Insights Analytics" 
+	description="Samples of queries in Application Insights Analytics, 
 	             the powerful search tool for Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
@@ -17,11 +17,11 @@
 	ms.author="awills"/>
 
 
-# Samples for Application Analytics
+# Samples for Application Insights Analytics
 
-[Application Analytics](app-analytics.md) is a powerful search engine for your 
+[Application Insights Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Analytics query lanuage, CSL. There's also 
+Application Insights Analytics query language, AIQL. There's also 
 a [tour of the language](app-analytics-tour.md), which is recommended for getting started.
 
 
@@ -32,7 +32,8 @@ a [tour of the language](app-analytics-tour.md), which is recommended for gettin
 There are several do's and don'ts you can follow to make your query run faster.
 
 DO:
--	Use time filters first. Application Analytics is highly optimized to utilize time filters.
+
+-	Use time filters first. Application Insights Analytics is highly optimized to utilize time filters.
 -	Put filters that are expected to get rid most of the data in the beginning of the query (right after time filters)
 -	Check that most of your filters are appearing in the beginning of the query (before you start using 'extend') 
 -	Prefer 'has' keyword over 'contains' when looking for full tokens. 'has' is more performant as it doesn't have to look-up for substrings.
@@ -40,6 +41,7 @@ DO:
 -	When using join - project only needed columns from both sides of the join (this will reduce payload pulled from one machine to another)
 
 AVOID: 
+
 -	Trying new queries without 'limit [small number]' or 'count' at the end. 
     Running unbound queries over unknown data set may yield GBs of results to be returned to the client, resulting in slow response and cluster being busy.
 -	If you find that you're applying conversions (JSON, string, etc) over 1B+ records - reshape your query to reduce amount of data fed into the conversion
@@ -64,8 +66,7 @@ Let's suppose we have a log of events, in which some events mark the start or en
 
 Every event has an SessionId, so the problem is to match up the start and stop events with the same id.
 
-<!-- csl -->
-```
+```AIQL
 let Events = MyLogTable | where ... ;
 
 Events
@@ -91,8 +92,7 @@ Use [`let`](app-analytics-syntax.md#let-statements) to name a projection of the 
 
 Now let's suppose that the start and stop events don't conveniently have a session id that we can match on. But we do have an IP address of the client where the session took place. Assuming each client address only conducts one session at a time, we can match each start event to the next stop event from the same IP address.
 
-<!-- csl -->
-```
+```AIQL
 Events 
 | where Name == "Start" 
 | project City, ClientIp, StartTime = timestamp
@@ -110,7 +110,7 @@ Events
 
 The join will match every start time with all the stop times from the same client IP address. So we first remove matches with earlier stop times.
 
-Then we group by start time and ip to get a group for each session. We must supply a `bin` function for the StartTime parameter: if we don't, Application Analytics will automatically use 1-hour bins, which will match some start times with the wrong stop times.
+Then we group by start time and ip to get a group for each session. We must supply a `bin` function for the StartTime parameter: if we don't, AI Analytics will automatically use 1-hour bins, which will match some start times with the wrong stop times.
 
 `argmin` picks out the row with the smallest duration in each group, and the `*` parameter passes through all the other columns, though it prefixes "min_" to each column name. 
 
@@ -124,8 +124,8 @@ Then we can add some code to count the durations in conveniently-sized bins. We'
     | summarize count() by duration=bin(min_duration/1s, 10) 
       // Cut off the long tail:
     | where duration < 300
-      // Display in a bar chart:
-    | sort by duration asc | render barchart 
+      // Prepare for display in a bar chart:
+    | sort by duration asc 
 
 
 ![](./media/app-analytics-samples/050.png) 
@@ -133,8 +133,8 @@ Then we can add some code to count the durations in conveniently-sized bins. We'
 
 ### Real example
 
-<!-- csl -->
-```
+```AIQL
+
 Logs  
 | filter ActivityId == "ActivityId with Blablabla" 
 | summarize max(Timestamp), min(Timestamp)  
@@ -270,7 +270,7 @@ This can be rendered as a bar chart or time chart.
 
 ## Join flavors
 
-The exact flavor of the join operator is specified with the kind keyword. As of today, Application Analytics supports six flavors of the join operator: inner join with left side deduplication (the default), standard inner join, left outer, right outer, full outer and left anti join. 
+The exact flavor of the join operator is specified with the kind keyword. As of today, AI Analytics supports six flavors of the join operator: inner join with left side deduplication (the default), standard inner join, left outer, right outer, full outer and left anti join. 
  
 Default join flavor (no kind specified) 
 Let's use two sample tables to explain the operation of the join: 
@@ -318,7 +318,7 @@ and the result of the join would be:
 
 (Note that the keys 'a' and 'd' do not appear in the output, since there were no matching keys on both left and right sides). 
  
-(Historically, this was the first implementation of the join supported by the initial version of Application Analytics; it is useful in the typical log/trace analysis scenarios where we want to correlate two events (each matching some filtering criterion) under the same correlation ID, and get back all appearances of the phenomenon we're looking for, ignoring multiple appearances of the contributing trace records.)
+(Historically, this was the first implementation of the join supported by the initial version of AI Analytics; it is useful in the typical log/trace analysis scenarios where we want to correlate two events (each matching some filtering criterion) under the same correlation ID, and get back all appearances of the phenomenon we're looking for, ignoring multiple appearances of the contributing trace records.)
  
 ### Inner join (kind=inner) 
 
@@ -407,150 +407,11 @@ Result:
  
 Anti-join models the "NOT IN" query. 
 
-<a href="anomaly"></a>
-## Get more out of your data using Machine Learning 
 
-There are many interesting use cases for leveraging machine learning algorithms and derive interesting insights out of telemetry data. While often these algorithms require a very structured dataset as their input, the raw log data will usually not match the required structure and size. For example, the anomaly detection service published on Azure ML market place, requires a dataset which contains a fixed interval time series column and a single numeric column to evaluate for anomalies. This is where you can use Application Analytics powerful query engine to produce the necessary dataset from the raw logs data. 
-
-Our journey starts with looking for anomalies in the error rate of a specific Bing Inferences service. The Logs table has 65B records, and the simple query below filters 250K errors, and creates a time series data of errors count that is sent to Azure ML anomaly detection service. The anomalies detected by the service, are highlighted as red dots on the time series chart.
-
-```
-Logs
-| where Timestamp >= datetime(2015-08-22) and Timestamp < datetime(2015-08-23) 
-| where Level == "e" and Service == "Inferences.UnusualEvents_Main" 
-| summarize count() by bin(Timestamp, 5min)
-| render anomalychart 
-```
-
-The service identified few time buckets with suspicious error rate. I'm using Application Analytics to zoom into this time frame, running a query that aggregates on the ‘Message' column trying to look for the top errors. I've trimmed the relevant parts out of the entire stack trace of the message to better fit into the page. You can see that I had nice success with the top eight errors, but then reached a long tail of errors since the error message was created by a format string that contained changing data. 
-
-```
-Logs
-| where Timestamp >= datetime(2015-08-22 05:00) and Timestamp < datetime(2015-08-22 06:00)
-| where Level == "e" and Service == "Inferences.UnusualEvents_Main"
-| summarize count() by Message 
-| top 10 by count_ 
-| project count_, Message 
-```
-
-|count_|Message
-|---|---
-|7125|ExecuteAlgorithmMethod for method 'RunCycleFromInterimData' has failed...
-|7125|InferenceHostService call failed..System.NullReferenceException: Object reference not set to an instance of an object...
-|7124|Unexpected Inference System error..System.NullReferenceException: Object reference not set to an instance of an object... 
-|5112|Unexpected Inference System error..System.NullReferenceException: Object reference not set to an instance of an object..
-|174|InferenceHostService call failed..System.ServiceModel.CommunicationException: There was an error writing to the pipe:...
-|10|ExecuteAlgorithmMethod for method 'RunCycleFromInterimData' has failed...
-|10|Inference System error..Microsoft.Bing.Platform.Inferences.Service.Managers.UserInterimDataManagerException:...
-|3|InferenceHostService call failed..System.ServiceModel.CommunicationObjectFaultedException:...
-|1|Inference System error... SocialGraph.BOSS.OperationResponse...AIS TraceId:8292FC561AC64BED8FA243808FE74EFD...
-|1|Inference System error... SocialGraph.BOSS.OperationResponse...AIS TraceId: 5F79F7587FF943EC9B641E02E701AFBF...
-
-This is where the new `reduce` operator comes to help. The `reduce` operator identified 63 different errors as originated by the same trace instrumentation point in the code, and helped me focus on additional meaningful error trace in that time window.
-
-```
-Logs
-| where Timestamp >= datetime(2015-08-22 05:00) and Timestamp < datetime(2015-08-22 06:00)
-| where Level == "e" and Service == "Inferences.UnusualEvents_Main"
-| reduce by Message with threshold=0.35
-| project Count, Pattern
-```
-
-|Count|Pattern
-|---|---
-|7125|ExecuteAlgorithmMethod for method 'RunCycleFromInterimData' has failed...
-|  7125|InferenceHostService call failed..System.NullReferenceException: Object reference not set to an instance of an object...
-|  7124|Unexpected Inference System error..System.NullReferenceException: Object reference not set to an instance of an object... 
-|  5112|Unexpected Inference System error..System.NullReferenceException: Object reference not set to an instance of an object..
-|  174|InferenceHostService call failed..System.ServiceModel.CommunicationException: There was an error writing to the pipe:...
-|  63|Inference System error..Microsoft.Bing.Platform.Inferences.*.*.*: * write * * * to write to the Object * BOSS *.  * * *: SocialGraph.BOSS.Reques...
-|  10|ExecuteAlgorithmMethod for method 'RunCycleFromInterimData' has failed...
-|  10|Inference System error..Microsoft.Bing.Platform.Inferences.Service.Managers.UserInterimDataManagerException:...
-|  3|InferenceHostService call failed..System.ServiceModel.*: The * object, System.ServiceModel.Channels.*+*, * * * for * * * is * the * *...   at Syst...
-
-Now that I have a good view into the top errors that contributed to the detected anomalies, I want to understand the impact of these errors across my system. The 'Logs' table contains additional dimensional data such as 'Component', 'Cluster', etc... The new 'oneclass' plugin can help me derive that insight with a simple query. In this example below, I can clearly see that each of the top four errors are specific to a component, and while the top three errors are specific to DB4 cluster, the fourth one happens across all clusters.
-
-```
-
-Logs
-| where Timestamp >= datetime(2015-08-22 05:00) and Timestamp < datetime(2015-08-22 06:00)
-| where Level == "e" and Service == "Inferences.UnusualEvents_Main"
-| evaluate oneclass()
-```
-
-|Count |Percent (%)|Component|Cluster|Message
-|---|---|---|---|---
-|7125|26.64|InferenceHostService|DB4|ExecuteAlgorithmMethod for method ....
-|7125|26.64|Unknown Component|DB4|InferenceHostService call failed....
-|7124|26.64|InferenceAlgorithmExecutor|DB4|Unexpected Inference System error...
-|5112|19.11|InferenceAlgorithmExecutor|*|Unexpected Inference System error... 
-
-
-
-
-## Mapping values from one set to another
-
-A common use-case is using static mapping of values that can help in adopting results into more presentable way.  
-For example, consider having next table. DeviceModel  specifies a model of the device, which is not a very convenient form of referencing to the device name.  
-
-|DeviceModel |Count 
-|---|---
-|iPhone5,1 |32 
-|iPhone3,2 |432 
-|iPhone7,2 |55 
-|iPhone5,2 |66 
-  
-A better representation may be:  
-
-|FriendlyName |Count 
-|---|---
-|iPhone 5 |32 
-|iPhone 4 |432 
-|iPhone 6 |55 
-|iPhone5 |66 
-  
-The approach below shows how the mapping can be achieved using a persistent table and join operator.
- 
-Create the mapping table (just once):
-
-    .create table Devices (DeviceModel: string, FriendlyName: string) 
-
-    .ingest inline into table Devices 
-      ["iPhone5,1","iPhone 5"]["iPhone3,2","iPhone 4"]["iPhone7,2","iPhone 6"]["iPhone5,2","iPhone5"] 
-  
-Content of Devices now: 
-
-|DeviceModel |FriendlyName 
-|---|---
-|iPhone5,1 |iPhone 5 
-|iPhone3,2 |iPhone 4 
-|iPhone7,2 |iPhone 6 
-|iPhone5,2 |iPhone5 
-  
-Same trick for creating test table Source:
-
-    .create table Source (DeviceModel: string, Count: int) 
-
-    .ingest inline into table Source ["iPhone5,1",32]["iPhone3,2",432]["iPhone7,2",55]["iPhone5,2",66] 
-  
-Join and project:
-
-    Devices  
-    | join (Source) on DeviceModel  
-    | project FriendlyName, Count 
-
-Result:
-
-|FriendlyName |Count 
-|---|---
-|iPhone 5 |32 
-|iPhone 4 |432 
-|iPhone 6 |55 
-|iPhone5 |66 
 
 ## Join with inline dictionary mapping
 
-```
+```AIQL
 
 let TeamFoundationJobResult = range i from 1 to 1 step 1 
   | extend recordsJson = "[ 

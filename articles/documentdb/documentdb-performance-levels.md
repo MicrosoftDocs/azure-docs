@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="03/08/2016" 
 	ms.author="johnmac"/>
 
 #Performance levels in DocumentDB
@@ -33,7 +33,7 @@ Each DocumentDB collection created under a Standard account is provisioned with 
 
 Each performance level has an associated request unit (RU) rate limit. This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively. Collections can be created through the [Microsoft Azure portal](https://portal.azure.com) or any of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). The DocumentDB APIs allow you to specify the performance level of a collection. 
 
-Collection performance leve|Reserved throughput
+Collection performance level|Reserved throughput
 ---|---
 S1|250 RU/sec
 S2|1000 RU/sec

@@ -1,6 +1,6 @@
 <properties
     pageTitle="Query Your Azure Search Index using the REST API | Microsoft Azure | Hosted cloud search service"
-    description="Build a search query in Azure search and use search parameters to filter, sort, and facet search results."
+    description="Build a search query in Azure search and use search parameters to filter and sort search results."
     services="search"
     documentationCenter=""
 	authors="ashmaka"
@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="02/29/2016"
+    ms.date="03/08/2016"
     ms.author="ashmaka"/>
 
 # Query your Azure Search index using the REST API
@@ -47,7 +47,15 @@ For both POST and GET, you need to provide your *service name*, *index name*, an
 
 The format for POST is the same, but with only api-version in the query string parameters.
 
-Azure Search offers many options to create extremely powerful queries. To learn more about all the different parameters of a query, please visit [this page](https://msdn.microsoft.com/library/azure/dn798927.aspx). There are also a few example queries below.
+#### Types of queries
+
+Azure Search offers many options to create extremely powerful queries. The two main types of query you will use are `search` and `filter`. A `search` query searches for one or more terms in all _searchable_ fields in your index, and works the way you would expect a search engine like Google or Bing to work. A `filter` query evaluates a boolean expression over all _filterable_ fields in an index. Unlike `search` queries, `filter` queries match the exact contents of a field, which means they are case-sensitive for string fields.
+
+You can use searches and filters together or separately. If you use them together, the filter is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
+
+The syntax for filter expressions is a subset of the OData filter language that is documented [here](https://msdn.microsoft.com/library/azure/dn798921.aspx). For search queries you can use either the simplified syntax, documented [here](https://msdn.microsoft.com/library/azure/dn798920.aspx), or the Lucene query syntax, which is documented [here](https://msdn.microsoft.com/library/azure/mt589323.aspx).
+
+To learn more about all the different parameters of a query, please visit [this page](https://msdn.microsoft.com/library/azure/dn798927.aspx). There are also a few example queries below.
 
 #### Example Queries
 
@@ -65,7 +73,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Search the entire index for hotels cheaper than $150 per night and return the `hotelId` and `description`:
+Apply a filter to the index to find hotels cheaper than $150 per night, and return the `hotelId` and `description`:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28

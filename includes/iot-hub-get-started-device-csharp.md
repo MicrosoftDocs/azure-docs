@@ -68,7 +68,7 @@ In this section, you'll create a Windows console app that simulates a device tha
 <!-- Links -->
 
 [lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
-[lnk-transient-faults]: https://msdn.microsoft.com/en-us/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
