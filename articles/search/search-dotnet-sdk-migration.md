@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="03/08/2016"
+   ms.date="03/09/2016"
    ms.author="brjohnst"/>
 
 # Upgrading to the Azure Search .NET SDK version 1.1
@@ -66,7 +66,7 @@ Finally, once you've fixed any build errors, you can make changes to your applic
 
 The following list is ordered by the likelihood that the change will affect your application code.
 
-### IndexBatch and IndexAction changes
+### `IndexBatch` and `IndexAction` changes
 
 `IndexBatch.Create` has been renamed to `IndexBatch.New` and no longer has a `params` argument. You can use `IndexBatch.New` for batches that mix different types of actions (merges, deletes, etc.). In addition, there are new static methods for creating batches where all the actions are the same: `Delete`, `Merge`, `MergeOrUpload`, and `Upload`.
 
@@ -89,7 +89,7 @@ If you want, you can further simplify it to this:
     var batch = IndexBatch.Upload(documents);
     indexClient.Documents.Index(batch);
 
-### IndexBatchException changes
+### `IndexBatchException` changes
 
 The `IndexBatchException.IndexResponse` property has been renamed to `IndexingResults`, and its type is now `IList<IndexingResult>`.
 
@@ -171,6 +171,29 @@ Starting with version 1.1, the Azure Search .NET SDK organizes operation methods
  - The extension methods now hide a lot of the extraneous details of HTTP from the caller. For example, older versions of the SDK returned a response object with an HTTP status code, which you often didn't need to check because operation methods throw `CloudException` for any status code that indicates an error. The new extension methods just return model objects, saving you the trouble of having to unwrap them in your code.
  - Conversely, the core interfaces now expose methods that give you more control at the HTTP level if you need it. You can now pass in custom HTTP headers to be included in requests, and the new `AzureOperationResponse<T>` return type gives you direct access to the `HttpRequestMessage` and `HttpResponseMessage` for the operation. `AzureOperationResponse` is defined in the `Microsoft.Rest.Azure` namespace and replaces `Hyak.Common.OperationResponse`.
 
+### `ScoringParameters` changes
+
+A new class named `ScoringParameter` has been added in the latest SDK to make it easier to provide parameters to scoring profiles in a search query. Previously the `ScoringProfiles` property of the `SearchParameters` class was typed as `IList<string>`; Now it is typed as `IList<ScoringParameter>`.
+
+#### Example
+
+If your code looks like this:
+
+    var sp = new SearchParameters();
+    sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
+    sp.ScoringParameters = new[] { "featuredParam:featured", "mapCenterParam:" + lon + "," + lat };
+
+You can change it to this to fix any build errors: 
+
+    var sp = new SearchParameters();
+    sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
+    sp.ScoringParameters =
+        new[]
+        {
+            new ScoringParameter("featuredParam", "featured"),
+            new ScoringParameter("mapCenterParam", GeographyPoint.Create(lat, lon))
+        };
+
 ### Model class changes
 
 Due to the signature changes described in [Operation method changes](#OperationMethodChanges), many classes in the `Microsoft.Azure.Search.Models` namespace have been renamed or removed. For example:
@@ -218,7 +241,7 @@ You can change it to this to fix any build errors:
 
     IndexerExecutionResult lastResult = status.LastResult;
 
-#### Response classes and IEnumerable
+#### Response classes and `IEnumerable`
 
 An additional change that may affect your code is that response classes that hold collections no longer implement `IEnumerable<T>`. Instead, you can access the collection property directly. For example, if your code looks like this:
 
@@ -270,11 +293,11 @@ You can change it by getting the `.Results` property of the search response to f
 
 You will have to look for such cases in your code yourself; **The compiler will not warn you** because `JsonResult.Data` is of type `object`.
 
-### CloudException changes
+### `CloudException` changes
 
 The `CloudException` class has moved from the `Hyak.Common` namespace to the `Microsoft.Rest.Azure` namespace. Also, its `Error` property has been renamed to `Body`.
 
-### SearchServiceClient and SearchIndexClient changes
+### `SearchServiceClient` and `SearchIndexClient` changes
 
 The type of the `Credentials` property has changed from `SearchCredentials` to its base class, `ServiceClientCredentials`. If you need to access the `SearchCredentials` of a `SearchIndexClient` or `SearchServiceClient`, please use the new `SearchCredentials` property.
 
