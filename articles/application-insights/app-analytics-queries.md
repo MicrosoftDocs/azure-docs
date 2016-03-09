@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Operators and queries in Application Analytics" 
-	description="Reference for the operators used to make queries in Application Analytics, 
+	pageTitle="Operators and queries in Application Insights Analytics" 
+	description="Reference for the operators used to make queries in Application Insights Analytics, 
 	             the powerful search tool for Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="awills"/>
 
 
 
-# Query syntax in Application Analytics
+# Query syntax in Application Insights Analytics
 
 
-[Application Analytics](app-analytics.md) is a powerful search engine for your 
+[Application Insights Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Analytics query lanuage, CSL.
+Application Insights Analytics query lanquage, AIQL.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -31,9 +31,9 @@ Application Analytics query lanuage, CSL.
 A query over your telemetry is made up of a reference to a source stream, followed by a pipeline of filters. For example:
 
 
-```CSL
+```AIQL
 requests
-| where location_City == "London" and timestamp > ago(3d)
+| where client_City == "London" and timestamp > ago(3d)
 | count
 ```
     
@@ -41,13 +41,13 @@ Each filter prefixed by the pipe character `|` is an instance of an *operator*, 
 
 A query may be prefixed by one or more [let clauses](#let-clause), which define scalars, tables, or functions that can be used within the query.
 
-```CSL
+```AIQL
 
     let interval = 3d ;
     let city = "London" ;
     let req = (city:string) {
       requests
-      | where location_City == city and timestamp > ago(interval) };
+      | where client_City == city and timestamp > ago(interval) };
     req(city) | count
 ```
 
@@ -72,7 +72,7 @@ This function returns a table with a single record and column of type
 
 **Example**
 
-```CSL
+```AIQL
 requests | count
 ```
 
@@ -87,11 +87,11 @@ Append one or more calculated columns to a table.
 
 **Syntax**
 
-    *T* | extend *ColumnName* = *Expression* [, ...]
+    T | extend ColumnName = Expression [, ...]
 
 **Arguments**
 
-* *T*: The input table.
+* *T:* The input table.
 * *ColumnName:* The name of a columns to add. 
 * *Expression:* A calculation over the existing columns.
 
@@ -108,7 +108,7 @@ A copy of the input table, with the specified additional columns.
 
 **Example**
 
-```CSL
+```AIQL
 traces
 | extend
     Age = now() - timestamp
@@ -124,14 +124,14 @@ Merges the rows of two tables by matching values of the specified column.
 
 **Syntax**
 
-    *Table1* | join [kind=*kind*] (*Table2*) on *CommonColumn* [, ...]
+    Table1 | join [kind=Kind] (Table2) on CommonColumn [, ...]
 
 **Arguments**
 
 * *Table1* - the 'left side' of the join.
 * *Table2* - the 'right side' of the join. It can be a nested query expression that outputs a table.
 * *CommonColumn* - a column that has the same name in the two tables.
-* *kind* - specifies how rows from the two tables are to be matched.
+* *Kind* - specifies how rows from the two tables are to be matched.
 
 **Returns**
 
@@ -170,7 +170,7 @@ For best performance:
 
 Get extended activities from a log in which some entries mark the start and end of an activity. 
 
-```CSL
+```AIQL
     let Events = MyLogTable | where type=="Event" ;
     Events
     | where Name == "Start"
@@ -227,7 +227,7 @@ A let clause binds a name to a tablular result, scalar value or function. The cl
 
 Self-join:
 
-    let Recent = Events | where timestamp > ago(7d);
+    let Recent = events | where timestamp > ago(7d);
     Recent | where name contains "session_started" 
     | project start = timestamp, session_id
     | join (Recent 
@@ -235,6 +235,25 @@ Self-join:
         | project stop = timestamp, session_id)
       on session_id
     | extend duration = stop - start 
+
+## limit operator
+
+     T | limit 5
+
+Returns up to the specified number of rows from the input table. There is no guarantee which records are returned. (To return specific records, use [`top`](#top-operator).)
+
+**Alias** `take`
+
+**Syntax**
+
+    T | limit NumberOfRows
+
+
+**Tips**
+
+`Take` is a simple and efficient way to see a sample of your results when you're working interactively. Be aware that it doesn't guarantee to produce any particular rows, or to produce them in any particular order.
+
+There's an implicit limit on the number of rows returned to the client, even if you don't use `take`. To lift this limit, use the `notruncation` client request option.
 
 
 
@@ -270,9 +289,9 @@ Result is:
 
 **Syntax**
 
-*T* `| mvexpand ` [`bagexpansion=`(`bag` | `array`)] *ColumnName* [`limit` *Rowlimit*]
+    T | mvexpand  [bagexpansion=(bag | array)] ColumnName [limit Rowlimit]
 
-*T* `| mvexpand ` [`bagexpansion=`(`bag` | `array`)] [*Name* `=`] *ArrayExpression* [`to typeof(`*Typename*`)`] [`limit` *Rowlimit*]
+    T | mvexpand  [bagexpansion=(bag | array)] [Name =] ArrayExpression [to typeof(Typename)] [limit Rowlimit]
 
 **Arguments**
 
@@ -297,86 +316,47 @@ Two modes of property-bag expansions are supported:
 
 **Examples**
 
+
+    exceptions | take 1 
+    | mvexpand details[0]
+
+Splits an exception record into rows for each item in the details field.
+
 See [Chart count of live activites over time](app-analytics-samples.md#concurrent-activities).
 
 
-## project operator
-
-    T | project cost=price*quantity, price
-
-Select the columns to include, rename or drop, and insert new computed columns. The order of the columns in the result is specified by the order of the arguments. Only the columns specified in the arguments are included in the result: any others in the input are dropped.  (See also `extend`.)
-
-
-**Syntax**
-
-*T* `| project` *ColumnName* [`=` *Expression*] [`,` ...]
-
-**Arguments**
-
-* *T*: The input table.
-* *ColumnName:* The name of a column to appear in the output. If there is no *Expression*, a column of that name must appear in the input. 
-* *Expression:* Optional scalar expression referencing the input columns. 
-
-    It is legal to return a new calculated column with the same name as an existing column in the input.
-
-**Returns**
-
-A table that has the columns named as arguments, and as many rows as the input table.
-
-**Example**
-
-The following example shows several kinds of manipulations that can be done
-using the `project` operator. The input table `T` has three columns of type `int`: `A`, `B`, and `C`. 
-
-```CSL
-T
-| project
-    X=C,                       // Rename column C to X
-    A=2*B,                     // Calculate a new column A from the old B
-    C=strcat("-",tostring(C)), // Calculate a new column C from the old C
-    B=2*B                      // Calculate a new column B from the old B
-```
-
-
-[More examples](app-analytics-samples.md#activities).
-
 ## parse operator
 
-    T | parse Text with "ActivityName=" name ", ActivityType=" type
+    T | parse "I am 63 next birthday" with "I am" Year:int "next birthday"
 
-Evaluates a string expression and parses its value into one or more
-calculated columns.
+    T | parse kind=regex "My 62nd birthday" 
+        with "My" Year:regex("[0..9]+") regex("..") "birthday"
+
+Extracts values from a string. Can use simple or regular expression matching.
+
+The elements in the `with` clause are matched against the source string in turn. Each element chews off a chunk of the source text. If it's a plain string, the matching cursor moves along as far as the match. If it's a column with a type name, the cursor moves along far enough to parse the specified type. (String matches move along until a match to the next element is found.) If it's a regex, the regular expression is matched (and the resulting column always has string type).
 
 **Syntax**
 
-*T* `| parse` [`kind=regex`|`simple`] *Expression* `with`
-(*StringConstant* *ColumnName* [`:` *ColumnTypeOrRegex*])...
+    T | parse StringExpression with [SimpleMatch | Column:Type] ...
+
+    T | parse kind=regex StringExpression 
+        with [SimpleMatch | Column : regex("Regex")] ...
 
 **Arguments**
 
-* *T*: The input table.
-* *Expression*: An expression that evaluates to a string.
-* *ColumnName:* The name of a column to assign a value (taken out
-  of the string expression) to. 
-* *ColumnTypeOrRegex:* if kind=simple, it should be Optional scalar type that
- indicates the type to convert the value to , else , if it is kind=regex, it should be 
- regex("regex_pattern"). 
-* kind may be simple or regex while the default is simple.
+* *T:* The input table.
+* *kind:* simple or regex. The default is simple.
+* *StringExpression:* An expression that evaluates to or can be converted to a string.
+* *SimpleMatch:* A string that matches the next part of the text.
+* *Column:* Specifies the new column to assign a match to.
+* *Type:* Specifies how to parse the next part of the source string.
+* *Regex:* A regular expression to match the next part of the string. 
 
 **Returns**
 
-The input table, extended according to the list of columns that are
-provided to the operator.
+The input table, extended according to the list of Columns.
 
-**Tips**
-
-* Use [`project`](#project-operator) instead, if you also want to drop or rename some columns.
-  This may be useful when only few values of the *Expression* are required , other ones may be 
-  parsed as string and then projected away.
-
-* The parse pattern may start with *ColumnName* and not only with *StringConstant*. 
-
-* if the parsed *Expression* is not of type string , it will be converted to type string.
 
 **Examples**
 
@@ -399,16 +379,22 @@ below will extend the table with two columns: `SwathSize`, and `FellLocation`.
 |The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16. Flood stage at Woodbury is 33 feet. Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water.|
 |The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18. Flood stage at Tell City is 38 feet. At this level, the river begins to overflow its banks above the gage. Indiana Highway 66 floods between Rome and Derby.|
 
-```CSL
+```AIQL
 
 StormEvents 
 |  parse EventNarrative 
-   with RiverName:string "at" 
-        Location:string "crested at" 
-        Height:double  "feet around" 
-        Time:string "on" 
-        Month:string " " 
-        Day:long "." 
+   with RiverName:string 
+        "at" 
+        Location:string 
+        "crested at" 
+        Height:double  
+        "feet around" 
+        Time:string 
+        "on" 
+        Month:string 
+        " " 
+        Day:long 
+        "." 
         notImportant:string
 | project RiverName , Location , Height , Time , Month , Day
 
@@ -421,9 +407,9 @@ StormEvents
 |The Green River | Brownsville |18.8| 0930EST | December|12|
 |The Ohio River | Tell City |39| 7 AM EST | December|18|
 
-It is also possible to match using regular expressions. Will the same result but all as strings type:
+It is also possible to match using regular expressions. This produces the same result but all the result columns have string type:
 
-```CSL
+```AIQL
 
 StormEvents
 | parse kind=regex EventNarrative 
@@ -436,6 +422,49 @@ StormEvents
    "." notImportant:regex(".*")
 | project RiverName , Location , Height , Time , Month , Day
 ```
+
+
+## project operator
+
+    T | project cost=price*quantity, price
+
+Select the columns to include, rename or drop, and insert new computed columns. The order of the columns in the result is specified by the order of the arguments. Only the columns specified in the arguments are included in the result: any others in the input are dropped.  (See also `extend`.)
+
+
+**Syntax**
+
+    T | project ColumnName [= Expression] [, ...]
+
+**Arguments**
+
+* *T:* The input table.
+* *ColumnName:* The name of a column to appear in the output. If there is no *Expression*, a column of that name must appear in the input. 
+* *Expression:* Optional scalar expression referencing the input columns. 
+
+    It is legal to return a new calculated column with the same name as an existing column in the input.
+
+**Returns**
+
+A table that has the columns named as arguments, and as many rows as the input table.
+
+**Example**
+
+The following example shows several kinds of manipulations that can be done
+using the `project` operator. The input table `T` has three columns of type `int`: `A`, `B`, and `C`. 
+
+```AIQL
+T
+| project
+    X=C,                       // Rename column C to X
+    A=2*B,                     // Calculate a new column A from the old B
+    C=strcat("-",tostring(C)), // Calculate a new column C from the old C
+    B=2*B                      // Calculate a new column B from the old B
+```
+
+
+[More examples](app-analytics-samples.md#activities).
+
+
 ## range operator
 
     range LastWeek from ago(7d) to now() step 1d
@@ -453,26 +482,26 @@ Generates a single-column table of values. Notice that it doesn't have a pipelin
 
 **Syntax**
 
-`range` *columnName* `from` *start* `to` *stop* `step` *step*
+    range ColumnName from Start to Stop step Step
 
 **Arguments**
 
-* *columnName*: The name of the single column in the output table.
-* *start*: The smallest value in the output.
-* *stop*: The highest value being generated in the output (or a bound
+* *ColumnName:* The name of the single column in the output table.
+* *Start:* The smallest value in the output.
+* *Stop:* The highest value being generated in the output (or a bound
 on the highest value, if *step* steps over this value).
-* *step*: The difference between two consecutive values. 
+* *Step:* The difference between two consecutive values. 
 
-The arguments must be numeric, date or timespan values. They can't reference the columns of any table. (If you want to compute the range based on an input table, use the range function, maybe with the mvexpand operator.) 
+The arguments must be numeric, date or timespan values. They can't reference the columns of any table. (If you want to compute the range based on an input table, use the [range *function*](app-analytics-scalars.md#range), maybe with the [mvexpand operator](#mvexpand-operator).) 
 
 **Returns**
 
-A table with a single column called *columnName*,
-whose values are *start*, *start* `+` *step*, ... up to and until *stop*.
+A table with a single column called *ColumnName*,
+whose values are *Start*, *Start* + *Step*, ... up to and including *Stop*.
 
 **Example**  
 
-```CSL
+```AIQL
 range Steps from 1 to 8 step 3
 ```
 
@@ -487,14 +516,14 @@ A table of midnight at the past seven days. The bin (floor) function reduces eac
 
 **Example**  
 
-```CSL
-range TIMESTAMP from ago(4h) to now() step 1m
+```AIQL
+range timestamp from ago(4h) to now() step 1m
 | join kind=fullouter
-  (Traces
-      | where TIMESTAMP > ago(4h)
-      | summarize Count=count() by bin(TIMESTAMP, 1m)
-  ) on TIMESTAMP
-| project Count=iff(isnull(Count), 0, Count), TIMESTAMP
+  (traces
+      | where timestamp > ago(4h)
+      | summarize Count=count() by bin(timestamp, 1m)
+  ) on timestamp
+| project Count=iff(isnull(Count), 0, Count), timestamp
 | render timechart  
 ```
 
@@ -503,13 +532,16 @@ a small, ad-hoc, dimension table which is then used to introduce zeros where the
 
 ## reduce operator
 
-    T | reduce by LogMessage with threshold=0.1
+    exceptions | reduce by outerMessage
 
 Tries to group together similar records. For each group, the operator outputs the `Pattern` it thinks best describes that group, and the `Count` of records in that group.
 
+
+![](./media/app-analytics-queries/reduce.png)
+
 **Syntax**
 
-*T* `| reduce by ` *ColumnName* [`with threshold=`*Threshold*]
+    T | reduce by  ColumnName [ with threshold=Threshold ]
 
 **Arguments**
 
@@ -543,17 +575,17 @@ Sort the rows of the input table into order by one or more columns.
 
 **Syntax**
 
-*T* `| sort by` *column* [`asc` | `desc`] [`,` ...]
+    T  | sort by Column [ asc | desc ] [ `,` ... ]
 
 **Arguments**
 
-* *T*: The table input to sort.
-* *column*: Column of *T* by which to sort. The type of the values must be numeric, date, time or string.
+* *T:* The table input to sort.
+* *Column:* Column of *T* by which to sort. The type of the values must be numeric, date, time or string.
 * `asc` Sort by into ascending order, low to high. The default is `desc`, descending high to low.
 
 **Example**
 
-```CSL
+```AIQL
 Traces
 | where ActivityId == "479671d99b7b"
 | sort by Timestamp asc
@@ -565,10 +597,10 @@ All rows in table Traces that have a specific `ActivityId`, sorted by their time
 Produces a table that aggregates the content of the input table.
  
     requests
-	| summarize count(), avg(duration), makeset(location_Country) 
-      by location_Continent
+	| summarize count(), avg(duration), makeset(client_City) 
+      by client_CountryOrRegion
 
-A table that shows the number, average duration of  of each fruit from each supplier. There's a row in the output for each distinct combination of fruit and supplier. The output columns show the count, average price, fruit and supplier. All other input columns are ignored.
+A table that shows the number, average request duration and set of cities in each country. There's a row in the output for each distinct country. The output columns show the count, average duration, cities and country. All other input columns are ignored.
 
 
     T | summarize count() by price_range=bin(price, 10.0)
@@ -582,9 +614,9 @@ A table that shows how many items have prices in each interval  [0,10.0], [10.0,
 **Syntax**
 
     T | summarize
-         [  [Column =] Aggregation [`,` ...]]
+         [  [ Column = ] Aggregation [ `,` ... ] ]
          [ by
-            [Column =] GroupExpression [`,` ...]]
+            [ Column = ] GroupExpression [ `,` ... ] ]
 
 **Arguments**
 
@@ -592,7 +624,7 @@ A table that shows how many items have prices in each interval  [0,10.0], [10.0,
 * *Aggregation:* A call to an [aggregation function](app-analytics-aggregations.md) such as `count()` or `avg()`, with column names as arguments. See the [list of aggregation functions](app-analytics-aggregations.md).
 * *GroupExpression:* An expression over the columns, that provides a set of distinct values. Typically it's either a column name that already provides a restricted set of values, or `bin()` with a numeric or time column as argument. 
 
-If you provide a numeric or time expression without using `bin()`, Application Analytics automatically applies it with an interval of `1h` for times, or `1.0` for numbers.
+If you provide a numeric or time expression without using `bin()`, AI Analytics automatically applies it with an interval of `1h` for times, or `1.0` for numbers.
 
 If you don't provide a *GroupExpression,* the whole table is summarized in a single output row.
 
@@ -612,22 +644,7 @@ Although you can provide arbitrary expressions for both the aggregation and grou
 
 ## take operator
 
-     T | take 5
-
-Returns up to the specified number of rows from the input table. There is no guarantee which records are returned. (To return specific records, use [`top`](#top-operator).)
-
-**Alias** `limit`
-
-**Syntax**
-
-*T* `| take` *NumberOfRows*
-
-
-**Tips**
-
-`Take` is a simple and efficient way to see a sample of your results when you're working interactively. Be aware that it doesn't guarantee to produce any particular rows, or to produce them in any particular order.
-
-There's an implicit limit on the number of rows returned to the client, even if you don't use `take`. To lift this limit, use the `notruncation` client request option.
+Alias of [limit](#limit-operator)
 
 
 ## top operator
@@ -639,12 +656,12 @@ Returns the first *N* records sorted by the specified columns.
 
 **Syntax**
 
-*T* `| top` *NumberOfRows* `by` *sort_expression* [`asc` | `desc`] [`,`...]
+    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [, ... ]
 
 **Arguments**
 
-* *NumberOfRows*: The number of rows of *T* to return.
-* *sort_expression*: An expression by which to sort the rows. It's typically just a column name. You can specify more than one sort_expression.
+* *NumberOfRows:* The number of rows of *T* to return.
+* *Sort_expression:* An expression by which to sort the rows. It's typically just a column name. You can specify more than one sort_expression.
 * `asc` or `desc` (the default) may appear to control whether
 selection is actually from the "bottom" or "top" of the range.
 
@@ -662,22 +679,20 @@ Takes two or more tables and returns the rows of all of them.
 
 **Syntax**
 
-*T* `| union` [`kind=inner`|`outer`] [`withsource`=*ColumnName*] *Table* [`,` *Table*]...  
+    T | union [ kind= inner | outer ] [ withsource = ColumnName ] Table2 [ , ...]  
 
-Alternative form with no piped input:
-
-`union` [`kind=inner`|`outer`] [`withsource`=*ColumnName*] *Table* [`,` *Table*]...  
+    union [ kind= inner | outer ] [ withsource = ColumnName ] Table1, Table2 [ , ...]  
 
 **Arguments**
 
-* `Table`:
- *  The name of a table, such as `Events`; or
- *  A query expression, such as `(Events | where id==42)`
+* *Table1*, *Table2* ...
+ *  The name of a table, such as `events`; or
+ *  A query expression, such as `(events | where id==42)`
  *  A set of tables specified with a wildcard. For example, `E*` would form the union of all the tables in the database whose names begin `E`.
 * `kind`: 
  * `inner` - The result has the subset of columns that are common to all of the input tables.
  * `outer` - The result has all the columns that occur in any of the inputs. Cells that were not defined by an input row are set to `null`.
-* `withsource=`*ColumnName*: If specified, the output will include a column
+* `withsource=`*ColumnName:* If specified, the output will include a column
 called *ColumnName* whose value indicates which source table has contributed each row.
 
 **Returns**
@@ -686,7 +701,7 @@ A table with as many rows as there are in all the input tables.
 
 **Example**
 
-```CSL
+```AIQL
 
 let ttrr = requests | where timestamp > ago(1h);
 let ttee = exceptions | where timestamp > ago(1h);
@@ -694,17 +709,10 @@ union tt* | count
 ```
 Union of all tables whose names begin "tt".
 
-```CSL
-
-union e* | where * has "timestamp"
-```
-
-Rows from all tables in the database whose name starts with `e`, and in which any column name includes the word `timestamp`.
-
 
 **Example**
 
-```CSL
+```AIQL
 
 union withsource=SourceTable kind=outer Query, Command
 | where Timestamp > ago(1d)
@@ -713,7 +721,7 @@ union withsource=SourceTable kind=outer Query, Command
 The number of distinct users that have produced
 either a `exceptions` event or a `traces` event over the past day. In the result, the 'SourceTable' column will indicate either "Query" or "Command".
 
-```CSL
+```AIQL
 exceptions
 | where Timestamp > ago(1d)
 | union withsource=SourceTable kind=outer 
@@ -733,12 +741,12 @@ Filters a table to the subset of rows that satisfy a predicate.
 
 **Syntax**
 
-*T* `| where` *Predicate*
+    T | where Predicate
 
 **Arguments**
 
-* *T*: The tabular input whose records are to be filtered.
-* *Predicate*: A `boolean` [expression](app-analytics-scalars.md#boolean) over the columns of *T*. It is evaluated for each row in *T*.
+* *T:* The tabular input whose records are to be filtered.
+* *Predicate:* A `boolean` [expression](app-analytics-scalars.md#boolean) over the columns of *T*. It is evaluated for each row in *T*.
 
 **Returns**
 
@@ -757,7 +765,7 @@ To get the fastest performance:
 
 **Example**
 
-```CSL
+```AIQL
 Traces
 | where Timestamp > ago(1h)
     and Source == "Kuskus"
@@ -768,13 +776,6 @@ Records that are no older than 1 hour,
 and come from the Source called "Kuskus", and have two columns of the same value. 
 
 Notice that we put the comparison between two columns last, as it can't utilize the index and forces a scan.
-
-**Example**
-
-    Traces | where * has "AA"
-
-All the rows in which the word "AA" appears in any column.
-
 
 
 
