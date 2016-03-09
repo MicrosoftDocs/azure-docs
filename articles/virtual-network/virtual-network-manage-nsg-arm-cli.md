@@ -80,7 +80,7 @@ Expected output:
 
 >[AZURE.NOTE] You can also use `azure network nsg rule list --resource-group RG-NSG --nsg-name NSG-FrontEnd` to list the rules from the **NSG-FrontEnd** NSG.
 
-### View NSGs associations
+### View NSG associations
 
 To view what resources the **NSG-FrontEnd** NSG is associate with, run the `azure network nsg show` command as shown below. Notice that the only difference is the use of the **--json** parameter.
 
