@@ -32,7 +32,7 @@ This article will walk you through the steps to create and connect virtual netwo
 
 **Deployment models and tools for VNet-to-VNet**
 
-[AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vvpn-gateway-table-vnet-to-vnet-include.md)]
+[AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 
 ## About VNet-to-VNet connections
