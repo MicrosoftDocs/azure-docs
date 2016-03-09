@@ -1,6 +1,6 @@
 ## Send messages to Event Hubs
 
-In this section, we write a Java console app to send events to your Event Hub. We make use of the JMS AMQP provider from the [Apache Qpid project](http://qpid.apache.org/). This is analogous to using Service Bus queues and topics with AMQP through Java, as shown [here](../service-bus/service-bus-java-how-to-use-jms-api-amqp.md). For more information, see the [Qpid JMS documentation](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) and [Java Messaging Service](http://www.oracle.com/technetwork/java/jms/index.html).
+In this section, we write a Java console app to send events to your Event Hub. We make use of the JMS AMQP provider from the [Apache Qpid project](http://qpid.apache.org/). This is analogous to using Service Bus queues and topics with AMQP through Java, as shown [here](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md). For more information, see the [Qpid JMS documentation](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) and [Java Messaging Service](http://www.oracle.com/technetwork/java/jms/index.html).
 
 1. In Eclipse, install the [Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse.md). This includes the Qpid JMS AMQP client libraries.
 
