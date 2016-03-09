@@ -3,7 +3,7 @@
    description="Learn how to manage your StorSimple on-premises Virtual Array by using the StorSimple Manager service in the Azure classic portal."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="03/01/2016"
+   ms.author="alkohli" />
 
-# Use the StorSimple Manager service to administer your StorSimple Virtual Array (preview)
+# Use the StorSimple Manager service to administer your StorSimple Virtual Array
 
 ![setup process flow](./media/storsimple-ova-manager-service-administration/manage4.png)
 
