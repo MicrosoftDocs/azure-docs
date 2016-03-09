@@ -25,7 +25,7 @@ Azure PowerShell is a powerful scripting environment that you can use to control
 
 > [AZURE.NOTE] Azure PowerShell is only available on Windows clients. If you are using a Linux, Unix, or Mac OS X client, see [Create a Linux-based HDInsight cluster using Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) for information on using the Azure CLI to create a cluster.
 
-###Prerequisites
+##Prerequisites
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

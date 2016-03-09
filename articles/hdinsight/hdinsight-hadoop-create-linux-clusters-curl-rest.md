@@ -27,7 +27,7 @@ The Azure REST API allows you to perform management operations on services hoste
 >
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-###Prerequisites
+##Prerequisites
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
