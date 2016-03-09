@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="03/09/2016"
 	ms.author="tdykstra"/>
 
 # Get started with API Apps and ASP.NET in Azure App Service
@@ -461,9 +461,10 @@ If you called the middle tier API app now, it would try to call the data tier us
  
 4. In the API App's **Application Settings** blade, scroll down to the **App settings** section and add the following key and value:
 
-	|Key|Value|Example
-	|---|---|---|
-	|toDoListDataAPIURL|https://{your data tier API app name}.azurewebsites.net|https://todolistdataapi0121.azurewebsites.net|
+	| **Key** | toDoListDataAPIURL |
+	|---|---|
+	| **Value** | https://{your data tier API app name}.azurewebsites.net |
+	| **Example** | https://todolistdataapi0121.azurewebsites.net |
 
 4. Click **Save**.
 
