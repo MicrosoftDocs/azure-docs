@@ -21,8 +21,8 @@
 
 This playbook helps you to:
 
-- populate data in the Identity Protection environment by simulating risk events and vulnerabilities
-- set up risk-based conditional access policies and test the impact of these policies
+- Populate data in the Identity Protection environment by simulating risk events and vulnerabilities
+- Set up risk-based conditional access policies and test the impact of these policies
 
 
 ## Simulating Risk Events
@@ -51,7 +51,7 @@ The sign-in will show up on the Identity Protection dashboard within 5 minutes.
 
 ###Sign-ins from unfamiliar locations
 
-The unfamiliar locations risk is a real-time sign-in evaluation mechanism that considers past sign-in locations (IP, Latitude / Longitude and ASN) to determine new / unfamiliar locations. The system stores previous IPs, Latitude / Longitude, and ASNs of a user and considers these to be “*familiar*” locations. A sign-in location is considered unfamiliar if the sign-in location does not match any of the existing familiar locations.
+The unfamiliar locations risk is a real-time sign-in evaluation mechanism that considers past sign-in locations (IP, Latitude / Longitude and ASN) to determine new / unfamiliar locations. The system stores previous IPs, Latitude / Longitude, and ASNs of a user and considers these to be familiar locations. A sign-in location is considered unfamiliar if the sign-in location does not match any of the existing familiar locations.
 
 Azure Active Directory Identity Protection:  
 
