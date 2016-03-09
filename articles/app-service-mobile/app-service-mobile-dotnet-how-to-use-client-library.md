@@ -24,7 +24,8 @@
 
 This guide shows you how to perform common scenarios using the managed client library for Azure App Service Mobile Apps for Windows and Xamarin apps. If
 you are new to Mobile Apps, you should consider first completing the [Azure Mobile Apps quickstart] tutorial. In this guide, we focus on the client-side
-managed SDK. To learn more about the server-side SDKs for Mobile Apps, see [Work with .NET backend SDK] or [How to use the Node.js backend SDK].
+managed SDK. To learn more about the server-side SDKs for Mobile Apps, see the HOWTO documentation for the [.NET Server SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+or the [Node.js Server SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
 The pack
 ## Reference documentation
@@ -52,8 +53,9 @@ The corresponding typed client-side type in C# is the following:
 
 Note that the [JsonPropertyAttribute] is used to define the *PropertyName* mapping between the client type and the table.
 
-To learn how to create new tables in your Mobile Apps backend, see [How to: Define a table controller] (.NET backend) or [Define Tables using a Dynamic Schema]
-(Node.js backend). If you created your Mobile App backend in the Azure Portal using the QuickStart, you can also use the **Easy tables** setting in the [Azure portal].
+To learn how to create new tables in your Mobile Apps backend, see the information in the [.NET Server SDK HOWTO](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller)
+or the [Node.js Server SDK HOWTO](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). If you
+created your Mobile App backend in the Azure Portal using the QuickStart, you can also use the **Easy tables** setting in the [Azure portal].
 
 ##<a name="create-client"></a>How to: Create the Mobile App client
 
@@ -88,21 +90,23 @@ This section describes how to issue queries to the Mobile App backend, which inc
 - [Select specific columns]
 - [Look up data by ID]
 
->[AZURE.NOTE] A server-driven page size is enforced to prevent all rows from being returned. This keeps default requests for large data sets from negatively impacting the service.
->To return more than 50 rows, use the `Take` method, as described in [Return data in pages].
+>[AZURE.NOTE] A server-driven page size is enforced to prevent all rows from being returned. This keeps default requests
+> for large data sets from negatively impacting the service.  To return more than 50 rows, use the `Take` method, as
+> described in [Return data in pages].
 
 ### <a name="filtering"></a>How to: Filter returned data
 
-The following code illustrates how to filter data by including a `Where` clause in a query. It returns all items from `todoTable` whose `Complete` property is equal to `false`. The
-[Where] function applies a row filtering predicate to the query against the table.
+The following code illustrates how to filter data by including a `Where` clause in a query. It returns all items from
+`todoTable` whose `Complete` property is equal to `false`. The [Where] function applies a row filtering predicate to
+the query against the table.
 
 	// This query filters out completed TodoItems and items without a timestamp.
 	List<TodoItem> items = await todoTable
 	   .Where(todoItem => todoItem.Complete == false)
 	   .ToListAsync();
 
-You can view the URI of the request sent to the backend by using message inspection software, such as browser developer tools or [Fiddler]. If you look at the request URI below,
-notice that the query string is modified:
+You can view the URI of the request sent to the backend by using message inspection software, such as browser developer
+tools or [Fiddler]. If you look at the request URI below, notice that the query string is modified:
 
 	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 
@@ -135,15 +139,20 @@ This query can also be split into multiple clauses:
 	   .Where(todoItem => todoItem.Text != null)
 	   .ToListAsync();
 
-The two methods are equivalent and may be used interchangeably.  The former option&mdash;of concatenating multiple predicates in one query&mdash;is more compact and recommended.
+The two methods are equivalent and may be used interchangeably.  The former option&mdash;of concatenating
+multiple predicates in one query&mdash;is more compact and recommended.
 
-The `Where` clause supports operations that be translated into the OData subset. This includes relational operators (==, !=, <, <=, >, >=), arithmetic operators (+, -, /, *, %),
-number precision (Math.Floor, Math.Ceiling), string functions (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), date properties (Year, Month, Day, Hour, Minute, Second),
-access properties of an object, and expressions combining all of these.  When considering what the Server SDK supports, you can consider the [OData v3 Documentation].
+The `Where` clause supports operations that be translated into the OData subset. This includes relational
+operators (==, !=, <, <=, >, >=), arithmetic operators (+, -, /, *, %),
+number precision (Math.Floor, Math.Ceiling), string functions (Length, Substring, Replace, IndexOf, StartsWith,
+EndsWith), date properties (Year, Month, Day, Hour, Minute, Second), access properties of an object, and
+expressions combining all of these.  When considering what the Server SDK supports, you can consider
+the [OData v3 Documentation].
 
 ### <a name="sorting"></a>How to: Sort returned data
 
-The following code illustrates how to sort data by including an [OrderBy] or [OrderByDescending] function in the query. It returns items from `todoTable` sorted ascending by the `Text` field.
+The following code illustrates how to sort data by including an [OrderBy] or [OrderByDescending] function
+in the query. It returns items from `todoTable` sorted ascending by the `Text` field.
 
 	// Sort items in ascending order by Text field
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -921,7 +930,7 @@ the following example:
 [LookupAsync]: https://msdn.microsoft.com/en-us/library/azure/jj871654(v=azure.10).aspx
 [OrderBy]: https://msdn.microsoft.com/en-us/library/azure/dn250572(v=azure.10).aspx
 [OrderByDescending]: https://msdn.microsoft.com/en-us/library/azure/dn250568(v=azure.10).aspx
-[ReadAsync]: https://msdn.microsoft.com/en-us/library/azure/jj871655(v=azure.10).aspx
+[ReadAsync]: https://msdn.microsoft.com/en-us/library/azure/mt691741(v=azure.10).aspx
 [Take]: https://msdn.microsoft.com/en-us/library/azure/dn250574(v=azure.10).aspx
 [Select]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
 [Skip]: https://msdn.microsoft.com/en-us/library/azure/dn250573(v=azure.10).aspx
