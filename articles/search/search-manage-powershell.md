@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Manage Azure Search with Powershell scripts | Microsoft Azure | Hosted cloud search service" 
-	description="Manage your Azure Search service on Microsoft Azure with PowerShell scripts. Create or update an Azure Search service and manage Azure Search admin keys"  
+	description="Manage your Azure Search service with PowerShell scripts. Create or update an Azure Search service and manage Azure Search admin keys" 
 	services="search" 
 	documentationCenter="" 
 	authors="seansaleh" 
@@ -14,10 +14,10 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="02/25/2016" 
+	ms.date="03/08/2016" 
 	ms.author="seasa"/>
 
-# Manage your Search service on Microsoft Azure with PowerShell
+# Manage your Azure Search service with PowerShell
 > [AZURE.SELECTOR]
 - [Portal](search-manage.md)
 - [PowerShell](search-manage-powershell.md)
@@ -50,7 +50,7 @@ To specify the subscription, run the following command. In the following example
 ## Commands to help you get started
 
 	$serviceName = "your-service-name-lowercase-with-dashes"
-	$sku = "free" # or "standard" for a paid service
+	$sku = "free" # or "basic" or "standard" for paid services
 	$location = "West US"
 	# You can get a list of potential locations with
 	# (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Search'}).Locations
