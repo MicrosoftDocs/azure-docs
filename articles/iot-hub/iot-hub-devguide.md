@@ -331,6 +331,13 @@ In both cases, the password field contains the token, as described in the [Token
 
 When using MQTT, the CONNECT packet has the deviceId as the ClientId, {iothubhostname}/{deviceId} in the Username field and a SAS token in the Password field. {iothubhostname} should be the full CName of the IoT hub (for example, contoso.azure-devices.net).
 
+##### Example: #####
+
+Username (DeviceId is case sensitive):
+`iothubname.azure-devices.net/DeviceId`
+
+Password (Generate SAS with Device Explorer): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+
 > [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens when connecting to the service. In some cases, the SDKs do not support all the protocols or all the authentication methods.
 
 #### SASL PLAIN compared to CBS
@@ -644,5 +651,5 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
-[lnk-eventhub-partitions]: event-hubs-overview.md#partitions
+[lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md

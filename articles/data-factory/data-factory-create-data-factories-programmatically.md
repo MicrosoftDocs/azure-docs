@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create, monitor, and manage Azure data factories by using Data Factory SDK" 
+	pageTitle="Create, monitor, and manage Azure data factories by using Data Factory SDK | Microsoft Azure" 
 	description="Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK." 
 	services="data-factory" 
 	documentationCenter="" 

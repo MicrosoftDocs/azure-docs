@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="03/01/2016"   
+	ms.date="03/02/2016"   
 	ms.author="juliako"/>
 
 #Use the NewTek TriCaster encoder to send a single bitrate live stream
@@ -28,7 +28,7 @@ This topic shows how to configure the [NewTek TriCaster](http://newtek.com/produ
 
 This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure Classic Portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
 
->[AZURE.NOTE]When using Tricaster for sending in a contribution feed to Azure Media Services, there can be video/audio glitches in your live event if you use certain features of Tricaster, such as rapid cutting between feeds, or switching to/from slates. The AMS team is working on fixing these issues, until then, it is not recommend to use these features.
+>[AZURE.NOTE]When using Tricaster for sending in a contribution feed to AMS channels that are enabled for live encoding, there can be video/audio glitches in your live event if you use certain features of Tricaster, such as rapid cutting between feeds, or switching to/from slates. The AMS team is working on fixing these issues, until then, it is not recommend to use these features.
 
 
 ##Prerequisites

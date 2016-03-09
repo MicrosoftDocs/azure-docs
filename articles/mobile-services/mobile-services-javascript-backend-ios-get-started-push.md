@@ -20,6 +20,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Add Push Notifications to your iOS App](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+
 This topic shows you how to add push notifications to the [quickstart project](mobile-services-ios-get-started.md), so that your mobile service sends a push notification each time a record is inserted. You must complete [Get Started with Mobile Services] first.
 
 > [AZURE.NOTE] The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), so you must use a physical iOS device. You'll also need to sign up for a paid [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
