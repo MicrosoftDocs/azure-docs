@@ -142,7 +142,7 @@ Your DocumentDB [database](documentdb-resources.md#databases) can be created by 
 A [collection](documentdb-resources.md#collections) can be created by using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic. The newly created collection will be mapped to a [S1 performance level](documentdb-performance-levels.md). Create a new collection named **FamilyCollection** after your Database creation in the **GetStartedDemo** method.
 
     // Check to verify a document collection with the id=FamilyCollection does not exist
-		// dbs is prepended to the id to identify the parent resource: databases
+    // dbs is prepended to the id to identify the parent resource: databases
     DocumentCollection documentCollection = client.CreateDocumentCollectionQuery("dbs/" + database.Id).Where(c => c.Id == "FamilyCollection").AsEnumerable().FirstOrDefault();
 
 	// If the document collection does not exist, create a new collection
@@ -207,7 +207,7 @@ First, we need to create a **Parent**, **Child**, **Pet**, **Address** and **Fam
 Next, create your documents within your **GetStartedDemo** async method.
 
     // Check to verify a document with the id=AndersenFamily does not exist
-		// colls is prepended to the id to identify the parent resource: collections, along with the rest of the resource path: dbs/FamilyRegistry
+    // colls is prepended to the id to identify the parent resource: collections, along with the rest of the resource path: dbs/FamilyRegistry
     Document document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "AndersenFamily").AsEnumerable().FirstOrDefault();
 
 	// If the document does not exist, create a new document
@@ -242,7 +242,7 @@ Next, create your documents within your **GetStartedDemo** async method.
 	}
 
     // Check to verify a document with the id=AndersenFamily does not exist
-		// colls is prepended to the id to identify the parent resource: collections, along with the rest of the resource path: dbs/FamilyRegistry
+    // colls is prepended to the id to identify the parent resource: collections, along with the rest of the resource path: dbs/FamilyRegistry
     document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "WakefieldFamily").AsEnumerable().FirstOrDefault();
 
     if (document == null)
