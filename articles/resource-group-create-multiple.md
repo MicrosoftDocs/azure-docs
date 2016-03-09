@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/08/2016"
+   ms.date="03/09/2016"
    ms.author="tomfitz"/>
 
 # Create multiple instances of resources in Azure Resource Manager
@@ -301,7 +301,7 @@ The relevant sections of the deployment template are shown below. A lot of the t
       ]
     }
 
-The linked template defines the array to return. The template shown below omits the repetion of disk definitions between 4 and 16, between 17 and 32, and between 33 and 64.
+The linked template defines the array to return. The template below omits the repetion of disk definitions between 3 and 32. If you need more than 32 data disks, you can continue the pattern.
 
 ```
 {
@@ -327,8 +327,7 @@ The linked template defines the array to return. The template shown below omits 
         "14",
         "15",
         "16",
-        "32",
-        "64"
+        "32"
       ],
       "metadata": {
         "description": "This parameter allows the user to select the number of disks they want"
@@ -362,27 +361,25 @@ The linked template defines the array to return. The template shown below omits 
   },
   "variables": {
     "disksArray": {
-      "1": "[variables('diskDeltas')['1']]",
-      "2": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'])]",
-      "3": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'])]",
-      "4": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'])]",
-      "5": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'])]",
-      "6": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'])]",
-      "7": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'])]",
-      "8": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'])]",
-      "9": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'])]",
-      "10": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'], variables('diskDeltas')['10delta'])]",
-      "11": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'], variables('diskDeltas')['10delta'], variables('diskDeltas')['11delta'])]",
-      "12": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'], variables('diskDeltas')['10delta'], variables('diskDeltas')['11delta'], variables('diskDeltas')['12delta'])]",
-      "13": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'], variables('diskDeltas')['10delta'], variables('diskDeltas')['11delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['13delta'])]",
-      "14": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'], variables('diskDeltas')['10delta'], variables('diskDeltas')['11delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['13delta'], variables('diskDeltas')['14delta'])]",
-      "15": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['3delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['5delta'], variables('diskDeltas')['6delta'], variables('diskDeltas')['7delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['9delta'], variables('diskDeltas')['10delta'], variables('diskDeltas')['11delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['13delta'], variables('diskDeltas')['14delta'], variables('diskDeltas')['15delta'])]",
-      "16": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['16delta'])]",
-      "32": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['16delta'], variables('diskDeltas')['32delta'])]",
-      "64": "[concat(variables('diskDeltas')['1'], variables('diskDeltas')['2delta'], variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['16delta'], variables('diskDeltas')['32delta'], variables('diskDeltas')['64delta'])]"
+      "1": "[variables('dataDisks')['1']]",
+      "2": "[concat(variables('dataDisks')['1'], variables('dataDisks')['2'])]",
+      "3": "[concat(variables('dataDisks')['1'], variables('dataDisks')['2'], variables('dataDisks')['3'])]",
+      "4": "[variables('diskDeltas')['4delta']]",
+      "5": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'])]",
+      "6": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'], variables('dataDisks')['6'])]",
+      "7": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'], variables('dataDisks')['6'], variables('dataDisks')['7'])]",
+      "8": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'])]",
+      "9": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'])]",
+      "10": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'], variables('dataDisks')['10'])]",
+      "11": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'], variables('dataDisks')['10'], variables('dataDisks')['11'])]",
+      "12": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'])]",
+      "13": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'])]",
+      "14": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'], variables('dataDisks')['14'])]",
+      "15": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'], variables('dataDisks')['14'], variables('dataDisks')['15'])]",
+      "16": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['16delta'])]",
+      "32": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['16delta'], variables('diskDeltas')['32delta'])]"
     },
-    "_comment2": "The delta arrays below build the difference from 1 to 2, 2 to 3, 3 to 4, 4 to 5 disks and so on",
-    "diskDeltas": {
+    "dataDisks": {
       "1": [
         {
           "name": "datadisk1",
@@ -395,7 +392,7 @@ The linked template defines the array to return. The template shown below omits 
           "diskSizeGB": "[parameters('diskSizeGB')]"
         }
       ],
-      "2delta": [
+      "2": [
         {
           "name": "datadisk2",
           "lun": 1,
@@ -407,7 +404,7 @@ The linked template defines the array to return. The template shown below omits 
           "diskSizeGB": "[parameters('diskSizeGB')]"
         }
       ],
-      "3delta": [
+      "3": [
         {
           "name": "datadisk3",
           "lun": 2,
@@ -419,43 +416,8 @@ The linked template defines the array to return. The template shown below omits 
           "diskSizeGB": "[parameters('diskSizeGB')]"
         }
       ],
-      "4delta": [
-        {
-          "name": "datadisk4",
-          "lun": 3,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk4.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ],
       ...
-      "16delta": [
-        {
-          "name": "datadisk16",
-          "lun": 15,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk16.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ],
-      "32delta": [
-        {
-          "name": "datadisk17",
-          "lun": 16,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk17.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        },
-        ...
+      "32": [
         {
           "name": "datadisk32",
           "lun": 31,
@@ -466,29 +428,51 @@ The linked template defines the array to return. The template shown below omits 
           "caching": "[parameters('diskCaching')]",
           "diskSizeGB": "[parameters('diskSizeGB')]"
         }
+      ]
+    },
+    "_comment2": "The delta arrays below build the difference from 0 to 4, 4 to 8, 8 to 12 disks and so on",
+    "diskDeltas": {
+      "4delta": [
+        "[variables('dataDisks')['1'][0]]",
+        "[variables('dataDisks')['2'][0]]",
+        "[variables('dataDisks')['3'][0]]",
+        "[variables('dataDisks')['4'][0]]"
       ],
-      "64delta": [
-        {
-          "name": "datadisk33",
-          "lun": 32,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk33.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        },
-        ...
-        {
-          "name": "datadisk64",
-          "lun": 63,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk64.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
+      "8delta": [
+        "[variables('dataDisks')['5'][0]]",
+        "[variables('dataDisks')['6'][0]]",
+        "[variables('dataDisks')['7'][0]]",
+        "[variables('dataDisks')['8'][0]]"
+      ],
+      "12delta": [
+        "[variables('dataDisks')['9'][0]]",
+        "[variables('dataDisks')['10'][0]]",
+        "[variables('dataDisks')['11'][0]]",
+        "[variables('dataDisks')['12'][0]]"
+      ],
+      "16delta": [
+        "[variables('dataDisks')['13'][0]]",
+        "[variables('dataDisks')['14'][0]]",
+        "[variables('dataDisks')['15'][0]]",
+        "[variables('dataDisks')['16'][0]]"
+      ],
+      "32delta": [
+        "[variables('dataDisks')['17'][0]]",
+        "[variables('dataDisks')['18'][0]]",
+        "[variables('dataDisks')['19'][0]]",
+        "[variables('dataDisks')['20'][0]]",
+        "[variables('dataDisks')['21'][0]]",
+        "[variables('dataDisks')['22'][0]]",
+        "[variables('dataDisks')['23'][0]]",
+        "[variables('dataDisks')['24'][0]]",
+        "[variables('dataDisks')['25'][0]]",
+        "[variables('dataDisks')['26'][0]]",
+        "[variables('dataDisks')['27'][0]]",
+        "[variables('dataDisks')['28'][0]]",
+        "[variables('dataDisks')['29'][0]]",
+        "[variables('dataDisks')['30'][0]]",
+        "[variables('dataDisks')['31'][0]]",
+        "[variables('dataDisks')['32'][0]]"
       ]
     }
   },
@@ -500,6 +484,7 @@ The linked template defines the array to return. The template shown below omits 
     }
   }
 }
+
 ```
 
 ## Next steps
