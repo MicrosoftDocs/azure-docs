@@ -24,7 +24,7 @@ This article outlines how you can use data factory copy activity to move data fr
 For the Azure Data Factory service to be able to connect to your on-premises Oracle database , you must install the following: 
 
 - Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway. 
-- [Oracle Data Access Components (ODAC) for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). It must be installed on the host machine where the gateway is installed.
+- Oracle Data Provider for .NET. This is included in [Oracle Data Access Components (ODAC) for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Install the appropriate version (32/64 bit) on the host machine where the gateway is installed. 
 
 > [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
 
@@ -302,7 +302,7 @@ You see the following **error message**: Copy activity met invalid parameters: '
 
 **Resolution/Workaround**
 
-1. If you haven't installed the .NET Provider for Oracle, please [install it](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) and retry the scenario. 
+1. If you haven't installed the .NET Provider for Oracle, please [install it]((http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html)) and retry the scenario. 
 2. If you get the error message even after installing the provider, do the following: 
 	1. Open machine config of .NET 2.0 from the folder: <system disk>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
 	2. Search for **Oracle Data Provider for .NET**, and you should be able to find an entry like below under **system.data** -> **DbProviderFactories**:
