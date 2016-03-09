@@ -74,11 +74,9 @@ Notification Hubs also do not provide an in-browser push notification delivery s
 If you have an existing mobile app backend and you only want to add the capability to send push notifications then you can use Azure Notification Hubs. If you want to setup your mobile app backend from scratch then you should consider using Azure Mobile Apps. An Azure Mobile App automatically provisions a Notification Hub for you to be able to send push notifications easily from the mobile app backend. Pricing for Azure Mobile Apps includes the base charges for a Notification Hub and you only pay when you go beyond the included pushes. More details on the costs are available on the [App Service Pricing] page.
 
 ###5.	How many devices can I support if I send push notifications via Notification Hubs?
-* **Free** tier - full support for *500* registered devices per namespace (with a limit of *10* namespaces).
-* **Basic** tier - full support for *200,000* registered devices per namespace (with a limit of *10* namespaces).
-* **Standard** tier - full support for *10,000,000* registered devices per namespaces (with *unlimited* namespaces).
+Please refer to the [Notification Hubs Pricing] page for details on the number of supported devices.
 
-If you need support for more than 10,000,000 registered devices, please [contact us](https://azure.microsoft.com/overview/contact-us/) directly and we will help you scale your solution.
+For certain scenarios, if you need support for more than 10,000,000 registered devices, please [contact us](https://azure.microsoft.com/overview/contact-us/) directly and we will help you scale your solution.
 
 ###6.	How many push notifications can I send out?
 Depending on the selected tier, Azure will automatically scale up based on the number of notifications flowing through the system.
