@@ -17,9 +17,9 @@
 
 # About secure cross-premises connectivity for virtual networks
 
-If you want to connect your on-premises sites securely to a virtual network, this article discusses the different ways to do so. This article applies to both Resource Manager and classic deployment models. 
+This article discusses the different ways you can connect your on-premises site to an Azure virtual network.  This article applies to both the Resource Manager and classic deployment models. 
 
-There are three options available: Site-to-Site, Point-to-Site, and ExpressRoute. The option you choose can depend on a variety of considerations, such as:
+There are three connection options available: Site-to-Site, Point-to-Site, and ExpressRoute. The option you choose can depend on a variety of considerations, such as:
 
 
 - What kind of throughput does your solution require?
