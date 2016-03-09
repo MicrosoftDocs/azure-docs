@@ -22,6 +22,8 @@ The application packages feature of Azure Batch provides easy management and dep
 
 In this article, you will learn how to upload and manage application packages using the Azure Portal, then install them on a pool's compute nodes using the [Batch .NET][api_net] library.
 
+> [AZURE.IMPORTANT] The application packages feature discussed in this article is compatible *only* with Batch pools created *after* 10 March 2016. Application packages will not be deployed to compute nodes in pools created before this date.
+
 ## Benefits of application packages
 
 Application packages can simplify the code in your Batch solution, as well as lower the overhead required in managing the applications your tasks run.
@@ -30,7 +32,7 @@ With application packages, your pool's start task doesn't have to specify a long
 
 Batch handles the details of working with Azure Storage in the background to securely store and deploy your application packages to compute nodes, so both your code and your management overhead can be simplified.
 
-> [AZURE.NOTE] The application package feature discussed in this article, introduced in Batch REST API version 2015-12-01.2.2 and the corresponding Batch .NET version 3.1.0 library, supersedes the "Batch Apps" feature available in previous versions of the service. We recommend that you always use the latest API version when working with Batch.
+> [AZURE.NOTE] The application packages feature supersedes the "Batch Apps" feature available in previous versions of the service. We recommend that you always use the latest API version when working with Batch.
 
 ## Applications and application packages
 
@@ -91,8 +93,8 @@ Clicking on an application in the *Applications* blade displays the details blad
 In the application details blade, you can configure the following settings for your application.
 
 * **Allow updates** - Specify whether its application packages can be updated or deleted (see "Update or Delete an application package" below).
-* **Default version** - Specify a default application package to deploy to compute nodes. Setting this allows you to omit doing so when you create or update the properties of your pool--the version specified here will be deployed. This also allows you to change the version to install on your pools' compute nodes without having to modify any code. Note that if you do not specify a version in code, *and* also do not specify a version here, you will receive an HTTP error 403, as well as an InvalidApplicationPackageReferences error.
-* **Display name** - This is a "friendly" name that your Batch solution can use when displaying information about the application, such as in a management application for your Batch solution, or UI that you provide your customers for a service you provide through Batch.
+* **Default version** - Specify a default application package to deploy to compute nodes.
+* **Display name** - This is a "friendly" name that your Batch solution can use when displaying information about the application, such as in the UI of a service you provide your customers through Batch.
 
 ### Add a new application
 
@@ -205,7 +207,7 @@ For example, if you specify that version 2.7 of application *blender* be install
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
-If your application specifies a default version, you have the added benefit referencing the environment variable without specifying the version string. For example, if you have specified default version 2.7 for the *blender* application within the Azure portal, your tasks can reference the following environment variable:
+If your application specifies a default version, you can reference the environment variable without the version string suffix. For example, if you had specified default version 2.7 for the *blender* application within the Azure portal, your tasks can reference the following environment variable:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
@@ -235,7 +237,7 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Now that the new version has been configured, any *new* node joining the pool will have version 2.76b deployed to it. To install 2.76b on the nodes that are *already* in the pool, reboot (or reimage) them.
+Now that the new version has been configured, any *new* node joining the pool will have version 2.76b deployed to it. To install 2.76b on the nodes that are *already* in the pool, reboot (or reimage) them. Note that rebooted nodes will retain files from previous package deployments.
 
 ## List the applications in a Batch account
 
