@@ -75,16 +75,16 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 
 ### URL patterns for firewall rules 
 
-Network administrators can often configure advanced firewall rules based on the URL patterns, source and destination IP ranges. We recommend that you set your firewall rules liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create extremely secure environments.
+Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your StorSimple device and the StorSimple Manager service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. This in turn will require the network administrator to monitor and update firewall rules for your StorSimple as and when needed. 
 
-StorSimple device depends on other Microsoft applications such as service bus, ACS, storage accounts, and Microsoft Update servers. It is important to then understand that the URL patterns can change. This would require the network administrator to monitor and update firewall rules as-needed. 
+We recommend that you set your firewall rules liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create extremely secure environments.
 
 > [AZURE.NOTE] The source IPs should always be set to all the enabled network interfaces. The destination IPs should be set to Azure datacenter IP ranges.
 
 
 | URL pattern                                                      | Component/Functionality                                           | Source IPs                           |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>  | StorSimple Manager service<br>Authentication<br>Azure service bus | Cloud-enabled network interfaces        |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>  | StorSimple Manager service<br>Access Control Service<br>Azure Service Bus | Cloud-enabled network interfaces        |
 | `https://*.core.windows.net/*`                                   | Azure storage accounts and monitoring                                | Cloud-enabled network interfaces        |
 | `http://windowsupdate.microsoft.com`<br>`http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://*.download.windowsupdate.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`<br>`http://*.deploy.akamaitechnologies.com`                         | Microsoft Update servers<br>Akamai CDN                             | Controller fixed IPs only               |
 | `https://*.partners.extranet.microsoft.com/*`                    | Support package                                                  | Cloud-enabled network interfaces        |
