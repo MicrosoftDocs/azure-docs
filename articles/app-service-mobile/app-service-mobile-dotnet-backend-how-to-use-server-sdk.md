@@ -5,7 +5,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 # Work with the .NET backend server SDK for Azure Mobile Apps
@@ -225,6 +225,7 @@ Mobile Apps uses the facilities of App Service authentication and ASP.NET to sim
 + [How to: Add authentication to a server project](#add-auth)
 + [How to: Use custom authentication for your application](#custom-auth)
 + [How to: Retrieve authenticated user information](#user-info)
++ [How to: Restrict data access for authorized users](#authorize)
 
 ### <a name="add-auth"></a>How to: Add authentication to a server project
 
@@ -333,6 +334,9 @@ The following code calls the **GetAppServiceIdentityAsync** extension method to 
 
 Note that you must add a using statement for `System.Security.Principal` to make the **GetAppServiceIdentityAsync** extension method  work.
 
+###<a name="authorize"></a>How to: Restrict data access for authorized users
+
+It is often desired to restrict the data that is returned to a specific authenticated user. This kind of data partitioning is done by including a userId column on the table and storing the SID of the user when the data is inserted 
 
 ## How to: Add push notifications to a server project
 
