@@ -1,3 +1,26 @@
+<!-- Understand how to fill out Properties and Tags by visiting: https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md -->
+
+<properties
+   pageTitle="Azure Functions Overview"
+   description="Understand how Azure Functions can optimize asynchronous workloads by creating simple functions that can be written in minutes."
+   services="app-service"
+   documentationCenter=""
+   authors="GitHub-alias-of-only-one-author"
+   manager="manager-alias"
+   editor=""
+   tags="optional"
+   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+
+<tags
+   ms.service="azure-functions"
+   ms.devlang="multiple"
+   ms.topic="index-page"
+   ms.tgt_pltfrm="multiple"
+   ms.workload="na"
+   ms.date="03/09/2016"
+   ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
+   
+   
 # Azure Functions Overview
 
 ## Life's about to get a whole lot easier 
