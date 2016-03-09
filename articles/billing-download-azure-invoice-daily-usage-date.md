@@ -24,7 +24,7 @@ As the Azure account administrator, you can view the current bill at the Azure A
 
 1. Sign into the [Azure Account Center](https://account.windowsazure.com/subscriptions) as the account administrator.  In the [new Azure portal](https://portal.azure.com), you can access the Account Center by selecting **Subscription**>*the subscription name*>**Manage**.
 
-	**Note** Only the  account administrator has permission to access the Account Center. For more information about Account Administrator, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md).
+	**Note** Only the  account administrator has permission to access the Account Center. For more information about account administrator, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md).
 2. Select the subscription for which you want the invoice and usage information.
 3. Select **BILLING HISTORY**. </br>![billinghistory](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
 4. You can see your statements for the last six billing periods as well as the current unbilled period. </br>![billingsum](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)</br>
