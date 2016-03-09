@@ -175,6 +175,6 @@ The [Networking Infrastructure Setup for Microsoft Azure as a Disaster Recovery 
 
 
 
-## Next Steps
+## Next steps
 
 [Learn](site-recovery-network-mapping.md) how Site Recovery maps source and target networks when a VMM server is being used to manage the primary site. 
