@@ -1,6 +1,6 @@
 <properties
-   pageTitle="First look: How to back up a Windows Server or client to Azure | Microsoft Azure"
-   description="Learn how to backup a Windows Server using Azure Backup with these easy steps"
+   pageTitle="Back up files and folders from Windows to Azure | Microsoft Azure"
+   description="Protect your Windows Server data by creating a vault, installing the backup agent, and backing up your files and folders to Azure."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
@@ -17,7 +17,7 @@
 	 ms.date="03/09/2016"
 	 ms.author="jimpark;"/>
 
-# Back up a Windows Server or client to Azure
+# First look: back up files and folders from Windows Server of client to Azure
 
 In just a few steps you can back up your Windows machine (Windows client or Windows Server) to Azure.
 
@@ -26,7 +26,7 @@ It requires these steps:
 ![Step 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Get an Azure subscription (if necessary).<br>
 ![Step 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Create a backup vault and download the necessary components.<br>
 ![Step 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Prepare your Windows Server or client by installing and registering those components.<br>
-![Step 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Back up your data.
+![Step 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Protect your data.
 
 
 ![Windows Server and client backup process](./media/backup-try-azure-backup-in-10-mins/windows-machine-backup-process.png)
@@ -175,7 +175,7 @@ At this point, you've finished creating a backup vault and downloading the neces
 
     The machine is now registered successfully to the vault and you are ready to configure and schedule your backup options.
 
-## Step 4: Back up your data
+## Step 4: Protect your data
 
 1. In the **Backup agent** (which opened automatically if you left the **Launch Microsoft Azure Recovery Services Agent** checkbox checked) click **Schedule Backup**.
 
