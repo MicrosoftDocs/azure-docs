@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="03/07/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guide to create a virtual machine image for the Azure Marketplace
@@ -585,10 +585,7 @@ After you have created your offer and SKU, you should enter the image details as
 4. Fill out the properties under the **SKUs** section.
 5. Under **Operating system family**, click the operating system type associated with the operating system VHD.
 6. In the **Operating system** box, describe the operating system. Consider a format such as operating system family, type, version, and updates. An example is "Windows Server Datacenter 2014 R2."
-7. Select up to six recommended recommended virtual machine sizes. These are recommendations that get displayed to the customer in the Pricing tier blade in the Azure portal when they decide to purchase and deploy your image.
-
-  > [AZURE.NOTE] These are only recommendations. The customer is able to select any VM size that accommodates the disks specified in your image.
-
+7. Select up to six recommended virtual machine sizes. These are recommendations that get displayed to the customer in the Pricing tier blade in the Azure Portal when they decide to purchase and deploy your image. **These are only recommendations. The customer is able to select any VM size that accommodates the disks specified in your image.**
 8. Enter the version. The version field encapsulates a semantic version to identify the product and its updates:
   -	Versions should be of the form X.Y.Z, where X, Y, and Z are integers.
   -	Images in different SKUs can have different major and minor versions.
@@ -597,7 +594,7 @@ After you have created your offer and SKU, you should enter the image details as
 10. If there are data disks associated with this SKU, select the logical unit number (LUN) to which you would like this data disk to be mounted upon deployment.
 11. In the **LUN X VHD URL** box, enter the shared access signature URI created for the first data VHD.
 
-    ![drawing][img-pubportal-vm-skus-2]
+    ![drawing](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 ## Next step
 After you are done with the SKU details, you can move forward to the [Azure Marketplace marketing content guide][link-pushstaging]. In that step of the publishing process, you provide the marketing content, pricing, and other information necessary prior to **Step 3: Testing your VM offer in staging**, where you test various use-case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  
