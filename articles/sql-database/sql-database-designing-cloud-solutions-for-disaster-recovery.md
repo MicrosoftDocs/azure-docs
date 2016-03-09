@@ -110,7 +110,7 @@ This option is best suited for applications with the following characteristics:
 + Any data loss is high business risk; the database failover can only be used as a last resort if the outage is permanent.
 + The application can operate in "read-only mode" for a period of time.
 
-In this pattern, the application switches to read-only mode when connected to the secondary database. The application logic in the primary region is colocated with the primary database and operates in read-write mode (RW), the application logic in the secondary region is colocated with the secondary database and is ready to operate in read-only  mode (RO).  Traffic manager should be set up to use [failover routing](../traffic-manager/traffic-manager-configure-failover-routing-method.md) with [end-point monitoring](traffic-manager-monitoring.md) enabled for both application instances.
+In this pattern, the application switches to read-only mode when connected to the secondary database. The application logic in the primary region is colocated with the primary database and operates in read-write mode (RW), the application logic in the secondary region is colocated with the secondary database and is ready to operate in read-only  mode (RO).  Traffic manager should be set up to use [failover routing](../traffic-manager/traffic-manager-configure-failover-routing-method.md) with [end-point monitoring](../traffic-manager/traffic-manager-monitoring.md) enabled for both application instances.
 
 The following diagram illustrates this configuration before an outage.
 ![Active-passive deployment before failover. Cloud disaster recovery.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-1.png)
