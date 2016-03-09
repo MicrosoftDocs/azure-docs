@@ -1,6 +1,6 @@
 <properties
    pageTitle="Configure a VNet-to-VNet connection | Microsoft Azure"
-   description="How to connect Azure virtual networks together in the same or different subscriptions or regions using PowerShell and the Azure Classic Portal. This article applies to VNets create using the Classic deployment model."
+   description="How to connect Azure virtual networks together in the same or different subscriptions or regions using PowerShell and the Azure Classic Portal. This article applies to VNets create using the classic deployment model."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -13,28 +13,33 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/18/2015"
+   ms.date="03/08/2016"
    ms.author="cherylmc"/>
 
 
-# Configure a VNet-to-VNet connection in the Azure Classic Portal
+# Configure a VNet-to-VNet connection for the classic deployment model
 
 > [AZURE.SELECTOR]
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-This article will walk you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). If you want to connect virtual networks created using the Resource Manager deployment model, please see [Configure a VNet-to-VNet connection for virtual networks in the same subscription by using Azure Resource Manager and PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+This article will walk you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). The steps below use a combination of the Azure Classic Portal and PowerShell. If you want to connect virtual networks created using the Resource Manager deployment model, please see [Configure a VNet-to-VNet connection for virtual networks using Azure Resource Manager and PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
 **About Azure deployment models**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]If you want to connect a VNet created in the Classic deployment model to a VNet created using the Resource Manager model. See [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
+**Deployment models and tools for VNet-to-VNet**
+
+[AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vvpn-gateway-table-vnet-to-vnet-include.md)]
+
+
 ## About VNet-to-VNet connections
 
 Connecting a virtual network to another virtual network (VNet-to-VNet) is very similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different subscriptions and different regions. You can even combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the diagram below:
 
-![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
+![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/vnet2vnet.png)
 
 ### Why connect virtual networks?
 
@@ -81,7 +86,6 @@ In this procedure, we’ll walk you through connecting two virtual networks, VNe
 
 This procedure primarily uses the Azure Classic Portal, however, you must use Microsoft Azure PowerShell cmdlets to connect the VPN gateways.
 
-![Connecting VNet to VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
 
 
 ## Step 1 - Plan your IP address ranges
@@ -105,7 +109,7 @@ VNet1: Address Space = 10.1.0.0/16; Region=US West
 
 VNet2: Address Space = 10.2.0.0/16; Region=Japan East
 
-1. Log in to the **Azure Classic Portal** (not the Azure Portal).
+1. Log in to the [Azure Classic Portal](http://manage.windowsazure.com). Note that these steps do not use the newer Azure Portal.
 
 2. In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
