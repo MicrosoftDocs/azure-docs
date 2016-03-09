@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="How to connect to data sources"
    description="How-to article highlighting how to connect to data sources discovered with Azure Data Catalog."
    services="data-catalog"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/04/2016"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 

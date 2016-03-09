@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Data Catalog - What is Data Catalog"
    description="Overview of Microsoft Azure Data Catalog, including its features and the problems it is designed to address. Azure Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources."
    services="data-catalog"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/04/2016"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 # What is Azure Data Catalog?

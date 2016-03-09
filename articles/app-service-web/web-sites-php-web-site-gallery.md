@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="11/13/2015"
+	ms.date="02/08/2016"
 	ms.author="tomfitz"/>
 
 # Create a WordPress web app in Azure App Service
 
-This tutorial shows how to find an application in the Azure Marketplace and install it in an App Service web app. The tutorial uses a WordPress blog site as an example, but the process is similar for many other Marketplace applications.
+This tutorial shows how to deploy a WordPress blog site from the Azure Marketplace.
 
 When you're done with the tutorial you'll have your own WordPress blog site up and running in the cloud.
 
@@ -28,9 +28,11 @@ You'll learn:
 
 * How to find an application template in the Azure Marketplace.
 * How to create a web app in Azure App Service that is based on the template.
-* How to configure Azure App Service settings for the new web app and MySQL database.
+* How to configure Azure App Service settings for the new web app and database.
 
 The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. The web apps are built on a wide range of popular frameworks, such as [PHP](/develop/nodejs/) in this WordPress example, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/), and [Python](/develop/python/), to name a few. To create a web app from the Azure Marketplace the only software you need is the browser that you use for the [Azure Portal](https://portal.azure.com/). 
+
+The WordPress site that you deploy in this tutorial uses MySQL for the database. If you wish to instead use SQL Database for the database, see [Project Nami](http://projectnami.org/). **Project Nami** is also available through the Marketplace.
 
 > [AZURE.NOTE]
 > To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -45,7 +47,7 @@ The Azure Marketplace makes available a wide range of popular web apps developed
 	
     ![Create New][5]
 	
-3. Search for **WordPress**, and then click **WordPress**.
+3. Search for **WordPress**, and then click **WordPress**. If you wish to use SQL Database instead of MySQL, search for **Project Nami**.
 
 	![WordPress from list][7]
 	

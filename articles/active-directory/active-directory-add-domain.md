@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/05/2016"
+	ms.date="02/08/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Using custom domain names to simplify the sign-in experience for your users
 
 You can use your own custom domain names to improve and simplify sign-in and other user experiences in Azure Active Directory. For example, if your organization owns the domain name ‘contoso.com,’ your users can sign in with user names they're familiar with, such as ‘joe@contoso.com.'
 
-Every directory in Azure Active Directory comes with a built-in domain name in the form ‘contoso.onmicrosoft.com’ that lets you get started using Azure or other Microsoft services. [Learn about built-in domains](active-directory-add-domain-builtin-domains.md).
+Every directory in Azure Active Directory comes with a built-in domain name in the form ‘contoso.onmicrosoft.com’ that lets you get started using Azure or other Microsoft services. [Learn about built-in domains](#built-in-domain-names-for-azure-active-directory).
 
 ## Use your custom domain name with Azure AD
 
