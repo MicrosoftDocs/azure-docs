@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Run the Enable Database for Stretch Wizard | Microsoft Azure"
+	pageTitle="Get started by running the Enable Database for Stretch Wizard | Microsoft Azure"
 	description="Learn how to configure a database for Stretch Database by running the Enable Database for Stretch Wizard."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -16,7 +16,7 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# Run the Enable Database for Stretch Wizard
+# Get started by running the Enable Database for Stretch Wizard
 
 To configure a database for Stretch Database, run the Enable Database for Stretch Wizard.  This topic describes the info that you have to enter and the choices that you have to make in the wizard.
 
@@ -31,8 +31,12 @@ To learn more about Stretch Database, see [Stretch Database](sql-server-stretch-
 ## <a name="Intro"></a>Introduction
 Review the purpose of the wizard and the prerequisites.
 
+![Introduction page of the Stretch Database wizard][StretchWizardImage1]
+
 ## <a name="Tables"></a>Select tables
 Select the tables that you want to enable for Stretch.
+
+![Select tables page of the Stretch Database wizard][StretchWizardImage2]
 
 |Column|Description|
 |----------|---------------|
@@ -48,6 +52,8 @@ Select the tables that you want to enable for Stretch.
 
 1.  Sign in to Microsoft Azure with a Microsoft account.
 
+    ![Sign in to Azure - Stretch Database wizard][StretchWizardImage3]
+
 2.  Select the Azure subscription to use for Stretch Database.
 
 3.  Select an Azure region. If you create a new server, the server is created in this region.
@@ -57,6 +63,14 @@ Select the tables that you want to enable for Stretch.
 4.  Specify whether you want to use an existing server or create a new Azure server.
 
     If the Active Directory on your SQL Server is federated with Azure Active Directory, you can optionally use a federated service account for SQL Server to communicate with the remote Azure server. For more info about the requirements for this option, see [ALTER DATABASE SET Options (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx).
+
+	-   **Create new server**
+
+        1.  Create a login and password for the server administrator.
+
+        2.  Optionally, use a federated service account for SQL Server to communicate with the remote Azure server.
+
+		![Create new Azure server - Stretch Database wizard][StretchWizardImage4]
 
     -   **Existing server**
 
@@ -68,24 +82,26 @@ Select the tables that you want to enable for Stretch.
 
             -   Select **Active Directory Integrated Authentication** to use a federated service account for SQL Server to communicate with the remote Azure server.
 
-    -   **Create new server**
-
-        1.  Create a login and password for the server administrator.
-
-        2.  Optionally, use a federated service account for SQL Server to communicate with the remote Azure server.
+		![Select existing Azure server - Stretch Database wizard][StretchWizardImage5]
 
 ## <a name="Credentials"></a>Secure credentials
 Enter a strong password to create a database master key, or if a database master key already exists, enter the password for it.
 
 You have to have a database master key to secure the credentials that Stretch Database uses to connect to the remote database.
 
+![Secure credentials page of the Stretch Database wizard][StretchWizardImage6]
+
 For more info about the database master key, see [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) and [Create a Database Master Key](https://msdn.microsoft.com/library/aa337551.aspx). For more info about the credential that the wizard creates,  see [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx).
 
 ## <a name="Network"></a>Select IP address
 Use the public IP address of your SQL Server, or enter a range of IP addresses, to create a firewall rule on Azure that lets SQL Server communicate with the remote Azure server.
 
+![Select IP address page of the Stretch Database wizard][StretchWizardImage7]
+
 ## <a name="Summary"></a>Summary
 Review the values that you entered and the options that you selected in the wizard. Then select **Finish** to enable Stretch.
+
+![Summary page of the Stretch Database wizard][StretchWizardImage8]
 
 ## <a name="Results"></a>Results
 Review the results.
@@ -110,5 +126,16 @@ Enable additional tables for Stretch Database. Monitor data migration and manage
 -   [Backup and restore Stretch-enabled databases](sql-server-stretch-database-backup.md)
 
 ## See also
+
 [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
+
 [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
+
+[StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png
+[StretchWizardImage2]: ./media/sql-server-stretch-database-wizard/stretchwiz2.png
+[StretchWizardImage3]: ./media/sql-server-stretch-database-wizard/stretchwiz3.png
+[StretchWizardImage4]: ./media/sql-server-stretch-database-wizard/stretchwiz4.png
+[StretchWizardImage5]: ./media/sql-server-stretch-database-wizard/stretchwiz5.png
+[StretchWizardImage6]: ./media/sql-server-stretch-database-wizard/stretchwiz6.png
+[StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
+[StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png

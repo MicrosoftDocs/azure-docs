@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="03/02/2016" 
 	ms.author="bradsev;garye" />
 
 # Debug your Model in Azure Machine Learning
@@ -47,7 +47,7 @@ This module throws an error in the following cases:
 
 ![image2](./media/machine-learning-debug-models/train_test-2.png)
 
-In a typical training/testing graph for supervised learning, the [Split][split] module divides the original dataset into two parts: the part that is used to train the model and the part that is reserved to score how well the trained model performs on data it did not train on. The trained model is then used to score the test data after which the results are evaluated to determine the accuracy of the model.
+In a typical training/testing graph for supervised learning, the [Split Data][split] module divides the original dataset into two parts: the part that is used to train the model and the part that is reserved to score how well the trained model performs on data it did not train on. The trained model is then used to score the test data after which the results are evaluated to determine the accuracy of the model.
 
 The [Score Model][score-model] module requires two inputs:
 

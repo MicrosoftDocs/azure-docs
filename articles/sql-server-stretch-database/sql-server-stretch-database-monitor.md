@@ -3,9 +3,9 @@
 	description="Learn how to monitor the status of data migration."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -44,6 +44,7 @@ There are several problems that can affect migration. Check the following things
     -   For more info about the content of a SQL Server error message, see [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
 
 ## See Also
+
 [Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
 
 <!--Image references-->

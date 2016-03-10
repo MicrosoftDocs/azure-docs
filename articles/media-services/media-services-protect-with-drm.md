@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako,Mingfeiy"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="02/02/2016" 
+ 	ms.date="03/01/2016"" 
 	ms.author="juliako"/>
 
 
@@ -544,7 +544,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		                {
 		                            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-		                            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
+		                            {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl, widevineURl.ToString()},
 		
 		                };
 		

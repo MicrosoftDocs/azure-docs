@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/06/2015"
+   ms.date="03/08/2016"
    ms.author="seanmck"/>
 
 # Your Service Fabric application and next steps
@@ -31,9 +31,9 @@ The application project consists of:
 
 - Two application parameter files (Local and Cloud) that you can use to maintain environment-specific application configurations, such as the number of partitions to create for a service.
 
-- A deployment script that you can use to deploy your application from the command line or as part of an automated continuous integration pipeline.
+- A deployment script that you can use to deploy your application from the command line or as part of an automated continuous integration and deployment pipeline.
 
-- The application manifest, which describes the application.
+- The application manifest, which describes the application. You can find the manifest under the ApplicationPackageRoot folder.
 
 ### Reliable services
 When you add a new reliable service, Visual Studio adds a service project to your solution. The service project contains a class that extends from either `StatelessService` or `StatefulService`, depending on the type you chose.
