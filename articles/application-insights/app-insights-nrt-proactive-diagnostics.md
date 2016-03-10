@@ -21,7 +21,7 @@
 
 This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request telemetry - for example, if you have a worker role that calls [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request). 
 
-Proactive diagnostics are switched on as soon as you set up [Application Insights for your project](app-insights-get-started.md), and provided your app generates a certain minimum amount of telemetry.
+After setting up [Application Insights for your project](app-insights-get-started.md), and provided your app generates a certain minimum amount of telemetry, it takes Proactive Diagnostics rule 24 hours to learn the normal behavior of your app before it is switched on and can send alerts.
 
 Here's a sample alert:
 
@@ -37,19 +37,30 @@ Notice that it tells you:
 
 Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But NRT Proactive Diagnostics starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
+## Why using this alert? 
+Having your app available and performant is key for app success as degradation can have impact on your users. If users are having problems with your web site, you need to know about it immediately and fix the problem before most customers have noticed.
+
+Detecting degradation in your app on various metrics is important, but can be difficult to automate entirely. It takes time to become familiar with the normal behavior of your system: learning the failure rate under load, which requests are most failure-prone, etc. During this period, you learn what abnormal behavior looks like and what is the optimal thresholds to define for reasonable balance that enables detection with fewer false alarms. 
+
+Once detection is made and you are aware of an issue, you still need to have more information when triaging it; what is the scale of the problem and the urgency? how many users are affected? Some of the information can be available in your dashboards, but often you are required to perform some analysis on telemetry to get sufficient view.
+
+Diagnosis of the problem can be a difficult task as problem can be caused by a bug in the code, configuration, storage or other external services (databases, REST services) that the app is using.
+
 ## How it works
 
 Near Real Time Proactive Diagnostics monitors the telemetry received from your app, and in particular the failed request rate. This metric usually indicates the number of HTTP requests that returned a response code of 400 or more (unless you have written custom code to [filter](app-insights-api-filtering-sampling.md#filtering) or generate your own [TrackRequest](app-insights-api-custom-events-metrics.md#track-request) calls).
 
-Your app’s performance has a typical pattern of behavior. Some requests will be more prone to failure than others; and the overall failure rate may go up as load increases. Near Real Time Proactive Diagnostics uses machine learning to find these correlations. 
+Note: failures response code does not affect this alert, as failed request is determined by ‘Successful request’ == false.
 
-As telemetry comes into Application Insights from your web app, NRT Proactive Diagnostics compares the current behavior with the patterns seen over the past few days. If the failure rate rises significantly out of the expectation set by previous performance, an alert is raised.
+Your app’s performance has a typical pattern of behavior. Some requests will be more prone to failure than others; and the overall failure rate may go up as load increases. Near Real Time Proactive Diagnostics uses machine learning to find these anomalies. 
 
-When an alert is raised, the service performs a cluster analysis on multiple dimensions of the requests, to try to identify a pattern of values that characterize the failures. In the example above, the analysis has discovered that most failures are about a specific request name, but it has found that the failures are independent of host or server instance.
+As telemetry comes into Application Insights from your web app, NRT Proactive Diagnostics compares the current behavior with the patterns seen over the past few days. If abnormal rise in failure rate is observed with comparison to previous performance, an analysis is triggered.
 
-The analyser then finds exceptions and dependency failures that are associated with requests in the cluster it has identified, together with an example of any trace logs associated with those requests.
+When analysis is triggered, the service performs a cluster analysis on the failed request, to try to identify a pattern of values that characterize the failures. In the example above, the analysis has discovered that most failures are about a specific response code, request name, Server URL host, Role instance and included them in the alert. Also, the analysis has discovered that Client operating system property is distributed over multiple values thus it is not listed.
 
-The resulting analysis is sent to you as an email, unless you have configured it not to.
+The analyser then finds exception and dependency failure that are associated with requests in the cluster it has identified, together with an example of any trace logs associated with those requests.
+
+The resulting analysis is sent to you as alert, unless you have configured it not to.
 
 Like the [alerts you set manually](app-insights-alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure NRT Proactive Diagnosis. If you want, you can disable it or change its target email addresses.
 
