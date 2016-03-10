@@ -51,7 +51,7 @@ In this example there is a subscription that contains the following:
 
 - 2 resource groups, not shown in the diagram. 
 	- **ONPREMRG**. Contains all resources necessary to simulate an on-premises network.
-	- **AZURERG**. Contains all resources necessary to simulate Walmart’s virtual network environment. 
+	- **AZURERG**. Contains all resources necessary for the Azure virtual network environment. 
 - A VNet named **onpremvnet** used to mimic an on-premises datacenter segmented as listed below.
 	- **onpremsn1**. Subnet containing a virtual machine (VM) running Ubuntu to mimic an on-premises server.
 	- **onpremsn2**. Subnet containing a VM running Ubuntu to mimic an on-premises computer used by an administrator.
