@@ -1,11 +1,11 @@
 <properties 
-    pageTitle="Manage elastic database pools with PowerShell | Microsoft Azure" 
-    description="Learn how to use PowerShell to manage an elastic database pool." 
+    pageTitle="Monitor and manage an elastic database pool (PowerShell) | Microsoft Azure" 
+    description="Learn how to use PowerShell to monitor and manage an elastic database pool." 
 	keywords="multiple databases,scale-out"    
 	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor=""/>
 
 <tags
@@ -17,24 +17,24 @@
     ms.date="03/09/2016"
     ms.author="sstein"/>
 
-# Manage an elastic database pool with PowerShell 
+# Monitor and manage an elastic database pool (PowerShell) 
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)
-- [C#](sql-database-elastic-pool-manage-csharp.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+- [C#](sql-database-elastic-pool-manage-csharp.md)
+
 
 Learn how to manage an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets. 
 
 > [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
 
-To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 
 
 
-
-### Create a new elastic database inside an elastic database pool
+## Create a new elastic database inside an elastic database pool
 
 To create a new database directly inside a pool, use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet and set the **ElasticPoolName** parameter.
 
@@ -43,14 +43,9 @@ To create a new database directly inside a pool, use the [New-AzureRmSqlDatabase
 
 
 
-### Move an existing database into an elastic database pool
+## Move an existing database into an elastic database pool
 
 To move an existing database into a pool, use the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet and set the **ElasticPoolName** parameter. 
-
-
-For demonstration, create a database that's not in an elastic database pool.
-
-	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
 
 Move the existing database into the elastic database pool.
 
@@ -58,24 +53,27 @@ Move the existing database into the elastic database pool.
 
 ## Change performance settings of an elastic database pool
 
+To change performance settings of an elastic database pool, use the [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) cmdlet. 
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
 
 ## Monitoring elastic databases and elastic database pools
-Elastic database pools provide metrics reports to help you scale-out efforts to manage multiple databases.
+Elastic database pools provide metrics reports to help you manage multiple databases.
 
 
 ## Get the status of elastic database pool operations
 
-You can track the status of elastic database pool operations including creation and updates. 
+You can track the status of elastic database pool operations including creation and updates using the [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) cmdlet.
 
 	Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
 ## Get the status of moving an elastic database into and out of an elastic database pool
 
-	Get-AzureRmSqlElasticPoolDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+[Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx)
+
+	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ## Get resource consumption metrics for an elastic database pool
 
@@ -178,7 +176,7 @@ Export to a CSV file:
 
 ## Next steps
 
-After creating an elastic database pool, you can manage elastic databases in the pool by creating elastic jobs. Elastic jobs facilitate running T-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
+- [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs facilitate running T-SQL scripts against any number of databases in the pool.
 
 
 ## Elastic database reference
