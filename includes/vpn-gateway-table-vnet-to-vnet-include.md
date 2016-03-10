@@ -2,7 +2,7 @@ A VNet-to-VNet connection can be configured in both deployment models and by usi
 
 |  | **Classic Deployment** | **Resource Manager Deployment** | **Classic / Resource Manager Deployments** |
 |----------------------------------------|-------------|----------------------|---------------------------------|
-| **Classic Portal** | Not Supported |  Not Supported |  Not Supported |
+| **Classic Portal** | [Article](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)  |  Not Supported |  Not Supported |
 | **Azure Portal** |  Not Supported | Yes+ |  Not Supported |
 | **PowerShell** | [Article](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) | [Article](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) | [Article](../articles/virtual-network/virtual-networks-arm-asm-s2s.md)
 
