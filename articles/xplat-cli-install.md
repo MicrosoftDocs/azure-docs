@@ -11,15 +11,15 @@
 <tags
 	ms.service="multiple"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="vm-multiple"
+	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="03/09/2016"
 	ms.author="danlep"/>
 
 # Install the Azure CLI
 
-Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. Use one of the provided installer packages to install the Azure CLI on your operating system, install the CLI using Node.js and **npm**, or install the Azure CLI as a container in a Docker host. For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli).
+Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several choices: use one of the provided installer packages to install the Azure CLI on your operating system, install the CLI using Node.js and **npm**, or install the Azure CLI as a container in a Docker host. For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli).
 
 
 Once the Azure CLI has been installed, you will be able to [connect it with your Azure subscription](xplat-cli-connect.md) and run the **azure** commands from your command-line interface (Bash, Terminal, Command prompt, and so on) to work with your Azure resources.
@@ -142,9 +142,9 @@ npm update -g azure-cli
 
 ## Additional resources
 
-* [Use the Azure CLI with Azure Resource Manager][cliarm]
+* [Azure CLI commands in Azure Resource Manager (arm) mode][cliarm]
 
-* [Use the Azure CLI with Azure Service Management][cliasm]
+* [Azure CLI commands with Azure Service Management (asm) mode][cliasm]
 
 * To learn more about the Azure CLI, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 
@@ -155,5 +155,5 @@ npm update -g azure-cli
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[cliasm]: virtual-machines/virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: virtual-machines/azure-cli-arm-commands.md
