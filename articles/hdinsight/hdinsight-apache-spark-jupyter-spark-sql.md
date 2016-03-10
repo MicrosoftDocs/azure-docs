@@ -76,7 +76,6 @@ In this section, you create an HDInsight version 3.3 cluster (Spark version 1.5.
 6.Click **Create**. You will see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster and SQL database.
 
 
-Once the creation is complete, click the tile for the Spark cluster from the Startboard to launch the cluster blade.
 
 ## Run Spark SQL queries using a Jupyter notebook
 

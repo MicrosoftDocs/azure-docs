@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/07/2016"
+   ms.date="03/10/2016"
    ms.author="larryfr"/>
 
 
@@ -35,63 +35,39 @@ You must have the following to successfully complete this Apache Storm tutorial:
 
 ## Create a Storm cluster
 
-Storm on HDInsight uses Azure Blob storage for storing log files and topologies submitted to the cluster. Use the following steps to create an Azure storage account for use with your cluster:
+In this section, you create an HDInsight version 3.2 cluster (Storm version 0.9.3) using an Azure ARM template. For information about HDInsight versions and their SLAs, see [HDInsight component versioning](hdinsight-component-versioning.md). For other cluster creation methods, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Sign in to the [Azure Portal][preview-portal].
+1. Click the following image to open an ARM template in the Azure Portal.         
 
-2. Select **NEW**, select __Data Analytics__, and then select __HDInsight__.
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    
+    The ARM template is located in a public blob container, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*. 
+   
+2. From the Parameters blade, enter the following:
 
-	![Create a new cluster in the Azure Portal](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
+    - **ClusterName**: Enter a name for the Hadoop cluster that you will create.
+    - **Cluster login name and password**: The default login name is admin.
+    - **SSH user name and password**.
+    
+    Please write down these values.  You will need them later in the tutorial.
 
-3. Enter a __Cluster Name__, and then select __Storm__ for the __Cluster Type__. A green check appears beside the __Cluster Name__ if it is available.
+    > [AZURE.NOTE] SSH is used to remotely access the HDInsight cluster using a command-line. The user name and password you use here is used when connecting to the cluster through SSH. Also, the SSH user name must be unique, as it creates a user account on all the HDInsight cluster nodes. The following are some of the account names reserved for use by services on the cluster, and cannot be used as the SSH user name:
+    >
+    > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
-	![Cluster name, cluster type, and OS Type](./media/hdinsight-apache-storm-tutorial-get-started/clustername.png)
+	> For more information on using SSH with HDInsight, see one of the following articles:
 
-4. If you have more than one subscription, select the __Subscription__ entry to select the Azure subscription that will be used for the cluster.
+	> * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+	> * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-5. For __Resource Group__, you can select the entry to see a list of existing resource groups and then select the one to create the cluster in. Or you can select __Create New__ and then enter the name of the new resource group. A green check appears to indicate if the new group name is available.
+    
+3.Click **OK** to save the parameters.
 
-	> [AZURE.NOTE] This entry defaults to one of your existing resource groups, if any are available.
+4.From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group. The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
 
-6. Select __Credentials__, and then enter a __Cluster Login Username__ and __Cluster Login Password__. Finally, use  __Select__ to set the credentials. Remote desktop will not be used in this document, so you can leave it disabled.
+5.Click **Legal terms**, and then click **Create**.
 
-	![Cluster credentials blade](./media/hdinsight-apache-storm-tutorial-get-started/clustercredentials.png)
-
-6. For __Data Source__, you can select the entry to choose an existing data source, or create a new one.
-
-	![Data source blade](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
-
-	Currently you can select an Azure storage account as the data source for an HDInsight cluster. Use the following to understand the entries on the __Data Source__ blade.
-
-	- __Selection Method__: Set this to __From all subscriptions__ to enable browsing of storage accounts on your subscriptions. Set to __Access Key__ if you want to enter the __Storage Name__ and __Access Key__ of an existing storage account.
-
-	- __Create New__: Use this to create a new storage account. Use the field that appears to enter the name of the storage account. A green check appears if the name is available.
-
-	- __Choose Default Container__: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
-
-	- __Location__: The geographic region that the storage account will be is in, or will be created in.
-
-		> [AZURE.IMPORTANT] Selecting the location for the default data source also sets the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
-
-	- __Select__: Use this to save the data source configuration.
-
-7. Select __Node Pricing Tiers__ to display information about the nodes that will be created for this cluster. By default, the number of worker nodes is set to __4__. Set this to __1__, as this is sufficient for this tutorial and reduces the cost of the cluster. The estimated cost of the cluster is shown at the bottom of this blade.
-
-	![Node pricing tiers blade](./media/hdinsight-apache-storm-tutorial-get-started/nodepricingtiers.png)
-
-	Use  __Select__ to save the __Node Pricing Tiers__ information.
-
-8. Select __Optional Configuration__. This blade allows you to select the cluster version, as well as configure other optional settings such as joining a __Virtual Network__ or setting up an __External Metastore__ to hold data for Hive and Oozie.
-
-	![Optional configuration blade](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
-
-9. Ensure that __Pin to Startboard__ is selected, and then select __Create__. This creates the cluster and adds a tile for it to the Startboard of your Azure portal. The icon indicates that the cluster is provisioning, and changes to display the HDInsight icon once provisioning has completed.
-
-	| While provisioning | Provisioning complete |
-	| ------------------ | --------------------- |
-	| ![Provisioning indicator on Startboard](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![Provisioned cluster tile](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
-
-	> [AZURE.NOTE] It takes some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the __Notifications__ entry on the left of the page, to check on the provisioning process.
+6.Click **Create**. You will see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster and SQL database.
 
 ## Run a Storm Starter sample on HDInsight
 
