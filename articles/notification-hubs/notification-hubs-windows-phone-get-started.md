@@ -45,7 +45,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
-<li><p>Click the <b>Notification Services</b> section (within *Settings*), click on **Windows Phone (MPNS)** and then click the <b>Enable unauthenticated push</b> check box.</p>
+<li><p>Click the <b>Notification Services</b> section (within <i>Settings</i>), click on <b>Windows Phone (MPNS)</b> and then click the <b>Enable unauthenticated push</b> check box.</p>
 </li>
 </ol>
 
