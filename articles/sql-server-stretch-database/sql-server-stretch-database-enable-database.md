@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="03/09/2016"
 	ms.author="douglasl"/>
 
 # Enable Stretch Database for a database
@@ -129,4 +129,5 @@ Enable additional tables for Stretch Database. Monitor data migration and manage
 
 ## See also
 [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md)
+
 [ALTER DATABASE SET Options (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
