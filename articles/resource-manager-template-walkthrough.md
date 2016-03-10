@@ -10,10 +10,10 @@
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/07/2016"
+   ms.date="03/09/2016"
    ms.author="navale;tomfitz"/>
    
 # Resource Manager Template Walkthrough
@@ -97,209 +97,209 @@ First, you will define a storage account to be used by the virtual machines. You
 Notice under **properties** is an element named **accountType**. This element is unique to storage accounts. For the types of accounts you can specify, see the [REST API for creating a Storage account](https://msdn.microsoft.com/library/azure/mt163564.aspx).
 
 ```json
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[parameters('storageAccountName')]",
-      "apiVersion": "2015-05-01-preview",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "accountType": "[variables('storageAccountType')]"
-      }
-    }
+{
+   "type": "Microsoft.Storage/storageAccounts",
+   "name": "[parameters('storageAccountName')]",
+   "apiVersion": "2015-05-01-preview",
+   "location": "[resourceGroup().location]",
+   "properties": {
+     "accountType": "[variables('storageAccountType')]"
+   }
+}
 ```
 ## Availability Set
-Define an availably set for the virtual machines. In this case, there is no additional properties required, so its definition is fairly simple. See the [REST API for creating an Availability Set](https://msdn.microsoft.com/en-us/library/azure/mt163607.aspx) for the full properties section, in case you want to define the update domain count and fault domain count values.
+Define an availably set for the virtual machines. In this case, there is no additional properties required, so its definition is fairly simple. See the [REST API for creating an Availability Set](https://msdn.microsoft.com/library/azure/mt163607.aspx) for the full properties section, in case you want to define the update domain count and fault domain count values.
 
 ```json
-   {
-      "type": "Microsoft.Compute/availabilitySets",
-      "name": "[variables('availabilitySetName')]",
-      "apiVersion": "2015-05-01-preview",
-      "location": "[resourceGroup().location]",
-      "properties": {}
-   }
+{
+   "type": "Microsoft.Compute/availabilitySets",
+   "name": "[variables('availabilitySetName')]",
+   "apiVersion": "2015-05-01-preview",
+   "location": "[resourceGroup().location]",
+   "properties": {}
+}
 ```
 
 ## Public IP
 Define a public IP address. Again, look at the [REST API for public IP addresses](https://msdn.microsoft.com/library/azure/mt163590.aspx) for the properties to set.
 
 ```json
-   {
-      "apiVersion": "2015-05-01-preview",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "[parameters('publicIPAddressName')]",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-        "dnsSettings": {
-          "domainNameLabel": "[parameters('dnsNameforLBIP')]"
-        }
-      }
+{
+   "apiVersion": "2015-05-01-preview",
+   "type": "Microsoft.Network/publicIPAddresses",
+   "name": "[parameters('publicIPAddressName')]",
+   "location": "[resourceGroup().location]",
+   "properties": {
+     "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+     "dnsSettings": {
+       "domainNameLabel": "[parameters('dnsNameforLBIP')]"
+     }
    }
+}
 ```
 
 ## Virtual Network and Subnet
-Create a virtual network with one subnet. Look at the [REST API for virtual networks](https://msdn.microsoft.com/en-us/library/azure/mt163661.aspx) for all the properties to set.
+Create a virtual network with one subnet. Look at the [REST API for virtual networks](https://msdn.microsoft.com/library/azure/mt163661.aspx) for all the properties to set.
 
 ```json
-   {
-      "apiVersion": "2015-05-01-preview",
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[parameters('vnetName')]",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[variables('addressPrefix')]"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[variables('subnetName')]",
-            "properties": {
-              "addressPrefix": "[variables('subnetPrefix')]"
-            }
-          }
-        ]
-      }
+{
+   "apiVersion": "2015-05-01-preview",
+   "type": "Microsoft.Network/virtualNetworks",
+   "name": "[parameters('vnetName')]",
+   "location": "[resourceGroup().location]",
+   "properties": {
+     "addressSpace": {
+       "addressPrefixes": [
+         "[variables('addressPrefix')]"
+       ]
+     },
+     "subnets": [
+       {
+         "name": "[variables('subnetName')]",
+         "properties": {
+           "addressPrefix": "[variables('subnetPrefix')]"
+         }
+       }
+     ]
    }
+}
 ```
 
 ## Load Balancer
 Now you will create an external facing load balancer. Because this load balancer uses the public IP address, you must declare a dependency on the public IP address in the **dependsOn** section. This means the load balancer will not get deployed until the public IP address has finished deploying. Without defining this dependency, you will receive an error because Resource Manager will attempt to deploy the resources in parallel, and will try to set the load balancer to public IP address that doesn't exist yet. 
 
-You will also create a backend address pool, a couple of inbound NAT rules to RDP into the VMs, and a load balancing rule with a tcp probe on port 80 in this resource definition. Checkout the [REST API for load balancer](https://msdn.microsoft.com/en-us/library/azure/mt163574.aspx) for all the properties.
+You will also create a backend address pool, a couple of inbound NAT rules to RDP into the VMs, and a load balancing rule with a tcp probe on port 80 in this resource definition. Checkout the [REST API for load balancer](https://msdn.microsoft.com/library/azure/mt163574.aspx) for all the properties.
 
 ```json
-   {
-      "apiVersion": "2015-05-01-preview",
-      "name": "[parameters('lbName')]",
-      "type": "Microsoft.Network/loadBalancers",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]"
-      ],
-      "properties": {
-        "frontendIPConfigurations": [
-          {
-            "name": "LoadBalancerFrontEnd",
-            "properties": {
-              "publicIPAddress": {
-                "id": "[variables('publicIPAddressID')]"
-              }
-            }
-          }
-        ],
-        "backendAddressPools": [
-          {
-            "name": "BackendPool1"
-          }
-        ],
-        "inboundNatRules": [
-          {
-            "name": "RDP-VM0",
-            "properties": {
-              "frontendIPConfiguration": {
-                "id": "[variables('frontEndIPConfigID')]"
-              },
-              "protocol": "tcp",
-              "frontendPort": 50001,
-              "backendPort": 3389,
-              "enableFloatingIP": false
-            }
-          },
-          {
-            "name": "RDP-VM1",
-            "properties": {
-              "frontendIPConfiguration": {
-                "id": "[variables('frontEndIPConfigID')]"
-              },
-              "protocol": "tcp",
-              "frontendPort": 50002,
-              "backendPort": 3389,
-              "enableFloatingIP": false
-            }
-          }
-        ],
-        "loadBalancingRules": [
-          {
-            "name": "LBRule",
-            "properties": {
-              "frontendIPConfiguration": {
-                "id": "[variables('frontEndIPConfigID')]"
-              },
-              "backendAddressPool": {
-                "id": "[variables('lbPoolID')]"
-              },
-              "protocol": "tcp",
-              "frontendPort": 80,
-              "backendPort": 80,
-              "enableFloatingIP": false,
-              "idleTimeoutInMinutes": 5,
-              "probe": {
-                "id": "[variables('lbProbeID')]"
-              }
-            }
-          }
-        ],
-        "probes": [
-          {
-            "name": "tcpProbe",
-            "properties": {
-              "protocol": "tcp",
-              "port": 80,
-              "intervalInSeconds": 5,
-              "numberOfProbes": 2
-            }
-          }
-        ]
-      }
+{
+   "apiVersion": "2015-05-01-preview",
+   "name": "[parameters('lbName')]",
+   "type": "Microsoft.Network/loadBalancers",
+   "location": "[resourceGroup().location]",
+   "dependsOn": [
+     "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]"
+   ],
+   "properties": {
+     "frontendIPConfigurations": [
+       {
+         "name": "LoadBalancerFrontEnd",
+         "properties": {
+           "publicIPAddress": {
+             "id": "[variables('publicIPAddressID')]"
+           }
+         }
+       }
+     ],
+     "backendAddressPools": [
+       {
+         "name": "BackendPool1"
+       }
+     ],
+     "inboundNatRules": [
+       {
+         "name": "RDP-VM0",
+         "properties": {
+           "frontendIPConfiguration": {
+             "id": "[variables('frontEndIPConfigID')]"
+           },
+           "protocol": "tcp",
+           "frontendPort": 50001,
+           "backendPort": 3389,
+           "enableFloatingIP": false
+         }
+       },
+       {
+         "name": "RDP-VM1",
+         "properties": {
+           "frontendIPConfiguration": {
+             "id": "[variables('frontEndIPConfigID')]"
+           },
+           "protocol": "tcp",
+           "frontendPort": 50002,
+           "backendPort": 3389,
+           "enableFloatingIP": false
+         }
+       }
+     ],
+     "loadBalancingRules": [
+       {
+         "name": "LBRule",
+         "properties": {
+           "frontendIPConfiguration": {
+             "id": "[variables('frontEndIPConfigID')]"
+           },
+           "backendAddressPool": {
+             "id": "[variables('lbPoolID')]"
+           },
+           "protocol": "tcp",
+           "frontendPort": 80,
+           "backendPort": 80,
+           "enableFloatingIP": false,
+           "idleTimeoutInMinutes": 5,
+           "probe": {
+             "id": "[variables('lbProbeID')]"
+           }
+         }
+       }
+     ],
+     "probes": [
+       {
+         "name": "tcpProbe",
+         "properties": {
+           "protocol": "tcp",
+           "port": 80,
+           "intervalInSeconds": 5,
+           "numberOfProbes": 2
+         }
+       }
+     ]
    }
+}
 ```
 
 ## Network Interface
 You will create 2 network interfaces, one for each VM. Rather than having to include duplicate entries for the network interfaces, you can use the [copyIndex() function](resource-group-create-multiple.md) to iterate over the copy loop (referred to as nicLoop) and create the number network interfaces as defined in the `numberOfInstances` variables. 
 The network interface depends on creation of the virtual network and the load balancer. It uses the subnet defined in the virtual network creation, and the load balancer id to configure the load balancer address pool and the inbound NAT rules.
-Look at the [REST API for network interfaces](https://msdn.microsoft.com/en-us/library/azure/mt163668.aspx) for all the properties.
+Look at the [REST API for network interfaces](https://msdn.microsoft.com/library/azure/mt163668.aspx) for all the properties.
 
 ```json
-   {
-      "apiVersion": "2015-05-01-preview",
-      "type": "Microsoft.Network/networkInterfaces",
-      "name": "[concat(parameters('nicNamePrefix'), copyindex())]",
-      "location": "[resourceGroup().location]",
-      "copy": {
-        "name": "nicLoop",
-        "count": "[variables('numberOfInstances')]"
-      },
-      "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]",
-        "[concat('Microsoft.Network/loadBalancers/', parameters('lbName'))]"
-      ],
-      "properties": {
-        "ipConfigurations": [
-          {
-            "name": "ipconfig1",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "subnet": {
-                "id": "[variables('subnetRef')]"
-              },
-              "loadBalancerBackendAddressPools": [
-                {
-                  "id": "[concat(variables('lbID'), '/backendAddressPools/BackendPool1')]"
-                }
-              ],
-              "loadBalancerInboundNatRules": [
-                {
-                  "id": "[concat(variables('lbID'),'/inboundNatRules/RDP-VM', copyindex())]"
-                }
-              ]
-            }
-          }
-        ]
-      }
+{
+   "apiVersion": "2015-05-01-preview",
+   "type": "Microsoft.Network/networkInterfaces",
+   "name": "[concat(parameters('nicNamePrefix'), copyindex())]",
+   "location": "[resourceGroup().location]",
+   "copy": {
+     "name": "nicLoop",
+     "count": "[variables('numberOfInstances')]"
+   },
+   "dependsOn": [
+     "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]",
+     "[concat('Microsoft.Network/loadBalancers/', parameters('lbName'))]"
+   ],
+   "properties": {
+     "ipConfigurations": [
+       {
+         "name": "ipconfig1",
+         "properties": {
+           "privateIPAllocationMethod": "Dynamic",
+           "subnet": {
+             "id": "[variables('subnetRef')]"
+           },
+           "loadBalancerBackendAddressPools": [
+             {
+               "id": "[concat(variables('lbID'), '/backendAddressPools/BackendPool1')]"
+             }
+           ],
+           "loadBalancerInboundNatRules": [
+             {
+               "id": "[concat(variables('lbID'),'/inboundNatRules/RDP-VM', copyindex())]"
+             }
+           ]
+         }
+       }
+     ]
    }
+}
 ```
 
 ## Virtual Machine
@@ -312,62 +312,62 @@ For images published by 3rd party vendors, you will need to specify another prop
 
 
 ```json
-   {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Compute/virtualMachines",
-      "name": "[concat(parameters('vmNamePrefix'), copyindex())]",
-      "copy": {
-        "name": "virtualMachineLoop",
-        "count": "[variables('numberOfInstances')]"
-      },
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
-        "[concat('Microsoft.Network/networkInterfaces/', parameters('nicNamePrefix'), copyindex())]",
-        "[concat('Microsoft.Compute/availabilitySets/', variables('availabilitySetName'))]"
-      ],
-      "properties": {
-        "availabilitySet": {
-          "id": "[resourceId('Microsoft.Compute/availabilitySets',variables('availabilitySetName'))]"
-        },
-        "hardwareProfile": {
-          "vmSize": "[parameters('vmSize')]"
-        },
-        "osProfile": {
-          "computerName": "[concat(parameters('vmNamePrefix'), copyIndex())]",
-          "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]"
-        },
-        "storageProfile": {
-          "imageReference": {
-            "publisher": "[parameters('imagePublisher')]",
-            "offer": "[parameters('imageOffer')]",
-            "sku": "[parameters('imageSKU')]",
-            "version": "latest"
-          },
-          "osDisk": {
-            "name": "osdisk",
-            "vhd": {
-              "uri": "[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net/vhds/','osdisk', copyindex(), '.vhd')]"
-            },
-            "caching": "ReadWrite",
-            "createOption": "FromImage"
-          }
-        },
-        "networkProfile": {
-          "networkInterfaces": [
-            {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('nicNamePrefix'),copyindex()))]"
-            }
-          ]
-        },
-        "diagnosticsProfile": {
-          "bootDiagnostics": {
-             "enabled": "true",
-             "storageUri": "[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net')]"
-          }
-        }
-   }
+{
+   "apiVersion": "2015-06-15",
+   "type": "Microsoft.Compute/virtualMachines",
+   "name": "[concat(parameters('vmNamePrefix'), copyindex())]",
+   "copy": {
+     "name": "virtualMachineLoop",
+     "count": "[variables('numberOfInstances')]"
+   },
+   "location": "[resourceGroup().location]",
+   "dependsOn": [
+     "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
+     "[concat('Microsoft.Network/networkInterfaces/', parameters('nicNamePrefix'), copyindex())]",
+     "[concat('Microsoft.Compute/availabilitySets/', variables('availabilitySetName'))]"
+   ],
+   "properties": {
+     "availabilitySet": {
+       "id": "[resourceId('Microsoft.Compute/availabilitySets',variables('availabilitySetName'))]"
+     },
+     "hardwareProfile": {
+       "vmSize": "[parameters('vmSize')]"
+     },
+     "osProfile": {
+       "computerName": "[concat(parameters('vmNamePrefix'), copyIndex())]",
+       "adminUsername": "[parameters('adminUsername')]",
+       "adminPassword": "[parameters('adminPassword')]"
+     },
+     "storageProfile": {
+       "imageReference": {
+         "publisher": "[parameters('imagePublisher')]",
+         "offer": "[parameters('imageOffer')]",
+         "sku": "[parameters('imageSKU')]",
+         "version": "latest"
+       },
+       "osDisk": {
+         "name": "osdisk",
+         "vhd": {
+           "uri": "[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net/vhds/','osdisk', copyindex(), '.vhd')]"
+         },
+         "caching": "ReadWrite",
+         "createOption": "FromImage"
+       }
+     },
+     "networkProfile": {
+       "networkInterfaces": [
+         {
+           "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('nicNamePrefix'),copyindex()))]"
+         }
+       ]
+     },
+     "diagnosticsProfile": {
+       "bootDiagnostics": {
+          "enabled": "true",
+          "storageUri": "[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net')]"
+       }
+     }
+}
 ```
 ## Deploying the template
 
