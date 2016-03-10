@@ -108,9 +108,9 @@ The *New application* blade provides the following fields for specifying the set
 
 **Metadata**
 
-The metadata setting provides an *optional* method for supplying the application ID and package version. You can either supply the application metadata manually, such as by pasting a JSON string into the text box, or upload a JSON file that contains the metadata.
+The metadata setting provides an *optional* method for supplying the application ID and package version. You can either supply the application metadata manually by entering values into the text boxes, or upload a JSON file that contains the metadata.
 
-Use the following JSON format to specify the application package metadata:
+Use the following JSON format to specify the application package metadata in a file:
 
 ```
 {
@@ -301,12 +301,15 @@ With application packages, you can more easily provide your customers with the a
 
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
-[1]: ./media/batch-app-pkg/app_pkg_01.png "Applications and application packages"
-[2]: ./media/batch-app-pkg/app_pkg_02.png "Applications tile"
-[3]: ./media/batch-app-pkg/app_pkg_03.png "List applications"
-[4]: ./media/batch-app-pkg/app_pkg_04.png "Application details"
-[5]: ./media/batch-app-pkg/app_pkg_05.png "New application"
-[6]: ./media/batch-app-pkg/app_pkg_06.png "List applications"
-[7]: ./media/batch-app-pkg/app_pkg_07.png "Update or delete packages"
-[8]: ./media/batch-app-pkg/app_pkg_08.png "New application package"
-[9]: ./media/batch-app-pkg/app_pkg_09.png "Associate Storage account"
+[1]: ./media/batch-app-pkg/app_pkg_01.png "Application packages high-level diagram"
+[2]: ./media/batch-app-pkg/app_pkg_02.png "Applications tile in Azure portal"
+[3]: ./media/batch-app-pkg/app_pkg_03.png "Applications blade in Azure portal"
+[4]: ./media/batch-app-pkg/app_pkg_04.png "Application details blade in Azure portal"
+[5]: ./media/batch-app-pkg/app_pkg_05.png "New application blade in Azure portal"
+[6]: ./media/batch-app-pkg/app_pkg_06.png "Applications list blade in Azure portal"
+[7]: ./media/batch-app-pkg/app_pkg_07.png "Update or delete packages drop-down in Azure portal"
+[8]: ./media/batch-app-pkg/app_pkg_08.png "New application package blade in Azure portal"
+[9]: ./media/batch-app-pkg/app_pkg_09.png "No linked Storage account alert"
+[10]: ./media/batch-app-pkg/app_pkg_10.png "No storage account configured warning with Storage account settings button"
+[11]: ./media/batch-app-pkg/app_pkg_11.png "Choose storage account blade in Azure portal"
+[12]: ./media/batch-app-pkg/app_pkg_12.png "Upload package metadata file in Azure portal"
