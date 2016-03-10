@@ -126,9 +126,9 @@ Your hub is now created and configured to send unauthenticated notification for 
 
 You can send push notifications by using Notification Hubs from any backend via the public <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial, you send push notifications using a .NET console application. 
 
-For an example of how to send push notifications from an ASP.NET WebAPI backend that's integrated with Notification Hubs, see [Azure Notification Hubs Notify Users with .NET backend](../notification-hubs-aspnet-backend-windows-dotnet-notify-users.md).  
+For an example of how to send push notifications from an ASP.NET WebAPI backend that's integrated with Notification Hubs, see [Azure Notification Hubs Notify Users with .NET backend](./notification-hubs-aspnet-backend-windows-dotnet-notify-users.md).  
 
-For an example of how to send push notifications by using the [REST APIs](https://msdn.microsoft.com/library/azure/dn223264.aspx), check out [How to use Notification Hubs from Java](../notification-hubs-java-backend-how-to.md) and [How to use Notification Hubs from PHP](../notification-hubs-php-backend-how-to.md).
+For an example of how to send push notifications by using the [REST APIs](https://msdn.microsoft.com/library/azure/dn223264.aspx), check out [How to use Notification Hubs from Java](./notification-hubs-java-backend-how-to.md) and [How to use Notification Hubs from PHP](./notification-hubs-php-backend-how-to.md).
 
 1. Right-click the solution, select **Add** and **New Project...**, and then under **Visual C#**, click **Windows** and **Console Application**, and click **OK**.
 
