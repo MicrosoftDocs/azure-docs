@@ -20,7 +20,7 @@
 # Configuring cluster resource manager settings for service fabric services
 The Service Fabric Cluster Resource manager allows very fine grained control over the rules which govern every individual named service. Each Service instance can specify specific rules for how it should be allocated in the cluster, and can define the set of metrics that it wants to report, including how important they are to that service. Generally configuring services breaks down into three different tasks:
 
-1. Configuring Placement Constraints
+1. Configuring placement constraints
 2. Configuring metrics
 3. Configuring advanced placement rules (less common)
 
