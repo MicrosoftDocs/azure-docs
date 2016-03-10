@@ -182,7 +182,7 @@ You can use Excel to analyze and graph this data.
 [Tuning Data Ingestion Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-ingestion-performance.md
 [Performance testing guidance]: guidance-elasticsearch-creating-performance-testing-environment.md
 [JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md
-[Considerations for JMeter]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md
+[Considerations for JMeter]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 [Query aggregation and performance]: guidance-elasticsearch-query-aggregation-performance.md
 [Resilience and Recovery]: guidance-elasticsearch-configuring-resilience-and-recovery.md
 [Resilience and Recovery Testing]: guidance-elasticsearch-running-automated-resilience-tests.md
