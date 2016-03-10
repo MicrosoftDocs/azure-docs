@@ -21,7 +21,7 @@
 
 > [AZURE.IMPORTANT] You must follow the integration procedure described in the How to Integrate Engagement on Android document before following this guide.
 >
-> This document is useful only if you integrated the Reach module for any time campaign support. To integrate Reach campaigns in your application, please read first How to Integrate Engagement Reach on Android.
+> This document is useful only if you already integrated the Reach module and plan to push Amazon devices. To integrate Reach campaigns in your application, please read first How to Integrate Engagement Reach on Android.
 
 ##Introduction
 
