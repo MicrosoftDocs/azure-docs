@@ -1,11 +1,11 @@
 <properties
-    pageTitle="C# database development: Elastic database pools | Microsoft Azure"
-    description="Use C# database development techniques to create an Azure SQL Database elastic database pool so you can share resources across many databases."
+    pageTitle="Monitor and manage an elastic database pool (C#) | Microsoft Azure"
+    description="Use C# database development techniques to monitor and manage an Azure SQL Database elastic database pool so you can share resources across many databases."
     services="sql-database"
     keywords="c# database,sql development"
     documentationCenter=""
     authors="stevestein"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -17,30 +17,25 @@
     ms.date="03/09/2016"
     ms.author="sstein"/>
 
-# C&#x23; database development: Create and configure an elastic database pool for SQL database
+# Monitor and manage an elastic database pool (C&#x23;)
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
-- [C#](sql-database-elastic-pool-csharp.md)
-- [PowerShell](sql-database-elastic-pool-powershell.md)
+- [Azure portal](sql-database-elastic-pool-create-portal.md)
+- [PowerShell](sql-database-elastic-pool-create-powershell.md)
+- [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-This article shows you how to manage an [elastic database pool](sql-database-elastic-pool.md) for SQL databases from an application using C# database development techniques.
+This article shows you how to monitor and manage an [elastic database pool](sql-database-elastic-pool.md) for SQL databases from an application using C#.
 
 > [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-powershell.md) in one step.
 
-The examples use the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
+The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) so you need to install the library. You can install by running the following command in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
-
-> [AZURE.NOTE] The SQL Database Library for .NET is currently in preview.
-
-
+    Install-Package Microsoft.Azure.Management.Sql –Pre
 
 
 ## Update an elastic database pool
 
-The following example updates the performance characteristics of an existing elastic database pool:
 
     // Retrieve existing pool properties
     var currentPool = sqlClient.ElasticPools.Get("resourcegroup-name", "server-name", "ElasticPool1").ElasticPool;
@@ -64,10 +59,6 @@ The following example updates the performance characteristics of an existing ela
 
 
 ## Move an existing database into an elastic database pool
-
-*After creating a pool you can also use Transact-SQL for moving existing databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
-
-The following example moves an existing Azure SQL database into a pool:
 
 
     // Update database service objective to add the database to a pool
@@ -96,10 +87,6 @@ The following example moves an existing Azure SQL database into a pool:
 
 
 ## Create a new database in an elastic database pool
-
-*After creating a pool you can also use Transact-SQL for creating new elastic databases in the pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
-
-The following example creates a new database directly in a pool:
 
 
     // Create a new database in the pool
@@ -332,26 +319,10 @@ The following example lists all databases in a pool:
 
 
 
-
-
-
 ## Additional Resources
 
 
-[SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+- [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
+- [Elastic database pool reference](sql-database-elastic-pool-reference.md)
 
-[Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-
-[Elastic database pool reference](sql-database-elastic-pool-reference.md).
-
-
-<!--Image references-->
-[1]: ./media/sql-database-elastic-pool-csharp/aad.png
-[2]: ./media/sql-database-elastic-pool-csharp/permissions.png
-[3]: ./media/sql-database-elastic-pool-csharp/getdomain.png
-[4]: ./media/sql-database-elastic-pool-csharp/aad2.png
-[5]: ./media/sql-database-elastic-pool-csharp/aad-applications.png
-[6]: ./media/sql-database-elastic-pool-csharp/add.png
-[7]: ./media/sql-database-elastic-pool-csharp/add-application.png
-[8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
-[9]: ./media/sql-database-elastic-pool-csharp/clientid.png
