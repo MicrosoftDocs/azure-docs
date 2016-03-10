@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Easy application installation and management in Azure Batch | Microsoft Azure"
-	description="Use the Applications feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes."
+	description="Use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes."
 	services="batch"
 	documentationCenter=".net"
 	authors="mmacy"
@@ -16,9 +16,9 @@
 	ms.date="03/11/2016"
 	ms.author="marsma" />
 
-# Task application deployment with Azure Batch application packages
+# Application deployment with Azure Batch application packages
 
-The application packages feature of Azure Batch provides easy management and deployment of applications for your jobs' tasks. With application packages, you can upload and manage multiple versions of the applications run by your tasks, including binaries and support files, then automatically deploy one or more of these applications to the compute nodes in your pool.
+The application packages feature of Azure Batch provides easy management and deployment of applications to the compute nodes in your pool. With application packages, you can upload and manage multiple versions of the applications run by your tasks, including binaries and supporting files, then automatically deploy one or more of these applications to the compute nodes in your pool.
 
 In this article, you will learn how to upload and manage application packages using the Azure portal, then install them on a pool's compute nodes using the [Batch .NET][api_net] library.
 
@@ -42,7 +42,7 @@ Within Azure Batch, an **application** refers to a set of versioned binaries tha
 
 ### Applications
 
-An application in Batch contains one or more application packages. It specifies configuration options for the application such as the default application package to install on compute nodes, and whether its packages may be updated or deleted.
+An application in Batch contains one or more application packages. It specifies configuration options for the application such as the default application package version to install on compute nodes, and whether its packages may be updated or deleted.
 
 ### Application packages
 
@@ -58,7 +58,7 @@ In the next few sections, we'll first cover associating a Storage account with y
 
 ### Associate a Storage account
 
-In order to use application packages, you must first associate an Azure Storage account with your Batch account. If have not yet configured a Storage account for your Batch account, the Azure portal will display a warning the first time you click the *Applications* tile in the Batch account blade.
+In order to use application packages, you must first associate an Azure Storage account with your Batch account. If you have not yet configured a Storage account for your Batch account, the Azure portal will display a warning the first time you click the *Applications* tile in the Batch account blade.
 
 ![Associate Storage account][9]
 
@@ -82,7 +82,7 @@ The Applications blade displays the ID of each application in your account, as w
 
 * **Packages** - The number of versions associated with this application.
 * **Default version** – If you do not specify a version when setting the application for a pool, this version will be installed. This setting is optional.
-* **Allow updates** – If this is set to *No*, package updates and deletions are disabled for the application--only new application packages can be added. The default is *Yes*.
+* **Allow updates** – If this is set to *No*, package updates and deletions are disabled for the application--only new application package versions can be added. The default is *Yes*.
 
 ### View application details
 
@@ -141,7 +141,7 @@ Specifies the version of the application package you are uploading. Version stri
 
 **Application Package**
 
-This specifies the path to a ZIP file containing the application binaries and any support files required to execute the application. You may enter the path to the ZIP file manually, or browse to the file by clicking the folder icon next to the "Select a file" text box.
+This specifies the path to a ZIP file containing the application binaries and any supporting files required to execute the application. You may enter the path to the ZIP file manually, or browse to the file by clicking the folder icon next to the "Select a file" text box.
 
 Once you've entered the required information, click the "OK" button at the bottom of the *New application* blade to begin the upload to Azure Storage. When the upload operation completes, you will be notified and the blade will close. Note that depending on the size of the file that you are uploading and the speed of your network connection, this operation may take some time.
 
@@ -313,3 +313,4 @@ With application packages, you can more easily provide your customers with the a
 [10]: ./media/batch-app-pkg/app_pkg_10.png "No storage account configured warning with Storage account settings button"
 [11]: ./media/batch-app-pkg/app_pkg_11.png "Choose storage account blade in Azure portal"
 [12]: ./media/batch-app-pkg/app_pkg_12.png "Upload package metadata file in Azure portal"
+[13]: ./media/batch-app-pkg/app_pkg_13.png "Upload package for new application in Azure portal"
