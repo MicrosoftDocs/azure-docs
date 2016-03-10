@@ -18,8 +18,7 @@
 # Query your Azure Search index using the REST API
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
-- [Search Explorer](search-explorer.md)
-- [Fiddler](search-fiddler.md)
+- [Portal](search-explorer.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 

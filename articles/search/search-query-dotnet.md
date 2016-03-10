@@ -18,8 +18,7 @@
 # Query your Azure Search index using the .NET SDK
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
-- [Search Explorer](search-explorer.md)
-- [Fiddler](search-fiddler.md)
+- [Portal](search-explorer.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
@@ -80,9 +79,9 @@ DocumentSearchResult<Hotel> results;
 
 Console.WriteLine("Search the entire index for the term 'budget' and return only the hotelName field:\n");
 
-parameters = 
-    new SearchParameters() 
-    { 
+parameters =
+    new SearchParameters()
+    {
         Select = new[] { "hotelName" }
     };
 
