@@ -168,7 +168,7 @@ This section shows you how to publish your .NET backend project from Visual Stud
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## How to: Define a table controller
+##<a name="define-table-controller"></a> How to: Define a table controller
 
 A table controller provides access to entity data in a table-based data store, such as SQL Database or Azure Table storage. Table controllers inherit from the **TableController** generic class, where the generic type is an entity in the model that represents the table schema, as follows:
 
@@ -376,7 +376,7 @@ At this point, you can use the Notification Hubs client to send push notificatio
 
 ##<a name="tags"></a>How to: Add tags to a device installation to enable targeted push
 
-Notification Hubs lets you send targeted notifications to specific registrations by using tags. One tag that gets created automatically is the installation ID, which is specific to an instance of the app on a given device. A registration with an installation ID is also called an *installation*. You can use the installation ID to manage installation, such as for adding tags. The installation ID can be accessed  from the **installationId** property on the **MobileServiceClient**. 
+Notification Hubs lets you send targeted notifications to specific registrations by using tags. One tag that gets created automatically is the installation ID, which is specific to an instance of the app on a given device. A registration with an installation ID is also called an *installation*. You can use the installation ID to manage installation, such as for adding tags. The installation ID can be accessed  from the **installationId** property on the **MobileServiceClient**.
 
 The following example shows how to use an installation ID to add a tag to a specific installation in Notification Hubs:
 
@@ -406,8 +406,8 @@ When an authenticated user registers for push notifications, a user ID tag is au
 
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
-    
-When registering for push notifications from an authenticated client, make sure that authentication is complete before attempting registration. For more information, see [Push to users](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) in the App Service Mobile Apps completed quickstart sample for .NET backend.  
+
+When registering for push notifications from an authenticated client, make sure that authentication is complete before attempting registration. For more information, see [Push to users](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) in the App Service Mobile Apps completed quickstart sample for .NET backend.
 
 ## How to: Debug and troubleshoot the .NET Server SDK
 

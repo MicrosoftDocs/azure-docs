@@ -1,6 +1,6 @@
 <properties
-   pageTitle="The Azure Privileged Identity Management Security Wizard"
-   description="The first time you use the Azure Privileged Identity Management extension, you will be presented with a security wizard. This article describes the steps for using the wizard."
+   pageTitle="The Azure AD Privileged Identity Management Security Wizard"
+   description="The first time you use the Azure Active Directory Privileged Identity Management extension, you will be presented with a security wizard. This article describes the steps for using the wizard."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/08/2016"
    ms.author="kgremban"/>
 
-# The Azure Privileged Identity Management security wizard
+# The Azure AD Privileged Identity Management security wizard
 
 The first time you run Azure Privileged Identity Management (PIM), you will be presented with a wizard. The wizard helps you understand the security risks of privileged identities and how to use Privileged Identity Management to reduce risk.
 
@@ -32,7 +32,7 @@ Clicking on **MANAGE YOUR ADMINS’ ATTACK SURFACE** will present you with an op
 
 You have three options for changing the time window of a global administrator:
 
-1.  Click the **Make all temporary** button to make all global administrators temporary.
+1.  Click the **Make all temporary** button to make all global administrators temporary. Only choose this option if all the administrators have organizational accounts, and have registered for Azure MFA.
 
 2.  Click the **Make all permanent** button to make all global administrators permanent.
 
@@ -52,13 +52,13 @@ So administrators can receive mail when roles are made active, enable notificati
 
 ## Require Multi-Factor Authentication
 
-If you want administrators to be required to use MFA to sign in to their accounts and to request an extension of their role, enable MFA by clicking the **Enable** button. You can also disable this feature later.
+If you want administrators to be required to use MFA to sign in to their accounts and to request an extension of their role, enable MFA by clicking the **Enable** button.
 
 <!--For more information about MFA and PIM, click here. PLACEHOLDER: NEED LINK TO MFA DOC.-->
 
 Select the roles that these settings will be applied to. Click **OK**.
 
-> [AZURE.WARNING] It is important at this time that you have more than one security administrator. If there is only one security administrator who is not set to permanent and does not have MFA set up, the user will not be able to administer PIM at all after the role assignment expires.
+> [AZURE.WARNING] It is important at this time that you have more than one security administrator with an organizational account (not a Microsoft account). If there is only one security administrator who is not set to permanent and does not have MFA set up, the user will not be able to administer PIM at all if the account is deleted.
 
 Click the **OK** button when you are finished.
 
