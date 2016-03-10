@@ -19,8 +19,7 @@
 # Get started with custom authentication
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
+> For the equivalent Mobile Apps version of this topic, see [How to: Use custom authentication for your application](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
 
 
 ## Overview

@@ -1,11 +1,12 @@
 <properties
-pageTitle="Add the Office 365 Outlook API to your Logic Apps | Microsoft Azure"
-description="Overview of Office 365 Outlook API with REST API parameters"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="dwrede"	
-editor="" tags="connectors" />
+	pageTitle="Add the Office 365 Outlook API in PowerApps Enterprise or Logic Apps | Microsoft Azure"
+	description="Overview of Office 365 Outlook API with REST API parameters"
+	services=""	
+	documentationCenter="" 	
+	authors="msftman"	
+	manager="erikre"	
+	editor="" 
+	tags="connectors" />
 
 <tags
 ms.service="multiple"
@@ -13,15 +14,21 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="mandia"/>
 
 # Get started with the Office 365 Outlook API 
 
 Connect to Office 365 Outlook to get email, reply to an email, update your calendar and contacts, and more. The Office 365 Outlook API can be used from:
 
-- PowerApps 
 - Logic apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic apps](../articles/connectors/create-api-office365-outlook.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
+
+&nbsp; 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Office 365 API](../app-service-logic/app-service-logic-connector-office365.md).
 
@@ -49,57 +56,6 @@ All APIs support data in JSON and XML formats.
 
 ## Create a connection to Office365
 
-### Add additional configuration in PowerApps
-When you add this API to PowerApps Enterprise, you enter the **App Key** and **App Secret** values of your Office 365 Azure Active Directory (AAD) application. The **Redirect URL** value is also used in your Office 365 application. If you don't have an Office 365 application, you can use the following steps to create the application: 
-
-1. In the [Azure Portal][5], open **Active Directory**, and open your organization's tenant name.
-2. Select the **Applications** tab, and select **Add**:  
-![AAD tenant applications][7]
-
-3. In **Add application**:  
-
-	1. Enter a **Name** for your application.  
-	2. Leave the application type as **Web**.  
-	3. Select **Next**.  
-
-	![Add AAD application - app info][8]
-
-6. In **App Properties**:  
-
-	1. Enter the **SIGN-ON URL** of your application. Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
-	2. Enter a valid **APP ID URI** for your app.  
-	3. Select **OK**.  
-
-	![Add AAD application - app properties][9]
-
-7. When complete, the new AAD app opens. Select **Configure**:  
-![Contoso AAD app][10]
-
-8. Under the _OAuth 2_ section, set the **Reply URL**  to the redirect URL value shown when you added the Office 365 Outlook API in the Azure Portal. Select **Add application**:  
-![Configure Contoso AAD app][11]
-
-9. In **Permissions to other applications**, select **Office 365 Exchange Online**, and select **OK**:  
-![Contoso app delegate][12]
-
-	Back in the configure page, note that _Office 365 Exchange Online_ is added to the _Permission to other applications_ list.
-
-10. For **Office 365 Exchange Online**, select **Delegated Permissions** , and select the following permissions:  
-
-	- Read and write user contacts
-	- Read user contacts
-	- Read and write user calendars
-	- Read user calendars
-	- Send mail as a user
-	- Read and write user mail
-	- Read user mail
-
-	![Contoso app delegate permissions][13]
-
-A new Azure Active Directory app is created. You can copy/paste the **App Key** and **App Secret** values into your Office 365 Outlook API configuration in the Azure portal. 
-
-Some good info on AAD applications at [How and why applications are added to Azure AD](../active-directory/active-directory-how-applications-are-added.md).
-
-### Add additional configuration in logic apps
 When you add this API to your logic apps, you must sign-in to your Office 365 Outlook account and allow logic apps to connect to your account.
 
 1. Sign in to your Office 365 Outlook account account.
@@ -821,9 +777,10 @@ Partially updates a contact.
 
 
 ## Next Steps
-After you add the Office 365 API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
 
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Go back to the [APIs list](apis-list.md).
 
 <!--References-->
 [5]: https://portal.azure.com

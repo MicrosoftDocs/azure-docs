@@ -282,7 +282,7 @@ Event name | Status | Sub status
 -------------- | ------ | ----------
 Activity Run Started | Started | Starting
 Activity Run Finished | Succeeded | Succeeded 
-Activity Run Finished | Failed| Failed Resource Allocation<p>Failed Execution</p><p>Timed Out</p><p>Failed Validation</p><p>Abandoned</p>
+Activity Run Finished | Failed| Failed Resource Allocation<br/><br/>Failed Execution<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned
 On-Demand HDI Cluster Create Started | Started | &nbsp; |
 On-Demand HDI Cluster Created Successfully | Succeeded | &nbsp; |
 On-Demand HDI Cluster Deleted | Succeeded | &nbsp; |

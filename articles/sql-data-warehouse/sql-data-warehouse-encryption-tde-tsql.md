@@ -1,21 +1,21 @@
-<properties 
-   pageTitle="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL | Microsoft Azure" 
-   description="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL | Microsoft Azure"
+   description="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-data-warehouse" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
+
 # Get started with Transparent Data Encryption (TDE)
 > [AZURE.SELECTOR]
 - [Azure Classic Portal](sql-data-warehouse-encryption-tde.md)
@@ -62,9 +62,9 @@ FROM
 	sys.databases;
 ```
 
-A result of ```1``` indicates an encrypted database, ```0``` indicates a non-encrypted database. 
+A result of ```1``` indicates an encrypted database, ```0``` indicates a non-encrypted database.
 
- 
+
 <!--Anchors-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
