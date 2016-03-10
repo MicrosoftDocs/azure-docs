@@ -48,7 +48,7 @@ Create a new resource group or select an existing one.
 As an Azure service, Azure Search is available to be hosted in datacenters around the world. Please note that [prices can differ](https://azure.microsoft.com/pricing/details/search/) by geography.
 
 ## VI. Select your pricing tier
-[Azure Search is currently offered in multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, or Standard. Each tier has its own [capacity and limits](https://azure.microsoft.com/documentation/articles/search-limits-quotas-capacity/).
+[Azure Search is currently offered in multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, or Standard. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md).
 
 In this case, we have chosen the Standard tier for our service.
 
