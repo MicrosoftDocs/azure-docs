@@ -119,7 +119,7 @@ Each pricing tier has different limits for client connections, memory, and bandw
 | Redis Cache metric      | For more information see                                                  |
 |-------------------------|---------------------------------------------------------------------------|
 | Network bandwidth usage | [Cache performance - available bandwidth](cache-faq.md#cache-performance) |
-| Connected clients       | [Default Redis server configuration - maxclients](#default-redis-server-configuration) |
+| Connected clients       | [Default Redis server configuration - maxclients](#maxclients)            |
 | Server load             | [Usage charts - Redis Server Load](cache-how-to-monitor.md#usage-charts)  |
 | Memory usage            | [Cache performance - size](cache-faq.md#cache-performance)                |
 
@@ -219,6 +219,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 |lua-event-limit|500|This is the max size of script event queue.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason (a common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them). For more information, see [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
+<a name="maxclients"></a>
 <sup>1</sup>`maxclients` is different for each Azure Redis Cache pricing tier.
 
 -	Basic and Standard caches
