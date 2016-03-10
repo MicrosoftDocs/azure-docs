@@ -1,5 +1,3 @@
-<!-- Understand how to fill out Properties and Tags by visiting: https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md -->
-
 <properties
    pageTitle="Create your first Azure Function | Microsoft Azure"
    description="Build your first Azure Function, a serverless application, in less than two minutes."

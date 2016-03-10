@@ -1,5 +1,3 @@
-<!-- Understand how to fill out Properties and Tags by visiting: https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md -->
-
 <properties
    pageTitle="Azure Functions Overview"
    description="Understand how Azure Functions can optimize asynchronous workloads by creating simple functions that can be written in minutes."

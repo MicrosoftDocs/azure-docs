@@ -1,5 +1,3 @@
-<!-- Understand how to fill out Properties and Tags by visiting: https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md -->
-
 <properties
    pageTitle="Azure Functions developer reference | Microsoft Azure"
    description="Understand how Azure Functions are develop and configured using triggers and bindings which use a domain specific language."
