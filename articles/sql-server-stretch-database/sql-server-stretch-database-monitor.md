@@ -44,6 +44,7 @@ There are several problems that can affect migration. Check the following things
     -   For more info about the content of a SQL Server error message, see [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
 
 ## See Also
+
 [Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
 
 <!--Image references-->
