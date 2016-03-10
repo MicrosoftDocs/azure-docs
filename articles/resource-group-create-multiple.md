@@ -245,8 +245,7 @@ The relevant sections of the deployment template are shown below. A lot of the t
             "14",
             "15",
             "16",
-            "32",
-            "64"
+            "32"
           ],
           "metadata": {
             "description": "This parameter allows the user to select the number of disks they want"
@@ -301,7 +300,7 @@ The relevant sections of the deployment template are shown below. A lot of the t
       ]
     }
 
-The linked template defines the array to return. The template below omits the repetion of disk definitions between 3 and 32. If you need more than 32 data disks, you can continue the pattern.
+The linked template defines the array to return. The template shown below omits the repetion of disk definitions between 3 and 32, but in your actual template you would need to include all of those definitions. If you need more than 32 data disks, you can continue the pattern. Notice that no resources are deployed through this template; instead, it just returns an array with the requested number of objects that define the data disk. 
 
 ```
 {
