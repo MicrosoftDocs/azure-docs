@@ -20,7 +20,7 @@
 
 If you're looking to implement great search experiences over your DocumentDB data, use Azure Search indexer for DocumentDB! In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure!
 
-To set this up, you have to [setup an Azure Search account](../search/search-create-service-portal) (you don't need to upgrade to standard search), and then call the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to create a DocumentDB **data source** and an **indexer** for that data source.
+To set this up, you have to [setup an Azure Search account](../search/search-create-service-portal.md) (you don't need to upgrade to standard search), and then call the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to create a DocumentDB **data source** and an **indexer** for that data source.
 
 ##<a id="Concepts"></a>Azure Search indexer concepts
 
