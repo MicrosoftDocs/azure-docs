@@ -24,7 +24,6 @@ Using Key Vault, you will be able to securely access sensitive information from 
 - Keys and secrets will be protected, without having to write the code yourself and, you will be easily able to use them from your applications.
 - You'll be able to have your customers own and manage their own keys so you can concentrate on providing the core software features. In this way your applications will not own the responsibility or potential liability for your customers’ tenant keys and secrets.
 - Your application can use keys for signing and encryption yet keeps the key management external from your application such that the solution is suitable for an application that is geographically distributed.
-- Your customers will be in control their keys' life cycle and can monitor key usage such that your applications can comply with FIPS 140-2 Level 2 HSMs for secure key management.
 
 For more general information on Azure Key Vault, see [What is Key Vault](key-vault-whatis.md).
 

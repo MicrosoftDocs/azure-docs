@@ -352,7 +352,7 @@ The following table provides the list of available operations and statuses (and 
 Operation name | Status | Sub status
 -------------- | ------ | ----------
 RunStarted | Started | Starting
-RunFinished | Failed / Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
+RunFinished | Failed / Succeeded | FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned
 OnDemandClusterCreateStarted | Started
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
