@@ -47,7 +47,7 @@ This works great until you start to think about it: What’s really the likeliho
 Realistically, you could absolutely run with the default metrics, or at least static custom metrics, but doing so usually means that your cluster utilization is lower than you’d like (since reporting isn’t adaptive); in the worst case it can also result in overscheduled nodes resulting in performance issues. We can do better with custom metrics and dynamic load reports.
 This leads us to our next sections – custom metrics and dynamic loads.
 
-## Custom Metrics
+## Custom metrics
 So since we’ve already discussed that there can be both physical and logical metrics, and that people can define their own metrics. How do they do that? It’s easy! Just configure the metric and the default initial load when creating the service and you’re done! Any set of metrics and default values can be configured on a per-service-instance basis when you’re creating the service.
 
 Note that when you start defining custom metrics you need to explicitly add back in the default metrics if you want us to use them to balance your service as well. This is because we want you to be clear about the relationship between the default metrics and your custom metrics – maybe you care about Memory consumption way more than you care about Primary distribution, or maybe you have several metrics that you want to “mix in” with the defaults.
@@ -110,7 +110,7 @@ Now that we’ve shown you how to define your own metrics, let’s talk about th
 ## Load
 Load is the general notion of how much of a given metric is consumed by some service instance or replica on a given node.
 
-## Default Load
+## Default load
 Default load is how much load the Resource Manager should assume each service instance or replica of this service will consume until it receives any updates from the actual service instances or replicas. For simpler services, this ends up being a static definition that is never updated dynamically and hence will be used for the lifetime of the service. This works great for simple capacity planning because it’s exactly what we are used to doing – dedicating certain resources to certain workloads, but the benefit is that at least now we’re operating in the microservices mindset where resources aren’t actually statically assigned to particular workloads and where people aren’t in the decision-making loop.
 
 We allow stateful services to specify default load for both their Primaries and Secondaries – realistically for a lot of services these numbers are different due to the different workloads executed by primary replicas and secondary replicas, and since primaries usually serve both reads and writes (as well as most of the computational burden) the default load for a primary replica is higher than for secondary replicas.
@@ -118,7 +118,7 @@ We allow stateful services to specify default load for both their Primaries and 
 But now let’s say that you’ve been running your service for a while and you’ve noticed that some instances or replicas of your service consume way more resources than others or that their consumption varies over time – maybe they’re associated with a particular customer, maybe they just correspond to workloads that vary over the course of the day like messaging traffic or stock trades. At any rate, you notice that there’s no “single number” that you can use for the load without being off by a significant amount. You also notice that “being off” in your initial estimate results in Service Fabric either over or under allocating resources to your service, and consequently you have nodes which are over or under utilized.
 What to do? Well, your service could be reporting load on the fly!
 
-## Dynamic Load
+## Dynamic load
 Dynamic Load reports allow replicas or instances to adjust their allocation/reported use of metrics in the cluster over their lifetime. A service replica or instance that was cold and not doing any work would usually report that it was using low amounts of resources, while busy replicas or instances report that they are using more. This general level of churn in the cluster allows us to reorganize the service replicas and instances in the cluster on the fly in order to ensure that the services and instances are getting the resources they require – in effect that busy services are able to reclaim resources from other replicas or instances which are currently cold or doing less work. Reporting load on the fly can be done via the ReportLoad method, available on the ServicePartition, available as a property on the base StatefulService. Within your service the code would look like this:
 
 Code:

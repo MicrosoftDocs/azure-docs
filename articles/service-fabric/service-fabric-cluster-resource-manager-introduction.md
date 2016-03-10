@@ -16,7 +16,7 @@
    ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Introducing the service fabric cluster resource manager
+# Introducing the Service Fabric cluster resource manager
 Traditionally managing IT systems or a set of services meant getting a few machines dedicated to those specific services or systems. Many major services were broken down into a “web” tier and a “data” or “storage” tier, maybe with a few other specialized components like a cache. Other types of applications would have a messaging tier where requests flowed in and out, connected to a work tier for any analysis or transformation necessary as a part of the messaging. Each part got a specific machines or a couple of machines dedicated to it: the database got a couple machines dedicated to it, the web servers a few. If a particular type of workload caused the machines it was on to run too hot, then you added more machines with that type of workload configured to run on it, or replace a few of the machines with larger machines. Easy. If a machine failed, that part of the overall application ran at lower capacity until the machine could be restored. Still fairly easy (if not necessarily fun).
 
 Now however, let’s say you’ve found a need to scale out and have taken the containers and/or microservice plunge. Suddenly you find yourself with hundreds or even thousands of machines, dozens of different types of services, perhaps hundreds of different instances of those services, each with one or more instances or replicas for High Availability (HA).
