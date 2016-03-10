@@ -1,6 +1,6 @@
 ﻿<properties
 	pageTitle="What is Azure Stack Technical Preview 1? | Microsoft Azure"
-	description="Azure Stack POC is an environment for learning about core Azure Stack features and scenarios."
+	description="Azure Stack troubleshooting and known issues."
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
