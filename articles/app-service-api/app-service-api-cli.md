@@ -28,7 +28,8 @@ This article assumes you have installed the Azure CLI and know how to perform ba
 
 ## Enable Resource Management mode
 
-The CLI can be used in [Service Management (asm)](../virtual-machines/virtual-machines-command-line-tools.md) mode or [Resource Management (arm)](../xplat-cli-azure-resource-manager.md) mode. For API apps you have to use Resource Management mode.  Because `arm` mode is not enabled by default, use the `config mode arm` command to enable it.
+The CLI can be used in [Service Management (asm)](../virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md  
+) mode or [Resource Management (arm)](../xplat-cli-azure-resource-manager.md) mode. For API apps you have to use Resource Management mode.  Because `arm` mode is not enabled by default, use the `config mode arm` command to enable it.
 
 	azure config mode arm
 

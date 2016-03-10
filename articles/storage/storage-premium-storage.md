@@ -49,6 +49,7 @@ You can use Premium Storage for Disks in one of two ways:
 - First, create a new premium storage account. Next, when creating a new DS or GS VM, select the premium storage account in the Storage configuration settings. OR,
 - When creating a new DS or GS VM create a new premium storage account in Storage configuration settings, or let Azure Portal create a default premium storage account.
 
+
 For step-by-step instructions, see the [Quick Start](#quick-start) section later in this article.
 
 >[AZURE.NOTE] A premium storage account cannot be mapped to a custom domain name.
@@ -75,7 +76,7 @@ For example, a STANDARD_DS1 VM has 32 MB per second dedicated bandwidth availabl
 Currently, the largest VM on DS-series is STANDARD_DS14 and it can provide up to 512 MB per second across all disks. The largest VM on GS-series is STANDARD_GS5 and it can give up to 2000 MB per second across all disks.
 Note that these limits are for disk traffic alone, not including cache-hits and network traffic. There is a separate bandwidth available for VM network traffic, which is different from the dedicated bandwidth for Premium Storage disks.
 
-For the most up-to-date information on maximum IOPS and throughput (bandwidth) for DS-series and GS-series VMs, see [Sizes for Virtual Machines](../virtual-machines/virtual-machines-size-specs.md). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Premium Storage Scalability and Performance Targets](#premium-storage-scalability-and-performance-targets) section in this article.
+For the most up-to-date information on maximum IOPS and throughput (bandwidth) for DS-series and GS-series VMs, see [Sizes for Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) section in this article.
 
 ## Premium Storage Scalability and Performance Targets
 
@@ -244,7 +245,7 @@ Please refer to important instructions below for configuring your Linux VMs on P
 	- If you use **XFS**, disable barriers using the mount option “nobarrier” (For enabling barriers, use the option “barrier”)
 
 - For Premium Storage disks with cache setting “ReadWrite”, barriers should be enabled for durability of writes.
-- For the volume labels to persist after VM reboot, you must update /etc/fstab with the UUID references to the disks. Also refer to [How to Attach a Data Disk to a Linux Virtual Machine](../virtual-machines/virtual-machines-linux-how-to-attach-disk.md)
+- For the volume labels to persist after VM reboot, you must update /etc/fstab with the UUID references to the disks. Also refer to [How to Attach a Data Disk to a Linux Virtual Machine](../virtual-machines/virtual-machines-linux-classic-attach-disk.md)
 
 Following are the Linux Distributions that we validated with Premium Storage. We recommend that you upgrade your VMs to at least one of these versions (or later) for better performance and stability with Premium Storage. Also, some of the versions require the latest LIS (Linux Integration Services v4.0 for Microsoft Azure). Please follow the link provided below for download and installation. We will continue to add more images to the list as we complete additional validations. Please note, our validations showed that performance varies for these images, and it also depends on workload characteristics and settings on the images. Different images are tuned for different kinds of workload.
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
@@ -388,7 +389,7 @@ You must create a DS or GS series VM to be able to use Premium Storage. Follow t
 
 	![Premium Disk][Image2]
 
-See more detailed steps in [How to attach a data disk in Azure Portal](../virtual-machines/virtual-machines-attach-disk-preview/).
+See more detailed steps in [How to attach a data disk in Azure Portal](../virtual-machines/virtual-machines-windows-attach-disk-portal.md).
 
 #### IV. Change disk caching policy via Azure Portal
 
@@ -529,10 +530,12 @@ For more information about Azure Premium Storage refer to the following articles
 
 - [Migrating to Azure Premium Storage](storage-migration-to-premium-storage.md)
 
+
 ### Blog Posts
 
 - [Azure Premium Storage Generally Available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 - [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+
 
 [Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
 [Image2]: ./media/storage-premium-storage/Azure_attach_premium_disk.png 
