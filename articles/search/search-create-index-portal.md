@@ -23,7 +23,7 @@
 
 This guide will walk you through the process of creating an Azure Search index using the Azure Portal.
 
-This guide assumes that you already have [created an Azure Search service](search-create-service-portal).
+This guide assumes that you already have [created an Azure Search service](search-create-service-portal.md).
 
 
 ## I. Go to your Azure Search blade
