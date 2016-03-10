@@ -65,7 +65,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 ## <a name="related-content"> </a>Related content
 
 
-* [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity][]
+* [Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal][]
 * [How to use the API Inspector to trace calls in Azure API Management][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
@@ -78,5 +78,5 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 [Azure Classic Portal]: https://manage.windowsazure.com/
 
-[Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
+[Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
