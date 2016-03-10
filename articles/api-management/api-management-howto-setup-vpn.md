@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="03/10/2016"
 	ms.author="antonba"/>
 
 # How to setup VPN connections in Azure API Management
@@ -47,6 +47,19 @@ Note that the VIP address of the gateway will change each time VPN is enabled or
 After your API Management service is connected to the VPN, accessing web services within the virtual network is no different than accessing public services. Just type in the local address or the host name (if a DNS server was configured for the Azure Virtual Network) of your web service into the **Web service URL** field when creating a new API or editing an existing one.
 
 ![Add API from VPN][api-management-setup-vpn-add-api]
+
+## Required ports for API Management VPN support
+
+When an API Management service instance is hosted in a VNET, the ports in the following table are used. If these ports are blocked, the service may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using API Management with a VNET.
+
+| Port(s)                      | Direction        | Transport Protocol | Purpose                                      | Remote IP        |
+|------------------------------|------------------|--------------------|----------------------------------------------|------------------|
+| 80, 443                      | Inbound          | HTTP, HTTPS        | Client communication to API Management       | *                |
+| 1433                         | Outbound         | TCP                | API Management dependencies on SQL           | AZURE_SQL        |
+| 443                          | Outbound         | HTTPS              | API Management dependencies on Azure Storage | AZURE_STORAGE    |
+| 9350, 9351, 9352, 9353, 9354 | Outbound         | TCP                | API Management dependencies on Service Bus   | AZURE_SERVICEBUS |
+| 5671                         | Outbound         | AMQP               | API Management log to eventHub policy        | AZURE_EVENTHUB   |
+| 6381, 6382, 6383             | Inbound/Outbound | TODO                   | API Management dependencies on Redis Cache   | TODO                 |
 
 
 ## <a name="related-content"> </a>Related content

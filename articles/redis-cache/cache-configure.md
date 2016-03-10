@@ -25,19 +25,19 @@ This topic describes how to review and update the configuration for your Azure R
 
 Caches can be accessed in the [Azure Portal](https://portal.azure.com) using the **Browse** blade.
 
-![Azure Redis Cache Browse Blade](./media/cache-configure/IC796920.png)
+![Azure Redis Cache Browse Blade](./media/cache-configure/redis-cache-browse.png)
 
 Click **Redis Caches** to view your caches. If you have recently browsed to a Redis Cache, you can select it directly from the list without clicking **Browse**.
 
-![Azure Redis Cache Browse Cache List](./media/cache-configure/IC796921.png)
+![Azure Redis Cache Browse Cache List](./media/cache-configure/redis-caches.png)
 
 Select the desired cache to view the properties for that cache.
 
-![Redis Cache All Settings](./media/cache-configure/IC808312.png)
+![Redis Cache All Settings](./media/cache-configure/redis-cache-blade.png)
 
 Click **Settings** or **All settings** to view and configure your cache.
 
-![Redis Cache Settings](./media/cache-configure/IC808313.png)
+![Redis Cache Settings](./media/cache-configure/redis-cache-settings.png)
 
 ## Audit logs
 
@@ -53,25 +53,25 @@ The settings in the **General** section allow you to access and configure the fo
 
 Click **Properties** to view information about your cache, including the cache endpoint and ports.
 
-![Redis Cache Properties](./media/cache-configure/IC808314.png)
+![Redis Cache Properties](./media/cache-configure/redis-cache-properties.png)
 
 ## Access keys
 
 Click **Access keys** to view or regenerate the access keys for your cache. These keys are used along with the host name and ports from the **Properties** blade by the clients connecting to your cache.
 
-![Redis Cache Access Keys](./media/cache-configure/IC808315.png)
+![Redis Cache Access Keys](./media/cache-configure/redis-cache-manage-keys.png)
 
 ## Access Ports
 
 By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **Access Ports** blade and then click **No**.
 
-![Redis Cache Access Ports](./media/cache-configure/IC808316.png)
+![Redis Cache Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
 ## Maxmemory-policy and maxmemory-reserved
 
 Click **Maxmemory policy** to configure the memory policies for the cache. The **maxmemory-policy** setting configures the eviction policy for the cache and **maxmemory-reserved** configures the memory reserved for non-cache processes.
 
-![Redis Cache Maxmemory Policy](./media/cache-configure/IC808318.png)
+![Redis Cache Maxmemory Policy](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
 **Maxmemory policy** allows you to choose from the following eviction policies.
 
@@ -92,7 +92,7 @@ The **maxmemory-reserved** setting configures the amount of memory in MB that is
 
 Click **Advanced settings** to configure Redis keyspace notifications. Keyspace notifications allows clients to receive notifications when certain events occur.
 
-![Redis Cache Advanced Settings](./media/cache-configure/IC808319.png)
+![Redis Cache Advanced Settings](./media/cache-configure/redis-cache-advanced-settings.png)
 
 >[AZURE.IMPORTANT] Keyspace notifications and the **notify-keyspace-events** setting are only available for Standard and Premium caches.
 
@@ -145,8 +145,6 @@ The settings in the **Network** section allow you to access and configure the fo
 
 ![Network](./media/cache-configure/redis-cache-network.png)
 
-![](./media/cache-configure/.png)
-
 ## Diagnostics
 
 The **Diagnostics** section allows you to configure diagnostics for your Redis Cache.
@@ -155,7 +153,7 @@ The **Diagnostics** section allows you to configure diagnostics for your Redis C
 
 Click **Diagnostics** to configure the storage account used to store cache diagnostics.
 
-![Redis Cache Diagnostics](./media/cache-configure/IC808317.png)
+![Redis Cache Diagnostics](./media/cache-configure/redis-cache-diagnostics-settings.png)
 
 For more information, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md).
 
