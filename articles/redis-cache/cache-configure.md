@@ -39,7 +39,7 @@ Click **Settings** or **All settings** to view and configure your cache.
 
 ![Redis Cache Settings](./media/cache-configure/redis-cache-settings.png)
 
-## Audit logs
+## Support & troubleshooting settings
 
 Click **Audit logs** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [View events and audit logs](../azure-portal/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
 
@@ -49,25 +49,25 @@ The settings in the **General** section allow you to access and configure the fo
 
 ![General settings](./media/cache-configure/redis-cache-general-settings.png)
 
-## Properties
+### Properties
 
 Click **Properties** to view information about your cache, including the cache endpoint and ports.
 
 ![Redis Cache Properties](./media/cache-configure/redis-cache-properties.png)
 
-## Access keys
+### Access keys
 
 Click **Access keys** to view or regenerate the access keys for your cache. These keys are used along with the host name and ports from the **Properties** blade by the clients connecting to your cache.
 
 ![Redis Cache Access Keys](./media/cache-configure/redis-cache-manage-keys.png)
 
-## Access Ports
+### Access Ports
 
 By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **Access Ports** blade and then click **No**.
 
 ![Redis Cache Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
-## Maxmemory-policy and maxmemory-reserved
+### Maxmemory-policy and maxmemory-reserved
 
 Click **Maxmemory policy** to configure the memory policies for the cache. The **maxmemory-policy** setting configures the eviction policy for the cache and **maxmemory-reserved** configures the memory reserved for non-cache processes.
 
@@ -88,7 +88,7 @@ The **maxmemory-reserved** setting configures the amount of memory in MB that is
 
 >[AZURE.IMPORTANT] The **maxmemory-reserved** setting is only available for Standard and Premium caches.
 
-## Keyspace notifications (advanced settings)
+### Keyspace notifications (advanced settings)
 
 Click **Advanced settings** to configure Redis keyspace notifications. Keyspace notifications allows clients to receive notifications when certain events occur.
 
@@ -98,7 +98,7 @@ Click **Advanced settings** to configure Redis keyspace notifications. Keyspace 
 
 For more information, see [Redis Keyspace Notifications](http://redis.io/topics/notifications). For sample code, see the [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) file in the [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
-## Recommendations
+### Recommendations
 
 The **Recommendations** blade displays recommendations for your cache. During normal operations, no recommendations are displayed. 
 
@@ -122,7 +122,7 @@ The settings in the **Data management** section allow you to access and configur
 
 ![Data management](./media/cache-configure/redis-cache-data-management.png)
 
-## Redis data persistence
+### Redis data persistence
 
 Click **Redis data persistence** to enable, disable, or configure data persistence for your premium cache.
 
@@ -156,20 +156,20 @@ Click **Diagnostics** to configure the storage account used to store cache diagn
 
 For more information, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md).
 
-## Scale
+## Scale settings
 
 The settings in the **Scale** section allow you to access and configure the following settings for your cache.
 
 ![Network](./media/cache-configure/redis-cache-scale.png)
 
-## Pricing tier
+### Pricing tier
 
 Click **Pricing tier** to view or change the pricing tier for your cache. For more information on scaling, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
 
 ![Redis Cache pricing tier](./media/cache-configure/pricing-tier.png)
 
 <a name="cluster-size"></a>
-## Redis Cluster Size
+### Redis Cluster Size
 
 Click **(PREVIEW) Redis Cluster Size** to change the cluster size for a running premium cache with clustering enabled.
 
@@ -182,7 +182,7 @@ To change the cluster size, use the slider or type a number between 1 and 10 in 
 >[AZURE.IMPORTANT] Redis clustering is only available for Premium caches. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 
 
-## Resource management (users and tags)
+## Resource management settings
 
 ![Redis Cache Users and Tags](./media/cache-configure/redis-cache-resource-management.png)
 
