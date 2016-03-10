@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management: How To Require MFA"
-   description="Learn how to require MFA (multi-factor authentication) for privileged identities with the Azure Active Directory Privileged Identity Management extension."
+   pageTitle="Azure AD Privileged Identity Management: How To require multi-factor authentication"
+   description="Learn how to require multi-factor authentication (MFA) for privileged identities with the Azure Active Directory Privileged Identity Management extension."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -18,7 +18,7 @@
 
 # Azure Privileged Identity Management: How to require MFA
 
-It is highly recommended that you require multi-factor authentication for all of your administrators.
+We recommend that you require multi-factor authentication for all of your administrators.
 
 ## Requiring MFA in Azure AD Privileged Identity Management
 
