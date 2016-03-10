@@ -52,7 +52,7 @@ Azure Redis Cache provides the following settings on the **Settings** blade.
 -	[Data management settings](#data-management-settings)
 	-	[Redis data persistence](#redis-data-persistence)
 -	[Network settings](#network-settings)
--	[Diagnostics settings](#diagnostic settings)
+-	[Diagnostics settings](#diagnostic-settings)
 -	[Scale settings](#scale-settings)
 	-	[Pricing tier](#pricing-tier)
 	-	[Redis cluster size](#cluster-size)

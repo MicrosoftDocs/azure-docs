@@ -59,7 +59,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | 443                          | Outbound         | HTTPS              | API Management dependencies on Azure Storage | AZURE_STORAGE    |
 | 9350, 9351, 9352, 9353, 9354 | Outbound         | TCP                | API Management dependencies on Service Bus   | AZURE_SERVICEBUS |
 | 5671                         | Outbound         | AMQP               | API Management log to eventHub policy        | AZURE_EVENTHUB   |
-| 6381, 6382, 6383             | Inbound/Outbound | TODO                   | API Management dependencies on Redis Cache   | TODO                 |
+| 6381, 6382, 6383             | N/A              | N/A                | API Management internal cache replication    | N/A              |
 
 
 ## <a name="related-content"> </a>Related content
