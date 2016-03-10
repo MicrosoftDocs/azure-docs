@@ -3,8 +3,8 @@
 	description="Learn how to back up an Exchange server to Azure Backup using System Center 2012 R2 DPM"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="AnuragMehrotra"
+	manager="shivamg"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/08/2015"
-	ms.author="jimpark;delhan"/>
+	ms.author="anuragm;jimpark;delhan"/>
 
 
 # Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM
