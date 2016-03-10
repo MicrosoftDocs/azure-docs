@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="03/09/2016"
+	ms.date="03/10/2016"
 	ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -38,6 +38,25 @@ Select the desired cache to view the properties for that cache.
 Click **Settings** or **All settings** to view and configure your cache.
 
 ![Redis Cache Settings](./media/cache-configure/redis-cache-settings.png)
+
+Azure Redis Cache provides the following settings on the **Settings** blade.
+
+-	[Support & troubleshooting settings](#support-amp-troubleshooting-settings)
+-	[General settings](#general-settings)
+	-	[Properties](#properties)
+	-	[Access keys](#access-keys)
+	-	[Access ports](#access-ports)
+	-	[Maxmemory policy](#maxmemory-policy-and-maxmemory-reserved)
+	-	[Advanced settings (keyspace notifications)](#keyspace-notifications-advanced-settings)
+	-	[Recommendations](#recommendations)
+-	[Data management settings](#data-management-settings)
+	-	[Redis data persistence](#redis-data-persistence)
+-	[Network settings](#network-settings)
+-	[Diagnostics settings](#diagnostic settings)
+-	[Scale settings](#scale-settings)
+	-	[Pricing tier](#pricing-tier)
+	-	[Redis cluster size](#cluster-size)
+-	[Resource management settings](#resource-management-settings)
 
 ## Support & troubleshooting settings
 
@@ -112,7 +131,7 @@ Further information can be found on the **Recommendations** blade.
 
 ![Recommendations](./media/cache-configure/redis-cache-recommendations.png)
 
-You can view the metrics for these categories on the [Monitoring charts](cache-how-to-monitor.md#monitoring-charts) and [Usage charts](cache-how-to-monitor.md#usage-charts) sections of the **Redis Cache** blade.
+You can monitor these metrics on the [Monitoring charts](cache-how-to-monitor.md#monitoring-charts) and [Usage charts](cache-how-to-monitor.md#usage-charts) sections of the **Redis Cache** blade.
 
 Each pricing tier has different limits for client connections, memory, and bandwidth. If your cache approaches maximum capacity for these metrics over a sustained period of time, a recommendation is created. For more information about the metrics and limits reviewed by the **Recommendations** tool, see the following table.
 
@@ -152,6 +171,8 @@ Click **OK** to save the persistence configuration.
 The settings in the **Network** section allow you to access and configure the following settings for your cache.
 
 ![Network](./media/cache-configure/redis-cache-network.png)
+
+>[AZURE.IMPORTANT] Virtual network settings are only available for premium caches that were configured with VNET support during cache creation. For information on creating a premium cache with VNET support and updating its settings, see [How to configure Virtual Network Support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 
 ## Diagnostics settings
 
@@ -269,6 +290,14 @@ To issue commands against your cache instance, simply type in the desired comman
 ![Redis console](./media/cache-configure/redis-console.png)
 
 For list of Redis commands that are disabled for Azure Redis Cache, see the previous [Redis commands not supported in Azure Redis Cache](#redis-commands-not-supported-in-azure-redis-cache) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands). 
+
+## Move your cache to a new subscription
+
+You can move your cache to a new subscription by clicking **Move**.
+
+![Move Redis Cache](./media/cache-configure/redis-cache-move.png)
+
+For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](../resource-group-move-resources.md).
 
 ## Next steps
 -	For more information on working with Redis commands, see [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands).
