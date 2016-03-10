@@ -846,10 +846,7 @@ parameterized SQL statements to the defined data provider easily:
     api.get.access = 'authenticated';
     module.exports = api;
 
-
-
 ## <a name="Debugging"></a><a name="howto-diagnostic-logs"></a>How to: Debug, Diagnose and Troubleshoot Azure Mobile Apps
-
 
 The Azure App Service provides several debugging and troubleshooting techniques for Node.js applications.
 Refer to the following articles to get started in troubleshooting your Node.js Mobile backend:
