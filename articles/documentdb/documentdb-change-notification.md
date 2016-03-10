@@ -23,7 +23,7 @@ This article came about from a question I saw posted one of the DocumentDB commu
 
 I have worked with BizTalk Server for many years, and this is a very common scenario when using the [WCF LOB Adapter](https://msdn.microsoft.com/library/bb798128.aspx). So I decided to see if I could duplicate this functionality in DocumentDB for new and/or modified documents.
 
-This article provides an overview of the components of the change notification solution, which includes a [trigger](documentdb-programming.md#trigger) and a [Logic App](../app-service-logic/app-service-logic-what-are-logic-apps). Important code snippets are provided inline and the entire solution is available on [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
+This article provides an overview of the components of the change notification solution, which includes a [trigger](documentdb-programming.md#trigger) and a [Logic App](../app-service-logic/app-service-logic-what-are-logic-apps.md). Important code snippets are provided inline and the entire solution is available on [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
 
 ## Use case
 
@@ -33,7 +33,7 @@ DocumentDB is the repository for Health Level Seven International (HL7) Fast Hea
 
 The Cardiology department is tracking personal heath and exercise data. Searching for new or modified Patient records is time consuming. They asked the IT department if there was a way that they could receive a notification for new or modified Patient records.  
 
-The IT department said that they could easily provide this. They also said that they could push the documents to Google Drive so the Cardiology department could easily access them.
+The IT department said that they could easily provide this. They also said that they could push the documents to [Azure Blob Storage](https://azure.microsoft.com/services/storage/) so the Cardiology department could easily access them.
 
 ## How the IT department solved the problem
 
@@ -621,7 +621,7 @@ The next action is to save the documents to [Azure Blog storage](https://azure.m
 
 The code is generated from action in the designer. You don't have to modify the code.
 
-If you are not familiar with using the Azure Blob API, see [Get started with the Google Drive API](../connectors/create-api-azureblobstorage.md).
+If you are not familiar with using the Azure Blob API, see [Get started with the Azure blob storage API](../connectors/create-api-azureblobstorage.md).
 
 #### Operations
 
