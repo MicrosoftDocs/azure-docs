@@ -24,4 +24,4 @@
 
 ## Dynamic Compute
 
-[AZURE.INCLUDE [Azure Functions Dynamic Compute](../includes/azure-functions-dynamic-compute.md)]
+[AZURE.INCLUDE [Azure Functions Dynamic Compute](../../includes/azure-functions-dynamic-compute.md)]
