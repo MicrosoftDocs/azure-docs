@@ -22,7 +22,9 @@
 This article is a tutorial that will take you through the set of steps for preparing your Azure environment to back up an Azure virtual machine (VM). This tutorial assumes you already have a VM in your Azure subscription and that you have taken the measures to allow the backup service to access the VM. At a high level, here are the steps that you will complete.  
 
 ![High-level view of VM backup process](./media/backup-azure-vms-first-look/BackupAzureVM.png)
+
 This process assumes that you already have created a VM in Azure.
+
 1. Create or sign in to your Azure subscription.
 2. Create a backup vault or identify an existing backup vault *in the same region as your VM*.
 3. Use the Azure portal to discover and register the virtual machines in the subscription.
