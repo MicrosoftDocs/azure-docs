@@ -487,6 +487,8 @@ If you called the middle tier API app now, it would try to call the data tier us
 
 	![](./media/app-service-api-dotnet-get-started/midtierget.png)
 
+For more information about the generated client, see the [AutoRest GitHub repository](https://github.com/azure/autorest). For help with problems using the generated client, open an [issue in the AutoRest repository](https://github.com/azure/autorest/issues).
+
 ## <a id="creating"></a> Optional: Creating an API app project from scratch
 
 In this tutorial you download ASP.NET Web API projects for deployment to App Service, rather than create new projects from scratch. To create a project that you intend to deploy to an API app, you can create a typical Web API project and install the Swashbuckle package, or you can use the **Azure API App** new-project template. To use that template, click **File > New > Project > ASP.NET Web Application > Azure API App**.
