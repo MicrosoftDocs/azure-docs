@@ -28,7 +28,7 @@ This is the first in a series of tutorials that show how to use features of Azur
 * CORS support
 * Authentication and authorization support
 
-You'll deploy a sample application to two [API apps](app-service-api-apps-why-best-platform.md) and a web app in Azure App Service. The sample application is a to-do list that has an AngularJS single-page application (SPA) front end, an ASP.NET Web API middle tier, and an ASP.NET Web API data tier, as shown in the diagram.
+You'll deploy a sample application to two [API apps](app-service-api-apps-why-best-platform.md) and a web app in Azure App Service. The sample application is a to-do list that has an AngularJS single-page application (SPA) front end, an ASP.NET Web API middle tier, and an ASP.NET Web API data tier, as shown in the diagram. 
 
 ![](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
 
@@ -255,7 +255,10 @@ In this section you use Azure tools that are integrated into the Visual Studio *
 
 	![](./media/app-service-api-dotnet-get-started/apptype.png)
 
+	<a id="apptype"></a> 
 	The app type doesn't determine the features that will be available to the new API app, web app, or mobile app. All of the API app features shown in these tutorials are available to all three types. The only difference is in the icon and text that the Azure portal displays to identify the app type, and the order in which features are listed on some pages in the portal. You'll see the Azure portal later in the tutorial; it's a web interface for managing Azure resources. 
+
+	For these tutorials the SPA front end is running in a web app, and each Web API back end is running in an API app, but everything would work the same if all three were web apps or all three were API apps. Also, a single API app or web app could host both the SPA front end and the middle tier back end.
 
 4. Enter an **API App Name** that is unique in the *azurewebsites.net* domain, such as ToDoListDataAPI plus a number to make it unique. 
 
@@ -484,6 +487,8 @@ If you called the middle tier API app now, it would try to call the data tier us
 
 	![](./media/app-service-api-dotnet-get-started/midtierget.png)
 
+For more information about the generated client, see the [AutoRest GitHub repository](https://github.com/azure/autorest). For help with problems using the generated client, open an [issue in the AutoRest repository](https://github.com/azure/autorest/issues).
+
 ## <a id="creating"></a> Optional: Creating an API app project from scratch
 
 In this tutorial you download ASP.NET Web API projects for deployment to App Service, rather than create new projects from scratch. To create a project that you intend to deploy to an API app, you can create a typical Web API project and install the Swashbuckle package, or you can use the **Azure API App** new-project template. To use that template, click **File > New > Project > ASP.NET Web Application > Azure API App**.
@@ -494,7 +499,7 @@ The **Azure API App** project template is equivalent to choosing the **Empty** A
 
 ## Optional: Changing an app type
 
-As explained earlier, the only difference between API apps, web apps, and mobile apps is the way they are represented in the portal. Because they all have the same features, it is never necessary to change an app type.
+As explained [earlier](#apptype), the only difference between API apps, web apps, and mobile apps is the way they are represented in the portal. Because they all have the same features, it is never necessary to change an app type.
 
 However, if you want to change the portal representation, it's easy to do. For example, you could change one of the API apps you just created to a web app by performing the following steps.
 
@@ -528,4 +533,4 @@ For an example of an Azure Resource Manager template that sets the API definitio
 
 ## Next steps
 
-In this tutorial, you've seen how to create API apps, deploy code to them, generate client code for them, and consume them from .NET clients. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
+In this tutorial, you've seen how to create API apps, deploy code to them, generate client code for them, and consume them from .NET clients. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md). Later tutorials in the series show how to implement authentication and authorization.
