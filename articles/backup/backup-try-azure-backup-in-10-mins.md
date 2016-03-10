@@ -17,11 +17,11 @@
 	 ms.date="03/09/2016"
 	 ms.author="jimpark;"/>
 
-# First look: back up files and folders from Windows Server of client to Azure
+# First look: back up files and folders from Windows Server or client to Azure
 
 In just a few steps you can back up your Windows machine (Windows client or Windows Server) to Azure.
 
-It requires these steps:
+It only requires these steps:
 
 ![Step 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Get an Azure subscription (if necessary).<br>
 ![Step 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Create a backup vault and download the necessary components.<br>
@@ -231,7 +231,7 @@ At this point, you've finished creating a backup vault and downloading the neces
 
     ![Windows Server backup now](./media/backup-try-azure-backup-in-10-mins/snap-in-backup-now.png)
 
-10. On the **Confirmation** screen, review the settings the wizard will use to backup the machine and click **Back Up**.
+10. On the **Confirmation** screen, review the settings the wizard will use to back up the machine and click **Back Up**.
 
     ![Windows Server backup now](./media/backup-try-azure-backup-in-10-mins/backup-now-confirmation.png)
 
