@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
+   ms.date="03/10/2016"
    ms.author="alkohli"/>
 
 
@@ -22,7 +22,7 @@
 ![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 
 ## Overview 
-This provisioning tutorial applies to StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running March 2016 general availability (GA) release. This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above. This article applies to deployment of StorSimple Virtual Arrays in Azure classic portal as well as Microsoft Azure Government Cloud.
+This provisioning tutorial applies to StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running March 2016 general availability (GA) release. This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above. This article applies to the deployment of StorSimple Virtual Arrays in Azure classic portal as well as Microsoft Azure Government Cloud.
 
 You will need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
@@ -266,7 +266,7 @@ Perform the following steps to start your virtual device and connect to it.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image43m.png)
 
-1.  Use the Set-HcsIpAddress cmdlet to configure the network. An example is shown below:
+1.  Use the `Set-HcsIpAddress` cmdlet to configure the network. An example is shown below:
 
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
@@ -275,7 +275,7 @@ Perform the following steps to start your virtual device and connect to it.
 
 1.  After the initial setup is complete and the device has booted up, you will see the device banner text. Make a note of the IP address and the URL displayed in the banner text to manage the device. You will use this IP address to connect to the web UI of your virtual device and complete the local setup and registration.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image45m.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
 
 
 1. Perform this step only if you are deploying your device in the Government Cloud. You will now enable the United States Federal Information Processing Standard (FIPS) mode on your device. The FIPS 140 standard defines cryptographic algorithms approved for use by US Federal government computer systems for the protection of sensitive data.
