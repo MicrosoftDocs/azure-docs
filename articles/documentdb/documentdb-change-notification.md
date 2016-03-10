@@ -76,9 +76,9 @@ Now that you have an idea of what the workflow does, let's take a look at how yo
 
 ### Let's start with the main Logic App
 
-If you're not familiar with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md), they are available in the [Azure portal](https://portal.azure.com/) **Marketplace**, and you can learn more about them in [What are Logic Apps?](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+If you're not familiar with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md), they are available in the [Azure Marketplace](https://portal.azure.com/), and you can learn more about them in [What are Logic Apps?](../app-service-logic/app-service-logic-what-are-logic-apps.md)
 
-When you create a new Logic App, you are asked "How would you like to start?"
+When you create a new Logic App, you are asked **How would you like to start?**
 
 When you click inside the text box, you have a choice of events. For this Logic App, select **Manual - When an HTTP request is received** as shown below.
 
@@ -297,6 +297,7 @@ Let's see what each action in our Logic App does.
 **Code View**
 
 ```JSON
+
 	"GetUtcDate": {
 		    "conditions": [],
 		    "inputs": {
