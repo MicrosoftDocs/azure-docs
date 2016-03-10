@@ -24,7 +24,7 @@ control of all requests to Azure or if the SDK for your prefered language is not
 want to perform.
 
 This article will not go through every API that is exposed in Azure, but will rather use some as an example how you go ahead and
-connect to them. If you understand the basics you can then go ahead and read the [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt420159.aspx) to find 
+connect to them. If you understand the basics you can then go ahead and read the [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/mt420159.aspx) to find 
 detailed information on how to use the rest of the APIs.
 
 ## Authentication
@@ -86,7 +86,7 @@ As you can see from the above HTTP Result, the token is valid for a specific per
 
 ## Calling ARM REST APIs
 
-[Azure Resource Manager REST APIs are documented here](https://msdn.microsoft.com/en-us/library/azure/mt420159.aspx) and it's out of scope for this tutorial to document the usage of each and every. This documentation will only use a few APIs to explain the basic usage of the APIs and after that we refer you to the official documentation.
+[Azure Resource Manager REST APIs are documented here](https://msdn.microsoft.com/library/azure/mt420159.aspx) and it's out of scope for this tutorial to document the usage of each and every. This documentation will only use a few APIs to explain the basic usage of the APIs and after that we refer you to the official documentation.
 
 ### List all subscriptions
 
