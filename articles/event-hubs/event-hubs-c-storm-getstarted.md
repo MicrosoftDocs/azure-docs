@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
 	ms.topic="article" 
-	ms.date="12/09/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -34,7 +34,7 @@ In order to complete this tutorial you will need the following:
 
 + A Java development environment configured to run [Maven](http://maven.apache.org/). For this tutorial, we will assume [Eclipse](https://www.eclipse.org/).
 
-+ An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
++ An active Azure account. If you don't have an account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Create an Event Hub
 

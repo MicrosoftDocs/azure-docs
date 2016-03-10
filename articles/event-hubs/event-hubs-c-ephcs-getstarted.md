@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -42,31 +42,31 @@ In order to complete this tutorial you will need the following:
 
 2. Click **App Services**, then **Service Bus**, then **Event Hub**, then **Quick Create**.
 
-   	![][1]
+	![][1]
 
 3. Type a name for your Event Hub, select your desired region, and then click **Create a new Event Hub**.
 
-   	![][2]
+	![][2]
 
 4. Click the namespace you just created (usually ***event hub name*-ns**).
 
-   	![][3]
+	![][3]
 
 5. Click the **Event Hubs** tab at the top of the page, and then click the Event Hub you just created.
 
-   	![][4]
+	![][4]
 
 6. Click the **Configure** tab at the top of the page, add a rule named **SendRule** with *Send* rights, add another rule called **ReceiveRule** with *Manage, Send, Listen* rights, and then click **Save**.
 
-   	![][5]
+	![][5]
 
 7. On the same page, take note of the generated keys for **SendRule**.
 
-   	![][6b]
+	![][6b]
 
 8. Click the **Dashboard** tab at the top of the page, and then click **Connection Information**. Take note of the two connection strings.
 
-   	![][6]
+	![][6]
 
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
@@ -81,11 +81,11 @@ Now you are ready to run the applications.
 
 1.	Run the **Receiver** project from within Visual Studio, then wait for it to start the receivers for all the partitions.
 
-   	![][21]
+	![][21]
 
 2.	Run the **Sender** program, and see the events appear in the receiver window.
 
-   	![][24]
+	![][24]
 
 ## Next steps
 
