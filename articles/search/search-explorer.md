@@ -15,7 +15,7 @@
     ms.date="03/10/2016"
     ms.author="ashmaka"
 />
-# Query your Azure Search index | Azure Portal
+# Query your Azure Search index using the Azure Portal
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Portal](search-explorer.md)
