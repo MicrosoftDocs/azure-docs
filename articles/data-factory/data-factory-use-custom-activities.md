@@ -13,37 +13,34 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="03/10/2016"
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
-Azure Data Factory supports built-in activities such as **Copy Activity** and **HDInsight Activity** to be used in pipelines to move and process data. You can also create a custom .NET activity with your own transformation/processing logic and use the activity in a pipeline. You can configure the activity to run using either an **Azure HDInsight** cluster or an **Azure Batch** service.   
+Azure Data Factory supports built-in activities such as **Copy Activity** and **HDInsight Activity** to be used in pipelines to move and transform data. You can also create a custom .NET activity with your own data movement or data transformation logic and use the activity in a Data Factory pipeline. You can configure the activity to run using either an **Azure Batch** service or an **Azure HDInsight** cluster.   
 
-This article describes how to create a custom activity and use it in an Azure Data Factory pipeline. It also provides a detailed walkthrough with step-by-step instructions for creating and using a custom activity. The walkthrough uses the HDInsight linked service. To use the Azure Batch linked service instead, you create a linked service of type **AzureBatch** and use it in the activity section of the pipeline JSON (**linkedServiceName**). See the [Azure Batch Linked Service](#AzureBatch) section for details on using Azure Batch with the custom activity.
+This article describes how to create a custom activity and use it in an Azure Data Factory pipeline. It also provides a detailed walkthrough with step-by-step instructions for creating and using a custom activity. The walkthrough uses the Azure Batch linked service. To use the Azure HDInsight linked service instead, you create a linked service of type **HDInsight** (if you are using your own HDInsight cluster) or **HDInsightOnDemand** (if you want Data Factory to create an HDInsight cluster on-demand) and use it in the activity section of the pipeline JSON (**linkedServiceName**). See [Use Azure HDInsight linked services](#use-azure-hdinsight-linked-services) section for details on using Azure Batch with the custom activity.
 
 
 ## <a name="walkthrough" /> Walkthrough
-This Walkthrough provides you with step-by-step instructions for creating a custom activity and using the activity in an Azure Data Factory pipeline. This walkthrough extends the tutorial from the [Get started with Azure Data Factory][adfgetstarted]. If you want to see the custom activity working, you need to go through the Get started tutorial first and then do this walkthrough.
+This Walkthrough provides you with step-by-step instructions to create a custom activity and use the activity in a Data Factory pipeline. 
 
 ### Prerequisites
 
-
-- Tutorial from [Get started with Azure Data Factory][adfgetstarted]. You must complete the tutorial from this article before doing this walkthrough.
-- Visual Studio 2012 or 2013
-- Download and install [Azure .NET SDK][azure-developer-center]
-- Download the latest [NuGet package for Azure Data Factory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories/) and Install it. Instructions are in the walkthrough.
-- Download and install NuGet package for Azure Storage. Instructions are in the walkthrough, so you can skip this step.
+- Visual Studio 2013 or Visual Studio 2015
+- Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](https://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
+- Download the latest Azuer Data Factory plugin for Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) or [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). If you are using Visual Studio 2013, you can also update the plugin by doing the following: On the menu, click **Tools** -> **Extensions and Updates** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**. 
 
 ### High-level steps 
-1.	**Create a custom activity** to use in the Data Factory solution. The custom activity contains the data processing logic. 
-	1.	In Visual Studio (or code editor of choice), create a .NET Class Library project, add the code to process input data, and compile the project.	
+1.	**Create a custom activity** to use a Data Factory pipeline. The custom activity in this sample will contain the data transformation/processing logic. 
+	1.	In Visual Studio, create a .NET Class Library project, add the code to process input data, and compile the project.	
 	2.	Zip all the binary files and the PDB (optional) file in the output folder.	
 	3.	Upload the zip file to Azure blob storage. Detailed steps are in the Create the custom activity section. 
 2. **Create an Azure data factory that uses the custom activity**:
 	1. Create an Azure data factory.
 	2. Create linked services.
-		1. StorageLinkedService: Supplies storage credentials for accessing blobs.
-		2. HDInsightLinkedService: specifies Azure HDInsight as compute.
+		1. AzureStorageLinkedService: Supplies storage credentials for accessing blobs.
+		2. AzureBatchLinkedService: specifies Azure Batch as compute.
 	3. Create datasets.
 		1. InputDataset: specifies storage container and folder for the input blobs.
 		1. OuputDataset: specifies storage container and folder for the output blobs.
@@ -52,7 +49,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 	4. Debug the pipeline.
 
 ## Create the custom activity
-To create a .NET custom activity that you can use in an Azure Data Factory pipeline, you need to create a **.NET Class Library** project with a class that implements that **IDotNetActivity** interface. This interface has only one method: Execute. Here is the signature of the method:
+To create a .NET custom activity that you can use in an Azure Data Factory pipeline, you need to create a **.NET Class Library** project with a class that implements that **IDotNetActivity** interface. This interface has only one method: [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx). Here is the signature of the method:
 
 	public IDictionary<string, string> Execute(
             IEnumerable<LinkedService> linkedServices, 
@@ -65,13 +62,13 @@ The method has a few key components that you need to understand.
 - The method takes four parameters:
 	- **linkedServices**. This is an enumerable list of linked services that link input/output data sources (for example: Azure Blob Storage) to the data factory. In this sample, there is only one linked service of type Azure Storage used for both input and output. 
 	- **datasets**. This is an enumerable list of datasets. You can use this parameter to get the locations and schemas defined by input and output datasets.
-	- **activity**. This parameter represents the current compute entity - in this case, an Azure HDInsight.
+	- **activity**. This parameter represents the current compute entity - in this case, an Azure Batch.
 	- **logger**. The logger lets you write debug comments that will surface as the “User” log for the pipeline. 
 
-- The method returns a dictionary that can be used to chain custom activities together. We will not use this feature in this sample solution. 
+- The method returns a dictionary that can be used to chain custom activities together. This feature is not yet supported at this time.  
 
-### Procedure: 
-1.	Create a .NET Class Library project.
+### Procedure 
+1.	Create a **.NET Class Library** project.
 	<ol type="a">
 		<li>Launch <b>Visual Studio 2012</b> or <b>Visual Studio 2013</b>.</li>
 		<li>Click <b>File</b>, point to <b>New</b>, and click <b>Project</b>.</li>
@@ -81,12 +78,12 @@ The method has a few key components that you need to understand.
 		<li>Select <b>C:\ADFGetStarted</b> for the <b>Location</b>.</li>
 		<li>Click <b>OK</b> to create the project.</li>
 	</ol>
-2.  Click <b>Tools</b>, point to <b>NuGet Package Manager</b>, and click <b>Package Manager Console</b>.
-3.	In the <b>Package Manager Console</b>, execute the following command to import <b>Microsoft.Azure.Management.DataFactories</b>.
+2.  Click **Tools**, point to **NuGet Package Manager**, and click **Package Manager Console**.
+3.	In the Package Manager Console, execute the following command to import **Microsoft.Azure.Management.DataFactories**.
 
 		Install-Package Microsoft.Azure.Management.DataFactories
 
-4. Import the Azure Storage NuGet package in to the project.
+4. Import the **Azure Storage** NuGet package in to the project.
 
 		Install-Package Azure.Storage
 
@@ -387,12 +384,12 @@ You will see one output file with in the mycontainer\output folder with 1 or mor
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
 
 
-Here are the steps you will be performing in this section:
+You will create a Data Factory project in the same solution that has the custom activity project. This Data Factory project will contain the following entities:
 
-1. Create a **data factory**.
-2. Create **linked services** for the HDInsight cluster on which the custom activity will run as a map-only job and the Azure Storage that holds the input/output blobs. 
-2. Create input and output **datasets** that represent input and output of the custom activity. 
-3. Create and run a **pipeline** that uses the custom activity.
+1. **Linked services** for the Azure Batch pool of VMs on which the custom activity will run and the Azure Storage that holds the input/output blobs. 
+2. Input and output **datasets** that represent input and output of the custom activity. 
+3. **Pipeline** that uses the custom activity.
+4. **Data factory**. You will create one when publishing these entities to Azure. 
 
 ### Step 1: Create the data factory
 
@@ -598,8 +595,6 @@ In this step, you will create datasets to represent input and output data.
 		  }
 		}
 
-	Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The output table is scheduled to be produced every day, so there will be three slices produced.
-
 	Note the following:
 
 	- There is one activity in the activities section and it is of type: **DotNetActivity**.
@@ -719,7 +714,7 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 	You can also use [New-AzureBatchAccount][new-azure-batch-account] cmdlet to create an Azure Batch account. See [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog] for detailed instructions on using this cmdlet.
 2. Create an Azure Batch pool. You can download the source code for the [Azure Batch Explorer tool][batch-explorer], compile, and use it  (or) use [Azure Batch Library for .NET][batch-net-library] to create a Azure Batch pool. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
 
-	You can also use [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) cmdlet to create an Azure Batch pool.
+	You can also use [New-AzureBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) cmdlet to create an Azure Batch pool.
 
 	You may want to create the Azure Batch pool with at least 2 compute nodes so that slices are processed in parallel. If you are using Batch Explorer:  
 
@@ -762,7 +757,10 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 
 	![Azure Batch tasks][image-data-factory-azure-batch-tasks]
 
-> [AZURE.NOTE] The Data Factory service does not support an on-demand option for Azure Batch as it does for HDInsight. You can only use your own Azure Batch pool in an Azure data factory.    
+> [AZURE.NOTE] The Data Factory service does not support an on-demand option for Azure Batch as it does for HDInsight. You can only use your own Azure Batch pool in an Azure data factory.
+
+## Use Azure HDInsight linked services
+     
 
 ## See Also
 
