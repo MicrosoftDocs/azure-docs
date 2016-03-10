@@ -24,8 +24,7 @@ are available through their ecosystem package managers and GitHub.
 The code in each of these SDKs is generated from [Azure RESTful API specifications](https://github.com/azure/azure-rest-api-specs). 
 These specifications are open source and based on the Swagger v2 specification. The SDK code is generated code via an open source project 
 called [AutoRest](https://github.com/azure/autorest). AutoRest transforms these RESTful API specifications into client libraries in multiple languages. 
-If there are any aspects of the generated code in the SDKs you would like to improve, the entire set of tools to create the SDKs are open, 
-freely available and based in widely adopted API specification format.
+If there are any aspects of the generated code in the SDKs you would like to improve, the entire set of tools to create the SDKs are open, freely available and based in widely adopted API specification format.
 
 The Azure Resource Manager Java SDK is hosted in github [Azure Java SDK repository](https://github.com/azure/azure-sdk-for-java). Note that at the time of writing this the SDK is in preview.
 The following packages are available:
