@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="03/10/2016"
 	ms.author="cynthn"/>
 
 # About disks and VHDs for Azure virtual machines

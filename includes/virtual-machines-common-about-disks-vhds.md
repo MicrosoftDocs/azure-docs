@@ -1,7 +1,5 @@
 
 
-
-
 Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – an operating system disk and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are actually virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs.
 
 ## Operating system disk
@@ -10,9 +8,11 @@ Every virtual machine has one attached operating system disk. It’s registered 
 
 ##Temporary disk
 
-The temporary disk is automatically created for you. On Windows virtual machines, this disk is labeled as the D: drive. On Linux virtual machines, the disk is typically /dev/sdb and is formatted and mounted to /mnt/resource by the Azure Linux Agent.
+The temporary disk is automatically created for you. On Windows virtual machines, this disk is labeled as the D: drive and it used for storing pagefile.sys. On Linux virtual machines, the disk is typically /dev/sdb and is formatted and mounted to /mnt/resource by the Azure Linux Agent.
 
 >[AZURE.WARNING] Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. To remap this disk for a Windows virtual machine, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md).
+
+For more information on how Azure uses the temporary disk, see [Understanding the temporary drive on Windows Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ## Data disk
 

@@ -16,11 +16,11 @@ Azure Virtual Machines lets you create and use virtual machines in the cloud. Pr
 
 Like other virtual machines, a VM in Azure has an operating system, storage and networking capabilities and can run a wide variety of applications. You can use an image provided by Azure or one of it's partners, or use your own. Examples include various versions, editions and configurations of:
  
--	Windows Server 
--	Linux servers such as Suse, Ubuntu and CentOS
--	SQL Server
--	BizTalk Server 
--	SharePoint Server
+- Linux servers such as Suse, Ubuntu and CentOS
+- Windows Server 
+- SQL Server
+- BizTalk Server 
+- SharePoint Server
 
 Virtual machines use virtual hard disks (VHDs) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. The following figure shows this, as well as two of the tools for creating and managing your VMs.
 

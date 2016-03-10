@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/23/2015"
+	ms.date="03/10/2016"
 	ms.author="cynthn"/>
 
 #About Azure virtual machines 
@@ -24,11 +24,22 @@
 
 Azure Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers. Typically, you'll choose a virtual machine if you need more control over the computing environment than the other choices offer.
 
-An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine. However, you still need to maintain the virtual machine -- configuring, patching, and maintaining the operating system and any other software that runs on the virtual machine.
+An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine. However, you still need to maintain the virtual machine -- configuring, patching, and maintaining the software that runs on the virtual machine.
 
 This table helps you compare the choices offered by Azure.
 
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 
-[AZURE.INCLUDE [virtual-machines-common-about](../../includes/virtual-machines-common-about.md)]
+## Next steps
+
+Try out a virtual machine by creating a simple virtual machine quickly. For instructions, see [Create a virtual machine running Windows in the Azure portal](virtual-machines-windows-hero-tutorial.md).
+
+Because the tutorial helps you create a virtual machine quickly, it only shows you one way to do it instead of describing the various tools you can use to create virtual machines. For a summary of these tools and links to instructions, see [Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md).
+
+
+<!--links-->
+[App Service]: app-service-choose-me.md
+[Virtual Machines]: #tellmevm
+[Cloud Services]: cloud-services-choose-me.md
+
