@@ -43,7 +43,7 @@ Click **Settings** or **All settings** to view and configure your cache.
 
 Click **Audit logs** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [View events and audit logs](../azure-portal/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
 
-## General
+## General settings
 
 The settings in the **General** section allow you to access and configure the following settings for your cache.
 
@@ -116,8 +116,7 @@ You can view the metrics for these categories on the [Monitoring charts](cache-h
 
 To upgrade your cache, click **Upgrade now** to change the pricing tier and scale your cache. For more information on choosing a pricing tier, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
-## Data management
-
+## Data management settings
 
 The settings in the **Data management** section allow you to access and configure the following settings for your cache.
 
@@ -139,13 +138,13 @@ Click **OK** to save the persistence configuration.
 
 >[AZURE.IMPORTANT] Redis data persistence is only available for Premium caches. For more information, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
 
-## Network
+## Network settings
 
 The settings in the **Network** section allow you to access and configure the following settings for your cache.
 
 ![Network](./media/cache-configure/redis-cache-network.png)
 
-## Diagnostics
+## Diagnostics settings
 
 The **Diagnostics** section allows you to configure diagnostics for your Redis Cache.
 
