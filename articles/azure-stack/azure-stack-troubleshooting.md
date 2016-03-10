@@ -139,8 +139,10 @@ Here is a process to get the right GUID:
 2.  Scroll down to and click on Azure Active Directory.
 3.  Choose a directory.
 4.  Make sure the following screen is visible (not further in - not users, applications, etc.):
+  
   ![directory page](media/azure-stack-troubleshooting/azurestackdirpage.png)
 5.  Inspect the URL while looking at this screen, and find the following section of the URL:
+
   ![directory page](media/azure-stack-troubleshooting/tenantguidinurl.png)
 6. Copy the Directory GUID for later use when referencing this directory:
 
