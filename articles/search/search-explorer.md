@@ -22,6 +22,10 @@
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
+This guide will show you how to query your Azure Search index in the Azure Portal.
+
+This guide assumes you have already [created a search service](search-create-service-portal.md), [defined an index](search-create-index-portal.md), and [uploaded data to Azure Search](search-what-is-data-import.md).
+
 ## I. Go to your Azure Search blade
 1. Click on "All resources" in the menu on the left side of the Azure Portal
 2. Select your Azure Search service

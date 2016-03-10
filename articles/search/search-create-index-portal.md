@@ -21,6 +21,11 @@
 - [.NET](search-create-index-dotnet.md)
 - [REST](search-create-index-rest-api.md)
 
+This guide will walk you through the process of creating an Azure Search index using the Azure Portal.
+
+This guide assumes that you already have [created an Azure Search service](search-create-service-portal).
+
+
 ## I. Go to your Azure Search blade
 1. Click on "All resources" in the menu on the left side of the Azure Portal
 2. Select your Azure Search service
@@ -54,4 +59,4 @@ In the screenshots below, you can see how we have named and defined the fields f
 ![](./media/search-create-index-portal/set-analyzer.png)
 
 ## Next
-After creating an Azure Search index, you will be ready to upload your content into the index so you can start searching your data.
+After creating an Azure Search index, you will be ready to [upload your content into the index](search-what-is-data-import.md) so you can start searching your data.
