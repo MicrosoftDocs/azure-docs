@@ -1,0 +1,65 @@
+﻿<properties
+	pageTitle="What is Azure Stack Technical Preview 1? | Microsoft Azure"
+	description="Azure Stack POC is an environment for learning about core Azure Stack features and scenarios."
+	services="azure-stack"
+	documentationCenter=""
+	authors="ErikjeMS"
+	manager="v-kiwhit"
+	editor=""/>
+
+<tags
+	ms.service="azure-stack"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/11/2016"
+	ms.author="erikje"/>
+
+# Microsoft Azure Stack troubleshooting and known issues
+
+The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft azure Stack, and it is subject to frequent edits and updates.
+
+## Troubleshooting
+
+### JavaScript error when attempting to connect via AAD and Azure PowerShell
+
+Two options are possible to work around this:
+
+1.	Disable Internet Explorer Enhanced Security Configuration on the Host / ClientVM (wherever PowerShell will be executed that pops up the AAD login).
+
+2.	Add three websites to the trusted list:
+-	https://login.microsoftonline.com 
+-	https://*.microsoftonline-p.com 
+-	https://login.live.com
+
+Also, depending on your current actions, please ensure you are running PowerShell as the regular AzureStack user (default user when leveraging the ClientVM) and are not using “Run As Administrator” (different context). Logging in temporarily as the administrator, you could also set these options in this other user context.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Next steps
+
+[Key features and concepts](azure-stack-key-features.md)
