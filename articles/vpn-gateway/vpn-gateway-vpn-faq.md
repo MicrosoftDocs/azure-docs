@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="vpn-gateway"
@@ -50,7 +50,7 @@ For more information about cross-premises connections, see [About secure cross-p
 
 **Point-to-Site** connections let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the point-to-site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a site-to-site connection. 
 
-Note: You can configure your virtual network to use both site-to-site and point-to-site concurrently, provided that you create your site-to-site connection using a dynamic routing gateway. 
+You can configure your virtual network to use both site-to-site and point-to-site concurrently, provided that you create your site-to-site connection using a route-based VPN type for your gateway. Route-based VPN types are called dynamic gateways in the classic deployment model.
 
 For more information, see [About secure cross-premises connectivity for virtual networks](vpn-gateway-cross-premises-options.md).
 
@@ -124,7 +124,7 @@ Auto-reconnect and DDNS are currently not supported in point-to-site VPNs.
 
 ### Can I have site-to-site and point-to-site configurations coexist for the same virtual network?
 
-Yes. Both these solutions will work if you have a dynamic routing VPN gateway for your virtual network. We do not support point-to-site in static routing VPN gateways.
+Yes. Both these solutions will work if you have a route-based VPN type for your gateway. For the classic deployment model, you will need a dynamic gateway. We do not support Point-to-Site for static routing VPN gateways or gateways using -VpnType PolicyBased.
 
 ### Can I configure a point-to-site client to connect to multiple virtual networks at the same time?
 
@@ -138,11 +138,11 @@ It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SS
 
 ### What is a policy-based (static-routing) gateway?
 
-Static routing gateways implement policy-based VPNs. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on premises network and the Azure VNet. The policy (or Traffic Selector) is usually defined as an access list in the VPN configuration.
+Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or Traffic Selector) is usually defined as an access list in the VPN configuration.
 
 ### What is a route-based (dynamic-routing) gateway?
 
-Dynamic routing gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route based VPNs are configured as any-to-any (or wild cards).
+Route-based gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route based VPNs are configured as any-to-any (or wild cards).
 
 ### Can I get my VPN gateway IP address before I create it?
 
@@ -152,9 +152,9 @@ No. You have to create your gateway first to get the IP address. The IP address 
 
 Azure VPN uses PSK (Pre-Shared Key) authentication. We generate a pre-shared key (PSK) when we create the VPN tunnel. You can change the auto-generated PSK to your own with the Set Pre-Shared Key PowerShell cmdlet or REST API.
 
-### Can I use the Set Pre-Shared Key API to configure my static routing gateway VPN?
+### Can I use the Set Pre-Shared Key API to configure my policy-based (static routing) gateway VPN?
 
-Yes, the Set Pre-Shared Key API and PowerShell cmdlet can be used to configure both Azure static routing VPN and dynamic routing VPNs.
+Yes, the Set Pre-Shared Key API and PowerShell cmdlet can be used to configure both Azure policy-based (static) VPNs and route-based (dynamic) routing VPNs.
 
 ### Can I use other authentication options?
 
@@ -162,9 +162,15 @@ We are limited to using pre-shared keys (PSK) for authentication.
 
 ### What is the "gateway subnet" and why is it needed?
 
-We have a gateway service that we run to enable cross-premises connectivity. We need 2 IP addresses from your routing domain for us to enable routing between your premises and the cloud. We require you to specify at least a /29 subnet from which we can pick IP addresses for setting up routes. Even though you can create a /29 subnet, understand that some features require a specific gateway size. Please follow the  gateway subnet requirements for the feature you want to configure.
+We have a gateway service that we run to enable cross-premises connectivity. 
 
-Please note that you must not deploy virtual machines or role instances in the gateway subnet.
+You'll need to create a gateway subnet for your VNet to configure a VPN gateway. All gateway subnets must be named GatewaySubnet in order to work properly. Don't name your gateway subnet something else. And don't deploy VMs or anything else to the gateway subnet.
+
+The gateway subnet minimum size depends entirely on the configuration that you want to create. Although it is possible to create a gateway subnet as small as /29 for some configurations, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26 etc.). 
+
+## Can I deploy Virtual Machines or role instances to my gateway subnet?
+
+No.
 
 ### How do I specify which traffic goes through the VPN gateway?
 
@@ -176,7 +182,7 @@ Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
 
 ### Can I setup my own VPN server in Azure and use it to connect to my on-premises network?
 
-Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You will need to configure User-Defined Routes in your virtual network to ensure traffic is routed properly between your on premises networks and your virtual network subnets.
+Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You will need to configure User-Defined Routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
 
 ### Why are certain ports opened on my VPN gateway?
 
@@ -193,11 +199,11 @@ For more information, see [About VPN Gateways](vpn-gateway-about-vpngateways.md)
 
 ### Which type of gateways can support multi-site and VNet-to-VNet connectivity?
 
-Only the Dynamic Routing VPNs.
+Only route-based (dynamic routing) VPNs.
 
-### Can I connect a virtual network with dynamic routing VPN to another virtual network with static routing VPN?
+### Can I connect a VNet with a RouteBased VPN Type to another VNet  with a PolicyBased VPN type?
 
-No, both virtual networks MUST be using dynamic routing VPNs.
+No, both virtual networks MUST be using route-based (dynamic routing) VPNs.
 
 ### Is the VNet-to-VNet traffic secure?
 
@@ -213,7 +219,7 @@ Max. 10 combined for the Basic and Standard Dynamic Routing gateways; 30 for the
 
 ### Can I use point-to-site VPNs with my virtual network with multiple VPN tunnels?
 
-Yes, point-to-site (P2S) VPNs can be used with the VPN gateways connecting to multiple on premises sites and other virtual networks.
+Yes, point-to-site (P2S) VPNs can be used with the VPN gateways connecting to multiple on-premises sites and other virtual networks.
 
 ### Can I configure multiple tunnels between my virtual network and my on-premises site using multi-site VPN?
 
@@ -227,9 +233,9 @@ No. Overlapping address spaces will cause the netcfg file upload or Creating Vir
 
 No, all VPN tunnels, including point-to-site VPNs, share the same Azure VPN gateway and the available bandwidth.
 
-### Can I use Azure VPN gateway to transit traffic between my on premises sites or to another virtual network?
+### Can I use Azure VPN gateway to transit traffic between my on-premises sites or to another virtual network?
 
-Transit traffic via Azure VPN gateway is possible, but rely on statically defined address spaces in the netcfg configuration file. BGP is not yet supported with Azure Virtual Networks and VPN gateways. Without BGP, manually defining transit address spaces in netcfg is very error prone, and not recommended.
+Transit traffic via Azure VPN gateway is possible, but rely on statically defined address spaces in the netcfg configuration file. BGP is not yet supported with Azure Virtual Networks and VPN gateways. Without BGP, manually defining transit address spaces is very error prone, and not recommended.
 
 ### Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
 
@@ -244,7 +250,7 @@ For traffic between different Azure virtual networks, Azure charges only for tra
 
 Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md).
 
-## Cross-Premises connectivity and VMs
+## Cross-premises connectivity and VMs
 
 ### If my virtual machine is in a virtual network and I have a cross-premises connection, how should I connect to the VM?
 
