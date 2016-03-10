@@ -34,7 +34,7 @@ You need to be running Azure PowerShell 1.0 or higher. For detailed information,
 
 
 
-## Create a new elastic database inside an elastic database pool
+## Create a new elastic database in an elastic database pool
 
 To create a new database directly inside a pool, use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet and set the **ElasticPoolName** parameter.
 
@@ -42,24 +42,18 @@ To create a new database directly inside a pool, use the [New-AzureRmSqlDatabase
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-
-## Move an existing database into an elastic database pool
+## Move a stand-alone database into an elastic database pool
 
 To move an existing database into a pool, use the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet and set the **ElasticPoolName** parameter. 
 
-Move the existing database into the elastic database pool.
-
 	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+
 
 ## Change performance settings of an elastic database pool
 
 To change performance settings of an elastic database pool, use the [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) cmdlet. 
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
-
-
-## Monitoring elastic databases and elastic database pools
-Elastic database pools provide metrics reports to help you manage multiple databases.
 
 
 ## Get the status of elastic database pool operations
@@ -71,11 +65,11 @@ You can track the status of elastic database pool operations including creation 
 
 ## Get the status of moving an elastic database into and out of an elastic database pool
 
-[Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx)
+You can track the status of elastic database operations including creation and updates using the [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx) cmdlet.
 
 	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## Get resource consumption metrics for an elastic database pool
+## Get usage data for an elastic database pool
 
 Metrics that can be retrieved as a percentage of the resource pool limit:   
 
@@ -137,7 +131,7 @@ Export to a CSV file:
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
-## Elastic database pool PowerShell script
+## Monitor and manage an elastic database pool PowerShell example
 
 
     $subscriptionId = '<Azure subscription id>'

@@ -58,7 +58,7 @@ To move an existing database into a pool, use the [Set-AzureRmSqlDatabase](https
 
 
 
-## Create elastic database pool PowerShell script
+## Create elastic database pool PowerShell example
 
 This script will create a new server so when it prompts you for a username and password, enter an admin login and admin password for your new server (not your Azure credentials).
 
