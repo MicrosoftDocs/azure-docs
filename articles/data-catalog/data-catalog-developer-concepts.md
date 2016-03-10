@@ -92,7 +92,7 @@ These properties apply to all root asset types and all annotation types.
 
 > [AZURE.NOTE] Properties whose names begin with a double underscore are system types.
 
-|Property Name|Data Type|Comments
+|**Property Name**|**Data Type**|**Comments**
 |---|---|---
 |modifiedTime|DateTime|The last time the root was modified.  This is set by the client. (The server does not maintain this value).
 |__id|String|id of the item (read-only). This id is guaranteed to unique to the asset within a catalog.
@@ -103,7 +103,7 @@ These properties apply to all root asset types and all annotation types.
 
 These properties apply to all root asset types.
 
-|Property Name|Data Type|Comments
+|**Property Name**|**Data Type**|**Comments**
 |---|---|---
 |name|String|A name derived from the data source location information
 |dsl|Data Source Location|Uniquely describes the data source and is one of the identifiers for the asset. (See dual identity section).  The structure of the dsl varies by the source type.
@@ -116,7 +116,7 @@ These properties apply to all root asset types.
 
 Root asset types are those types that represent the various types of data assets that can be registered in the catalog.
 
-|Asset Type|Additional Properties|Data Type|Comments
+|**Asset Type**|**Additional Properties**|**Data Type**|**Comments**
 |---|---|---|---
 |Table|||A Table represents any tabular data.  This would include a SQL Table, SQL View, Analysis Services Tabular Table, Analysis Services Multidimensional dimension, Oracle Table, etc?
 |Measure|||This type represents an Analysis Services measure.
