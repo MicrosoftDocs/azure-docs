@@ -22,7 +22,7 @@ Azure Data Factory supports built-in activities such as **Copy Activity** and **
 This article describes how to create a custom activity and use it in an Azure Data Factory pipeline. It also provides a detailed walkthrough with step-by-step instructions for creating and using a custom activity. The walkthrough uses the Azure Batch linked service. To use the Azure HDInsight linked service instead, you create a linked service of type **HDInsight** (if you are using your own HDInsight cluster) or **HDInsightOnDemand** (if you want Data Factory to create an HDInsight cluster on-demand) and use it in the activity section of the pipeline JSON (**linkedServiceName**). See [Use Azure HDInsight linked services](#use-azure-hdinsight-linked-services) section for details on using Azure Batch with the custom activity.
 
 
-## <a name="walkthrough" /> Walkthrough
+## Walkthrough 
 This Walkthrough provides you with step-by-step instructions to create a custom activity and use the activity in a Data Factory pipeline. 
 
 ### Prerequisites
@@ -30,6 +30,33 @@ This Walkthrough provides you with step-by-step instructions to create a custom 
 - Visual Studio 2013 or Visual Studio 2015
 - Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](https://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
 - Download the latest Azuer Data Factory plugin for Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) or [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). If you are using Visual Studio 2013, you can also update the plugin by doing the following: On the menu, click **Tools** -> **Extensions and Updates** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**. 
+
+## Azure Batch prerequisites
+In the walkthrough, you will run your custom .NET activities using Azure Batch as a compute resource. You will have to create your own Azure Batch pools and specify the number of VMs along with other configurations. Azure Batch pools provides the following features to customers:
+
+1. Create pools containing a single core to thousands of cores.
+2. Auto scale VM count based on a formula
+3. Support VMs of any size
+4. Configurable number of tasks per VM
+5. Queue unlimited number of tasks
+ 
+ 
+> [AZURE.NOTE] See [Azure Batch basics][batch-technical-overview] for an overview of the Azure Batch service and see [Getting Started with the Azure Batch Library for .NET][batch-get-started] to quickly get started with the Azure Batch service.
+
+1. Create an **Azure Batch account** using the [Azure Portal](http://manage.windowsazure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions. Note down the Azure Batch account name and account key.
+
+	You can also use [New-AzureBatchAccount][new-azure-batch-account] cmdlet to create an Azure Batch account. See [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog] for detailed instructions on using this cmdlet.
+2. Create an **Azure Batch pool**. You can download the source code for the [Azure Batch Explorer tool][batch-explorer], compile, and use it  (or) use [Azure Batch Library for .NET][batch-net-library] to create a Azure Batch pool. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
+
+	You can also use [New-AzureBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) cmdlet to create an Azure Batch pool.
+
+	You may want to create the Azure Batch pool with at least 2 compute nodes so that slices are processed in parallel. If you are using Batch Explorer:  
+
+	- Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you will need it when creating the Data Factory solution. 
+	- Specify **Windows Server 2012 R2** for the Operating System Family setting.
+	- Specify **2** as value for the **Max tasks per compute node** setting.
+	- Specify **2** as value for the **Number of Target Dedicated** setting. 
+
 
 ### High-level steps 
 1.	**Create a custom activity** to use a Data Factory pipeline. The custom activity in this sample will contain the data transformation/processing logic. 
@@ -285,7 +312,7 @@ The method has a few key components that you need to understand.
 		    "name": "InputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "file.txt",
 		            "folderPath": "mycontainer/inputfolder/",
@@ -297,9 +324,9 @@ The method has a few key components that you need to understand.
 12. Create a zip file **MyDotNetActivity.zip** that contain all the binaries in the <project folder>\bin\Debug folder. You may want to include the **MyDotNetActivity.pdb** file so that you get additional details such as line number in the source code that caused the issue in case of a failure.
 
 	![Binary output files](./media/data-factory-use-custom-activities/Binaries.png)
-13. Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **StorageLinkedService** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **customactivitycontainer** if it does not already exist.
+13. Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **AzureStorageLinkedService** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **customactivitycontainer** if it does not already exist.
 
-> [AZURE.NOTE] If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project, you do not need to perform the last two steps of creating the zip file and manually uploading it to the Azure blob storage. When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process. See [Build your first pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) and [Copy data from Azure Blob to Azure SQL](data-factory-get-started-using-vs.md) articles to learn about creating and publishing Data Factory entities using Visual Studio.  
+> [AZURE.NOTE] If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project, and add a reference to .NET activity project from the Data Factory application project, you do not need to perform the last two steps of manually creating the zip file and uploading it to the Azure blob storage. When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process. See [Build your first pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) and [Copy data from Azure Blob to Azure SQL](data-factory-get-started-using-vs.md) articles to learn about creating and publishing Data Factory entities using Visual Studio.  
 
 ### Execute method
 
@@ -367,7 +394,7 @@ This section provides more details and notes about the code in the **Execute** m
 			logger.Write("Writing {0} to the output blob", output);
 			outputBlob.UploadText(output);
 
-## Create the data factory
+## Create the data factory using Azure Portal
 
 In the **Create the custom activity** section, you created a custom activity and uploaded the zip file with binaries and the PDB file to an Azure blob container. In this section, you will create an Azure **data factory** with a **pipeline** that uses the **custom activity**.
  
@@ -415,52 +442,36 @@ Linked services link data stores or compute services to an Azure data factory. I
 3.	Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 4.	Click **Deploy** on the command bar to deploy the linked service.
 
+#### Create Azure Batch linked service
 
-#### Create Azure HDInsight linked service 
-The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, if you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster.
+2. In the Data Factory Editor, click **New compute** from the command bar and select **Azure Batch** from the menu.
+3. Do the following in the JSON script:
+	1. Specify Azure Batch account name for the **accountName** property. The **URL** from the **Azure Batch account blade** is in the following format: http://**accountname**.region.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL and use the **accountname** for the **accountName** JSON property.
+	2. Specify the Azure Batch account key for the **accessKey** property. 
+	3. Specify the name of the pool you created as part of prerequisites for the **poolName** property. You can also specify the ID of the pool instead of the name of the pool.
+	4. Specify Azure Batch URI for the **batchUri** property. The **URL** from the **Azure Batch account blade** is in the following format: http://accountname.region.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL and use the **accountname** for the **accountName** JSON property.
+	5. Specify the **AzureStorageLinkedService** for the **linkedServiceName** property.
+		
+		{
+		  "name": "AzureBatchLinkedService",
+		  "properties": {
+		    "type": "AzureBatch",
+		    "typeProperties": {
+		      "accountName": "myazurebatchaccount",
+			  "batchUri": "https://westus.batch.azure.com",
+		      "accessKey": "batchaccountkey>",
+		      "poolName": "myazurebatchpool",
+		      "linkedServiceName": "AzureStorageLinkedService"
+		    }
+		  }
+		}
 
-> [AZURE.NOTE] At runtime, an instance of a .NET activity runs only on one worker node in the HDInsight cluster; it cannot be scaled to run on multiple nodes. Multiple instances of .NET activity can run in parallel on different nodes of the HDInsight cluster.
+	> [AZURE.IMPORTANT] The **URL** from the **Azure Batch account blade** is in the following format: accountname.region.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL and use the **accountname** for the **accountName** JSON property.
 
-If you have extended the [Get started with Azure Data Factory][adfgetstarted] tutorial with the walkthrough from [Use Pig and Hive with Azure Data Factory][hivewalkthrough], you can skip creation of this linked service and use the linked service you already have in the ADFTutorialDataFactory.
+	For the **poolName** property, you can also specify the ID of the pool instead of the name of the pool.
 
-
-##### To use an on-demand HDInsight cluster
-
-1. In the **Azure Portal**, click **Author and Deploy** in the Data Factory home page.
-2. In the Data Factory Editor, click **New compute** from the command bar and select **On-demand HDInsight cluster** from the menu.
-2. Do the following in the JSON script:
-	1. For the **clusterSize** property, specify the size of the HDInsight cluster.
-	3. For the **timeToLive** property, specify how long the customer can be idle before it is deleted.
-	4. For the **version** property, specify the HDInsight version you want to use. If you exclude this property, the latest version is used.  
-	5. For the **linkedServiceName**, specify **StorageLinkedService** that you had created in the Get started tutorial.
-
-			{
-			  "name": "HDInsightOnDemandLinkedService",
-			  "properties": {
-			    "type": "HDInsightOnDemand",
-			    "typeProperties": {
-			      "clusterSize": "1",
-			      "timeToLive": "00:05:00",
-			      "version": "3.2",
-			      "linkedServiceName": "StorageLinkedService"
-			    }
-			  }
-			}
-
-2. Click **Deploy** on the command bar to deploy the linked service.
-
-##### To use your own HDInsight cluster:
-
-1. In the **Azure Portal**, click **Author and Deploy** in the Data Factory home page.
-2. In the **Data Factory Editor**, click **New compute** from the command bar and select **HDInsight cluster** from the menu.
-2. Do the following in the JSON script:
-	1. For the **clusterUri** property, enter the URL for your HDInsight. For example: https://<clustername>.azurehdinsight.net/     
-	2. For the **UserName** property, enter the user name who has access to the HDInsight cluster.
-	3. For the **Password** property, enter the password for the user.
-	4. For the **LinkedServiceName** property, enter **StorageLinkedService**. This is the linked service you had created in the Get started tutorial.
-
-2. Click **Deploy** on the command bar to deploy the linked service.
-
+	> [AZURE.NOTE] The Data Factory service does not support an on-demand option for Azure Batch as it does for HDInsight. You can only use your own Azure Batch pool in an Azure data factory.
+	
 ### Step 3: Create datasets
 In this step, you will create datasets to represent input and output data.
 
@@ -472,7 +483,7 @@ In this step, you will create datasets to represent input and output data.
 			    "name": "InputDataset",
 			    "properties": {
 			        "type": "AzureBlob",
-			        "linkedServiceName": "StorageLinkedService",
+			        "linkedServiceName": "AzureStorageLinkedService",
 			        "typeProperties": {
 			            "folderPath": "adftutorial/customactivityinput/",
 			            "format": {
@@ -498,7 +509,7 @@ In this step, you will create datasets to represent input and output data.
 3.	Click **Deploy** on the toolbar to create and deploy the **InputDataset**. Confirm that you see the **TABLE CREATED SUCCESSFULLY** message on the title bar of the Editor.
 
 
-#### Create an output table
+#### Create an output dataset
 
 1. In the **Data Factory editor**, click **New dataset**, and then click **Azure Blob storage** from the command bar.
 2. Replace the JSON script in the right pane with the following JSON script:
@@ -507,7 +518,7 @@ In this step, you will create datasets to represent input and output data.
 		    "name": "OutputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
 		            "folderPath": "adftutorial/customactivityoutput",
@@ -570,18 +581,18 @@ In this step, you will create datasets to represent input and output data.
 		            "Name": "OutputDataset"
 		          }
 		        ],
-		        "LinkedServiceName": "HDInsightOnDemandLinkedService",
+		        "LinkedServiceName": "AzureBatchLinkedService",
 		        "typeProperties": {
 		          "AssemblyName": "MyDotNetActivity.dll",
 		          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-		          "PackageLinkedService": "StorageLinkedService",
+		          "PackageLinkedService": "AzureStorageLinkedService",
 		          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
 		          "extendedProperties": {
 		            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
 		          }
 		        },
 		        "Policy": {
-		          "Concurrency": 1,
+		          "Concurrency": 2,
 		          "ExecutionPriorityOrder": "OldestFirst",
 		          "Retry": 3,
 		          "Timeout": "00:30:00",
@@ -597,17 +608,17 @@ In this step, you will create datasets to represent input and output data.
 
 	Note the following:
 
+	- **Concurrency** is set to **2** so that 2 slices are processed in parallel by 2 VMs in the Azure Batch pool.
 	- There is one activity in the activities section and it is of type: **DotNetActivity**.
-	- Use the same input table **EmpTableFromBlob** that you used in the Get started tutorial.
-	- Use a new output table **OutputTableForCustom** that you will create in the next step.
 	- **AssemblyName** is set to the name of the DLL: **MyActivities.dll**.
 	- **EntryPoint** is set to **MyDotNetActivityNS.MyDotNetActivity**.
-	- **PackageLinkedService** is set to **StorageLinkedService** that points to the blob storage that contains the custom activity zip file. If you are using different Azure Storage accounts for input/output files and the custom activity zip file, you will have to create another Azure Storage linked service. This article assumes that you are using the same Azure Storage account..
+	- **PackageLinkedService** is set to **AzureStorageLinkedService** that points to the blob storage that contains the custom activity zip file. If you are using different Azure Storage accounts for input/output files and the custom activity zip file, you will have to create another Azure Storage linked service. This article assumes that you are using the same Azure Storage account..
 	- **PackageFile** is set to **customactivitycontainer/MyDotNetActivity.zip**. It is in the format: containerforthezip/nameofthezip.zip.
 	- The custom activity takes **InputDataset** as input and **OutputDataset** as output.
 	- The linkedServiceName property of the custom activity points to the **HDInsightLinkedService**, which tells Azure Data Factory that the custom activity needs to run on an Azure HDInsight cluster.
 	- **isPaused** property is set to **false** by default. The pipeline runs immediately in this example because the slices start in the past. You can set this property to true to pause the pipeline and set it back to false to restart. 
 	- The **start** time and **end** times are **5** hours apart and slices are produced hourly, so 5 slices are produced by the pipeline. 
+	 
 
 
 4. Click **Deploy** on the command bar to deploy the pipeline.
@@ -641,6 +652,17 @@ In this step, you will create datasets to represent input and output data.
 
 See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) for detailed steps for monitoring datasets and pipelines.      
 
+The Data Factory service creates a job in Azure Batch with the name: adf-<pool name>:job-xxx. A task is created for each activity run  of a slice. If there are 10 slices ready to be processed, 10 tasks are created in this job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. You can also have more than one slice running on the same compute if the maximum tasks per compute node is set to > 1. 
+	
+![Batch Explorer tasks](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
+
+![Data Factory & Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
+
+You can see the Azure Batch tasks associated with processing the slices in the Azure Batch Explorer as shown in the following diagram.
+
+![Azure Batch tasks][image-data-factory-azure-batch-tasks]
+
+
 ### Debug the pipeline
 Debugging consists of a few basic techniques:
 
@@ -670,7 +692,7 @@ You can declare extended properties in the activity JSON as shown below:
 	"typeProperties": {
 	  "AssemblyName": "MyDotNetActivity.dll",
 	  "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-	  "PackageLinkedService": "StorageLinkedService",
+	  "PackageLinkedService": "AzureStorageLinkedService",
 	  "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
 	  "extendedProperties": {
 	    "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))",
@@ -695,72 +717,52 @@ To access these extended properties in the **Execute** method, use code similar 
 	}
 
 
-## <a name="AzureBatch"></a> Use Azure Batch linked service
-> [AZURE.NOTE] See [Azure Batch basics][batch-technical-overview] for an overview of the Azure Batch service and see [Getting Started with the Azure Batch Library for .NET][batch-get-started] to quickly get started with the Azure Batch service.
-
-You can run your custom .NET activities using Azure Batch as a compute resource. You will have to create your own Azure Batch pools and specify the number of VMs along with other configurations. Azure Batch pools provides the following features to customers:
-
-1. Create pools containing a single core to thousands of cores.
-2. Auto scale VM count based on a formula
-3. Support VMs of any size
-4. Configurable number of tasks per VM
-5. Queue unlimited number of tasks
-
-
-Here are the high-level steps for using the Azure Batch Linked Service in the walkthrough described in the previous section:
-
-1. Create an Azure Batch account using the [Azure Portal](http://manage.windowsazure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions. Note down the Azure Batch account name and account key.
-
-	You can also use [New-AzureBatchAccount][new-azure-batch-account] cmdlet to create an Azure Batch account. See [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog] for detailed instructions on using this cmdlet.
-2. Create an Azure Batch pool. You can download the source code for the [Azure Batch Explorer tool][batch-explorer], compile, and use it  (or) use [Azure Batch Library for .NET][batch-net-library] to create a Azure Batch pool. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
-
-	You can also use [New-AzureBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) cmdlet to create an Azure Batch pool.
-
-	You may want to create the Azure Batch pool with at least 2 compute nodes so that slices are processed in parallel. If you are using Batch Explorer:  
-
-	- Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you will need it when creating the Data Factory solution. 
-	- Specify **Windows Server 2012 R2** for the Operating System Family setting.
-	- Specify **2** as value for the **Max tasks per compute node** setting.
-	- Specify **2** as value for the **Number of Target Dedicated** setting. 
-
-	The Data Factory service creates a job in Azure Batch with the name: adf-<pool name>:job-xxx. A task is created for each activity run  of a slice. If there are 10 slices ready to be processed, 10 tasks are created in this job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. You can also have more than one slice running on the same compute if the maximum tasks per compute node is set to > 1. 
-	
-	![Batch Explorer tasks](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
-
-	![Data Factory & Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
-
-2. Create an Azure Batch Linked Service using the following JSON template. The Data Factory Editor displays a similar template for you to start with. Specify the Azure Batch account name, account key and pool name in the JSON snippet.
-
-		{
-		  "name": "AzureBatchLinkedService",
-		  "properties": {
-		    "type": "AzureBatch",
-		    "typeProperties": {
-		      "accountName": "<Azure Batch account name>",
-			  "batchUri": "https://<region>.batch.azure.com",
-		      "accessKey": "<Azure Batch account key>",
-		      "poolName": "<Azure Batch pool name>",
-		      "linkedServiceName": "<Specify associated storage linked service reference here>"
-		    }
-		  }
-		}
-
-	> [AZURE.IMPORTANT] The **URL** from the **Azure Batch account blade** is in the following format: accountname.region.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL and use the **accountname** for the **accountName** JSON property.
-
-	For the **poolName** property, you can also specify the ID of the pool instead of the name of the pool.
-
-	See [Azure Batch Linked Service MSDN topic](https://msdn.microsoft.com/library/mt163609.aspx) for descriptions of these properties.
-
-2.  In the Data Factory Editor, open JSON definition for the pipeline you created in the walkthrough and replace **HDInsightLinkedService** with **AzureBatchLinkedService**.
-3.  You may want to change the start and end times for the pipeline so that you can test the scenario with the Azure Batch service.
-4.  You can see the Azure Batch tasks associated with processing the slices in the Azure Batch Explorer as shown in the following diagram.
-
-	![Azure Batch tasks][image-data-factory-azure-batch-tasks]
-
-> [AZURE.NOTE] The Data Factory service does not support an on-demand option for Azure Batch as it does for HDInsight. You can only use your own Azure Batch pool in an Azure data factory.
-
 ## Use Azure HDInsight linked services
-     
+1. Create a linked service of either **HDInsightOnDemand** or **HDInsight**. Please see the details in the next two sections on how to create HDInsight linked services.  
+2. In the Data Factory Editor, open JSON definition for the pipeline you created in the walkthrough and replace **AzureBatchLinkedService** with **HDInsightLinkedService** or **HDInsightOnDemandLinkedService**. 
+3.  You may want to change the **start** and **end** times for the pipeline so that you can test the scenario with the Azure Batch service.
+
+#### Create Azure HDInsight linked service 
+The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, if you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster.
+
+> [AZURE.NOTE] At runtime, an instance of a .NET activity runs only on one worker node in the HDInsight cluster; it cannot be scaled to run on multiple nodes. Multiple instances of .NET activity can run in parallel on different nodes of the HDInsight cluster.
+
+##### To use an on-demand HDInsight cluster
+
+1. In the **Azure Portal**, click **Author and Deploy** in the Data Factory home page.
+2. In the Data Factory Editor, click **New compute** from the command bar and select **On-demand HDInsight cluster** from the menu.
+2. Do the following in the JSON script:
+	1. For the **clusterSize** property, specify the size of the HDInsight cluster.
+	3. For the **timeToLive** property, specify how long the customer can be idle before it is deleted.
+	4. For the **version** property, specify the HDInsight version you want to use. If you exclude this property, the latest version is used.  
+	5. For the **linkedServiceName**, specify **AzureStorageLinkedService** that you had created in the Get started tutorial.
+
+			{
+			  "name": "HDInsightOnDemandLinkedService",
+			  "properties": {
+			    "type": "HDInsightOnDemand",
+			    "typeProperties": {
+			      "clusterSize": "1",
+			      "timeToLive": "00:05:00",
+			      "linkedServiceName": "AzureStorageLinkedService"
+			    }
+			  }
+			}
+
+2. Click **Deploy** on the command bar to deploy the linked service.
+
+##### To use your own HDInsight cluster:
+
+1. In the **Azure Portal**, click **Author and Deploy** in the Data Factory home page.
+2. In the **Data Factory Editor**, click **New compute** from the command bar and select **HDInsight cluster** from the menu.
+2. Do the following in the JSON script:
+	1. For the **clusterUri** property, enter the URL for your HDInsight. For example: https://<clustername>.azurehdinsight.net/     
+	2. For the **UserName** property, enter the user name who has access to the HDInsight cluster.
+	3. For the **Password** property, enter the password for the user.
+	4. For the **LinkedServiceName** property, enter **AzureStorageLinkedService**. This is the linked service you had created in the Get started tutorial.
+
+2. Click **Deploy** on the command bar to deploy the linked service.
+
 
 ## See Also
 
