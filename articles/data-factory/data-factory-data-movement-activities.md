@@ -111,8 +111,8 @@ In case of Copy Activity the **typeProperties** section varies depending on the 
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) article, which describes key factors that impact performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing, and discusses various ways to optimize the performance of the Copy Activity.
 
 
-## Code-free data movement experience
-Data Factory service now allows you to create a pipeline to copy data from supported sources to destinations without writing JSON definitions for linked services, datasets, and pipelines. To do so, launch **Copy data wizard** by clicking on **Copy data** tile on the home page of your data factory. 
+## Data Factory Copy Wizard
+The Data Factory Copy Wizard allows you to create a pipeline to copy data from supported sources to destinations without writing JSON definitions for linked services, datasets, and pipelines. To launch Copy Wizard, click **Copy data** tile on the home page of your data factory. 
 
 << Screenshot >>
 
@@ -139,4 +139,22 @@ You can schedule the copy operation to run just once or schedule it to run perio
 
 ### Walkthrough
 For a quick walkthrough of using the code-free authoring experience to create a pipeline with a Copy Activity, see [Tutorial: Create a pipeline using Code-free Authoring](data-factory-use-code-free-authoring.md).
+
+### Variables in Azure Blob folder path
+You can use variables in folder path to copy data from a folder that is determined at runtime based on [WindowStart system variable](data-factory-functions-variables.md#data-factory-system-variables). The supported variables are: **year**, **month**, **day**, **hour**, **minute** and **{custom}**. Example: inputfolder/{year}/{month}/{day}. 
+
+Suppose, you have input folders in the following format: 
+	
+	2016/03/01/01
+	2016/03/01/02
+	2016/03/01/03
+	...
+
+Click the **Browse** button for the **File or folder**, navigate to one of these folders, say 2016->03->01->02, and click **Choose**. You should see **2016/03/01/02** in the text box now. Now, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{day}**, **02** with **{hour}**, and press **TAB**. You should see drop down lists to select **format** for these four variables as shown below: 
+
+![Using system variables](./media/data-factory-data-movement-activities/blob-standard-variables-in-folder-path.png)   
+
+You can also use a **custom** variable as shown below and use any [supported format strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Make sure that you select a folder with that structure using the Browse button first, replace a value with **{custom}** and press **TAB** to see the text box where you can type the format string.    
+
+![Using custom variable](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
