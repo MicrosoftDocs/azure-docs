@@ -36,9 +36,10 @@ API Apps provides the following features:
 
 - **Integration with Logic Apps** - API apps that you create can be consumed by [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).  Learn how in [Using your custom API hosted on App Service with Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md). For information about ongoing changes in how API Apps integrates with Logic Apps, see [App Service API Apps - What's changed](app-service-api-whats-changed.md).   
 
-- **Bring your existing API as-is** - You don't have to change any of the code in your existing APIs to take advantage of API Apps features -- just deploy your code to an API app. Your API can use any language or framework supported by App Service, including ASP.NET and C#, Java, PHP, Node.js and Python.
+- **Bring your existing API as-is** - You don't have to change any of the code in your existing APIs to take advantage of API Apps features -- just deploy your code to an API app. Your API can use any language or framework supported by App Service, including ASP.NET and C#, Java, PHP, Node.js, and Python.
 
-In addition, the features offered by API Apps, Web Apps, and Mobile Apps are interchangeable. This means that an instance of API Apps can take advantage of features for web and mobile development and hosting that Web Apps and Mobile Apps offer. The reverse is also true: for example, you can use a web app to host an API and still take advantage of Swagger metadata for client code generation and CORS for cross-domain browser access. For more information, see the [Web Apps overview](../app-service-web/app-service-web-overview.md) and [Mobile Apps overview](../app-service-mobile/app-service-mobile-value-prop.md).
+In addition, an API app can take advantage of features offered by [Web Apps](../app-service-web/app-service-web-overview.md) and [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md). The reverse is also true: if you use a web app or mobile app to host an API, it can take advantage of API Apps features such as Swagger metadata for client code generation and CORS for cross-domain browser access. The only difference between the three app types (API, web, mobile) is the name and icon used for them in the Azure portal. Because they all have the same features, it's never necessary to change an app from one type to another to get a feature you want. However, if you want to change the type of an existing app, it's easy to do. For more information, see the **Changing an app type** section in 
+[Get started with API Apps and ASP.NET in Azure App Service](app-service-api-dotnet-get-started.md#optional-changing-an-app-type).
 
 ## Augmenting API Apps by using Azure API Management 
 
@@ -60,8 +61,6 @@ Some features of API Management and API Apps have similar functions.  For exampl
 
 ## Getting started
 
-To get started with API apps, follow the [Get started with API Apps](app-service-api-dotnet-get-started.md) tutorial.
+To get started with API Apps, follow one of the [Get started with API Apps](app-service-api-dotnet-get-started.md) tutorials. 
 
-To see a list of known issues with API Apps, see [the API Apps known issues forum post](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
-
-For more information about the Azure App Service platform, see [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+To ask questions about API apps, start a thread in the [API Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps). 
