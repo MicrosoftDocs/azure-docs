@@ -14,7 +14,7 @@
 	ms.date="03/10/2016"
 	ms.author="ashmaka"/>
 
-# Create an Azure Search service | Azure Portal
+# Create an Azure Search service using the Azure Portal
 
 This guide will walk you through the process of creating (or provisioning) an Azure Search service using the [Azure Portal](https://portal.azure.com/).
 
