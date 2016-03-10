@@ -144,13 +144,11 @@ for each VM and configure Elasticsearch to stripe data across these disks as des
 
     You should select a hardware configuration that helps to minimize the number of disk I/O
 read operations by ensuring that sufficient memory is available to cache frequently accessed data. This
-is described in [Memory Requirements](guidance-elasticsearch-running-on-azure.md#memory-requirements) section of the document Implementing
-Elasticsearch on Azure.
+is described in [Memory Requirements](guidance-elasticsearch-running-on-azure.md#memory-requirements) section of the document Running Elasticsearch on Azure.
 
 - **What type of workload will each node need to support?** Elasticsearch benefits from having memory
 available in which to cache data (in the form of the file system cache) and for the JVM heap as described
-in the [Memory Requirements](guidance-elasticsearch-running-on-azure.md#memory-requirements) section of the document Implementing Elasticsearch on
-Azure. 
+in the [Memory Requirements](guidance-elasticsearch-running-on-azure.md#memory-requirements) section of the document Running Elasticsearch on Azure. 
 
     The amount of memory, number of CPU cores, and quantity of available disks are set by the
 SKU of the virtual machine. For more information, see the [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/) page on the Azure website.
