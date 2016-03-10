@@ -114,14 +114,14 @@ Further information can be found on the **Recommendations** blade.
 
 You can view the metrics for these categories on the [Monitoring charts](cache-how-to-monitor.md#monitoring-charts) and [Usage charts](cache-how-to-monitor.md#usage-charts) sections of the **Redis Cache** blade.
 
-Each pricing tier has different limits for client connections, memory, and bandwidth. For more information about each metric, see the following table.
+Each pricing tier has different limits for client connections, memory, and bandwidth. If your cache approaches maximum capacity for these metrics over a sustained period of time, a recommendation is created. For more information about the metrics and limits reviewed by the **Recommendations** tool, see the following table.
 
 | Redis Cache metric      | For more information see                                                  |
 |-------------------------|---------------------------------------------------------------------------|
-| Network bandwidth usage | [Cache performance](cache-faq.md#cache-performance)                       |
-| Connected clients       | [Default Redis server configuration](#default-redis-server-configuration) |
-| Server load             | [Usage charts](cache-how-to-monitor.md#usage-charts)                      |
-| Memory usage            | [Cache performance](cache-faq.md#cache-performance)                       |
+| Network bandwidth usage | [Cache performance - available bandwidth](cache-faq.md#cache-performance) |
+| Connected clients       | [Default Redis server configuration - maxclients](#default-redis-server-configuration) |
+| Server load             | [Usage charts - Redis Server Load](cache-how-to-monitor.md#usage-charts)  |
+| Memory usage            | [Cache performance - size](cache-faq.md#cache-performance)                |
 
 To upgrade your cache, click **Upgrade now** to change the pricing tier and scale your cache. For more information on choosing a pricing tier, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
