@@ -19,7 +19,7 @@
 # Azure AD Privileged Identity Management: How to add or remove a user role
 
 ## Adding or removing a user role
-There are several ways to navigate to the **Add managed users** blade of the PIM interface. The click sequence for each is listed below:
+There are several ways to navigate to the **Add managed users** blade of the Privileged Identity Management (PIM) interface. The click sequence for each is listed below:
 
 - Dashboard > Users in Admin Roles > Add or Remove
 - Dashboard > Role Summary > All Users List > Add or Remove
@@ -35,7 +35,7 @@ Once you have navigated to the **Add managed users** blade:
 5. Click **OK** to save your selection. The user you have selected will appear in the list and the role will be temporary.
 6. If you want to make the role permanent, click the user in the list. The user's information will appear in a new blade. Select **make perm** in the user information menu.
 
-    You'll need to do this if the user cannot register for Azure MFA, or is using a Microsoft account. Temporary admins are asked to register for MFA during activation. 
+    You'll need to do this if the user cannot register for Azure Muti-Fator Authentication (MFA), or is using a Microsoft account. Temporary admins are asked to register for MFA during activation. 
 
 7. Click **Activate** to start a request to active this role for the user.  Enter the reason for the activation in the **Request reason** text field.  At this time, the role will automatically be activated for this user, and a notification will be sent to global administrators.
 
