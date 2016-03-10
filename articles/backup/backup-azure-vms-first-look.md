@@ -23,7 +23,6 @@ This article is a tutorial that will take you through the set of steps for prepa
 
 ![High-level view of VM backup process](./media/backup-azure-vms-first-look/BackupAzureVM.png)
 
-This process assumes that you already have created a VM in Azure.
 
 1. Create or sign in to your Azure subscription.
 2. Create a backup vault or identify an existing backup vault *in the same region as your VM*.
