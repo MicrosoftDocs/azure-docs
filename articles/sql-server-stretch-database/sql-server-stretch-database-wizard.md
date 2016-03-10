@@ -126,7 +126,9 @@ Enable additional tables for Stretch Database. Monitor data migration and manage
 -   [Backup and restore Stretch-enabled databases](sql-server-stretch-database-backup.md)
 
 ## See also
+
 [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
+
 [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
 
 [StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png
