@@ -68,7 +68,7 @@ The steps are as follows:
 
 4. If there are documents found, the response body is sent to your Azure Blob Storage.
 
-    > [AZURE.NOTE] Blob storage requires an Azure Storage account. You need to provision an Azure Blob storage account and add a new Blob named patients. For more information, see [About Azure storage accounts](../storage/storage-create-storage-account.md) and [Get started with Azure Blob storage](../storage/storage-dotnet-how-to-use-blob.md).
+    > [AZURE.NOTE] Blob storage requires an Azure Storage account. You need to provision an Azure Blob storage account and add a new Blob named patients. For more information, see [About Azure storage accounts](../storage/storage-create-storage-account.md) and [Get started with Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md).
 
 5. Finally, an email is sent that notifies the recipient of the number of documents found. If no documents were found, the email body would be "0 Documents Found". 
 
@@ -220,11 +220,11 @@ Let's take a look at the completed Logic App in code view.
             "type": "Object"
         },
         "fromAddress": {
-            "defaultValue": "hse@msn.com",
+            "defaultValue": "user@msn.com",
             "type": "String"
         },
         "toAddress": {
-            "defaultValue": "hedidin@edidingroup.net",
+            "defaultValue": "XXXXX@XXXXXXX.net",
             "type": "String"
         }
     },
@@ -708,7 +708,7 @@ If you are not familiar with using the Azure Blob API, see [Get started with the
 		"x-ms-request-id": "2b2f7c57-2623-4d71-8e53-45c26b30ea9d",
 		"cache-Control": "no-cache",
 		"date": "Fri, 26 Feb 2016 15:47:36 GMT",
-		"set-Cookie": "ARRAffinity=29e552cea7db23196f7ffa644003eaaf39bc8eb6dd811911f669d13ab7424faf;Path=/;Domain=127.0.0.1",
+		"set-Cookie": "ARRAffinity=29e552cea7db23196f7ffa644003eaaf39bc8eb6dd555511f669d13ab7424faf;Path=/;Domain=127.0.0.1",
 		"server": "Microsoft-HTTPAPI/2.0",
 		"x-AspNet-Version": "4.0.30319",
 		"x-Powered-By": "ASP.NET"
@@ -809,7 +809,7 @@ This action depends on the **GetDocuments** action.
 	    "headers": {
 		"Content-type": "application/x-www-form-urlencoded"
 	    },
-	    "body": "api_user=azure_9d8ef133bd48205fbc841ef82aaa6808@azure.com&api_key=Biz@Talk&from=hse@msn.com&to=hedidin@edidingroup.net&subject=New Patients&text=37 Documents Found"
+	    "body": "api_user=azureuser@azure.com&api_key=Biz@Talk&from=user@msn.com&to=XXXX@XXXX.com&subject=New Patients&text=37 Documents Found"
 	}
 
 ```
@@ -876,10 +876,10 @@ The following figure shows the Designer View.
 			    "GetUtcDate_HoursBack": "24",
 			    "Subject": "New Patients",
 			    "sendgridPassword": "********",
-			    "sendgridUsername": "azure_9d8ef133bd48205fbc841ef82aaa6808@azure.com"
+			    "sendgridUsername": "azureuser@azure.com"
 			},
 			"method": "POST",
-			"uri": "https://prod-01.westus.logic.azure.com:443/workflows/12a1de57e46645bc9ce7a247df782887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c"
+			"uri": "https://prod-01.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c"
 		    },
 		    "type": "Http"
 		}
@@ -916,14 +916,14 @@ The body contains the parameters that are specified in the JSON Schema.
 ```JSON
 
 	{
-	    "uri": "https://prod-01.westus.logic.azure.com:443/workflows/12a1de57e46645bc9ce7a247df782887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c",
+	    "uri": "https://prod-01.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c",
 	    "method": "POST",
 	    "body": {
 		"EmailTo": "XXXXXX@XXXXX.net",
 		"GetUtcDate_HoursBack": "24",
 		"Subject": "New Patients",
 		"sendgridPassword": "********",
-		"sendgridUsername": "azure_9d8ef133bd48205fbc841ef82aaa6808@azure.com"
+		"sendgridUsername": "azureuser@azure.com"
 	    }
 	}
 
@@ -1113,7 +1113,7 @@ Your result should look like this:
 
 ```powershell
 
-	https://prod-02.westus.logic.azure.com:443/workflows/508ecbba4eec4f7689422c8d7a40fbac/triggers/manual/run?api-version=2015-08-01-prevaiew&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XXXXXXXXXXXXXXXXXXX
+	https://prod-02.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-prevaiew&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XXXXXXXXXXXXXXXXXXX
 
 ```
 
