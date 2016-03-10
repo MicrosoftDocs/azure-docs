@@ -1481,7 +1481,7 @@ The following version changes were made between HDInsight 2.x (HDP1.x) and HDIns
 
 
 ### Drivers
-The Java Database Connnectivity (JDBC) driver for SQL Server is used internally by HDInsight and is not used for external operations. If you want to connect to HDInsight by using Open Database Connectivity (ODBC), please use the Microsoft Hive ODBC driver. For more information, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](../hdinsight-connect-excel-hive-odbc-driver.md).
+The Java Database Connnectivity (JDBC) driver for SQL Server is used internally by HDInsight and is not used for external operations. If you want to connect to HDInsight by using Open Database Connectivity (ODBC), please use the Microsoft Hive ODBC driver. For more information, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Bug fixes
