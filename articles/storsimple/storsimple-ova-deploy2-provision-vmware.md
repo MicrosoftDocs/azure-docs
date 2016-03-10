@@ -278,7 +278,7 @@ Perform the following steps to start your virtual device and connect to it.
 	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
 
 
-1. Perform this step only if you are deploying your device in the Government Cloud. You will now enable the United States Federal Information Processing Standard (FIPS) mode on your device. The FIPS 140 standard defines cryptographic algorithms approved for use by US Federal government computer systems for the protection of sensitive data.
+1. (Optional) Perform this step only if you are deploying your device in the Government Cloud. You will now enable the United States Federal Information Processing Standard (FIPS) mode on your device. The FIPS 140 standard defines cryptographic algorithms approved for use by US Federal government computer systems for the protection of sensitive data.
 	1. To enable the FIPS mode, run the following cmdlet:
 		
 		`Enter-HcsFIPSMode`

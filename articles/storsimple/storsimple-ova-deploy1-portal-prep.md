@@ -26,8 +26,8 @@ This article applies to Microsoft Azure StorSimple Virtual Array (also known as 
 
 You will need administrator privileges to complete the setup and configuration process. We recommend that you review the deployment configuration checklist before you begin. The portal preparation will take less than 10 minutes.
 
-The StorSimple deployment information published in this article applies to StorSimple Virtual Arrays only. 
-
+The StorSimple deployment information published in this article applies to deployment of StorSimple Virtual Arrays in Azure classic portal as well as Microsoft Azure Government Cloud. 
+ 
 ### Get started
 
 The deployment workflow consists of preparing the portal, provisioning a virtual array in your virtualized environment, and completing the setup. To get started with the StorSimple Virtual Array deployment as a file server or an iSCSI server, you will need to refer to the following tabulated resources (articles and videos). 
