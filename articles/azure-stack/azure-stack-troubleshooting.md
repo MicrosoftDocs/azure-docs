@@ -135,9 +135,13 @@ Please check your BIOS settings, in case there is an option to synchronize time.
 Please make sure the tenant GUID used in the URL to sign in is the right one.
 
 Here is a process to get the right GUID:
+
 1.  Sign in to https://manage.windowsazure.com.
+
 2.  Scroll down to and click on Azure Active Directory.
+
 3.  Choose a directory.
+
 4.  Make sure the following screen is visible (not further in - not users, applications, etc.):
   
   ![directory page](media/azure-stack-troubleshooting/azurestackdirpage.png)
