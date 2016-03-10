@@ -408,4 +408,5 @@ You can't drop the inline table\-valued function as long as a table is using the
 To check the filter predicate applied to a table, open the catalog view **sys.remote\_data\_archive\_tables** and check the value of the **filter\_predicate** column. If the value is null, the entire table is eligible for archiving. For more info, see [sys.remote_data_archive_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
 ## See also
+
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
