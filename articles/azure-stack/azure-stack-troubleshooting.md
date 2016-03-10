@@ -141,9 +141,11 @@ Here is a process to get the right GUID:
 4.  Make sure the following screen is visible (not further in - not users, applications, etc.):
   
   ![directory page](media/azure-stack-troubleshooting/azurestackdirpage.png)
+
 5.  Inspect the URL while looking at this screen, and find the following section of the URL:
 
   ![directory page](media/azure-stack-troubleshooting/tenantguidinurl.png)
+  
 6. Copy the Directory GUID for later use when referencing this directory:
 
 https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/<GUID>/directoryQuickStart 
