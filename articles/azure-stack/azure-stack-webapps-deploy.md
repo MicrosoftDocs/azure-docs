@@ -61,7 +61,7 @@ To deploy a resource provider, you must run your PowerShell Integrated Scripting
 
 ### Turn off Internet Explorer enhanced security
 
-1. Sign in to the Azure Stack proof-of-concept (POC) machine as **AzureStack/administrator**, and then open **Server Manager**.
+1. Sign in to the Azure Stack proof-of-concept (POC) machine as an AzureStack/administrator, and then open **Server Manager**.
 2. Turn off **IE Enhanced Security Configuration** for both admins and users.
 3. Sign in to the `ClientVM.AzureStack.local` virtual machine as an administrator, and then open **Server Manager**.
 4. Turn off **IE Enhanced Security Configuration** for both admins and users.
@@ -76,7 +76,7 @@ To deploy a resource provider, you must run your PowerShell Integrated Scripting
 
 ## Install the latest version of Azure PowerShell
 
-1. Sign in to the Azure Stack POC machine as an Azure Stack administrator.  
+1. Sign in to the Azure Stack POC machine as an AzureStack/administrator.  
 2. Using Remote Desktop Connection, sign in to the `ClientVM.AzureStack.local` virtual machine as an administrator.  
 3. Open **Control Panel**, and select **Uninstall a program**. Right-click **Microsoft Azure PowerShell - November 2015**, and select **Uninstall**.  
 4. Download and install the latest version of Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).  
@@ -144,7 +144,7 @@ Select **Install** in the upper-left corner.
 
 Approve the Microsoft Pre-Release Software License Terms, and then select **Next**.
 
-![Azure Stack App Service Technical Preview 1 Microsoft Software Pre-Release License Terms][2]
+![Azure Stack App Service Technical Preview 1 Microsoft Pre-Release Software License Terms][2]
 
 Approve the license terms, and then select **Next**.
 
