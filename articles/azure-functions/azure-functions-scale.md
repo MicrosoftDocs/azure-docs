@@ -17,19 +17,3 @@
    ms.workload="na"
    ms.date="03/09/2016"
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
-
-# Azure Functions developer reference
-
-## Code & Configurations
-
-The two main parts of a function are Code & Configuration. The Code is the function that is run when 
-
-### Developing a Function
-
-### Configuring a Function
-
-## Developer Concepts
-
-### Azure Functions Nomenclature
-
-### Bindings & Triggers
