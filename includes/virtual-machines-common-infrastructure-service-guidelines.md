@@ -415,8 +415,6 @@ This configuration incorporates:
 
 [Azure storage scalability and performance targets](../storage-scalability-targets.md)
 
-[Cloud Platform integration framework (Azure architecture patterns)](../azure-architectures-cpif-overview.md)
-
 [Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 
