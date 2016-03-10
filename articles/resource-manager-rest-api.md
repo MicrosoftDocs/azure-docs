@@ -3,7 +3,7 @@
    description="An overview of the Resource Manager REST APIs authentication and usage examples"
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="navalev;krist00fer;"
+   authors="navalev;"
    manager=""
    editor=""/>
 
