@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/10/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection flows
@@ -106,7 +106,7 @@ When an administrator has configured a policy for sign-in risks, the affected us
 ## Risky sign-in blocked
 Administrators can also choose to set a Sign-In Risk policy to block users upon sign-in depending on the risk level. To get unblocked, end users must contact an administrator or help desk, or they can try signing in from a familiar location or device. Self-recovering by solving multi-factor authentication is not an option in this case.
 <br><br>
-![Remediation](./media/active-directory-identityprotection-flows/130.png "Remediation")
+![Remediation](./media/active-directory-identityprotection-flows/200.png "Remediation")
 <br>
 
 
