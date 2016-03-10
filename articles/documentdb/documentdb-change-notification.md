@@ -68,7 +68,7 @@ The steps are as follows:
 
 4. If there are documents found, the response body is sent to your Azure Blob Storage.
 
-    > [AZURE.NOTE] Blob storage requires an Azure Storage account. You need to provision an Azure Blob storage account and add a new Blob named patients. For more information, see [Get started with Azure Blob storage](../storage/storage-create-storage-account.md).
+    > [AZURE.NOTE] Blob storage requires an Azure Storage account. You need to provision an Azure Blob storage account and add a new Blob named patients. For more information, see [About Azure storage accounts](../storage/storage-create-storage-account.md) and [Get started with Azure Blob storage](../storage/storage-dotnet-how-to-use-blob.md).
 
 5. Finally, an email is sent that notifies the recipient of the number of documents found. If no documents were found, the email body would be "0 Documents Found". 
 
@@ -76,7 +76,7 @@ Now that you have an idea of what the workflow does, let's take a look at how yo
 
 ### Let's start with the main Logic App
 
-If you're not familiar with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md), they are available in the [Azure Marketplace](https://portal.azure.com/), and you can learn more about them in [What are Logic Apps?](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+If you're not familiar with Logic Apps, they are available in the [Azure Marketplace](https://portal.azure.com/), and you can learn more about them in [What are Logic Apps?](../app-service-logic/app-service-logic-what-are-logic-apps.md)
 
 When you create a new Logic App, you are asked **How would you like to start?**
 
@@ -549,7 +549,7 @@ The method called is **QueryForNewPatientDocuments**.
 
 The next action is to save the documents to [Azure Blog storage](https://azure.microsoft.com/services/storage/). 
 
-> [AZURE.NOTE] Blob storage requires an Azure Storage account. You need to provision an Azure Blob storage account and add a new Blob named patients. For more information, see [Get started with Azure Blob storage](../storage/storage-create-storage-account.md).
+> [AZURE.NOTE] Blob storage requires an Azure Storage account. You need to provision an Azure Blob storage account and add a new Blob named patients. For more information, see [Get started with Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md).
 
 ### Create File
 
@@ -919,10 +919,10 @@ The body contains the parameters that are specified in the JSON Schema.
 	    "uri": "https://prod-01.westus.logic.azure.com:443/workflows/12a1de57e46645bc9ce7a247df782887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c",
 	    "method": "POST",
 	    "body": {
-		"EmailTo": "hedidin@edidingroup.net",
+		"EmailTo": "XXXXXX@XXXXX.net",
 		"GetUtcDate_HoursBack": "24",
 		"Subject": "New Patients",
-		"sendgridPassword": "Biz@Talk",
+		"sendgridPassword": "********",
 		"sendgridUsername": "azure_9d8ef133bd48205fbc841ef82aaa6808@azure.com"
 	    }
 	}
