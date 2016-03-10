@@ -132,7 +132,7 @@ To verify the agent has been installed, open services and look for the following
 ## Manual Azure AD Connect Health for Sync registration
 If the Azure AD Connect Health for Sync agent registration fails after successfully installing Azure AD Connect, you can use the following PowerShell command to manually register the agent.
 
->[Azure.IMPORTANT] Using this PowerShell command is only required if the agent registration fails af.
+>[AZURE.IMPORTANT] Using this PowerShell command is only required if the agent registration fails after installing Azure AD Connect.
 
 The below PowerShell command is required ONLY when the health agent registration fails even after a successful installation and configuration of Azure AD Connect. In such cases Azure AD Connect Health services will NOT start until agent has been successfully registered. 
  	

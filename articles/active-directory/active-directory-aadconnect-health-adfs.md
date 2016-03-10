@@ -94,8 +94,8 @@ The report provides the following:
 
 | Report Item | Description
 | ------ | -------- | 
-|User ID| Shows the user id that was used. Note that the value is what the user typed in and in some cases, you will also see the wrong user id being used.|
-|Failed Attempts|Shows the total # of failed attempts for that specific user id. The table is sorted with the most number of failed attempts in descending order.|
+|User ID| Shows the user ID that was used. Note that the value is what the user typed in and in some cases, you will also see the wrong user ID being used.|
+|Failed Attempts|Shows the total # of failed attempts for that specific user ID. The table is sorted with the most number of failed attempts in descending order.|
 |Last Failure|This shows the time stamp when the last failure occurred. 
 
 
