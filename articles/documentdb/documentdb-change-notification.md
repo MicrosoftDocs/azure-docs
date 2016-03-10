@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="03/03/2016" 
+    ms.date="03/10/2016" 
     ms.author="b-hoedid"/>
 
 # Notifications for new or changed DocumentDB resources using Logic Apps
@@ -37,7 +37,7 @@ The IT department said that they could easily provide this. They also said that 
 
 ## How the IT department solved the problem
 
-In order to create this application, the IT department decided to model it first.  The nice thing about using Business Process Model and Notation (BPMN) is that both technical and non-technical people can easily understand it. This is considered this a business process. 
+In order to create this application, the IT department decided to model it first.  The nice thing about using Business Process Model and Notation (BPMN) is that both technical and non-technical people can easily understand it. This whole notification process is considered a business process. 
 
 ## High-Level view of notification process
 
@@ -56,7 +56,7 @@ The steps are as follows:
 
 1. You need to get the current UTC DateTime from an API App.  The default value is one hour previous.
 
-2. The UTD DateTime is converted to a Unix Timestamp format. This is the default format for timestamps in DocumentDB.
+2. The UTC DateTime is converted to a Unix Timestamp format. This is the default format for timestamps in DocumentDB.
 
 3. You POST the value to an API App, which does a DocumentDB query. The value is used in a query.
 
@@ -66,7 +66,9 @@ The steps are as follows:
 
     > [AZURE.NOTE] The _ts represents the TimeStamp metadata for all DocumentDB resources.
 
-4. If there are documents found, the response body is sent to your Google Drive.
+4. If there are documents found, the response body is sent to your Azure Blob Storage.
+
+    > [AZURE.NOTE] Blob storage requires an Azure Storage account. You need to provision an Azure Blob storage account and add a new Blob named patients. For more information, see [Get started with Azure Blob storage](../storage/storage-create-storage-account.md).
 
 5. Finally, an email is sent that notifies the recipient of the number of documents found. If no documents were found, the email body would be "0 Documents Found". 
 
@@ -97,141 +99,146 @@ Before each action in your workflow, you can make a decision; **Add an action** 
 
 If you select **Add a condition**, you are presented with a form, as shown in the following figure, to enter your logic.  This is in essence, a business rule.  If you click inside a field, you have a choice of selecting parameters from the previous action. You can also enter the values directly.
 
+![Add a condition](./media/documentdb-change-notification/condition1.png)
+
 > [AZURE.NOTE] You also have the capability to enter everything in Code View.
 
 Let's take a look at the completed Logic App in code view.  
 
 ```JSON
    
-   	{
-	    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	    "actions": {
-		"Conversion": {
-		    "conditions": [
-			{
-			    "dependsOn": "GetUtcDate"
-			}
-		    ],
-		    "inputs": {
-			"method": "post",
-			"queries": {
-			    "currentDateTime": "@{body('GetUtcDate')}"
-			},
-			"uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Conversion"
-		    },
-		    "metadata": {
-			"apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
-		    },
-		    "type": "Http"
-		},
-		"Create_file": {
-		    "conditions": [
-			{
-			    "dependsOn": "GetDocuments"
-			}
-		    ],
-		    "inputs": {
-			"body": "@decodeDataUri(concat('data:application/octet-stream,',encodeURIComponent(string(body('GetDocuments')))))",
-			"host": {
-			    "api": {
-				"runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/googledrive"
-			    },
-			    "connection": {
-				"name": "@parameters('$connections')['googledrive']['connectionId']"
-			    }
-			},
-			"method": "post",
-			"path": "/datasets/default/files",
-			"queries": {
-			    "folderPath": "/Patient",
-			    "name": "Patient_@{guid()}.json"
-			}
-		    },
-		    "type": "ApiConnection"
-		},
-		"GetDocuments": {
-		    "conditions": [
-			{
-			    "dependsOn": "Conversion"
-			}
-		    ],
-		    "inputs": {
-			"method": "post",
-			"queries": {
-			    "unixTimeStamp": "@{body('Conversion')}"
-			},
-			"uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Patient"
-		    },
-		    "metadata": {
-			"apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
-		    },
-		    "type": "Http"
-		},
-		"GetUtcDate": {
-		    "conditions": [],
-		    "inputs": {
-			"method": "get",
-			"queries": {
-			    "hoursBack": "@{int(triggerBody()['GetUtcDate_HoursBack'])}"
-			},
-			"uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Authorization"
-		    },
-		    "metadata": {
-			"apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
-		    },
-		    "type": "Http"
-		},
-		"sendMail": {
-		    "conditions": [
-			{
-			    "dependsOn": "GetDocuments"
-			}
-		    ],
-		    "inputs": {
-			"body": "api_user=@{triggerBody()['sendgridUsername']}&api_key=@{triggerBody()['sendgridPassword']}&from=@{parameters('fromAddress')}&to=@{triggerBody()['EmailTo']}&subject=@{triggerBody()['Subject']}&text=@{int(length(body('GetDocuments')))} Documents Found",
-			"headers": {
-			    "Content-type": "application/x-www-form-urlencoded"
-			},
-			"method": "POST",
-			"uri": "https://api.sendgrid.com/api/mail.send.json"
-		    },
-		    "type": "Http"
-		}
-	    },
-	    "contentVersion": "1.0.0.0",
-	    "outputs": {
-		"Results": {
-		    "type": "String",
-		    "value": "@{int(length(body('GetDocuments')))} Records Found"
-		}
-	    },
-	    "parameters": {
-		"$connections": {
-		    "defaultValue": {},
-		    "type": "Object"
-		},
-		"fromAddress": {
-		    "defaultValue": "XXX@XXX.com",
-		    "type": "String"
-		},
-		"toAddress": {
-		    "defaultValue": "XXXXX@XXXXX.com",
-		    "type": "String"
-		}
-	    },
-	    "triggers": {
-		"manual": {
-		    "inputs": {
-			"schema": {
-			    "properties": {},
-			    "required": [],
-			    "type": "object"
-			}
-		    },
-		    "type": "Manual"
-		}
-	    }
-	}
+   	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+    "actions": {
+        "Conversion": {
+            "conditions": [
+                {
+                    "dependsOn": "GetUtcDate"
+                }
+            ],
+            "inputs": {
+                "method": "post",
+                "queries": {
+                    "currentdateTime": "@{body('GetUtcDate')}"
+                },
+                "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Conversion"
+            },
+            "metadata": {
+                "apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1",
+                "swaggerSource": "custom"
+            },
+            "type": "Http"
+        },
+        "Createfile": {
+            "conditions": [
+                {
+                    "expression": "@greater(length(body('GetDocuments')), 0)"
+                },
+                {
+                    "dependsOn": "GetDocuments"
+                }
+            ],
+            "inputs": {
+                "body": "@body('GetDocuments')",
+                "host": {
+                    "api": {
+                        "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
+                    },
+                    "connection": {
+                        "name": "@parameters('$connections')['azureblob']['connectionId']"
+                    }
+                },
+                "method": "post",
+                "path": "/datasets/default/files",
+                "queries": {
+                    "folderPath": "/patients",
+                    "name": "Patient_@{guid()}.json"
+                }
+            },
+            "type": "ApiConnection"
+        },
+        "GetDocuments": {
+            "conditions": [
+                {
+                    "dependsOn": "Conversion"
+                }
+            ],
+            "inputs": {
+                "method": "post",
+                "queries": {
+                    "unixTimeStamp": "@body('Conversion')"
+                },
+                "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Patient"
+            },
+            "metadata": {
+                "apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1",
+                "swaggerSource": "custom"
+            },
+            "type": "Http"
+        },
+        "GetUtcDate": {
+            "conditions": [],
+            "inputs": {
+                "method": "get",
+                "queries": {
+                    "hoursBack": "@{int(triggerBody()['GetUtcDate_HoursBack'])}"
+                },
+                "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Authorization"
+            },
+            "metadata": {
+                "apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1",
+                "swaggerSource": "custom"
+            },
+            "type": "Http"
+        },
+        "sendMail": {
+            "conditions": [
+                {
+                    "dependsOn": "GetDocuments"
+                }
+            ],
+            "inputs": {
+                "body": "api_user=@{triggerBody()['sendgridUsername']}&api_key=@{triggerBody()['sendgridPassword']}&from=@{parameters('fromAddress')}&to=@{triggerBody()['EmailTo']}&subject=@{triggerBody()['Subject']}&text=@{int(length(body('GetDocuments')))} Documents Found",
+                "headers": {
+                    "Content-type": "application/x-www-form-urlencoded"
+                },
+                "method": "POST",
+                "uri": "https://api.sendgrid.com/api/mail.send.json"
+            },
+            "type": "Http"
+        }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {
+        "Results": {
+            "type": "String",
+            "value": "@{int(length(body('GetDocuments')))} Records Found"
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "defaultValue": {},
+            "type": "Object"
+        },
+        "fromAddress": {
+            "defaultValue": "hse@msn.com",
+            "type": "String"
+        },
+        "toAddress": {
+            "defaultValue": "hedidin@edidingroup.net",
+            "type": "String"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "inputs": {
+                "schema": {
+                    "properties": {},
+                    "required": [],
+                    "type": "object"
+                }
+            },
+            "type": "Manual"
+        }
 	
 ```
 
@@ -276,7 +283,7 @@ If you do it in code view, then you define which properties require a value as s
 ```
 
 What you are doing is creating a JSON schema that will be passed in from the body of the HTTP POST.
-To fire your trigger, you will need a CallbackURL.  You will learn how to generate it later in the tutorial.  
+To fire your trigger, you will need a Callback URL.  You will learn how to generate it later in the tutorial.  
 
 ## Actions
 Let's see what each action in our Logic App does.
@@ -309,7 +316,7 @@ Let's see what each action in our Logic App does.
 
 This HTTP action performs a GET operation.  It calls the API APP GetUtcDate method. The Uri uses the 'GetUtcDate_HoursBack' property passed into the Trigger body.  The 'GetUtcDate_HoursBack' value is set in the first Logic App. You will learn more about the Trigger Logic App later in the tutorial.
 
-This action calls your API App to return the Utc Date string value.
+This action calls your API App to return the UTC Date string value.
 
 #### Operations
 
@@ -535,7 +542,9 @@ The method called is **QueryForNewPatientDocuments**
 
 ```
 
-The next action is to save the documents to Google Drive. 
+The next action is to save the documents to [Azure Blog storage](https://azure.microsoft.com/services/storage/). 
+
+> [AZURE.NOTE] Blob storage requires an Azure Storage account. You need to provision an Azure Blob storage account and add a new Blob named patients. For more information, see [Get started with Azure Blob storage](../storage/storage-create-storage-account.md).
 
 ### Create File
 
@@ -547,37 +556,72 @@ The next action is to save the documents to Google Drive.
 
 ```JSON
 
-	"Create_file": {
-	    "conditions": [
-		{
-		    "dependsOn": "GetDocuments"
-		}
-	    ],
-	    "inputs": {
-		"body": "@decodeDataUri(concat('data:application/octet-stream,',encodeURIComponent(string(body('GetDocuments')))))",
-		"host": {
-		    "api": {
-			"runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/googledrive"
-		    },
-		    "connection": {
-			"name": "@parameters('$connections')['googledrive']['connectionId']"
-		    }
-		},
-		"method": "post",
-		"path": "/datasets/default/files",
-		"queries": {
-		    "folderPath": "/Patient",
-		    "name": "Patient_@{guid()}.json"
-		}
-	    },
-	    "type": "ApiConnection"
-	},
+	{
+    "host": {
+        "api": {
+            "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
+        },
+        "connection": {
+            "name": "subscriptions/fxxxxxc079-4e5d-b002-xxxxxxxxxx/resourceGroups/Api-Default-Central-US/providers/Microsoft.Web/connections/azureblob"
+        }
+    },
+    "method": "post",
+    "path": "/datasets/default/files",
+    "queries": {
+        "folderPath": "/patients",
+        "name": "Patient_17513174-e61d-4b56-88cb-5cf383db4430.json"
+    },
+    "body": [
+        {
+            "id": "xcda",
+            "_rid": "vCYLAP2k6gAXAAAAAAAAAA==",
+            "_self": "dbs/vCYLAA==/colls/vCYLAP2k6gA=/docs/vCYLAP2k6gAXAAAAAAAAAA==/",
+            "_ts": 1454874620,
+            "_etag": "\"00007d01-0000-0000-0000-56b79ffc0000\"",
+            "resourceType": "Patient",
+            "text": {
+                "status": "generated",
+                "div": "<div>\n      \n      <p>Henry Levin the 7th</p>\n    \n    </div>"
+            },
+            "identifier": [
+                {
+                    "use": "usual",
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/v2/0203",
+                                "code": "MR"
+                            }
+                        ]
+                    },
+                    "system": "urn:oid:2.16.840.1.113883.19.5",
+                    "value": "12345"
+                }
+            ],
+            "active": true,
+            "name": [
+                {
+                    "family": [
+                        "Levin"
+                    ],
+                    "given": [
+                        "Henry"
+                    ]
+                }
+            ],
+            "gender": "male",
+            "birthDate": "1932-09-24",
+            "managingOrganization": {
+                "reference": "Organization/2.16.840.1.113883.19.5",
+                "display": "Good Health Clinic"
+            }
+        },
 
 ```
 
 The code is generated from action in the designer. You don't have to modify the code.
 
-If you are not familiar with using the Google Drive API, see [Get started with the Google Drive API](../connectors/create-api-googledrive.md).
+If you are not familiar with using the Azure Blob API, see [Get started with the Google Drive API](../connectors/create-api-azureblobstorage.md).
 
 #### Operations
 
@@ -586,23 +630,65 @@ If you are not familiar with using the Google Drive API, see [Get started with t
 ```JSON
 
 	"host": {
-		"api": {
-		    "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/googledrive"
-		},
-		"connection": {
-		    "name": "subscriptions/f1334a6f-c079-4e5d-b002-e80326d2492c/resourceGroups/Api-Default-Central-US/providers/Microsoft.Web/connections/F6805CA2-462C-4D28-86D7-4C4E6953EC0F"
-		}
-		},
-		"method": "post",
-		"path": "/datasets/default/files",
-		"queries": {
-		"folderPath": "/Patient",
-		"name": "Patient_47a2a0dc-640d-4f01-be38-c74690d085cb.json"
-		},
-		"body": {
-		"$content-encoding": null,
-		"$content-type": "application/octet-stream;charset=us-ascii",
-		"$content": "W3siaWQiOiJ4Y2RhIiwiX3JpZCI6InZDWUxBUDJrNmdBWEFBQUFBQUFBQUE9PSIsIl9zZWxmIjoiZGJzL3ZDWUxBQT09L2NvbGxzL3ZDWUxBUDJrNmdBPS9kb2NzL3ZDWUxBUDJrNmdBWEFBQUFBQUFBQUE9PS8iLCJfdHMiOjE0NTQ4NzQ2MjAsIl9ldGFnIjoiXCIwMDAwN2QwMS0wMDAwLTAwMDAtMDAwMC01NmI3OWZmYzAwMDBcIiIsInJlc291cmNlVHlwZSI6IlBhdGllbnQiLCJ0ZXh0Ijp7InN0YXR1cyI6ImdlbmVyYXRlZCIsImRpdiI6IjxkaXY+XG4gICAgICBcbiAgICAgIDxwPkhlbnJ5IExldmluIHRoZSA3dGg8L3A+XG4gICAgXG4gICAgPC9kaXY+In0sImlkZW50aWZpZXIiOlt7InVzZSI6InVzdWFsIiwidHlwZSI6eyJjb2RpbmciOlt7InN5c3RlbSI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvdjIvMDIwMyIsImNvZGUiOiJNUiJ9XX0sInN5c3RlbSI6InVybjpvaWQ6Mi4xNi44NDAuMS4xMTM4ODMuMTkuNSIsInZhbHVlIjoiMTIzNDUifV0sImFjdGl2ZSI6dHJ1ZSwibmFtZSI6W3siZmFtaWx5IjpbIkxldmluIl0sImdpdmVuIjpbIkhlbnJ5Il19XSwiZ2VuZGVyIjoibWFsZSIsImJpcnRoRGF0ZSI6IjE5MzItMDktMjQiLCJtYW5hZ2luZ09yZ2FuaXphdGlvbiI6eyJyZWZlcmVuY2UiOiJPcmdhbml6YXRpb24vMi4xNi44NDAuMS4xMTM4ODMuMTkuNSIsImRpc3BsYXkiOiJHb29kIEhlYWx0aCBDbGluaWMifX0seyJpZCI6InVzMDEiLCJfcmlkIjoidkNZTEFQMms2Z0FaQUFBQUFBQUFBQT09IiwiX3NlbGYiOiJkYnMvdkNZTEFBPT0vY29sbHMvdkNZTEFQMms2Z0E9L2RvY3MvdkNZTEFQMms2Z0FaQUFBQUFBQUFBQT09LyIsIl90cyI6MTQ1NDg3NDYyMCwiX2V0YWciOiJcIjAwMDA3ZjAxLTAwMDAtMDAwMC0wMDAwLTU2Yjc5ZmZjMDAwMFwiIiwicmVzb3VyY2VUeXBlIjoiUGF0aWVudC......
+        "api": {
+            "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
+        },
+        "connection": {
+            "name": "subscriptions/fxxxxxc079-4e5d-b002-xxxxxxxxxx/resourceGroups/Api-Default-Central-US/providers/Microsoft.Web/connections/azureblob"
+        }
+    },
+    "method": "post",
+    "path": "/datasets/default/files",
+    "queries": {
+        "folderPath": "/patients",
+        "name": "Patient_17513174-e61d-4b56-88cb-5cf383db4430.json"
+    },
+    "body": [
+        {
+            "id": "xcda",
+            "_rid": "vCYLAP2k6gAXAAAAAAAAAA==",
+            "_self": "dbs/vCYLAA==/colls/vCYLAP2k6gA=/docs/vCYLAP2k6gAXAAAAAAAAAA==/",
+            "_ts": 1454874620,
+            "_etag": "\"00007d01-0000-0000-0000-56b79ffc0000\"",
+            "resourceType": "Patient",
+            "text": {
+                "status": "generated",
+                "div": "<div>\n      \n      <p>Henry Levin the 7th</p>\n    \n    </div>"
+            },
+            "identifier": [
+                {
+                    "use": "usual",
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/v2/0203",
+                                "code": "MR"
+                            }
+                        ]
+                    },
+                    "system": "urn:oid:2.16.840.1.113883.19.5",
+                    "value": "12345"
+                }
+            ],
+            "active": true,
+            "name": [
+                {
+                    "family": [
+                        "Levin"
+                    ],
+                    "given": [
+                        "Henry"
+                    ]
+                }
+            ],
+            "gender": "male",
+            "birthDate": "1932-09-24",
+            "managingOrganization": {
+                "reference": "Organization/2.16.840.1.113883.19.5",
+                "display": "Good Health Clinic"
+            }
+        },….
+
 
 ```
 
@@ -755,7 +841,7 @@ Lastly you want to be able to see the results from your Logic App on the Azure P
 
 ```
 
-This returns the same value that is sent in the email body. The following figure shows an example where "37 Records Found".
+This returns the same value that is sent in the email body. The following figure shows an example where "29 Records Found".
 
 ![Results](./media/documentdb-change-notification/logic-app-run.png)
 
@@ -1002,7 +1088,7 @@ Previously we talked about the CallbackURL. In order to start the workflow in yo
 
 ## CallbackURL
 
-To start off, you will need your Azure AD Token.  It can be difficult to get this token. I was looking for an easy method and Jeff Hollan, who is an Azure Logic App program manager, recommended using the [armclient](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) in Powershell.  You can install it following the directions provided.
+To start off, you will need your Azure AD Token.  It can be difficult to get this token. I was looking for an easy method and Jeff Hollan, who is an Azure Logic App program manager, recommended using the [armclient](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) in PowerShell.  You can install it following the directions provided.
 
 The operations you want to use are Login and Call ARM API.
  
@@ -1010,7 +1096,7 @@ Login: You use the same credentials for logging in to the Azure Portal.
 
 The Call ARM Api operation is the one that will generate your CallBackURL.
 
-In Powershell, you call it as follows:	
+In PowerShell, you call it as follows:	
 
 ```powershell
 
@@ -1039,6 +1125,17 @@ sendgridUsername | Used to set the number of hours for the search start date
 sendgridPassword | The user name for Send Grid email
 EmailTo | The email address that will receive the email notification
 Subject | The Subject for the email
+
+## Viewing the patient data in the Azure Blob service
+
+Go to your Azure Storage account, and select Blobs under services as shown in the following figure.
+
+![Storage account](./media/documentdb-change-notification/docdbstorageaccount.png) 
+
+You will be able to view the Patient blob file information as shown below.
+
+![Blob service](./media/documentdb-change-notification/blobservice.png)
+
 
 ## Summary
 
