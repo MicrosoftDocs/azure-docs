@@ -40,7 +40,8 @@ Service | Moving job output to SQL Data Warehouse using Data Factory |1 | in pro
 Tools  | Using the Diagnostics Tooling | 1 | Pending | [@mumian](https://github.com/mumian) | 
 U-SQL  | Explain Techniques for doing range-based JOINs | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL  | ADLS Authentication Options | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
-
+U-SQL  | Cross platform CLI job submission | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
+U-SQL  | Reference doc updates for REDUCE and COMBINE | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
 
 
 

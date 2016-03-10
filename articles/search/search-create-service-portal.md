@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/18/2016"
+	ms.date="03/09/2016"
 	ms.author="heidist"/>
 
 # Create an Azure Search service in the Azure Portal
@@ -25,7 +25,7 @@ Azure Search is available at pricing levels ranging from free (shared) to Basic 
 
 ## Add Azure Search to your subscription for free
 
-As an administrator, you can add Azure Search to an existing Azure subscription at no cost when choosing the shared service. You can sign up for a [free trial subscription](../../includes/free-trial-note.md) to begin your evaluation.
+As an administrator, you can add Azure Search to an existing Azure subscription at no cost when choosing the shared service. You can sign up for a [free Azure trial subscription](../../includes/free-trial-note.md) to begin your evaluation.
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
 
@@ -56,27 +56,27 @@ As an administrator, you can add Azure Search to an existing Azure subscription 
 Watch for notifications in the Jumpbar. A notice will appear when the service is ready to use.
 
 <a id="sub-3"></a>
-## Add a Standard tier search service to get dedicated resources
+## Add a Basic or Standard tier search service to get dedicated resources
 
-Many customers start with the free service, and then switch up to the Standard tier to accommodate larger workloads. Standard tier gives you dedicated resources in an Azure data center that can be used only by you. 
+Many customers start with the free service, and then switch up to either Basic or Standard tier to accommodate larger workloads. Basic and Standard tiers give you dedicated resources in an Azure data center that can be used only by you. 
 
-Azure Search operations require both storage and service replicas. In contrast with the free service which has no option for adding resources, Standard tier lets you scale up to add more storage or query support by bumping up whichever resource is the more critical to your workloads.
+Azure Search operations require both storage and service replicas. In contrast with the free service which has no option for adding resources, Standard tier lets you scale up to add more storage or query support by bumping up whichever resource is the more critical to your workloads. Basic also lets you scale up, but only for replicas, with a maximum limit of three.
 
-To use the Standard tier, you have to create a new search service at that pricing level. You can repeat the previous steps in this article to create a new Azure Search service. Note that setting up dedicated resources can take a while, up to 15 minutes or longer.
+To use either the Basic or Standard tier, you have to create a new search service at that pricing level. You can repeat the previous steps in this article to create a new Azure Search service. Note that setting up dedicated resources can take a while, up to 15 minutes or longer.
 
-There is no in-place upgrade of the free version. Switching to standard, with its potential for scale, requires a new service. You will need to reload the indexes and documents used by your search application.
+There is no in-place upgrade of the free version. Switching tiers, with the potential for scale, requires a new service. You will need to reload the indexes and documents used by your search application.
 
-An Azure Search service at the standard tier is created with one replica and partition each, but can be easily re-scaled at higher resource levels.
+An Azure Search service at the Basic or Standard tier is created with one replica and partition each, but can be easily re-scaled at higher resource levels.
 
 1.	Return to the service dashboard after the service is created.
 
 2.	Click the **Scale** tile.
 
-3.	Use the sliders to add replicas, partitions, or both.
+3.	Use the sliders to add replicas, partitions, or both for the Standard tier. For Basic, you can increase replicas to a maximum of three.
 
 Additional replicas and partitions are billed in terms of search units. The total search units required to support any particular resource configuration are shown on the page, as you add resources.
 
-You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Service limits and constraints](search-limits-quotas-capacity.md) for help in choosing partition and replica combinations.
+You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Capacity planning](search-capacity-planning.md) for help in choosing partition and replica combinations.
 
 <a id="sub-2"></a>
 ## Find the service name and api-keys of your Azure Search service
@@ -107,13 +107,9 @@ Now that your service is created, you can take the next steps: build an [index](
 
 - [Query an Azure Search index using Search Explorer in the Azure Portal](search-explorer.md)
 
-- [Get started with Azure Search in .NET](search-get-started-dotnet.md)
-
 - [How to use Azure Search in .NET](search-howto-dotnet-sdk.md)
 
 - [Manage your search solution in Microsoft Azure](search-manage.md)
-
-
 
 
 <!--Anchors-->

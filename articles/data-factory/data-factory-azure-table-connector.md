@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data to and from Azure Table | Azure Data Factory" 
+	pageTitle="Move data to/from Azure Table | Microsoft Azure" 
 	description="Learn how to move data to/from Azure Table Storage using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -380,7 +380,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Use the custom query to read data. | <p>Azure table query string. See examples below. | No
+azureTableSourceQuery | Use the custom query to read data. | Azure table query string. See examples below. | No
 azureTableSourceIgnoreTableNotFound | Indicate whether swallow the exception of table not exist. | TRUE<br/>FALSE | No |
 
 ### azureTableSourceQuery examples

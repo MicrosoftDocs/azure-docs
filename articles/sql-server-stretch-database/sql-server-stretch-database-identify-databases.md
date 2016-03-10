@@ -3,9 +3,9 @@
 	description="Learn how to identify databases and tables that are candidates for Stretch Database."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -61,6 +61,9 @@ Enable Stretch Database.
 -   To enable Stretch Database on another **table**, when Stretch is already enabled on the database, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md).
 
 ## See also
+
 [Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md)
+
 [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
+
 [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
