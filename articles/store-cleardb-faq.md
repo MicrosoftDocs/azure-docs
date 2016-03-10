@@ -81,9 +81,9 @@ Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend eithe
 
 You can use the [ClearDB Upgrade Wizard](https://www.cleardb.com/store/azure/upgrade). Currently we don’t have an upgrade path in the Azure portal.
 
-## I can’t see my CleardB database in Azure portal ?
+## I can’t see my ClearDB database in Azure portal ?
 
-if we create ClearDB database using Azure resource Manager or [new azure portal] (https://portal.azure.com) , it will not be visible in the [old azure portal](https://manage.windowsazure.com). To workaround this is to linking your database manually to the web app. Similarly if create ClearDB database in the [old portal](https://manage.windowsazure.com) you will not be able to see your database in the [new azure portal] (https://portal.azure.com).There is no workaround for the latter scenario.
+If we create ClearDB database using Azure resource Manager or [new azure portal](https://portal.azure.com) , it will not be visible in the [old azure portal](https://manage.windowsazure.com). To workaround this is to link your database manually to the web app. Similarly if create ClearDB database in the [old portal](https://manage.windowsazure.com) you will not be able to see your database in the [new azure portal](https://portal.azure.com).There is no workaround for the latter scenario.
 
 ## Who do I contact for support when my database is down?
 
