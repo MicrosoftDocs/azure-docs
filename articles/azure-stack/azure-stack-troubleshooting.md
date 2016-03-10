@@ -58,9 +58,9 @@ Finally, we’ve seen reports where increasing the number of virtual processors 
 ### I can’t find the AzureRM.AzureStackStorage PowerShell module
 
 This module is called out in some of the Azure Consistent Storage (ACS) scenarios, and is preinstalled on the ClientVM machine.
-If you want to install it on another machine, it is provided as part of the Azure Stack installation files:
+If you want to install it on another machine, it is provided as part of the Azure Stack installation files.
 
-After mounting the MicrosoftAzureStackPOC.vhdx file on the host machine, you can find this module in the Azure PowerShell module from this folder (drive letter may be different)
+After mounting the MicrosoftAzureStackPOC.vhdx file on the host machine, you can find this module in the Azure PowerShell module from this \This PC\DataImage\Dependencies folder.
 
 ### Frequent crashes in the ComputeController (CRP.SelfHost) service
 
@@ -130,18 +130,19 @@ Restarting the Compute Resource Provider (CRP) services on the xRPVM, or restart
 
 Please check your BIOS settings, in case there is an option to synchronize time. We have seen this issue with HP servers (DL380 G9), using the “Coordinated Universal Time” feature. This is what step #8 in the deployment guide means: “Configure the BIOS to use Local Time instead of UTC.” 
 
-### When logging on Azure Stack as a tenant using PowerShell, I am getting an error “we received a bad request”
+### When signing in to Azure Stack as a tenant using PowerShell, I am getting an error “We received a bad request”
 
 Please make sure the tenant GUID used in the URL to sign in is the right one.
 
 Here is a process to get the right GUID:
-1.  Go to and Login to: https://manage.windowsazure.com
-2.  Scroll down to and click on Azure Active Directory
-3.  Choose a Directory:
+1.  Sign in to https://manage.windowsazure.com.
+2.  Scroll down to and click on Azure Active Directory.
+3.  Choose a directory.
 4.  Make sure the following screen is visible (not further in - not users, applications, etc.):
+  ![directory page](media/azure-stack-troubleshooting/azurestackdirpage.png)
 5.  Inspect the URL while looking at this screen, and find the following section of the URL:
-
-Capture (copy) the Directory GUID for later use when referencing this directory:
+  ![directory page](media/azure-stack-troubleshooting/tenantguidinurl.png)
+6. Copy the Directory GUID for later use when referencing this directory:
 
 https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/<GUID>/directoryQuickStart 
 
@@ -173,10 +174,10 @@ However, you may want to keep one image without .NET 3.5 and one with .NET 3.5. 
 With this release, Virtual Machines should be able to connect to the internet, for example for some of the virtual machine extensions.
 
 If you are having internet connectivity issues from within the virtual machines, it is likely due to the fact that we do not have the iDNS feature yet in this Technical Preview 1 release, meaning that a shared DNS feature from Azure is not configured by default.
-You can confirm this by looking at the “DNS servers” settings for the associated virtual network:
+You can confirm this by looking at the “DNS servers” settings for the associated virtual network.
 
-In the portal, this can be changed to 192.168.100.2 and another public DNS value for the second one that is required. This can also be controlled when deploying via a template, by using this setting in the “dhcpOptions” for the virtual network
-"dnsServers": ["192.168.100.2"]
+In the portal, this can be changed to 192.168.100.2 and another public DNS value for the second one that is required. This can also be controlled when deploying via a template, by using this setting in the “dhcpOptions” for the virtual network:
+`"dnsServers": ["192.168.100.2"]`
 
 This setting can also be used when deploying a virtual machine via a template that also includes a virtual network.
 If you need to change this for an existing virtual network, virtual machines that are already deployed will need to be stopped and restarted. When logging into the restarted VM, you should confirm it has picked up the new settings from the Network Controller, via DHCP. Doing changes directly in the VM may work, but would be a change “out of band” for the Network Controller, so is not desired. Disabling/enabling the virtual NIC within the VM would also be a possibility at this stage (since you have access to both tenant and service admin sides in the POC).
@@ -189,16 +190,16 @@ Method 1:
 
 1. Download Windows Server 2012 R2 ISO, and copy the “sources\sxs” folder to local machine (e.g. “c:\sources\ws2012r2\sxs”)
 2. Mount Image:
-Dism /Mount-Image /ImageFile:C:\ClusterStorage\Volume1\Share\CRP\PlatformImages\WindowsServer2012R2DatacenterEval\WindowsServer2012R2DatacenterEval.vhd /index:1 /MountDir:C:\OfflineImg
+`Dism /Mount-Image /ImageFile:C:\ClusterStorage\Volume1\Share\CRP\PlatformImages\WindowsServer2012R2DatacenterEval\WindowsServer2012R2DatacenterEval.vhd /index:1 /MountDir:C:\OfflineImg`
 3. Check if .Net Framework 3.5 is installed (NetFx3)
-DISM /Image:c:\OfflineImg /Get-Features /Format:Table
+`DISM /Image:c:\OfflineImg /Get-Features /Format:Table`
 4. Install .Net Framework 3.5 specifying the “sxs” sources
-DISM /Image:c:\OfflineImg /Enable-Feature /FeatureName:NetFx3 /All /LimitAccess /Source:C:\Sources\WS2012R2\sxs
+`DISM /Image:c:\OfflineImg /Enable-Feature /FeatureName:NetFx3 /All /LimitAccess /Source:C:\Sources\WS2012R2\sxs`
 5. Check .Net Framework 3.5 was installed (NetFx3)
-DISM /Image:c:\OfflineImg /Get-Features /Format:Table
+`DISM /Image:c:\OfflineImg /Get-Features /Format:Table`
 A status of “Enable Pending” indicates that the image must be brought online to complete the installation.
 6. Unmount image and commit changes
-Dism /Unmount-Image /MountDir:c:\OfflineImg /commit
+`Dism /Unmount-Image /MountDir:c:\OfflineImg /commit`
 
 Method 2:
 
