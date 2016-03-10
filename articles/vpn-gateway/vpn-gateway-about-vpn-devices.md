@@ -104,7 +104,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 | Diffie-Hellman Group                               | Group 2 (1024 bit)             | Group 2 (1024 bit)                                               |
 | Authentication Method                              | Pre-Shared Key                 | Pre-Shared Key                                                   |
 | Encryption Algorithms                              | AES256 AES128 3DES             | AES256 3DES                                                      |
-| Hashing Algorithm                                  | SHA1(SHA128)                   | SHA1(SHA128), SHA2 (SHA256)                                                     |
+| Hashing Algorithm                                  | SHA1(SHA128)                   | SHA1(SHA128), SHA2(SHA256)                                                     |
 | Phase 1 Security Association (SA)  Lifetime (Time) | 28,800 seconds                 | 28,800 seconds                                                   |
 
 
