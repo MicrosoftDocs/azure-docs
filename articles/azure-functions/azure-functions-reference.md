@@ -1,5 +1,3 @@
-<!-- Understand how to fill out Properties and Tags by visiting: https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md -->
-
 <properties
    pageTitle="Azure Functions developer reference | Microsoft Azure"
    description="Understand how Azure Functions are develop and configured using triggers and bindings which use a domain specific language."
@@ -17,7 +15,7 @@
    ms.topic="reference"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="mm/dd/yyyy"
+   ms.date="03/09/2016"
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
 # Azure Functions developer reference

@@ -1,5 +1,3 @@
-<!-- Understand how to fill out Properties and Tags by visiting: https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md -->
-
 <properties
    pageTitle="Create an Azure Connected Azure Function | Microsoft Azure"
    description="Build an Azure Function, a serverless application, which interacts with other Azure Services."
