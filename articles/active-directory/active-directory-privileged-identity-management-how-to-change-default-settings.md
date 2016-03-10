@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/09/2016"
+   ms.date="03/10/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: How to change or view the default activation settings for a role
@@ -26,7 +26,7 @@
 5. Click **Enable** or **Disable** to allow administrators to enter tickeing information into their activation request or not.
 6. Click **Enable** or **Disable** to require multi-factor authentication for an activation request or not.
 
-    MFA is always required when activating highly privileged roles for Azure AD and Office365, including:
+    You cannot disable MFA for highly privileged roles for Azure AD and Office365, including:
 
     - Global administrator
     - User account administrator
