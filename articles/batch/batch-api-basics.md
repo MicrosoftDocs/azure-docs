@@ -192,7 +192,7 @@ For a detailed discussion on running MPI jobs in Batch using the Batch .NET libr
 
 #### <a name="taskdep"></a>Task dependencies
 
-Task dependencies, as the name implies, allows you to specify that a task depends on completion of one or more other tasks. The "downstream" task may consume the output of the "upstream" task, or depend on some type of initialization performed by the upstream task. In such a scenario, you can specify that your job uses task dependencies, then for each task that depends on another (or many others), you specify the tasks which that task depends on.
+Task dependencies, as the name implies, allow you to specify that a task depends on the completion of one or more other tasks before its execution. The "downstream" task may consume the output of the "upstream" task, or perhaps depend on some initialization performed by the upstream task. In such a scenario, you can specify that your job uses task dependencies, then for each task that depends on another (or many others), you specify the tasks which that task depends on.
 
 ### <a name="jobschedule"></a>Scheduled jobs
 
