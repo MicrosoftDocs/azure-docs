@@ -231,4 +231,3 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 [SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-

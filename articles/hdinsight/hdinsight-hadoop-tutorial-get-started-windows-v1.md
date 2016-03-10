@@ -11,10 +11,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/25/2016"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 
@@ -29,6 +29,8 @@ To help you learn Hadoop on Windows and start using HDInsight, this tutorial sho
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
 * [Get started with Hadoop in HDInsight on Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## What does this Hadoop tutorial accomplish?
 
@@ -207,6 +209,9 @@ You must have Excel 2013 or 2010 installed to complete this part of the tutorial
 
 9. Click **Close & Load** in the upper-left corner to import the Hive job output into Excel.
 
+##Delete the cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##<a name="nextsteps"></a>Next steps
 In this Hadoop tutorial, you learned how to provision a Hadoop cluster on Windows in HDInsight, run a Hive query on data, and import the results into Excel, where they can be further processed and graphically displayed with business intelligence tools. To learn more, see the following tutorials:

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="03/06/2015" 
 	ms.author="awills"/>
 
 # Configuring the Application Insights SDK with ApplicationInsights.config or .xml
