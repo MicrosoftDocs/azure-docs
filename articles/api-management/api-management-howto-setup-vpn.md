@@ -60,6 +60,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | 9350, 9351, 9352, 9353, 9354 | Outbound         | TCP                | API Management dependencies on Service Bus   | AZURE_SERVICEBUS |
 | 5671                         | Outbound         | AMQP               | API Management log to eventHub policy        | AZURE_EVENTHUB   |
 | 6381, 6382, 6383             | N/A              | N/A                | API Management internal cache replication    | N/A              |
+| 445                          | Outbound         | TCP                | File share for Git support                   | AZURE_FILESHARE  |
 
 
 ## <a name="related-content"> </a>Related content
