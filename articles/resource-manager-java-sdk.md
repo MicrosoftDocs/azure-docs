@@ -39,9 +39,8 @@ The following packages are available:
 * Traffic Manager Management: (azure-mgmt-traffic-manager)
 * Utilities and Helpers: (azure-mgmt-utility)
 * WebSites / WebApps Management: (azure-mgmt-websites)
-Follow the Azure SDK for [Java Features Wiki page](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-SDK-for-Java-Features) for an up-to-date list.
 
-On help getting started with these APIs see the *azure-mgmt-samples* package.
+Follow the Azure SDK for [Java Features Wiki page](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-SDK-for-Java-Features) for an up-to-date list.
 
 ## Prerequisites
 1. Java v1.6+
@@ -58,7 +57,7 @@ cd ./azure-sdk-for-java/
 ```
 (The samples in this overview will use Maven as the source for the SDK packages)
 
-The SDK include samples for some of the scenarios - autentication, provisioning a VM and more. All can be found in the [azure-mgmt-samples](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples) github repo.
+The SDK include samples for some of the scenarios - autentication, provisioning a VM and more. All can be found in the [azure-mgmt-samples](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples) github repo. 
 
 ## Helper Classes
 
