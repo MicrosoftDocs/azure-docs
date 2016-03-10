@@ -87,7 +87,7 @@ When you click inside the text box, you have a choice of events. For this Logic 
 ### Design View of your completed Logic App
 Let's jump ahead and look at the completed design view for the Logic App, which is named DocDB.
 
-![Logic App Workflow](./media/documentdb-change-notification/logicapp-workflow.png)
+![Logic App Workflow](./media/documentdb-change-notification/workflow-expanded.png)
 
 When editing the actions in the Logic App Designer, you have the option of selecting **Outputs** from the HTTP Request or from the previous action as shown in the sendMail action below.
 
@@ -323,6 +323,7 @@ This action calls your API App to return the UTC Date string value.
 **Request**
 
 ```JSON
+
 	{
 	    "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Authorization",
 	    "method": "get",
@@ -407,6 +408,7 @@ This action calls your API App to handle the conversion.
 ##### Response
 
 ```JSON
+
 	{
 	    "statusCode": 200,
 	    "headers": {
@@ -465,13 +467,14 @@ For the GetDocuments action you are going to pass in the response body from the 
 
 The QueryDocuments action does a HTTP POST operation to the API App. 
 
-The method called is **QueryForNewPatientDocuments**
+The method called is **QueryForNewPatientDocuments**.
 
 #### Operations
 
 ##### Request
 
 ```JSON
+
 	{
 	    "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Patient",
 	    "method": "post",
@@ -484,6 +487,7 @@ The method called is **QueryForNewPatientDocuments**
 ##### Response
 
 ```JSON
+
 	{
 	    "statusCode": 200,
 	    "headers": {
@@ -756,7 +760,7 @@ Your last step is to send an email notification
 
 In this action you send an email notification.  You are using [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).   
 
-The code for this was generated using a Template for Logic App and SendGrid that is in the template Github repository.
+The code for this was generated using a template for Logic App and SendGrid that is in the [101-logic-app-sendgrid Github repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
  
 The HTTP operation is a POST. 
 
