@@ -34,12 +34,12 @@ The recommendations for troubleshooting issues that are described in this sectio
 
 Two options are possible to work around this:
 
-1.	Disable Internet Explorer Enhanced Security Configuration on the Host / ClientVM (wherever PowerShell will be executed that pops up the AAD login).
+1. Disable Internet Explorer Enhanced Security Configuration on the Host / ClientVM (wherever PowerShell will be executed that pops up the AAD login).
 
-2.	Add three websites to the trusted list:
--	https://login.microsoftonline.com 
--	https://*.microsoftonline-p.com 
--	https://login.live.com
+2. Add three websites to the trusted list:
+  - https://login.microsoftonline.com 
+  - https://*.microsoftonline-p.com 
+  - https://login.live.com
 
 Also, depending on your current actions, please ensure you are running PowerShell as the regular AzureStack user (default user when leveraging the ClientVM) and are not using “Run As Administrator” (different context). Logging in temporarily as the administrator, you could also set these options in this other user context.
 
@@ -79,7 +79,7 @@ If you encounter this issue, the workaround is:
 5. Close Browser 
 6. Try again
 
-(Note: You may need to manually go find iexplore.exe in the Program Files\Internet Explorer directory)
+>[AZURE.NOTE] You may need to manually find iexplore.exe in the Program Files\Internet Explorer directory.
 
 ### Templates deployment may be failing with Visual Studio and Azure SDK 2.8.2
 
