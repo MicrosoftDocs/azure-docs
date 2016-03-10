@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Resource Manager Java SDK| Microsoft Azure"
+   pageTitle="Resource Manager SDK for .Java| Microsoft Azure"
    description="An overview of the Resource Manager Java SDK authentication and usage examples"
    services="azure-resource-manager"
    documentationCenter="na"
@@ -16,7 +16,7 @@
    ms.date="03/10/2016"
    ms.author="navale;tomfitz;"/>
    
-# Azure Resource Manager Java SDK
+# Azure Resource Manager SDK for Java
    
 Azure Resource Manager (ARM) Preview SDKs are available for multiple languages and platforms. Each of these language implementations 
 are available through their ecosystem package managers and GitHub.
