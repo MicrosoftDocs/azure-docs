@@ -11,11 +11,11 @@
 
 <tags
 	ms.service="virtual-machines-linux"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.date="02/01/2016"
+	ms.date="03/01/2016"
 	ms.author="rclaus"/>
 
 # Add a disk to a Linux VM

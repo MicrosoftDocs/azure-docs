@@ -13,8 +13,8 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.topic="get-started-article"
+	ms.date="03/08/2016"
 	ms.author="vlivech"/>
 
 # Create a secured Linux VM using an Azure template
