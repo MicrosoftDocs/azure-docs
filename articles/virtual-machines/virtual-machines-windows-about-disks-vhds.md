@@ -22,3 +22,10 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-about-disks-vhds](../../includes/virtual-machines-common-about-disks-vhds.md)]
+
+## Next steps
+-  [Capture a Windows virtual machine](virtual-machines-windows-capture-image.md)
+-  [Upload a Windows VM image to Azure](virtual-machines-windows-upload-image.md)
+-  [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md)
+-  [Attach a disks and prepare it for use](virtual-machines-windows-classic-attach-disk.md)
+-  [Detach a disk](virtual-machines-windows-classic-detach-disk.md)
