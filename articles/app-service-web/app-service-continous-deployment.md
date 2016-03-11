@@ -20,7 +20,7 @@
 
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) integration with BitBucket, GitHub, and Visual Studio Team Services (VSTS) enables a continuous deployment workflow where Azure pulls in the most recent updates from your project published to one of these services. Continuous deployment is a great option for projects where multiple and frequent contributions are being integrated.
 
-## <a name="overview"></a>Deploy content from a repository service like BitBucket, GitHub, and Visual Studio Team Services
+## <a name="overview"></a>Enable continous deployment
 
 1. First publish your app content to the repository that will be used for continuous deployment.  
     For more information on publishing your project to these services, see [Create a repo (GitHub)], [Create a repo (BitBucket)], and [Get started with VSTS].
@@ -37,9 +37,11 @@
 
 	> [AZURE.NOTE] When enabling continuous deployment with GitHub or BitBucket, both public and private projects will be displayed.
 
-5. App Service creates an association with the selected repository, and pulls in the files from the specified branch. In the case of VSTS App Service registers a webhook to your VSTS repository and maintains a clone of your repository for your App Service app. When VSTS continous deployment is configured with this workflow via Azure Portal the build and deployment are handled by App Service leveraging the [Kudu deployment engine](https://github.com/projectkudu/kudu/wiki) (not VSTS). After this process completes, the **Deployment** section of your web app's blade will show an **Active Deployment** message that indicates deployment has succeeded.
+    App Service creates an association with the selected repository, and pulls in the files from the specified branch. In the case of VSTS App Service registers a webhook to your VSTS repository and maintains a clone of your repository for your App Service app. When VSTS continous deployment is configured with this workflow via Azure Portal the build and deployment are handled by App Service leveraging the [Kudu deployment engine](https://github.com/projectkudu/kudu/wiki) (not VSTS). After this process completes, the **Deployment** section of your app's blade will show an **Active Deployment** message that indicates deployment has succeeded.
 
-6. At this point your project has been deployed from your repository of choice to your app. To verify the app is active, Click the **URL** at the top of the Azure Portal. The browser should navigate to the app. To verify that continuous deployment is occurring from the repository of your choice, push a change to the repository. Your app should update to reflect the changes shortly after the push to the repository completes. You can verify that it has pulled in the update in the **Deployments** blade of your app.
+5. To verify the app is successfully deployed, click the **URL** at the top of the app's blade in the Azure Portal. 
+
+6. To verify that continuous deployment is occurring from the repository of your choice, push a change to the repository. Your app should update to reflect the changes shortly after the push to the repository completes. You can verify that it has pulled in the update in the **Deployments** blade of your app.
 
 ## <a name="VSsolution"></a>Continous deployment of a Visual Studio solution 
 
@@ -47,7 +49,7 @@ Pushing a Visual Studio solution to Azure App Service is just as easy as pushing
 
 The steps for pushing your Visual Studio solution to App Service are the same as in the [previous section](#overview), provided that you configure your solution and repository as follows:
 
--	In your repository root, add a `.gitignore` file, then specify all files and folders that you want to exclude from your repository, such as the `Obj`, `Bin`, and `packages` folders (see [gitignore documentation](http://git-scm.com/docs/gitignore) for formatting information). For example:
+-	Use the Visual Studio source control option to generate a `.gitignore` or add a `.gitignore` file in your repository root. Specify all files and folders that you want to exclude from your repository, such as the `Obj`, `Bin`, and `packages` folders (see [.gitignore documentation](http://git-scm.com/docs/gitignore) for formatting information). For example:
 
 		[Oo]bj/  
 		[Bb]in/  
