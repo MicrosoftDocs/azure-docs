@@ -219,6 +219,10 @@ __For Windows-based HDInsight__:
 
     ![topology actions](./media/hdinsight-storm-write-data-lake-store/topologyactions.png)
 
+## Delete your cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Next steps
 
 Now that you have learned how to use Storm to write to Azure Data Lake Store, discover other [Storm examples for HDInsight](hdinsight-storm-example-topology.md).

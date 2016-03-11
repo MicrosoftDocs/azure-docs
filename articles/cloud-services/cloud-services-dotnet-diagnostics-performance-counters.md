@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/20/2016"
+   ms.date="02/29/2016"
    ms.author="robb" />
 
 # Create and use performance counters in an Azure application
@@ -179,7 +179,7 @@ Perform the following steps to create a simple custom performance counter named 
 2. Add the Runtime element to the WebRole or WorkerRole element to allow execution with elevated privileges:
 
     ```
-    <RuntimeexecutionContext="elevated"/>
+    <runtime executioncontext="elevated"/>
     ```
 3. Save the file.
 4. Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above) and add the following to the DiagnosticMonitorConfiguration 

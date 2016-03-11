@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/05/2016" 
 	ms.author="awills"/>
  
 # Set Alerts in Application Insights
@@ -38,13 +38,17 @@ To get an email when a metric crosses a threshold, start either from Metrics Exp
 
 ![In the Alert rules blade, choose Add Alert. Set the your app as the resource to measure, provide a name for the alert, and choose a metric.](./media/app-insights-alerts/01-set-metric.png)
 
-Set the resource before the other properties. **Choose the "(components)" resource** if you want to set alerts on performance or usage metrics.
-
-Be careful to note the units in which you're asked to enter the threshold value.
-
-The name that you give to the alert must be unique within the resource group (not just your application).
+* Set the resource before the other properties. **Choose the "(components)" resource** if you want to set alerts on performance or usage metrics.
+* Be careful to note the units in which you're asked to enter the threshold value.
+* The name that you give to the alert must be unique within the resource group (not just your application).
+* If you check the box "Email owners...", alerts will be sent by email to everyone who has access to this resource.
+* If you specify "Additional emails", alerts will be sent to those individuals or groups (whether or not you checked the "email owners" box). 
+* Set a [webhook address](../azure-portal/insights-webhooks-alerts.md) if you have set up a web app that will respond to alerts. It will be called both when the alert is Activated (that is, triggered) and when it is Resolved.
+* You can Disable or Enable the alert: see the buttons at the top of the blade.
 
 *I don't see the Add Alert button.* - Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at Settings -> Users. [Learn about access control][roles].
+
+> [AZURE.NOTE] In the alerts blade, you'll see that there's already an alert set up: [NRT Proactive Diagnosis](app-insights-nrt-proactive-diagnostics.md). This is an automatic alert that monitors one particular metric, request failure rate. So unless you decide to disable this, you don't need to set your own alert on request failure rate. 
 
 ## See your alerts
 
@@ -56,20 +60,19 @@ There's a summary of recent activity in the alerts drop-down:
 
 ![](./media/app-insights-alerts/010-alert-drop.png)
 
-The history of state changes is in the Operations Events log:
+The history of state changes is in the Audit Log:
 
-![On the Overview blade, near the bottom, click 'Events in the past week'](./media/app-insights-alerts/09-alerts.png)
+![On the Overview blade, click Settings, Audit logs](./media/app-insights-alerts/09-alerts.png)
 
-*Are these "events" related to telemetry events or custom events?*
-
-* No. These operational events are just a log of things that have happened to this application resource. 
 
 
 ## How alerts work
 
-* An alert has two states: "alert" and "healthy". 
+* An alert has three states: "Never activated", "Activated", and "Resolved". Activated means the condition you specified was true, when it was last evaluated.
 
-* An email is sent when an alert changes state.
+* A notification is generated when an alert changes state. (If the alert condition was already true when you created the alert, you might not get a notification until the condition goes false.)
+
+* Each notification generates an email if you checked the emails box, or provided email addresses. You can also look at the Notifications drop-down list.
 
 * An alert is evaluated each time a metric arrives, but not otherwise.
 

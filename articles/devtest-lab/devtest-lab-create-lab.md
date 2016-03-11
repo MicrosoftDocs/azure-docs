@@ -28,7 +28,7 @@ To create a DevTest Lab, you will need:
 
 ## Create a lab
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Tap **Browse**.
 
