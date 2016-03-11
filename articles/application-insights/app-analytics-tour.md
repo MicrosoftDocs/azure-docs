@@ -34,7 +34,7 @@ Open Analytics from your app's [overview blade](app-insights-dashboards.md) in A
 
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-analytics/001.png)
 
-## Count rows
+## [Count](app-analytics-aggregations.md#count) rows
 
 Metrics such as performance counters are stored in a table called metrics. Each row is a telemetry data point received from the Application Insights SDK in an app. To find out how big the table is, we'll pipe its content into an operator that simply counts the rows:
 
@@ -51,9 +51,9 @@ Here's the result:
 ![](./media/app-analytics-tour/010.png)
 
 	
-`Count` is one of many [Query operators](app-analytics-queries.md) that we can arrange in a pipe, filtering, reshaping and joining the data in multiple stages.
+[`Count`](app-analytics-aggregations.md#count) is one of many [Query operators](app-analytics-queries.md) that we can arrange in a pipe, filtering, reshaping and joining the data in multiple stages.
 	
-## Take: show me n rows
+## [Take](app-analytics-aggregations.md#take): show me n rows
 
 
 Let's see some data - what's in a sample 5 rows?
@@ -76,7 +76,7 @@ Expand any item to see the detail:
 ![Choose Table, and use Configure Columns](./media/app-analytics-tour/040.png)
 
 
-## Top and sort
+## [Top](app-analytics-aggregations.md#top) and [sort](app-analytics-aggregations.md#sort)
 
 `take` is useful to get a quick sample of a result, but it shows rows from the table in no particular order. To get an ordered view, use `top` (for a sample) or `sort` (over the whole table).
 
@@ -104,9 +104,9 @@ The result would be the same, but it would run a bit more slowly. (You could als
 The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, you'll only re-order the records you've retrieved.
 
 
-## Project: select, rename and compute columns
+## [Project](app-analytics-aggregations.md#project): select, rename and compute columns
 
-Use `project` to pick out just the columns you want:
+Use [`project`](app-analytics-aggregations.md#project) to pick out just the columns you want:
 
 ```AIQL
 
@@ -139,9 +139,9 @@ In the scalar expression:
 
 [Expressions](app-analytics-scalars.md) can include all the usual operators (`+`, `-`, ...), and there's a range of useful functions.
 
-## Extend: compute columns
+## [Extend](app-analytics-aggregations.md#extend): compute columns
 
-If you just want to add columns to the existing ones, use `extend`:
+If you just want to add columns to the existing ones, use [`extend`](app-analytics-aggregations.md#extend):
 
 ```AIQL
 
@@ -150,9 +150,9 @@ If you just want to add columns to the existing ones, use `extend`:
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Using `extend` is less verbose than `project` if you want to keep all the existing columns.
+Using [`extend`](app-analytics-aggregations.md#extend) is less verbose than [`project`](app-analytics-aggregations.md#project) if you want to keep all the existing columns.
 
-## Summarize: aggregate groups of rows
+## [Summarize](app-analytics-aggregations.md#summarize): aggregate groups of rows
 
 By looking at a sample of a table, we can see the fields where the different telemetry data are reported. For example, `exception | take 20` quickly shows us that exception messages are reported in a field called `outerExceptionType`. 
 
@@ -215,7 +215,7 @@ We can do better than the table view here. Let's look at the results in the char
 Notice that although we didn't sort the results by time (as you can see in the table display), the chart display always shows datetimes in correct order.
 
 
-## Where: filtering on a condition
+## [Where](app-analytics-aggregations.md#where): filtering on a condition
 
 If you've set up Application Insights monitoring for both the [client](app-insights-javascript.md) and server sides of your app, some of the telemetry in the database comes from browsers.
 
@@ -358,7 +358,7 @@ The `where` clause excludes one-shot sessions (sessionDuration==0) and sets the 
 
 
 
-## Percentiles
+## [Percentiles](app-analytics-aggregations.md#percentiles)
 
 What ranges of durations cover different percentages of sessions?
 
@@ -404,9 +404,9 @@ To get a separate breakdown for each country, we just have to bring the client_C
 ![](./media/app-analytics-tour/190.png)
 
 
-## Join
+## [Join](app-analytics-aggregations.md#join)
 
-We have access to three tables: metric, exceptions, and event. `event` contains request reports, page views, custom events, and so on.
+We have access to several tables, including requests and exceptions.
 
 To find the exceptions related to a request that returned a failure response, we can join the tables on `session_Id`:
 
@@ -424,7 +424,7 @@ In the same clauses, we rename the timestamp column.
 
 
 
-## Let: Assign a result to a variable
+## [Let](app-analytics-aggregations.md#let): Assign a result to a variable
 
 Use [let](./app-analytics-syntax.md#let-statements) to separate out the parts of the previous expression. The results are unchanged:
 
