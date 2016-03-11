@@ -72,15 +72,15 @@ If you do not yet have a Storage account, see the "Create a storage account" sec
 
 ### View current applications
 
-To view the applications in your Batch account, click the **Applications** tile in the Batch account blade.
+To view the applications in your Batch account, click the *Applications* tile in the Batch account blade.
 
 ![Applications tile][2]
 
-This opens the Applications blade:
+This opens the *Applications* blade:
 
 ![List applications][3]
 
-The Applications blade displays the ID of each application in your account, as well as the following properties:
+The *Applications* blade displays the ID of each application in your account, as well as the following properties:
 
 * **Packages** - The number of versions associated with this application.
 * **Default version** – If you do not specify a version when setting the application for a pool, this version will be installed. This setting is optional.
@@ -121,11 +121,11 @@ Use the following JSON format to specify the application package metadata in a f
 }
 ```
 
-> [AZURE.NOTE] If you upload JSON metadata for the id and version, you do not need to edit the "Application" and "Version" text boxes--they are automatically populated with the data in the JSON file.
+> [AZURE.NOTE] If you upload JSON metadata for the id and version, you do not need to edit the "Application id" or "Version" text boxes--they are automatically populated with the data in the JSON file.
 
 **Application id**
 
-This specifies the ID of your new application. Application IDs are subject to the standard Azure Batch ID validation rules:
+This specifies the id of your new application, which is subject to the standard Azure Batch ID validation rules:
 
 * Can contain any combination of alphanumeric characters, including hyphens and underscores.
 * Cannot contain more than 64 characters.
