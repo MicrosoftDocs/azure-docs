@@ -28,8 +28,12 @@
 
 You can use the Azure portal to monitor and manage an elastic pool and the databases in the pool. After you [create a pool](sql-database-elastic-pool-create-portal.md), click **Browse**, click **SQL elastic pools** and then click the pool you want to work with from the list.
 
+JEFF to add screen shot.
+
 ##Monitor resource utilization of a pool
-After you select a pool to work with, under **Elastic Pool Monitoring**, a chart and live tiles show you important utilization information for your pool. 
+After you select a pool to work with, under **Elastic Pool Monitoring**, a chart and live tiles show you important utilization information for your pool.
+
+![Monitor elastic pool][4]
 
 **To change the date range, the chart type (bar or line), or the resources shown:**
 
@@ -46,13 +50,11 @@ You can add rules to resources that send email to people or alert strings to URL
 
 1. Click the **Resource utilization** chart to open the **Metric** blade, click **Add alert**, and then fill out the information in the **Add an alert rule** blade (**Resource** is automatically set up to be the pool you're working with).
 2. Type a **Name** and **Description** that identifies the alert to you and recipients.
-3. Choose a **Metric** that you want to alert from the list. The chart dynamically shows resource utilization for that metric to help you choose a threshold.
+3. Choose a **Metric** that you want to alert from the list. 
+
+   The chart dynamically shows resource utilization for that metric to help you choose a threshold.
+
 4. Choose a **Condition** (greater than, less than, etc.) and a **Threshold**.
-
-![Monitor elastic pool][4]
-![resource utilization][6]
-
-Percent of DTU utilization and percent of storage utilization are shown by default.
 
 ##Change eDTU per pool and database eDTU
 When you see the resource utilization of a pool, you may discover that the pool needs a different eDTU setting, or individual databases in the pool need different eDTU settings. You can change the setup of the pool at any time to get the best balance of performance and cost. See [Price and performance considerations](sql-database-elastic-pool-guidance.md) for more information.
@@ -60,7 +62,8 @@ When you see the resource utilization of a pool, you may discover that the pool 
 **To change the pool eDTU and eDTU per database:**
 
 1. Click **Configure pool** to open the **Configure performance** blade.
-2. Under Elastic database pool settings a chart shows you the recent trend of eDTU and storage utilization in percent of capacity for the pool.
+
+    Under Elastic database pool settings a chart shows you the recent trend of eDTU and storage utilization in percent of capacity for the pool.
 
     NEED a screen shot showing near max utilization with convining data.
 
@@ -82,20 +85,27 @@ After you create a pool, you can add databases to the pool or remove them. You c
 
 1. In the blade for the pool, under **Elastic databases** click the link that shows the number of databases in the pool.
 
-    JEFF to insert screenshot
+    ![databases listing](./media/db-listing.png)
 
 2. In the **Elastic databases** blade, click **Add database**, click the databases that you want to add, and then click the **Select** button.
 
-The **Elastic databases** blade now lists the database you just added, with **AVG DTU** and storage utilization as **SIZE(GB)**, along with a **Pending** status. The pool utilization values now show you what the **New** values will be if you save your changes.
+    The **Elastic databases** blade now lists the database you just added, with **AVG DTU** and storage utilization as **SIZE(GB)**, along with a **Pending** status. The pool utilization values now show you what the **New** values will be if you save your changes.
+
+    ![recommended pool](./media/sql-database-elastic-pool-portal/add-remove-databases.png)
 
 3. Click **Save** and then click **OK** when the portal tells you the request has been submitted. The number of databases in the pool shows up on the blade for the pool when the operation is done.
 
 **To remove databases:**
-1. In the blade for the pool, under **Elastic databases** click the link that shows the number of databases in the pool.
-2. In the **Elastic databases** blade, from the list of databases in the pool, click the databases you want to remove, and then click **Remove databases**. The pool utilization values now show you what the **New** values will be if you save your changes.
-3. Click **Save** and then click **OK** when the portal tells you the request has been submitted. The number of databases in the pool shows up on the blade for the pool when the operation is done.
 
-![recommended pool](./media/sql-database-elastic-pool-portal/add-remove-databases.png)
+1. In the blade for the pool, under **Elastic databases** click the link that shows the number of databases in the pool.
+
+    ![databases listing](./media/db-listing.png)
+
+2. In the **Elastic databases** blade, from the list of databases in the pool, click the databases you want to remove, and then click **Remove databases**. 
+
+    The pool utilization values now show you what the **New** values will be if you save your changes.
+
+3. Click **Save** and then click **OK** when the portal tells you the request has been submitted. The number of databases in the pool shows up on the blade for the pool when the operation is done.
 
 ## Create a new database in a pool
 
