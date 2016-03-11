@@ -79,7 +79,7 @@ Use the following steps to update the trust between AD FS and Azure AD to suppor
 
 1.  On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
 2.  Enter the username and password of a global administrator for the Azure AD domain you are federating with
-2.  In PowerShell enter `Connect-MsolService -Credentail $cred`
+2.  In PowerShell enter `Connect-MsolService -Credential $cred`
 3.  In PowerShell enter `Update-MSOLFederatedDomain -DomainName <Federated Domain Name>`.  Make sure this is successful before continuing.
 ![Federation error](./media/active-directory-multiple-domains/update1.png)
 2.  On your AD FS federation server open **AD FS Management.** 
