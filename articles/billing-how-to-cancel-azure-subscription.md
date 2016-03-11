@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="03/10/2016"
 	ms.author="genli"/>
 
 # How to cancel your Azure subscription
@@ -26,7 +26,7 @@ If you cancelled your subscription by mistake and need to get it reactivated, yo
 
 If you cancel your subscription, all your services will be deleted immediately. Make sure you back up the data you want to save before you cancel.  
 
-1. Log on to the [Azure Account Portal](https://account.windowsazure.com/subscriptions) as the Account Administrator.
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/subscriptions) as the Account Administrator.
 2. Under **Click a subscription to view details and usage**, select the subscription that you want to cancel. </br> ![selectsub](.\media\billing-how-to-cancel-azure-subscription\Selectsub.png)
 3. On the right side of the page, select **Cancel Subscription**. </br> ![cancelsub](.\media\billing-how-to-cancel-azure-subscription\cancelsub.png)
 4. Select **Yes, cancel my subscription**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
