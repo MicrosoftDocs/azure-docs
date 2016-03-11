@@ -130,6 +130,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Enseo, Inc.
 - Filmflex Movies Limited
 - Fluendo S.A.
+- Gibson Innovations Limited
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
 - HANDAN BroadInfoCom Co., Ltd.
 - Hisense International Co., Ltd
@@ -157,7 +158,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Virgin Media Limited
 - VIZIO, Inc.
 - Wistron Corporation
-- WOOX Innovations Limited
 - ZTE Corporation
 
 ##Media Services learning paths
