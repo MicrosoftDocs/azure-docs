@@ -354,7 +354,7 @@ You can see the timestamp for both branches is identical.
 
 You can combine two conditional flows of logic (that may or may not have executed) by having a single action that takes data from both branches. 
 
-Your strategy for this varies depending on if you are handling one item, or a collection of items. In the case of a single item, you'll want to use the [`coalesce()`](https://msdn.microsoft.com/en-us/library/azure/mt643789.aspx#coalesce) function:
+Your strategy for this varies depending on if you are handling one item, or a collection of items. In the case of a single item, you'll want to use the [`coalesce()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#coalesce) function:
 
 ```
 {
@@ -410,7 +410,7 @@ Your strategy for this varies depending on if you are handling one item, or a co
 }
 ```
  
-Alternatively, when your first two branches both operate on a list of orders, for example, you'll want to use the [`union()`](https://msdn.microsoft.com/en-us/library/azure/mt643789.aspx#union) function to combine the data from both branches. 
+Alternatively, when your first two branches both operate on a list of orders, for example, you'll want to use the [`union()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#union) function to combine the data from both branches. 
 
 ```
 {
