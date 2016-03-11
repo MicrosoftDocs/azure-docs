@@ -139,6 +139,15 @@ Because the VM extension reads the data directly from the Azure storage account 
 
 For customers who protect their data to a backup server (System Center DPM or Backup Server), the traffic from the primary server to the backup server can also be compressed to save on bandwidth.
 
+### Network Throttling
+
+The Azure Backup agent provides a Throttling tab which allows you to control how network bandwidth is used during data transfer. This control can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other internet traffic. Throttling of data transfer applies to back up and restore activities.
+
+![Throttling cont](./media/backup-azure-backup-faq/Throttle-dialog.png)
+
+To enable throttling, select the **Enable internet bandwidth usage throttling for backup operations** checkbox. Once you have enabled throttling, specify the allowed bandwidth for backup data transfer during **Work hours** and **Non-work hours**. The bandwidth values begin at 512 kilobytes per second (Kbps) and can go up to 1023 megabytes per second (Mbps). You can also designate the start and finish for **Work hours**, and which days of the week are considered Work days. The time outside of the designated Work hours is considered to be non-work hours. 
+
+
 ### Backup and retention
 
 |  | Azure Backup agent | System Center DPM and Azure Backup Server | Azure Backup (VM extension) |
