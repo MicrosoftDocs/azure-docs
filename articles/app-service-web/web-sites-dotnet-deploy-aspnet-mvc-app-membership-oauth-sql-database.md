@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/10/2016" 
 	ms.author="riande"/> 
 
 # Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service
