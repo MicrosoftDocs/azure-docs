@@ -62,11 +62,11 @@ In order to use application packages, you must first link an Azure Storage accou
 
 ![No storage account configured warning in Azure portal][9]
 
-The Batch service uses the associated Storage account for the storage and retrieval of application packages. Once you've linked the two accounts, Batch can automatically--and securely--deploy application packages to your compute nodes. Click the "Storage account settings" button on the *Warning* blade, then click "Storage Account" on the *Storage Account* blade to link an existing storage account with your Batch account.
+The Batch service uses the associated Storage account for the storage and retrieval of application packages. Once you've linked the two accounts, Batch can automatically--and securely--deploy application packages to your compute nodes. Click the "Storage account settings" button on the *Warning* blade, then click "Storage Account" on the *Storage Account* blade to link an existing storage account to your Batch account.
 
 ![Choose storage account blade in Azure portal][10]
 
-If you do not yet have a storage account, see the "Create a storage account" section of [About Azure storage accounts](../storage/storage-create-storage-account.md) for step-by-step instructions. Once you've created a storage account, you may then link it to your Batch account using the *Storage Account* blade.
+If you do not yet have a Storage account, see the "Create a storage account" section of [About Azure storage accounts](../storage/storage-create-storage-account.md) for step-by-step instructions. Once you've created a Storage account, you may then link it to your Batch account using the *Storage Account* blade.
 
 > [AZURE.WARNING] Because Batch stores your application packages using Azure Storage, you are [charged as normal][storage_pricing] for the block blob data. Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize cost.
 
@@ -274,7 +274,7 @@ With application packages, you can more easily provide your customers with the a
 [storage_pricing]: https://azure.microsoft.com/pricing/details/storage/
 [net_appops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.aspx
 [net_appops_listappsummaries]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.listapplicationsummaries.aspx
-[net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.applicationpackagereferences.aspx
+[net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_cloudpool_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.applicationpackagereferences.aspx
 [net_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationpackagereference.aspx
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
