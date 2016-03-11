@@ -138,7 +138,7 @@ The experience is designed with big data in mind from the start. It is simple an
 You can schedule the copy operation to run just once or schedule it to run periodically (hourly, daily, etc...).
 
 ### Walkthrough
-For a quick walkthrough of using the code-free authoring experience to create a pipeline with a Copy Activity, see [Tutorial: Create a pipeline using Code-free Authoring](data-factory-copy-data-wizard-tutorial.md).
+For a quick walkthrough of using the Data Factory Copy Wizard to create a pipeline with a Copy Activity, see [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
 
 ### Variables in Azure Blob folder path
 You can use variables in folder path to copy data from a folder that is determined at runtime based on [WindowStart system variable](data-factory-functions-variables.md#data-factory-system-variables). The supported variables are: **year**, **month**, **day**, **hour**, **minute** and **{custom}**. Example: inputfolder/{year}/{month}/{day}. 

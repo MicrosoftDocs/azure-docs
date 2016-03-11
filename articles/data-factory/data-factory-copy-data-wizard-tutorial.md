@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Tutorial: Create a pipeline using Code-free Authoring" 
-	description="In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using the code-free authoring experience supported by Data Factory" 
+	pageTitle="Tutorial: Create a pipeline using Copy Wizard" 
+	description="In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using the Copy Wizard supported by Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,15 +16,15 @@
 	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
-# Tutorial: Create a pipeline with Copy Activity using Code-free Authoring
+# Tutorial: Create a pipeline with Copy Activity using Data Factory Copy Wizard
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
-- [Using code-free authoring](data-factory-copy-data-wizard-tutorial.md)
+- [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
-In this tutorial, you will use code-free authoring experience by supported by Azure Data Factory to create a pipeline with a Copy Activity in a data factory. First, you create a data factory by using the Azure Portal and then use code-free authoring experience to create Data Factory linked services, datasets, and a pipeline with a Copy Activity that copies data from an Azure blob storage to an Azure SQL database.
+In this tutorial, you will use Data Factory Copy Wizard to create a pipeline with a Copy Activity in a data factory. First, you create a data factory by using the Azure Portal and then use the Copy Wizard to create Data Factory linked services, datasets, and a pipeline with a Copy Activity that copies data from an Azure blob storage to an Azure SQL database.
 
 > [AZURE.IMPORTANT] Please go through the [Tutorial Overview](data-factory-get-started.md) article and complete the prerequisite steps before performing this tutorial.
 
@@ -60,9 +60,9 @@ In this step, you use the Azure Portal to create an Azure data factory named **A
 
     ![Data factory home page](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## Create a pipeline using code-free authoring experience
+## Create a pipeline using Copy Wizard
 
-1. On the Data Factory home page, click the **Copy data** tile to launch **Code-free authoring** tile. 
+1. On the Data Factory home page, click the **Copy data** tile to launch **Copy Wizard**. 
 2. In the **Properties** page:
 	1. Enter **CopyFromBlobToAzureSql** for **Task name**
 	2. Enter **description** (optional).
@@ -99,7 +99,7 @@ In this step, you use the Azure Portal to create an Azure data factory named **A
 
 	![Copy Tool - Table mapping](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. On the **Schema mapping** page, click **Next**.
-11. Review information in the **Summary** page, and click **Finish**. This will create two linked services, two datasets (input and output), and one pipeline in the data factory (from where you launched the code-free authoring experience). 
+11. Review information in the **Summary** page, and click **Finish**. This will create two linked services, two datasets (input and output), and one pipeline in the data factory (from where you launched the Copy Wizard). 
 12. On the **Deployment succeeded** page, click **Click here to monitor copy pipeline**.
 
 	![Copy Tool - Deployment succeeded](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  

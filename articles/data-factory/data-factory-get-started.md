@@ -22,7 +22,7 @@
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
-- [Using code-free authoring](data-factory-copy-data-wizard-tutorial.md)
+- [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 In this tutorial, you will create an Azure data factory and create a pipeline with a Copy Activity to copy data from an Azure blob storage to an Azure SQL database.
 

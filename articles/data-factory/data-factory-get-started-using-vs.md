@@ -22,7 +22,7 @@
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using code-free authoring](data-factory-copy-data-wizard-tutorial.md)
+- [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 ##In This Tutorial
 In This tutorial you will do the following using Visual Studio 2013:
