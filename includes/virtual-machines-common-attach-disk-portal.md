@@ -50,17 +50,6 @@ Continue by following instructions for attaching either a new disk or an existin
 
 6.	After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
 
-## Next steps
 
-After the disk is added, you need to prepare it for use in the virtual machine's operating system:
 
-- For Linux, see "How to: Initialize a new data disk in Linux" in this [article](virtual-machines-linux-classic-attach-disk.md).
-- For Windows, see "How to: initialize a new data disk in Windows Server" in this [article](virtual-machines-windows-classic-attach-disk.md).
 
-## Additional resources
-
-[About Azure Storage Accounts]
-
-<!--Link references-->
-
-[About Azure Storage Accounts]: ../storage-whatis-account/
