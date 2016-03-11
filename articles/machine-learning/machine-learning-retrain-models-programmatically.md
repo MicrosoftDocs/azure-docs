@@ -152,6 +152,8 @@ The sample code for BES will upload a file from a local drive (e.g. “C:\temp\C
 	```
 
 	The “apiKey” and the “endpointUrl” for this call are visible on the endpoint dashboard. The "Name" parameter in Resources should match the name of the Saved Trained Model in the Predictive Experiment.
+	
+	Note that the SAS token expires after 1 hour (55 minutes). You would need to do a GET with the Job Id to get a fresh token.
 
 	With the success of this call, the new endpoint will start using a retrained model approximately within 15 seconds.  
 
