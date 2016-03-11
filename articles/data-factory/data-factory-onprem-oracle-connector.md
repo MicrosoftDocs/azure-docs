@@ -251,7 +251,7 @@ In case of Copy activity when source is of type **OracleSource** the following p
 Property | Description |Allowed values | Required
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Use the custom query to read data. | SQL query string. 
-For example: select * from MyTable <p>If not specified, the SQL statement that is executed: select * from MyTable</p> | No (if **tableName** of **dataset** is specified)
+For example: select * from MyTable <br/><br/>If not specified, the SQL statement that is executed: select * from MyTable | No (if **tableName** of **dataset** is specified)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

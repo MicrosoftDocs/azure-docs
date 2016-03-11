@@ -3,8 +3,8 @@
 	description="Learn how to deploy and manage Azure Backup using PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
+	authors="markgalioto"
+	manager="jwhit"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/28/2016"
-	ms.author="aashishr";"trinadhk" />
+	ms.author="markgal;trinadhk;jimpark" />
 
 
 # Deploy and manage backup for Azure VMs using PowerShell
