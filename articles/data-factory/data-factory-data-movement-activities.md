@@ -118,27 +118,43 @@ The **Data Factory Copy Wizard** allows you to create a pipeline to copy data fr
 
 ### Features
 
-#### An intuitive wizard for copying data: 
+#### An intuitive and seamless wizard for copying data 
 This wizard allows you to easily move data from a source to a destination in minutes with the following easy steps: 
 
-1. **Specify Properties**. Specify properties for the copy task/pipeline on this tab. 
-2. **Select Source**. Specify settings for the source data store for the copy operation. 
-3. **Select Destination**. Specify settings for the destination data store for the copy operation. 
-4. **Review Summary**. Review summary of settings from **Properties**, **Source**, and **Destination** pages. 
+1.	Select the **source**
+2.	Select the **destination**
+3.	Configure **settings**
 
-When you click **Finish**, the application creates and deploys Data Factory linked services, datasets, and a pipeline with a Copy Activity in the selected data factory. If you click **Click here to monitor pipeline**, it launches the **Monitoring and Management App**. See [Monitor and manage pipelines using Monitoring and Management App](data-factory-monitor-manage-app.md) article to learn about how to use this application.    
+![Select data source](./media/data-factory-data-movement-activities/select-data-source-page.png)
 
 #### Rich data exploration and schema mappings
 You can browse tables/folders, preview data, map schema, validate expressions and perform simple data transformations within the wizard. 
 
+**Browse tables/folders**
+![Browse tables and folders](./media/data-factory-data-movement-activities/browse-tables-folders.png)
+
 #### Scalable experience for diverse data and object types
 The experience is designed with big data in mind from the start. It is simple and efficient to author Data Factory pipelines that move hundreds of folders, files or tables.
 
-#### Richer scheduling options
-You can schedule the copy operation to run just once or schedule it to run periodically (hourly, daily, etc...).
+**Preview data, map schema and perform simple transformations**
+![File format settings](./media/data-factory-data-movement-activities/file-format-settings.png)
+![Schema mapping](./media/data-factory-data-movement-activities/schema-mapping.png)
+![Validate expressions](./media/data-factory-data-movement-activities/validate-expressions.png)
 
-### Walkthrough
-For a quick walkthrough of using the Data Factory Copy Wizard to create a pipeline with a Copy Activity, see [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
+#### Scalable experience for diverse data and object types
+The experience is designed with big data in mind from the start. Moving hundreds of folders, files or tables is as simple and efficient to author using the Copy Wizard.
+
+![Select tables to copy data](./media/data-factory-data-movement-activities/select-tables-to-copy-data.png)
+
+#### Richer scheduling options
+You can run the copy operation just once or on a schedule (hourly, daily, etc...). Both these options can be used for the breadth of the connectors across on-premises, cloud and local desktop copy. One-time copy enables data movement from a source to a destination just once and applies to data of any size and any supported formats. The scheduled copy enables copying data on a prescribed recurrence. You can leverage rich settings (like retry, timeout, alerts etc) to configure the scheduled copy.
+
+![Scheduling properties](./media/data-factory-data-movement-activities/scheduling-properties.png)
+
+
+### Try it out 
+For a quick walkthrough of using the **Data Factory Copy Wizard** to create a pipeline with a Copy Activity, see [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
+
 
 ### Variables in Azure Blob folder path
 You can use variables in folder path to copy data from a folder that is determined at runtime based on [WindowStart system variable](data-factory-functions-variables.md#data-factory-system-variables). The supported variables are: **year**, **month**, **day**, **hour**, **minute** and **{custom}**. Example: inputfolder/{year}/{month}/{day}. 
