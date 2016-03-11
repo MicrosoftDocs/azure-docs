@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add the Office 365 Users API to your Logic Apps | Microsoft Azure"
+	pageTitle="Add the Office 365 Users API in PowerApps Enterprise or Logic Apps | Microsoft Azure"
 	description="Overview of Office 365 Users API with REST API parameters"
 	services=""	
 	documentationCenter="" 	
@@ -14,15 +14,21 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="deonhe"/>
 
 # Get started with the Office 365 Users API
 
 Connect to Office 365 Users to get profiles, search users, and more. The Office 365 Users API can be used from:
 
-- PowerApps 
 - Logic apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic apps](../articles/connectors/create-api-office365-users.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-users.md)
+
+&nbsp; 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Office 365 API](../app-service-logic/app-service-logic-connector-office365.md).   
 
@@ -50,48 +56,7 @@ All APIs support data in JSON and XML formats.
 
 ## Create a connection to Office 365 Users
 
-### Add additional configuration in PowerApps
-When you add this API to PowerApps Enterprise, you enter the **Client ID** and **Client Secret** values of your Office 365 Azure Active Directory (AAD) application. The **Redirect URL** value is also used in your Office 365 application. If you don't have an Office 365 application, you can use the following steps to create the application:
-
-1. In the [Azure Portal][5], open **Active Directory**, and open your organization's tenant name.
-2. Select the **Applications** tab, and select **Add**:  
-![AAD tenant applications][7]
-
-3. In **Add application**:  
-
-	1. Enter a **Name** for your application.  
-	2. Leave the application type as **Web**.  
-	3. Select **Next**.  
-
-	![Add AAD application - app info][8]
-
-4. In **App Properties**:  
-
-	1. Enter the **SIGN-ON URL** of your application. Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
-	2. Enter a valid **APP ID URI** for your app.  
-	3. Select **OK**.  
-
-	![Add AAD application - app properties][9]
-
-5. When complete, the new AAD app opens. Select **Configure**:  
-![Contoso AAD app][10]
-
-6. Under the **OAuth 2** section, set the **Reply URL** to the redirect URL value shown when you added the Office 365 Users API in the Azure Portal. Select **Add application**:  
-![Configure Contoso AAD app][11]
-
-7. In **Permissions to other applications**, select **Office 365 Unified API (Preview)**, and select **OK**:  
-
-	Back in the configure page, note that _Office 365 Unified API (Preview)_ is added to the _Permission to other applications_ list.
-
-8. For **Office 365 Exchange Online**, select **Delegated Permissions** , and select the **Read all users' basic profiles** permission.
-
-A new Azure Active Directory app is created. You can copy/paste the **Client ID** and **Client Secret** values into your Office 365 users API configuration in the Azure portal. 
-
-Some good info on AAD applications at [How and why applications are added to Azure AD](../active-directory/active-directory-how-applications-are-added.md).
-
-
-### Add additional configuration in logic apps
-When you add this API to your logic apps, you must sign-in to your Office 365 Users  account and allow logic apps to connect to your account.
+When you add this API to your logic apps, you must sign-in to your Office 365 Users account and allow logic apps to connect to your account.
 
 1. Sign in to your Office 365 Users account.
 2. Allow your logic apps to connect and use your Office 365 account. 
@@ -214,7 +179,7 @@ Retrieves search results of user profiles.
 
 #### User: User model class
 
-| Name | Data Type |Required
+|Property Name | Data Type |Required
 |---|---|---|
 |DisplayName|string|no|
 |GivenName|string|no|
@@ -231,9 +196,10 @@ Retrieves search results of user profiles.
 
 
 ## Next Steps
-After you add the Office 365 API to PowerApps Enterprise, [give users permissions](../power-apps/powerapps-manage-api-connection-user-access.md) to use the API in their apps.
 
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Go back to the [APIs list](apis-list.md).
 
 <!--References-->
 [5]: https://portal.azure.com

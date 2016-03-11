@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="11/30/2015"
+	ms.date="03/09/2015"
 	ms.author="krisragh"/>
 
 # Service-side authorization of users in Mobile Services
@@ -30,7 +30,7 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 
 1. Log on to the [Azure classic portal], click **Mobile Services**, and then click on your mobile service. Click the **Data** tab, then click the **TodoItem** table.
 
-2. Click **Script**, select the **Insert** operation, replace the existing script with the following function, and then click **Save**. 
+2. Click **Script**, select the **Insert** operation, replace the existing script with the following function, and then click **Save**.
 
         function insert(item, user, request) {
           item.userId = user.userId;
@@ -68,4 +68,3 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 [Add Authentication to Existing Mobile Services App]: /develop/mobile/tutorials/get-started-with-users-ios
 
 [Azure classic portal]: https://manage.windowsazure.com/
- 
