@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Query Your Azure Search Index using the .NET SDK | Microsoft Azure | Hosted cloud search service"
+    pageTitle="Query your Azure Search Index using the .NET SDK | Microsoft Azure | Hosted cloud search service"
     description="Build a search query in Azure search and use search parameters to filter and sort search results."
     services="search"
     documentationCenter=""
@@ -22,7 +22,9 @@
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-This article will show you how to query an index using the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx). Before beginning this walkthrough, you should already have [created an Azure Search index](search-create-index-dotnet.md) and [populated it with data](search-import-data-dotnet.md).
+This article will show you how to query an index using the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx).
+
+Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
 
 Note that all sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto).
 

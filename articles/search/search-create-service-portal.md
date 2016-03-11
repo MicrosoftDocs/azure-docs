@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create an Azure Search service using the Azure Portal | Microsoft Azure | Hosted cloud search service"
-	description="Create an Azure Search service using the Azure Portal."
+	description="Learn how to provision an Azure Search service using the Azure Portal."
 	services="search"
 	authors="ashmaka"
 	documentationCenter=""/>

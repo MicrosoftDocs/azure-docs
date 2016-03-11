@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Query Your Azure Search Index using the Azure Portal | Microsoft Azure | Hosted cloud search service"
+    pageTitle="Query your Azure Search Index using the Azure Portal | Microsoft Azure | Hosted cloud search service"
     description="Issue a search query in the Azure Portal's Search Explorer."
     services="search"
     documentationCenter=""
@@ -24,7 +24,7 @@
 
 This guide will show you how to query your Azure Search index in the Azure Portal.
 
-This guide assumes you have already [created a search service](search-create-service-portal.md), [defined an index](search-create-index-portal.md), and [uploaded data to Azure Search](search-what-is-data-import.md).
+Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
 
 ## I. Go to your Azure Search blade
 1. Click on "All resources" in the menu on the left side of the Azure Portal

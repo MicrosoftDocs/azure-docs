@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Query Your Azure Search Index using the REST API | Microsoft Azure | Hosted cloud search service"
+    pageTitle="Query your Azure Search Index using the REST API | Microsoft Azure | Hosted cloud search service"
     description="Build a search query in Azure search and use search parameters to filter and sort search results."
     services="search"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="ashmaka"/>
 
 # Query your Azure Search index using the REST API
@@ -22,7 +22,9 @@
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-This article will show you how to query an index using the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx). Before beginning this walkthrough, you should already have [created an Azure Search index](search-create-index-rest-api.md) and [populated it with data](search-import-data-rest-api.md).
+This article will show you how to query an index using the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+
+Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
 
 ## I. Identify your Azure Search service's query api-key
 A key component of every search operation against the Azure Search REST API is the *api-key* that was generated for the service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.

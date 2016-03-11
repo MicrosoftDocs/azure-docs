@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create an Azure Search index in the Azure Portal | Microsoft Azure | Hosted cloud search service"
+	pageTitle="Create an Azure Search index using the Azure Portal | Microsoft Azure | Hosted cloud search service"
 	description="Create an index using the Azure Portal."
 	services="search"
 	authors="ashmaka"
@@ -14,16 +14,16 @@
 	ms.date="03/10/2016"
 	ms.author="ashmaka"/>
 
-# Create an Azure Search index in the Azure Portal
+# Create an Azure Search index using the Azure Portal
 > [AZURE.SELECTOR]
 - [Overview](search-what-is-an-index.md)
 - [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
 - [REST](search-create-index-rest-api.md)
 
-This guide will walk you through the process of creating an Azure Search index using the Azure Portal.
+This article will walk you through the process of creating an Azure Search [index](https://msdn.microsoft.com/library/azure/dn798941.aspx) using the Azure Portal.
 
-This guide assumes that you already have [created an Azure Search service](search-create-service-portal.md).
+Before following this guide and creating an index, you should have already [created an Azure Search service](search-create-service-portal.md).
 
 
 ## I. Go to your Azure Search blade
