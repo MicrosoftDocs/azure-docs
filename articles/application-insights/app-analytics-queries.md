@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Operators and queries in Application Analytics" 
-	description="Reference for the operators used to make queries in Application Analytics, 
+	pageTitle="Operators and queries in Application Insights Analytics" 
+	description="Reference for the operators used to make queries in Application Insights Analytics, 
 	             the powerful search tool for Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -18,12 +18,12 @@
 
 
 
-# Query syntax in Application Analytics
+# Query syntax in Application Insights Analytics
 
 
-[Application Analytics](app-analytics.md) is a powerful search engine for your 
+[Application Insights Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Analytics query lanuage, CSL.
+Application Insights Analytics query lanquage, AIQL.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -31,7 +31,7 @@ Application Analytics query lanuage, CSL.
 A query over your telemetry is made up of a reference to a source stream, followed by a pipeline of filters. For example:
 
 
-```CSL
+```AIQL
 requests
 | where client_City == "London" and timestamp > ago(3d)
 | count
@@ -41,7 +41,7 @@ Each filter prefixed by the pipe character `|` is an instance of an *operator*, 
 
 A query may be prefixed by one or more [let clauses](#let-clause), which define scalars, tables, or functions that can be used within the query.
 
-```CSL
+```AIQL
 
     let interval = 3d ;
     let city = "London" ;
@@ -72,7 +72,7 @@ This function returns a table with a single record and column of type
 
 **Example**
 
-```CSL
+```AIQL
 requests | count
 ```
 
@@ -108,7 +108,7 @@ A copy of the input table, with the specified additional columns.
 
 **Example**
 
-```CSL
+```AIQL
 traces
 | extend
     Age = now() - timestamp
@@ -170,7 +170,7 @@ For best performance:
 
 Get extended activities from a log in which some entries mark the start and end of an activity. 
 
-```CSL
+```AIQL
     let Events = MyLogTable | where type=="Event" ;
     Events
     | where Name == "Start"
@@ -316,48 +316,14 @@ Two modes of property-bag expansions are supported:
 
 **Examples**
 
+
+    exceptions | take 1 
+    | mvexpand details[0]
+
+Splits an exception record into rows for each item in the details field.
+
 See [Chart count of live activites over time](app-analytics-samples.md#concurrent-activities).
 
-
-## project operator
-
-    T | project cost=price*quantity, price
-
-Select the columns to include, rename or drop, and insert new computed columns. The order of the columns in the result is specified by the order of the arguments. Only the columns specified in the arguments are included in the result: any others in the input are dropped.  (See also `extend`.)
-
-
-**Syntax**
-
-    T | project ColumnName [= Expression] [, ...]
-
-**Arguments**
-
-* *T:* The input table.
-* *ColumnName:* The name of a column to appear in the output. If there is no *Expression*, a column of that name must appear in the input. 
-* *Expression:* Optional scalar expression referencing the input columns. 
-
-    It is legal to return a new calculated column with the same name as an existing column in the input.
-
-**Returns**
-
-A table that has the columns named as arguments, and as many rows as the input table.
-
-**Example**
-
-The following example shows several kinds of manipulations that can be done
-using the `project` operator. The input table `T` has three columns of type `int`: `A`, `B`, and `C`. 
-
-```CSL
-T
-| project
-    X=C,                       // Rename column C to X
-    A=2*B,                     // Calculate a new column A from the old B
-    C=strcat("-",tostring(C)), // Calculate a new column C from the old C
-    B=2*B                      // Calculate a new column B from the old B
-```
-
-
-[More examples](app-analytics-samples.md#activities).
 
 ## parse operator
 
@@ -413,7 +379,7 @@ below will extend the table with two columns: `SwathSize`, and `FellLocation`.
 |The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16. Flood stage at Woodbury is 33 feet. Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water.|
 |The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18. Flood stage at Tell City is 38 feet. At this level, the river begins to overflow its banks above the gage. Indiana Highway 66 floods between Rome and Derby.|
 
-```CSL
+```AIQL
 
 StormEvents 
 |  parse EventNarrative 
@@ -443,7 +409,7 @@ StormEvents
 
 It is also possible to match using regular expressions. This produces the same result but all the result columns have string type:
 
-```CSL
+```AIQL
 
 StormEvents
 | parse kind=regex EventNarrative 
@@ -456,6 +422,49 @@ StormEvents
    "." notImportant:regex(".*")
 | project RiverName , Location , Height , Time , Month , Day
 ```
+
+
+## project operator
+
+    T | project cost=price*quantity, price
+
+Select the columns to include, rename or drop, and insert new computed columns. The order of the columns in the result is specified by the order of the arguments. Only the columns specified in the arguments are included in the result: any others in the input are dropped.  (See also `extend`.)
+
+
+**Syntax**
+
+    T | project ColumnName [= Expression] [, ...]
+
+**Arguments**
+
+* *T:* The input table.
+* *ColumnName:* The name of a column to appear in the output. If there is no *Expression*, a column of that name must appear in the input. 
+* *Expression:* Optional scalar expression referencing the input columns. 
+
+    It is legal to return a new calculated column with the same name as an existing column in the input.
+
+**Returns**
+
+A table that has the columns named as arguments, and as many rows as the input table.
+
+**Example**
+
+The following example shows several kinds of manipulations that can be done
+using the `project` operator. The input table `T` has three columns of type `int`: `A`, `B`, and `C`. 
+
+```AIQL
+T
+| project
+    X=C,                       // Rename column C to X
+    A=2*B,                     // Calculate a new column A from the old B
+    C=strcat("-",tostring(C)), // Calculate a new column C from the old C
+    B=2*B                      // Calculate a new column B from the old B
+```
+
+
+[More examples](app-analytics-samples.md#activities).
+
+
 ## range operator
 
     range LastWeek from ago(7d) to now() step 1d
@@ -492,7 +501,7 @@ whose values are *Start*, *Start* + *Step*, ... up to and including *Stop*.
 
 **Example**  
 
-```CSL
+```AIQL
 range Steps from 1 to 8 step 3
 ```
 
@@ -507,7 +516,7 @@ A table of midnight at the past seven days. The bin (floor) function reduces eac
 
 **Example**  
 
-```CSL
+```AIQL
 range timestamp from ago(4h) to now() step 1m
 | join kind=fullouter
   (traces
@@ -523,9 +532,12 @@ a small, ad-hoc, dimension table which is then used to introduce zeros where the
 
 ## reduce operator
 
-    T | reduce by LogMessage with threshold=0.1
+    exceptions | reduce by outerMessage
 
 Tries to group together similar records. For each group, the operator outputs the `Pattern` it thinks best describes that group, and the `Count` of records in that group.
+
+
+![](./media/app-analytics-queries/reduce.png)
 
 **Syntax**
 
@@ -551,6 +563,11 @@ For example, the result of `reduce by city` might include:
 | Paris | 27163 |
 
 
+## render directive
+
+    T | render [ table | timechart  | barchart | piechart ]
+
+Render directs the presentation layer how to show the table. It should be the last element of the pipe. It's a convenient alternative to using the controls on the display, allowing you to save a query with a particular presentation method.
 
 
 ## sort operator 
@@ -573,7 +590,7 @@ Sort the rows of the input table into order by one or more columns.
 
 **Example**
 
-```CSL
+```AIQL
 Traces
 | where ActivityId == "479671d99b7b"
 | sort by Timestamp asc
@@ -612,7 +629,7 @@ A table that shows how many items have prices in each interval  [0,10.0], [10.0,
 * *Aggregation:* A call to an [aggregation function](app-analytics-aggregations.md) such as `count()` or `avg()`, with column names as arguments. See the [list of aggregation functions](app-analytics-aggregations.md).
 * *GroupExpression:* An expression over the columns, that provides a set of distinct values. Typically it's either a column name that already provides a restricted set of values, or `bin()` with a numeric or time column as argument. 
 
-If you provide a numeric or time expression without using `bin()`, Application Analytics automatically applies it with an interval of `1h` for times, or `1.0` for numbers.
+If you provide a numeric or time expression without using `bin()`, AI Analytics automatically applies it with an interval of `1h` for times, or `1.0` for numbers.
 
 If you don't provide a *GroupExpression,* the whole table is summarized in a single output row.
 
@@ -689,7 +706,7 @@ A table with as many rows as there are in all the input tables.
 
 **Example**
 
-```CSL
+```AIQL
 
 let ttrr = requests | where timestamp > ago(1h);
 let ttee = exceptions | where timestamp > ago(1h);
@@ -700,7 +717,7 @@ Union of all tables whose names begin "tt".
 
 **Example**
 
-```CSL
+```AIQL
 
 union withsource=SourceTable kind=outer Query, Command
 | where Timestamp > ago(1d)
@@ -709,7 +726,7 @@ union withsource=SourceTable kind=outer Query, Command
 The number of distinct users that have produced
 either a `exceptions` event or a `traces` event over the past day. In the result, the 'SourceTable' column will indicate either "Query" or "Command".
 
-```CSL
+```AIQL
 exceptions
 | where Timestamp > ago(1d)
 | union withsource=SourceTable kind=outer 
@@ -753,7 +770,7 @@ To get the fastest performance:
 
 **Example**
 
-```CSL
+```AIQL
 Traces
 | where Timestamp > ago(1h)
     and Source == "Kuskus"

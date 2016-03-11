@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="02/29/2016"
+    ms.date="03/09/2016"
     ms.author="ashmaka"/>
 
 # Import data to Azure Search using the REST API
@@ -38,8 +38,9 @@ When issuing HTTP requests against your service using the REST API, *each* API r
 3. Click on the "Keys" icon
 
 Your service will have *admin keys* and *query keys*.
-  * Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
-  * Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
+
+  - Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
+  - Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
 
 For the purposes of importing data into an index, you can use either your primary or secondary admin key.
 
@@ -53,7 +54,7 @@ Each JSON object in the "value" array represents a document to be indexed. Each 
 `upload` | An `upload` action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. | key, plus any other fields you wish to define | When updating/replacing an existing document, any field that is not specified in the request will have its field set to `null`. This occurs even when the field was previously set to a non-null value.
 `merge` | Updates an existing document with the specified fields. If the document does not exist in the index, the merge will fail. | key, plus any other fields you wish to define | Any field you specify in a merge will replace the existing field in the document. This includes fields of type `Collection(Edm.String)`. For example, if the document contains a field `tags` with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for `tags`, the final value of the `tags` field will be `["economy", "pool"]`. It will not be `["budget", "economy", "pool"]`.
 `mergeOrUpload` | This action behaves like `merge` if a document with the given key already exists in the index. If the document does not exist, it behaves like `upload` with a new document. | key, plus any other fields you wish to define | -
-`delete` | Removes the specified document from the index. | key only | Any fields you specify other than the key field will be ignored. If you want to remove an individual field from a document, use *merge* instead and simply set the field explicitly to null.
+`delete` | Removes the specified document from the index. | key only | Any fields you specify other than the key field will be ignored. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to null.
 
 ## III. Construct your HTTP request and request body
 Now that you have gathered the necessary field values for your index actions, you are ready to construct the actual HTTP request and JSON request body to import your data.
@@ -116,7 +117,7 @@ In the URL, you will need to provide your service name, index name ("hotels" in 
 
 In this case, we are using `upload`, `mergeOrUpload`, and `delete` as our search actions.
 
-Assume that this example "hotels" index is already populated with a number of documents. Note how we did not have to specify all the possible document fields when using `merge` and how we only specified the document key (`hotelId`) when using `delete`.
+Assume that this example "hotels" index is already populated with a number of documents. Note how we did not have to specify all the possible document fields when using `mergeOrUpload` and how we only specified the document key (`hotelId`) when using `delete`.
 
 Also, note that you can only include up to 1000 documents (or 16 MB) in a single indexing request.
 
@@ -163,7 +164,7 @@ A status code of `503` will be returned if none of the items in the request were
 
 > [AZURE.NOTE] In this case, we highly recommend that your client code back off and wait before retrying. This will give the system some time to recover, increasing the chances that future requests will succeed. Rapidly retrying your requests will only prolong the situation.
 
-For more information on document actions and success/error responses, please see [this page](https://msdn.microsoft.com/library/azure/dn798925.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [this article](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+For more information on document actions and success/error responses, please see [Add, Update, or Delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
 ## Next
-After populating your Azure Search index, you will be ready to start issuing queries to search for documents.
+After populating your Azure Search index, you will be ready to start issuing queries to search for documents. See [Query Your Azure Search Index using the REST API](search-query-rest-api.md) for details.
