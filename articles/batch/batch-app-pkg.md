@@ -80,7 +80,7 @@ This opens the Applications blade:
 
 ![List applications][3]
 
-The Applications blade displays the id of each application in your account, as well as the following properties:
+The Applications blade displays the ID of each application in your account, as well as the following properties:
 
 * **Packages** - The number of versions associated with this application.
 * **Default version** – If you do not specify a version when setting the application for a pool, this version will be installed. This setting is optional.
