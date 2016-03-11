@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Capture a Windows VM in Resource Manager | Microsoft Azure"
-	description="Learn how to capture an image of a Windows-based Azure virtual machine (VM) that was created with the Azure Resource Manager deployment model."
+	description="Learn how to capture an image of a Windows-based Azure virtual machine (VM) created with the Resource Manager deployment model."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -27,7 +27,7 @@ This article shows you how to use Azure PowerShell to capture an Azure virtual m
 
 ## Prerequisites
 
-These steps assume that you've already created an Azure virtual machine in the Azure Resource Manager deployment model and configured the operating system, including attaching any data disks and making other customizations like installing applications. If you haven't done this yet, read [How to create a Windows VM with Resource Manager and PowerShell](virtual-machines-create-windows-powershell-resource-manager.md). You can just as easily create a Windows virtual machine using the [Azure portal](https://portal.azure.com). Read [How to create a Windows virtual machine in the Azure portal](virtual-machines-windows-tutorial.md).
+These steps assume that you've already created an Azure virtual machine in the Resource Manager deployment model and configured the operating system, including attaching any data disks and making other customizations like installing applications. If you haven't done this yet, read [How to create a Windows VM with Resource Manager and PowerShell](virtual-machines-create-windows-powershell-resource-manager.md). You can just as easily create a Windows virtual machine using the [Azure portal](https://portal.azure.com). Read [How to create a Windows virtual machine in the Azure portal](virtual-machines-windows-tutorial.md).
 
 
 ## Prepare the VM for image capture
@@ -81,13 +81,13 @@ This article assumes that you have installed Azure PowerShell version 1.0.x. We 
 
 		Stop-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM
 
-	You will see that the status for the VM on the Azure portal has changed from **Stopped** to **Stopped (deallocated)**.
+	You will see that the *Status* for the VM on the Azure portal has changed from **Stopped** to **Stopped (deallocated)**.
 
 	>[AZURE.TIP] You can also find out the status of your virtual machine in PowerShell by using:</br>
 	`$vm = Get-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM -status`</br>
 	`$vm.Statuses`</br> The **DisplayStatus** field corresponds to the **Status** shown in the Azure portal.
 
-4. Next, you need to set the status of the virtual machine to *Generalized*. Note that you will need to do this because the generalization step above (`sysprep`) does not do it in a way that Azure can understand.
+4. Next, you need to set the status of the virtual machine to **Generalized**. Note that you will need to do this because the generalization step above (`sysprep`) does not do it in a way that Azure can understand.
 
 		Set-AzureRmVm -ResourceGroupName YourResourceGroup -Name YourWindowsVM -Generalized
 
@@ -140,7 +140,7 @@ You can use the Resource Explorer to capture the virtual machine, as an alternat
 
 	Click the **capture** action button to capture your virtual machine's image. This creates a new VHD for the image, as well as a JSON template file. As of now, these are not accessible via either the Resource Explorer or the [Azure portal](https://portal.azure.com).
 
-8. To access the new image VHD as well as the template, download and install the Azure tool for managing storage resources, the [Azure Storage Explorer](http://storageexplorer.com/). The Azure Storage Explorer will be downloaded locally on your machine.
+8. To access the new image VHD as well as the template, download and install the Azure tool for managing storage resources, the [Azure Storage Explorer](http://storageexplorer.com/). The installer will install the Azure Storage Explorer locally on your machine.
 
 	- Open the Storage Explorer and sign in to your Azure subscription. It should show you all the storage accounts that are available to your subscription.
 
@@ -148,7 +148,7 @@ You can use the Resource Explorer to capture the virtual machine, as an alternat
 
 		![Storage Explorer system](./media/virtual-machines-windows-capture-image-resource-manager/StorageExplorer1.png)
 
-	- Double-click **Microsoft.Compute** and then double-click **Images**, which will show you all of your image folders. Double-click the folder name that you entered for the **destinationContainerName** variable while capturing the image from Resource Explorer. It will show you both the VHD, as well as the JSON template file.
+	- Double-click **Microsoft.Compute** > **Images**, which will show you all of your image folders. Double-click the folder name that you entered for the **destinationContainerName** variable while capturing the image from Resource Explorer. It will show you both the VHD, as well as the JSON template file.
 
 	- From here, you can either find out the URL or download the VHD/template by right-clicking it.
 
@@ -163,7 +163,7 @@ Now you can use the captured image to create a new Windows VM. These steps show 
 
 ### Create network resources
 
-Use the following sample PowerShell script to set up a virtual network and network adapter for your new VM. Use values for the variables (represented by the **$** sign) as appropriate to your application.
+Use the following sample PowerShell script to set up a virtual network and NIC for your new VM. Use values for the variables (represented by the **$** sign) as appropriate to your application.
 
 	$pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
 
