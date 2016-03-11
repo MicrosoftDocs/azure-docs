@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/11/2016"
 	ms.author="daleche"/>
 
 
-# How to restore a single table in Azure SQL Database backup
+# How to restore a single table from an Azure SQL Database backup
 
 You may encounter a situation in which you accidentally modified some data in a SQL database and now you want to recover the single affected table. This article describes how to restore a single table in a database from one of the backups that are automatically that are performed by Azure SQL Database, based on your selected performance tier.
 
