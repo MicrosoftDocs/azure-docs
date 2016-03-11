@@ -13,11 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-<<<<<<< HEAD
-	ms.date="03/07/2016"
-=======
 	ms.date="03/09/2016"
->>>>>>> c4ea24673a50ae0651285a40d92b88c3aa93cc02
 	ms.author="krisragh"/>
 
 # Service-side authorization of users in Mobile Services
