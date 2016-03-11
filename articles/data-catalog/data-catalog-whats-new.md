@@ -20,7 +20,7 @@
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the **Azure Data Catalog** service.
 
-## What's new for the week of March 11, 2016 release**
+## What's new for the week of March 11, 2016 release
 
 As of the week of March 11, 2016, the following capabilities have been added to Azure Data Catalog:
 
