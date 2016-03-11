@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Balancing Your Cluster With the Azure Service Fabric Cluster Resource Manager"
+   pageTitle="Balancing Your Cluster With the Azure Service Fabric Cluster Resource Manager | Microsoft Azure"
    description="An introduction to balancing your cluster with the Service Fabric Cluster Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Balancing Your Service Fabric Cluster
+# Balancing your service fabric cluster
 The Service Fabric Cluster Resource Manager allows reporting dynamic load, reacting to changes in the cluster, and generating plans for balance, but when does it do these things? What really triggers rebalancing in the cluster if services get placed according to their default load values when they are created? There are several controls related to this.
 
 The first set of controls that govern balancing a set of timers that govern how often the Cluster Resource Manager examines the state of the cluster for things that need to be addressed. These timers relate to the different stages of work that it always does. These are:
@@ -25,6 +25,7 @@ The first set of controls that govern balancing a set of timers that govern how 
 2.	Constraint Checks – this stage checks for and corrects violations of the different placement constraints (rules) within the system. Examples of rules are things like ensuring that nodes are not over capacity and that a service’s placement constraints (more on these later) are met.
 3.	Balancing – this stage checks to see if proactive rebalancing is necessary based on the configured desired level of balance for different metrics, and if so attempts to find an arrangement in the cluster that is more balanced.
 
+## Configuring Cluster Resource Manager Steps and Timers
 Each of these different stages is controlled by a different timer which governs its frequency. So for example, if you only want to deal with placing new service workloads in the cluster every hour (to batch them up), but want regular balancing checks every few seconds, you can enforce that. When each timer fires, a flag is set saying that we need to deal with that portion of the Resource Manager’s duties, and it is picked up in the next overall sweep through the state machine (that’s why these configurations are defined as “minimum intervals”). By default the Resource Manager scans its state and applies updates every 1/10th of a second, sets the placement and constraint check flags every second, and the balancing flag every 5 seconds.
 
 ClusterManifest.xml:
@@ -42,7 +43,7 @@ Today we only perform one of these actions at a time, sequentially. This is so t
 
 Fundamentally the Cluster Resource Manager also needs to know when to consider the cluster imbalanced, and which replicas should be moved in order to fix things. For that we have two other major pieces of configuration: Balancing Thresholds and Activity Thresholds.
 
-## Balancing Thresholds
+## Balancing thresholds
 A Balancing Threshold is the main control for triggering proactive rebalancing. The Balancing Threshold defines how imbalanced the cluster needs to be for a specific metric in order for the Resource Manager to consider it imbalanced and trigger balancing during the next run.
 Balancing Thresholds are defined on a per-metric basis as a part of the cluster manifest:
 
@@ -62,7 +63,8 @@ In this simple example each service is just consuming one unit of some metric. I
 ![Balancing Threshold Example Actions][Image2]
 
 Note that getting below the balancing threshold is not an explicit goal – Balancing Thresholds are just the trigger.
-Activity Threshold
+
+## Activity thresholds
 Sometimes, although nodes are relatively imbalanced, the total amount of load in the cluster is low. This could be just because of the time of day, or because the cluster is new and just getting bootstrapped. In either case, you may not want to spend time balancing because there’s actually very little to be gained – you’ll just be spending network and compute resources to move things around. There’s another control inside of the Resource Manager, known as Activity Threshold, which allows you to specify some absolute lower bound for activity – if no node has at least this much load then balancing will not be triggered even if the Balancing Threshold is met.
 As an example let’s say that we have reports with the following totals for consumption on these nodes. Let’s also say that we retain our Balancing Threshold of 3, but now we also have an Activity Threshold of 1536. In the first case, while the cluster is imbalanced per the balancing threshold no node meets that minimum activity threshold, so we leave things alone. In the bottom example, Node1 is way over the Activity Threshold, so balancing will be performed.
 
@@ -76,7 +78,7 @@ Just like Balancing Thresholds, Activity Thresholds are defined per-metric via t
       </Section>
 ```
 
-## Balancing Services Together
+## Balancing services together
 Something that’s interesting to note is that whether the cluster is imbalanced or not is a cluster-wide decision, but the way we go about fixing it is moving individual service replicas and instances around. This makes sense, right? If memory is stacked up on one node, multiple replicas or instances could be contributing to it, so it could take moving all replicas or instances that use the affected, imbalanced metric.
 
 Occasionally though a customer will call us up or file a ticket saying that a service that wasn’t imbalanced got moved. How could that happen if all of that service’s metrics were balanced, even perfectly so, at the time of the other imbalance? Let’s see!
@@ -91,11 +93,10 @@ The Resource Manager automatically figures out what services are related every t
 
 ![Balancing Services Together][Image5]
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-- [Learn about Metrics](service-fabric-cluster-resource-manager-metrics.md)
-- [Learn about Resource Manager Throttles](service-fabric-cluster-resource-manager-advanced-throttling.md)
-- [Learn about Service Movement Cost](service-fabric-cluster-resource-manager-movement-cost.md)
+- Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about them and how to configure them check out [this article](service-fabric-cluster-resource-manager-metrics.md)
+- Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. To learn more about movement cost, refer to [this article](service-fabric-cluster-resource-manager-movement-cost.md)
+- The Cluster Resource Manager has several throttles that you can configure to slow down churn in the cluster. They're not normally necessary, but if you need them you can learn about them [here](service-fabric-cluster-resource-manager-advanced-throttling.md)
 
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
