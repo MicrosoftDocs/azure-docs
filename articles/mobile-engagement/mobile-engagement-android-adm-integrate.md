@@ -102,10 +102,7 @@ Ensure you have the following permissions in your `AndroidManifest.xml` (before 
 
 ##Grant Engagement OAuth credentials
 
-Submit your OAuth Credentials (Client ID and Client Secret) at $/\#application/YOUR\_APPID/native-push.
-
-You can now select "Any Time" when creating Reach announcements and polls.
-
+Submit your OAuth Credentials (Client ID and Client Secret) in Engagement Portal.
 
 [<https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
 [ADM client library]:https://developer.amazon.com/sdk/adm/setup.html
