@@ -48,20 +48,14 @@ If we look at the settings of our new bmfabrikam.com domain we see the following
 
 Note that the IssuerUri has been set to our bmfabrikam.com domain but our other endpoints are still configured to point to our federation service on adfs.bmcontoso.com.
 
-Another thing that -SupportMultipleDomain does is that it ensures that the AD FS system includes the proper Issuer value in tokens issued for Azure AD. It does this by taking the domain portion of the users UPN and setting this as the domain in the IssuerUri, i.e. https://{upn suffix}/adfs/services/trust. Thus during authentication to Azure AD or Office 365, the IssuerUri element in the user’s token is used to locate the domain in Azure AD.  If a match cannot be found the authentication will fail. 
-
-For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in the token AD FS issues will be set to http://bmcontoso.com/adfs/services/trust. This will match the Azure AD configuration, and authentication will succeed.
-
-The following is the customized claim rule that implements this logic:
-
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type =   "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
-
-
 >[AZURE.IMPORTANT]In order to use the -SupportMultipleDomain switch when attempting to add new or convert already added domains, you need to have setup your federated trust to support them originally.  
 
 
 ## How to update the trust between AD FS and Azure AD
 If you did not setup the federated trust between AD FS and your instance of Azure AD, you may need to re-create this trust.  This is because, when it is originally setup without the -SupportMultipleDomain switch, the IssuerUri is set with the default value.  In the screenshot below you can see the IssuerUri is set to https://adfs.bmcontoso.com/adfs/services/trust
+
+![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/settings2.png)
+
 
 So now, if we have successfully added an new domain in the Azure AD portal and then attempt to convert it using `Convert-MsolDomaintoFederated -DomainName <your domain>`, we get the following error.
 
@@ -97,15 +91,15 @@ Now we see that the IssuerUri has been updated on our original domain http://bmc
 
 And the IssuerUri on our new domain has been set to https://bmfabrikam.com/adfs/services/trust
 
-![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/settings2.png)
+##Issuer value in AD FS tokens issued for Azure AD
+
+Another thing that -SupportMultipleDomain does is that it ensures that the AD FS system includes the proper Issuer value in tokens issued for Azure AD. It does this by taking the domain portion of the users UPN and setting this as the domain in the IssuerUri, i.e. https://{upn suffix}/adfs/services/trust. Thus during authentication to Azure AD or Office 365, the IssuerUri element in the user’s token is used to locate the domain in Azure AD.  If a match cannot be found the authentication will fail. 
+
+For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in the token AD FS issues will be set to http://bmcontoso.com/adfs/services/trust. This will match the Azure AD configuration, and authentication will succeed.
+
+The following is the customized claim rule that implements this logic:
+
+    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type =   "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
 
 
-##Sub domains
-Let’s say I add my sub domain sub.contoso.com to Azure AD.  Because of the way Azure AD manages domains, the sub domain will inherit the settings of the parent domain, in this case contoso.com.  This means the IssuerURI for user@sub.contoso.com will need to be http://contoso.com/adfs/services/trust.  However the standard rule implemented above for
-
-Azure AD, will generate a token with an issuer as http://sub.contoso.com/adfs/services/trust, which will not match the domain’s required value and authentication will fail.
-Luckily, we have a workaround for this as well, but it is not as well built in to our tools.  You have to update your AD FS relying party trust for Microsoft Online manually.  
-
-You have to configure the custom claim rule so that it strips off any subdomains from the user’s UPN suffix when constructing the custom Issuer value.  You can find the exact steps to do this in the steps below.
-
-So in summary, you can have multiple domains with disparate names, as well as sub domains, all federated to the same AD FS server, it just takes a few extra steps to ensure the Issuer values are set correctly for all users.
+also configured to use the SupportMultiple Domains switch as the claim rule update will no longer ever send the default IssuerURI and authentication will fail due to IssuerURI miss match.
