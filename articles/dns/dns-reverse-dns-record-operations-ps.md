@@ -46,7 +46,7 @@ If you wish to add reverse DNS to an existing Public IP Address that doesn't alr
 
 	PS C:\> $pip = Get-AzureRmPublicIpAddress -Name PublicIP -ResourceGroupName NRP-DemoRG-PS
 	PS C:\> $pip.DnsSettings = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSPublicIpAddressDnsSettings
-	PS C:\> $pip.DnsSettings.DomainNameLabel = “contosoapp1”
+	PS C:\> $pip.DnsSettings.DomainNameLabel = "contosoapp1"
 	PS C:\> $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
 	PS C:\> Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 
