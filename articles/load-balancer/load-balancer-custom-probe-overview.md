@@ -81,7 +81,7 @@ For more information about configuring an HTTP health probe or a TCP probe, see 
 TCP and HTTP probes are considered healthy and mark the role instance as healthy when:
 
 -  Load Balancer gets a positive probe the first time the VM boots.
-- The number SuccessFailCount (described earlier) defines the value of successful probes that required to mark the role instance as healthy. If a role instance was removed, the number of successful, successive probes must equal or exceed the value of SuccessFailCount to mark the role instance as UP.
+- The number SuccessFailCount (described earlier) defines the value of successful probes that are required to mark the role instance as healthy. If a role instance was removed, the number of successful, successive probes must equal or exceed the value of SuccessFailCount to mark the role instance as UP.
 
 >[AZURE.NOTE] If the health of a role instance is fluctuating, Load Balancer waits longer before putting the role instance back in the healthy state. This is done via policy to protect the user and the infrastructure.
 
