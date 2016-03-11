@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery"
-   ms.date="07/30/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Finalize your recovered Azure SQL Database

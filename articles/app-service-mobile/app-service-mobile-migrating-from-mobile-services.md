@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migrate your existing Azure Mobile Service to Azure App Service
@@ -74,7 +74,7 @@ upgrade the Mobile Service pricing tier to Standard.  You can do this in the SCA
 
   1.  Log onto the [Azure Classic Portal].
   2.  Select your Mobile Service.
-  3.  Select the **SCALE** tab.
+  3.  Select the **SCALE UP** tab.
   4.  Under **Mobile Service Tier**, click on the **STANDARD** tier.  Click on the **SAVE** icon at the bottom of the page.
 
 Remember to set the pricing tier to an appropriate setting after migration.
@@ -240,7 +240,7 @@ Note: **MS_AadTenants** is stored as a comma-separated list of tenant domains (t
 >
 > Azure App Service provides a separate "no-code" Authentication and Authorization system under the _Authentication / Authorization_
 > Settings menu and the (deprecated)  _Mobile Authentication_ option under the Settings menu.  These options are incompatible with a migrated Azure
-> Mobile Service.  You can [upgrade your site] to take advantage of the Azure App Service authentication.
+> Mobile Service.  You can [upgrade your site](app-service-mobile-net-upgrading-from-mobile-services.md) to take advantage of the Azure App Service authentication.
 
 ### <a name="easytables"></a>Data
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -94,6 +94,8 @@ Now that you have understood the basics of access management, here are some addi
 These articles provide additional information on Azure Active Directory.
 
 * [What is Azure Active Directory?](active-directory-whatis.md)
+
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 

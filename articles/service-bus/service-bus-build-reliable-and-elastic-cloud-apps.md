@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 # Build reliable and elastic cloud apps with messaging 
@@ -37,7 +37,7 @@ Dynamic demand is a reality for today's applications. From seasonal and variable
  
 ## Popular
 
-- [Azure Queues and Azure Service Bus Queues - compared and contrasted](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [Azure Queues and Azure Service Bus queues - compared and contrasted](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Service Bus REST API Reference](http://msdn.microsoft.com/library/azure/hh780717.aspx)
 
 ## Related services

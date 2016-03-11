@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Hash distribution and its effect on query performance in SQL Data Warehouse
@@ -70,7 +70,8 @@ To maximize your performance and overall query throughput try and ensure that yo
 
 Hash distribution key:
 
-1. Is used in `JOIN`, `GROUP BY`, `DISTINCT`, or `HAVING` clauses in your queries.
+1. Is a static value since you cannot update the hash column.
+2. Is used in `JOIN`, `GROUP BY`, `DISTINCT`, or `HAVING` clauses in your queries.
 2. Is not used in `WHERE` clauses
 3. Has lots of different values, at least 1000.
 4. Does not have a disproportionately large number of rows that will hash to a small number of distributions.

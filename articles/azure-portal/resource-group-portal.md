@@ -12,8 +12,8 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/29/2015" 
+	ms.topic="get-started-article" 
+	ms.date="02/11/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -21,11 +21,17 @@
 
 ## Introduction
 
-Historically, managing a resource (such as a database server, database, or web app) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, you had to manually coordinate changes to the application infrastructure. In the Azure portal, you can utilize Azure Resource Manager to create resource groups to deploy and manage all the resources in an application together.
+Azure Resource Manager enables you to deploy and manage your solutions through resource groups. This topic provides an overview of how to use resource groups within the Azure portal. Typically, a resource group contains
+resources related to a specific application. For example, a group may contain a web app that hosts your public website, a SQL Database that stores relational data used
+by the site, and a Storage account that stores non-relational assets. Every resource in a resource group should share the same lifecycle. For more information about
+Resource Manager, see [Resource Manager overview](../resource-group-overview.md).
 
-Typically, a resource group contains resources related to a specific application. For example, a group may contain a web app that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage account that stores non-relational assets. Every resource in a resource group should share the same lifecycle. For more information about Resource Manager, see [Resource Manager overview](../resource-group-overview.md).
+Currently, not every service supports the portal or Resource Manager. For those services, you will need to use
+the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
 
-This topic provides an overview of how to use resource groups within the Azure portal. Currently, not every service supports the portal or Resource Manager. For those services, you will need to use the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/)
+You can also manage resources through Azure PowerShell and Azure CLI. For more information about using those interfaces, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md) and
+[Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
+
 
 ## Create resource group and resources
 
@@ -37,13 +43,17 @@ You give it a name and location, and, if necessary, select a subscription.
 
 ![set group values](./media/resource-group-portal/set-group-properties.png)
 
-However, you do not need to explicitly create an empty resource group. When creating a new resource, you can choose to either create a new resource group or use an existing resource group. The following image shows how to create a new web app with the option of selecting an existing resource group or creating a new one. 
+When deploying your resources, you can choose to deploy them to the resource group you created. The following image shows how to create a new web app in an existing resource group.
 
 ![create resource group](./media/resource-group-portal/select-existing-group.png)
 
+Alternatively, you can decide to create a new resource group when deploying your resources. Instead of selecting one of the existing resource groups in your subscription, select **New** and give the resource group a name.
+
+![create new resource group](./media/resource-group-portal/select-new-group.png)
+
 ## Browse resource groups
 
-You can browse all resource groups by clicking the **Browse All** and **Resource groups**. 
+You can browse all resource groups by clicking **Resource groups**.
 
 ![browse resource groups](./media/resource-group-portal/browse-groups.png)
 
@@ -54,6 +64,20 @@ When you select a particular resource group, you see a resource group blade that
 The resource group blade also gives you a unified view of your billing and monitoring information for all the resources in the resource group.
 
 ![monitoring and billing](./media/resource-group-portal/monitoring-billing.png)
+
+## View your subscription and costs
+
+You can view information about your subscription and the rolled-up costs for all of your resources. Select **Subscriptions** and the subscription you want to see. You might only have one subscription to select.
+
+![subscription](./media/resource-group-portal/select-subscription.png)
+
+Within the subscription blade, you will see a burn rate.
+
+![burn rate](./media/resource-group-portal/burn-rate.png)
+
+And, a breakdown of costs by resource type.
+
+![resource cost](./media/resource-group-portal/cost-by-resource.png)
 
 ## Customizing the interface
 
@@ -83,7 +107,7 @@ Selecting any deployment from the history shows details about that deployment.
 
 You can see the individual operations that were executed during the deployment. The following image shows one operation that succeeded and one that failed.
 
-![operation details](./media/resource-group-portal/operation-details.png) 
+![operation details](./media/resource-group-portal/operation-details.png)
 
 Selecting any of the operations shows more details about the operation. This can be especially helpful when an operation has failed, as shown below. It can help you troubleshoot why a deployment failed. In the following image, you can see that the web site was not deployed because the name was not unique.
 
@@ -107,7 +131,7 @@ You can filter what is shown in the audit log, by selecting **Filter**.
 
 You can select what type of operations to show, such belonging to a resource group or resource, within a specified time span, initiated by a particular caller, or the levels of operation.
 
-![filter options](./media/resource-group-portal/filter-options.png)  
+![filter options](./media/resource-group-portal/filter-options.png)
 
 ## Adding resources to resource groups
 
@@ -131,25 +155,25 @@ You can apply tags to resource groups and resources to logically organize your a
 
 If you want to execute a deployment but not use any of the templates in the Marketplace, you can create customized template that defines the infrastructure for your solution. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
-To deploy a customized template through the portal, select **New**, **Marketplace**, and **Everything**.
-
-![find template deployment](./media/resource-group-portal/launch-template.png)
-
-Search for **Template Deployment**, and select it from the returned list.
+To deploy a customized template through the portal, select **New**, and start searching for **Template Deployment** until you can select it from the options.
 
 ![search template deployment](./media/resource-group-portal/search-template.png)
+
+Select **Template Deployment** from the available resources.
+
+![select template deployment](./media/resource-group-portal/select-template.png)
 
 After launching the template deployment, you can create the custom template and set values for the deployment.
 
 ![create template](./media/resource-group-portal/show-custom-template.png)
 
 ## Next Steps
-Getting Started  
+Getting Started
 
-- For an introduction to the concepts in Resource Manager, see [Azure Resource Manager Overview](../resource-group-overview.md).  
+- For an introduction to the concepts in Resource Manager, see [Azure Resource Manager Overview](../resource-group-overview.md).
 - For an introduction to using Azure PowerShell when deploying resources, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-- For an introduction to using Azure CLI when deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../xplat-cli-azure-resource-manager.md). 
-  
+- For an introduction to using Azure CLI when deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../xplat-cli-azure-resource-manager.md).
 
 
- 
+
+

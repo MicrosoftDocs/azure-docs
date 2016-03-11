@@ -3,7 +3,7 @@
 	description="Lists the attributes that are synchronized to Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="andkjell"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,15 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/07/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect sync: Attributes synchronized to Azure Active Directory
 
-This topic lists the attributes that are synchronized by Azure AD Connect sync.<br>
+This topic lists the attributes that are synchronized by Azure AD Connect sync.  
 The attributes are grouped by the related Azure AD app.
 
+## Attributes to synchronize
+A common question is *what is the list of minimum attributes to synchronize*. The default and recommended approach is to keep the default attributes so a full GAL (Global Address List) can be constructed in the cloud. In some cases there are some attributes which your organization do not want synchronized to the cloud. In this case, start with the list of attributes below and identify those which would contain PII (Personally identifiable information) and cannot be synchronized. Then deselect those during installation using [Azure AD app and attribute filtering](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+
+When deselecting attributes, you should be cautious and only deselect those absolutely not possible to synchronize.
 
 ## Office 365 ProPlus
 
@@ -426,6 +430,27 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 | msExchUCVoiceMailSettings| X|  |  | Enable Unified Messaging (UM) - Online voice mail: Used by Microsoft Lync Server integration to indicate to Lync Server on-premises that the user has voice mail in online services.|
 | msExchUserHoldPolicies| X|  |  | Litigation Hold: Enables cloud services to determine which users are under Litigation Hold.|
 | proxyAddresses| X| X| X| Only the x500 address from Exchange Online is inserted.|
+
+## Device writeback
+Device objects are created in Active Directory. These can be devices joined to Azure AD or domain-joined Windows 10 computers.
+
+| Attribute Name| Device| Comment |
+| --- | :-: | --- |
+| altSecurityIdentities | X| |
+| displayName | X| |
+| dn | X| |
+| msDS-CloudAnchor | X| |
+| msDS-DeviceID | X| |
+| msDS-DeviceObjectVersion | X| |
+| msDS-DeviceOSType | X| |
+| msDS-DeviceOSVersion | X| |
+| msDS-DevicePhysicalIDs | X| |
+| msDS-KeyCredentialLink | X| Only with Windows Server 2016 AD schema |
+| msDS-IsCompliant | X| |
+| msDS-IsEnabled | X| |
+| msDS-IsManaged | X| |
+| msDS-RegisteredOwner | X| |
+
 
 ## Notes about attributes
 - When using an Alternate ID, the on-premises attribute userPrincipalName will be synchronized with the Azure AD attribute onPremisesUserPrincipalName. The Alternate ID attribute, e.g. mail, will be synchronized with the Azure AD attribute userPrincipalName.

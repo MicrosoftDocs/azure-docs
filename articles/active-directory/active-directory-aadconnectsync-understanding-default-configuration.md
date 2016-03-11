@@ -1,20 +1,19 @@
 <properties
-   pageTitle="Azure AD Connect sync: Understanding the default configuration | Microsoft Azure"
-   description="This article describes the default configuration in Azure AD Connect sync."
-   services="active-directory"
-   documentationCenter=""
-   authors="andkjell"
-   manager="stevenpo"
-   editor=""/>
-
+    pageTitle="Azure AD Connect sync: Understanding the default configuration | Microsoft Azure"
+    description="This article describes the default configuration in Azure AD Connect sync."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="01/21/2016"
-   ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+	ms.topic="get-started-article"
+    ms.date="02/12/2016"
+    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Understanding the default configuration
 
@@ -123,7 +122,7 @@ In this configuration we assume to find an enabled account in the account forest
 
 Our goal with the default configuration is:
 
-- Attribute information related to login will be synchronized from the forest with the enabled account.
+- Attribute information related to sign-in will be synchronized from the forest with the enabled account.
 - Attributes which can be found in the GAL (Global Address List) will be synchronized from the forest with the mailbox. If no mailbox can be found, any other forest will be used.
 - If a linked mailbox is found, the linked enabled account must be found for the object to be exported to Azure AD.
 
@@ -193,7 +192,7 @@ The transformation section defines all attribute flows which will apply to the t
 
 ![Edit inbound synchronization rule ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruletransformations.png)
 
-To put this in context, in an Account-Resource forest deployment we expect to find an enabled account in the account forest and a disabled account in the resource forest with Exchange and Lync settings. The Synchronization Rule we are looking at contains the attributes required for login and we want these to flow from the forest where we found an enabled account. All these attribute flows are put together in one Synchronization Rule.
+To put this in context, in an Account-Resource forest deployment we expect to find an enabled account in the account forest and a disabled account in the resource forest with Exchange and Lync settings. The Synchronization Rule we are looking at contains the attributes required for sign-in and we want these to flow from the forest where we found an enabled account. All these attribute flows are put together in one Synchronization Rule.
 
 A transformation can have different types: Constant, Direct, and Expression.
 
@@ -219,7 +218,7 @@ The topic of transformation is large and it provides a large portion of the cust
 
 ### Precedence
 
-We have now looked at some individual Synchronization Rules, but the rules work together in the configuration. In some cases an attribute value is contributed from multiple synchronization rules to the same target attribute. In this case attribute precedence is used to determine which attribute will win. As an example, let us look at the attribute sourceAnchor. This attribute is an important attribute to be able to login to Azure AD. We can find an attribute flow for this attribute in two different Synchronization Rules, **In from AD – User AccountEnabled** and **In from AD – User Common**. Due to Synchronization Rule precedence, the sourceAnchor attribute will be contributed from the forest with an enabled account first if there are several objects joined to the metaverse object. If there are no enabled accounts, then we will use the catch-all Synchronization Rule **In from AD – User Common**. This will ensure that even for accounts which are disabled we will still provide a sourceAnchor.
+We have now looked at some individual Synchronization Rules, but the rules work together in the configuration. In some cases an attribute value is contributed from multiple synchronization rules to the same target attribute. In this case attribute precedence is used to determine which attribute will win. As an example, let us look at the attribute sourceAnchor. This attribute is an important attribute to be able to sign in to Azure AD. We can find an attribute flow for this attribute in two different Synchronization Rules, **In from AD – User AccountEnabled** and **In from AD – User Common**. Due to Synchronization Rule precedence, the sourceAnchor attribute will be contributed from the forest with an enabled account first if there are several objects joined to the metaverse object. If there are no enabled accounts, then we will use the catch-all Synchronization Rule **In from AD – User Common**. This will ensure that even for accounts which are disabled we will still provide a sourceAnchor.
 
 ![Synchronization Rules Inbound](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulesinbound.png)
 
@@ -232,7 +231,7 @@ We now know enough about Synchronization Rules to be able to understand how the 
 | Name | Comment |
 | :------------- | :------------- |
 | In from AD – User Join | Rule for joining connector space objects with metaverse. |
-| In from AD – UserAccount Enabled | Attributes required for login to Azure AD and Office 365. We want these attributes from the enabled account. |
+| In from AD – UserAccount Enabled | Attributes required for sign in to Azure AD and Office 365. We want these attributes from the enabled account. |
 | In from AD – User Common from Exchange | Attributes found in the Global Address List. We assume the data quality is best in the forest where we have found the user’s mailbox. |
 | In from AD – User Common | Attributes found in the Global Address List. In case we didn’t find a mailbox, any other joined object can contribute the attribute value. |
 | In from AD – User Exchange | Will only exist if Exchange has been detected. Will flow all infrastructure Exchange attributes. |

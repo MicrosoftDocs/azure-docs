@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"      
     ms.devlang="na"      
     ms.topic="article"      
-    ms.date="10/05/2015"      
+    ms.date="02/09/2016"      
     ms.author="arramac"/> 
 
 # Partition and scale data in DocumentDB
@@ -28,7 +28,7 @@ After reading this article on data scaling you will be able to answer the follow
  - When would you use each partitioning technique and why?
  - How do you go about building a partitioned application on Azure DocumentDB?
 
-This article presents some concepts about sharding. If you're ready to write code that partitions data using the DocumentDB .NET SDK, take a look at [Partitioning data with the DocumentDB .NET SDK](documentdb-sharding.md).
+This article presents some concepts about sharding. If you're ready to write code that partitions data using the DocumentDB SDKs, take a look at [Partitioning data with the DocumentDB SDK](documentdb-sharding.md).
 
 ## Collections = Partitions
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="02/12/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Set up a Service Fabric cluster by using Visual Studio
@@ -45,7 +45,7 @@ Before the template is deployed to create the cluster, you must provide values f
 |sourceVaultValue         |The *resource ID* of the key vault where the certificate that secures the cluster is stored.|
 |certificateUrlValue      |The URL of the cluster security certificate.|
 
-The Visual Studio Service Fabric Resource Manager template creates a secure cluster that is protected by a certificate. This certificate is identified by the last three template parameters (`certificateThumbprint`, `sourceVaultValue`, and `certificateUrlValue`), and it must exist in an **Azure Key Vault**. For more information on how to create the cluster security certificate, see [How to secure a Service Fabric cluster using certificates](service-fabric-cluster-security.md) article.
+The Visual Studio Service Fabric Resource Manager template creates a secure cluster that is protected by a certificate. This certificate is identified by the last three template parameters (`certificateThumbprint`, `sourceVaultValue`, and `certificateUrlValue`), and it must exist in an **Azure Key Vault**. For more information on how to create the cluster security certificate, see [How to secure a Service Fabric cluster using certificates](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates) article.
 
 ## Optional: Add public application ports
 You may also want to change the public application ports for the cluster before you deploy it. By default, the template opens up just two public TCP ports (80 and 8081). If you need more for your applications, modify the Azure Load Balancer definition in the template. The definition is stored in the main template file (`SecureFabricCluster.json`). Open that file and search for `loadBalancedAppPort`. You will notice that each port is associated with three artifacts:
@@ -111,6 +111,8 @@ After you hit the Deploy button, Visual Studio will prompt you to confirm the te
 You can monitor the progress of the deployment process in the Visual Studio output window. Once the template deployment is completed, your new cluster is ready to use!
 
 If there are any errors, go to the [Azure portal](https://portal.azure.com/) and check **Notifications**. A failed resource-group deployment will leave detailed diagnostic information there.
+
+>[AZURE.NOTE] Service Fabric clusters require a certain number of nodes to be up at all times in order to maintain availability and preserve state - referred to as "maintaining quorum". Consequently, it is typically not safe to shut down all of the machines in the cluster unless you have first performed a [full backup of your state](service-fabric-reliable-services-backup-restore.md).
 
 ## Next steps
 - [Learn about setting up Service Fabric cluster using the Azure portal](service-fabric-cluster-creation-via-portal.md)

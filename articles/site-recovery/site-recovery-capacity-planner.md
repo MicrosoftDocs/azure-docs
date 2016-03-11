@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Plan capacity for virtual machine and physical server protection in Site Recovery | Microsoft Azure"
+	pageTitle="Plan capacity for protecting virtual machines and physical servers in Azure Site Recovery | Microsoft Azure"
 	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,17 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="02/22/2016" 
 	ms.author="raynew"/>
 
-# Plan capacity for virtual machine and physical server protection in Azure Site Recovery
+# Plan capacity for protecting virtual machines and physical servers in Azure Site Recovery
 
-The Capacity Planner tool helps you to figure out your capacity requirements for protecting Hyper-V VMs, VMware VMs, and Windows/Linux physical servers with Azure Site Recovery.
+The Azure Site Recovery Capacity Planner tool helps you to figure out your capacity requirements for protecting Hyper-V VMs, VMware VMs, and Windows/Linux physical servers with Azure Site Recovery.
 
 
 ## Overview
 
-Use the tool to analyze your source environment and workloads, and figure out bandwidth needs, server resources you'll need in your source location, and the resources (virtual machines and storage etc), that you'll need in your target location. 
+Use the Site Recovery Capacity Planner to analyze your source environment and workloads, and figure out bandwidth needs, server resources you'll need in your source location, and the resources (virtual machines and storage etc), that you'll need in your target location. 
 
 You can run the tool in a couple of modes:
 

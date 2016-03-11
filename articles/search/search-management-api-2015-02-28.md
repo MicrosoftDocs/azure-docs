@@ -1,6 +1,20 @@
-<properties pageTitle="Azure Search Management REST API Version 2015-02-28 | Microsoft Azure | Hosted cloud search service" description="Azure Search Management REST API: Version 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties
+	pageTitle="Azure Search Management REST API Version 2015-02-28 | Microsoft Azure | Hosted cloud search service"
+	description="Azure Search Management REST API: Version 2015-02-28"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.date="02/04/2016"
+	ms.author="heidist" />
 
 # Management API: Version 2015-02-28
 
@@ -39,7 +53,7 @@ Note that if your application code handles *service management operations* as we
 
 The sample application documented in [Get started with Azure Search Management REST API](http://go.microsoft.com/fwlink/p/?linkID=516968) demonstrates the authentication techniques for each type of operation. Instructions for configuring a client application to use Active Directory are included in the getting started. 
 
-Access control for Azure Resource Manager uses the built-in Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role. For details, see [Role-based access control in the Azure Classic Portal](../role-based-access-control-configure.md).
+Access control for Azure Resource Manager uses the built-in Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role. For details, see [Role-based access control in the Azure Classic Portal](../active-directory/role-based-access-control-configure.md).
 
 
 ### Summary of APIs ##
@@ -479,6 +493,8 @@ Note that you cannot change the name, location, and sku. Changing any of these p
 Alternatively, you can use PUT.
 
     PUT https://management.azure.com/subscriptions/[subscriptionId]/resourcegroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28
+
+> [AZURE.NOTE] If you use a PUT to update the service, you must use the same request body used in  a [Create Service](#CreateService) request.
 
 ###Request URI Parameters###
 

@@ -13,8 +13,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.topic="get-started-article"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 # What is Azure Machine Learning Studio?

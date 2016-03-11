@@ -3,7 +3,7 @@
 	description="The latest updates for Visual Studio tools for Application Insights." 
 	services="application-insights" 
     documentationCenter=""
-	authors="dimazaid" 
+	authors="aruna" 
 	manager="douge"/>
 <tags 
 	ms.service="application-insights" 
@@ -11,10 +11,53 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
-	ms.author="dimazaid"/>
+	ms.date="02/26/2016" 
+	ms.author="acearun"/>
  
-# Release Notes for Application Insights Tools for Visual Studio v 4.1
+# Release Notes for Application Insights Tools for Visual Studio
+
+## Version 4.3
+### Search telemetry from local debug sessions
+With this release, we are introducing the ability to search for Application Insights telemetry generated in the Visual Studio debug session. Search was previously only possible if you had registered your app with Application Insights. With this release, your app only needs the Application Insights SDK installed to search for local telemetry.
+
+#### If you have an ASP.NET application with the Application Insights SDK
+
+- Debug your application.
+- Open Application Insights Search using one of these ways
+	- View Menu -> Other Windows -> Application Insights Search
+	- Click on the Application Insights Toolbar button
+	- In Solution Explorer, expand ApplicationInsights.config -> Search debug session telemetry
+- If you haven't signed up with Application Insights, the Search window will open up in 'Debug session telemetry' mode.
+- Click the search icon to see your local telemetry.
+
+![Upload complete](./media/app-insights-release-notes-vsix/LocalSearch.png)
+
+
+
+##Version 4.2
+In this release we've added features to make searching data easier in context of events, the ability to jump to code from more data events and an effortless experience to send your logging data to Application Insights. This extension is updated monthly, if you have feedback or feature reuests send it to aidevtools@microsoft.com
+###- 0-click logging experience
+If you're already using NLog, Log4Net or System.Diagnostics tracing then you don't have to worry about moving all your traces to AI, now we're integrating the Application Insights Logging adapters with the normal configuration experience. 
+If you already have one of these logging frameworks configured here's how you get it:
+####If you already have Application Insights added
+- Right-click on the Project Node->Application Insights->Configure Application Insights. Make sure you see the the option to add the right adapter in the configuration window. 
+- Or when you build the solution, notice the pop-up that appears on the top right of your screen and click on configure.
+![Loggin Toast](./media/app-insights-release-notes-vsix/LoggingToast.png)
+
+Once you have the Logging adapter installed, you can run your application and make sure you see the data in the diagnostic tools tab as the following: 
+![Traces](./media/app-insights-release-notes-vsix/Traces.png)
+###- User can jump/find to the code where the telemetry event property is emitted
+With the new release user can click on any value in the event detail and this will search for a matching string in the current open solution. Results will show up in Visual Studio "Find Results" list as shown below:
+![Find Match](./media/app-insights-release-notes-vsix/FindMatch.png)
+###- New screen for not-signed in user in Search Window
+We've improved the look of our Search window to guide users to searching their data in production.
+![Search Window](./media/app-insights-release-notes-vsix/SearchWindow.png)
+###- User can see all telemetry events associated with the event
+A new tab next to event details has been added that contains a pre-defined queries to view all related data to the telemetry event the user is looking at. For example: Request has a field called operation ID and every event associated to this Request will have the same operation ID, so if an exception occured while processing the request it will get the same operation ID as the request to make it easier to find it, and so on. So user looking at a request now, can click on "All telemetry for this operation" this will open a new tab with the new search results.
+![Related Items](./media/app-insights-release-notes-vsix/RelatedItems.png)
+### - Add Forward/Back history in Search
+User can now go back and forth between search results.
+![Go Back](./media/app-insights-release-notes-vsix/GoBAck.png)
 
 ##Version 4.1
 This release comes with a number of new features and improvements to our existing ones. In order to get this release you need to have Update 1 installed on your machine.

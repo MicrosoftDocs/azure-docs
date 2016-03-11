@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Copy Activity Performance & Tuning Guide"
+	pageTitle="Copy Activity Performance & Tuning Guide | Microsoft Azure"
 	description="Learn about key factors that impact performance of data movement in Azure Data Factory via the Copy Activity."
 	services="data-factory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 
@@ -222,7 +222,7 @@ In this case, BZIP2 data compression could be slowing the whole pipeline. Switch
 Here are some performance monitoring and tuning references for a few of the supported data stores:
 
 - Azure Storage (including Azure Blob and Azure Table): [Azure Storage scalability targets](../storage/storage-scalability-targets.md) and [Azure Storage Performance and Scalability Checklist](../storage//storage-performance-checklist.md)
-- Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-service-tiers.md#monitoring-performance) and check the Database Throughput Unit (DTU) percentage.
+- Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-service-tiers.md#monitoring-performance) and check the Database Transaction Unit (DTU) percentage.
 - Azure SQL Data Warehouse: Its capability is measured by Data Warehouse Units (DWUs). Refer to [Elastic performance and scale with SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-performance-scale.md).
 - Azure DocumentDB: [Performance level in DocumentDB](../documentdb/documentdb-performance-levels.md).
 - On-premises SQL Server: [Monitor and Tune for Performance](https://msdn.microsoft.com/library/ms189081.aspx).

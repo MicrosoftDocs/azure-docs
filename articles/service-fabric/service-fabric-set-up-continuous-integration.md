@@ -17,13 +17,15 @@
 
 # Set up continuous integration for a Service Fabric application using Visual Studio Team Services (VSTS)
 
-This article takes you through setting up continuous integration (CI) for a Service Fabric application using Visual Studio Team Services (VSTS) so that your application can be built, packaged, and deployed in an automated fashion. Note that this document reflects the current experience and is expected to change as development progresses. Also, these instructions re-create the cluster from scratch every time.
+This article describes the steps to set up continuous integration for a Service Fabric application using Visual Studio Team Services (VSTS), to assure that your application is built, packaged, and deployed in an automated fashion. Note that these instructions recreate the cluster from scratch every time.
+
+This document reflects the current procedure and is expected to change over time.
 
 ## Prerequisites
 
-To get started, set up your project on Visual Studio Team Services.
+To get started, set up your project on Visual Studio Team Services:
 
-1. If you haven't already, create a Team Services account using your [Microsoft account](http://www.microsoft.com/account).
+1. If you haven't already created a Team Services account, set it up using your [Microsoft account](http://www.microsoft.com/account).
 
 2. Create a new project on Team Services using the Microsoft account.
 
@@ -35,27 +37,31 @@ See [Connect to Visual Studio](https://www.visualstudio.com/get-started/setup/co
 
 ### Set up authentication for automation
 
-Before you can set up the build machine, you need to create a [Service Principal](../resource-group-create-service-principal-portal.md) which the build agent will use to authenticate to Azure. You also need to create a certificate and upload it to a Key Vault, because Azure Key Vault does not support Service Principal authentication. You can perform these steps from any machine. Your dev machine is a good choice.
+Before you can set up the build machine, you need to create a [Service Principal](../resource-group-create-service-principal-portal.md) which the build agent will use to authenticate to Azure. You also need to create a certificate and upload it to an Azure Key Vault, because Key Vault does not support Service Principal authentication. You can perform these steps from any machine. Your dev machine is a good choice.
 
 ### Install Azure PowerShell and sign in
 
 1.	Install Azure PowerShell.
-    - Install PowerShellGet. To do this, install [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), which includes PowerShellGet.
+2. Install PowerShellGet. To do this, install [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), which includes PowerShellGet.
+
     >[AZURE.NOTE] You can skip this step if you are running Windows 10 with the latest updates.
 
-2.	Install and update the AzureRM module.
+3.	Install and update the AzureRM module.
+If you have any previous version of Azure PowerShell installed, remove it:
 
-    1.  If you have any previous version of Azure PowerShell installed, remove it. Right-click on start button, then select **Add/Remove Programs**. Search for "Azure PowerShell" and uninstall it.
+    a. Right-click on the start button, then select **Add/Remove Programs**.
 
-    2.  Launch a PowerShell command prompt.
+    b. Search for "Azure PowerShell" and uninstall it.
 
-    3.	Install the "AzureRM" module using the command `Install-Module AzureRM`.
+    c.  Launch a PowerShell command prompt.
 
-    4.	Update the AzureRM module using the command `Update-AzureRM`.
+    d.	Install the AzureRM module using the command `Install-Module AzureRM`.
+
+    e.	Update the AzureRM module using the command `Update-AzureRM`.
 
 3.	Disable (or enable) Azure data collection.
 
-    Azure cmdlets will prompt you to opt in or out of data collection until you make a choice. These prompts will block automation while waiting for user input. To suppress these prompts by making a choice ahead of time, run one of the following commands:
+    Azure cmdlets will prompt you to opt in or out of data collection until you make a choice. These prompts will block automation while waiting for user input. To suppress these prompts, make a choice ahead of time by running one of the following commands:
 
     - Enable-AzureRmDataCollection
 
@@ -63,13 +69,15 @@ Before you can set up the build machine, you need to create a [Service Principal
 
 4.	Sign in to Azure PowerShell.
 
-    1. Run the command `Login-AzureRmAccount`.
+    a. Run the command `Login-AzureRmAccount`.
 
-    2. In the dialog that appears, enter your Azure credentials.
+    b. In the dialog that appears, enter your Azure credentials.
 
-    3. Run the command `Get-AzureRmSubscription`.
+    c. Run the command `Get-AzureRmSubscription`.
 
-    4. Find the subscription you want to use and then run the command `Select-AzureRmSubscription -SubscriptionId <id for your subscription>`."
+    d. Find the subscription you want to use.
+
+    e. Run the command `Select-AzureRmSubscription -SubscriptionId <id for your subscription>`.
 
 ### Create a service principal
 
@@ -84,77 +92,73 @@ Before you can set up the build machine, you need to create a [Service Principal
     ```
 4.	Run the PowerShell script Create-ServicePrincipal.ps1 with the following parameters:
 
-    |Parameter|Value|
-    |---|---|
-    |DisplayName|Any name.|
-    |HomePage|Any URI. Doesn't have to actually exist.|
-    |IdentifierUri|Any unique URI. Doesn't have to actually exist.|
-    |SecurePassword|$password|
+|Parameter|Value|
+|---|---|
+|DisplayName|Any name.|
+|HomePage|Any URI. Doesn't have to actually exist.|
+|IdentifierUri|Any unique URI. Doesn't have to actually exist.|
+|SecurePassword|$password|
 
-    When the script finishes, it outputs the following three values. Note the values, because they are used as build variables.
+When the script finishes, it outputs the following three values. Note the values, because they are used as build variables.
 
-    - `ServicePrincipalId`
-
-    - `ServicePrincipalTenantId`
-
-    - `ServicePrincipalSubscriptionId`
+*  `ServicePrincipalId`
+*  `ServicePrincipalTenantId`
+*  `ServicePrincipalSubscriptionId`
 
 ### Create a certificate and upload it to a new Azure Key Vault
 
 >[AZURE.NOTE] This example script generates a self-signed certificate, which is not a secure practice and is only acceptable for experimentation. Follow your organization's guidelines to obtain a legitimate certificate instead.
 
-1.	In an admin PowerShell prompt, change to the directory to which you extracted `Manual.zip`.
+1.	In an admin PowerShell prompt, change to the directory from which you extracted `Manual.zip`.
 
-2.	Run the PowerShell script `CreateAndUpload-Certificate.ps1` with the following parameters.
+2.	Run the PowerShell script `CreateAndUpload-Certificate.ps1` with the following parameters:
 
-    |Parameter|Value|
-    |---|---|
-    |KeyVaultLocation|Any value. Must match the location in which you plan to create the cluster.|
-    |CertificateSecretName|Any value.|
-    |SecureCertificatePassword|Any vlaue. Is used when you import the cert on your build machine.|
-    |KeyVaultResourceGroupName|Any value. However, don't use the resource group name that you plan to use for your cluster.|
-    |KeyVaultName|Any value.|
-    |PfxFileOutputPath|Any value. This file is used to import the cert onto your build machine.|
+| Parameter | Value |
+| --- | --- |
+| KeyVaultLocation | Any value. This parameter must match the location in which you plan to create the cluster. |
+| CertificateSecretName | Any value. |
+| SecureCertificatePassword | Any value. This parameter is used when you import the cert on your build machine. |
+| KeyVaultResourceGroupName | Any value. However, don't use the resource group name that you plan to use for your cluster. |
+| KeyVaultName | Any value. |
+| PfxFileOutputPath|Any value. This file is used to import the cert onto your build machine. |
 
-    When the script finishes, it outputs the following three values. Note these values, because they are used as build variables.
+When the script finishes, it outputs the following three values. Note these values, because they are used as build variables.
 
-    - `ServiceFabricCertificateThumbprint`
-
-    - `ServiceFabricKeyVaultId`
-
-    - `ServiceFabricCertificateSecretId`
+* `ServiceFabricCertificateThumbprint`
+* `ServiceFabricKeyVaultId`
+* `ServiceFabricCertificateSecretId`
 
 ## Set up your build machine
 
 ### Install Visual Studio 2015
 
-1.	If you have already provisioned a machine (or plan to provide your own), install [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) on that machine.
+If you have already provisioned a machine, (or plan to provide your own), install [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) on the selected machine.
 
-2.	If you don't yet have a machine, you can quickly provision an Azure virtual machine (VM) with Visual Studio 2015 pre-installed. To do this:
+If you don't yet have a machine, you can quickly provision an Azure Virtual Machine (VM) with Visual Studio 2015 pre-installed. To do this:
 
-    1.	Log in to the [Azure Management Portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-    2.	Choose the **New** command in the top-left corner of the screen.
+2. Choose the **New** command in the top-left corner of the screen.
 
-    3.	Choose **Marketplace**.
+3. Choose **Marketplace**.
 
-    4.	Search for **Visual Studio 2015**.
+4. Search for **Visual Studio 2015**.
 
-    5.	Choose **Compute** > **Virtual Machine** > **From Gallery**.
+5. Choose **Compute** > **Virtual Machine** > **From Gallery**.
 
-    6.	Choose the image **Visual Studio Enterprise 2015 Update 1 With Azure SDK 2.8 on Windows Server 2012 R2**.
+6. Choose the image **Visual Studio Enterprise 2015 Update 1 With Azure SDK 2.8 on Windows Server 2012 R2**.
 
-        >[AZURE.NOTE] Azure SDK isn't a required component, but there currently aren't any images available that have only Visual Studio 2015 installed.
+    >[AZURE.NOTE] Azure SDK isn't a required component, but there currently aren't any images available that have only Visual Studio 2015 installed.
 
-    7.	Follow the instructions on the dialog to create your VM.
+7.	Follow the instructions on the dialog to create your VM.
 
 ### Install Service Fabric SDK
 
-Install the [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-fabric/).
+Install the [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-fabric/) on your machine.
 
 ### Install Azure PowerShell
 
-To install Azure PowerShell, please follow the steps in the previous section **Install Azure PowerShell and Sign-in**. Skip the **Sign in to Azure PowerShell** subsection.
+To install Azure PowerShell, please follow the steps in the previous section **Install Azure PowerShell and sign in**. Skip the **Sign in to Azure PowerShell** subsection.
 
 ### Register the Azure PowerShell modules with the Local Service account
 
@@ -164,17 +168,15 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 
 2. Right-click on the node `HKEY_Users\.Default\Environment` and select **New > Expandable String Value**.
 
-3. Enter `PSModulePath` for the name, and `%PROGRAMFILES%\WindowsPowerShell\Modules` for the value.
-
-	1. Replace `%PROGRAMFILES%` with the value of the `PROGRAMFILES` environment variable.
+3. Enter `PSModulePath` for the name, and `%PROGRAMFILES%\WindowsPowerShell\Modules` for the value. Replace `%PROGRAMFILES%` with the value of the `PROGRAMFILES` environment variable.
 
 ### Import your automation certificate
 
 1.	Import the certificate onto your build machine. To do this:
 
-    1. Copy the PFX file created by the script CreateAndUpload-Certificate.ps1 to your build machine.
+    a. Copy the PFX file created by the script CreateAndUpload-Certificate.ps1 to your build machine.
 
-    2. Open an admin PowerShell prompt and run the following commands, using the password you passed to `CreateAndUpload-Certificate.ps1` earlier.
+    b. Open an admin PowerShell prompt and run the following commands, using the password you passed to `CreateAndUpload-Certificate.ps1` earlier.
 
         ```
         $password = Read-Host -AsSecureString
@@ -183,23 +185,23 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 
 2.	Run the certificate manager.
 
-    1. Open the Windows control panel. Right-click the Start button and choose **Control Panel**.
+    a. Open the Windows control panel. Right-click the Start button and choose **Control Panel**.
 
-    2. Search for **certificate**.
+    b. Search for **certificate**.
 
-    3. Choose **Administrative Tools** > **Manage computer certificates**.
+    c. Choose **Administrative Tools** > **Manage computer certificates**.
 
 3.	Grant Local Service account permission to use your automation certificate.
 
-    1.	Under **Certificates - Local Computer**, expand **Personal**, then choose **Certificates**.
+    a.	Under **Certificates - Local Computer**, expand **Personal**, then choose **Certificates**.
 
-    2.	Find your certificate in the list.
+    b.	Find your certificate in the list.
 
-    3.	Right-click your certificate and then choose **All Tasks** > **Manage Private Keys**.
+    c.	Right-click your certificate and then choose **All Tasks** > **Manage Private Keys**.
 
-    4.	Choose the **Add** button, then enter **Local Service** and click **Check Names**.
+    d.	Choose the **Add** button, then enter **Local Service** and click **Check Names**.
 
-    5.	Choose the **OK** button and then close the certificate manager.
+    e.	Choose the **OK** button and then close the certificate manager.
 
 ![](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
 
@@ -207,41 +209,41 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 
 1.	Download agent.zip. To do this:
 
-    1.	Log on to your team project, such as **https://[your-VSTS-account-name].visualstudio.com**.
+    a.	Log on to your team project, such as **https://[your-VSTS-account-name].visualstudio.com**.
 
-    2.	Choose the 'gear' icon in the upper-right corner of your screen.
+    b.	Choose the gear icon in the upper-right corner of your screen.
 
-    3.	From the control panel, choose the **Agent pools** tab.
+    c.	From the control panel, choose the **Agent pools** tab.
 
-    4.	Choose **Download agent** to download the agent.zip file.
+    d.	Choose **Download agent** to download the agent.zip file.
 
-    5.	Copy agent.zip to the build machine you created earlier.
+    e.	Copy agent.zip to the build machine you created earlier.
 
-    6.	Unzip agent.zip to `C:\agent` (or any location with a short path) on your build machine.
+    f.	Unzip agent.zip to `C:\agent` (or any location with a short path) on your build machine.
 
         >[AZURE.NOTE] If you plan on building ASP.NET 5 Web Services, it's recommended that you  choose the shortest name possible for this folder to avoid running into **PathTooLongExceptions** errors during deployment.
 
 2.	From an admin command prompt, run `C:\agent\ConfigureAgent.cmd`. The script prompts you for the following parameters:
 
-    |Parameter|Value|
-    |---|---|
-    |Agent Name|Accept the default value, `Agent-[machine name]`.|
-    |TFS Url|Enter the URL to your team project, such as, `https://[your-VSTS-account-name].visualstudio.com`.|
-    |Agent Pool|Enter the name of your agent pool. (If you haven't created an agent pool, accept the default value.)|
-    |Work folder|Accept the default value. This is the folder where the build agent will actually build your application. Note: If you plan on building ASP.NET 5 Web Services, it's recommended that you choose the shortest name possible for this folder to avoid running into PathTooLongExceptions errors during deployment.|
-    |Install as Windows Service?|Default value is N. Change the value to **Y**.|
-    |User account to run the service|Accept the default value, `NT AUTHORITY\LocalService`.|
-    |Un-configure existing agent?|Accept the default value, **N**.|
+|Parameter|Value|
+|---|---|
+|Agent Name|Accept the default value, `Agent-[machine name]`.|
+|TFS Url|Enter the URL to your team project, such as, `https://[your-VSTS-account-name].visualstudio.com`.|
+|Agent Pool|Enter the name of your agent pool. (If you haven't created an agent pool, accept the default value.)|
+|Work folder|Accept the default value. This is the folder where the build agent will actually build your application. Note: If you plan on building ASP.NET 5 Web Services, it's recommended that you choose the shortest name possible for this folder to avoid running into PathTooLongExceptions errors during deployment.|
+|Install as Windows Service?|Default value is N. Change the value to **Y**.|
+|User account to run the service|Accept the default value, `NT AUTHORITY\LocalService`.|
+|Un-configure existing agent?|Accept the default value, **N**.|
 
-3. You will be prompted for credentials. Enter the credentials for your Microsoft account that has rights to your team project.
+3.  You will be prompted for credentials. Enter the credentials for your Microsoft account that has rights to your team project.
 
-4. Verify that your build agent was registered. To do this:
+4.  Verify that your build agent was registered. To do this:
 
-    1. Go back to your web browser (should be at page `https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool`) and then refresh the page.
+    a. Go back to your web browser, (should be at  `https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool`), and refresh the page.
 
-    2. Choose the agent pool that you selected when running ConfigureAgent.ps1 earlier.
+    b. Choose the agent pool that you selected when running ConfigureAgent.ps1 earlier.
 
-    3. Verify that your build agent shows up in the list and has a green status highlight. If the highlight is red, the build agent is having trouble connecting to Team Services.
+    c. Verify that your build agent shows up in the list and has a green status highlight. If the highlight is red, the build agent is having trouble connecting to Team Services.
 
 ![](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
 
@@ -250,7 +252,7 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 
 >[AZURE.NOTE] The build definition you create from these instructions will not support multiple concurrent builds, even on separate machines. This is because each build would compete for the same resource group/cluster. If you want to run multiple build agents, you will need to modify the following instructions/scripts to prevent this interference.
 
-### Add the continuous integration scripts to source control for your application.
+### Add the continuous integration scripts to source control for your application
 
 1.	Extract [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) to any folder on your machine. Copy the contents of `Powershell\Automation` to any folder in source control.
 
@@ -260,43 +262,44 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 
 1.	Create an empty build definition. To do this:
 
-    1.	Open your project in Visual Studio Team Services.
+    a.	Open your project in Visual Studio Team Services.
 
-    2.	Choose the **Build** tab.
+    b.	Choose the **Build** tab.
 
-    3.	Choose the green **+** sign to create a new build definition.
+    c.	Choose the green **+** sign to create a new build definition.
 
-    4.	Choose **Empty** and then choose the **Next** button.
+    d.	Choose **Empty** and then choose the **Next** button.
 
-    5.  Verify that the right repository and branch are selected.
+    e.  Verify that the right repository and branch are selected.
 
-    6.  Select the agent queue to which you registered your build agent, and check the **Continuous Integration** checkbox.
+    f.  Select the agent queue to which you registered your build agent, and check the **Continuous Integration** checkbox.
 
 2.	On the **Variables** tab, create the following variables with these values.
 
-    |Variable|Value|Secret|Allow at Queue Time|
-    |---|---|---|---|
-    |BuildConfiguration|Release||X|
-    |BuildPlatform|x64|||
-    |ServicePrincipalPassword|The password that you passed to CreateServicePrincipal.ps1|X||
-    |ServicePrincipalId|From the output of CreateServicePrincipal.ps1|||
-    |ServicePrincipalTenantId|From the output of CreateServicePrincipal.ps1|||
-    |ServicePrincipalSubscriptionId|From the output of CreateServicePrincipal.ps1|||
-    |ServiceFabricCertificateThumbprint|From the output of GenerateCertificate.ps1|||
-    |ServiceFabricKeyVaultId|From the output of GenerateCertificate.ps1|||
-    |ServiceFabricCertificateSecretId|From the output of GenerateCertificate.ps1|||
-    |ServiceFabricClusterName|Any name you want.|||
-    |ServiceFabricClusterResourceGroupName|Any name you want.|||
-    |ServiceFabricClusterLocation|Any name that matches the location of your key vault.|||
-    |ServiceFabricClusterAdminPassword|Any name you want.|X||
-    |ServiceFabricClusterResourceGroupTemplateFilePath|`<path/to/extracted/automation/scripts/ArmTemplate-Full-3xVM-Secure.json>`|||
-    |ServiceFabricPublishProfilePath|`<path/to/your/publish/profiles/MyPublishProfile.xml>` Note: The connection endpoint in your publish profile will be ignored. The connection endpoint for your temporary cluster is used instead.|||
-    |ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
-    |ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` This should be the folder containing your .sfproj file.||||
+|Variable|Value|Secret|Allow at Queue Time|
+|---|---|---|---|
+|BuildConfiguration|Release||X|
+|BuildPlatform|x64|||
+|ServicePrincipalPassword|The password that you passed to CreateServicePrincipal.ps1|X||
+|ServicePrincipalId|From the output of CreateServicePrincipal.ps1|||
+|ServicePrincipalTenantId|From the output of CreateServicePrincipal.ps1|||
+|ServicePrincipalSubscriptionId|From the output of CreateServicePrincipal.ps1|||
+|ServiceFabricCertificateThumbprint|From the output of GenerateCertificate.ps1|||
+|ServiceFabricKeyVaultId|From the output of GenerateCertificate.ps1|||
+|ServiceFabricCertificateSecretId|From the output of GenerateCertificate.ps1|||
+|ServiceFabricClusterName|Any name you want.|||
+|ServiceFabricClusterResourceGroupName|Any name you want.|||
+|ServiceFabricClusterLocation|Any name that matches the location of your key vault.|||
+|ServiceFabricClusterAdminPassword|Any name you want.|X||
+|ServiceFabricClusterResourceGroupTemplateFilePath|`<path/to/extracted/automation/scripts/ArmTemplate-Full-3xVM-Secure.json>`|||
+|ServiceFabricPublishProfilePath|`<path/to/your/publish/profiles/MyPublishProfile.xml>` Note: The connection endpoint in your publish profile will be ignored. The connection endpoint for your temporary cluster is used instead.|||
+|ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
+|ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` This should be the folder containing your .sfproj file.||||
 
-3.	Save the build definition and give it a name. (You can change this name later if you want.)
+3.  Save the build definition and give it a name. (You can change this name later if you want.)
 
 ### Add a "Build" step
+@<Author GitHub alias> – Please review the copy edit to your article, address any questions I’ve entered in the comments, and let me know if I’ve changed the technical meaning anywhere.
 
 1.	On the **Build** tab, choose the **Add build step…** command."
 
@@ -322,7 +325,7 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 
 3.	Choose the pencil icon next to the build step's name and rename it to **Package**.
 
-4.	Choose the **…** button next to the **Solution** field and then select your application project's .sfproj file.
+4.	Choose the **…** button next to the **Solution** field and select your application project's .sfproj file.
 
 5.	Enter `$(BuildPlatform)` for **Platform**.
 
@@ -336,7 +339,7 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 
 ### Add a "Remove cluster resource group" step
 
-If a previous build did not clean up after itself (such as if the build was cancelled before it could clean up), there may be an existing resource group that will conflict with the new one. To avoid conflicts, clean up any leftover resource group (and its associated resources) before creating a new one.
+If a previous build did not clean up after itself (for example, if the build was cancelled before it could clean up), there might be an existing resource group that could conflict with the new one. To avoid conflicts, clean up any leftover resource group (and its associated resources) before creating a new one.
 
 1.	On the **Build** tab, choose the **Add build step…** command.
 
@@ -384,16 +387,16 @@ Now that you're done with the temporary cluster, you should clean it up. If you 
 
 7.	Save the build definition.
 
-### Try it!
+### Try it
 
-Click **Queue Build** to start a build. Builds will also be triggered upon push/checkin.
+Click **Queue Build** to start a build. Builds will also be triggered upon push or check in.
 
 
 ## Alternative solutions
 
-The previous instructions create a new cluster for each build and remove it at the end of the build. If you'd rather have each build perform an application upgrade (to an existing cluster) instead, do the following steps.
+The previous instructions create a new cluster for each build and remove it at the end of the build. If you'd rather have each build perform an application upgrade (to an existing cluster) instead, use the following steps:
 
-1.	Manually create a test cluster through the Azure Management Portal or Azure PowerShell. You can refer to the `ProvisionAndDeploy-SecureCluster.ps1` script as a reference.
+1.	Manually create a test cluster through the Azure portal or Azure PowerShell. You can refer to the `ProvisionAndDeploy-SecureCluster.ps1` script as a reference.
 
 2.	Configure your publish profile to support application upgrade by following [these instructions](service-fabric-visualstudio-configure-upgrade.md).
 

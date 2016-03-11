@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev;sunliangms;sachouks;mohabib" />
 
 # Move Data to and from Azure Blob Storage
@@ -30,7 +30,7 @@ Which method is best for you will depend on your scenario. The [Scenarios for th
 
 > [AZURE.NOTE] For a complete introduction to Azure blob storage, please refer to [Azure Blob Basics](../storage-dotnet-how-to-use-blobs.md) and  [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx). 
 
-> [AZURE.TIP] As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create and schedule a pipeline that will download data from Azure blob storage, pass it to a published Azure Machine Learning web service, receive the predictive analytics results, and upload the results to storage. For more information, see [Create predictive pipelines using Azure Data Factory and Azure Machine Learning](../data-factory/data-factory-create-predictive-pipelines.md).
+> [AZURE.TIP] As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create and schedule a pipeline that will download data from Azure blob storage, pass it to a published Azure Machine Learning web service, receive the predictive analytics results, and upload the results to storage. For more information, see [Create predictive pipelines using Azure Data Factory and Azure Machine Learning](data-factory-azure-ml-batch-execution-activity.md).
 
 ## Prerequisites
 

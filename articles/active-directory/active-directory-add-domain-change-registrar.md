@@ -36,5 +36,4 @@ If you use your custom domain name with Office 365, Intune, or other services th
 - [Add company branding to your Sign In and Access Panel pages ](active-directory-add-company-branding.md)
 - [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md)
 - [Assign users to a custom domain](active-directory-add-domain-add-users.md)
-- [Built-in domain name reference for Azure Active Directory](active-directory-add-domain-builtin-domains.md)
 - [Delete a custom domain in Azure Active Directory](active-directory-add-domain-delete-domain.md)

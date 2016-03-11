@@ -3,7 +3,7 @@
 	description="Once a machine learning service is deployed, the RESTFul web service that is made available can be consumed either as request-response service or as a batch execution service."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="garyericson"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="10/19/2015"
-	ms.author="bradsev" />
+	ms.date="02/21/2016"
+	ms.author="garye" />
 
 
 # How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment
@@ -61,19 +61,19 @@ A Batch Execution Service (BES) is a service that handles high volume, asynchron
 A BES would be useful when responses are not needed immediately, such as for regularly scheduled scoring for individuals or internet of things (IOT) devices.
 
 ## Examples
-To show how both RRS and BES work, we use an example Azure Web Service. This service would be used in an IOT (Internet Of Things) scenario. To keep it simple, our device only sends up one value, `cog_speed`, and gets a single answer back.
+To show how both RRS and BES work, we use an example Azure web service. This service would be used in an IOT (Internet Of Things) scenario. To keep it simple, our device only sends up one value, `cog_speed`, and gets a single answer back.
 
-There are four pieces of information that are needed to call either the RRS or BES service. This information is readily available from the service pages in [Azure Machine Learning service pages](https://studio.azureml.net) once the experiment has been deployed. Click on the WEB SERVICES link at the left of the screen and you will see the deployed services. To find information about a specific service, there are API help page links for both RRS and BES.
+There are four pieces of information that are needed to call either the RRS or BES service. This information is readily available from the service pages in [Azure Machine Learning Studio](https://studio.azureml.net) once the experiment has been deployed. Click on the WEB SERVICES tab at the left of the screen and you will see the deployed services. Click a service to find the following links and information for both RRS and BES:
 
-1.	The **service API Key**, available on the services main page
-2.	The **service URI**, available on the API help page for the chosen service
-3.	The expected **API request body**, available on the API help page for the chosen service
-4.	The expected **API response body**, available on the API help page for the chosen service
+1.	The service **API key**, available on the services Dashboard
+2.	The service **request URI**, available on the API help page for the chosen service
+3.	The expected API **request headers** and **body**, available on the API help page for the chosen service
+4.	The expected API **response headers** and **body**, available on the API help page for the chosen service
 
 In the two examples below, the C# language is used to illustrate the code needed and the targeted platform is a Windows 8 desktop.
 
 ### RRS Example
-On the API help page, aside from the URI, you will input and output definitions and code samples. The API input is called out, for this service specifically, and is the payload of the API call.
+Click **REQUEST/RESPONSE** under **API HELP PAGE** on the service Dashboard to view the API help page. On this page, aside from the URI, you will find input and output definitions and code samples. The API input, for this service specifically, is shown below and is the payload of the API call.
 
 **Sample Request**
 
@@ -97,7 +97,7 @@ On the API help page, aside from the URI, you will input and output definitions 
 	}
 
 
-Similarly, the API response is also called out, again for this service specifically.
+Similarly, the API response for this service is also shown below.
 
 **Sample Response**
 
@@ -125,9 +125,9 @@ Similarly, the API response is also called out, again for this service specifica
 	  "GlobalParameters": {}
 	}
 
-Towards the bottom of the page you will find the code examples. Below is the code sample for the C# implementation
+Towards the bottom of the help page you will find the code examples. Below is the code sample for the C# implementation.
 
-**Sample Code**
+**Sample Code in C#**
 
 	using System;
 	using System.Collections.Generic;
@@ -199,8 +199,60 @@ Towards the bottom of the page you will find the code examples. Below is the cod
 	    }
 	}
 
+**Sample Code in Java**
+
+The following sample code  shows how to construct a REST API request in Java.  It assumes that variables (apikey and apiurl) has necessary API details and the variable jsonBody has a correct JSON object as expected by the REST API to make a successful prediction. You can download the full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp). This Java sample requires [apache http client library](https://hc.apache.org/downloads.cgi).
+
+	/**
+	 * Download full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
+ 	 */
+    	/**
+     	  * Call REST API for retrieving prediction from Azure ML 
+     	  * @return response from the REST API
+     	  */	
+    	public static String rrsHttpPost() {
+        
+        	HttpPost post;
+        	HttpClient client;
+        	StringEntity entity;
+        
+        	try {
+            		// create HttpPost and HttpClient object
+            		post = new HttpPost(apiurl);
+            		client = HttpClientBuilder.create().build();
+            
+            		// setup output message by copying JSON body into 
+            		// apache StringEntity object along with content type
+            		entity = new StringEntity(jsonBody, HTTP.UTF_8);
+            		entity.setContentEncoding(HTTP.UTF_8);
+            		entity.setContentType("text/json");
+
+            		// add HTTP headers
+            		post.setHeader("Accept", "text/json");
+            		post.setHeader("Accept-Charset", "UTF-8");
+        
+            		// set Authorization header based on the API key
+            		post.setHeader("Authorization", ("Bearer "+apikey));
+            		post.setEntity(entity);
+
+            		// Call REST API and retrieve response content
+            		HttpResponse authResponse = client.execute(post);
+            
+            		return EntityUtils.toString(authResponse.getEntity());
+            
+        	}
+        	catch (Exception e) {
+            
+            		return e.toString();
+        	}
+    
+    	}
+    
+    	
+ 
+
 ### BES Example
-On the API help page, in addition to the URI, you will find information about several calls that are available. Unlike the RRS service, the BES service is asynchronous. This means that the BES API is simply queuing up a job to be executed, and the caller polls the job's status to see when it has completed. Here are the operations currently supported for batch jobs:
+Unlike the RRS service, the BES service is asynchronous. This means that the BES API is simply queuing up a job to be executed, and the caller polls the job's status to see when it has completed. Here are the operations currently supported for batch jobs:
 
 1. Create (submit) a batch job
 1. Start this batch job
@@ -209,17 +261,19 @@ On the API help page, in addition to the URI, you will find information about se
 
 **1. Create a Batch Execution Job**
 
-When creating a batch job for your Azure Machine Learning service endpoint, one can specify several parameters that will define this batch execution:
+When creating a batch job for your Azure Machine Learning service endpoint, you can specify several parameters that will define this batch execution:
 
-* **Input**: represents a blob reference to where the batch job's input is stored.
-* **GlobalParameters**: represents the set of global parameters one can define for their experiment. An Azure Machine Learning experiment can have both required and optional parameters that customize the service's execution, and the caller is expected to provide all required parameters, if applicable. These parameters are specified as a collection of key-value pairs.
-* **Outputs**: if the service has defined one or more outputs, we allow the caller to redirect any of them to an Azure blob location of their choice. This will allow you to save the service's output(s) in a preferred location and under a predictable name, as otherwise the output blob name is randomly generated. **NOTE** that the service expects the output content, based on its type, to be saved as supported formats:
-  - data set outputs: can save as **.csv, .tsv, .arff**
-  - trained model outputs: can save as **.ilearner**
+* **Input**: represents a blob reference where the batch job's input is stored.
+* **GlobalParameters**: represents the set of global parameters you can define for their experiment. An Azure Machine Learning experiment can have both required and optional parameters that customize the service's execution, and the caller is expected to provide all required parameters, if applicable. These parameters are specified as a collection of key-value pairs.
+* **Outputs**: if the service has defined one or more outputs, the caller can redirect any of them to an Azure blob location. This allows you to save the service's output(s) in a preferred location and under a predictable name, otherwise the output blob name is randomly generated. 
 
-  Output location overrides are specified as a collection of *<output name, blob reference>* pairs, where the *output name* is the user defined name for a specific output node (also shown on the service's API help page), and *blob reference* is a reference to an Azure blob location where the output is to be redirected to.
+    Note that the service expects the output content, based on its type, to be saved as supported formats:
+  - dataset outputs: can be saved as **.csv, .tsv, .arff**
+  - trained model outputs: can be saved as **.ilearner**
 
-All these job creation parameters can be optional depending on the nature of your service. For example, services with no input node defined, do not require passing in an *Input* parameter, and the output location override feature is completely optional, as outputs will otherwise be stored in the default storage account that was set up for your Azure Machine Learning workspace. Below, we show a sample request payload, as passed to the REST API, for a service where only the input information is passed in:
+  Output location overrides are specified as a collection of *<output name, blob reference>* pairs, where the *output name* is the user defined name for a specific output node (also shown on the service's API help page), and *blob reference* is a reference to an Azure blob location to which the output is to be redirected.
+
+All these job creation parameters can be optional depending on the nature of your service. For example, services with no input node defined do not require passing in an *Input* parameter. Likewise, the output location override feature is completely optional, as outputs will otherwise be stored in the default storage account that was set up for your Azure Machine Learning workspace. Below, we show a sample request payload, as passed to the REST API, for a service where only the input information is provided:
 
 **Sample Request**
 
@@ -235,7 +289,7 @@ All these job creation parameters can be optional depending on the nature of you
 	  "GlobalParameters": null
 	}
 
-The response to the batch job creation API is the unique job id that was associated to your job. This id is very important because it provides the only means for you to reference this job in the system for other operations.  
+The response to the batch job creation API is the unique job ID that was associated to your job. This ID is very important because it provides the only means for you to reference this job in the system for other operations.  
 
 **Sample Response**
 
@@ -243,11 +297,11 @@ The response to the batch job creation API is the unique job id that was associa
 
 **2. Start a Batch Execution Job**
 
-Creating a batch job only registers it within the system, and places it in a *Not started* state. To actually schedule the job for execution, you will have to call the **start** API described on the service endpoint's API help page and provide the job id obtained when the job was created.
+Creating a batch job registers it within the system and places it in a *Not started* state. To actually schedule the job for execution, you call the **start** API described on the service endpoint's API help page and provide the job ID obtained when the job was created.
 
 **3. Get the Status of a Batch Execution Job**
 
-You can poll the status of your asynchronous batch job at any time by passing the job's id to the GetJobStatus API. The API response will contain an indicator of the job's current state, as well as the actual results of the batch job if this has completed successfully. In the case of an error, more information about the actual reasons behind the failure are returned in the *Details* property.
+You can poll the status of your asynchronous batch job at any time by passing the job's ID to the GetJobStatus API. The API response will contain an indicator of the job's current state, as well as the actual results of the batch job if it has completed successfully. In the case of an error, more information about the actual reasons behind the failure are returned in the *Details* property, as shown here:
 
 **Response Payload**
 
@@ -265,7 +319,7 @@ You can poll the status of your asynchronous batch job at any time by passing th
 * Cancelled
 * Finished
 
-The *Results* property is populated only if the job has completed successfully (it is **null** otherwise). Upon the job's completion and if the service has at least one output node defined, the results will be returned as a collection of *[output name, blob reference]* pairs, where the blob reference is a SAS read-only reference to the blob containing the actual result.
+The *Results* property is populated only if the job has completed successfully (it is **null** otherwise). Upon the job has completed, and if the service has at least one output node defined, the results will be returned as a collection of *[output name, blob reference]* pairs, where the blob reference is a SAS read-only reference to the blob containing the actual result.
 
 **Sample Response**
 
@@ -297,11 +351,11 @@ A running batch job can be cancelled at any time by calling the designated Cance
 
 
 
-#### Using the [BES SDK](machine-learning-consume-web-services.md#batch-execution-service-sdk)
+#### Using the BES SDK
 
-The [BES SDK Nugget package](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) provides functions that simplify calling BES to score in batch mode. To install the Nuget package, in Visual Studio, go to Tools, then select Nuget Package Manager, and click Package Manager Console.
+The [BES SDK Nugget package](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) provides functions that simplify calling BES to score in batch mode. To install the Nuget package, in Visual Studio in the **Tools** menu, select **Nuget Package Manager** and click **Package Manager Console**.
 
-AzureML experiments that are deployed as web services can include web service input modules which means they expect the input to be provided through the web service call in the form of a reference to a blob location. There is also the option of not using a web service input module and using a Reader module instead. In this case, the Reader typically would read from a SQL DB using a query at run time to get the data. Web service parameters can be used to dynamically point to other servers or tables, etc. The SDK supports both of these patterns.
+Azure Machine Learning experiments that are deployed as web services can include web service input modules. This means that they expect the input to be provided through the web service call in the form of a reference to a blob location. There is also the option of not using a web service input module and using a **Reader** module instead. In this case, the **Reader** module typically would read from a SQL DB using a query at run time to get the data. Web service parameters can be used to dynamically point to other servers or tables, etc. The SDK supports both of these patterns.
 
 The code sample below demonstrates how you can submit and monitor a batch job against an Azure Machine Learning service endpoint using the BES SDK. Note the comments for details on the settings and calls.
 
@@ -432,3 +486,201 @@ The code sample below demonstrates how you can submit and monitor a batch job ag
 	        }
 	    }
 	}
+
+#### Sample code in Java for BES
+The Batch execution service REST API takes the JSON consisting of a reference to an input sample csv and a output sample csv as shown below and creates a job in the Azure ML to do the batch predictions. You can view the full code in [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). This Java sample requires [apache http client library](https://hc.apache.org/downloads.cgi). 
+
+
+	{ "GlobalParameters": {}, 
+    	"Inputs": { "input1": { "ConnectionString": 	"DefaultEndpointsProtocol=https;
+			AccountName=myAcctName; AccountKey=Q8kkieg==", 
+        	"RelativeLocation": "myContainer/sampleinput.csv" } }, 
+    	"Outputs": { "output1": { "ConnectionString": 	"DefaultEndpointsProtocol=https;
+			AccountName=myAcctName; AccountKey=kjC12xQ8kkieg==", 
+        	"RelativeLocation": "myContainer/sampleoutput.csv" } } 
+	} 
+
+
+#####Create a BES job	
+	    
+	    /**
+	     * Call REST API to create a job to Azure ML 
+	     * for batch predictions
+	     * @return response from the REST API
+	     */	
+	    public static String besCreateJob() {
+	        
+	        HttpPost post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpPost(apiurl);
+	            client = HttpClientBuilder.create().build();
+	            
+	            // setup output message by copying JSON body into 
+	            // apache StringEntity object along with content type
+	            entity = new StringEntity(jsonBody, HTTP.UTF_8);
+	            entity.setContentEncoding(HTTP.UTF_8);
+	            entity.setContentType("text/json");
+	
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+				// note a space after the word "Bearer " - don't miss that
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	            post.setEntity(entity);
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	            
+	            jobId = EntityUtils.toString(authResponse.getEntity()).replaceAll("\"", "");
+	            
+	            
+	            return jobId;
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    
+	    }
+	    
+#####Start a previously created BES job	        
+	    /**
+	     * Call REST API for starting prediction job previously submitted 
+	     * 
+	     * @param job job to be started 
+	     * @return response from the REST API
+	     */	
+	    public static String besStartJob(String job){
+	        HttpPost post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpPost(startJobUrl+"/"+job+"/start?api-version=2.0");
+	            client = HttpClientBuilder.create().build();
+	         
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	            
+	            if (authResponse.getEntity()==null)
+	            {
+	                return authResponse.getStatusLine().toString();
+	            }
+	            
+	            return EntityUtils.toString(authResponse.getEntity());
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    }
+#####Cancel a previously created BES job
+	    
+	    /**
+	     * Call REST API for canceling the batch job 
+	     * 
+	     * @param job job to be started 
+	     * @return response from the REST API
+	     */	
+	    public static String besCancelJob(String job) {
+	        HttpDelete post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpDelete(startJobUrl+job);
+	            client = HttpClientBuilder.create().build();
+	         
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	         
+	            if (authResponse.getEntity()==null)
+	            {
+	                return authResponse.getStatusLine().toString();
+	            }
+	            return EntityUtils.toString(authResponse.getEntity());
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    }
+	    
+###Other programming environments
+You can also generate the code in many other languages using a swagger document from the API help page and following the directions provided at [swagger.io](http://swagger.io/) site. Go to the [swagger.io](http://swagger.io/swagger-codegen/) and follow the instructions to download swagger code, java and apache mvn. Here is the summary of instructions on setting up swagger for other programming environments.
+
+* Make sure Java 7 or higher is installed
+* Install apache mvn (On ubuntu, you can use *apt-get install mvn*)
+* Goto github for swagger and download the swagger project as a zip file
+* Unzip swagger
+* Build swagger tools by running *mvn package* from the swagger's source directory
+
+Now you can use any of the swagger tools. Here are the instructions to generate Java client code. 
+
+* Go to the Azure ML API Help page (example [here](https://studio.azureml.net/apihelp/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/jobs))
+* Find the URL for swagger.json for Azure ML REST APIs (second last bullet on top of API help page)
+* Click the swagger document link (example [here](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument))
+* Use the following command as shown in the [Read Me file of swagger](https://github.com/swagger-api/swagger-codegen/blob/master/README.md) to generate the client code
+
+**Sample Command Line to generate client code**
+
+	java -jar swagger-codegen-cli.jar generate\
+	 -i https://ussouthcentral.services.azureml.net:443/workspaces/\
+	fb62b56f29fc4ba4b8a8f900c9b89584/services/26a3afce1767461ab6e73d5a206fbd62/swagger.json\
+	 -l java -o /home/username/sample
+
+* Combine values in the fields host, basePath and "/swagger.json" in the sample of a swagger [API help page](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument) shown below to construct swagger URL used in the command line above
+
+**Sample API Help Page**
+
+
+	{
+	  "swagger": "2.0",
+	  "info": {
+	    "version": "2.0",
+	    "title": "Sample 5: Binary Classification with Web Service: Adult Dataset [Predictive Exp.]",
+	    "description": "No description provided for this web service.",
+	    "x-endpoint-name": "default"
+	  },
+	  "host": "ussouthcentral.services.azureml.net:443",
+	  "basePath": "/workspaces/afbd553b9bac4c95be3d040998943a4f/services/26a3afce1767461ab6e73d5a206fbd62",
+	  "schemes": [
+	    "https"
+	  ],
+	  "consumes": [
+	    "application/json"
+	  ],
+	  "produces": [
+	    "application/json"
+	  ],
+	  "paths": {
+	    "/swagger.json": {
+	      "get": {
+	        "summary": "Get swagger API document for the web service",
+	        "operationId": "getSwaggerDocument",
+	        

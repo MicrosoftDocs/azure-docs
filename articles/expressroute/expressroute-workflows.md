@@ -34,8 +34,7 @@ The figure and corresponding steps below show the tasks you must follow in order
 	-  Enable Azure public peering - You must enable Azure public peering if you wish to connect to Azure services hosted on public IP addresses. This is a requirement to access Azure resources if you have chosen to enable default routing for Azure private peering.
 	-  Enable Microsoft peering - You must enable this to access Office 365 and CRM online services. 
 	
-	>[AZURE.IMPORTANT] If you are enabling Microsoft peering, ensure that Azure public peering is also enabled to access Azure AD. You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
-
+	>[AZURE.IMPORTANT] You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 

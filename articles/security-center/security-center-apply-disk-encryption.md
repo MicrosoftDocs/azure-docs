@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Apply disk encryption | Microsoft Azure"
+   pageTitle="Apply disk encryption in Azure Security Center | Microsoft Azure"
    description="This document shows you how to implement the Azure Security Center recommendation **Apply disk encryption**."
    services="security-center"
    documentationCenter="na"
@@ -13,32 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/03/2016"
+   ms.date="02/23/2016"
    ms.author="terrylan"/>
 
-# Apply disk encryption
+# Apply disk encryption in Azure Security Center
 
-Azure Security Center will recommend that you apply disk encryption if you have Windows or Linux VM disks that are not encrypted. Azure disk encryption lets you encrypt your Windows and Linux IaaS VM disks.  Encryption is recommended for both the OS and data volumes on your VM.
+Azure Security Center will recommend that you apply disk encryption if you have Windows or Linux VM disks that are not encrypted using Azure Disk Encryption. Disk Encryption lets you encrypt your Windows and Linux IaaS VM disks.  Encryption is recommended for both the OS and data volumes on your VM.
 
 
-Disk encryption leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide OS and data encryption to help protect and safeguard your data and meet your organizational security and compliance commitments. Disk encryption is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the VM disks are encrypted at rest in your [Azure Storage](https://azure.microsoft.com/documentation/services/storage/).
+Disk Encryption leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide OS and data encryption to help protect and safeguard your data and meet your organizational security and compliance commitments. Disk Encryption is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk encryption keys and secrets in your Key Vault subscription, while ensuring that all data in the VM disks are encrypted at rest in your [Azure Storage](https://azure.microsoft.com/documentation/services/storage/).
 
-> [AZURE.NOTE] Azure disk encryption is supported on the following Windows server operating systems - Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2. Disk encryption is supported on the following Linux server operating systems - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES).
-
-## What you need to know about disk encryption
-
-To learn about enabling disk encryption on Windows and Linux VMs, see:
-
-- [Prerequisites to enable disk encryption](../azure-security-disk-encryption.md#Prerequisites) on Azure IaaS VMs
-- [High level steps required to enable disk encryption](../azure-security-disk-encryption.md#Encryption-Workflow) for Windows and Linux VMs
-- [Enable encryption on existing or running IaaS Windows VM](../azure-security-disk-encryption.md#Enable-encryption-on-existing-or-running-IaaS-Windows-VM-in-Azure) in Azure
-- [Enable encryption on existing or running IaaS Linux VM](../azure-security-disk-encryption.md#Enable-encryption-on-existing-or-running-IaaS-Linux-VM-in-Azure) in Azure
-- [Set and configure Azure Key Vault](../azure-security-disk-encryption.md#Setting-and-Configuring-Azure-Key-Vault-for-Azure-disk-encryption-usage) for disk encryption usage
+> [AZURE.NOTE] Azure Disk Encryption is supported on the following Windows server operating systems - Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2. Disk encryption is supported on the following Linux server operating systems - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES).
 
 ## Implement the recommendation
 
 1. In the **Recommendations** blade, select **Apply disk encryption**.
-2. In the **Apply disk encryption** blade select from the list of VMs missing disk encryption and follow the encryption instructions.
+2. In the **Apply disk encryption** blade, you will see a list of VMs for which Disk Encryption is recommended.
+3. Follow the instructions to apply encryption to these VMs.
 
 ![][1]
 

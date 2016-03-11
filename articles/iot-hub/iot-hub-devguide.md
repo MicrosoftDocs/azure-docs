@@ -288,29 +288,7 @@ Security credentials, such as symmetric keys, are never sent over the wire.
 
 > [AZURE.NOTE] The Azure IoT Hub resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager][lnk-azure-resource-manager].
 
-#### Security token format <a id="tokenformat"></a>
-
-The security token has the following format:
-
-	SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}
-
-These are the expected values:
-
-| Value | Description |
-| ----- | ----------- |
-| {signature} | An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to perform the HMAC-SHA256 computation. |
-| {resourceURI} | URI prefix (by segment) of the endpoints that can be accessed with this token. For example, `/events` |
-| {expiry} | UTF8 strings for number of seconds since the epoch 00:00:00 UTC on 1 January 1970. |
-| {URL-encoded-resourceURI} | Lower case URL-encoding of the lower case resource URI |
-| {policyName} | The name of the shared access policy to which this token refers. Absent in the case of tokens referring to device-registry credentials. |
-
-**Note on prefix**: The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
-
-You can find implementations of the signature algorithm in the IoT device and service SDKs:
-
-* [IoT service SDK for Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/service/iothub-service-sdk/src/main/java/com/microsoft/azure/iot/service/auth)
-* [IoT device SDK for Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/device/iothub-java-client/src/main/java/com/microsoft/azure/iothub/auth)
-* [IoT device and service SDKs for Node.js](https://github.com/Azure/azure-iot-sdks/blob/master/node/common/core/lib/shared_access_signature.js)
+Refer to the [IoT Hub security tokens][lnk-sas-tokens] article, for more information about how to construct and use security tokens.
 
 #### Protocol specifics
 
@@ -327,9 +305,16 @@ For SASL PLAIN, the **username** can be:
 * `{policyName}@sas.root.{iothubName}` in the case of hub-level tokens.
 * `{deviceId}` in the case of device-scoped tokens.
 
-In both cases, the password field contains the token, as described in the [Token format](#tokenformat) section.
+In both cases, the password field contains the token, as described in the [IoT Hub security tokens][lnk-sas-tokens] article.
 
 When using MQTT, the CONNECT packet has the deviceId as the ClientId, {iothubhostname}/{deviceId} in the Username field and a SAS token in the Password field. {iothubhostname} should be the full CName of the IoT hub (for example, contoso.azure-devices.net).
+
+##### Example: #####
+
+Username (DeviceId is case sensitive):
+`iothubname.azure-devices.net/DeviceId`
+
+Password (Generate SAS with Device Explorer): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens when connecting to the service. In some cases, the SDKs do not support all the protocols or all the authentication methods.
 
@@ -342,7 +327,7 @@ When using SASL PLAIN, a client connecting to an IoT hub can use a single token 
 
 ### Scoping hub-level credentials
 
-You can scope hub-level security policies by creating tokens with a restricted resource URI. For example, the endpoint to send device-to-cloud messages from a device is **/devices/{deviceId}/events**. You can also use a hub-level shared access policy with **DeviceConnect** permissions to sign a token whose resourceURI is **/devices/{deviceId}**, creating a token that is only usable to send devices on behalf of device **deviceId**.
+You can scope hub-level security policies by creating tokens with a restricted resource URI. For example, the endpoint to send device-to-cloud messages from a device is **/devices/{deviceId}/messages/events**. You can also use a hub-level shared access policy with **DeviceConnect** permissions to sign a token whose resourceURI is **/devices/{deviceId}**, creating a token that is only usable to send devices on behalf of device **deviceId**.
 
 This mechanism is similar to the [Event Hubs publisher policy][lnk-event-hubs-publisher-policy] and enables you to implement custom authentication methods as explained in the security section of [Design your solution][lnk-guidance-security].
 
@@ -374,8 +359,8 @@ This is the set of system properties in IoT Hub messages.
 | Sequence number | A number (unique per device-queue) assigned by IoT Hub to each cloud-to-device message. |
 | To | Used in [Cloud-to-Device](#c2d) messages to specify the destination. |
 | ExpiryTimeUtc | Date and time of message expiration. |
-| EnqueuedTime | Time when the message was received by IoT Hub. |
-| CorrelationId | String property usually containing the MessageId of the request in request-reply patterns. |
+| EnqueuedTime | Date and time the message was received by IoT Hub. |
+| CorrelationId | String property in a response message that typically contains the MessageId of the request in request-reply patterns. |
 | UserId | Used to specify the origin of messages. When messages are generated by IoT Hub, it is set to `{iot hub name}`. |
 | Ack | Used in cloud-to-device messages to request IoT Hub to generate feedback messages as a result of the consumption of the message by the device. Possible values: **none** (default): no feedback message is generated, **positive**: receive a feedback message if the message was completed, **negative**: receive a feedback message if the message expired (or max delivery count was reached) without being completed by the device, **full**: both positive and negative. For more information, see [Message feedback](#feedback). |
 | ConnectionDeviceId | Set by IoT Hub on device-to-cloud messages. It contains the **deviceId** of the device that sent the message. |
@@ -485,7 +470,7 @@ The following diagram shows the lifecycle state graph for a cloud-to-device mess
 
 ![Cloud-to-device message lifecycle][img-lifecycle]
 
-When the service sends a message, it is considered *Enqueued*. When a device wants to *receive* a message, IoT Hub *locks* the message (sets the state to **Invisible**) in order to allow other threads on the same device to start receiving other messages. When a device thread completes the processing of a device, it notifies IoT Hub by *completing* the message.
+When the service sends a message, it is considered *Enqueued*. When a device wants to *receive* a message, IoT Hub *locks* the message (sets the state to **Invisible**) in order to allow other threads on the same device to start receiving other messages. When a device thread completes the processing of a message, it notifies IoT Hub by *completing* the message.
 
 A device can also:
 - *Reject* the message, which causes IoT Hub to set it to the **Deadlettered** state.
@@ -501,6 +486,8 @@ For a tutorial on cloud-to-device messages, see [Get started with Azure IoT Hub 
 
 Every cloud-to-device message has an expiration time. This can be explicitly set by the service (in the **ExpiryTimeUtc** property), or it is set by IoT Hub using the default *time to live* specified as an IoT Hub property. See [Cloud-to-device configuration options](#c2dconfiguration).
 
+> [AZURE.NOTE] A common way to take advantage of message expiration is set short time to live values in order to avoid sending messages to disconnected devices. This achieves the same result as maintaining the device connection state, while being significantly more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices are able to receive messages and which are not online or are failed. 
+
 #### Message feedback <a id="feedback"></a>
 
 When you send a cloud-to-device message, the service can request the delivery of per-message feedback regarding the final state of that message.
@@ -509,13 +496,15 @@ When you send a cloud-to-device message, the service can request the delivery of
 - If you set the **Ack** property to **negative**, IoT Hub generates a feedback message if and only if the cloud-to-device message reaches the **Deadletterd** state.
 - If you set the **Ack** property to **full**, IoT Hub generates a feedback message in either case.
 
+> [AZURE.NOTE] If **Ack** is **full**, then if no feedback message is received it means that the feedback message expired, and the service cannot know what happened to the original message. In practice, a service should ensure that it can process the feedback before it expires. The maximum expiry time is two days, therefore there should be plenty of time to get the service up and running if a failure occurs.
+
 As explained in [Endpoints](#endpoints), IoT Hub delivers feedback through a service-facing endpoint (**/messages/servicebound/feedback**) as messages. The receive semantics for feedback are the same as for cloud-to-device messages and have the same [Message lifecycle](#message lifecycle). Whenever possible, message feedback is batched in a single message, with the following format.
 
 Each message retrieved by a device from the feedback endpoint has the following properties:
 
 | Property | Description |
 | -------- | ----------- |
-| EnqueuedTime | Timestamp indicating when the batch was created. |
+| EnqueuedTime | Timestamp indicating when the message was created. |
 | UserId | `{iot hub name}` |
 | ContentType | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -525,9 +514,11 @@ The body is a JSON-serialized array of records, each with the following properti
 | -------- | ----------- |
 | EnqueuedTimeUtc | Timestamp indicating when the outcome of the message happened. For example, the device completed or the message expired. |
 | OriginalMessageId | **MessageId** of the cloud-to-device message to which this feedback information pertains. |
-| Description | String values for the previous outcomes. |
+| StatusCode | Required integer. Used in feedback messages generated by IoT Hub. <br/> 0 = success <br/> 1 = message expired <br/> 2 = max delivery count exceeded <br/> 3 = message rejected |
+| Description | String values for **StatusCode**. |
 | DeviceId | **DeviceId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
 | DeviceGenerationId | **DeviceGenerationId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
+
 
 **Important**. The service must specify a **MessageId** for the cloud-to-device message in order to be able to correlate its feedback with the original message.
 
@@ -538,6 +529,7 @@ The body is a JSON-serialized array of records, each with the following properti
   {
     "OriginalMessageId": "0987654321",
     "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
+    "StatusCode": 0
     "Description": "Success",
     "DeviceId": "123",
     "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
@@ -559,6 +551,8 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 | maxDeliveryCount | Maximum delivery count for cloud-to-device per-device queues. | 1 to 100. Default: 10. |
 | feedback.ttlAsIso8601 | Retention for service-bound feedback messages. | ISO_8601 interval up to 2D (minimum 1 minute). Default: 1 hour. |
 | feedback.maxDeliveryCount | Maximum delivery count for feedback queue. | 1 to 100. Default: 100. |
+
+For further information, see [Manage IoT hubs][lnk-manage].
 
 ## Quotas and throttling <a id="throttling"></a>
 
@@ -608,6 +602,7 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
+[lnk-sas-tokens]: iot-hub-sas-tokens
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#field-gateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
@@ -637,4 +632,5 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
-[lnk-eventhub-partitions]: event-hubs-overview.md#partitions
+[lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
+[lnk-manage]: iot-hub-manage-through-portal.md

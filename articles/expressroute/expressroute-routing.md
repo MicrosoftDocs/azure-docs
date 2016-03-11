@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/05/2016"
+   ms.date="03/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -103,7 +103,8 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 
 **Note:** Advertising default routes will break Windows and other VM license activation. Follow instructions [here](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
 
-## Support for BGP communities
+## Support for BGP communities (Coming Soon)
+
 
 This section provides an overview of how BGP communities will be used with ExpressRoute. Microsoft will advertise routes in the public and Microsoft peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
 
@@ -117,7 +118,7 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 
 Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.
 
-| **Geopolitical Region** | **Microsoft Azure region (Same applies to Office 365)** | **BGP community value** |
+| **Geopolitical Region** | **Microsoft Azure region** | **BGP community value** |
 |---|---|---|
 | **North America** |    |  |
 |    | East US | 12076:51004 |
@@ -126,11 +127,15 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 |    | North Central US | 12076:51007 |
 |    | South Central US | 12076:51008 |
 |    | Central US | 12076:51009 |
+|    | Canada Central | 12076:51020 |
+|    | Canada East | 12076:51021 |
 | **South America** |  |  |
 |    | Brazil South | 12076:51014 |
 | **Europe** |    |  |
 |    | North Europe | 12076:51003 |
 |    | West Europe | 12076:51002 |
+|    | UK North    | 12076:51022 |
+|    | UK South 2 | 12076:51023 |
 | **Asia Pacific** |    |   |
 |    | East Asia | 12076:51010 |
 |    | Southeast Asia | 12076:51011 |

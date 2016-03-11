@@ -13,22 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/07/2016" 
 	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample data in SQL Server on Azure
 
-This **menu** links to topics that describe how to sample data from various storage environments. This task is a step in the Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## Introduction
 
-This document shows how to sample data stored in SQL Server on Azure using both SQL and the Python Programming Language. It also shows how to move sampled data into Azure Machine Learning by saving it to a file, upload it to an Azure blob, and then reading it into Azure ML.
+This document shows how to sample data stored in SQL Server on Azure using either SQL or the Python Programming Language. It also shows how to move sampled data into Azure Machine Learning by saving it to a file, uploading it to an Azure blob, and then reading it into Azure Machine Learning Studio.
 
 The Python sampling uses the [pyodbc](https://code.google.com/p/pyodbc/) ODBC library to connect to SQL Server on Azure and the[Pandas](http://pandas.pydata.org/) library to do the sampling.
 
->[AZURE.NOTE] The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it isn't, please refer to [Move data to SQL Server on Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) topic for instructions on how to move your data to SQL Server on Azure.
+>[AZURE.NOTE] The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it is not, please refer to [Move data to SQL Server on Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) topic for instructions on how to move your data to SQL Server on Azure.
+
+**Why sample your data?**
+If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
+
+The **menu** below links to topics that describe how to sample data from various storage environments. 
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+This sampling task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ##<a name="SQL"></a>Using SQL
 

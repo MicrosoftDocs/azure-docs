@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="antonba"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="03/10/2016"
 	ms.author="antonba"/>
 
 # How to setup VPN connections in Azure API Management
@@ -48,11 +48,25 @@ After your API Management service is connected to the VPN, accessing web service
 
 ![Add API from VPN][api-management-setup-vpn-add-api]
 
+## Required ports for API Management VPN support
+
+When an API Management service instance is hosted in a VNET, the ports in the following table are used. If these ports are blocked, the service may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using API Management with a VNET.
+
+| Port(s)                      | Direction        | Transport Protocol | Purpose                                      | Remote IP        |
+|------------------------------|------------------|--------------------|----------------------------------------------|------------------|
+| 80, 443                      | Inbound          | HTTP, HTTPS        | Client communication to API Management       | *                |
+| 1433                         | Outbound         | TCP                | API Management dependencies on SQL           | AZURE_SQL        |
+| 443                          | Outbound         | HTTPS              | API Management dependencies on Azure Storage | AZURE_STORAGE    |
+| 9350, 9351, 9352, 9353, 9354 | Outbound         | TCP                | API Management dependencies on Service Bus   | AZURE_SERVICEBUS |
+| 5671                         | Outbound         | AMQP               | API Management log to eventHub policy        | AZURE_EVENTHUB   |
+| 6381, 6382, 6383             | N/A              | N/A                | API Management internal cache replication    | N/A              |
+| 445                          | Outbound         | TCP                | Git access to SMB File share                 | AZURE_FILESHARE  |
+
 
 ## <a name="related-content"> </a>Related content
 
 
-* [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity][]
+* [Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal][]
 * [How to use the API Inspector to trace calls in Azure API Management][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
@@ -65,5 +79,5 @@ After your API Management service is connected to the VPN, accessing web service
 
 [Azure Classic Portal]: https://manage.windowsazure.com/
 
-[Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
+[Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md

@@ -13,29 +13,51 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/08/2016"
 	ms.author="v-anpasi"/>
 
 # Add a MySQL resource provider to Azure Stack
 
-MySQL databases support common website platforms as is a common technology used on the websites scene. You can deploy the MySQL Resource Provider to work with servers and databases through Azure Resource Manager deployment templates, as well as deploy WordPress websites from the Azure Web Apps add on for Azure Stack
+MySQL databases support common website platforms as is a common technology used on the websites scene. You can deploy the MySQL Resource Provider to work with servers and databases through Azure Resource Manager deployment templates, as well as deploy WordPress websites from the Azure Web Apps add on for Azure Stack.
 
 ## Prepare the Azure Stack POC machine
 
 Before deploying MySQL resource providers, turn off IE Enhanced Security, install the latest version of Azure PowerShell, and prepare the Azure Stack POC environment with the necessary certifications, marketplace items, and binaries.
 
-### Turn off IE Enhanced Security
+### Turn off IE Enhanced Security and enable cookies
+
+To deploy a resource provider, your PowerShell ISE must be run as an administrator. For this reason, you'll need to allow cookies and java script in your Internet Explorer profile used for logging into Azure Active Directory.
+
+**Turn off IE Enhanced Security**
 
 1. Sign in to the Azure Stack POC machine as an AzureStack/administrator, and then open Server Manager.
+
 2. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
+
 3. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator, and then open Server Manager.
+
 4. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
+
+**Enable cookies**
+
+1. Click the Start button, click **All apps**, click **Windows accessories**, right-click **Internet Explorer**, click **More**, and then click **Run as an administrator**.
+
+2. If prompted, check **Use recommended security**, and then click **OK**.
+
+3. In Internet Explorer, click the Tools (gear) icon, click **Internet Options**, and then click the **Privacy** tab.
+
+4. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again. 
+
+5. Close Internet Explorer and restart PowerShell ISE as an administrator.
 
 ### Install the latest version of Azure PowerShell
 
 1. Sign in to the Azure Stack POC machine as an AzureStack/administrator.
+
 2. Using Remote Desktop Connection, sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
+
 3. Open the Control Panel, click **Uninstall a program**, click the **Azure PowerShell** entry, and then click **Uninstall**.
+
 4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).
 
 ### Enable certificates, marketplace items, and binaries
@@ -46,18 +68,16 @@ Before deploying MySQL resource providers, turn off IE Enhanced Security, instal
 
 3.	Click the **Prepare MySql Prerequisites** tab.
 
-4.	Click the **New-SslCert.ps1** tab and run it. In the prompt, type the PFX password that is used to protect the private key. This command adds the \_.AzureStack.local.pfx SSL certificate to the D:\MySql\BlobStorage\Container folder. This certificate secures communication between the resource provider and the local instance of the Azure Resource Manager.
+4.	Click the **New-SslCert.ps1** tab and run it. In the prompt, type the PFX password that is used to protect the private key. This command adds the \_.AzureStack.local.pfx SSL certificate to the D:\MySql\Prerequisites\BlobStorage\Container folder. This certificate secures communication between the resource provider and the local instance of the Azure Resource Manager.
 
-5.	Click the **Download-MySqlServer.ps1** tab and run it. When prompted, accept the EULA by clicking **Yes** in the **Confirm** dialog box. This command adds two zip files to the D:\MySql\BlobStorage\Container folder.
+5.	Click the **Download-MySqlServer.ps1** tab and run it. When prompted, accept the EULA by clicking **Yes** in the **Confirm** dialog box. This command adds two zip files to the D:\MySql\Prerequisites\BlobStorage\Container folder.
 
-6.	Click the **Upload-Microsoft.MySql-RP.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command uploads the binaries for the MySQL resource provider.
-> When prompted for AadTenantID, input your AAD tenant FQDN, e.g. microsoftazurestack.onmicrosoft.com
-> When Prompted for service admin credentials, input your Azure Stack Service Admin user's username and password
+6.	Click the **Upload-Microsoft.MySql-RP.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command uploads the binaries for the MySQL resource provider. When prompted for AadTenantID, input your AAD tenant FQDN, e.g. microsoftazurestack.onmicrosoft.com. When Prompted for service admin credentials, input your Azure Stack Service Admin user's username and password.
 
 7.	Click the **Publish-GalleryPackages.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command adds two marketplace items to the Azure Stack POC portal.
 
 8.	Verify that these files are in the D:\MySql\Prerequisites\BlobStorage\Container folder:
-  - AzureStack.MySql.Setup.1.0.46.0.nupkg
+  - AzureStack.MySql.Setup.1.0.1.0.nupkg
   - mysql-5.5.44-winx64.zip
   - mysql-5.6.26-winx64.zip
   - \_.AzureStack.local.pfx
@@ -95,4 +115,5 @@ Now that you have prepared the Azure Stack POC with the necessary certificates a
 
 ## Next steps
 
-[Tools and PaaS services for Azure Stack](azure-stack-tools-paas-services.md)
+You can also try out other [PaaS services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sqlrp-deploy.md) and [Web Apps resource provider](azure-stack-webapps-deploy.md).
+

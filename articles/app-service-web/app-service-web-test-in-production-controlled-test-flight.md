@@ -46,7 +46,7 @@ with Application Insights, but you can use New Relic or other technologies that 
 In this tutorial, you will learn how to bring the following scenarios together to test your App Service app in production:
 
 - [Route production traffic](app-service-web-test-in-production-get-start.md) to your beta app
-- [Instrument your app](app-insights-web-track-usage.md) to obtain useful metrics
+- [Instrument your app](../application-insights/app-insights-web-track-usage.md) to obtain useful metrics
 - Continuously deploy your beta app and track live app metrics
 - Compare metrics between the production app and the beta app to see how code changes translate to results
 
@@ -58,7 +58,7 @@ In this tutorial, you will learn how to bring the following scenarios together t
 -	Git Shell (installed with [GitHub for Windows](https://windows.github.com/)) - this enables you to run both the Git and PowerShell commands in the same session
 -	Latest [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi) bits
 -	Basic understanding of the following:
-	-	[Azure Resource Manager](resource-group-overview.md) template deployment (see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
+	-	[Azure Resource Manager](../resource-group-overview.md) template deployment (see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -191,7 +191,7 @@ That's it!
 
 In this section, you will configure the different deployment slots to send slot-specific telemetry to the same Application Insights resource. This way, you can compare telemetry data between traffic from different slots (deployment environments) to easily see the effect of your app changes. At the same time, you can separate the production traffic from the rest so you can continue to monitor your production app as needed.
 
-Since you're gathering data on client behavior, you will [add a telemetry initializer to your JavaScript code](app-insights-api-custom-events-metrics.md#js-initializer) in index.cshtml. If you want to test server-side performance, for example, you can also do similarly in your server code (see [Application Insights API for custom events and metrics](app-insights-api-custom-events-metrics.md).
+Since you're gathering data on client behavior, you will [add a telemetry initializer to your JavaScript code](../application-insights/app-insights-api-custom-events-metrics.md#js-initializer) in index.cshtml. If you want to test server-side performance, for example, you can also do similarly in your server code (see [Application Insights API for custom events and metrics](../application-insights/app-insights-api-custom-events-metrics.md).
 
 1. First, add the code bewteen the two `//` comments below in the JavaScript block that you added to the `<heading>` tag earlier.
 
@@ -232,7 +232,7 @@ Since you're gathering data on client behavior, you will [add a telemetry initia
 
 5. Click the **Favorites** button to save the current Metrics Explorer settings to something like **Custom events: Production**. You can easily switch between this view and a deployment slot view later.
 
-    > [AZURE.TIP] For even more powerful analytics, consider [integrating your Application Insights resource with Power BI](app-insights-export-power-bi.md).
+    > [AZURE.TIP] For even more powerful analytics, consider [integrating your Application Insights resource with Power BI](../application-insights/app-insights-export-power-bi.md).
 
 ### Add slot-specific tags to your server app metrics
 Again, for completeness you will set up the server-side app. Unlike the client app which is instrumented in JavaScript, slot-specific tags for the server app is instrumented with .NET code.
@@ -386,8 +386,8 @@ Azure App Service makes it easy for small- to medium-sized businesses to test th
 -   [Agile software development with Azure App Service](app-service-agile-software-development.md)
 -   [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md)
 -	[Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
--	[Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
+-	[Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
 -	[JSONLint - The JSON Validator](http://jsonlint.com/)
 -	[Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
--	[Azure PowerShell](powershell-install-configure.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
 -	[Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)

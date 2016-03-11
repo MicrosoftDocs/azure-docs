@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/11/2015"
-   ms.author="jeffreyg"/>
+   ms.date="02/25/2016"
+   ms.author="sashan"/>
 
 # SQL Database FAQ
 
@@ -74,3 +74,17 @@ Backup storage is the storage associated with your automated database backups th
 ## I'm moving from Web/Business to the new service tiers, what do I need to know?
 Azure SQL Web and Business databases are now retired. The Basic, Standard, Premium, and Elastic tiers replace the retiring Web and Business databases. We've additional FAQ that should help you in this transition period. [Web and Business Edition sunset FAQ](sql-database-web-business-sunset-faq.md)
 
+## What is an expected replication lag when geo-replicating a database between two regions withing the same Azure geography?  
+We are currently supporting an RPO of 5 seconds and the replication lag has been less than that as long the geo-secondary is hosted in the Azure recommended paired region and is of the same service tier.
+
+## What is an expected replication lag when geo-secondary is created in the same region as the primary database?  
+Based on empirical data, there is not too much difference between intra-region and inter-region replication lag when the Azure recommended paired region is used. 
+
+## If there is a network failure between two regions, how does the retry logic work when geo-replication is set up?  
+If there is a disconnect, we retry every 10 seconds to re-establish connections.
+
+## What can I do to guarantee that a critical change on the primary database is replicated?
+The geo-secondary is an async replica and we do not try to keep it in full sync with the primary. But we provide a method to force synchronization. It is designed to ensure the replication of critical changes (e.g. password updates). It will impact performance as it will block the calling thread until all committed transactions are replicated. For details, see [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx). 
+
+## What tools are available to monitor the replication lag between the primary database and geo-secondary?
+We expose the real-time replication lag between the primary database and geo-secondary through a DMV. For details, see [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).

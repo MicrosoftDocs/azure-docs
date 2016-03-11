@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/05/2016"
+	ms.date="02/08/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Using custom domain names to simplify the sign-in experience for your users
 
 You can use your own custom domain names to improve and simplify sign-in and other user experiences in Azure Active Directory. For example, if your organization owns the domain name ‘contoso.com,’ your users can sign in with user names they're familiar with, such as ‘joe@contoso.com.'
 
-Every directory in Azure Active Directory comes with a built-in domain name in the form ‘contoso.onmicrosoft.com’ that lets you get started using Azure or other Microsoft services. [Learn about built-in domains](active-directory-add-domain-builtin-domains.md).
+Every directory in Azure Active Directory comes with a built-in domain name in the form ‘contoso.onmicrosoft.com’ that lets you get started using Azure or other Microsoft services. [Learn about built-in domains](#built-in-domain-names-for-azure-active-directory).
 
 ## Use your custom domain name with Azure AD
 
@@ -52,6 +52,14 @@ You can delete a custom domain name from your Azure AD if your organization no l
 
 -   [Delete a custom domain name](#_Deleting_a_custom)
 
+## Built-in domain names for Azure Active Directory
+
+Tell the difference between the built-in domains in Azure Active Directory (Azure AD) and the custom domains you add.
+
+-   Built in: the domain that comes with your Azure AD directory, in the form of contoso.onmicrosoft.com
+
+-   Custom: a domain name that your organization already owns, such as contoso.com
+
 ## Use PowerShell or Graph API to manage domain names
 
 Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using Graph API.
@@ -68,6 +76,5 @@ If you need additional resources to understand domain name usage in Azure Active
 - [Add company branding to your Sign In and Access Panel pages ](active-directory-add-company-branding.md)
 - [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md)
 - [Assign users to a custom domain](active-directory-add-domain-add-users.md)
-- [Built-in domain name reference for Azure Active Directory](active-directory-add-domain-builtin-domains.md)
 - [Change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.md)
 - [Delete a custom domain in Azure Active Directory](active-directory-add-domain-delete-domain.md)

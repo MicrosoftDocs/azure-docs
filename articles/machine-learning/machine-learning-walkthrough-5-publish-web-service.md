@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
 # Walkthrough Step 5: Deploy the Azure Machine Learning web service
 
-This is the fifth step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-walkthrough-develop-predictive-solution.md)
+This is the fifth step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
 
 1.	[Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -31,69 +31,73 @@ This is the fifth step of the walkthrough, [Developing a Predictive Solution wit
 
 ----------
 
-To make this predictive model useful to others, we'll deploy it as a web service on Azure.
+To give others a chance to use the predictive model we've developed in this walkthrough, we'll deploy it as a web service on Azure.
 
-Up to this point we've been experimenting with training our model. But the deployed service is no longer going to do training - it will be generating predictions based on the user's input. So we're going to do some preparation and then deploy this experiment as a working web service that users can access. A user will be able to send a set of credit application data to the service, and the service will return the prediction of credit risk.
+Up to this point we've been experimenting with training our model. But the deployed service is no longer going to do training - it will be generating predictions by scoring the user's input based on our model. So we're going to do some preparation to convert this experiment from a ***training*** experiment to a ***predictive*** experiment. 
 
-To do this, we need to:  
+So this is a two-step process:  
 
-- Convert the *training experiment* we've created into a *predictive experiment*
-- Deploy the predictive experiment as a web service
+1. Convert the *training experiment* we've created into a *predictive experiment*
+2. Deploy the predictive experiment as a web service
 
-But first, we need to trim this experiment down a little. We currently have two different models in the experiment, but we now need to select one model to deploy.  
+But first, we need to trim this experiment down a little. We currently have two different models in the experiment, but we only want one model when we deploy this as a web service.  
 
 Let's say we've decided that the boosted tree model was the better model to use. So the first thing to do is remove the [Two-Class Support Vector Machine][two-class-support-vector-machine] module and the modules that were used for training it. You may want to make a copy of the experiment first by clicking **Save As** at the bottom of the experiment canvas.
 
 We need to delete the following modules:  
 
-1.	[Two-Class Support Vector Machine][two-class-support-vector-machine]
-2.	[Train Model][train-model] and [Score Model][score-model] modules that were connected to it
-3.	[Normalize Data][normalize-data] (both of them)
-4.	[Evaluate Model][evaluate-model]
+- [Two-Class Support Vector Machine][two-class-support-vector-machine]
+- [Train Model][train-model] and [Score Model][score-model] modules that were connected to it
+- [Normalize Data][normalize-data] (both of them)
+- [Evaluate Model][evaluate-model]
 
-Now we're ready to deploy this model.
+Just select the module and press the Delete key, or right-click the module and select **Delete**.
+
+Now we're ready to deploy this model using the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree].
 
 ## Convert the training experiment to a predictive experiment
 
 Converting to a predictive experiment involves three steps:
 
-1. Save the model we've trained and replace our training modules with it
+1. Save the model we've trained and then replace our training modules
 2. Trim the experiment to remove modules that were only needed for training
-3. Define where the web service input and output nodes should be
+3. Define where the web service will accept input and where it will generate output
 
 Fortunately, all three steps can be accomplished by just clicking **Deploy Web Service** at the bottom of the experiment canvas (select the **Predictive Web Service** option).
 
 When you click **Deploy Web Service**, several things happen:
 
-- The model we trained is saved as a **Trained Model** module in the module palette to the left of the experiment canvas (you can find it in the palette under **Trained Models**).
+- The model we trained is saved as a single **Trained Model** module into the module palette to the left of the experiment canvas (you can find it under **Trained Models**).
 - Modules that were used for training are removed. Specifically:
   - [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree]
   - [Train Model][train-model]
-  - [Split][split]
+  - [Split Data][split]
   - the second [Execute R Script][execute-r-script] module that was used for test data
-- The saved trained model is added to the experiment.
+- The saved trained model is added back into the experiment.
 - **Web service input** and **Web service output** modules are added.
 
-> [AZURE.NOTE] The experiment has been saved in two parts: the original training experiment, and the new predictive experiment. You can access either one using the tabs at the top of the experiment canvas.
+> [AZURE.NOTE] The experiment has been saved in two parts under tabs that have been added at the top of the experiment canvas: the original training experiment is under the tab **Training experiment**, and the newly-created predictive experiment is under **Predictive experiment**.
 
-We need to take an additional step with our experiment.
-Machine Learning Studio removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module, but it left the other [Execute R Script][execute-r-script] module.
-Since that module was only used for training and testing (it provided a weighting function on the sample data), we can now remove it and connect [Metadata Editor][metadata-editor] to [Score Model][score-model].    
+We need to take one additional step with this particular experiment.
+We added two [Execute R Script][execute-r-script] modules to provide a weighting function to the data for training and testing. We don't need to do that in the final model.
+Machine Learning Studio removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module, so now we can now remove the other and connect [Metadata Editor][metadata-editor] directly to [Score Model][score-model].    
 
 Our experiment should now look like this:  
 
 ![Scoring the trained model][4]  
 
 
-You may be wondering why we left the UCI German Credit Card Data dataset in the predictive experiment. The service is going to use the user's data, not the original dataset, so why leave them connected?
-
-It's true that the service doesn't need the original credit card data. But it does need the schema for that data, which includes information such as how many columns there are and which columns are numeric. This schema information is necessary in order to interpret the user's data. We leave these components connected so that the scoring module will have the dataset schema when the service is running. The data isn't used, just the schema.  
+> [AZURE.NOTE] You may be wondering why we left the UCI German Credit Card Data dataset in the predictive experiment. The service is going to use the user's data, not the original dataset, so why leave the original dataset in the model?
+>
+>It's true that the service doesn't need the original credit card data. But it does need the schema for that data, which includes information such as how many columns there are and which columns are numeric. This schema information is necessary in order to interpret the user's data. We leave these components connected so that the scoring module will have the dataset schema when the service is running. The data isn't used, just the schema.  
 
 Run the experiment one last time (click **Run**). If you want to verify that the model is still working, click the output of the [Score Model][score-model] module and select **View Results**. You'll see that the original data is displayed, along with the credit risk value ("Scored Labels") and the scoring probability value ("Scored Probabilities").  
 
 ## Deploy the web service
 
-To deploy a web service derived from our experiment, click **Deploy Web Service** below the canvas. Machine Learning Studio deploys the experiment as a web service and takes you to the service dashboard.   
+To deploy a web service derived from our experiment, click **Deploy Web Service** below the canvas. Machine Learning Studio deploys the experiment as a web service and takes you to the dashboard for that web service. From here you can return to the experiment (**View snapshot** or **View latest**) and run a simple test of the web service (**Test** button - see **Test the web service** below). There is also information here for creating applications that can access the web service (more on that in the next step of this walkthrough).
+
+![Web service dashboard][6]
 
 > [AZURE.TIP] You can update the web service after you've deployed it. For example, if you want to change your model, just edit the training experiment, tweak the model parameters, and click **Deploy Web Service**. When you deploy the experiment again, it will replace the web service, now using your updated model.  
 
@@ -102,14 +106,32 @@ You can configure the service by clicking the **CONFIGURATION** tab. Here you ca
 ![Configure the web service][5]  
 
 ## Test the web service
-On the **DASHBOARD** page, click the **Test** link under **Default Endpoint**. A dialog will pop up and ask you for the input data for the service. These are the same columns that appeared in the original German credit risk dataset.  
-![Test the web service][6]  
-
+On the **DASHBOARD** page, click the **Test** button under **Default Endpoint**. A dialog will pop up and ask you for the input data for the service. These are the same columns that appeared in the original German credit risk dataset.  
 
 Enter a set of data and then click **OK**.  
 
-The results generated by the web service are displayed at the bottom of the dashboard. The way we have the service configured, the results you see are generated by the scoring module.   
+In the web service, the data enters through the **Web service input** module, through the [Metadata Editor][metadata-editor] module, and to the [Score Model][score-model] module where it's scored. The results are then output from the web service through the **Web service output**.
 
+> [AZURE.TIP] The way we have the predictive experiment configured, the entire results from the [Score Model][score-model] module are returned. This includes all the input data plus the credit risk value and the scoring probability. If you wanted to return something different - for example, only the credit risk value - then you could insert a [Project Columns][project-columns] module between [Score Model][score-model] and the **Web service output** to eliminate columns you don't want the web service to return. 
+
+## Manage the web service
+Once you've deployed your web service, you can manage it from the [Azure classic portal](https://manage.windowsazure.com).
+
+1. Sign-in to the [Azure classic portal](https://manage.windowsazure.com).
+2. In the Microsoft Azure services panel, click **MACHINE LEARNING**.
+3. Click your workspace.
+4. Click the **WEB SERVICES** tab.
+5. Click the web service we just created.
+6. Click the "default" endpoint.
+
+From here you can do things like monitor how the web service is doing and make performance tweaks by changing how many concurrent calls the service can handle.
+You can even publish your web service in the Azure Marketplace.
+
+For more details, see:
+
+- [Creating Endpoints](machine-learning-create-endpoint.md)
+- [Scaling web service](machine-learning-scaling-webservice.md)
+- [Publish Azure Machine Learning Web Service to the Azure Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
 
 ----------
 
@@ -133,3 +155,4 @@ The results generated by the web service are displayed at the bottom of the dash
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
+[project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

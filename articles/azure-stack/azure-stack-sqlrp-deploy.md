@@ -13,12 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/29/2016"
 	ms.author="v-anpasi"/>
 
-# Add a SQL resource provider to Azure Stack
+# Add a SQL Server resource provider to Azure Stack
 
 The SQL Server Resource Provider adaptor lets you use any SQL Server-based workload through Azure Stack so that SQL server databases can be used when deploying cloud native apps as well as SQL-based websites on Azure Stack.
+
+To deploy a SQL Server resource provider, you’ll take the following steps:
+
+1. [Create](#create-a-wildcard-certificate) and [export](#export-the-wildcard-certificate) a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
+2. [Deploy](#deploy-the-sql-server-resource-provider) the resource provider code onto a virtual machine.
+3. [Add an Azure Stack DNS record](#add-a-dns-record) so that traffic can be property directed to the the resource provider virtual machine.
+4. [Register](#register-the-sql-resource-provider) the resource provider virtual machine with Azure Resource Manager so the latter recognizes the new resource type and properly direct requests.
+
+
 
 ## Before you deploy
 
@@ -26,11 +35,14 @@ Before deploying SQL resource providers, you'll need to create a default Windows
 
 ### Create an image of Windows Server including .NET 3.5
 
-You'll need to create a Windows Server 2012 R2 Datacenter VHD with .Net 3.5 image and set is as the default image in the Platform Image repository. For more information, see [Create an image of WindowsServer2012R2 including .NET 3.5](azure-stack-add-image-pir.md#Create-an-image-of-WindowsServer2012R2-including-.NET-3.5).
+You'll need to create a Windows Server 2012 R2 Datacenter VHD with .Net 3.5 image and set is as the default image in the Platform Image repository. For more information, see [Create an image of WindowsServer2012R2 including .NET 3.5](azure-stack-add-image-pir.md#create-an-image-of-windowsserver2012r2-including-net-35).
 
-### Turn off IE Enhanced Security
 
-To enable PowerShell scripts to authenticate against AAD, you must turn off of IE Enhanced Security:
+### Turn off IE Enhanced Security and enable cookies
+
+To deploy a resource provider, your PowerShell ISE must be run as an administrator. For this reason, you'll need to allow cookies and java script in your Internet Explorer profile used for logging into Azure Active Directory.
+
+**Turn off IE Enhanced Security**
 
 1. Sign in to the Azure Stack POC machine as an AzureStack/administrator, and then open Server Manager.
 
@@ -39,6 +51,18 @@ To enable PowerShell scripts to authenticate against AAD, you must turn off of I
 3. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator, and then open Server Manager.
 
 4. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
+
+**Enable cookies**
+
+1. Click the Start button, click **All apps**, click **Windows accessories**, right-click **Internet Explorer**, click **More**, and then click **Run as an administrator**.
+
+2. If prompted, check **Use recommended security**, and then click **OK**.
+
+3. In Internet Explorer, click the Tools (gear) icon, click **Internet Options**, and then click the **Privacy** tab.
+
+4. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again. 
+
+5. Close Internet Explorer and restart PowerShell ISE as an administrator.
 
 ### Install the latest version of Azure PowerShell
 
@@ -49,7 +73,6 @@ To enable PowerShell scripts to authenticate against AAD, you must turn off of I
 3. Open the Control Panel, click **Uninstall a program**, click the **Azure PowerShell** entry, and then click **Uninstall**.
 
 4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).
-
 
 ## Create a wildcard certificate
 
@@ -63,13 +86,13 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 4. In the **Actions** pane, click **Create Domain Certificate**.
 
-5. In the **Common name** box, type *\*.azurestack.local*.
+5. In the **Common name** box, type **\*.azurestack.local**.
 
 6. Type values of your choice in the other boxes and then click **Next**.
 
 7. Click **Select** and choose **AzureStackCertificationAuthority**.
 
-8. In the **Friendly name** box, type *\*.azurestack.Local*.
+8. In the **Friendly name** box, type **\*.azurestack.local**.
 
 
 
@@ -123,7 +146,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 12. Make sure that the parameter value for **cseBlobStorage** is **AzureStack.SQLRP.Setup.5.11.61.0.nupkg** (make sure the numbers are accurate).
 
-13. Launch PowerShell ISE as an admin, **CD** into **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment**, and then run **SqlRPTemplateDeployment.ps1**.
+13. Launch PowerShell Console as an admin, **CD** into **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment**, and then run **SqlRPTemplateDeployment.ps1**.
 
 14. At the **AadTenantDirectoryName** prompt, type your Azure Stack environment URL.
 
@@ -163,11 +186,11 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 3. At the **AadTenantDirectoryName** prompt, type your Azure Stack environment URL.
 
-4. At the **packageName** prompt, type **AzureStack.SqlRP.Setup.5.11.61.0.nupkg**. 
+4. In the **Windows PowerShell credential request** dialog box, literally type *sqlRpUsername* and *sqlRPPassw0rd* for the manifest credentials.
 
-5. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials
+5. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials.
 
-6. In the **Windows PowerShell credential request** dialog box, type *sqlRpUsername* and *sqlRPPassw0rd* for the manifest credentials.
+6. In the **Windows PowerShell credential request** dialog box, literally type *sqlRpUsername* and *sqlRpPassw0rd* for the manifest credentials.
 
 ## Verify your resource provider exists
 
@@ -176,4 +199,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 2. To create your SQL resource, click "+", select **Data**, and then click **SQL**.
 
 
+## Next Steps
+
+You can also try out other [PaaS services](azure-stack-tools-paas-services.md), like the [Web Apps resource provider](azure-stack-webapps-deploy.md) and [MySQL resource provider](azure-stack-mysqlrp-deploy.md).
 

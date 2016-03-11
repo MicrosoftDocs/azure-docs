@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/20/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="toddabel"/>
 
 
 # Collect logs from a Service Fabric cluster by using Azure Diagnostics and Operational Insights
@@ -38,9 +38,9 @@ These tools will be used to perform some of the operations in this document:
 ## Different log sources that you may want to collect
 1. **Service Fabric logs:** Emitted by the platform to standard ETW and EventSource channels. Logs can be one of several types:
   - Operational events: Logs for operations performed by the Service Fabric platform. Examples include creation of applications and services, node state changes, and upgrade information.
-  - [Actor Programming Model events](https://azure.microsoft.com/service-fabric-reliable-actors-diagnostics/)
-  - [Reliable Services Programming Model events](https://azure.microsoft.com/service-fabric-reliable-services-diagnostics/)
-2. **Application events:** Events emitted from your services code and written out by using the EventSource helper class provided in the Visual Studio templates. For more information on how to write logs from your application, refer to [this article about monitoring and diagnosing services in a local machine setup](https://azure.microsoft.com/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
+  - [Actor Programming Model events](service-fabric-reliable-actors-diagnostics.md)
+  - [Reliable Services Programming Model events](service-fabric-reliable-services-diagnostics.md)
+2. **Application events:** Events emitted from your services code and written out by using the EventSource helper class provided in the Visual Studio templates. For more information on how to write logs from your application, refer to [this article about monitoring and diagnosing services in a local machine setup](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 
 ## Deploy the Diagnostics extension to a Service Fabric cluster to collect and upload logs
@@ -128,7 +128,7 @@ Create the two files, WadConfigUpdate.json and WadConfigUpdateParams.json, by us
                 }
             }
     },
-                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountNamee')]"
+                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
                 },
                 "protectedSettings": {
                     "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",

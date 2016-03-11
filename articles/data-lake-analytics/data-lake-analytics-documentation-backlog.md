@@ -3,8 +3,8 @@
    description="Data Lake Analytics is an Azure Big Data computation service that lets you use data to drive your business using the insights gained from your data in the cloud, regardless of where it is and regardless of its size. Data Lake Analytics enables this in the simplest, most scalable, and most economical way possible. This page is the backlog for our documentation efforts "
    documentationCenter="na"
    services="data-lake-analytics"
-   authors="mumian"
-   manager="paulettm"
+   authors="pablissima"
+   manager="pablissima"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/05/2015"
+   ms.date="02/10/2016"
    ms.author="mwinkle"/>
 
 # Azure Data Lake Analytics Documentation Backlog
@@ -40,7 +40,8 @@ Service | Moving job output to SQL Data Warehouse using Data Factory |1 | in pro
 Tools  | Using the Diagnostics Tooling | 1 | Pending | [@mumian](https://github.com/mumian) | 
 U-SQL  | Explain Techniques for doing range-based JOINs | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL  | ADLS Authentication Options | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
-
+U-SQL  | Cross platform CLI job submission | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
+U-SQL  | Reference doc updates for REDUCE and COMBINE | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
 
 
 
@@ -48,7 +49,7 @@ U-SQL  | ADLS Authentication Options | 1 | Pending | [@ArindamC](https://github.
 
 Area   |Topic | location
 ------------- | ------------- | -------------- 
-Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates | [location](../data-lake-analytics-manage-use-powershell.md)
+Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates | [location](data-lake-analytics-manage-use-powershell.md)
 
 ## How to Give Feedback on the Backlog
 There are a few options to give feedback on the backlog:

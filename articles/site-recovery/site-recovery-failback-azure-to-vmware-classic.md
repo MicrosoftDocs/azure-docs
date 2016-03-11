@@ -31,7 +31,13 @@ This articles describes how to fail back Azure virtual machines from Azure to th
 
 This diagram shows the failback architecture for this scenario.
 
+Use this architecture when the process server is on-premises and you are using an ExpressRoute.
+
 ![](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
+
+Use this architecture when the process server is on Azure and you have either a VPN or an ExpressRoute connection.
+
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Here’s how failback works:
 
@@ -49,9 +55,9 @@ If you failed over a VMware VM you can fail back to the same source VM if it sti
 
 - If you failed over physical servers then failback is always to a new VMware VM.
 - If you fail back to the original VM the following is required:
-	- If the VM is managed by a vCenter server then the VM in the on-premises site must use the same datastore as the VM that's running the on-premises master target server.  If it isn't you'll need to migrate it in order to fail back to the same VM.
-	- If the VM is on an ESX host but isn’t managed by vCenter then the hard disk of the VM must be in the same datastore as the master target VM.
-	- If your VM is on an ESX host and doesn't use vCenter then you should complete discovery of the ESX host before you reprotect. This applies if you're failing back physical servers too.
+	- If the VM is managed by a vCenter server then the Master Target's ESX host should have access to the VMs datastore.
+	- If the VM is on an ESX host but isn’t managed by vCenter then the hard disk of the VM must be in a datastore accessible by the MT's host.
+	- If your VM is on an ESX host and doesn't use vCenter then you should complete discovery of the ESX host of the MT before you reprotect. This applies if you're failing back physical servers too.
 	- Another option (if the on-premises VM exists) is to delete it before you do a failback. Then failback will then create a new VM on the same host as the master target ESX host.
 	
 - When you failback to an alternate location the data will be recovered to the same datastore and the same ESX host as that used by the on-premises master target server. 

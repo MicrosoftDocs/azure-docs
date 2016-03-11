@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Business Continuity FAQ
@@ -58,4 +58,4 @@ For active geo-replication, all the secondaries database is readable (up to 4 se
 
 ## 9.	What is the replication delay when using standard geo-replication or active geo-replication?
 
-Use the [sys.dm_geo_replication_link_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) dynamic management view (DMVs) to get the last replication time, last replication lag and other information about the replication link.
+Use the [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx) dynamic management view (DMVs) to get the last replication time, last replication lag and other information about the replication link.
