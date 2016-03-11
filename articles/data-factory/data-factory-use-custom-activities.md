@@ -740,17 +740,21 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 	3. For the **timeToLive** property, specify how long the customer can be idle before it is deleted.
 	4. For the **version** property, specify the HDInsight version you want to use. If you exclude this property, the latest version is used.  
 	5. For the **linkedServiceName**, specify **AzureStorageLinkedService** that you had created in the Get started tutorial.
+	6. You must specify values for **sshUserName** and **sshPassword**. 
 
 			{
-			  "name": "HDInsightOnDemandLinkedService",
-			  "properties": {
-			    "type": "HDInsightOnDemand",
-			    "typeProperties": {
-			      "clusterSize": "1",
-			      "timeToLive": "00:05:00",
-			      "linkedServiceName": "AzureStorageLinkedService"
+			    "name": "HDInsightOnDemandLinkedService",
+			    "properties": {
+			        "type": "HDInsightOnDemand",
+			        "typeProperties": {
+			            "clusterSize": 4,
+			            "timeToLive": "00:05:00",
+			            "osType": "linux",
+			            "sshPassword": "MyPassword!",
+			            "sshUserName": "myuser",
+			            "linkedServiceName": "AzureStorageLinkedService",
+			        }
 			    }
-			  }
 			}
 
 2. Click **Deploy** on the command bar to deploy the linked service.
@@ -767,50 +771,52 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 
 2. Click **Deploy** on the command bar to deploy the linked service.
 
-In the pipeline JSON, use HDInsight (on-demand or your own) linked service: 
+See [Compute linked services](data-factory-compute-linked-services.md) for details. 
 
-		{
-		  "name": "ADFTutorialPipelineCustom",
-		  "properties": {
-		    "description": "Use custom activity",
-		    "activities": [
-		      {
-		        "Name": "MyDotNetActivity",
-		        "Type": "DotNetActivity",
-		        "Inputs": [
-		          {
-		            "Name": "InputDataset"
-		          }
-		        ],
-		        "Outputs": [
-		          {
-		            "Name": "OutputDataset"
-		          }
-		        ],
-		        "LinkedServiceName": "HDInsightOnDemandLinkedService",
-		        "typeProperties": {
-		          "AssemblyName": "MyDotNetActivity.dll",
-		          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-		          "PackageLinkedService": "AzureStorageLinkedService",
-		          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-		          "extendedProperties": {
-		            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
-		          }
-		        },
-		        "Policy": {
-		          "Concurrency": 2,
-		          "ExecutionPriorityOrder": "OldestFirst",
-		          "Retry": 3,
-		          "Timeout": "00:30:00",
-		          "Delay": "00:00:00"
-		        }
-		      }
-		    ],
-    		"start": "2015-11-16T00:00:00Z",
-			"end": "2015-11-16T05:00:00Z",
-		    "isPaused": false
-		  }
-		}
+In the **pipeline JSON**, use HDInsight (on-demand or your own) linked service: 
+
+	{
+	  "name": "ADFTutorialPipelineCustom",
+	  "properties": {
+	    "description": "Use custom activity",
+	    "activities": [
+	      {
+	        "Name": "MyDotNetActivity",
+	        "Type": "DotNetActivity",
+	        "Inputs": [
+	          {
+	            "Name": "InputDataset"
+	          }
+	        ],
+	        "Outputs": [
+	          {
+	            "Name": "OutputDataset"
+	          }
+	        ],
+	        "LinkedServiceName": "HDInsightOnDemandLinkedService",
+	        "typeProperties": {
+	          "AssemblyName": "MyDotNetActivity.dll",
+	          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+	          "PackageLinkedService": "AzureStorageLinkedService",
+	          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
+	          "extendedProperties": {
+	            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
+	          }
+	        },
+	        "Policy": {
+	          "Concurrency": 2,
+	          "ExecutionPriorityOrder": "OldestFirst",
+	          "Retry": 3,
+	          "Timeout": "00:30:00",
+	          "Delay": "00:00:00"
+	        }
+	      }
+	    ],
+		"start": "2015-11-16T00:00:00Z",
+		"end": "2015-11-16T05:00:00Z",
+	    "isPaused": false
+	  }
+	}
 
 
 ## See Also
