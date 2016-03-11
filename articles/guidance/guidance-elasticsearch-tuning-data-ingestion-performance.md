@@ -162,7 +162,7 @@ Start with a configuration that will meet your current requirements (perform ben
 described later in this document). You can scale a cluster later by adding more VMs running Elasticsearch
 nodes.
 
-The page [Sizes for Virtual Machines](articles/virtual-machines-size-specs/) on the Azure web site documents the
+The page [Sizes for Virtual Machines](../virtual-machines-size-specs/) on the Azure web site documents the
 various options and SKUs available for VMs.
 
 You should match the size and resources of a VM to the role that nodes running on the VM will perform.
