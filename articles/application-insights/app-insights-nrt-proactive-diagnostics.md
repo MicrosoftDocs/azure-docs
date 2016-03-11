@@ -37,19 +37,9 @@ Notice that it tells you:
 
 Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But NRT Proactive Diagnostics starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
-## What's the benefit of these alerts? 
-
-Availability and performance are critical to the success of your app. Degradation can impact your users. If users are having problems with your web site, you need to know about it immediately. Hopefully, you can fix the problem before most customers have noticed.
-
-It's therefore important to set alerts on various metrics of your app's performance. However, it can be difficult to set appropriate thresholds for each metric. Firstly, it takes time for you to become familiar with the normal behavior of your system: learning the failure rate under load, which requests are most failure-prone, and so on. During this period, you learn what abnormal behavior looks like. You gradually find an optimal threshold that enables detection without too many false alarms.
-
-Once detection is made and you are aware of an issue, you still need to have more information when triaging it; what is the scale of the problem and the urgency? how many users are affected? Some of the information can be available in your dashboards, but often you are required to perform some analysis on telemetry to get sufficient view.
-
-Diagnosis of the problem can be a difficult task as the problem can be caused by a bug in the code, configuration, storage or other external services (databases, REST services) that the app is using.
-
 ## How it works
 
-Near Real Time Proactive Diagnostics monitors the telemetry received from your app, and in particular the failed request rate. This metric counts the number of requests for which the `success` property is false. By default, `success== (resultCode < 400)` (unless you have written custom code to [filter](app-insights-api-filtering-sampling.md#filtering) or generate your own [TrackRequest](app-insights-api-custom-events-metrics.md#track-request) calls). 
+Near Real Time Proactive Diagnostics monitors the telemetry received from your app, and in particular the failed request rate. This metric counts the number of requests for which the `Successful request` property is false. By default, `Successful request== (resultCode < 400)` (unless you have written custom code to [filter](app-insights-api-filtering-sampling.md#filtering) or generate your own [TrackRequest](app-insights-api-custom-events-metrics.md#track-request) calls). 
 
 Your app’s performance has a typical pattern of behavior. Some requests will be more prone to failure than others; and the overall failure rate may go up as load increases. Near Real Time Proactive Diagnostics uses machine learning to find these anomalies. 
 
@@ -57,7 +47,7 @@ As telemetry comes into Application Insights from your web app, NRT Proactive Di
 
 When an analysis is triggered, the service performs a cluster analysis on the failed request, to try to identify a pattern of values that characterize the failures. In the example above, the analysis has discovered that most failures are about a specific result code, request name, Server URL host, and role instance. By contrast, the analysis has discovered that the client operating system property is distributed over multiple values, and so it is not listed.
 
-The analyser then finds exceptions and dependency failures that are associated with requests in the cluster it has identified, together with an example of any trace logs associated with those requests.
+When your service is instrumented with these telemetry, the analyser finds an exception and a dependency failure that are associated with requests in the cluster it has identified, together with an example of any trace logs associated with those requests.
 
 The resulting analysis is sent to you as alert, unless you have configured it not to.
 
@@ -65,20 +55,20 @@ Like the [alerts you set manually](app-insights-alerts.md), you can inspect the 
 
 ## Triaging and diagnosing an alert
 
-An alert indicates that an anomaly in the failed request rate was detected. It's likely that there is some problem with your app or its environment.
+An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there is some problem with your app or its environment.
 
-From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example above, the failure rate of 15% compares with a normal rate of 1.3%, so there's obviously something bad going on. 22 distinct users were affected by failures in a particular operation. If it were your app, you'd be able to assess how serious that is.
+From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example above, the failure rate of 15% compares with a normal rate of 1.3%, indicates that something bad is going on. 22 distinct users were affected by failures in a particular operation. If it were your app, you'd be able to assess how serious that is.
 
-In many cases, you will be able to diagnose the problem quickly from the request name, exceptions, dependencies and trace data provided. 
+In many cases, you will be able to diagnose the problem quickly from the request name, exception, dependency failure and trace data provided. 
 
 There are some other clues. For example, the dependency failure rate in this example is the same as the exception rate (89.3%). This suggests that the exception arises directly from the dependency failure - giving you a clear idea of where to start looking in your code.
 
-To investigate further, the links in each section will take you straight to a [search page](app-insights-diagnostic-search.md) filtered to the relevant requests, exception, dependency or trace. Or you can open to the [Azure portal](https://portal.azure.com), navigate to the Application Insights resource for your app, and open the Failures blade.
+To investigate further, the links in each section will take you straight to a [search page](app-insights-diagnostic-search.md) filtered to the relevant requests, exception, dependency or traces. Or you can open the [Azure portal](https://portal.azure.com), navigate to the Application Insights resource for your app, and open the Failures blade.
 
-In this example, clicking the search link opens Application Insights search blade on the SQL statement with the root cause: NULLs where provided at mandatory fields and did not pass validation during the save operation.
+In this example, clicking the 'View dependency failures details' link opens Application Insights search blade on the SQL statement with the root cause: NULLs where provided at mandatory fields and did not pass validation during the save operation.
 
 
-![Diagnostic search](./media/app-insights-nrt-proactive-diagnostics/050.png)
+![Diagnostic search](./media/app-insights-nrt-proactive-diagnostics/051.png)
 
 ## Review recent alerts
 
@@ -93,11 +83,11 @@ Click any alert to see its full detail.
 
 Open the Alerts page. The Adaptive Failure Alert is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
 
-![On the Overview page, click Alerts tile. Or on any Metrics page, click Alerts button.](./media/app-insights-nrt-proactive-diagnostics/020.png)
+![On the Overview page, click Alerts tile. Or on any Metrics page, click Alerts button.](./media/app-insights-nrt-proactive-diagnostics/021.png)
 
 Click the alert to configure it.
 
-![Configuration](./media/app-insights-nrt-proactive-diagnostics/030.png)
+![Configuration](./media/app-insights-nrt-proactive-diagnostics/031.png)
 
 Notice that you can disable the Adaptive Failure Alert, but you can't delete it (or create another one).
 
@@ -113,11 +103,11 @@ NRT Proactive Diagnostics complements other similar but distinct features of App
     NRT Proactive Diagnostics start the diagnostic work for you. 
 * [Proactive Detection](app-insights-proactive-detection.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike NRT Proactive Diagnostics, the purpose of Proactive Detection is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for NRT Proactive Diagnostics is performed continuously on incoming telemetry, and you will be notified within minutes if server failure rates are greater than expected.
 
-## If you receive a NRT Proactive Diagnostics alert
+## If you receive an NRT Proactive Diagnostics alert
 
 *Why have I received this alert?*
 
-*	We detected an anomalous rise in failed requests compared to the normal baseline of the preceding period. After analysis of the failures and associated telemetry, we think that there is a problem that you should look into. 
+*	We detected an abnormal rise in failed requests rate compared to the normal baseline of the preceding period. After analysis of the failures and associated telemetry, we think that there is a problem that you should look into. 
 
 *Does the notification mean I definitely have a problem?*
 
@@ -133,11 +123,11 @@ NRT Proactive Diagnostics complements other similar but distinct features of App
 
 *Can I unsubscribe or get the notifications sent to my colleagues instead?*
 
-*	Yes, In Alert rules, click NRT Proactive Diagnostics rule to configure it. You can disable the alert, or change recipients for the alert. 
+*	Yes, In Alert rules, click Proactive Diagnostics rule to configure it. You can disable the alert, or change recipients for the alert. 
 
 *I lost the email. Where can I find the notifications in the portal?*
 
-*	In the Audit logs. Click Settings, Audit logs, then any alert to see its full detail.
+*	In the Audit logs. Click Settings, Audit logs, then any alert to see its occurrence, but with limited detailed view.
 
 *Some of the alerts are of known issues and I do not want to receive them.*
 
