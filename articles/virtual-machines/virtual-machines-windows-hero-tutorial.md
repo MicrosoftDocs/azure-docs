@@ -20,7 +20,7 @@
 # Create a Windows virtual machine in the Azure portal#
 
 > [AZURE.SELECTOR]
-- [Portal - Windows](virtual-machines-windows-hero-tutorial.md)
+- [Portal](virtual-machines-windows-hero-tutorial.md)
 - [PowerShell](virtual-machines-windows-create-powershell.md)
 - [Template](virtual-machines-windows-ps-template.md)
 
@@ -116,3 +116,4 @@ You can now work with the virtual machine just as you would with any other serve
 
 * Use Azure PowerShell and the Azure CLI to [find and select virtual machine images](virtual-machines-linux-cli-ps-findimage.md).
 * Automate virtual machine and workload deployment and management using [Azure Resource Manager templates](https://azure.microsoft.com/documentation/templates/).
+* [Create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md)
