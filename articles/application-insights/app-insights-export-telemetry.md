@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/10/2016" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -31,7 +31,7 @@ Continuous Export is available in the free trial period and on the [Standard and
 If you don't already have a "classic" storage account, create one now.
 
 
-1. Create a "classic" storage account in your subscription in the [Azure portal](https://portal.azure.com).
+1. Create a storage account in your subscription in the [Azure portal](https://portal.azure.com).
 
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-telemetry/030.png)
 
@@ -91,6 +91,17 @@ When you open your blob store, you'll see a container with a set of blob files. 
 ![Inspect the blob store with a suitable tool](./media/app-insights-export-telemetry/04-data.png)
 
 The date and time are UTC and are when the telemetry was deposited in the store - not the time it was generated. So if you write code to download the data, it can move linearly through the data.
+
+Here's the form of the path:
+
+
+    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+  
+Where 
+
+-	`blobCreationTimeUtc` is time when blob was created in the internal staging storage
+-	`blobDeliveryTimeUtc` is the time when blob is copied to the export destination storage
+
 
 
 ## <a name="format"></a> Data format

@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="03/04/2016"
+	ms.date="03/09/2016"
 	ms.author="sdanie"/>
 
 # How to use Azure Redis Cache with Node.js
@@ -60,11 +60,11 @@ var redis = require("redis");
 // Add your cache name and access key.
 var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
-client.set("foo", "bar", function(err, reply) {
+client.set("key1", "value", function(err, reply) {
   console.log(reply);
 });
 
-client.get("foo",  function(err, reply) {
+client.get("key1",  function(err, reply) {
   console.log(reply);
 });
 ```
@@ -72,7 +72,7 @@ client.get("foo",  function(err, reply) {
 Output:
 
 	OK
-	bar
+	value
 
 
 ## Next steps

@@ -13,33 +13,33 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/07/2016" 
 	ms.author="awills"/>
 
 
 
 
-# Application Analytics: Language Overview
+# Application Insights Analytics: Language Overview
 
 
-[Application Analytics](app-analytics.md) is a powerful search engine for your 
+[Application Insights Analytics](app-analytics.md) is a powerful query engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Analytics query lanuage, CSL.
+Application Insights query language, AIQL.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
  
-A typical CSL query is a *source* table followed by a series of *operators* separated by `|`. 
+A typical AIQL query is a *source* table followed by a series of *operators* separated by `|`. 
 
 For example, let's find out what time of day the citizens of Hyderabad try our web app. And while we're there, let's see what result codes are returned to their HTTP requests. 
 
-```CSL
+```AIQL
 
     requests 
-    | where timestamp > ago(30d) and location_City == "Hyderabad"
-    | summarize clients = dcount(location_ClientIP) 
-      by tod_UTC=bin(timestamp % 1d, 1h), responseCode
-    | extend local_hour = (tod_UTC + 5h + 30min) % 24h 
+    | where timestamp > ago(30d) and client_City == "Hyderabad"
+    | summarize clients = dcount(client_IP) 
+      by tod_UTC=bin(timestamp % 1d, 1h), resultCode
+    | extend local_hour = (tod_UTC + 5h + 30min) % 24h + datetime("2001-01-01") 
 ```
 
 We count distinct client IP addresses, grouping them by the hour of the day over the past 30 days. 
@@ -59,14 +59,11 @@ The language has many of the capabilities of SQL, and more. Just as in SQL, you 
 ## Connect to your Application Insights data
 
 
-Open Application Analytics from your app's [overview blade](app-insights-dashboards.md) in Application Insights: 
+Open Analytics from your app's [overview blade](app-insights-dashboards.md) in Application Insights: 
 
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-analytics/001.png)
 
 
-*Early adopter? If the button isn't working yet, open Application Analytics by navigating to this URL:*
-
-`https://analytics.applicationinsights.io/subscriptions/{subscription-id}/resourcegroups/{resource-group}/components/{app-insights-name}`
 
 
 

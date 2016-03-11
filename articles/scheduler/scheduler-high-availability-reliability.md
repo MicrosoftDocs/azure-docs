@@ -1,21 +1,21 @@
-<properties 
- pageTitle="Scheduler High-Availability and Reliability" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Scheduler High-Availability and Reliability"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
- 
+
+
 # Scheduler High-Availability and Reliability
 
 ## Azure Scheduler High-Availability
@@ -63,7 +63,7 @@ To learn how to configure an alternate endpoint, refer to [errorAction](schedule
 ## See Also
 
  [What is Scheduler?](scheduler-intro.md)
- 
+
  [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
  [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
@@ -79,10 +79,8 @@ To learn how to configure an alternate endpoint, refer to [errorAction](schedule
  [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
  [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
- 
- 
+
+
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
-
- 
