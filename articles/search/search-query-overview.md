@@ -36,7 +36,7 @@ Parameter | Description
 `searchFields=[string]` (optional) | The list of comma-separated field names to search for the specified text. Target fields must be marked as searchable in your index.
 `queryType=` `simple`/`full` (optional, defaults to `simple`)| When set to `simple`, search text is interpreted using a simple query language that allows for symbols such as +, * and "". When the query type is set to `full`, search text is interpreted using the Lucene query language. See the following section below to learn more about these two query syntaxes.
 `$skip=#` (optional) | The number of search results to skip. This value cannot be greater than 100,000.
-`$top=#` (optional) | The number of search results to retrieve. This defaults to 50. If you specify a value greater than 1000 and there are more than 1000 results, only the first 1000 results will be returned, along with a link to the next page of results. Learn more [here](https://msdn.microsoft.com/en-US/library/azure/dn798927.aspx).
+`$top=#` (optional) | The number of search results to retrieve. This defaults to 50. If you specify a value greater than 1000 and there are more than 1000 results, only the first 1000 results will be returned, along with a link to the next page of results. Learn more [here](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 `$orderby=[string]` (optional) | A list of comma-separated expressions to sort the results by. Each expression can be either a field name or a call to the [`geo.distance()`](https://msdn.microsoft.com/library/azure/dn798921.aspx) function. Each expression can be followed by `asc`to indicate ascending, and `desc`to indicate descending. The default is ascending order.
 
 
