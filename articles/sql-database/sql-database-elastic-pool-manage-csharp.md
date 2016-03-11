@@ -1,8 +1,8 @@
 <properties
     pageTitle="Manage an elastic database pool (C#) | Microsoft Azure"
-    description="Use C# database development techniques to manage an Azure SQL Database elastic database pool so you can share resources across many databases."
+    description="Use C# database development techniques to manage an Azure SQL Database elastic database pool."
     services="sql-database"
-    keywords="c# database,sql development"
+    keywords="c# database,sql development, database pool, multiple databases, scale-out" 
     documentationCenter=""
     authors="stevestein"
     manager="jhubbard"
@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="sstein"/>
 
 # Manage an elastic database pool (C&#x23;)
@@ -25,12 +25,14 @@
 - [C#](sql-database-elastic-pool-create-manage.md)
 
 
+Learn how to manage an [elastic database pool](sql-database-elastic-pool.md) using C&#x23;. 
+
+> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
+
 The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) so you need to install the library. You can install by running the following command in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
-    Install-Package Microsoft.Azure.Management.Sql –Pre
+    PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
-
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-powershell.md) in one step.
 
 
 ## Update an elastic database pool

@@ -2,7 +2,7 @@
     pageTitle="Create an elastic database pool (C#) | Microsoft Azure"
     description="Use C# database development techniques to create an Azure SQL Database elastic database pool so you can share resources across many databases."
     services="sql-database"
-    keywords="c# database,sql development"
+    keywords="c# database,sql development, database pool"
     documentationCenter=""
     authors="stevestein"
     manager="jhubbard"
@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="sstein"/>
 
 # Create an elastic database pool (C&#x23;)
@@ -24,12 +24,15 @@
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
+
+Learn how to create an [elastic database pool](sql-database-elastic-pool.md) using C&#x23;. 
+
+> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
+
 The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) so you need to install the library. You can install by running the following command in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
-
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-powershell.md) in one step.
 
 
 

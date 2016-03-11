@@ -1,7 +1,7 @@
 <properties 
-    pageTitle="Monitor and manage an elastic database pool (PowerShell) | Microsoft Azure" 
-    description="Learn how to use PowerShell to monitor and manage an elastic database pool." 
-	keywords="multiple databases,scale-out"    
+    pageTitle="Manage an elastic database pool (PowerShell) | Microsoft Azure" 
+    description="Learn how to use PowerShell to manage an elastic database pool." 
+	keywords="database pool, multiple databases, scale-out"    
 	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="sstein"/>
 
 # Monitor and manage an elastic database pool (PowerShell) 

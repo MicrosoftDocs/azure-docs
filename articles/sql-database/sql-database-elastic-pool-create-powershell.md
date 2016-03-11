@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Create an elastic database pool (PowerShell) | Microsoft Azure" 
     description="Learn how to use PowerShell to scale-out Azure SQL Database resources by creating an elastic database pool to manage multiple databases." 
-	keywords="multiple databases,scale-out"    
+	keywords="multiple databases,scale-out, database pool"    
 	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="sstein"/>
 
 # Create an elastic database pool (PowerShell) 
@@ -25,7 +25,7 @@
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-Learn how to manage multiple databases by creating an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets. 
+Learn how to create an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets. 
 
 > [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
 
