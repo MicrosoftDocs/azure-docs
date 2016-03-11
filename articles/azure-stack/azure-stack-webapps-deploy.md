@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Stack App Service Technical Preview 1 deployment | Microsoft Azure"
-	description="Detailed guidance for deploying Azure Web Apps in Azure Stack"
+	description="Detailed guidance for deploying Web Apps in Azure Stack"
 	services="azure-stack"
 	documentationCenter=""
 	authors="ccompy"
@@ -24,7 +24,7 @@ The current Azure Stack Web Apps deployment will create an instance of each of t
 
 There is no support for the Azure Stack App Service preview releases. Don't put production workloads on this preview release. There is also no upgrade between Azure Stack App Service preview releases. The primary purposes of these preview releases are to show what we are providing and to obtain feedback.  
 
-The Azure Stack Web Apps resource provider uses the same code that the Azure Web Apps feature in Azure App Service uses. As a result, some common concepts are worth describing. In Web Apps, the pricing container for web apps is called the App Service plan. It represents the set of dedicated virtual machines that are used to hold your apps. Within a given subscription, you can have multiple App Service plans. This is also true in Azure Stack Web Apps.  
+The Azure Stack Web Apps resource provider uses the same code that the Web Apps feature in Azure App Service uses. As a result, some common concepts are worth describing. In Web Apps, the pricing container for web apps is called the App Service plan. It represents the set of dedicated virtual machines that are used to hold your apps. Within a given subscription, you can have multiple App Service plans. This is also true in Azure Stack Web Apps.  
 
 In Azure, there are shared and dedicated workers. A shared worker supports high-density, multitenant web app hosting, and there is only one set of shared workers. Dedicated servers are only used by one tenant and come in three sizes: small, medium, and large. The needs of on-premises customers can't always be described by using those terms.
 
@@ -32,7 +32,7 @@ In Azure Stack Web Apps, resource provider administrators can define the worker 
 
 ## Portal features
 
-As is also true with the back end, Azure Stack Web Apps uses the same UI that Azure Web Apps uses. Some features are disabled and aren't yet functional in Azure Stack. This is because Azure-specific expectations or services that those features require aren't yet available in Azure Stack.
+As is also true with the back end, Azure Stack Web Apps uses the same UI that Web Apps in Azure App Service uses. Some features are disabled and aren't yet functional in Azure Stack. This is because Azure-specific expectations or services that those features require aren't yet available in Azure Stack.
 
 There are two portals for the Azure Stack App Service: the resource provider administration portal and the end-user tenant portal.
 
