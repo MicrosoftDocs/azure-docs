@@ -54,7 +54,7 @@ In this section, you'll create a Java console app that creates a new device iden
     ```
     RegistryManager registryManager = RegistryManager.createFromConnectionString(connectionString);
 
-    Device device = Device.createFromId(deviceId);
+    Device device = Device.createFromId(deviceId, null, null);
     try {
       device = registryManager.addDevice(device);
     } catch (IotHubException iote) {
@@ -181,7 +181,7 @@ In this section, you'll create a Java console app that reads device-to-cloud mes
     public static void main( String[] args ) throws IOException
     ```
 
-12. Add the following code to the **main** method in the **App** class. This code creates an **EventHubClient** instance to connect to the Event Hub-compatible endpoint on your IoT hub. It then creates two threads to read from the two partitions. Replace **{youriothubkey}**, **{youreventhubcompatiblenamespace}**, and **{youreventhubcompatiblename}** with the values you noted previously. The value of the **{youreventhubcompatiblenamespace}** placeholder comes from the **Event Hub-compatible endpoint** - it takes the form **xxxxnamespace.servicebus.windows.net**.
+12. Add the following code to the **main** method in the **App** class. This code creates an **EventHubClient** instance to connect to the Event Hub-compatible endpoint on your IoT hub. It then creates two threads to read from the two partitions. Replace **{youriothubkey}**, **{youreventhubcompatiblenamespace}**, and **{youreventhubcompatiblename}** with the values you noted previously. The value of the **{youreventhubcompatiblenamespace}** placeholder comes from the **Event Hub-compatible endpoint** - it takes the form **xxxxnamespace** (in other words, remove the **sb://** prefix and **.servicebus.windows.net** suffix from the Event Hub-compatible endpoint value from the portal).
 
     ```
     String policyName = "iothubowner";
@@ -223,8 +223,8 @@ In this section, you'll create a Java console app that reads device-to-cloud mes
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: event-hubs-overview.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 

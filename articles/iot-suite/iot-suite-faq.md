@@ -1,6 +1,6 @@
 <properties
   pageTitle="Azure IoT Suite FAQ | Microsoft Azure"
-  description="FAQ for IoT Suite."
+  description="Frequently asked questions for IoT Suite"
   services=""
   suite="iot-suite"
   documentationCenter=""
@@ -11,13 +11,13 @@
 <tags
   ms.service="iot-suite"
   ms.devlang="na"
-  ms.topic="article"
+  ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="11/17/2015"
+  ms.date="03/02/2016"
   ms.author="araguila"/>
    
-# Frequently asked questions
+# Frequently asked questions for IoT Suite
 
 ### How many DocumentDB instances can I provision in a subscription?
 

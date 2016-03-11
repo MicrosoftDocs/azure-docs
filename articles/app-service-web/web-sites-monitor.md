@@ -171,7 +171,7 @@ Log files can be downloaded using either FTP, Azure PowerShell, or the Azure CLI
 
 **Azure PowerShell**
 
-1. From the **Start Screen** or the **Start Menu**, search for **Azure PowerShell**. Right-click the **Azure PowerShell** entry and select **Run as Administrator**.
+1. From the **Start Screen** or the **Start Menu**, search for **Windows PowerShell**. Right-click the **Windows PowerShell** entry and select **Run as Administrator**.
 
 	> [AZURE.NOTE] If **Azure PowerShell** is not installed, see [Getting Started with Azure PowerShell Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) for installation and configuration information.
 

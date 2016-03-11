@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/10/2016"
 	ms.author="femila"/>
 
 # Plan for Hybrid Identity Lifecycle 

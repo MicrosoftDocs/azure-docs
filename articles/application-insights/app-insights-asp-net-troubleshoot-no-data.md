@@ -192,6 +192,10 @@ You can disable it, but this is not recommended. Sampling is designed so that re
 
 The city, region, and country dimensions are derived from IP addresses and aren't always accurate.
 
+## Exception "method not found" on running in Azure Cloud Services
+
+Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Services roles. [Install 4.6 on each role](../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
+
 ## Still not working...
 
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

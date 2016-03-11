@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure App Service and its impact on existing Azure services" 
-	description="Explains how the new Azure App Service and its features impact existing services in Azure." 
-	authors="yochayk" 
-	writer="yochayk" 
-	editor="yochayk" 
-	manager="nirma" 
-	services="app-service" 
+<properties
+	pageTitle="Azure App Service and its impact on existing Azure services"
+	description="Explains how the new Azure App Service and its features impact existing services in Azure."
+	authors="yochayk"
+	writer="yochayk"
+	editor="yochayk"
+	manager="nirma"
+	services="app-service"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/24/2015" 
+<tags
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/12/2016"
 	ms.author="yochayk"/>
 
 
@@ -22,13 +22,13 @@
 
 This article outlines the changes to existing Azure services as part of the change to bring together several Azure services into [Azure App Service](https://azure.microsoft.com/services/app-service/), a new integrated offering.
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Overview 
+## Overview
 
 [Azure App Service](https://azure.microsoft.com/services/app-service/) is a new and unique cloud service that enables developers to create web and mobile apps for any platform and any device. App Service is an integrated solution designed to streamline repeated coding functions, integrate with enterprise and SaaS systems, and automate business processes while meeting your needs for security, reliability, and scalability.
 
-App Service brings together the following existing Azure services - [Websites](https://azure.microsoft.com/services/websites/), [Mobile Services](https://azure.microsoft.com/services/mobile-services/), and [Biztalk Services](https://azure.microsoft.com/services/biztalk-services/) into a single combined service, while adding powerful new capabilities.  App Service allows you to host the following app types: 
+App Service brings together the following existing Azure services - [Websites](https://azure.microsoft.com/services/websites/), [Mobile Services](https://azure.microsoft.com/services/mobile-services/), and [Biztalk Services](https://azure.microsoft.com/services/biztalk-services/) into a single combined service, while adding powerful new capabilities.  App Service allows you to host the following app types:
 
 -   Web Apps
 -   Mobile Apps
@@ -60,8 +60,8 @@ The following table explains how existing Azure services map to App Service and 
 <td align="left">Azure Mobile Services</td>
 <td align="left">Mobile Apps</td>
 <td align="left"><p><li>Mobile Services continue to be available as a standalone service and remain fully supported.</p>
-<p><li>Mobile Apps is a new app type in App Service, which integrates all of the functionality of Mobile Services and more. Mobile Apps is in public preview.</p>
-<p><li>It is easy to [Migrate from Mobile Services to Mobile Apps](../app-service-mobile/app-service-mobile-migrating-from-mobile-services.md). Since Mobile Apps are still in preview it is not yet recommended for running production apps.</p>
+<p><li>Mobile Apps is an app type in App Service, which integrates all of the functionality of Mobile Services and more.</p>
+<p><li>It is easy to <a href="http://go.microsoft.com/fwlink/?LinkID=724279&clcid=0x409">migrate from Mobile Services to Mobile Apps</a>.</p>
 <p><li>As part of App Service, Mobile Apps get new capabilities beyond Mobile Services, such as  integration with on-premises and SaaS systems, staging slots, WebJobs, better scaling options, and more.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">Learn more about Mobile Apps</a>.</p>
 </tr>
@@ -91,4 +91,3 @@ The following table explains how existing Azure services map to App Service and 
 </table>
 
 To learn more, please visit [App Service documentation](https://azure.microsoft.com/documentation/services/app-service/).
- 

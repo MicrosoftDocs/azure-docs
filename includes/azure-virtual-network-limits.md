@@ -3,7 +3,7 @@ The following limits apply only for networking resources managed through the cla
 Resource| Default limit | Maximum limit
 --- | --- | --- 
 Virtual networks per subscription | 50 | 100
-Local network sites per virtual network | 20 | contact support
+Local network sites per subscription | 20 | contact support
 DNS Servers per virtual network | 20 | 100
 Virtual machines and role instances per virtual network | 2048 | 2048
 Concurrent TCP connections for a virtual machine or role instance | 500K | 500K 

@@ -3,7 +3,7 @@
 	description="Storage Analytics enables you to track metrics data for all storage services, and to collect logs for Blob, Queue, and Table storage."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
-	ms.author="tamram"/>
+	ms.date="02/14/2016"
+	ms.author="robinsh"/>
 
 # Storage Analytics
 
@@ -22,11 +22,11 @@
 
 Azure Storage Analytics performs logging and provides metrics data for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account.
 
-To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it from the [Azure Portal](https://portal.azure.com). For details, see [How to monitor a storage account](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx), and [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) operations to enable Storage Analytics for each service.
+To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it from the [Azure Portal](https://portal.azure.com). For details, see [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx), [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx), and [Get File Service Properties](https://msdn.microsoft.com/library/mt427369.aspx) operations to enable Storage Analytics for each service.
 
 The aggregated data is stored in a well-known blob (for logging) and in well-known tables (for metrics), which may be accessed using the Blob service and Table service APIs.
 
-Storage Analytics has a 20 TB limit on the amount of stored data that is independent of the total limit for your storage account. For more information about billing and data retention policies, see [Storage Analytics and Billing](https://msdn.microsoft.com/library/hh360997.aspx). For more information about storage account limits, see [Azure Storage Scalability and Performance Targets](https://msdn.microsoft.com/library/dn249410.aspx).
+Storage Analytics has a 20 TB limit on the amount of stored data that is independent of the total limit for your storage account. For more information about billing and data retention policies, see [Storage Analytics and Billing](https://msdn.microsoft.com/library/hh360997.aspx). For more information about storage account limits, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).
 
 For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -36,6 +36,8 @@ For an in-depth guide on using Storage Analytics and other tools to identify, di
 Storage Analytics logs detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
 Log entries are created only if there is storage service activity. For example, if a storage account has activity in its Blob service but not in its Table or Queue services, only logs pertaining to the Blob service will be created.
+
+Storage Analytics Logging is not available for the Azure File Service.
 
 ### Logging authenticated requests
 
@@ -62,12 +64,12 @@ The following types of anonymous requests are logged:
 
 - Failed GET requests with error code 304 (Not Modified).
 
-All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx) and [Storage Analytics Log Format](](https://msdn.microsoft.com/library/hh343259.aspx)) topics.
+All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx) and [Storage Analytics Log Format](https://msdn.microsoft.com/library/hh343259.aspx) topics.
 
 ### How logs are stored
 All logs are stored in block blobs in a container named $logs, which is automatically created when Storage Analytics is enabled for a storage account. The $logs container is located in the blob namespace of the storage account, for example: `http://<accountname>.blob.core.windows.net/$logs`. This container cannot be deleted once Storage Analytics has been enabled, though its contents can be deleted.
 
->[Azure.NOTE] The $logs container is not displayed when a container listing operation is performed, such as the [ListContainers](https://msdn.microsoft.com/library/ee758348.aspx) method. It must be accessed directly. For example, you can use the [ListBlobs](https://msdn.microsoft.com/library/ee772878.aspx) method to access the blobs in the `$logs` container.
+>[Azure.NOTE] The $logs container is not displayed when a container listing operation is performed, such as the [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx) method. It must be accessed directly. For example, you can use the [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) method to access the blobs in the `$logs` container.
 As requests are logged, Storage Analytics will upload intermediate results as blocks. Periodically, Storage Analytics will commit these blocks and make them available as a blob.
 
 Duplicate records may exist for logs created in the same hour. You can determine if a record is a duplicate by checking the **RequestId** and **Operation** number.
@@ -127,7 +129,7 @@ All data in the `$logs` container can be accessed by using the Blob service APIs
 
 Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to a storage service. Transactions are reported at both the API operation level as well as at the storage service level, and capacity is reported at the storage service level. Metrics data can be used to analyze storage service usage, diagnose issues with requests made against the storage service, and to improve the performance of applications that use a service.
 
-To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it from the [Azure Portal](https://portal.azure.com). For details, see [How To monitor a storage account](../how-to-monitor-a-storage-account.md). You can also enable Storage Analytics programmatically via the REST API or the client library. [Use the Get Blob Service Properties, Get Queue Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), and [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) operations to enable Storage Analytics for each service.
+To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it from the [Azure Portal](https://portal.azure.com). For details, see [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the **Get Service Properties** operations to enable Storage Analytics for each service.
 
 ### Transaction metrics
 
@@ -179,7 +181,7 @@ Storage Analytics is enabled by a storage account owner; it is not enabled by de
 
 The following actions performed by Storage Analytics are billable:
 
-- Requests to create blobs for logging.
+- Requests to create blobs for logging. 
 
 - Requests to create table entities for metrics.
 
@@ -194,13 +196,13 @@ When looking at Storage Analytics data, you can use the tables in the [Storage A
 ## Next steps
 
 ### Setting up Storage Analytics
-- [How To monitor a storage account](../how-to-monitor-a-storage-account.md)
+- [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md)
 - [Enabling and Configuring Storage Analytics](https://msdn.microsoft.com/library/hh360996.aspx)
 
 ### Storage Analytics logging  
 - [About Storage Analytics Logging](https://msdn.microsoft.com/library/hh343262.aspx)
 - [Storage Analytics Log Format](https://msdn.microsoft.com/library/hh343259.aspx)
-- [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoftcom/library/hh343260.aspx)
+- [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx)
 
 ### Storage Analytics metrics
 - [About Storage Analytics Metrics](https://msdn.microsoft.com/library/hh343258.aspx)

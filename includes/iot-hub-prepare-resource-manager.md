@@ -2,16 +2,7 @@
 
 You must authenticate all the operations that you perform on resources using the [Azure Resource Manager][lnk-authenticate-arm] with Azure Active Directory (AD). The easiest way to configure this is to use PowerShell or Azure CLI.
 
-If you have not installed [Azure PowerShell 1.0][lnk-powershell-install], you can do so with the following PowerShell commands. You will need to run PowerShell as an administrator.
-
-```
-# Install the Azure Resource Manager modules from PowerShell Gallery
-Install-Module AzureRM
-Install-AzureRM
-
-# Install the Azure Service Management module from PowerShell Gallery
-Install-Module Azure
-```
+You should install [Azure PowerShell 1.0][lnk-powershell-install] or later before you continue.
 
 The following steps show how to set up password authentication for an AD application using PowerShell. You can run these commands in a standard PowerShell session.
 
@@ -31,7 +22,7 @@ The following steps show how to set up password authentication for an AD applica
     - **{Password}:** A password that you will use to authenticate with your app.
 
     ```
-    New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} IdentifierUris {Application identifier} -Password {Password}
+    New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
     ```
     
 4. Make a note of the **ApplicationId** of the application you created. You will need this later.
@@ -56,4 +47,4 @@ You have now finished creating the Azure AD application that will enable you to 
 - Password
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: https://azure.microsoft.com/en-us/blog/azps-1-0-pre/
+[lnk-powershell-install]: ../powershell-install-configure.md

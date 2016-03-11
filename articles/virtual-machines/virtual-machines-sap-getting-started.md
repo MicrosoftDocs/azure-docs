@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="na"
-   ms.date="11/18/2015"
+   ms.date="02/12/2016"
    ms.author="sedusch"/>
    
 # Using SAP on Azure Virtual Machines (VMs)

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -122,6 +122,8 @@ Once your deployment is complete, you can inspect your cluster in the portal:
 
   The **Node Monitor** section on the cluster's dashboard blade indicates the number of VMs that are healthy and not healthy. You can find more details about the cluster's health at [Service Fabric health model introduction](service-fabric-health-introduction.md).
 
+>[AZURE.NOTE] Service Fabric clusters require a certain number of nodes to be up at all times in order to maintain availability and preserve state - referred to as "maintaining quorum". Consequently, it is typically not safe to shut down all of the machines in the cluster unless you have first performed a [full backup of your state](service-fabric-reliable-services-backup-restore.md).
+
 ## Connect to the cluster and deploy an application
 
 With the cluster setup completed, you can now connect and begin deploying applications. Start by starting Windows PowerShell on a machine that has the Service Fabric SDK installed. Then, to connect to the cluster, run one of the following sets of PowerShell commands depending on whether you created a secure or unsecure cluster:
@@ -191,11 +193,16 @@ Now that you are connected, run the following commands to deploy your applicatio
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
+## RDP into a Virtual Machine Scale Set (VMSS) instance or a Cluster Node 
+
+Each of the NodeTypes you specify in your cluster results in a VMSS getting set up. Refer to [How to RDP into your VMSS instance](service-fabric-cluster-nodetypes.md) for details.
+
 ## Next steps
 
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 - [Service Fabric cluster security](service-fabric-cluster-security.md)
 - [Service Fabric health model introduction](service-fabric-health-introduction.md)
+- [How to RDP into your VMSS instance](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png

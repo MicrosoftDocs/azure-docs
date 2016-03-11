@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/24/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -484,8 +484,8 @@ to learn about more complex storage tasks:
     - [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
 - Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 - View more feature guides to learn about additional options for storing data in Azure.
-    - Use [Blob Storage](storage-dotnet-how-to-use-blobs.md) to store unstructured data.
-    - Use [SQL Database](sql-database-dotnet-how-to-use.md) to store relational data.
+    - [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) to store unstructured data.
+    - [How to use Azure SQL Database in .NET applications](sql-database-dotnet-how-to-use.md) to store relational data.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx

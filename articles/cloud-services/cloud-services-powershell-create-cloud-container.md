@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="01/13/2015"
+   ms.date="02/09/2016"
    ms.author="cawa"/>
 
 # Use an Azure PowerShell command to create an empty cloud service container

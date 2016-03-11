@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/07/2015"
+   ms.date="02/23/2016"
    ms.author="sashan"/>
 
 # Design an application for cloud disaster recovery using geo-replication in SQL Database

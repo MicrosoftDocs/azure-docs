@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="02/11/2016"  
 	ms.author="juliako"/>
 
 
@@ -34,7 +34,7 @@ This topic shows how to accomplish the following Media Services management tasks
 - List jobs and assets 
 - List all access policies 
 - List All Locators
-- Enumerate through large collections of entities
+- Enumerating through large collections of entities
 - Delete an asset 
 - Delete a job 
 - Delete an access policy 
@@ -249,34 +249,35 @@ Note that a locator path to an asset is only a base URL to the asset. To create 
 	    }
 	}
 
-## Enumerate through large collections of entities
+## Enumerating through large collections of entities
 
-You need to use Skip and Take when enumerating through large collections of entities. There is a limit of 1000 entities returned at one time. 
-
-The following example shows how to use Skip and Take to enumerate through all assets in the account.  
-
-	static void ProcessAssets()
+When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. You need to use Skip and Take when enumerating through large collections of entities. 
+	
+The following function loops through all the jobs in the provided Media Services Account. Media Services returns 1000 jobs in Jobs Collection. The function makes use of Skip and Take to make sure that all jobs are enumerated (in case you have more than 1000 jobs in your account).
+	
+	static void ProcessJobs()
 	{
 	    try
 	    {
+	
 	        int skipSize = 0;
 	        int batchSize = 1000;
-	        int currentSkipSize = 0;
+	        int currentBatch = 0;
 	
 	        while (true)
 	        {
-	            // Enumerate through all assets (1000 at a time)
-	            foreach (IAsset asset in _context.Assets.Skip(skipSize).Take(batchSize))
+	            // Loop through all Jobs (1000 at a time) in the Media Services account
+	            IQueryable _jobsCollectionQuery = _context.Jobs.Skip(skipSize).Take(batchSize);
+	            foreach (IJob job in _jobsCollectionQuery)
 	            {
-	                currentSkipSize++;
-	                Console.WriteLine("Processing Asset " + asset.Id);
-	
+	                currentBatch++;
+	                Console.WriteLine("Processing Job Id:" + job.Id);
 	            }
 	
-	            if (currentSkipSize == batchSize)
+	            if (currentBatch == batchSize)
 	            {
 	                skipSize += batchSize;
-	                currentSkipSize = 0;
+	                currentBatch = 0;
 	            }
 	            else
 	            {

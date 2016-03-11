@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
@@ -61,5 +61,9 @@ There's a lot more you can do with Application Proxy:
 
 ## Additional Resources
 
-* [Sign up for Azure as an organization](sign-up-organization.md)
-* [Azure Identity](fundamentals-identity.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Providing secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)
+- [How to enable native client apps to interact with proxy Applications](active-directory-application-proxy-native-client.md)
+- [Sign up for Azure as an organization](sign-up-organization.md)
+- [Azure Identity](fundamentals-identity.md)
+

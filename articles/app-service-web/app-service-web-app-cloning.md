@@ -87,7 +87,7 @@ Scenario: The user would like to clone an web app to another region, while confi
 
 ### Adding new cloned Web App to an existing Traffic Manager profile ###
 
-Scenario: The user already have an ARM traffic manager profile that he would like to add both web apps as endpoint s. To do so, we first need to assemble the existing traffic manager profile id, we will need the subscription id, resource group name and the existing traffic manager profile name.
+Scenario: The user already have an ARM traffic manager profile that he would like to add both web apps as endpoints. To do so, we first need to assemble the existing traffic manager profile id, we will need the subscription id, resource group name and the existing traffic manager profile name.
 
     $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
 

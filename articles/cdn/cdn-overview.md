@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Azure CDN Overview" 
-	description="Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure CDN Overview"
+	description="Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/20/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 # Overview of the Azure Content Delivery Network (CDN)
 
-The Azure Content Delivery Network (CDN) caches Azure blobs and static content used by cloud services at strategically placed locations to provide maximum bandwidth for delivering content to users. 
+The Azure Content Delivery Network (CDN) caches Azure blobs and static content used by cloud services at strategically placed locations to provide maximum bandwidth for delivering content to users.
 
-If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Portal](https://portal.azure.com). 
+If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Portal](https://portal.azure.com).
 
 
 The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. For a current list of CDN node locations, see [Azure Content Delivery Network (CDN) POP Locations](cdn-pop-locations.md).
@@ -28,11 +28,11 @@ The CDN offers developers a global solution for delivering high-bandwidth conten
 The benefits of using the CDN to cache Azure data include:
 
 - Better performance and user experience for end users who are far from a content source, and are using applications where many "internet trips" are required to load content
-- Large distributed scale to better handle instantaneous high load, like at the start of a product launch event. 
+- Large distributed scale to better handle instantaneous high load, like at the start of a product launch event.
 
 
 >[AZURE.IMPORTANT] When you create or enable a CDN endpoint, it may take up to 90 minutes to propagate worldwide.
- 
+
 When a request for an object is first made to the CDN, the object is retrieved directly from the object's source origin location.  This origin can be an Azure storage account, web app, cloud service, or any custom origin that accepts public web requests.  When a request is made using the CDN syntax, the request is redirected to the CDN endpoint closest to the location from which the request was made to provide access to the object. If the object is not found at that endpoint, then it is retrieved from the service and cached at the endpoint, where a time-to-live (TTL) setting is maintained for the cached object.
 
 ## Standard features

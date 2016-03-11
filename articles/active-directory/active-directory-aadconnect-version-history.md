@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="02/29/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -24,8 +24,47 @@ This article is designed to help you keep track of the versions that have been r
 
 Related links:
 
+- Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
 - For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1.1.110.0
+Released: 2016 February
+
+**Fixed issues:**
+
+- Upgrade from earlier releases does not work if installation is not in the default **C:\Program Files** folder.
+- If you install and unselect **Start the synchronization process..** at the end of the installation wizard, re-running the installation wizard will not enable the scheduler.
+- The scheduler will not work as expected on servers where the date/time format is not US-en. It will also block `Get-ADSyncScheduler` to return correct times.
+- If you installed an earlier release of Azure AD Connect with ADFS as the sign-in option and upgrade, you cannot run the installation wizard again.
+
+## 1.1.105.0
+Released: 2016 February
+
+**New features:**
+
+- [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) feature for Express settings customers.
+- Support for the global admin using MFA and PIM in the installation wizard.
+    - You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use MFA.
+    - You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for MFA to properly work.
+- Allow changing the user's sign-in method after initial install.
+- Allow [Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the installation wizard. This also allows connecting to forests where not all domains are available.
+- [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) is built-in to the sync engine.
+
+**Features promoted from preview to GA:**
+
+- [Device writeback](active-directory-aadconnect-feature-device-writeback.md).
+- [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md).
+
+**New preview features:**
+
+- The new default sync cycle interval is 30 minutes. Used to be 3 hours for all earlier releases. Adds support to change the [scheduler](active-directory-aadconnectsync-feature-scheduler.md) behavior.
+
+**Fixed issues:**
+
+- The verify DNS domains page didn't always recognize the domains.
+- Prompts for domain admin credentials when configuring ADFS .
+- The on-premises AD accounts are not recognized by the installation wizard if located in a domain with a different DNS tree than the root domain.
 
 ## 1.0.9131.0
 Released: 2015 December
@@ -114,7 +153,7 @@ Changed name from Azure AD Sync to Azure AD Connect.
 
 - [User writeback](active-directory-aadconnect-feature-preview.md#user-writeback)
 - [Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback)
-- [Device writeback](active-directory-aadconnect-get-started-custom-device-writeback.md)
+- [Device writeback](active-directory-aadconnect-feature-device-writeback.md)
 - [Directory extensions](active-directory-aadconnect-feature-preview.md#directory-extensions)
 
 

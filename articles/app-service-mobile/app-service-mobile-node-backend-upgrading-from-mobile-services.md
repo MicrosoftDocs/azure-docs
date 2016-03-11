@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="chrande"/>
 
 # Upgrade your existing Node.js Azure Mobile Service to App Service
@@ -131,7 +131,7 @@ The server has lots of configuration settings, but has a variety of default valu
 
 You can configure your server configuration via environment variables which you can set via App Settings in your Mobile App backend.
 
-You can further customize the Mobile Apps SDK by passing a [configuration object](http://azure.github.io/azure-mobile-apps-node/global.html#configuration) to the initializer or [creating a file named azureMobile.js](app-service-mobile-node-backend-how-to-use-server-sdk/#howto-config-localdev) in the root of the project.
+You can further customize the Mobile Apps SDK by passing a [configuration object](http://azure.github.io/azure-mobile-apps-node/global.html#configuration) to the initializer or [creating a file named azureMobile.js](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-config-localdev) in the root of the project.
 
 ### Working with Data & Tables
 

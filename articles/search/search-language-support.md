@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="10/19/2015"
+   ms.date="02/09/2016"
    ms.author="jlembicz"/>
 
 # Create an index for documents in multiple languages in Azure Search
@@ -70,7 +70,7 @@ Sometimes the language of the agent issuing a query is not known, in which case 
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2015-02-28`
 
-If you're a .NET developer, note that you can configure language analyzers using the [Azure Search .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search/0.13.0-preview). The latest release includes support for the Microsoft language analyzers as well.
+If you're a .NET developer, note that you can configure language analyzers using the [Azure Search .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search). The latest release includes support for the Microsoft language analyzers as well.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png

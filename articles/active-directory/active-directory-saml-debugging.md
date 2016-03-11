@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/18/2015" 
+    ms.date="02/09/2016" 
     ms.author="asmalser" />
 
 #How to debug SAML-based single sign-on to applications in Azure Active Directory
@@ -24,6 +24,12 @@ The response from Azure AD that contains the SAML token is typically the one tha
 You can view the SAML token by selecting this line and then selecting the **Inspectors > WebForms** tab in the right panel. From there, right-click the **SAMLResponse** value and select **Send to TextWizard**. Then select **From Base64** from the **Transform** menu to decode the token and see its contents.
  
 **Note**: To see the contents of this HTTP request, Fiddler may prompt you to configure decryption of HTTPS traffic, which you will need to do.
+
+## Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
+- [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png

@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/09/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -122,7 +122,7 @@ For more details, see [Sharing an ExpressRoute circuit across multiple subscript
 No. All virtual networks linked to the same ExpressRoute circuit are part of the same routing domain and are not isolated from each other from a routing perspective. If you need route isolation, you’ll need to create a separate ExpressRoute circuit.
 
 ### Can I have one virtual network connected to more than one ExpressRoute circuit?
-Yes. You can link a single virtual network with up to 4 ExpressRoute circuits. They must be ordered through 4 different locations.
+Yes. You can link a single virtual network with up to 4 ExpressRoute circuits. They must be ordered through 4 different [ExpressRoute locations](expressroute-locations.md).
 
 ### Can I access the internet from my virtual networks connected to ExpressRoute circuits?
 Yes. If you have not advertised default routes (0.0.0.0/0) or internet route prefixes through the BGP session, you will be able to connect to the internet from a virtual network linked to an ExpressRoute circuit.
@@ -143,7 +143,7 @@ Yes. You will have to create an ExpressRoute gateway within your virtual network
 You must establish an ExpressRoute circuit and configure routes for public peering.
 
 ### Are there limits on the number of routes I can advertise?
-Yes. We accept up to 4000 route prefixes for private peering and public peering. You can increase this to 10,000 routes if you enable the ExpressRoute premium feature.
+Yes. We accept up to 4000 route prefixes for private peering and 200 each for public peering and Microsoft peering. You can increase this to 10,000 routes for private peering if you enable the ExpressRoute premium feature.
 
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 Prefixes advertised through BGP must be /29 or larger (/28 to /8).
@@ -171,7 +171,7 @@ Yes. You can increase the bandwidth of an ExpressRoute circuit without having to
 ### How do I change the bandwidth of an ExpressRoute circuit?
 You can update the bandwidth of the ExpressRoute circuit using the update dedicated circuit API and PowerShell cmdlet.
 
-## ExpressRoute premium
+## ExpressRoute Premium
 
 ### What is ExpressRoute premium?
 ExpressRoute premium is a collection of features listed below.
@@ -179,6 +179,7 @@ ExpressRoute premium is a collection of features listed below.
  - Increased routing table limit from 4000 routes to 10,000 routes for public peering and private peering.
  - Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). See table below for more details.
  - Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley.
+ - Connectivity to Office 365 services and CRM Online.
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
 The table below provides the increased limits for the number of VNets you can link to an ExpressRoute circuit. Default limit is 10.
@@ -187,14 +188,14 @@ The table below provides the increased limits for the number of VNets you can li
 
 | **Circuit Size** | **Number of VNet links for default setup** | **Number of VNet Links with ExpressRoute Premium** |
 |--------------|----------------------------------------|-----------------------------------------------|
-| 50 Mbps      | 10                                     | Not Supported                                 |
+| 50 Mbps      | 10                                     | 10                                            |
 | 100 Mbps     | 10                                     | 20                                            |
 | 200 Mbps     | 10                                     | 25                                            |
 | 500 Mbps     | 10                                     | 40                                            |
 | 1 Gbps       | 10                                     | 50											|
 | 2 Gbps	   | 10										| 60											|
 | 5 Gbps       | 10                                		| 75											|
-| 10 Gbps      | 10                                		|  100                                          |
+| 10 Gbps      | 10                                		| 100                                          |
 
 
 
@@ -213,48 +214,29 @@ Refer to [pricing details](https://azure.microsoft.com/pricing/details/expressro
 ### Do I pay for ExpressRoute premium in addition to standard ExpressRoute charges?
 Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges and charges required by the connectivity provider.
 
-## ExpressRoute and Office 365
+## ExpressRoute and Office 365 Services and CRM Online
 
-### How do I create an ExpressRoute circuit to connect to Office 365 services?
+### How do I create an ExpressRoute circuit to connect to Office 365 services and CRM Online?
 
 1. Review the  [ExpressRoute prerequisites page](expressroute-prerequisites.md) page to make sure you meet the requirements.
 2. Review the list of service providers and locations at [ExpressRoute partners and locations](expressroute-locations.md) to ensure that your connectivity needs are met.
 3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](http://aka.ms/tune/).
-4. Follow the steps listed in the workflows below to setup connectivity.
-	[ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md).
+4. Follow the steps listed in the workflows below to setup connectivity [ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md).
 
-### Can my existing ExpressRoute circuits support connectivity to Office 365 services?
-Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).
+>[AZURE.IMPORTANT] Ensure that you have enabled ExpressRoute premium add-on when configuring connectivity to Office 365 services and CRM Online.
+
+### Can my existing ExpressRoute circuits support connectivity to Office 365 services and CRM Online?
+Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services and make sure that you have enabled premium add-on. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).
 
 ### What Office 365 services can be accessed over an ExpressRoute connection?
 
-**The following Office 365 services are supported:**
+Refer to [Office 365 URLs and IP address ranges](http://aka.ms/o365endpoints) page for an up to date list of services supported over ExpressRoute.
 
-- Exchange Online & Exchange Online Protection
-- SharePoint Online
-- Skype for Business Online
-- Office Online
-- Azure AD & Azure AD Sync
-- Office 365 Video
-- Power BI
-- Delve
-- Project Online
-
-**The following Office 365 services are not supported:**
-
-- Yammer
-- Office 365 ProPlus client downloads
-- On-premises Identity Provider Sign-In
-- Office 365 (operated by 21 Vianet) service in China
-
-You can connect to these services over the internet.
-
-### How much does ExpressRoute for Office 365 cost?
-There is no additional cost for connecting to Office 365 over ExpressRoute.  The [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) provides details of costs for ExpressRoute.
+### How much does ExpressRoute for Office 365 services and CRM Online cost?
+Office 365 services and CRM Online requires premium add-on to be enabled. The [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) provides details of costs for ExpressRoute.
 
 ### What regions is ExpressRoute for Office 365 supported in?
 Refer to [ExpressRoute partners and locations](expressroute-locations.md) for more information on the list of partners and locations where ExpressRoute is supported.
 
 ### Can I access Office 365 over the internet even if ExpressRoute was configured for my organization?
 Yes. Office 365 service endpoints are reachable through the internet even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
- 

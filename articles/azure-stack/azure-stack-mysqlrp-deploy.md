@@ -68,16 +68,16 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 
 3.	Click the **Prepare MySql Prerequisites** tab.
 
-4.	Click the **New-SslCert.ps1** tab and run it. In the prompt, type the PFX password that is used to protect the private key. This command adds the \_.AzureStack.local.pfx SSL certificate to the D:\MySql\BlobStorage\Container folder. This certificate secures communication between the resource provider and the local instance of the Azure Resource Manager.
+4.	Click the **New-SslCert.ps1** tab and run it. In the prompt, type the PFX password that is used to protect the private key. This command adds the \_.AzureStack.local.pfx SSL certificate to the D:\MySql\Prerequisites\BlobStorage\Container folder. This certificate secures communication between the resource provider and the local instance of the Azure Resource Manager.
 
-5.	Click the **Download-MySqlServer.ps1** tab and run it. When prompted, accept the EULA by clicking **Yes** in the **Confirm** dialog box. This command adds two zip files to the D:\MySql\BlobStorage\Container folder.
+5.	Click the **Download-MySqlServer.ps1** tab and run it. When prompted, accept the EULA by clicking **Yes** in the **Confirm** dialog box. This command adds two zip files to the D:\MySql\Prerequisites\BlobStorage\Container folder.
 
 6.	Click the **Upload-Microsoft.MySql-RP.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command uploads the binaries for the MySQL resource provider. When prompted for AadTenantID, input your AAD tenant FQDN, e.g. microsoftazurestack.onmicrosoft.com. When Prompted for service admin credentials, input your Azure Stack Service Admin user's username and password.
 
 7.	Click the **Publish-GalleryPackages.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command adds two marketplace items to the Azure Stack POC portal.
 
 8.	Verify that these files are in the D:\MySql\Prerequisites\BlobStorage\Container folder:
-  - AzureStack.MySql.Setup.1.0.46.0.nupkg
+  - AzureStack.MySql.Setup.1.0.1.0.nupkg
   - mysql-5.5.44-winx64.zip
   - mysql-5.6.26-winx64.zip
   - \_.AzureStack.local.pfx

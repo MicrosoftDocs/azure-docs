@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data to and from Azure Table | Azure Data Factory" 
+	pageTitle="Move data to/from Azure Table | Microsoft Azure" 
 	description="Learn how to move data to/from Azure Table Storage using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="02/24/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Table using Azure Data Factory
@@ -361,6 +361,14 @@ The typeProperties section is different for each type of dataset and provides in
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | tableName | Name of the table in the Azure Table Database instance that linked service refers to. | Yes
+
+### Schema by Data Factory
+For schema-free data stores such as Azure Table, the Data Factory service infers the schema in one of the following ways:  
+
+1.	If you specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service honors this structure as the schema. In this case, if a row does not contain a value for a column, a null value will be provided for it.
+2.	If you do not specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service infers the schema by using the first row in the data. In this case, if the first row does not contain the full schema, some columns will be missing in the result of copy operation.
+
+Therefore, for schema-free data sources, the best practice is to specify the structure of data using the **structure** property.
 
 ## Azure Table Copy Activity type properties
 

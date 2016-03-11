@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 # Cloud App Discovery Security and Privacy Considerations
@@ -202,7 +202,8 @@ Any user accessing the data in the portal, must be licensed with an Azure AD Pre
 
 
 
-**Additional Resources**
+##Additional Resources
 
 
 * [How can I discover unsanctioned cloud apps that are used within my organization](active-directory-cloudappdiscovery-whatis.md)
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

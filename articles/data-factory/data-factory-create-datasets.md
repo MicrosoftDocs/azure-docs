@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creating datasets" 
+	pageTitle="Datasets in Azure Data Factory | Microsoft Azure" 
 	description="Understand Azure Data Factory datasets and learn how to create them." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
-# Datasets
+# Datasets in Azure Data Factory
 
 ## Description
 A Dataset is a logical description of the data. The data being described can vary from simple bytes, semi-structured data like CSV files all the way up to relational tables or even models. The mechanism (address, protocol, authentication scheme) to access the data is defined in the Linked Service and referenced in the dataset definition.

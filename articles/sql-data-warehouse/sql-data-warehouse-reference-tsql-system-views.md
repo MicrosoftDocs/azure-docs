@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/21/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;sonyama"/>
 
-# System Views
+# System views
 
 ## SQL Data Warehouse catalog views
 
@@ -27,9 +27,6 @@
 - [sys.pdw_diag_sessions](http://msdn.microsoft.com/library/mt203890.aspx)
 - [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
 - [sys.pdw_index_mappings](http://msdn.microsoft.com/library/mt203912.aspx)
-- [sys.pdw_loader_backup_run_details](http://msdn.microsoft.com/library/mt203877.aspx)
-- [sys.pdw_loader_backup_runs](http://msdn.microsoft.com/library/mt203884.aspx)
-- [sys.pdw_loader_run_stages](http://msdn.microsoft.com/library/mt203879.aspx)
 - [sys.pdw_nodes_column_store_dictionaries](http://msdn.microsoft.com/library/mt203902.aspx)
 - [sys.pdw_nodes_column_store_row_groups](http://msdn.microsoft.com/library/mt203880.aspx)
 - [sys.pdw_nodes_column_store_segments](http://msdn.microsoft.com/library/mt203916.aspx)
@@ -41,20 +38,6 @@
 - [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 - [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
-## SQL Database Catalog views
-
-- [dbo.server_quotas (Azure SQL Database)](http://msdn.microsoft.com/library/dn308512.aspx)
-- [sys.bandwidth_usage (Azure SQL Database)](http://msdn.microsoft.com/library/dn269985.aspx)
-- [sys.database_connection_stats (Azure SQL Database)](http://msdn.microsoft.com/library/dn269986.aspx)
-- [sys.database_firewall_rules (Azure SQL Database)](http://msdn.microsoft.com/library/dn269982.aspx)
-- [sys.database_usage (Azure SQL Database)](https://msdn.microsoft.com/library/dn270020.aspx)
-- [sys.event_log (Azure SQL Database)](http://msdn.microsoft.com/library/dn270018.aspx)
-- [sys.database_firewall_rules (Azure SQL Database)](http://msdn.microsoft.com/library/dn269982.aspx)
-- [sys.firewall_rules (Azure SQL Database)](https://msdn.microsoft.com/library/dn269980.aspx)
-- [sys.resource_stats (Azure SQL Database)](http://msdn.microsoft.com/library/dn269979.aspx)
-- [sys.resource_usage (Azure SQL Database)](https://msdn.microsoft.com/library/dn270016.aspx)
-
-
 ## SQL Data Warehouse dynamic management views (DMVs)
 
 - [sys.dm_pdw_diag_processing_stats](http://msdn.microsoft.com/library/mt203914.aspx)
@@ -64,15 +47,9 @@
 - [sys.dm_pdw_exec_connections](http://msdn.microsoft.com/library/mt203882.aspx)
 - [sys.dm_pdw_exec_requests](http://msdn.microsoft.com/library/mt203887.aspx)
 - [sys.dm_pdw_exec_sessions](http://msdn.microsoft.com/library/mt203883.aspx)
-- [sys.dm_pdw_network_credentials](http://msdn.microsoft.com/library/mt203915.aspx)
 - [sys.dm_pdw_nodes](http://msdn.microsoft.com/library/mt203907.aspx)
 - [sys.dm_pdw_nodes_database_encryption_keys](http://msdn.microsoft.com/library/mt203922.aspx)
-- [sys.dm_pdw_node_status](http://msdn.microsoft.com/library/mt203905.aspx)
-- [sys.dm_pdw_os_event_logs](http://msdn.microsoft.com/library/mt203910.aspx)
-- [sys.dm_pdw_or_performance_counters](http://msdn.microsoft.com/library/mt203875.aspx)
 - [sys.dm_pdw_os_threads](http://msdn.microsoft.com/library/mt203917.aspx)
-- [sys.dm_pdw_query_stats_xe](http://msdn.microsoft.com/library/mt203898.aspx)
-- [sys.dm_pdw_query_stats_xe_file](http://msdn.microsoft.com/library/mt203919.aspx)
 - [sys.dm_pdw_request_steps](http://msdn.microsoft.com/library/mt203913.aspx)
 - [sys.dm_pdw_resource_waits](http://msdn.microsoft.com/library/mt203906.aspx)
 - [sys.dm_pdw_sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)
@@ -102,7 +79,7 @@
 - [sys.databases](http://msdn.microsoft.com/library/ms178534.aspx)
 - [sys.default_constraints](http://msdn.microsoft.com/library/ms173758.aspx)
 - [sys.extended_properties](http://msdn.microsoft.com/library/ms177541.aspx)
-- [sys.external_file formats](http://msdn.microsoft.com/library/dn935025.aspx)
+- [sys.external_file_formats](http://msdn.microsoft.com/library/dn935025.aspx)
 - [sys.external_tables](http://msdn.microsoft.com/library/dn935029.aspx)
 - [sys.external_data_sources](http://msdn.microsoft.com/library/dn935019.aspx)
 - [sys.filegroups](http://msdn.microsoft.com/library/ms187782.aspx)
@@ -111,7 +88,6 @@
 - [sys.index_columns](http://msdn.microsoft.com/library/ms175105.aspx)
 - [sys.indexes](http://msdn.microsoft.com/library/ms173760.aspx)
 - [sys.key_constraints](http://msdn.microsoft.com/library/ms174321.aspx)
-- [sys.master_files](http://msdn.microsoft.com/library/ms186782.aspx)
 - [sys.numbered_procedures](http://msdn.microsoft.com/library/ms179865.aspx)
 - [sys.objects](http://msdn.microsoft.com/library/ms190324.aspx)
 - [sys.partition_functions](http://msdn.microsoft.com/library/ms187381.aspx)
@@ -123,11 +99,7 @@
 - [sys.procedures](http://msdn.microsoft.com/library/ms188737.aspx)
 - [sys.schemas](http://msdn.microsoft.com/library/ms176011.aspx)
 - [sys.securable_classes](http://msdn.microsoft.com/library/ms408301.aspx)
-- [sys.server_role_members](http://msdn.microsoft.com/library/ms190331.aspx)
-- [sys.server_permissions](http://msdn.microsoft.com/library/ms186260.aspx)
-- [sys.server_principals](http://msdn.microsoft.com/library/ms188786.aspx)
 - [sys.sql_expression_dependencies](http://msdn.microsoft.com/library/bb677315.aspx)
-- [sys.sql_logins](http://msdn.microsoft.com/ms174355.aspx)
 - [sys.sql_modules](http://msdn.microsoft.com/library/ms175081.aspx)
 - [sys.stats](http://msdn.microsoft.com/library/ms177623.aspx)
 - [sys.stats_columns](http://msdn.microsoft.com/library/ms187340.aspx)
@@ -168,7 +140,6 @@ This is why each of these DMV's has a specific column called pdw_node_id. This i
 | sys.dm_pdw_nodes_exec_query_stats | [sys.dm_exec_query_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms189741.aspx) |
 | sys.dm_pdw_nodes_exec_requests | [sys.dm_exec_requests (Transact-SQL)](http://msdn.microsoft.com/library/ms177648.aspx) |
 | sys.dm_pdw_nodes_exec_sessions | [sys.dm_exec_sessions (Transact-SQL)](https://msdn.microsoft.com/en-us/library/ms176013.aspx) |
-| sys.dm_pdw_nodes_io_cluster_shared_drives | [sys.dm_io_cluster_shared_drives (Transact-SQL)](http://msdn.microsoft.com/library/ms188930.aspx) |
 | sys.dm_pdw_nodes_io_pending_io_requests | [sys.dm_io_pending_io_requests (Transact-SQl)](http://msdn.microsoft.com/library/ms188762.aspx) |
 | sys.dm_pdw_nodes_os_buffer_descriptors | [sys.dm_os_buffer_descriptors (Transact-SQL)](http://msdn.microsoft.com/library/ms173442.aspx) |
 | sys.dm_pdw_nodes_os_child_instances | [sys.dm_os_child_instances (Transact-SQL)](http://msdn.microsoft.com/library/ms165698.aspx) |
@@ -177,7 +148,6 @@ This is why each of these DMV's has a specific column called pdw_node_id. This i
 | sys.dm_pdw_nodes_os_dispatchers | Transact-SQL Documentation is not available. |
 | sys.dm_pdw_nodes_os_hosts | [sys.dm_os_hosts (Transact-SQL)](http://msdn.microsoft.com/library/ms187800.aspx) |
 | sys.dm_pdw_nodes_os_latch_stats | [sys.dm_os_latch_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms175066.aspx) |
-| sys.dm_pdw_nodes_os_loaded_modules | [sys.dm_os_loaded_modules (Transact-SQL)](http://msdn.microsoft.com/library/ms179907.aspx) |
 | sys.dm_pdw_nodes_os_memory_brokers | [sys.dm_os_memory_brokers (Transact-SQL)](http://msdn.microsoft.com/library/bb522548.aspx) |
 | sys.dm_pdw_nodes_os_memory_cache_clock_hands | [sys.dm_os_memory_cache_clock_hands (Transact-SQL)](http://msdn.microsoft.com/library/ms173786.aspx) |
 | sys.dm_pdw_nodes_os_memory_cache_counters | [sys.dm_os_memory_cache_counters (Transact-SQL)](http://msdn.microsoft.com/library/ms188760.aspx) |
@@ -210,7 +180,7 @@ This is why each of these DMV's has a specific column called pdw_node_id. This i
 | sys.dm_pdw_nodes_tran_session_transactions | [sys.dm_tran_session_transactions (Transact-SQL)](http://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators | [sys.dm_tran_top_version_generators (Transact-SQL)](http://msdn.microsoft.com/library/ms188778.aspx) |
 
-## SQL Server 2016 PolyBase dmvs available in SQL Data Warehouse
+## SQL Server 2016 PolyBase DMVs available in SQL Data Warehouse
 
 - [sys.dm_exec_compute_node_errors (Transact-SQL)](http://msdn.microsoft.com/library/mt146380.aspx)
 - [sys.dm_exec_compute_node_status (Transact-SQL)](http://msdn.microsoft.com/library/mt146382.aspx)
@@ -222,16 +192,6 @@ This is why each of these DMV's has a specific column called pdw_node_id. This i
 - [sys.dm_exec_dms_workers (Transact-SQL)](https://msdn.microsoft.com/library/mt146392.aspx)
 - [sys.dm_exec_external_operations (Transact-SQL)](https://msdn.microsoft.com/library/mt146391.aspx)
 - [sys.dm_exec_external_work (Transact-SQL)](https://msdn.microsoft.com/library/mt146375.aspx)
-
-## SQL Database DMVs available in SQL Data Warehouse
-
-- [sys.dm_continuous_copy_status](https://msdn.microsoft.com/library/dn467642.aspx)
-- [sys.dm_database_copies](https://msdn.microsoft.com/library/dn270023.aspx)
-- [sys.dm_db_objects_impacted_on_version_change](https://msdn.microsoft.com/library/dn270019.aspx)
-- [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
-- [sys.dm_db_wait_stats](https://msdn.microsoft.com/library/dn269834.aspx)
-- [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
-
 
 ## SQL Server information_schema views
 

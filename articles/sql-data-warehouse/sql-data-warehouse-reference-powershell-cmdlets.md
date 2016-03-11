@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Get started with cmdlets in SQL Data Warehouse"
+   pageTitle="Using PowerShell cmdlets and REST APIs with SQL Data Warehouse"
    description="Suspend and restart SQL Data Warehouse using PowerShell cmdlets"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sidneyh"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/11/2016"
-   ms.author="mausher;sidneyh;barbkess;sonyama"/>
+   ms.date="03/03/2016"
+   ms.author="barbkess;mausher;sonyama"/>
 
-# Get started with Azure Data Warehouse cmdlets and REST APIs
+# Using PowerShell cmdlets and REST APIs with SQL Data Warehouse
 
-SQL Data Warehouse can be managed using either Azure PowerShell cmdlets or REST APIs. 
+SQL Data Warehouse can be managed using either Azure PowerShell cmdlets or REST APIs.
 
 The commands defined for **Azure SQL Database** are also used for **SQL Data Warehouse**. For a current list, see [Azure SQL Cmdlets](https://msdn.microsoft.com/library/mt574084.aspx). The cmdlets **Suspend-AzureRmSqlDatabase** and **Resume-AzureRmSqlDatabase** (below) are additions designed for SQL Data Warehouse.
 
@@ -26,8 +26,8 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
 
 ## Get and run the Azure PowerShell cmdlets
 
-1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
-2. To run the module, at the start window type **Microsoft Azure PowerShell**.
+1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
+2. To run the module, at the start window type **Windows PowerShell**.
 3. If you have not already added your account to the machine, run the following cmdlet. (For more information, see [How to install and configure Azure PowerShell]():
 
 	```
@@ -42,14 +42,14 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
 
 ## Suspend-AzureRmSqlDatabase
 
-For the command reference, see [Suspend-AzureRmSQLDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
+For the command reference, see [Suspend-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
 
 ### Example 1: Pause a database by name on a server
 
 This example pauses a database named "Database02" hosted on a server named "Server01." The server is in an Azure resource group named "ResourceGroup1."
 
 ```
-Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 ### Example 2: Pause a database object
@@ -57,7 +57,7 @@ Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName 
 This example retrieves a database named "Database02" from a server named "Server01" contained in a resource group named "ResourceGroup1." It pipes the retrieved object to **Suspend-AzureRmSqlDatabase**. As a result, the database is paused. The final command shows the results.
 
 ```
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
@@ -71,15 +71,15 @@ For the command reference, see [Resume-AzureRmSqlDatabase](https://msdn.microsof
 This example resumes operation of a database named "Database02" hosted on a server named "Server01." The server is contained in a resource group named "ResourceGroup1."
 
 ```
-Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" -DatabaseName "Database02"
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
 ### Example 2: Resuming a database object
 
-This example retrieves a database named "Database02" from a server named "Server01" that is contained in a resource group named "ResourceGroup1." The object is piped to **Resume-AzureRmSqlDatabase**. 
+This example retrieves a database named "Database02" from a server named "Server01" that is contained in a resource group named "ResourceGroup1." The object is piped to **Resume-AzureRmSqlDatabase**.
 
 ```
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ```
 
@@ -97,8 +97,8 @@ RestorePointCreationDate |Backup Snapshot Time (Populated when restorePointType 
 ### Example 1: Retrieving a database’s restore points by name on a server
 This example retrieves the restore points for a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1."
 
-```	
-$restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+$restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints
 ```
 
@@ -108,13 +108,13 @@ $restorePoints
 This example retrieves a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1." The database object is piped to **Get-AzureRmSqlDatabase**, and the result is the database’s restore points. The final command prints the results.
 
 ```
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints = $database | Get-AzureRmSqlDatabaseRestorePoints
 $retorePoints
 ```
 
 
-> [AZURE.NOTE] Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the powershell cmdlets.
+> [AZURE.NOTE] Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the PowerShell cmdlets.
 
 
 ## Next steps

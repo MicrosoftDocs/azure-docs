@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/09/2016"
 	ms.author="markvi"/>
 
 # Finding unmanaged cloud applications with Cloud App Discovery
@@ -47,3 +47,4 @@ To get started with Cloud App Discovery, see [Getting Started With Cloud App Dis
 - [Cloud App Discovery Registry Settings for Proxy Servers with Custom Ports](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 - [Cloud App Discovery Agent Changelog ](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 - [Cloud App Discovery Frequently Asked Questions](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

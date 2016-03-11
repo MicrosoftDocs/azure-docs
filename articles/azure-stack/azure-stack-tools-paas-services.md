@@ -40,6 +40,17 @@ Explore the growing collection of [Azure Stack GitHub Templates](https://github.
 [Download and use the Packaging tool](http://www.aka.ms/azurestackmarketplaceitem) to create marketplace items for your own custom templates to add to the Azure Stack marketplace. Instructions on how to create a marketplace item and make it available to your tenants can be found in [Create Marketplace item](azure-stack-create-marketplace-item.md).
 
 ## Developer tools
+
+### Visual Studio Cloud Tools
+Use the Visual Studio Cloud Tools to quickly build new applications or deploy existing applications to Azure Stack.
+[Download for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003)
+
+### Azure PowerShell SDK
+Azure PowerShell is a module that provides cmdlets to manage Azure and Azure Stack with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure Stack platform.
+[Download Azure PowerShell SDK](http://aka.ms/webpi-azps)
+
+> [AZURE.NOTE] If you work on the Client VM, you’ll need to first **uninstall** the existing Azure PowerShell module and then [download]( http://aka.ms/webpi-azps) the latest Azure PowerShell SDK. 
+
 ### Azure cross platform command line interfaces
 Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure Stack.
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/09/2016" 
 	ms.author="dariagrigoriu"/>
 
 # Azure App Service Deployment Overview

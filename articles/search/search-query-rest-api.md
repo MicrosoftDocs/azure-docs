@@ -1,23 +1,21 @@
 <properties
-	pageTitle="Build queries in Azure Search using REST calls | Microsoft Azure | Hosted cloud search service"
-	description="Build a search query in Azure search and use search parameters to filter, sort, and facet search result using the .NET library or SDK."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
-    tags="azure-portal"/>
+    pageTitle="Query Your Azure Search Index using the REST API | Microsoft Azure | Hosted cloud search service"
+    description="Build a search query in Azure search and use search parameters to filter and sort search results."
+    services="search"
+    documentationCenter=""
+	authors="ashmaka"
+/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="na"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="03/08/2016"
+    ms.author="ashmaka"/>
 
-# Build queries in Azure Search using REST calls
+# Query your Azure Search index using the REST API
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Search Explorer](search-explorer.md)
@@ -25,44 +23,144 @@
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-This article shows you how to construct a query against an index using the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx). Some of the content below is from [Search Documents (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx). Refer to the parent article for more context.
+This article will show you how to query an index using the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx). Before beginning this walkthrough, you should already have [created an Azure Search index](search-create-index-rest-api.md) and [populated it with data](search-import-data-rest-api.md).
 
-Prerequisites to importing include having an existing index already in place, loaded with documents that provide searchable data.
+## I. Identify your Azure Search service's query api-key
+A key component of every search operation against the Azure Search REST API is the *api-key* that was generated for the service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-To search your index using the REST API, you will issue a GET HTTP request. Your query parameters will be defined within the URL of the HTTP request.
+1. To find your service's api-keys you must log into the [Azure Portal](https://portal.azure.com/)
+2. Go to your Azure Search service's blade
+3. Click on the "Keys" icon
 
-**Request and Request Headers**:
+Your service will have *admin keys* and *query keys*.
+  * Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
+  * Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
 
-In the URL, you will have to provide your service name, index name, and as well as the proper API version. The query string at the end of the URL will be where you provide the query parameters. One of the parameters in the query string must be the proper API version (the current API version is "2015-02-28" at the time of publishing this document).
+For the purposes of querying an index, you can use one of your query keys. Your admin keys can also be used for queries, but you should use a query key in your application code as this better follows the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-As request headers, you will have to define the Content-Type and provide your service's Primary or Secondary Admin Key.
+## II. Formulate your query
+There are two ways to [search your index using the REST API](https://msdn.microsoft.com/library/azure/dn798927.aspx). One way is to issue an HTTP POST request where your query parameters will be defined in a JSON object in the request body. The other way is to issue an HTTP GET request where your query parameters will be defined within the request URL. Note that POST has more [relaxed limits](https://msdn.microsoft.com/library/azure/dn798927.aspx) on the size of query parameters than GET. For this reason, we recommend using POST unless you have special circumstances where using GET would be more convenient.
 
-	GET https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+For both POST and GET, you need to provide your *service name*, *index name*, and the proper *API version* (the current API version is `2015-02-28` at the time of publishing this document) in the request URL. For GET, the *query string* at the end of the URL will be where you provide the query parameters. See below for the URL format:
 
-Azure Search offers many options to create extremely powerful queries. To learn more about all the different parameters of a query string, please visit [this page](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
 
-**Examples**:
+The format for POST is the same, but with only api-version in the query string parameters.
 
-Below are a few examples with various query strings. These samples use a dummy index named "hotels":
+#### Types of queries
 
-Search the entire index for the term "quality":
+Azure Search offers many options to create extremely powerful queries. The two main types of query you will use are `search` and `filter`. A `search` query searches for one or more terms in all _searchable_ fields in your index, and works the way you would expect a search engine like Google or Bing to work. A `filter` query evaluates a boolean expression over all _filterable_ fields in an index. Unlike `search` queries, `filter` queries match the exact contents of a field, which means they are case-sensitive for string fields.
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=quality&$orderby=lastRenovationDate desc&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+You can use searches and filters together or separately. If you use them together, the filter is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
 
-Search the entire index:
+The syntax for filter expressions is a subset of the OData filter language that is documented [here](https://msdn.microsoft.com/library/azure/dn798921.aspx). For search queries you can use either the simplified syntax, documented [here](https://msdn.microsoft.com/library/azure/dn798920.aspx), or the Lucene query syntax, which is documented [here](https://msdn.microsoft.com/library/azure/mt589323.aspx).
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+To learn more about all the different parameters of a query, please visit [this page](https://msdn.microsoft.com/library/azure/dn798927.aspx). There are also a few example queries below.
 
-Search the entire index and order by a specific field (lastRenovationDate):
+#### Example Queries
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+Here are a few example queries on an index named "hotels". These queries are shown in both GET and POST format.
 
-A successful query request will result in a Status Code of "200 OK" and the search results will be found in JSON format in the response body. To learn more, please visit the "Response" section of [this page](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+Search the entire index for the term 'budget' and return only the `hotelName` field:
+
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2015-02-28
+
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+{
+    "search": "budget",
+    "select": "hotelName"
+}
+```
+
+Apply a filter to the index to find hotels cheaper than $150 per night, and return the `hotelId` and `description`:
+
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
+
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+{
+    "search": "*",
+    "filter": "baseRate lt 150",
+    "select": "hotelId,description"
+}
+```
+
+Search the entire index, order by a specific field (`lastRenovationDate`) in descending order, take the top two results, and show only `hotelName` and `lastRenovationDate`:
+
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2015-02-28
+
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+{
+    "search": "*",
+    "orderby": "lastRenovationDate desc",
+    "select": "hotelName,lastRenovationDate",
+    "top": 2
+}
+```
+
+## III. Submit your HTTP request
+Now that you have formulated your query as part of your HTTP request URL (for GET) or body (for POST), you can define your request headers and submit your query.
+
+#### Request and Request Headers
+You must define two request headers for GET, or three for POST:
+1. The `api-key` header must be set to the query key you found in step I above. Note that you can also use an admin key as the `api-key` header, but it is recommended that you use a query key as it exclusively grants read-only access to indexes and documents.
+2. The `Accept` header must be set to `application/json`.
+3. For POST only, the `Content-Type` header should also be set to `application/json`.
+
+See below for a HTTP GET request to search the "hotels" index using the Azure Search REST API, using a simple query that searches for the term "motel":
+
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2015-02-28
+Accept: application/json
+api-key: [query key]
+```
+
+Here is the same example query, this time using HTTP POST:
+
+```
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+Content-Type: application/json
+Accept: application/json
+api-key: [query key]
+
+{
+    "search": "motel"
+}
+```
+
+A successful query request will result in a Status Code of `200 OK` and the search results are returned as JSON in the response body. Here is what the results for the above query look like, assuming the "hotels" index is populated with the sample data in [this article](search-import-data-rest-api.md) (note that the JSON has been formatted for clarity).
+
+```JSON
+{
+    "value": [
+        {
+            "@search.score": 0.59600675,
+            "hotelId": "2",
+            "baseRate": 79.99,
+            "description": "Cheapest hotel in town",
+            "description_fr": "Hôtel le moins cher en ville",
+            "hotelName": "Roach Motel",
+            "category": "Budget",
+            "tags":["motel", "budget"],
+            "parkingIncluded": true,
+            "smokingAllowed": true,
+            "lastRenovationDate": "1982-04-28T00:00:00Z",
+            "rating": 1,
+            "location": {
+                "type": "Point",
+                "coordinates": [-122.131577, 49.678581],
+                "crs": {
+                    "type":"name",
+                    "properties": {
+                        "name": "EPSG:4326"
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+To learn more, please visit the "Response" section of [this page](https://msdn.microsoft.com/library/azure/dn798927.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [this article](https://msdn.microsoft.com/library/azure/dn798925.aspx).

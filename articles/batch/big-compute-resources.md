@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resources for batch and HPC workloads in the cloud | Microsoft Azure"
-   description="Lists technical resources to help you run your large-scale parallel, batch, and high perforance computeing (HPC) workloads in Azure."
+   description="Lists technical resources to help you run your large-scale parallel, batch, and high performance computing (HPC) workloads in Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -10,7 +10,7 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="01/26/2016"
@@ -62,16 +62,18 @@ HPC Pack is Microsoft's free HPC solution built on Microsoft Azure and Windows S
 * [Burst to Azure  Batch with HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 
-* [Windows HPC forums](https://social.microsoft.com/Forums/en-us/home?category=windowshpc)
+* [Windows HPC forums](https://social.microsoft.com/Forums/home?category=windowshpc)
 
 ### Linux and OSS cluster solutions
 
-Use these Azure quickstart templates to deploy Linux HPC clusters with open source tools.
+Use these Azure templates to deploy Linux HPC clusters.
 
 * [Spin up a SLURM cluster](https://azure.microsoft.com/documentation/templates/slurm/)
  and [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
 * [Spin up a Torque cluster](https://azure.microsoft.com/documentation/templates/torque-cluster/)
+
+* [Intel Cloud Edition for Lustre Software - Eval](https://azure.microsoft.com/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
 
 ## Microsoft MPI
 
@@ -83,7 +85,6 @@ Use these Azure quickstart templates to deploy Linux HPC clusters with open sour
 * [MS-MPI reference](https://msdn.microsoft.com/library/dn473458.aspx)
 
 * [MPI forum](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
-
 
 ## Compute intensive instances
 
@@ -114,6 +115,29 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.
 * [Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/)
 
 * [Media Services](https://azure.microsoft.com/documentation/services/media-services/)
+
+## Customer stories
+
+
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
+
+* [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
+
+* [Ludwig Institute of Cancer Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5830)
+
+* [Microsoft Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=15634)
+
+* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
+
+* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=26266)
+
+* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+
+* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
+
+
+
+
 
 
 

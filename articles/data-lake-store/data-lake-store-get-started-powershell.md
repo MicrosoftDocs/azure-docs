@@ -1,18 +1,18 @@
-<properties 
-   pageTitle="Get started with Data Lake Store | Azure" 
-   description="Use Azure PowerShell to create a Data Lake Store account and perform basic operations" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Get started with Data Lake Store | Azure"
+   description="Use Azure PowerShell to create a Data Lake Store account and perform basic operations"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/04/2016"
    ms.author="nitinme"/>
 
@@ -37,7 +37,7 @@ Before you begin this tutorial, you must have the following:
 
 ##Install Azure PowerShell 1.0 or greater
 
-See the Prerequisite section of [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md#prerequisites).
+See the Prerequisite section of [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
 
 ## Create an Azure Data Lake Store account
 
@@ -45,15 +45,15 @@ See the Prerequisite section of [Using Azure PowerShell with Azure Resource Mana
 
         # Log in to your Azure account
 		Login-AzureRmAccount
-        
+
 		# List all the subscriptions associated to your account
 		Get-AzureRmSubscription
-		
-		# Select a subscription 
+
+		# Select a subscription
 		Set-AzureRmContext -SubscriptionId <subscription ID>
-        
+
 		# Register for Azure Data Lake Store
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore" 
+		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 
 2. An Azure Data Lake Store account is associated with an Azure Resource Group. Start by creating an Azure Resource Group.
@@ -78,7 +78,7 @@ See the Prerequisite section of [Using Azure PowerShell with Azure Resource Mana
 
 ## Create directory structures in your Azure Data Lake Store
 
-You can create directories under your Azure Data Lake Store account to manage and store data. 
+You can create directories under your Azure Data Lake Store account to manage and store data.
 
 1. Specify a root directory.
 
@@ -118,8 +118,8 @@ To download a file, use the following command:
 
 To delete a file, use the following command:
 
-	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv 
-	
+	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
+
 When prompted, enter **Y** to delete the item. If you have more than one file to delete, you can provide all the paths separated by comma.
 
 	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
@@ -143,6 +143,5 @@ When prompted, enter **Y** to delete the account.
 ## Next steps
 
 - [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-- [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
+- [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-

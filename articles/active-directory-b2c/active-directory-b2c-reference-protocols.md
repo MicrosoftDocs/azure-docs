@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD B2C Preview | Microsoft Azure"
-	description="How to build apps directly using the protocols supported by the Azure AD B2C preview."
+	pageTitle="Azure Active Directory B2C preview | Microsoft Azure"
+	description="How to build apps directly by using the protocols supported by the Azure Active Directory B2C preview."
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="dstrockis"
@@ -16,57 +16,56 @@
 	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
-# Azure AD B2C Preview: Authentication Protocols
+# Azure AD B2C preview: Authentication protocols
 
-Azure AD B2C provides identity-as-a-service for your apps by supporting two industry standard protocols, OpenID Connect and OAuth 2.0.  While the service is standards compliant, there can be subtle differences between any two implementations of these protocols.  The information here will be useful if you choose to write your code by directly sending & handling HTTP requests, rather than using one of our open source libraries.  We reccommend you read the brief information on this page before diving into the details of each specific protocol, but if you are familiar with Azure AD B2C already you can go straight to [the protocol reference guides](#protocols).
+Azure Active Directory (Azure AD) B2C provides identity as a service for your apps by supporting two industry standard protocols: OpenID Connect and OAuth 2.0. The service is standards-compliant, but any two implementations of these protocols can have subtle differences.  The information in this guide will be useful to you if you write your code by directly sending and handling HTTP requests, rather than by using an open source library. We recommend that you read this page before you dive into the details of each specific protocol. But if you are already familiar with Azure AD B2C, you can go straight to [the protocol reference guides](#protocols).
 
 <!-- TODO: Need link to libraries above -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
-## The Basics
-Every app that uses Azure AD B2C will need to be registered your B2C directory in the [Azure Portal](https://portal.azure.com).  The app registration process will collect & assign a few values to your app:
 
-- An **Application Id** that uniquely identifies your app
-- A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
-- A few other scenario-specific values.  For more detail, learn how to [register an app](active-directory-b2c-app-registration.md).
+## The basics
+Every app that uses Azure AD B2C needs to be registered in your B2C directory in the [Azure portal](https://portal.azure.com). The app registration process collects and assigns a few values to your app:
 
-Once registered, the  app communicates with Azure AD by sending requests to the v2.0 endpoint:
+- An **Application ID** that uniquely identifies your app.
+- A **Redirect URI** or **package identifier** that can be used to direct responses back to your app.
+- A few other scenario-specific values. For more, learn [how to register your application](active-directory-b2c-app-registration.md).
+
+After you register your app, it communicates with Azure AD by sending requests to the v2.0 endpoint:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-In nearly all OAuth & OpenID Connect flows, there are four parties involved in the exchange:
+In nearly all OAuth and OpenID Connect flows, four parties are involved in the exchange:
 
 ![OAuth 2.0 Roles](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
-- The **Authorization Server** is the Azure AD v2.0 Endpoint.  It is responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens.  It is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in an flow.
-- The **Resource Owner** is typically the end-user.  It is the party that owns the data, and has the power to allow third parties to access that data, or resource.
-- The **OAuth Client** is your app, identified by its Application Id.  It is usually the party that the end-user interacts with, and it requests tokens from the authorization server.  The client must be granted permission to access the resource by the resource owner.
-- The **Resource Server** is where the resource or data resides.  It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access_tokens to ensure that access to a resource can be granted.
+- The **authorization server** is the Azure AD v2.0 endpoint. It securely handles anything related to user information and access. It also handles the trust relationships between the parties in a flow. It is responsible for verifying the user's identity, granting and revoking access to resources, and issuing tokens. It is also known as the identity provider.
+- The **resource owner** is typically the end user. It is the party that owns the data, and it has the power to allow third parties to access that data or resource.
+- The **OAuth client** is your app. It is identified by its Application ID. It is usually the party that end users interact with. It also requests tokens from the authorization server. The resource owner must grant the client permission to access the resource.
+- The **resource server** is where the resource or data resides. It trusts the authorization server to securely authenticate and authorize the OAuth client. It also uses bearer access tokens to ensure that access to a resource can be granted.
 
 ## Policies
-
-Arguably, Azure AD B2C **policies** are the most important feature of the service.  Azure AD B2C extends the standard OAuth 2.0 and OpenID Connect protocols by introducing policies, which allow Azure AD B2C to perform much more than simple authentication and authorization.
-Policies fully describe consumer identity experiences such as sign up, sign in or profile editing.  They can be defined in an admininstrative UI, and executed by using a special query parameter in HTTP authentication requests.  Policies are not a standard feature of OAuth 2.0
-and OpenID Connect, so you should take the time to understand them.  For more information, read the [Azure AD B2C policy reference guide](active-directory-b2c-reference-policies.md).
-
+Arguably, Azure AD B2C policies are the most important features of the service. Azure AD B2C extends the standard OAuth 2.0 and OpenID Connect protocols by introducing policies. These allow Azure AD B2C to perform much more than simple authentication and authorization. Policies fully describe consumer identity experiences, including sign-up, sign-in and profile editing. Policies can be defined in an administrative UI. They can be executed by using a special query parameter in HTTP authentication requests. Policies are not standard features of OAuth 2.0 and OpenID Connect, so you should take the time to understand them. For more information, see the [Azure AD B2C policy reference guide](active-directory-b2c-reference-policies.md).
 
 ## Tokens
-Azure AD B2C's implementation of OAuth 2.0 and OpenID Connect make extensive use of bearer tokens, including bearer tokens represented as JWTs. A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used by a malicious party to acquire the token and use it for an unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your  app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
+The Azure AD B2C implementation of OAuth 2.0 and OpenID Connect makes extensive use of bearer tokens, including bearer tokens that are represented as JSON web tokens (JWTs). A bearer token is a lightweight security token that grants the "bearer" access to a protected resource. The bearer is any party that can present the token. Azure AD must first authenticate a party before it can receive a bearer token. But if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party.
 
-Further details of different types of tokens used in Azure AD B2C is available in [the Azure AD token reference](active-directory-b2c-reference-tokens.md).
+Some security tokens have a built-in mechanism that prevents unauthorized parties from using them, but bearer tokens do not have this mechanism. They must be transported in a secure channel, such as transport layer security (HTTPS). If a bearer token is transmitted outside a secure channel, a malicious party can use a man-in-the-middle attack to acquire the token and use it to gain unauthorized access to a protected resource. The same security principles apply when bearer tokens are stored or cached for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner.
+
+For additional bearer token security considerations, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
+
+Further details on the different types of tokens used in Azure AD B2C are available in [the Azure AD token reference](active-directory-b2c-reference-tokens.md).
 
 ## Protocols
 
-If you're ready to see some example requests, get started with one of the below tutorials.  Each one corresponds to a particular authentication scenario.  If you need help determining which is the right flow for you,
-check out [the types of apps you can build with Azure AD B2C](active-directory-b2c-apps.md).
+When you're ready to review some example requests, you can start with one of the following tutorials. Each one corresponds to a particular authentication scenario. If you need help in determining which flow is right for you, check out [the types of apps you can build by using Azure AD B2C](active-directory-b2c-apps.md).
 
-- [Build Mobile and Native Application with OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
-- [Build Web Apps with Open ID Connect](active-directory-b2c-reference-oidc.md)
-- Build Single Page Apps with the OAuth 2.0 Implicit Flow (coming soon)
-- Build Daemons or Server Side Processes with the OAuth 2.0 Client Credentials Flow (coming soon)
-- Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon)
-- Get tokens in a Web API with the OAuth 2.0 On Behalf Of Flow (coming soon)
+- [Build mobile and native applications by using OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
+- [Build web apps by using OpenID Connect](active-directory-b2c-reference-oidc.md)
+- Build single-page apps by using the OAuth 2.0 implicit flow (coming soon)
+- Build daemons and server-side processes by using the OAuth 2.0 client credentials flow (coming soon)
+- Use user names and passwords to get tokens by using the OAuth 2.0 resource owner password credentials flow (coming soon)
+- Get tokens in a web API by using the OAuth 2.0 on-behalf-of flow (coming soon)

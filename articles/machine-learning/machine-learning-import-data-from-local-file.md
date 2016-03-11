@@ -18,7 +18,7 @@
 	ms.author="garye;bradsev" />
 
 
-# Import your training data into Azure Machine Learning Studio from various data sources
+# Import your training data into Azure Machine Learning Studio from a local file
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 

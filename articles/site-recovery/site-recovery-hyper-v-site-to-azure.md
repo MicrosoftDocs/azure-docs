@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Replicate between on-premises Hyper-V virtual machines and Azure (without VMM) with Site Recovery | Microsoft Azure"
-	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises Hyper-V servers to Azure"
+	description="This article describes how to replicate Hyper-V virtual machines to Azure with Azure Site Recovery when machines aren't managed in VMM clouds."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,24 +13,27 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/10/2015"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 
 # Replicate between on-premises Hyper-V virtual machines and Azure (without VMM) with Azure Site Recovery
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers  in a number of deployment scenarios. [Read more](site-recovery-overview.md) about Site Recovery.
+The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md).
 
 ## Overview
 
-This article describes how to deploy Site Recovery to replicate Hyper-V virtual machines when Hyper-V hosts running Windows Server 2012 R2 aren't managed in a System Center Virtual Machine Manager (VMM) cloud. 
+This article describes how to deploy Site Recovery to replicate Hyper-V virtual machines when Hyper-V hosts aren't managed in System Center Virtual Machine Manager (VMM) clouds. 
 
-The article summarizes the deployment prerequisites, helps you to configure replication settings, and enable protection for virtual machines. It finishes up by testing failover to make sure everything's working as expected. If you run into problems post your questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+The article summarizes the deployment prerequisites, helps you to configure replication settings, and enable protection for virtual machines. It finishes up by testing failover to make sure everything's working as expected. 
+
+
+Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Before you start
 
-Make sure you have everything in place before you begin.
+Make sure everything's in place before you begin.
 
 ### Azure prerequisites
 
@@ -47,7 +50,7 @@ Make sure you have everything in place before you begin.
 
 ### Virtual machine prerequisites
 
-Virtual machines you want to protect should conform with [virtual Machine prerequisites](site-recovery-best-practices.md#virtual-machines).
+Virtual machines you want to protect should conform with [virtual machine prerequisites](site-recovery-best-practices.md#virtual-machines).
 
 ### Provider and agent prerequisites
 
@@ -260,7 +263,7 @@ If you want to run a test failover without specifying an Azure network you don�
 To run a test failover with a target Azure network you’ll need to create a new Azure network that’s isolated from your Azure production network (default behavior when you create a new network in Azure). Read [run a test failover](site-recovery-failover.md#run-a-test-failover) for more details.
 
 
-To fully test your replication and network deployment you'll need to set up the infrastructure so that the replicated virtual machine to work as expected. One way of doing this to to set up a virtual machine as a domain controller with DNS and replicate it to Azure using Site Recovery to create it in the test network by running a test failover.  [tRead more about](site-recovery-active-directory.md#considerations-for-test-failover) test failover considerations for Active Directory.
+To fully test your replication and network deployment you'll need to set up the infrastructure so that the replicated virtual machine to work as expected. One way of doing this to to set up a virtual machine as a domain controller with DNS and replicate it to Azure using Site Recovery to create it in the test network by running a test failover.  [Read more about](site-recovery-active-directory.md#considerations-for-test-failover) test failover considerations for Active Directory.
 
 Run the test failover as follows:
 
@@ -274,7 +277,7 @@ Run the test failover as follows:
 5. After  failover you'll be able to see the virtual machine test replica in the Azure portal. If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine.
 
 	1. Verify that the virtual machines start successfully.
-    2. If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover. You will also need to add an RDP endpoint on the virtual machine. You can leverage an [Azure Automation Runbooks](site-recovery-runbook-automation.md) to do that.
+    2. If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover. You will also need to add an RDP endpoint on the virtual machine. You can leverage an [Azure automation runbook](site-recovery-runbook-automation.md) to do that.
     3. After failover if you use a public IP address to connect to the virtual machine in Azure using Remote Desktop, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
 
 6. After the testing is complete do the following:

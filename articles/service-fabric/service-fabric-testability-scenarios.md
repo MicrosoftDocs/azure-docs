@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="02/03/2016"
    ms.author="anmola"/>
 
 # Testability scenarios
@@ -53,7 +53,6 @@ C# sample
 
 using System;
 using System.Fabric;
-using System.Fabric.Testability;
 using System.Fabric.Testability.Scenario;
 using System.Threading;
 using System.Threading.Tasks;
@@ -167,7 +166,6 @@ C# sample
 
 using System;
 using System.Fabric;
-using System.Fabric.Testability;
 using System.Fabric.Testability.Scenario;
 using System.Threading;
 using System.Threading.Tasks;
@@ -223,11 +221,11 @@ class Test
         // scenarioParameters.WaitTimeBetweenFaults = TimeSpan.FromSeconds(10);
 
         // Create the scenario class and execute it asynchronously.
-        FailoverTestScenario chaosScenario = new FailoverTestScenario(fabricClient, scenarioParameters);
+        FailoverTestScenario failoverScenario = new FailoverTestScenario(fabricClient, scenarioParameters);
 
         try
         {
-            await chaosScenario.ExecuteAsync(CancellationToken.None);
+            await failoverScenario.ExecuteAsync(CancellationToken.None);
         }
         catch (AggregateException ae)
         {
