@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="03/11/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # What is Azure Backup?
@@ -145,7 +145,7 @@ The Azure Backup agent provides a Throttling tab which allows you to control how
 
 ![Throttling cont](./media/backup-azure-backup-faq/Throttle-dialog.png)
 
-To enable throttling, select the **Enable internet bandwidth usage throttling for backup operations** checkbox. Once you have enabled throttling, specify the allowed bandwidth for backup data transfer during **Work hours** and **Non-work hours**. The bandwidth values begin at 512 kilobytes per second (Kbps) and can go up to 1023 megabytes per second (Mbps). You can also designate the start and finish for **Work hours**, and which days of the week are considered Work days. The time outside of the designated Work hours is considered to be non-work hours. 
+To enable throttling, select the **Enable internet bandwidth usage throttling for backup operations** checkbox. Once you have enabled throttling, specify the allowed bandwidth for backup data transfer during **Work hours** and **Non-work hours**. The bandwidth values begin at 512 kilobytes per second (Kbps) and can go up to 1023 megabytes per second (Mbps). You can also designate the start and finish for **Work hours**, and which days of the week are considered Work days. The time outside of the designated Work hours is considered to be non-work hours.
 
 
 ### Backup and retention
