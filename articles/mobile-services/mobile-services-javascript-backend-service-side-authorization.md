@@ -17,9 +17,9 @@
 	ms.author="krisragh"/>
 
 # Service-side authorization of users in Mobile Services
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-service-side-authorization.md)
+- [Javascript backend](mobile-services-javascript-backend-service-side-authorization.md)
 
 &nbsp;
 
