@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/01/2016"
+   ms.date="03/08/2016"
    ms.author="rickbyh"/>
 
 # SQL Database security: Manage database access and login security  
@@ -28,7 +28,7 @@ In Microsoft Azure SQL Database, when you sign up for the service, the provision
 
 The Azure SQL Database server-level principal account always has permission to manage all server-level and database-level security. This topic describes how you can use the server-level principal and other accounts to manage logins and databases in SQL Database.
 
-Azure users accessing SQL Database through Azure Role-Based Access Control and the Azure Resource Manager REST API receive permissions from their Azure Roles. The actions of the Azure role members are executed for them by the Database Engine. They are not affected by the Database Engine permissions model, and are not covered by this topic. For more information, see [RBAC: Built-in roles](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#sql-db-contributor).
+Azure users accessing SQL Database through Azure Role-Based Access Control and the Azure Resource Manager REST API receive permissions from their Azure Roles. The actions of the Azure role members are executed for them by the Database Engine. They are not affected by the Database Engine permissions model, and are not covered by this topic. For more information, see [RBAC: Built-in roles](../role-based-access-built-in-roles/#sql-db-contributor).
 
 > [AZURE.IMPORTANT] SQL Database V12 allows users to authenticate at the database by using contained database users. Contained database users do not require logins. This makes databases more portable but reduces the ability of the server-level principal to control access to the database. Enabling contained database users has important security impacts. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx), [Contained Databases](https://technet.microsoft.com/library/ff929071.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
 
