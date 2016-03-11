@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/08/2016"
+    ms.date="03/11/2016"
     ms.author="adegeo"/>
 
 # What is the Cloud Service model and how do I package it?
@@ -164,7 +164,7 @@ The following sample shows the configuration for a web role with a website and w
     <Setting name="DiagnosticsConnectionString" />
   </ConfigurationSettings>
   <Endpoints>
-    <InputEndpoint name="HttpIn" protocol="http" port="80" />
+    <InputEndpoint name="HttpIn" protocol="http" <mark>port="80"</mark> />
     <InputEndpoint name="Https" protocol="https" port="443" certificate="SSL"/>
     <InputEndpoint name="NetTcp" protocol="tcp" port="808" certificate="SSL"/>
   </Endpoints>
@@ -180,7 +180,7 @@ The following sample shows the configuration for a web role with a website and w
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
+      <Binding name="mail" endpointName="HttpIn" <mark>hostheader="mail.mysite.cloudapp.net"</mark> />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">
@@ -219,11 +219,8 @@ To deploy an application as a cloud service in Azure, you must first package the
 
 **CSPack** uses the contents of the service definition file and service configuration file to define the contents of the package. **CSPack** generates an application package file (.cspkg) that you can upload to Azure by using the [Azure portal](cloud-services-how-to-create-deploy-portal.md/#create-and-deploy). By default, the package is named `[ServiceDefinitionFileName].cspkg`, but you can specify a different name by using the `/out` option of **CSPack**.
 
-###### Location of the CSPack tool (on windows)
-| SDK Version | Path |
-| ----------- | ---- |
-| 1.7+        | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\\[sdk-version\]\\bin\\ |
-| &lt;1.6        | C:\\Program Files\\Azure SDK\\\[sdk-version\]\\bin\\ |
+**CSPack** is generally located at  
+`C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
 
 >[AZURE.NOTE]
 CSPack.exe (on windows) is available by running the **Microsoft Azure Command Prompt** shortcut that is installed with the SDK.  
