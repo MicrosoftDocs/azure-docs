@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/01/2016"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Copy data from Azure Blob Storage to Azure SQL Database
@@ -22,6 +22,7 @@
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 In this tutorial, you will create an Azure data factory and create a pipeline with a Copy Activity to copy data from an Azure blob storage to an Azure SQL database.
 
