@@ -51,11 +51,4 @@ The simple query syntax is the standard query language used in Azure Search. The
 The Lucene query syntax allows you to use the widely-adoptive and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
 The Lucene query syntax allows you to easily achieve the following capabilities:
-* [Field-scoped queries](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fields)
-* [Fuzzy search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fuzzy)
-* [Proximity search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_proximity)
-* [Term boosting](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_termboost)
-* [Regular expression search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_regex)
-* [Wildcard search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_wildcard)
-* [Syntax fundamentals](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_syntax)
-* [Queries using boolean operators](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_boolean)
+[Field-scoped queries](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fields), [fuzzy search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fuzzy), [proximity search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_proximity), [term boosting](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_termboost), [regular expression search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_regex), [wildcard search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_wildcard), [syntax fundamentals](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_syntax), and [queries using boolean operators](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_boolean).
