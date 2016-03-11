@@ -27,7 +27,6 @@
 
 
 You can use the Azure portal to monitor and manage an elastic pool and the databases in the pool. After you [create a pool](sql-database-elastic-pool-create-portal.md), click **Browse**, click **SQL elastic pools** and then click the pool you want to work with from the list.
-<<Screen shot>>
 
 ##Monitor resource utilization of a pool
 After you select a pool to work with, under **Elastic Pool Monitoring**, a chart and live tiles show you important utilization information for your pool. 
@@ -63,17 +62,17 @@ When you see the resource utilization of a pool, you may discover that the pool 
 1. Click **Configure pool** to open the **Configure performance** blade.
 2. Under Elastic database pool settings a chart shows you the recent trend of eDTU and storage utilization in percent of capacity for the pool.
 
-NEED a screen shot showing near max utilization.
+    NEED a screen shot showing near max utilization with convining data.
 
 3. Click a different **Pool eDTU**, and you'll see the estimated monthly cost of the change you want to make and its impact to resource utilization in the chart.
 
-NEED a screen shot showing more headroom.
+    NEED a screen shot showing more headroom.
 
-4. Under **Elastic database setting**, a bar graph shows the eDTU utilization of each database in the pool. Click a bar to see the database name.
+4. Under **Elastic database setting**, a bar graph shows the eDTU utilization of each database in the pool.
 
-NEED a matching screen shot
+    NEED a matching screen shot with some convincing data
 
-5. Click **eDTU max** to set the maximum and **eDTU min** to set the minimum number of eDTU for the database you clicked.
+5. Click **eDTU max** to set the maximum and **eDTU min** to set the minimum number of eDTU for the databases in the pool.
 
 ##Add and remove databases
 
@@ -83,9 +82,9 @@ After you create a pool, you can add databases to the pool or remove them. You c
 
 1. In the blade for the pool, under **Elastic databases** click the link that shows the number of databases in the pool.
 
-JEFF to insert screenshot
+    JEFF to insert screenshot
 
-2. In the **Elastic databases** blade, click **Add database**, click the databases that you want to add on the list that appears, and then click the **Select** button.
+2. In the **Elastic databases** blade, click **Add database**, click the databases that you want to add, and then click the **Select** button.
 
 The **Elastic databases** blade now lists the database you just added, with **AVG DTU** and storage utilization as **SIZE(GB)**, along with a **Pending** status. The pool utilization values now show you what the **New** values will be if you save your changes.
 
