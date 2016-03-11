@@ -112,9 +112,9 @@ See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-perfor
 
 
 ## Data Factory Copy Wizard
-The Data Factory Copy Wizard allows you to create a pipeline to copy data from supported sources to destinations without writing JSON definitions for linked services, datasets, and pipelines. To launch Copy Wizard, click **Copy data** tile on the home page of your data factory. 
+The **Data Factory Copy Wizard** allows you to create a pipeline to copy data from supported sources to destinations without writing JSON definitions for linked services, datasets, and pipelines. To launch Copy Wizard, click **Copy data** tile on the home page of your data factory. 
 
-<< Screenshot >>
+![Copy data wizard](./media/data-factory-data-movement-activities/copy-data-wizard.png)
 
 ### Features
 
@@ -138,7 +138,7 @@ The experience is designed with big data in mind from the start. It is simple an
 You can schedule the copy operation to run just once or schedule it to run periodically (hourly, daily, etc...).
 
 ### Walkthrough
-For a quick walkthrough of using the code-free authoring experience to create a pipeline with a Copy Activity, see [Tutorial: Create a pipeline using Code-free Authoring](data-factory-use-code-free-authoring.md).
+For a quick walkthrough of using the code-free authoring experience to create a pipeline with a Copy Activity, see [Tutorial: Create a pipeline using Code-free Authoring](data-factory-copy-data-wizard-tutorial.md).
 
 ### Variables in Azure Blob folder path
 You can use variables in folder path to copy data from a folder that is determined at runtime based on [WindowStart system variable](data-factory-functions-variables.md#data-factory-system-variables). The supported variables are: **year**, **month**, **day**, **hour**, **minute** and **{custom}**. Example: inputfolder/{year}/{month}/{day}. 
