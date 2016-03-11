@@ -16,7 +16,6 @@
 	ms.date="03/10/2016"
 	ms.author="jeedes"/>
 
-
 # Tutorial: Azure Active Directory integration with Insperity ExpensAble
 
 The objective of this tutorial is to show you how to integrate Insperity ExpensAble with Azure Active Directory (Azure AD).<br>Integrating Insperity ExpensAble with Azure AD provides you with the following benefits:
