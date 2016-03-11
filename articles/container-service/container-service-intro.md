@@ -56,7 +56,7 @@ choose to use the DCOS CLI.
 Creating a Docker Cluster Using Azure Container Service
 -------------------------------------------------------
 
-To begin using Azure Container Service, an ACS cluster will be deployed using an Azure Resource Manager template. This deployment can be configured with different size and availability options, and will be configured with either Apache Mesos Mesos or Docker Swarm. Azure Resource Manager Templates can be deployed through the Azure port, using the Azure CLI, or with PowerShell. The templates can also be modified to include additional or advanced Azure configuration. For more information on deploying and ACS cluster, see [Deploy an Azure container Service Cluster](./container-service-deployment.md).
+To begin using Azure Container Service, an ACS cluster will be deployed using an Azure Resource Manager template. This deployment can be configured with different size and availability options, and will be configured with either Apache Mesos Mesos or Docker Swarm. Azure Resource Manager Templates can be deployed through the Azure portal, using the Azure CLI, or with PowerShell. The templates can also be modified to include additional or advanced Azure configuration. For more information on deploying and ACS cluster, see [Deploy an Azure container Service Cluster](./container-service-deployment.md).
 
 Deploying an Application
 ------------------------
