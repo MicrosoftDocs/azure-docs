@@ -17,31 +17,32 @@
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
-Azure Data Factory supports built-in activities such as **Copy Activity** and **HDInsight Activity** to be used in pipelines to move and transform data. You can also create a custom .NET activity with your own data movement or data transformation logic and use the activity in a Data Factory pipeline. You can configure the activity to run using either an **Azure Batch** service or an **Azure HDInsight** cluster.   
+There are two types of activities that you can use in an Azure Data Factory pipeline.
+ 
+- [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported data stores](data-factory-data-movement-activities#supported-data-stores).
+- [Data Transformation Activities](data-factory-data-transformation-activities.md) to transform/process data using computes such as Azure HDInsight, Azure Batch, and Azure Machine Learning. For example: HDInsight Hive and Machine Learning Batch Execution.  
 
-This article describes how to create a custom activity and use it in an Azure Data Factory pipeline. It also provides a detailed walkthrough with step-by-step instructions for creating and using a custom activity. The walkthrough uses the Azure Batch linked service. To use the Azure HDInsight linked service instead, you create a linked service of type **HDInsight** (if you are using your own HDInsight cluster) or **HDInsightOnDemand** (if you want Data Factory to create an HDInsight cluster on-demand) and use it in the activity section of the pipeline JSON (**linkedServiceName**). See [Use Azure HDInsight linked services](#use-azure-hdinsight-linked-services) section for details on using Azure Batch with the custom activity.
+If you need to move data to/from a data store that is not supported by Azure Data Factory, you can create a custom .NET activity with your own data movement logic and use the activity in the pipeline. 
+
+Similarly, if you need to transform/process data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. 
+ 
+You can configure the custom .NET activity to run using either an **Azure Batch** service or an **Azure HDInsight** cluster.   
+
+The following walkthrough provides step-by-step instructions for creating a custom .NET activity and using the custom activity in a pipeline. The walkthrough uses the **Azure Batch** linked service. To use the Azure HDInsight linked service instead, you create a linked service of type **HDInsight** (if you are using your own HDInsight cluster) or **HDInsightOnDemand** (if you want Data Factory to create an HDInsight cluster on-demand) and use it in the activity section of the pipeline JSON (**linkedServiceName**). See [Use Azure HDInsight linked services](#use-azure-hdinsight-linked-services) section for details on using Azure HDInsight to run the custom activity.
 
 
 ## Walkthrough 
-This Walkthrough provides you with step-by-step instructions to create a custom activity and use the activity in a Data Factory pipeline. 
 
 ### Prerequisites
 
-- Visual Studio 2013 or Visual Studio 2015
-- Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](https://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
-- Download the latest Azuer Data Factory plugin for Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) or [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). If you are using Visual Studio 2013, you can also update the plugin by doing the following: On the menu, click **Tools** -> **Extensions and Updates** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**. 
+- Visual Studio 2012/2013/2015
+- Download and install [Azure .NET SDK][azure-developer-center]
+
 
 ## Azure Batch prerequisites
-In the walkthrough, you will run your custom .NET activities using Azure Batch as a compute resource. You will have to create your own Azure Batch pools and specify the number of VMs along with other configurations. Azure Batch pools provides the following features to customers:
+In the walkthrough, you will run your custom .NET activities using Azure Batch as a compute resource. See [Azure Batch basics][batch-technical-overview] for an overview of the Azure Batch service and see [Getting Started with the Azure Batch Library for .NET][batch-get-started] to quickly get started with the Azure Batch service.
 
-1. Create pools containing a single core to thousands of cores.
-2. Auto scale VM count based on a formula
-3. Support VMs of any size
-4. Configurable number of tasks per VM
-5. Queue unlimited number of tasks
- 
- 
-> [AZURE.NOTE] See [Azure Batch basics][batch-technical-overview] for an overview of the Azure Batch service and see [Getting Started with the Azure Batch Library for .NET][batch-get-started] to quickly get started with the Azure Batch service.
+For the purpose of the tutorial, you need to create an Azure Batch account with a pool of VMs. Here are the steps:
 
 1. Create an **Azure Batch account** using the [Azure Portal](http://manage.windowsazure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions. Note down the Azure Batch account name and account key.
 
@@ -76,7 +77,7 @@ In the walkthrough, you will run your custom .NET activities using Azure Batch a
 	4. Debug the pipeline.
 
 ## Create the custom activity
-To create a .NET custom activity that you can use in an Azure Data Factory pipeline, you need to create a **.NET Class Library** project with a class that implements that **IDotNetActivity** interface. This interface has only one method: [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx). Here is the signature of the method:
+To create a .NET custom activity, create a **.NET Class Library** project with a class that implements that **IDotNetActivity** interface. This interface has only one method: [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx) and its signature is:
 
 	public IDictionary<string, string> Execute(
             IEnumerable<LinkedService> linkedServices, 
@@ -84,20 +85,20 @@ To create a .NET custom activity that you can use in an Azure Data Factory pipel
             Activity activity, 
             IActivityLogger logger)
         
-The method has a few key components that you need to understand. 
 
-- The method takes four parameters:
-	- **linkedServices**. This is an enumerable list of linked services that link input/output data sources (for example: Azure Blob Storage) to the data factory. In this sample, there is only one linked service of type Azure Storage used for both input and output. 
-	- **datasets**. This is an enumerable list of datasets. You can use this parameter to get the locations and schemas defined by input and output datasets.
-	- **activity**. This parameter represents the current compute entity - in this case, an Azure Batch.
-	- **logger**. The logger lets you write debug comments that will surface as the “User” log for the pipeline. 
+The method takes four parameters:
 
-- The method returns a dictionary that can be used to chain custom activities together. This feature is not yet supported at this time.  
+- **linkedServices**. This is an enumerable list of linked services that link input/output data sources (for example: Azure Blob Storage) to the data factory. In this sample, there is only one linked service of type Azure Storage used for both input and output. 
+- **datasets**. This is an enumerable list of datasets. You can use this parameter to get the locations and schemas defined by input and output datasets.
+- **activity**. This parameter represents the current compute entity - in this case, an Azure Batch.
+- **logger**. The logger lets you write debug comments that will surface as the “User” log for the pipeline. 
+
+The method returns a dictionary that can be used to chain custom activities together. This feature is not yet supported at this time.  
 
 ### Procedure 
 1.	Create a **.NET Class Library** project.
 	<ol type="a">
-		<li>Launch <b>Visual Studio 2012</b> or <b>Visual Studio 2013</b>.</li>
+		<li>Launch <b>Visual Studio 2015</b> or <b>Visual Studio 2013</b> or <b>Visual Studio 2012</b>.</li>
 		<li>Click <b>File</b>, point to <b>New</b>, and click <b>Project</b>.</li>
 		<li>Expand <b>Templates</b>, and select <b>Visual C#</b>. In this walkthrough, you use C#, but you can use any .NET language to develop the custom activity.</li>
 		<li>Select <b>Class Library</b> from the list of project types on the right.</li>
@@ -137,7 +138,7 @@ The method has a few key components that you need to understand.
 
 8. Implement (Add) the **Execute** method of the **IDotNetActivity** interface to the **MyDotNetActivity** class and copy the following sample code to the method.
 
-	The following sample code counts the number of lines in the input blob and produces the following content in the output blob: path to the blob, number of lines in the blob, the machine on which the activity ran, current date-time.
+	The following sample counts the number of occurrences of the search term (“Microsoft”) in each blob associated with a data slice. 
 
 		/// <summary>
         /// Execute method is the only method of IDotNetActivity interface you must implement. 
@@ -162,7 +163,6 @@ The method has a few key components that you need to understand.
 				logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
 			}
 		
-
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
 
@@ -184,7 +184,9 @@ The method has a few key components that you need to understand.
                 inputDataset.Properties.LinkedServiceName).Properties.TypeProperties
                 as AzureStorageLinkedService;
 
-            string connectionString = inputLinkedService.ConnectionString; // To create an input storage client.
+            string connectionString = inputLinkedService.ConnectionString; 
+
+			// To create an input storage client.
             string folderPath = GetFolderPath(inputDataset);
             string output = string.Empty; // for use later.
 
@@ -206,9 +208,7 @@ The method has a few key components that you need to understand.
                 
                 // Calculate method returns the number of occurrences of 
                 // the search term (“Microsoft”) in each blob associated
-       			// with the data slice. 
-        		// 
-        	    // definition of the method is shown in the next step.
+       			// with the data slice. definition of the method is shown in the next step.
  
                 output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 
@@ -241,7 +241,7 @@ The method has a few key components that you need to understand.
 9. Add the following helper methods. The **Execute** method invokes these helper methods. The **GetConnectionString** method retrieves the Azure Storage connection string and the **GetFolderPath** method retrieves the blob location. Most importantly, the **Calculate** method isolates the code that iterates through each blob.
 
         /// <summary>
-        /// Gets the folderPath value from the input/output dataset.   
+        /// Gets the folderPath value from the input/output dataset.
 		/// </summary>
 
 		private static string GetFolderPath(Dataset dataArtifact)
@@ -307,7 +307,7 @@ The method has a few key components that you need to understand.
             return output;
         }
 
-	The GetFolderPath method returns the path to the folder that the dataset points to and the GetFileName method returns the name of the blob/file that the dataset points to. 
+	The GetFolderPath method returns the path to the folder that the dataset points to and the GetFileName method returns the name of the blob/file that the dataset points to. Note that if you havefolderPath defines using variables such as {Year}, {Month}, {Day} etc..., the method returns the string as it is without replacing them with runtime values. See [Access extended properties](#access-extended-properties) section for details on accessing SliceStart, SliceEnd, etc...    
 	
 		    "name": "InputDataset",
 		    "properties": {
@@ -321,7 +321,7 @@ The method has a few key components that you need to understand.
 
 10. Compile the project. Click **Build** from the menu and click **Build Solution**.
 11. Launch **Windows Explorer**, and navigate to **bin\debug** or **bin\release** folder depending type of build.
-12. Create a zip file **MyDotNetActivity.zip** that contain all the binaries in the <project folder>\bin\Debug folder. You may want to include the **MyDotNetActivity.pdb** file so that you get additional details such as line number in the source code that caused the issue in case of a failure.
+12. Create a zip file **MyDotNetActivity.zip** that contain all the binaries in the <project folder>\bin\Debug folder. You may want to include the **MyDotNetActivity.pdb** file so that you get additional details such as line number in the source code that caused the issue in case of a failure. All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
 
 	![Binary output files](./media/data-factory-use-custom-activities/Binaries.png)
 13. Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **AzureStorageLinkedService** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **customactivitycontainer** if it does not already exist.
@@ -400,7 +400,7 @@ In the **Create the custom activity** section, you created a custom activity and
  
 The input dataset for the custom activity represents the blobs (files) in the input folder (mycontainer\inputfolder) in blob storage. The output dataset for the activity represents the output blobs in the output folder (mycontainer\outputfolder) in blob storage. 
 
-Create a file named file.txt with the following content and upload it to mycontainer\inputfolder (mycontainer is the name of the Azure blob container and inputfolder is the name of the folder in that container.)
+Create a file named **file.txt** with the following content and upload it to **mycontainer\inputfolder** (mycontainer is the name of the Azure blob container and inputfolder is the name of the folder in that container.)
 
 	test custom activity Microsoft test custom activity Microsoft
 
@@ -411,12 +411,15 @@ You will see one output file with in the mycontainer\output folder with 1 or mor
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
 
 
-You will create a Data Factory project in the same solution that has the custom activity project. This Data Factory project will contain the following entities:
+Here are the steps you will be performing in this section:
 
-1. **Linked services** for the Azure Batch pool of VMs on which the custom activity will run and the Azure Storage that holds the input/output blobs. 
+1. Create a **data factory**.
+2. **Linked services** for the Azure Batch pool of VMs on which the custom activity will run and the Azure Storage that holds the input/output blobs. 
 2. Input and output **datasets** that represent input and output of the custom activity. 
 3. **Pipeline** that uses the custom activity.
 4. **Data factory**. You will create one when publishing these entities to Azure. 
+
+[AZURE.NOTE] Create the file.txt and upload it to a blob container if you haven't already done so. See the instructions above.  
 
 ### Step 1: Create the data factory
 
@@ -433,7 +436,7 @@ You will create a Data Factory project in the same solution that has the custom 
 
 ### Step 2: Create linked services
 
-Linked services link data stores or compute services to an Azure data factory. In this step, you will link your Azure Storage account and Azure HDInsight cluster to your data factory.
+Linked services link data stores or compute services to an Azure data factory. In this step, you will link your Azure Storage account and Azure Batch account to your data factory.
 
 #### Create Azure Storage linked service
 
@@ -561,7 +564,7 @@ In this step, you will create datasets to represent input and output data.
 ### Create and run a pipeline that uses the custom activity
 
 1. In the Data Factory Editor, click **New pipeline** on the command bar. If you do not see the command, click **... (Ellipsis)** to see it.
-2. Replace the JSON in the right pane with the following JSON script. If you want to use your own cluster and followed the steps to create the **HDInsightLinkedService** linked service, replace **HDInsightOnDemandLinkedService** with **HDInsightLinkedService** in the following JSON.
+2. Replace the JSON in the right pane with the following JSON script. 
 
 		{
 		  "name": "ADFTutorialPipelineCustom",
@@ -618,8 +621,6 @@ In this step, you will create datasets to represent input and output data.
 	- The linkedServiceName property of the custom activity points to the **HDInsightLinkedService**, which tells Azure Data Factory that the custom activity needs to run on an Azure HDInsight cluster.
 	- **isPaused** property is set to **false** by default. The pipeline runs immediately in this example because the slices start in the past. You can set this property to true to pause the pipeline and set it back to false to restart. 
 	- The **start** time and **end** times are **5** hours apart and slices are produced hourly, so 5 slices are produced by the pipeline. 
-	 
-
 
 4. Click **Deploy** on the command bar to deploy the pipeline.
 
@@ -652,7 +653,7 @@ In this step, you will create datasets to represent input and output data.
 
 See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) for detailed steps for monitoring datasets and pipelines.      
 
-The Data Factory service creates a job in Azure Batch with the name: adf-<pool name>:job-xxx. A task is created for each activity run  of a slice. If there are 10 slices ready to be processed, 10 tasks are created in this job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. You can also have more than one slice running on the same compute if the maximum tasks per compute node is set to > 1. 
+The Data Factory service creates a job in Azure Batch with the name: **adf-<pool name>:job-xxx**. A task is created for each activity run  of a slice. If there are 10 slices ready to be processed, 10 tasks are created in this job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. You can also have more than one slice running on the same compute if the maximum tasks per compute node is set to > 1. 
 	
 ![Batch Explorer tasks](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
 
@@ -666,19 +667,19 @@ You can see the Azure Batch tasks associated with processing the slices in the A
 ### Debug the pipeline
 Debugging consists of a few basic techniques:
 
-1.	If the input slice is not set to **Ready**, confirm that the input folder structure is correct and file.txt exists in the input folders.
-2.	In the **Execute** method of your custom activity, use the **IActivityLogger** object to log information that will help you troubleshoot issues. The logged messages will show up in the user_0.log file. 
+1.	If the input slice is not set to **Ready**, confirm that the input folder structure is correct and **file.txt** exists in the input folders. 
+2.	In the **Execute** method of your custom activity, use the **IActivityLogger** object to log information that will help you troubleshoot issues. The logged messages will show up in the user log files (one or mote files named: user-0.log, user-1.log, user-2.log, etc...). 
 
 	In the **OutputDataset** blade, click on the slice to see the **DATA SLICE** blade for that slice. You will see **activity runs** for that slice. You should see one activity run for the slice. If you click Run in the command bar, you can start another activity run for the same slice. 
 
 	When you click the activity run, you will see the **ACTIVITY RUN DETAILS** blade with a list of log files. You will see logged messages in the user_0.log file. When an error occurs, you will see three activity runs because the retry count is set to 3 in the pipeline/activity JSON. When you click the activity run, you will see the log files that you can review to troubleshoot the error. 
 
-	In the list of log files, click the **user-0.log**. In the right panel are the results of using the **IActivityLogger.Write** method.
+	In the list of log files, click the **user-0.log**. In the right panel are the results of using the **IActivityLogger.Write** method. If you don't see all messages, check if you have more log files named: user_1.log, user_2.log etc.... Otherwise, the code may have failed after the last logged message.
 
 	You should also check **system-0.log** for any system error messages and exceptions.
 
 3.	Include the **PDB** file in the zip file so that the error details will have information such as **call stack** when an error occurs.
-4.	All the files in the zip file for the custom activity must be at the **top level** with no subfolders.
+4.	All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
 5.	Ensure that the **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip), and **packageLinkedService** (should point to the Azure blob storage that contains the zip file) are set to correct values. 
 6.	If you fixed an error and want to reprocess the slice, right-click the slice in the **OutputDataset** blade and click **Run**. 
 
@@ -718,9 +719,12 @@ To access these extended properties in the **Execute** method, use code similar 
 
 
 ## Use Azure HDInsight linked services
-1. Create a linked service of either **HDInsightOnDemand** or **HDInsight**. Please see the details in the next two sections on how to create HDInsight linked services.  
-2. In the Data Factory Editor, open JSON definition for the pipeline you created in the walkthrough and replace **AzureBatchLinkedService** with **HDInsightLinkedService** or **HDInsightOnDemandLinkedService**. 
-3.  You may want to change the **start** and **end** times for the pipeline so that you can test the scenario with the Azure Batch service.
+In the walkthrough, you used Azure Batch compute to run the custom activity. You can also use your own HDInsight cluster or have Data Factory create an on-demand HDInsight cluster and have the custom activity run on the HDInsight cluster. Here are the high level steps for using an HDInsight cluster.  
+
+1. Create an Azure HDInsight linked service.   
+2. Use HDInsight linked service in place of **AzureBatchLinkedService** in the pipeline JSON. 
+
+You may want to change the **start** and **end** times for the pipeline so that you can test the scenario with the Azure HDInsight service.
 
 #### Create Azure HDInsight linked service 
 The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, if you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster.
@@ -762,6 +766,51 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 	4. For the **LinkedServiceName** property, enter **AzureStorageLinkedService**. This is the linked service you had created in the Get started tutorial.
 
 2. Click **Deploy** on the command bar to deploy the linked service.
+
+In the pipeline JSON, use HDInsight (on-demand or your own) linked service: 
+
+		{
+		  "name": "ADFTutorialPipelineCustom",
+		  "properties": {
+		    "description": "Use custom activity",
+		    "activities": [
+		      {
+		        "Name": "MyDotNetActivity",
+		        "Type": "DotNetActivity",
+		        "Inputs": [
+		          {
+		            "Name": "InputDataset"
+		          }
+		        ],
+		        "Outputs": [
+		          {
+		            "Name": "OutputDataset"
+		          }
+		        ],
+		        "LinkedServiceName": "HDInsightOnDemandLinkedService",
+		        "typeProperties": {
+		          "AssemblyName": "MyDotNetActivity.dll",
+		          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+		          "PackageLinkedService": "AzureStorageLinkedService",
+		          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
+		          "extendedProperties": {
+		            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
+		          }
+		        },
+		        "Policy": {
+		          "Concurrency": 2,
+		          "ExecutionPriorityOrder": "OldestFirst",
+		          "Retry": 3,
+		          "Timeout": "00:30:00",
+		          "Delay": "00:00:00"
+		        }
+		      }
+		    ],
+    		"start": "2015-11-16T00:00:00Z",
+			"end": "2015-11-16T05:00:00Z",
+		    "isPaused": false
+		  }
+		}
 
 
 ## See Also
