@@ -33,7 +33,7 @@ This guide will only cover the push model of data upload, which is supported onl
 
 This approach refers to taking an existing dataset that conforms to the index schema, and posting it to your search service. For applications having very low latency requirements (e.g. if you need search operations to be in sync with dynamic inventory databases), the push model is your only option.
 
-You can use the [REST API](https://msdn.microsoft.com/en-us/library/azure/dn798930.aspx) or [.NET SDK](search-import-data-dotnet.md) to push data to an index. There is currently no tool support for pushing data via the portal.
+You can use the [REST API](https://msdn.microsoft.com/library/azure/dn798930.aspx) or [.NET SDK](search-import-data-dotnet.md) to push data to an index. There is currently no tool support for pushing data via the portal.
 
 This approach is more flexible than the pull model because you can upload documents individually or in batches (up to 1000 per batch or 16 MB, whichever limit comes first). The push model also allows you to upload documents to Azure Search regardless of where your data is.
 
@@ -43,4 +43,4 @@ The pull model crawls a supported data source and automatically uploads the data
 
 In Azure Search, this capability is implemented through *indexers*, currently available for [Blob storage (preview)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL database, and SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
 
-The indexer functionality is exposed in the [Azure Portal](search-import-data-portal.md) as well as in the [REST API](https://msdn.microsoft.com/en-us/library/azure/dn946891.aspx).
+The indexer functionality is exposed in the [Azure Portal](search-import-data-portal.md) as well as in the [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx).
