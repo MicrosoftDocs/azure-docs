@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/04/2016"
 	ms.author="heidist" />
 
 # Management API: Version 2015-02-28
@@ -493,6 +493,8 @@ Note that you cannot change the name, location, and sku. Changing any of these p
 Alternatively, you can use PUT.
 
     PUT https://management.azure.com/subscriptions/[subscriptionId]/resourcegroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28
+
+> [AZURE.NOTE] If you use a PUT to update the service, you must use the same request body used in  a [Create Service](#CreateService) request.
 
 ###Request URI Parameters###
 

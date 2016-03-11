@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 # Azure Search Developer Case Study
@@ -64,7 +64,7 @@ Looking at the green boxes in the previous diagram, you’ll see that the WhatTo
 
 - [Azure Search](https://azure.microsoft.com/services/search/)
 - [Azure Websites using MVC 4](https://azure.microsoft.com/services/websites/)
-- [Azure WebJobs for scheduled tasks](../websites-webjobs-resources.md)
+- [Azure WebJobs for scheduled tasks](../app-service-web/websites-webjobs-resources.md)
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Azure BLOB Storage](https://azure.microsoft.com/services/storage/)
 - [SendGrid Email Delivery](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)

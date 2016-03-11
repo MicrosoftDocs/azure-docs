@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Define lab policies
+
+> [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to author custom artifacts](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab) 
 
 ## Overview
 
@@ -99,4 +101,3 @@ The auto-shutdown policy helps to minimize lab waste by allowing you to specify 
 1. If you enabled this policy, specify a time to shut down all VMs in the current lab.
 
 1. Tap **Save**.
-

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/20/2016"
+   ms.date="02/25/2016"
    ms.author="daleche" />
 
 # Troubleshoot Cloud Service roles that fail to start
@@ -71,7 +71,7 @@ You can use Remote Desktop to access the role and view more complete error infor
 
 1. Ensure that Azure SDK 1.3 or later is installed.
 
-2. During the deployment of the solution by using Visual Studio, choose to “Configure Remote Desktop connections…”. For more information on configuring the Remote Desktop connection, see [Using Remote Desktop with Azure Roles](https://msdn.microsoft.com/library/gg443832.aspx).
+2. During the deployment of the solution by using Visual Studio, choose to “Configure Remote Desktop connections…”. For more information on configuring the Remote Desktop connection, see [Using Remote Desktop with Azure Roles](../vs-azure-tools-remote-desktop-roles.md).
 
 3. In the Microsoft Azure classic portal, once the instance shows a status of **Ready**, click one of the role instances.
 

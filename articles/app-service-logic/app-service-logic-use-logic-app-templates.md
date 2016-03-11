@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/18/2016"
 	ms.author="klam"/>
 
 # Use Logic App templates
+
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
 
 Logic App Templates are a set of curated pre-built Logic Apps to help you quickly get started building your own integration applications.
 

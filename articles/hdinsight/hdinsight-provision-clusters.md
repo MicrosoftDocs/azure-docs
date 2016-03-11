@@ -19,7 +19,7 @@
 
 # Create Windows-based Hadoop clusters in HDInsight
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Learn how to plan for creating HDInsight clusters.
 

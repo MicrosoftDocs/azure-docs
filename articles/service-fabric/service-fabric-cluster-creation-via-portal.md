@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -193,11 +193,16 @@ Now that you are connected, run the following commands to deploy your applicatio
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
+## RDP into a Virtual Machine Scale Set (VMSS) instance or a Cluster Node 
+
+Each of the NodeTypes you specify in your cluster results in a VMSS getting set up. Refer to [How to RDP into your VMSS instance](service-fabric-cluster-nodetypes.md) for details.
+
 ## Next steps
 
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 - [Service Fabric cluster security](service-fabric-cluster-security.md)
 - [Service Fabric health model introduction](service-fabric-health-introduction.md)
+- [How to RDP into your VMSS instance](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png

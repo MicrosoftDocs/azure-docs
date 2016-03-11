@@ -13,8 +13,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.topic="get-started-article"
+	ms.date="03/09/2016"
 	ms.author="nitinme"/>
 
 
@@ -23,6 +23,8 @@
 Learn how to create an Apache Spark cluster in HDInsight and then use [Jupyter](https://jupyter.org) notebook to run Spark SQL interactive queries on the Spark cluster.
 
    ![Get started using Apache Spark in HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png  "Get started using Apache Spark in HDInsight tutorial. Steps illustrated: create a storage account; create a cluster; run Spark SQL statements")
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 **Prerequisites:**
 
@@ -52,7 +54,7 @@ In this section, you create an HDInsight version 3.3 cluster, which is based on 
 
     ![Creating a new cluster in the Azure preview portal](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.1.png "Creating a new cluster in the Azure preview portal")
 
-3. Enter a **Cluster Name**, select **Hadoop** for the **Cluster Type**, from the **Cluster Operating System** drop-down menu, select **Ubuntu**, and then select the version of Spark. A green check appears beside the cluster name if it is available.
+3. Enter a **Cluster Name**, select **Spark** for the **Cluster Type**, from the **Cluster Operating System** drop-down menu, select **Linux**, and then select the version of Spark. A green check appears beside the cluster name if it is available.
 
 	![Enter cluster name and type](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.2.png "Enter cluster name and type")
 
@@ -110,11 +112,20 @@ In this section, you create an HDInsight version 3.3 cluster, which is based on 
 
 10. Once the creation is complete, click the tile for the Spark cluster from the Startboard to launch the cluster blade.
 
-
-
 ## <a name="jupyter"></a>Run Spark SQL queries using a Jupyter notebook
 
-In this section, you use a Jupyter notebook to run Spark SQL queries against a Spark cluster.
+In this section, you use a Jupyter notebook to run Spark SQL queries against a Spark cluster. By default Jupyter notebook comes with a **Python2** kernel. HDInsight Spark clusters provide two additional kernels that you can use with the Jupyter notebook. These are:
+
+* **PySpark** (for applications written in Python)
+* **Spark** (for applications written in Scala)
+
+In this article, you will use the PySpark kernel. In the article [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) you can read in detail about the benefits of using the PySpark kernel. However, couple of key benefits of using the PySpark kernel are:
+
+* You do not need to set the contexts for Spark, SQL, and Hive. These are automatically set for you.
+* You can use different cell magics (such as %%sql or %%hive) to directly run your SQL or Hive queries, without any preceding code snippets.
+* The output for SQL or Hive queries is automatically visualized.
+
+### Create a Jupyter notebook with PySpark kernel 
 
 1. From the [Azure Preview Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
@@ -124,7 +135,7 @@ In this section, you use a Jupyter notebook to run Spark SQL queries against a S
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Create a new notebook. Click **New**, and then click **Python2**.
+2. Create a new notebook. Click **New**, and then click **PySpark**.
 
 	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 
@@ -132,17 +143,11 @@ In this section, you use a Jupyter notebook to run Spark SQL queries against a S
 
 	![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
-4. Import the required modules and create the Spark and SQL contexts. Paste the following code example in an empty cell, and then press **SHIFT + ENTER**.
+4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark, SQL, and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, paste the following code snippet in a cell and press **SHIFT + ENTER**.
 
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
 		from pyspark.sql.types import *
 		
-		# Create Spark and SQL contexts
-		sc = SparkContext('yarn-client')
-		sqlContext = SQLContext(sc)
-
-	Every time you run a job in Jupyter, your web browser window title will show a **(Busy)** status along with the notebook title. You will also see a solid circle next to the **Python 2** text in the top-right corner. After the job is completed, this will change to a hollow circle.
+	Every time you run a job in Jupyter, your web browser window title will show a **(Busy)** status along with the notebook title. You will also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, this will change to a hollow circle.
 
 	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
 
@@ -164,40 +169,26 @@ In this section, you use a Jupyter notebook to run Spark SQL queries against a S
 		
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
+
+5. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
-		# Run queries against the table and display the data
-		data = sqlContext.sql("select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = \"6/1/13\"")
-		data.show()
+		%%sql
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\")
 
-5. Once the job is completed successfully, the following output is displayed.
+5. Once the job is completed successfully, the following tabular output is displayed by default.
 
-		+----------+---------+------+
-		|buildingID|temp_diff|  date|
-		+----------+---------+------+
-		|         4|        8|6/1/13|
-		|         3|        2|6/1/13|
-		|         7|      -10|6/1/13|
-		|        12|        3|6/1/13|
-		|         7|        9|6/1/13|
-		|         7|        5|6/1/13|
-		|         3|       11|6/1/13|
-		|         8|       -7|6/1/13|
-		|        17|       14|6/1/13|
-		|        16|       -3|6/1/13|
-		|         8|       -8|6/1/13|
-		|         1|       -1|6/1/13|
-		|        12|       11|6/1/13|
-		|         3|       14|6/1/13|
-		|         6|       -4|6/1/13|
-		|         1|        4|6/1/13|
-		|        19|        4|6/1/13|
-		|        19|       12|6/1/13|
-		|         9|       -9|6/1/13|
-		|        15|      -10|6/1/13|
-		+----------+---------+------+
+ 	![Table output of query result](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Table output of query result")
+
+	You can also see the results in other visualizations as well. For example, an area graph for the same output would look like the following.
+
+	![Area graph of query result](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Area graph of query result")
 
 
 6. After you have finished running the application, you should shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
+
+##Delete the cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## <a name="seealso"></a>See also

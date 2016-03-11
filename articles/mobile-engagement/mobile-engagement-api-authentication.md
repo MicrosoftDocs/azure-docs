@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Getting Started with Azure Mobile Engagement Authentication APIs"
-	description="This is a migration guide to help customers who were using authentication with Capptain APIs and now need to authenticate using the new Azure Mobile Enagagement APIs." 
+	pageTitle="Authenticate with Mobile Engagement REST APIs"
+	description="Describes how to authenticate with Azure Mobile Engagement REST APIs" 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="wesmc7777"
+	authors="piyushjo"
 	manager="erikre"
 	editor=""/>
 
@@ -13,25 +13,24 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/17/2016"
+	ms.date="03/07/2016"
 	ms.author="wesmc"/>
 
-# Azure Mobile Engagement - Using the APIs for authentication
+# Authenticate with Mobile Engagement REST APIs
 
 ## Overview
 
-This document is a companion guide for customers migrating from Capptain to Azure Mobile Engagement, who had been using the APIs. This describes in more detail how to get the authentication mechanism working for the new APIs.
+This document describes in detail how to get the authentication mechanism working for the new APIs.
 
 It is assumed that you have a valid Azure subscription and you have created a Mobile Engagement app using one of our [Developer Tutorials](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## Authentication
 
-When migrating from Capptain APIs to the new Azure Mobile Engagement APIs, the main differences will be regarding authentication. Previously, the APIs supported Basic Authentication. Now a Microsoft Azure Active Directory based OAuth token must be used for authentication. 
+A Microsoft Azure Active Directory based OAuth token must be used for authentication. 
 
 In order to authentication an API request, an authorization header must be added to every request. It must be of the following form:
 
 	Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGmJlNmV2ZWJPamg2TTNXR1E...
-
 
 >[AZURE.NOTE] Azure Active Directory tokens expire in 1 hour.
 
@@ -94,9 +93,7 @@ While doing this, please note the following information as you will need it late
 
 This is an alternative way to accomplish the steps mentioned previously using a PowerShell script.
 
-1. Get the latest version of Azure PowerShell.
-
-	Currently version 1.2.1 available for download [here](https://github.com/Azure/azure-powershell/releases/tag/v1.2.1-February2016).
+1. Get the latest version of Azure PowerShell. See this [link](../powershell-install-configure.md) for download instructions. 
 
 2. Open Windows PowerShell in Admin mode and make sure that you have installed the [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx).
 
@@ -132,9 +129,7 @@ This is an alternative way to accomplish the steps mentioned previously using a 
 
 	Copy these values for reference. For getting an access token now, you will use TenantId as `{TENANT_ID}`, ApplicationId as `{CLIENT_ID}` and Secret as `{CLIENT_SECRET}`.
 
-
 8. Check in the Azure Management portal that a new AD application was under **Show Applications my company owns**.
-
 
 #### Steps to get a valid token
 
@@ -168,9 +163,7 @@ Now in every API call, include the authorization request header:
 
 If you get a 401 status code returned, check the response body, it might tell you the token is expired. In that case, get a new token.
 
-
 ##Using the APIs
-
 
 Now that you have a valid token, you are ready to make the API calls.
 
@@ -189,11 +182,9 @@ Now that you have a valid token, you are ready to make the API calls.
 
 	![](./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png)
 
-
 >[AZURE.NOTE] <br/>
 >1. Ignore the API Root Address as this was for the previous APIs.<br/>
->2.You need to use the Application Resource name which is different than the Application name
-itself. 
+>2.You need to use the Application Resource name which is different than the Application name itself. 
 
 
 

@@ -3,7 +3,7 @@
     description="This article describes source control integration with GitHub in Azure Automation."
     services="automation"
     documentationCenter=""
-    authors="SnehaGunda"
+    authors="mgoedtel"
     manager="stevenka"
     editor="tysonn" />    
 <tags 
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="02/09/2016"
-    ms.author="sngun" />
+    ms.date="02/23/2016"
+    ms.author="magoedte;sngun" />
 
 # Source control integration in Azure Automation
 
@@ -33,7 +33,7 @@ If you already have a GitHub account and a repository that you want to link to A
 
 ## Step 2 – Set up source control in Azure Automation
 
-1. From the Automation Account blade in the Azure preview portal, click **Set Up Source Control.** 
+1. From the Automation Account blade in the Azure portal, click **Set Up Source Control.** 
  
     ![Set Up Source Control](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
 

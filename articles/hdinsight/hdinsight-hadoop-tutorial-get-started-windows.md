@@ -12,10 +12,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/13/2015"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 
@@ -45,6 +45,8 @@ In conjunction with the general availability of Azure HDInsight, Microsoft also 
 HDInsight Emulator for Azure, formerly known as *Microsoft HDInsight Developer Preview*. 
 The Emulator targets developer scenarios and only supports single-node deployments. For 
 information about using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ### Prerequisites
 
@@ -189,7 +191,9 @@ Sample | What does it do?
 [Website log analysis][hdinsight-weblogs-sample] | Learn how to use HDInsight to analyze website log files to get insight into the frequency of visits to the website in a day from external websites, and a summary of website errors that the users experience.
 [Twitter trend analysis](hdinsight-analyze-twitter-data.md) | Learn how to use HDInsight to analyze trends in Twitter.
 
+##Delete the cluster
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##Next steps
 In this Hadoop tutorial, you learned how to create a Hadoop cluster on Windows in HDInsight, run a Hive query on data, and import the results into Excel, where they can be further processed and graphically displayed with business intelligence tools. To learn more, see the following tutorials:

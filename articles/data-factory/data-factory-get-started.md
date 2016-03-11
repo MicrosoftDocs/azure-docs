@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Use Copy Activity in an Azure Data Factory Pipeline"
+	pageTitle="Tutorial: Copy data from Azure Blob Storage to Azure SQL Database"
 	description="This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline that to copy data from an Azure blob to an Azure SQL database."
 	services="data-factory"
 	documentationCenter=""
@@ -16,14 +16,16 @@
 	ms.date="02/01/2016"
 	ms.author="spelluru"/>
 
-# Tutorial: Copy data from an Azure blob to Azure SQL
+# Tutorial: Copy data from Azure Blob Storage to Azure SQL Database
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
 
-The tutorial in this article helps you quickly get started with using the Azure Data Factory service. In this tutorial, you will create an Azure data factory and create a pipeline in the data factory to copy data from an Azure blob storage to an Azure SQL database.
+In this tutorial, you will create an Azure data factory and create a pipeline with a Copy Activity to copy data from an Azure blob storage to an Azure SQL database.
+
+The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.  
 
 > [AZURE.NOTE] For a detailed overview of the Data Factory service, see the [Introduction to Azure Data Factory][data-factory-introduction] article .
 
@@ -98,7 +100,9 @@ Do the following:
 - Click [Using Data Factory Editor](data-factory-get-started-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Classic Portal.
 - Click [Using PowerShell](data-factory-monitor-manage-using-powershell.md) link at the top to perform the tutorial by using Azure PowerShell.
 - Click [Using Visual Studio](data-factory-get-started-using-vs.md) link at the top to perform the tutorial by using Visual Studio 2013.
- 
+
+## Copy Activity
+See [Data Movement Activities](data-factory-data-movement-activities.md) article for detailed information about the Copy Activity in Azure Data Factory.  
 
 
 <!--Link references-->

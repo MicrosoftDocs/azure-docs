@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/12/2016"
+	ms.date="03/09/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -115,7 +115,7 @@ You can use Transact-SQL to do the following elastic database management tasks:
 | Task | Details |
 | :-- | :-- |
 | Create a new elastic database (directly in a pool) | [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) |
-| Move existing databases in and out of a pool | [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/ms174269.aspx) |
+| Move existing databases in and out of a pool | [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) |
 | Get a pool's resource usage statistics | [sys.elastic_pool_resource_stats (Azure SQL Database)](https://msdn.microsoft.com/library/mt280062.aspx) |
 
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="02/17/2016"
    ms.author="saurabh"/>
 
 # Install .NET on a Cloud Service Role 
@@ -23,12 +23,12 @@ This article describes how to install .NET framework on Cloud Service Web and Wo
 The  process of installing .NET on your web and worker roles involves including the .NET installer package as part of your Cloud Project and launching the installer as part of the role's startup tasks.  
 
 ## Add the .NET installer to your project
-1. Download the the web installer for the .NET framework you want to install
+- Download the the web installer for the .NET framework you want to install
 	- [.NET 4.6.1 Web Installer](http://go.microsoft.com/fwlink/?LinkId=671729)
-2. For a Web Role
+- For a Web Role
   1. In **Solution Explorer**, under In **Roles** in the cloud service project right click on your role and select **Add>New Folder**. Create a folder named *bin*
   2. Right click on the **bin** folder and select **Add>Existing Item**. Select the .NET installer and add it to the bin folder.
-3. For a Worker Role
+- For a Worker Role
   1. Right click on your role and select **Add>Existing Item**. Select the .NET installer and add it to the role. 
 
 Files added this way to the Role Content Folder will automatically be added to the cloud service package and deployed to a consistent location on the virtual machine. Repeat this process for all web and worker roles in your Cloud Service so all roles have a copy of the installer.
@@ -43,7 +43,10 @@ Startup tasks allow you to perform operations before a role starts. Installing t
 1. Add the following to the *ServiceDefinition.csdef* file under the **WebRole** or **WorkerRole** node for all roles:
 	
 	```xml
-    <Startup>
+	<LocalResources>
+      <LocalStorage name="NETFXInstall" sizeInMB="1024" cleanOnRoleRecycle="false" />
+    </LocalResources>    
+	<Startup>
       <Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
         <Environment>
           <Variable name="PathToNETFXInstall">
