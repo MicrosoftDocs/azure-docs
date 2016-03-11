@@ -6,12 +6,12 @@
 	documentationCenter=""
 	authors="jeffgoll"
 	manager="jeffreyg"
-	editor=""/>
+	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/08/2016"
+	ms.date="03/11/2016"
 	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -21,91 +21,102 @@
 # Monitor, manage, and size an elastic database pool
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
-- [C#](sql-database-elastic-pool-csharp.md)
-- [PowerShell](sql-database-elastic-pool-powershell.md)
+- [Azure portal](sql-database-elastic-pool-manage-portal.md)
+- [C#](sql-database-elastic-pool-manage-csharp.md)
+- [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 
 
-You can use the portal to monitor and manage an elastic pool and the databases in the pool. After you [create a pool](sql-database-elastic-pool-create-portal.md), click **Browse**, click **SQL elastic pools** and then click the pool you want to work with from the list.
+You can use the Azure portal to monitor and manage an elastic pool and the databases in the pool. After you [create a pool](sql-database-elastic-pool-create-portal.md), click **Browse**, click **SQL elastic pools** and then click the pool you want to work with from the list.
 <<Screen shot>>
 
 ##Monitor resource utilization of a pool
 After you select a pool to work with, under **Elastic Pool Monitoring**, a chart and live tiles show you important utilization information for your pool. 
 
-**To change the date range, the chart type (bar or line), and the resources depicted in the chart:**
+**To change the date range, the chart type (bar or line), or the resources shown:**
 
 - Click **Edit**, pick the settings that you want, and then click **Save** to update the chart.
 
-**To change the live tiles that appear with the chart:**
+**To change the live tiles:**
 
 - Click **Add tiles** and then select the tiles you want from the tile gallery that appears on the left.
 
-##Add an alert to a resource
-You can add rules to resources that will send emails to people when the resource hits a threshold that you choose. You can also send alerts to URL endpoints for processing by an application.
+##Add an alert to a pool resource
+You can add rules to resources that send email to people or alert strings to URL endpoints when the resource hits a utilization threshold that you set up.
  
 **To add an alert to any resource:**
-1. Click the **Resource utilization** chart to open the **Metric** blade, click **Add alert**, and then fill out the information in the **Add an alert rule** blade. Note that **Resource** is automatically set up to be the pool.
-2. Under **Resource**, the identifier of the pool you're working with is displayed.
-3. Type a **Name** and description that will help you remember what the rule is for.
-4. Choose a **Metric** that you want to alert from the list. The chart updates to show utilization and help you choose a threshold.
-5. Choose a **Condition** (greater than, less than, etc.) and a **Threshold** f
+
+1. Click the **Resource utilization** chart to open the **Metric** blade, click **Add alert**, and then fill out the information in the **Add an alert rule** blade (**Resource** is automatically set up to be the pool you're working with).
+2. Type a **Name** and **Description** that identifies the alert to you and recipients.
+3. Choose a **Metric** that you want to alert from the list. The chart dynamically shows resource utilization for that metric to help you choose a threshold.
+4. Choose a **Condition** (greater than, less than, etc.) and a **Threshold**.
 
 ![Monitor elastic pool][4]
 ![resource utilization][6]
 
- Percent of DTU utilization and percent of storage utilization are shown by default because they have the biggest impact on pool performance.
+Percent of DTU utilization and percent of storage utilization are shown by default.
 
+##Change eDTU per pool and database eDTU
+When you see the resource utilization of a pool, you may discover that the pool needs a different eDTU setting, or individual databases in the pool need different eDTU settings. You can change the setup of the pool at any time to get the best balance of performance and cost. See [Price and performance considerations](sql-database-elastic-pool-guidance.md) for more information.
 
-##Changing eDTU per pool and database eDTU
-Monitoring may reveal that the pool has reached capacity in a resource configuration, or is over-provisioned. You can change the configuration of the pool at any time to optimize performance and cost. Click **Configure pool** to get started
+**To change the pool eDTU and eDTU per database:**
 
-To change the pool eDTU and eDTU per database, click **Configure pool**.
-- Select **Create job** and manage the databases in the pool by creating elastic jobs. Elastic jobs let you run Transact-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
-- Select **Manage jobs** to administer existing elastic jobs.
-- Click **Create database** to create a new database in the pool.
-- Click the pool settings link to adjust pool eDTUs and GB per pool
-- Click the databases link to add or remove databases to the pool.
-- Click the database settings link to adjust the min and max eDTUs for the elastic databases in the pool. 
+1. Click **Configure pool** to open the **Configure performance** blade.
+2. Under Elastic database pool settings a chart shows you the recent trend of eDTU and storage utilization in percent of capacity for the pool.
 
-![edit chart][7]
+NEED a screen shot showing near max utilization.
 
+3. Click a different **Pool eDTU**, and you'll see the estimated monthly cost of the change you want to make and its impact to resource utilization in the chart.
 
-## Add and remove databases to and from a pool
+NEED a screen shot showing more headroom.
 
-After the pool is created, you can add or remove existing databases in and out of the pool by adding or removing databases on the **Elastic databases** page (browse to your pool and click the **Elastic databases** link in **Essentials**).
+4. Under **Elastic database setting**, a bar graph shows the eDTU utilization of each database in the pool. Click a bar to see the database name.
 
-- Click **Add databases** to open the list of databases you can add to the pool.
+NEED a matching screen shot
 
-    -or-
+5. Click **eDTU max** to set the maximum and **eDTU min** to set the minimum number of eDTU for the database you clicked.
 
-- Select the databases you want to remove from the pool and click **Remove databases**.
+##Add and remove databases
+
+After you create a pool, you can add databases to the pool or remove them. You can only add databases on the same SQL server.
+
+**To add databases:**
+
+1. In the blade for the pool, under **Elastic databases** click the link that shows the number of databases in the pool.
+
+JEFF to insert screenshot
+
+2. In the **Elastic databases** blade, click **Add database**, click the databases that you want to add on the list that appears, and then click the **Select** button.
+
+The **Elastic databases** blade now lists the database you just added, with **AVG DTU** and storage utilization as **SIZE(GB)**, along with a **Pending** status. The pool utilization values now show you what the **New** values will be if you save your changes.
+
+3. Click **Save** and then click **OK** when the portal tells you the request has been submitted. The number of databases in the pool shows up on the blade for the pool when the operation is done.
+
+**To remove databases:**
+1. In the blade for the pool, under **Elastic databases** click the link that shows the number of databases in the pool.
+2. In the **Elastic databases** blade, from the list of databases in the pool, click the databases you want to remove, and then click **Remove databases**. The pool utilization values now show you what the **New** values will be if you save your changes.
+3. Click **Save** and then click **OK** when the portal tells you the request has been submitted. The number of databases in the pool shows up on the blade for the pool when the operation is done.
 
 ![recommended pool](./media/sql-database-elastic-pool-portal/add-remove-databases.png)
 
 ## Create a new database in a pool
 
-Create a new database in a pool by browsing to the desired pool and clicking **Create database**.
-
-The SQL database is already configured for the correct server and pool so enter a name and select your database options, then click **OK** to create the new database:
-
+In the blade for the database, just click **Create database**. The SQL database is already configured for the correct server and pool so click through to select other settings, and then click **OK** to create a new database in the pool.
 
    ![create elastic database](./media/sql-database-elastic-pool-portal/create-database.png)
 
+##Create and manage elastic jobs
 
-
-
-
-## Next steps
-After creating an elastic database pool, you can manage the databases in the pool by creating elastic jobs. Elastic jobs facilitate running Transact-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
-
-
+Elastic jobs let you run Transact-SQL scripts against any number of databases in the pool. Before you use jobs, install elastic jobs components and provide your credentials. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
 
 ## Additional resources
 
-- [SQL Database elastic pool](sql-database-elastic-pool.md)
-- [Create a SQL Database elastic pool with PowerShell](sql-database-elastic-pool-powershell.md)
-- [Create and manage SQL Database with C#](sql-database-client-library.md)
 - [Elastic database reference](sql-database-elastic-pool-reference.md)
+- [SQL Database elastic pool](sql-database-elastic-pool.md)
+- [Create an elastic database pool with the portal](sql-database-elastic-pool-create-csharp.md)
+- [Create an elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md)
+- [Create an elastic database pool with C#](sql-database-elastic-pool-create-csharp.md)
+
+- [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md)
 
 
 <!--Image references-->
