@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Monitor and manage an elastic database pool (C#) | Microsoft Azure"
-    description="Use C# database development techniques to monitor and manage an Azure SQL Database elastic database pool so you can share resources across many databases."
+    pageTitle="Manage an elastic database pool (C#) | Microsoft Azure"
+    description="Use C# database development techniques to manage an Azure SQL Database elastic database pool so you can share resources across many databases."
     services="sql-database"
     keywords="c# database,sql development"
     documentationCenter=""
@@ -17,7 +17,7 @@
     ms.date="03/09/2016"
     ms.author="sstein"/>
 
-# Monitor and manage an elastic database pool (C&#x23;)
+# Manage an elastic database pool (C&#x23;)
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)
@@ -123,7 +123,7 @@ The following example lists all databases in a pool:
 
 
 
-## Monitor and manage elastic database pool C&#x23; example
+## Manage elastic database pool C&#x23; example
 
 
 The following libraries are required to run this example:
@@ -146,29 +146,32 @@ Create a console app and replace the contents of Program.cs with the following:
     {
     class Program
     {
+        // elastic database pool variables
+        static string poolName = "elasticPool1";
+        static string poolEdition = "Standard";
+        static int poolDtus = 400;
+        static int databaseMinDtus = 0;
+        static int databaseMaxDtus = 100;
+
         // authentication variables
-        static string subscriptionId = "<your Azure subscription>";
+        static string subscriptionId = "<your Azure subscription id>";
         static string clientId = "<your client id>";
         static string redirectUri = "<your redirect URI>";
         static string domainName = "<i.e. microsoft.onmicrosoft.com>";
         static AuthenticationResult token;
 
         // resource group variables
-        static string datacenterLocation = "<location>";
+        static string datacenterLocation = "Japan West";
         static string resourceGroupName = "<resource group name>";
 
         // server variables
         static string serverName = "<server name>";
         static string adminLogin = "<server admin>";
-        static string adminPassword = "<server password (store it securely!)>";
+        static string adminPassword = "<server admin password>";
         static string serverVersion = "12.0";
 
-        // elastic database pool variables
-        static string elasticPoolName = "<pool name>";
-        static string poolEdition = "Standard";
-        static int poolDtus = 400;
-        static int databaseMinDtus = 0;
-        static int databaseMaxDtus = 100;
+        // database variables
+        static string databaseName = "<database name>";
 
 
         static void Main(string[] args)
@@ -187,12 +190,62 @@ Create a console app and replace the contents of Program.cs with the following:
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
             // Create an elastic database pool
-            Console.WriteLine("Creating elastic database pool... ");
+            Console.WriteLine("Creating elastic database pool with 400 pool eDTUs... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
 
+            // Open the portal so we can see our operations in action
+            string portalPage = @"https://ms.portal.azure.com/#resource/subscriptions/"
+                + subscriptionId
+                + @"/resourceGroups/"
+                + resourceGroupName
+                + @"/providers/Microsoft.Sql/servers/"
+                + serverName
+                + @"/elasticPools/"
+                + poolName ;
+            System.Diagnostics.Process.Start(portalPage);
 
-            // keep the console open until Enter is pressed!
+
+            // Pause the console until Enter is pressed.
+            Console.WriteLine("Press Enter to update the pool to 1200 pool eDTUs.");
+            Console.ReadLine();
+
+            // Update the elastic database pool
+            Console.WriteLine("Updating elastic database pool to 1200 pool eDTUs...");
+            ElasticPoolCreateOrUpdateResponse epool2 = UpdateElasticDatabasePool();
+            Console.WriteLine("Update of pool " + epool2.ElasticPool.Name + ": " + epool2.Status.ToString());
+
+            // Create a new database in the pool
+            Console.WriteLine("Creating a new database in the pool... ");
+            DatabaseCreateOrUpdateResponse db = CreateNewDatabaseInPool();
+            Console.WriteLine("Creation of elastic database " + db.Database.Name + ": " + db.Status.ToString());
+
+            // Move an existing database into pool
+            Console.WriteLine("Creating a new database, stand-alone, not yet in the pool... ");
+            DatabaseCreateOrUpdateResponse db2 = CreateStandAloneDatabase();
+            Console.WriteLine("Creation of stand-alone database " + db2.Database.Name + ": " + db2.Status.ToString());
+
+            // Pause the console until Enter is pressed.
+            Console.WriteLine("Press Enter to move our existing db into the pool.");
+            Console.ReadLine();
+
+            Console.WriteLine("Moving stand-alone database into the pool... ");
+            DatabaseCreateOrUpdateResponse db3 = MoveExistingDatabaseIntoPool();
+            Console.WriteLine("Moving stand-alone database " + db3.Database.Name + ": " + db3.Status.ToString());
+
+            // Pause the console until Enter is pressed.
+            Console.WriteLine("Press Enter to list all databases in {0}.", poolName);
+            Console.ReadLine();
+
+            // List all databases in a pool
+            DatabaseListResponse dbs = GetDbsInPool();
+            Console.WriteLine("Databases in Elastic Pool {0}", poolName);
+            foreach (Database db4 in dbs)
+            {
+                Console.WriteLine("- " + db4.Name);
+            }
+
+            // Pause the console until Enter is pressed.
             Console.WriteLine("Press Enter to exit.");
             Console.ReadLine();
         }
@@ -217,15 +270,108 @@ Create a console app and replace the contents of Program.cs with the following:
             };
 
             // Create the pool
-            var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate(resourceGroupName, serverName, elasticPoolName, newPoolParameters);
+            var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate(resourceGroupName, serverName, poolName, newPoolParameters);
             return newPoolResponse;
         }
 
+        static ElasticPoolCreateOrUpdateResponse UpdateElasticDatabasePool()
+        {
+            int newPoolDtus = 1200;
+            int newDatabaseMinDtus = 10;
+            int newDatabaseMaxDtus = 50;
 
+            // Create a SQL Database management client
+            SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials(subscriptionId, token.AccessToken));
+
+            // Retrieve existing pool
+            var currentPool = sqlClient.ElasticPools.Get(resourceGroupName, serverName, poolName).ElasticPool;
+
+            // Configure create or update parameters with existing property values, override those to be changed.
+            ElasticPoolCreateOrUpdateParameters updatePoolParameters = new ElasticPoolCreateOrUpdateParameters()
+            {
+                Location = currentPool.Location,
+                Properties = new ElasticPoolCreateOrUpdateProperties()
+                {
+                    Edition = currentPool.Properties.Edition,
+                    DatabaseDtuMax = newDatabaseMaxDtus,
+                    DatabaseDtuMin = newDatabaseMinDtus,
+                    Dtu = newPoolDtus
+                }
+            };
+            var updatePoolResponse = sqlClient.ElasticPools.CreateOrUpdate(resourceGroupName, serverName, poolName, updatePoolParameters);
+            return updatePoolResponse;
+        }
+
+        static DatabaseCreateOrUpdateResponse CreateNewDatabaseInPool()
+        {
+            databaseName = "newDbInThePool";
+
+            // Create a SQL Database management client
+            SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials(subscriptionId, token.AccessToken));
+
+            // Retrieve current pool
+            var currentPool = sqlClient.ElasticPools.Get(resourceGroupName, serverName, poolName).ElasticPool;
+
+            // Create a database
+            DatabaseCreateOrUpdateParameters databaseParameters = new DatabaseCreateOrUpdateParameters()
+            {
+                Location = currentPool.Location,
+                Properties = new DatabaseCreateOrUpdateProperties()
+                {
+                    CreateMode = "Default",
+                    Edition = currentPool.Properties.Edition,
+                    ElasticPoolName = poolName
+                }
+            };
+
+            var dbResult = sqlClient.Databases.CreateOrUpdate(resourceGroupName, serverName, databaseName, databaseParameters);
+            return dbResult;
+        }
+
+        static DatabaseCreateOrUpdateResponse MoveExistingDatabaseIntoPool()
+        {
+            databaseName = "standaloneDB";
+
+            // Create a SQL Database management client
+            SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials(subscriptionId, token.AccessToken));
+
+            // Retrieve current database
+            var currentDatabase = sqlClient.Databases.Get(resourceGroupName, serverName, databaseName).Database;
+
+            // Retrieve current pool
+            var currentPool = sqlClient.ElasticPools.Get(resourceGroupName, serverName, poolName).ElasticPool;
+
+            // Configure create or update parameters with existing property values, override those to be changed.
+            DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
+            {
+                Location = currentDatabase.Location,
+                Properties = new DatabaseCreateOrUpdateProperties()
+                {
+                    Edition = currentPool.Properties.Edition,
+                    RequestedServiceObjectiveName = "ElasticPool",
+                    ElasticPoolName = currentPool.Name,
+                    MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
+                    Collation = currentDatabase.Properties.Collation,
+                }
+            };
+            // Update the database
+            var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate(resourceGroupName, serverName, databaseName, updatePooledDbParameters);
+            return dbUpdateResponse;
+        }
+
+        static DatabaseListResponse GetDbsInPool()
+        {
+            // Create a SQL Database management client
+            SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials(subscriptionId, token.AccessToken));
+
+            //List databases in the elastic pool
+            DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases(resourceGroupName, serverName, poolName);
+            return dbListInPool;
+        }
+     
 
         static ServerGetResponse CreateServer()
         {
-
             // Create a SQL Database management client
             SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials(subscriptionId, token.AccessToken));
 
@@ -240,16 +386,34 @@ Create a console app and replace the contents of Program.cs with the following:
                     Version = serverVersion
                 }
             };
-
             var serverResult = sqlClient.Servers.CreateOrUpdate(resourceGroupName, serverName, serverParameters);
             return serverResult;
-
         }
 
+        static DatabaseCreateOrUpdateResponse CreateStandAloneDatabase()
+        {
+            databaseName = "standaloneDB";
+            // Create a SQL Database management client
+            SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials(subscriptionId, token.AccessToken));
+
+            // Create a database
+            DatabaseCreateOrUpdateParameters databaseParameters = new DatabaseCreateOrUpdateParameters()
+            {
+                Location = datacenterLocation,
+                Properties = new DatabaseCreateOrUpdateProperties()
+                {
+                    Edition = "Standard",
+                    RequestedServiceObjectiveName = "S0",
+                    CreateMode = "Default"
+                }
+            };
+
+            var dbResult = sqlClient.Databases.CreateOrUpdate(resourceGroupName,serverName, databaseName, databaseParameters);
+            return dbResult;
+        }
 
         static ResourceGroup CreateResourceGroup()
         {
-           
             Microsoft.Rest.TokenCredentials creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
             // Create a resource management client 
             ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
@@ -266,7 +430,6 @@ Create a console app and replace the contents of Program.cs with the following:
             return resourceGroupResult;
         }
 
-
         private static AuthenticationResult GetAccessToken()
         {
             AuthenticationContext authContext = new AuthenticationContext
@@ -282,7 +445,6 @@ Create a console app and replace the contents of Program.cs with the following:
         }
     }
     }
-
 
 
 
