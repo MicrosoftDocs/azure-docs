@@ -21,11 +21,15 @@
 
 This article is a tutorial that will take you through the set of steps for preparing your Azure environment to back up an Azure virtual machine (VM). This tutorial assumes you already have a VM in your Azure subscription and that you have taken the measures to allow the backup service to access the VM. At a high level, here are the steps that you will complete.  
 
-1. Create a backup vault or identify an existing backup vault *in the same region as your VM*.
-2. Use the Azure portal to discover and register the virtual machines in the subscription.
-3. Install the VM agent on the virtual machine.
-4. Protect the virtual machines - create a policy for backing up your VMs.
-5. Run the backup.
+![High-level view of VM backup process](./media/backup-azure-vms-first-look/BackupAzureVM.png)
+
+
+1. Create or sign in to your Azure subscription.
+2. Create a backup vault or identify an existing backup vault *in the same region as your VM*.
+3. Use the Azure portal to discover and register the virtual machines in the subscription.
+4. Install the VM Agent on the virtual machine (if you are using a VM from the Azure gallery, the VM Agent will already be present).
+5. Create the policy for protecting the virtual machines.
+6. Run the backup.
 
 >[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). Currently, the Azure Backup service does not support Azure Resource Manager (ARM)-based virtual machines - also known as IaaS V2 virtual machines. Since IaaS V2 VMs came about with the release of the new Azure portal, this tutorial is designed for use with the type of VMs that can be created in the Azure classic portal.
 

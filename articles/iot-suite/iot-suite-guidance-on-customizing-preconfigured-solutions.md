@@ -28,10 +28,7 @@ The source code for the preconfigured solutions is available on GitHub in the fo
 - Remote Monitoring: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 - Predictive Maintenance: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 
-The source code for the preconfigured solutions is provided to demonstrate the patterns and practices used to implement the end-to-end functionality of an IoT solution using Azure IoT Suite. Guidance on building and deploying from the command line is in the GitHub wiki for each preconfigured solution: 
-
-- [Remote Monitoring Wiki](https://github.com/Azure/azure-iot-remote-monitoring/wiki)
-- [Predictive Maintenance Wiki](https://github.com/Azure/azure-iot-predictive-maintenance/wiki)
+The source code for the preconfigured solutions is provided to demonstrate the patterns and practices used to implement the end-to-end functionality of an IoT solution using Azure IoT Suite. You can find more information about how to build and deploy the solutions in the GitHub repositories.
 
 ## Manage the permissions in a preconfigured solution
 The solution portal for each preconfigured solution is created as a new Azure Active Directory application. You can manage the permissions for your solution portal (AAD application) as follows:
