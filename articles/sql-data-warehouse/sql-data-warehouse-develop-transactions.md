@@ -18,10 +18,13 @@
 
 # Transactions in SQL Data Warehouse
 
-As you would expect SQL Data Warehouse does offer support for all transactional properties. However, to ensure the performance of SQL Data Warehouse is maintained at scale some features are limited when compared to SQL Server. This article hightlights the differences and lists the others. 
+As you would expect SQL Data Warehouse does offer support for all transactional properties. However, to ensure the performance of SQL Data Warehouse is maintained at scale some features are limited when compared to SQL Server. This article highlights the differences and lists the others. 
 
 ## Transaction isolation levels
 SQL Data Warehouse implements ACID transactions. However, the Isolation of the transactional support is limited to `READ UNCOMMITTED` and this cannot be changed. You can implement a number of coding methods to prevent dirty reads of data if this is a concern for you. The most popular methods leverage both CTAS and table partition switching (often known as the sliding window pattern) to prevent users from querying data that is still being prepared. Views that pre-filter the data is also a popular approach.  
+
+## Transaction size
+
 
 ## Transaction state
 SQL Data Warehouse uses the XACT_STATE() function to report a failed transaction using the value -2. This means that the transaction has failed and is marked for rollback only
