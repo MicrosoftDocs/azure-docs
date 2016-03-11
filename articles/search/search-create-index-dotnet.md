@@ -53,9 +53,9 @@ The code below creates a new `SearchServiceClient` using values for the search s
 
 ```csharp
 string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
-string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
+string adminApiKey = ConfigurationManager.AppSettings["SearchServiceAdminApiKey"];
 
-SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
+SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
 ```
 
 `SearchServiceClient` has an `Indexes` property. This property provides all the methods you need to create, list, update, or delete Azure Search indexes.
