@@ -33,7 +33,7 @@ JEFF to add screen shot.
 ##Monitor resource utilization of a pool
 After you select a pool to work with, under **Elastic Pool Monitoring**, a chart and live tiles show you important utilization information for your pool.
 
-![Monitor elastic pool][4]
+![Monitor elastic pool](./media/sql-database-elastic-pool-manage-portal/monitor-elastic-pool.png)
 
 **To change the date range, the chart type (bar or line), or the resources shown:**
 
@@ -50,9 +50,9 @@ You can add rules to resources that send email to people or alert strings to URL
 
 1. Click the **Resource utilization** chart to open the **Metric** blade, click **Add alert**, and then fill out the information in the **Add an alert rule** blade (**Resource** is automatically set up to be the pool you're working with).
 2. Type a **Name** and **Description** that identifies the alert to you and recipients.
-3. Choose a **Metric** that you want to alert from the list. 
+3. Choose a **Metric** that you want to alert from the list.
 
-   The chart dynamically shows resource utilization for that metric to help you choose a threshold.
+    The chart dynamically shows resource utilization for that metric to help you choose a threshold.
 
 4. Choose a **Condition** (greater than, less than, etc.) and a **Threshold**.
 
@@ -85,13 +85,13 @@ After you create a pool, you can add databases to the pool or remove them. You c
 
 1. In the blade for the pool, under **Elastic databases** click the link that shows the number of databases in the pool.
 
-    ![databases listing](./media/db-listing.png)
+    ![databases listing](./media/sql-database-elastic-pool-manage-portal/db-listing.png)
 
 2. In the **Elastic databases** blade, click **Add database**, click the databases that you want to add, and then click the **Select** button.
 
     The **Elastic databases** blade now lists the database you just added, with **AVG DTU** and storage utilization as **SIZE(GB)**, along with a **Pending** status. The pool utilization values now show you what the **New** values will be if you save your changes.
 
-    ![recommended pool](./media/sql-database-elastic-pool-portal/add-remove-databases.png)
+    ![recommended pool](./media/sql-database-elastic-pool-manage-portal/add-remove-databases.png)
 
 3. Click **Save** and then click **OK** when the portal tells you the request has been submitted. The number of databases in the pool shows up on the blade for the pool when the operation is done.
 
@@ -99,7 +99,7 @@ After you create a pool, you can add databases to the pool or remove them. You c
 
 1. In the blade for the pool, under **Elastic databases** click the link that shows the number of databases in the pool.
 
-    ![databases listing](./media/db-listing.png)
+    ![databases listing](./media/sql-database-elastic-pool-manage-portal/db-listing.png)
 
 2. In the **Elastic databases** blade, from the list of databases in the pool, click the databases you want to remove, and then click **Remove databases**. 
 
@@ -124,12 +124,11 @@ Elastic jobs let you run Transact-SQL scripts against any number of databases in
 - [Create an elastic database pool with the portal](sql-database-elastic-pool-create-csharp.md)
 - [Create an elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [Create an elastic database pool with C#](sql-database-elastic-pool-create-csharp.md)
-
 - [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md)
 
 
 <!--Image references-->
-[4]: ./media/sql-database-elastic-pool-portal/monitor-elastic-pool.png
+[4]: 
 [6]: ./media/sql-database-elastic-pool-portal/metric.png
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [10]: ./media/sql-database-elastic-pool-portal/star.png
