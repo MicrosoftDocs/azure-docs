@@ -9,21 +9,21 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Service Bus relayed messaging tutorial
 
-This tutorial describes how to build a simple Service Bus client application and service using the Service Bus "relay" capabilities. For a corresponding tutorial that describes how to build an application that uses the Service Bus "brokered," or asynchronous messaging capabilities, see the [Service Bus Brokered Messaging .NET Tutorial](https://msdn.microsoft.com/library/hh367512.aspx). For a similar tutorial that uses Service Bus [brokered messaging](service-bus-messaging-overview.md/#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](https://msdn.microsoft.com/library/hh367512.aspx).
+This tutorial describes how to build a simple Service Bus client application and service using the Service Bus "relay" capabilities. For a corresponding tutorial that uses Service Bus [brokered messaging](service-bus-messaging-overview.md#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](service-bus-brokered-tutorial-dotnet.md).
 
 Working through this tutorial gives you an understanding of the steps that are required to create a Service Bus client and service application. Like their WCF counterparts, a service is a construct that exposes one or more endpoints, each of which exposes one or more service operations. The endpoint of a service specifies an address where the service can be found, a binding that contains the information that a client must communicate with the service, and a contract that defines the functionality provided by the service to its clients. The main difference between a WCF and a Service Bus service is that the endpoint is exposed in the cloud instead of locally on your computer.
 
-After you work through the sequence of topics in this tutorial, you will have a running service, and a client that can invoke the operations of the service. The first topic describes how to set up an account. The next steps describe how to define a service that uses a contract, how to implement the service, and how to configure the service in code. They also describe how to host and run the service. The service that is created is self-hosted and the client and service run on the same computer. You can configure the service by using either code or a configuration file. For more information, see [Configuring a WCF Service to Register with Service Bus](https://msdn.microsoft.com/library/ee173579.aspx) and [Building a Service for Service Bus](https://msdn.microsoft.com/library/ee173564.aspx).
+After you work through the sequence of topics in this tutorial, you will have a running service, and a client that can invoke the operations of the service. The first topic describes how to set up an account. The next steps describe how to define a service that uses a contract, how to implement the service, and how to configure the service in code. They also describe how to host and run the service. The service that is created is self-hosted and the client and service run on the same computer. You can configure the service by using either code or a configuration file.
 
-The final three steps describe how to create a client application, configure the client application, and create and use a client that can access the functionality of the host. For more information, see [Building a Service Bus Client Application](https://msdn.microsoft.com/library/ee173543.aspx) and [Discovering and Exposing a Service Bus Service](https://msdn.microsoft.com/library/dd582704.aspx).
+The final three steps describe how to create a client application, configure the client application, and create and use a client that can access the functionality of the host.
 
 All of the topics in this section assume that you are using Visual Studio as the development environment.
 
@@ -31,19 +31,19 @@ All of the topics in this section assume that you are using Visual Studio as the
 
 The first step is to create a Service Bus service namespace, and to obtain a Shared Access Signature (SAS) key. A service namespace provides an application boundary for each application exposed through the Service Bus. The combination of service namespace and SAS key provides a credential for the Service Bus to authenticate access to an application.
 
-To create a namespace, follow the steps outlined in [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/hh690931.aspx).
+1. To create a service namespace, visit the [Azure classic portal][]. Click **Service Bus** on the left-hand side, then click **Create**. Type a name for your namespace, then click the check mark.
 
->[AZURE.NOTE] You do not have to use the same namespace for both client and service applications.
+	>[AZURE.NOTE] You do not have to use the same namespace for both client and service applications.
 
-1. In the main window of the Azure portal, click the name of the service namespace you created in the previous step.
+1. In the main window of the portal, click the name of the namespace you created in the previous step.
 
-2. Click **Configure** to view the default shared access policies for your service namespace.
+2. Click **Configure** to view the default shared access policies for your namespace.
 
 3. Make a note of the primary key for the **RootManageSharedAccessKey** policy, or copy it to the clipboard. You will use this value later in this tutorial.
 
 ## Define a WCF service contract to use with Service Bus
 
-The service contract specifies what operations (the Web service terminology for methods or functions) the service supports. Contracts are created by defining a C++, C#, or Visual Basic interface. Each method in the interface corresponds to a specific service operation. Each interface must have the [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) attribute applied to it, and each operation must have the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) attribute applied to it. If a method in an interface that has the [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) attribute does not have the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) attribute, that method is not exposed. The code for these tasks is provided in the example following the procedure. For more information about how to define a contract, see [Designing a WCF Contract for Service Bus](https://msdn.microsoft.com/library/ee173585.aspx). For a larger discussion of contracts and services, see [Designing and Implementing Services](https://msdn.microsoft.com/library/ms729746.aspx) in the WCF documentation.
+The service contract specifies what operations (the Web service terminology for methods or functions) the service supports. Contracts are created by defining a C++, C#, or Visual Basic interface. Each method in the interface corresponds to a specific service operation. Each interface must have the [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) attribute applied to it, and each operation must have the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) attribute applied to it. If a method in an interface that has the [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) attribute does not have the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) attribute, that method is not exposed. The code for these tasks is provided in the example following the procedure. For a larger discussion of contracts and services, see [Designing and Implementing Services](https://msdn.microsoft.com/library/ms729746.aspx) in the WCF documentation.
 
 ### To create a Service Bus contract with an interface
 
@@ -65,7 +65,7 @@ The service contract specifies what operations (the Web service terminology for 
 
 1. Change the namespace name from its default name of **EchoService** to **Microsoft.ServiceBus.Samples**.
 
-	>[AZURE.IMPORTANT] This tutorial uses the C# namespace Micr**osoft.ServiceBus.Samples**, which is the namespace of the contract managed type that is used in the configuration file in Step 6: Configure the WCF Client. You can specify any namespace you want when you build this sample; however, the tutorial will not work unless you then modify the namespaces of the contract and service accordingly, in the application configuration file. The namespace specified in the App.config file must be the same as the namespace specified in your C# files.
+	>[AZURE.IMPORTANT] This tutorial uses the C# namespace **Microsoft.ServiceBus.Samples**, which is the namespace of the contract managed type that is used in the configuration file in the [Configure the WCF client](#configure-the-wcf-client) step. You can specify any namespace you want when you build this sample; however, the tutorial will not work unless you then modify the namespaces of the contract and service accordingly, in the application configuration file. The namespace specified in the App.config file must be the same as the namespace specified in your C# files.
 
 1. Directly after the `Microsoft.ServiceBus.Samples` namespace declaration, but within the namespace, define a new interface named `IEchoContract` and apply the `ServiceContractAttribute` attribute to the interface with a namespace value of **http://samples.microsoft.com/ServiceModel/Relay/**. The namespace value differs from the namespace that you use throughout the scope of your code. Instead, the namespace value is used as a unique identifier for this contract. Specifying the namespace explicitly prevents the default namespace value from being added to the contract name.
 
@@ -78,7 +78,7 @@ The service contract specifies what operations (the Web service terminology for 
 
 	>[AZURE.NOTE] Typically, the service contract namespace contains a naming scheme that includes version information. Including version information in the service contract namespace enables services to isolate major changes by defining a new service contract with a new namespace and exposing it on a new endpoint. In in this manner, clients can continue to use the old service contract without having to be updated. Version information can consist of a date or a build number. For more information, see [Service Versioning](http://go.microsoft.com/fwlink/?LinkID=180498). For the purposes of this tutorial, the naming scheme of the service contract namespace does not contain version information.
 
-1. Within the IEchoContract interface, declare a method for the single operation the `IEchoContract` contract exposes in the interface and apply the `OperationContractAttribute` attribute to the method that you want to expose as part of the public Service Bus contract.
+1. Within the `IEchoContract` interface, declare a method for the single operation the `IEchoContract` contract exposes in the interface and apply the `OperationContractAttribute` attribute to the method that you want to expose as part of the public Service Bus contract.
 
 	```
 	[OperationContract]
@@ -100,7 +100,7 @@ The service contract specifies what operations (the Web service terminology for 
 
 	A channel is the WCF object through which the host and client pass information to each other. Later, you will write code against the channel to echo information between the two applications.
 
-1. From the **Build** menu, click **Build Solution** or press F6 to confirm the accuracy of your work.
+1. From the **Build** menu, click **Build Solution** or press F6 to confirm the accuracy of your work so far.
 
 ### Example
 
@@ -168,7 +168,7 @@ Creating a Service Bus service requires that you first create the contract, whic
 
 ### To define the configuration for the service host
 
-1. The configuration file is very similar to a WCF configuration file. It includes the service name, endpoint (that is, the location Service Bus exposes for clients and hosts to communicate with each other), and the binding (the type of protocol that is used to communicate). The main difference is that this configured service endpoint refers to a [netTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx), which is not part of the .NET Framework. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) is one of the bindings defined by Service Bus.
+1. The configuration file is very similar to a WCF configuration file. It includes the service name, endpoint (that is, the location Service Bus exposes for clients and hosts to communicate with each other), and the binding (the type of protocol that is used to communicate). The main difference is that this configured service endpoint refers to a [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) binding, which is not part of the .NET Framework. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) is one of the bindings defined by Service Bus.
 
 1. In **Solution Explorer**, click the App.config file, which currently contains the following XML elements:
 
@@ -215,7 +215,7 @@ Creating a Service Bus service requires that you first create the contract, whic
 	<endpointcontract="Microsoft.ServiceBus.Samples.IEchoContract"binding="netTcpRelayBinding"/>
 	```
 
-	The endpoint defines where the client will look for the host application. Later, the tutorial uses this step to create a URI that fully exposes the host through the Service Bus. The binding declares that we are using TCP as the protocol to communicate with the Service Bus.
+	The endpoint defines where the client will look for the host application. Later, the tutorial uses this step to create a URI that fully exposes the host through Service Bus. The binding declares that we are using TCP as the protocol to communicate with Service Bus.
 
 
 1. Directly after the `<services>` element, add the following binding extension:
@@ -273,15 +273,7 @@ This step describes how to run a basic Service Bus service.
 
 ### To create the Service Bus credentials
 
-1. Add a reference to Microsoft.ServiceBus.dll to the project: see [Using the NuGet Service Bus Package](https://msdn.microsoft.com/library/dn741354.aspx).
-
-	>[AZURE.NOTE] When using a command-line compiler, you must also provide the path to the assemblies.
-
-1. In Program.cs, add a `using` statement for the Microsoft.ServiceBus namespace.
-
-	```
-	using Microsoft.ServiceBus;
-	```
+1. Install the [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 1. In `Main()`, create two variables in which to store the namespace and the SAS key that are read from the console window.
 
@@ -292,7 +284,7 @@ This step describes how to run a basic Service Bus service.
 	string sasKey = Console.ReadLine();
 	```
 
-	The SAS key will be used later to access your Service Bus project. The service namespace is passed as a parameter to `CreateServiceUri` to create a service URI.
+	The SAS key will be used later to access your Service Bus project. The namespace is passed as a parameter to `CreateServiceUri` to create a service URI.
 
 4. Using a [TransportClientEndpointBehavior](https://msdn.microsoft.com/library/microsoft.servicebus.transportclientendpointbehavior.aspx) object, declare that you will be using a SAS key as the credential type. Add the following code directly after the code added in the last step.
 
@@ -396,7 +388,6 @@ using Microsoft.ServiceBus.Description;
 namespace Microsoft.ServiceBus.Samples
 {
     [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-
     public interface IEchoContract
     {
         [OperationContract]
@@ -406,7 +397,6 @@ namespace Microsoft.ServiceBus.Samples
     public interface IEchoChannel : IEchoContract, IClientChannel { };
 
     [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-
     class EchoService : IEchoContract
     {
         public string Echo(string text)
@@ -487,7 +477,7 @@ The next step is to create a basic Service Bus client application and define the
 	using System.ServiceModel;
 	```
 
-1. Repeat the previous steps to add a reference to the Microsoft.ServiceBus.dll and [Microsoft.ServiceBus](https://msdn.microsoft.com/library/microsoft.servicebus.aspx) namespace to your project.
+1. Install the [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 1. Add the service contract definition to the namespace, as shown in the following example. Note that this definition is identical to the definition used in the **Service** project. You should add this code at the top of the `Microsoft.ServiceBus.Samples` namespace.
 
@@ -516,7 +506,7 @@ using System.ServiceModel;
 namespace Microsoft.ServiceBus.Samples
 {
 
-[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -626,17 +616,11 @@ The following code shows the App.config file for the Echo client.
 In this step, you implement a basic client application that accesses the service you created previously in this tutorial. Similar to the service, the client performs many of the same operations to access Service Bus:
 
 1. Sets the connectivity mode.
-
 1. Creates the URI that locates the host service.
-
 1. Defines the security credentials.
-
 1. Applies the credentials to the connection.
-
 1. Opens the connection.
-
 1. Performs the application-specific tasks.
-
 1. Closes the connection.
 
 However, one of the main differences is that the client application uses a channel to connect to Service Bus, whereas the service uses a call to **ServiceHost**. The code used for these tasks is provided in the example following the procedure.
@@ -735,13 +719,11 @@ However, one of the main differences is that the client application uses a chann
 	Here is example output from the console window. Note that the values provided here are for example purposes only.
 
 	`Your Service Namespace: myNamespace`
-
 	`Your SAS Key: <SAS key value>`
 
 	The service application starts and prints to the console window the address on which it's listening, as seen in the following example.
 
     `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
-
     `Press [Enter] to exit`
     
 1. Run the client application. You should now have an executable for the Echo client application named EchoClient.exe that is located under the client project directory at .\bin\Debug\EchoClient.exe (for the debug configuration) or .\bin\Release\EchoClient.exe (for the release configuration). Double-click this file to start the client application.
@@ -835,10 +817,12 @@ Make sure that the service is running before you start the client.
 
 ## Next steps
 
-This tutorial showed how to build a Service Bus client application and service using the Service Bus "relay" capabilities. For a similar tutorial that uses Service Bus [brokered messaging](service-bus-messaging-overview.md/#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](https://msdn.microsoft.com/library/hh367512.aspx).
+This tutorial showed how to build a Service Bus client application and service using the Service Bus "relay" capabilities. For a similar tutorial that uses Service Bus [brokered messaging](service-bus-messaging-overview.md#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](service-bus-brokered-tutorial-dotnet.md).
 
 To learn more about Service Bus, see the following topics.
 
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus architecture](service-bus-architecture.md)
+
+[Azure classic portal]: http://manage.windowsazure.com

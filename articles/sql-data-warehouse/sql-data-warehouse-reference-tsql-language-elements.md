@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="barbkess"/>
+   ms.date="03/03/2016"
+   ms.author="barbkess;sonyama"/>
 
 # Language elements
 
 ## Core elements
 
 - [syntax conventions](https://msdn.microsoft.com/library/ms177563.aspx)
-- object naming rules
+- [object naming rules](https://msdn.microsoft.com/library/ms175874.aspx)
 - [reserved keywords](https://msdn.microsoft.com/library/ms189822.aspx)
 - [collations](https://msdn.microsoft.com/library/ff848763.aspx)
 - [comments](https://msdn.microsoft.com/library/ms181627.aspx)
@@ -38,7 +38,7 @@
 
 - [BEGIN...END](https://msdn.microsoft.com/library/ms190487.aspx)
 - [BREAK](https://msdn.microsoft.com/library/ms181271.aspx)
-- DECLARE
+- [DECLARE @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
 - [IF...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
 - [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 - [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
@@ -62,7 +62,7 @@
 - [>= (Great than or equal to)](https://msdn.microsoft.com/library/ms181567.aspx)
 - [<= (Less than or equal to)](https://msdn.microsoft.com/library/ms174978.aspx)
 - [<> (Not equal to)](https://msdn.microsoft.com/library/ms176020.aspx)
-- [!= (Not equal to)](https://msdn.microsoft.com/library/vstudio/bb399278.aspx)
+- [!= (Not equal to)](https://msdn.microsoft.com/library/ms190296.aspx)
 - [AND](https://msdn.microsoft.com/library/ms188372.aspx)
 - [BETWEEN](https://msdn.microsoft.com/library/ms187922.aspx)
 - [EXISTS](https://msdn.microsoft.com/library/ms188336.aspx)
@@ -70,7 +70,6 @@
 - [IS [NOT] NULL](https://msdn.microsoft.com/library/ms188795.aspx)
 - [LIKE](https://msdn.microsoft.com/library/ms179859.aspx)
 - [NOT](https://msdn.microsoft.com/library/ms189455.aspx)
-- NULL and UNKNOWN
 - [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### Bitwise operators
@@ -80,8 +79,8 @@
 - [^ (Bitwise exclusive OR)](https://msdn.microsoft.com/library/ms190277.aspx)
 - [~ (Bitwise NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
 - [^= (Bitwise Exclusive OR EQUALS)](https://msdn.microsoft.com/library/cc627413.aspx)
-- |= (Bitwise OR EQUALS)
-- ? (Bitwise AND EQUALS)
+- [|= (Bitwise OR EQUALS)](https://msdn.microsoft.com/library/cc627409.aspx)
+- [&= (Bitwise AND EQUALS)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## Functions
 
@@ -119,7 +118,7 @@
 - [DATEFROMPARTS](https://msdn.microsoft.com/library/hh213228.aspx)
 - [DATENAME](https://msdn.microsoft.com/library/ms174395.aspx)
 - [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx)
-- [DATETIME2FROmPARTS](https://msdn.microsoft.com/library/hh213312.aspx)
+- [DATETIME2FROMPARTS](https://msdn.microsoft.com/library/hh213312.aspx)
 - [DATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213233.aspx)
 - [DATETIMEOFFSETFROMPARTS](https://msdn.microsoft.com/library/hh231077.aspx)
 - [DAY](https://msdn.microsoft.com/library/ms176052.aspx)
@@ -172,7 +171,7 @@
 - [POWER](https://msdn.microsoft.com/library/ms174276.aspx)
 - [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
 - [RADIANS](https://msdn.microsoft.com/library/ms189742.aspx)
-- VRANK
+- [RANK](https://msdn.microsoft.com/library/ms176102.aspx)
 - [REPLACE](https://msdn.microsoft.com/library/ms186862.aspx)
 - [REPLICATE](https://msdn.microsoft.com/library/ms174383.aspx)
 - [REVERSE](https://msdn.microsoft.com/library/ms180040.aspx)
@@ -183,8 +182,7 @@
 - [SCHEMA_ID](https://msdn.microsoft.com/library/ms188797.aspx)
 - [SCHEMA_NAME](https://msdn.microsoft.com/library/ms175068.aspx)
 - [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
-- SESSION_ID
-- SESSION_USER
+- [SESSION_USER](https://msdn.microsoft.com/library/ms177587.aspx)
 - [SIGN](https://msdn.microsoft.com/library/ms188420.aspx)
 - [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 - [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
@@ -219,36 +217,35 @@
 - [USER_NAME](https://msdn.microsoft.com/library/ms188014.aspx)
 - [VAR](https://msdn.microsoft.com/library/ms186290.aspx)
 - [VARP](https://msdn.microsoft.com/library/ms188735.aspx)
-- VERSION
 - [YEAR](https://msdn.microsoft.com/library/ms186313.aspx)
 - [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
 ## Transactions
 
-- transactions
+- [transactions](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## Diagnostic sessions
 
-- CREATE DIAGNOSTICS SESSION
+- [CREATE DIAGNOSTICS SESSION](https://msdn.microsoft.com/library/mt204029.aspx)
 
 ## Procedures
 
 - [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
 - [sp_columns](https://msdn.microsoft.com/library/ms176077.aspx)
 - [sp_configure](https://msdn.microsoft.com/library/ms188787.aspx)
-- sp_datatype_info_90
+- [sp_datatype_info_90](https://msdn.microsoft.com/library/mt204014.aspx)
 - [sp_droprolemember](https://msdn.microsoft.com/library/ms188369.aspx)
 - [sp_execute](https://msdn.microsoft.com/library/ff848746.aspx)
 - [sp_executesql](https://msdn.microsoft.com/library/ms188001.aspx)
 - [sp_fkeys](https://msdn.microsoft.com/library/ms175090.aspx)
-- sp_pdw_add_network_credentials
-- sp_pdw_database_encryption
-- sp_pdw_database_encryption_regenerate_system_keys
-- sp_pdw_log_user_data_masking
-- sp_pdw_remove_network_credentials
+- [sp_pdw_add_network_credentials](https://msdn.microsoft.com/library/mt204011.aspx)
+- [sp_pdw_database_encryption](https://msdn.microsoft.com/library/mt219360.aspx)
+- [sp_pdw_database_encryption_regenerate_system_keys](https://msdn.microsoft.com/library/mt204033.aspx)
+- [sp_pdw_log_user_data_masking](https://msdn.microsoft.com/library/mt204023.aspx)
+- [sp_pdw_remove_network_credentials](https://msdn.microsoft.com/library/mt204038.aspx)
 - [sp_pkeys](https://msdn.microsoft.com/library/ms189813.aspx)
 - [sp_prepare](https://msdn.microsoft.com/library/ff848808.aspx)
-- sp_special_columns_100
+- [sp_special_columns_100](https://msdn.microsoft.com/library/mt204025.aspx)
 - [sp_sproc_columns](https://msdn.microsoft.com/library/ms182705.aspx)
 - [sp_statistics](https://msdn.microsoft.com/library/ms173842.aspx)
 - [sp_tables](https://msdn.microsoft.com/library/ms186250.aspx)
@@ -260,7 +257,7 @@
 
 - [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 - [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
-- SET ANSI_NULL_DFLOT_ON
+- [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
 - [SET ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx)
 - [SET ANSI_PADDING](https://msdn.microsoft.com/library/ms187403.aspx)
 - [SET ANSI_WARNINGS](https://msdn.microsoft.com/library/ms190368.aspx)

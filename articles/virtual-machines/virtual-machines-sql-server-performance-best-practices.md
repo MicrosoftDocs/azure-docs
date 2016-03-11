@@ -14,21 +14,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
+	ms.date="12/22/2015"
 	ms.author="jroth" />
 
 # Performance best practices for SQL Server in Azure Virtual Machines
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
- 
 
 ## Overview
 
 This topic provides best practices for optimizing SQL Server performance in Microsoft Azure Virtual Machine. While running SQL Server in Azure Virtual Machines, we recommend that you continue using the same database performance tuning options that are applicable to SQL Server in on-premises server environment. However, the performance of a relational database in a public cloud depends on many factors such as the size of a virtual machine, and the configuration of the data disks.
 
-When creating SQL Server images, consider using the [new Portal](https://manage.windowsazure.com) to take advantage of features, such as the default use of Premium Storage, and other options, such as Automated Patching, Automated Backup, and AlwaysOn configurations.
+When creating SQL Server images, consider using the Azure portal to take advantage of features, such as the default use of Premium Storage, and other options, such as Automated Patching, Automated Backup, and AlwaysOn configurations.
 
->[AZURE.NOTE] This paper is focused on getting the best performance for SQL Server on Azure VMs. If your workload is less demanding, you might not require every optimization listed below. Consider your performance needs and workload patterns as you evaluate these recommendations.
+This paper is focused on getting the best performance for SQL Server on Azure VMs. If your workload is less demanding, you might not require every optimization listed below. Consider your performance needs and workload patterns as you evaluate these recommendations.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Quick check list
 
@@ -37,8 +36,8 @@ The following is a quick check list for optimal performance of SQL Server on Azu
 |Area|Optimizations|
 |---|---|
 |**VM size**|[DS3](virtual-machines-size-specs.md#standard-tier-ds-series) or higher for SQL Enterprise edition.<br/><br/>[DS2](virtual-machines-size-specs.md#standard-tier-ds-series) or higher for SQL Standard and Web editions.|
-|**Storage**|Use [Premium Storage](../storage/storage-premium-storage-preview-portal.md).<br/><br/>Keep the [storage account](../storage/storage-create-storage-account.md) and SQL Server VM in the same region.<br/><br/>Disable Azure [geo-redundant storage](../storage/storage-redundancy.md) (geo-replication) on the storage account.|
-|**Disks**|Use a minimum of 2 [P30 disks](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) (1 for log files; 1 for data files and TempDB).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes.|
+|**Storage**|Use [Premium Storage](../storage/storage-premium-storage.md).<br/><br/>Keep the [storage account](../storage/storage-create-storage-account.md) and SQL Server VM in the same region.<br/><br/>Disable Azure [geo-redundant storage](../storage/storage-redundancy.md) (geo-replication) on the storage account.|
+|**Disks**|Use a minimum of 2 [P30 disks](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage) (1 for log files; 1 for data files and TempDB).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes.|
 |**I/O**|Enable database page compression.<br/><br/>Enable instant file initialization for data files.<br/><br/>Limit or disable autogrow on the database.<br/><br/>Disable autoshrink on the database.<br/><br/>Move all databases to data disks, including system databases.<br/><br/>Move SQL Server error log and trace file directories to data disks.<br/><br/>Setup default backup and database file locations.<br/><br/>Enable locked pages.<br/><br/>Apply SQL Server performance fixes.|
 |**Feature-specific**|Back up directly to blob storage.|
 
@@ -72,9 +71,11 @@ The temporary storage drive, labeled as the **D**: drive, is not persisted to Az
 
 Only store TempDB and/or Buffer Pool Extensions on the **D** drive when using the D-Series or G-Series Virtual Machines (VMs). Unlike the other VM series, the **D** drive in the D-Series and G-Series VMs is SSD-based. This can improve the performance of workloads that heavily use temporary objects or that have working sets which don't fit in memory. For more information, see [Using SSDs in Azure VMs to store SQL Server TempDB and Buffer Pool Extensions](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx).
 
+For VMs that support Premium storage, we recommend storing TempDB on a disk that supports Premium Storage with read caching enabled.
+
 ### Data Disk
 
-- **Number of data disks for data and log files**: At a minimum, use 2 [P30 disks](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) where one disk contains the log file(s) and the other contains the data file(s) and TempDB. For more throughput, you might require additional data disks. To determine the number of data disks, you need to analyze the number of IOPS available for your data and log disk(s). For that information, see the tables on IOPS per [VM size](virtual-machines-size-specs.md) and disk size in the following article: [Using Premium Storage for Disks](../storage/storage-premium-storage-preview-portal.md). If you require more bandwidth, you can attach additional disks use Disk Striping. If you are not using Premium Storage, the recommendation is to add the maximum number of data disks supported by your [VM size](virtual-machines-size-specs.md) and use Disk Striping. For more information about Disk Striping, see the related section below.
+- **Number of data disks for data and log files**: At a minimum, use 2 [P30 disks](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage) where one disk contains the log file(s) and the other contains the data file(s) and TempDB. For more throughput, you might require additional data disks. To determine the number of data disks, you need to analyze the number of IOPS available for your data and log disk(s). For that information, see the tables on IOPS per [VM size](virtual-machines-size-specs.md) and disk size in the following article: [Using Premium Storage for Disks](../storage/storage-premium-storage.md). If you require more bandwidth, you can attach additional disks use Disk Striping. If you are not using Premium Storage, the recommendation is to add the maximum number of data disks supported by your [VM size](virtual-machines-size-specs.md) and use Disk Striping. For more information about Disk Striping, see the related section below.
 
 - **Caching policy**: Enable read caching on the data disks hosting your data files and TempDB only. If you are not using Premium Storage, do not enable any caching on any data disks. For instructions on configuring disk caching, see the following topics: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) and [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 
@@ -103,16 +104,6 @@ Only store TempDB and/or Buffer Pool Extensions on the **D** drive when using th
 - Make sure **autoshrink** is disabled to avoid unnecessary overhead that can negatively affect performance.
 
 - If you are running SQL Server 2012, install Service Pack 1 Cumulative Update 10. This update contains the fix for poor performance on I/O when you execute select into temporary table statement in SQL Server 2012. For information, see this [knowledge base article](http://support.microsoft.com/kb/2958012).
-
-- Move system databases (such as msdb and TempDB), backups and the default data and log directories of SQL Server to non-cached data disks to improve performance. Then, perform the following actions:
-
-	- Adjust the XEvent and Trace file paths.
-	
-	- Adjust the SQL Error Log path.
-	
-	- Adjust the default backup path.
-	
-	- Adjust the default database location.
 
 - Establish locked pages to reduce IO and any paging activities.
 

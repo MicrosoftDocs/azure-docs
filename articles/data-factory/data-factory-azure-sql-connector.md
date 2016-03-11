@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data to and from Azure SQL | Azure Data Factory" 
+	pageTitle="Move data to/from Azure SQL Database | Microsoft Azure" 
 	description="Learn how to move data to/from Azure SQL Database using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Move data to and from Azure SQL using Azure Data Factory
+# Move data to and from Azure SQL Database using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure SQL from another data store and move data from another data store to Azure SQL. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
-## Sample: Copy data from Azure SQL to Azure Blob
+The following sample(s) show how to copy data to and from Azure SQL Database and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+
+
+## Sample: Copy data from Azure SQL Database to Azure Blob
 
 The sample below shows:
 
@@ -200,17 +203,15 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
-> [AZURE.NOTE] In the above example, **sqlReaderQuery** is specified for the SqlSource. The Copy Activity runs this query against the Azure SQL Database source to get the data.
->  
-> Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
->  
-> If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (select column1, column2 from mytable) to run against the Azure SQL Database. If the dataset definition does not have the structure, all columns are selected from the table. 
+In the above example, **sqlReaderQuery** is specified for the SqlSource. The Copy Activity runs this query against the Azure SQL Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
+
+If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (select column1, column2 from mytable) to run against the Azure SQL Database. If the dataset definition does not have the structure, all columns are selected from the table. 
 
 
 See the [Sql Source](#sqlsource) section and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) for the list of properties supported by SqlSource and BlobSink. 
 
 
-## Sample: Copy data from Azure Blob to Azure SQL
+## Sample: Copy data from Azure Blob to Azure SQL Database
 
 The sample below shows:
 
@@ -393,7 +394,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 See the [Sql Sink](#sqlsink) section and [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) for the list of properties supported by SqlSink and BlobSource. 
 
 
-## Azure SQL Linked Service Properties
+## Azure SQL linked service properties
 
 The following table provides description for JSON elements specific to Azure SQL linked service.
 
@@ -404,7 +405,7 @@ The following table provides description for JSON elements specific to Azure SQL
 
 **Note:** You need to configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). You need to configure the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL from outside Azure including from on-premises data sources with data factory gateway you need to configure appropriate IP address range for the machine that is sending data to Azure SQL. 
 
-## Azure SQL Dataset type properties
+## Azure SQL dataset type properties
 
 For a full list of sections & properties available for defining datasets, please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...). 
 
@@ -414,7 +415,7 @@ The typeProperties section is different for each type of dataset and provides in
 | -------- | ----------- | -------- |
 | tableName | Name of the table in the Azure SQL Database instance that linked service refers to. | Yes |
 
-## Azure SQL Copy Activity type properties
+## Azure SQL copy activity type properties
 
 For a full list of sections & properties available for defining activities, please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
 
@@ -432,13 +433,13 @@ In case of Copy activity when source is of type **SqlSource** the following prop
 | sqlReaderStoredProcedureName | Name of the stored procedure that reads data from the source table. | Name of the stored procedure. | No |
 | storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 
-If the **sqlReaderQuery** is specified for the SqlSource, the Copy Activity runs this query against the Azure SQL Database source to get the data. 
-
-Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters). 
+If the **sqlReaderQuery** is specified for the SqlSource, the Copy Activity runs this query against the Azure SQL Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters). 
 
 If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (select column1, column2 from mytable) to run against the Azure SQL Database. If the dataset definition does not have the structure, all columns are selected from the table. 
 
-### SqlSource Example
+> [AZURE.NOTE] When you use **sqlReaderStoredProcedureName**, you still need to specify a value for the **tableName** property in the dataset JSON. This is a limitation with the product at this time. There are no validations performed against this table though. 
+
+### SqlSource example
 
     "source": {
         "type": "SqlSource",
@@ -481,7 +482,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 | storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No | 
 | sqlWriterTableType | User specified table type name to be used in the above stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. | A table type name. | No |
 
-#### SqlSink Example
+#### SqlSink example
 
     "sink": {
         "type": "SqlSink",
@@ -496,6 +497,75 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
         }
     }
 
+## Identity columns in the target database
+This section provides an example for copying data from a source table without an identity column to a destination table with an identity column. 
+
+**Source table:** 
+
+	create table dbo.SourceTbl
+	(
+	       name varchar(100),
+	       age int
+	)
+
+**Destination table:**
+
+	create table dbo.TargetTbl
+	(
+	       id int identity(1,1),
+	       name varchar(100),
+	       age int
+	)
+
+
+Notice that the target table has an identity column. 
+
+**Source dataset JSON definition**
+
+	{
+	    "name": "SampleSource",
+	    "properties": {
+	        "published": false,
+	        "type": " SqlServerTable",
+	        "linkedServiceName": "TestIdentitySQL",
+	        "typeProperties": {
+	            "tableName": "SourceTbl"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
+	        },
+	        "external": true,
+	        "policy": {}
+	    }
+	}
+
+**Destination dataset JSON definition**
+
+	{
+	    "name": "SampleTarget",
+	    "properties": {
+	        "structure": [
+	            { "name": "name" },
+	            { "name": "age" }
+	        ],
+	        "published": false,
+	        "type": "AzureSqlTable",
+	        "linkedServiceName": "TestIdentitySQLSource",
+	        "typeProperties": {
+	            "tableName": "TargetTbl"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
+	        },
+	        "external": false,
+	        "policy": {}
+	    }	
+	}
+
+
+Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in  the target dataset definition, which doesn’t include the identity column.
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 
 
@@ -504,7 +574,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Type Mapping for SQL server & Azure SQL
+### Type mapping for SQL Server & Azure SQL Database
 
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 
@@ -555,8 +625,6 @@ The mapping is same as the SQL Server Data Type Mapping for ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-sql-connector.md).
 
 
 

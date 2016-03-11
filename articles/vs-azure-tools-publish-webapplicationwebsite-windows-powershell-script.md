@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Publish-WebApplicationWebSite (Windows PowerShell script)"
+   pageTitle="Publish-WebApplicationWebSite (Windows PowerShell script) | Microsoft Azure"
    description="Learn how to publish a web project to an Azure website. This script creates the required resources in your Azure subscription if they don't exist."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
-   ms.author="kempb" />
+   ms.date="12/17/2015"
+   ms.author="tarcher" />
 
 # Publish-WebApplicationWebSite (Windows PowerShell script)
 

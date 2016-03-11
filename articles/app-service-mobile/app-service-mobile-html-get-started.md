@@ -13,43 +13,47 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 
 #Create an HTML app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+
+>[AZURE.IMPORTANT] This topic is not currently supported by Mobile Apps because the quickstart for HTML/JavaScript apps has been temporarily removed from the Azure portal. We plan to bring it back in the very near future. Thanks you for your patience.
 
 ##Overview
 
-This tutorial shows you how to add a cloud-based backend service to an HTML5/JavaScript web app using an Azure Mobile App backend. You will create both a new Mobile App backend and a simple *To do list* web app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to an HTML5/JavaScript web app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md).
 
 A screenshot from the completed app is below:
 
 ![Screenshot of completed app](./media/app-service-mobile-html-get-started/mobile-quickstart-completed-html.png)
 
-Completing this tutorial is a prerequisite for all other Mobile Apps tutorials for HTML apps. 
+Completing this tutorial is a prerequisite for all other Mobile Apps tutorials for HTML apps.
 
 ##Prerequisites
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 * [Visual Studio Community 2013] or a later version.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
 
 ##Create a new Mobile App backend
 
+Follow these steps to create a new Mobile App backend.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, you will download a server project for a simple "todo list" backend and publish it to Azure.
 
 ## Download the server project
 
-1. In the [Azure Portal], click **Browse All** > **Web Apps**, then click the Mobile App backend that you just created. 
+1. In the [Azure Portal], click **Browse All** > **Web Apps**, then click the Mobile App backend that you just created.
 
 2. In the Mobile App backend, click **All settings** and under **Mobile App** click **Quickstart** > **HTML/JavaScript**.
 
@@ -61,11 +65,11 @@ To complete this tutorial, you need the following:
 
 Cross-origin resource sharing (CORS) is a way for your web-based app to indicate from which domains requests are safe and should be permitted by the browser. You must add a CORS entry for every web site that will access your Mobile App backend. You control your CORS settings by using the standard ASP.NET Web API behaviors. For more information, see [Enabling Cross-Origin Requests in ASP.NET Web API](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors).
 
-By default, the client quickstart project that you will download from the portal runs on localhost on port 8000. Because of this, you will next enable CORS for `http://localhost:8000` in the server project.  
+By default, the client quickstart project that you will download from the portal runs on localhost on port 8000. Because of this, you will next enable CORS for `http://localhost:8000` in the server project.
 
 1. In Visual Studio in the Tools menu, click **NuGet Package Manager** > **Package Manager Console**, select Nuget.org as the **Package source** and execute the following command in the console window:
- 
-		Install-Package Microsoft.AspNet.WebApi.Cors  
+
+		Install-Package Microsoft.AspNet.WebApi.Cors
 
 2. Open the App_Start/Startup.MobileApp.cs project file and add the following using statement:
 
@@ -87,7 +91,7 @@ Next, you will deploy your CORS-enabled project to Azure.
 
 ##Download and run the client project
 
-1. Back in the blade for your Mobile App backend, click **All settings** and under **Mobile App** click **Quickstart** > **HTML/JavaScript**. 
+1. Back in the blade for your Mobile App backend, click **All settings** and under **Mobile App** click **Quickstart** > **HTML/JavaScript**.
 
 2.  Under **Download and run your HTML/Javascript project** in **Create a new app**, click **Download** and save the compressed project files to your local computer.
 
@@ -109,7 +113,7 @@ Next, you will deploy your CORS-enabled project to Azure.
 
    	This sends a POST request to the new Mobile App backend hosted in Azure. Data from the request is inserted into the TodoItem table in the Mobile App schema. Items stored in the table are returned by the service, and the data is displayed in the second column in the app.
 
-	> [AZURE.TIP] You can review the code that accesses your mobile service to query and insert data, which is found in the app.js file. 
+	> [AZURE.TIP] You can review the code that accesses your mobile service to query and insert data, which is found in the app.js file.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -119,4 +123,4 @@ Next, you will deploy your CORS-enabled project to Azure.
 [Azure Portal]: https://portal.azure.com/
 
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
- 
+

@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Free 30 day trial of Azure RemoteApp"
+    pageTitle="Free 30 day trial of Azure RemoteApp | Microsoft Azure"
     description="Check out the 30 day free trial for Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -26,6 +26,6 @@ While in trial mode, you can create two collections with a 10 user per collectio
 
 >[AZURE.NOTE] The Azure SLA does not apply to collections created in trial mode.  
 
-Can’t wait? Watch a quick video on how to [create a cloud deployment](http://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/).
+Can’t wait? Watch a quick video on how to [create a cloud deployment](https://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/).
 
-Got feedback? Post questions to [the discussion forums](http://feedback.azure.com/forums/247748-azure-remoteapp). If you have an [Azure support plan](http://azure.microsoft.com/support/plans/), you can submit a support case. Everyone can submit feedback on our [Feedback forum](http://feedback.azure.com/forums/247748-azure-remoteapp).  
+Got feedback? Post questions to [the discussion forums](https://feedback.azure.com/forums/247748-azure-remoteapp/). If you have an [Azure support plan](https://azure.microsoft.com/support/plans/), you can submit a support case. Everyone can submit feedback on our [Feedback forum](https://feedback.azure.com/forums/247748-azure-remoteapp/).  

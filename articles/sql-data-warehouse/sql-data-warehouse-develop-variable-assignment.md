@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="03/03/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Assign variables in SQL Data Warehouse
-Variables in SQL Data Warehouse are set using the `DECLARE` statement or the `SET` statement. 
+Variables in SQL Data Warehouse are set using the `DECLARE` statement or the `SET` statement.
 
 All of the following are perfectly valid ways to set a variable value:
 

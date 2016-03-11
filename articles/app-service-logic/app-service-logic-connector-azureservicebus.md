@@ -3,8 +3,8 @@
    description="How to create and configure the Azure Service Bus Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
+   authors="rajeshramabathiran"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
-   ms.author="andalmia"/>
+   ms.date="02/11/2016"
+   ms.author="rajram"/>
 
 
 # Get started with the Azure Service Bus Connector and add it to your Logic App 
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Service Bus API](../connectors/create-api-servicebus.md).
+
 Connect to Azure Service Bus to send messages to Queues and Topics and receive messages from Queues and Subscriptions. Connectors are used in Logic Apps as a part of a "workflow". 
 
 ## Triggers and Actions

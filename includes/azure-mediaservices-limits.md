@@ -1,7 +1,7 @@
 Resource|Default Limit|Maximum Limit
 ---|---|---
 Azure Media Services (AMS) accounts in a single subscription||25
-Assets per AMS account||1,000,000
+Assets per AMS account||1,000,000<sup>1</sup>
 Chained tasks per job||30
 Assets per task||50
 Assets per job||100
@@ -9,7 +9,7 @@ Jobs per AMS account ||50,000<sup>2</sup>
 Unique locators associated with an asset at one time||5<sup>4</sup>
 Live channels per AMS account </p></td>|5</p></td>|N/A<sup>1</sup>
 Programs in stopped state per channel </p></td>|50</p></td>|N/A<sup>1</sup>
-Programs in running state per channel </p></td>|3</p></td>|N/A<sup>1</sup>
+Programs in running state per channel </p></td>|3</p></td>|3
 Streaming endpoints in running state per AMS account</p></td>|2</p></td>|N/A<sup>1</sup>
 Streaming units per streaming endpoint </p></td>|10 </p></td>|N/A<sup>1</sup>
 Encoding units per AMS account </p></td>|25</p></td>|N/A<sup>1</sup>

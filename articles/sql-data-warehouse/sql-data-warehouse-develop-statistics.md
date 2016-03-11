@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/26/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="03/03/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Manage statistics in SQL Data Warehouse
  SQL Data Warehouse uses statistics to assess the cost of different ways to perform a distributed query. When statistics are accurate, the query optimizer can generate high quality query plans that improve query performance.
@@ -54,7 +54,7 @@ As you understand how you want to query your data you might want to refine this 
 ## When to update statistics
 It is important to include updating statistics in your database management routine. When the distribution of data in the database changes, statistics need to be updated. Otherwise, you can see sub-optimal query performance, and efforts to further troubleshoot the query might not be worthwhile.
 
-Therefore one of the first questions to ask when troubleshooting a query is, "Are the statistics up-to-date?" 
+Therefore one of the first questions to ask when troubleshooting a query is, "Are the statistics up-to-date?"
 
 This question is not one that can be answered by age. An up to date statistics object could be very old. When the number of rows or there is a material change in the distribution of values for a given column *then* you need to update statistics.
 
@@ -66,7 +66,7 @@ For further explanation, see [Statistics][] on MSDN.
 
 ## Implementing statistics management
 
-It is often a good idea to extend your data loading process to ensure that statistics are updated at the end of the load. The data load is when tables most frequently change their size and/or their distribution of values. Therefore this is a logical place to implement some management processes. 
+It is often a good idea to extend your data loading process to ensure that statistics are updated at the end of the load. The data load is when tables most frequently change their size and/or their distribution of values. Therefore this is a logical place to implement some management processes.
 
 Some guiding principles are provided below for updating your statistics during the load process:
 
@@ -167,7 +167,7 @@ Since there is a correlation between *product\_category* and *product\_sub\_cate
 One way to create statistics is to issues CREATE STATISTICS commands after creating the table.
 
 ```
-CREATE TABLE dbo.table1 
+CREATE TABLE dbo.table1
 (
    col1 int
 ,  col2 int
@@ -382,8 +382,8 @@ JOIN    sys.columns         AS co ON    sc.[column_id]      = co.[column_id]
 JOIN    sys.types           AS ty ON    co.[user_type_id]   = ty.[user_type_id]
 JOIN    sys.tables          AS tb ON  co.[object_id]        = tb.[object_id]
 JOIN    sys.schemas         AS sm ON  tb.[schema_id]        = sm.[schema_id]
-WHERE   1=1 
-AND     sts.[user_created] = 1
+WHERE   1=1
+AND     st.[user_created] = 1
 ;
 ```
 
@@ -443,8 +443,8 @@ For more development tips, see [SQL Data Warehouse development overview][].
 <!--Image references-->
 
 <!--Link references--In actual articles, you only need a single period before the slash.-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
-[temporary tables]:     ./sql-data-warehouse-develop-temporary-tables/
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[temporary tables]: ./sql-data-warehouse-develop-temporary-tables.md
 
 <!-- External Links -->
 [Cardinality Estimation]:https://msdn.microsoft.com/library/dn600374.aspx

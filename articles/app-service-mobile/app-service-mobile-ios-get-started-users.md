@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Mobile Apps to authenticate users of your iOS app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="krisragh" 
+	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,20 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="02/17/2016"
 	ms.author="krisragh"/>
 
-# iOS authentication with Azure Mobile Apps
+# Add authentication to your iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-In this tutorial, you add authentication to the [iOS quick start] project using a supported identity provider. This tutorial is based on the [iOS quick start] tutorial, which you must complete first. If you do not use the downloaded quick start server project, you must add the authentication extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).  
-
-##<a name="create-gateway"></a>Create an App Service Gateway
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)] 
+In this tutorial, you add authentication to the [iOS quick start] project using a supported identity provider. This tutorial is based on the [iOS quick start] tutorial, which you must complete first.
 
 ##<a name="register"></a>Register your app for authentication and configure the App Service
 
@@ -47,5 +41,5 @@ In Xcode, press **Run** to  start the app. An exception will be raised because t
 
 [iOS quick start]: app-service-mobile-ios-get-started.md
 
-[Azure Management Portal]: https://portal.azure.com
- 
+[Azure portal]: https://portal.azure.com
+

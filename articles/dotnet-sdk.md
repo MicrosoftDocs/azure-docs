@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # What is the Azure SDK for .NET?
@@ -36,7 +36,7 @@ The Azure SDK for .NET installs the following products:
 - [Microsoft Azure Storage Emulator](#stgemulator)
 - [Microsoft Azure Storage Tools](#stgtools)
 - [Microsoft Azure Libraries for .NET](#libraries)
-- [HDInsight Tools for Visual Studio](#hdinsight) and [Microsoft Hive ODBC Driver](#hdinsight)
+- [HDInsight Tools for Visual Studio and Microsoft Hive ODBC Driver](#hdinsight)
 - [Microsoft Azure Mobile App SDK V1.0](#mobile)
 - [Microsoft Azure PowerShell](#ps)
 
@@ -48,12 +48,12 @@ If you don't have Visual Studio on your computer, the SDK will install [Visual S
 
 This enables you to work with Azure Websites:
 
-* [Publish web projects to Azure Websites](web-sites-dotnet-get-started.md).
-* [Publish console application projects to Azure WebJobs](websites-dotnet-deploy-webjobs.md).
-* [Create Azure Website and SQL Database resources while creating a new web project or while publishing a web project](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+* [Publish web projects to Azure Websites](app-service-web/web-sites-dotnet-get-started.md).
+* [Publish console application projects to Azure WebJobs](app-service-web/websites-dotnet-deploy-webjobs.md).
+* [Create Azure Website and SQL Database resources while creating a new web project or while publishing a web project](app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 * [Create PowerShell deployment scripts while creating new Websites](http://msdn.microsoft.com/library/dn642480.aspx).
-* [Manage and troubleshoot Azure Websites in Server Explorer](web-sites-dotnet-troubleshoot-visual-studio.md#sitemanagement).
-* [Run in debug mode remotely for Websites and WebJobs](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). 
+* [Manage and troubleshoot Azure Websites in Server Explorer](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#sitemanagement).
+* [Run in debug mode remotely for Websites and WebJobs](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). 
 
 >[AZURE.NOTE] You don't have to install the Azure SDK for .NET to use these features; they are also included in Visual Studio Updates. 
 
@@ -61,9 +61,9 @@ This enables you to work with Azure Websites:
 
 This enables you to work with Azure resources, primarily Cloud Services and Virtual Machines:
 
-* [Create, open, and publish cloud service projects](cloud-services-dotnet-get-started.md).
+* [Create, open, and publish cloud service projects](cloud-services/cloud-services-dotnet-get-started.md).
 * [Create deployment packages for cloud service projects](http://msdn.microsoft.com/library/ff683672.aspx).
-* [Create Azure Virtual Machines while creating new web projects](virtual-machines-dotnet-create-visual-studio-powershell.md).
+* [Create Azure Virtual Machines while creating new web projects](virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md).
 * [Create PowerShell scripts while creating new virtual machines](http://msdn.microsoft.com/library/dn642480.aspx).
 * [View and manage cloud service project settings in Visual Studio Project Properties windows](http://msdn.microsoft.com/library/ee405486.aspx).
 * View and manage [cloud services](http://msdn.microsoft.com/library/ff683675.aspx), [virtual machines](http://msdn.microsoft.com/library/jj131259.aspx), and [Service Bus](http://msdn.microsoft.com/library/jj149828.aspx) in Server Explorer. 
@@ -99,11 +99,11 @@ This includes the following:
 
 ###<a id="hdinsight"></a>HDInsight Tools for Visual Studio, and Microsoft Hive ODBC Driver
 
-HDInsight tools in Server Explorer enable you to navigate Hive databases and linked storage accounts for HDInsight clusters, create tables, and create and submit Hive queries. For more information, see [Get started using HDInsight Hadoop Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+HDInsight tools in Server Explorer enable you to navigate Hive databases and linked storage accounts for HDInsight clusters, create tables, and create and submit Hive queries. For more information, see [Get started using HDInsight Hadoop Tools for Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-###<a id="mobile">Microsoft Azure Mobile App SDK
+###<a id="mobile"></a>Microsoft Azure Mobile App SDK V1.0
 
-Tools for working with [Azure App Service Mobile Apps](app-service-mobile-value-prop-preview.md).
+Tools for working with [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop.md).
 
 ###<a id="ps"></a>Microsoft Azure PowerShell
 
@@ -119,9 +119,9 @@ There are a few things that you might want for Azure development that aren't inc
 
   	**Local copies of client libraries.** The Azure SDK for .NET copies to your computer the NuGet packages for some Azure client libraries, such as Storage, Service Bus, and Caching. These client libraries are automatically included in new cloud service projects, so the local NuGet packages enable Visual Studio to create projects even if you're not connected to the Internet. Client libraries are generally updated more frequently than new SDK versions are released, so the client libraries at NuGet.org are often more current than what you get with the SDK. 
 
-	**Project templates that include client libraries.** Only [Azure Cloud Service](cloud-services-dotnet-get-started.md) and [Azure Mobile Service](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md) project templates automatically include some client libraries. For other libraries or other templates, install the [client library NuGet packages](http://go.microsoft.com/fwlink/?LinkId=510472) that you need.
+	**Project templates that include client libraries.** Only [Azure Cloud Service](cloud-services/cloud-services-dotnet-get-started.md) and [Azure Mobile Service](mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md) project templates automatically include some client libraries. For other libraries or other templates, install the [client library NuGet packages](http://go.microsoft.com/fwlink/?LinkId=510472) that you need.
 
-* [Azure Mobile Service project templates](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md).
+* [Azure Mobile Service project templates](mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md).
 
 	Mobile Service templates are available only in Visual Studio 2013 Update 2 and later. They are not available in Visual Studio 2012 or earlier versions, and not in Visual Studio 2013 Update 1 or earlier, even if you install the Azure SDK for .NET.
 

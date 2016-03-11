@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/19/2015"
-   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="03/03/2016"
+   ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Temporary tables in SQL Data Warehouse
 Temporary tables exist at the session level in SQL Data Warehouse. They are defined as local temporary tables and unlike SQL Server tables they can be accessed from anywhere inside the session.
 
 Temporary tables are very useful when processing data - especially during transformation where the intermediate results are transient.
 
-This article highlights some specific methods for leveraging temporary tables to help you modularize your code. 
+This article highlights some specific methods for leveraging temporary tables to help you modularize your code.
 
 ## Modularizing code
 
 The fact that temporary tables can be seen anywhere in a user session can be exploited to help you modularize your application code.
 
-Lets make a working example. 
+Lets make a working example.
 
 The stored procedure below generates the DDL required to update the statistics on every column in the database:
 

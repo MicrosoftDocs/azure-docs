@@ -11,10 +11,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="01/08/2016"
    ms.author="larryfr"/>
 
 #Introduction to Apache Storm on HDInsight: Real-time analytics for Hadoop

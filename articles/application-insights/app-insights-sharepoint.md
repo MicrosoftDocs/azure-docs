@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Monitor a SharePoint site with Application Insights
@@ -26,7 +26,7 @@ Visual Studio Application Insights monitors the availability, performance and us
 ## Create an Application Insights resource
 
 
-In the [Azure portal](http://portal.azure.com), create a new Application Insights resource. Choose ASP.NET as the application type.
+In the [Azure portal](https://portal.azure.com), create a new Application Insights resource. Choose ASP.NET as the application type.
 
 ![Click Properties, select the key, and press ctrl+C](./media/app-insights-sharepoint/01-new.png)
 
@@ -75,23 +75,23 @@ Insert a web part and embed the code snippet in it.
 
 Redeploy your app.
 
-Return to your application blade in the [Azure portal](http://portal.azure.com).
+Return to your application blade in the [Azure portal](https://portal.azure.com).
 
-The first events will appear in Diagnostic Search. 
+The first events will appear in Search. 
 
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Click Refresh after a few seconds if you're expecting more data.
 
-**Usage analytics** link to charts of users, sessions and page views:
+From the overview blade, click **Usage analytics** to see to charts of users, sessions and page views:
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-For example, click Page Views to see more details: 
+Click any chart to see more details - for example Page Views:
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
-Click through Users to see details about new users and their locations.
+Or Users:
 
 
 ![](./media/app-insights-sharepoint/08-users.png)

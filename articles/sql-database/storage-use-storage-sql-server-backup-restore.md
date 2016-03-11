@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="vm-windows-sql-server"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/16/2016"
 	ms.author="carlrab"/>
 
 
@@ -44,7 +44,7 @@ Creating an Azure account is the first step to this process. For a complete walk
 
 ## Azure Blob Storage Service Components
 
-* Storage Account: The storage account is the starting point for all storage services. To access an Azure Blob Storage service, first create an Azure Storage account. For more information about Azure Blob storage service, see [How to use the Azure Blob Storage Service](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
+* Storage Account: The storage account is the starting point for all storage services. To access an Azure Blob Storage service, first create an Azure Storage account. For more information about Azure Blob storage service, see [How to use the Azure Blob Storage Service](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
 
 * Container: A container provides a grouping of a set of blobs, and can store an unlimited number of Blobs. To write a SQL Server backup to an Azure Blob service, you must have at least the root container created.
 

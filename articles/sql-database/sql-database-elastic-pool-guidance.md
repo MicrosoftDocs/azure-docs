@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015" 
+	ms.date="02/26/2016" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -20,7 +20,7 @@
 # Price and performance considerations for an elastic database pool
 
 
-This document provides guidance to help assess if using an elastic database pool for a group of databases is cost efficient based on database usage patterns and pricing differences between an elastic database pool and single databases. Additional guidance is also provided to assist in determining the current pool size required for an existing set of SQL databases.  
+Assess whether using an elastic database pool for a group of databases is cost efficient based on database usage patterns and pricing differences between an elastic database pool and single databases. Additional guidance is also provided to assist in determining the current pool size required for an existing set of SQL databases.  
 
 - For an overview of elastic database pools, see [SQL Database elastic database pools](sql-database-elastic-pool.md).
 - For detailed information about elastic database pools, see [SQL Database elastic database pool reference](sql-database-elastic-pool-reference.md).
@@ -30,9 +30,9 @@ This document provides guidance to help assess if using an elastic database pool
 
 ## Elastic database pools
 
-SaaS ISVs develop applications built on top of large scale data-tiers consisting of multiple databases. A common application pattern is for each of these databases to have different customers with uniquely varying and unpredictable usage patterns. It can be difficult for the ISV to predict the resource requirements of each database individually. Under these circumstances, the ISV can overprovision resources at considerable expense to ensure favorable throughput and response times for all databases. Or, the ISV can spend less and risk a poor performance experience for their customers.  
+SaaS ISVs develop applications built on top of large scale data-tiers consisting of multiple databases. A common application pattern is to give each customer his or her own database. But different customers have varying and unpredictable usage patterns, and it is difficult to predict the resource requirements of each database user. Thererfore an ISV can overprovision resources at considerable expense to ensure favorable throughput and response times for all databases. Or, the ISV can spend less and risk a poor performance experience for their customers.  
 
-Elastic database pools in Azure SQL Database enable SaaS ISVs to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database. Elastic database pools enable the ISV to purchase elastic database throughput units (eDTUs) for a pool shared by multiple databases to accommodate unpredictable periods of usage by individual databases. The eDTU requirement for a pool is determined by the aggregate utilization of its databases. The amount of eDTUs available to the pool is controlled by the ISV budget. Elastic database pools makes it easy for the ISV to reason over the impact of budget on performance and vice versa for their pool. The ISV simply adds databases to the pool, sets any required eDTU guarantees or caps for the databases, and then sets the eDTU of the pool based on their budget. By using elastic database pools ISVs can seamlessly grow their service from a lean startup to a mature business at ever increasing scale.  
+Elastic database pools in Azure SQL Database enable SaaS ISVs to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database. Elastic database pools enable the ISV to purchase elastic Database Transaction Units (eDTUs) for a pool shared by multiple databases to accommodate unpredictable periods of usage by individual databases. The eDTU requirement for a pool is determined by the aggregate utilization of its databases. The amount of eDTUs available to the pool is controlled by the ISV budget. Elastic database pools makes it easy for the ISV to reason over the impact of budget on performance and vice versa for their pool. The ISV simply adds databases to the pool, sets any required eDTU guarantees or caps for the databases, and then sets the eDTU of the pool based on their budget. By using elastic database pools ISVs can seamlessly grow their service from a lean startup to a mature business at ever increasing scale.  
   
 
 
@@ -122,7 +122,7 @@ The following heuristic can help estimate whether an elastic database pool is mo
 
     pool price = *pool eDTUs* * *pool eDTU unit price*
 
-    See [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/) for pricing information.   
+    See [SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/) for pricing information.   
 
 
 4. Compare the pool price from Step 3 to the price of using the appropriate performance levels for single databases. 
@@ -143,7 +143,7 @@ For available sizes, see [eDTU and storage limits for elastic database pools and
 
 STA and DMVs provide different tooling options and capabilities for sizing an elastic database pool. Regardless of the tooling option used, the sizing estimate should only be used for initial assessment and creation of elastic database pools. Once a pool is created, its resource usage should be accurately monitored and the performance settings of the pool adjusted up and down as needed. 
 
-**STA**<br>STA is a built-in tool in [the preview portal](https://portal.azure.com) that automatically evaluates historical resource utilization of databases in an existing SQL Database server and recommends an appropriate elastic database pool configuration. For details, see [Elastic database pool pricing tier recommendations](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
+**STA**<br>STA is a built-in tool in [the Azure portal](https://portal.azure.com) that automatically evaluates historical resource utilization of databases in an existing SQL Database server and recommends an appropriate elastic database pool configuration. For details, see [Elastic database pool pricing tier recommendations](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
 
 **DMV sizing tool**<br>DMV sizing tool is provided as a PowerShell script and enables customizing the sizing estimates of an elastic database pool for existing databases in a server. 
 
@@ -163,7 +163,7 @@ Select the tool that is appropriate for analyzing your specific application. The
 
 STA evaluates the utilization history of databases and recommends an elastic database pool when it is more cost effective than using performance levels for single databases. If a pool is recommended, the tool provides a list of recommended databases, and also the recommended amount of pool eDTUs and min/max eDTU settings for each elastic database. In order for a database to be considered as a candidate for a pool, it must exist for at least 7 days.
 
-STA is available in the preview portal when adding an elastic database pool to an existing server. If recommendations for an elastic database pool are available for that server, they are displayed in the “Elastic Database Pool’ creation page. Customers can always change the recommended configurations to create their own elastic database pool grouping. 
+STA is available in the portal when adding an elastic database pool to an existing server. If recommendations for an elastic database pool are available for that server, they are displayed in the “Elastic Database Pool’ creation page. Customers can always change the recommended configurations to create their own elastic database pool grouping. 
 
 For details, see [Elastic database pool pricing tier recommendations](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)
 
@@ -192,7 +192,7 @@ Install the following prior to running the script.:
 ### Script details
 
 
-You can run the script from your local machine or a VM on the cloud. When running it from your local machine, you may incur data egress charges because the script needs to download data from your target databases. Below shows data volume estimation based on number of target databases and duration of running the script. For Azure data transfer costs refer to [Data Transfer Pricing Details](http://azure.microsoft.com/pricing/details/data-transfers/).
+You can run the script from your local machine or a VM on the cloud. When running it from your local machine, you may incur data egress charges because the script needs to download data from your target databases. Below shows data volume estimation based on number of target databases and duration of running the script. For Azure data transfer costs refer to [Data Transfer Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
        
  -     1 database per hour = 38KB
  -     1 database per day = 900KB

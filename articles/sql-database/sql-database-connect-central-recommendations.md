@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="01/07/2016" 
 	ms.author="genemi"/>
 
 
@@ -30,9 +30,9 @@ This topic is a good place to get started with client connectivity to Azure SQL 
 
 
 - [Guidelines for Connecting to Azure SQL Database Programmatically](http://msdn.microsoft.com/library/azure/ee336282.aspx) - discussions include the following:
- - [Ports and Firewalls](sql-database-configure-firewall-settings.md/)
+ - [Ports and Firewalls](sql-database-configure-firewall-settings.md)
  - Connection strings
-- [Azure SQL Database Resource Management](https://msdn.microsoft.com/library/azure/dn338083.aspx) - discussions include the following:
+- [Azure SQL Database Resource Management](http://msdn.microsoft.com/library/azure/dn338083.aspx) - discussions include the following:
  - Resource governance
  - Enforcement of limits
  - Throttling
@@ -130,6 +130,7 @@ A discussion of the *blocking period* for clients that use ADO.NET is available 
 
 
 For code samples that illustrate retry logic, see:
+
 - [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
 
@@ -145,8 +146,12 @@ When any error occurs with SQL Database, an [SqlException](http://msdn.microsoft
 
 
 For further information see:
+
 - [Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+<!--  (per Penny Lee, 2016/01/07.  MightyPen==GeneMi)
 - [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
+-->
 
 
 <a id="e-technologies" name="e-technologies"></a>

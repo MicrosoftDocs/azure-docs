@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/27/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # Supported hardware for the 10 GbE network interfaces on your StorSimple device
@@ -21,7 +21,7 @@
 
 This article provides information about supplementary hardware that works with your Microsoft Azure StorSimple device.
 
-## List of supported devices
+## List of devices tested by Microsoft
 
 Microsoft has tested the following small form-factor pluggable (SFP) transceivers, cables, and switches to ensure that they function optimally with devices. (The following tables will be updated as new hardware is tested.)
 
@@ -48,7 +48,25 @@ Microsoft has tested the following small form-factor pluggable (SFP) transceiver
 | 2. |Cisco|N3K-C3048-ZM-F|
 | 3. |Cisco|N5K-C5596UP-FA|
 
-## List of devices supported by Mellanox  
+## List of devices tested in the field
+
+This section contains the list of devices that have been successfully deployed in the field by StorSimple customers. These have not been tested by Microsoft but are likely to work with your StorSimple device.
+ 
+| Parameter                         | Value                                    |
+|-----------------------------------|------------------------------------------|
+| Switch   make                     | Juniper                                  |
+| Switch   model                    | ex4550-32F                               |
+| Switch   operating system version | JunOS 12.3R9.4                           |
+| Blade   model                     | Ports onboard (PIC 0)                    |
+| Transceiver make                  | Juniper                                  |
+| Transceiver   model               | Part number 740-021308 <br></br> Part number 740-030658                   |
+| Transceiver   firmware version    | Rev 01 Version 0.0 (reported)            |
+| Cable   model                     | Duplex jumper LC/LC 50/125µ,   OM3, LSZH |
+| StorSimple   model                | 8600                                     |
+| StorSimple   software version     | 6.3.9600.17491                           |
+
+
+## List of devices tested by OEM provider (Mellanox)  
 
 Mellanox has tested the following small form-factor pluggable (SFP) transceivers, cables, and switches to ensure that they function optimally with Mellanox network interfaces such as the 10 GbE network interfaces on your StorSimple device.
 

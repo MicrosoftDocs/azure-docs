@@ -1,6 +1,6 @@
 <properties
-   pageTitle="BizTalk Rules"
-   description="This topic covers the features of BizTalk Rules and provides instructions on its usage"
+   pageTitle="Learn about and create a BizTalk Rules API app in your Logic App | Microsoft Azure"
+   description="This topic covers the features of BizTalk Rules connector and provides instructions on its usage"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/28/2015"
+   ms.date="02/18/2016"
    ms.author="andalmia"/>
 
 #BizTalk Rules
+
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
 
 Business Rules encapsulates the policies and decisions that control business processes. These policies may be formally defined in procedure manuals, contracts, or agreements, or may exist as knowledge or expertise embodied in employees. These policies are dynamic and subject to change over time due to changes in business plans, regulations or other reasons.
 
@@ -236,7 +238,7 @@ Following is an example of how one might use this API in C#
             // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object. The url can be gotten from the API Definition Lens
             var postReponse = httpClient.PostAsync("api/Policies/InsuranceClaimPolicy?comp=Execute", httpContent).Result;
 
-Note that the above Rules API App has its security settings set to "Public Anon". This can be set  from within the API App using - All settings->Application Settings -> Access Level
+Note that the above Rules API App has its security settings set to "Public Anon". This can be set  from within the API App using - All settings->Application Settings -> Access Level.
 
 ![Alt text][11]
 

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="03/08/2016" 
 	ms.author="johnmac"/>
 
 #Performance levels in DocumentDB
 
-This article provides an overview of performance levels in [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/). 
+This article provides an overview of performance levels in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
 
 After reading this article, you'll be able to answer the following questions:  
 
@@ -31,9 +31,9 @@ After reading this article, you'll be able to answer the following questions:
 
 Each DocumentDB collection created under a Standard account is provisioned with an associated performance level. Performance levels are designated as S1, S2 or S3 ranging from lowest to highest in performance. The collection’s performance level determines the amount of request processing resources reserved for your application. Each collection in a database can have a different performance level allowing you to designate more throughput for frequently accessed collections and less throughput for infrequently accessed collections. The minimum performance level for any collection is S1.
 
-Each performance level has an associated request unit (RU) rate limit. This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively. Collections can be created through the [Azure portal](http://portal.azure.com) or any of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). The DocumentDB APIs allow you to specify the performance level of a collection. 
+Each performance level has an associated request unit (RU) rate limit. This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively. Collections can be created through the [Microsoft Azure portal](https://portal.azure.com) or any of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). The DocumentDB APIs allow you to specify the performance level of a collection. 
 
-Collection performance leve|Reserved throughput
+Collection performance level|Reserved throughput
 ---|---
 S1|250 RU/sec
 S2|1000 RU/sec
@@ -41,12 +41,12 @@ S3|2500 RU/sec
 
 DocumentDB allows for a rich set of database operations including queries, queries with user-defined functions (UDFs), stored procedures and triggers. The processing cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit as a single measure for the resources required to perform various database operations and service an application request.
 
-> [AZURE.NOTE] Performance levels are measured in request units. Each performance level has an associated maximum request unit per second rate. The performance level of a collection can be adjusted through the APIs or the [Azure portal](https://portal.azure.com/).
+> [AZURE.NOTE] Performance levels are measured in request units. Each performance level has an associated maximum request unit per second rate. The performance level of a collection can be adjusted through the APIs or the [Microsoft Azure portal](https://portal.azure.com/). Performance level changes are expected to complete within 3 minutes. 
 
 ##Setting performance levels for collections
 Once a collection is created, the full allocation of RUs based on the designated performance level are reserved for the collection. For example, if a collection is set as S3 – the collection is capable of processing 2,500 RUs/sec. Each collection reserves its designated throughput and 10GB of database storage. The price of the collection will vary based on the performance level chosen (S1, S2, S3). Note that DocumentDB operates based on capacity reservation; by creating a collection, an application has reserved and is billed for reserved throughput and database storage, regardless of how much of that storage and throughput is actively used.
 
-After collections are created, you can modify the performance level through the DocumentDB SDKs or through the Azure management portal. 
+After collections are created, you can modify the performance level through the DocumentDB SDKs or through the Azure Classic Portal. 
 
 > [AZURE.IMPORTANT] DocumentDB Standard collections are billed at an hourly rate and each collection you create will be billed for a minimum one hour of usage. 
 
@@ -67,11 +67,11 @@ DocumentDB collections allow you to partition your data based on both the query 
 
 It is recommended that your application makes use of a small number of collections unless you have large storage or throughput requirements. Ensure that you have well understood application patterns for the creation of new collections. You may choose to reserve collection creation as a management action handled outside your application. Similarly, adjusting the performance level for a collection will change the hourly rate at which the collection is billed. You should monitor collection performance levels if your application adjusts these dynamically.
 
-##Changing performance levels using the Azure Preview portal
+##Changing performance levels using the Azure Portal
 
-The Azure Preview portal is one option available to you when managing your collections' performance levels. Follow these steps to change a collection's performance level from the Azure Portal.
+The Azure Portal is one option available to you when managing your collections' performance levels. Follow these steps to change a collection's performance level from the Azure Classic Portal.
 
-1. Navigate over to the [**Azure Preview portal**](https://portal.azure.com) from your browser.
+1. Navigate over to the [**Microsoft Azure portal**](https://portal.azure.com) from your browser.
 2. Click **Browse** from the jump bar on the left side.
 3. In the **Browse** hub, click **DocumentDB Accounts** under the **Filter by** label.
 4. In the **DocumentDB Accounts** blade, click the DocumentDB account that contains the desired collection.
@@ -113,11 +113,11 @@ Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.
 
 To learn more about pricing and managing data with Azure DocumentDB, explore these resources:
  
-- [DocumentDB pricing](http://azure.microsoft.com/pricing/details/documentdb/)
+- [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Managing DocumentDB capacity](documentdb-manage.md) 
 - [Modeling data in DocumentDB](documentdb-modeling-data.md)
 - [Partitioning data in DocumentDB](documentdb-partition-data.md)
 
-To learn more about DocumentDB, see the Azure DocumentDB [documentation](http://azure.microsoft.com/documentation/services/documentdb/). 
+To learn more about DocumentDB, see the Azure DocumentDB [documentation](https://azure.microsoft.com/documentation/services/documentdb/). 
 
 [1]: ./media/documentdb-performance-levels/img1.png 

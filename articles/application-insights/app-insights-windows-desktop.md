@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 # Application Insights on Windows Desktop apps, services and worker roles
@@ -23,9 +23,9 @@
 
 Application Insights lets you monitor your deployed application for usage and performance.
 
-All Windows applications - including desktop apps, background services, and worker roles - can use the Application Insights core SDK to send telemetry to Application Insights. You can also add Application Insights SDK to a class library project.
+All Windows applications - including desktop apps, background services, and worker roles - can use the Application Insights SDK to send telemetry to Application Insights. You can also add Application Insights SDK to a class library project.
 
-The core SDK just provides an API: unlike the Web or device SDKs, it doesn't include any modules that collect data automatically, so you have to write code to send your own telemetry. Some of the other packages such as the performance counter collector will also work in a desktop app.
+You can choose which standard data collectors you want to use (for example to monitor performance counters or dependency calls), or just use the Core API and write your own telemetry.
 
 
 ## <a name="add"></a> Create an Application Insights resource
@@ -37,9 +37,9 @@ The core SDK just provides an API: unlike the Web or device SDKs, it doesn't inc
 
     (Your choice of application type sets the content of the Overview blade and the properties available in [metric explorer][metrics].)
 
-2.  Take a copy of the Instrumentation Key.
+2.  Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you just created.
 
-    ![Click Properties, select the key, and press ctrl+C](./media/app-insights-windows-desktop/02-props.png)
+    ![Click Essentials, select the key, and press ctrl+C](./media/app-insights-windows-desktop/02-props.png)
 
 ## <a name="sdk"></a>Install the SDK in your application
 
@@ -48,13 +48,13 @@ The core SDK just provides an API: unlike the Web or device SDKs, it doesn't inc
 
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Install the Application Insights Core API package: Microsoft.ApplicationInsights.
+2. Install the Application Insights Windows Server package: Microsoft.ApplicationInsights.WindowsServer
 
-    ![Search for "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
+    ![Search for "Application Insights"](./media/app-insights-windows-desktop/04-ai-nuget.png)
 
     *Can I use other packages?*
 
-    Yes, you can install other packages such as the performance counter or dependency  collector packages if you want to use their modules. Microsoft.ApplicationInsights.Web includes several such packages. If you want to use the [log or trace collector packages](app-insights-asp-net-trace-logs.md), start with the web server package.
+    Yes. Choose the Core API (Microsoft.ApplicationInsights) if you only want to use the API to send your own telemetry. The Windows Server package automatically includes the Core API plus a number of other packages such as performance counter collection and dependency monitoring. 
 
     (But don't use Microsoft.ApplicationInsights.Windows: that is intended for Windows Store apps.)
 
@@ -113,14 +113,14 @@ For example, in a Windows Forms application, you could write:
 
 ```
 
-Use any of the [Application Insights API][api] to send telemetry. In Windows Desktop applications, no telemetry is sent automatically. Typically you'd use:
+Use any of the [Application Insights API][api] to send telemetry. If you're using the core API, no telemetry is sent automatically. Typically you'd use:
 
 * `TrackPageView(pageName)` on switching forms, pages, or tabs
 * `TrackEvent(eventName)` for other user actions
 * `TrackMetric(name, value)` in a background task to send regular reports of metrics not attached to specific events.
 * `TrackTrace(logEvent)` for [diagnostic logging][diagnostic]
 * `TrackException(exception)` in catch clauses
-* `Flush()` to make sure all telemetry is sent before closing the app. Use this only if you are just using the core API (Microsoft.ApplicationInsights). The web and device SDKs implement this behavior automatically. (If your app runs in contexts where the internet is not always available, see also [Persistence Channel](#persistence-channel).)
+* `Flush()` to make sure all telemetry is sent before closing the app. Use this only if you are just using the core API (Microsoft.ApplicationInsights). The web SDKs implement this behavior automatically. (If your app runs in contexts where the internet is not always available, see also [Persistence Channel](#persistence-channel).)
 
 
 #### Context initializers
@@ -183,7 +183,7 @@ By contrast, the persistence channel buffers telemetry in a file, before sending
 
 ### To use the persistence channel
 
-1. Import the NuGet package [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel).
+1. Import the NuGet package [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel/1.2.3).
 2. Include this code in your app, in a suitable initialization location:
  
     ```C# 
@@ -274,7 +274,7 @@ namespace ConsoleApplication1
 ```
 
 
-The code of the persistence channel is on [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel). 
+The code of the persistence channel is on [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/v1.2.3/src/TelemetryChannels/PersistenceChannel). 
 
 
 ## <a name="usage"></a>Next Steps

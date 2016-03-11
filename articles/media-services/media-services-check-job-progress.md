@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="02/03/2016"    
 	ms.author="juliako"/>
 
 #How to: Check Job Progress
@@ -255,7 +255,6 @@ The code example in this section does the following:
 	        }
 	 
 	
-	        // Upload a video file, and encode to Smooth Streaming format
 	        public static IJob SubmitEncodingJobWithNotificationEndPoint(string inputMediaFilePath)
 	        {
 	            // Declare a new job.
@@ -267,12 +266,12 @@ The code example in this section does the following:
 	
 	            // Get a media processor reference, and pass to it the name of the 
 	            // processor to use for the specific task.
-	            IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+	            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 	
 	            // Create a task with the conversion details, using a configuration file. 
-	            ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
+	            ITask task = job.Tasks.AddNew("My encoding Task",
 	                processor,
-	                "H264 Smooth Streaming 720p",
+	                "H264 Multiple Bitrate 720p",
 	                Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.None);
 	
 	            // Specify the input asset to be encoded.
@@ -428,11 +427,11 @@ The example above produced the following output. You values will vary.
 	job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected 
 	State: Finished
 	
- 
+
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

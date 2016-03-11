@@ -1,19 +1,19 @@
 <properties
-   pageTitle="How to manage service configurations and profiles"
+   pageTitle="How to manage service configurations and profiles | Microsoft Azure"
    description="Learn how to work with service configurations and profiles configuration files| which store settings for the deployment environments and publish settings for cloud services."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
-   ms.author="kempb" />
+   ms.date="12/17/2015"
+   ms.author="tarcher" />
 
 # How to manage service configurations and profiles
 
@@ -41,7 +41,7 @@ You can also open the **Manage Configurations** dialog box from the role’s pro
 
 1. (Optional) To give the service configuration a different name, choose the new service configuration from the Name list and then click **Rename**. In the **Name** text box, type the name that you want to use for this service configuration and then click **OK**.
 
-    A new service configuration file that is named ServiceConfiguration.<New Name>.cscfg is added to the Azure project in Solution Explorer.
+    A new service configuration file that is named ServiceConfiguration.[New Name].cscfg is added to the Azure project in Solution Explorer.
 
 
 ### To delete a service configuration

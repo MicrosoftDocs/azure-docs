@@ -1,11 +1,11 @@
 <properties
 	pageTitle="How to use Blob storage from Node.js | Microsoft Azure"
-	description="Learn how to use the Azure Blob service to upload, download, list, and delete blob content. Samples are written in Node.js."
+	description="Learn how to use Blob storage to upload, download, list, and delete blob content. Samples are written in Node.js."
 	services="storage"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mwasson"/>
+	ms.date="02/17/2016"
+	ms.author="micurd"/>
 
 
 
@@ -24,7 +24,7 @@
 
 ## Overview
 
-This article shows you how to perform common scenarios using the Azure Blob service. The samples are written via the Node.js API. The scenarios covered include how to upload, list, download, and delete blobs.
+This article shows you how to perform common scenarios using Blob storage. The samples are written via the Node.js API. The scenarios covered include how to upload, list, download, and delete blobs.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -32,7 +32,7 @@ This article shows you how to perform common scenarios using the Azure Blob serv
 
 ## Create a Node.js application
 
-For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure website], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web app with WebMatrix].
+For instructions on how to create a Node.js application, see [Create a Node.js web app in Azure App Service], [Build and deploy a Node.js application to an Azure Cloud Service] -- using Windows PowerShell, or [Build and deploy a Node.js web app to Azure using Web Matrix].
 
 ## Configure your application to access storage
 
@@ -67,7 +67,7 @@ Using Notepad or another text editor, add the following to the top of the **serv
 
 The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING`, for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
-For an example of setting the environment variables in the Azure portal for an Azure web app, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure web app, see [Node.js web app using the Azure Table Service].
 
 ## Create a container
 
@@ -136,7 +136,7 @@ Two filters that implement retry logic are included with the Azure SDK for Node.
 
 ## Upload a blob into a container
 
-A blob can be either block-based or page-based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding block blobs and page blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+A blob can be either block-based or page-based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding Block Blobs, Append Blobs, and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ### Block blobs
 
@@ -361,19 +361,19 @@ Once the ACL is set, you can then create shared access signatures based on the I
 For more information, see the following resources.
 
 -   [Azure Storage SDK for Node API Reference][]
--   MSDN Reference: [Storing and accessing data in Azure][]
 -   [Azure Storage Team Blog][]
 -   [Azure Storage SDK for Node][] repository on GitHub
 -   [Node.js Developer Center](/develop/nodejs/)
+-   [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-[Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
-[Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-[Node.js Web Application with Storage]: ../storage-nodejs-use-table-storage-web-site.md
-[Web app with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+
+[Create a Node.js web app in Azure App Service]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Node.js web app using the Azure Table Service]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
+[Build and deploy a Node.js web app to Azure using Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure portal]: http://manage.windowsazure.com
-[Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-[Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure Portal]: https://portal.azure.com
+[Build and deploy a Node.js application to an Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html

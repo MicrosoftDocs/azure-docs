@@ -1,4 +1,4 @@
- Limits depend on the [pricing tier](http://azure.microsoft.com/pricing/details/application-insights/) that you choose.
+ Limits depend on the [pricing tier](https://azure.microsoft.com/pricing/details/application-insights/) that you choose.
 
 **Resource** | **Default Limit** | **Maximum Limit**
 -------- | ------------- | -------------
@@ -14,9 +14,10 @@ Property name length | 100 | 100
 Property value length | 1000 | 1000
 Trace and Exception message length | 10000 | 10000
 Metric name length |  100 | 100
+Availability tests | 10 | 10
 
 <sup>1</sup> A data point is an individual metric value or event, with attached properties and measurements.
 
 <sup>2</sup> You can purchase additional capacity beyond 50 million.
  
-[About pricing and quotas in Application Insights](app-insights-pricing.md)
+[About pricing and quotas in Application Insights](../articles/application-insights/app-insights-pricing.md)

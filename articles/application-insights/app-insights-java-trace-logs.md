@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="01/21/2016" 
 	ms.author="awills"/>
 
 # Explore Java trace logs in Application Insights
@@ -87,9 +87,9 @@ Download and extract the appropriate appender, then add the appropriate library 
 
 Logger | Download | Library
 ----|----|----
-Logback|[SDK with Logback appender](http://dl.windowsazure.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J v2.0|[SDK with Log4J v2 appender](http://dl.windowsazure.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[SDK with Log4J v1.2 appender](http://dl.windowsazure.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
+Logback|[SDK with Logback appender](https://azuredownloads.blob.core.windows.net/applicationinsights/logbackAppender.zip)|applicationinsights-logging-logback
+Log4J v2.0|[SDK with Log4J v2 appender](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j2Appender.zip )|applicationinsights-logging-log4j2 
+Log4j v1.2|[SDK with Log4J v1.2 appender](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j1_2Appender.zip )|applicationinsights-logging-log4j1_2 
 
 
 
@@ -109,15 +109,17 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 
 *Log4J v2.0*
 
-    
-    <Appenders>
-      <ApplicationInsightsAppender name="aiAppender" />
-    </Appenders>
-    <Loggers>
-      <Root level="trace">
-        <AppenderRef ref="aiAppender"/>
-      </Root>
-    </Loggers>
+
+    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+      <Appenders>
+        <ApplicationInsightsAppender name="aiAppender" />
+      </Appenders>
+      <Loggers>
+        <Root level="trace">
+          <AppenderRef ref="aiAppender"/>
+        </Root>
+      </Loggers>
+    </Configuration>
 
 
 *Log4J v1.2*

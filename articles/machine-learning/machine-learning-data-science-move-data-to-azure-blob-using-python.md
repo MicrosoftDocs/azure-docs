@@ -13,16 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 # Move Data to and from Azure Blob Storage using Python
 
-Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
-
-[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
-
 ## Introduction
+This topic describes how to list, upload and download blobs using the Python API. 
 
 With the Python API provided in Azure SDK, you can
 
@@ -32,7 +29,12 @@ With the Python API provided in Azure SDK, you can
 - List the blobs in a container
 - Delete a blob
 
-This section documents how to list, upload and download blobs. For more information about using the Python API, see [How to Use the Blob Storage Service from Python](../storage-python-how-to-use-blob-storage.md). 
+For more information about using the Python API, see [How to Use the Blob Storage Service from Python](../storage-python-how-to-use-blob-storage.md).
+
+Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
+
+[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
+
 
 > [AZURE.NOTE] If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](machine-learning-data-science-virtual-machines.md), then AzCopy is already installed on the VM.
 
@@ -42,14 +44,14 @@ This section documents how to list, upload and download blobs. For more informat
 
 This document assumes that you have an Azure subscription, a storage account and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key. 
 
-- To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 - For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../storage-create-storage-account.md).
 
 ## Upload Data to Blob
 
 Add the following snippet near the top of any Python code in which you wish to programmatically access Azure Storage:
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 The **BlobService** object lets you work with containers and blobs. The following code creates a BlobService object using the storage account name and account key. Replace account name and account key with your real account and key.
 	
@@ -68,7 +70,7 @@ The following sample code uploads a local file to a container:
 
 The following sample code uploads all the files (excluding directories) in a local directory to blob storage:
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os import listdir
 	from os.path import isfile, join
 	
@@ -107,7 +109,7 @@ The following sample code downloads the contents of a blob in a container to a l
 
 The following sample code downloads all blobs from a container. It uses list\_blobs to get the list of available blobs in the container and downloads them to a local directory. 
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os.path import join
 	
 	# Set parameters here

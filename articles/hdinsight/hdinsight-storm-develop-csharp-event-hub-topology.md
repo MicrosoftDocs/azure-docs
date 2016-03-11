@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/30/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
@@ -30,9 +30,9 @@ In this tutorial, you will learn how to use the HDInsight Tools for Visual Studi
 
 ## Prerequisites
 
-* An [Apache Storm on HDInsight cluster](hdinsight-storm-getting-started.md)
+* An [Apache Storm on HDInsight cluster](hdinsight-apache-storm-tutorial-get-started.md)
 
-* An [Azure Event Hub](../service-bus/service-bus-event-hubs-csharp-ephcs-getstarted.md)
+* An [Azure Event Hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 * The [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 
@@ -70,7 +70,7 @@ The most recent version of the **eventhubs-storm-spout-0.9-jar-with-dependencies
 
 Event Hubs is the data source for this example. Use the following steps to create a new Event Hub.
 
-1. From the [Azure portal](https://manage.windowsazure.com), select **NEW** > **Service Bus** > **Event Hub** > **Custom Create**.
+1. From the [Azure Classic Portal](https://manage.windowsazure.com), select **NEW** > **Service Bus** > **Event Hub** > **Custom Create**.
 
 2. On the **Add a new Event Hub** screen, enter an **Event Hub Name**, select the **Region** to create the hub in, and create a new namespace or select an existing one. Click the **Arrow** to continue.
 
@@ -102,7 +102,7 @@ Event Hubs is the data source for this example. Use the following steps to creat
 
 Table storage will be used to hold the values that are read from Event Hubs because you can easily view Table storage from inside Visual Studio through **Server Explorer**. Use the following steps to create new Table storage:
 
-1. From the [Azure portal](https://manage.windowsazure.com), select **NEW** > **Data Services** > **Storage** > **Quick Create**.
+1. From the [Azure Classic Portal](https://manage.windowsazure.com), select **NEW** > **Data Services** > **Storage** > **Quick Create**.
 
 	![quick create storage](./media/hdinsight-storm-develop-csharp-event-hub-topology/storagecreate.png)
 
@@ -524,6 +524,10 @@ To stop the topologies, select each topology in the **Storm Topology Viewer**, t
 
 ![image of killing a topology](./media/hdinsight-storm-develop-csharp-event-hub-topology/killtopology.png)
 
+##Delete your cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## Notes
 
 ### Checkpointing
@@ -552,7 +556,7 @@ Export an import allows you to persist checkpoint data when you need to delete t
 
 > [AZURE.NOTE] Since the data is persisted to the default storage container, the new cluster **must** use the same storage account and container as the previous cluster.
 
-## Summary
+## Next Steps
 
 In this document, you have learned how to use the Java Event Hubs Spout and Bolt from a C# topology to work with data in Azure Event Hub. To learn more about creating C# topologies, see the following.
 

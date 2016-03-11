@@ -14,28 +14,27 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
-	ms.author="szarkos"/>
+	ms.date="11/13/2015"
+	ms.author="szark"/>
 
-# Prepare a SLES or openSUSE Virtual Machine for Azure
-
-
-- [Prepare a SLES 11 SP3 Virtual Machine for Azure](#sles11)
-- [Prepare a openSUSE 13.1+ Virtual Machine for Azure](#osuse)
+# Prepare a SLES or openSUSE virtual machine for Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Prerequisites##
+## Prerequisites ##
 
 This article assumes that you have already installed a SUSE or openSUSE Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
-
-
-**SLES / openSUSE Installation Notes**
 
  - [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES / openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SUSE and openSUSE images. The following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio:
 
   - [SLES 11 SP3 for Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
   - [openSUSE 13.1 for Azure on SUSE Studio Gallery](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
+
+
+- As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
+
+
+**SLES / openSUSE installation notes**
 
 - The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
@@ -46,7 +45,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
 
-## <a id="sles11"> </a>Prepare SUSE Linux Enterprise Server 11 SP3 ##
+## Prepare SUSE Linux Enterprise Server 11 SP3 ##
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
@@ -79,7 +78,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 
 9.	Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
-10.	Do not create swap space on the OS disk
+10.	Do not create swap space on the OS disk.
 
 	The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
@@ -100,21 +99,19 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 
 ----------
 
-## <a id="osuse"> </a>Prepare openSUSE 13.1+ ##
+## Prepare openSUSE 13.1+ ##
 
-1. In the center pane of Hyper-V Manager, select the virtual machine
+1. In the center pane of Hyper-V Manager, select the virtual machine.
 
-2. Click **Connect** to open the window for the virtual machine
+2. Click **Connect** to open the window for the virtual machine.
 
-3. On the shell, run the command '`zypper lr`'. If this command returns output similar to the following (note that version numbers may vary):
+3. On the shell, run the command '`zypper lr`'. If this command returns output similar to the following, then the repositories are configured as expected--no adjustments are necessary (note that version numbers may vary):
 
 		# | Alias                 | Name                  | Enabled | Refresh
 		--+-----------------------+-----------------------+---------+--------
 		1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Yes     | Yes
 		2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
 		3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
-
-	then the repositories are configured as expected, no adjustments are necessary.
 
 	If the command returns "No repositories defined..." then use the following commands to add these repos:
 
@@ -135,11 +132,11 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 
 		# sudo zypper update
 
-5.	Install the Azure Linux Agent
+5.	Install the Azure Linux Agent.
 
 		# sudo zypper install WALinuxAgent
 
-6.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:
+6.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:
 
 		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
@@ -158,7 +155,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 
 9.	Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
-10.	Do not create swap space on the OS disk
+10.	Do not create swap space on the OS disk.
 
 	The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
@@ -179,3 +176,6 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 		# sudo systemctl enable waagent.service
 
 13. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+
+## Next steps
+You're now ready to use your SUSE Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see steps 2 and 3 in [Creating and uploading a virtual hard disk that contains the Linux operating system](virtual-machines-linux-create-upload-vhd.md).

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
@@ -27,7 +27,7 @@ This guide provides solutions for some frequently encountered challenges when yo
 
 When you create a new Machine Learning workspace, the ID you enter in the WORKSPACE OWNER field must be a valid Microsoft account (formerly Windows Live ID), for example, john-contoso@live.com or john-contoso@hotmail.com. It cannot be a non-Microsoft account, such as your corporate email account. To create a free Microsoft account, go to [www.live.com](http://www.live.com).
 
-Note that the account you used to sign in to the Azure portal to create the workspace does not automatically have permission to *open* that workspace, unless you specify that account as the owner. To open a workspace in Machine Learning Studio, you must be signed in to the Microsoft Account that was defined as the owner of the workspace, or you need to receive an invitation from the owner to join the workspace. From the Azure portal you can, however, *manage* the workspace, which includes the ability to change the owner and configure access.
+Note that the account you used to sign in to the Azure classic portal to create the workspace does not automatically have permission to *open* that workspace, unless you specify that account as the owner. To open a workspace in Machine Learning Studio, you must be signed in to the Microsoft Account that was defined as the owner of the workspace, or you need to receive an invitation from the owner to join the workspace. From the Azure classic portal you can, however, *manage* the workspace, which includes the ability to change the owner and configure access.
 
 For more information on managing a workspace, see [Manage an Azure Machine Learning workspace].
 
@@ -37,7 +37,7 @@ For more information on managing a workspace, see [Manage an Azure Machine Learn
 
 Machine Learning is currently available in a limited number of regions. If your subscription does not include one of these regions, you may see the error message, “You have no subscriptions in the allowed regions.”
 
-To request that a region be added to your subscription, select **Contact Microsoft Support** from the Azure management portal, choose **Billing** as the problem type, and follow the prompts to submit your request.
+To request that a region be added to your subscription, select **Contact Microsoft Support** from the Azure Classic Portal, choose **Billing** as the problem type, and follow the prompts to submit your request.
 
 ![Contact Microsoft support][screen1]
 
@@ -46,7 +46,7 @@ To request that a region be added to your subscription, select **Contact Microso
 The Machine Learning service needs a storage account to store data. You can use an existing storage account, or you can create a new storage account when you create the new Machine Learning workspace (if you have quota to create a new storage account).
 
 <!-- These instructions no longer work, but I'm not sure what to replace them with
-To see if you can create a new storage account, in the management portal, go to **Settings** and then click **Usage**.
+To see if you can create a new storage account, in the Classic Portal, go to **Settings** and then click **Usage**.
 -->
 
 ![Create workspace][screen2]

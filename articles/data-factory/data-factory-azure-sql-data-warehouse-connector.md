@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data to and from Azure SQL Data Warehouse | Azure Data Factory" 
+	pageTitle="Move data to/from Azure SQL Data Warehouse | Microsoft Azure" 
 	description="Learn how to move data to/from Azure SQL Data Warehouse using Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,12 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure SQL Data Warehouse using Azure Data Factory
 
-This article outlines how you can use data factory copy activity to move data to Azure SQL Data Warehouse from another data store and move data from another data store to Azure SQL. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use Copy Activity in Azure Data Factory to move data from Azure SQL Data Warehouse to another data store and from another data store to Azure SQL Data Warehouse. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data sources and sinks for SQL Data Warehouse. 
+
+The following sample(s) show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article using the Copy Activity in Azure Data Factory.  
+
+> [AZURE.NOTE] 
+> For an overview of the Azure Data Factory service, see [Introduction to Azure Data Factory](data-factory-introduction.md). 
+> 
+> This article provides JSON examples but does not provide step-by-step instructions for creating a data factory. See [Tutorial: Copy data from Azure Blob to Azure SQL Database](data-factory-get-started.md) for a quick walkthrough with step-by-step instructions for using the Copy Activity in Azure Data Factory. 
+
 
 ## Sample: Copy data from Azure SQL Data Warehouse to Azure Blob
 
@@ -373,7 +381,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 
 See the [Load data with Azure Data Factory](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) article in the Azure SQL Data Warehouse documentation for a walkthrough. 
 
-## Azure SQL Data Warehouse Linked Service properties
+## Azure SQL Data Warehouse linked service properties
 
 The following table provides description for JSON elements specific to Azure SQL Data Warehouse linked service. 
 
@@ -384,7 +392,7 @@ type | The type property must be set to: **AzureSqlDW** | Yes
 
 Note: You need to configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). You need to configure the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Data Warehouse from outside Azure including from on-premises data sources with data factory gateway you need to configure appropriate IP address range for the machine that is sending data to Azure SQL Data Warehouse. 
 
-## Azure SQL Data Warehouse Dataset type properties
+## Azure SQL Data Warehouse dataset type properties
 
 For a full list of sections & properties available for defining datasets, please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...). 
 
@@ -394,7 +402,7 @@ The typeProperties section is different for each type of dataset and provides in
 | -------- | ----------- | -------- |
 | tableName | Name of the table in the Azure SQL Data Warehouse database that the linked service refers to. | Yes |
 
-## Azure SQL Data Warehouse Copy Activity type properties
+## Azure SQL Data Warehouse copy activity type properties
 
 For a full list of sections & properties available for defining activities, please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
 
@@ -471,7 +479,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Type Mapping for Azure SQL Data Warehouse
+### Type mapping for Azure SQL Data Warehouse
 
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 

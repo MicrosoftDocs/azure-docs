@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="02/25/2016" 
 	ms.author="awills"/>
 
 # Sampling, filtering and preprocessing telemetry in the Application Insights SDK
@@ -30,7 +30,7 @@ Currently these features are available for the ASP.NET SDK.
 
 Before you start:
 
-* Install the [Application Insights SDK](app-insights-start-monitoring-app-health-usage.md) in your app. Install the NuGet packages manually and select the latest *prerelease* version.
+* Install the [Application Insights SDK](app-insights-asp-net.md) in your app. Install the NuGet packages manually and select the latest *prerelease* version.
 * Try the [Application Insights API](app-insights-api-custom-events-metrics.md). 
 
 
@@ -38,27 +38,27 @@ Before you start:
 
 *This feature is in beta.*
 
-The recommended way to reduce traffic while preserving accurate statistics. The filter selects items that are related so that you can navigate between items in diagnosis. Event counts are adjusted in metric explorer to compensate for the filtered items.
+[Sampling](app-insights-sampling.md) is the recommended way to reduce traffic while preserving accurate statistics. The filter selects items that are related so that you can navigate between items in diagnosis. Event counts are adjusted in metric explorer to compensate for the filtered items.
 
-1. Update your project's NuGet packages to the latest *pre-release* version of Application Insights. Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
+* Adaptive sampling is recommended. It automatically adjusts the sampling percentage to achieve a specific volume of requests. Currently available for ASP.NET server-side telemetry only. 
+* [Fixed-rate sampling](app-insights-sampling.md) is also available. You specify the sampling percentage. Available for ASP.NET web app code and JavaScript web pages. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
+* Ingestion sampling operates as the telemetry is received at the Application Insights portal, and so it can be used no matter what SDK you're using. It doesn't reduce telemetry traffic on the network, but it reduces the volume processed and stored in Application Insights. Only the retained telemetry counts in your monthly quota. 
 
-2. Add this snippet to [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+### To enable ingestion sampling
 
-```XML
+From the Settings bar, open the Quotas and Pricing blade. Click Sampling and select a sampling ratio.
 
-    <TelemetryProcessors>
-     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+### To enable adaptive sampling
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
-     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 10, 1 (=100/100), 0.1 (=100/1000) ... -->
-     <SamplingPercentage>10</SamplingPercentage>
-     </Add>
-   </TelemetryProcessors>
+**Update your project's NuGet** packages to the latest *pre-release* version of Application Insights: Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
 
-```
+In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), you can adjust the maximum rate of telemetry that the adaptive algorithm aims for:
 
+    <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
 
-To get sampling on the data from web pages, put an extra line in the [Application Insights snippet](app-insights-javascript.md) that you inserted (typically in a master page such as _Layout.cshtml):
+### Client side sampling
+
+To get fixed-rate sampling on the data from web pages, put an extra line in the [Application Insights snippet](app-insights-javascript.md) that you inserted (typically in a master page such as _Layout.cshtml):
 
 *JavaScript*
 
@@ -72,10 +72,8 @@ To get sampling on the data from web pages, put an extra line in the [Applicatio
 	}); 
 ```
 
-* Set a percentage (10 in these examples) that is equal to 100/N where N is an integer - for example 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 10 (=100/5). 
-* If you have a lot of data, you can use very low sampling rates, such as 0.1.
-* If you set sampling in both web page and server, make sure to set the same sampling percentage in both sides.
-* Client and server sides will coordinate to select related items.
+* Set a percentage (10 in this example) that is equal to 100/N where N is an integer - for example 50 (=100/2), 33.33 (=100/3), 25 (=100/4), or 10 (=100/10). 
+* If you also enable [fixed-rate sampling](app-insights-sampling.md) on the server side, the client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
 
 [Learn more about sampling](app-insights-sampling.md).
 
@@ -91,21 +89,26 @@ To filter telemetry, you write a telemetry processor and register it with the SD
 
 ### Create a telemetry processor
 
+1. Update the Application Insights SDK to the latest version (2.0.0-beta2 or later). Right-click your project in Visual Studio Solution Explorer and choose Manage NuGet Packages. In NuGet package manager, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web.
+
 1. To create a filter, implement ITelemetryProcessor. This is another extensibility point like telemetry module, telemetry initializer and telemetry channel. 
 
     Notice that Telemetry Processors construct a chain of processing. When you instantiate a telemetry processor, you pass a link to the next processor in the chain. When a telemetry data point is passed to the Process method, it does its work and then calls the next Telemetry Processor in the chain.
 
     ``` C#
 
-    namespace FilteringTelemetryProcessor
-    {
-      using Microsoft.ApplicationInsights.Channel;
-      using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.Extensibility;
 
-      class UnauthorizedRequestFilteringProcessor : ITelemetryProcessor
+    public class SuccessfulDependencyFilter : ITelemetryProcessor
       {
-        public UnauthorizedRequestFilteringProcessor(ITelemetryProcessor next)
-		//Initialization will fail without this constructor. Link processors to each other
+        private ITelemetryProcessor Next { get; set; }
+
+        // You can pass values from .config
+        public string MyParamFromConfigFile { get; set; }
+
+        // Link processors to each other in a chain.
+        public SuccessfulDependencyFilter(ITelemetryProcessor next)
         {
             this.Next = next;
         }
@@ -117,26 +120,61 @@ To filter telemetry, you write a telemetry processor and register it with the SD
             ModifyItem(item);
 
             this.Next.Process(item);
-        }      private ITelemetryProcessor Next { get; set; }
-      }
+        }
+
+        // Example: replace with your own criteria.
+        private bool OKtoSend (ITelemetry item)
+        {
+            var dependency = item as DependencyTelemetry;
+            if (dependency == null) return true;
+
+            return dependency.Success != true;
+        }
+
+        // Example: replace with your own modifiers.
+        private void ModifyItem (ITelemetry item)
+        {
+            item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
+        }
     }
+    
 
     ```
-2. In a suitable initialization class - for example AppStart in Global.asax.cs - insert your processor into the chain:
+2. Insert this in ApplicationInsights.config: 
 
-    ```C#
+```XML
 
-    var builder = new TelemetryChannelBuilder();
-    builder.Use((next) => new UnauthorizedRequestFilteringProcessor(next));
+    <TelemetryProcessors>
+      <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
+         <!-- Set public property -->
+         <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+(Notice that this is the same section where you initialize a sampling filter.)
+
+You can pass string values from the .config file by providing public named properties in your class. 
+
+> [AZURE.WARNING] Take care to match the type name and any property names in the .config file to the class and property names in the code. If the .config file references a non-existent type or property, the SDK may silently fail to send any telemetry.
+
+ 
+**Alternatively,** you can initialize the filter in code. In a suitable initialization class - for example AppStart in Global.asax.cs - insert your processor into the chain:
+
+```C#
+
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
+    builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
     builder.Use((next) => new AnotherProcessor(next));
 
-    TelemetryConfiguration.Active.TelemetryChannel = builder.Build();
+    builder.Build();
 
-    ```
+```
 
-    TelemetryClients created after this point will use your processors.
+TelemetryClients created after this point will use your processors.
 
 ### Example filters
 
@@ -146,19 +184,19 @@ Filter out bots and web tests. Although Metrics Explorer gives you the option to
 
 ``` C#
 
-public void Process(ITelemetry item)
-{
-    if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource))
-    { return; }
+    public void Process(ITelemetry item)
+    {
+      if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
 
-    this.Next.Process(item);
-}
+      // Send everything else: 
+      this.Next.Process(item);
+    }
 
 ```
 
 #### Failed authentication
 
-Filter out requests with a "401" responses. 
+Filter out requests with a "401" response. 
 
 ```C#
 
@@ -323,7 +361,7 @@ Insert a telemetry initializer immediately after the initialization code that yo
     </script>
 ```
 
-For a summary of the non-custom properties available on the telemetryItem, see the [data model](app-insights-export-data-model.md/#lttelemetrytypegt).
+For a summary of the non-custom properties available on the telemetryItem, see the [data model](app-insights-export-data-model.md#lttelemetrytypegt).
 
 You can add as many initializers as you like. 
 
@@ -333,33 +371,14 @@ You can add as many initializers as you like.
 * [API Overview](app-insights-api-custom-events-metrics.md)
 
 * [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
-* [Java reference](http://dl.windowsazure.com/applicationinsights/javadoc/)
-* [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 
 
 ## SDK Code
 
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
-* [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
-* [All platforms](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
-## Questions
-
-* *What exceptions might Track_() calls throw?*
-    
-    None. You don't need to wrap them in try-catch clauses. If the SDK encounters problems, it will log messages that you will see in the debug console output, and - if the messages get through - in diagnostic search.
-
-
-
-* *Is there a REST API?*
-
-    Yes, but we aren't publishing it yet.
 
 ## <a name="next"></a>Next steps
 
@@ -379,7 +398,7 @@ You can add as many initializers as you like.
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md

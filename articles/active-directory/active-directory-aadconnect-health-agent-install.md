@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.topic="get-started-article"
+	ms.date="03/08/2016"
 	ms.author="billmath"/>
 
 
@@ -21,7 +21,7 @@
 
 
 
-# Azure AD Connect Health Agent Installation 
+# Azure AD Connect Health Agent Installation
 
 This document will walk you through installing and configuring the Azure AD Connect Health Agent for AD FS and sync.
 
@@ -121,13 +121,31 @@ The Azure AD Connect Health agent for sync is installed automatically in the lat
 
 To verify the agent has been installed, open services and look for the following. These services should be running if you completed the configuration. Otherwise, they will not start until the configuration is complete.
 
-- Azure AD Connect Health AadSync Insights Service
-- Azure AD Connect Health AadSync Monitoring Service
- 
+- Azure AD Connect Health Sync Insights Service
+- Azure AD Connect Health Sync Monitoring Service
+
 ![Verify Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE] Remember that using Azure AD Connect Health requires Azure AD Premium.  If you do not have Azure AD Premium you will not be able to complete the configuration in the Azure portal.  For more information see the requirements [here](active-directory-aadconnect-health.md#requirements). 
+>[Azure.NOTE] Remember that using Azure AD Connect Health requires Azure AD Premium.  If you do not have Azure AD Premium you will not be able to complete the configuration in the Azure portal.  For more information see the requirements [here](active-directory-aadconnect-health.md#requirements).
 
+
+## Manual Azure AD Connect Health for Sync registration
+If the Azure AD Connect Health for Sync agent registration fails after successfully installing Azure AD Connect, you can use the following PowerShell command to manually register the agent.
+
+>[AZURE.IMPORTANT] Using this PowerShell command is only required if the agent registration fails after installing Azure AD Connect.
+
+The below PowerShell command is required ONLY when the health agent registration fails even after a successful installation and configuration of Azure AD Connect. In such cases Azure AD Connect Health services will NOT start until agent has been successfully registered. 
+ 	
+You can manually register the Azure AD Connect Health agent for sync using the following PowerShell command:
+
+`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $false -StagingMode $false`
+
+The command takes following parameters: 
+
+- AttributeFiltering : $true (default) - if Azure AD Connect is not syncing the default attribute set and has been customized to use a filtered attribute set. $false otherwise.
+- StagingMode : $false (default) - if the Azure AD Connect server is NOT in staging mode, $true if the server is configured to be in staging mode.
+ 
+When prompted for authentication you should use the same global admin account (such as admin@domain.onmicrosoft.com) that was used for configuring Azure AD Connect.
 
 
 
@@ -179,7 +197,23 @@ You can use the following command to read the currently configured proxy setting
 	Get-AzureAdConnectHealthProxySettings
 
 
-[//]: # (End of Agent Proxy Configuration Section)
+## Test Connectivity to Azure AD Connect Health Service
+It is possible that issues may arise that cause the Azure AD Connect Health agent to lose connectivity with the Azure AD Connect Health service.  These include network issues, permission issues, or various other reasons.
+
+If the agent is unable to send data to the Azure AD Connect Health service for more than 2 hours, you will see an Alert indicating "Health Service data is not up to date."  Should this occur you can now test whether or not the Azure AD Connect Health agents are able to upload data to the Azure AD Connect Health service by running the following PowerShell command from the machine whose agent is having the issue.
+
+    Test-AzureADConnectHealthConnectivity -Role Adfs
+
+The role parameter currently takes the following values:
+	
+- Adfs
+- Sync
+
+You can use the -ShowResults flag in the command to view detailed logs.  Use the following example:
+
+    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
+
+>[AZURE.NOTE]In order to use the connectivity tool, you must first complete the agent registration.  If you are not able to complete the agent registration, make sure that you have met all of the [requirements](active-directory-aadconnect-health.md#requirements) for Azure AD Connect Health.  This connectivity test is performed by default during agent registration.
 
 
 ## Related links
@@ -189,3 +223,5 @@ You can use the following command to read the currently configured proxy setting
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
+

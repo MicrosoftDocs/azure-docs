@@ -14,8 +14,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/17/2015"
+	ms.topic="get-started-article"
+	ms.date="01/14/2016"
 	ms.author="jgao"/>
 
 
@@ -82,7 +82,7 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 
 [hbase-get-started]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="02/04/2016"
 	ms.author="larryfr"/>
 
 # Quickstart tutorial for the R programming language for Azure Machine Learning
@@ -238,13 +238,24 @@ The Script Bundle input allows you to pass the contents of a zip file into [Exec
 	source("src/yourfile.R") # Reads a zipped R script
 	load("src/yourData.rdata") # Reads a zipped R data file
 
-> [AZURE.NOTE] Azure Machine Learning treats files in the zip as if they are in the src/ directory, so you need to prefix your file names with this directory name.  
+> [AZURE.NOTE] Azure Machine Learning treats files in the zip as if they are in the src/ directory, so you need to prefix your file names with this directory name. For example, if the zip contains the files `yourfile.R` and `yourData.rdata` in the root of the zip, you would address these as `src/yourfile.R` and `src/yourData.rdata` when using `source` and `load`.
 
 We already discussed loading datasets in [Loading the dataset](#loading). Once you have created and tested the R script shown in the previous section, do the following:
 
-1. Save the R script into a .R file. I call my script file "simpleplot.R".  
+1. Save the R script into a .R file. I call my script file "simpleplot.R". Here's the contents.
 
-2.  Create a zip file and copy your script into this zip file.
+        ## Only one of the following two lines should be used
+        ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
+        ## If in RStudio, use the second line with read.csv()
+        cadairydata <- maml.mapInputPort(1)
+        # cadairydata  <- read.csv("cadairydata.csv", header = TRUE, stringsAsFactors = FALSE)
+        str(cadairydata)
+        pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata)
+        ## The following line should be executed only when running in
+        ## Azure Machine Learning Studio
+        maml.mapOutputPort('cadairydata')
+
+2.  Create a zip file and copy your script into this zip file. On Windows, you can right-click on the file and select __Send to__, and then __Compressed folder__. This will create a new zip file containing the "simpleplot.R" file.
 
 3.	Add your file to the **datasets** in Machine Learning Studio, specifying the type as **zip**. You should now see the zip file in your datasets.
 
@@ -252,7 +263,7 @@ We already discussed loading datasets in [Loading the dataset](#loading). Once y
 
 5.	Connect the output of the **zip data** icon to the **Script Bundle** input of the [Execute R Script][execute-r-script] module.
 
-6.	Type the `source()` function with your zip file name into the code window for the [Execute R Script][execute-r-script] module. In my case I typed `source("src/SimplePlot.R")`.  
+6.	Type the `source()` function with your zip file name into the code window for the [Execute R Script][execute-r-script] module. In my case I typed `source("src/simpleplot.R")`.  
 
 7.	Make sure you click **Save**.
 
@@ -279,7 +290,7 @@ Execute your experiment by clicking on the **Run** button. When the execution fi
     [ModuleOutput]  "ColumnTypes":System.Int32,3,System.Double,5,System.String,1
     [ModuleOutput] }
 
-Double clicking on the page will load addtional data, which will look something like the following.
+Farther down the page is more detailed information on the columns, which will look something like the following.
 
 	[ModuleOutput] [1] "Loading variable port1..."
 	[ModuleOutput]

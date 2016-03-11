@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
  
 # Code sample: Parse data exported from Application Insights
@@ -31,7 +31,7 @@ To monitor your application, you [add an Application Insights SDK][start] to you
 
 To get started:
 
-1. Get an [account in Microsoft Azure](http://azure.microsoft.com/pricing/).
+1. Get an [account in Microsoft Azure](https://azure.microsoft.com/pricing/).
 2. In the [Azure portal][portal], add a new Application Insights resource for your app:
 
     ![Choose New, Developer Services, Application Insights, and choose the type of application](./media/app-insights-code-sample-export-telemetry-sql-database/010-new-asp.png)

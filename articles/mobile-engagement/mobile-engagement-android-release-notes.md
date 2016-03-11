@@ -1,23 +1,43 @@
-<properties 
-	pageTitle="Azure Mobile Engagement Android SDK Integration" 
+<properties
+	pageTitle="Azure Mobile Engagement Android SDK Integration"
 	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="02/01/2016"
 	ms.author="piyushjo" />
 
 
 #Release notes
+
+##4.1.5 (02/01/2016)
+
+- Stability improvements.
+
+##4.1.4 (01/26/2016)
+
+- Stability improvements.
+
+##4.1.3 (12/9/2015)
+
+- Stability improvements.
+
+##4.1.2 (11/25/2015)
+
+- Stability improvements.
+
+##4.1.1 (11/04/2015)
+
+- Stability improvements.
 
 ##4.1.0 (08/25/2015)
 
@@ -44,5 +64,3 @@
 -   Removed API to send and receive messages between devices.
 -   Security improvements.
 -   Google Play and SmartAd tracking removed.
-
- 

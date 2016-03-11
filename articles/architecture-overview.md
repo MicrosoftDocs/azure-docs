@@ -84,7 +84,7 @@ The template is also available outside the course.
 
 - [View the training video](http://aka.ms/3dBlueprintTemplateVideo) first so you know what it can do   
 - Download the [Microsoft 3d Blueprint Visio Template](http://aka.ms/3DBlueprintTemplate)
-- Download the [Cloud and Enterprise Symbols](#symbol-and-icon-sets) to use with the 3D template
+- Download the [Cloud and Enterprise Symbols](#drawing-symbol-and-icon-sets) to use with the 3D template. 
 
 Email us at [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) for specific questions not answered by the training materials or to give feedback. Usability is one of the primary goals of the template so let us know what's good and what gets in the way.
 
@@ -109,6 +109,6 @@ Additional symbols for Microsoft Office and related technologies are available i
 
 ##Architecture Infographics
 
-Microsoft publishes several architecture related posters/infographics. They include [Building Real-World Cloud Applications](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) and [Scaling with Cloud Services](http://azure.microsoft.com/documentation/infographics/cloud-services/) . 
+Microsoft publishes several architecture related posters/infographics. They include [Building Real-World Cloud Applications](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) and [Scaling with Cloud Services](https://azure.microsoft.com/documentation/infographics/cloud-services/) . 
 
 ![Azure Architecture Infographics](./media/architecture-overview/AzureArchInfographicThumb.jpg)

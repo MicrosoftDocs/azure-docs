@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Monitor dependencies, exceptions and execution times in Java web apps
@@ -33,7 +33,7 @@ To use the Java agent, you install it on your server. Your web apps must be inst
 
 ## Install the Application Insights agent for Java
 
-1. On the machine running your Java server, [download the agent](http://go.microsoft.com/fwlink/?LinkId=618633).
+1. On the machine running your Java server, [download the agent](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
 2. Edit the application server startup script, and add the following JVM:
 
     `javaagent:`*full path to the agent JAR file*
@@ -80,7 +80,7 @@ Set the content of the xml file. Edit the following example to include or omit t
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
               reportExecutionTime="true"
-              signature="(Ljava/lang/String:I)V" />
+              signature="(Ljava/lang/String;I)V" />
         </Class>
         
       </Instrumentation>

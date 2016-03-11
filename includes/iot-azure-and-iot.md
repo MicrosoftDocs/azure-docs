@@ -1,34 +1,50 @@
-# Microsoft Azure and the Internet of Things (IoT)
+# Azure and Internet of Things
 
-A typical IoT solution requires secure, bidirectional communication between devices, possibly numbering in the millions, and an application back end. Examples of application back end functionality might include processing device-to-cloud events to uncover insights using automated and predictive analytics.
+Welcome to Microsoft Azure and the Internet of Things (IoT). This article introduces an IoT solution architecture that describes the common characteristics of an IoT solution you might deploy using Azure services. IoT solutions require secure, bidirectional communication between devices, possibly numbering in the millions, and a solution back end that, for example, uses automated, predictive analytics to uncover insights from your device-to-cloud event stream.
 
-Microsoft provides a set of libraries, supporting multiple languages and hardware platforms, that you can use to develop client applications to run on an IoT device. To implement your IoT backend application, you can combine multiple Azure services or use one of the preconfigured solutions available in [Azure IoT Suite][]. To better understand how Azure enables this IoT infrastructure, it's useful to consider a typical IoT solution architecture.
+Azure IoT Hub is a key building block when you implement this IoT solution architecture using Azure services, and IoT Suite provides complete, end-to-end, implementations of this architecture for specific IoT scenarios such as *remote monitoring* and *predictive maintenance*.
 
 ## IoT solution architecture
 
-The following diagram shows a typical IoT solution architecture. Note that it does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. The following sections provide more information about the elements in this solution.
+The following diagram shows a typical IoT solution architecture. Note that it does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. In this architecture, IoT devices collect data which they send to a cloud gateway. The cloud gateway makes the data available for processing by other back-end services from where data is delivered to other line-of-business applications or to human operators through a dashboard or other presentation device.
 
 ![IoT solution architecture][img-solution-architecture]
 
 ### Device connectivity
 
-In a typical IoT scenario, devices send device-to-cloud telemetry data, such as temperature readings, to a cloud endpoint for storage and processing. Devices can also receive and respond to cloud-to-device commands by reading messages from a cloud endpoint. For example, a device might retrieve a command that instructs it to change the frequency at which it samples data.
+In this IoT solution architecture, devices send telemetry, such as temperature readings, to a cloud endpoint for storage and processing. Devices can also receive and respond to cloud-to-device commands by reading messages from a cloud endpoint. For example, a device might retrieve a command that instructs it to change the frequency at which it samples data.
 
-A device or data source in an IoT solution can range from a simple network-connected sensor to a powerful, standalone, computing device. A device may have limited processing capability, memory, communication bandwidth, and communication protocol support.
+One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the solution back end. IoT devices have different characteristics as compared to other clients such as browsers and mobile apps. IoT devices:
 
-A device can communicate directly with an end-point of a cloud gateway using a communication protocol such as AMQP or HTTP, or through some intermediary such as a field gateway that provides a service such as protocol translation.
+- Are often embedded systems with no human operator.
+- Can be located in remote locations, where physical access is very expensive.
+- May only be reachable through the solution back end. There is no other way to interact with the device.
+- May have limited power and processing resources.
+- May have intermittent, slow, or expensive network connectivity.
+- May need to use proprietary, custom, or industry specific application protocols.
+- Can be created using a large set of popular hardware and software platforms.
+
+In addition to the requirements above, any IoT solution must also deliver scale, security, and reliability. The resulting set of connectivity requirements is hard and time-consuming to implement using traditional technologies such as web containers and messaging brokers. Azure IoT Hub and the IoT Device SDKs make it easier to implement solutions that meet these requirements.
+
+A device can communicate directly with a cloud gateway endpoint, or if the device cannot use any of the communications protocols that the cloud gateway supports, it can connect through an intermediate gateway, such as the [IoT Hub protocol gateway][lnk-protocol-gateway], that performs protocol translation. The 
 
 ### Data processing and analytics
 
-In the cloud, a stream event processor receives device-to-cloud messages at scale from your devices and determines how to process and store those messages. A solution for connected devices enables you to send cloud-to-device data in the form of commands to specific devices. Device registration with the IoT solution enables you to provision devices and to control which devices are permitted to connect to your infrastructure. The back end enables you to track the state of your devices and monitor their activities.
+In the cloud, an IoT solution back end is where most of the data processing in the solution occurs, in particular filtering and aggregating telemetry and routing it to other services. The IoT solution back end:
 
-IoT solutions can include automatic feedback loops. For example, a machine learning module can identify from device-to-cloud telemetry data that the temperature of a specific device is above normal operating levels and then send a command to the device, enabling it to take corrective action.
+- Receives telemetry at scale from your devices and determines how to process and store that data. 
+- May enable you to send commands from the cloud to specific device.
+- Provides device registration capabilities that enable you to provision devices and to control which devices are permitted to connect to your infrastructure.
+- Enables you to track the state of your devices and monitor their activities.
 
-### Presentation
+IoT solutions can include automatic feedback loops. For example, an analytics module in the back end can identify from telemetry that the temperature of a specific device is above normal operating levels and then send a command to the device, enabling it to take corrective action.
 
-Many IoT solutions enable users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports.
+### Presentation and business connectivity
+
+The presentation and business connectivity layer allows end users to interact with the IoT solution and the devices. It enables users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports. For example, an operator can check on the status of particular shipping trucks and see any alerts raised by the system. This layer also allows integration of the IoT solution back end with existing line-of-business applications to tie into enterprise business processes or workflows.
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
+[lnk-protocol-gateway]:  iot-hub-protocol-gateway.md

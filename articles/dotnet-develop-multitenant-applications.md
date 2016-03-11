@@ -30,7 +30,7 @@ The following provides a list of the most significant goals and requirements fro
 
 A properly implemented multitenant application provides the following benefits to users.
 
-- **Isolation**: The activities of individual tenants do not affect the use of the application by other tenants. Tenants cannot access eatch others data. It appear to the tennant as though they have exclusive use of the application.
+- **Isolation**: The activities of individual tenants do not affect the use of the application by other tenants. Tenants cannot access each other's data. It appears to the tenant as though they have exclusive use of the application.
 - **Availability**: Individual tenants want the application to be constantly available, perhaps with guarantees defined in an SLA. Again, the activities of other tenants should not affect the availability of the application.
 - **Scalability**: The application scales to meet the demand of individual tenants. The presence and actions of other tenants should not affect the performance of the application.
 - **Costs**: Costs are lower than running a dedicated, single-tenant application because multi-tenancy enables the sharing of resources.

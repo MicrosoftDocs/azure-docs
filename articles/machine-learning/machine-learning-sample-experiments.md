@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/28/2015"
+    ms.date="02/01/2016"
     ms.author="chhavib;olgali"/>
 
 # Use sample experiments to create new experiments
@@ -28,7 +28,7 @@ When you want to create an experiment, look for examples in Machine Learning tea
 ![](./media/machine-learning-sample-experiments/image1.png) 
 4. Click an experiment to learn more about it. To run and/or modify the experiment, click **Open in Studio**.
 ![](./media/machine-learning-sample-experiments/image2.png) 
-5.  Sign in with your Microsoft account credentials. If you don’t have a Machine Learning workspace yet, a free trial workspace is created. [Learn what’s included in the Machine Learning free trial](http://azure.microsoft.com/pricing/details/machine-learning/)
+5.  Sign in with your Microsoft account credentials. If you don’t have a Machine Learning workspace yet, a free trial workspace is created. [Learn what’s included in the Machine Learning free trial](https://azure.microsoft.com/pricing/details/machine-learning/)
 ![](./media/machine-learning-sample-experiments/image3.png) 
 
 ## Use as template in Studio
@@ -36,7 +36,7 @@ When you want to create an experiment, look for examples in Machine Learning tea
 2. Browse through the Sample content, and pick one to use as a template.
 
 ## Next steps
-- [Prepare your data](machine-learning-import-data.md)
+- [Prepare your data](machine-learning-data-science-import-data.md)
 - [Try using R in your experiment](machine-learning-r-quickstart.md)
 - [Review sample R experiments](machine-learning-r-csharp-web-service-examples.md)
 - [Create an web service API](machine-learning-publish-a-machine-learning-web-service.md)

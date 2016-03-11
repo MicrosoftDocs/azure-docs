@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="02/29/2016" 
 	ms.author="tdykstra"/>
 
 # How to use Azure table storage with the WebJobs SDK
@@ -22,7 +22,7 @@
 
 This guide provides C# code samples that show how to read and write Azure storage tables by using [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.
 
-The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md).
+The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md) or to [multiple storage accounts](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 		
 Some of the code snippets show the `Table` attribute used in functions that are [called manually](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), that is, not by using one of the trigger attributes. 
 
@@ -141,7 +141,7 @@ The following code sample uses a `CloudTable` object to add a single entity to t
 		    tableBinding.Execute(insertOperation);
 		}
 
-For more information about how to use the `CloudTable` object, see [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables.md). 
+For more information about how to use the `CloudTable` object, see [How to use Table Storage from .NET](../storage/storage-dotnet-how-to-use-tables.md). 
 
 ## <a id="queues"></a>Related topics covered by the queues how-to article
 

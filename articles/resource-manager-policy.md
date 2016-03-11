@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Resource Manager Policy | Microsoft Azure"
-	description="Describes how to use Azure Resource Manager Policy to prevent violations at different scopes like 			subscription, resource groups or individual resources."
+	description="Describes how to use Azure Resource Manager Policy to prevent violations at different scopes like subscription, resource groups or individual resources."
 	services="azure-resource-manager"
 	documentationCenter="na"
 	authors="ravbhatnagar"
@@ -13,25 +13,39 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/02/2015"
+	ms.date="02/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
 
 Azure Resource Manager now allows you to control access through custom
-policies. A policy represents one or more violations that can be prevented
-at the desired scope. A scope in this case can be a subscription,
-resource group or an individual resource.
+policies. With policies, you can prevent users in your organization from breaking conventions that are needed to manage your organization's resources. 
 
-Policy is a default allow system. A policy is defined through a Policy
-Definition and is applied through a Policy Assignment. Policy
-Assignments lets you control the scope of where a policy can be applied.
+You create policy definitions that describe the actions or resources that are specifically denied. 
+You assign those policy definitions at the desired scope, such as the subscription,
+resource group, or an individual resource. 
 
 In this article, we will explain the basic structure of the policy
 definition language that you can use to create policies. Then we will
 describe how you can apply these policies at different scopes and
-finally we will show some examples on how you can achieve this through
-REST API. PowerShell support will also be added shortly.
+finally we will show some examples of how you can achieve this through
+REST API.
+
+Policy is currently available as a preview.
+
+## How is it different from RBAC?
+
+There are a few key differences between policy and role-based access control, but the first thing to understand is that 
+policies and RBAC work together. To be able to use policy, the user must be authenticated through RBAC. Unlike RBAC, policy is a 
+default allow and explicit deny system. 
+
+RBAC focuses on the actions a **user** can perform at different scopes. 
+For example, a particular user is added to the contributor role for a resource group at the desired scope, so the user can make changes to that 
+resource group. 
+
+Policy focuses on **resource** actions at various scopes. For example, through policies, you can 
+control the types of resources that can be provisioned or restrict the locations in which the 
+resources can be provisioned.
 
 ## Common Scenarios
 
@@ -55,7 +69,7 @@ Using policies, these scenarios can easily be achieved as described below.
 
 Policy definition is created using JSON. It consists of one or more
 conditions/logical operators which define the actions and an effect
-which tells what happens when the conditions are fulfilled.
+which tells what happens when the conditions are fulfilled. The schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 
 Basically, a policy contains the following:
 
@@ -83,10 +97,11 @@ The supported logical operators along with the syntax are listed below:
 | Operator Name		| Syntax		 |
 | :------------- | :------------- |
 | Not			 | "not" : {&lt;condition  or operator &gt;}			 |
-| And			| "allOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
-| Or						 | "anyOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
+| And			| "allOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
+| Or						 | "anyOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
 
-Nested conditions are not supported.
+Resource Manager enables you to specify complex logic in your policy through nested operators. For example, you can deny resource creation in a particular location for a specified resource type. An example of nested 
+operators is shown below.
 
 ## Conditions
 
@@ -100,18 +115,47 @@ A condition evaluates whether a **field** or **source** meets certain criteria. 
 | In						| "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey	 | "containsKey" : "&lt;keyName&gt;" |
 
-
 ## Fields and Sources
 
-Conditions are formed through the use of fields and sources. A field represents properties in the resource request payload. A source represents characteristics of the request itself. 
+Conditions are formed through the use of fields and sources. A field represents properties in the resource request payload that is used to describe the state of the resource. A source represents characteristics of the request itself. 
 
 The following fields and sources are supported:
 
-Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
+Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **property alias**. 
 
 Sources: **action**. 
 
-To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). 
+Property alias is a name that can be used in policy defniniton to access the resource type specific properties, such as settings, and skus. It works across all api versions that the property exists. Aliases can be retrieved using the REST API below ( Powershell support will be added in the future):
+
+    GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+	
+The defintion of an alias looks like below. As you can see, a alias defines pathes in different api versions, even when there is a property name change. 
+
+    "aliases": [
+      {
+        "name": "Microsoft.Storage/storageAccounts/sku.name",
+        "paths": [
+          {
+            "path": "Properties.AccountType",
+            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
+          }
+        ]
+      }
+    ]
+
+Currently, the supported aliases are:
+
+| Alias name | Description |
+| ---------- | ----------- |
+| {resourceType}/sku.name | Supported resource types are: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
+| Microsoft.Cache/Redis/enableNonSslPort |  |
+| Microsoft.Cache/Redis/shardCount |  |
+
+
+To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). Currently, policy only works on PUT requests. 
+
 
 ## Policy Definition Examples
 
@@ -187,6 +231,35 @@ will be denied.
       }
     }
 
+### Use Approved SKUs
+
+The below example shows the use of property alias to restrict SKUs. In the example below, only Standard_LRS and Standard_GRS is approved to use for storage accounts.
+
+    {
+      "if": {
+        "allOf": [
+          {
+            "source": "action",
+            "like": "Microsoft.Storage/storageAccounts/*"
+          },
+          {
+            "not": {
+              "allof": [
+                {
+                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "in": ["Standard_LRS", "Standard_GRS"]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+    
+
 ### Naming Convention
 
 The below example shows the use of wildcard which is supported by the condition
@@ -203,6 +276,30 @@ the request.
       "then" : {
         "effect" : "deny"
       }
+    }
+    
+### Tag requirement just for Storage resources
+
+The below example shows how to nest logical operators to require an application tag for only Storage resources.
+
+    {
+        "if": {
+            "allOf": [
+              {
+                "not": {
+                  "field": "tags",
+                  "containsKey": "application"
+                }
+              },
+              {
+                "source": "action",
+                "like": "Microsoft.Storage/*"
+              }
+            ]
+        },
+        "then": {
+            "effect": "audit"
+        }
     }
 
 ## Policy Assignment
@@ -317,3 +414,17 @@ If you want to remove the above policy assignment, you can do it as follows:
 You can get, change or remove policy definitions through Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition and Remove-AzureRmPolicyDefinition cmdlets respectively.
 
 Similarly, you can get, change or remove policy assignments through the Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment and Remove-AzureRmPolicyAssignment cmdlets respectively.
+
+##Policy Audit Events
+
+After you have applied your policy, you will begin to see policy-related events. You can either go to portal or use PowerShell to get this data. 
+
+To view all events that related to deny effect, you can use the following command. 
+
+    Get-AzureRmLog | where {$_.subStatus -eq "Forbidden"}     
+
+To view all events related to audit effect, you can use the following command. 
+
+    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
+    
+
