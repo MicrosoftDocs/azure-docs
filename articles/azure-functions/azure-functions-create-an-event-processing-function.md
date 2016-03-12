@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create your first Azure Function | Microsoft Azure"
+   pageTitle="Create an event processing Azure Function | Microsoft Azure"
    description="Build your first Azure Function, a serverless application, in less than two minutes."
    services="app-service"
    documentationCenter="dev-center-name"
@@ -17,3 +17,9 @@
    ms.workload="na"
    ms.date="03/09/2016"
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
+   
+   # Create an event processing Azure Function
+   
+   [AZURE.INCLUDE [Getting Started Note](../../includes/azure-functions-getting-started.md)]
+
+   [AZURE.VIDEO []()]
