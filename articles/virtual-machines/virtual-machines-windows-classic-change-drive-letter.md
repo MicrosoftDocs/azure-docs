@@ -34,8 +34,6 @@ First, you'll need to attach the data disk to the virtual machine.
 - To use the portal, see [How to attach a data disk in the Azure portal](virtual-machines-linux-attach-disk-portal.md)
 - To use the classic portal, see [How to attach a data disk to a Windows virtual machine](virtual-machines-windows-classic-attach-disk.md). 
 
-If you want to use an existing data disk, make sure you've also uploaded the VHD to the Storage account. For instructions, see steps 3 and 4 in [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md). 
-
 
 ## Temporarily move pagefile.sys to C drive
 
