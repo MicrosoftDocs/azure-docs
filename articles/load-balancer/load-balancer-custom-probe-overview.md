@@ -26,7 +26,11 @@ TCP or HTTP custom probes must be configured when you use virtual machines behin
 
 ## Understand probe count and timeout
 
-Probe behavior depends on the number of successful/failed probes that are required to mark an instance up/down. This is determined by SuccessFailCount=timeout/frequency. For the Azure portal, the timeout is set to two times the value of frequency (timeout= frequency*2).
+Probe behavior depends on:
+- The number of successful probes that allow an instance to be labeled as running.
+- The number of failed probes that cause an instance to be labeled as not running.
+
+The timeout and frequency value set in  SuccessFailCount determine whether an instance is determined to be running or not running. In the Azure portal, the timeout is set to two times the value of the frequency.
 
 The probe configuration of all load-balanced instances for an endpoint (that is, a load-balanced set) must be the same. This means you cannot have a different probe configuration for each role instance or virtual machine in the same hosted service for a particular endpoint combination. For example, each instance must have identical local ports and timeouts.
 
@@ -62,7 +66,7 @@ This can be useful if you want to implement your own logic to remove instances f
 
 - The HTTP application returns an HTTP response code other than 200 (for example, 403, 404, or 500). This is a positive acknowledgment that the application instance should be taken out of service right away.
 
--  The HTTP server does not respond at all after the timeout period. Depending on the timeout value that is set, this might mean that multiple probe requests go unanswered before the probe gets marked as being down (that is, before SuccessFailCount probes are sent).
+-  The HTTP server does not respond at all after the timeout period. Depending on the timeout value that is set, this might mean that multiple probe requests go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
 - 	The server closes the connection via a TCP reset.
 
 ### TCP custom probe
@@ -71,7 +75,7 @@ TCP probes initiate a connection by performing a three-way handshake with the de
 
 ### What makes a TCP custom probe mark an instance as unhealthy?
 
-- The TCP server does not respond at all after the timeout period. When the probe is marked as down depends on the number of failed probe requests that were configured to go unanswered before marking the probe as down.
+- The TCP server does not respond at all after the timeout period. When the probe is marked as not running depends on the number of failed probe requests that were configured to go unanswered before marking the probe as not running.
 - 	The probe receives a TCP reset from the role instance.
 
 For more information about configuring an HTTP health probe or a TCP probe, see [Get started creating an Internet-facing load balancer in Resource Manager using PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
@@ -81,7 +85,7 @@ For more information about configuring an HTTP health probe or a TCP probe, see 
 TCP and HTTP probes are considered healthy and mark the role instance as healthy when:
 
 -  Load Balancer gets a positive probe the first time the VM boots.
-- The number SuccessFailCount (described earlier) defines the value of successful probes that are required to mark the role instance as healthy. If a role instance was removed, the number of successful, successive probes must equal or exceed the value of SuccessFailCount to mark the role instance as UP.
+- The number SuccessFailCount (described earlier) defines the value of successful probes that are required to mark the role instance as healthy. If a role instance was removed, the number of successful, successive probes must equal or exceed the value of SuccessFailCount to mark the role instance as running.
 
 >[AZURE.NOTE] If the health of a role instance is fluctuating, Load Balancer waits longer before putting the role instance back in the healthy state. This is done via policy to protect the user and the infrastructure.
 
