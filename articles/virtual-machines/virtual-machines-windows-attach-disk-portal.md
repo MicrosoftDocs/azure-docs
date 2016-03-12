@@ -25,7 +25,7 @@
 
 ## <a id="initializeinWS"></a>How to: initialize a new data disk in Windows Server
 
-1. Connect to the virtual machine. For instructions, see [How to log on to a virtual machine running Windows Server][logon].
+1. Connect to the virtual machine. For instructions, see [How to log on to a virtual machine running Windows Server](virtual-machines-windows-log-on.md).
 
 2. After you log on to the virtual machine, open **Server Manager**. In the left pane, select **File and Storage Services**.
 
