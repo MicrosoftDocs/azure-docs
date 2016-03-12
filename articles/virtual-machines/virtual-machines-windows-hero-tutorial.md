@@ -30,9 +30,6 @@ This tutorial shows you how easy it is to create a Windows virtual machine in ju
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 <br>
 
->[AZURE.TIP] When using the portal, if you want your VM to be part of an availability set, you need to create the availability set before or during the creation of the first VM in the set. For more information about creating and using availability sets, see [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
-<br>
-
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-createportal.md).
 
 ## Video walkthrough
@@ -40,6 +37,11 @@ This tutorial shows you how easy it is to create a Windows virtual machine in ju
 Here's a walkthrough of this tutorial.
 
 [AZURE.VIDEO create-a-virtual-machine-running-windows-in-the-azure-preview-portal]
+<br>
+
+>[AZURE.TIP] When using the portal, if you want your VM to be part of an availability set, you need to create the availability set before or during the creation of the first VM in the set. For more information about creating and using availability sets, see [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
+
+
 
 ## Select the Windows virtual machine image
 
