@@ -200,11 +200,11 @@ Job schedules enable you to create recurring jobs within the Batch service. A jo
 
 ### <a name="appkg"></a>Application packages
 
-The [application packages](batch-app-pkg.md) feature provides easy management and deployment of applications to the compute nodes in your pools. With application packages, you can easily upload and manage multiple versions of the applications run by your tasks, including binaries and support files, then automatically deploy one or more of these applications to the compute nodes in your pool.
+The [application packages](batch-application-packages.md) feature provides easy management and deployment of applications to the compute nodes in your pools. With application packages, you can easily upload and manage multiple versions of the applications run by your tasks, including binaries and support files, then automatically deploy one or more of these applications to the compute nodes in your pool.
 
 Batch handles the details of working with Azure Storage in the background to securely store and deploy your application packages to compute nodes, so both your code and your management overhead can be simplified.
 
-To find out more about the application package feature, check out [Application deployment with Azure Batch application packages](batch-app-pkg.md).
+To find out more about the application package feature, check out [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
 ## <a name="files"></a>Files and directories
 

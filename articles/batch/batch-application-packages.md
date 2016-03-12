@@ -28,9 +28,9 @@ In this article, you will learn how to upload and manage application packages us
 
 Application packages can simplify the code in your Batch solution, as well as lower the overhead required in managing the applications your tasks run.
 
-With application packages, your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of these files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide secure access to the files in Azure Storage.
+With application packages, your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of these files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide access to the files in your Azure Storage account.
 
-Batch handles the details of working with Azure Storage in the background to securely store and deploy application packages to compute nodes, so both your code and your management overhead can be simplified.
+Batch handles the details of working with Azure Storage in the background to store and deploy application packages to compute nodes, so both your code and your management overhead can be simplified.
 
 > [AZURE.NOTE] The application packages feature supersedes the "Batch Apps" feature available in previous versions of the service. We recommend that you always use the latest API version when working with Batch. The application packages feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2, and the corresponding [Batch .NET][api_net] library version 3.1.0.
 
@@ -62,7 +62,7 @@ In order to use application packages, you must first link an Azure Storage accou
 
 ![No storage account configured warning in Azure portal][9]
 
-The Batch service uses the associated Storage account for the storage and retrieval of application packages. Once you've linked the two accounts, Batch can automatically--and securely--deploy application packages to your compute nodes. Click the "Storage account settings" button on the *Warning* blade, then click "Storage Account" on the *Storage Account* blade to link an existing storage account to your Batch account.
+The Batch service uses the associated Storage account for the storage and retrieval of application packages. Once you've linked the two accounts, Batch can automatically deploy the packages stored in the linked Storage account to your compute nodes. Click the "Storage account settings" button on the *Warning* blade, then click "Storage Account" on the *Storage Account* blade to link an existing storage account to your Batch account.
 
 ![Choose storage account blade in Azure portal][10]
 
@@ -268,7 +268,14 @@ foreach (ApplicationSummary app in applications)
 
 With application packages, you can more easily provide your customers with the ability to select the applications for their jobs, and specify the exact version to use, when processing jobs with your Batch-enabled service. You might also provide the ability for your customers to upload and track their own applications in your service.
 
+## Next steps
+
+* In the future, the [Batch Management .NET][api_net_mgmt] library will provide programmatic management of application packages in Batch accounts. You may wish to check out [Manage Azure Batch accounts and quotas with Batch Management .NET](batch-management-dotnet.md) to gain familiarity with working with the library.
+
+* The [Batch REST API][api_rest] also provides support for working with application packages. For example, see the [applicationPackageReferences][rest_add_pool_with_packages] element in [Add a pool to an account][rest_add_pool] for specifying packages to install using the REST API. See [Applications][rest_applications] for details on obtaining application information using the Batch REST API.
+
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [storage_pricing]: https://azure.microsoft.com/pricing/details/storage/
@@ -277,18 +284,19 @@ With application packages, you can more easily provide your customers with the a
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_cloudpool_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.applicationpackagereferences.aspx
 [net_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationpackagereference.aspx
-[rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
+[rest_applications]: https://msdn.microsoft.com/library/azure/mt643945.aspx
+[rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
+[rest_add_pool_with_packages]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_apkgreference
 
-
-[1]: ./media/batch-app-pkg/app_pkg_01.png "Application packages high-level diagram"
-[2]: ./media/batch-app-pkg/app_pkg_02.png "Applications tile in Azure portal"
-[3]: ./media/batch-app-pkg/app_pkg_03.png "Applications blade in Azure portal"
-[4]: ./media/batch-app-pkg/app_pkg_04.png "Application details blade in Azure portal"
-[5]: ./media/batch-app-pkg/app_pkg_05.png "New application blade in Azure portal"
-[6]: ./media/batch-app-pkg/app_pkg_06.png "Applications list blade in Azure portal"
-[7]: ./media/batch-app-pkg/app_pkg_07.png "Update or delete packages drop-down in Azure portal"
-[8]: ./media/batch-app-pkg/app_pkg_08.png "New application package blade in Azure portal"
-[9]: ./media/batch-app-pkg/app_pkg_09.png "No linked Storage account alert"
-[10]: ./media/batch-app-pkg/app_pkg_10.png "Choose storage account blade in Azure portal"
-[11]: ./media/batch-app-pkg/app_pkg_11.png "Update package blade in Azure portal"
-[12]: ./media/batch-app-pkg/app_pkg_12.png "Delete package confirmation dialog in Azure portal"
+[1]: ./media/batch-application-packages/app_pkg_01.png "Application packages high-level diagram"
+[2]: ./media/batch-application-packages/app_pkg_02.png "Applications tile in Azure portal"
+[3]: ./media/batch-application-packages/app_pkg_03.png "Applications blade in Azure portal"
+[4]: ./media/batch-application-packages/app_pkg_04.png "Application details blade in Azure portal"
+[5]: ./media/batch-application-packages/app_pkg_05.png "New application blade in Azure portal"
+[6]: ./media/batch-application-packages/app_pkg_06.png "Applications list blade in Azure portal"
+[7]: ./media/batch-application-packages/app_pkg_07.png "Update or delete packages drop-down in Azure portal"
+[8]: ./media/batch-application-packages/app_pkg_08.png "New application package blade in Azure portal"
+[9]: ./media/batch-application-packages/app_pkg_09.png "No linked Storage account alert"
+[10]: ./media/batch-application-packages/app_pkg_10.png "Choose storage account blade in Azure portal"
+[11]: ./media/batch-application-packages/app_pkg_11.png "Update package blade in Azure portal"
+[12]: ./media/batch-application-packages/app_pkg_12.png "Delete package confirmation dialog in Azure portal"
