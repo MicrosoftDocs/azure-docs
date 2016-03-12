@@ -34,7 +34,7 @@ Batch handles the details of working with Azure Storage in the background to sto
 
 > [AZURE.NOTE] The application packages feature supersedes the "Batch Apps" feature available in previous versions of the service. We recommend that you always use the latest API version when working with Batch. The application packages feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2, and the corresponding [Batch .NET][api_net] library version 3.1.0.
 
-## Applications and application packages
+## About applications and application packages
 
 Within Azure Batch, an **application** refers to a set of versioned binaries that can be automatically downloaded to the compute nodes in your pool. An **application package** refers to a *specific set* of those binaries, and represents a given *version* of the application.
 
@@ -52,9 +52,9 @@ An application package is a ZIP file containing the application binaries and sup
 
 ## Upload and manage applications
 
-Using the Azure portal, you can add, update, and delete application packages, and configure default versions for each application. While application management is supported only in the Azure portal at the time of this writing, additional methods including programmatic management using the [Batch Management .NET](batch-management-dotnet.md) library will be supported in the future.
+Using the Azure portal, you can add, update, and delete application packages, and configure default versions for each application. At this time, these operations are supported only in the Azure portal.
 
-In the next few sections, we'll first cover associating a Storage account with your Batch account, then review the package management features available in the Azure portal. After that, you'll learn how to deploy these packages to compute nodes.
+In the next few sections, we'll first cover associating a Storage account with your Batch account, then review the package management features available in the Azure portal. After that, you'll learn how to deploy these packages to compute nodes using the [Batch .NET][api_net] library.
 
 ### Link a Storage account
 
@@ -270,9 +270,9 @@ With application packages, you can more easily provide your customers with the a
 
 ## Next steps
 
-* In the future, the [Batch Management .NET][api_net_mgmt] library will provide programmatic management of application packages in Batch accounts. You may wish to check out [Manage Azure Batch accounts and quotas with Batch Management .NET](batch-management-dotnet.md) to gain familiarity with working with the library.
-
 * The [Batch REST API][api_rest] also provides support for working with application packages. For example, see the [applicationPackageReferences][rest_add_pool_with_packages] element in [Add a pool to an account][rest_add_pool] for specifying packages to install using the REST API. See [Applications][rest_applications] for details on obtaining application information using the Batch REST API.
+
+* Learn how to programmatically [manage Azure Batch accounts and quotas with Batch Management .NET](batch-management-dotnet.md). The [Batch Management .NET][api_net_mgmt] library can enable account creation and deletion features for your Batch application or service.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
