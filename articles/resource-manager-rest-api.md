@@ -47,6 +47,7 @@ In order to authenticate you need to have the following information:
 In the below HTTP request make sure to replace "Azure AD Tenant ID", "Application ID" and "Password" with the correct values.
 
 **Generic HTTP Request:**
+
 ```HTTP
 POST /<Azure AD Tenant ID>.onmicrosoft.com/oauth2/token?api-version=1.0 HTTP/1.1 HTTP/1.1
 Host: login.microsoftonline.com
@@ -57,6 +58,7 @@ grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net
 ```
 
 ... will (if authentication succeeds) result in a similar response to this:
+
 ```json
 {
   "token_type": "Bearer",
@@ -70,10 +72,13 @@ grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net
 (The access_token in the above response have been shortened to increase readability)
 
 **Generating access token using Bash:**
+
 ```console
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0
 ```
+
 **Generating access token using Powershell:**
+
 ```powersell
 Invoke-RestMethod -Uri https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0 -Method Post
  -Body @{"grant_type" = "client_credentials"; "resource" = "https://management.core.windows.net/"; "client_id" = "<application id>"; "client_secret" = "<password you selected for authentication>" }
@@ -93,15 +98,18 @@ As you can see from the above HTTP Result, the token is valid for a specific per
 One of the most simple operations you can do is to list the available subscriptions that you can access. In the below request you can see how the Access Token is passed in as a header.
 
 (Replace YOUR_ACCESS_TOKEN with your actual Access Token.)
+
 ```HTTP
 GET /subscriptions?api-version=2015-01-01 HTTP/1.1
 Host: management.azure.com
 Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 ```
+
 ... and as a result, you'll get a list of subscriptions that this Service Principal is allowed to access
 
 (Subscription IDs below have been shortened for readability)
+
 ```json
 {
   "value": [
@@ -124,15 +132,18 @@ Content-Type: application/json
 All resources available with the ARM APIs are nested inside a Resource Group. We are going to query ARM for existing Resource Groups in our subscription using the below HTTP GET Request. Notice how the Subscription ID is passed in as part of the URL this time.
 
 (Replace YOUR_ACCESS_TOKEN and SUBSCRIPTION_ID with your actual Access Token and Subscription ID)
+
 ```HTTP
 GET /subscriptions/SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01 HTTP/1.1
 Host: management.azure.com
 Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 ```
+
 The response you'll get will depend weather you have any resource groups defined and if so, how many.
 
 (Subscription IDs below have been shortened for readability)
+
 ```json
 {
     "value": [
@@ -164,6 +175,7 @@ The response you'll get will depend weather you have any resource groups defined
 So far we've only been querying the ARM APIs for information, it's time we create some resources instead and let's start by the most simple of them all, a resource group. The following HTTP request creates a new Resource Group in a region/location of your choice and adds one or more tags to it (the sample below actually only adds one tag).
 
 (Replace YOUR_ACCESS_TOKEN, SUBSCRIPTION_ID, RESOURCE_GROUP_NAME with your actual Access Token, Subscription ID and name of the Resource Group you want to create)
+
 ```HTTP
 PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME?api-version=2015-01-01 HTTP/1.1
 Host: management.azure.com
@@ -177,7 +189,9 @@ Content-Type: application/json
   }
 }
 ```
+
 If successful, you'll get a similar response to this
+
 ```json
 {
   "id": "/subscriptions/3a8555...555995/resourceGroups/RESOURCE_GROUP_NAME",
@@ -191,6 +205,7 @@ If successful, you'll get a similar response to this
   }
 }
 ```
+
 You've successfully created a Resource Group in Azure. Congratulations!
 
 ### Deploy resources to a Resource Group using an ARM Template
@@ -202,6 +217,7 @@ Deployment of an ARM template doesn't differ much to how you call other APIs. On
 For this example, we'll use a publicly exposed ARM Template available on [GitHub](https://github.com/Azure/azure-quickstart-templates). The template we are going to use will deploy a Linux VM to the West US region. Even though this template will have the template available in a public repository like GitHub, you can also select to pass the full template as part of the request. Note that we provide parameter values as part of the request that will be used inside the used template.
 
 (Replace SUBSCRIPTION_ID, RESOURCE_GROUP_NAME, DEPLOYMENT_NAME, YOUR_ACCESS_TOKEN, GLOBALY_UNIQUE_STORAGE_ACCOUNT_NAME, ADMIN_USER_NAME,ADMIN_PASSWORD and DNS_NAME_FOR_PUBLIC_IP to values appropriate for your request)
+
 ```HTTP
 PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.resources/deployments/DEPLOYMENT_NAME?api-version=2015-01-01 HTTP/1.1
 Host: management.azure.com
@@ -235,5 +251,6 @@ Content-Type: application/json
   }
 }
 ```
+
 The quite long JSON response for this request have been omitted in order to improve readability of this documentation. The response will contain information about the templated deployment that you just created.
 
