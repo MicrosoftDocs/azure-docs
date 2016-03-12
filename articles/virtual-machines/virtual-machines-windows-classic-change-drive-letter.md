@@ -111,10 +111,6 @@ First, you'll need to attach the data disk to the virtual machine.
 ## Additional resources
 - [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-- [How to log on to a virtual machine running Windows Server](virtual-machines-windows-classic-connect-logon.md)
-
-- [How to detach a data disk from a Windows virtual machine](virtual-machines-windows-classic-detach-disk.md)
-
 - [About Azure Storage accounts](..storage/storage-create-storage-account.md)
 
 
