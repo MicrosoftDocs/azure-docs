@@ -24,13 +24,13 @@ Azure offers different ways to create a virtual machine because virtual machines
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 
-## GUI: Azure portal
+## Azure portal
 
 Using the Azure portal is a simple way to try out a virtual machine, especially if you're just starting out with Azure. 
 
 [Create a virtual machine running Windows using the portal](virtual-machines-windows-hero-tutorial.md)
 
-## Command shell: Azure CLI or Azure PowerShell
+## Azure PowerShell
 
 If you prefer working in a command shell, you can use Azure PowerShell.
 
@@ -43,7 +43,7 @@ Virtual machines require a combination of resources (such as a availability sets
 
 - [Create a Windows virtual machine with a Resource Manager template](virtual-machines-windows-ps-template.md)
 
-## Development environment: Visual Studio
+## Visual Studio
 
 [Deploy Azure resources using the Compute, Network, and Storage .NET libraries](virtual-machines-windows-csharp.md)
 
