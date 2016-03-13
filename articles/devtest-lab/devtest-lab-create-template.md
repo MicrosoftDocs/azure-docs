@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create a Custom Image from a VHD file | Microsoft Azure"
+	pageTitle="Create a DevTest Lab custom image from a VHD file | Microsoft Azure"
 	description="Learn how to create a custom image from a VHD file, which can then be used to create VMs in a DevTest Lab"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
@@ -16,7 +16,7 @@
 	ms.date="03/13/2016"
 	ms.author="tarcher"/>
 
-# Create custom images
+# Create a DevTest Lab custom image from a VHD file
 
 ## Overview
 
