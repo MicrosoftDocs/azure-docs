@@ -101,21 +101,30 @@ also go back to [view or modify an artifact](#view-or-modify-an-artifact).
 
 ## Change the order in which artifacts are run
 
-As you add and configure artifacts to your VM, a link showing the current number of artifacts is displayed at the top of the **Add Artifacts** blade. 
 By default, the actions of the artifacts are executed in the order in which they are added to the VM. 
-To change the order in which the artifacts are run, simply drag and drop the artifacts in the list to reflect the desired order, and tap **OK** when done.  
+The following steps illustrate how to change the order in which the artifacts are run.
+
+1. At the top of the **Add Artifacts** blade, tap the link indicating the number of artifacts that have been added to the VM.
+
+    ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+
+1. Drag and drop the artifacts in the list to reflect the desired order. **Note:** If you have
+having trouble dragging the artifact, make sure that you are dragging from the left side of the 
+artifact. 
+
+1. Tap **OK** when done.  
 
 ## View or modify an artifact
 
 The following steps illustrate how to view or modify the parameters of an artifact:
 
-1. At the top of the **Add Artifacts** blade, tap the link indicating how many artifacts have been added to the VM.
+1. At the top of the **Add Artifacts** blade, tap the link indicating the number of artifacts that have been added to the VM.
 
     ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
-1. To view or edit the parameters of a specific artifact, tap that artifact in the **Selected Artifacts** blade.  
+1. On the **Selected Artifacts** blade, tap the artifact that you want to view or edit.  
 
-1. Make any needed changes, and tap **OK** to close the **Add Artifact** blade.
+1. On the **Add Artifact** blade, make any needed changes, and tap **OK** to close the **Add Artifact** blade.
 
 1. Tap **OK** to close the **Selected Artifacts** blade.
 
