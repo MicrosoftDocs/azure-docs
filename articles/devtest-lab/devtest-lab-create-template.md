@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a Custom Image from a VHD | Microsoft Azure"
-	description="Learn how to create custom images from VHD images"
+	pageTitle="Create a Custom Image from a VHD file | Microsoft Azure"
+	description="Learn how to create a custom image from a VHD file, which can then be used to create VMs in a DevTest Lab"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -21,8 +21,9 @@
 ## Overview
 
 After you have [created a DevTest Lab](devtest-lab-create-lab.md), you can [add virtual machines (VMs) to that lab](devtest-lab-add-vm-with-artifacts.md).
-VMs are based on *custom images*, which are created from virtual hard disk (VHD) images.
-Once you've created or obtained access to a VHD image, this article will walk you through uploading it, and creating a custom image from it.
+When you create a VM, you specify a *base*, which can be either a *custom image* or a *Marketplace image*. 
+In this article, you'll see how to create a custom image from a VHD file.
+Note that you'll need access to a valid VHD file to perform all the steps in this article.   
 
 ## Create a Custom Image
 
@@ -46,13 +47,13 @@ Once you've created or obtained access to a VHD image, this article will walk yo
 
 1. Enter the description of the custom image. This description is displayed in the list of base images when creating a new VM.
 
-1. Tap **Image**.
+1. Tap **VHD File**.
 
-1. If you have access to an image that is not listed, add it by following the instructions in the [Upload a VHD image](#upload-a-vhd-image) section, and return here when finished.
+1. If you have access to a VHD file that is not listed, add it by following the instructions in the [Upload a VHD file](#upload-a-vhd-file) section, and return here when finished.
 
-1. Select the desired image.
+1. Select the desired VHD file.
 
-1. Tap **OK** to close the **Image** blade.
+1. Tap **OK** to close the **VHD File** blade.
 
 1. Tap **OS Configuration**.
 
@@ -72,16 +73,16 @@ Once you've created or obtained access to a VHD image, this article will walk yo
 
 1. Go to the [Next Steps](#next-steps) section.
 
-##Upload a VHD image
+##Upload a VHD file
 
-In order to add a new custom image, you'll need to have access to a VHD image file.
+In order to add a new custom image, you'll need to have access to a VHD file.
 
-1. On the **Image** blade, tap **Upload an image using PowerShell**.
+1. On the **VHD File** blade, tap **Upload a VHD file using PowerShell**.
 
     ![Upload image](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
-1. The next blade will display instructions for modifying and running a PowerShell script that uploads to your Azure subscription a VHD image file. 
-**Note:** This process can be lengthy depending on the size of the VHD image file and your connection speed.
+1. The next blade will display instructions for modifying and running a PowerShell script that uploads to your Azure subscription a VHD file. 
+**Note:** This process can be lengthy depending on the size of the VHD file and your connection speed.
 
 ##Next steps
 
