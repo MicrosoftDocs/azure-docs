@@ -50,10 +50,10 @@ Follow the Azure SDK for [Java Features Wiki page](https://github.com/Azure/azur
 of the Java dependency managment tools (Maven, Gradle, Ivy...). Follow this [link](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.azure%22) for a listing of the libraries available in maven.
 
 Alternativly, you grab the sdk directly from source using git. To get the source code of the SDK via git:
-```console
-git clone https://github.com/Azure/azure-sdk-for-java.git
-cd ./azure-sdk-for-java/
-```
+
+    git clone https://github.com/Azure/azure-sdk-for-java.git
+    cd ./azure-sdk-for-java/
+
 (The samples in this overview will use Maven as the source for the SDK packages)
 
 The SDK include samples for some of the scenarios - autentication, provisioning a VM and more. All can be found in the [azure-mgmt-samples](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples) github repo. 
@@ -69,13 +69,13 @@ The SDK includes helper classes for several of the main packages. The helper cla
 * StorageHelper - storage helper class
 
 **Maven dependency information**
-```xml
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-mgmt-utility</artifactId>
-    <version>0.9.1</version>
-</dependency>
-```
+
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>azure-mgmt-utility</artifactId>
+      <version>0.9.1</version>
+    </dependency>
+
 This will use the 0.9.1 version of the utility package. 
 
 ## Authentication
@@ -97,17 +97,17 @@ uses the AuthHelper *getAccessTokenFromServicePrincipalCredentials* method to ob
 
 ```java
 public static Configuration createConfiguration() throws Exception {
-        String baseUri = System.getenv("arm.url");
+   String baseUri = System.getenv("arm.url");
 
-        return ManagementConfiguration.configure(
-                null,
-                baseUri != null ? new URI(baseUri) : null,
-                System.getenv(ManagementConfiguration.SUBSCRIPTION_ID),
-                AuthHelper.getAccessTokenFromServicePrincipalCredentials(
-                        System.getenv(ManagementConfiguration.URI), System.getenv("arm.aad.url"),
-                        System.getenv("arm.tenant"), System.getenv("arm.clientid"),
-                        System.getenv("arm.clientkey"))
-                        .getAccessToken());
+   return ManagementConfiguration.configure(
+         null,
+         baseUri != null ? new URI(baseUri) : null,
+         System.getenv(ManagementConfiguration.SUBSCRIPTION_ID),
+         AuthHelper.getAccessTokenFromServicePrincipalCredentials(
+                  System.getenv(ManagementConfiguration.URI), System.getenv("arm.aad.url"),
+                  System.getenv("arm.tenant"), System.getenv("arm.clientid"),
+                  System.getenv("arm.clientkey"))
+                  .getAccessToken());
 }
 ```
 
@@ -116,6 +116,7 @@ The utility package includes a helper class [ComputeHelper](https://github.com/A
 A few samples for working with virtual machines can be found in the azure-mgmt-samples package under [compute](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/compute).
 
 The follwing is a simple flow for creating a virtual machine. In this example, the helper class will create the sotrage and the netwrok as part of creating the VM:
+
 ```java
 public static void main(String[] args) throws Exception {
         Configuration config = createConfiguration();
@@ -148,6 +149,7 @@ public static void main(String[] args) throws Exception {
 
 ## Deploy a template
 The [ResouceHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/ResourceHelper.java) class was created to ease the process of deploying an ARM template with the Java SDK. 
+
 ```java
 // create a new resource group
 ResourceManagementClient resourceManagementClient = createResourceManagementClient();
@@ -166,6 +168,7 @@ DeploymentExtended deployment = ResourceHelper.createTemplateDeploymentFromURI(
         "1.0.0.0",
         parameters);
 ```
+
 More samples can be found in the samples packages under [templatedeployments](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/templatedeployments).
 
 ## Further Reading and Help
