@@ -61,13 +61,7 @@ Note that you'll need access to a valid VHD file to perform all the steps in thi
 
 1. If **Windows** is selected, specify via the checkbox whether or not *Sysprep* has been run on the machine.
 
-1. Enter a **User name** for the machine.
-
-1. Enter a **Password** for the machine. **Note:** The password will display in clear text.
-
 1. Tap **OK** to close the **OS Configuration** blade.
-
-1. Specify the **Location**.
 
 1. Tap **OK** to create the custom image.
 
