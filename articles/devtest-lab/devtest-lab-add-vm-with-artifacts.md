@@ -83,6 +83,8 @@ and then return here when finished.
 
 While creating a VM, you can add existing artifacts. Each lab includes artifacts from the Public DevTest Lab Artifact Repository as 
 well as artifacts that you've created and added to your own Artifact Repository.
+To learn more about creating artifacts, see the 
+article, [Learn how to author your own artifacts for use with DevTest Labs](devtest-lab-artifact-author.md).
 
 1. On the **Lab VM** blade, tap **Artifacts**. 
 
@@ -131,4 +133,4 @@ The following steps illustrate how to view or modify the parameters of an artifa
 ## Next steps
 
 - Once the VM has been created, you can connect to the VM by tapping **Connect** on the VM's blade.
-- Learn how to [author custom artifacts for your VM](devtest-lab-artifact-author.md).
+- Learn more about creating artifacts, see the article, [Learn how to author your own artifacts for use with DevTest Labs](devtest-lab-artifact-author.md).
