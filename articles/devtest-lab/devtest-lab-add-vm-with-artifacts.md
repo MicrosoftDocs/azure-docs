@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Add a VM with artifacts to a DevTest Lab | Microsoft Azure"
-	description="Create a new virtual machine with Artifacts in DevTest Lab."
+	description="Learn how to add a VM with artifacts to a DevTest Lab"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,20 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/05/2016"
+	ms.date="03/13/2016"
 	ms.author="tarcher"/>
 
-# Add a VM with artifacts to an Azure DevTest Lab
+# Add a VM with artifacts to a DevTest Lab
 
-> [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to create VMs with artifacts in a DevTest Lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) 
+> [AZURE.NOTE] Click the following link to view this article's accompanying 
+video: [How to create VMs with artifacts in a DevTest Lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) 
 
 ## Overview
 
-You create a virtual machine in a DevTest Lab starting with an Azure base image or with an image that you have uploaded to your lab.
+You create a VM in a DevTest Lab from a base image that is either a [custom image](./devtest-lab-create-template.md) or a Marketplace image.
 
-DevTest Lab *artifacts* let you specify actions that are performed when the VM is created. Artifact actions can perform procedures such as running Powershell and Bash commands, and installing software. Artifact *parameters* let you customize the artifact for your particular scenario.
+DevTest Lab *artifacts* let you specify *actions* that are performed when the VM is created. 
 
-Your lab includes artifacts from the Public DevTest Lab Artifact Repository as well as artifacts that are created and added to your own Artifact Repository.
+Artifact actions can perform procedures such as running Windows Powershell scripts, Bash commands, and installing software. 
+
+Artifact *parameters* let you customize the artifact for your particular scenario.
 
 This article shows you how create a VM in your lab with artifacts.
 
@@ -61,35 +64,45 @@ This article shows you how create a VM in your lab with artifacts.
 
 1. Specify whether or not you want the IP address to be public by selecting either **Yes** or **No**. 
 
-1. Tap **Artifacts** and, from the list of artifacts, select and configure the artifacts that you want to add to the base image. **Note:** If you're new to DevTest Labs or configuring artifacts, skip to the [Selecting and configuring an artifact](#configuring-an-artifact) section, and then return here when finished.
+1. Tap **Artifacts** and, from the list of artifacts, select and configure the artifacts that you want to add to the base image. 
+**Note:** If you're new to DevTest Labs or configuring artifacts, skip to the [Add an existing artifact to a VM](#add-an-existing-artifact-to-a-vm) section, 
+and then return here when finished.
 
 1. Tap **Create** to add the specified VM to the lab.
 
-1. The lab blade displays the status of the VM's creation; first as **Creating**, then as **Running** after the VM has been started. To connect to the VM, tap the VM and, from the VM's blade, tap **Connect**.  
+1. The lab blade displays the status of the VM's creation; first as **Creating**, then as **Running** after the VM has been started.
 
-## Select and configure an artifact
+1. Go to the [Next Steps](#next-steps) section. 
 
-While creating a VM, you can add artifacts by tapping **Artifacts** from the **Lab VM** blade. This will display the **Add Artifacts** blade that allows you to add and configure your VM's artifacts from the official DevTest Lab repository (**Official Repo**) and artifacts from the team repository.
+## Add an existing artifact to a VM
+
+While creating a VM, you can add existing artifacts. Each lab includes artifacts from the Public DevTest Lab Artifact Repository as 
+well as artifacts that you've created and added to your own Artifact Repository.
+
+1. On the **Lab VM** blade, tap **Artifacts**. 
+
+1. On the **Add Artifacts** blade, tap the desired artifact.  
 
 ![Add Artifacts blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
 
-**Adding an artifact to a VM**
+1. Enter the required parameter values and any optional parameters that you need.  
 
-Follow these steps for each artifact you want to add to your VM:
+1. Tap **Add** to add the artifact and return to the **Add Artifacts** blade.
 
-1. Tap the desired artifact in the **Add Artifacts** blade to view a blade that enables you to specify the artifact's parameters.  
+1. Continue adding artifacts as needed for your VM.
 
-2. Enter the required parameter values and any optional parameters that you need.  
+1. Once you've added your artifacts, you can [change the order in which the artifacts are run](#change-the-order-in-which-artifacts-are-run). You can 
+also go back to [view or modify an artifact](#view-or-modify-an-artifact).
 
-3. Tap **Add** to add the artifact and return to the **Add Artifacts** blade.
+## Change the order in which artifacts are run
 
-**Changing the order in which artifacts are run**
+As you add and configure artifacts to your VM, a link showing the current number of artifacts is displayed at the top of the **Add Artifacts** blade. 
+By default, the actions of the artifacts are executed in the order in which they are added to the VM. 
+To change the order in which the artifacts are run, simply drag and drop the artifacts in the list to reflect the desired order, and tap **OK** when done.  
 
-As you add and configure artifacts to your VM, a link showing the current number of artifacts is displayed at the top of the **Add Artifacts** blade. By default, the actions of the artifacts are executed in the order in which they are added to the VM. To change the order in which the artifacts are run, simply drag and drop the artifacts in the list, and tap **OK** when done.  
+## View or modify an artifact
 
-**Viewing/Modifing selected artifacts**
-
-Follow these steps to view or modify the parameters of your selected artifacts:
+The following steps illustrate how to view or modify the parameters of an artifact:
 
 1. At the top of the **Add Artifacts** blade, tap the link indicating how many artifacts have been added to the VM.
 
@@ -101,8 +114,7 @@ Follow these steps to view or modify the parameters of your selected artifacts:
 
 1. Tap **OK** to close the **Selected Artifacts** blade.
 
-1. Tap **OK** to close the **Add Artifacts** blade.      
-
 ## Next steps
 
+- Once the VM has been created, you can connect to the VM by tapping **Connect** on the VM's blade.
 - Learn how to [author custom artifacts for your VM](devtest-lab-artifact-author.md).
