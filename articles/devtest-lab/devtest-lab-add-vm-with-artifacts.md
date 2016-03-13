@@ -50,14 +50,14 @@ This article shows you how create a VM in your lab with artifacts.
 
     ![Lab VM settings](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-lab-vm-blade-1.png)  
 
-1. After selecting a base image and tapping **OK**, the **Lab VM** blade will expand to 
-include UI elements for specifying **User Name**, **Authentication Type**, and **Password** (assuming an authentication type of **Password**. 
+1. After selecting a base image and tapping **OK**, the **Lab VM** blade will expand to include UI elements for specifying user account information, including 
+**User Name**, **Authentication Type** (if the OS type for the selected base is Linux), and **Password** (assuming an authentication type of *Password*).
 
     ![Expanded Lab VM blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-lab-vm-blade-2.png)
 
 1. Enter a **User Name** that will be granted administrator privileges on the virtual machine.  
 
-1. Specify an authentication type of either **Password** or **SSH Public Key**.
+1. If the OS type of the selected base is Linux, specify an authentication type of either *Password* or *SSH Public Key*.
 
 1. Depending on the authentication type specified, enter either a password or SSH public key.
 
@@ -67,7 +67,8 @@ include UI elements for specifying **User Name**, **Authentication Type**, and *
 
 1. Tap **Subnet** and select subnet.
 
-1. Specify whether or not you want the IP address to be public by selecting either **Yes** or **No**. 
+1. If the lab policy is set to allow public IP addresses for the selected subnet, specify whether or not you want the IP address to be public by 
+selecting either **Yes** or **No**. Otherwise, this option is disabled and selected as **No**. 
 
 1. Tap **Artifacts** and, from the list of artifacts, select and configure the artifacts that you want to add to the base image. 
 **Note:** If you're new to DevTest Labs or configuring artifacts, skip to the [Add an existing artifact to a VM](#add-an-existing-artifact-to-a-vm) section, 
