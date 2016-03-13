@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="03/05/2016"
 	ms.author="tarcher"/>
 
 # Add a VM with artifacts to an Azure DevTest Lab
@@ -28,11 +28,11 @@ DevTest Lab *artifacts* let you specify actions that are performed when the VM i
 
 Your lab includes artifacts from the Public DevTest Lab Artifact Repository as well as artifacts that are created and added to your own Artifact Repository.
 
-This article shows you how create a VM in your lab using artifacts.
+This article shows you how create a VM in your lab with artifacts.
 
 ## Add a VM with artifacts
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -47,13 +47,19 @@ This article shows you how create a VM in your lab using artifacts.
 
     ![Lab VM settings](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-lab-vm-blade-1.png)  
 
-1. After selecting a base image, the **Lab VM** blade will expand to include the **User Name** and **Password** items. Enter a **User Name** that will be granted administrator privileges on the virtual machine.  
+1. After selecting a base image and tapping **OK**, the **Lab VM** blade will expand to include the **User Name** and **Password** items. Enter a **User Name** that will be granted administrator privileges on the virtual machine.  
 
     ![Expanded Lab VM blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-lab-vm-blade-2.png)
 
 1. Enter a **Password**.
 
 1. Tap **VM Size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
+
+1. Tap **Virtual network** and select the desired VNET.
+
+1. Tap **Subnet** and select subnet.
+
+1. Specify whether or not you want the IP address to be public by selecting either **Yes** or **No**. 
 
 1. Tap **Artifacts** and, from the list of artifacts, select and configure the artifacts that you want to add to the base image. **Note:** If you're new to DevTest Labs or configuring artifacts, skip to the [Selecting and configuring an artifact](#configuring-an-artifact) section, and then return here when finished.
 
