@@ -27,7 +27,7 @@ You create a VM in a DevTest Lab from a base image that is either a [custom imag
 
 DevTest Lab *artifacts* let you specify *actions* that are performed when the VM is created. 
 
-Artifact actions can perform procedures such as running Windows Powershell scripts, Bash commands, and installing software. 
+Artifact actions can perform procedures such as running Windows Powershell scripts, running Bash commands, and installing software. 
 
 Artifact *parameters* let you customize the artifact for your particular scenario.
 
@@ -50,11 +50,16 @@ This article shows you how create a VM in your lab with artifacts.
 
     ![Lab VM settings](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-lab-vm-blade-1.png)  
 
-1. After selecting a base image and tapping **OK**, the **Lab VM** blade will expand to include the **User Name** and **Password** items. Enter a **User Name** that will be granted administrator privileges on the virtual machine.  
+1. After selecting a base image and tapping **OK**, the **Lab VM** blade will expand to 
+include UI elements for specifying **User Name**, **Authentication Type**, and **Password** (assuming an authentication type of **Password**. 
 
     ![Expanded Lab VM blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-lab-vm-blade-2.png)
 
-1. Enter a **Password**.
+1. Enter a **User Name** that will be granted administrator privileges on the virtual machine.  
+
+1. Specify an authentication type of either **Password** or **SSH Public Key**.
+
+1. Depending on the authentication type specified, enter either a password or SSH public key.
 
 1. Tap **VM Size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
 
