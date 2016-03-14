@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Create Active Directory application and service principal using portal
@@ -85,9 +85,17 @@ When programmatically accessing your application, you will need the id for your 
   
    ![client id][5]
 
-In some cases, you need to pass the tenant id with your authentication request. You can retrieve the tenant id by selecting **View endpoints** at the bottom of the screen and retrieving the id as shown below.
+In some cases, you need to pass the tenant id with your authentication request. For Web Apps and Web API Apps, you can retrieve the tenant id by selecting **View endpoints** at the bottom of the screen and retrieving the id as shown below.  
 
    ![tenant id](./media/resource-group-create-service-principal-portal/save-tenant.png)
+
+Endpoints are not available for Native Client Applications. Instead, you can retrieve the tenant id through PowerShell:
+
+    PS C:\> Get-AzureRmSubscription
+
+Or, Azure CLI:
+
+    azure account show --json
 
 ## Create an authentication key
 

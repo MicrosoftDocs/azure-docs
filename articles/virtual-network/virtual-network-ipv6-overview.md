@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="03/04/2016"
    ms.author="telmos" />
 
 # IPv6 support in Azure
 
 The IPv6 protocol was initially introduced in 1998 by the Internet Engineering Task Force (IETF) to address the limitation of 32-bit IPv4 addresses on the public Internet. With the increased number of Internet-connected mobile devices, and the rise of the Internet of Things (IoT), IPv6 addresses are becoming more frequent on the public Internet.
+
+>[AZURE.IMPORTANT] IPv6 in Azure is currently in private preview, and it is not available for all customers. This page will be updated once the feature becomes available to all customers.
 
 You can use IPv6 addresses on your Azure IaaS VMs in Resource Manager deployments for outbound and inbound connectivity to the public Internet. The following list describes the IPv6 capabilities in Azure.
 
@@ -47,10 +49,9 @@ You can host IPv6 AAAA records in Azure DNS. When Azure DNS receives a query for
 
 ## Office 365
 
-You can use IPv6 connectivity between your on-premises network and Office365 by using an ExpressRoute circuit and Microsoft peering. Make sure you understand [how ExpressRoute works](expressroute-introduction.md) in connection with Microsoft peering.
+You can use IPv6 connectivity between your on-premises network and Office365 by using an ExpressRoute circuit and Microsoft peering. Make sure you understand [how ExpressRoute works](../expressroute/expressroute-introduction.md) in connection with Microsoft peering.
 
 ## Next steps
 
-- [Implement IPv6](virtual-network-deploy-ipv6-arm-ps.md) in Resource Manager.
-- Learn about [Azure DNS](dns-overview.md).
-- Learn about [ExpressRoute](expressroute-introduction.md).
+- Learn about [Azure DNS](../dns/dns-overview.md).
+- Learn about [ExpressRoute](../expressroute/expressroute-introduction.md).
