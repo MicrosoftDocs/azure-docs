@@ -22,7 +22,7 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 
 ## Use the Deploy Database to Microsoft Azure Database Wizard
 
-> [AZURE.NOTE] The steps below assume that you have a [provisioned SQL Database server](..//learning-paths/sql-database-training-learn-sql-database.md).
+> [AZURE.NOTE] The steps below assume that you have a [provisioned SQL Database server](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/).
 
 1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
 
