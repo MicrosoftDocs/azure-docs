@@ -74,7 +74,7 @@ Note that is only related to  the single-host TP1 “POC” installation. We add
 
 ## Where can I find the Product Key to enter during Boot from VHD?
 
-You can use [this Datacenter key](https://technet.microsoft.com/en-us/library/mt126134.aspx).
+You can use [this Datacenter key](https://technet.microsoft.com/library/mt126134.aspx).
 
 This can be done during the first boot from VHD, or after installation (if you opt out during the first boot).
 
