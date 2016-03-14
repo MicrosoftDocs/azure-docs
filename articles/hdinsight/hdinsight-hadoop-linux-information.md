@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="03/14/2016"
    ms.author="larryfr"/>
 
 # Information about using HDInsight on Linux
@@ -219,7 +219,6 @@ Script Actions are Bash scripts that are ran during cluster provisioning, and ca
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
 * [R](hdinsight-hadoop-r-scripts-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
-* [Spark](hdinsight-hadoop-spark-install-linux.md)
 
 For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
 

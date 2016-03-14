@@ -24,7 +24,6 @@ Learn how to install Spark on Windows based HDInsight using Script Action, and h
 
 
 **Related articles**
-- [Install Spark on Linux-based HDInsight clusters](hdinsight-hadoop-spark-install-linux.md).
 
 - [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): general information on creating HDInsight clusters.
 

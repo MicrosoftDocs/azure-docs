@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/04/2016"
+    ms.date="03/14/2016"
     ms.author="larryfr"/>
 
 # Script Action development with HDInsight
@@ -228,6 +228,6 @@ For the above command, replace __INFILE__ with the file containing the BOM. __OU
 
 * Learn how to [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
 
-* Use the [HDInsight .NET SDK reference](https://msdn.microsoft.com/en-us/library/mt271028.aspx) to learn more about creating .NET applications that manage HDInsight
+* Use the [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx) to learn more about creating .NET applications that manage HDInsight
 
-* Use the [HDInsight REST API](https://msdn.microsoft.com/en-us/library/azure/mt622197.aspx) to learn how to use REST to perform management actions on HDInsight clusters.
+* Use the [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) to learn how to use REST to perform management actions on HDInsight clusters.
