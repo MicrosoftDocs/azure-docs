@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -667,23 +667,23 @@ The following code shows how to use the push object to send a broadcast push not
 	    // Send a push notification using APNS.
         context.push.apns.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error. 
-	        }           
+                // Do something or log the error.
+	        }
         });
     }
 
 By creating a template push registration from the client, you can instead send a template push message to devices on all supported platforms. The following code shows how to send a template notification:
 
 	// Define the template payload.
-	var payload = '{"messageParam": "This is a template payload."}'; 
+	var payload = '{"messageParam": "This is a template payload."}';
 
     // Only do the push if configured
     if (context.push) {
 		// Send a template notification.
         context.push.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
@@ -696,18 +696,21 @@ When an authenticated user registers for push notifications, a user ID tag is au
 		// Send a notification to the current user.
         context.push.send(context.user.id, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
-When registering for push notifications from an authenticated client, make sure that authentication is complete before attempting registration. 
+When registering for push notifications from an authenticated client, make sure that authentication is complete before attempting registration.
 
 ## <a name="CustomAPI"></a>Overview: Custom APIs
 
-In addition to the data access API via the /tables endpoint, Azure Mobile Apps can provide custom API coverage.  Custom APIs are defined in a similar way to the table definitions and can access all the same facilities, including authentication.
+In addition to the data access API via the /tables endpoint, Azure Mobile Apps can provide custom API coverage.  Custom
+APIs are defined in a similar way to the table definitions and can access all the same facilities, including authentication.
 
-If you wish to use App Service Authentication with a Custom API, you must configure App Service Authentication in the [Azure Portal] first.  For more details about configuring authentication in an  Azure App Service, review the Configuration Guide for the identity provider you intend to use:
+If you wish to use App Service Authentication with a Custom API, you must configure App Service Authentication
+in the [Azure Portal] first.  For more details about configuring authentication in an  Azure App Service, review
+the Configuration Guide for the identity provider you intend to use:
 
 - [How to configure Azure Active Directory Authentication]
 - [How to configure Facebook Authentication]
@@ -843,13 +846,11 @@ parameterized SQL statements to the defined data provider easily:
     api.get.access = 'authenticated';
     module.exports = api;
 
-
-
 ## <a name="Debugging"></a><a name="howto-diagnostic-logs"></a>How to: Debug, Diagnose and Troubleshoot Azure Mobile Apps
 
-
 The Azure App Service provides several debugging and troubleshooting techniques for Node.js applications.
-All of these techniques are available:
+Refer to the following articles to get started in troubleshooting your Node.js Mobile backend:
+
 - [Monitoring an Azure App Service]
 - [Enable Diagnostic Logging in Azure App Service]
 - [Toubleshoot an Azure App Service in Visual Studio]
@@ -901,7 +902,7 @@ The Azure portal lets you edit your Node.js backend script files in Visual Studi
 [3]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-config.png
 [4]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-authconfig.png
 [5]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-newuser-1.png
-[6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
+[6]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/dotnet-backend-create-db.png
 
 <!-- URLs -->
 [Android Client QuickStart]: app-service-mobile-android-get-started.md

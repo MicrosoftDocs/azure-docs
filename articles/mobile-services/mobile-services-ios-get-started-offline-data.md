@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/05/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh;donnam"/>
 
 # Get Started with Offline Data Sync in Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
- 
+
 &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
