@@ -82,7 +82,7 @@ The code example below performs the following tasks:
 1. Creates a new asset. The blob container that that is created for this asset is located in _destinationStorageAccount. 
 1. Uses Azure Storage SDK to copy the specified blobs into the container associated with the asset.
 
->[AZURE.NOTE]The copy operation does not throw an exception if the locator has expired.
+	>[AZURE.NOTE]The copy operation does not throw an exception if the locator has expired.
 
 1. Since, in this example we are copying smooth streaming files, the example shows how to set the .ism file to be the primary file. If, for example, we copied an .mp4 file, the mp4 file would be set to be the primary file.
 1. Creates the Smooth Streaming URL for the OnDemandOrigin locator associated with the asset. 
