@@ -475,7 +475,7 @@ Before proceeding, make sure you have installed and configured Azure PowerShell.
 
 ### Apply a Script Action to a running cluster from the HDInsight .NET SDK
 
-For an example of using the .NET SDK to apply scripts to a cluster, see [TBD]().
+For an example of using the .NET SDK to apply scripts to a cluster, see [https://github.com/Blackmist/hdinsight-script-action-live](https://github.com/Blackmist/hdinsight-script-action-live).
 
 ## View history, promote, and demote Script Actions
 
