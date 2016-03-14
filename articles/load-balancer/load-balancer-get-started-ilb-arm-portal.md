@@ -17,7 +17,7 @@
    ms.date="03/04/2016"
    ms.author="joaoma" />
 
-# Get started creating an Internal load balancer in the Azure portal
+# Get started creating an internal load balancer in the Azure portal
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 <BR>
@@ -28,7 +28,7 @@
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 
-## Get started creating an Internal load balancer using Azure portal	
+## Get started creating an internal load balancer using Azure portal	
 
 To create an internal load balancer from the Azure portal, follow the steps below.
 
@@ -74,7 +74,7 @@ Configure a probe:
 6. Under **Port**, specify the port to use when accessing the probe.
 7. Under **Path** (for HTTP probes only), specify the path to use as a probe.
 4. Under **Interval** specify how frequently to probe the application.
-5. Under **Unhealthy treshold**, specify how many attempts should fail before the backend VM is marked as unhealthy.
+5. Under **Unhealthy threshold**, specify how many attempts should fail before the backend VM is marked as unhealthy.
 5. click **OK** to create probe.
 
 ### Step 3
