@@ -1,25 +1,27 @@
 <properties
-   pageTitle="Create an event processing Azure Function | Microsoft Azure"
-   description="Build your first Azure Function, a serverless application, in less than two minutes."
-   services="app-service"
-   documentationCenter="dev-center-name"
-   authors="GitHub-alias-of-only-one-author"
-   manager="manager-alias"
+   pageTitle="Create an event processing function | Microsoft Azure"
+   description="Use Azure Functions to build your first function in less than two minutes."
+   services="azure-functions"
+   documentationCenter="na"
+   authors="ggailey777"
+   manager="erikre"
    editor=""
    tags=""
-   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+   />
 
 <tags
    ms.service="azure-functions"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
+   ms.date="03/14/2016"
+   ms.author="glenga"/>
    
-   # Create an event processing Azure Function
-   
-   [AZURE.INCLUDE [Getting Started Note](../../includes/azure-functions-getting-started.md)]
+# Create an event processing Azure Function
 
-   [AZURE.VIDEO []()]
+[AZURE.INCLUDE [Getting Started Note](../../includes/azure-functions-getting-started.md)]
+
+[AZURE.VIDEO []()]
+
+## Learn more
