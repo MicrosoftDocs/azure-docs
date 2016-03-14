@@ -108,8 +108,9 @@ Your Ceridian Dayforce HCM application expects the SAML assertions in a specific
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Ceridian Dayforce HCM application using the following pattern: **“https://login.bws.ceridiandayforcehcm.com/SAMLSSO/Service.aspx?ceridiandayforcehcm.idpid=\<TENANT ID PID\>”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Ceridian Dayforce HCM application using the following pattern: **“https://</INSTANCENAME/>.dayforcehcm.com/</COMPANYNAME/>”**.
 
+	b. In the Reply URL textbox, type the URL where Azure AD has to post the Response. You can get the exact URL for your instance from Ceridian Dayforce team and should look like this **"https://</SERVERNAME/>.dayforcehcm.com/sp/ACS.saml2"**
 
 4. On the **Configure single sign-on at Ceridian Dayforce HCM** page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_05.png) <br>
@@ -119,7 +120,7 @@ Your Ceridian Dayforce HCM application expects the SAML assertions in a specific
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Ceridian Dayforce HCM support team on +1 866-982-8250 and email the attach downloaded certificate file. Also please do provide the Identity Provider ID and Remote Login URL so that they can be configured for SSO integration.
+5. To get SSO configured for your application, contact your Ceridian Dayforce HCM support team and email the attach downloaded certificate file. Also please do provide the Issuer URL, SAML SSO URL and Single Sign Out Service URL so that they can be configured for SSO integration.
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
