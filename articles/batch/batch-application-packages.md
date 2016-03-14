@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="03/11/2016"
+	ms.date="03/14/2016"
 	ms.author="marsma" />
 
 # Application deployment with Azure Batch application packages
@@ -22,13 +22,13 @@ The application packages feature of Azure Batch provides easy management and dep
 
 In this article, you will learn how to upload and manage application packages using the Azure portal, then install them on a pool's compute nodes using the [Batch .NET][api_net] library.
 
+> [AZURE.NOTE] The application packages feature described here supersedes the "Batch Apps" feature available in previous versions of the service.
+
 ## Application packages requirements
 
 The application packages feature discussed in this article is compatible *only* with Batch pools created after 10 March 2016. Application packages will not be deployed to compute nodes in pools created before this date.
 
-The application packages feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2, and the corresponding [Batch .NET][api_net] library version 3.1.0. We recommend that you always use the latest API version when working with Batch.
-
-> [AZURE.NOTE] The application packages feature supersedes the "Batch Apps" feature available in previous versions of the service.
+This feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2, and the corresponding [Batch .NET][api_net] library version 3.1.0. We recommend that you always use the latest API version when working with Batch.
 
 ## About applications and application packages
 
@@ -42,7 +42,7 @@ An application in Batch contains one or more application packages. It specifies 
 
 ### Application packages
 
-An application package is a ZIP file containing the application binaries and supporting files required for execution by your tasks. Each application package represents a specific version of the application. When you create a pool in the Batch service, you can specify one or more of these applications and (optionally) a version, and those application packages will be downloaded automatically and extracted onto each node as the node joins the pool.
+An application package is a ZIP file containing the application binaries and supporting files required for execution by your tasks. Each application package represents a specific version of the application. When you create a pool in the Batch service, you can specify one or more of these applications and (optionally) a version, and those application packages will be downloaded automatically and extracted onto each node as it joins the pool.
 
 > [AZURE.IMPORTANT] There are restrictions on the number of applications and application packages within a Batch account, as well as the maximum application package size. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details on these limits.
 
@@ -155,7 +155,7 @@ Specifies the version of the application package you are uploading. Version stri
 
 **Application package**
 
-This specifies the ZIP file containing the application binaries and any supporting files required to execute the application. Click the **Select a file** text box or the folder icon to browse to and select a ZIP file containing your application files.
+This specifies the ZIP file containing the application binaries and any supporting files required to execute the application. Click the **Select a file** text box or the folder icon to browse to and select a ZIP file containing your application's files.
 
 Once you've selected a file, click **OK** to begin the upload to Azure Storage. When the upload operation completes, you will be notified and the blade will close. Note that depending on the size of the file that you are uploading and the speed of your network connection, this operation may take some time.
 
@@ -237,6 +237,8 @@ string taskId = "blendertask01";
 string commandLine = @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -my -command -args";
 CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
+
+> [AZURE.TIP] See "Environment settings for tasks" in the [Batch feature overview](batch-api-basics.md) for more information on compute node environment settings.
 
 ## Update a pool's application packages
 
