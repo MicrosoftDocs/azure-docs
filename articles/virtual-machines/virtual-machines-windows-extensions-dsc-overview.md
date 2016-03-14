@@ -18,7 +18,7 @@
    ms.date="01/25/2016"
    ms.author="zachal"/>
 
-# Introduction to the Azure Desired State Configuration Extension Handler #
+# Introduction to the Azure Desired State Configuration extension handler #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -33,7 +33,7 @@ To interact with the Azure VM extension, you will either need to use the Preview
 **Guest Agent**
 The Azure VM that will be configured by the DSC configuration will need to be an OS that supports either Windows Management Framework (WMF) 4.0 or 5.0. The full list of supported OS versions can be found at the DSC Extension Version History.
 
-## Terms and Concepts ##
+## Terms and concepts ##
 This guide presumes familiarity with the following concepts:
 
 Configuration - A DSC configuration document. 
@@ -42,7 +42,7 @@ Node - A target for a DSC configuration. In this document, "node" will always re
 
 Configuration Data - A .psd1 file containing environmental data for a configuration
 
-## Architectural Overview ##
+## Architectural overview ##
 
 The Azure DSC extension uses the Azure Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension expects a .zip file containing at least a configuration document, and a set of parameters provided either through the Azure PowerShell SDK or through the Portal UI.
 
@@ -54,7 +54,7 @@ When the extension is called for the first time, it runs an install process. Thi
 
 Installation of the WMF requires a reboot. After reboot, the extension downloads the .zip file specified in the `modulesUrl` property. If this location is in Azure blob storage, a SAS token can be specified in the `sasToken` property to access the file. After the .zip is downloaded and unpacked, the configuration function defined in `configurationFunction` is run to generate the .MOF file. The extension then runs `Start-DscConfiguration -force` on the generated MOF file. The extension captures output and writes it back out to the Azure Status Channel. From this point on, the DSC LCM handles monitoring and correction as normal. 
 
-## PowerShell Cmdlets ##
+## PowerShell cmdlets ##
 
 PowerShell cmdlets can be used with ARM or ASM to package, publish and monitor DSC extension deployments. The following cmdlets listed are the the ASM modules, but "Azure" can be replaced with "AzureRM" to use the ARM model. For example,  `Publish-AzureVMDscConfiguration` will use ASM, where `Publish-AzureRmVMDscConfiguration` will use ARM. 
 
@@ -81,7 +81,7 @@ The .zip file created by this cmdlet has the .ps1 configuration script at the ro
 - The –AutoUpdate switch has been added to ARM to enable automatic updating of the extension handler to the latest version as and when it is available. Please note this has the potential to cause reboots on the VM when a new version of the WMF is released. 
 
 
-## Preview Portal functionality ##
+## Preview portal functionality ##
 Browse to a VM. Under Settings -> Manage click "extensions". A new pane is created. Click "Add" and select PowerShell DSC.
 
 The portal will need input.
@@ -93,7 +93,7 @@ The portal will need input.
 
 **Configuration Arguments**: If the configuration function takes arguments, enter them in here in the format `argumentName1=value1,argumentName2=value2`. Note this is a different format than how configuration arguments are accepted through PowerShell cmdlets or ARM templates. 
 
-## Getting Started ##
+## Getting started ##
 
 The Azure DSC extension takes in DSC configuration documents and enacts them on Azure VMs. A simple example of a configuration follows. Save it locally as "IisInstall.ps1":
 
@@ -139,12 +139,10 @@ Logs are placed in:
 
 C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
 
-## Next Steps ##
+## Next steps ##
 
-[Learn more about PowerShell DSC](https://msdn.microsoft.com/powershell/dsc/overview)
+For more information about PowerShell DSC, [visit the PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
 
-[Browse the gallery for more DSC resources](https://www.powershellgallery.com/)
+To find additional functionality you can manage with PowerShell DSC, [browse the PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) for more DSC resources.
 
-[Contribute to DSC on GitHub](https://github.com/PowerShell/DscResources)
-
-[Manage credentials securely with the DSC extension handler](virtual-machines-extensions-dsc-credentials.md)
+For details on passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](virtual-machines-windows-extensions-dsc-credentials.md).
