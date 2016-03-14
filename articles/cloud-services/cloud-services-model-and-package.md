@@ -99,13 +99,13 @@ Contains the definitions for endpoints that are used by role instances to commun
 Contains the setting definitions for features of a specific role.
 
 **Certificates**  
-Contains the definitions for certificates that are needed for a role. The previous code example shows a ertificate that is used for the configuration of Azure Connect.
+Contains the definitions for certificates that are needed for a role. The previous code example shows a certificate that is used for the configuration of Azure Connect.
 
 **LocalResources**  
-Contains the definitions for local storage resources. A local storage resource is a reserved directory n the file system of the virtual machine in which an instance of a role is running.
+Contains the definitions for local storage resources. A local storage resource is a reserved directory on the file system of the virtual machine in which an instance of a role is running.
 
 **Imports**  
-Contains the definitions for imported modules. The previous code example shows the modules for Remote esktop Connection and Azure Connect.
+Contains the definitions for imported modules. The previous code example shows the modules for Remote Desktop Connection and Azure Connect.
 
 **Startup**  
 Contains tasks that are run when the role starts. The tasks are defined in a .cmd or executable file.
