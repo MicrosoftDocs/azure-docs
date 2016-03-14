@@ -889,6 +889,10 @@ how to handle an exception that is returned by the backend:
 		}
 	}
 
+Another example of dealing with error conditions can be found in the [Mobile Apps Files Sample] - the [LoggingHandler]
+example provides a logging delegate handler (see below) to log the requests being made to the backend.  This provides
+an easier way to debug Xamarin applications rather than relying on Fiddler.
+
 ###<a name="headers"></a>How to: Customize request headers
 
 To support your specific app scenario, you might need to customize communication with the Mobile App backend. For example, you may want to add a
@@ -924,8 +928,6 @@ the following example:
         }
     }
 
-An example of this can be found in the [Mobile Apps Files Sample] - the [LoggingHandler] example provides a logging delegate
-handler.  This provides an easier way to debug Xamarin application rather than relying on Fiddler.
 
 <!-- Anchors. -->
 [Filter returned data]: #filtering
