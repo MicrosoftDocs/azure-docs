@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="10/19/2015"
+	 ms.date="3/14/2016"
 	 ms.author="nasing"/>
 
 # Manage IoT hubs through the Azure portal
