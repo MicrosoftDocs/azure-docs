@@ -70,7 +70,7 @@ The Batch service uses the associated Storage account for the storage and retrie
 
 ![Choose storage account blade in Azure portal][10]
 
-If you do not yet have a Storage account, see the "Create a storage account" section of [About Azure storage accounts](../storage/storage-create-storage-account.md) for step-by-step instructions. Once you've created a Storage account, you may then link it to your Batch account using the *Storage Account* blade.
+You can use an existing Storage account within your subscription, or create a new one for application package storage. For details on creating a Storage account, see "Create a storage account" in [About Azure storage accounts](../storage/storage-create-storage-account.md). Once you've created a Storage account, you may then link it to your Batch account using the *Storage Account* blade.
 
 > [AZURE.WARNING] Because Batch stores your application packages using Azure Storage, you are [charged as normal][storage_pricing] for the block blob data. Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize cost.
 
