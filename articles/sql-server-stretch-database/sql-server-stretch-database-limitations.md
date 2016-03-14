@@ -81,7 +81,9 @@ IIn the current preview release of SQL Server 2016, Stretch\-enabled tables have
 
 -   You can't run UPDATE or DELETE operations on a Stretch\-enabled table.
 
--   You can't INSERT into the remote Azure SQL Database table.
+-   You can't INSERT remotely into a Stretch-enabled table on a linked server.
+
+-   You can't use replication with a Stretch-enabled table.
 
 -   You can't create an index for a view that includes Stretch\-enabled tables.
 
