@@ -261,6 +261,35 @@ The Diagram View with both activities in the same pipeline would look like below
 
 ![Chaining activities in the same pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
+### Ordered copy
+It is possible to run multiple copy operations one after another in a sequential/ordered manner. Say you have two copy activities in a pipeline: CA1 and CA2 with the following input data output datasets.   
+
+CA1: 
+Input: Dataset1
+Output Dataset2
+
+CA2: 
+Inputs: Dataset2
+Output: Dataset4
+
+CA2 would run only if the CA1 has run successfully and Dataset2 is available. 
+
+In the above example, CA2 can have a different input, say Dataset3, but you will need to specify Dataset2 also as an input to CA2 so that CA2 will not run until CA1 completes. For example: 
+
+CA1: 
+Input: Dataset1
+Output Dataset2
+
+CA2: 
+Inputs: Dataset3, Dataset2
+Output: Dataset4
+
+When multiple inputs are specified, only the first input dataset is used for copying data but other datasets are used as dependencies. CA2 would only start executing when the following conditions are met: 
+
+- CA2 has successfully completed and Dataset2 is available. This dataset will not be used when copying data to Dataset4. It only acts as a scheduling dependency for CA2.   
+- Dataset3 is available. This dataset represents the data that is copied to the destination.  
+
+
 
 ## Modeling datasets with different frequencies
 
