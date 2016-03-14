@@ -3,7 +3,7 @@
 	description="Prepare the physical machine"
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
+	authors="Dumagar"
 	manager="v-kiwhit"
 	editor=""/>
 
