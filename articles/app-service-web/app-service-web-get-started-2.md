@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with Azure App Service" 
-	description="Get started with Azure App Service" 
+	pageTitle="Get started with web apps in Azure App Service - Part 2" 
+	description="Add crucial operational capabilities to your web app in App Service in a few clicks." 
 	services="app-service"
 	documentationCenter=""
 	authors="cephalin" 
@@ -20,7 +20,7 @@
 
 # Get started with Azure App Service - Part 2
 
-In [Get started with Azure App Service](app-service-web-get-started), you deployed a web app to Azure App Service and are all setup for fast and easy updates.
+In [Get started with Azure App Service](app-service-web-get-started.md), you deployed a web app to Azure App Service and are all setup for fast and easy updates.
 In this article, you'll quickly add some crucial functionality to your deployed app to keep it humming along beautifully. In doing so, you'll find out for yourself that App 
 Service is so much more than a website hoster. It brings enterprise-class capabilities to your great app, so you can focus your creative energy on delighting 
 your users with your app and not on meeting the real-world demands of security, scalability, performance, management, etc.
@@ -38,7 +38,7 @@ Regardless of which sample app you deployed in the previous article, you can fol
 Now, let's see how easy it is to add authentication to your app.  
 
 1. In your app's blade, that you just opened, click **Settings** > **Authentication / Authorization**.  
-   ![](./media/app-service-web-get-started/aad-login-settings.png)
+    ![](./media/app-service-web-get-started/aad-login-settings.png)
     
 2. Click **On** to turn on authentication.  
     ![](./media/app-service-web-get-started/aad-login-auth-on.png)
@@ -122,7 +122,7 @@ You may have noticed in the **Scale Settings** blade that you can do a lot more,
 - Autoscale on a schedule
 - Set autoscaling behavior for a future event
 
-For more information on scaling up your app, see [Scale pricing tier in Azure App Service](app-service-scale.md). For more information on
+For more information on scaling up your app, see [Scale pricing tier in Azure App Service](../app-service/app-service-scale.md). For more information on
 scaling out, see [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md).
 
 ## Receive alerts for your app
@@ -163,10 +163,10 @@ each one of these tools to discover the simple yet powerful tools at your finger
 
 Also, find out how to do more with your deployed app. Here's a partial list:
 
-- [Buy and configure a custom domain name](../app-service-web/custom-dns-web-site-buydomains-web-app.md)
-- [Set up staging environments](../app-service-web/web-sites-staged-publishing.md)
-- [Set up continuous deployment](../app-service-web/web-sites-publish-source-control.md)
-- [Backup your app](../app-service-web/web-sites-backup.md)
-- [Enable diagnostic logs](../app-service-web/web-sites-enable-diagnostic-log.md)
-- [Access on-premises resources](../app-service-web/web-sites-hybrid-connection-get-started.md)
-- [Learn how App Service works](app-service-how-works-readme.md) 
+- [Buy and configure a custom domain name](custom-dns-web-site-buydomains-web-app.md)
+- [Set up staging environments](web-sites-staged-publishing.md)
+- [Set up continuous deployment](web-sites-publish-source-control.md)
+- [Backup your app](web-sites-backup.md)
+- [Enable diagnostic logs](web-sites-enable-diagnostic-log.md)
+- [Access on-premises resources](web-sites-hybrid-connection-get-started.md)
+- [Learn how App Service works](../app-service/app-service-how-works-readme.md) 
