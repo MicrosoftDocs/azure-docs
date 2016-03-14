@@ -27,7 +27,7 @@ Application Insights Analytics query language, AIQL.
 
 
 
-## `summarize` operator
+## summarize operator
 
 Produces a table that aggregates the content of the input table.
 
@@ -45,9 +45,9 @@ Produces a table that aggregates the content of the input table.
 ### Syntax
 
     T | summarize
-         [  [Column =] Aggregation [`,` ...]]
+         [  [ Column = ] Aggregation [ , ... ]]
          [ by
-            [Column =] GroupExpression [`,` ...]]
+            [ Column = ] GroupExpression [ , ... ]]
 
 **Arguments**
 
@@ -85,10 +85,11 @@ If we want to group by a continuous scalar such as a number or time, we have to 
 
     requests
     | summarize count() 
-      by duration_range=bin(duration, 1)
+      by bin(duration, 1000)/1000
 
 ![result](./media/app-analytics-aggregations/04.png)
 
+(The request duration field is a number in milliseconds.)
  
 ## Tips
 
@@ -174,7 +175,7 @@ requests
 | sort by max_pop_tod asc
 ```
 
-## AGGREGATION FUNCTIONS
+## AGGREGATIONS
 
 ## any 
 
@@ -194,6 +195,8 @@ traces
 | top 10 by count_level desc 
 ```
 
+<a name="argmin"></a>
+<a name="argmax"></a>
 ## argmin, argmax
 
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
@@ -387,6 +390,9 @@ Calculates the minimum of *Expr*.
 
 **Tip**: This gives you the min or max on its own - for example, the highest or lowest price. But if you want other columns in the row - for example, the name of the supplier with the lowest price - use [argmin or argmax](#argmin-argmax).
 
+
+<a name="percentile"></a>
+<a name="percentiles"></a>
 ## percentile, percentiles
 
     percentile(Expression, Percentile)
