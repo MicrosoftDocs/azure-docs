@@ -39,7 +39,7 @@ The following walkthrough provides step-by-step instructions for creating a cust
 - Download and install [Azure .NET SDK][azure-developer-center]
 
 
-## Azure Batch prerequisites
+### Azure Batch prerequisites
 In the walkthrough, you will run your custom .NET activities using Azure Batch as a compute resource. See [Azure Batch basics][batch-technical-overview] for an overview of the Azure Batch service and see [Getting Started with the Azure Batch Library for .NET][batch-get-started] to quickly get started with the Azure Batch service.
 
 For the purpose of the tutorial, you need to create an Azure Batch account with a pool of VMs. Here are the steps:
@@ -686,6 +686,14 @@ Debugging consists of a few basic techniques:
 
 ## Update the custom activity
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage.
+
+## Copy/Move data 
+Copy Activity copies data from a **source** data store to a **sink** data store. See [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores) for the list of data stores supported as sources and sinks for the Copy Activity. 
+
+If you need to move data to/from a data store that is not supported by the **Copy Activity**, you may use the **custom activity** in Data Factory with your own logic for copying/moving the data. See [HTTP Data Downloader Sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) on GitHub.  
+
+## Appdomain isolation 
+See [Cross AppDomain Sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) that shows you how to author a custom .NET activity for Azure Data Factory that is not constrained to assembly versions used by the Azure Data Factory launcher (e.g., WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
 
 ## Access extended properties
 You can declare extended properties in the activity JSON as shown below: 
