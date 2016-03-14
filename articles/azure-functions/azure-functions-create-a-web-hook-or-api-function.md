@@ -17,3 +17,9 @@
    ms.workload="na"
    ms.date="03/09/2016"
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
+   
+   # Create a web hook or API Azure Function
+   
+   [AZURE.INCLUDE [Getting Started Note](../../includes/azure-functions-getting-started.md)]
+
+   [AZURE.VIDEO []()]

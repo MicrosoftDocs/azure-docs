@@ -3,8 +3,8 @@
    description="Build your first Azure Function, a serverless application, in less than two minutes."
    services="app-service"
    documentationCenter="dev-center-name"
-   authors="GitHub-alias-of-only-one-author"
-   manager="manager-alias"
+   authors="syntaxc4"
+   manager="yochayk"
    editor=""
    tags=""
    keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
@@ -19,3 +19,7 @@
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
 # Create your first Azure Function
+
+[AZURE.INCLUDE [Getting Started Note](../../includes/azure-functions-getting-started.md)]
+
+[AZURE.VIDEO []()]
