@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/19/2016"
+   ms.date="03/14/2016"
    ms.author="maroche"/>
 
 # What's new in Azure Data Catalog
@@ -22,9 +22,9 @@ Updates to **Azure Data Catalog** are released on a regular basis. Not every rel
 
 ## What's new for the week of March 11, 2016 release
 
-As of the week of March 11, 2016, the following capabilities have been added to Azure Data Catalog:
+As of the week of March 11, 2016, the following capabilities have been added to **Azure Data Catalog**:
 
-- A consolidated REST API endpoint for programmatically accessing the search capabilities and catalog asset management capabilities of the Azure Data Catalog service. The existing search API endpoint and catalog API endpoint are being deprecated and will be discontinued on March 21, 2016. There are no changes to the semantics of the API; only the endpoint URI is changing. For additional information, see the [Azure Data Catalog REST API Reference](https://msdn.microsoft.com/library/azure/mt267595.aspx). For API samples, see [Azure Data Catalog developer samples](data-catalog-samples.md).
+- A consolidated REST API endpoint for programmatically accessing the search capabilities and catalog asset management capabilities of the **Azure Data Catalog** service. The existing search API endpoint and catalog API endpoint are being deprecated and will be discontinued on March 21, 2016. There are no changes to the semantics of the API; only the endpoint URI is changing. For additional information, see the [Azure Data Catalog REST API Reference](https://msdn.microsoft.com/library/azure/mt267595.aspx). For API samples, see [Azure Data Catalog developer samples](data-catalog-samples.md).
 
 ## What's new for the week of February 19, 2016 release
 
