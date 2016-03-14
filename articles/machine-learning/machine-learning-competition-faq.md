@@ -3,7 +3,7 @@
 	description="Frequently asked questions about Microsoft Azure Machine Learning competitions."
 	services="machine-learning"
 	documentationCenter=""
-	authors="garyericson"
+	authors="hning86"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
 # Microsoft Azure Machine Learning Competition FAQ
