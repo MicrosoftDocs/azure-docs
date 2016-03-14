@@ -20,17 +20,12 @@
 
 At the Connect() event in November 2015, a number of improvements to Azure App Service were [announced](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/). These improvements include underlying changes to API Apps to better align with Mobile and Web Apps, reduce concept count and improve deployment and runtime performance. Starting November 30, 2015, new API apps you create using the Azure management portal or the latest tooling will reflect these changes. This article describes these changes, as well as how to redeploy existing apps to take advantage of the capabilities.
 
-
-> [AZURE.NOTE] The initial preview of API Apps supported two primary scenarios: 1) custom APIs for use in Logic Apps or your own clients and 2) Marketplace API (often SaaS connectors) for use in Logic Apps. This article addresses the first scenario, custom APIs. For Marketplace APIs, an improved Logic Apps designer experience and underlying connectivity foundation will be introduced in early 2016. The existing Marketplace APIs remain available in the Logic Apps designer.
-
 ## Feature changes
 The key features of API Apps – authentication, CORS and API metadata – have moved directly into App Service. With this change, the features are available across Web, Mobile and API Apps. In fact, all three share the same **Microsoft.Web/sites** resource type in Resource Manager. The API Apps gateway is no longer needed or offered with API Apps. This also makes it easier to use Azure API Management since there will be just the single API Management gateway.
 
 ![API Apps Overview](./media/app-service-api-whats-changed/api-apps-overview.png)
 
-A key design principle with the API Apps update is to enable you to bring your API as is, in your language of choice.  If your API is already deployed as a Web App or Mobile App*, you do not have to redeploy your app to take advantage of the new features.
-
-> [AZURE.NOTE] *If you are currently on API Apps preview, migration guidance is detailed below.
+A key design principle with the API Apps update is to enable you to bring your API as is, in your language of choice.  If your API is already deployed as a Web App or Mobile App, you do not have to redeploy your app to take advantage of the new features. If you are currently on API Apps preview, migration guidance is detailed below.
 
 ### Authentication
 The existing turnkey API Apps, Mobile Services/Apps and Web Apps authentication features have been unified and are available in a single Azure App Service authentication blade in the management portal. For an introduction to authentication services in App Service, see [Expanding App Service authentication / authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/).
@@ -115,9 +110,6 @@ The previous API Apps model had APIs for discovering other API apps at runtime i
 2. Put Azure API Management in front of your App Service-hosted APIs. Azure API Management serves as a facade and can provide a stable external facing url even if you internal topology changes.
 3. Build your own discovery API app and have other API apps register with the discovery app on startup.
 4. At deployment time, populate the app settings of all the API apps (and clients) with the endpoints of the other API apps. This is viable in template deployments and since API Apps now give you control of the url.
-
-### Logic Apps
-The Logic Apps designer will be adding especially seamless integration with the new API Apps model in early 2016. That said, the HTTP connector built into Logic Apps can invoke any HTTP endpoint and supports service principal authentication, which is also supported natively by the App Service authentication services. Learn how to consume an App Service-hosted API in Logic Apps in [Using your custom API hosted on App Service with Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
 ## Next Steps
 
