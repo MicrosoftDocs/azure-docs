@@ -11,8 +11,8 @@
  ms.workload="infrastructure-services"
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
- ms.topic="get-started-article"
- ms.date="12/04/2015"
+ ms.topic="hero-article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # What is Azure Scheduler?
