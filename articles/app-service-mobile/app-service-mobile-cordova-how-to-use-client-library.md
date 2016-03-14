@@ -61,8 +61,8 @@ device-specific SDKs.
 
 Several types of Apache Cordova applications use a loopback capability to handle OAuth UI flows.  This causes problems
 since the authentication service only knows how to utilize your service by default.  Examples of this are using the Ripple
-emulator, running your service locally but redirecting to the Azure App Service for authentication, or Live Reload with Ionic.
-Follow these instructions to add your local settings to the configuration:
+emulator, running your service locally or in a different Azure App Service but redirecting to the Azure App Service for
+authentication, or Live Reload with Ionic.  Follow these instructions to add your local settings to the configuration:
 
 1. Log into the [Azure Portal]
 2. Select **All resources** or **App Services** then click on the name of your Mobile App.
