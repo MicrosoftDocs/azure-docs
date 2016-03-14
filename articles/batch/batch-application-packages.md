@@ -22,17 +22,13 @@ The application packages feature of Azure Batch provides easy management and dep
 
 In this article, you will learn how to upload and manage application packages using the Azure portal, then install them on a pool's compute nodes using the [Batch .NET][api_net] library.
 
-> [AZURE.IMPORTANT] The application packages feature discussed in this article is compatible *only* with Batch pools created after 10 March 2016. Application packages will not be deployed to compute nodes in pools created before this date.
+## Application packages requirements
 
-## Benefits of application packages
+The application packages feature discussed in this article is compatible *only* with Batch pools created after 10 March 2016. Application packages will not be deployed to compute nodes in pools created before this date.
 
-Application packages can simplify the code in your Batch solution, as well as lower the overhead required in managing the applications your tasks run.
+The application packages feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2, and the corresponding [Batch .NET][api_net] library version 3.1.0. We recommend that you always use the latest API version when working with Batch.
 
-With application packages, your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of these files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide access to the files in your Azure Storage account.
-
-Batch handles the details of working with Azure Storage in the background to store and deploy application packages to compute nodes, so both your code and your management overhead can be simplified.
-
-> [AZURE.NOTE] The application packages feature supersedes the "Batch Apps" feature available in previous versions of the service. We recommend that you always use the latest API version when working with Batch. The application packages feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2, and the corresponding [Batch .NET][api_net] library version 3.1.0.
+> [AZURE.NOTE] The application packages feature supersedes the "Batch Apps" feature available in previous versions of the service.
 
 ## About applications and application packages
 
@@ -50,6 +46,14 @@ An application package is a ZIP file containing the application binaries and sup
 
 > [AZURE.IMPORTANT] There are restrictions on the number of applications and application packages within a Batch account, as well as the maximum application package size. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details on these limits.
 
+### Benefits of application packages
+
+Application packages can simplify the code in your Batch solution, as well as lower the overhead required in managing the applications your tasks run.
+
+With application packages, your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of these files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide access to the files in your Azure Storage account.
+
+Batch handles the details of working with Azure Storage in the background to store and deploy application packages to compute nodes, so both your code and your management overhead can be simplified.
+
 ## Upload and manage applications
 
 Using the Azure portal, you can add, update, and delete application packages, and configure default versions for each application. At this time, these operations are supported only in the Azure portal.
@@ -62,7 +66,7 @@ In order to use application packages, you must first link an Azure Storage accou
 
 ![No storage account configured warning in Azure portal][9]
 
-The Batch service uses the associated Storage account for the storage and retrieval of application packages. Once you've linked the two accounts, Batch can automatically deploy the packages stored in the linked Storage account to your compute nodes. Click the "Storage account settings" button on the *Warning* blade, then click "Storage Account" on the *Storage Account* blade to link an existing storage account to your Batch account.
+The Batch service uses the associated Storage account for the storage and retrieval of application packages. Once you've linked the two accounts, Batch can automatically deploy the packages stored in the linked Storage account to your compute nodes. Click **Storage account settings** on the *Warning* blade, then **Storage Account** on the *Storage Account* blade to link an existing storage account to your Batch account.
 
 ![Choose storage account blade in Azure portal][10]
 
@@ -72,7 +76,7 @@ If you do not yet have a Storage account, see the "Create a storage account" sec
 
 ### View current applications
 
-To view the applications in your Batch account, click the *Applications* tile in the Batch account blade.
+To view the applications in your Batch account, click the **Applications** tile in the Batch account blade.
 
 ![Applications tile][2]
 
@@ -102,7 +106,7 @@ In the application details blade, you can configure the following settings for y
 
 To create a new application, add an application package using a new, unique application id. The first application package that you add using the new application id will also create the new application.
 
-Click the **Add** button on the *Applications* blade to open the *New application* blade.
+Click **Add** on the *Applications* blade to open the *New application* blade.
 
 ![New application blade in Azure portal][5]
 
@@ -110,7 +114,15 @@ The *New application* blade provides the following fields for specifying the set
 
 **Metadata**
 
-The metadata setting provides an optional method for supplying the application id and package version. You can either supply the application metadata manually by entering values into the text boxes, or upload a JSON file that contains the metadata.
+You can either supply the application metadata manually by entering values directly into the **Application id** and **Version** text boxes, or you can upload a JSON file that contains this metadata. To specify the application id and version manually, simply leave the **Metadata** drop-down selector on **Enter metadata** (the default), and manually enter the values into the **Application id** and **Version** text boxes.
+
+To specify a JSON-formatted metadata file containing the id and version for a package, select **Upload metatdata file** from the **Metadata** drop-down:
+
+![Upload metadata file drop-down selector][6]
+
+Then, click the folder icon next to the **Metadata file** text box that appears, and browse to the local file containing the JSON data. In this example, the file `litware_1.1001.2b.json` has been selected for upload, and the **Application id** and **Version** text boxes have been automatically populated with the information in the file:
+
+![Metadata file selection detail][13]
 
 Use the following JSON format to specify the application package metadata in a file:
 
@@ -121,7 +133,7 @@ Use the following JSON format to specify the application package metadata in a f
 }
 ```
 
-> [AZURE.NOTE] If you upload JSON metadata for the id and version, you do not need to edit the "Application id" or "Version" text boxes--they are automatically populated with the data in the JSON file.
+> [AZURE.NOTE] If you upload a JSON metadata file for the id and version, you do *not* also need to edit the "Application id" or "Version" text boxes--they are automatically populated with the data in the JSON file.
 
 **Application id**
 
@@ -143,35 +155,35 @@ Specifies the version of the application package you are uploading. Version stri
 
 **Application package**
 
-This specifies the ZIP file containing the application binaries and any supporting files required to execute the application. Click the "Select a file" text box or the folder icon to browse to and select a ZIP file containing your application files.
+This specifies the ZIP file containing the application binaries and any supporting files required to execute the application. Click the **Select a file** text box or the folder icon to browse to and select a ZIP file containing your application files.
 
-Once you've selected a file, click the "OK" button at the bottom of the *New application* blade to begin the upload to Azure Storage. When the upload operation completes, you will be notified and the blade will close. Note that depending on the size of the file that you are uploading and the speed of your network connection, this operation may take some time.
+Once you've selected a file, click **OK** to begin the upload to Azure Storage. When the upload operation completes, you will be notified and the blade will close. Note that depending on the size of the file that you are uploading and the speed of your network connection, this operation may take some time.
 
 > [AZURE.WARNING] Do not close the *New application* blade before the upload operation is complete. Doing so will abort the upload process.
 
 ### Add a new application package
 
-To add a new application package version for an existing application, select an application in the *Applications* blade, click "Packages", then click the "Add" button to display the *Add package* blade.
+To add a new application package version for an existing application, select an application in the *Applications* blade, click **Packages**, then click **Add** to display the *Add package* blade.
 
 ![Add application package blade in Azure portal][8]
 
-As you can see, the fields in the *New application package* blade match those of the *New application* blade, except for the disabled *Application id* text box that displays the ID of the selected application. As above, specify the version for your new package, supply a path to the ZIP file containing the application files, then click "OK" to upload the package.
+As you can see, the fields match those of the *New application* blade, except for the disabled "Application id" text box. As above, specify the **Version** for your new package, browse to your **Application package** ZIP file, then click **OK** to upload the package.
 
 ### Update or Delete an application package
 
-To update or delete an existing application package, open the details blade for the application, click "Packages" to display the *Packages* blade, click the ellipses in the row of the application package you wish to modify, and select the action you wish to perform.
+To update or delete an existing application package, open the details blade for the application, click **Packages** to display the *Packages* blade, click the **ellipses** in the row of the application package you wish to modify, and select the action you wish to perform.
 
 ![Update or delete package in Azure portal][7]
 
 **Update**
 
-When you click "Update", the *Update package* blade is displayed. This blade is similar to the *New application package* blade, however only the package selection field is enabled, allowing you to specify a new ZIP file to upload.
+When you click **Update**, the *Update package* blade is displayed. This blade is similar to the *New application package* blade, however only the package selection field is enabled, allowing you to specify a new ZIP file to upload.
 
 ![Update package blade in Azure portal][11]
 
 **Delete**
 
-When you click "Delete", you are asked to confirm the deletion of the package version, and Batch deletes the package from Azure Storage. If you delete the default version of an application, the default version setting is removed for the application.
+When you click **Delete**, you are asked to confirm the deletion of the package version, and Batch deletes the package from Azure Storage. If you delete the default version of an application, the default version setting is removed for the application.
 
 ![Delete application ][12]
 
@@ -293,10 +305,11 @@ With application packages, you can more easily provide your customers with the a
 [3]: ./media/batch-application-packages/app_pkg_03.png "Applications blade in Azure portal"
 [4]: ./media/batch-application-packages/app_pkg_04.png "Application details blade in Azure portal"
 [5]: ./media/batch-application-packages/app_pkg_05.png "New application blade in Azure portal"
-[6]: ./media/batch-application-packages/app_pkg_06.png "Applications list blade in Azure portal"
+[6]: ./media/batch-application-packages/app_pkg_06.png "Upload metadata file drop-down selector"
 [7]: ./media/batch-application-packages/app_pkg_07.png "Update or delete packages drop-down in Azure portal"
 [8]: ./media/batch-application-packages/app_pkg_08.png "New application package blade in Azure portal"
 [9]: ./media/batch-application-packages/app_pkg_09.png "No linked Storage account alert"
 [10]: ./media/batch-application-packages/app_pkg_10.png "Choose storage account blade in Azure portal"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Update package blade in Azure portal"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Delete package confirmation dialog in Azure portal"
+[13]: ./media/batch-application-packages/app_pkg_13.png "Metadata file selection detail"
