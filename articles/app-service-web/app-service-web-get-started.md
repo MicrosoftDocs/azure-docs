@@ -89,7 +89,7 @@ Let's deploy a web app to Azure App Service.
     
     `git push` not only puts code in Azure, but also triggers deployment tasks in the deployment engine. If you have any package.json 
     (Node.js) or requirements.txt (Python) in your project (repository) root, or if you have a packages.config in your ASP.NET project, the deployment 
-    scripts will restore the required packages for you. You can also [enable the Composer extension]() to automatically process composer.json files
+    scripts will restore the required packages for you. You can also [enable the Composer extension](web-sites-php-mysql-deploy-use-git.md#composer) to automatically process composer.json files
     in your PHP app.
 
 Congratulations, you have deployed your app to Azure App Service. 
