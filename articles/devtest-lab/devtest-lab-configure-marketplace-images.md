@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configure a Marketplace image in a DevTest Lab | Microsoft Azure"
-	description="Learn the different Marketplace image settings and how to customize them."
+	pageTitle="Configure Marketplace image settings in a DevTest Lab | Microsoft Azure"
+	description="Configure which Marketplace images can be used when creating a VM in a DevTest Lab"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/06/2016"
+	ms.date="03/14/2016"
 	ms.author="tarcher"/>
 
-# Configure a Marketplace image in a DevTest Lab
+# Configure Marketplace image settings in a DevTest Lab
 
 ## Overview
 
@@ -43,9 +43,15 @@ creating new VMs in a DevTest Lab.
 then all Marketplace images are allowed in the lab. If you want no images to be allowed, or you want to specify which images
 can be used, select **No**.
  
-1. If you select **No** to the previous step, a list of Azure Marketplace images will be displayed.
-Select the ones you want to allow for VM creation by checking its corresponding checkboxes.
+	![Option to allow all Marketplace images to be used as base images for VMs](./media/devtest-lab-configure-marketplace-images/allow-all-marketplace-images.png)
+ 
+1. If you select **No** to the previous step, the **Allowed images/Select all** checkbox will be enabled. Checking this option
+allows all listed Marketplace images to be available for use as base images for new VMs. Leave this option unchecked if you 
+want to specify which Marketplace images can be used (by checking each one). 
+Select the Marketplace images you want to allow for VM creation by checking each image's corresponding checkbox.
 Select nothing from the list if you don't want to allow any Azure Marketplace images to be used in the lab.
+
+	![You can specify which Marketplace images can be used as base images for VMs](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
 
 ## Next steps
 
