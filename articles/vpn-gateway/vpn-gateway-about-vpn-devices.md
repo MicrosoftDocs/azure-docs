@@ -5,21 +5,22 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carmonm"
-   editor="" />
+   editor=""
+  tags="azure-resource-manager, azure-service-management"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/09/2016"
+   ms.date="03/14/2016"
    ms.author="cherylmc" />
 
 # About VPN devices for Site-to-Site VPN Gateway connections
 
 A VPN device is required in order to configure a Site-to-Site (S2S) VPN connection. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters. Please note that when configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                                
 
-If your device doesn't appear in the Validated VPN devices table, see the Non-Valided VPN devices section of this article. It's possible that your device may still work with Azure. For VPN device support, please contact your device manufacturer.
+If your device doesn't appear in the Validated VPN devices table, see the Non-valided VPN devices section of this article. It's possible that your device may still work with Azure. For VPN device support, please contact your device manufacturer.
 
 **Items to note when viewing the tables:**
 
