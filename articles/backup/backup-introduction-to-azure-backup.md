@@ -78,6 +78,8 @@ These five tables summarize how Backup functionality is handled in each componen
 | Incremental backup | ![Yes][green] | ![Yes][green] | ![Yes][green] | ![Yes][green] |
 | Disk deduplication | | ![Partially][yellow] | ![Partially][yellow]| | |
 
+![table key](./media/backup-introduction-to-azure-backup/table-key.png)
+
 **Key** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Yes][green]= Supported &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Partially][yellow]= Partially Supported &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Not Supported
 
 The Backup vault is the preferred storage target across all components. System Center DPM and Backup Server also provide the option to have a local disk copy. However, only System Center DPM provides the option to write data to a tape storage device.
