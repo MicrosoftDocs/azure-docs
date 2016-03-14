@@ -12,13 +12,15 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
 # Stretch Database overview
 
 Stretch Database migrates your historical data transparently and securely to the Microsoft Azure cloud.
+
+If you just want to get started with Stretch Database right away, see [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md).
 
 ## What are the benefits of Stretch Database?
 Stretch Database provides the following benefits:
