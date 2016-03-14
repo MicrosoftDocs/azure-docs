@@ -215,14 +215,14 @@ This procedure describes how to run an unplanned failover for a recovery plan. A
 2. On the **Confirm Planned Failover **page, choose the source and target locations. Note the failover direction. If the failover from primary worked as expect and all virtual machines are in the secondary location this is for information only.
 3. If you're failing back from Azure select settings in **Data Synchronization**:
 
-	- **Synchronize the data before the failover**—This option minimizes downtime for virtual machines as it synchronizes without shutting them down. It does the following:
+	- **Synchronize data before failover(Synchonize delta changes only)**—This option minimizes downtime for virtual machines as it synchronizes without shutting them down. It does the following:
 		- Phase 1: Takes snapshot of the virtual machine in Azure and copies it to the on-premises Hyper-V host. The machine continues running in Azure.
 		- Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there. The final set of changes are transferred to the on-premises server and the on-premises virtual machine is started up.
 	
-	> [AZURE.NOTE] We recommend you use this option if you've been running Azure for a while (a month or more) This option performs synchronization without shutting down virtual machines. It doesn't do a resynchronization, but performs a full failback. This option doesn't perform any checksum calculations.
 
-	- **Synchronize the data during failover only**—Use this option if you've only been running on Azure for a short amount of time. this option is faster because it resynchronizes instead of doing a full failback. It performs a fast checksum calculation and only downloads changed blocks.
-
+	- **Synchronize data during failover only(full download)**—Use this option if you've been running on Azure for a long time. This option is faster because we expect that most of the disk has changed and we dont want to spend time in checksum calculation. It performs a download of the disk. It is also useful when the on-prem virtual machine has been deleted.
+	> [AZURE.NOTE] We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem VM has been deleted.This option doesn't perform any checksum calculations.
+	
 5. If you're failing over to Azure and data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server. 
 5. By default the last recovery point is used, but in **Change Recovery Point** you can specify a different recovery point. 
 6. Click the checkmark to start the failback.  You can follow the failover progress on the **Jobs** tab. 
