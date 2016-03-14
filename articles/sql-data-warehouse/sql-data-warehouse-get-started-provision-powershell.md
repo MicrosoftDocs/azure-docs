@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/25/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Create SQL Data Warehouse using Powershell
@@ -30,19 +30,19 @@
 If you're not already set-up with PowerShell, you need to download and configure it.
 
 1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
-2. To run the module, at the start window type **Microsoft Azure PowerShell**.
+2. To run the module, at the start window type **Windows PowerShell**.
 3. Run this cmdlet to login to Azure Resource Manager. For more information, see [How to install and configure Azure PowerShell][].
 
 	```
 	Login-AzureRmAccount
 	```
 
-4. Select the subscription you want to use for your current session. 
+4. Select the subscription you want to use for your current session.
 
 	```
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
-   
+
 ## Creating a SQL Data Warehouse database
 To deploy a SQL Data Warehouse, use the New-AzureRmSQLDatabase cmdlet. Before you run the command, be sure you have the following prerequisites.
 
@@ -71,7 +71,7 @@ The necessary parameters for this cmdlet are as follows:
  + **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
  + **ServerName**: The name of the server that you are using for creation (must be V12).
  + **ResourceGroupName**: Resource group you are using.  To find available resource groups in your subscription use Get-AzureResource.
- + **Edition**: You must set edition to "DataWarehouse" to create a SQL Data Warehouse. 
+ + **Edition**: You must set edition to "DataWarehouse" to create a SQL Data Warehouse.
 
 For the command reference, see [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx)
 

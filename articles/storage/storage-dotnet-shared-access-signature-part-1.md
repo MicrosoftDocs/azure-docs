@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -311,8 +311,8 @@ Shared access signatures are useful for providing limited permissions to your st
 ## Next Steps ##
 
 - [Shared Access Signatures, Part 2: Create and use a SAS with Blob storage](storage-dotnet-shared-access-signature-part-2.md)
-- [How to use Azure File storage with Windows](storage-dotnet-how-to-use-files.md)
-- [Manage Access to Azure Storage Resources](storage-manage-access-to-resources.md)
+- [Get Started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
+- [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md)
 - [Delegating Access with a Shared Access Signature](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 - [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png

@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="na"
-	ms.date="12/24/2015"
+	ms.date="02/29/2016"
 	ms.author="cfowler"/>
 
 # Connect a web app in Azure App Service to Redis Cache via the Memcache protocol

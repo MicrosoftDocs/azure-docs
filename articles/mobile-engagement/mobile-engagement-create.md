@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/22/2015"  
-	ms.author="juliako"/>
+	ms.date="02/17/2016"  
+	ms.author="piyushjo"/>
 
 
 # Create an Azure Mobile Engagement App

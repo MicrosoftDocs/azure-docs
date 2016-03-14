@@ -35,7 +35,7 @@ Azure Automation supports three types of runbooks that are  briefly described in
 - Create runbooks with minimal knowledge of [PowerShell Workflow](automation-powershell-workflow.md).
 - Visually represent management processes.
 - Use [checkpoints](automation-powershell-workflow.md#checkpoints) to resume runbook in case of error.
-- Use [parallel processing](automation-powershell-workflow.md#parallel-processing) to perform mulitple activities in parallel.
+- Use [parallel processing](automation-powershell-workflow.md#parallel-processing) to perform multiple activities in parallel.
 - Can include other Graphical runbooks and PowerShell Workflow runbooks as child runbooks to create high level workflows.
 
 

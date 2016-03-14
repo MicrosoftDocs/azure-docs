@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="01/06/2016"
+   ms.date="02/21/2016"
    ms.author="tamram" />
 
 # Azure Storage samples
@@ -28,12 +28,12 @@ The [Azure Code Sample Library](https://azure.microsoft.com/documentation/sample
 
 To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from NuGet. The .NET storage client library is also available in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
 
-* [Get started with Azure blobs, tables, and queues in 5 minutes](storage-getting-started-guide.md)
+* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 * [Managing concurrency using Azure Storage - sample application](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
 * [Get started with blobs](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataBlobStorage)
 * [Get started with tables](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
 * [Get started with queues](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataStorageQueue)
-* [Get started with files](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
+* [Get started with files](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage)
 
 ## Java samples
 

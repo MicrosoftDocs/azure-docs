@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Create Active Directory application and service principal using portal
@@ -29,7 +29,7 @@ Azure portal in a later release. You can use the portal to assign the applicatio
 the service principal, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
 ## Concepts
-1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure active Directory](active-directory/active-directory-whatis.md)
+1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure Active Directory](active-directory/active-directory-whatis.md)
 2. Service Principal - an instance of an application in a directory.
 3. AD Application - a directory record in AAD that identifies an application to AAD. 
 
@@ -85,9 +85,17 @@ When programmatically accessing your application, you will need the id for your 
   
    ![client id][5]
 
-In some cases, you need to pass the tenant id with your authentication request. You can retrieve the tenant id by selecting **View endpoints** at the bottom of the screen and retrieving the id as shown below.
+In some cases, you need to pass the tenant id with your authentication request. For Web Apps and Web API Apps, you can retrieve the tenant id by selecting **View endpoints** at the bottom of the screen and retrieving the id as shown below.  
 
    ![tenant id](./media/resource-group-create-service-principal-portal/save-tenant.png)
+
+Endpoints are not available for Native Client Applications. Instead, you can retrieve the tenant id through PowerShell:
+
+    PS C:\> Get-AzureRmSubscription
+
+Or, Azure CLI:
+
+    azure account show --json
 
 ## Create an authentication key
 

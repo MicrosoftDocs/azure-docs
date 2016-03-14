@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/03/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Manage Azure Data Lake Analytics using Azure Command-line Interface (CLI)
@@ -27,7 +27,7 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **Azure CLI**. See [Install and configure Azure CLI](xplat-cli.md).
+- **Azure CLI**. See [Install and configure Azure CLI](../xplat-cli-install.md).
 	- Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
 - **Authentication**, using the following command:
 
@@ -87,8 +87,8 @@ Get details of a specific Data Lake Analytics account
 
 Data Lake Analytics currently supports the following data sources:
 
-- [Azure Data Lake Storage](data-lake-storage-overview.md)
-- [Azure Storage](storage-introduction.md)
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
+- [Azure Storage](../storage/storage-introduction.md)
 
 When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default 
 storage account. The default ADL storage account is used to store job metadata and job audit logs. After you have 
@@ -201,7 +201,7 @@ as a group, referred to as an Azure Resource Group. You can deploy, update, moni
 resources for your application in a single, coordinated operation. You use a template for deployment and that 
 template can work for different environments such as testing, staging and production. You can clarify billing 
 for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
-Resource Manager Overview](resource-group-overview.md). 
+Resource Manager Overview](../resource-group-overview.md). 
 
 A Data Lake Analtyics service can include the following components:
 
@@ -222,6 +222,6 @@ The ARM group however can be located in a different data center.
 
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
-- [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-use-portal.md)
+- [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
 - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 

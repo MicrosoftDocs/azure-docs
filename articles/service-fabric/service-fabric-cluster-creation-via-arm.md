@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -52,7 +52,9 @@ There are two ways to create a custom Resource Manager template:
 
 ## Deploy the Resource Manager template to Azure by using Azure PowerShell
 
-Refer to [Deploying Resource Manager templates by using PowerShell](resource-group-template-deploy.md) for detailed guidance on how to deploy the template by using PowerShell.
+Refer to [Deploying Resource Manager templates by using PowerShell](../resource-group-template-deploy.md) for detailed guidance on how to deploy the template by using PowerShell.
+
+>[AZURE.NOTE] Service Fabric clusters require a certain number of nodes to be up at all times in order to maintain availability and preserve state - referred to as "maintaining quorum". Consequently, it is typically not safe to shut down all of the machines in the cluster unless you have first performed a [full backup of your state](service-fabric-reliable-services-backup-restore.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps

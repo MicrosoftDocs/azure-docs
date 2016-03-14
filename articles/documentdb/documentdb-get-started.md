@@ -13,11 +13,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="11/18/2015"
+	ms.topic="hero-article"
+	ms.date="03/09/2016"
 	ms.author="anhoh"/>
 
-# NoSQL tutorial: Build a DocumentDB C# console application 
+# NoSQL tutorial: Build a DocumentDB C# console application
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
@@ -35,7 +35,7 @@ We'll cover:
 - Querying the collection
 - Deleting the database
 
-Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). See [Get the complete solution](#GetSolution) for quick instructions. 
+Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). See [Get the complete solution](#GetSolution) for quick instructions.
 
 Afterwards, please use the voting buttons at the top or bottom of this page to give us feedback. If you'd like us to contact you directly, feel free to include your email address in your comments.
 
@@ -142,6 +142,7 @@ Your DocumentDB [database](documentdb-resources.md#databases) can be created by 
 A [collection](documentdb-resources.md#collections) can be created by using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic. The newly created collection will be mapped to a [S1 performance level](documentdb-performance-levels.md). Create a new collection named **FamilyCollection** after your Database creation in the **GetStartedDemo** method.
 
     // Check to verify a document collection with the id=FamilyCollection does not exist
+    // dbs is prepended to the id to identify the parent resource: databases
     DocumentCollection documentCollection = client.CreateDocumentCollectionQuery("dbs/" + database.Id).Where(c => c.Id == "FamilyCollection").AsEnumerable().FirstOrDefault();
 
 	// If the document collection does not exist, create a new collection
@@ -206,6 +207,7 @@ First, we need to create a **Parent**, **Child**, **Pet**, **Address** and **Fam
 Next, create your documents within your **GetStartedDemo** async method.
 
     // Check to verify a document with the id=AndersenFamily does not exist
+    // colls is prepended to the id to identify the parent resource: collections, along with the rest of the resource path: dbs/FamilyRegistry
     Document document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "AndersenFamily").AsEnumerable().FirstOrDefault();
 
 	// If the document does not exist, create a new document
@@ -222,24 +224,25 @@ Next, create your documents within your **GetStartedDemo** async method.
 	        },
 	        Children = new Child[] {
 	            new Child
-	            { 
-	                FirstName = "Henriette Thaulow", 
-	                Gender = "female", 
-	                Grade = 5, 
+	            {
+	                FirstName = "Henriette Thaulow",
+	                Gender = "female",
+	                Grade = 5,
 	                Pets = new Pet[] {
-	                    new Pet { GivenName = "Fluffy" } 
+	                    new Pet { GivenName = "Fluffy" }
 	                }
-	            } 
+	            }
 	        },
 	        Address = new Address { State = "WA", County = "King", City = "Seattle" },
 	        IsRegistered = true
 	    };
-	
+
 	    // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
 	    await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, andersonFamily);
 	}
 
     // Check to verify a document with the id=AndersenFamily does not exist
+    // colls is prepended to the id to identify the parent resource: collections, along with the rest of the resource path: dbs/FamilyRegistry
     document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "WakefieldFamily").AsEnumerable().FirstOrDefault();
 
     if (document == null)
@@ -254,9 +257,9 @@ Next, create your documents within your **GetStartedDemo** async method.
             },
             Children = new Child[] {
                 new Child {
-                    FamilyName= "Merriam", 
-                    FirstName= "Jesse", 
-                    Gender= "female", 
+                    FamilyName= "Merriam",
+                    FirstName= "Jesse",
+                    Gender= "female",
                     Grade= 8,
                     Pets= new Pet[] {
                         new Pet { GivenName= "Goofy" },
@@ -264,9 +267,9 @@ Next, create your documents within your **GetStartedDemo** async method.
                     }
                 },
                 new Child {
-                    FamilyName= "Miller", 
-                    FirstName= "Lisa", 
-                    Gender= "female", 
+                    FamilyName= "Miller",
+                    FirstName= "Lisa",
+                    Gender= "female",
                     Grade= 1
                 }
             },
@@ -457,7 +460,7 @@ You should now see the output of your get started app. The output will show the 
 	  "_attachments": "attachments/"
 	} from LINQ query
 
-Congratulations! You've completed this NoSQL tutorial and have a working C# console application! 
+Congratulations! You've completed this NoSQL tutorial and have a working C# console application!
 
 ##<a id="GetSolution"></a> Get the complete NoSQL tutorial solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
@@ -477,4 +480,3 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio, right-cli
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
- 

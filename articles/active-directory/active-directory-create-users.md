@@ -12,13 +12,13 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.topic="get-started-article"
+	ms.date="03/03/2016"
 	ms.author="curtand;viviali"/>
 
 # Create or edit users in Azure AD
 
-You have to create an account for every user who will access a Microsoft cloud service. You can also change user accounts or delete them when they’re no longer needed. By default, users do not have administrator permissions, but you can optionally assign them.
+You must add an account to your tenant directory for every user who will access a Microsoft cloud service. You can also change user accounts, or delete them when they’re no longer needed. By default, users do not have administrator permissions, but you can assign them.
 
 ## Create a user
 
@@ -32,7 +32,7 @@ You have to create an account for every user who will access a Microsoft cloud s
 	- **Users in partner companies** - to invite and authorize partner company users to your directory ([See Azure Active Directory B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md))
 
 
-4. Depending on the option you selected, enter either a user name, an email address, or upload a CSV file for partner users.
+4. Depending on the option you selected, enter either a user name, an email address, or upload a CSV file specifying email addresses with which the users will sign in.
 5. On the user **Profile** page, provide a user’s first and last name, a user friendly name, and a user role from the Roles drop-down menu. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md). Specify whether to **Enable Multi-Factor Authentication**.
 6. On the **Get temporary password** page, click **Create**.
 
@@ -61,15 +61,15 @@ If the user that you are trying to edit is synchronized with your on-premises Ac
 
 ## Create external users
 
-In Azure AD you can also add users to an Azure AD directory with a Microsoft account from another Azure AD directory that you belong to, or from partner companies by uploading a CSV file. To create an external user, create a user in the portal and for **Type of User**, select **User in another Azure AD directory** or **Users in partner companies**.
+In Azure AD, you can also add users to an Azure AD directory with a Microsoft account from another Azure AD directory that you belong to, or from partner companies by uploading a CSV file. To create an external user, add a user in the portal and for **Type of User**, select **User in another Azure AD directory** or **Users in partner companies**.
 
-Users created in both ways are sourced from another directory and are created as **external users**. External users can collaborate with users who already exist in a directory using their single account without needing to create new accounts and credentials. External users are authenticated by their home directory when they sign in, and that authentication works for all  other directories that they are a part of.
+Users or either type are sourced from another directory and are created as **external users**. External users can collaborate with users who already exist in a directory using their single account without needing to create new accounts and credentials. External users are authenticated by their home directory when they sign in, and that authentication works for any other directories to which they have been added.
 
 ## External user management and limitations
 
-When you add a user from another directory to your directory, that user is an external user in your directory. Initially, the display name and user name are copied from the user's "home directory" and stamped onto the external user in your directory. From then on, those and other properties of the external user object are entirely independent: if any changes are made to the user in their home directory, such as changing the user's name, adding a job title, etc. those changes are not propagated to the external user object in your directory.
+When you add a user from another directory to your directory, that user is an external user in your directory. Initially, the display name and user name are copied from the user's "home directory" and stamped onto the external user in your directory. From then on, those and other properties of the external user account are entirely independent: if any changes are made to the user in their home directory, such as changing the user's name, adding a job title, and so on, those changes are not propagated to the external user account in your directory.
 
-The only linkage between the two objects is that the user always authenticates against the home directory or with their Microsoft account. That's why you don't see an option to reset the password or enable multi-factor authentication for an external user: currently the authentication policy of the home directory or Microsoft account is the only one that's evaluated when the user signs in.
+The only linkage between the two accounts is that the user always authenticates against the home directory or with their Microsoft account. That's why you don't see an option to reset the password or enable multi-factor authentication for an external user: currently, the authentication policy of the home directory or Microsoft account is the only one that's evaluated when the user signs in.
 
 > [AZURE.NOTE]
 > You can still disable the external user in the directory and this will block access to your directory.
@@ -78,37 +78,39 @@ If a user is deleted in their home directory or they cancel their Microsoft acco
 
 Here are services that currently support access by Azure AD external users:
 
-- Azure classic portal: allows an external user who is an administrator of multiple directories to manage each of those directories
-- SharePoint Online: allows an external user to access SharePoint Online authorized resources if external sharing is enabled
-- Dynamics CRM: allows an external user to access authorized resources in Dynamics CRM if the user is licensed via PowerShell
+- **Azure classic portal**: allows an external user who is an administrator of multiple directories to manage each of those directories
+- **SharePoint Online**: allows an external user to access SharePoint Online authorized resources if external sharing is enabled
+- **Dynamics CRM**: allows an external user to access authorized resources in Dynamics CRM if the user is licensed via PowerShell
 
 Here are the known limitations of Azure AD external users:
 
-- external users who are admins cannot add users from partner companies to directories (B2B) outside their home directory
-- external users cannot consent to multi-tenant applications in directories outside of their home directory
-- Visual Studio Online does not currently support access by external users
+- External users who are admins cannot add users from partner companies to directories (B2B collaboration) outside their home directory
+- External users cannot consent to multi-tenant applications in directories outside of their home directory
+- Visual Studio Online does not currently support access by external users\*
 - PowerBI does not currently support access by external users
 - Office Portal does not support licensing external users
 
-## Guests
+\* Visual Studio Online does allow access by external users that authenticate using Microsoft accounts, but not external users that authenticate using work or school accounts.
 
-A **guest** is a user in your directory that has its UserType attribute set to "Guest". Regular users have a UserType of "Member" to indicate that they are a member of your directory. Guests represent users from other directories who were invited to your directory to access a specific resource such as a SharePoint document, application, or Azure resource.
+## Guest user management and limitations
 
-Guests have a limited set of rights in the directory. These rights limit the ability for Guests to discover information about other users in the directory while still being able to interact with the users and groups associated with the resources they are working on. Guests have the following capabilities:
+A **guest** is a user account in your directory that has its UserType attribute set to "Guest". Regular users have a UserType attribute of "Member" to indicate that they are members of your directory. Guests represent users from other directories who were invited to your directory to access a specific resource such as a SharePoint Online document, application, or Azure resource.
 
-- see other users and groups associated with an Azure subscription they are assigned to
-- see group members of groups that they belong to
-- look up other users in the directory provided they know the full email address of the user
-- see only a limited set of attributes of the users they look up - limited to display name, email address, user principal name (UPN), and thumbnail photo
-- get a list of verified domains in the tenant
-- consent to applications, granting them the same access that they have in your directory
+Guests have a limited set of rights in the directory. These rights limit the ability for Guests to discover information about other users in the directory while still being able to interact with the users and groups associated with the resources they are working on. Guest users can:
+
+- See other users and groups associated with an Azure subscription they are assigned to
+- See group members of groups that they belong to
+- Look up other users in the directory provided they know the full email address of the user
+- See only a limited set of attributes of the users they look up--limited to display name, email address, user principal name (UPN), and thumbnail photo
+- Get a list of verified domains in the tenant
+- Consent to applications, granting them the same access that Members have in your directory
 
 ## Configure user access policies
 
 The **Configure** tab of a directory includes options to control access for external users. These options can be changed only in the UI (there is no Windows PowerShell or API method) in the Azure classic portal by a directory global administrator.
 To open the **Configure** tab in the Azure classic portal, click **Active Directory**, and then click the name of the directory.
 
-![][1]
+![Configure tab in Azure Active Directory][1]
 
 Then you can edit the options to control access for external users.
 

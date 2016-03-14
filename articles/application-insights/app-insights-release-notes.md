@@ -20,8 +20,9 @@
 
 Here are detailed release notes and update instructions for our SDKs:
 
-* [.NET](app-insights-release-notes-dotnet.md)
-* [.NET Logging Adapters](app-insights-release-notes-dotnet-logging.md)
+* [ASP.NET Web Server SDK](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)
+* [.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
+* [.NET Logging Adapters](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/releases)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android/releases)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/11/2015"
-	ms.author="emgerner"/>
+	ms.date="02/29/2016"
+	ms.author="jehine"/>
 
 # How to use Azure Blob storage from Python
 
@@ -22,8 +22,7 @@
 
 ## Overview
 
-This article will show you how to perform common scenarios using Blob storage. The samples are written in Python and use the [Python Azure Storage package][]. The scenarios covered include uploading, listing,
-downloading, and deleting blobs.
+This article will show you how to perform common scenarios using Blob storage. The samples are written in Python and use the [Microsoft Azure Storage SDK for Python]. The scenarios covered include uploading, listing, downloading, and deleting blobs.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -31,97 +30,98 @@ downloading, and deleting blobs.
 
 ## Create a container
 
-> [AZURE.NOTE] If you need to install Python or the [Python Azure package][], see the [Python Installation Guide](../python-how-to-install.md).
+Based on the type of blob you would like to use, create a **BlockBlobService**, **AppendBlobService**, or **PageBlobService** object. The following code uses a **BlockBlobService** object. Add the following near the top of any Python file in which you wish to programmatically access Azure Block Blob Storage.
 
-The **BlobService** object lets you work with containers and blobs. The
-following code creates a **BlobService** object. Add the following near
-the top of any Python file in which you wish to programmatically access Azure Storage.
+	from azure.storage.blob import BlockBlobService
 
-	from azure.storage.blob import BlobService
+The following code creates a **BlockBlobService** object using the storage account name and account key.  Replace 'myaccount' and 'mykey' with your account name and key.
 
-The following code creates a **BlobService** object using the storage account name and account key.  Replace 'myaccount' and 'mykey' with the real account and key.
-
-	blob_service = BlobService(account_name='myaccount', account_key='mykey')
+	block_blob_service = BlockBlobService(account_name='myaccount', account_key='mykey')
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-In the following code example, you can use a **BlobService** object to create the container if it doesn't exist.
+In the following code example, you can use a **BlockBlobService** object to create the container if it doesn't exist.
 
-	blob_service.create_container('mycontainer')
+	block_blob_service.create_container('mycontainer')
 
-By default, the new container is private, so you must specify your storage access key (as you did earlier) to download blobs from this container. If you want to make the files within the container available to everyone, you can create the container and pass the public access level using the following code.
+By default, the new container is private, so you must specify your storage access key (as you did earlier) to download blobs from this container. If you want to make the blobs within the container available to everyone, you can create the container and pass the public access level using the following code.
 
-	blob_service.create_container('mycontainer', x_ms_blob_public_access='container')
+	from azure.storage.blob import PublicAccess
+	block_blob_service.create_container('mycontainer', public_access=PublicAccess.Container)
 
 Alternatively, you can modify a container after you have created it using the following code.
 
-	blob_service.set_container_acl('mycontainer', x_ms_blob_public_access='container')
+	block_blob_service.set_container_acl('mycontainer', public_access=PublicAccess.Container)
 
-After this change, anyone on the Internet can see blobs in a public
-container, but only you can modify or delete them.
+After this change, anyone on the Internet can see blobs in a public container, but only you can modify or delete them.
 
 ## Upload a blob into a container
 
-To upload data to a blob, use the **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** or **put\_block\_blob\_from\_text** methods. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
+To create a block blob and upload data, use the **create\_blob\_from\_path**, **create\_blob\_from\_stream**, **create\_blob\_from\_bytes** or **create\_blob\_from\_text** methods. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
-**put\_block\_blob\_from\_path** uploads the contents of a file from the specified path, and **put\_block\_blob\_from\_file** uploads the contents from an already opened file/stream. **put\_block\_blob\_from\_bytes** uploads an array of bytes, and **put\_block\_blob\_from\_text** uploads the specified text value using the specified encoding (defaults to UTF-8).
+**create\_blob\_from\_path** uploads the contents of a file from the specified path, and **create\_blob\_from\_stream** uploads the contents from an already opened file/stream. **create\_blob\_from\_bytes** uploads an array of bytes, and **create\_blob\_from\_text** uploads the specified text value using the specified encoding (defaults to UTF-8).
 
 The following example uploads the contents of the **sunset.png** file into the **myblob** blob.
 
-	blob_service.put_block_blob_from_path(
+	from azure.storage.blob import ContentSettings
+	block_blob_service.create_blob_from_path(
         'mycontainer',
-        'myblob',
+        'myblockblob',
         'sunset.png',
-        x_ms_blob_content_type='image/png'
-    )
+        content_settings=ContentSettings(content_type='image/png')
+				)
 
 ## List the blobs in a container
 
-To list the blobs in a container, use the **list\_blobs** method. Each
-call to **list\_blobs** will return a segment of results. To get all results,
-check the **next\_marker** of the results and call **list\_blobs** again as
-needed. The following code outputs the **name** of each blob in a container
-to the console.
+To list the blobs in a container, use the **list\_blobs** method. This method returns a generator. The following code outputs the **name** of each blob in a container to the console.
 
-	blobs = []
-	marker = None
-	while True:
-		batch = blob_service.list_blobs('mycontainer', marker=marker)
-		blobs.extend(batch)
-		if not batch.next_marker:
-			break
-		marker = batch.next_marker
-	for blob in blobs:
+	generator = block_blob_service.list_blobs('mycontainer')
+	for blob in generator:
 		print(blob.name)
 
 ## Download blobs
 
-Each segment of results can contain a variable number of blobs up to a maximum
-of 5000. If **next\_marker** exists for a particular segment, there may be
-more blobs in the container.
-
-To download data from a blob, use **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes**, or **get\_blob\_to\_text**. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
+To download data from a blob, use **get\_blob\_to\_path**, **get\_blob\_to\_stream**, **get\_blob\_to\_bytes**, or **get\_blob\_to\_text**. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
 The following example demonstrates using **get\_blob\_to\_path** to download the contents of the **myblob** blob and store it to the **out-sunset.png** file.
 
-	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
+	block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
 
 ## Delete a blob
 
 Finally, to delete a blob, call **delete_blob**.
 
-	blob_service.delete_blob('mycontainer', 'myblob')
+	block_blob_service.delete_blob('mycontainer', 'myblockblob')
+
+## Writing to an append blob
+
+An append blob is optimized for append operations, such as logging. Like a block blob, an append blob is comprised of blocks, but when you add a new block to an append blob, it is always appended to the end of the blob. You cannot update or delete an existing block in an append blob. The block IDs for an append blob are not exposed as they are for a block blob.
+
+Each block in an append blob can be a different size, up to a maximum of 4 MB, and an append blob can include a maximum of 50,000 blocks. The maximum size of an append blob is therefore slightly more than 195 GB (4 MB X 50,000 blocks).
+
+The example below creates a new append blob and appends some data to it, simulating a simple logging operation.
+
+	from azure.storage.blob import AppendBlobService
+	append_blob_service = AppendBlobService(account_name='myaccount', account_key='mykey')
+
+	# The same containers can hold all types of blobs
+	append_blob_service.create_container('mycontainer')
+
+	# Append blobs must be created before they are appended to
+	append_blob_service.create_blob('mycontainer', 'myappendblob')
+	append_blob_service.append_blob_from_text('mycontainer', 'myappendblob', u'Hello, world!')
+
+	append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob')
 
 ## Next steps
 
-Now that you have learned the basics of Blob storage, follow these links
-to learn about more complex storage tasks.
+Now that you've learned the basics of Blob storage, follow these links
+to learn more.
 
-- Visit the [Azure Storage Team Blog][]
-- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
-
-For more information, see also the [Python Developer Center](/develop/python/).
+- [Python Developer Center](/develop/python/)
+- [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
+- [Azure Storage Team Blog]
+- [Microsoft Azure Storage SDK for Python]
 
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Python Azure package]: https://pypi.python.org/pypi/azure
-[Python Azure Storage package]: https://pypi.python.org/pypi/azure-storage  
+[Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python

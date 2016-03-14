@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="stepsic-microsoft-com"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/10/2016"
    ms.author="stepsic"/>
 
 # Get started with the Azure Resource Connector and add it to your Logic App 
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
 Use the Azure Resource Connector to easily manage Azure Resources inside of your Logic app.
 
 ## Create the Azure Resource Connector

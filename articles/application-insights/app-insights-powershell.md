@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Create Application Insights resources using PowerShell
 
 This article shows you how to create an [Application Insights](app-insights-overview.md) resource in Azure automatically. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](app-insights-monitor-web-app-availability.md), [set up alerts](app-insights-alerts.md), and create other Azure resources.
 
-The key to creating these resources is JSON templates for [Azure Resource Manager](powershell-azure-resource-manager.md). In a nutshell, the procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
+The key to creating these resources is JSON templates for [Azure Resource Manager](../powershell-azure-resource-manager.md). In a nutshell, the procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
 
 ## One-time setup
 
@@ -100,7 +100,7 @@ Install the Azure Powershell module on the machine where you want to run the scr
 
 ## Parameterize the template
 
-Now you have to replace the specific names with parameters. To [parameterize a template](resource-group-authoring-templates.md), you write expressions using a [set of helper functions](resource-group-template-functions.md). 
+Now you have to replace the specific names with parameters. To [parameterize a template](../resource-group-authoring-templates.md), you write expressions using a [set of helper functions](../resource-group-template-functions.md). 
 
 You can't parameterize just part of a string, so use `concat()` to build strings.
 
@@ -310,3 +310,13 @@ Here's the complete component, web test and web test alert template that I creat
 }
 
 ```
+
+## See also
+
+Other automation articles:
+
+* [Create an Application Insights resource](app-insights-powershell-script-create-resource.md) - quick method without using a template.
+* [Set up Alerts](app-insights-powershell-alerts.md)
+* [Create web tests](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
+* [Send Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Create release annotations](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

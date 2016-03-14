@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/02/2015"
-   ms.author="Deonhe"/>
+   ms.date="02/29/2016"
+   ms.author="deonhe"/>
 
 # Tutorial: Process EDIFACT Invoices Using Azure BizTalk Services
 You can use the BizTalk Services Portal to configure and deploy X12 and EDIFACT agreements. In this tutorial, we look at how to create an EDIFACT agreement for exchanging invoices between trading partners. This tutorial is written around an end-to-end business solution involving two trading partners, Northwind and Contoso that exchange EDIFACT messages.  
@@ -46,7 +46,7 @@ To complete the scenario, we use Service Bus queues to send invoice from Contoso
 
 ## Prerequisites
 
-*   You must have a Service Bus namespace. For instructions on creating a namespace, see [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/hh690931.aspx). Let us assume that you already have a Service Bus namespace provisioned, called **edifactbts**.
+*   You must have a Service Bus namespace. For instructions on creating a namespace, see [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Let us assume that you already have a Service Bus namespace provisioned, called **edifactbts**.
 
 *   You must have a BizTalk Services subscription. For instructions, see [Create a BizTalk Service using Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=302280). For this tutorial, let us assume you have a BizTalk Services subscription, called **contosowabs**.
 
@@ -59,9 +59,9 @@ To complete the scenario, we use Service Bus queues to send invoice from Contoso
 ## Step 1: Create the Service Bus queues  
 This solution uses Service Bus queues to exchange messages between trading partners. Contoso and Northwind send messages to the queues from where the EAI and/or EDI bridges consume them. For this solution, you need three Service Bus queues:
 
-*   **northwindreceive** –Northwind receives the invoice from Contoso over this queue.
+*   **northwindreceive** – Northwind receives the invoice from Contoso over this queue.
 
-*   **contosoreceive** –Contoso receives the acknowledgement from Northwind over this queue.
+*   **contosoreceive** – Contoso receives the acknowledgement from Northwind over this queue.
 
 *   **suspended** – All suspended messages are routed to this queue. Messages are suspended if they fail during processing.
 
@@ -113,7 +113,7 @@ Trading partner agreements are created between business profiles of trading part
     3.  On the **Protocol** tab, under the **Schemas** section, upload the **EFACT_D93A_INVOIC.xsd** schema. This schema is available with the sample package.
 
         ![][4]  
-    4.  On the **Transport** tab, specify the details for the Service Bus queues. For the send-side agreement, we use the **northwindreceive** queue to send the EDIFACT invoice to Northwind, and the **suspended** queue to route any messages that fail during processing and are suspended. You created these queues in [Step 1: Create the Service Bus queues](#BKMK_Queue).
+    4.  On the **Transport** tab, specify the details for the Service Bus queues. For the send-side agreement, we use the **northwindreceive** queue to send the EDIFACT invoice to Northwind, and the **suspended** queue to route any messages that fail during processing and are suspended. You created these queues in **Step 1: Create the Service Bus queues** (in this topic).
 
         ![][5]  
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="03/11/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Set up a Service Fabric cluster by using Visual Studio
@@ -45,7 +45,7 @@ Before the template is deployed to create the cluster, you must provide values f
 |sourceVaultValue         |The *resource ID* of the key vault where the certificate that secures the cluster is stored.|
 |certificateUrlValue      |The URL of the cluster security certificate.|
 
-The Visual Studio Service Fabric Resource Manager template creates a secure cluster that is protected by a certificate. This certificate is identified by the last three template parameters (`certificateThumbprint`, `sourceVaultValue`, and `certificateUrlValue`), and it must exist in an **Azure Key Vault**. For more information on how to create the cluster security certificate, see [How to secure a Service Fabric cluster using certificates](service-fabric-cluster-security.md) article.
+The Visual Studio Service Fabric Resource Manager template creates a secure cluster that is protected by a certificate. This certificate is identified by the last three template parameters (`certificateThumbprint`, `sourceVaultValue`, and `certificateUrlValue`), and it must exist in an **Azure Key Vault**. For more information on how to create the cluster security certificate, see [How to secure a Service Fabric cluster using certificates](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates) article.
 
 ## Optional: Add public application ports
 You may also want to change the public application ports for the cluster before you deploy it. By default, the template opens up just two public TCP ports (80 and 8081). If you need more for your applications, modify the Azure Load Balancer definition in the template. The definition is stored in the main template file (`SecureFabricCluster.json`). Open that file and search for `loadBalancedAppPort`. You will notice that each port is associated with three artifacts:
@@ -66,7 +66,7 @@ You may also want to change the public application ports for the cluster before 
             "intervalInSeconds": 5,
             "numberOfProbes": 2,
             "port": "[parameters('loadBalancedAppPort1')]",
-            "protocol": "tcp"
+            "protocol": "Tcp"
         }
     }
 	```
@@ -89,11 +89,11 @@ You may also want to change the public application ports for the cluster before 
 	        "probe": {
 	            "id": "[concat(variables('lbID0'),'/probes/AppPortProbe1')]"
 	        },
-	        "protocol": "tcp"
+	        "protocol": "Tcp"
 	    }
 	}
     ```
-If the applications that you plan to deploy to the cluster need more ports, you can add them by creating additional probe and load-balancing rule definitions. For more information on how to work with Azure Load Balancer through Resource Manager templates, see [Get started configuring an internal Load Balancer using Azure Resource Manager](../load-balancer/load-balancer-internal-arm-powershell.md).
+If the applications that you plan to deploy to the cluster need more ports, you can add them by creating additional probe and load-balancing rule definitions. For more information on how to work with Azure Load Balancer through Resource Manager templates, see [Get started creating an internal load balancer using a template](../load-balancer/load-balancer-get-started-ilb-arm-template.md).
 
 ## Deploy the template by using Visual Studio
 After you have saved all the required parameter values in the`ServiceFabricCluster.param.dev.json` file, you are ready to deploy the template and create your Service Fabric cluster. Right-click the resource group project in Visual Studio Solution Explorer and choose **Deploy**. Visual Studio will show the **Deploy to Resource Group** dialog box, asking you to authenticate to Azure, if necessary:
@@ -106,11 +106,13 @@ After you hit the Deploy button, Visual Studio will prompt you to confirm the te
 
 >[AZURE.NOTE] If PowerShell was never used to administer Azure from the machine that you are using now, you will need to do a little housekeeping.
 >1. Enable PowerShell scripting by running the [`Set-ExecutionPolicy`](https://technet.microsoft.com/library/hh849812.aspx) command. For development machines, "unrestricted" policy is usually acceptable.
->2. Decide whether to allow diagnostic data collection from Azure PowerShell commands, and run [`Enable-AzureRmDataCollection`](https://msdn.microsoft.com/library/mt619303.aspx) or [`Disable-AzureRmDataCollection`](https://msdn.microsoft.com/library/mt619236.aspx) as necessary. If you are using Azure PowerShell version 0.9.8 or older, these commands are named `Enable-AzureDataCollection` and `Discable-AzureDataCollection`, respectively. This will avoid unnecessary prompts during template deployment.
+>2. Decide whether to allow diagnostic data collection from Azure PowerShell commands, and run [`Enable-AzureRmDataCollection`](https://msdn.microsoft.com/library/mt619303.aspx) or [`Disable-AzureRmDataCollection`](https://msdn.microsoft.com/library/mt619236.aspx) as necessary. This will avoid unnecessary prompts during template deployment.
 
 You can monitor the progress of the deployment process in the Visual Studio output window. Once the template deployment is completed, your new cluster is ready to use!
 
-If there are any errors, go to the [Azure portal](https://portal.azure.com/) and check **Notifications**. A failed resource-group deployment will leave detailed diagnostic information there.
+If there are any errors, go to the [Azure portal](https://portal.azure.com/) and open the resource group that you deployed to. Click **All settings**, then click **Deployments** on the settings blade. A failed resource-group deployment will leave detailed diagnostic information there.
+
+>[AZURE.NOTE] Service Fabric clusters require a certain number of nodes to be up at all times in order to maintain availability and preserve state - referred to as "maintaining quorum". Consequently, it is typically not safe to shut down all of the machines in the cluster unless you have first performed a [full backup of your state](service-fabric-reliable-services-backup-restore.md).
 
 ## Next steps
 - [Learn about setting up Service Fabric cluster using the Azure portal](service-fabric-cluster-creation-via-portal.md)

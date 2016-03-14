@@ -13,12 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="02/29/2016"
 	ms.author="v-anpasi"/>
 
 # Add a SQL Server resource provider to Azure Stack
 
 The SQL Server Resource Provider adaptor lets you use any SQL Server-based workload through Azure Stack so that SQL server databases can be used when deploying cloud native apps as well as SQL-based websites on Azure Stack.
+
+To deploy a SQL Server resource provider, you’ll take the following steps:
+
+1. [Create](#create-a-wildcard-certificate) and [export](#export-the-wildcard-certificate) a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
+2. [Deploy](#deploy-the-sql-server-resource-provider) the resource provider code onto a virtual machine.
+3. [Add an Azure Stack DNS record](#add-a-dns-record) so that traffic can be property directed to the the resource provider virtual machine.
+4. [Register](#register-the-sql-resource-provider) the resource provider virtual machine with Azure Resource Manager so the latter recognizes the new resource type and properly direct requests.
+
+
 
 ## Before you deploy
 
@@ -77,13 +86,13 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 4. In the **Actions** pane, click **Create Domain Certificate**.
 
-5. In the **Common name** box, type *\*.azurestack.local*.
+5. In the **Common name** box, type **\*.azurestack.local**.
 
 6. Type values of your choice in the other boxes and then click **Next**.
 
 7. Click **Select** and choose **AzureStackCertificationAuthority**.
 
-8. In the **Friendly name** box, type *\*.azurestack.Local*.
+8. In the **Friendly name** box, type **\*.azurestack.local**.
 
 
 
@@ -137,7 +146,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 12. Make sure that the parameter value for **cseBlobStorage** is **AzureStack.SQLRP.Setup.5.11.61.0.nupkg** (make sure the numbers are accurate).
 
-13. Launch PowerShell ISE as an admin, **CD** into **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment**, and then run **SqlRPTemplateDeployment.ps1**.
+13. Launch PowerShell Console as an admin, **CD** into **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment**, and then run **SqlRPTemplateDeployment.ps1**.
 
 14. At the **AadTenantDirectoryName** prompt, type your Azure Stack environment URL.
 
@@ -177,11 +186,11 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 3. At the **AadTenantDirectoryName** prompt, type your Azure Stack environment URL.
 
-4. At the **packageName** prompt, type **AzureStack.SqlRP.Setup.5.11.61.0.nupkg**. 
+4. In the **Windows PowerShell credential request** dialog box, literally type *sqlRpUsername* and *sqlRPPassw0rd* for the manifest credentials.
 
 5. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials.
 
-6. In the **Windows PowerShell credential request** dialog box, type *sqlRpUsername* and *sqlRPPassw0rd* for the manifest credentials.
+6. In the **Windows PowerShell credential request** dialog box, literally type *sqlRpUsername* and *sqlRpPassw0rd* for the manifest credentials.
 
 ## Verify your resource provider exists
 

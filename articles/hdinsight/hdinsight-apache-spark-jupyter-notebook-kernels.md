@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
 # Kernels available for Jupyter notebooks with Spark clusters on HDInsight (Linux)
 
-Apache Spark cluster on HDInsight (Linux) includes Jupyter notebooks that you can use to test your applications. By default Jupyter notebook comes with a **Python2** kernel. HDInsight Spark clusters provide two additional kernels that you can use with the Jupyter notebook. These are:
+Apache Spark cluster on HDInsight (Linux) includes Jupyter notebooks that you can use to test your applications. By default Jupyter notebook comes with a **Python2** kernel. A kernel is a program that runs and interprets your code. HDInsight Spark clusters provide two additional kernels that you can use with the Jupyter notebook. These are:
 
-1. **Spark** (for applications written in Scala)
-2. **PySpark** (for applications written in Python)
+1. **PySpark** (for applications written in Python)
+2. **Spark** (for applications written in Scala)
 
 In this article, you will learn about how to use these kernels and what are the benefits you get from using them.
 
@@ -52,9 +52,9 @@ You must have the following:
 
 ## Why should I use the new kernels?
 
-There are a couple of benefits of using the new kernels.
+Here are a few benefits of using the new kernels.
 
-1. With the default **Python2** kernel, you need to set the Spark, SQL, or Hive contexts before you can start working with the application you are developing. If you use the new kernels (**Spark** or **PySpark**), these contexts are available for you by default. These contexts are:
+1. **Preset contexts**. With the default **Python2** kernel that is available with Jupyter notebooks, you need to set the Spark, SQL, or Hive contexts explicitly before you can start working with the application you are developing. If you use the new kernels (**PySpark** or **Spark**), these contexts are available for you by default. These contexts are:
 
 	* **sc** - for Spark context
 	* **sqlContext** - for SQL context
@@ -72,10 +72,24 @@ There are a couple of benefits of using the new kernels.
 
 	Instead, you can directly use the preset contexts in your application.
 	
-2. You can directly use the **%sql** and **%hive** magics to use SQL or Hive queries, respectively. So, something like this would directly work out-of-the-box, without any leading code statements.
+2. **Cell magics**. The PySpark kernel provides some predefined “magics”, which are special commands that you can call with `%%` (e.g. `%%MAGIC` <args>). The magic command must be the first word in a code cell and allow for multiple lines of content. The magic word should be the first word in the cell. Adding anything before the magic, even comments, will cause an error. 	For more information on magics, see [here](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
 
-		%hive
-		SELECT * FROM hivesampletable LIMIT 10
+	The table below lists the different magics available through the kernels.
+
+	| Magic     | Example                         | Description  |
+	|-----------|---------------------------------|--------------|
+	| help      | `%%help`  						  | Generates a table of all the available magics with example and description |
+	| info      | `%%info`                          | Outputs session information for the current Livy endpoint |
+	| configure | `%%configure -f {"executorMemory": "1000M", "executorCores": 4`} | Configures the parameters for creating a session. The force flag (-f) is mandatory if a session has already been created and the session will be dropped and recreated. Look at [Livy's POST /sessions Request Body](https://github.com/cloudera/livy#request-body) for a list of valid parameters. Parameters must be passed in as a JSON string. |
+	| sql       |  `%%sql -o <variable name>`<br> `SHOW TABLES`    | Executes a SQL query against the sqlContext. If the `-o` parameter is passed, the result of the query is persisted in the %%local Python context as a [Pandas](http://pandas.pydata.org/) dataframe.   |
+	| hive      |  `%%hive -o <variable name>`<br> `SHOW TABLES`   | Executes a Hive query against the hivelContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a [Pandas](http://pandas.pydata.org/) dataframe. |
+	| local     |     `%%local`<br>`a=1`			  | All the code in subsequent lines will be executed locally. Code must be valid Python code. |
+	| logs      | `%%logs`						  | Outputs the logs for the current Livy session.  |
+	| delete    | `%%delete -f -s <session number>` | Deletes a specific session of the current Livy endpoint. Note that you cannot delete the session that is initiated for the kernel itself. |
+	| cleanup   | `%%cleanup -f`                    | Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory.  |
+
+3. **Auto visualization**. The **Pyspark** kernel automatically visualizes the output of Hive and SQL queries. You have the option to choose between several different types of visualizations including Table, Pie, Line, Area, Bar.
+
 
 ## Considerations while using the new kernels
 
@@ -88,14 +102,14 @@ However, with PySpark and Spark kernels, because the contexts are preset, you ca
 
 When you open a Jupyter notebook, you will see two folders available at the root level.
 
-* The **Python** folder has sample notebooks that use the default **Python2** kernel.
+* The **PySpark** folder has sample notebooks that use the new **Python** kernel.
 * The **Scala** folder has sample notebooks that use the new **Spark** kernel.
 
-You can open the same (e.g. **READ ME FIRST - Learn the Basics of Spark on HDInsight**) notebook from the two folders to see how Python2 notebook always start with setting the required contexts, while the Spark notebook just uses the preset contexts.
+You can open the **00 - [READ ME FIRST] Spark Magic Kernel Features** notebook from the **PySpark** or **Spark** folder to learn about the different magics available. You can also use the other sample notebooks available under the two folders to learn how to achieve different scenarios using Jupyter notebooks with HDInsight Spark clusters.
 
 ## Feedback
 
-The new kernels are in a pretty nascent stage and will evolve over time. This could also mean that APIs could change as these kernels mature. We would appreciate any feedback that you have while using these new kernels. This will be very useful in shaping the final release of these kernels. You can leave your comments/feedback under the **Comments** section at the bottom of this article.
+The new kernels are in evolving stage and will mature over time. This could also mean that APIs could change as these kernels mature. We would appreciate any feedback that you have while using these new kernels. This will be very useful in shaping the final release of these kernels. You can leave your comments/feedback under the **Comments** section at the bottom of this article.
 
 
 ## <a name="seealso"></a>See also

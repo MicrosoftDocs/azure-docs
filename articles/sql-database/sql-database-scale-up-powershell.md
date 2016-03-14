@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,7 +19,6 @@
 
 # Change the service tier and performance level (pricing tier) of a SQL database with PowerShell
 
-**Single database**
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-scale-up.md)
@@ -28,14 +27,14 @@
 
 This article shows how to change the service tier and performance level of your SQL database with PowerShell.
 
-Use the information in [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md) and [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md) to determine the appropriate service tier and performance level for your Azure SQL Database.
+Use the information in [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-server-portal.md) and [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md) to determine the appropriate service tier and performance level for your Azure SQL Database.
 
 > [AZURE.IMPORTANT] Changing the service tier and performance level of a SQL database is an online operation. This means your database will remain online and available during the entire operation with no downtime.
 
 - To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier. 
-- When upgrading a database with [Standard Geo-Replication](https://msdn.microsoft.com/library/azure/dn758204.aspx) or [Active Geo-Replication](https://msdn.microsoft.com/library/azure/dn741339.aspx) enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.
-- When downgrading from a Premium service tier, you must first terminate all Geo-Replication relationships. You can follow the steps described in the [Terminate a Continuous Copy Relationship](https://msdn.microsoft.com/library/azure/dn741323.aspx) topic to stop the replication process between the primary and the active secondary databases.
-- The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [Azure SQL Database Backup and Restore](https://msdn.microsoft.com/library/azure/jj650016.aspx).
+- When upgrading a database with [Geo-Replication](sql-database-geo-replication-portal) enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.
+- When downgrading from a Premium service tier, you must first terminate all Geo-Replication relationships. You can follow the steps described in the [Recover from an outage](sql-database-disaster-recovery.md) topic to stop the replication process between the primary and the active secondary databases.
+- The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [Azure SQL Database Backup and Restore](sql-database-business-continuity.md).
 - You can make up to four individual database changes (service tier or performance levels) within a 24 hour period.
 - The new properties for the database are not applied until the changes are complete.
 
@@ -43,7 +42,7 @@ Use the information in [Upgrade SQL Database Web/Business Databases to New Servi
 
 **To complete this article you need the following:**
 
-- An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
+- An Azure subscription. If you need an Azure subscription simply click **FREE ACCOUNT** at the top of this page, and then come back to finish this article.
 - An Azure SQL database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
 - Azure PowerShell.
 
@@ -56,7 +55,7 @@ To run PowerShell cmdlets, you need to have Azure PowerShell installed and runni
 
 First you must establish access to your Azure account so start PowerShell and then run the following cmdlet. In the login screen enter the same email and password that you use to sign in to the Azure portal.
 
-	Add-AzureRmAccount
+	Login-AzureRmAccount
 
 After successfully signing in you will see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
 
@@ -68,10 +67,7 @@ To select the subscription you need your subscription Id or subscription name (*
 	$SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
-After successfully running **Select-AzureSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureSubscription** and verify the subscription you want to use shows **IsCurrent: True**.
 
-
- 
 
 
 ## Change the service tier and performance level of your SQL database
@@ -129,5 +125,5 @@ Run the **Set-AzureRmSqlDatabase** cmdlet and set the **-RequestedServiceObjecti
 ## Additional resources
 
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
-- [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt163521.aspx)
+- [SQL Database documentation](http://azure.microsoft.com/documentation/services/sql-database/)
+- [Azure SQL Database Cmdlets](http://msdn.microsoft.com/library/mt574084.aspx)

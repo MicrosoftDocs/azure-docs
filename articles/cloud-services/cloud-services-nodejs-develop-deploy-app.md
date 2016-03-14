@@ -57,7 +57,7 @@ The application is a simple "hello world" application:
 Perform the following tasks to create a new Azure Cloud Service project, along with basic Node.js scaffolding:
 
 
-1. Run **Azure PowerShell** as Administrator. (From the **Start Menu** or **Start Screen**, search for **Azure PowerShell**.)
+1. Run **Windows PowerShell** as Administrator. (From the **Start Menu** or **Start Screen**, search for **Windows PowerShell**.)
 
 2.  [Connect PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) to your subscription.
 3.  Enter the following PowerShell cmdlet to create to create the project:

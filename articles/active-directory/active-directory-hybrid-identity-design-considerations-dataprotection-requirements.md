@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 #Plan for enhancing data security through strong identity solution
@@ -79,5 +79,4 @@ Make sure to take notes of each answer and understand the rationale behind the a
 
 
 ## See Also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)
-
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)

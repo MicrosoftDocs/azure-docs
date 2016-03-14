@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Manage Azure Data Lake Analytics using Azure Portal
@@ -105,8 +105,8 @@ Data Lake Storage accounts, see [Delete Data Lake Store account](data-lake-store
 
 Data Lake Analytics currently supports the following data sources:
 
-- [Azure Data Lake Store](data-lake-store-overview.md)
-- [Azure Blob storage](storage-introduction.md)
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
+- [Azure Storage](../storage/storage-introduction.md)
 
 When you create a Data Lake Analytics account, you must designate an Azure Data Lake Store account to be the default 
 storage account. The default Data Lake Store account is used to store job metadata and job audit logs. After you have 
@@ -161,7 +161,7 @@ there.
 
 <a name="upload-data-to-wasb"></a> **To upload files to Azure Blob storage account**
 
-See [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md).  The information applies to Data Lake Analytics.
+See [Upload data for Hadoop jobs in HDInsight](../hdinsight/hdinsight-upload-data.md).  The information applies to Data Lake Analytics.
 
 
 ## Manage users
@@ -179,7 +179,7 @@ the following roles:
 |DevTest Lab User|Lets you view everything, and connect, start, restart, and shutdown virtual machines.|  
 |User Access Administrator|Lets you manage user access to Azure resources.|  
 
-For information on creating Azure Active Directory users and security groups, See [What is Azure Active Directory](active-directory-whatis.md).
+For information on creating Azure Active Directory users and security groups, See [What is Azure Active Directory](../active-directory/active-directory-whatis.md).
 
 **To add users or security groups to an Analytics account**
 
@@ -190,7 +190,7 @@ For information on creating Azure Active Directory users and security groups, Se
 3. From the **User** blade, click **Add**.
 4. Select a role and add a user, and then click **OK**.
 
-**Note: If this user or security group needs to submit jobs, they will need to be given permission on the Data Lake Store as well. For more details, see [Secure data stored in Data Lake Store](data-lake-store-secure-data.md).**
+**Note: If this user or security group needs to submit jobs, they will need to be given permission on the Data Lake Store as well. For more details, see [Secure data stored in Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).**
 
 
 
@@ -255,8 +255,6 @@ See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 
 ##Monitor account usage
 
-[introduction - we need to explain the terms, and connect the pieces. ]
-
 **To monitor account usage**
 
 1. Open the Analytics account that you want to manage. For instructions see 
@@ -290,7 +288,7 @@ as a group, referred to as an Azure Resource Group. You can deploy, update, moni
 resources for your application in a single, coordinated operation. You use a template for deployment and that 
 template can work for different environments such as testing, staging and production. You can clarify billing 
 for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
-Resource Manager Overview](resource-group-overview.md). 
+Resource Manager Overview](../resource-group-overview.md). 
 
 A Data Lake Analytics service can include the following components:
 
@@ -312,6 +310,6 @@ The ARM group however can be located in a different data center.
 
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
-- [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 

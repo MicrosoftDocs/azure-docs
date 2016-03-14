@@ -40,7 +40,7 @@ The following installer packages are available:
 
 ## Install and use Node.js and npm
 
-If Node.js is already installed on your system, use the following command to install the Azure CLI:
+Alternatively, if Node.js is already installed on your system, use the following command to install the Azure CLI:
 
 	npm install azure-cli -g
 
@@ -137,7 +137,7 @@ Now you are ready! For access to all of the CLI commands to work with your own r
 Microsoft frequently releases updated versions of the Azure CLI. Reinstall the CLI using the installer for your operating system or, if Node.js and npm are installed, update by typing the following (on Linux distributions you might need to use **sudo**).
 
 ```
-npm upgrade -g azure-cli
+npm update -g azure-cli
 ```
 
 ## Additional resources

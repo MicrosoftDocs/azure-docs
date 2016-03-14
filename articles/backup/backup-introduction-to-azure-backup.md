@@ -13,8 +13,8 @@
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.topic="get-started-article"
+	ms.date="03/11/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # What is Azure Backup?
@@ -48,7 +48,7 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 | --- | --- | --- | --- |
 | Azure Backup agent | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM that runs in Azure.</p> | <p>**Yes**</p> <p>The Backup agent can be deployed on any Windows Server VM or physical machine.</p> | <p>Azure Backup vault</p> |
 | System Center Data Protection Manager (DPM) | <p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using System Center DPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads and VMs in your datacenter](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault,</p> <p>tape (on-premises only)</p> |
-| Azure Backup Server | <p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>Azure Backup vault</p> |
+| Azure Backup Server | <p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault</p> |
 | Azure Backup (VM extension) | <p>Yes</p> <p>Specialized for [backup of Azure infrastructure as a service (IaaS) virtual machines](backup-azure-vms-introduction.md).</p> | <p>**No**</p> <p>Use System Center DPM to back up virtual machines in your datacenter.</p> | <p>Azure Backup vault</p> |
 
 ## Which applications and workloads can be backed up?
@@ -84,9 +84,10 @@ These five tables summarize how Backup functionality is handled in each componen
 The Backup vault is the preferred storage target across all components. System Center DPM and Backup Server also provide the option to have a local disk copy, but only System Center DPM provides the option to write data to a tape storage device.
 
 #### Incremental backup
-Independent of the target storage (disk, tape, Backup vault), every component supports incremental backup. This helps ensure that backups are storage efficient and time efficient by taking only the incremental changes since the last backup, and then transferring those changes to the target storage. Backups are also compressed to reduce the storage footprint.
+Every component supports incremental backup regardless of the target storage (disk, tape, Backup vault). This helps ensure that backups are storage efficient and time efficient by sending only the incremental changes since the last backup.
 
-The component that does no compression is the VM extension. All backup data is copied from the customer storage account to the Backup vault in the same region without compressing it. While this slightly inflates the storage consumed, storing the data without compression allows for faster restore times.
+#### Compression
+Backups are compressed to reduce the required storage space. The only component that does not use compression is the VM extension. With VM extension, all backup data is copied from the customer storage account to the backup vault in the same region without compressing it. While this slightly inflates the storage consumed, storing the data without compression allows for faster restore times.
 
 #### Deduplication
 Deduplication is supported for System Center DPM and Backup Server when it is [deployed in a Hyper-V virtual machine](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Deduplication is performed at the host level by leveraging the Windows Server deduplication feature on the virtual hard disks (VHDs) that are attached to the virtual machine as backup storage.
@@ -138,6 +139,9 @@ For backup of Azure VMs, you must explicitly set up encryption *within* the virt
 Because the VM extension reads the data directly from the Azure storage account over the storage network, it is not necessary to optimize this traffic. The traffic is over the local storage network in the Azure datacenter, so there is little need for compression because of bandwidth considerations.
 
 For customers who protect their data to a backup server (System Center DPM or Backup Server), the traffic from the primary server to the backup server can also be compressed to save on bandwidth.
+
+#### Network Throttling
+The Azure Backup agent provides throttling capability which allows you to control how network bandwidth is used during data transfer. This can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other internet traffic. Throttling of data transfer applies to back up and restore activities.
 
 ### Backup and retention
 

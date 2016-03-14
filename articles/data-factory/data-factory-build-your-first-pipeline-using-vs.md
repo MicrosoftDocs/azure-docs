@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Data Factory (Visual Studio)"
+	pageTitle="Build your first data factory (Visual Studio) | Microsoft Azure"
 	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Visual Studio."
 	services="data-factory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="12/18/2015"
+	ms.date="02/16/2016"
 	ms.author="spelluru"/>
 
-# Build your first Azure Data Factory pipeline using Visual Studio
+# Build your Azure first data factory using Microsoft Visual Studio
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -116,7 +116,7 @@ In this step, you will create datasets to represent the input and output data fo
 #### Create the input dataset
 
 1. In the **Solution Explorer**, right-click **Tables**, point to **Add**, and click **New Item**. 
-2. Select **Azure Blob** from the list, change the name of the file to **OutputDataset.json**, and click **Add**.
+2. Select **Azure Blob** from the list, change the name of the file to **InputDataSet.json**, and click **Add**.
 3. Replace the **JSON** in the editor with the following: 
 
 	In the JSON snippet, you are creating a dataset called **AzureBlobInput** that represents input data for an activity in the pipeline. In addition, you specify that the input data is located in the blob container called **adfgetstarted** and the folder called **inputdata**
@@ -256,6 +256,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 
 	In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
+	> [ACOM.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the above example. 
 3. Save the **HiveActivity1.json** file.
 
 ### Add partitionweblogs.hql and input.log as a dependency 
@@ -418,6 +419,14 @@ Add a configuration file for each environment by performing the following steps:
             "name": "$.properties.structure[1].type",
             "value": "String"
         }
+
+### Property names with spaces
+If a property name has spaces in it, use square brackets as shown in the following example (Database server name): 
+
+     {
+         "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+         "value": "MyAsqlServer.database.windows.net"
+     }
 
 
 ### Deploy solution using a configuration
