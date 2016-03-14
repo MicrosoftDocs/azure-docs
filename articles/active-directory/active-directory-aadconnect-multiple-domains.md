@@ -17,12 +17,16 @@
 	ms.author="billmath"/>
 
 # Multiple Domain Support for Federating with Azure AD
-The following documentation provides guidance on how to use multiple top level domains and sub-domains when federating with Office 365 or Azure AD domains.
+The following documentation provides guidance on how to use multiple top-level domains and sub-domains when federating with Office 365 or Azure AD domains.
 
-## Multiple top level domains
-When you federate your first domain in Azure AD, several properties are set on the domain in Azure.  One important one is IssuerUri.  This is a URI that is used by Azure AD to identify the domain that the token is associated with.  The URI doesn’t need to resolve to anything but it must be a valid URI.  
+## Multiple top-level domain support
+Federating multiple, top-level domains with Azure AD requires some additional configuration that is not required when federating with one top-level domain.
 
-By using the PowerShell command `Get-MsolDomainFederationSettings - DomainName <your domain>`you can view the IssuerUri.
+When a domain is federated with Azure AD, several properties are set on the domain in Azure.  One important one is IssuerUri.  This is a URI that is used by Azure AD to identify the domain that the token is associated with.  The URI doesn’t need to resolve to anything but it must be a valid URI.  By default, Azure AD sets this to the value of the federation service identifier in your on-premises AD FS configuration.
+
+>[AZURE.NOTE]The federation service identifier is a URI that uniquely identifies a federation service.  The federation service is an instance of AD FS that functions as the security token service. 
+
+You can vew IssuerUri by using the PowerShell command `Get-MsolDomainFederationSettings - DomainName <your domain>`.
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
 
@@ -30,9 +34,7 @@ A problem arises when we want to add more than one top-level domain.  For exampl
 
 ![Domains](./media/active-directory-multiple-domains/domains.png)
 
-When we attempt to convert our bmfabrikam.com domain to be federated, we receive an error.  The reason for this is, Azure AD has a constraint that does not allow the IssuerUri property to have the same value for more than one domain.  By default, Azure AD sets this to the value of the federation service identifier in your on-premises AD FS configuration.
-
->[AZURE.NOTE]The federation service identifier is a URI that uniquely identifies a federation service.  The federation service is an instance of AD FS that functions as the security token service. 
+When we attempt to convert our bmfabrikam.com domain to be federated, we receive an error.  The reason for this is, Azure AD has a constraint that does not allow the IssuerUri property to have the same value for more than one domain.  
   
 
 ![Federation error](./media/active-directory-multiple-domains/error.png)
