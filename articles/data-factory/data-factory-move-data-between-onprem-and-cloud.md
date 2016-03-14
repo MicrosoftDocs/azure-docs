@@ -255,7 +255,7 @@ In this step, you use the Azure Portal to create an Azure Data Factory instance 
 	
 
 ### Step 3: Create linked services 
-In this step, you will create two linked services: **StorageLinkedService** and **SqlServerLinkedService**. The **SqlServerLinkedService** links an on-premises SQL Server database and the **StorageLinkedService** linked service links an Azure blob store to the data factory. You will create a pipeline later in this walkthrough that copies data from the on-premises SQL Server database to the Azure blob store. 
+In this step, you will create two linked services: **AzureStorageLinkedService** and **SqlServerLinkedService**. The **SqlServerLinkedService** links an on-premises SQL Server database and the **AzureStorageLinkedService** linked service links an Azure blob store to the data factory. You will create a pipeline later in this walkthrough that copies data from the on-premises SQL Server database to the Azure blob store. 
 
 #### Add a linked service to an on-premises SQL Server database
 1.	In the **Data Factory Editor**, click **New data store** on the toolbar and select **SQL Server**. 
@@ -296,7 +296,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 1. In the **Data Factory Editor**, click **New data store** on the command bar and click **Azure storage**.
 2. Enter the name of your Azure storage account for the **Account name**.
 3. Enter the key for your Azure storage account for the **Account key**.
-4. Click **Deploy** to deploy the **StorageLinkedService**.
+4. Click **Deploy** to deploy the **AzureStorageLinkedService**.
    
  
 ### Step 4: Create input and output datasets
@@ -377,7 +377,7 @@ In this step, you will create input and output datasets that represent input and
 		  "name": "OutputBlobTable",
 		  "properties": {
 		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
+		    "linkedServiceName": "AzureStorageLinkedService",
 		    "typeProperties": {
 		      "folderPath": "adftutorial/outfromonpremdf",
 		      "format": {
@@ -395,7 +395,7 @@ In this step, you will create input and output datasets that represent input and
 	Note the following: 
 	
 	- **type** is set to **AzureBlob**.
-	- **linkedServiceName** is set to **StorageLinkedService** (you had created this linked service in Step 2).
+	- **linkedServiceName** is set to **AzureStorageLinkedService** (you had created this linked service in Step 2).
 	- **folderPath** is set to **adftutorial/outfromonpremdf** where outfromonpremdf is the folder in the adftutorial container. You just need to create the **adftutorial** container.
 	- The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service will generate an output data slice every hour in the **emp** table in the Azure SQL Database. 
 
