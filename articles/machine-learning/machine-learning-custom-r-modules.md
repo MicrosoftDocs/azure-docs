@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="07/29/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -37,7 +37,7 @@ A custom R module is defined by a .zip file that contains, at a minimum, two fil
 Additional auxiliary files can also be included in the .zip file that provide functionality that can be accessed from the custom module. This option is discussed below.
 
 ## Quick start example: define, package, and register a custom R module
-This example illustrates how to construct the files required by a custom R module, package them into a zip file, and then register the module in your Machine Learning workspace. The example zip package and sample files can be downloaded from [here](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+This example illustrates how to construct the files required by a custom R module, package them into a zip file, and then register the module in your Machine Learning workspace. The example zip package and sample files can be downloaded from [Download CustomAddRows.zip file](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 Consider the example of a **Custom Add Rows** module that modifies the standard implementation of the Add Rows module used to concatenate rows (observations) from two datasets (data frames). The standard Add Rows module appends the rows of the second input dataset to the end of the first input dataset using the rbind algorithm. The customized `CustomAddRows` function similarly accepts two datasets, but also accepts an additional Boolean swap parameter as an input. If the swap parameter is **FALSE**, it returns the same data set as the standard implementation. But if the swap parameter is **TRUE**, it appends rows of first input dataset to the end of the second dataset instead. The file that implements the R `CustomAddRows` function exposed by the **Custom Add Rows** module contains the following R code.
 
@@ -92,7 +92,7 @@ Save these two files as *CustomAddRows.R* and *CustomAddRows.xml* and then zip t
 
 To register them in your Machine Learning workspace, go to your  workspace in the Machine Learning Studio, click the **+NEW** button on the bottom and choose **MODULE -> FROM ZIP PACKAGE** to upload the new Custom Add Rows module.
 
-![](http://i.imgur.com/RFJhCls.png)
+![Upload Zip](./media/machine-learning-custom-r-modules/upload-from-zip-package.png)
 
 The **Custom Add Rows** module is now ready to be accessed by your Machine Learning experiments.
 
@@ -114,7 +114,8 @@ Within the **Module** element, you can specify an optional **Owner** element tha
 * The content of the **Description** element must not exceed 128 characters in length.
 * The content of the **Owner** element must not exceed 32 characters in length.
 
-** Indicating whether a module's results are deterministic or nondeterministic
+
+**Indicating whether a module's results are deterministic or nondeterministic**
 
 By default, all modules are considered to be deterministic. That is, given an  unchanging set of parameters, the module should return the same results each time it is run. Given this behavior, Azure Machine Learning Studio does not re-run modules marked as deterministic unless a parameter or the input data has changed. Cached results are returned resulting in faster experiment execution.
 
@@ -173,8 +174,6 @@ Output ports are mapped to the return values from your R function, which can the
 	</Output>
 
 For outputs in custom R modules, the value of the **id** attribute does not have to correspond with anything in the R script, but it must be unique. For a single module output, the return value from the R function must be a *data.frame*. In order to output more than one object of a supported data type, the appropriate output ports need to be specified in the XML definition file and the objects need to be returned as a list. The output objects will be assigned to output ports from left to right, reflecting the order in which the objects are placed in the returned list.
- 
-For example, if you want to output dataset, Dataset1, and Dataset2 to output ports dataset, dataset1, and dataset2 from left to right, respectively, then define the output ports in the ‘CustomAddRows.xml’ file as follows:
 
 For example, if you want to modify the **Custom Add Rows** module to output the original two datasets, *dataset1*, and *dataset2*, in addition to the new joined dataset *dataset* (in an order, from left to right, as: *dataset*, *dataset1*, *dataset2*), then define the output ports in the CustomAddRows.xml file as follows:
 

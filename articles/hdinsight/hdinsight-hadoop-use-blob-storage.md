@@ -14,8 +14,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.topic="get-started-article"
+	ms.date="01/29/2016"
 	ms.author="jgao"/>
 
 
@@ -71,7 +71,7 @@ Multiple WebHCat jobs, including Hive, MapReduce, Hadoop streaming, and Pig, can
 Blob storage can be used for structured and unstructured data. Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the slash character ( / ) can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob's key may be *input/log1.txt*. No actual *input* directory exists, but due to the presence of the slash character in the key name, it has the appearance of a file path.
 
 ###<a id="benefits"></a>Benefits of Blob storage
-The implied performance cost of not co-locating compute clusters and storage resources is mitigated by the way the compute clusters are created close to the storage account resources inside the Azure datacenter, where the high-speed network makes it very efficient for the compute nodes to access the data inside Azure Blob storage.
+The implied performance cost of not co-locating compute clusters and storage resources is mitigated by the way the compute clusters are created close to the storage account resources inside the Azure region, where the high-speed network makes it very efficient for the compute nodes to access the data inside Azure Blob storage.
 
 There are several benefits associated with storing the data in Azure Blob storage instead of HDFS:
 
@@ -87,7 +87,7 @@ Certain MapReduce jobs and packages may create intermediate results that you don
 
 ## Create Blob containers
 
-To use blobs, you first create an [Azure Storage account][azure-storage-create]. As part of this, you specify an Azure datacenter that will store the objects you create using this account. The cluster and the storage account must be hosted in the same datacenter. The Hive metastore SQL Server database and Oozie metastore SQL Server database must also be located in the same datacenter.
+To use blobs, you first create an [Azure Storage account][azure-storage-create]. As part of this, you specify an Azure region that will store the objects you create using this account. The cluster and the storage account must be hosted in the same region. The Hive metastore SQL Server database and Oozie metastore SQL Server database must also be located in the same region.
 
 Wherever it lives, each blob you create belongs to a container in your Azure Storage account. This container may be an existing blob that was created outside of HDInsight, or it may be a container that is created for an HDInsight cluster.
 
@@ -95,9 +95,9 @@ Wherever it lives, each blob you create belongs to a container in your Azure Sto
 The default Blob container stores cluster specific information such as job history and logs. Don't share a default Blob container with multiple HDInsight clusters. This might corrupt job history, and the cluster will misbehave. It is recommended to use a different container for each cluster and put shared data on a linked storage account specified in deployment of all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Create HDInsight clusters][hdinsight-creation]. However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually retain the HBase table schema and data by create a new HBase cluster using the default blob storage container that is used by an HBase cluster that has been deleted.
 
 
-### Using the Azure preview portal
+### Using the Azure Portal
 
-When creating an HDInsight cluster from the preview portal, you have the options to use an existing storage account or create a new storage account:
+When creating an HDInsight cluster from the Portal, you have the options to use an existing storage account or create a new storage account:
 
 ![hdinsight hadoop creation data source](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
@@ -107,7 +107,7 @@ If you have [installed and configured the Azure CLI](../xplat-cli-install.md), t
 
 	azure storage account create <storageaccountname> --type LRS
 
-> [AZURE.NOTE] The `--type` parameter indicates how the storage account will be replicated. For more information, see [Azure Storage Replication](../storage-redundancy.md). Don't use ZRS as ZRS doesn't support page blob, file, table or queue.
+> [AZURE.NOTE] The `--type` parameter indicates how the storage account will be replicated. For more information, see [Azure Storage Replication](../storage/storage-redundancy.md). Don't use ZRS as ZRS doesn't support page blob, file, table or queue.
 
 You will be prompted to specify the geographic region that the storage account will be located in. You should create the storage account in the same region that you plan on creating your HDInsight cluster.
 
@@ -155,7 +155,7 @@ The URI scheme for accessing files in Blob storage from HDInsight is:
 
 
 
-The URI scheme provides unencrypted access (with the *wasb:* prefix) and SSL encrypted access (with *wasbs*). We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same datacenter in Azure.
+The URI scheme provides unencrypted access (with the *wasb:* prefix) and SSL encrypted access (with *wasbs*). We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same region in Azure.
 
 The &lt;BlobStorageContainerName&gt; identifies the name of the container in Azure Blob storage.
 The &lt;StorageAccountName&gt; identifies the Azure Storage account name. A fully qualified domain name (FQDN) is required.
@@ -285,8 +285,10 @@ For more information, see:
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Pig with HDInsight][hdinsight-use-pig]
+* [Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight][hdinsight-use-sas]
 
-[powershell-install]: ../install-configure-powershell.md
+[hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
+[powershell-install]: powershell-install-configure.md
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md

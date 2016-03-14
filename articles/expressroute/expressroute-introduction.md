@@ -4,15 +4,15 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute technical overview
@@ -28,7 +28,7 @@ Microsoft Azure ExpressRoute lets you extend your on-premises networks into the 
 - Global connectivity to Microsoft services across all regions with ExpressRoute premium add-on.
 - Dynamic routing between your network and Microsoft over industry standard protocols (BGP).
 - Built-in redundancy in every peering location for higher reliability.
-- Connection uptime [SLA](http://azure.microsoft.com/support/legal/sla/).
+- Connection uptime [SLA](https://azure.microsoft.com/support/legal/sla/).
 - QoS and support for multiple classes of service for special applications, such as Skype for Business.
 
 See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
@@ -55,7 +55,7 @@ Microsoft uses industry standard dynamic routing protocol (BGP) to exchange rout
 
 ### Redundancy
 
-Each ExpressRoute circuit consists of two connections to two Microsoft Enterprise edge routers (MSEEs) from the connectivity provider / your network edge. Microsoft will require dual BGP connection from the connectivity provider / your side – one to each MSEE. You may choose not to deploy redundant devices / Ethernet circuits at your end. However, connectivity providers use redundant devices to ensure that your connections are handed off to Microsoft in a redundant manner. A redundant Layer 3 connectivity configuration is a requirement for our [SLA](http://azure.microsoft.com/support/legal/sla/) to be valid. 
+Each ExpressRoute circuit consists of two connections to two Microsoft Enterprise edge routers (MSEEs) from the connectivity provider / your network edge. Microsoft will require dual BGP connection from the connectivity provider / your side – one to each MSEE. You may choose not to deploy redundant devices / Ethernet circuits at your end. However, connectivity providers use redundant devices to ensure that your connections are handed off to Microsoft in a redundant manner. A redundant Layer 3 connectivity configuration is a requirement for our [SLA](https://azure.microsoft.com/support/legal/sla/) to be valid. 
 
 ### Connectivity to Microsoft cloud services
 
@@ -63,7 +63,7 @@ ExpressRoute connections enable access to the following services.
 
 - Microsoft Azure services
 - Microsoft Office 365 services
-- Microsoft CRM Online services (coming soon) 
+- Microsoft CRM Online services 
  
 You can visit the [ExpressRoute FAQ](expressroute-faqs.md) page for a detailed list of services supported over ExpressRoute.
 

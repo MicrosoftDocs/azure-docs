@@ -1,20 +1,20 @@
-<properties 
- pageTitle="Scheduler Outbound Authentication" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Scheduler Outbound Authentication"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="08/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
+
 # Scheduler Outbound Authentication
 
 Scheduler jobs may need to call out to services that require authentication. This way, a called service can determine if the Scheduler job can access its resources. Some of these services include other Azure services, Salesforce.com, Facebook, and secure custom websites.
@@ -56,7 +56,7 @@ When a request is sent with authentication info, the response contains the follo
 The following example request makes a PUT request that incorporates `ClientCertificate` authentication. The request is as follows:
 
 
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
+	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler
 	x-ms-version: 2013-03-01
 	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
 	Content-Type: application/json; charset=utf-8
@@ -98,7 +98,7 @@ Once this request is sent, the response is as follows:
 	x-ms-servedbyregion: ussouth2
 	X-AspNet-Version: 4.0.30319
 	X-Powered-By: ASP.NET
-	 
+
 
 	{
 	  "id": "testScheduler",
@@ -155,7 +155,7 @@ When a request is sent with authentication info, the response contains the follo
 
 The following example request makes a PUT request that incorporates `Basic` authentication. The request is as follows:
 
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
+	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler
 	x-ms-version: 2013-03-01
 	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
 	Content-Type: application/json; charset=utf-8
@@ -234,10 +234,14 @@ When adding authentication using the `ActiveDirectoryOAuth` model, specify the f
 |:--|:--|
 |_authentication (parent element)_ |Authentication object for using ActiveDirectoryOAuth authentication.|
 |_type_ |Required. Type of authentication. For ActiveDirectoryOAuth authentication, the value must be `ActiveDirectoryOAuth`.|
-|_tenant_ |Required. The tenant identifier is an ID that is used to identify the AD tenant.|
+|_tenant_ |Required. The tenant identifier for the Azure AD tenant.|
 |_audience_ |Required. This is set to https://management.core.windows.net/.|
 |_clientId_ |Required. Provide the client identifier for the Azure AD application.|
 |_secret_ |Required. Secret of the client that is requesting the token.|
+
+### Determining your Tenant Identifier
+
+You can find the tenant identifier for the Azure AD tenant by running `Get-AzureAccount` in Azure PowerShell.
 
 ## Response Body for ActiveDirectoryOAuth Authentication
 
@@ -247,7 +251,7 @@ When a request is sent with authentication info, the response contains the follo
 |:--|:--|
 |_authentication (parent element)_ |Authentication object for using ActiveDirectoryOAuth authentication.|
 |_type_ |Type of authentication. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`.|
-|_tenant_ |The tenant identifier used to identify the AD tenant.|
+|_tenant_ |The tenant identifier for the Azure AD tenant. |
 |_audience_ |This is set to https://management.core.windows.net/.|
 |_clientId_ |The client identifier for the Azure AD application.|
 
@@ -255,7 +259,7 @@ When a request is sent with authentication info, the response contains the follo
 
 The following example request makes a PUT request that incorporates `ActiveDirectoryOAuth` authentication. The request is as follows:
 
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
+	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler
 	x-ms-version: 2013-03-01
 	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
 	Content-Type: application/json; charset=utf-8
@@ -272,7 +276,7 @@ The following example request makes a PUT request that incorporates `ActiveDirec
 			"x-ms-version": "2013-03-01"
 		  },
 		  "authentication":{  
-			"tenant":"contoso.com",
+			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
 			"audience":"https://management.core.windows.net/",
 			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
 			"secret": "&lt;secret-key&gt;",
@@ -310,7 +314,7 @@ Once this request is sent, the response is as follows:
 			"x-ms-version": "2013-03-01"
 		  },
 		  "authentication":{  
-			"tenant":"contoso.com",
+			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
 			"audience":"https://management.core.windows.net/",
 			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
 			"type":"ActiveDirectoryOAuth"
@@ -332,23 +336,20 @@ Once this request is sent, the response is as follows:
 	}
 
 ## See Also
- 
+
+
  [What is Scheduler?](scheduler-intro.md)
- 
- [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
- 
- [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
- 
- [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
- 
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
- 
- [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
- 
- [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
- 
- [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
- 
- [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
- 
-  
+
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
+
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)

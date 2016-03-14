@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Tutorial: Integrating Google Apps with Azure Active Directory | Microsoft Azure"
-   description="Learn how to use Google Apps with Azure Active Directory to enable single sign-on, automated provisioning, and more!"
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Google Apps | Microsoft Azure"
+    description="Learn how to use Google Apps with Azure Active Directory to enable single sign-on, automated provisioning, and more!"
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/15/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/17/2016"
+    ms.author="liviodlc"/>
 
 #Tutorial: How to integrate Google Apps with Azure Active Directory
 
@@ -22,13 +22,37 @@ This tutorial will show you how to connect your Google Apps environment to your 
 
 ##Prerequisites
 
-1. To access Azure Active Directory through the [Azure Management Portal](https://manage.windowsazure.com), you must first have a valid Azure subscription.
+1. To access Azure Active Directory through the [Azure classic portal](https://manage.windowsazure.com), you must first have a valid Azure subscription.
 
 2. You must have a valid tenant for [Google Apps for Work](https://www.google.com/work/apps/) or [Google Apps for Education](https://www.google.com/edu/products/productivity-tools/). You may use a free trial account for either service.
 
+##Video tutorial
+
+How to Enable Single Sign-On to Google Apps in 2 Minutes:
+
+> [AZURE.VIDEO enable-single-sign-on-to-google-apps-in-2-minutes-with-azure-ad]
+
+##Frequently Asked Questions
+
+1. **Q: Are Chromebooks and other Chrome devices compatible with Azure AD single sign-on?**
+
+	A: Yes, users will be able to sign into their Chromebook devices using their Azure AD credentials. See this [Google Apps support article](https://support.google.com/chrome/a/answer/6060880) for information on why users may get prompted for credentials twice.
+
+2. **Q: If I enable single sign-on, will users be able to use their Azure AD credentials to sign into any Google product, such as Google Classroom, GMail, Google Drive, YouTube, etc?**
+
+	A: Yes, depending on [which Google apps](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) you choose to enable or disable for your organization.
+
+3. **Q: Can I enable single sign-on for only a subset of my Google Apps users?**
+
+	A: No, turning on single sign-on will immediately require all of your Google Apps users to authenticate with their Azure AD credentials. Because Google Apps doesn't support having multiple identity providers, the identity provider for your Google Apps environment can either be Azure AD or Google -- but not both at the same time.
+
+4. **Q: If a user is signed in through Windows, will they automatically authenticate to Google Apps without getting prompted for a password?**
+
+	A: There are two options for enabling this scenario. First, users could sign into Windows 10 devices via [Azure Active Directory Join](active-directory-azureadjoin-overview.md). Alternatively, users could sign into Windows devices that are domain-joined to an on-premises Active Directory that has been enabled for single sign-on to Azure AD via an [Active Directory Federation Services (AD FS)](active-directory-aadconnect-user-signin.md) deployment. Of course, both options require that you follow the tutorial below to enable single sign-on between Azure AD and Google Apps.
+
 ##Step 1: Add Google Apps to your Directory
 
-1. In the [Azure Management Portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**.
+1. In the [Azure classic portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**.
 
 	![Select Active Directory from the left navigation pane.][0]
 
@@ -69,6 +93,46 @@ This tutorial will show you how to connect your Google Apps environment to your 
 3. On the **Configure App Settings** page, for the **Sign On URL** field, type in your Google Apps tenant URL using the following format: `https://mail.google.com/a/<yourdomain>`
 
 	![Type in your tenant URL][8]
+
+4. On the **Auto configure single sign-on** page, type in the domain for your Google Apps tenant. Then press the **Configure** button.
+
+	![Type in your domain name and press Configure.](./media/active-directory-saas-google-apps-tutorial/ga-auto-config.png)
+
+	> [AZURE.NOTE] If you prefer to configure single sign-on manually, see [Optional Step: Manually Configure Single Sign-On](#optional-step-manually-configure-single-sign-on)
+
+5. Sign into your Google Apps admin account. Then click **Allow** in order to permit Azure Active Directory to make configuration changes in your Google Apps subscription.
+
+	![Type in your domain name and press Configure.](./media/active-directory-saas-google-apps-tutorial/ga-consent.PNG)
+
+6. Wait a few seconds while Azure Active Directory configures your Google Apps tenant. Once it completes, click **Next**.
+
+10. On the final page of the dialog, type in an email address if you would like to receive email notifications for errors and warnings related to the maintenance of this single sign-on configuration.
+
+	![Type in your email address.][14]
+
+11. Click **Complete** to close the dialog. To test your configuration, see the section below titled [Assign Users to Google Apps](#step-4-assign-users-to-google-apps).
+
+##Optional Step: Manually Configure Single Sign-On
+
+If you prefer to set up single sign-on manually, complete the following steps:
+
+1. In Azure AD, on the Quick Start page for Google Apps, click the **Configure single sign-on** button.
+
+	![The configure single sign-on button][6]
+
+2. A dialog will open and you'll see a screen that asks "How would you like users to sign on to Google Apps?" Select **Azure AD Single Sign-On**, and then click **Next**.
+
+	![Select Azure AD Single Sign-On][7]
+
+	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
+
+3. On the **Configure App Settings** page, for the **Sign On URL** field, type in your Google Apps tenant URL using the following format: `https://mail.google.com/a/<yourdomain>`
+
+	![Type in your tenant URL][8]
+
+4. On the **Auto configure single sign-on** page, select the checkbox labeled **Manually configure this application for single sign-on**. Then click **Next**.
+
+	![Choose manual configuration.](./media/active-directory-saas-google-apps-tutorial/ga-auto-skip.PNG)
 
 4. On the **Configure single sign-on at Google Apps** page, click on **Download certificate**, and then save the certificate file locally on your computer.
 
@@ -130,7 +194,7 @@ This tutorial will show you how to connect your Google Apps environment to your 
 
 4. If you haven't added a custom domain name to your Azure Active Directory yet, then follow the steps below:
 
-	- In the [Azure Management Portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**. In the directory list, select your directory. 
+	- In the [Azure classic portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**. In the directory list, select your directory. 
 
 	- Click on **Domains** from the top-level menu, and then click on **Add a custom domain**.
 
@@ -212,7 +276,10 @@ This tutorial will show you how to connect your Google Apps environment to your 
 
 4. To test your single sign-on settings, open the Access Panel at [https://myapps.microsoft.com](https://myapps.microsoft.com/), then sign into the test account, and click on **Google Apps**.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
 
 [0]: ./media/active-directory-saas-google-apps-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-google-apps-tutorial/applications-tab.png

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Sample data in Azure blob storage| Microsoft Azure" 
+	pageTitle="Sample data in Azure blob storage | Microsoft Azure" 
 	description="Sample data in Azure Blob Storage" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
@@ -13,23 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample data in Azure blob storage
-
-This **menu** links to topics that describe how to sample data from various storage environments. This task is a step in the Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## Introduction
 
 This document covers sampling data stored in Azure blob storage by downloading it programmatically and then sampling it with sample Python code. The steps to do so are as follows:
 
+**Why sample your data?**
+If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
+
+The **menu** below links to topics that describe how to sample data from various storage environments. 
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+This sampling task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
+
 ## Download and down-sample data
 1. Download the data from Azure blob storage using the blob service from the following sample Python code: 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -72,7 +78,7 @@ You can use the following sample code to down-sample the data and use it directl
 
 2. Upload the local file to an Azure blob using the following sample code:
 
-		from azure.storage import BlobService
+		from azure.storage.blob import BlobService
     	import tables
 
 		STORAGEACCOUNTNAME= <storage_account_name>

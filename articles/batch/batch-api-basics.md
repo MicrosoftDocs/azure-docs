@@ -1,6 +1,6 @@
 <properties
-	pageTitle="API basics for Azure Batch | Microsoft Azure"
-	description="Learn the basic concepts of the Batch service and its APIs from a developer's standpoint."
+	pageTitle="Azure Batch feature overview | Microsoft Azure"
+	description="Learn the features of the Batch service and its APIs from a development standpoint."
 	services="batch"
 	documentationCenter=".net"
 	authors="yidingzhou"
@@ -10,17 +10,17 @@
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="10/15/2015"
-	ms.author="yidingz;v-marsma"/>
+	ms.date="02/25/2016"
+	ms.author="yidingz;marsma"/>
 
-# API basics for Azure Batch
+# Overview of Azure Batch features
 
 This article provides a basic overview of the core API features of the Azure Batch service. Whether developing a distributed computational solution using the [Batch REST][batch_rest_api] or [Batch .NET][batch_net_api] APIs, you will use many of the entities and features discussed below.
 
-> [AZURE.TIP] For a higher level technical overview of Batch, please see the [Azure Batch technical overview](batch-technical-overview.md).
+> [AZURE.TIP] For a higher level technical overview of Batch, please see [Azure Batch basics](batch-technical-overview.md).
 
 ## <a name="workflow"></a>Workflow of the Batch service
 
@@ -44,29 +44,22 @@ In the sections below, you'll learn about each of the resources mentioned in the
 
 ## <a name="resource"></a> Resources of the Batch service
 
-When you use the Azure Batch service, you will take advantage of the following resources:
+When you use the Azure Batch service, you will use the following resources:
 
 - [Account](#account)
-
 - [Compute node](#computenode)
-
 - [Pool](#pool)
-
 - [Job](#job)
-
 - [Task](#task)
-
 	- [Start Task](#starttask)
-
 	- [Job ManagerTask](#jobmanagertask)
-
 	- [Job preparation and release tasks](#jobpreprelease)
-
+	- [Multi-instance tasks](#multiinstance)
 - [JobSchedule](#jobschedule)
 
 ### <a name="account"></a>Account
 
-A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account. When you perform operations with the Batch service, you need both the account name and the account key. To create a batch account, check out [Create and manage an Azure Batch account in the Azure preview portal](batch-account-create-portal.md).
+A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account. When you perform operations with the Batch service, you need both the account name and the account key. To create a batch account, check out [Create and manage an Azure Batch account in the Azure portal](batch-account-create-portal.md).
 
 ### <a name="computenode"></a>Compute node
 
@@ -145,10 +138,9 @@ A task is a unit of computation that is associated with a job and runs on a node
 In addition to tasks that you define to perform computation on a node, the following special tasks are also provided by the Batch service:
 
 - [Start task](#starttask)
-
 - [Job manager task](#jobmanagertask)
-
 - [Job preparation and release tasks](#jobmanagertask)
+- [Multi-instance tasks](#multiinstance)
 
 #### <a name="starttask"></a>Start task
 
@@ -189,6 +181,12 @@ Both job preparation and release tasks allow you to specify a command line to ru
 
 For more information on job preparation and release tasks, see [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
 
+#### <a name="multiinstance"></a>Multi-instance tasks
+
+A [multi-instance task](batch-mpi.md) is a task that is configured to run on more than one compute node simultaneously. With multi-instance tasks, you can enable high performance computing scenarios like Message Passing Interface (MPI) that require a group of compute nodes allocated together to process a single workload.
+
+For a detailed discussion on running MPI jobs in Batch using the Batch .NET library, check out [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](batch-mpi.md).
+
 ### <a name="jobschedule"></a>Scheduled jobs
 
 Job schedules enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. A job schedule allows for the specification of the duration of the schedule - how long and when the schedule is in effect - and how often during that time period jobs should be created.
@@ -224,11 +222,11 @@ A combined approach, typically used for handling variable but ongoing load, is t
 
 ## <a name="scaling"></a>Scaling applications
 
-With [automatic scaling](batch-automatic-scaling.md), your application can easily be scaled up or down automatically to accommodate the computation that you need. You can dynamically adjust the number of nodes in a pool according to the current workload and resource usage statistics, allowing you to lower the overall cost of running your application by using only those resources needed. You can specify the scaling settings for a pool when it is created, and you can update this configuration at any time.
+With [automatic scaling](batch-automatic-scaling.md), you can have the Batch service dynamically adjust the number of compute nodes in a pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't. You can specify the automatic scaling settings for a pool when it is created, or enable scaling later, and you can update the scaling settings on an automatic scaling-enabled pool.
 
-When automatically decreasing the number of nodes, currently running tasks must be considered. A de-allocation policy is specified which determines whether running tasks are stopped to remove the node immediately, or whether tasks are allowed to finish before the nodes are removed. Setting the target number of nodes to zero at the end of a job, but allowing running tasks to finish, will maximize utilization.
+Automatic scaling is performed by specifying an **automatic scaling formula** for a pool. The Batch service uses this formula to determine the target number of nodes in the pool for the next scaling interval (an interval which you can specify).
 
-The automatic scaling of an application is done by specifying a set of scaling formulas. These formulas are used to determine the target number of nodes in the pool for the next scaling interval. For example, perhaps a job requires that you submit a large number of tasks to be scheduled for execution. You can assign a scaling formula to the pool that adjusts size of the pool (the number of nodes) based on the current number of pending tasks, and the completion rate of those tasks. The Batch service periodically evaluates the formula, resizing the pool based on workload.
+For example, perhaps a job requires that you submit a large number of tasks to be scheduled for execution. You can assign a scaling formula to the pool that adjusts number of nodes in the pool based on the current number of pending tasks, and the completion rate of those tasks. The Batch service periodically evaluates the formula, and resizes the pool based on workload and your formula settings.
 
 A scaling formula can be based on the following metrics:
 
@@ -238,10 +236,11 @@ A scaling formula can be based on the following metrics:
 
 - **Task metrics** – Based on the status of tasks, such as Active, Pending, and Completed.
 
-For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
+When automatic scaling decreases the number of compute nodes in a pool, currently running tasks must be considered. To accommodate this, your formula can include a node de-allocation policy setting that specifies whether running tasks are stopped immediately, or allowed to finish before the node is removed from the pool.
 
-> [AZURE.TIP]
- While not often required, it is possible to specify individual nodes to be removed from a pool. If a node is suspected of being less reliable, for example, it could be removed from the pool to prevent additional tasks from being assigned.
+> [AZURE.TIP] To maximize compute resource utilization, set the target number of nodes to zero at the end of a job, but allow running tasks to finish.
+
+For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
 
 ## <a name="cert"></a>Security with certificates
 
@@ -315,9 +314,27 @@ Tasks may occasionally fail or be interrupted. The task application itself may f
 
 It is also possible for an intermittent issue to cause a task to hang or take too long to execute. The maximum execution time can be set for a task, and if exceeded, Batch will interrupt the task application.
 
-### Accounting for "bad" nodes
+### Troubleshooting "bad" compute nodes
 
-Each node in a pool is given a unique ID, and the node on which a task runs is included in the task meta-data. In situations where tasks are failing on a particular node, this can be determined by your Batch client application and the suspect node can be removed from the pool. If any tasks are running on a  node when it is deleted, they will be automatically re-queued for execution on other nodes.
+In situations where some of your tasks are failing, your Batch client application or service can examine the metadata of the failed tasks to identify a misbehaving node. Each node in a pool is given a unique ID, and the node on which a task runs is included in the task metadata. Once identified, you can take several actions:
+
+- **Reboot the node** ([REST][rest_reboot] | [.NET][net_reboot])
+
+	Restarting the node can sometimes clear up latent issues such as stuck or crashed processes. Note that if your pool uses a start task or your job uses a job preparation task, they will be executed when the node restarts.
+
+- **Reimage the node** ([REST][rest_reimage] | [.NET][net_reimage])
+
+	This reinstalls the operating system on the node. As with rebooting a node, start tasks and job preparation tasks are rerun after the node has been reimaged.
+
+- **Remove the node from the pool** ([REST][rest_remove] | [.NET][net_remove])
+
+	Sometimes it is necessary to completely remove the node from the pool.
+
+- **Disable task scheduling on the node** ([REST][rest_offline] | [.NET][net_offline])
+
+	This effectively takes the node "offline" so that no further tasks will be assigned to it, but allows the node to remain running and in the pool. This enables you to perform further investigation into the cause of the failures without losing the failed task's data, and without the node causing additional task failures. For example, you can disable task scheduling on the node, then log in remotely to examine the node's event logs, or perform other troubleshooting. Once you've finished your investigation, you can then bring the node back online by enabling task scheduling ([REST][rest_online], [.NET][net_online]), or perform one of the other actions discussed above.
+
+> [AZURE.IMPORTANT] With each action above--reboot, reimage, remove, disable task scheduling--you are able to specify how tasks currently running on the node are handled when you perform the action. For example, when you disable task scheduling on a node with the Batch .NET client library, you can specify a [DisableComputeNodeSchedulingOption][net_offline_option] enum value to specify whether to **Terminate** running tasks, **Requeue** them for scheduling on other nodes, or allow running tasks to complete before performing the action (**TaskCompletion**).
 
 ## Next steps
 
@@ -333,6 +350,7 @@ Each node in a pool is given a unique ID, and the node on which a task runs is i
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
+[msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -343,7 +361,14 @@ Each node in a pool is given a unique ID, and the node on which a task runs is i
 [net_create_user]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.createcomputenodeuser.aspx
 [net_getfile_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getnodefile.aspx
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
+[net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
+[net_reboot]: https://msdn.microsoft.com/library/azure/mt631495.aspx
+[net_reimage]: https://msdn.microsoft.com/library/azure/mt631496.aspx
+[net_remove]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.removefrompoolasync.aspx
+[net_offline]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.disableschedulingasync.aspx
+[net_online]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.enableschedulingasync.aspx
+[net_offline_option]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.disablecomputenodeschedulingoption.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx
@@ -352,5 +377,12 @@ Each node in a pool is given a unique ID, and the node on which a task runs is i
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/en-us/library/azure/mt637905.aspx
+[rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
+[rest_reboot]: https://msdn.microsoft.com/library/azure/dn820171.aspx
+[rest_reimage]: https://msdn.microsoft.com/library/azure/dn820157.aspx
+[rest_remove]: https://msdn.microsoft.com/library/azure/dn820194.aspx
+[rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
+[rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx

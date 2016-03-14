@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015" 
+	ms.date="01/20/2016"
 	ms.author="ricksal"/>
 
 
@@ -21,6 +21,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [How to use the Android client library for Mobile Apps](../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md).
+ 
 This guide shows you how to perform common scenarios using the Android client for Azure Mobile Services.  The scenarios covered include querying for data; inserting, updating, and deleting data, authenticating users, handling errors, and customizing the client.
 
 If you are new to Mobile Services, you should first complete the quickstart tutorial [Get started with Mobile Services]. Successfully completing that tutorial ensures that you will have  installed Android Studio; it will help you configure your account and create your first mobile service, and install the Mobile Services SDK, which supports Android version 2.2 or later, but we recommend building against Android version 4.2 or later.
@@ -55,7 +60,7 @@ The following code creates the [MobileServiceClient](http://dl.windowsazure.com/
 				"AppKey", 			// replace with the Application Key
 				this)
 
-In the code above, replace `MobileServiceUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on *Dashboard*.
+In the code above, replace `MobileServiceUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Azure classic portal, by selecting your mobile service and then clicking on *Dashboard*.
 
 ##<a name="instantiating"></a>How to: Create a table reference
 
@@ -133,7 +138,7 @@ The following code returns all items from the *ToDoItem* table whose *complete* 
                     final MobileServiceList<ToDoItem> result =
 						mToDoTable.where().field("complete").eq(false).execute().get();
 					for (ToDoItem item : result) {
-                		Log.i(TAG, "Read object with ID " + item.id);  
+                		Log.i(TAG, "Read object with ID " + item.id);
 					}
                 } catch (Exception exception) {
                     createAndShowDialog(exception, "Error");
@@ -371,7 +376,7 @@ The following code shows how to delete data from a table. It deletes an existing
 	}
 
 
-The following code illustrates another way to do this. It deletes an existing item in the ToDoItem table by specifying the value of the id field of the row to delete (assumed to equal "2FA404AB-E458-44CD-BC1B-3BC847EF0902"). In an actual app you would pick up the ID somehow and pass it in as a variable. Here, to simplify testing, you can go into the Azure Mobile Services portal for your service, click **Data** and copy an ID that you wish to test with.
+The following code illustrates another way to do this. It deletes an existing item in the ToDoItem table by specifying the value of the id field of the row to delete (assumed to equal "2FA404AB-E458-44CD-BC1B-3BC847EF0902"). In an actual app you would pick up the ID somehow and pass it in as a variable. Here, to simplify testing, you can go to your service in the Azure classic portal, click **Data** and copy an ID that you wish to test with.
 
     public void deleteItem(View view) {
 
@@ -396,7 +401,7 @@ The following code illustrates another way to do this. It deletes an existing it
     }
 
 ##<a name="lookup"></a>How to: Look up a specific item
-Sometimes you want to look up a specific item by its *id*, unlike querying where you typically get a collection of items that satisfy some criteria. The following code shows how to do this, for an *id* value of `0380BAFB-BCFF-443C-B7D5-30199F730335`. In an actual app you would pick up the ID somehow and pass it in as a variable. Here, to simplify testing, you can go to the Azure Mobile Services portal for your service, click the **Data** tab and copy an ID that you wish to test with.
+Sometimes you want to look up a specific item by its *id*, unlike querying where you typically get a collection of items that satisfy some criteria. The following code shows how to do this, for an *id* value of `0380BAFB-BCFF-443C-B7D5-30199F730335`. In an actual app you would pick up the ID somehow and pass it in as a variable. Here, to simplify testing, you can go to your service in the Azure classic portal, click the **Data** tab and copy an ID that you wish to test with.
 
     /**
      * Lookup specific item from table and UI
@@ -679,7 +684,7 @@ Mobile Services supports the following existing identity providers that you can 
 
 You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the ID of an authenticated user to modify requests.
 
-These first two tasks are done using the [Azure Management Portal](https://manage.windowsazure.com/). For more information, see [Get started with authentication](http://go.microsoft.com/fwlink/p/?LinkId=296316).
+These first two tasks are done using the [Azure classic portal](https://manage.windowsazure.com/). For more information, see [Get started with authentication](http://go.microsoft.com/fwlink/p/?LinkId=296316).
 
 ### <a name="caching"></a>How to: Add authentication code to your app
 

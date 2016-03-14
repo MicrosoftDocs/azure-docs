@@ -1,6 +1,6 @@
 <properties
    pageTitle="Get started with SQL Database Threat Detection"
-   description="How to get started with SQL Database Threat Detection in the Azure Preview portal"
+   description="How to get started with SQL Database Threat Detection in the Azure Portal"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -31,15 +31,15 @@ For example, Threat Detection detects certain anomalous database activities indi
 
 ## Set up threat detection for your database
 
-1. Launch the Azure Preview portal at [https://portal.azure.com](https://portal.azure.com).
+1. Launch the Azure Portal at [https://portal.azure.com](https://portal.azure.com).
 
-2. Navigate to the configuration blade of the SQL Database you want to monitor. In the Settings blade, select **Auditing & Threat Detection.**
+2. Navigate to the configuration blade of the SQL Database you want to monitor. In the Settings blade, select **Auditing & Threat Detection**.
 
-![][1]
+	![Navigation pane][1]
 
 3. In the **Auditing & Threat Detection** configuration blade turn **ON** auditing, which will display the Threat detection settings.
 
-![][2]
+	![Navigation pane][2]
 
 4. Turn **ON** Threat detection.
 
@@ -47,39 +47,38 @@ For example, Threat Detection detects certain anomalous database activities indi
 
 6. Click **Save** in the **Auditing & Threat detection** configuration blade to save the new or updated auditing and threat detection policy.
 
-![][3]
+	![Navigation pane][3]
 
 
 ## Explore anomalous database activities upon detection of a suspicious event
 
 1. You will receive an email notification upon detection of anomalous database activities. <br/>
-The email will provide information on the suspicious security event including the nature of the anomalous activities, database name, server name and the event time. In addition, it will provide information on possible causes and recommended actions to investigate and mitigate the potential threat to the database.
+The email will provide information on the suspicious security event including the nature of the anomalous activities, database name, server name and the event time. In addition, it will provide information on possible causes and recommended actions to investigate and mitigate the potential threat to the database.<br/>
 
-![][4]
+	![Navigation pane][4]
 
 2. In the email, click on the **Azure SQL Auditing Log** link, which will launch the Azure portal and show the relevant Auditing records around the time of the suspicious event.
 
-![][5]
+	![Navigation pane][5]
 
-Click on the audit records to view more details on the suspicious database activities such as SQL statement, failure reason and client IP.
+3. Click on the audit records to view more details on the suspicious database activities such as SQL statement, failure reason and client IP.
 
-![][6]
+	![Navigation pane][6]
 
-3. In the Auditing Records blade, click  **Open in Excel** to open a pre-configured excel template to import and run deeper analysis of the audit log around the time of the suspicious event.<br/>
-
+4. In the Auditing Records blade, click  **Open in Excel** to open a pre-configured excel template to import and run deeper analysis of the audit log around the time of the suspicious event.<br/>
 **Note:** In Excel 2010 or later, Power Query and the **Fast Combine** setting is required
 
-![][7]
+	![Navigation pane][7]
 
-4. To configure the **Fast Combine** setting - In the **POWER QUERY** ribbon tab, select **Options** to display the Options dialog. Select the Privacy section and choose the second option - 'Ignore the Privacy Levels and potentially improve performance':
+5. To configure the **Fast Combine** setting - In the **POWER QUERY** ribbon tab, select **Options** to display the Options dialog. Select the Privacy section and choose the second option - 'Ignore the Privacy Levels and potentially improve performance':
 
-![][8]
+	![Navigation pane][8]
 
-5. To load SQL audit logs, ensure that the parameters in the settings tab are set correctly and then select the 'Data' ribbon and click the 'Refresh All' button.
+6. To load SQL audit logs, ensure that the parameters in the settings tab are set correctly and then select the 'Data' ribbon and click the 'Refresh All' button.
 
-![][9]
+	![Navigation pane][9]
 
-6. The results appear in the **SQL Audit Logs** sheet and enables you to run deeper analysis of the anomalous activities that were detected, and mitigate the impact of the security event in your application.
+7. The results appear in the **SQL Audit Logs** sheet which enables you to run deeper analysis of the anomalous activities that were detected, and mitigate the impact of the security event in your application.
 
 
 <!--Image references-->

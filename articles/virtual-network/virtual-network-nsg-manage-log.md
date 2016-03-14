@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/02/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 #Log analytics for network security groups (NSGs)
@@ -30,7 +30,7 @@ You can use different types of logs in Azure to manage and troubleshoot NSGs. So
 ##Enable logging
 Audit logging is automatically enabled at all times for every Resource Manager resource. You need to enable event and counter logging to start collecting the data available through those logs. To enable logging, follow the steps below. 
 
-1.  Sign-in to the [Azure preview portal](http://portal.azure.com). If you don't already have an existing network security group, [create an NSG](virtual-networks-create-nsg-arm-ps.md) before you continue. 
+1.  Sign-in to the [Azure preview portal](https://portal.azure.com). If you don't already have an existing network security group, [create an NSG](virtual-networks-create-nsg-arm-ps.md) before you continue. 
 
 2.  In the preview portal, click **Browse** >> **Network security groups**.
 

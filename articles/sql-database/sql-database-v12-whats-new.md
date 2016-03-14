@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -13,8 +13,8 @@
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="09/15/2015" 
+	ms.topic="article" 
+	ms.date="03/08/2016" 
 	ms.author="genemi"/>
 
 
@@ -27,7 +27,7 @@ This topic describes the many advantages that the new V12 version of Azure SQL D
 We continue to add features to V12. So we encourage you to visit our Service Updates webpage for Azure, and to use its filters:
 
 
-- Filtered to the [SQL Database service](http://azure.microsoft.com/updates/?service=sql-database).
+- Filtered to the [SQL Database service](https://azure.microsoft.com/updates/?service=sql-database).
 - Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
 
@@ -37,24 +37,28 @@ The latest information about resource limits for SQL Database is documented at:<
 ## Increased application compatibility with SQL Server
 
 
-A key goal for SQL Database V12 was to improve the compatibility with Microsoft SQL Server 2014. Among other areas, V12 achieves parity with SQL Server in the important area of programmability. For instance:
+A key goal for SQL Database V12 was to improve the compatibility with Microsoft SQL Server 2014, and to maintain the compatibility as new versions of SQL Server are released. Among other areas, V12 achieves parity with SQL Server in the important area of programmability. For instance:
 
 
-- [Common Language Runtime (CLR) assemblies](http://msdn.microsoft.com/library/ms189524.aspx)
 - [Window functions](http://msdn.microsoft.com/library/bb934097.aspx), with [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+
 - [XML indexes](http://msdn.microsoft.com/library/bb934097.aspx) and [selective XML indexes](http://msdn.microsoft.com/library/jj670104.aspx)
+
 - [Change tracking](http://msdn.microsoft.com/library/bb933875.aspx)
+
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
+
 - [Full-text search](http://msdn.microsoft.com/library/ms142571.aspx)
 
+- [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
-Please see [here](http://msdn.microsoft.com/library/azure/ee336281.aspx) for the small set of features not yet supported in SQL Database.
+Please see [here](sql-database-transact-sql-information.md) for the small set of features not yet supported in SQL Database.
 
 
 ## More premium performance, new performance levels
 
 
-In V12, we increased the database throughput units (DTUs) allocated to all Premium performance levels by 25% at no additional cost. Even greater performance gains can be achieved with new features like:
+In V12, we increased the Database Transaction Units (DTUs) allocated to all Premium performance levels by 25% at no additional cost. Even greater performance gains can be achieved with new features like:
 
 
 - Support for in-memory [columnstore indexes](http://msdn.microsoft.com/library/gg492153.aspx).
@@ -93,11 +97,12 @@ Security is a primary concern for anyone who runs their business in the cloud. T
 
 - [Row-level security](http://msdn.microsoft.com/library/dn765131.aspx) (RLS)
 - [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md)
-- [Contained databases](http://msdn.microsoft.com/library/azure/ff394108.aspx)
+- [Contained databases](http://msdn.microsoft.com/library/ff929188.aspx)
 - [Application roles](http://msdn.microsoft.com/library/ms190998.aspx) managed with GRANT, DENY, REVOKE
 - [Transparent Data Encryption](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
 - [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
  - SQL Database now supports Azure Active Directory authentication, a mechanism of connecting to SQL Database by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication you can centrally manage the identities of database users and other Microsoft services in one central location.
+- [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) (in preview) makes encryption transparent to applications and allows clients to encrypt sensitive data inside client applications without sharing the encryption keys with SQL Database.
 
 
 ## Increased business continuity when recovery is needed
@@ -113,7 +118,7 @@ V12 offers significantly improved recovery point objectives (RPOs) and estimated
 | Active geo-replication | • RPO < 5 minutes.<br/>• ERT < 1 hour. | • RPO < 5 seconds.<br/>• ERT < 30 seconds. |
 
 
-See [SQL Database business continuity](http://msdn.microsoft.com/library/azure/hh852669.aspx) for more information.
+See [SQL Database business continuity](sql-database-business-continuity.md) for more information.
 
 
 ## More reasons to upgrade now
@@ -124,7 +129,7 @@ There are many good reasons why customers should upgrade now to Azure SQL Databa
 
 - SQL Database V12 has a long list of features beyond those of V11.
 - We continue to add new features to V12, but no new features will be added to V11.
-- Most new features are released on SQL Database V12 before they being released for Microsoft SQL Server.
+- Most new features are released on SQL Database V12 before they are being released for Microsoft SQL Server.
 
 
 ## Are you using V12 already?
@@ -133,7 +138,7 @@ There are many good reasons why customers should upgrade now to Azure SQL Databa
 One easy way to see if you have a database or logical server running on an earlier version of the SQL Database service is to do the following:
 
 
-1. Go to the [Azure preview portal](http://portal.azure.com/).
+1. Go to the [Azure Portal](https://portal.azure.com/).
 2. Click **Browse**.
 3. Click **SQL Servers**.
 4. The icon next to your server or database tells the story:
@@ -151,7 +156,7 @@ Another technique to ascertain the version is to run the `SELECT @@version;` sta
 A V12 database can be hosted only on a V12 logical server. And a V12 server can host only V12 databases.
 
 
-If you are not yet running on V12, you can upgrade your logical server by following the steps in [Upgrade to SQL Database V12 in place](sql-database-v12-upgrade.md).
+If you are not yet running on V12, you can upgrade your logical server by following the steps in [Upgrade to SQL Database V12 in place](sql-database-v12-plan-prepare-upgrade.md).
 
 
 ## <a name="V12AzureSqlDbPreviewGaTable"></a> General Availability regions
@@ -160,4 +165,4 @@ If you are not yet running on V12, you can upgrade your logical server by follow
 - By July 31, 2015, all regions had been promoted to General Availability (GA).
 - V12 was released in December 2014, but only at the status of Preview.
 
-[Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

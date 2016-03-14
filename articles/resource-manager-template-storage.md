@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resource Manager template for storage | Microsoft Azure"
-   description="Shows the resource manager schema for storage accounts."
+   description="Shows the Resource Manager schema for deploying storage accounts through a template."
    services="azure-resource-manager,storage"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Storage account - template schema
+# Storage account template schema
 
 Creates a storage account.
 
@@ -77,6 +77,19 @@ The following example deploys a Standard Locally Redundant storage account with 
 	    ],
 	    "outputs": {}
     }
+
+## Quickstart templates
+
+There are many quickstart templates that include a storage account. The following templates illustrate some common scenarios:
+
+- [Create a Standard Storage Account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)
+- [Simple deployment of an Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+- [Simple deployment of an Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+- [Create a CDN Profile, a CDN Endpoint with a Storage Account as origin](https://github.com/Azure/azure-quickstart-templates/tree/master/201-cdn-with-storage-account)
+- [Create a High Availabilty SharePoint Farm with 9 VMs using the Powershell DSC Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-server-farm-ha)
+- [Simple deployment of a 5 Node secure Service Fabric Cluster with WAD enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad)
+- [Create a Virtual Machine from a Windows Image with 4 Empty Data Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk)
+
 
 ## Next steps
 

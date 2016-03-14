@@ -1,24 +1,29 @@
-<properties 
-	pageTitle="Add Mobile Services to an existing universal Windows Store app | Microsoft Azure" 
-	description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Add Mobile Services to an existing universal Windows Store app | Microsoft Azure"
+	description="Learn how to get started using Mobile Services to leverage data in your Windows Store app."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="03/07/2016"
 	ms.author="glenga"/>
 
 # Add Mobile Services to an existing app
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
+ 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [How to use the managed client for Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md).
 
 ##Overview
 
@@ -26,16 +31,14 @@ This topic shows you how to use Azure Mobile Services as a backend data source f
 
 The mobile service that you will create in this tutorial is a .NET backend mobile service. .NET backend enables you to use .NET languages and Visual Studio for server-side business logic in the mobile service, and you can run and debug your mobile service on your local computer. To create a mobile service that lets you write your server-side business logic in JavaScript, see the JavaScript backend version of this topic.
 
->[AZURE.NOTE]This topic shows you how to use the tooling in Visual Studio Professional 2013 with Update 3 to connect a new mobile service to a universal Windows app. The same steps can be used to connect a mobile service to a Windows Store or Windows Phone Store 8.1 app. To connect a mobile service to a Windows Phone 8.0 or Windows Phone Silverlight 8.1 app, see [Get started with data for Windows Phone](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
-
-> If you cannot upgrade to Visual Studio Professional 2013 Update 3 or you prefer manually add your mobile service project to a Windows Store app solution, see [this version](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md) of the topic.
+>[AZURE.NOTE]This topic shows you how to use the tooling in Visual Studio Professional 2013 with Update 3 to connect a new mobile service to a universal Windows app. The same steps can be used to connect a mobile service to a Windows Store or Windows Phone Store 8.1 app. To connect a mobile service to a Windows Phone 8.0 or Windows Phone Silverlight 8.1 app, see [Get started with data for Windows Phone](mobile-services-windows-phone-get-started-data.md).
 
 ##Prerequisites
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> (Update 3 or a later version). 
+* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> (Update 3 or a later version).
 
 ##Download the GetStartedWithData project
 
@@ -45,13 +48,13 @@ To complete this tutorial, you need the following:
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service-vs2013](../../includes/mobile-services-dotnet-backend-create-new-service-vs2013.md)]
 
-&nbsp;&nbsp;7. In Solution Explorer, open the App.xaml.cs code file in the GetStartedWithData.Shared project folder, and notice the new static field that was added to the **App** class inside a Windows Store app conditional compilation block, which looks like the following example: 
+&nbsp;&nbsp;7. In Solution Explorer, open the App.xaml.cs code file in the GetStartedWithData.Shared project folder, and notice the new static field that was added to the **App** class inside a Windows Store app conditional compilation block, which looks like the following example:
 
-	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
+	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient
 	    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
 	        "https://todolist.azure-mobile.net/",
 	        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-		
+
 
 &nbsp;&nbsp;This code provides access to your new mobile service in your app by using an instance of the [MobileServiceClient](http://go.microsoft.com/fwlink/p/?LinkId=302030) class. The client is created by supplying the URI and the application key of the new mobile service. This static field is available to all pages in your app.
 
@@ -67,7 +70,7 @@ At this point, both the Windows Store and Windows Phone Store apps are connected
 
 ##Update the app to use the mobile service
 
-In this section you will update the universal Windows app to use the mobile service as a backend service for the application. You only need to make changes to the MainPage.xaml.cs project file in the GetStartedWithData.Shared project folder. 
+In this section you will update the universal Windows app to use the mobile service as a backend service for the application. You only need to make changes to the MainPage.cs project file in the GetStartedWithData.Shared project folder.
 
 [AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
@@ -86,7 +89,7 @@ Now we can test both versions of the universal Windows app against the mobile se
 ##View the data stored in the SQL Database
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../../includes/mobile-services-dotnet-backend-view-sql-data.md)]
- 
+
 This concludes the tutorial.
 
 ##Next steps
@@ -96,10 +99,10 @@ This tutorial demonstrated the basics of enabling a universal Windows app projec
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app.
 
-* [Get started with push notifications] 
+* [Get started with push notifications]
   <br/>Learn how to send a very basic push notification to your app.
 
-* [Mobile Services C# How-to Conceptual Reference](mobile-services-windows-dotnet-how-to-use-client-library.md)
+* [Mobile Services C# How-to Conceptual Reference](mobile-services-dotnet-how-to-use-client-library.md)
   <br/>Learn more about how to use Mobile Services with .NET.
 
 
@@ -116,10 +119,7 @@ This tutorial demonstrated the basics of enabling a universal Windows app projec
 
 [Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-  

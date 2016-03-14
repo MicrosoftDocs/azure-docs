@@ -2,6 +2,7 @@
    pageTitle="Current preview limitations for Azure Active Directory B2B collaboration | Microsoft Azure"
    description="Azure Active Directory B2B supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/09/2016"
    ms.author="viviali"/>
 
-# Current preview limitations for Azure Active Directory (Azure AD) B2B collaboration
+# Azure AD B2B collaboration preview: Current preview limitations
 
 - Multi-factor authentication (MFA) not supported on external users. For example, if Contoso has MFA, but Partner Org does not, then Partner Org users can't be granted MFA through B2B collaboration.
 - Invites are possible only via CSV; individual invites and API access are not supported.
@@ -36,3 +37,5 @@ Browse our other articles on Azure B2B collaboration:
 - [CSV file format reference](active-directory-b2b-references-csv-file-format.md)
 - [External user token format](active-directory-b2b-references-external-user-token-format.md)
 - [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+

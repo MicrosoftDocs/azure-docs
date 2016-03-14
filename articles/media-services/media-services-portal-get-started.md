@@ -1,10 +1,10 @@
 <properties
-	pageTitle=" Get started with delivering content on demand using the Azure portal | Microsoft Azure"
-	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using the Azure portal."
+	pageTitle=" Get started with delivering content on demand using the Azure Classic Portal | Microsoft Azure"
+	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using the Azure Classic Portal."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,19 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="02/25/2016"
 	ms.author="juliako"/>
 
 
-# Get started with delivering content on demand using the Azure portal
+# Get started with delivering content on demand using the Azure Classic Portal
 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
-This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery application using the Azure portal.
+This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery application using the Azure Classic Portal.
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). 
+
 
 This tutorial includes the following tasks:
 
@@ -39,7 +40,7 @@ This tutorial includes the following tasks:
 
 ## Create an Azure Media Services account
 
-1. In the [Azure portal](https://manage.windowsazure.com/), click **New**, click **Media Service**, and then click **Quick Create**.
+1. In the [Azure Classic Portal](https://manage.windowsazure.com/), click **New**, click **Media Service**, and then click **Quick Create**.
 
 	![Media Services Quick Create](./media/media-services-portal-get-started/wams-QuickCreate.png)
 
@@ -79,7 +80,7 @@ With dynamic packaging you only need to store and pay for the files in single st
 
 To change the number of streaming reserved units, do the following:
 
-1. In the [Azure portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
+1. In the [Azure Classic Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
 
 2. Select the STREAMING ENDPOINTS page. Then, click the streaming endpoint that you want to modify.
 
@@ -98,7 +99,7 @@ To change the number of streaming reserved units, do the following:
 ## Upload content
 
 
-1. In the [Azure portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click the Media Services account name.
+1. In the [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click the Media Services account name.
 2. Select the CONTENT page.
 3. Click the **Upload** button on the page or at the bottom of the portal.
 4. In the **Upload content** dialog box, browse to the desired asset file. Click the file and then click **Open** or press Enter.
@@ -120,6 +121,7 @@ If the file size value does not get updated after the uploading process stops, s
 ## Encode content
 
 ### Overview
+
 In order to deliver digital video over the Internet you must compress the media. Media Services provides a media encoder that allows you to specify how you want your content to be encoded (for example, the codecs to use, file format, resolution, and bitrate.)
 
 When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
@@ -137,25 +139,16 @@ Note that in addition to being able to use the dynamic packaging capabilities, O
 
 ### Encode
 
-This section describes the steps you can take to encode your content with Azure Media Encoder using the Azure portal.
+This section describes the steps you can take to encode your content with Media Encoder Standard using the Azure Classic Portal.
 
 1.  Select the file that you would like to encode.
 	If encoding is supported for this file type, the **PROCESS** button will be enabled on the bottom of the CONTENT page.
-4. In the **Process** dialog box, select the** Azure Media Encoder **processor.
+4. In the **Process** dialog box, select the **Media Encoder Standard** processor.
 5. Choose one of the **encoding configurations**.
 
 	![Process2][process2]
 
-	The [Task Preset Strings for Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn619392.aspx) topic explains what each preset in **Presets for Adaptive Streaming (dynamic packaging)**, **Presets for Progressive Download**, **Legacy Prsests for Adaptive Streaming**  categories means.  
-
-	The **Other** configurations are described next.
-
-	+ **Encode with PlayReady content protection**. This preset produces an asset encoded with PlayReady content protection.  
-
-		By default the Media Services PlayReady license service is used. To specify some other service from which clients can obtain a license to play the PlayReady encrypted content, use REST or Media Services .NET SDK APIs. For more information, see [Using Static Encryption to Protect your Content]() and set the **licenseAcquisitionUrl** property in the Media Encryptor preset. Alternatively, you can use dynamic encryption and set the **PlayReadyLicenseAcquisitionUrl** property as described in [Using PlayReady Dynamic Encryption and License Delivery Service](http://go.microsoft.com/fwlink/?LinkId=507720 ).
-	+ **Playback on PC/Mac (via Flash/Silverlight)**. This preset produces a Smooth Streaming asset with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 96 kbps using AAC, and 720p video CBR encoded at 6 bitrates ranging from 3400 kbps to 400 kbps using H.264 Main Profile, and two second GOPs.
-	+ **Playback via HTML5 (IE/Chrome/Safari)**. This preset produces a single MP4 file with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 128 kbps using AAC, and 720p video CBR encoded at 4500 kbps using H.264 Main Profile.
-	+ **Playback on iOS devices and PC/Mac**. This preset produces an asset with the same characteristics as the Smooth Streaming asset (described earlier), but in a format that can be used to deliver Apple HLS streams to iOS devices.
+	The [Task Preset Strings for Media Encoder Standard](https://msdn.microsoft.com/en-US/library/mt269960) topic explains what each preset means.  
 
 5. Then, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.
 6. Select **OK**.
@@ -173,7 +166,7 @@ This section describes the steps you can take to encode your content with Azure 
 
 To provide your user with a  URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.
 
-When you use the Azure portal to publish your assets, the locators are created for you and you are provided with an OnDemand-based URL (if your asset contains an .ism file) or a SAS URL.
+When you use the Azure Classic Portal to publish your assets, the locators are created for you and you are provided with an OnDemand-based URL (if your asset contains an .ism file) or a SAS URL.
 
 A SAS URL has the following format.
 
@@ -210,7 +203,7 @@ To use the portal to publish an asset, do the following:
 
 ## Play content from the portal
 
-The Azure portal provides a content player that you can use to test your video.
+The Azure Classic Portal provides a content player that you can use to test your video.
 
 Click the desired video and then click the **Play** button at the bottom of the portal.
 
@@ -224,16 +217,15 @@ Some considerations apply:
 
 
 
-##Next Steps
+##Next Steps:Media Services learning paths
 
-###Media Services learning paths
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-You can view AMS learning paths here:
+##Provide feedback
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### Looking for something else?
+## Looking for something else?
 
 If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
 
@@ -246,7 +238,7 @@ If this topic didn't contain what you were expecting, is missing something, or i
 
 
 <!-- URLs. -->
-[Azure portal]: http://manage.windowsazure.com/
+[Azure Classic Portal]: http://manage.windowsazure.com/
 
 
 <!-- Images -->

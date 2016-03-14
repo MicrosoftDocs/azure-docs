@@ -3,7 +3,7 @@
    description="Lists of third-party partners with solutions that work with SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="joliang"
+   authors="jrowlandjones"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="joliang"/>
+   ms.date="03/03/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # SQL Data Warehouse solution partners
 
@@ -30,9 +30,9 @@ To create your end-to-end data warehouse solution, choose from a  wide variety o
 | ![Coffing Data Warehousing][5] |**Coffing Data Warehousing**<br>Coffing Data Warehousing provides Nexus Chameleon, a tool with 10 years of design dedicated to querying systems. Nexus is available as a query tool for SQL Data Warehouse. Use Nexus to query  in-house and cloud computers and join data across different platforms. Point-Click-Report! | [More][coffing_data_warehousing_more] |
 | ![Dell Statistica][6] |**Dell Statistica**<br>Dell Statistica is an advanced analytics platform that allows organizations to make predictions about the future, optimize processes, reduce costs and increase revenue.  Dell Statistica simplifies big data analytics, streamlines implementation & deployment, extracts actionable insights from text, and empowers your business. | [More][dell_statistica_more] |
 | ![Dundas][7] |**Dundas Software**<br>Dundas Data Visualization is a leading, global provider of Business Intelligence and Data Visualization software.  Dundas dashboards, reporting, and visual data analytics provide seamless integration into business applications, enabling better decisions and faster insights. | [More][dundas_software_more] |
-| ![Inbrein][8] |**Inbrein**<br>Inbrein MicroERD provides the tools that you need in order to create a precise data model, reduce data redundancy, improve productivity, and observe standards. By using its UI developed based on extensive user experiences, a modeler can work on DB models easily and conveniently. You can continuously enjoy new and improved functions of MicroERD through prompt functional improvements and updates.  | [More][inbrein_more] |
+| ![Inbrein][8] |**Inbrein**<br>Inbrein MicroERD provides the tools that you need in order to create a precise data model, reduce data redundancy, improve productivity, and observe standards. By using its UI which was developed based on extensive user experiences, a modeler can work on DB models easily and conveniently. You can continuously enjoy new and improved functions of MicroERD through prompt functional improvements and updates.  | [More][inbrein_more] |
 | ![Infolibrarian][9] |**Infolibrarian**<br>InfoLibrarian catalogs, stores, and manages metadata to help you solve key pain points of data management. In addition, we provide metadata management, data governance and asset management software solutions for managing and publishing metadata from a diverse set of tools and technologies. | [More][infolibrarian_more] |
-| ![Informatica][10] |**Informatica**<br>Informatica is one of the world’s most recognizable independent provider of data integration software. Informatica Vibe, one of the industry’s first embeddable virtual data machines, powers the unique “Map Once. Deploy Anywhere.” capabilities of the Informatica Platform. Over 5,500 enterprises worldwide depends on Informatica to fully leverage their information assets.| [More][informatica_more] |
+| ![Informatica][10] |**Informatica**<br>Informatica is one of the world’s most recognizable independent providers of data integration software. Informatica Vibe, one of the industry’s first embeddable virtual data machines, powers the unique “Map Once. Deploy Anywhere.” capabilities of the Informatica Platform. Over 5,500 enterprises worldwide depend on Informatica to fully leverage their information assets.| [More][informatica_more] |
 | ![Jinfonet][11] |**Jinfonet**<br>JReport is an embeddable BI solution for the enterprise. The solution empowers users to create reports, dashboards, and data analysis on cloud, big data, and transactional data sources. By visualizing data, users can perform their own reporting and data discovery for agile, on-the-fly decision-making.| [More][jinfonet_more] |
 | ![LogiAnalytics][12] |**LogiAnalytics**<br>Together, Logi Analytics and the Microsoft Azure SQL Data Warehouse can now enable your organization to collect, analyze, and immediately act on the largest and most diverse data sets in the world to drive a high-performance organization. | [More][logianalytics_more] |
 | ![Looker][13] |**Looker**<br>Looker gives everyone in your company the ability to explore and understand the data that drives your business, while at the same time gives the data analyst a flexible and reusable modeling layer to control and curate that data.  Companies have fundamentally transformed their culture using Looker as the catalyst. | [More][looker_more] |
@@ -47,7 +47,7 @@ To create your end-to-end data warehouse solution, choose from a  wide variety o
 
 ## Next Steps
 
-To learn more about integrating with SQL Data Warehouse, see [Build integrated solutions with SQL Data Warehouse][]. 
+To learn more about integrating with SQL Data Warehouse, see [Build integrated solutions with SQL Data Warehouse][].
 
 
 <!--Image references-->
@@ -96,7 +96,7 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 [redpoint_global_more]:http://www.redpoint.net/
 [sisense_more]:http://www.sisense.com/
 [snaplogic_more]:http://www.snaplogic.com/
-[sql_sentry_more]:www.sqlsentry.com/solutions/business-analytics/
+[sql_sentry_more]:http://www.sqlsentry.com/solutions/business-analytics/
 [tableau_more]:http://www.tableau.com/
 [targit_more]:http://www.targit.com/en/
 [yellowfin_more]:http://www.yellowfinbi.com/

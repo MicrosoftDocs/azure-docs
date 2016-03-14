@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Service Communication Model Overview"
-   description="This article describes the basics of Communication model supported by the Reliable Service's api."
+   pageTitle="Reliable Services communication overview | Microsoft Azure"
+   description="Overview of the Reliable Services communication model, including opening listeners on services, resolving endpoints, and communicating between services."
    services="service-fabric"
    documentationCenter=".net"
-   authors="BharatNarasimman"
+   authors="vturecek"
    manager="timlt"
-   editor=""/>
+   editor="BharatNarasimman"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,34 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/27/2015"
-   ms.author="bharatn@microsoft.com"/>
+   ms.date="11/17/2015"
+   ms.author="vturecek@microsoft.com"/>
 
-# Service Communication Model
+# The Reliable Services communication model
 
-The Reliable Services programming model allows service authors to specify the communication mechanism they want to use to expose their service endpoints and also provides abstractions which clients can use to discover and communicate with the service endpoint.
+Azure Service Fabric as a platform is completely agnostic about communication between services. All protocols and stacks are acceptable, from UDP to HTTP. It's up to the service developer to choose how services should communicate. The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to roll out your custom communication stack. These include abstractions that clients can use to discover and communicate with service endpoints.
 
-## Setting up the Service communication stack
+## Set up service communication
 
-Reliable Services API allows service authors to plugin the communication stack of their choice in the service by implementing the following method in their service,
-
-```csharp
-
-protected override ICommunicationListener CreateCommunicationListener()
-{
-    ...
-}
-
-```
-
-The `ICommunicationListener` interface defines the interface that must be implemented by the communication listener for a service.
+The Reliable Services API uses a simple interface for service communication. To open an endpoint for your service, simply implement this interface:
 
 ```csharp
 
 public interface ICommunicationListener
 {
-    void Initialize(ServiceInitializationParameters serviceInitializationParameters);
-
     Task<string> OpenAsync(CancellationToken cancellationToken);
 
     Task CloseAsync(CancellationToken cancellationToken);
@@ -49,7 +36,46 @@ public interface ICommunicationListener
 }
 
 ```
-The endpoints that are required for the service are described via the [Service manifest](service-fabric-application-model.md) under the Endpoints section.
+
+You can then add your communication listener implementation by returning it in a service-based class method override.
+
+For stateless services:
+
+```csharp
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+```
+
+For stateful services:
+
+```csharp
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+```
+
+In both cases, you return a collection of listeners. This allows your service to easily use multiple listeners. For example, you may have an HTTP listener and a separate WebSocket listener. Each listener gets a name, and the resulting collection of *name : address* pairs is represented as a JSON object when a client requests the listening addresses for a service instance or a partition.
+
+In a stateless service, the override returns a collection of ServiceInstanceListeners. A ServiceInstanceListener contains a function to create an ICommunicationListener and gives it a name. For stateful services, the override returns a collection of ServiceReplicaListeners. This is slightly different from its stateless counterpart, because a ServiceReplicaListener has an option to open an ICommunicationListener on secondary replicas. Not only can you use multiple communication listeners in a service, but you can also specify which listeners accept requests on secondary replicas and which ones listen only on primary replicas.
+
+For example, you can have a ServiceRemotingListener that takes RPC calls only on primary replicas, and a second, custom listener that takes read requests on secondary replicas:
+
+```csharp
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+{
+    return new[]
+    {
+        new ServiceReplicaListener(initParams =>
+            new MyCustomListener(initParams),
+            "customReadonlyEndpoint",
+            true),
+
+        new ServiceReplicaListener(initParams =>
+            new ServiceRemotingListener<IMyStatefulInterface2>(initParams, this),
+            "rpcPrimaryEndpoint",
+            false)
+    };
+}
+```
+
+Finally, you can describe the endpoints that are required for the service in the [service manifest](service-fabric-application-model.md) under the section on endpoints.
 
 ```xml
 
@@ -61,7 +87,7 @@ The endpoints that are required for the service are described via the [Service m
 
 ```
 
-The communication listener can access the endpoint resources allocated to it from the `CodePackageActivationContext` in the `ServiceInitializationParameters`, and start listening for requests when it is opened.
+The communication listener can access the endpoint resources allocated to it from the `CodePackageActivationContext` in the `ServiceInitializationParameters`. The listener can then start listening for requests when it is opened.
 
 ```csharp
 
@@ -70,7 +96,7 @@ var port = codePackageActivationContext.GetEndpoint("ServiceEndpoint").Port;
 
 ```
 
-> [AZURE.NOTE] The Endpoints resources are common to the entire service package and are allocated by Service Fabric when the service package is activated. So all the replicas hosted in the same ServiceHost share the same port. This means that the communication listener should support port sharing. The recommended way of doing this, is for the communication listener to use the partition Id and replica/instance Id when generating the listen address.
+> [AZURE.NOTE] Endpoint resources are common to the entire service package, and they are allocated by Service Fabric when the service package is activated. All the replicas hosted in the same ServiceHost share the same port. This means that the communication listener should support port sharing. The recommended way of doing this is for the communication listener to use the partition ID and replica/instance ID when it generates the listen address.
 
 ```csharp
 
@@ -78,11 +104,11 @@ var replicaOrInstanceId = 0;
 var parameters = this.serviceInitializationParameters as StatelessServiceInitializationParameters;
 if (parameters != null)
 {
-  replicaOrInstanceId = parameters.InstanceId;
+   replicaOrInstanceId = parameters.InstanceId;
 }
 else
 {
-  replicaOrInstanceId = ((StatefulServiceInitializationParameters) this.serviceInitializationParameters).ReplicaId;
+   replicaOrInstanceId = ((StatefulServiceInitializationParameters) this.serviceInitializationParameters).ReplicaId;
 }
 
 var nodeContext = FabricRuntime.GetNodeContext();
@@ -100,13 +126,13 @@ var listenAddress = new Uri(
 
 ```
 
-## Client to Service Communication
-Reliable Services API provides the following abstractions which make writing clients for communicating with Services easy.
+For a complete walk-through of how to write an `ICommunicationListener`, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
 
-## ServicePartitionResolver
-ServicePartitionResolver class helps the client to determine the endpoint of a Service Fabric service at runtime.
+### Client-to-service communication
+The Reliable Services API provides the following abstractions that make it easy to write clients that communicate with services.
 
-> [AZURE.TIP] The process of determining the endpoint of a service is referred to as Service Endpoint Resolution in Service Fabric terminology.
+#### ServicePartitionResolver
+This utility class helps clients determine the endpoint of a Service Fabric service at runtime. In Service Fabric terminology, the process of determining the endpoint of a service is referred to as the *service endpoint resolution*.
 
 ```csharp
 
@@ -117,48 +143,47 @@ public delegate FabricClient CreateFabricClientDelegate();
 public ServicePartitionResolver(CreateFabricClientDelegate createFabricClient);
 
 Task<ResolvedServicePartition> ResolveAsync(Uri serviceName,
-    long partitionKey,
-    CancellationToken cancellationToken);
+   long partitionKey,
+   CancellationToken cancellationToken);
 
 Task<ResolvedServicePartition> ResolveAsync(ResolvedServicePartition previousRsp,
-    CancellationToken cancellationToken);
+   CancellationToken cancellationToken);
 
 
 ```
-> [AZURE.NOTE] FabricClient is the object that is used to communicate to the Service Fabric cluster for various management operations on the Service Fabric cluster.
+> [AZURE.NOTE] FabricClient is the object that is used to communicate with the Service Fabric cluster for various management operations on the cluster.
 
-Typically client code need not work with `ServicePartitionResolver` directly. It is created and passed on to other helper classes in the Reliable Service's API, which internally use the resolver and help the client communicate with the service.
+Typically, the client code need not work with the `ServicePartitionResolver` directly. It is created and passed on to other helper classes in the Reliable Services API. These classes use the resolver internally and help the client communicate with the service.
 
-## CommunicationClientFactory
-`ICommunicationClientFactory` defines the base interface implemented by a communication client factory that produces clients that can talk to a ServiceFabric service. The implementation of the CommunicationClientFactory will depend on the communication stack used by the Service Fabric service to which the client wants to communicate to. Reliable Service's API provides a CommunicationClientFactoryBase<TCommunicationClient> which provides a base implementation of this `ICommunicationClientFactory` interface and performs tasks which are common for all the communication stacks.(like using a `ServicePartitionResolver` to determine the service endpoint). Clients usually implement the abstract CommunicationClientFactoryBase class to handle communication stack specific logic.
+#### CommunicationClientFactory
+`ICommunicationClientFactory` defines the base interface implemented by a communication client factory that produces clients that can talk to a Service Fabric service. The implementation of the CommunicationClientFactory depends on the communication stack used by the Service Fabric service where the client wants to communicate. The Reliable Services API provides a `CommunicationClientFactoryBase<TCommunicationClient>`. This provides a base implementation of the `ICommunicationClientFactory` interface and performs tasks that are common to all the communication stacks. (These tasks include using a `ServicePartitionResolver` to determine the service endpoint). Clients usually implement the abstract CommunicationClientFactoryBase class to handle logic that is specific to the communication stack.
 
 ```csharp
 
 protected CommunicationClientFactoryBase(
-    ServicePartitionResolver servicePartitionResolver = null,
-    IEnumerable<IExceptionHandler> exceptionHandlers = null,
-    IEnumerable<Type> doNotRetryExceptionTypes = null);
+   ServicePartitionResolver servicePartitionResolver = null,
+   IEnumerable<IExceptionHandler> exceptionHandlers = null,
+   IEnumerable<Type> doNotRetryExceptionTypes = null);
 
 
 public class MyCommunicationClient : ICommunicationClient
 {
-    public MyCommunicationClient(MyCommunicationChannel communicationChannel)
-    {
+   public MyCommunicationClient(MyCommunicationChannel communicationChannel)
+   {
       this.CommunicationChannel = communicationChannel;
-    }
-    public MyCommunicationChannel CommunicationChannel { get; private set; }
-    public ResolvedServicePartition ResolvedServicePartition;
-
+   }
+   public MyCommunicationChannel CommunicationChannel { get; private set; }
+   public ResolvedServicePartition ResolvedServicePartition;
 }
 
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>
 {
-    protected override void AbortClient(MyCommunicationClient1 client)
+    protected override void AbortClient(MyCommunicationClient client)
     {
         throw new NotImplementedException();
     }
 
-    protected override Task<MyCommunicationClient> CreateClientAsync(ResolvedServiceEndpoint endpoint, CancellationToken cancellationToken)
+    protected override Task<MyCommunicationClient> CreateClientAsync(string endpoint, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }
@@ -168,7 +193,7 @@ public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCom
         throw new NotImplementedException();
     }
 
-    protected override bool ValidateClient(ResolvedServiceEndpoint endpoint, MyCommunicationClient client)
+    protected override bool ValidateClient(string endpoint, MyCommunicationClient client)
     {
         throw new NotImplementedException();
     }
@@ -176,8 +201,8 @@ public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCom
 
 ```
 
-## ServicePartitionClient
-`ServicePartitionClient` uses the CommunicationClientFactory(and internally the ServicePartitionResolver) and helps in communicating with the service by handling retries for common communication and Service Fabric Transient exceptions.
+#### ServicePartitionClient
+`ServicePartitionClient` uses the CommunicationClientFactory (and the ServicePartitionResolver internally). It also helps in communication with the service by handling retries for common communication and Service Fabric transient exceptions.
 
 ```csharp
 
@@ -193,7 +218,7 @@ public async Task<TResult> InvokeWithRetryAsync<TResult>(
 
 ```
 
-A typical usage pattern would look like this,
+A typical usage pattern looks like this:
 
 ```csharp
 
@@ -209,23 +234,22 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
     this.myServiceUri,
     myKey);
 
-  var result = await myServicePartitionClient.InvokeWithRetryAsync(
-      client =>
-      {
-        // Communicate with the service using the client.
-        throw new NotImplementedException();
-      },
-      CancellationToken.None);
+var result = await myServicePartitionClient.InvokeWithRetryAsync(
+   client =>
+   {
+      // Communicate with the service using the client.
+      throw new NotImplementedException();
+   },
+   CancellationToken.None);
 
 
 ... other client code ...
 
 ```
 
-## Next Steps
-* [Default communication stack provided by the Reliable Services Framework](service-fabric-reliable-services-communication-default.md)
+## Next steps
+* [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 
-* [WCF based communication stack provided by the Reliable Services Framework](service-fabric-reliable-services-communication-wcf.md)
+* [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-* [Writing a Service using Reliable Services API that uses WebAPI communication stack](service-fabric-reliable-services-communication-webapi.md)
- 
+* [WCF communication by using Reliable Services](service-fabric-reliable-services-communication-wcf.md)

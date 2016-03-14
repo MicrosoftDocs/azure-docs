@@ -1,18 +1,18 @@
-<properties 
- pageTitle="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="08/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler  
@@ -39,7 +39,7 @@ The many examples in this topic illustrate the breadth of scenarios that Azure S
 
 -	Run once at a particular date and time
 -	Run and recur a number of explicit times
--	Run immediately and recur 
+-	Run immediately and recur
 -	Run and recur every *n* minutes, hours, days, weeks, or months, starting at a particular time
 -	Run and recur at weekly or monthly frequency but only on specific days, specific days of week, or  specific days of month
 -	Run and recur at multiple times in a period – e.g., last Friday and Monday of every month, or at 5:15am and 5:15pm every day
@@ -71,10 +71,10 @@ To create a simple schedule using the JSON examples in this article and the Azur
 	    },
 	    …
 	}
-	
+
 ## Overview: Job Schema Basics
 
-The following table provides a high-level overview of the major elements related to recurrence and scheduling in a job: 
+The following table provides a high-level overview of the major elements related to recurrence and scheduling in a job:
 
 |**JSON name**|**Description**|
 |:--|:--|
@@ -112,7 +112,7 @@ The following table captures how _startTime_ controls how a job is run.
 
 Let's see an example of what happens where _startTime_ is in the past, with _recurrence_ but no _schedule_.  Assume that the current time is 2015-04-08 13:00, _startTime_ is 2015-04-07 14:00, and _recurrence_ is every 2 days (defined with _frequency_: day and _interval_: 2.) Note that the _startTime_ is in the past, and occurs before the current time
 
-Under these conditions, the _first execution_ will be 2015-04-09 at 14:00\. The Scheduler engine calculates execution occurrences from the start time.  Any instances in the past are discarded. The engine uses the next instance that occurs in the future.  So in this case, _startTime_ is 2015-04-07 at 2:00pm, so the next instance is 2 days from that time, which is 2015-04-09 at 2:00pm. 
+Under these conditions, the _first execution_ will be 2015-04-09 at 14:00\. The Scheduler engine calculates execution occurrences from the start time.  Any instances in the past are discarded. The engine uses the next instance that occurs in the future.  So in this case, _startTime_ is 2015-04-07 at 2:00pm, so the next instance is 2 days from that time, which is 2015-04-09 at 2:00pm.
 
 Note that the first execution would be the same even if the startTime 2015-04-05 14:00 or 2015-04-01 14:00\. After the first execution, subsequent executions are calculated using the scheduled – so they'd be at 2015-04-11 at 2:00pm, then 2015-04-13 at 2:00pm, then 2015-04-15 at 2:00pm, etc.
 
@@ -177,23 +177,22 @@ The schedules below all assume that the _interval_ is set to 1\. Also, one must 
 |<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on the 3rd Wednesday of Every Month|
 
 ## See Also
- 
+
+
  [What is Scheduler?](scheduler-intro.md)
- 
- [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
- 
- [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
- 
- [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
- 
- [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
- 
- [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
- 
- [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
- 
- [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
- 
- [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
- 
-  
+
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
+
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)

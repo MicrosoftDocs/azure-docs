@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
     tags="azure-service-management" />
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="03/04/2016"
 	ms.author="robmcm"/>
 
 # How to run a Java application server on a virtual machine created with the classic deployment model
@@ -40,7 +40,7 @@ For the purposes of this tutorial, an Apache Tomcat application server will be i
 
 ## To create a virtual machine
 
-1. Sign in to the [Azure portal](https://manage.windowsazure.com).
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Click **New**, click **Compute**, click **Virtual machine**, and then click **From Gallery**.
 3. In the **Virtual machine image select** dialog box, select **JDK 7 Windows Server 2012**.
 Note that **JDK 6 Windows Server 2012** is available if you have legacy applications that are not ready to run in JDK 7.
@@ -64,7 +64,7 @@ Note that **JDK 6 Windows Server 2012** is available if you have legacy applicat
 
 ## To remotely sign in to your virtual machine
 
-1. Log on to the [Management portal](https://manage.windowsazure.com).
+1. Log on to the [Azure classic portal](https://manage.windowsazure.com).
 2. Click **Virtual machines**.
 3. Click the name of the virtual machine that you want to sign in to.
 4. After the virtual machine has started, a pop-up menu at the bottom of the page allows connections.
@@ -90,7 +90,7 @@ You should now see Tomcat running if you run the virtual machine's browser and o
 To see Tomcat running from external machines, you need to create an endpoint and open a port.
 
 ## To create an endpoint for your virtual machine
-1. Sign in to the [Management portal](https://manage.windowsazure.com).
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Click **Virtual machines**.
 3. Click the name of the virtual machine that is running your Java application server.
 4. Click **Endpoints**.
@@ -132,7 +132,7 @@ At this point, your Tomcat website should be viewable from an external browser b
     The benefit of having Tomcat start automatically is that it will start if the virtual machine is rebooted (for example, after software updates that require a reboot are installed).
 
 ## Next steps
-Learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications by viewing the information available at the [Java Developer Center](http://azure.microsoft.com/develop/java/).
+Learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications by viewing the information available at the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
 

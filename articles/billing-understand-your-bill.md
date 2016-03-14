@@ -3,8 +3,8 @@
    description="Understand Your Azure Bill"
    services=""
    documentationCenter="Azure"
-   authors="kareni"
-   manager="jocho"
+   authors="erihur"
+   manager="kareni"
    editor=""
    tags="billing"/>
 
@@ -14,25 +14,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/22/2015"
-   ms.author="kareni"/>
+   ms.date="02/04/2016"
+   ms.author="erihur"/>
 
 
 # Understand your bill for Microsoft Azure
 
-The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans, such as the Visual Studio Ultimate with MSDN, include monthly credits that you can use on any Azure service based on your needs.
+The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans, such as the Visual Studio Enterprise (MPN) subscribers, include monthly credits that you can use on any Azure service based on your needs.
 
 Please note that up to 24 hours of latent usage from your prior billing period can be reported in your current billing period.
 
-For more information about consumption and rate plans, see the [Microsoft Azure Purchase Options page](http://azure.microsoft.com/pricing/purchase-options/).
+For more information about consumption and rate plans, see the [Microsoft Azure Purchase Options page](https://azure.microsoft.com/pricing/purchase-options/).
 
-The below links cover a complete list of all Microsoft Azure services.
+<!-- The below links cover a complete list of all Microsoft Azure services.
 
-- [Service Details list (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
-- [Service Details list (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
+<!-- - [Service Details list (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+<!-- - [Service Details list (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
 
-*NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*
+<!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
 
+<!-- Below section commented out as a new "right nav" floating bar is created for each article and is no longer necessary to have this section.
 
 ## Content:
 
@@ -45,7 +46,7 @@ This topic helps you with the following tasks when reading your bill.
 -  Footer Information
 -  Understand the Additional Information
 -  Understand Detailed Usage Charges
--  Analyze Daily Usage Data
+-  Analyze Daily Usage Data -->
 
 ### View or download a bill for Microsoft Azure:
 
@@ -77,8 +78,11 @@ To view or download a bill:
     ![Summary-billing history 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
+***Important:***
+*Charges listed on billing statements for international customers are for estimation purposes only as banks have different costs for the conversion rates.*
 
-**Below are some sample statements for two different offers available on Microsoft Azure.**
+
+Below are some sample statements for two different offers available on Microsoft Azure.
 
  **OFFER TYPE** | **DESCRIPTION** | **DOWNLOAD** |
  :--------- |:-------- | :-------|
@@ -108,7 +112,7 @@ Type of payment used on the account (i.e. Invoice or Credit Card).
 Microsoft Azure payments address.
 
 ### Subscription offer
-Type of subscription offer that was purchased (i.e. Pay-As-You-Go, MSDN-Vidual Studio Ultimate, etc.)
+Type of subscription offer that was purchased (i.e. Pay-As-You-Go, MSDN-Visual Studio Enterprise, etc.)
 
 ### Account Owner Email
 The account email address that the Microsoft Azure account is registered under.
@@ -142,7 +146,7 @@ Usage charges are total monthly charges on a subscription. You are billed in arr
 Service discounts on your usage would be reflected in this line item that are applied to your current bill.
 
 ### Adjustments
-Miscellaneous adjustments are miscellaneous credits or outstanding charges applied to your current bill. For example, if you have the Visual Studio Ultimate with MSDN offer, you would see a monthly credit in this line item. If you cancel your subscription, you would see charges for monthly usage in excess of the monthly credit included in your offer from the start of your current billing period to your subscription cancellation date.
+Miscellaneous adjustments are miscellaneous credits or outstanding charges applied to your current bill. For example, if you have the Visual Studio Enterprise with MSDN offer, you would see a monthly credit in this line item. If you cancel your subscription, you would see charges for monthly usage in excess of the monthly credit included in your offer from the start of your current billing period to your subscription cancellation date.
 
 ## Footer Information
 ![footer](./media/billing-understand-your-bill/footerinformation.png)
@@ -257,7 +261,7 @@ Navigate to the section, **Manage Accounts, Subscriptions, and Admin Roles**, un
 
 - [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/library/azure/dn736050.aspx)
 
-- [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
+<!-- - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)-->
 
 
 

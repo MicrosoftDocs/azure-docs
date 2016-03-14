@@ -3,7 +3,7 @@
 	
 	![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
 	
-4. The **Hybrid connection properties** blade opens. Under **On-premises Hybrid Connection Manager**, choose **download and configure manually**, save the downloaded the HybridConnectionManager.msi package, and copy the the gateway connection string.
+4. The **Hybrid connection properties** blade opens. Under **On-premises Hybrid Connection Manager**, choose **download and configure manually**, save the downloaded HybridConnectionManager.msi package, and copy the gateway connection string.
 	
 	![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
 	

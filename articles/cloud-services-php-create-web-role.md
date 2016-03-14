@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="01/08/2016"
 	ms.author="tomfitz"/>
 
 #How to create PHP web and worker roles
@@ -196,7 +196,7 @@ To stop the emulators, execute this command:
 
 ## Publish your application
 
-To publish your application, you need to first import your publish settings by using the **Import-PublishSettingsFile** cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
 ## Next steps
 

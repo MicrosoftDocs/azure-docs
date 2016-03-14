@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="01/08/2016"
    ms.author="larryfr"/>
 
 # Use MapReduce in Hadoop on HDInsight
@@ -181,7 +181,7 @@ Although MapReduce provides powerful diagnostic abilities, it can be a bit chall
 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-use-hive]: hdinsight-use-hive.md

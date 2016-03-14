@@ -1,20 +1,19 @@
 <properties
-   pageTitle="Topologies for Azure AD Connect | Microsoft Azure"
-   description="This topic details supported and unsupported topologies for Azure AD Connect"
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="stevenpo"
-   editor=""/>
-
+    pageTitle="Azure AD Connect: Supported topologies | Microsoft Azure"
+    description="This topic details supported and unsupported topologies for Azure AD Connect"
+    services="active-directory"
+    documentationCenter=""
+    authors="AndKjell"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="10/13/2015"
-   ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+	ms.topic="get-started-article"
+    ms.date="02/12/2016"
+    ms.author="andkjell"/>
 
 # Topologies for Azure AD Connect
 
@@ -57,12 +56,14 @@ The Azure AD Connect wizard will offer several options for how to consolidate us
 Common topologies are discussed in the next section: [Separate topologies](#multiple-forests-separate-topologies), [Full mesh](#multiple-forests-full-mesh-with-optional-galsync), and [Account-Resource](#multiple-forests-account-resource-forest).
 
 In the default configuration delivered by Azure AD Connect sync, the following assumptions are made:
+
 1.	Users have only one enabled account and the forest where this account is located is used to authenticate the user. This is for both password sync and for federation; userPrincipalName and sourceAnchor/immutableID will come from this forest.
 2.	Users have only one mailbox.
 3.	The forest that hosts a user’s mailbox has the best data quality for attributes visible in the Exchange Global Address List (GAL). If there is no mailbox on the user, then any forest can be used to contribute these attribute values.
 4.	If you have a linked mailbox, then there is also another account in different forest used for login.
 
 If your environment does not match these assumptions, the following will happen:
+
 -	If you have more than one active account or more than one mailbox, the sync engine will pick one and ignore the other.
 -	If you have linked mailboxes but no other account, these accounts will not be exported to Azure AD and the user will not be a member of any groups. In DirSync a linked mailbox would be represented as a normal mailbox so this is intentionally a different behavior to better support multi forest scenarios.
 
@@ -152,6 +153,7 @@ In this topology there is no “GALsync” between the Azure AD directory instan
 With this topology only one of the Azure AD directories can enable Exchange hybrid with the on-premises Active Directory.
 
 The requirement for mutually exclusive set of objects also applies to write-back. This makes some writeback features not supported with this topology since these assume a single configuration on-premises. This includes:
+
 -	Group writeback with default configuration
 -	Device writeback
 

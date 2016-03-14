@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="03/09/2016" 
 	ms.author="garye;bradsev"/>
 
 
@@ -29,7 +29,7 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning worksp
 
 ## To create a workspace
 
-1. Sign-in to your Microsoft Azure account.
+1. Sign-in to the [Microsoft Azure classic portal](https://manage.windowsazure.com/).
 2. In the Microsoft Azure services panel, click **MACHINE LEARNING**.
 
     ![Machine Learning service][1]

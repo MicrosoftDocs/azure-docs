@@ -1,11 +1,11 @@
-﻿<properties
+<properties
 	pageTitle="Azure Active Directory Domain Services preview: FAQs | Microsoft Azure"
 	description="Frequently asked questions about Azure Active Directory Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Azure Active Directory Domain Services preview: FAQs
@@ -30,7 +30,7 @@ Refer to our [Troubleshooting guide](active-directory-ds-troubleshooting.md) for
 No. You can only create a single domain serviced by Azure AD Domain Services for a single Azure AD directory.  
 
 #### Can I make Azure AD Domain Services available in multiple virtual networks within my subscription?
-The service itself does not directly support this scenario. Azure AD Domain Services are available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks in order to expose Azure AD Domain Services to other virtual networks. This article describes how you can [connect virtual networks in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnetconnection.md).
+The service itself does not directly support this scenario. Azure AD Domain Services are available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks in order to expose Azure AD Domain Services to other virtual networks. This article describes how you can [connect virtual networks in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### Can I enable Azure AD Domain Services using PowerShell?
 PowerShell/automated deployment of Azure AD Domain Services is not available currently.
@@ -38,11 +38,13 @@ PowerShell/automated deployment of Azure AD Domain Services is not available cur
 #### Is Azure AD Domain Services available in the new Azure portal?
 No. Azure AD Domain Services can be configured only in the older Azure management portal (i.e. https://manage.windowsazure.com). We expect to extend support for the new Microsoft Azure management portal (i.e. https://portal.azure.com) in the future.
 
+#### Can I add domain controllers to an Azure AD Domain Services managed domain?
+No. The domain provided by Azure AD Domain Services is a managed domain. You do not need to provision, configure or otherwise manage domain controllers for this domain - these management activities are provided as a service by Microsoft. Therefore, you will not be able to add additional domain controllers (neither read-write nor read-only) for the managed domain.
 
 ### Administration and Operations
 
 #### I’ve enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?
-The user accounts you’ve added to the administrative group (i.e. ‘AAD DC Administrators’) would be able to domain join machines. Additionally, users in this group are granted remote desktop access to machines that have been joined to the domain.
+Any of the user accounts you’ve added to the administrative group (i.e. ‘AAD DC Administrators’) would be able to domain join machines. Additionally, users in this group are granted remote desktop access to machines that have been joined to the domain.
 
 #### Can I wield domain administrator privileges for the domain provided by Azure AD Domain Services?
 No. Since this is a managed service, you will not be provided administrative privileges on the domain. This means that both ‘Domain Administrator’ as well as ‘Enterprise Administrator’ privileges will not be available within the domain. Existing domain administrator or enterprise administrator groups within your Azure AD directory will also not be granted domain/enterprise administrator privileges on the domain.
@@ -50,6 +52,11 @@ No. Since this is a managed service, you will not be provided administrative pri
 #### Can I modify group memberships using LDAP or other AD administrative tools on domains provided by Azure AD Domain Services?
 No. Group memberships cannot be modified on domains serviced by Azure AD Domain Services. The same applies for user attributes. You may however change group memberships or user attributes either in Azure AD or on your on-premises domain. Such changes will be automatically synchronized to Azure AD Domain Services.
 
+#### Can I extend the schema of the domain provided by Azure AD Domain Services?
+No. The schema is administered by Microsoft for the managed domain. Schema extensions are not supported by Azure AD Domain Services.
+
+#### Can I modify DNS records provided by Azure AD Domain Services?
+Yes. Users that are part of the administrative group (i.e. 'AAD DC Administrators') have DNS Admin permissions to modify the DNS records. 
 
 ### Billing and availability
 

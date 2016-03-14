@@ -1,4 +1,4 @@
-## Send a cloud-to-device message from the app back-end
+## Send a cloud-to-device message from the app back end
 
 In this section, you'll write a Windows console app that sends cloud-to-device messages to the simulated device app.
 
@@ -18,7 +18,7 @@ In this section, you'll write a Windows console app that sends cloud-to-device m
 
 		using Microsoft.Azure.Devices;
 
-5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the IoT hub and the IoT hub connection string from [Get started with IoT Hub]:
+5. Add the following fields to the **Program** class, substituting the placeholder value with the IoT hub connection string from [Get started with IoT Hub]:
 
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -50,7 +50,7 @@ In this section, you'll write a Windows console app that sends cloud-to-device m
     ![][21]
 
 ## Receiving delivery feedback
-It is possible to request delivery (or expiration) ackownledgments from IoT Hub for each cloud-to-device message. This enables the cloud back-end to easily inform retry or compensation logic. Refer to the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D] for more information on cloud-to-device feedback.
+It is possible to request delivery (or expiration) ackownledgments from IoT Hub for each cloud-to-device message. This enables the cloud back end to easily inform retry or compensation logic. Refer to the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D] for more information on cloud-to-device feedback.
 
 In this section, you will modify the **SendCloudToDevice** app to request feedback and receive them from IoT Hub.
 
@@ -84,7 +84,7 @@ In this section, you will modify the **SendCloudToDevice** app to request feedba
 
         commandMessage.Ack = DeliveryAcknowledgement.Full;
 
-4.  Run the apps by pressing **F5**, and you should see all three application start. Select the **SendCloudToDevice** windows and press **Enter**: you should see the message being received by the simulated app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** app.
+4.  Run the apps by pressing **F5**, and you should see all three application start. Select the **SendCloudToDevice** windows and press **Enter**: you should see the message being received by the simulated app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
 
     ![][22]
 
@@ -94,7 +94,7 @@ In this section, you will modify the **SendCloudToDevice** app to request feedba
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[Transient Fault Handling]: https://msdn.microsoft.com/en-us/library/hh680901(v=pandp.50).aspx
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->

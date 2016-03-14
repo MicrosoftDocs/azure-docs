@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # How to create NSGs using a template
@@ -29,7 +29,7 @@
 
 ## NSG resources in a template file
 
-You can view and download the [sample template](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/).
+You can view and download the [sample template](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/NSGs.json).
 
 The section below shows the definition of the front end NSG, based on the scenario above.
 
@@ -96,11 +96,13 @@ The sample template available in the public repository uses a parameter file con
 
 To deploy the ARM template you downloaded by using PowerShell, follow the steps below.
 
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
+
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
-3. Run the **New-AzureRMResourceGroup** cmdlet to create a resource group using the template.
+3. Run the **`New-AzureRmResourceGroup`** cmdlet to create a resource group using the template.
 
-		New-AzureRMResourceGroup -Name TestRG -Location uswest `
+		New-AzureRmResourceGroup -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'	
 
@@ -145,7 +147,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 To deploy the ARM template by using the Azure CLI, follow the steps below.
 
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+2. Run the **`azure config mode`** command to switch to Resource Manager mode, as shown below.
 
 		azure config mode arm
 
@@ -153,7 +155,7 @@ To deploy the ARM template by using the Azure CLI, follow the steps below.
 
 		info:    New mode is arm
 
-4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
+4. Run the **`azure group deployment create`** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
 

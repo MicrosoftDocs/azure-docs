@@ -3,7 +3,7 @@
 	description="Learn how to use socket.io in a node.js application hosted on Azure." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="TomArcher" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,19 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="tarcher"/>
-
-
-
-
+	ms.date="03/04/2016" 
+	ms.author="robmcm"/>
 
 # Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service
 
 Socket.IO provides realtime communication between between your node.js
 server and clients. This tutorial will walk you through hosting a
 socket.IO based chat application on Azure. For more information
-on Socket.IO, see <a href="http://socket.io/">http://socket.io/</a>.
+on Socket.IO, see <http://socket.io/>.
 
 A screenshot of the completed application is below:
 
@@ -43,7 +39,7 @@ Ensure that the following products and versions are installed to successfully co
 
 The following steps create the cloud service project that will host the Socket.IO application.
 
-1. From the **Start Menu** or **Start Screen**, search for **Azure PowerShell**. Finally, right-click **Azure PowerShell** and select **Run As Administrator**.
+1. From the **Start Menu** or **Start Screen**, search for **Windows PowerShell**. Finally, right-click **Windows PowerShell** and select **Run As Administrator**.
 
 	![Azure PowerShell icon][powershell-menu]
 
@@ -158,11 +154,11 @@ Azure emulator:
 
 	> [AZURE.IMPORTANT] Be sure to use a unique name, otherwise the publish process will fail. After the deployment has completed, the browser will open and navigate to the deployed service.
 	> 
-	> If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
+	> If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
 
     ![A browser window displaying the service hosted on Azure][completed-app]
 
-	> [AZURE.NOTE] If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
+	> [AZURE.NOTE] If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
 
 Your application is now running on Azure, and can relay chat
 messages between different clients using Socket.IO.

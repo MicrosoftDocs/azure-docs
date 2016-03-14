@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Getting started with the Azure Multi-Factor Authentication Server" 
 	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA Server." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords="authentication server, azure multi factor authentication app activation page, authentication server download" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/24/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Getting started with the Azure Multi-Factor Authentication Server
@@ -23,15 +24,14 @@
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Now that we have determined whether to use on-premises multi-factor authentication, lets get going.  This page covers a new installation of the server and getting it setup with on-premises Active Directory.  If you already have the Phonefactor server installed and are looking for how to do this see Upgrading to the Azure Multi-Factor Server or if you are looking for information on installing just the web service see Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service.
-
+Now that we have determined whether to use on-premises multi-factor authentication, let’s get going. This page covers a new installation of the server and getting it setup with on-premises Active Directory. If you already have the PhoneFactor server installed and are looking to upgrade, see [Upgrading to the Azure Multi-Factor Server](multi-factor-authentication-get-started-server-upgrade.md) or if you are looking for information on installing just the web service see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md).
 
 
 ## Download the Azure Multi-Factor Authentication Server
 
 
 
-There are two different ways that you can download the Azure Multi-Factor Authentication Server. Both are done via the Azure portal.  The first is by managing the Multi-Factor Auth Provider directly.  The second is via the service settings.  The second option requires either a Multi-Factor Auth Provider or an Azure AD Premium license.
+There are two different ways that you can download the Azure Multi-Factor Authentication Server. Both are done via the Azure portal. The first is by managing the Multi-Factor Auth Provider directly. The second is via the service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium or Enterprise Mobility Suite license.
 
 
 ### To download the Azure Multi-Factor Authentication server from the Azure portal
@@ -59,7 +59,7 @@ There are two different ways that you can download the Azure Multi-Factor Authen
 ![Download](./media/multi-factor-authentication-sdk/download2.png)
 5. Under multi-factor authentication select **Manage service settings**
 6. On the services settings page, at the bottom of the screen click **Go to the portal**.
-![Download](./media/multi-factor-authentication-sdk/download3.png)
+![Download](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 7. This will open a new page. Click **Downloads.**
 8. Above **Generate Activation Credentials**, click **Download.**
 9. Save the download.
@@ -154,6 +154,26 @@ By clicking on the email icon on the left you can setup the settings for sending
 On the Email Content tab, you will see all of the various email templates that are available to choose from.  So depending on how you have configured your users to use multi-factor authentication, you can choose the template that best suits you.
 
 ![Email templates](./media/multi-factor-authentication-get-started-server/email2.png)
+
+## How the Azure Multi-Factor Authentication Server handles user data
+
+When you use the Multi-Factor Authentication (MFA) Server on-premises, a user’s data is stored in the on-premises servers. No persistent user data is stored in the cloud. When the user performs a two-factor authentication, the MFA Server sends data to the Azure MFA cloud service to perform the authentication. When these authentication requests are sent to the cloud service, the following fields are sent in the request and logs so that they are available in the customer's authentication/usage reports. Some of the fields are optional so they can be enabled or disabled within the Multi-Factor Authentication Server. The communication from the MFA Server to the MFA cloud service uses SSL/TLS over port 443 outbound. These fields are:
+
+- Unique ID - either username or internal MFA server ID
+- First and Last Name - optional
+- Email Address - optional
+- Phone Number - when doing a voice call or SMS authentication
+- Device token - when doing mobile app authentication
+- Authentication Mode 
+- Authentication Result 
+- MFA Server Name 
+- MFA Server IP 
+- Client IP – if available
+
+
+
+In addition to the fields above, the authentication result (success/denial) and reason for any denials is also stored with the authentication data and available through the authentication/usage reports.
+
 
 ## Advanced Azure Multi-Factor Authentication Server Configurations
 For additional information on advanced setup and configuration information use the table below.

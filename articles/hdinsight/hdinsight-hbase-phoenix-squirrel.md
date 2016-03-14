@@ -13,14 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/29/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
-# Use Apache Phoenix and SQuirreL with HBase clusters in HDinsight  
+# Use Apache Phoenix and SQuirreL with Windows-based HBase clusters in HDinsight  
 
 Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Phoenix Grammar](http://phoenix.apache.org/language/index.html).
 
 >[AZURE.NOTE] For the Phoenix version information in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions].
+>
+> The information in this document is specific to Windows-based HDInsight clusters. For information on using Phoenix on Linux-based HDInsight, see [Use Apache Phoenix with Linux-based HBase clusters in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 
 ##Use SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) is a command line utility to execute SQL. 
@@ -29,7 +31,7 @@ Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and 
 Before you can use SQLLine, you must have the following:
 
 - **A HBase cluster in HDInsight**. For information on provision HBase cluster, see [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started].
-- **Connect to the HBase cluster via the remote desktop protocol**. For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure portal][hdinsight-manage-portal].
+- **Connect to the HBase cluster via the remote desktop protocol**. For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure Classic Portal][hdinsight-manage-portal].
 
 **To find out the host name**
 
@@ -54,7 +56,7 @@ Before you can use SQLLine, you must have the following:
 
 		CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
 		
-		!tables;
+		!tables
 		
 		UPSERT INTO Company VALUES(1, 'Microsoft');
 		
@@ -116,7 +118,7 @@ Assure you have provisioned an HBase cluster in an Azure virtual network (see th
 
 **To configure the point-to-site connectivity**
 
-1. Sign in to the [Azure portal][azure-portal].
+1. Sign in to the [Azure Classic Portal][azure-portal].
 2. On the left, click **NETWORKS**.
 3. Click the virtual network you have created (see [Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet]).
 4. Click **CONFIGURE** from the top.
@@ -129,7 +131,7 @@ Assure you have provisioned an HBase cluster in an Azure virtual network (see th
 
 **To create a dynamic routing gateway**
 
-1. From the Azure portal, click **DASHBOARD** from the top of the page.
+1. From the Azure Classic Portal, click **DASHBOARD** from the top of the page.
 2. Click **CREATE GATEWAY** from the bottom of the page.
 3. Click **YES** to confirm. Wait until the gateway is created.
 4. Click **DASHBOARD** from the top.  You will see a visual diagram of the virtual network:
@@ -147,7 +149,7 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 
 1. From your workstation, open a command prompt window.
 2. Navigate to the Visual Studio tools folder. 
-3. The following command in the example below will create and install a root certificate in the Personal certificate store on your workstation and also create a corresponding .cer file that you’ll later upload to the Azure portal. 
+3. The following command in the example below will create and install a root certificate in the Personal certificate store on your workstation and also create a corresponding .cer file that you’ll later upload to the Azure Classic Portal. 
 
 		makecert -sky exchange -r -n "CN=HBaseVnetVPNRootCertificate" -pe -a sha1 -len 2048 -ss My "C:\Users\JohnDole\Desktop\HBaseVNetVPNRootCertificate.cer"
 
@@ -171,9 +173,9 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 
 	A client certificate must be installed on each computer that you want to connect to the virtual network. We recommend that you create unique client certificates for each computer that you want to connect to the virtual network. To export the client certificates, use certmgr.msc. 
 
-**To upload the root certificate to the Azure portal**
+**To upload the root certificate to the Azure Classic Portal**
 
-1. From the Azure portal, click **NETWORK** on the left.
+1. From the Azure Classic Portal, click **NETWORK** on the left.
 2. Click the virtual network where your HBase cluster is deployed to.
 3. Click **CERTIFICATES** from the top.
 4. Click **UPLOAD** from the bottom, and specify the root certificate file you have created in the procedure before last. Wait until the certificate got imported.
@@ -292,7 +294,7 @@ Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sent
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
+[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md

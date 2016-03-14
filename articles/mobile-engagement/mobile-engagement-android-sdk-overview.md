@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Mobile Engagement Android SDK Integration" 
+<properties
+	pageTitle="Azure Mobile Engagement Android SDK Integration"
 	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="03/10/2016"
 	ms.author="piyushjo" />
 
 
@@ -35,6 +35,11 @@ Click to see the [SDK Content](mobile-engagement-android-sdk-content.md).
 
 ##Release notes
 
+##4.2.0 (03/11/2016)
+
+- The SDK is now licensed under MIT.
+- Allow specifying a custom device identifier at SDK initialization time.
+
 ##4.1.0 (08/25/2015)
 
 - Handle new permission model for Android M.
@@ -42,7 +47,7 @@ Click to see the [SDK Content](mobile-engagement-android-sdk-content.md).
 - Fix a permission bug: if you use `ACCESS_FINE_LOCATION`, then `ACCESS_COARSE_LOCATION` is not needed anymore.
 - Stability improvements.
 
-For earlier versions, please see the [complete release notes](mobile-engagement-android-release-notes.md).
+For all versions, please see the [complete release notes](mobile-engagement-android-release-notes.md).
 
 ##Upgrade procedures
 

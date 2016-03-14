@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Is Cloud Services on Azure the compute option I want?" 
+	pageTitle="Are Cloud Services the compute Azure option for me? | Microsoft Azure" 
 	description="Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines" 
 	services="cloud-services"
     documentationCenter=""
@@ -35,6 +35,6 @@ Azure provides different hosting models for running applications. Each one provi
 [Create a cloud service app in PHP](../cloud-services-php-create-web-role.md)<br/>
 [Create a cloud service app in Python](../cloud-services-python-ptvs.md)<br/>
 
-[App Service]: app-service-choose-me.md
-[Virtual Machines]: ../virtual-machines-about.md
+[App Service]: ../app-service-web/app-service-web-overview.md
+[Virtual Machines]: ../virtual-machines/virtual-machines-about.md
 [Cloud Services]: #tellmecs 

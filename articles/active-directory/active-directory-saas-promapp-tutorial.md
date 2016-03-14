@@ -3,7 +3,7 @@
 	description="Learn how to configure single sign-on between Azure Active Directory and Promapp."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="markusvi"/>
+	ms.date="01/26/2016"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with Promapp
@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate Promapp with Azur
 
 - You can control in Azure AD who has access to Promapp 
 - You can enable your users to automatically get signed-on to Promapp (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure Active Directory classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -46,7 +46,7 @@ To test the steps in this tutorial, you should follow these recommendations:
  
 ## Scenario Description
 The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. <br>
-The scenario outlined in this tutorial consists of three main building blocks:
+The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Promapp from the gallery 
 2. Configuring and testing Azure AD single sign-on
@@ -57,7 +57,7 @@ To configure the integration of Promapp into Azure AD, you need to add Promapp f
 
 **To add Promapp from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. <br><br>
 ![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -71,9 +71,7 @@ To configure the integration of Promapp into Azure AD, you need to add Promapp f
 6. In the search box, type **Promapp**.<br><br>
 ![Applications][5]<br>
 7. In the results pane, select **Promapp**, and then click **Complete** to add the application.
-<!--
 <br><br>![Applications][500]<br>
--->
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Promapp based on a test user called "Britta Simon".
@@ -91,11 +89,11 @@ To configure and test Azure AD single sign-on with Promapp, you need to complete
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Promapp application.<br>
+The objective of this section is to enable Azure AD single sign-on in the Azure AD classic portal and to configure single sign-on in your Promapp application.<br>
 
 **To configure Azure AD single sign-on with Promapp, perform the following steps:**
 
-1. In the Azure AD portal, on the **Promapp** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure AD classic portal, on the **Promapp** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to Promapp** page, select **Azure AD Single Sign-On**, and then click **Next**.
@@ -130,7 +128,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 4. On the **Security** dialog, perform the following steps:
 <br><br>![Azure AD Single Sign-On][14] <br>
 
-    a. In the Azure portal, on the **Configure single sign-on at Promapp** dialog, copy the **Remote Login URL**, paste it into the **SSO-Login URL** textbox, and then click **Save**.
+    a. In the Azure classic portal, on the **Configure single sign-on at Promapp** dialog, copy the **Remote Login URL**, paste it into the **SSO-Login URL** textbox, and then click **Save**.
 
     b. As **SSO - Single Sign-on Mode**, select **Optional**, and then click **Save**.
 
@@ -139,7 +137,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 
-6. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**. 
+6. On the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Next**. 
 <br><br>![Azure AD Single Sign-On][10]<br>
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  
@@ -150,12 +148,12 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.<br>
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.<br>
 In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<br>
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 <br><br>![Creating an Azure AD test user](./media/active-directory-saas-promapp-tutorial/create_aaduser_09.png) <br> 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -212,7 +210,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 **To assign Britta Simon to Promapp, perform the following steps:**
 
-1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
 <br><br>![Assign User][201] <br>
 2. In the applications list, select **Promapp**.
 <br><br>![Assign User][202] <br>
@@ -245,9 +243,7 @@ When you click the Promapp tile in the Access Panel, you should get automaticall
 [4]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_04.png
 [5]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_01.png
 
-<!--
-[500]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_05.png
--->
+[500]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_500.png
 
 [6]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_02.png

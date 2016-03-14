@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="CDN - Restrict access to your content by country" 
-	description="When a user requests your content, by default, the content is served regardless of where the user made this request from. In some cases, you may want to restrict access to your content by country. This topic explains how to use the **Country Filtering** feature in order to configure the service to allow or block access by country." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - Restrict access to your content by country"
+	description="When a user requests your content, by default, the content is served regardless of where the user made this request from. In some cases, you may want to restrict access to your content by country. This topic explains how to use the **Country Filtering** feature in order to configure the service to allow or block access by country."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="juliako"/>
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
+	ms.author="casoper"/>
 
 #Restrict access to your content by country
 
@@ -49,13 +49,13 @@ Select the countries that you want to block or allow for the path. For more info
 
 For example, the rule of blocking /Photos/Strasbourg/ will filter files including:
 
-	http://az123456.vo.msecnd.net/Photos/Strasbourg/1000.jpg. 
-	http://az123456.vo.msecnd.net/Photos/Strasbourg/Cathedral/1000.jpg. 
+	http://az123456.azureedge.net/Photos/Strasbourg/1000.jpg
+	http://az123456.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg
 
 
 ##Country codes
 
-The **Country Filtering** feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory. You will find the country codes in [this](cdn-country-codes.md) topic. If you specify “EU” (Europe) or "AP" (Asia/Pacific), a subset of IP addresses that originate from any country in that regions will be blocked or allowed. 
+The **Country Filtering** feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory. You will find the country codes in [this](cdn-country-codes.md) topic. If you specify “EU” (Europe) or "AP" (Asia/Pacific), a subset of IP addresses that originate from any country in that regions will be blocked or allowed.
 
 
 ##<a id="considerations"></a>Considerations

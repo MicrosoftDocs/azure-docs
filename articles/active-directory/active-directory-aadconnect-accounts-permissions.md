@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect accounts and permissions | Microsoft Azure"
+   pageTitle="Azure AD Connect: Accounts and permissions | Microsoft Azure"
    description="This topic describes the accounts used and created and permissions required."
    services="active-directory"
    documentationCenter=""
@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="03/04/2016"
    ms.author="andkjell;billmath"/>
 
 
-# Accounts and permissions required for Azure AD Connect
+# Azure AD Connect: Accounts and permissions
 
 The Azure AD Connect installation wizard offers two different paths:
 
@@ -36,7 +36,7 @@ If you did not read the documentation on [Integrating your on-premises identitie
 
 
 ## Express settings installation
-In Express settings the installation wizard will ask for Enterprise Admin credentials so your on-premises Active Directory can be configured with required permissions for Azure AD Connect. If you are upgrading from DirSync the Enterprise Admins credentials are used to reset the password for the account used by DirSync.
+In Express settings the installation wizard will ask for AD DS Enterprise Admin credentials so your on-premises Active Directory can be configured with required permissions for Azure AD Connect. If you are upgrading from DirSync the AD DS Enterprise Admins credentials are used to reset the password for the account used by DirSync. You will also need Azure AD Global Administrator credentials.
 
 Wizard Page  | Credentials Collected | Permissions Required| Used For
 ------------- | ------------- |------------- |------------- |
@@ -48,10 +48,22 @@ Connect to AD DS | On-premises Active Directory credentials | Member of the Ente
 These credentials are only used during the installation and will not be used after the installation has completed. It is Enterprise Admin, and not Domain Admin, to make sure the permissions in Active Directory can be set in all domains.
 
 ### Global Admin credentials
-These credentials are only used during the installation and will not be used after the installation has completed. It is used to create the [Azure AD account](#azure-ad-service-account) used for synchronizing changes to Azure AD. The account will also enable sync as a feature in Azure AD. The account used cannot have MFA enabled.
+These credentials are only used during the installation and will not be used after the installation has completed. It is used to create the [Azure AD account](#azure-ad-service-account) used for synchronizing changes to Azure AD. The account will also enable sync as a feature in Azure AD.
+
+### Permissions for the created AD DS account for express settings
+The [account](#active-directory-account) created for reading and writing to AD DS will have the following permissions when created by express settings:
+
+| Permission | Used for |
+| ---- | ---- |
+| <li>Replicate Directory Changes</li><li>Replicate Directory Changes All | Password sync |
+| Read/Write all properties User | Import and Exchange hybrid |
+| Read/Write all properties iNetOrgPerson | Import and Exchange hybrid |
+| Read/Write all properties Group | Import and Exchange hybrid |
+| Read/Write all properties Contact | Import and Exchange hybrid |
+| Reset password | Preparation for enabling password writeback |
 
 ## Custom settings installation
-When using custom settings the account used to connect to Active Directory must be created before the installation.
+When using custom settings the account used to connect to Active Directory must be created before the installation. The permissions you must grant this account can be found in [create the AD DS account](#create-the-ad-ds-account).
 
 Wizard Page  | Credentials Collected | Permissions Required| Used For
 ------------- | ------------- |------------- |-------------
@@ -74,9 +86,17 @@ Which permissions you require depends on the optional features you enable. If yo
 | Password sync | <li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
 | Exchange hybrid deployment | Write permissions to the attributes documented in [Exchange hybrid writeback](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
 | Password writeback | Write permissions to the attributes documented in [Getting started with password management](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) for users. |
-| Device writeback | Permissions granted with a PowerShell script as described in [device writeback](active-directory-aadconnect-get-started-custom-device-writeback.md).|
+| Device writeback | Permissions granted with a PowerShell script as described in [device writeback](active-directory-aadconnect-feature-device-writeback.md).|
 | Group writeback | Read, Create, Update, and Delete group objects in the OU where the distributions groups should be located.|
 
+## Upgrade
+When you upgrade from one version of Azure AD Connect to a new release, you will need the following permissions:
+
+| Principal | Permissions required | Used for |
+| ---- | ---- | ---- |
+| User running the installation wizard | Administrator of the local server | Update binaries. |
+| User running the installation wizard | Member of ADSyncAdmins | Make changes to Sync Rules and other configuration. |
+| User running the installation wizard | If using a full SQL server: DBO (or similar) of the sync engine database | Make database level changes, such as updating tables with new columns. |
 
 ## More about the created accounts
 
@@ -86,19 +106,21 @@ If you use express settings, then an account will be created in Active Directory
 
 ![AD account](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
-### Azure AD Connect sync service account
-A local service account is created by the installation wizard (unless you specify the account to use in custom settings). The account will be prefixed **AAD_** and is used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the account is created in the domain. If you use a SQL server on a remote server, the account must be located in the domain.
+### Azure AD Connect sync service accounts
+A local service account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed **AAD_** and used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the account is created in the domain. If you use a remote server running SQL server or if you use a proxy which requires authentication, the **AAD_** service account must be located in the domain.
 
 ![Sync Service Account](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
-The account is created with a long complex password which does not expire. This account will be used by Windows to store the encryption keys so the password for this account should not be reset or changed.
+The account is created with a long complex password which does not expire.
+
+This account will be used by Windows to store the encryption keys so the password for this account should not be reset or changed.
 
 If you use a full SQL Server then the service account will be the DBO of the created database for the sync engine. The service will not function as intended with any other permissions. A SQL login will also be created.
 
 The account is also granted permissions to files, registry keys, and other objects related to the Sync Engine.
 
 ### Azure AD service account
-An account in Azure AD will be created for the sync service's use. This account can be identified with its display name.
+An account in Azure AD will be created for the sync service's use. This account can be identified by its display name.
 
 ![AD account](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
 

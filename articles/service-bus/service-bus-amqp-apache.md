@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Install Apache Qpid Proton-C on an Azure Linux VM
@@ -21,7 +21,7 @@
 
 This section shows how to create a CentOS Linux VM using Azure Virtual Machines and how to download, build and install the Apache Qpid Proton-C library along with the Python and PHP language bindings. After completing these steps, you will be able to run the Python and PHP samples included with this guide.
 
-The first step is performed using the [Azure portal][]. The following screen shot shows how a CentOS VM named "scott-centos" is created:
+The first step is performed using the [Azure classic portal][]. The following screen shot shows how a CentOS VM named "scott-centos" is created:
 
 ![Proton on a Azure Linux VM][0]
 
@@ -29,7 +29,7 @@ After provisioning, the portal displays the following:
 
 ![Proton on a Azure Linux VM][1]
 
-In order to log on to the computer, you must know the endpoint port for SSH. You can obtain this value from the portal by selecting the newly created VM and clicking on the **Endpoints** tab. The following screen shot shows that the public SSH port for this computer is 57146.
+In order to log on to the computer, you must know the endpoint port for SSH. You can obtain this value from the [Azure classic portal][] by selecting the newly created VM and clicking on the **Endpoints** tab. The following screen shot shows that the public SSH port for this computer is 57146.
 
 ![Proton on a Azure Linux VM][2]
 
@@ -102,9 +102,9 @@ After performing these steps, Proton is installed on the computer and ready for 
 
 ## Next steps
 
-Ready to learn more? Visit the following links:
+Ready to learn more? Visit the following link:
 
-- [Service Bus AMQP overview]
+- [Service Bus AMQP overview][]
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
@@ -112,6 +112,6 @@ Ready to learn more? Visit the following links:
 [2]: ./media/service-bus-amqp-apache/amqp-apache-3.png
 [3]: ./media/service-bus-amqp-apache/amqp-apache-4.png
 
-[Azure portal]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 
 

@@ -11,8 +11,8 @@
  ms.workload="infrastructure-services"
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
- ms.topic="get-started-article"
- ms.date="08/04/2015"
+ ms.topic="hero-article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # What is Azure Scheduler?
@@ -34,13 +34,13 @@ Scheduler allows you to create, update, delete, view, and manage jobs and [job c
 
  [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Get started using Azure Scheduler in the Azure portal](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
  [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
  [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
  [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 

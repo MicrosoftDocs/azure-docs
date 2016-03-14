@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="03/03/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
-# Connect to SQL Data Warehouse 
+# Connect to SQL Data Warehouse
 To connect to SQL Data Warehouse you will need to pass in security credentials for authentication purposes. Upon establishing a connection you will also find that certain connection settings are configured as part of establishing your query session.
 
 This article details the following aspects of connecting to SQL Data warehouse:
@@ -29,9 +29,9 @@ This article details the following aspects of connecting to SQL Data warehouse:
 ## Authentication
 To connect to SQL Data Warehouse you will need to provide the following information:
 
-- Fully qualified servername 
+- Fully qualified servername
 - Specify SQL authentication
-- Username 
+- Username
 - Password
 - Default database (optional)
 
@@ -42,9 +42,9 @@ By default your connection will connect to the master database and not your user
 1. Specify the default database when registering your server with the SQL Server Object Explorer in SSDT or in your application connection string. For example by including the InitialCatalog parameter for an ODBC connection.
 2. First highlight the user database prior to creating a session in SSDT.
 
-> [AZURE.NOTE] For guidance connecting to SQL Data Warehouse with SSDT please refer back to the [connect and query][] getting started article. 
+> [AZURE.NOTE] For guidance connecting to SQL Data Warehouse with SSDT please refer back to the [connect and query][] getting started article.
 
-It is again important to note that the Transact-SQL statement **USE <your DB>** is not supported for changing the database for a connection 
+It is again important to note that the Transact-SQL statement **USE <your DB>** is not supported for changing the database for a connection
 
 ## Application connection protocols
 You can connect to SQL Data Warehouse using any of the following protocols:
@@ -95,10 +95,10 @@ Once a connection has been made and a session has been established you are ready
 
 Each query will be represented by one or more request identifiers. All queries submitted on that connection are part of a single session and will therefore be represented by a single session id.
 
-However, as SQL Data Warehouse is a distributed MPP system both session and request identifiers are exposed a little differently when compared to SQL Server. 
+However, as SQL Data Warehouse is a distributed MPP system both session and request identifiers are exposed a little differently when compared to SQL Server.
 
 Sessions and requests are logically represented by their respective identifiers.
-	
+
 | Identifier | Example value |
 | :--------- | :------------ |
 | Session ID | SID123456     |

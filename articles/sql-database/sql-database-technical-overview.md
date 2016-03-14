@@ -1,26 +1,27 @@
 <properties
-   pageTitle="What is SQL Database | Microsoft Azure"
-   description="Discover the technical details and capabilities of Azure SQL Database, Microsoft's relational database management system (RDBMS) and PaaS solution in the cloud."
-   services="sql-database"
-   documentationCenter=""
-   authors="shontnew"
-   manager="jeffreyg"
-   editor="monicar"/>
+	pageTitle="What is SQL Database? Intro to SQL Database | Microsoft Azure"
+	description="Get an introduction to SQL Database: technical details and capabilities of Microsoft's relational database management system (RDBMS) in the cloud."
+	keywords="introduction to sql,intro to sql,what is sql database,DTU"
+	services="sql-database"
+	documentationCenter=""
+	authors="shontnew"
+	manager="jeffreyg"
+	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/30/2015"
+   ms.date="03/08/2016"
    ms.author="shkurhek"/>
 
-# Introduction to SQL Database
+# What is SQL Database? Introduction to SQL Database, technical details, and an explanation of DTUs
 
-SQL Database is a relational database service in the cloud based on the market leading Microsoft SQL Server engine, with mission-critical capabilities. SQL Database delivers predictable performance, scalability with no downtime, business continuity and data protection—all with near-zero administration. You can focus on rapid app development and accelerating your time to market, rather than managing virtual machines and infrastructure. Because it’s based on the [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) engine, SQL Database supports existing SQL Server tools, libraries and APIs, which makes it easier for you to move and extend to the cloud.
+SQL Database is a relational database service in the cloud based on the market-leading Microsoft SQL Server engine, with mission-critical capabilities. SQL Database delivers predictable performance, scalability with no downtime, business continuity and data protection—all with near-zero administration. You can focus on rapid app development and accelerating your time to market, rather than managing virtual machines and infrastructure. Because it’s based on the [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) engine, SQL Database supports existing SQL Server tools, libraries and APIs, which makes it easier for you to move and extend to the cloud.
 
-This article introduces the core concepts and features of SQL Database related to performance, scalability, and manageability, with links to explore details. If you’re ready to jump in, you can [Create your first SQL database](sql-database-get-started.md) or [Create an elastic database pool](sql-database-elastic-pool-portal.md) in minutes. If you want a deeper dive, watch this 30 minute video.
+This article is an introduction to SQL Database core concepts and features related to performance, scalability, and manageability, with links to explore details. If you’re ready to jump in, you can [Create your first SQL database](sql-database-get-started.md) or [Create an elastic database pool](sql-database-elastic-pool-portal.md) in minutes. If you want a deeper dive, watch this 30 minute video.
 
 
 > [AZURE.VIDEO azurecon-2015-get-started-with-azure-sql-database]
@@ -35,7 +36,7 @@ For many businesses and apps, being able to create databases and dial single dat
 
 Either way you go—single or elastic—you’re not locked in. You can blend single databases with elastic database pools, and change the service tiers of single databases and pools to create innovate designs. Moreover, with the power and reach of Azure, you can mix-and-match Azure services with SQL Database to meet your unique modern app design needs, drive cost and resource efficiencies, and unlock new business opportunities.
 
-But how can you compare the relative performance of databases and database pools? How do you know the right click-stop when you dial up and down? The answer is the database transaction unit (DTU) for single databases and the elastic DTU (eDTU) for elastic databases and database pools.
+But how can you compare the relative performance of databases and database pools? How do you know the right click-stop when you dial up and down? The answer is the Database Transaction Unit (DTU) for single databases and the elastic DTU (eDTU) for elastic databases and database pools.
 
 ## Understand DTUs
 
@@ -51,11 +52,13 @@ Azure's industry leading 99.99% availability service level agreement [(SLA)](htt
 See [Business Continuity](sql-database-business-continuity.md) for details about the different business continuity features available for different service tiers.
 
 ## Secure your data
-SQL Server has a tradition of solid  data security that SQL Database upholds  with features that limit access, protect data, and help you monitor activity. See [Securing your SQL database](sql-database-security.md) for a quick rundown of security options you have in SQL Database. See the [Security Center for SQL Server Database Engine and SQL Database](https://msdn.microsoft.com/library/bb510589) for a more comprehensive view of security features. And visit the [Azure Trust Center](http://azure.microsoft.com/support/trust-center/security/) for information about Azure's platform security.
+SQL Server has a tradition of solid  data security that SQL Database upholds  with features that limit access, protect data, and help you monitor activity. See [Securing your SQL database](sql-database-security.md) for a quick rundown of security options you have in SQL Database. See the [Security Center for SQL Server Database Engine and SQL Database](https://msdn.microsoft.com/library/bb510589) for a more comprehensive view of security features. And visit the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/) for information about Azure's platform security.
 
 ## Next steps
+Now that you've read an introduction to SQL Database and answered the question "What is SQL Database?", you're ready for the following:
 
-- See the [pricing page](http://azure.microsoft.com/pricing/details/sql-database/) for single database and elastic database pricing and calculators.
+- See the [pricing page](https://azure.microsoft.com/pricing/details/sql-database/) for single database and elastic database pricing and calculators.
 
 - Get started by [creating your first database](sql-database-get-started.md). Then build your first app in [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md), or [Ruby](sql-database-develop-ruby-simple-linux). 
 
+- See an index of the titles and descriptions of [All topics for Azure sql-database service](sql-database-index-all-articles.md).

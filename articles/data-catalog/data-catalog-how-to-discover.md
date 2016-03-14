@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="How to discover data sources"
    description="How-to article highlighting how to discover registered data assets with Azure Data Catalog, including searching and filtering and using the hit highlighting capabilities of the Azure Data Catalog portal."
    services="data-catalog"
@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/17/2015"
+   ms.date="03/03/2016"
    ms.author="maroche"/>
 
 
@@ -41,8 +41,8 @@ Although the default free text search is simple and intuitive, users can also us
 | Basic Search              | Basic search using one or more search terms. Results are any assets that match on any property with one or more of the terms specified. | sales data                                                |
 | Property Scoping          | Only return data sources where the search term is matched with the specified property                                                   | name:finance                                              |
 | Boolean Operators         | Broaden or narrow a search using Boolean operations                                                                                     | finance NOT corporate                                     |
-| Grouping with Parenthesis | Use parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators              | name:finance AND (tags:Q1 OR tags:Q2)Comparison Operators |
-| Comparison Operators      | Use comparisons other than equality for properties that have numeric and date data types                                                | creationTime>"11/05/2014"                                 |
+| Grouping with Parenthesis | Use parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators              | name:finance AND (tags:Q1 OR tags:Q2) |
+| Comparison Operators      | Use comparisons other than equality for properties that have numeric and date data types                                                | modifiedTime > "11/05/2014"                                 |
 
 For more information on **Azure Data Catalog** search, see [https://msdn.microsoft.com/library/azure/mt267594.aspx](https://msdn.microsoft.com/library/azure/mt267594.aspx).
 
@@ -59,3 +59,6 @@ In the default tile view, each tile displayed in the search results will include
 
 ## Summary
 Registering a data source with **Azure Data Catalog** makes that data source easier to discover and understand, by copying structural and descriptive metadata from the data source into the Catalog service. Once a data source has been registered, users can discover it using filtering and search from within the **Azure Data Catalog** portal.
+
+## See also
+- [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to discover data sources.

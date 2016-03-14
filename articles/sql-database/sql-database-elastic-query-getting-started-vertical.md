@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/26/2016"
 	ms.author="torsteng" />
 
 # Getting started with cross-database queries (vertical partitioning) 
@@ -25,7 +25,7 @@ For more information about the elastic database query feature, please see  [Azur
 
 ## Create the sample databases
 
-To start with, we need to create two databases, **Customers** and **Orders**, either in the same or different logical servers.  
+To start with, we need to create two databases, **Customers** and **Orders**, either in the same or different logical servers.   
 
 Execute the following queries on the **Orders** database to create the **OrderInformation** table and input the sample data. 
 

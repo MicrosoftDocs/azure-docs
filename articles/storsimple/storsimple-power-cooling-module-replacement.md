@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="01/21/2016"
    ms.author="alkohli" />
 
 # Replace a Power and Cooling Module on your StorSimple device
@@ -40,6 +40,9 @@ Be aware of the following important issues before you replace your PCM:
 
 - PCM module replacement takes only few minutes to complete, but it must be completed within 10 minutes of removing the failed PCM to prevent overheating.
 
+- Note that the replacement 764 W PCM modules shipped from the factory do not contain the backup battery module. You will need to remove the battery from your faulty PCM and then insert it into the replacement module prior to performing the replacement. For more information, see how to [remove and insert a backup battery module](storsimple-battery-replacement.md).
+
+
 ## Remove a PCM
 
 Follow these instructions when you are ready to remove a Power and Cooling Module (PCM) from your Microsoft Azure StorSimple device.
@@ -48,7 +51,7 @@ Follow these instructions when you are ready to remove a Power and Cooling Modul
 
 #### To remove a PCM
 
-1. In the Management Portal, click **Devices** > **Maintenance** > **Hardware Status**. Check the status of the PCM components under **Shared Components** to identify which PCM has failed:
+1. In the Azure classic portal, click **Devices** > **Maintenance** > **Hardware Status**. Check the status of the PCM components under **Shared Components** to identify which PCM has failed:
 
      - If a power supply in PCM 0 has failed, the status of **Power Supply in PCM 0** will be red.
 
@@ -114,7 +117,7 @@ Follow these instructions when you are ready to remove a Power and Cooling Modul
 
 ## Install a replacement PCM
 
-Follow these instructions to install a PCM in your StorSimple device.
+Follow these instructions to install a PCM in your StorSimple device. Ensure that you have inserted the backup battery module prior to installing the replacement PCM (applies to 764 W PCMs only). For more information, see how to [remove and insert a backup battery module](storsimple-battery-replacement.md).
 
 #### To install a PCM
 
@@ -144,7 +147,7 @@ Follow these instructions to install a PCM in your StorSimple device.
 
 7. Turn on the PCM.
 
-8. Verify that the replacement was successful: in the Management Portal of your StorSimple Manager service, navigate to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, the status of the PCM should be green. 
+8. Verify that the replacement was successful: in the Azure classic portal of your StorSimple Manager service, navigate to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, the status of the PCM should be green. 
 										
     >[AZURE.NOTE] It may take a few minutes for the replacement PCM to completely initialize.
 

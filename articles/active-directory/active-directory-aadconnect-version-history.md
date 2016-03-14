@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/20/2015"
+   ms.date="02/29/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -21,6 +21,93 @@
 The Azure Active Directory team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
 
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
+
+Related links:
+
+- Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
+- For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
+- [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1.1.110.0
+Released: 2016 February
+
+**Fixed issues:**
+
+- Upgrade from earlier releases does not work if installation is not in the default **C:\Program Files** folder.
+- If you install and unselect **Start the synchronization process..** at the end of the installation wizard, re-running the installation wizard will not enable the scheduler.
+- The scheduler will not work as expected on servers where the date/time format is not US-en. It will also block `Get-ADSyncScheduler` to return correct times.
+- If you installed an earlier release of Azure AD Connect with ADFS as the sign-in option and upgrade, you cannot run the installation wizard again.
+
+## 1.1.105.0
+Released: 2016 February
+
+**New features:**
+
+- [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) feature for Express settings customers.
+- Support for the global admin using MFA and PIM in the installation wizard.
+    - You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use MFA.
+    - You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for MFA to properly work.
+- Allow changing the user's sign-in method after initial install.
+- Allow [Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the installation wizard. This also allows connecting to forests where not all domains are available.
+- [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) is built-in to the sync engine.
+
+**Features promoted from preview to GA:**
+
+- [Device writeback](active-directory-aadconnect-feature-device-writeback.md).
+- [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md).
+
+**New preview features:**
+
+- The new default sync cycle interval is 30 minutes. Used to be 3 hours for all earlier releases. Adds support to change the [scheduler](active-directory-aadconnectsync-feature-scheduler.md) behavior.
+
+**Fixed issues:**
+
+- The verify DNS domains page didn't always recognize the domains.
+- Prompts for domain admin credentials when configuring ADFS .
+- The on-premises AD accounts are not recognized by the installation wizard if located in a domain with a different DNS tree than the root domain.
+
+## 1.0.9131.0
+Released: 2015 December
+
+**Fixed issues:**
+
+- Password sync might not work when you change passwords in AD DS, but works when you do set password.
+- When you have a proxy server, authentication to Azure AD might fail during installation or un upgrade on the configuration page.
+- Updating from a previous release of Azure AD Connect with a full SQL Server will fail if you are not SA in SQL.
+- Updating from a previous release of Azure AD Connect with a remote SQL Server will show the error “Unable to access the ADSync SQL database”.
+
+## 1.0.9125.0
+Released: 2015 November
+
+**New features:**
+
+- Can reconfigure the ADFS to Azure AD trust.
+- Can refresh the Active Directory schema and regenerate Sync Rules.
+- Can disable a sync rule.
+- Can define "AuthoritativeNull" as a new literal in a Sync Rule.
+
+**New preview features:**
+
+- [Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md).
+- Support for [Azure AD Domain Services](active-directory-get-started.md) password synchronization.
+
+**New supported scenario:**
+
+- Supports multiple on-premises Exchange organizations. See [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/library/jj873754.aspx) for more information.
+
+**Fixed issues:**
+
+- Password synchronization issues:
+    - An object moved from out-of-scope to in-scope will not have its password synchronized. This incudes both OU and attribute filtering.
+    - Selecting a new OU to include in sync does not require a full password sync.
+    - When a disabled user is enabled the password does not sync.
+    - The password retry queue is infinite and the previous limit of 5,000 objects to be retired has been removed.
+    - [Improved troubleshooting](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
+- Not able to connect to Active Directory with Windows Server 2016 forest-functional level.
+- Not able to change the group used for group filtering after initial install.
+- Will no longer create a new user profile on the Azure AD Connect server for every user doing a password change with password writeback enabled.
+- Not able to use Long Integer values in Sync Rules scopes.
+- The checkbox "device writeback" remains disabled if there are unreachable domain controllers.
 
 ## 1.0.8667.0
 Released: 2015 August
@@ -41,6 +128,7 @@ Released: 2015 August
 - Cannot enable and disable “Staging mode” if extension attributes have been added.
 - Password writeback fails in some configuration because of a bad password on the Active Directory Connector.
 - DirSync cannot be upgraded if dn is used in attribute filtering.
+- Excessive CPU usage when using password reset.
 
 **Removed preview features:**
 
@@ -65,7 +153,7 @@ Changed name from Azure AD Sync to Azure AD Connect.
 
 - [User writeback](active-directory-aadconnect-feature-preview.md#user-writeback)
 - [Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback)
-- [Device writeback](active-directory-aadconnect-get-started-custom-device-writeback.md)
+- [Device writeback](active-directory-aadconnect-feature-device-writeback.md)
 - [Directory extensions](active-directory-aadconnect-feature-preview.md#directory-extensions)
 
 

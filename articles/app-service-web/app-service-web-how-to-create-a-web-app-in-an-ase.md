@@ -12,8 +12,8 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="10/26/2015"
+	ms.topic="article" 
+	ms.date="01/14/2016"
 	ms.author="ccompy"/>
 
 # Create a web app in an App Service Environment
@@ -30,7 +30,7 @@ This tutorial assumes you have created an App Service Environment. If you haven'
 
 ## Create a web app
 
-1. In the [Azure preview portal](https://portal.azure.com/), click **New > Web + Mobile > Web App**. 
+1. In the [Azure Portal](https://portal.azure.com/), click **New > Web + Mobile > Web App**. 
 
 	![][1]
 

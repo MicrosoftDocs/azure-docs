@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="03/03/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Group by options in SQL Data Warehouse
 
@@ -56,7 +56,7 @@ SELECT [SalesTerritoryCountry]
 ,      SUM(SalesAmount) AS TotalSalesAmount
 FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey
-GROUP BY 
+GROUP BY
        [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 UNION ALL
@@ -65,7 +65,7 @@ SELECT [SalesTerritoryCountry]
 ,      SUM(SalesAmount) AS TotalSalesAmount
 FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey
-GROUP BY 
+GROUP BY
        [SalesTerritoryCountry]
 UNION ALL
 SELECT NULL
@@ -86,7 +86,7 @@ The first step is to define the 'cube' that defines all the levels of aggregatio
 
 ```
 CREATE TABLE #Cube
-WITH 
+WITH
 (   DISTRIBUTION = ROUND_ROBIN
 ,   LOCATION = USER_DB
 )
@@ -105,9 +105,9 @@ CROSS JOIN ( SELECT 'SalesTerritoryRegion' as Region
            ) r
 )
 SELECT Cols
-,      CASE WHEN SUBSTRING(GroupBy,LEN(GroupBy),1) = ',' 
-            THEN SUBSTRING(GroupBy,1,LEN(GroupBy)-1) 
-            ELSE GroupBy 
+,      CASE WHEN SUBSTRING(GroupBy,LEN(GroupBy),1) = ','
+            THEN SUBSTRING(GroupBy,1,LEN(GroupBy)-1)
+            ELSE GroupBy
        END AS GroupBy  --Remove Trailing Comma
 ,Seq
 FROM GrpCube;
@@ -120,7 +120,7 @@ The results of the CTAS can be seen below:
 The second step is to specify a target table to store interim results:
 
 ```
-DECLARE 
+DECLARE
  @SQL NVARCHAR(4000)
 ,@Columns NVARCHAR(4000)
 ,@GroupBy NVARCHAR(4000)
@@ -156,7 +156,7 @@ BEGIN
               FROM  dbo.factInternetSales s
               JOIN  dbo.DimSalesTerritory t  
               ON s.SalesTerritoryKey = t.SalesTerritoryKey
-              '+CASE WHEN @GroupBy <>'' 
+              '+CASE WHEN @GroupBy <>''
                      THEN 'GROUP BY '+@GroupBy ELSE '' END
 
     EXEC sp_executesql @SQL;
@@ -167,13 +167,13 @@ END
 Lastly we can return the results by simply reading from the #Results temporary table
 
 ```
-SELECT * 
+SELECT *
 FROM #Results
 ORDER BY 1,2,3
 ;
 ```
 
-By breaking the code up into sections and generating a looping construct the code becomes more manageable and maintainable. 
+By breaking the code up into sections and generating a looping construct the code becomes more manageable and maintainable.
 
 
 ## Next steps
@@ -186,8 +186,7 @@ For more development tips, see [development overview][].
 [development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[GROUP BY]: https://msdn.microsoft.com/en-us/library/ms177673.aspx
+[GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
 
 
 <!--Other Web references-->
-

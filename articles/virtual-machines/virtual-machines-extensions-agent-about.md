@@ -14,12 +14,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/22/2015"
+ ms.date="01/04/2016"
  ms.author="rasquill"/>
 
 #About the virtual machine agent and extensions
 
-The Azure Virtual Machine Agent (VM Agent) is used to install, configure, manage and run Azure Virtual Machine Extensions (VM Extensions). VM Extensions provide dynamic features that Microsoft and other third parties provide. The agent and extensions are added primarily through the Management Portal, but you can also use the [Powershell](../install-configure-powershell.md) cmdlets or the [Azure CLI](xplat-install.md) to add and configure either when you create a VM or with existing VMs.
+The Azure Virtual Machine Agent (VM Agent) is used to install, configure, manage and run Azure Virtual Machine Extensions (VM Extensions). VM Extensions provide dynamic features that Microsoft and other third parties provide. The agent and extensions are added primarily through the Management Portal, but you can also use the [Powershell](../powershell-install-configure.md) cmdlets or the [Azure CLI](../xplat-cli-install.md) to add and configure either when you create a VM or with existing VMs.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
@@ -46,7 +46,7 @@ The VM Agent is enabled in the following situations:
 
 -   When you create an instance of a Virtual Machine by using the **Quick Create** method in the Management Portal, or by using the **Custom Create** method in the Management Portal and making sure that the **Install the VM Agent** checkbox is selected (as shown in the image below). For more information, see [How to Create a Custom Virtual Machine](virtual-machines-create-custom.md).
 
-    ![VM Agent Checkbox](./media/virtual-machines-extensions-agent-about/IC719409.png "VM Agent Checkbox")
+    ![VM Agent Checkbox](media/virtual-machines-extensions-agent-about/IC719409.png)
 
 -   When you create an instance of a Virtual Machine by using the [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) or the [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx) cmdlet. You can create a VM without the VM Agent installed by adding the **–DisableGuestAgent** parameter to the [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx) cmdlet.
 

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Get started with Application Insights with Java in Eclipse
@@ -28,7 +28,7 @@ Currently the plug-in works for Maven projects and Dynamic Web Projects in Eclip
 You'll need:
 
 * Oracle JRE 1.6 or later
-* A subscription to [Microsoft Azure](http://azure.microsoft.com/). (You could start with the [free trial](http://azure.microsoft.com/pricing/free-trial/).)
+* A subscription to [Microsoft Azure](https://azure.microsoft.com/). (You could start with the [free trial](https://azure.microsoft.com/pricing/free-trial/).)
 * [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/), Indigo or later.
 * Windows 7 or later, or Windows Server 2008 or later
 
@@ -50,7 +50,16 @@ Follow the remaining steps for each Java project.
 ## Create an Application Insights resource in Azure
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. 
+2. Create a new Application Insights resource.  
+
+    ![Click + and choose Application Insights](./media/app-insights-java-eclipse/01-create.png)  
+3. Set the application type to Java web application.  
+
+    ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-eclipse/02-create.png)  
+4. Find the instrumentation key of the new resource. You'll need to paste this into your code project shortly.  
+
+    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/03-key.png)  
+
 
 ## Add Application Insights to your project
 
@@ -100,7 +109,7 @@ Insert the code snippet in the head of your HTML files.
 
 #### View client-side data
 
-Open your updated web pages and use them. Wait a minute or two, then return to Application Insights and refresh the usage blade.
+Open your updated web pages and use them. Wait a minute or two, then return to Application Insights and open the usage blade. (From the Overview blade, scroll down and click Usage.)
 
 Page view, user, and session metrics will appear on the usage blade:
 
@@ -130,7 +139,7 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
 Unhandled exceptions are automatically collected:
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![](./media/app-insights-java-eclipse/21-exceptions.png)
 
 To collect data on other exceptions, you have two options:
 
@@ -145,10 +154,10 @@ To collect data on other exceptions, you have two options:
 
 ## Performance counters
 
-Click the **Servers** tile, and you'll see a range of performance counters.
+On your Overview blade, scroll down and click the  **Servers** tile. You'll see a range of performance counters.
 
 
-![](./media/app-insights-java-get-started/11-perf-counters.png)
+![Scroll down to click the Servers tile](./media/app-insights-java-eclipse/11-perf-counters.png)
 
 ### Customize performance counter collection
 
@@ -199,7 +208,7 @@ Each [Windows performance counter](https://msdn.microsoft.com/library/windows/de
 
 Your performance counters are visible as custom metrics in [Metrics Explorer][metrics].
 
-![](./media/app-insights-java-get-started/12-custom-perfs.png)
+![](./media/app-insights-java-eclipse/12-custom-perfs.png)
 
 
 ### Unix performance counters
@@ -208,7 +217,9 @@ Your performance counters are visible as custom metrics in [Metrics Explorer][me
 
 ## Availability web tests
 
-Application Insights can test your website at regular intervals to check that it's up and responding well. To set up, click through the empty web tests chart on the overview blade, and provide your public URL. 
+Application Insights can test your website at regular intervals to check that it's up and responding well. [To set up][availability], scroll down to click Availability.
+
+![Scroll down, click Availability, then Add Web test](./media/app-insights-java-eclipse/31-config-web-test.png)
 
 You'll get charts of response times, plus email notifications if your site goes down.
 

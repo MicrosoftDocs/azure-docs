@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Azure MFA Signin experience with Azure Multi-Factor Authentication" 
-	description="This page will provide you guidance on where to go to see the various signin methods available with Azure MFA." 
+	description="This page will provide you guidance on where to go to see the various signin methods available with Azure MFA."
+	keywords="user authentication, sign-in experience, sign-in with mobile phone, sign-in with office phone" 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,11 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # The sign in experience with Azure Multi-Factor Authentication
-The following information is provided to help guide you through the sign in experience.
+> [AZURE.NOTE]  The following documentation provided on this page shows a typical sign-in experience.  For help with signing in see [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
+
 
 
 ## What will your sign in experience be?

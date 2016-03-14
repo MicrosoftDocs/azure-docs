@@ -4,7 +4,7 @@
    services="redis-cache"
    documentationCenter="na"
    authors="steved0x"
-   manager="dwrede"
+   manager="erikre"
    editor="tysonn" />
 <tags 
    ms.service="cache"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="10/23/2015"
+   ms.date="01/13/2016"
    ms.author="sdanie" />
 
 # ASP.NET Output Cache Provider for Azure Redis Cache

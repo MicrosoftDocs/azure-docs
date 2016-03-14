@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Troubleshoot connection to an Azure VM over SSH | Microsoft Azure"
-	description="Troubleshoot Secure Shell (SSH) connections to an Azure virtual machine running Linux."
+	pageTitle="Troubleshoot SSH connection to an Azure VM | Microsoft Azure"
+	description="Troubleshoot and fix SSH errors like SSH connection failed or SSH connection refused for an Azure virtual machine running Linux."
+	keywords="ssh connection refused,ssh error,azure ssh,SSH connection failed"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -14,137 +15,134 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="01/22/2016"
 	ms.author="dkshir"/>
 
 # Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine
 
+There could be various causes of SSH errors while trying to connect to a Linux-based Azure virtual machine. This article will help you find and correct them.
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
+This article only applies to Azure virtual machines running Linux. For Azure virtual machines running Windows, see [Troubleshoot Remote Desktop connection to an Azure VM](virtual-machines-troubleshoot-remote-desktop-connections.md).
+
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click **Get support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
 
 
-There could be various causes of SSH failures to a Linux-based Azure virtual machine. This article will help you find them out and correct the failures.
+## Fix common SSH errors
 
-> [AZURE.NOTE] This article only applies to Azure virtual machines running Linux. For troubleshooting connections to Azure virtual machines running Windows, see [this article](virtual-machines-troubleshoot-remote-desktop-connections.md).
+This section lists quick fix steps for common SSH connection issues.
 
-## Contact Azure Customer Support
+### Virtual machines created using classic deployment model
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/).
+Try these steps to resolve the most common SSH connection failures:
 
-Alternatively, you can file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click **Get support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+1. _Reset Remote Access_ from the [Azure portal](https://portal.azure.com).<br>
+   Click **Browse** > **Virtual machines (classic)** > your Linux virtual machine > **Reset Remote...**.
 
+2. Restart the virtual machine.<br>
+   From the [Azure portal](https://portal.azure.com), click **Browse** > **Virtual machines (classic)** > your Linux virtual machine > **Restart**.<br>
+	 From the [Azure classic portal](https://manage.windowsazure.com), open the **Virtual machines** > **Instances** > **Restart**.
 
-## Basic steps - classic deployment model
-
-To resolve the more common SSH connection failures in virtual machines created using the classic deployment model, try these steps:
-
-1. **Reset Remote Access** from the [Azure preview portal](https://portal.azure.com). Click **Browse all** > **Virtual machines (classic)** > your Windows virtual machine > **Reset Remote Access**.
-
-	![Reset Remote Access](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)  
-
-2. **Restart** the virtual machine. From the [Azure preview portal](https://portal.azure.com), click **Browse all** > **Virtual machines (classic)** > your Windows virtual machine > **Restart**. From the [Azure management portal](https://manage.windowsazure.com), open the **Virtual machines** > **Instances** and click **Restart**.
-
-3. [**Resize** the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+3. [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
 
 4. Follow the instructions in [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) on the virtual machine, to:
 
 	- Reset the password or SSH key.
-	- Create a new sudo user account.
+	- Create a new _sudo_ user account.
 	- Reset the SSH configuration.
 
+5. Check VM's Resource Health for any platform issues.<br>
+	 Click **Browse** > **Virtual Machines (classic)** > your Linux virtual machine > **Settings** > **Check Health**.
 
-## Basic steps - Resource Manager deployment model
+
+### Virtual machines created using Resource Manager deployment model
 
 To resolve the common SSH issues for virtual machines created using the Resource Manager deployment model, try the following steps.
 
-1. **Reset the SSH connection** to your Linux VM on the command line, using either the Azure CLI or Azure PowerShell. Make sure the [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) version 2.0.5 or later is installed.
+1. _Reset the SSH connection_ to your Linux VM on the command line, using either the Azure CLI or Azure PowerShell. Make sure the [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) version 2.0.5 or later is installed.
 
-	**Using Azure CLI**
+**Using Azure CLI**:
 
-	a. If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md) using the `azure login` command.
+a. If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md) using the `azure login` command.
 
-	b. Switch to the Resource Manager mode.
+b. Make sure you are in the Resource Manager mode. Latest versions of the Azure CLI default into the Resource Manager mode.
 
 	```
 	azure config mode arm
 	```
 
-	c. Reset the SSH connection using either of the following methods.
+c. Reset the SSH connection using either of the following methods.
 
-	* Use the `vm reset-access` command as in the following example.
+* Use the `vm reset-access` command as in the following example.
 
 	```
-	azure vm reset-access -g TestRgV2 -n TestVmV2 -r
+	azure vm reset-access -g YourResourceGroupName -n YourVirtualMachineName -r
 	```
 
-	This will install the `VMAccessForLinux` extension on your virtual machine.
+This will install the `VMAccessForLinux` extension on your virtual machine.
 
-	* Alternatively, create a file named PrivateConf.json with the following content:
+* Alternatively, create a file named PrivateConf.json with the following content:
 
 	```
 	{  
-	"reset_ssh":"True"
+		"reset_ssh":"True"
 	}
 	```
 
-	Then manually run the `VMAccessForLinux` extension to reset your SSH connection.
+Then manually run the `VMAccessForLinux` extension to reset your SSH connection.
 
 	```
-	azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+	azure vm extension set "YourResourceGroupName" "YourVirtualMachineName" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
 	```
 
-	**Using Azure PowerShell**
+**Using Azure PowerShell**:
 
-	a. If you haven't already, [install Azure PowerShell and connect to your Azure subscription](../powershell-install-configure.md) using the Azure AD method.
+a. If you haven't already, [install Azure PowerShell and connect to your Azure subscription](../powershell-install-configure.md) using the Azure AD method. On Azure PowerShell versions prior to 1.0.x, you will need to explicitly switch to Resource Manager mode by using _Switch-AzureMode_.
 
-	b. Switch to the Resource Manager mode.
-
-	```
-	Switch-AzureMode -Name AzureResourceManager
-	```
-
-	c. Run the `VMAccessForLinux` extension to reset your SSH connection, as shown in the following example.
+b. Run the `VMAccessForLinux` extension to reset your SSH connection, as shown in the following example. On earlier versions, the command would be _Set-AzureVMExtension_.
 
 	```
-	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
+	Set-AzureRmVMExtension -ResourceGroupName "yourRG" -VMName "yourVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
 	```
 
-2. **Restart** your Linux VM from the portal. From the [Azure preview portal](https://portal.azure.com), click **Browse all** > **Virtual machines** > your Windows virtual machine > **Restart**.
+2. Restart your Linux VM from the [Azure portal](https://portal.azure.com).<br>
+Click **Browse** > **Virtual machines** > your Linux virtual machine > **Restart**.
 
-	![Restart V2](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Restart-V2-Windows.png)  
+3. _Reset your password or the SSH key_ for your Linux VM on the command line, using either the Azure CLI or Azure PowerShell. You can also create a new username and password with _sudo_ authority as shown in the following example.
 
-3. **Reset your password or the SSH key** for your Linux VM on the command line, using either the Azure CLI or Azure PowerShell. You can also create a new username and password with sudo authority as shown in the following example.
+**Using Azure CLI**:
 
-	**Using Azure CLI**
+Install and configure Azure CLI as mentioned above. Switch to Resource Manager mode if required and run the extension using either of the following methods.
 
-	Install and configure Azure CLI as mentioned above. Switch to Resource Manager mode and then run the extension using either of the following methods.
-
-	* Run the `vm reset-access` command to set any of the SSH credentials.
+* Run the `vm reset-access` command to set any of the SSH credentials.
 
 	```
 	azure vm reset-access TestRgV2 TestVmV2 -u NewUser -p NewPassword
 	```
 
-	See more information about this by typing `azure vm reset-access -h` on the command line.
+See more information about this by typing `azure vm reset-access -h` on the command line.
 
-	* Alternatively, create a file named PrivateConf.json with the following contents.
+* Alternatively, create a file named PrivateConf.json with the following contents.
+
 	```
 	{
-	"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
+		"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
 	}
 	```
 
-	Then run the Linux extension using the above file.
+Then run the Linux extension using the above file.
 
 	```
 	$azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
 	```
 
-	Note that you can follow steps similar to [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) to try other variations. Remember to modify the Azure CLI instructions for the Resource Manager mode.
+Note that you can follow steps similar to [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) to try other variations. Remember to modify the Azure CLI instructions for the Resource Manager mode.
 
-	**Using Azure PowerShell**
 
-	Install and configure Azure PowerShell as mentioned above. Switch to Resource Manager mode and then run the extension as follows.
+**Using Azure PowerShell**:
+
+Install and configure Azure PowerShell as mentioned above. Switch to Resource Manager mode and then run the extension as follows.
 
 	```
 	$RGName = 'testRG'
@@ -158,42 +156,43 @@ To resolve the common SSH issues for virtual machines created using the Resource
 	$PublicConf = '{}'
 	$PrivateConf = '{"username":"NewUsername", "password":"NewPassword", "ssh_key":"", "reset_ssh":false, "remove_user":""}'
 
-	Set-AzureVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
-
+	Set-AzureRmVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
 	```
 
-	Make sure to replace the values of $RGName, $VmName, $Location, and the SSH credentials with values specific to your installation.
+Make sure to replace the values of $RGName, $VmName, $Location, and the SSH credentials with values specific to your installation.
 
-## Detailed troubleshooting
+
+
+## Detailed troubleshooting of SSH errors
 
 If the SSH client still cannot reach the SSH service on the virtual machine, it can be due to many reasons. Here are the components involved.
 
-![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot1.png)
+![Diagram that shows components of SSH service](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot1.png)
 
 The following sections will help you isolate the source of the failure and figure out solutions or workarounds.
 
-### Steps before troubleshooting
+### Preliminary steps
 
-First, check the status of virtual machine in the Azure portal.
+First, check the status of virtual machine in the portal.
 
-In the [Azure management portal](https://manage.windowsazure.com), for virtual machines in classic deployment model:
+In the [Azure classic portal](https://manage.windowsazure.com), for virtual machines in classic deployment model:
 
 1. Click **Virtual machines** > *VM name*.
 2. Click the VM's **Dashboard** to check its status.
 3. Click **Monitor** to see recent activity for compute, storage, and network resources.
 4. Click **Endpoints** to ensure that there is an endpoint for SSH traffic.
 
-In the [Azure preview portal](https://portal.azure.com):
+In the [Azure portal](https://portal.azure.com):
 
 1. For a virtual machine created in classic deployment model, click **Browse** > **Virtual machines (classic)** > *VM name*. For a virtual machine created using the Resource Manager, click **Browse** > **Virtual machines** > *VM name*. The status pane for the virtual machine should show **Running**. Scroll down to show recent activity for compute, storage, and network resources.
-2. Click **Settings** to examine endpoints, IP addresses, and other settings. To identify endpoints in virtual machines created with the Resource Manager, check if a [Network Security Group](../traffic-manager/virtual-networks-nsg.md) is defined, the rules applied to it and if they are referenced in the subnet.
+2. Click **Settings** to examine endpoints, IP addresses, and other settings. To identify endpoints in virtual machines created with the Resource Manager, check if a [Network Security Group](../virtual-network/virtual-networks-nsg.md) is defined, the rules applied to it and if they are referenced in the subnet.
 
 To verify network connectivity, check the configured endpoints and see if you can reach the VM through another protocol, such as HTTP or another service.
 
 After these steps, try the SSH connection again.
 
 
-### Troubleshooting steps
+### Find out source of the issue
 
 The SSH client on your computer could fail to reach the SSH service on the Azure virtual machine due to these possible sources of issues or misconfigurations:
 
@@ -207,7 +206,7 @@ The SSH client on your computer could fail to reach the SSH service on the Azure
 
 To eliminate your computer as the source of the failure, check that it can make SSH connections to another on-premises, Linux-based computer.
 
-![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot2.png)
+![Diagram that highlights SSH client computer component](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot2.png)
 
 If this fails, check for these on your computer:
 
@@ -229,7 +228,7 @@ If you are using certificate authentication, verify that you have these permissi
 
 To eliminate your organization edge device as the source of failure, check that a computer directly connected to the Internet can make SSH connections to your Azure VM. If you are accessing the VM over a site-to-site VPN or ExpressRoute connection, skip to [Source 4: Network security groups](#nsg).
 
-![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot3.png)
+![Diagram that highlights organization edge device](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot3.png)
 
 If you do not have a computer that is directly connected to the Internet, you can easily create a new Azure virtual machine in its own resource group or cloud service and use it. For more information, see [Create a virtual machine running Linux in Azure](virtual-machines-linux-tutorial.md). Delete the resource group or virtual machine and cloud service when you are done with your testing.
 
@@ -247,13 +246,13 @@ Work with your network administrator to correct the settings of your organizatio
 
 To eliminate the cloud service endpoint and ACL as the source of the failure, for VMs created using the [classic deployment model](../resource-manager-deployment-model.md), check that another Azure VM in the same virtual network can make SSH connections to your VM.
 
-![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
+![Diagram that highlights cloud service endpoint and ACL](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
 
 If you do not have another VM in the same virtual network, you can easily create a new one. For more information, see [Create a virtual machine running Linux in Azure](virtual-machines-linux-tutorial.md). Delete the extra VM when you are done with your testing.
 
 If you can create an SSH connection with a VM in the same virtual network, check:
 
-- The endpoint configuration for SSH traffic on the target VM. The private TCP port of the endpoint should match the TCP port on which the SSH service on the VM is listening (default is 22). For VMs created in the Resource Manager deployment model using templates, verify the SSH TCP port number in the Azure preview portal with **Browse** > **Virtual machines (v2)** > *VM name* > **Settings** > **Endpoints**.
+- The endpoint configuration for SSH traffic on the target VM. The private TCP port of the endpoint should match the TCP port on which the SSH service on the VM is listening (default is 22). For VMs created in the Resource Manager deployment model using templates, verify the SSH TCP port number in the Azure portal with **Browse** > **Virtual machines (v2)** > *VM name* > **Settings** > **Endpoints**.
 - The ACL for the SSH traffic endpoint on the target virtual machine. ACLs allow you to specify allowed or denied incoming traffic from the Internet, based on its source IP address. Misconfigured ACLs can prevent incoming SSH traffic to the endpoint. Check your ACLs to ensure that incoming traffic from public IP addresses of your proxy or other edge server are allowed. For more information, see [About network access control lists (ACLs)](../virtual-network/virtual-networks-acl.md).
 
 To eliminate the endpoint as a source of the problem, remove the current endpoint and create a new endpoint and specify the **SSH** name (TCP port 22 for the public and private port number). For more information, see [Set up endpoints on a virtual machine in Azure](virtual-machines-set-up-endpoints.md).
@@ -262,13 +261,13 @@ To eliminate the endpoint as a source of the problem, remove the current endpoin
 #### Source 4: Network security groups
 
 Network security groups allow you to have more granular control of allowed inbound and outbound traffic. You can create rules that span subnets and cloud services in an Azure virtual network. Check your network security group rules to ensure that SSH traffic to and from the Internet is allowed.
-For more information, see [About network security groups](../traffic-manager/virtual-networks-nsg.md).
+For more information, see [About network security groups](../virtual-network/virtual-networks-nsg.md).
 
 #### Source 5: Linux-based Azure virtual machine
 
 The last source of possible problems is the Azure virtual machine itself.
 
-![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot5.png)
+![Diagram that highlights Linux-based Azure virtual machine](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot5.png)
 
 If you have not done so already, follow the instructions [to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) on the virtual machine.
 

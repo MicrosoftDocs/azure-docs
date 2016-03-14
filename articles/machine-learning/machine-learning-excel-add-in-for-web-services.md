@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="machine-learning"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
+    	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/25/2015"
+	ms.date="02/12/2016"
 	ms.author="tedway;garye" />
 
 # Excel Add-in for Azure Machine Learning web services

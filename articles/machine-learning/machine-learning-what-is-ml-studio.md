@@ -13,8 +13,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.topic="get-started-article"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 # What is Azure Machine Learning Studio?
@@ -93,7 +93,7 @@ For a list of sample datasets included in Machine Learning Studio, see [Use the 
 A module is an algorithm that you can perform on your data. Machine Learning Studio has a number of modules ranging from data ingress functions to training, scoring, and validation processes. Here are some examples of included modules:
 
 - [Convert to ARFF][convert-to-arff] - Converts a .NET serialized dataset to Attribute-Relation File Format (ARFF).
-- [Elementary Statistics][elementary-statistics] - Calculates elementary statistics such as mean, standard deviation, etc.
+- [Compute Elementary Statistics][elementary-statistics] - Calculates elementary statistics such as mean, standard deviation, etc.
 - [Linear Regression][linear-regression] - Creates an online gradient descent-based linear regression model.
 - [Score Model][score-model] - Scores a trained classification or regression model.
 

@@ -1,7 +1,7 @@
 
 You can optionally test push notifications with your mobile service running on the local computer or VM before you publish to Azure. To do this, you must set information about the notification hub used by your app in the web.config file. This information is only used when running locally to connect to the notification hub; it is ignored when published to Azure.
 
-1. Open the readme.html file in either the Windows or WindowsPhone app project folder. 
+1. Open the readme.html file in the mobile service project folder. 
 
 	This displays the **Push setup is almost complete** page, if you don't still have it open. The section **Step 3: Modify Web Config** contains the notification hub connection information.
 

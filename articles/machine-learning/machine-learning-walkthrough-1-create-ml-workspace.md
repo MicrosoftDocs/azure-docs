@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
 # Walkthrough Step 1: Create a Machine Learning workspace
 
-This is the first step of the walkthrough, [Develop a Predictive Solution with Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+This is the first step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
 
 1.	**Create a Machine Learning workspace**
@@ -35,20 +35,17 @@ To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learn
 
 ##To create a workspace  
 
-1.	Sign in to your Microsoft Azure account.
-2.	In the Microsoft Azure services panel, click **MACHINE LEARNING**.  
+1.	Sign in to the [Azure classic portal](https://manage.windowsazure.com).
+2.	In the  Azure services panel, click **MACHINE LEARNING**.  
 ![Create workspace][1]
 
 3.	Click **CREATE AN ML WORKSPACE**.
 4.	On the **QUICK CREATE** page, enter your workspace information and then click **CREATE AN ML WORKSPACE**.
 
-	> [AZURE.NOTE] The **WORKSPACE OWNER** is your Microsoft account (e.g., name@outlook.com) or organizational account.
-
-After your Machine Learning workspace is created, you will see it listed on the **machine learning** page.  
+After your Machine Learning workspace is created, you will see it listed on the **machine learning** page in the Azure classic portal. 
+For more details on creating your workspace, see [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md).
 
 > [AZURE.TIP] You can share the experiments you're working on by inviting others to your workspace. You can do this in Machine Learning Studio on the **SETTINGS** page. You just need the Microsoft account or organizational account for each user.
-
-For more information, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
 
 ----------
 

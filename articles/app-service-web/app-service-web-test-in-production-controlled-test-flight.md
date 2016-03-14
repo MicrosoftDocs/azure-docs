@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/02/2016"
 	ms.author="cephalin"/>
 # Flighting deployment (beta testing) in Azure App Service
 
@@ -46,7 +46,7 @@ with Application Insights, but you can use New Relic or other technologies that 
 In this tutorial, you will learn how to bring the following scenarios together to test your App Service app in production:
 
 - [Route production traffic](app-service-web-test-in-production-get-start.md) to your beta app
-- [Instrument your app](app-insights-web-track-usage.md) to obtain useful metrics
+- [Instrument your app](../application-insights/app-insights-web-track-usage.md) to obtain useful metrics
 - Continuously deploy your beta app and track live app metrics
 - Compare metrics between the production app and the beta app to see how code changes translate to results
 
@@ -58,13 +58,13 @@ In this tutorial, you will learn how to bring the following scenarios together t
 -	Git Shell (installed with [GitHub for Windows](https://windows.github.com/)) - this enables you to run both the Git and PowerShell commands in the same session
 -	Latest [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi) bits
 -	Basic understanding of the following:
-	-	[Azure Resource Manager](resource-group-overview.md) template deployment (see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
+	-	[Azure Resource Manager](../resource-group-overview.md) template deployment (see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
 > [AZURE.NOTE] You need an Azure account to complete this tutorial:
-> + You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
-> + You can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+> + You can [open an Azure account for free](/pricing/free-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
+> + You can [activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/) - Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 >
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
@@ -72,7 +72,7 @@ In this tutorial, you will learn how to bring the following scenarios together t
 
 >[AZURE.NOTE] The script used in this tutorial will automatically configure continuous publishing from your GitHub repository. This requires that your GitHub credentials are already stored in Azure, otherwise the scripted deployment will fail when attempting to configure source control settings for the web apps.
 >
->To store your GitHub credentials in Azure, create a web app in the [Azure preview portal](https://portal.azure.com) and [configure GitHub deployment](web-sites-publish-source-control.md#Step7). You only need to do this once.
+>To store your GitHub credentials in Azure, create a web app in the [Azure Portal](https://portal.azure.com/) and [configure GitHub deployment](web-sites-publish-source-control.md#Step7). You only need to do this once.
 
 In a typical DevOps scenario, you have an application that’s running live in Azure, and you want to make changes to it through continuous publishing. In this scenario, you will deploy to production a template that you have developed and tested.
 
@@ -101,7 +101,7 @@ In a typical DevOps scenario, you have an application that’s running live in A
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 
 7.	When the script finishes, go back to browse to the frontend’s address (http://ToDoApp*&lt;your_suffix>*.azurewebsites.net/) to see the application running in production.
-5.	Log into the [Azure preview portal](https://portal.azure.com) and take a look at what’s created.
+5.	Log into the [Azure Portal](https://portal.azure.com/) and take a look at what’s created.
 
 	You should be able to see two web apps in the same resource group, one with the `Api` suffix in the name. If you look at the resource group view, you will also see the SQL Database and server, the App Service plan, and the staging slots for the web apps. Browse through the different resources and compare them with *&lt;repository_root>*\ARMTemplates\ProdAndStage.json to see how they are configured in the template.
 
@@ -114,7 +114,7 @@ You have set up the production app.  Now, let's imagine that you receive feedbac
 5. Open *&lt;repository_root>*\src\MultiChannelToDo.sln in Visual Studio.
 6. Restore all Nuget packages by right-clicking solution > **Manage NuGet Packages for Solution** > **Restore**.
 6. Right-click **MultiChannelToDo.Web** > **Add Application Insights Telemetry** > **Configure Settings** > Change resource group to ToDoApp*&lt;your_suffix>* > **Add Application Insights to Project**.
-7. In the Azure preview portal, open the blade for the **MultiChannelToDo.Web** Application Insight resource. Then in the **Application health** part, click **Learn how to collect browser page load data** > copy code.
+7. In the Azure Portal, open the blade for the **MultiChannelToDo.Web** Application Insight resource. Then in the **Application health** part, click **Learn how to collect browser page load data** > copy code.
 7. Add the copied JS instrumentation code to *&lt;repository_root>*\src\MultiChannelToDo.Web\app\Index.cshtml, just before the closing `<heading>` tag. It should contain the unique instrumentation key of your Application Insight resource.
 
         <script type="text/javascript">
@@ -191,7 +191,7 @@ That's it!
 
 In this section, you will configure the different deployment slots to send slot-specific telemetry to the same Application Insights resource. This way, you can compare telemetry data between traffic from different slots (deployment environments) to easily see the effect of your app changes. At the same time, you can separate the production traffic from the rest so you can continue to monitor your production app as needed.
 
-Since you're gathering data on client behavior, you will [add a telemetry initializer to your JavaScript code](app-insights-api-custom-events-metrics.md#js-initializer) in index.cshtml. If you want to test server-side performance, for example, you can also do similarly in your server code (see [Application Insights API for custom events and metrics]((app-insights-api-custom-events-metrics.md)).
+Since you're gathering data on client behavior, you will [add a telemetry initializer to your JavaScript code](../application-insights/app-insights-api-custom-events-metrics.md#js-initializer) in index.cshtml. If you want to test server-side performance, for example, you can also do similarly in your server code (see [Application Insights API for custom events and metrics](../application-insights/app-insights-api-custom-events-metrics.md).
 
 1. First, add the code bewteen the two `//` comments below in the JavaScript block that you added to the `<heading>` tag earlier.
 
@@ -232,7 +232,7 @@ Since you're gathering data on client behavior, you will [add a telemetry initia
 
 5. Click the **Favorites** button to save the current Metrics Explorer settings to something like **Custom events: Production**. You can easily switch between this view and a deployment slot view later.
 
-    > [AZURE.TIP] For even more powerful analytics, consider [integrating your Application Insights resource with Power BI](app-insights-export-power-bi.md).
+    > [AZURE.TIP] For even more powerful analytics, consider [integrating your Application Insights resource with Power BI](../application-insights/app-insights-export-power-bi.md).
 
 ### Add slot-specific tags to your server app metrics
 Again, for completeness you will set up the server-side app. Unlike the client app which is instrumented in JavaScript, slot-specific tags for the server app is instrumented with .NET code.
@@ -386,8 +386,8 @@ Azure App Service makes it easy for small- to medium-sized businesses to test th
 -   [Agile software development with Azure App Service](app-service-agile-software-development.md)
 -   [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md)
 -	[Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
--	[Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
+-	[Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
 -	[JSONLint - The JSON Validator](http://jsonlint.com/)
 -	[Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
--	[Azure PowerShell](powershell-install-configure.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
 -	[Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)

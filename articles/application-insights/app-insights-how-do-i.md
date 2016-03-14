@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/11/2015" 
+	ms.date="02/05/2016" 
 	ms.author="awills"/>
 
 # How do I ... in Application Insights?
@@ -36,7 +36,7 @@ If you want to set an alert on **Server exceptions**, you might have to do [some
 ### Email on exceptions
 
 1. [Set up exception monitoring](app-insights-asp-net-exceptions.md)
-2. [Set an alert](app-insights-alert.md) on the Exception count metric
+2. [Set an alert](app-insights-alerts.md) on the Exception count metric
 
 
 ### Email on an event in my app
@@ -57,7 +57,7 @@ Because alerts have two states, you have to send a low value when you consider t
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Create a chart in [metric explorer](app-insights-metric-explorer.md) to see your alarm:
+Create a chart in [metric explorer](app-insights-metrics-explorer.md) to see your alarm:
 
 ![](./media/app-insights-how-do-i/010-alarm.png)
 
@@ -143,9 +143,9 @@ There are several different methods of setting the Application Version property.
 
     To allow MSBuild to generate version numbers, set the version like `1.0.*` in AssemblyReference.cs
 
-## Monitor backend servers
+## Monitor backend servers and desktop apps
 
-[Use the basic API](app-insights-windows-desktop.md)
+[Use the Windows Server SDK module](app-insights-windows-desktop.md).
 
 
 ## Visualize data
@@ -183,13 +183,17 @@ You can then:
 
 ![](./media/app-insights-how-do-i/115-metrics.png)
 
+## Modify property names or values
+
+Create a [filter](app-insights-api-filtering-sampling.md#filtering). This lets you modify or filter telemetry before it is sent from your app to Application Insights.
+
 ## List specific users and their usage
 
-If you just want to [search for specific users](#search-specific-users), you can set the [authenticated user id](app-insights-api-custom-events-metrics/#authenticated-users).
+If you just want to [search for specific users](#search-specific-users), you can set the [authenticated user id](app-insights-api-custom-events-metrics.md#authenticated-users).
 
 If you want a list of users with data such as what pages they look at or how often they log in, you have two options:
 
-* [Set authenticated user id](app-insights-api-custom-events-metrics/#authenticated-users), [export to a database](app-insights-code-sample-export-sql-stream-analytics.md) and use suitable tools to analyze your user data there.
+* [Set authenticated user id](app-insights-api-custom-events-metrics.md#authenticated-users), [export to a database](app-insights-code-sample-export-sql-stream-analytics.md) and use suitable tools to analyze your user data there.
 * If you have only a small number of users, send custom events or metrics, using the data of interest as the metric value or event name, and setting the user id as a property. To analyze page views, replace the standard JavaScript trackPageView call. To analyze server-side telemetry, use a telemetry initializer to add the user id to all server telemetry. You can then filter and segment metrics and searches on the user id.
 
 
@@ -197,6 +201,7 @@ If you want a list of users with data such as what pages they look at or how oft
 
 * In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), disable any modules you don't need, such the performance counter collector.
 * Use [Sampling and filtering](app-insights-api-filtering-sampling.md) at the SDK.
+* In your web pages, Limit the number of Ajax calls reported for every page view. In the script snippet after `instrumentationKey:...` , insert: `,maxAjaxCallsPerView:3` (or a suitable number).
 * If you're using [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), compute the aggregate of batches of metric values before sending the result. There's an overload of TrackMetric() that provides for that.
 
 
@@ -237,8 +242,3 @@ Among the metrics you can show in metrics explorer are a set of system performan
 * If not, [add the counter to the set collected by the performance counter module](app-insights-web-monitor-performance.md#system-performance-counters).
 
 
- 
-
-### Azure web roles
-
-We don't currently monitor performance counters on 

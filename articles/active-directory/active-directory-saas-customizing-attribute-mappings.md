@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -89,8 +89,16 @@ Microsoft Azure AD provides a very efficient implementation of a synchronization
  Because of this, it is a recommended best practice to keep the number of consecutive changes to your attribute mappings at a minimum.
 
 
+##Related Articles
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md)
+- [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
+- [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
+- [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
+- [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png

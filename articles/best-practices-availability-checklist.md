@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/15/2015"
    ms.author="masashin"/>
 
 # Availability checklist
@@ -46,7 +46,7 @@
 
 ## Data management
 
-- **Take advantage of data replication** through both local and geographical redundancy. Data in Azure storage is automatically replicated to protect against loss in case of infrastructure failure, and some factors of this replication can be configured. For example, read-only copies of data may be replicated in more than one geographical region (referred to as read-access globally redundant storage or RA-GRS). Note that using RA-GRS incurs additional charges, see the [Azure Storage Pricing](http://azure.microsoft.com/pricing/details/storage/) page on the Microsoft website for details.
+- **Take advantage of data replication** through both local and geographical redundancy. Data in Azure storage is automatically replicated to protect against loss in case of infrastructure failure, and some factors of this replication can be configured. For example, read-only copies of data may be replicated in more than one geographical region (referred to as read-access globally redundant storage or RA-GRS). Note that using RA-GRS incurs additional charges, see the [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page on the Microsoft website for details.
 - **Use optimistic concurrency and eventual consistency** where possible. Transactions that block access to resources through locking (pessimistic concurrency) can cause poor performance and considerably reduce availability. These problems can become especially acute in distributed systems. In many cases, careful design and techniques such as partitioning can minimize the chances of conflicting updates occurring. Where data is replicated, or is read from a separately updated store, the data will only be eventually consistent but the advantages usually far outweigh the impact on availability of using transactions to ensure immediate consistency.
 - **Use periodic backup and point in time restore**, and ensure it meets the Recovery Point Objective (RPO). Regularly and automatically back up data that is not preserved elsewhere, and verify you can reliably restore both the data and the application itself should a failure occur. Data replication is not a backup feature because errors and inconsistencies introduced through failure, error, or malicious operations will be replicated across all stores. The backup process must be secure to protect the data in transit and in storage. Databases or parts of a data store can usually be recovered to a previous point in time by using transaction logs. Microsoft Azure provides a backup facility for data stored in Microsoft Azure SQL Database. The data is exported to a backup package on Microsoft Azure blob storage, and can be downloaded to a secure on-premises location for storage.
 - **Enable the high availability option to maintain a secondary copy of a Redis cache.** When using Redis Cache, choose the Standard option to maintain a secondary copy of the contents. For more information, see the page [Create a cache in Azure Redis Cache](https://msdn.microsoft.com/library/dn690516.aspx) on the Microsoft website.

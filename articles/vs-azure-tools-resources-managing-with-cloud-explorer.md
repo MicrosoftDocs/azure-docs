@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Managing Azure resources with Cloud Explorer"
+   pageTitle="Managing Azure resources with Cloud Explorer | Microsoft Azure"
    description="Learn how to use Cloud Explorer to browse and manage Azure resources within Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
-   ms.author="kempb" />
+   ms.date="12/17/2015"
+   ms.author="tarcher" />
 
 # Managing Azure resources with Cloud Explorer
 
@@ -30,7 +30,7 @@ Cloud Explorer is installed as part of the Visual Studio Tools for Azure SDK 2.7
 - Visual Studio 2015 RTM.
 
 - The Visual Studio Tools for Azure SDK. 
-- You must also have an Azure account and be logged into it to view Azure resources in Cloud Explorer. If you don't have one, you can create an account in just a couple of minutes. If you have an MSDN subscription, see [Azure Benefit for MSDN Subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, see [create a free trial account](http://azure.microsoft.com/pricing/free-trial/).
+- You must also have an Azure account and be logged into it to view Azure resources in Cloud Explorer. If you don't have one, you can create an account in just a couple of minutes. If you have an MSDN subscription, see [Azure Benefit for MSDN Subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, see [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).
 
 - If Cloud Explorer isn't visible, you can view it by choosing **View**, **Other Windows,** **Cloud Explorer** on the menu bar.
 

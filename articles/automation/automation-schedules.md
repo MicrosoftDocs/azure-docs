@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/26/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Schedules in Azure Automation
 
-Automation Schedules are used to schedule runbooks to run automatically.  This could be either a single date and time for the runbook to run once.  Or it could be a recurring schedule to start the runbook multiple times.  Schedules are typically not accessed from runbooks.
+Automation Schedules are used to schedule runbooks to run automatically.  This could be either a single date and time for the runbook to run once.  Or, it could be a recurring schedule to start the runbook multiple times.  Schedules are typically not accessed from runbooks.
 
 >[AZURE.NOTE]  Schedules do not currently support Azure Automation DSC configurations.
 
 ## Windows PowerShell Cmdlets
 
-The cmdlets in the following table are used to create and manage variables with Windows PowerShell in Azure Automation. They ship as part of the [Azure PowerShell module](../powershell-install-configure.md).
+The cmdlets in the following table are used to create and manage schedules with Windows PowerShell in Azure Automation. They ship as part of the [Azure PowerShell module](../powershell-install-configure.md).
 
 |Cmdlets|Description|
 |:---|:---|
@@ -37,15 +37,15 @@ The cmdlets in the following table are used to create and manage variables with 
 
 ## Creating a new Schedule
 
-### To create a new schedule with the Azure portal
+### To create a new schedule with the Azure classic portal
 
 
 1. From your automation account, click **Assets** at the top of the window.
 1. At the bottom of the window, click **Add Setting**.
 1. Click **Add Schedule**.
-1. Complete the wizard and click the checkbox to save the new variable.
+1. Complete the wizard and click the checkbox to save the new schedule.
 
-### To create a new schedule with the Azure preview portal
+### To create a new schedule with the Azure portal
 
 1. From your automation account, click the **Assets** part to open the **Assets** blade.
 1. Click the **Schedules** part to open the **Schedules** blade.

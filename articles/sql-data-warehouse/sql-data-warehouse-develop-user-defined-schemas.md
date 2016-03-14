@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="03/03/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # User-defined schemas in SQL Data Warehouse
 
@@ -24,7 +24,7 @@ By contrast, SQL Data Warehouse runs the entire data warehouse workload within o
 
 > [AZURE.NOTE] SQL Data Warehouse does not support cross database queries of any kind. Consequently, data warehouse implementations that leverage this pattern will need to be revised.
 
-## Recommendations 
+## Recommendations
 
 These are recommendations for consolidating workloads, security, domain and functional boundaries by using user defined schemas
 

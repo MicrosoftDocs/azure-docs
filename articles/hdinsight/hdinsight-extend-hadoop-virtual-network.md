@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/28/2015"
+   ms.date="01/29/2016"
    ms.author="larryfr"/>
 
 
@@ -26,7 +26,7 @@ Azure Virtual Network allows you to extend your Hadoop solutions to incorporate 
 
 ##<a id="whatis"></a>What is Azure Virtual Network?
 
-[Azure Virtual Network](/documentation/services/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution. A virtual network allows you to:
+[Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution. A virtual network allows you to:
 
 * Connect cloud resources together in a private network (cloud-only).
 
@@ -58,17 +58,53 @@ Azure Virtual Network allows you to extend your Hadoop solutions to incorporate 
 
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
-> [AZURE.NOTE] You must create the Azure Virtual Network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](/documentation/services/virtual-network/).
->
-> Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group. 
->
-> It is highly recommended to designate a single subnet for each cluster. 
->
-> You cannot use a v1 (Classic,) Azure Virtual Network with Linux-based HDInsight. The Virtual Network must be v2 (Azure Resource Manager,) in order for it to be listed as an option during the HDInsight cluster creation process in the Azure preview portal, or to be usable when creating a cluster from the Azure CLI or Azure PowerShell. 
->
-> If you have resources on a v1 network, and you wish to make HDInsight directly accessible to those resources through a virtual network, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) for information on how to connect a v2 Virtual Network to a v1 Virtual Network. Once this connection is established, you can create the HDInsight cluster in the v2 Virtual Network.
+> [AZURE.NOTE] You must create the Azure Virtual Network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-For more information on provisioning an HDInsight cluster on a virtual network, see [Provisioning Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
+## Virtual Network requirements
+
+> [AZURE.IMPORTANT] Creating an HDInsight cluster on a Virtual Network requires specific Virtual Network configurations, which are described in this section.
+
+###Location-based Virtual networks
+
+Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group. 
+
+###Subnets
+
+It is highly recommended that you create a single subnet for each HDInsight cluster. 
+
+###Classic or v2 Virtual Network
+
+Windows-based clusters require a v1 (Classic) Virtual Network, while Linux-based clusters require a v2 (Azure Resource Manager,) Virtual Network. If you do not have the correct type of network, it will not be usable when you create the cluster.
+
+If you have resources on a Virtual Network that is not usable by the cluster you plan on creating, you can create a new Virtual Network that is usable by the cluster, and connect it to the incompatible Virtual Network. You can then create the cluster in the network version that it requires, and it will be able to access resources in the other network since the two are joined. For more information on connecting classic and new Virtual Networks, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+###Secured Virtual Networks
+
+HDInsight is not supported on Azure Virtual Networks that explicitly restrict access to/from the Internet. For example, using Network Security Groups or ExpressRoute to block Internet traffic to resources in the Virtual Network. The HDInsight service is a managed service, and requires Internet access during provisioning and while running so that Azure can monitor the health of the cluster, initiate failover of cluster resources, and other automated management tasks.
+
+If you want to use HDInsight on a Virtual Network that blocks Internet traffic, you can use the following steps:
+
+1. Create a new subnet within the Virtual Network. By default, the new subnet will be able to communicate with the Internet. This allows HDInsight to be installed on this subnet. Since the new subnet is in the same virtual network as the secured subnet(s), it can also communicate with resources installed there.
+
+2. Create the HDInsight cluster. When configuring the Virtual Network settings for the cluster, select the subnet created in step 1.
+
+> [AZURE.NOTE] The above steps assume that you have not restricted communications to IP addresses _within the Virtual Network IP address range_. If you have, you may need to modify these restrictions to allow communication with the new subnet.
+
+If you are unsure whether you have applied restrictions to the subnet that you want to install HDInsight into, or want to remove restrictions from the subnet, use the following steps:
+
+1. Open the [Azure portal](https://portal.azure.com).
+
+2. Selecting the Virtual Network.
+
+3. Select __Properties__.
+
+4. Select __Subnets__, and then select the specific subnet. On the blade for this subnet, the __Network security group__ and __Route table__ entries will be set to a value of __None__ if no restrictions have been applied.
+
+    If restrictions have been applied, you can remove the restriction by selecting the __Network security group__ or __Route table__ entry, and then selecting __None__. Finally, select __Save__ from the Subnet blade to save the changes.
+    
+    ![Image of the subnet blade and Network Security Group selection](./media/hdinsight-extend-hadoop-virtual-network/subnetnsg.png)
+
+For more information on Network Security Groups, see [Network Security Groups overview](../virtual-network/virtual-networks-nsg.md). For information on controlling routing in an Azure Virtual Network, see [User Defined Routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
 
 ##<a id="tasks"></a>Tasks and information
 

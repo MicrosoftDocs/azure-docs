@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 # How to get started using Azure AD
@@ -29,10 +29,10 @@
 Ready to get started? You should try out some of the really cool stuff we've released with Azure Active Directory. Use these capabilities to really add value to your organization's identity and access management. Read documentation to learn how to configure these features. Then see how you can start testing these capabilities by taking the first step and assigning trial licenses to administrators and users.
 
 
-> [AZURE.NOTE] Azure AD is available to everyone for free. Sign up now for an Azure trial subscription and your directory will be waiting for you. The directory is yours whether you buy anything or not. [Try Azure AD now](http://azure.microsoft.com/trial/get-started-active-directory/)
+> [AZURE.NOTE] Azure AD is available to everyone for free. Sign up now for an Azure trial subscription and your directory will be waiting for you. The directory is yours whether you buy anything or not. [Try Azure AD now](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ##Secure your organization's access
-Protect your organization's identity data in the cloud using Multi-Factor Authentication to ensure secure local and remote access. [Learn more about multi-factor authentication](../multi-factor-authentication.md)
+Protect your organization's identity data in the cloud using Multi-Factor Authentication to ensure secure local and remote access. [Learn more about multi-factor authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 ##Change and reset passwords
 Cut costs and decrease helpdesk calls by empowering users to change or reset their Active Directory or Azure Active Directory passwords from any device, at any location. An administrator can manage password and notification policies, and can see detailed audit activity of these password reset operations the moment they occur. [Learn more about managing passwords with Azure Active Directory](active-directory-manage-passwords.md)

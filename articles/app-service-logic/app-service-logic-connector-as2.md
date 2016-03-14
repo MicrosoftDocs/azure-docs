@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/23/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 # Get started with the AS2 Connector and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
 Use the AS2 Connector to receive and send messages over the AS2 (Applicability Statement 2) transport protocol in business-to-business communications. Data is transported securely and reliably over the Internet. Security is achieved using digital certificates and encryption.
 
 You can add the AS2 Connecto to your business workflow and process data as part of a business-to-business workflow within a Logic App. 
@@ -36,8 +38,8 @@ The following items must be created by you before they can be used by the AS2 co
 Requirement | Description
 --- | ---
 TPM API App | Before creating an AS2 connector, you have to create a [BizTalk Trading Partner Management Connector][1]. <br/><br/>**Note** Know the name of your TPM API App. 
-Azure SQL Database | Stores B2B items including partners, schemas, certificates, and agreeements. Each of the B2B API Apps requires its own Azure SQL Database. <br/><br/>**Note** Copy the connection string to this database.<br/><br/>[Create an Azure SQL Database](../sql-database-get-started.md)
-Azure Blob Storage container | Stores message properties when AS2 archiving is enabled. If you don't need AS2 message archiving, a Storage container is not needed. <br/><br/>**Note** If you are enabling archiving, copy the connection string to this Blob Storage.<br/><br/>[About Azure Storage Accounts](../storage-create-storage-account.md).
+Azure SQL Database | Stores B2B items including partners, schemas, certificates, and agreeements. Each of the B2B API Apps requires its own Azure SQL Database. <br/><br/>**Note** Copy the connection string to this database.<br/><br/>[Create an Azure SQL Database](../sql-database/sql-database-get-started.md)
+Azure Blob Storage container | Stores message properties when AS2 archiving is enabled. If you don't need AS2 message archiving, a Storage container is not needed. <br/><br/>**Note** If you are enabling archiving, copy the connection string to this Blob Storage.<br/><br/>[About Azure Storage Accounts](../storage/storage-create-storage-account.md).
 
 ## Create the AS2 Connector
 
@@ -59,7 +61,7 @@ TPM Instance Name | Enter the name of the **BizTalk Trading Partner Management**
 
 Trading partners are the entities involved in B2B (Business-to-Business) communications. When two partners establish a relationship, this is referred to as an Agreement. The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific.
 
-Steps involved in creating a trading partner agreement are documented [here][2].
+See the steps to [create a trading partner agreement][2].
 
 ## Use the Connector as a Trigger
 
@@ -105,9 +107,11 @@ Enable Archiving | boolean | Determines if the outbound message should be archiv
 The action returns a HTTP 200 response code on successful completion.
 
 ## Do more with your Connector
+You can [archive your AS2 messages](app-service-logic-archive-as2-messages.md).
+
 More on logic apps at [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

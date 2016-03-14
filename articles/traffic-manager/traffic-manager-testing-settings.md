@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="12/02/2015"
    ms.author="joaoma" />
 
-# Testing Traffic Manager Settings
+# Test your Traffic Manager settings
 
 The best way to test your Traffic Manager settings is to set up a number of clients and then bring the endpoints, consisting of cloud services and websites, in your profile down one at a time. The following tips will help you test your Traffic Manager profile.
 
@@ -63,20 +63,13 @@ To effectively test a performance traffic routing method, you must have clients 
 
 There are free web-based DNS lookup and dig services available. Some of these give you the ability to check DNS name resolution from various locations. Do a search on “DNS lookup” for examples. Another option is to use a third-party solution like Gomez or Keynote to confirm that your profiles are distributing traffic as expected.
 
-## See Also
+## Next steps
 
-[About Traffic Manager traffic routing Methods](traffic-manager-load-balancing-methods.md)
+[Traffic Manager performance considerations](traffic-manager-performance-considerations.md)
 
-[Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
+[Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
 
-[Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
 
-[What is Traffic Manager?](traffic-manager-overview.md)
 
-[Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Operations for Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
  

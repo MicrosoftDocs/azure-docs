@@ -27,9 +27,9 @@ Azure Resource Manager templates were recently introduced as a way to create and
 
 ## Tool choices
 
-### GUI: Azure preview portal
+### GUI: Azure portal
 
-The graphical user interface of the Azure portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use the Azure preview portal to create the virtual machine:
+The graphical user interface of the Azure classic portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use the Azure portal to create the virtual machine:
 
 [Create a virtual machine running Windows][]
 
@@ -67,7 +67,7 @@ Choose an image based on the operating system you want to run. Azure and its par
 [Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell]:  virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
 [Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
 [Create a Windows VM with Resource Manager and PowerShell]: virtual-machines-create-windows-powershell-resource-manager.md
-[Create a Windows virtual machine with a Resource Manager template and PowerShell]: virtual-machines-create-windows-powershell-resource-manager-template-simple.md
+[Create a Windows virtual machine with a Resource Manager template and PowerShell]: virtual-machines-create-windows-powershell-resource-manager-template.md
 
 
 [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI]: resource-groups-vm-searching.md

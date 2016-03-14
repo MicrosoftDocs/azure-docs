@@ -7,7 +7,7 @@ Service Bus queues support a **brokered messaging** communication model. When us
 Service Bus queues are a general-purpose technology that can be used for a wide variety of scenarios:
 
 -   Communication between web and worker roles in a multi-tier Azure application.
--   Communication between on-premises apps and Azure hosted apps in a hybrid solution.
+-   Communication between on-premises apps and Azure-hosted apps in a hybrid solution.
 -   Communication between components of a distributed application running on-premises in different organizations or departments of an organization.
 
 Using queues enables you to scale your applications more easily, and enable more resiliency to your architecture.
@@ -18,7 +18,7 @@ To begin using Service Bus queues in Azure, you must first create a service name
 
 To create a service namespace:
 
-1.  Log on to the [Azure portal][].
+1.  Log on to the [Azure classic portal][].
 
 2.  In the left navigation pane of the portal, click **Service Bus**.
 
@@ -36,11 +36,11 @@ To create a service namespace:
 
 	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
-The namespace you created takes a moment to activate, and will then appear in the Azure portal. Wait until the namespace status is **Active** before continuing.
+The namespace you created takes a moment to activate, and will then appear in the portal. Wait until the namespace status is **Active** before continuing.
 
 ## Obtain the default management credentials for the namespace
 
-In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace. You can obtain these credentials from the Azure portal.
+In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace. You can obtain these credentials from the [Azure classic portal][].
 
 ###To obtain management credentials from the portal
 
@@ -59,5 +59,5 @@ In order to perform management operations, such as creating a queue on the new n
     
 5.  Make a note of the key, or copy it to the clipboard.
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure classic portal]: http://manage.windowsazure.com
 

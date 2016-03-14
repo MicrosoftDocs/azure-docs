@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/08/2015" 
+	ms.date="12/15/2015" 
 	ms.author="wesmc"/>
 
 
@@ -25,7 +25,7 @@
 
 This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to an Android app. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc.
 
-Broadcast scenarios are enabled by including one or more _tags_ when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag will receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, refer to [Notification Hubs Guidance].
+Broadcast scenarios are enabled by including one or more _tags_ when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag will receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, refer to [Notification Hubs Routing and Tag Expressions](notification-hubs-routing-tag-expressions.md).
 
 
 ##Prerequisites
@@ -121,13 +121,14 @@ The first step is to add the UI elements to your existing main activity that ena
 			private Context context;
 			private String senderId;
 
-			public Notifications(Context context, String senderId) {
-				this.context = context;
-				this.senderId = senderId;
-
-				gcm = GoogleCloudMessaging.getInstance(context);
-		        hub = new NotificationHub(<hub name>, <connection string with listen access>, context);
-			}
+		    public Notifications(Context context, String senderId, String hubName, 
+									String listenConnectionString) {
+		        this.context = context;
+		        this.senderId = senderId;
+		
+		        gcm = GoogleCloudMessaging.getInstance(context);
+		        hub = new NotificationHub(hubName, listenConnectionString, context);
+		    }
 
 			public void storeCategoriesAndSubscribe(Set<String> categories)
 			{
@@ -136,36 +137,42 @@ The first step is to add the UI elements to your existing main activity that ena
 			    subscribeToCategories(categories);
 			}
 
-			public void subscribeToCategories(final Set<String> categories) {
-				new AsyncTask<Object, Object, Object>() {
-					@Override
-					protected Object doInBackground(Object... params) {
-						try {
-							String regid = gcm.register(senderId);
-					        hub.register(regid, categories.toArray(new String[categories.size()]));
-						} catch (Exception e) {
-							Log.e("MainActivity", "Failed to register - " + e.getMessage());
-							return e;
-						}
-						return null;
-					}
-
-					protected void onPostExecute(Object result) {
-						String message = "Subscribed for categories: "
-								+ categories.toString();
-						Toast.makeText(context, message,
-								Toast.LENGTH_LONG).show();
-					}
-				}.execute(null, null, null);
+			public Set<String> retrieveCategories() {
+				SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
+				return settings.getStringSet("categories", new HashSet<String>());
 			}
+
+		    public void subscribeToCategories(final Set<String> categories) {
+		        new AsyncTask<Object, Object, Object>() {
+		            @Override
+		            protected Object doInBackground(Object... params) {
+		                try {
+		                    String regid = gcm.register(senderId);
+		
+		                    String templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+		
+		                    hub.registerTemplate(regid,"simpleGCMTemplate", templateBodyGCM, 
+								categories.toArray(new String[categories.size()]));
+		                } catch (Exception e) {
+		                    Log.e("MainActivity", "Failed to register - " + e.getMessage());
+		                    return e;
+		                }
+		                return null;
+		            }
+		
+		            protected void onPostExecute(Object result) {
+		                String message = "Subscribed for categories: "
+		                        + categories.toString();
+		                Toast.makeText(context, message,
+		                        Toast.LENGTH_LONG).show();
+		            }
+		        }.execute(null, null, null);
+		    }
 
 		}
 
 	This class uses the local storage to store the categories of news that this device has to receive. It also contains methods to register for these categories.
 
-4. In the above code, replace the `<hub name>` and `<connection string with listen access>` placeholders with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier.
-
-	> [AZURE.NOTE] Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.
 
 4. In your **MainActivity** class remove your private fields for **NotificationHub** and **GoogleCloudMessaging**, and add a field for **Notifications**:
 
@@ -173,20 +180,32 @@ The first step is to add the UI elements to your existing main activity that ena
 		// private NotificationHub hub;
 		private Notifications notifications;
 
-5. Then, in the **onCreate** method, remove the initialization of the **hub** field and the **registerWithNotificationHubs** method. Then add the following lines which initialize an instance of the **Notifications** class. The method should contain the following lines:
+5. Then, in the **onCreate** method, remove the initialization of the **hub** field and the **registerWithNotificationHubs** method. Then add the following lines which initialize an instance of the **Notifications** class. 
 
-		@Override
-		protected void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			setContentView(R.layout.activity_main);
 
-			NotificationsManager.handleNotifications(this, SENDER_ID,
-					MyHandler.class);
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.activity_main);
+	        MyHandler.mainActivity = this;
+	
+	        NotificationsManager.handleNotifications(this, SENDER_ID,
+	                MyHandler.class);
+	
+	        notifications = new Notifications(this, SENDER_ID, HubName, HubListenConnectionString);
+	
+	        notifications.subscribeToCategories(notifications.retrieveCategories());
+	    }
 
-			notifications = new Notifications(this, SENDER_ID);
-		}
+	`HubName` and `HubListenConnectionString` should already be set with the `<hub name>` and `<connection string with listen access>` placeholders with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier.
 
-6. Then, add the following method:
+	> [AZURE.NOTE] Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.
+
+
+6. Then, add the following imports and `subscribe` method to handle the subscribe button click event:
+		
+		import android.widget.CheckBox;
+		import java.util.HashSet;
+		import java.util.Set;
 
 	    public void subscribe(View sender) {
 			final Set<String> categories = new HashSet<String>();
@@ -223,66 +242,55 @@ These steps register with the notification hub on startup using the categories t
 
 > [AZURE.NOTE] Because the registrationId assigned by Google Cloud Messaging (GCM) can change at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.
 
-1. Add the following code to the **Notifications** class:
 
-		public Set<String> retrieveCategories() {
-			SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
-			return settings.getStringSet("categories", new HashSet<String>());
-		}
-
-	This returns the categories defined in the class.
-
-2. Now add this code at the end of the **onCreate** method in the **MainActivity** class:
+1. Add the following code at the end of the **onCreate** method in the **MainActivity** class:
 
 		notifications.subscribeToCategories(notifications.retrieveCategories());
 
-	This makes sure that every time the app starts it retrieves the categories from local storage and requests a registeration for these categories. The **InitNotificationsAsync** method was created as part of the [Get started with Notification Hubs] tutorial, but it is not needed in this topic.
+	This makes sure that every time the app starts it retrieves the categories from local storage and requests a registeration for these categories. 
 
-3. Then add the following method to **MainActivity**:
+2. Then update the `onStart()` method of the `MainActivity` class as follows:
 
-		@Override
-		protected void onStart() {
-			super.onStart();
+    @Override
+    protected void onStart() {
+        super.onStart();
+        isVisible = true;
 
-			Set<String> categories = notifications.retrieveCategories();
+        Set<String> categories = notifications.retrieveCategories();
 
-			CheckBox world = (CheckBox) findViewById(R.id.worldBox);
-			world.setChecked(categories.contains("world"));
-			CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
-			politics.setChecked(categories.contains("politics"));
-			CheckBox business = (CheckBox) findViewById(R.id.businessBox);
-			business.setChecked(categories.contains("business"));
-			CheckBox technology = (CheckBox) findViewById(R.id.technologyBox);
-			technology.setChecked(categories.contains("technology"));
-			CheckBox science = (CheckBox) findViewById(R.id.scienceBox);
-			science.setChecked(categories.contains("science"));
-			CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
-			sports.setChecked(categories.contains("sports"));
-		}
+        CheckBox world = (CheckBox) findViewById(R.id.worldBox);
+        world.setChecked(categories.contains("world"));
+        CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
+        politics.setChecked(categories.contains("politics"));
+        CheckBox business = (CheckBox) findViewById(R.id.businessBox);
+        business.setChecked(categories.contains("business"));
+        CheckBox technology = (CheckBox) findViewById(R.id.technologyBox);
+        technology.setChecked(categories.contains("technology"));
+        CheckBox science = (CheckBox) findViewById(R.id.scienceBox);
+        science.setChecked(categories.contains("science"));
+        CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
+        sports.setChecked(categories.contains("sports"));
+    }
 
 	This updates the main activity based on the status of previously saved categories.
 
 The app is now complete and can store a set of categories in the device local storage used to register with the notification hub whenever the user changes the selection of categories. Next, we will define a backend that can send category notifications to this app.
 
-##Send notifications from your back-end
+##Sending tagged notifications
 
-[AZURE.INCLUDE [notification-hubs-back-end](../../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ##Run the app and generate notifications
 
-1. In Eclipse, build the app and start it on a device or emulator.
+1. In Android Studio, build the app and start it on a device or emulator.
 
 	Note that the app UI provides a set of toggles that lets you choose the categories to subscribe to.
 
 2. Enable one or more categories toggles, then click **Subscribe**.
 
-	The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The registered categories are returned and displayed in a dialog.
+	The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The registered categories are returned and displayed in a toast notification.
 
-4. Send a new notification from the backend in one of the following ways:
-
-	+ **.NET Console app:** start the console app.
-
-	+ **Java/PHP:** run your app/script.
+4. Send a new notification by running the .NET Console app.  Alternatively, you can send tagged template notifications using the debug tab of your notification hub in the [Azure Classic Portal].
 
 	Notifications for the selected categories appear as toast notifications.
 
@@ -294,9 +302,6 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 	Learn how to expand the breaking news app to enable sending localized notifications.
 
-+ [Notify users with Notification Hubs]
-
-	Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users.
 
 
 
@@ -314,6 +319,5 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

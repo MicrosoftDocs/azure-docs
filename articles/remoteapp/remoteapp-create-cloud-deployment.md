@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="02/05/2016" 
 	ms.author="elizapo"/>
 
 # How to create a cloud collection of Azure RemoteApp
@@ -35,12 +35,12 @@ This tutorial walks you through the process of creating a cloud collection. Ther
 
 You need to do the following before creating the collection:
 
-- [Sign up](http://azure.microsoft.com/services/remoteapp/) for Azure RemoteApp. 
+- [Sign up](https://azure.microsoft.com/services/remoteapp/) for Azure RemoteApp. 
 - Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information for users.
 - This procedure assumes you are either going to use one of the template images provided as part of your subscription or that you have already uploaded the template image you want to use. If you need to upload a different template image, you can do that from the Template Images page. Just click **upload a template image** and follow the steps in the wizard. 
 - Want to use the Office 365 ProPlus image? Check out info [here](remoteapp-officesubscription.md).
 - Want to provide custom apps or LOB programs? Create a new [image](remoteapp-imageoptions.md) and use it in your cloud collection.
-- Figure out whether you need to connect to a VNET. If you choose to connect to a VNET, make sure it meets the [sizing guidelines](remoteapp-vnetsizing.md) and that it [can connect to RemoteApp](remoteapp-vnet.md). Check out the [VNET planning article ](remoteapp-planvpn.md)for more information.
+- Figure out whether you need to connect to a VNET. If you choose to connect to a VNET, make sure it meets the [sizing guidelines](remoteapp-vnetsizing.md) and that it [can connect to RemoteApp](remoteapp-vnet.md). Check out the [VNET planning article ](remoteapp-planvnet.md)for more information.
 - If you're using a VNET, decide whether you want to join it to your local Active Directory domain.
 
 ## Step 1: Create a cloud collection - with or without a VNET##
@@ -80,11 +80,11 @@ If you want to use Active Directory, Azure RemoteApp requires directory synchron
 
 ## Step 3: Publish apps ##
 
-An Azure RemoteApp app is the app or program that you provide to your users. It is located in the template image you uploaded for the collection. When a user accesses an app, the app appears to run in their local environment, but it is really running in Azure. 
+An Azure RemoteApp app is the app or program that you provide to your users. It is located in the template image you uploaded for the collection. When a user accesses an app, the app appears to run in their local environment, but it is really running in a virtual machine in Azure. 
 
-Before your users can access apps, you need to publish them to the end-user feed – a list of available apps that your users access through the Remote Desktop client.
+Before your users can access apps, you need to publish them – publishing apps lets your users access the apps through the Remote Desktop client.
  
-You can publish multiple apps to your Azure RemoteApp collection. From the publishing page, click **Publish** to add a program. You can either publish from the **Start** menu of the template image or by specifying the path on the template image for the app. If you choose to add from the **Start **menu, choose the app to publish. If you choose to provide the path to the app, provide a name for the app and the path to where it is installed on the template image.
+You can publish multiple apps to your Azure RemoteApp collection. From the publishing page, click **Publish** to add a program. You can either publish from the **Start** menu of the template image or by specifying the path on the template image for the app. If you choose to add from the **Start** menu, choose the app to publish. If you choose to provide the path to the app, provide a name for the app and the path to where it is installed on the template image.
 
 ## Step 4: Configure user access ##
 

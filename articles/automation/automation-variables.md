@@ -3,7 +3,7 @@
    description="Variable assets are values that are available to all runbooks and DSC configurations in Azure Automation.  This article explains the details of variables and how to work with them in both textual and graphical authoring."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
-   ms.author="bwren" />
+   ms.date="02/23/2016"
+   ms.author="magoedte;bwren" />
 
 # Variable assets in Azure Automation
 
@@ -67,7 +67,7 @@ The workflow activities in the following table are used to access Automation var
 1. Complete the wizard and click the checkbox to save the new variable.
 
 
-### To create a new variable with the Azure preview portal
+### To create a new variable with the Azure portal
 
 1. From your automation account, click the **Assets** part to open the **Assets** blade.
 1. Click the **Variables** part to open the **Variables** blade.
@@ -91,8 +91,8 @@ The following sample commands show how to create a variable with a complex type 
 	New-AzureAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
 	
 	$vmValue = (Get-AzureAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
-	$vmName = $ vmValue.Name
-	$vmIpAddress = $ vmValue.IpAddress
+	$vmName = $vmValue.Name
+	$vmIpAddress = $vmValue.IpAddress
 
 
 
@@ -116,7 +116,7 @@ The following sample commands show how to set and retrieve a variable in a textu
 	for ($i = 1; $i -le $NumberOfIterations; $i++) {
 	   Write-Output "$i`: $SampleMessage"
 	}
-	Set-AutomationVariable –Name NumberOfRunnings –Value (NumberOfRunngs += 1)
+	Set-AutomationVariable –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 
 
 #### Setting and retrieving a complex object in a variable

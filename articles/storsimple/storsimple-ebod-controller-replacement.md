@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/12/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Replace an EBOD controller on your StorSimple device
@@ -38,7 +38,7 @@ Before replacing the failed EBOD controller module in your StorSimple device, ma
 
 #### To remove an EBOD module
 
-1. Open the Management Portal.
+1. Open the Azure classic portal.
 
 2. Navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that the status of the LED for the active EBOD controller module is green and the LED for the failed EBOD controller module is red.
 

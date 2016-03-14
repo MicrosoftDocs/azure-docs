@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Create applications that use Service Bus topics and subscriptions
@@ -47,7 +47,7 @@ With this configuration, each message from the POS terminals is made available t
 
 ## Show me the code
 
-[Create applications that use Service Bus queues](service-bus-create-queues.md) describes how to sign-up for a Service Bus account and create a service namespace. To use a Service Bus namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. The easiest way to reference Service Bus dependencies is to install the Service Bus [Nuget package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). You can also find the assembly as part of the Azure SDK. The download is available at the [Azure SDK download page](http://azure.microsoft.com/downloads/).
+[Create applications that use Service Bus queues](service-bus-create-queues.md) describes how to sign-up for a Service Bus account and create a service namespace. To use a Service Bus namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. The easiest way to reference Service Bus dependencies is to install the Service Bus [Nuget package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). You can also find the assembly as part of the Azure SDK. The download is available at the [Azure SDK download page](https://azure.microsoft.com/downloads/).
 
 ### Create the topic and subscriptions
 
@@ -148,4 +148,4 @@ All of the reasons to use queuing described in [Create applications that use Ser
 
 ## Next steps
 
-See [Create applications that use Service Bus topics and subscriptions](service-bus-create-topics-subscriptions.md) to see how to use queues in the POS retail scenario.
+See [Create applications that use Service Bus queues](service-bus-create-queues.md) for information about how to use queues in the POS retail scenario.

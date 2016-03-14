@@ -1,6 +1,6 @@
 <properties
-   pageTitle="C# Api App"
-   description="C# Api App"
+   pageTitle="Run C# expressions in a C# API App in a logic app | Microsoft Azure"
+   description="C# Api App or connector"
    services="app-service\logic"
    documentationCenter=".net"
    authors="jeffhollan"
@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/29/2015"
+   ms.date="02/22/2016"
    ms.author="jehollan"/>
 
 #C\# API App
+
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. 
+
 The C# API app gives you an easy way to run simple C# expressions *while your Logic app executes*.
 
 ##When should you use this API app?
@@ -33,12 +36,12 @@ To use the C# API app, you need to first create an instance of the C# API app. T
 
 ##Using C\# API App in Logic Apps designer surface
 ###Trigger
-You can create a trigger that the Logic app service will poll (on an interval you define), and, if it returns anything other than `false`, the Logic app will run, otherwise, it will wait until the next polling interval to check again.
+You can create a trigger that the Logic app service polls (on an interval you define), and, if it returns anything other than `false`, the Logic app runs, otherwise, it waits until the next polling interval to check again.
 
 The inputs to the trigger are:
-- **C# Expression**  - An expression that will be evaluated. It will be invoked inside a function and must return `false` when you do not want the Logic app to run, and can return anything else when you want the Logic app to run. You will be able to use the content of the response in the actions of the Logic app.
+- **C# Expression**  - An expression that is evaluated. It is invoked inside a function and must return `false` when you do not want the Logic app to run, and can return anything else when you want the Logic app to run. You can use the content of the response in the actions of the Logic app.
 
-For example, you could have a simple trigger that will only run your Logic app between the :15 and :30 of the hour:
+For example, you could have a simple trigger that only runs your Logic app between the :15 and :30 of the hour:
 
 ```
 var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
@@ -49,7 +52,7 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 Likewise, you can provide an action to run. 
 
 The inputs to the action are:
-- **C# expression**  - An expression that will be evaluated. You must include the `return` statement to get any content. 
+- **C# expression**  - An expression that is evaluated. You must include the `return` statement to get any content. 
 - **Context object(s)** - An optional context object that can be passed into the trigger. You can define as many properties as you want, but the base must be a JObject `{ ... }`, and objects can be referenced in the script via the key name (the value is passed in as a JToken cooresponding to name).
 - **Libraries** - An optional array of .dll files to include on compiling the script.  The array uses the following structure, and works best next to a blob storage connector with the .dll as the output:
 

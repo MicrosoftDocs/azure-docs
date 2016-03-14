@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to search StackExchange data using Azure Search | Microsoft Azure"
-	description="Learn how to perform REST searches using Azure Search."
+	pageTitle="How to search StackExchange data using Azure Search | Microsoft Azure | Hosted cloud search service"
+	description="Learn how to perform REST searches using Azure Search, a cloud hosted search service on Microsoft Azure."
 	services="search"
 	documentationCenter=""
 	authors="liamca"
@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="10/15/2015"
+	ms.date="02/09/2016"
 	ms.author="liamca"/>
 
 # How to search StackExchange data using Azure Search
 
-This article is a walkthrough that highlights some of the core full-text search capabilities that can done with [Azure Search](https://azure.microsoft.com/en-us/services/search/).  It leverages data that Stack Exchange made [available](https://archive.org/details/stackexchange) for Creative Commons usage with the following [attribution](http://blog.stackoverflow.com/2009/06/attribution-required/).
+This article is a walkthrough that highlights some of the core full-text search capabilities that can done with [Azure Search](https://azure.microsoft.com/services/search/).  It leverages data that Stack Exchange made [available](https://archive.org/details/stackexchange) for Creative Commons usage with the following [attribution](http://blog.stackoverflow.com/2009/06/attribution-required/).
 
 ## Getting started
 
@@ -42,7 +42,7 @@ In this example we will search “azure” but return the facet counts for the t
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28%26search=azure%26$filter=tagsCollection/any(t:+t+eq+'architecture')%26$orderby=viewCount+desc>
 
--	`Spelling Mistakes`: Our new (preview) support for [Lucene Query Expressions](https://msdn.microsoft.com/library/mt589323.aspx) also allows you to do some pretty fancy queries such as fuzzy matching of results and limiting search to specific fields.  This example searches the title field for the word “visualize” but the ~ indicates fuzzy matching which means that results like visualise and visualizing will also be returned.
+-	`Fuzzy Search`: Our new support for [Lucene Query Expressions](https://msdn.microsoft.com/library/mt589323.aspx) also allows you to do some pretty fancy queries such as fuzzy matching of results and limiting search to specific fields.  This example searches the title field for the word “visualize” but the ~ indicates fuzzy matching which means that results like visualise and visualizing will also be returned.
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28&search%3Dtitle%3Avisualise~%26querytype%3Dfull%26searchMode%3Dall%26%24select%3Dtitle>
 
@@ -106,7 +106,7 @@ The only thing I did beyond what Brent outlined was to create a View in my Azure
       on PA.[OwnerUserId] = PUA.Id
       WHERE PQ.PostTypeId = 1
 
-Once this is done, you can then use the [Azure Portal](https://portal.azure.com) to “Import Data” from the above Azure SQL View which will then create an Azure Search index based on the schema of the fields in the View.  If you would like to use the Azure SQL database that I have staged, here is the Read-Only connection string that you can use:
+Once this is done, you can then use the [Azure Classic Portal](https://portal.azure.com) to “Import Data” from the above Azure SQL View which will then create an Azure Search index based on the schema of the fields in the View.  If you would like to use the Azure SQL database that I have staged, here is the Read-Only connection string that you can use:
 
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
