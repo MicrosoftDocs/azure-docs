@@ -32,10 +32,10 @@ Unsure about what the Guest OS is or how the Guest OS releases work? Read [this]
 ###### **February 22 2016**
 February Guest OS rollout is starting February 22 2016, and projected to be released on March 9 2016.
 
-###### **Janurary 18 2016**
-January Guest OS rollout is starting Janurary 18 2016, and projected to be released on February 12 2016.
+###### **January 18 2016**
+January Guest OS rollout is starting January 18 2016, and projected to be released on February 12 2016.
 
-###### **Janurary 4 2016**
+###### **January 4 2016**
 November 201511-02 Guest OS was released on January 4, 2016 for deployment. This OS version is not set as the default OS for automatic update, so the provisioning time of Guest OS deployment to November 201511-02 OS version would be slightly longer. 
 
 ## Releases
