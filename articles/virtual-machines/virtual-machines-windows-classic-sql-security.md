@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Security Considerations for SQL Server in Azure | Microsoft Azure"
 	description="This topic refers to resources created with the classic deployment model, and provides general guidance for securing SQL Server running in an Azure Virtual Machine."
 	services="virtual-machines-windows"
@@ -7,7 +7,7 @@
 	manager="jeffreyg"
    editor="monicar"    
    tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
@@ -21,7 +21,7 @@
 This topic includes overall security guidelines that help establish secure access to SQL Server instances in an Azure VM. However, in order to ensure better protection to your SQL Server database instances in Azure, we recommend that you implement the traditional on-premises security practices in addition to the security best practices for Azure.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
- 
+
 
 For more information about the SQL Server security practices, see [SQL Server 2008 R2 Security Best Practices - Operational and Administrative Tasks](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx)
 
@@ -38,13 +38,7 @@ Following is a list of security recommendations that should be considered when c
 - By default, Azure selects Windows Authentication during SQL Server Virtual Machine setup. Therefore, the **SA** login is disabled and a password is assigned by setup. We recommend that the **SA** login should be not be used or enabled. The following are alternative strategies if a SQL Login is desired:
 	- Create a SQL account that has **CONTROL SERVER** permissions.
 	- If you must use a **SA** login, enable the login and rename it and assign a new password.
-	- Both the options that were mentioned earlier require a change the authentication mode to SQL Server and Windows Authentication Mode. For more information, see Change Server Authentication Mode.
-
-- Create a SQL account that has CONTROL SERVER permissions.
-
-- If you must use a SA login, enable the login and rename it and assign a new password.
-
-- Both the options that were mentioned earlier require a change the authentication mode to **SQL Server and Windows Authentication Mode**. For more information, see [Change Server Authentication Mode](https://msdn.microsoft.com/library/ms188670.aspx).
+	- Both the options that were mentioned earlier require a change the authentication mode to **SQL Server and Windows Authentication Mode**. For more information, see [Change Server Authentication Mode](https://msdn.microsoft.com/library/ms188670.aspx).
 
 ## Considerations for Securing Connections to Azure Virtual Machine:
 
@@ -61,4 +55,3 @@ Following is a list of security recommendations that should be considered when c
 If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-perf.md).
 
 For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-classic-sql-overview.md).
-

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/14/2016" 
 	ms.author="sdanie"/>
 
 
@@ -43,13 +43,17 @@ This article describes how to enable and use Git to manage your service configur
 
 ## To enable Git access
 
-To configure Git access, click the **Security** menu and navigate to the **Configuration repository** tab.
+You can quickly view the status of your Git configuration by viewing the Git icon in the upper-right corner of the publisher portal. In this example, Git access has not yet been enabled.
+
+![Git status][api-management-git-icon-enable]
+
+To view and configure your Git configuration settings, you can either click the Git icon, or click the **Security** menu and navigate to the **Configuration repository** tab.
 
 ![Enable GIT][api-management-enable-git]
 
 To enable Git access, check the **Enable Git access** checkbox.
 
-After a moment the change is saved and a confirmation message is displayed.
+After a moment the change is saved and a confirmation message is displayed. Note that Git icon has changed to color to indicate that Git access is enabled and the status message now indicates that there are unsaved changes to the repository. This is because the API Management service configuration database has not yet been saved to the repository.
 
 ![Git enabled][api-management-git-enabled]
 
@@ -286,6 +290,7 @@ For information on other ways to manage your service instance, see:
 [api-management-configuration-deploy]: ./media/api-management-configuration-repository-git/api-management-configuration-deploy.png
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
+[api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
 
 
