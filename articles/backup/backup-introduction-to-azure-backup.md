@@ -24,7 +24,7 @@ Azure Backup is the service that you use to back up and restore your data in the
 
 ## Why use Azure Backup?
 Traditional backup solutions have evolved to treat the cloud as an endpoint similar to disks or tape. While this approach is simple, it is also limited. It does not take full advantage of an underlying cloud platform and translates to an inefficient, expensive solution.
-In contrast, Azure Backup delivers all of the advantages of a powerful and affordable cloud backup solution. Here are some of the key benefits that Azure Backup provides.
+In contrast, Azure Backup delivers all the advantages of a powerful and affordable cloud backup solution. Here are some of the key benefits that Azure Backup provides.
 
 | Feature | Benefit |
 | ------- | ------- |
