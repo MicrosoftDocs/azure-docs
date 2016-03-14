@@ -20,13 +20,10 @@
 
 These articles contain reference information for SQL Data Warehouse.
 
-[Transact-SQL language elements][]
-
-[Transact-SQL statements][]
-
-[Transact-SQL system views][]
-
-[PowerShell cmdlets][]
+- [Transact-SQL language elements][]
+- [Transact-SQL statements][]
+- [Transact-SQL system views][]
+- [PowerShell cmdlets][]
 
 
 
