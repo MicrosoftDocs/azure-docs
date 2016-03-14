@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
+   ms.date="03/14/2016"
    ms.author="alkohli"/>
 
 # Disaster recovery and device failover for your StorSimple Virtual Array
@@ -89,8 +89,8 @@ We recommend that you have a StorSimple virtual device provisioned, configured v
 
 > [AZURE.IMPORTANT]
 > 
-> - You are not allowed to fail over from a StorSimple 8000 series device to a virtual device.
-> - You can fail over from a Federal Information Processing Standard (FIPS) enabled virtual device deployed in Microsoft Azure Government Cloud to a virtual device in Azure classic portal.
+> - You are not allowed to fail over from a StorSimple 8000 series device to a 1200 virtual device.
+> - You can fail over from a Federal Information Processing Standard (FIPS) enabled virtual device deployed in Government portal to a virtual device in Azure classic portal. The reverse is also true.
 
 Perform the following steps to restore the device to a target StorSimple virtual device.
 
