@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="How to annotate data sources"
+   pageTitle="How to annotate data sources | Microsoft Azure"
    description="How-to article highlighting how to annotate data assets in Azure Data Catalog, including friendly names, tags, descriptions, and experts."
    services="data-catalog"
    documentationCenter=""

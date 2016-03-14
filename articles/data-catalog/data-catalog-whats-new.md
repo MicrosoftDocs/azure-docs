@@ -1,5 +1,5 @@
 <properties
-   pageTitle="What's New in Azure Data Catalog"
+   pageTitle="What's New in Azure Data Catalog | Microsoft Azure"
    description="Overview of new capabilities in the Azure Data Catalog preview."
    services="data-catalog"
    documentationCenter=""
