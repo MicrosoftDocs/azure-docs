@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/08/2016"
-	ms.author="v-anpasi"/>
+	ms.author="dumagar"/>
 
 # Add a MySQL resource provider to Azure Stack
 
