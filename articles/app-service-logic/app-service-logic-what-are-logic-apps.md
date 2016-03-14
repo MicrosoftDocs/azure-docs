@@ -12,17 +12,17 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/22/2016"
+	ms.topic="hero-article" 
+	ms.date="03/01/2016"
 	ms.author="klam"/>
 
 #What are Logic Apps?
 
 | Quick Reference |
 | --------------- |
-| [Logic Apps Definition Language](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
+| [Logic Apps Definition Language](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
 | [Logic Apps Managed API Documentation](https://azure.microsoft.com/documentation/articles/apis-list) |
-| [Logic Apps Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
+| [Logic Apps Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps) |
 
 Azure App Service is a fully managed PaaS (Platform as a Service) for developers that makes it easier to build web, mobile, and integration apps. Logic Apps are a part of this suite and allow any technical user or developer to automate business process execution and workflow using an easy-to-use visual designer.
 
@@ -30,9 +30,14 @@ Best of all, Logic Apps can be combined with built-in [Managed APIs][managedapis
 
 ![Flow app designer](./media/app-service-logic-what-are-logic-apps/LogicAppCapture2.png)
 
-You can automatically replicate new records in your SQL DB and mail the front desk. Or automatically find negative tweets and send them to a slack channel.
+As mentioned, with logic apps, you can automate business processes. Here are a couple examples:  
+ 
+* You can automatically replicate new records in your SQL DB and then send mail to the front desk.   
+* Automatically find negative tweets and send them to a slack channel.
 
-##Why Logic Apps?
+Scenarios such as these can be configured all from the visual designer and without writing a single line of code. Get started [building your logic app now][create].
+
+## Why Logic Apps?
 
 Logic Apps allow developers to design workflows that start from a trigger and then execute a series of steps. Each step invokes an API whilst securely taking care of authentication and best practices, like checkpointing and durable execution.
 
@@ -69,7 +74,7 @@ For more information on Azure App Service platform, see [Azure App Service][apps
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
-[managedapis]: app-service-logic-connectors-list.md
+[managedapis]: ../connectors/apis-list.md
 [tpm]: app-service-logic-create-a-trading-partner-agreement.md
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md

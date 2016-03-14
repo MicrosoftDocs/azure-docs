@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="03/04/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample data in Azure blob storage
@@ -35,7 +35,7 @@ This sampling task is a step in the [Cortana Analytics Process (CAP)](https://az
 ## Download and down-sample data
 1. Download the data from Azure blob storage using the blob service from the following sample Python code: 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -78,7 +78,7 @@ You can use the following sample code to down-sample the data and use it directl
 
 2. Upload the local file to an Azure blob using the following sample code:
 
-		from azure.storage import BlobService
+		from azure.storage.blob import BlobService
     	import tables
 
 		STORAGEACCOUNTNAME= <storage_account_name>

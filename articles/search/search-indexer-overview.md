@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/24/2016"
+	ms.date="03/09/2016"
 	ms.author="heidist"/>
 
 # Indexers in Azure Search
@@ -37,8 +37,11 @@ An indexer pulls data from a **data source** which holds information such as a c
 - [DocumentDB](../documentdb/documentdb-search-indexer.md)
 - [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) (Currently in preview. Extracts text from PDF, Office documents, HTML, XML.)
 
-Data sources are configured and managed independently of the indexers that use them, which means a data source can be used by multiple indexers to load more than one index at a time.
+Data sources are configured and managed independently of the indexers that use them, which means a data source can be used by multiple indexers to load more than one index at a time. 
 
-Both the [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx) and the [Service REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx) support managing indexers and data sources. Alternatively, you can also configure an indexer in the portal when you use the **Import Data** wizard.
+Both the [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx) and the [Service REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx) support managing indexers and data sources. 
+
+Alternatively, you can also configure an indexer in the portal when you use the **Import Data** wizard. See [Get started with Azure Search in the portal](search-get-started-portal) for a quick tutorial, using sample data and the DocumentDB indexer to create and load an index using the wizard.
+
 
 

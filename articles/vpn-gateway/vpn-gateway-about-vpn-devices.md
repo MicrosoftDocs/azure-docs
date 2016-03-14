@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="vpn-gateway"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/09/2016"
    ms.author="cherylmc" />
 
 # About VPN devices for Site-to-Site VPN Gateway connections
@@ -94,6 +94,8 @@ After you download the provided VPN device configuration sample, you’ll need t
 
 ## IPsec Parameters
 
+>[AZURE.NOTE] Although the values listed below are supported by the Azure VPN Gateway, currently there is no way for you to specify or select a specific combination from the Azure VPN Gateway. You must specify any constraints from the on-premises VPN device.
+
 ### IKE Phase 1 setup
 
 | **Property**                                       | **Policy-based** | **Route-based and Standard or High Performance VPN gateway** |
@@ -102,7 +104,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 | Diffie-Hellman Group                               | Group 2 (1024 bit)             | Group 2 (1024 bit)                                               |
 | Authentication Method                              | Pre-Shared Key                 | Pre-Shared Key                                                   |
 | Encryption Algorithms                              | AES256 AES128 3DES             | AES256 3DES                                                      |
-| Hashing Algorithm                                  | SHA1(SHA128)                   | SHA1(SHA128)                                                     |
+| Hashing Algorithm                                  | SHA1(SHA128)                   | SHA1(SHA128), SHA2(SHA256)                                                     |
 | Phase 1 Security Association (SA)  Lifetime (Time) | 28,800 seconds                 | 28,800 seconds                                                   |
 
 
@@ -115,7 +117,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 | Phase 2 Security Association (SA) Lifetime (Time)                        | 3,600 seconds                                  | -                                                                  |
 | Phase 2 Security Association (SA) Lifetime (Throughput)                  | 102,400,000 KB                                 | -                                                                  |
 | IPsec SA Encryption & Authentication Offers (in the order of preference) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A | See *Route-based Gateway IPsec Security Association (SA) Offers* (below) |
-| Perfect Forward Secrecy (PFS)                                            | No                                             | Yes (DH Group1)                                                    |
+| Perfect Forward Secrecy (PFS)                                            | No                                             | Yes (DH Group1, 2, 5, 14, 24)                                                    |
 | Dead Peer Detection                                                      | Not supported                                  | Supported                                                          |
 
 ### Route-based Gateway IPsec Security Association (SA) Offers
