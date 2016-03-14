@@ -419,7 +419,7 @@ Here are the steps you will be performing in this section:
 3. **Pipeline** that uses the custom activity.
 4. **Data factory**. You will create one when publishing these entities to Azure. 
 
-[AZURE.NOTE] Create the file.txt and upload it to a blob container if you haven't already done so. See the instructions above.  
+> [AZURE.NOTE] Create the **file.txt** and upload it to a blob container if you haven't already done so. See the instructions above.  
 
 ### Step 1: Create the data factory
 
@@ -455,19 +455,19 @@ Linked services link data stores or compute services to an Azure data factory. I
 	4. Specify Azure Batch URI for the **batchUri** property. The **URL** from the **Azure Batch account blade** is in the following format: http://accountname.region.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL and use the **accountname** for the **accountName** JSON property.
 	5. Specify the **AzureStorageLinkedService** for the **linkedServiceName** property.
 		
-		{
-		  "name": "AzureBatchLinkedService",
-		  "properties": {
-		    "type": "AzureBatch",
-		    "typeProperties": {
-		      "accountName": "myazurebatchaccount",
-			  "batchUri": "https://westus.batch.azure.com",
-		      "accessKey": "batchaccountkey>",
-		      "poolName": "myazurebatchpool",
-		      "linkedServiceName": "AzureStorageLinkedService"
-		    }
-		  }
-		}
+			{
+			  "name": "AzureBatchLinkedService",
+			  "properties": {
+			    "type": "AzureBatch",
+			    "typeProperties": {
+			      "accountName": "myazurebatchaccount",
+				  "batchUri": "https://westus.batch.azure.com",
+			      "accessKey": "batchaccountkey>",
+			      "poolName": "myazurebatchpool",
+			      "linkedServiceName": "AzureStorageLinkedService"
+			    }
+			  }
+			}
 
 	> [AZURE.IMPORTANT] The **URL** from the **Azure Batch account blade** is in the following format: accountname.region.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL and use the **accountname** for the **accountName** JSON property.
 
