@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/12/2016"
+	ms.date="03/13/2016"
 	ms.author="genli"/>
 
 # How to cancel your Azure subscription
