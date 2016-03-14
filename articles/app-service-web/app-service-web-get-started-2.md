@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Get started with web apps in Azure App Service - Part 2" 
 	description="Add crucial operational capabilities to your web app in App Service in a few clicks." 
-	services="app-service"
+	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 />
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 

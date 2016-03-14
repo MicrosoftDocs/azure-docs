@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Get started with web apps in Azure App Service" 
 	description="Learn how easy it is to run your web app live in App Service. Start doing real development in 5 minutes and see results immediately." 
-	services="app-service-web"
+	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 />
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
