@@ -33,9 +33,9 @@ A Script Action is simply a Bash script that you provide a URL to, and parameter
 
     __Persisted__ scripts are scripts that are applied to worker nodes and will be ran automatically on new nodes created when scaling up a cluster.
 
-        A persisted script might also apply changes to another node type, such as a head node, but from a functionality perspective the only reason to persist a script is so it applies to new worker nodes created when a cluster is scaled out.
+    A persisted script might also apply changes to another node type, such as a head node, but from a functionality perspective the only reason to persist a script is so it applies to new worker nodes created when a cluster is scaled out.
 
-        > [AZURE.IMPORTANT] Persisted script actions must have a unique name.
+    > [AZURE.IMPORTANT] Persisted script actions must have a unique name.
 
     __Ad hoc__ scripts are not persisted; however, you can subsequently promote an ad hoc script to a persisted script, or demote a persisted script to an ad hoc script.
 
