@@ -25,7 +25,7 @@ on how you have configured Azure Marketplace images to be used in your lab. This
 will show you how to specify which, if any, Azure Marketplace images can be used when
 creating new VMs in a DevTest Lab.
 
-## Allow or disallow Azure Marketplace images:
+## Allow or disallow Azure Marketplace images
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
