@@ -208,7 +208,12 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 ```
 
-## Step 4: Load data into SQL Data Warehouse
+
+In SQL Server Object Explorer in Visual Studio, you can see the external file format, external data source, and the DimDate2External table.
+
+![View external table](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
+
+## Step 3: Load data into SQL Data Warehouse
 
 Once the external table is created, you can either load the data into a new table or insert it into an existing table.
 
@@ -228,16 +233,11 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-
-In SQL Server Object Explorer in Visual Studio, you can see the external file format, external data source, and the DimDate2External table.
-
-![View external table](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
-
-## Step 5: Create statistics on your newly loaded data
+## Step 4: Create statistics on your newly loaded data
 
 SQL Data Warehouse does not auto-create or auto-update statistics. Therefore, to achieve high query performance, it's important to create statistics on each column of each table after the first load. It's also important to update statistics after substantial changes in the data.
 
-This example creates single-column statistics on the new DimDate2External table.
+This example creates single-column statistics on the new DimDate2 table.
 
 ```
 CREATE STATISTICS [DateId] on [DimDate2] ([DateId]);
