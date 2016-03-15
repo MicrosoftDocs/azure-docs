@@ -65,9 +65,8 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 		using System;
 		using System.Collections.Generic;
-		using System.Linq;
 		using System.Security;
-		
+		using System.Threading;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
@@ -186,13 +185,16 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 		            var jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
 		            while (!jobDetail.Status.JobComplete)
 		            {
+		                Thread.Sleep(1000);
 		                jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
 		            }
 		
 		            // Get job output
 		            var storageAccess = new AzureStorageAccess(DefaultStorageAccountName, DefaultStorageAccountKey,
 		                DefaultStorageContainerName);
-		            var outputResponse = _hdiJobManagementClient.JobManagement.GetJobOutput(jobId, storageAccess);
+		            var output = (jobDetail.ExitValue == 0)
+		                ? _hdiJobManagementClient.JobManagement.GetJobOutput(jobId, storageAccess) // fetch stdout output in case of success
+		                : _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); // fetch stderr output in case of failure
 		        }
 		
 		        private static void SubmitSqoopJob()
@@ -222,10 +224,11 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 		            System.Console.WriteLine("Validating that the response is as expected...");
 		            System.Console.WriteLine("Response status code is " + response.StatusCode);
 		            System.Console.WriteLine("Validating the response object...");
-	            System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
-	        }
-	    }
-	}
+		            System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+		        }
+		    }
+		}
+
 
 
 5. Press **F5** to run the application.
