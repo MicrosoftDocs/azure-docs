@@ -255,7 +255,7 @@ In this tutorial, you've seen how to create a simple web application and deploy 
 
 * How to deploy an existing web project to a new web app
 
-	You can deploy an existing web project to a web app. To start the deployment process, right-click the project in **Solution Explorer**, and then click **Publish**. Choose **Microsoft Azure App Service** as the publish target. Then choose an existing Azure web app as the target or click **New** to create a new one. If you click **New** to create a new one, the process is the same as what you see here in this tutorial.
+	To start the deployment process for an existing web project, right-click the project in **Solution Explorer**, and then click **Publish**. Choose **Microsoft Azure App Service** as the publish target. Then choose an existing Azure web app as the target or click **New** to create a new one. If you click **New** to create a new one, the process is the same as what you see here in this tutorial.
 
 * Other ways to create web apps
 
