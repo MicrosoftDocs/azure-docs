@@ -19,7 +19,7 @@
 
 # Get the required values for connecting your app to SQL Database
 
-To create and manage Azure SQL databases from an application you must register your app in the Azure Active Directory (AAD) domain associated with the subscription where the Azure resources have been created. 
+To create and manage Azure SQL Database from an application you must register your app in the Azure Active Directory (AAD) domain associated with the subscription where your Azure resources have been created. 
 
 When you register your app, Azure will generate values that you will need in your code to authenticate your client application. 
 
@@ -148,10 +148,6 @@ Create a console app named **SqlDbAuthSample** and replace the contents of **Pro
 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     
     namespace SqlDbAuthSample
     {
