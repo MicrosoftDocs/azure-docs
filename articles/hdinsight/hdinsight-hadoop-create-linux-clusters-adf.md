@@ -167,7 +167,7 @@ If you need help with this PowerShell script, see [Using the Azure PowerShell wi
  
 ## Create data factory
 
-With the storage account, the input data, and the HiveQL script prepared, you are ready to create an Azure data factory. There are several methods for creating data factory. You will use the Azure portal to call an custom ARM template in this tutorial. You can also call the ARM template from [Azure CLI](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) and [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). For other data factory creation methods, see [Tutorial: Build your first data factory](data-factory-build-your-first-pipeline/.md).
+With the storage account, the input data, and the HiveQL script prepared, you are ready to create an Azure data factory. There are several methods for creating data factory. You will use the Azure portal to call an custom ARM template in this tutorial. You can also call the ARM template from [Azure CLI](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) and [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). For other data factory creation methods, see [Tutorial: Build your first data factory](data-factory-build-your-first-pipeline.md).
 
 The top level ARM template contains:
 
