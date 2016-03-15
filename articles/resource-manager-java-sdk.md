@@ -26,7 +26,7 @@ These specifications are open source and based on the Swagger v2 specification. 
 called [AutoRest](https://github.com/azure/autorest). AutoRest transforms these RESTful API specifications into client libraries in multiple languages. 
 If there are any aspects of the generated code in the SDKs you would like to improve, the entire set of tools to create the SDKs are open, freely available and based in widely adopted API specification format.
 
-The Azure Resource Manager Java SDK is hosted in github [Azure Java SDK repository](https://github.com/azure/azure-sdk-for-java). Note that at the time of writing this the SDK is in preview.
+The Azure Resource Manager Java SDK is hosted in GitHub [Azure Java SDK repository](https://github.com/azure/azure-sdk-for-java). Note that at the time of writing this the SDK is in preview.
 The following packages are available:
 
 * Compute Management: (azure-mgmt-compute)
@@ -47,20 +47,20 @@ Follow the Azure SDK for [Java Features Wiki page](https://github.com/Azure/azur
 
 ## Get the SDK
 [Maven](https://maven.apache.org/) distributed jars are the recommended way of getting started with the Azure Java SDK. You can add these dependencies to many
-of the Java dependency managment tools (Maven, Gradle, Ivy...). Follow this [link](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.azure%22) for a listing of the libraries available in maven.
+of the Java dependency management tools (Maven, Gradle, Ivy...). Follow this [link](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.azure%22) for a listing of the libraries available in maven.
 
-Alternativly, you grab the sdk directly from source using git. To get the source code of the SDK via git:
+Alternatively, you grab the sdk directly from source using git. To get the source code of the SDK via git:
 
     git clone https://github.com/Azure/azure-sdk-for-java.git
     cd ./azure-sdk-for-java/
 
 (The samples in this overview will use Maven as the source for the SDK packages)
 
-The SDK include samples for some of the scenarios - autentication, provisioning a VM and more. All can be found in the [azure-mgmt-samples](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples) github repo. 
+The SDK include samples for some of the scenarios - authentication, provisioning a VM and more. All can be found in the [azure-mgmt-samples](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples) GitHub repo. 
 
 ## Helper Classes
 
-The SDK includes helper classes for several of the main packages. The helper classes are implemeted in the auzre-mgmt-utility package:
+The SDK includes helper classes for several of the main packages. The helper classes are implemented in the auzre-mgmt-utility package:
 
 * AuthHelper - authentication helper class
 * ComputeHelper - compute helper class
@@ -91,7 +91,7 @@ After creating the service principal, you should have:
 * Tenant id (GUID) or domain name (string)
 Once you have this values, you can obtain an Active Directory Access Token, valid for one hour.
 
-The Java SDK include a helper class AuthHelper that creates the access token, once provided with the client id, secret and tanant id.
+The Java SDK include a helper class AuthHelper that creates the access token, once provided with the client id, secret and tenant id.
 The following example, in the [ServicePrincipalExample](https://github.com/Azure/azure-sdk-for-java/blob/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/authentication/ServicePrincipalExample.java) class,
 uses the AuthHelper *getAccessTokenFromServicePrincipalCredentials* method to obtain the access token:
 
@@ -115,7 +115,7 @@ public static Configuration createConfiguration() throws Exception {
 The utility package includes a helper class [ComputeHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/ComputeHelper.java) to create a virtual machine. 
 A few samples for working with virtual machines can be found in the azure-mgmt-samples package under [compute](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/compute).
 
-The follwing is a simple flow for creating a virtual machine. In this example, the helper class will create the sotrage and the netwrok as part of creating the VM:
+The following is a simple flow for creating a virtual machine. In this example, the helper class will create the storage and the network as part of creating the VM:
 
 ```java
 public static void main(String[] args) throws Exception {
