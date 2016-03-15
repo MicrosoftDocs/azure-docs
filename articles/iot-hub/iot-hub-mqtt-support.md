@@ -73,7 +73,7 @@ After making a successful connection, a device can send messages to IoT Hub usin
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
 ```
- 
+
 > [AZURE.NOTE] This is the same encoding as that used for query strings in the HTTP protocol.
 
 The device client application can also use `devices/{did}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message.
