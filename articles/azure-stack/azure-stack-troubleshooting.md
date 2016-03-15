@@ -20,7 +20,7 @@
 
 If you experience issues while deploying or using Microsoft Azure Stack, refer to the guidance below. But first, make sure that your deployment environment complies with all [requirements](azure-stack-deploy.md) and [preparations](azure-stack-run-powershell-script.md). In particular, make sure yo comply with the storage configuraiton requirements and this note:
 
-**Important**: Only one NIC is allowed during the deployment process. If you want to use a specific NIC, you must disable all the others.
+[AZURE.NOTE] Only one NIC is allowed during the deployment process. If you want to use a specific NIC, you must disable all the others.
 
 Installing on a new fresh installation of Windows Server 2016 Technical Preview 4 (TP4) is also recommended instead of using an existing server where other tests may already have been made.
 
