@@ -34,21 +34,25 @@ This article shows you how to use the [Azure portal][azure_portal] to create and
 
 	![Batch in the Marketplace][marketplace_portal]
 
-3. Review the information and then click **Create**.
+3. Review the information on the **Batch Service** blade, then click **Create**. Note that deployment model selection is disabled. This is because Batch uses the resource group deployment model only.
 
-4. In the **New Batch Account** blade, enter the following information:
+	![Batch Service create blade in Azure portal][3]
 
-	a. In **Account Name**, enter a unique name to use in the Batch account URL.
+4. The **New Batch Account** blade is displayed. See items *a* through *f* below for descriptions of each blade element.
 
-	>[AZURE.NOTE] The Batch account name must be unique to Azure, contain between 3 and 24 characters, and use only lowercase letters and numbers.
+    ![Create a Batch account][account_portal]
 
-	b. If you have more than one subscription, click **Subscription** to select an available subscription where the account will be created.
+	a. **Account Name** -- Specify a unique name for your Batch account. This name must be unique within Microsoft Azure, may contain only lowercase characters or numbers, and must be 3-24 characters in length.
 
-	c. Click **Resource group** to select an existing resource group for the account, or create a new one.
+	b. **Subscription** -- Select a subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
 
-	d. In **Location**, select an Azure region in which Batch is available.
+	c. **Resource group** -- Select a resource group for your new Batch account, or create a new one if there are no resource groups in your subscription.
 
-	![Create a Batch account][account_portal]
+	d. **Location** -- Select an Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group will be displayed as options.
+
+    e. **Storage keys** -- This information box displays a warning about the rotation of keys in linked storage accounts. See item *f* below, **Storage Account**, for more information.
+
+    f. **Storage Account** (optional) -- You can associate (link) a storage account to your new Batch account. The [application packages](batch-application-packages.md) feature of Batch will use the linked storage account for the storage and retrieval of application packages. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for more information on this feature.
 
 5. Click **Create** to complete the account creation.
 
@@ -80,6 +84,7 @@ To see and manage the access keys, click the key icon.
 [azure_portal]: https://portal.azure.com
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
 
+[3]: ./media/batch-account-create-portal/batch_acct_03.png
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
