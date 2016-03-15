@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="03/09/2016"
    	ms.author="nitinme"/>
 
 
@@ -24,16 +24,15 @@
 
 The Azure preview portal is a web-based management tool for services and resources hosted in the Microsoft Azure cloud. Use the information in this document to create a new Linux-based HDInsight cluster using the preview portal and your web browser
 
-##Prerequisites
-
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
+## Prerequisites
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __A modern web browser__. The Azure preview portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
 
 ##Create clusters
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 1. Sign in to the [Azure preview portal](https://portal.azure.com).
 
@@ -155,6 +154,10 @@ The Azure preview portal is a web-based management tool for services and resourc
 
 - See [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 - See [Customize Windows-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md).
+
+##Delete the cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##Next steps
 

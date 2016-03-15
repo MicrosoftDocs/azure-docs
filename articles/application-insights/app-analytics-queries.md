@@ -563,6 +563,11 @@ For example, the result of `reduce by city` might include:
 | Paris | 27163 |
 
 
+## render directive
+
+    T | render [ table | timechart  | barchart | piechart ]
+
+Render directs the presentation layer how to show the table. It should be the last element of the pipe. It's a convenient alternative to using the controls on the display, allowing you to save a query with a particular presentation method.
 
 
 ## sort operator 

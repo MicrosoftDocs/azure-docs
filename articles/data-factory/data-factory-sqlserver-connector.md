@@ -431,7 +431,7 @@ If username and password are specified, gateway will use them to impersonate the
 	     } 
 	}
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an SQL Server data source.
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an SQL Server data source.
 
 ## SQL Server dataset type properties
 
