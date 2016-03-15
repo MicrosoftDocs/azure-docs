@@ -30,7 +30,7 @@ To resolve the most common issues, try the following method:
 1. Switch to the Azure classic portal.
 2. Select **VIRTUAL MACHINE**>**DISKS**.
 
-	![disk.png](./media/storage-cannot-delete-storage-account-container-vhd/vmui.png)
+	![disk.png](./media/storage-cannot-delete-storage-account-container-vhd/VMUI.png)
 
 3. Locate the disks which are linked to the storage account, container or VHD you want to delete. To do this, check the location of the disk.
 
@@ -135,7 +135,7 @@ To delete the disk, follow the steps below:
 1. Switch to the Azure classic portal.
 2. Select **VIRTUAL MACHINE**>**DISKS**.
 
-	![disk.png](./media/storage-cannot-delete-storage-account-container-vhd/vmui.png)
+	![disk.png](./media/storage-cannot-delete-storage-account-container-vhd/VMUI.png)
 
 
 3. Locate the disks which are linked to the VHD you want to delete. To do this, check the location of the disk.
