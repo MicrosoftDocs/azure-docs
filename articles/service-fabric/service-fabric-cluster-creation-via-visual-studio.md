@@ -55,11 +55,13 @@ By default the cluster name is generated automatically and made unique by attach
 You may also want to change the public application ports for the cluster before you deploy it. By default, the template opens up just two public TCP ports (80 and 8081). If you need more for your applications, modify the Azure Load Balancer definition in the template. The definition is stored in the main template file (`SecureFabricCluster.json`). Open that file and search for `loadBalancedAppPort`. You will notice that each port is associated with three artifacts:
 
 1. A template variable that defines the TCP port value for the port:
+
 	```json
 	"loadBalancedAppPort1": "80"
 	```
 
 2. A *probe* that defines how frequently and for how long the Azure load balancer will attempt to use a specific Service Fabric node before failing over to another one. The probes are part of the Load Balancer resource. Here is the probe definition for the first default application port:
+
 	```json
 	{
         "name": "AppPortProbe1",
@@ -73,6 +75,7 @@ You may also want to change the public application ports for the cluster before 
 	```
 
 3. A *load-balancing rule* that ties together the port and the probe, which enables load balancing across a set of Service Fabric cluster nodes:
+
     ```json
 	{
 	    "name": "AppPortLBRule1",
