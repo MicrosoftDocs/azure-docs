@@ -202,9 +202,9 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 		            var sqlDatabaseServerName = "<SQLDatabaseServerName>";
 		            var sqlDatabaseLogin = "<SQLDatabaseLogin>";
 		            var sqlDatabaseLoginPassword = "<SQLDatabaseLoginPassword>";
-		            var sqlDatabaseDatabaseName = "hdisqoop";
+		            var sqlDatabaseDatabaseName = "<DatabaseName>";
 		
-		            var tableName = "log4jlogs";
+		            var tableName = "<TableName>";
 		            var exportDir = "/tutorials/usesqoop/data";
 		
 		            // Connection string for using Azure SQL Database.
