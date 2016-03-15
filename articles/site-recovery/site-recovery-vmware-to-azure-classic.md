@@ -556,8 +556,7 @@ Add machines to a protection group:
 	![Enable protection](./media/site-recovery-vmware-to-azure-classic/enable-protection1.png)
 		
 4. In **Specify Target Resources** select the storage account you're using for replication and select whether the settings should be used for all workloads. Note that premium storage accounts aren't currently supported.
-
->[AZURE.NOTE] We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
+	>[AZURE.NOTE] We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
 
 	![Enable protection](./media/site-recovery-vmware-to-azure-classic/enable-protection3.png)
 
