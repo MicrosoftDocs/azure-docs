@@ -142,7 +142,7 @@ familiarize yourself with this interface by performing some simple tasks:
 ## Next steps
 
 Take the app you deployed to the next level. Secure it with authentication. Scale it based on demand. Set up some performance alerts. All with a few clicks. See 
-[Get started with Azure App Service - Part 2](app-service-web-get-started.md).
+[Get started with Azure App Service - Part 2](app-service-web-get-started-2.md).
 
 Or, further explore how to create a web app for App Service from the ground up:
 
