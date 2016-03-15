@@ -63,7 +63,7 @@ You can find more detailed information about Azure Search's [index attributes on
 
 
 
-## Guidance for defining an schema
+## Guidance for defining an index schema
 
 As you design your index, take your time in the planning phase to think through each decision. It is important that you keep your search user experience and business needs in mind when designing your index as each field must be assigned the [proper attributes](https://msdn.microsoft.com/library/azure/dn798941.aspx). Changing an index after it is deployed involves rebuilding and reloading the data.
 

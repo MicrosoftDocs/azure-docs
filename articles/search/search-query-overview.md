@@ -36,7 +36,7 @@ You can use searches and filters together or separately. If you use them togethe
 The syntax for filter expressions is a subset of the [OData filter language](https://msdn.microsoft.com/library/azure/dn798921.aspx). For search queries you can use either the [simplified syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx) or the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) which are discussed below.
 
 #### Simple query syntax
-The [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx) is the standard query language used in Azure Search. The simple query syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
+The [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx) is the default query language used in Azure Search. The simple query syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
 
 #### Lucene query syntax
 The [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) allows you to use the widely-adopted and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
@@ -52,9 +52,9 @@ When receiving results for a search query, you can request that Azure Search ser
 If you want Azure Search to return your results ordered by a value other than the search score, you can use the `orderby` search parameter. You can specify the value of the `orderby` parameter to include field names and calls to the [`geo.distance()` function](https://msdn.microsoft.com/library/azure/dn798921.aspx) for geospatial values. Each expression can be followed by `asc` to indicate that results are requested in ascending order, and `desc` to indicate that results are requested in descending order. The default ranking ascending order.
 
 ### Paging
-Azure Search makes it easy to implement paging of search results. By using the `count`, `top`, and `skip` parameters, you can smoothly issue search requests that allow you to not only receive the total count of search results in the index but also receive the results in manageable, ordered subsets that easily enable good search UI practices.
+Azure Search makes it easy to implement paging of search results. By using the `top` and `skip` parameters, you can smoothly issue search requests that allow you to receive the total set of search results in manageable, ordered subsets that easily enable good search UI practices. When receiving these smaller subsets of results, you can also receive the count of documents in the total set of search results.
 
-You can learn more about paging search results using `count`, `top`, and `skip` on [this page](search-pagination-page-layout.md).
+You can learn more about paging search results in the article [How to page search results in Azure Search](search-pagination-page-layout.md).
 
 
 
