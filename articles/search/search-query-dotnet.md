@@ -48,9 +48,9 @@ The code below creates a new `SearchIndexClient` for the "hotels" index (created
 
 ```csharp
 string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
-string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
+string queryApiKey = ConfigurationManager.AppSettings["SearchServiceQueryApiKey"];
 
-SearchIndexClient serviceClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(apiKey));
+SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
 ```
 
 `SearchIndexClient` has a `Documents` property. This property provides all the methods you need to query Azure Search indexes.

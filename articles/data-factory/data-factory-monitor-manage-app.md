@@ -24,7 +24,7 @@
 This article describes how to monitor, manage and debug your pipelines using the **Monitoring and Management App**. It also provides information on how to create alerts and get notified on failures using the application.
       
 ## Launching the Monitoring and Management App 
-To launch the Monitor and Management App, click **Monitoring App** tile on the **DATA FACTORY** blade for your data factory.
+To launch the Monitor and Management App, click **Monitoring & Manage** tile on the **DATA FACTORY** blade for your data factory.
 
 ![Monitoring tile on Data Factory home page](./media/data-factory-monitor-manage-app/MonitoringAppTile.png) 
 
@@ -282,7 +282,7 @@ Event name | Status | Sub status
 -------------- | ------ | ----------
 Activity Run Started | Started | Starting
 Activity Run Finished | Succeeded | Succeeded 
-Activity Run Finished | Failed| Failed Resource Allocation<p>Failed Execution</p><p>Timed Out</p><p>Failed Validation</p><p>Abandoned</p>
+Activity Run Finished | Failed| Failed Resource Allocation<br/><br/>Failed Execution<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned
 On-Demand HDI Cluster Create Started | Started | &nbsp; |
 On-Demand HDI Cluster Created Successfully | Succeeded | &nbsp; |
 On-Demand HDI Cluster Deleted | Succeeded | &nbsp; |
