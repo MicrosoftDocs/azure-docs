@@ -17,19 +17,18 @@
    ms.date="03/15/2016"
    ms.author="sstein"/>
 
-# Register your app and get the required client values for connecting your app to SQL Database.
+# Get the required client values for connecting your app to SQL Database (register your app with Azure).
 
-To create and manage Azure SQL databases from an application you must register your app with Azure. When you register your app, Azure will generate values that you will need in your code. 
+To create and manage Azure SQL databases from an application you must register your app in the Azure Active Directory (AAD) domain associated with the subscription under which the Azure resources have been created. When you register your app, Azure will generate values that you will need in your code to authenticate your client application. 
+
 
 
 ## Register a native client application and get the client id
 
-To authenticate your client application based on the current user you must first register your application in the Azure Active Directory (AAD) domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Currently, registering applications need to be done in the [Classic Portal](https://manage.windowsazure.com/). 
-
 To create a new application and register it do the following:
 
-1. Login to the [Classic Portal](https://manage.windowsazure.com/).
-1. Locate **Active Directory** in the menu and open it.
+1. Login to the [Classic Portal](https://manage.windowsazure.com/) (currently, registering applications need to be done in the Classic Portal).
+1. Locate **Active Directory** in the menu and select it.
 
     ![AAD][1]
 
@@ -44,8 +43,6 @@ To create a new application and register it do the following:
 4. Click **ADD** to create a new application.
 
     ![Add application][6]
-
-5. Select **Add an application my organization is developing**.
 
 5. Provide a **NAME** for the app, and select **NATIVE CLIENT APPLICATION**.
 
@@ -55,19 +52,20 @@ To create a new application and register it do the following:
 
     ![Add application][8]
 
-7. Finish creating the app, click **CONFIGURE**, and copy the **CLIENT ID** (this is the value you will need in your code!!).
+7. Finish creating the app, click **CONFIGURE**, and copy the **CLIENT ID** (this is the value you will need in your code).
 
     ![get client id][9]
 
 
-1. On the bottom of the page click on **Add application**.
+1. Scroll down on the page and click **Add application**.
 1. Select **Microsoft Apps**.
-1. Select **Azure Service Management API**, and then complete the wizard.
-2. With the API selected you now need to grant the permissions required to access this API by selecting **Access Azure Service Management...**.
+1. Select **Windows Azure Service Management API**, and then complete the wizard.
+2. In the **permissions to other applications** section locate the **Windows Azure Service Management API** and click **Delegated Permissions**.
+3. Select **Access Azure Service Management...**.
 
     ![permissions][2]
 
-2. Click **SAVE**.
+2. Click **SAVE** at the bottom of the page.
 
 
 
@@ -76,7 +74,7 @@ To create a new application and register it do the following:
 To create a new application and register it in the correct active directory do the following:
 
 1. Login to the [Classic Portal](https://manage.windowsazure.com/).
-1. Locate **Active Directory** in the menu and open it.
+1. Locate **Active Directory** in the menu and select it.
 
     ![AAD][1]
 
@@ -91,8 +89,6 @@ To create a new application and register it in the correct active directory do t
 4. Click **ADD** to create a new application.
 
     ![Add application][6]
-
-5. Select **Add an application my organization is developing**.
 
 5. Provide a **NAME** for the app, and select **WEB APPLICATION AND/OR WEB API**.
 
@@ -112,10 +108,11 @@ To create a new application and register it in the correct active directory do t
 
 
 
-1. Scroll towards the bottom of the page and click **Add application**.
+1. Scroll down on the page and click **Add application**.
 1. Select **Microsoft Apps**.
-1. Locate and select **Azure Service Management API**, and then complete the wizard.
-2. Click **Delegated permissions** and select **Access Azure Service Management...**.
+1. Locate and select **Windows Azure Service Management API**, and then complete the wizard.
+2. In the **permissions to other applications** section locate the **Windows Azure Service Management API** and click **Delegated Permissions**.
+3. Select **Access Azure Service Management...**.
 
     ![permissions][2]
 
