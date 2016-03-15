@@ -35,7 +35,7 @@ Released: 2016 March
 
 - Made sure Express install cannot be used on Windows Server 2008 (pre-R2) since password sync is not supported on this operating system.
 - Upgrade from DirSync with a custom filter configuration did not work as expected.
-- When there are no changes to the configuration, a full import/synchronization should not be scheduled.
+- When upgrading to a newer release and there are no changes to the configuration, a full import/synchronization should not be scheduled.
 
 ## 1.1.110.0
 Released: 2016 February
