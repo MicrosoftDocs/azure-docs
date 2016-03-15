@@ -16,7 +16,7 @@
 	ms.date="03/11/2016"
 	ms.author="piyushjo"/>
 
-### One-time manual setup
+# Authenticate with Mobile Engagement REST APIs - manual setup
 
 This is an appendix documentation to [Authenticate with Mobile Engagement REST APIs](mobile-engagement-api-authentication.md). Make sure you read it first to get the context. 
 This describes an alternate way to do the One-time setup for setting up your authentication for the Mobile Engagement REST APIs using the Azure Portal. 
