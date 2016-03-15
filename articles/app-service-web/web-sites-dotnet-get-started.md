@@ -100,7 +100,7 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 	If someone else has already used the name that you enter, you see a red exclamation mark to the right instead of a green check mark, and you have to enter a different name.
 
-	Azure will use this name as the prefix for your application's URL. The complete URL consists of this name plus *.azurewebsites.net* (as shown next to the **Web App Name** text box). For example, if the name is `MyExample810`, the URL is `myexample810.azurewebsites.net`. The URL has to be unique. 
+	The URL for your application is this name plus *.azurewebsites.net* (as shown next to the **Web App Name** text box). For example, if the name is `MyExample810`, the URL is `myexample810.azurewebsites.net`.
 
 	The [Next steps](#next-steps) section links to a tutorial that explains how to use your own custom domain with an Azure web app.
 
