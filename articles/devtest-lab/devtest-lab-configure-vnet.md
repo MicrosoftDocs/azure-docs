@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure an existing virtual network for a DevTest Lab  | Microsoft Azure"
+	pageTitle="Configure a virtual network for a DevTest Lab  | Microsoft Azure"
 	description="Learn how to configure an existing virtual network and subnet, and use them in a VM"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
@@ -16,7 +16,7 @@
 	ms.date="03/15/2016"
 	ms.author="tarcher"/>
 
-# Configure an existing virtual network for a DevTest Lab
+# Configure a virtual network for a DevTest Lab
 
 ## Overview
 
@@ -26,7 +26,7 @@ from your VMs using the virtual network that has been set up with ExpressRoute o
 illustrate how to add your existing virtual network into the lab's Virtual Network settings so that it will be available 
 to choose when creating your VMs.
 
-## Add an existing virtual network into a DevTest Lab using the Azure portal
+## Configure a virtual network for a DevTest Lab using the Azure Portal
 The following steps walk you through adding an existing virtual network (and subnet) to a DevTest Lab so that it can be used when creating a VM in the same lab. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -55,18 +55,18 @@ as the default virtual network that is created for your lab.
 1. On the **Choose virtual network** blade, select the desired virtual network. The blade shows all the virtual networks that 
 are under the same region in the subscription as the lab.  
 
-1. Once you select a virtual network and return to the **Virtual network blade**, you'll see that several fields have been
+1. Once you select a virtual network and return to the **Virtual network** blade, you'll see that several fields have been
 enabled.  
 
 	![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
 
 1. Specify a description for your virtual network / lab combination.
 
-1. To allow a subnet to be used in lab VM creation, select the **USE IN VM CREATION** option.
+1. To allow a subnet to be used in lab VM creation, check the **USE IN VM CREATION** option.
 
-1. To allow public IP addresses in a subnet, select the **ALLOW PUBLIC IP** option.
+1. To allow public IP addresses in a subnet, check the **ALLOW PUBLIC IP** option.
 
-1. In the **MAX VMS PER USER** field, specify the maximum VMs per users for each subnet. If you want an unrestricted number of VMs, leave this field blank.
+1. In the **MAX VMS PER USER** field, specify the maximum VMs per user for each subnet. If you want an unrestricted number of VMs, leave this field blank.
 
 1. Tap **Save**.
 
