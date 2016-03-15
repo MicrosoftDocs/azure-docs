@@ -1,4 +1,4 @@
-Resource|Free|Basic (Preview) <sup>6</sup>|S1|S2<sup>7</sup>
+Resource|Free|Basic (Preview) <sup>6</sup>|S1|S2 <sup>7</sup>
 ---|---|---|---|----
 Maximum search services|N/A|---|12 per Azure subscription|12 per Azure subscription
 Maximum storage size <sup>1</sup>|50 MB or 10,000 documents|2 GB per service|25 GB per partition or 300 GB documents per service|100 GB per partition or 1.2 TB per service
