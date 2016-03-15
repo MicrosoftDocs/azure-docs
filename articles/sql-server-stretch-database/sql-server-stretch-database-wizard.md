@@ -96,6 +96,8 @@ For more info about the database master key, see [CREATE MASTER KEY (Transact-SQ
 ## <a name="Network"></a>Select IP address
 Use the public IP address of your SQL Server, or enter a range of IP addresses, to create a firewall rule on Azure that lets SQL Server communicate with the remote Azure server.
 
+The IP address or addresses that you provide on this page tell the Azure server to allow incoming data, queries, and management operations initiated by SQL Server to pass through the Azure firewall. The wizard doesn't change anything in the firewall settings on the SQL Server.
+
 ![Select IP address page of the Stretch Database wizard][StretchWizardImage7]
 
 ## <a name="Summary"></a>Summary
