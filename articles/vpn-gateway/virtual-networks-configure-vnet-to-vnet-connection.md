@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc"/>
 
 
@@ -28,9 +28,11 @@ This article will walk you through the steps to create and connect virtual netwo
 
 **About Azure deployment models**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]If you want to connect a VNet created in the Classic deployment model to a VNet created using the Resource Manager model. See [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 **Deployment models and tools for VNet-to-VNet**
+
+A VNet-to-VNet connection can be configured in both deployment models and by using several different tools. See the table below for more information. We update this table as new articles, new deployment models, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
