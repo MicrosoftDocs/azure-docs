@@ -124,7 +124,7 @@ Now you can choose precisely the image you want to use. To create a virtual mach
 
 This video demonstrates the above steps using the CLI.
 
-[AZURE.VIDEO resource-groups-vm-searching-cli]
+[AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-cli]
 
 
 ## PowerShell
@@ -215,7 +215,7 @@ From this list, copy the chosen SKU name, and you have all the information for t
 
 This video demonstrates the above steps using PowerShell.
 
-[AZURE.VIDEO resource-groups-vm-searching-posh]
+[AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-posh]
 
 
 <!--Image references-->

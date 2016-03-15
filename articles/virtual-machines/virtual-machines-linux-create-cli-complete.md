@@ -536,12 +536,12 @@ Bind the NSG to the NIC:
 
 ### Create your Linux VM
 
-You've created the storage and network resources to support an internet accessible VM. Now let's create that VM, and secure it with an ssh key with no password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We'll locate that image information using `azure vm image list`, as described in [finding Azure VM images](resource-groups-vm-searching.md). We seleted an image using the command `azure vm image list westeurope canonical | grep LTS`, and in this case we'll use `canonical:UbuntuServer:14.04.3-LTS:14.04.201509080`, but for the last field we'll pass `latest` so that in the future we always get the most recent build (the string we use will be `canonical:UbuntuServer:14.04.3-LTS:latest`).
+You've created the storage and network resources to support an internet accessible VM. Now let's create that VM, and secure it with an ssh key with no password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We'll locate that image information using `azure vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md). We seleted an image using the command `azure vm image list westeurope canonical | grep LTS`, and in this case we'll use `canonical:UbuntuServer:14.04.3-LTS:14.04.201509080`, but for the last field we'll pass `latest` so that in the future we always get the most recent build (the string we use will be `canonical:UbuntuServer:14.04.3-LTS:latest`).
 
 > [AZURE.NOTE] This next step is familiar to anyone who has already created an ssh rsa public and private key pair on Linux or Mac using **ssh-keygen -t rsa -b 2048**. If you do not have any certificate key pairs in your `~/.ssh` directory, you can either create them:
 <br />
     1. automatically by using the `azure vm create --generate-ssh-keys` option
-    2. manually using [the instructions to create them youself](virtual-machines-linux-use-ssh-key.md)
+    2. manually using [the instructions to create them youself](virtual-machines-linux-ssh-from-linux.md)
 <br />
 Alternatively, you can use the `azure vm create --admin-username --admin-password` options to use the typically less secure username and password method of authenticating your ssh connections once the VM is created. 
 
