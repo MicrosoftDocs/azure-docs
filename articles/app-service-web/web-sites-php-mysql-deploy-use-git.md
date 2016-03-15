@@ -265,7 +265,8 @@ To publish changes to your app, follow these steps:
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-##<a name="composer"> Enable Composer automation with the Composer extension
+<a name="composer">
+## Enable Composer automation with the Composer extension
 
 By default, the git deployment process in App Service doesn't do anything with composer.json, if you have one in your PHP
 project. You can enable composer.json processing during `git push` by enabling the Composer extension.
