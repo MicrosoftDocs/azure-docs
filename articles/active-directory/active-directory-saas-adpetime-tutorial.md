@@ -110,8 +110,9 @@ Before you can configure the SAML assertion, you need to contact your ADP eTime 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_04.png) <br>
 
 
-    a. In the Reply URL textbox, type the URL used by your users to sign-on to your ADP eTime application using the following pattern: **“https://</SERVERNAME/>.adp.com/affwebservices/public/saml2assertionconsumer”**.
+    a. In the Reply URL textbox, type the URL used by your users to sign-on to your ADP eTime application using the following pattern: **“https://\<SERVERNAME\>.adp.com/affwebservices/public/saml2assertionconsumer”**.
 
+    b. Click **Next**.
 
 4. On the **Configure single sign-on at ADP eTime** page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_05.png) <br>
@@ -123,7 +124,7 @@ Before you can configure the SAML assertion, you need to contact your ADP eTime 
 
 5. To get SSO configured for your application, contact your ADP eTime support team and email the attach downloaded metadata file, so that they can be configured for SSO integration.
 
-> [AZURE.NOTE] After **ADP eTime** team configure the instance, get the **RelayState** value from them and request to Azure AD to configure that for your application instance. You can send this value, your Azure AD tenanat id and application id to Azure AD team on [waadpartner@microsoft.com](mailTo:waadpartner@microsoft.com). After this configuring you can test the integration and it will work. So please note that this is important configuration for this application integration to work.
+> [AZURE.NOTE] After **ADP eTime** team configure the instance, get the **RelayState** value from them and request to Azure AD to configure that for your application instance. You can send this value, your Azure AD tenanat id and application id to Azure AD team on [waadpartners@microsoft.com](mailTo:waadpartners@microsoft.com). After this configuring you can test the integration and it will work. So please note that this is important configuration for this application integration to work.
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
@@ -153,9 +154,9 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 5. On the **Tell us about this user** dialog page, perform the following steps:
 <br><br> ![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_05.png) <br>
 
-    a. As Type Of User, select New user in your organization.
+    a. As **Type Of User**, select **New user in your organization**.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. In the **User Name** textbox, type **BrittaSimon**.
 
     c. Click **Next**.
 
