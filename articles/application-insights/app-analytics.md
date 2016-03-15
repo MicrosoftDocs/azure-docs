@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/11/2016" 
 	ms.author="awills"/>
 
 
@@ -50,7 +50,20 @@ Let's display the results with the bar chart presentation, choosing to stack the
 
 Looks like our app is most popular at lunchtime and bed-time in Hyderabad. (And we should investigate those 500 codes.)
 
-The language has many of the capabilities of SQL, and more. Just as in SQL, you can filter data, group records, sort and join tables. You can also perform computations on the fields. Unlike SQL, these functions are separated into different operations, and instead of nesting queries, you pipe the data from one operation to the next in a very intuitive way. This makes it easy to write quite complex queries.
+
+There are also powerful statistical operations:
+
+![](./media/app-analytics/025.png)
+
+
+The language has many attractive features:
+
+•	[Filter](app-analytics-queries.md) your raw app telemetry by any fields, including your custom properties and metrics.
+•	[Join](app-analytics-queries.md#join-operator) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
+•	Powerful statistical [aggregations](app-analytics-aggregations.md).
+•	Just as powerful as SQL, but much easier for complex queries: instead of nesting statements, you pipe the data from one elementary operation to the next.
+•	Immediate and powerful visualizations.
+
 
 
 >[AZURE.NOTE] We recommend starting with the [language tour](app-analytics-tour.md).

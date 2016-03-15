@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2016" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Manage pricing and quota for Application Insights
