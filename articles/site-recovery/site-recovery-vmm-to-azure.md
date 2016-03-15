@@ -232,8 +232,7 @@ After the VMM server is registered, you can configure cloud protection settings.
 2. On the **Protected Items** tab, click on the cloud you want to configure and go to the **Configuration** tab.
 3. In **Target** select **Azure**.
 4. In **Storage Account** select the Azure storage account you use for replication.
-
->[AZURE.NOTE] We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
+	>[AZURE.NOTE] We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
 
 5. Set **Encrypt stored data** to **Off**. This setting specifies that data should be encrypted replicated between the on-premises site and Azure.
 6. In **Copy frequency** leave the default setting. This value specifies how frequently data should be synchronized between source and target locations.
