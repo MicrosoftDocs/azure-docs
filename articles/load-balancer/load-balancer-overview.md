@@ -121,6 +121,7 @@ You can get more than one load-balanced public IP address assigned to a set of v
 
 Azure Resource Manager is the new management framework for services in Azure. Azure Load Balancer can now be managed through Resource Manager-based APIs and tools. To learn more about Resource Manager, see [IaaS just got easier with Azure Resource Manager](https://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
 
+[AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## Next steps
 
