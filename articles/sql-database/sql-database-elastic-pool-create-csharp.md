@@ -2,7 +2,6 @@
     pageTitle="Create an elastic database pool (C#) | Microsoft Azure"
     description="Use C# database development techniques to create an Azure SQL Database elastic database pool so you can share resources across many databases."
     services="sql-database"
-    keywords="c# database,sql development, database pool"
     documentationCenter=""
     authors="stevestein"
     manager="jhubbard"
@@ -11,10 +10,10 @@
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="powershell"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/10/2016"
+    ms.date="03/15/2016"
     ms.author="sstein"/>
 
 # Create an elastic database pool (C&#x23;)
@@ -107,13 +106,13 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 ## Create elastic database pool C&#x23; example
 
 
-The following libraries are required to run this example:
+The following libraries are required to run this example. You can install by running the following commands in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**)
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Create a console app and replace the contents of Program.cs with the following:
+Create a console app and replace the contents of Program.cs with the following. To get the required client id and related values, see [Register your app and get the required client values for connecting your app to SQL Database](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;

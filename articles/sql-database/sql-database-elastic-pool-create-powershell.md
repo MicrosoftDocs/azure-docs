@@ -1,7 +1,6 @@
 <properties 
     pageTitle="Create an elastic database pool (PowerShell) | Microsoft Azure" 
     description="Learn how to use PowerShell to scale-out Azure SQL Database resources by creating an elastic database pool to manage multiple databases." 
-	keywords="multiple databases,scale-out, database pool"    
 	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -14,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="03/10/2016"
+    ms.date="03/15/2016"
     ms.author="sstein"/>
 
 # Create an elastic database pool (PowerShell) 

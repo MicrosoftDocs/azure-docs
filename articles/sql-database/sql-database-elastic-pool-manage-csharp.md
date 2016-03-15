@@ -2,7 +2,6 @@
     pageTitle="Manage an elastic database pool (C#) | Microsoft Azure"
     description="Use C# database development techniques to manage an Azure SQL Database elastic database pool."
     services="sql-database"
-    keywords="c# database,sql development, database pool, multiple databases, scale-out" 
     documentationCenter=""
     authors="stevestein"
     manager="jhubbard"
@@ -12,9 +11,9 @@
     ms.service="sql-database"
     ms.devlang="NA"
     ms.topic="article"
-    ms.tgt_pltfrm="powershell"
+    ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/10/2016"
+    ms.date="03/15/2016"
     ms.author="sstein"/>
 
 # Manage an elastic database pool (C&#x23;)
@@ -127,14 +126,13 @@ The following example lists all databases in a pool:
 
 ## Manage elastic database pool C&#x23; example
 
-
-The following libraries are required to run this example:
+The following libraries are required to run this example. You can install by running the following commands in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**)
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Create a console app and replace the contents of Program.cs with the following:
+Create a console app and replace the contents of Program.cs with the following. To get the required client id and related values, see [Register your app and get the required client values for connecting your app to SQL Database](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
