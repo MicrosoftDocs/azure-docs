@@ -49,15 +49,7 @@ For both POST and GET, you need to provide your *service name*, *index name*, an
 
 The format for POST is the same, but with only api-version in the query string parameters.
 
-#### Types of queries
 
-Azure Search offers many options to create extremely powerful queries. The two main types of query you will use are `search` and `filter`. A `search` query searches for one or more terms in all _searchable_ fields in your index, and works the way you would expect a search engine like Google or Bing to work. A `filter` query evaluates a boolean expression over all _filterable_ fields in an index. Unlike `search` queries, `filter` queries match the exact contents of a field, which means they are case-sensitive for string fields.
-
-You can use searches and filters together or separately. If you use them together, the filter is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
-
-The syntax for filter expressions is a subset of the [OData filter language](https://msdn.microsoft.com/library/azure/dn798921.aspx). For search queries you can use either the [simplified syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx) or the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx).
-
-To learn more about all the different parameters of a query, please visit [Search Documents](https://msdn.microsoft.com/library/azure/dn798927.aspx). There are also a few example queries below.
 
 #### Example Queries
 

@@ -27,7 +27,7 @@ This guide will show you how to query your Azure Search index in the Azure Porta
 Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
 
 ## I. Go to your Azure Search blade
-1. Click on "All resources" in the menu on the left side of the Azure Portal
+1. Click on "All resources" in the menu on the left side of the [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 2. Select your Azure Search service
 
 ## II. Select the index you would like to search

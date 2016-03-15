@@ -27,11 +27,11 @@
 ## Data upload models in Azure search
 There are two ways to populate your Azure Search index with your data. The first option is manually pushing your data into the index using the Azure Search [REST API](search-import-data-rest-api.md) or [.NET SDK](search-import-data-dotnet.md). The second option is to [point a supported data source](search-indexer-overview.md) to your Azure Search index and let Azure Search automatically pull your data into the search service.
 
-This guide will only cover the push model of data upload, which is supported only in the [REST API](search-import-data-rest-api.md) and [.NET SDK](search-import-data-dotnet.md).
+This guide will only cover instructions on using the push model of data upload (which is supported only in the [REST API](search-import-data-rest-api.md) and [.NET SDK](search-import-data-dotnet.md)), but you can still learn more about the pull model below.
 
 ### Push data to an index
 
-This approach refers to taking an existing dataset that conforms to the index schema, and posting it to your search service. For applications having very low latency requirements (e.g. if you need search operations to be in sync with dynamic inventory databases), the push model is your only option.
+This approach refers to programmatically sending your data to Azure Search to make it available for searching. For applications having very low latency requirements (e.g. if you need search operations to be in sync with dynamic inventory databases), the push model is your only option.
 
 You can use the [REST API](https://msdn.microsoft.com/library/azure/dn798930.aspx) or [.NET SDK](search-import-data-dotnet.md) to push data to an index. There is currently no tool support for pushing data via the portal.
 

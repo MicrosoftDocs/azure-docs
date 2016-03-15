@@ -41,8 +41,7 @@ This guide assumes that you already have an Azure Subscription and can log into 
 If you have more than one subscription, you can select which one will include this Azure Search service.
 
 ## IV. Select a resource group for your service
-Create a new resource group or select an existing one.
-  * A resource group is a collection of Azure services and resources that are used together. For example, if you are using Azure Search to index a SQL database, then both of these services should be part of the same resource group.
+Create a new resource group or select an existing one. A resource group is a collection of Azure services and resources that are used together. For example, if you are using Azure Search to index a SQL database, then both of these services should be part of the same resource group.
 
 ## V. Select the location where your service will be hosted
 As an Azure service, Azure Search is available to be hosted in datacenters around the world. Please note that [prices can differ](https://azure.microsoft.com/pricing/details/search/) by geography.
