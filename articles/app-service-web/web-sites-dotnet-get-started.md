@@ -100,7 +100,9 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 	If someone else has already used the name that you enter, you see a red exclamation mark to the right instead of a green check mark, and you have to enter a different name.
 
-	Azure will use this name as the prefix for your application's URL. The complete URL consists of this name plus *.azurewebsites.net* (as shown next to the **Web App Name** text box). For example, if the name is `MyExample810`, the URL is `myexample810.azurewebsites.net`. The URL has to be unique.
+	Azure will use this name as the prefix for your application's URL. The complete URL consists of this name plus *.azurewebsites.net* (as shown next to the **Web App Name** text box). For example, if the name is `MyExample810`, the URL is `myexample810.azurewebsites.net`. The URL has to be unique. 
+
+	The [Next steps](#next-steps) section links to a tutorial that explains how to use your own custom domain with an Azure web app.
 
 6. Next to the **Resource Group** box, click **New**, and then enter "MyExample" or another name if you prefer. 
 
@@ -160,6 +162,8 @@ In this section, you deploy web project to the web app, as illustrated in step 2
 
 	In a few seconds, the **Publish Web** wizard appears. The wizard opens to a *publish profile* that has settings for deploying the web project to the new web app. If you wanted to deploy to a different web app, you could click the **Profile** tab to create a different profile. For this tutorial, you accept the settings that deploy to the web app that you created earlier.
 
+	The publish profile includes a user name and password for deployment. These credentials have been generated for you, but you can change them to values that you choose. You'll see how to do that in the tutorial section that introduces the Azure portal. The password is encrypted in a hidden user-specific file in the `Properties\PublishProfiles` folder.
+
 8. On the **Connection** tab of the **Publish Web** wizard, click **Next**.
 
 	![Successfully validated connection](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
@@ -215,7 +219,9 @@ The [Azure portal](/services/management-portal/) is a web interface that you can
 
 	![Settings blade](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
-	There area more sections to this blade than are shown in this screen shot.
+	Notice the **Deployment credentials** link in the **Publishing** section. That's where you create a new user name and password for deployment. You can enter a user name and password of your choice there, then enter the same values on the **Connection** tab of the **Publish Web** wizard in your web project.
+
+	The screen shot is only a partial view of the **Settings** blade. There are more sections to this blade than are shown.
 
 4. Click **Application settings** from the **General** section of the **Settings** blade to see an example of the kinds of settings that you can configure in the Portal.
 
@@ -223,15 +229,37 @@ The [Azure portal](/services/management-portal/) is a web interface that you can
 
 	![Web app configure tab](./media/web-sites-dotnet-get-started/portalconfigure2.png)
 
-These are just a few of the Portal's features. You can create new web apps, delete existing web apps, stop and restart web apps, and manage other kinds of Azure services, such as databases and virtual machines.  
+These are just a few of the Portal's features. You can create new web apps, delete existing web apps, stop and restart web apps, and manage other kinds of Azure services, such as databases and virtual machines.
+
+## Delete the web app
+
+When you no longer need the web app that you created for this tutorial, you can delete it. 
+
+An easy way to delete your web app is to click the **Delete** button at the top of its **Web App** blade in the Azure portal. A better way is to delete the resource group that you created to contain the web app. For this tutorial the resource group contains only the web app, but typically a resource group contains a collection of related resources. For instance, your web app might use a database or Azure storage account that is no longer needed when the web app is no longer needed. When you delete a resource group, everything it contains is deleted. To delete a resource group by using the Azure portal, perform the following steps.
+
+1. Go to the home page of [the Azure portal](https://portal.azure.com).
+
+2. Click **Resource Groups**.
+
+3. In the list of resource groups, click the resource group that you want to delete.
+
+	When the **Resource Group** blade appears, it includes a list of the resources that it contains.
+
+4. On the **Resource Group** blade, click **Delete**.
+
+	![Delete resource group](./media/web-sites-dotnet-get-started/delresgrp.png)
 
 ## Next steps
 
 In this tutorial, you've seen how to create a simple web application and deploy it to an Azure web app. Here are some related topics and resources for learning more about Azure App Service:
 
+* How to deploy an existing web project to a new web app
+
+	You can deploy an existing web project to a web app. To start the deployment process, right-click the project in **Solution Explorer**, and then click **Publish**. Choose **Microsoft Azure App Service** as the publish target. Then choose an existing Azure web app as the target or click **New** to create a new one. If you click **New** to create a new one, the process is the same as what you see here in this tutorial.
+
 * Other ways to create web apps
 
-	You saw how to create a web app while creating a Visual Studio project. You can also create Azure resources the deployment process in Visual Studio the same way you saw it done during project creation. You can also create web apps by using the [Azure portal](https://portal.azure.com/), [Azure cmdlets for Windows PowerShell](../powershell-install-configure.md), or the [cross-platform command-line interface](../xplat-cli.md).
+	You can also create web apps by using the [Azure portal](https://portal.azure.com/), [Azure cmdlets for Windows PowerShell](../powershell-install-configure.md), or the [cross-platform command-line interface](../xplat-cli.md).
 
 * How to create API apps
 
