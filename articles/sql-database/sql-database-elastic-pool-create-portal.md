@@ -25,7 +25,7 @@
 - [C#](sql-database-elastic-pool-create-csharp.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 
-This article shows you how to create a scalable [elastic database pool](sql-database-elastic-pool.md) in the [Azure portal](https://portal.azure.com/). There are two ways you can create a pool. You can do it from scratch if you know the pool setup you want, or start with a recommendation from Azure. Azure has built-in intelligence that recommends a pool setup if it will be more cost-efficient for you based on database past usage telemetry. 
+This article shows you how to create a scalable [elastic database pool](sql-database-elastic-pool.md) in the [Azure portal](https://portal.azure.com/). There are two ways you can create a pool. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service, which has built-in intelligence that recommends a pool setup if it will be more cost-efficient for you based on database past usage telemetry. 
 
 You can add multiple pools to a server, but you can't add databases from different servers into the same pool. To create a pool, you need at least one database in a V12 server. If you don't have one, see [Create your first Azure SQL database](sql-database-get-started.md). You can create a pool with only one database, but pools are only cost-efficient with multiple databases. See [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
 
@@ -35,17 +35,17 @@ You can add multiple pools to a server, but you can't add databases from differe
 1. In the [Azure portal](http://portal.azure.com/) click **SQL servers**, and then click the server that contains the databases you want to add to a pool.
 2. Click **New pool**.
 
-    ![Add pool to a server](./media/sql-database-elastic-pool-portal/new-pool.png)
+    ![Add pool to a server](./media/sql-database-elastic-pool-create-portal/new-pool.png)
 
     **-OR-**
 
-    Click the message to see the pools that the service recommends based on historical database usage telemetry and then click the tier to see more details and customize the pool. See [Understand pool recommendations](#understand-pool-recommendations) for how the recommendation is made.
+    Click the message to see the recommended pools based on historical database usage telemetry, and then click the tier to see more details and customize the pool. See [Understand pool recommendations](#understand-pool-recommendations) later in this topic for how the recommendation is made.
 
-    ![recommended pool](./media/sql-database-elastic-pool-portal/recommended-pool.png)
+    ![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
     The **Elastic database pool** blade appears, which is where you'll set up your pool. If you clicked **New pool** in the previous step, the portal chooses a **Standard pool** under **Pricing tier**, a unique **Name** for the pool, and a default configuration for the pool. If you chose a recommended pool, the recommended tier and configuration of the pool are already chosen, but you can still change them.
 
-    ![Configure elastic pool](./media/sql-database-elastic-pool-portal/configure-elastic-pool.png)
+    ![Configure elastic pool](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 
 3. To change the pricing tier for the pool, click **Pricing tier**, click the pricing tier your want, and then click **Select**.
 
@@ -54,15 +54,15 @@ You can add multiple pools to a server, but you can't add databases from differe
 4. Click **Configure pool**, where you can add databases and choose resource settings for the pool.
 5. To add databases, click **Add database**, click the databases that you want to add, and then click the **Select** button.
 
-    ![Add databases](./media/sql-database-elastic-pool-portal/add-databases.png)
+    ![Add databases](./media/sql-database-elastic-pool-create-portal/add-databases.png)
 
     If the databases you're working with have enough historical usage telemetry, the **Estimated eDTU and GB usage** graph and the **Actual eDTU usage** bar chart update to help you make configuration decisions. Also, the service may give you a recommendation message to help you right-size the pool. See [Understand pool recommendations](#understand-pool-recommendations).
 
-    ![dynamic recommendations](./media/sql-database-elastic-pool-portal/dynamic-recommendation.png)
+    ![dynamic recommendations](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
 6. Use the controls on the **Configure pool** page to explore settings and configure your pool according to the following guidelines:
 
-    ![Configure Elastic Pool](./media/sql-database-elastic-pool-portal/configure-performance.png)
+    ![Configure Elastic Pool](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
     | Performance setting | Description |
     | :--- | :--- |

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Monitor, manage, and size an elastic database pool"
 	description="Learn how to manage, monitor, and right-size a scalable elastic database pool to optimize database performance and manage cost."
-	keywords="scalable database,database configuration"
+	keywords=""
 	services="sql-database"
 	documentationCenter=""
 	authors="jeffgoll"
@@ -26,9 +26,7 @@
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 
 
-You can use the Azure portal to monitor and manage an elastic pool and the databases in the pool. After you [create a pool](sql-database-elastic-pool-create-portal.md), click **Browse**, click **SQL elastic pools** and then click the pool you want to work with from the list.
-
-JEFF to add screen shot.
+You can use the Azure portal to monitor and manage an elastic pool and the databases in the pool. After you [create a pool](sql-database-elastic-pool-create-portal.md), in the [Azure portal](https://portal.azure.com) click **Browse**, click **SQL elastic pools** and then click the pool you want to work with from the list.
 
 ##Monitor resource utilization of a pool
 After you select a pool to work with, under **Elastic Pool Monitoring**, a chart and live tiles show you important utilization information for your pool.
@@ -55,6 +53,7 @@ You can add rules to resources that send email to people or alert strings to URL
     The chart dynamically shows resource utilization for that metric to help you choose a threshold.
 
 4. Choose a **Condition** (greater than, less than, etc.) and a **Threshold**.
+5. Click **OK**.
 
 ##Change eDTU per pool and database eDTU
 When you see the resource utilization of a pool, you may discover that the pool needs a different eDTU setting, or individual databases in the pool need different eDTU settings. You can change the setup of the pool at any time to get the best balance of performance and cost. See [Price and performance considerations](sql-database-elastic-pool-guidance.md) for more information.
@@ -65,15 +64,9 @@ When you see the resource utilization of a pool, you may discover that the pool 
 
     Under Elastic database pool settings a chart shows you the recent trend of eDTU and storage utilization in percent of capacity for the pool.
 
-    NEED a screen shot showing near max utilization with convining data.
-
 3. Click a different **Pool eDTU**, and you'll see the estimated monthly cost of the change you want to make and its impact to resource utilization in the chart.
 
-    NEED a screen shot showing more headroom.
-
 4. Under **Elastic database setting**, a bar graph shows the eDTU utilization of each database in the pool.
-
-    NEED a matching screen shot with some convincing data
 
 5. Click **eDTU max** to set the maximum and **eDTU min** to set the minimum number of eDTU for the databases in the pool.
 
@@ -125,11 +118,3 @@ Elastic jobs let you run Transact-SQL scripts against any number of databases in
 - [Create an elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [Create an elastic database pool with C#](sql-database-elastic-pool-create-csharp.md)
 - [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md)
-
-
-<!--Image references-->
-[4]: 
-[6]: ./media/sql-database-elastic-pool-portal/metric.png
-[7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
-[10]: ./media/sql-database-elastic-pool-portal/star.png
-
