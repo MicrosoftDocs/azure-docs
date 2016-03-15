@@ -85,7 +85,7 @@ To cancel your subscription, use the following steps. If your current subscripti
 
 **Note** No refund is given if you cancel before the end of a billing period or for unused transactions in a billing period.
 
-* Nevigate to the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations).
+* Navigate to the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations).
 * Sign in to the Marketplace if you aren't already Signed in.
 * Click **Cancel** to the right of the dataset name and status. You can use this subscription until the end of the current billing period or your transaction limit is reached (whichever occurs first).
 

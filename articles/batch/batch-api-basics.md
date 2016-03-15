@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="02/25/2016"
+	ms.date="03/11/2016"
 	ms.author="yidingz;marsma"/>
 
 # Overview of Azure Batch features
@@ -44,18 +44,20 @@ In the sections below, you'll learn about each of the resources mentioned in the
 
 ## <a name="resource"></a> Resources of the Batch service
 
-When you use the Azure Batch service, you will use the following resources:
+When you use Batch, you will use many of the following resources. Some of these resources, such as accounts, compute nodes, pools, jobs, and tasks, are used in all Batch solutions. Others, such as job schedules and application packages, are helpful but optional features.
 
 - [Account](#account)
 - [Compute node](#computenode)
 - [Pool](#pool)
 - [Job](#job)
 - [Task](#task)
-	- [Start Task](#starttask)
-	- [Job ManagerTask](#jobmanagertask)
+	- [Start task](#starttask)
+	- [Job manager task](#jobmanagertask)
 	- [Job preparation and release tasks](#jobpreprelease)
 	- [Multi-instance tasks](#multiinstance)
-- [JobSchedule](#jobschedule)
+    - [Task dependencies](#taskdep)
+- [Job schedules](#jobschedule)
+- [Application packages](#appkg)
 
 ### <a name="account"></a>Account
 
@@ -141,6 +143,7 @@ In addition to tasks that you define to perform computation on a node, the follo
 - [Job manager task](#jobmanagertask)
 - [Job preparation and release tasks](#jobmanagertask)
 - [Multi-instance tasks](#multiinstance)
+- [Task dependencies](#taskdep)
 
 #### <a name="starttask"></a>Start task
 
@@ -187,9 +190,21 @@ A [multi-instance task](batch-mpi.md) is a task that is configured to run on mor
 
 For a detailed discussion on running MPI jobs in Batch using the Batch .NET library, check out [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](batch-mpi.md).
 
+#### <a name="taskdep"></a>Task dependencies
+
+Task dependencies, as the name implies, allow you to specify that a task depends on the completion of one or more other tasks before its execution. The "downstream" task may consume the output of the "upstream" task, or perhaps depend on some initialization performed by the upstream task. In such a scenario, you can specify that your job uses task dependencies, then for each task that depends on another (or many others), you specify the tasks which that task depends on.
+
 ### <a name="jobschedule"></a>Scheduled jobs
 
 Job schedules enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. A job schedule allows for the specification of the duration of the schedule - how long and when the schedule is in effect - and how often during that time period jobs should be created.
+
+### <a name="appkg"></a>Application packages
+
+The [application packages](batch-application-packages.md) feature provides easy management and deployment of applications to the compute nodes in your pools. With application packages, you can easily upload and manage multiple versions of the applications run by your tasks, including binaries and support files, then automatically deploy one or more of these applications to the compute nodes in your pool.
+
+Batch handles the details of working with Azure Storage in the background to securely store and deploy your application packages to compute nodes, so both your code and your management overhead can be simplified.
+
+To find out more about the application package feature, check out [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
 ## <a name="files"></a>Files and directories
 
