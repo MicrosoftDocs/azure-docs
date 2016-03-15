@@ -27,7 +27,7 @@
 2. Run an Hive job to read raw web log data from a source blob storage account, transform the data, and the write the output to a destination blob storage account. 
 3. Delete the cluster based on the time-to-live setting.
 
-The Hive activity calls a predefined HiveQL script. The script creates an external table that references the raw web log data stored in Azure blob storage and then partitions the raw data by year and month.
+The Hive activity calls a predefined HiveQL script. The script creates an external table that references the raw web log data stored in Azure Blob storage and then partitions the raw data by year and month.
 
 Here are the sample rows for each month in the input file.
 
@@ -66,12 +66,12 @@ To simplify the tutorial, you will use one storage account to serve the 3 purpos
 4. Create an Blob container on the storage account
 5. Copy the following two files to the Blob container:
 
-    - Input data file: https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log
-    - HiveQL script: https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql
+    - Input data file: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log)
+    - HiveQL script: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)
 
-    Both files are stored in a public Blob container. You can see the file content by opening them from any browser providing the URLs.
+    Both files are stored in a public Blob container. 
 
->[AZURE.IMPORTANT] Write down the resource group name, storage account name and the storage account key used in your script.  You will need them in the next section.
+>[AZURE.IMPORTANT] Write down the resource group name, the storage account name and the storage account key used in your script.  You will need them in the next section.
 
 **To prepare the storage and copy the files using Azure CLI**
 
@@ -87,7 +87,7 @@ To simplify the tutorial, you will use one storage account to serve the 3 purpos
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted" 
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted" 
 
-The container name is "adfgetstarted".  Please keep it as it is. Otherwise you will need to update the ARM template you will use. Write down the resource group name, the storage account name and the storage account key.  You will use them in the next section.
+The container name is *adfgetstarted*.  Please keep it as it is. Otherwise you will need to update the ARM template.
 
 If you need help with this CLI script, see [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
 
@@ -173,9 +173,9 @@ The top level ARM template contains:
 
 ![Azure Data Factory HDInsight on demand hive activity ARM template](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-arm-template-top-level.png)
 
-It contains one data facotry resource called "hdinsight-hive-on-demand" (The name is not shown on the screenshot). Data factory is currently only supported in the West US region and the North Europe region. 
+It contains one data facotry resource called *hdinsight-hive-on-demand* (The name is not shown on the screenshot). Data factory is currently only supported in the West US region and the North Europe region. 
 
-The "hdinsight-hive-on-demand" resource contains 4 resources:
+The *hdinsight-hive-on-demand* resource contains 4 resources:
 
 - A linkedservice to the storage account that will be used as the default HDInsight storage account, input data storage, and output data storage.
 - A linkedservice to the HDInsight cluster to be created
@@ -192,7 +192,7 @@ The "hdinsight-hive-on-demand" resource contains 4 resources:
         
         "folderPath": "adfgetstarted/partitioneddata",
 
-    The [dataset availability](../data-factory/data-factory-create-datasets.md#Availability) setting is as follow:
+    The [dataset availability](../data-factory/data-factory-create-datasets.md#Availability) setting is as follows:
     
         "availability": {
             "frequency": "Month",
@@ -202,21 +202,28 @@ The "hdinsight-hive-on-demand" resource contains 4 resources:
 
     In Azure Data Factory, output dataset availability drives the pipeline. This means the slice is produced monthly on the last day of month. For more information, see [Data Factory Scheduling and Execution](data-factory-scheduling-and-execution.md).
 
-    The pipeline definition is as follow:
+    The pipeline definition is as follows:
     
     ![Azure Data Factory HDInsight on demand pipeline definition](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-arm-template-pipeline-definition.png)
                 
     It contains one activity. Both *start* and *end* of the activity have a past date, which means there will be only one slice. If the end is a future date, the data factory will create another slice when the times comes. For more information, see [Data Factory Scheduling and Execution](data-factory-scheduling-and-execution.md).
 
+    The following is the activity definition:
+    
+    ![Azure Data Factory HDInsight on demand hive activity definition](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-arm-template-hive-activity-definition.png)
+    
+    The inputs, outputs and the script path are defined.
+    
 **To create a data factory**
-1. Click the following image to open the ARM template in the Azure Portal. The template is located at https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. You can also find the template in [Appendix-a](#).
+
+1. Click the following image to open the ARM template in the Azure Portal. The template is located at https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. You can also find the template in [Appendix-a](#appx-a-arm-template).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Enter **STORAGEACCOUNTNAME** and **STORAGEACCOUNTKEY** for the account you created in the last section, and then click **OK**.
-3. In **Resource Group, select the same resource group you used in the last section.
+3. In **Resource Group**, select the same resource group you used in the last section.
 4. Click **Legal terms**, and then click **Create**.
-5. Click **Create**. You will see a tile on the Dashboard called "Deploying Template deployment". Wait until the tile text is changed to the resource group name.
+5. Click **Create**. You will see a tile on the Dashboard called **Deploying Template deployment**. Wait until the tile text is changed to the resource group name.
 6. Click the tile to open the resource group. Now you shall see one more data factory resource listed in addition to the storage account resource.
 7. Click **hdinsight-hive-on-demand**.
 8. Click the **Diagram** tile. The diagram shows one activity with an input dataset, and an output dataset:
@@ -228,6 +235,7 @@ The "hdinsight-hive-on-demand" resource contains 4 resources:
 10. On the **Recent updated slices**, you shall see one slice. If the status is **In progress**, wait until it is changed to **Ready**.
 
 **To check the data factory output**
+
 1. Use the same procedure in the last session to check the contain of the adfgetstarted container. There are two new containers in addition to **adfgetsarted**:
 
     - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx: This is the default container for the HDInsight cluster
