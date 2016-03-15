@@ -25,7 +25,7 @@ These specifications are open source and based on the Swagger v2 specification. 
 called [AutoRest](https://github.com/azure/autorest). AutoRest transforms these RESTful API specifications into client libraries in multiple languages. 
 If there are any aspects of the generated code in the SDKs you would like to improve, the entire set of tools to create the SDKs are open, freely available and based in widely adopted API specification format.
 
-Azure SDK for .NET is provided as a set of NuGet Packages that helps you call most of the APIs exposed by Azure Resrouce Manager. If the SDK doesn't expose the requried functionality you can easily combine the SDK with regular calls to the ARM REST API behind the scenes.
+Azure SDK for .NET is provided as a set of NuGet Packages that helps you call most of the APIs exposed by Azure Resource Manager. If the SDK doesn't expose the required functionality you can easily combine the SDK with regular calls to the ARM REST API behind the scenes.
 
 This documentation is not intended to describe all aspects of Azure SDK for .NET, Azure ARM APIs or Visual Studio, but is rather provided as a fast way for you to get started.
 
@@ -43,7 +43,7 @@ After creating the service principal, you should have:
 * Tenant id (GUID) or domain name (string)
 
 ### Receiving the AccessToken from code
-The authentication token can easily be aquired with the below lines of code, passing in only your Azure AD Tenant ID, your Azure AD 
+The authentication token can easily be acquired with the below lines of code, passing in only your Azure AD Tenant ID, your Azure AD 
 Application Client ID and the Azure AD Application Client Secret. Save the token for several requests since it by default is valid for 1 hour.
 
 ```csharp
@@ -101,7 +101,7 @@ Notice that we do get a JSON response from Azure that we then extract the subscr
 All the subsequent calls to Azure ARM APIs in this documentation only uses a single Azure Subscription ID, so if your application is 
 associated with several subscriptions, just pick the right one of them and pass as a parameter going forward.
 
-From here on every call we do against the Azure APIs will use the Azure SDK for .NET so the code do look a little bit different.
+From here, every call we do against the Azure APIs will use the Azure SDK for .NET so the code will look a little bit different.
 
 ### Wrapping the token as a TokenCredentials Object
 All of the following API calls will need the token you received from Azure AD in the format of a "TokenCredentials" object. 
@@ -113,7 +113,7 @@ var credentials = new TokenCredentials(token);
 
 ## Creating a Resource Group
 Everything in Azure is focused around the Resource Groups, so let's start by creating one. General resources and resource groups are 
-handled by the *ResourceManagementClient* and as any of the following more specialiced Management Clients that we will use, you need to
+handled by the *ResourceManagementClient* and as any of the following more specialized Management Clients that we will use, you need to
 provide your credentials as well as a Subscription ID to identify what subscription you want to work with.
 
 ```csharp
@@ -141,20 +141,20 @@ Using the ARM Templates has the following benefits:
 * You declaratively specify what you want the end result to look like, rather than how it should be achieved
 * You don't have to manually handle parallel execution of your deployments, ARM will do that for you
 * You don't have to learn C# or any other language in order to deploy an ARM Template even though you can use any language to start a templated deployment
-* The domain specific language, DSL, that is used in the templates are build using JSON and is easy enough to understans by anyone that has worked with JSON
+* The domain specific language, DSL, that is used in the templates are build using JSON and is easy enough to understand by anyone that has worked with JSON
 
-Even though, with all the benefits of the templates we will start by showing you how to call the API's manually.
+Even with all the benefits of the templates, we will start by showing you how to call the API's manually.
 
 ### Creating a Virtual Machine, piece by piece
 So now we have our subscription and our resource group. If we want to deploy a Virtual Machine, we need to figure out what parts actually make up a Virtual Machine and it turns out it's quite a few parts:
 
 * 1 or many Storage Accounts, for storing persistent disks
-* 1 or many Public IP Address, PIP, for beeing accessable from the Internet (includes a DNS name)
+* 1 or many Public IP Address, PIP, for being accessible from the Internet (includes a DNS name)
 * 1 or many Virtual Networks, VNET, for internal communication between your resources
 * 1 or many Network Interface Cards, NIC, to allow the VM to communicate
 * 1 or many Virtual Machines, VM, to run our software
 
-Another interesting piece is also how some of these resources can be created in parallel while other once can not. For example:
+Another interesting piece is also how some of these resources can be created in parallel while other ones cannot. For example:
 
 * NICs, depend on PIP and VNet
 * VMs, depend on NICs and Storage Accounts
@@ -165,7 +165,7 @@ The full [sample](https://github.com/dx-ted-emea/Azure-Resource-Manager-Document
 #### Creating the Storage Account
 You need a storage account to store the Virtual VHDs for you Virtual Machine. If you have an existing storage account you can use it for several VMs, 
 but remember to spread your load across several storage accounts not to run into limits. 
-Remember that the type of Storage Account and it's location can limit the VM Size you can chose since not all VM Sizes are available in all regions and/or for all storage account types.
+Remember that the type of Storage Account and its location can limit the VM Size you can chose since not all VM Sizes are available in all regions and/or for all storage account types.
 
 ```csharp
 private static async Task<StorageAccount> CreateStorageAccountAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string storageAccountName, AccountType accountType = AccountType.StandardLRS)
@@ -182,7 +182,7 @@ private static async Task<StorageAccount> CreateStorageAccountAsync(TokenCredent
 ```
 
 #### Creating the Public IP Address, PIP
-The public IP Address is what makes your resources in Azure accessable from Internet. 
+The public IP Address is what makes your resources in Azure accessible from Internet. 
 Together with the IP Address you'll also be assigned a fully qualified domain name, FQDN, that you can use for easier access.
 
 ```csharp
@@ -252,7 +252,7 @@ private static Task<NetworkInterface> CreateNetworkInterfaceAsync(TokenCredentia
 ```
 
 #### Creating the Virtual Machine
-Finally it's time to create the actual Virtual Machine. The VM depends direcly or inderectly of all of the above created resources, 
+Finally, it's time to create the actual Virtual Machine. The VM depends directly or indirectly of all of the above created resources, 
 so you need to wait for all of the above to be ready before you try to provision a VM. 
 Provisioning a VM is what takes the longest time of the above resources so expect your application to be waiting a while for this to happen.
 
@@ -299,7 +299,7 @@ private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredent
 ### Using a templated deployment
 Please read and follow the [Deploy Azure resources using .NET libraries and a template](./arm-template-deployment/#step-4-create-the-credentials-that-are-used-to-authenticate-requests) tutorial for detailed instructions on how to deploy a template.
 
-In short deploying a template is much easier than provisioning the resources manualy and the below code show you how to do it by 
+In short deploying a template is much easier than provisioning the resources manually and the below code shows you how to do it by 
 pointing at the URIs where you have the template and a parameters file. 
 
 ```csharp
