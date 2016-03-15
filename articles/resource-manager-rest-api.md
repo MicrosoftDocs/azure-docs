@@ -19,12 +19,12 @@
 # Resource Manager REST APIs
 Behind every call to Azure Resource Manager, behind every deployed template, behind every configured storage account there is one or 
 several calls to the Azure Resource Manager’s RESTful API. 
-This section is devoted to those APIs and how you can call them without using any SDK at all. This can be very useful if you want full 
-control of all requests to Azure or if the SDK for your prefered language is not available or doesn’t support the operations you 
+This topic is devoted to those APIs and how you can call them without using any SDK at all. This can be very useful if you want full 
+control of all requests to Azure or if the SDK for your preferred language is not available or doesn’t support the operations you 
 want to perform.
 
 This article will not go through every API that is exposed in Azure, but will rather use some as an example how you go ahead and
-connect to them. If you understand the basics you can then go ahead and read the [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/mt420159.aspx) to find 
+connect to them. If you understand the basics you can then go ahead and read the [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx) to find 
 detailed information on how to use the rest of the APIs.
 
 ## Authentication
@@ -84,18 +84,18 @@ Invoke-RestMethod -Uri https://login.microsoftonline.com/microsoft.onmicrosoft.c
  -Body @{"grant_type" = "client_credentials"; "resource" = "https://management.core.windows.net/"; "client_id" = "<application id>"; "client_secret" = "<password you selected for authentication>" }
 ```
 
-The response contains an Access Token, information about how long that token is valid and inforamtion about what resource you can use that token for.
-The access token you recieved in the previous HTTP call must be passed in for all request to the ARM API as a header named "Authorization" with the value "Bearer YOUR_ACCESS_TOKEN". Notice the space between "Bearer" and your Access Token.
+The response contains an Access Token, information about how long that token is valid and information about what resource you can use that token for.
+The access token you received in the previous HTTP call must be passed in for all request to the ARM API as a header named "Authorization" with the value "Bearer YOUR_ACCESS_TOKEN". Notice the space between "Bearer" and your Access Token.
 
-As you can see from the above HTTP Result, the token is valid for a specific period of time during which you should cach and re-use that same tooken. Even if it is possible to authenticate against Azure AD for each API call, it would be highly inefficient.
+As you can see from the above HTTP Result, the token is valid for a specific period of time during which you should cache and re-use that same token. Even if it is possible to authenticate against Azure AD for each API call, it would be highly inefficient.
 
 ## Calling ARM REST APIs
 
-[Azure Resource Manager REST APIs are documented here](https://msdn.microsoft.com/library/azure/mt420159.aspx) and it's out of scope for this tutorial to document the usage of each and every. This documentation will only use a few APIs to explain the basic usage of the APIs and after that we refer you to the official documentation.
+[Azure Resource Manager REST APIs are documented here](https://msdn.microsoft.com/library/azure/dn790568.aspx) and it's out of scope for this tutorial to document the usage of each and every. This documentation will only use a few APIs to explain the basic usage of the APIs and after that we refer you to the official documentation.
 
 ### List all subscriptions
 
-One of the most simple operations you can do is to list the available subscriptions that you can access. In the below request you can see how the Access Token is passed in as a header.
+One of the simplest operations you can do is to list the available subscriptions that you can access. In the below request you can see how the Access Token is passed in as a header.
 
 (Replace YOUR_ACCESS_TOKEN with your actual Access Token.)
 
@@ -140,7 +140,7 @@ Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 ```
 
-The response you'll get will depend weather you have any resource groups defined and if so, how many.
+The response you get will depend whether you have any resource groups defined and if so, how many.
 
 (Subscription IDs below have been shortened for readability)
 
@@ -172,7 +172,7 @@ The response you'll get will depend weather you have any resource groups defined
 
 ### Create a resource group
 
-So far we've only been querying the ARM APIs for information, it's time we create some resources instead and let's start by the most simple of them all, a resource group. The following HTTP request creates a new Resource Group in a region/location of your choice and adds one or more tags to it (the sample below actually only adds one tag).
+So far we've only been querying the ARM APIs for information, it's time we create some resources instead and let's start by the simplest of them all, a resource group. The following HTTP request creates a new Resource Group in a region/location of your choice and adds one or more tags to it (the sample below actually only adds one tag).
 
 (Replace YOUR_ACCESS_TOKEN, SUBSCRIPTION_ID, RESOURCE_GROUP_NAME with your actual Access Token, Subscription ID and name of the Resource Group you want to create)
 
@@ -212,7 +212,7 @@ You've successfully created a Resource Group in Azure. Congratulations!
 
 With ARM, you can deploy your resources using ARM Templates. An ARM Template defines several resources and their dependencies. For this section we will just assume you are familiar with ARM Templates and we will just show you how to make the API call to start deployment of one. A detailed documentation of ARM Templates can be found here.
 
-Deployment of an ARM template doesn't differ much to how you call other APIs. One important aspect is that deployment of a Template can take quite a long time, depending on what's inside of the template, and the API call will just return and it's up to you as developer to query for status of the deployment in order to find out when the deployent is done.
+Deployment of an ARM template doesn't differ much to how you call other APIs. One important aspect is that deployment of a template can take quite a long time, depending on what's inside of the template, and the API call will just return and it's up to you as developer to query for status of the deployment in order to find out when the deployment is done.
 
 For this example, we'll use a publicly exposed ARM Template available on [GitHub](https://github.com/Azure/azure-quickstart-templates). The template we are going to use will deploy a Linux VM to the West US region. Even though this template will have the template available in a public repository like GitHub, you can also select to pass the full template as part of the request. Note that we provide parameter values as part of the request that will be used inside the used template.
 
