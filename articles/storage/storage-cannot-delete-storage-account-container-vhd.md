@@ -30,11 +30,11 @@ To resolve the most common issues, try the following method:
 1. Switch to the Azure classic portal.
 2. Select **VIRTUAL MACHINE**>**DISKS**.
 
-	![disk.png](./media/storage-cannot-delete-storage-account-container-vhd/vmui.png)
+	![disk.png](./media/storage-cannot-delete-storage-account-container-vhd/VMUI.png)
 
 3. Locate the disks which are linked to the storage account, container or VHD you want to delete. To do this, check the location of the disk.
 
-	![location](./media/storage-cannot-delete-storage-account-container-vhd/disklocation.png)
+	![location](./media/storage-cannot-delete-storage-account-container-vhd/DiskLocation.png)
 
 4. Delete the disks.
 5. Select **VIRTUAL MACHINE**>**IMAGES**, and then delete the images which are linked to the storage account, container or VHD.
@@ -86,12 +86,12 @@ To resolve the issues, delete the active disk or the image from the container. T
 1. Sign into the Azure classic portal.
 2. Select **VIRTUAL MACHINE**>**DISKS**.
 
-	![disk.png](./media/storage-cannot-delete-storage-account-container-vhd/vmui.png)
+	![disk.png](./media/storage-cannot-delete-storage-account-container-vhd/VMUI.png)
 
 
 3. Locate the disks which are linked to the storage account you want to delete. To do this, check the location of the disk.
 
-	![location](./media/storage-cannot-delete-storage-account-container-vhd/disklocation.png)
+	![location](./media/storage-cannot-delete-storage-account-container-vhd/DiskLocation.png)
 
 4. Delete the disks.
 5. Select **VIRTUAL MACHINE**>**IMAGES**, and then delete the images which are linked to the storage account.
@@ -135,12 +135,12 @@ To delete the disk, follow the steps below:
 1. Switch to the Azure classic portal.
 2. Select **VIRTUAL MACHINE**>**DISKS**.
 
-	![disk.png](./media/storage-cannot-delete-storage-account-container-vhd/vmui.png)
+	![disk.png](./media/storage-cannot-delete-storage-account-container-vhd/VMUI.png)
 
 
 3. Locate the disks which are linked to the VHD you want to delete. To do this, check the location of the disk.
 
-	![location](./media/storage-cannot-delete-storage-account-container-vhd/disklocation.png)
+	![location](./media/storage-cannot-delete-storage-account-container-vhd/DiskLocation.png)
 
 4.	Select your data disk, then click Delete Disk.
 5.	Confirm there is no Virtual Machine listed on the "Attached to" column.
