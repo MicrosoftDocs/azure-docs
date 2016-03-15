@@ -26,7 +26,7 @@ from your VMs using the virtual network that has been set up with ExpressRoute o
 illustrate how to add your existing virtual network into the lab's Virtual Network settings so that it will be available 
 to choose when creating your VMs.
 
-## Configure a virtual network for a DevTest Lab using the Azure Portal
+## Configure a virtual network for a DevTest Lab using the Azure portal
 The following steps walk you through adding an existing virtual network (and subnet) to a DevTest Lab so that it can be used when creating a VM in the same lab. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
