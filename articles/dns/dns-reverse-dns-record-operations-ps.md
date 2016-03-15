@@ -4,7 +4,7 @@
    services="DNS"
    documentationCenter="na"
    authors="s-malone"
-   manager="vitinnan"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
