@@ -28,7 +28,7 @@ Related links:
 - For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
-# 1.1.119.0
+## 1.1.119.0
 Released: 2016 March
 
 **Fixed issues:**
