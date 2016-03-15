@@ -38,7 +38,7 @@ You can also pull out the key analytics charts into a Power BI dashboard. See th
 - **Assurance of Security & Privacy** 
 Azure Mobile Engagement being part of the Azure family follows all the standard best practices around security & privacy expected for a cloud service.
 
-## **Actionable Analytics:**
+## **Actionable Analytics**
 
 - **Monitor data in real time**
 You can track real time analytics using our Monitor module which shows details like sessions, events, errors & crashes all in real-time. Take a look at this [article](mobile-engagement-concepts.md) to get an understanding of the basic concepts. 
