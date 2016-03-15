@@ -58,11 +58,11 @@ There are also powerful statistical operations:
 
 The language has many attractive features:
 
-•	[Filter](app-analytics-queries.md) your raw app telemetry by any fields, including your custom properties and metrics.
-•	[Join](app-analytics-queries.md#join-operator) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
-•	Powerful statistical [aggregations](app-analytics-aggregations.md).
-•	Just as powerful as SQL, but much easier for complex queries: instead of nesting statements, you pipe the data from one elementary operation to the next.
-•	Immediate and powerful visualizations.
+* [Filter](app-analytics-queries.md) your raw app telemetry by any fields, including your custom properties and metrics.
+* [Join](app-analytics-queries.md#join-operator) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
+* Powerful statistical [aggregations](app-analytics-aggregations.md).
+* Just as powerful as SQL, but much easier for complex queries: instead of nesting statements, you pipe the data from one elementary operation to the next.
+* Immediate and powerful visualizations.
 
 
 

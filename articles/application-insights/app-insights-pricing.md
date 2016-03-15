@@ -136,8 +136,8 @@ If you encounter the throttling limits, here are some things you can do:
 Your pricing tier determines how long data is kept in the portal, and therefore how far back you can set the time ranges.
 
 
-* Raw data points (that is, instances that you can inspect in Diagnostic Search): between 7 and 30 days.
-* Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 13 months.
+* Raw data points (that is, instances that you can inspect in Diagnostic Search): between 7 days.
+* Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for 90 days.
 
 
 ## Sampling
