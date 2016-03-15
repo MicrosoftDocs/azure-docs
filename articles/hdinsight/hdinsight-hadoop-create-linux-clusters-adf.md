@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-[Azure Data Factory](data-factory-introduction.md) is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. In this article, you will learn how to define a data factory pipeline with one Hive data transformation activity to perform the following:
+[Azure Data Factory](../data-factory/data-factory-introduction.md) is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. In this article, you will learn how to define a data factory pipeline with one Hive data transformation activity to perform the following:
 
 1. Create an HDInsight cluster on demand.
 2. Run an Hive job to read raw web log data from a source blob storage account, transform the data, and the write the output to a destination blob storage account. 
@@ -41,7 +41,7 @@ The script creates three output folders based on the previous input. Each folder
     adfgetstarted/partitioneddata/year=2014/month=2/000000_0
     adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 
-For a list of Data Factory data transformation activities in addition to Hive activity, see [Transform and analyze using Azure Data Factory](data-factory-data-transformation-activities.md).
+For a list of Data Factory data transformation activities in addition to Hive activity, see [Transform and analyze using Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md).
 
 ##Prerequisites:
 
@@ -167,7 +167,7 @@ If you need help with this PowerShell script, see [Using the Azure PowerShell wi
  
 ## Create data factory
 
-With the storage account, the input data, and the HiveQL script prepared, you are ready to create an Azure data factory. There are several methods for creating data factory. You will use the Azure portal to call an custom ARM template in this tutorial. You can also call the ARM template from [Azure CLI](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) and [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). For other data factory creation methods, see [Tutorial: Build your first data factory](data-factory-build-your-first-pipeline.md).
+With the storage account, the input data, and the HiveQL script prepared, you are ready to create an Azure data factory. There are several methods for creating data factory. You will use the Azure portal to call an custom ARM template in this tutorial. You can also call the ARM template from [Azure CLI](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) and [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). For other data factory creation methods, see [Tutorial: Build your first data factory](../data-factory/data-factory-build-your-first-pipeline.md).
 
 The top level ARM template contains:
 
@@ -200,13 +200,13 @@ The *hdinsight-hive-on-demand* resource contains 4 resources:
             "style": "EndOfInterval"
         },
 
-    In Azure Data Factory, output dataset availability drives the pipeline. This means the slice is produced monthly on the last day of month. For more information, see [Data Factory Scheduling and Execution](data-factory-scheduling-and-execution.md).
+    In Azure Data Factory, output dataset availability drives the pipeline. This means the slice is produced monthly on the last day of month. For more information, see [Data Factory Scheduling and Execution](../data-factory/data-factory-scheduling-and-execution.md).
 
     The pipeline definition is as follows:
     
     ![Azure Data Factory HDInsight on demand pipeline definition](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-arm-template-pipeline-definition.png)
                 
-    It contains one activity. Both *start* and *end* of the activity have a past date, which means there will be only one slice. If the end is a future date, the data factory will create another slice when the times comes. For more information, see [Data Factory Scheduling and Execution](data-factory-scheduling-and-execution.md).
+    It contains one activity. Both *start* and *end* of the activity have a past date, which means there will be only one slice. If the end is a future date, the data factory will create another slice when the times comes. For more information, see [Data Factory Scheduling and Execution](../data-factory/data-factory-scheduling-and-execution.md).
 
     The following is the activity definition:
     
