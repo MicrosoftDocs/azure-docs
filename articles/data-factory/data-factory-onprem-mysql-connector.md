@@ -231,7 +231,7 @@ The following table provides description for JSON elements specific to MySQL lin
 | password | Specify password for the user account you specified for the username. | No | 
 | gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises MySQL database. | Yes |
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises MySQL data source.
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises MySQL data source.
 
 ## MySQL dataset type properties
 
