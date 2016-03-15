@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/22/2015"
+   ms.date="03/08/2016"
    ms.author="shkurhek"/>
 
 # What is SQL Database? Introduction to SQL Database, technical details, and an explanation of DTUs
@@ -36,7 +36,7 @@ For many businesses and apps, being able to create databases and dial single dat
 
 Either way you go—single or elastic—you’re not locked in. You can blend single databases with elastic database pools, and change the service tiers of single databases and pools to create innovate designs. Moreover, with the power and reach of Azure, you can mix-and-match Azure services with SQL Database to meet your unique modern app design needs, drive cost and resource efficiencies, and unlock new business opportunities.
 
-But how can you compare the relative performance of databases and database pools? How do you know the right click-stop when you dial up and down? The answer is the database transaction unit (DTU) for single databases and the elastic DTU (eDTU) for elastic databases and database pools.
+But how can you compare the relative performance of databases and database pools? How do you know the right click-stop when you dial up and down? The answer is the Database Transaction Unit (DTU) for single databases and the elastic DTU (eDTU) for elastic databases and database pools.
 
 ## Understand DTUs
 
@@ -61,3 +61,4 @@ Now that you've read an introduction to SQL Database and answered the question "
 
 - Get started by [creating your first database](sql-database-get-started.md). Then build your first app in [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md), or [Ruby](sql-database-develop-ruby-simple-linux). 
 
+- See an index of the titles and descriptions of [All topics for Azure sql-database service](sql-database-index-all-articles.md).

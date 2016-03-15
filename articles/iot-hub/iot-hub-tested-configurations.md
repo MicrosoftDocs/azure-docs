@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/25/2016"
+     ms.date="02/28/2016"
      ms.author="hegate"/>
 
 # OS Platforms and hardware compatibility with device SDKs
@@ -36,7 +36,7 @@ The Azure IoT libraries have been tested on the following operating system platf
 
 |Windows OS platforms  |   Version|
 |:---------------|:------------:|
-|Windows desktop| 7,8,10 |
+|Windows desktop| 10 |
 |Windows IoT Core| 10 |
 |Windows Server| 2012 R2|
 
@@ -53,12 +53,12 @@ The [Microsoft Azure IoT device SDK for C](https://github.com/Azure/azure-iot-sd
 
 |OS Platform| Version|Protocols|
 |:---------|:----------:|:----------:|
-|Debian Linux| 7.5 | HTTPS, AMQP, MQTT |
-|Fedora Linux| 20 | HTTPS, AMQP, MQTT |
+|Debian Linux| 7.5 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
+|Fedora Linux| 20 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 |mbed OS| 2.0 | HTTPS, AMQP |
 |TI-RTOS| 2.x | HTTPS |
-|Ubuntu Linux| 14.04 | HTTPS, AMQP, MQTT |
-|Windows desktop| 7,8,10 | HTTPS, AMPQ, MQTT |
+|Ubuntu Linux| 14.04 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
+|Windows desktop| 10 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 |Yocto Linux|2.1  | HTTPS, AMQP|
 
 
@@ -70,7 +70,7 @@ The [Microsoft Azure IoT device SDK for Node.js](https://github.com/Azure/azure-
 
 |Runtime| Version|Protocols|
 |:---------|:----------:|:----:|
-|Node.js| 4.1.0 | HTTPS|
+|Node.js| 4.1.0 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 
 
 
@@ -80,14 +80,14 @@ The [Microsoft Azure IoT device SDK for Java](https://github.com/Azure/azure-iot
 
 |Runtime| Version|Protocols|
 |:---------|:----------:|----|
-|Java SE (Windows)| 1.7 | HTTPS, AMQP |
-|Java SE (Linux)| 1.8 | HTTPS, AMQP|
+|Java SE (Windows)| 1.8 | HTTPS, AMQP, MQTT |
+|Java SE (Linux)| 1.8 | HTTPS, AMQP, MQTT|
 
 The Microsoft Azure IoT service SDK for Java has been tested on the following configurations:
 
 |Runtime| Version|Protocols|
 |:---------|:----------:|:-----|
-|Java SE| 1.8 | HTTPS, AMQP |
+|Java SE| 1.8 | HTTPS, AMQP, MQTT |
 
 
 ## CSharp
@@ -96,8 +96,8 @@ The [Microsoft Azure IoT device SDK for .NET](https://github.com/Azure/azure-iot
 
 |OS platform| Version|Protocols|
 |:---------|:----------:|:----------:|
-|Windows desktop| 7,8,10 | HTTPS, AMPQ|
-|Windows IoT Core|10 | HTTPS|
+|Windows desktop| 10 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
+|Windows IoT Core|10 | HTTPS |
 
 Managed agent code requires Microsoft .NET Framework 4.5
 
@@ -127,6 +127,7 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[ADLINK MXE-200](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1505&seq=&id=&sid=&category=Fanless-Embedded-Computer_Integrated-Embedded-Computer&utm_source=) |Windows 10 | C#|
 |[ADLINK MXE-202i](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1589) |Wind River | Javascript|
 |[ADLINK MXE-5400](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1318) |Windows 10 | C#|
+|[ADLINK NuPRO-E43](http://www.adlinktech.com/index.php) |Windows 10 | C#|
 |[Advantech Co., ARK-2121L](http://www.advantech.com/products/ark-2000_series_embedded_box_pcs/ark-2121l/mod_dd092808-0832-44bc-b38a-945eb7e016bd) |Windows 10 | C#|
 |[Advantech Co., ARK-1123C](http://www.advantech.com/products/92d96fda-cdd3-409d-aae5-2e516c0f1b01/ark-1123c/mod_0b91165c-aa8c-485d-8d25-fde6f88f4873) |Windows 10 | C#|
 |[Advantech Co., LTD UNO-1372G](http://www.advantech.com/products/gf-bvl2/uno-1372g/mod_8e63b3c9-b606-4725-a1af-94fccb98bb1a) |Windows 10 | C#|

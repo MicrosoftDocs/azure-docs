@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Data Factory (Azure Portal)"
+	pageTitle="Build your first data factory (Azure Portal) | Microsoft Azure"
 	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Data Factory Editor in the Azure Portal."
 	services="data-factory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="12/18/2015"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# Get started with Azure Data Factory (Data Factory Editor)
+# Build your first Azure data factory using Azure Portal/Data Factory Editor
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -270,6 +270,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 
 	In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
+	> [ACOM.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the above example. 
 
 3. Confirm that you see the input.log file in the adfgetstarted/inputdata folder in the Azure blob storage, and click **Deploy** on the command bar to deploy the pipeline. Since the **start** and **end** times are set in the past and **isPaused** is set to false, the pipeline (activity in the pipeline) runs immediately after you deploy. 
 4. Confirm that you see the pipeline in the tree view.

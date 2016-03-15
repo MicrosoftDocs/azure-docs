@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="03/11/2016"
 	ms.author="spelluru"/>
 
 # Compute Linked Services
@@ -38,41 +38,23 @@ Note the following **important** points about on-demand HDInsight linked service
 > [AZURE.IMPORTANT] It typically takes more than **15 minutes** to provision an Azure HDInsight cluster on demand.
 
 ### Example
-The following JSON defines an on-demand HDInsight linked service. The Data Factory automatically creates a **Windows-based** HDInsight cluster when processing a data slice. Note the **osType** is not specified in this sample JSON and the default value for this property is **Windows**.  
-
-	{
-	  "name": "HDInsightOnDemandLinkedService",
-	  "properties": {
-	    "type": "HDInsightOnDemand",
-	    "typeProperties": {
-	      "version": "3.2",
-	      "clusterSize": 1,
-	      "timeToLive": "00:30:00",
-	      "linkedServiceName": "StorageLinkedService"
-	    }
-	  }
-	}
-
-
-The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice. You must specify values for **sshUserName** and **sshPassword**.   
+The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice. 
 
 
 	{
 	    "name": "HDInsightOnDemandLinkedService",
 	    "properties": {
-	        "hubName": "getstarteddf0121_hub",
 	        "type": "HDInsightOnDemand",
 	        "typeProperties": {
-	            "version": "3.2",
 	            "clusterSize": 4,
 	            "timeToLive": "00:05:00",
 	            "osType": "linux",
-	            "sshPassword": "MyPassword!",
-	            "sshUserName": "myuser",
-	            "linkedServiceName": "StorageLinkedService",
+	            "linkedServiceName": "StorageLinkedService"
 	        }
 	    }
 	}
+
+To use a Windows-based HDInsight cluster, set **osType** to **windows** or do not use the property as the default value is: windows.  
 
 > [AZURE.IMPORTANT] 
 > The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done. 
@@ -85,14 +67,12 @@ Property | Description | Required
 -------- | ----------- | --------
 type | The type property should be set to **HDInsightOnDemand**. | Yes
 clusterSize | The size of the on-demand cluster. Specify how many nodes you want to be in this on-demand cluster. | Yes
-timetolive | <p>The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster will stay alive after completion of an activity run if there are no other active jobs in the cluster.</p><p>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.</p><p>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.</p><p>If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.</p><p>Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set</p> | Yes
+timetolive | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster will stay alive after completion of an activity run if there are no other active jobs in the cluster.<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set | Yes
 version | Version of the HDInsight cluster. The default value is 3.1 for Windows cluster and 3.2 for Linux cluster. | No
 linkedServiceName | The blob store to be used by the on-demand cluster for storing and processing data. | Yes
 additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. | No
 osType | Type of operating system. Allowed values are: Windows (default) and Linux | No
 hcatalogLinkedServiceName | The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster will be created by using the Azure SQL database as the metastore. | No
-sshUser | SSH user for the Linux-based HDInsight cluster | Yes (only for Linux)
-sshPassword | SSH password for the Linux-based HDInsight cluster | Yes (only for Linux)
 
 
 #### additionalLinkedServiceNames JSON example
@@ -126,7 +106,6 @@ yarnConfiguration | Specifies the Yarn configuration parameters (yarn-site.xml) 
 	    "typeProperties": {
 	      "clusterSize": 16,
 	      "timeToLive": "01:30:00",
-	      "version": "3.2",
 	      "linkedServiceName": "adfods1",
 	      "coreConfiguration": {
 	        "templeton.mapper.memory.mb": "5000"
@@ -324,9 +303,8 @@ The authorization code you generated by using the **Authorize** button expires a
 
 | User type | Expires after |
 | :-------- | :----------- | 
-| Users NOT managed by Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 hours |
-| Users managed by Azure Active Directory (AAD) | | 14 days after the last slice run, If no slices based on OAuth-based linked service run for 14 days since the last slice run. <p>90 days, if a slice based on OAuth-based linked service runs at least once every 14 days.</p> |
-
+| User accounts NOT managed by Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 hours |
+| Users accounts managed by Azure Active Directory (AAD) | 14 days after the last slice run. <br/><br/>90 days, if a slice based on OAuth-based linked service runs at least once every 14 days. |
  
 To avoid/resolve this error, you will need to reauthorize using the **Authorize** button when the **token expires** and redeploy the linked service. You can also generate values for sessionId and authorization properties programmatically using code in the following section. 
 
