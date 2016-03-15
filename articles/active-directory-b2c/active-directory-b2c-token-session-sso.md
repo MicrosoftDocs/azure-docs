@@ -37,8 +37,7 @@ You can use this feature in your B2C tenant as follows:
 7. Click **OK**.
 8. Click **Save** on the top of the blade.
 
-[comment]: <> (![Screenshot of token, session and single sign-on config](./media/active-directory-b2c-token-session-sso/token-session-sso.png))
-![Screenshot of token, session and single sign-on config](./token-session-sso.png)
+![Screenshot of token, session and single sign-on config](./media/active-directory-b2c-token-session-sso/token-session-sso.png)
 
 ## Token lifetimes configuration
 
