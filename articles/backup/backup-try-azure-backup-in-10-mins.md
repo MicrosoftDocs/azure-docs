@@ -1,6 +1,6 @@
 <properties
-   pageTitle="First look: How to back up a Windows Server or client to Azure | Microsoft Azure"
-   description="Learn how to backup a Windows Server using Azure Backup with these easy steps"
+   pageTitle="Back up files and folders from Windows to Azure | Microsoft Azure"
+   description="Protect your Windows Server data by creating a vault, installing the backup agent, and backing up your files and folders to Azure."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
@@ -14,17 +14,22 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="hero-article"
-	 ms.date="02/21/2016"
+	 ms.date="03/09/2016"
 	 ms.author="jimpark;"/>
 
-# Back up a Windows Server or client to Azure
+# First look: back up files and folders from Windows Server or client to Azure
 
-In just a few steps you can back up your Windows machine (Windows client or Windows Server) to Azure. When you've completed the 4 steps below, you will have:
+In just a few steps you can back up your Windows machine (Windows client or Windows Server) to Azure.
 
-- Set up an Azure subscription (if necessary).
-- Created a backup vault and downloaded the necessary components.
-- Prepared your Windows Server or client by installing and registering those components.
-- Backed up your data.
+It only requires these steps:
+
+![Step 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Get an Azure subscription (if necessary).<br>
+![Step 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Create a backup vault and download the necessary components.<br>
+![Step 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Prepare your Windows Server or client by installing and registering those components.<br>
+![Step 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Protect your data.
+
+
+![Windows Server and client backup process](./media/backup-try-azure-backup-in-10-mins/windows-machine-backup-process.png)
 
 ## Step 1: Get an Azure subscription
 
@@ -32,7 +37,7 @@ If you do not have an Azure subscription, you can create a [free account](https:
 
 >[AZURE.NOTE] You can skip this step if you already have an Azure subscription.
 
-## Step 2: Create a backup vault
+## Step 2: Create a backup vault and download the necessary components
 
 To back up files and data from a Windows machine to Azure, you need to create a backup vault in the geographic region where you want to store the data.
 
@@ -116,7 +121,7 @@ To back up files and data from a Windows machine to Azure, you need to create a 
 
 At this point, you've finished creating a backup vault and downloading the necessary components. Now you'll install the backup agent.
 
-## Step 3: Install the Azure Backup agent on your Windows Server or client
+## Step 3: Prepare your Windows Server or client by installing and registering those components
 
 1. After the download finishes, double click the **MARSagentinstaller.exe** from the saved location (or you could click **Run** instead of saving the file in the previous step).
 
@@ -170,9 +175,9 @@ At this point, you've finished creating a backup vault and downloading the neces
 
     The machine is now registered successfully to the vault and you are ready to configure and schedule your backup options.
 
-## Step 4: Back up files and folders
+## Step 4: Protect your data
 
-1. In the mmc snap-in (which opened automatically if you left the **Launch Microsoft Azure Recovery Services Agent** checkbox checked) click **Schedule Backup**.
+1. In the **Backup agent** (which opened automatically if you left the **Launch Microsoft Azure Recovery Services Agent** checkbox checked) click **Schedule Backup**.
 
     ![Schedule a Windows Server Backup](./media/backup-try-azure-backup-in-10-mins/snap-in-schedule-backup-closeup.png)
 
@@ -222,11 +227,11 @@ At this point, you've finished creating a backup vault and downloading the neces
 
     ![Initial Windows Server backup](./media/backup-try-azure-backup-in-10-mins/backup-schedule-created.png)
 
-9. In the mmc snap in click **Back up Now** to complete the initial seeding over the network.
+9. In the **Backup agent** click **Back up Now** to complete the initial seeding over the network.
 
     ![Windows Server backup now](./media/backup-try-azure-backup-in-10-mins/snap-in-backup-now.png)
 
-10. On the **Confirmation** screen, review the settings the wizard will use to backup the machine and click **Back Up**.
+10. On the **Confirmation** screen, review the settings the wizard will use to back up the machine and click **Back Up**.
 
     ![Windows Server backup now](./media/backup-try-azure-backup-in-10-mins/backup-now-confirmation.png)
 

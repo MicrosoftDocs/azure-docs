@@ -122,7 +122,7 @@ For more details, see [Sharing an ExpressRoute circuit across multiple subscript
 No. All virtual networks linked to the same ExpressRoute circuit are part of the same routing domain and are not isolated from each other from a routing perspective. If you need route isolation, you’ll need to create a separate ExpressRoute circuit.
 
 ### Can I have one virtual network connected to more than one ExpressRoute circuit?
-Yes. You can link a single virtual network with up to 4 ExpressRoute circuits. They must be ordered through 4 different locations.
+Yes. You can link a single virtual network with up to 4 ExpressRoute circuits. They must be ordered through 4 different [ExpressRoute locations](expressroute-locations.md).
 
 ### Can I access the internet from my virtual networks connected to ExpressRoute circuits?
 Yes. If you have not advertised default routes (0.0.0.0/0) or internet route prefixes through the BGP session, you will be able to connect to the internet from a virtual network linked to an ExpressRoute circuit.
