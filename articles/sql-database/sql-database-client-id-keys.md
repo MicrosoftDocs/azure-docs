@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Register your app to access Azure SQL Database | Microsoft Azure"
-   description="Register your app and get the required client values for connecting with code to SQL Database."
+   pageTitle="Register your app and get the client id and key for connecting to SQL Database from code | Microsoft Azure"
+   description="Get the client id and key for accessing SQL Database from code."
    services="sql-database"
    documentationCenter=""
    authors="stevestein"
@@ -17,9 +17,9 @@
    ms.date="03/15/2016"
    ms.author="sstein"/>
 
-# Get the required values for connecting your app to SQL Database
+# Get the client id and key for connecting to SQL Database from code
 
-To create and manage Azure SQL Database from an application you must register your app in the Azure Active Directory (AAD) domain associated with the subscription where your Azure resources have been created. When you register your app, Azure will generate values that you will need in your code to authenticate your client application. For more information, see [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+To create and manage SQL Database from code you must register your app in the Azure Active Directory (AAD) domain associated with the subscription where your Azure resources have been created. When you register your application, Azure will generate a client id and key that you will need in your code to authenticate your app. For more information, see [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ## Register a native client application and get the client id
 
