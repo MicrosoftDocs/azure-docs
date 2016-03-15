@@ -140,7 +140,7 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
  
 	- To view devices presented within sessions, select the **Devices** tab. To configure the MPIO policy for a selected device, click **MPIO**. The **Device Details** dialog box will appear. On the **MPIO** tab, you can select the appropriate **Load Balance Policy** settings. You can also view the **Active** or **Standby** path type.
 
-10. Repeat Steps 5-8 to add additional sessions (paths) to the target. With two interfaces on the host and two on the device, you can add a total of four sessions for each target. 
+10. Repeat steps 8-11 to add additional sessions (paths) to the target. With two interfaces on the host and two on the device, you can add a total of four sessions for each target. 
 
 	![mpio14](./media/storsimple-ova-configure-mpio-windows-server/mpio14.png)
 
