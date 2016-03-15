@@ -135,7 +135,7 @@ The domain name is sometimes required for your auth code. An easy way to identif
 
 
 
-## Example Console Application (Native Application)
+## Example Console Application
 
 
 Get the required management library by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
