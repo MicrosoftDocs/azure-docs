@@ -33,6 +33,7 @@ At this time, multi NIC has the following requirements and constraints:
 - Within a single cloud service (classic deployments) or resource group (Resource Manager deployment), only the following settings are allowed: 
 	- All VMs in that cloud service must be multi NIC enabled, or 
 	- All VMs in that cloud service must each have a single NIC 
+	- Also, a virtual machine having no secondary network interfaces cannot be updated to have secondary network interfaces and vice-versa.
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. 
  
