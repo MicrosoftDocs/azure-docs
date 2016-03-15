@@ -11,7 +11,7 @@ To deploy the ARM template you downloaded by using Azure CLI, follow the steps b
 
 		info:    New mode is arm
 
-3. If necessary, run the **`azure group create`** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/virtual-network/resource-group-overview.md).
+3. If necessary, run the **`azure group create`** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/resource-group-overview.md).
 
 		azure group create -n TestRG -l centralus
 
