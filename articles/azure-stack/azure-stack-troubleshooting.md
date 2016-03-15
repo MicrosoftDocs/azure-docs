@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="What is Azure Stack Technical Preview 1? | Microsoft Azure"
+	pageTitle="Microsoft Azure Stack troubleshooting and known issues? | Microsoft Azure"
 	description="Azure Stack troubleshooting and known issues."
 	services="azure-stack"
 	documentationCenter=""
