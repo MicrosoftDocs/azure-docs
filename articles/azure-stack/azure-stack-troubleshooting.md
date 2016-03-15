@@ -28,7 +28,7 @@ If you do install from a bare metal server without using the provided Virtual Ha
 
 The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft azure Stack, and it is subject to frequent edits and updates.
 
-## Troubleshooting
+## Azure Active Directory
 
 ### JavaScript error when attempting to connect via AAD and Azure PowerShell
 
@@ -43,31 +43,6 @@ Two options are possible to work around this:
 
 Also, depending on your current actions, please ensure you are running PowerShell as the regular AzureStack user (default user when leveraging the ClientVM) and are not using “Run As Administrator” (different context). Logging in temporarily as the administrator, you could also set these options in this other user context.
 
-### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
-
-This is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment had actually succeeded but the script was paused when selecting the window. Please press the ESC key to unselect it, and the completion message should be shown after it.
-
-### A new image added to the Platform Image Repository (PIR) may not show up in the portal
-
-First, it is important to note that it can take some time (5 to 10 minutes) for the image to show up in TP1, after running “CopyImageToPlatformImageRepository.ps1”.
-
-Also, if the value for -Offer and/or -SKU contains a space, the manifest will be invalid and a gallery item will not be created. This is a known issue, and the current workaround is to ensure you don’t use space, for example changing the SKU from “Windows Server 2012 R2 Standard" to either "Windows-Server-2012-R2-Standard" or “WindowsServer2012R2Standard"
-
-Finally, we’ve seen reports where increasing the number of virtual processors (to 4 or 8) and memory (to 8 GB) for the xRPVM would solve this situation. If you do see this, please make sure to post a message on Yammer.
-
-### I can’t find the AzureRM.AzureStackStorage PowerShell module
-
-This module is called out in some of the Azure Consistent Storage (ACS) scenarios, and is preinstalled on the ClientVM machine.
-If you want to install it on another machine, it is provided as part of the Azure Stack installation files.
-
-After mounting the MicrosoftAzureStackPOC.vhdx file on the host machine, you can find this module in the Azure PowerShell module from this \This PC\DataImage\Dependencies folder.
-
-### Frequent crashes in the ComputeController (CRP.SelfHost) service
-
-The issue may occur when the steps to create and configure the VM NIC for a particular VM fail partway, leaving a partially configured NIC and missing persisted state representing the NIC. Normally, CRP is supposed to handle these partial failures and try to recover from them to complete the configuration, but this specific case is a known issue in the ComputeController service that assumes the persisted state is always there for any NIC discovered via Hyper-V. Until this is fixed, one way to unblock your environment is by manually deleting that Hyper-V NIC:
-
-`Remove-VMNetworkAdapter -VMNetworkAdapter $nic`
-
 ### Cookies error when attempting to connect via AAD and AzureRM PowerShell
 
 If you encounter this issue, the workaround is: 
@@ -81,13 +56,12 @@ If you encounter this issue, the workaround is:
 
 >[AZURE.NOTE] You may need to manually find iexplore.exe in the Program Files\Internet Explorer directory.
 
-### Templates deployment may be failing with Visual Studio and Azure SDK 2.8.2
 
-When this happens, you may get a deserialization error in Visual Studio’s PowerShell output.
+## Deployment
 
-To work around this issue, uninstall Azure PowerShell from Control Panel and then add it back using Web Platform Installer.
+### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
 
-It is important to uninstall the previous Azure PowerShell version before installing the latest February 2016 version. If you do an upgrade, the way Windows Installer handles versioning may leave you with older cmdlets for some of the modules.
+This is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment had actually succeeded but the script was paused when selecting the window. Please press the ESC key to unselect it, and the completion message should be shown after it.
 
 ### POC Deployment fails at “DomainJoin” step
 
@@ -100,95 +74,9 @@ As a workaround if this is not a separate entry you have control over within you
 
 3.  Re-run the POC deployment script. You do not need to reinstall the host machine
 
-### Failures when deploying the Web Apps RP template via the portal
-
-Line 410 of the template still has a comment that should have been removed. This line should be deleted before deploying the template from the portal. This should be corrected in the next update for the installation files for the Web Apps RP
-
-### Failures when deploying the Web Apps RP template via PowerShell
-
-If you receive a message about secure strings being expected for passwords, when deploying the template with PowerShell, you can use this syntax to pass a secure string:
-
-`-adminPassword (“MyPassword” | ConvertTo-SecureString –AsPlainText –Force)`
-
-There are other ways to do this via PowerShell, like using the Get-Credential cmdlet.
-
-### The marketplace UI may error after you remove a previously added image from the PIR
-
-This is mentioned in the documentation but can be easily missed:
-
-To fix this, click Settings in the portal. Then, click Discard modifications under Portal customization.
-
-### “Gateway Timeout” error message when working with virtual machines
-
-In PowerShell, the error message may be:
-
-Gateway Timeout: The gateway did not receive a response from 'Microsoft.Compute' within the specified time period.
-
-Restarting the Compute Resource Provider (CRP) services on the xRPVM, or restarting this VM, should solve the issue. 
-
 ###  My deployment fails with an error about a time and/or date difference between the client and server
 
 Please check your BIOS settings, in case there is an option to synchronize time. We have seen this issue with HP servers (DL380 G9), using the “Coordinated Universal Time” feature. This is what step #8 in the deployment guide means: “Configure the BIOS to use Local Time instead of UTC.” 
-
-### When signing in to Azure Stack as a tenant using PowerShell, I am getting an error “We received a bad request”
-
-Please make sure the tenant GUID used in the URL to sign in is the right one.
-
-Here is a process to get the right GUID:
-
-1.  Sign in to https://manage.windowsazure.com.
-
-2.  Scroll down to and click on Azure Active Directory.
-
-3.  Choose a directory.
-
-4.  Make sure the following screen is visible (not further in - not users, applications, etc.):
-  
-  ![directory page](media/azure-stack-troubleshooting/azurestackdirpage.png)
-
-5.  Inspect the URL while looking at this screen, and find the following section of the URL:
-
-  ![directory page](media/azure-stack-troubleshooting/tenantguidinurl.png)
-  
-6. Copy the Directory GUID for later use when referencing this directory:
-
-https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/<GUID>/directoryQuickStart 
-
-### Templates leveraging DSC extensions are failing, not completing or providing inconsistent results
-
-Make sure the templates you are using are referencing DSC extension version 2.13 (included with TP1 in the  \\sofs\Share\CRP\GuestArtifactRepository directory) , or leverage the autoUpgradeMinorVersion option.
-
-If you need to explicitly leverage version 2.13, this may not possible when nested templates stored on GitHub are being used. In this situation, you can copy the nested template from GitHub, edit it to use version 2.13, and store them in a local blob storage in your Azure Stack environment.
-
-### When creating a storage account in PowerShell, I get an error about the “specific argument was out of the range of valid values”
-
-Please ensure you use all minimal caps for the storage account. This behavior is consistent with Microsoft Azure (public cloud).
-
-### The SQL Server VM templates are failing to deploy SQL Server
-
-SQL Server requires .NET Framework 3.5, and the image used in the template must contain that component. The default image provided with TP1 does not include the .NET Framework 3.5.
-
-To create a new image with this component, see [Add an image to the Platform Image Repository (PIR) in Azure Stack](azure-stack-add-image-pir.md).
-
-### Configuring the .NET 3.5-enabled image to use when deploying the PaaS RPs
-
-The SQL Server Resource Provider and the Web Apps Resource Providers both require a Windows Server image with .NET 3.5 installed.
-By leveraging the steps mentioned just before in this document, you create such an image, and the documentation tells you to replace the default Windows Server 2012 R2 image with this new .NET 3.5-enabled image. Those steps are accurate and, if you follow them, things should be working.
-
-However, you may want to keep one image without .NET 3.5 and one with .NET 3.5. For this, you can just add your new .NET 3.5-enabled image to the Platform Image Repository (PIR), and change the “SKU”, “Publisher”, “Offer” fields from the SQL Server RP and Web Apps RP templates, to match your new values.
-
-### Network resolution issues from tenant virtual machines
-
-With this release, Virtual Machines should be able to connect to the internet, for example for some of the virtual machine extensions.
-
-If you are having internet connectivity issues from within the virtual machines, it is likely due to the fact that we do not have the iDNS feature yet in this Technical Preview 1 release, meaning that a shared DNS feature from Azure is not configured by default.
-You can confirm this by looking at the “DNS servers” settings for the associated virtual network.
-
-In the portal, this can be changed to 192.168.100.2 and another public DNS value for the second one that is required. This can also be controlled when deploying via a template, by using this setting in the “dhcpOptions” for the virtual network:
-`"dnsServers": ["192.168.100.2"]`
-
-This setting can also be used when deploying a virtual machine via a template that also includes a virtual network.
-If you need to change this for an existing virtual network, virtual machines that are already deployed will need to be stopped and restarted. When logging into the restarted VM, you should confirm it has picked up the new settings from the Network Controller, via DHCP. Doing changes directly in the VM may work, but would be a change “out of band” for the Network Controller, so is not desired. Disabling/enabling the virtual NIC within the VM would also be a possibility at this stage (since you have access to both tenant and service admin sides in the POC).
 
 ### Installing .NET Framework 3.5 on a Windows Server 2012 R2 machine, from the command line
 
@@ -225,6 +113,132 @@ Note: TP1 doesn’t support scenarios where the proxy requires authentication.
 Repair actions: If you hit this error, ensure NATVM and PortalVM can connect to the Internet and re-run the deployment script, for example, assign proper IP / Gateway on the NATVM, and configure HTTP Proxy on PortalVM and ClientVM. If this does not succeed, you may try to redeploy POC on a clean machine with the correct parameters.
 
 Information about the NATVMStaticIP,  NATVMStaticGateway, and ProxyServer parameters can be found in the [deployment documentation](azure-stack-run-powershell-script.md).
+
+
+## PaaS resource providers
+
+### Failures when deploying the Web Apps RP template via the portal
+
+Line 410 of the template still has a comment that should have been removed. This line should be deleted before deploying the template from the portal. This should be corrected in the next update for the installation files for the Web Apps RP
+
+### Failures when deploying the Web Apps RP template via PowerShell
+
+If you receive a message about secure strings being expected for passwords, when deploying the template with PowerShell, you can use this syntax to pass a secure string:
+
+`-adminPassword (“MyPassword” | ConvertTo-SecureString –AsPlainText –Force)`
+
+There are other ways to do this via PowerShell, like using the Get-Credential cmdlet.
+
+### Configuring the .NET 3.5-enabled image to use when deploying the PaaS RPs
+
+The SQL Server Resource Provider and the Web Apps Resource Providers both require a Windows Server image with .NET 3.5 installed.
+By leveraging the steps mentioned just before in this document, you create such an image, and the documentation tells you to replace the default Windows Server 2012 R2 image with this new .NET 3.5-enabled image. Those steps are accurate and, if you follow them, things should be working.
+
+However, you may want to keep one image without .NET 3.5 and one with .NET 3.5. For this, you can just add your new .NET 3.5-enabled image to the Platform Image Repository (PIR), and change the “SKU”, “Publisher”, “Offer” fields from the SQL Server RP and Web Apps RP templates, to match your new values.
+
+## Platform Image Repository
+
+### A new image added to the Platform Image Repository (PIR) may not show up in the portal
+
+First, it is important to note that it can take some time (5 to 10 minutes) for the image to show up in TP1, after running “CopyImageToPlatformImageRepository.ps1”.
+
+Also, if the value for -Offer and/or -SKU contains a space, the manifest will be invalid and a gallery item will not be created. This is a known issue, and the current workaround is to ensure you don’t use space, for example changing the SKU from “Windows Server 2012 R2 Standard" to either "Windows-Server-2012-R2-Standard" or “WindowsServer2012R2Standard"
+
+Finally, we’ve seen reports where increasing the number of virtual processors (to 4 or 8) and memory (to 8 GB) for the xRPVM would solve this situation. If you do see this, please make sure to post a message on Yammer.
+
+### The marketplace UI may error after you remove a previously added image from the PIR
+
+This is mentioned in the documentation but can be easily missed:
+
+To fix this, click Settings in the portal. Then, click Discard modifications under Portal customization.
+
+## Powershell
+
+### I can’t find the AzureRM.AzureStackStorage PowerShell module
+
+This module is called out in some of the Azure Consistent Storage (ACS) scenarios, and is preinstalled on the ClientVM machine.
+If you want to install it on another machine, it is provided as part of the Azure Stack installation files.
+
+After mounting the MicrosoftAzureStackPOC.vhdx file on the host machine, you can find this module in the Azure PowerShell module from this \This PC\DataImage\Dependencies folder.
+
+### When signing in to Azure Stack as a tenant using PowerShell, I am getting an error “We received a bad request”
+
+Please make sure the tenant GUID used in the URL to sign in is the right one.
+
+Here is a process to get the right GUID:
+
+1.  Sign in to https://manage.windowsazure.com.
+
+2.  Scroll down to and click on Azure Active Directory.
+
+3.  Choose a directory.
+
+4.  Make sure the following screen is visible (not further in - not users, applications, etc.):
+  
+  ![directory page](media/azure-stack-troubleshooting/azurestackdirpage.png)
+
+5.  Inspect the URL while looking at this screen, and find the following section of the URL:
+
+  ![directory page](media/azure-stack-troubleshooting/tenantguidinurl.png)
+  
+6. Copy the Directory GUID for later use when referencing this directory:
+
+https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/<GUID>/directoryQuickStart 
+
+### When creating a storage account in PowerShell, I get an error about the “specific argument was out of the range of valid values”
+
+Please ensure you use all minimal caps for the storage account. This behavior is consistent with Microsoft Azure (public cloud).
+
+## Templates
+
+### Templates deployment may be failing with Visual Studio and Azure SDK 2.8.2
+
+When this happens, you may get a deserialization error in Visual Studio’s PowerShell output.
+
+To work around this issue, uninstall Azure PowerShell from Control Panel and then add it back using Web Platform Installer.
+
+It is important to uninstall the previous Azure PowerShell version before installing the latest February 2016 version. If you do an upgrade, the way Windows Installer handles versioning may leave you with older cmdlets for some of the modules.
+
+### Templates leveraging DSC extensions are failing, not completing or providing inconsistent results
+
+Make sure the templates you are using are referencing DSC extension version 2.13 (included with TP1 in the  \\sofs\Share\CRP\GuestArtifactRepository directory) , or leverage the autoUpgradeMinorVersion option.
+
+If you need to explicitly leverage version 2.13, this may not possible when nested templates stored on GitHub are being used. In this situation, you can copy the nested template from GitHub, edit it to use version 2.13, and store them in a local blob storage in your Azure Stack environment.
+
+### The SQL Server VM templates are failing to deploy SQL Server
+
+SQL Server requires .NET Framework 3.5, and the image used in the template must contain that component. The default image provided with TP1 does not include the .NET Framework 3.5.
+
+To create a new image with this component, see [Add an image to the Platform Image Repository (PIR) in Azure Stack](azure-stack-add-image-pir.md).
+
+## Virtual machines
+
+### Frequent crashes in the ComputeController (CRP.SelfHost) service
+
+The issue may occur when the steps to create and configure the VM NIC for a particular VM fail partway, leaving a partially configured NIC and missing persisted state representing the NIC. Normally, CRP is supposed to handle these partial failures and try to recover from them to complete the configuration, but this specific case is a known issue in the ComputeController service that assumes the persisted state is always there for any NIC discovered via Hyper-V. Until this is fixed, one way to unblock your environment is by manually deleting that Hyper-V NIC:
+
+`Remove-VMNetworkAdapter -VMNetworkAdapter $nic`
+
+### “Gateway Timeout” error message when working with virtual machines
+
+In PowerShell, the error message may be:
+
+Gateway Timeout: The gateway did not receive a response from 'Microsoft.Compute' within the specified time period.
+
+Restarting the Compute Resource Provider (CRP) services on the xRPVM, or restarting this VM, should solve the issue. 
+
+### Network resolution issues from tenant virtual machines
+
+With this release, Virtual Machines should be able to connect to the internet, for example for some of the virtual machine extensions.
+
+If you are having internet connectivity issues from within the virtual machines, it is likely due to the fact that we do not have the iDNS feature yet in this Technical Preview 1 release, meaning that a shared DNS feature from Azure is not configured by default.
+You can confirm this by looking at the “DNS servers” settings for the associated virtual network.
+
+In the portal, this can be changed to 192.168.100.2 and another public DNS value for the second one that is required. This can also be controlled when deploying via a template, by using this setting in the “dhcpOptions” for the virtual network:
+`"dnsServers": ["192.168.100.2"]`
+
+This setting can also be used when deploying a virtual machine via a template that also includes a virtual network.
+If you need to change this for an existing virtual network, virtual machines that are already deployed will need to be stopped and restarted. When logging into the restarted VM, you should confirm it has picked up the new settings from the Network Controller, via DHCP. Doing changes directly in the VM may work, but would be a change “out of band” for the Network Controller, so is not desired. Disabling/enabling the virtual NIC within the VM would also be a possibility at this stage (since you have access to both tenant and service admin sides in the POC).
 
 ### After starting my Microsoft Azure Stack POC host, all my tenants VMs are gone from Hyper-V Manager, and come back automatically after waiting a bit?
 
