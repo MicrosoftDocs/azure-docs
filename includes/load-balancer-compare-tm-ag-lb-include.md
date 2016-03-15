@@ -22,10 +22,10 @@ Azure Load Balancer and Application Gateway route network traffic to endpoints b
 | Type | Azure Load Balancer | Application Gateway |
 |---|---|---|
 | Protocols | UDP/TCP | HTTP/ HTTPS |
-| IP reservation | supported | not supported | 
+| IP reservation | Supported | Not supported | 
 | Load balancing mode | 5 tuple(source IP, source port, destination IP,destination port, protocol type) | CookieBasedAffinity = false,rules = basic (Round-Robin) | 
 | Load balancing mode (source IP /sticky sessions) |  2 tuple (source IP and destination IP), 3 tuple (source IP, destination IP and port). Can scale up or down based on the number of virtual machines | CookieBasedAffinity = true,rules = basic (Roud-Robin) for new connections. |
-| health probes | default: probe interval - 15 secs.taken out of rotation: 2 Continuous failures.Supports user defined probes | Idle probe interval 30 secs. Taken out after 5 consecutive live traffic failures or a single probe failure in idle mode. Supports user defined probes | 
+| health probes | Default: probe interval - 15 secs.taken out of rotation: 2 Continuous failures.Supports user defined probes | Idle probe interval 30 secs. Taken out after 5 consecutive live traffic failures or a single probe failure in idle mode. Supports user defined probes | 
 | SSL offloading | not supported | supported | 
 
 
