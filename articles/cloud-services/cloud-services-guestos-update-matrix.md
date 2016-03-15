@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="02/22/2016"
+   ms.date="03/14/2016"
    ms.author="yuemlu"/>
 
 # Azure Guest OS releases and SDK compatibility matrix
@@ -29,6 +29,8 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 
 
 ## News updates
+###### **March 14 2016**
+March Guest OS rollout is starting March 14 2016, and projected to be released on April 8 2016.
 
 ###### **February 22 2016**
 February Guest OS rollout is starting February 22 2016, and projected to be released on March 9 2016.
@@ -185,9 +187,10 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2 (Note 2)
 
 | Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 4.29             | WA-GUEST-OS-4.29_201602-01 | Projected March 9 2016 | Will be updated when 4.31 is released | TBD |
+| 4.30             | WA-GUEST-OS-4.30_201603-01 | Projected April 8 2016 | Will be updated when 4.32 is released | TBD |
+| 4.29             | WA-GUEST-OS-4.29_201602-01 | March 12 2016          | Will be updated when 4.31 is released | TBD |
 | 4.28             | WA-GUEST-OS-4.28_201601-01 | Feb 12 2016            | Will be updated when 4.30 is released | TBD |
-| 4.27             | WA-GUEST-OS-4.27_201512-01 | Jan 12 2016            | Will be updated when 4.29 is released | TBD |
+| 4.27             | WA-GUEST-OS-4.27_201512-01 | Jan 12 2016            | April 12 2016 | TBD |
 | 4.26             | WA-GUEST-OS-4.26_201511-02 | Jan 4 2016             | March 12 2016| TBD |
 | 4.26             | WA-GUEST-OS-4.26_201511-01 | Dec 10 2015            | March 12 2016| TBD |
 | 4.25             | WA-GUEST-OS-4.25_201510-01 | Nov 6 2015             | Feb 12 2016  | TBD |
@@ -217,9 +220,10 @@ Supports .NET 4.0, 4.5
 
 | Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 3.36             | WA-GUEST-OS-3.36_201602-01 | Projected March 9 2016 | Will be updated when 3.38 is released | TBD |
+| 3.37             | WA-GUEST-OS-3.37_201603-01 | Projected April 8 2016 | Will be updated when 3.39 is released | TBD |
+| 3.36             | WA-GUEST-OS-3.36_201602-01 | March 12 2016          | Will be updated when 3.38 is released | TBD |
 | 3.35             | WA-GUEST-OS-3.35_201601-01 | Feb 12 2016            | Will be updated when 3.37 is released | TBD |
-| 3.34             | WA-GUEST-OS-3.34_201512-01 | Jan 12 2016            | Will be updated when 3.36 is released | TBD |
+| 3.34             | WA-GUEST-OS-3.34_201512-01 | Jan 12 2016            | April 12 2016 | TBD |
 | 3.33             | WA-GUEST-OS-3.33_201511-02 | Jan 4 2016             | March 12 2016| TBD |
 | 3.33             | WA-GUEST-OS-3.33_201511-01 | Dec 10 2015            | March 12 2016| TBD |
 | 3.32             | WA-GUEST-OS-3.32_201510-01 | Nov 6 2015             | Feb 12 2016  | TBD |
@@ -250,9 +254,10 @@ Supports .NET 3.5, 4.0
 
 | Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 2.48             | WA-GUEST-OS-2.48_201602-01 | Projected March 9 2016 | Will be updated when 2.50 is released | TBD |
+| 2.49             | WA-GUEST-OS-2.49_201603-01 | Projected April 8 2016 | Will be updated when 2.51 is released | TBD |
+| 2.48             | WA-GUEST-OS-2.48_201602-01 | March 12 2016          | Will be updated when 2.50 is released | TBD |
 | 2.47             | WA-GUEST-OS-2.47_201601-01 | Feb 12 2016            | Will be updated when 2.49 is released | TBD |
-| 2.46             | WA-GUEST-OS-2.46_201512-01 | Jan 12 2016            | Will be updated when 2.48 is released | TBD |
+| 2.46             | WA-GUEST-OS-2.46_201512-01 | Jan 12 2016            | April 12 2016 | TBD |
 | 2.45             | WA-GUEST-OS-2.45_201511-02 | Jan 4 2016             | March 12 2016| TBD |
 | 2.45             | WA-GUEST-OS-2.45_201511-01 | Dec 10 2015            | March 12 2016| TBD |
 | 2.44             | WA-GUEST-OS-2.44_201510-01 | Nov 6 2015             | Feb 12 2016  | TBD |
