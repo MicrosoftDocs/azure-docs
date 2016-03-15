@@ -167,20 +167,59 @@ If you need help with this PowerShell script, see [Using the Azure PowerShell wi
  
 ## Create data factory
 
-With the storage account, the input data, and the HiveQL script prepared, you are ready to create an Azure data factory. There are several methods for creating data factory. You will use the Azure portal to call an custom ARM template in this tutorial. You can also call the ARM template from [Azure CLI](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) and [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). For other data factory creation methods, see [Tutorial: Build your first data factory](../data-factory/data-factory-build-your-first-pipeline.md).
+With the storage account, the input data, and the HiveQL script prepared, you are ready to create an Azure data factory. There are several methods for creating data factory. You will use the Azure portal to call a custom ARM template in this tutorial. You can also call the ARM template from [Azure CLI](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) and [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). For other data factory creation methods, see [Tutorial: Build your first data factory](../data-factory/data-factory-build-your-first-pipeline.md).
 
 The top level ARM template contains:
 
-![Azure Data Factory HDInsight on demand hive activity ARM template](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-arm-template-top-level.png)
+    {
+        "contentVersion": "1.0.0.0",
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "parameters": { ...
+        },
+        "variables": { ...
+        },
+        "resources": [
+            {
+                "name": "[parameters('dataFactoryName')]",
+                "apiVersion": "[variables('apiVersion')]",
+                "type": "Microsoft.DataFactory/datafactories",
+                "location": "westus",
+                "resources": [
+                    { ... },
+                    { ... },
+                    { ... },
+                    { ... }
+                ]
+            }
+        ]
+    }
 
-It contains one data facotry resource called *hdinsight-hive-on-demand* (The name is not shown on the screenshot). Data factory is currently only supported in the West US region and the North Europe region. 
+It contains one data factory resource called *hdinsight-hive-on-demand* (The name is not shown on the screenshot). Data factory is currently only supported in the West US region and the North Europe region. 
 
 The *hdinsight-hive-on-demand* resource contains 4 resources:
 
 - A linkedservice to the storage account that will be used as the default HDInsight storage account, input data storage, and output data storage.
-- A linkedservice to the HDInsight cluster to be created
+- A linkedservice to the HDInsight cluster to be created:
 
-    ![Azure Data Factory HDInsight on demand hive activity ARM template](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-arm-template-hdinsight-resource.png)
+
+        {
+            "dependsOn": [ ... ],
+            "type": "linkedservices",
+            "name": "[variables('hdInsightOnDemandLinkedServiceName')]",
+            "apiVersion": "[variables('apiVersion')]",
+            "properties": {
+                "type": "HDInsightOnDemand",
+                "typeProperties": {
+                    "osType": "linux",
+                    "version": "3.2",
+                    "clusterSize": 1,
+                    "sshUserName": "myuser",                            
+                    "sshPassword": "MyPassword!",
+                    "timeToLive": "00:30:00",
+                    "linkedServiceName": "[variables('storageLinkedServiceName')]"
+                }
+            }
+        },
 
     Notice the *timeToLive* setting. The data factory deletes the cluster automatically after the cluster is being idle for 30 minutes.
 - A dataset for the input data. The file name and the folder name are defined here:
@@ -204,23 +243,65 @@ The *hdinsight-hive-on-demand* resource contains 4 resources:
 
     The pipeline definition is as follows:
     
-    ![Azure Data Factory HDInsight on demand pipeline definition](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-arm-template-pipeline-definition.png)
+        {
+            "dependsOn": [ ... ],
+            "type": "datapipelines",
+            "name": "[parameters('dataFactoryName')]",
+            "apiVersion": "[variables('apiVersion')]",
+            "properties": {
+                "description": "Azure Data Factory pipeline with an Hadoop Hive activity",
+                "activities": [
+                    { ...}
+                ],
+                "start": "2016-01-01T00:00:00Z",
+                "end": "2016-02-02T00:00:00Z",
+                "isPaused": false
+            }
+        }
                 
     It contains one activity. Both *start* and *end* of the activity have a past date, which means there will be only one slice. If the end is a future date, the data factory will create another slice when the times comes. For more information, see [Data Factory Scheduling and Execution](../data-factory/data-factory-scheduling-and-execution.md).
 
     The following is the activity definition:
     
-    ![Azure Data Factory HDInsight on demand hive activity definition](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-arm-template-hive-activity-definition.png)
+        "activities": [
+            {
+                "type": "HDInsightHive",
+                "typeProperties": {
+                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                    "scriptLinkedService": "[variables('storageLinkedServiceName')]",
+                    "defines": {
+                        "inputtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/inputdata')]",
+                        "partitionedtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "AzureBlobInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutput"
+                    }
+                ],
+                "policy": {
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "name": "RunSampleHiveActivity",
+                "linkedServiceName": "HDInsightOnDemandLinkedService"
+            }
+        ],
     
     The inputs, outputs and the script path are defined.
     
 **To create a data factory**
 
-1. Click the following image to open the ARM template in the Azure Portal. The template is located at https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. You can also find the template in [Appendix-a](#appx-a-arm-template).
+1. Click the following image to open the ARM template in the Azure Portal. The template is located at https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-2. Enter **STORAGEACCOUNTNAME** and **STORAGEACCOUNTKEY** for the account you created in the last section, and then click **OK**.
+2. Enter **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** and **STORAGEACCOUNTKEY** for the account you created in the last section, and then click **OK**. Data Factory Name must be globally unique.
 3. In **Resource Group**, select the same resource group you used in the last section.
 4. Click **Legal terms**, and then click **Create**.
 5. Click **Create**. You will see a tile on the Dashboard called **Deploying Template deployment**. Wait until the tile text is changed to the resource group name.
@@ -259,182 +340,4 @@ In this article, you have learned how to use Azure Data Factory to create on-dem
 - [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [HDInsight documentation](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Data factory documentation](https://azure.microsoft.com/documentation/services/data-factory/)
-
-##Appx-A: ARM template
-
-The following is the ARM template used in this tutorial:
-
-    {
-        "contentVersion": "1.0.0.0",
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "parameters": {
-            "storageAccountName": {
-                "type": "string",
-                "metadata": {
-                    "description": "The name of the Azure Storage account that will be used as the default for  the HDInsight cluster, and be used for input and output data."
-                }
-            },   
-            "storageAccountKey": {
-                "type": "string",
-                "metadata": {
-                    "description": "The storage account key."
-                }
-            }               
-        },
-        "variables": {
-            "dataFactoryName":  "hdinsight-hive-on-demand",
-            "apiVersion": "2015-10-01",
-            "storageLinkedServiceName": "StorageLinkedService",
-            "hdInsightOnDemandLinkedServiceName": "HDInsightOnDemandLinkedService",
-            "blobInputDatasetName": "AzureBlobInput",
-            "blobOutputDatasetName": "AzureBlobOutput"
-        },
-        "resources": [
-            {
-                "name": "[variables('dataFactoryName')]",
-                "apiVersion": "[variables('apiVersion')]",
-                "type": "Microsoft.DataFactory/datafactories",
-                "location": "westus",
-                "resources": [
-                    {
-                        "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]" ],
-                        "type": "linkedservices",
-                        "name": "[variables('storageLinkedServiceName')]",
-                        "apiVersion": "[variables('apiVersion')]",
-                        "properties": {
-                            "type": "AzureStorage",
-                            "typeProperties": {
-                                "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
-                            }
-                        }
-                    },
-                    {
-                        "dependsOn": [
-                            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]",
-                            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/linkedservices/', variables('storageLinkedServiceName'))]"
-                        ],
-                        "type": "linkedservices",
-                        "name": "[variables('hdInsightOnDemandLinkedServiceName')]",
-                        "apiVersion": "[variables('apiVersion')]",
-                        "properties": {
-                            "type": "HDInsightOnDemand",
-                            "typeProperties": {
-                                "osType": "linux",
-                                "version": "3.2",
-                                "clusterSize": 1,
-                                "sshUserName": "myuser",                            
-                                "sshPassword": "MyPassword!",
-                                "timeToLive": "00:30:00",
-                                "linkedServiceName": "[variables('storageLinkedServiceName')]"
-                            }
-                        }
-                    },
-                    {
-                        "dependsOn": [
-                            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]",
-                            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/linkedServices/', variables('storageLinkedServiceName'))]"
-                        ],
-                        "type": "datasets",
-                        "name": "[variables('blobInputDatasetName')]",
-                        "apiVersion": "[variables('apiVersion')]",
-                            "properties": {
-                                "type": "AzureBlob",
-                                "linkedServiceName": "[variables('storageLinkedServiceName')]",
-                                "typeProperties": {
-                                    "fileName": "input.log",
-                                    "folderPath": "adfgetstarted/inputdata",
-                                    "format": {
-                                        "type": "TextFormat",
-                                        "columnDelimiter": ","
-                                    }
-                                },
-                                "availability": {
-                                    "frequency": "Month",
-                                    "interval": 1
-                                },
-                                "external": true,
-                                "policy": {}
-                            }
-                        },
-                    {
-                        "dependsOn": [
-                            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]",
-                            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/linkedServices/', variables('storageLinkedServiceName'))]"
-                        ],
-                        "type": "datasets",
-                        "name": "[variables('blobOutputDatasetName')]",
-                        "apiVersion": "[variables('apiVersion')]",
-                            "properties": {
-                                "published": false,
-                                "type": "AzureBlob",
-                                "linkedServiceName": "[variables('storageLinkedServiceName')]",
-                                "typeProperties": {
-                                    "folderPath": "adfgetstarted/partitioneddata",
-                                    "format": {
-                                        "type": "TextFormat",
-                                        "columnDelimiter": ","
-                                    }
-                                },
-                                "availability": {
-                                    "frequency": "Month",
-                                    "interval": 1,
-                                    "style": "EndOfInterval"
-                                }
-                            }
-                        },
-                        {
-                            "dependsOn": [
-                                "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]",
-                                "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/linkedServices/', variables('storageLinkedServiceName'))]",
-                                "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/linkedServices/', variables('hdInsightOnDemandLinkedServiceName'))]",
-                                "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/datasets/', variables('blobInputDatasetName'))]",
-                                "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/datasets/', variables('blobOutputDatasetName'))]"
-                            ],
-                            "type": "datapipelines",
-                            "name": "[variables('dataFactoryName')]",
-                            "apiVersion": "[variables('apiVersion')]",
-                            "properties": {
-                                "description": "Azure Data Factory pipeline with an Hadoop Hive activity",
-                                "activities": [
-                                    {
-                                        "type": "HDInsightHive",
-                                        "typeProperties": {
-                                            "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                                            "scriptLinkedService": "[variables('storageLinkedServiceName')]",
-                                            "defines": {
-                                                "inputtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/inputdata')]",
-                                                "partitionedtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
-                                            }
-                                        },
-                                        "inputs": [
-                                            {
-                                                "name": "AzureBlobInput"
-                                            }
-                                        ],
-                                        "outputs": [
-                                            {
-                                                "name": "AzureBlobOutput"
-                                            }
-                                        ],
-                                        "policy": {
-                                            "concurrency": 1,
-                                            "retry": 3
-                                        },
-                                        "scheduler": {
-                                            "frequency": "Month",
-                                            "interval": 1
-                                        },
-                                        "name": "RunSampleHiveActivity",
-                                        "linkedServiceName": "HDInsightOnDemandLinkedService"
-                                    }
-                                ],
-                                "start": "2016-01-01T00:00:00Z",
-                                "end": "2016-02-02T00:00:00Z",
-                                "isPaused": false
-                            }
-                        }
-                ]
-            }
-        ]
-    }
 
