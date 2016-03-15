@@ -19,9 +19,7 @@
 
 # Get the required values for connecting your app to SQL Database
 
-To create and manage Azure SQL Database from an application you must register your app in the Azure Active Directory (AAD) domain associated with the subscription where your Azure resources have been created. 
-
-When you register your app, Azure will generate values that you will need in your code to authenticate your client application. 
+To create and manage Azure SQL Database from an application you must register your app in the Azure Active Directory (AAD) domain associated with the subscription where your Azure resources have been created. When you register your app, Azure will generate values that you will need in your code to authenticate your client application. For more information, see [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ## Register a native client application and get the client id
 
