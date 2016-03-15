@@ -92,7 +92,7 @@ In the right pane, switch to **Activity Window Explorer** tab to see more detail
 
 You will also see **resolved variables** for each activity run attempt in the **Attempts** section. 
 
-![Resolved variables](./media/data-factory-monitor-manage-app/ResolvedVariables.png)
+![Resolved variables](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
 
 Switch to the **Script** tab to see the JSON script definition for the selected object.   
 
