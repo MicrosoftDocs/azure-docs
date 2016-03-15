@@ -129,4 +129,4 @@ Azure Resource Manager is the new management framework for services in Azure. Az
 
 [Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started creating an Internet-facing load balancer](load-balancer-internet-getstarted.md)
+[Get started creating an Internet-facing load balancer](load-balancer-get-started-internet-classic-portal.md)
