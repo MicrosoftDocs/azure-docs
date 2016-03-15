@@ -49,7 +49,7 @@ If a device cannot use the device client SDKs, it can still connect to the publi
 
 - A SAS token in the **Password** field. The [format of the SAS token][lnk-iothub-security] is the same as described for the HTTP and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
 
-    For an example of how to create the SAS token using Node.js, see [shared_access_signature.js][lnk-node-sas] in the [Microsoft Azure IoT SDKs][lnk-device-sdks] GitHub repository. This repository also contains the C, C#, and Java library source code, all of which contain code to generate SAS tokens.
+    For more information about how to generate SAS tokens, see [Using IoT Hub security tokens][lnk-sas-tokens].
     
     You can also use the [Device Explorer][lnk-device-explorer] tool to generate a SAS token that you can copy and paste into your own code:
     
@@ -97,5 +97,5 @@ To learn more about the MQTT protocol, see the [MQTT documentation][lnk-mqtt-doc
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
-[lnk-node-sas]: https://github.com/Azure/azure-iot-sdks/blob/master/node/common/core/lib/shared_access_signature.js
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
+[lnk-sas-tokens]: iot-hub-sas-tokens.md
