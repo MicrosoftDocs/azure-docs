@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Register your app to talk with Azure SQL Database | Microsoft Azure"
-   description="Enable your app to communicate with SQL Database and get the needed client values for connecting your app to SQL Database."
+   pageTitle="Register your app to access Azure SQL Database | Microsoft Azure"
+   description="Register your app and get the required client values for connecting with code to SQL Database."
    services="sql-database"
    documentationCenter=""
    authors="stevestein"
@@ -14,15 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/05/2016"
+   ms.date="03/15/2016"
    ms.author="sstein"/>
 
-# Register your app to talk with Azure SQL Database
+# Register your app and get the required client values for connecting your app to SQL Database.
+
+To create and manage Azure SQL databases from an application you must register your app with Azure. When you register your app, Azure will generate values that you will need in your code. 
 
 
 ## Register a native client application and get the client id
 
-To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Currently, registering applications need to be done in the [Classic Portal](https://manage.windowsazure.com/). 
+To authenticate your client application based on the current user you must first register your application in the Azure Active Directory (AAD) domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Currently, registering applications need to be done in the [Classic Portal](https://manage.windowsazure.com/). 
 
 To create a new application and register it do the following:
 
@@ -139,11 +141,9 @@ For specific code examples related to Azure AD authentication see the [SQL Serve
 
 ## See also
 
-[Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md)
-
-[Contained Database Users](https://msdn.microsoft.com/library/ff929071.aspx)
-
-[CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
+- [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md)
+- [Contained Database Users](https://msdn.microsoft.com/library/ff929071.aspx)
+- [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
 
 <!--Image references-->
