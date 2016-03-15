@@ -139,7 +139,7 @@ The domain name is sometimes required for your auth code. An easy way to identif
 Get the required management library by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
 
-    Install-Package Microsoft.Azure.Common.Authentication –Pre
+    PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
 Create a console app named **SqlDbAuthSample** and replace the contents of **Program.cs** with the following:
@@ -164,7 +164,7 @@ Create a console app named **SqlDbAuthSample** and replace the contents of **Pro
         }
 
 
-        // authentication variables native
+        // authentication variables (native)
         static string nclientId = "<your client id>";
         static string nredirectUri = "<your redirect URI>";
         static string ndomainName = "<i.e. microsoft.onmicrosoft.com>";
@@ -185,7 +185,7 @@ Create a console app named **SqlDbAuthSample** and replace the contents of **Pro
         }
 
 
-        // authentication variables Web
+        // authentication variables (web)
         static string wclientId = "<your client id>";
         static string wkey = "<your key>";
         static string wdomainName = "<i.e. microsoft.onmicrosoft.com>";
@@ -205,6 +205,7 @@ Create a console app named **SqlDbAuthSample** and replace the contents of **Pro
             return token;
         }
 
+
         private static AuthenticationResult GetAccessTokenUsingUserCredentials(UserCredential userCredential)
         {
             AuthenticationContext authContext = new AuthenticationContext
@@ -220,7 +221,6 @@ Create a console app named **SqlDbAuthSample** and replace the contents of **Pro
 
             return token;
         }
-
     }
     }
 
