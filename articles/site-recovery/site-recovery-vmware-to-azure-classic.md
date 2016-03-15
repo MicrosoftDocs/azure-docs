@@ -185,7 +185,9 @@ The tables summarize the prerequisites for deploying this scenario.
 --- | ---
 **Azure account**| You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. 
 **Azure storage** | You'll need an Azure storage account to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. <br/><br/>You need a [standard geo-redundant storage account](../storage/storage-redundancy.md#geo-redundant-storage). The account must in the same region as the Site Recovery service, and be associated with the same subscription. Note that replication to premium storage accounts isn't currently supported and shouldn't be used.<br/><br/>
-	>[AZURE.NOTE] We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
+
+>[AZURE.NOTE] We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
+	
 [Read about](../storage/storage-introduction.md) Azure storage.
 **Azure network** | You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. The Azure virtual network must be in the same region as the Site Recovery vault.<br/><br/>Note that to fail back after failover to Azure you’ll need a VPN connection (or Azure ExpressRoute) set up from the Azure network to the on-premises site. 
 
@@ -558,6 +560,7 @@ Add machines to a protection group:
 	![Enable protection](./media/site-recovery-vmware-to-azure-classic/enable-protection1.png)
 		
 4. In **Specify Target Resources** select the storage account you're using for replication and select whether the settings should be used for all workloads. Note that premium storage accounts aren't currently supported.
+
 	>[AZURE.NOTE] We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
 
 	![Enable protection](./media/site-recovery-vmware-to-azure-classic/enable-protection3.png)
