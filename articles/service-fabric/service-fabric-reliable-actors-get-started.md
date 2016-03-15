@@ -33,6 +33,11 @@ To get started with Reliable Actors, you need to understand just four basic conc
 	* It resolves names. It is able to locate the actor in the cluster (find the node of the cluster where it is hosted).
 	* It handles failures. It can retry method invocations and re-determine the actor location after, for example, a failure that requires the actor to be relocated to another node in the cluster.
 
+The following rules that pertain to actor interface methods are worth mentioning:
+
+- Actor interface methods cannot be overloaded.
+- Actor interface methods must not have out, ref, or optional parameters.
+
 ## Create a new project in Visual Studio
 After you have installed the Service Fabric tools for Visual Studio, you can create new project types. The new project types are under the **Cloud** category of the **New Project** dialog box.
 
@@ -137,6 +142,9 @@ fabricRuntime.RegisterActor<MyActor>();
 
 
 ```
+
+> [AZURE.TIP] The Service Fabric Actors runtime emits some [events and performance counters related to actor methods](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). They are useful in diagnostics and performance monitoring.
+
 
 ## Debugging
 
