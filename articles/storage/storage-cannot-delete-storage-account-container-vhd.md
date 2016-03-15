@@ -81,7 +81,7 @@ When you attempt to delete a storage account and there are still active disks as
 The storage account contains one or more active disks or images.
 
 ### Resolution
-To resolve the issues, delete the active disk or the image from the container. The disks is not visible in the [Azure portal](https://portal.azure.com/), but you can view them in the [Azure classic portal](https://manage.windowsazure.com/). To delete the disk, follow these steps:
+To resolve the issues, delete the active disk or the image from the container. The disks are not visible in the [Azure portal](https://portal.azure.com/), but you can view them in the [Azure classic portal](https://manage.windowsazure.com/). To delete the disk, follow these steps:
 
 1. Sign into the [Azure classic portal](https://manage.windowsazure.com/).
 2. Select **VIRTUAL MACHINE**>**DISKS**.
