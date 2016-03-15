@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
-- [C#](sql-database-elastic-pool-create-manage.md)
+- [C#](sql-database-elastic-pool-manage-csharp.md)
 
 
 Learn how to manage an [elastic database pool](sql-database-elastic-pool.md) using C&#x23;. 
