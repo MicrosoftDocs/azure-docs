@@ -270,14 +270,12 @@ The following is the ARM template used in this tutorial:
         "parameters": {
             "storageAccountName": {
                 "type": "string",
-                "defaultValue": "jgaoadf0314store",
                 "metadata": {
                     "description": "The name of the Azure Storage account that will be used as the default for  the HDInsight cluster, and be used for input and output data."
                 }
             },   
             "storageAccountKey": {
                 "type": "string",
-                "defaultValue": "BX+qQN+e8HIfcstUryuDqw7WjZO+rzLU78uWeXM1De6nu6DRZ9LpuNF1lQXwiaETCI+uIM10amSUVA9qy7B+sA==",
                 "metadata": {
                     "description": "The storage account key."
                 }
