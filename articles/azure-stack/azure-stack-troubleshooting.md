@@ -16,7 +16,7 @@
 	ms.date="03/11/2016"
 	ms.author="erikje"/>
 
-# Microsoft Azure Stack troubleshooting and known issues
+# Microsoft Azure Stack troubleshooting
 
 If you experience issues while deploying or using Microsoft Azure Stack, refer to the guidance below. But first, make sure that your deployment environment complies with all [requirements](azure-stack-deploy.md) and [preparations](azure-stack-run-powershell-script.md). In particular, make sure yo comply with the storage configuraiton requirements and this note:
 
@@ -271,67 +271,6 @@ Example flow:
 
 Note that having this garbage collector enables a scenario where Storage service administrator can "undelete" a storage account and get all the data back (see the Azure Consistent Storage/Storage Resource Provider document)
 
-## Known issues
-
-The following are known issues which will be addressed in future releases.
-
-### Compute limitations
-
-The following sizes are supported in Technical Preview 1: A0, A1, A2, A3, A4
-
-The Microsoft Azure Stack CRP supports a consistent subset of Azure CRP APIs. Specifically, this technical preview release of Microsoft Azure Stack does not support The following:
-- Specifying availability sets
-- Secrets in the osProfile 
-- CustomData in the osProfile
-- WinRM Listener in the WindowsConfiguration section of the osProfile  
-- Temporary Disks (implemented as the D: drive in Azure)
-
-### Storage limitations
-
-Table Key Limitation: Table service accepts a maximum of 400 characters for table entity partition key and row keys.
-
-Blob Name Limitation: Blob names cannot be longer than 880 characters 
-
-### Networking limitations
-
-All create scenarios are either through a template or through Powershell – UI creation is not available.
-
-### IP Address change interaction with Software Load Balancer
-
-If a virtual machine that is behind a load balancer changes its IP, the load balancing to this VM will break.
-
-### Get Page Ranges Inconsistency (Page Blobs)
-
-Get Page Ranges API always returns pages in 4KB granularity despite the fact that API allows 512-byte granular page writes.
-
-### Microsoft.Network related quotas are not applied
-
-In TP1, the quotas you set in the Microsoft.Network service in a plan for your tenants are not enforced.
-
-### Testing gateways
-
-Testing S2S or local network gateways is not a scenario yet in this single-node POC release
-
-### During storage account creation in the portal, public DNS path is listed.
-
-In the portal, “.core.windows.net” is listed, as the FQDN for a new storage account being created.
-This is visual only, and will be fixed in a future release.
-
-### Account expirations after 30 days running the POC
-
-Some accounts in the AzureStack.local Active Directory on the ADVM do not have “Password never expires” checked. This is something you may want to update proactively in this release.
-
-### Administration blade for the MySQL Server Resource provider returns an error
-
-This blade is not implemented yet, and should be showing “coming soon”, like other blades in the same state.
-
-### A virtual machine deleted directly in Hyper-V manager is still visible in the Azure Stack portal
-
-This release does not include yet the full options being considered for such situations - which could either include cleaning up orphaned objects, or redeploy the VM to "fix" the delta between what Hyper-V sees and what the Compute Resource Provider sees.
-
-### Copy Blob API sync/async Inconsistency
-
-Copy Blob API is not guaranteed to be synchronous, even when source and destination blobs are under same storage account.
 
 
 
