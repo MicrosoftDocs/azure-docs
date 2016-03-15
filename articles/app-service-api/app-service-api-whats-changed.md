@@ -113,7 +113,7 @@ The previous API Apps model had APIs for discovering other API apps at runtime i
 
 ## Using API Apps with Logic Apps
 
-The new API apps model works well with [Logic Apps schema version 2015-08-01](../logic/app-service-logic-schema-2015-08-01.md).
+The new API apps model works well with [Logic Apps schema version 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md).
 
 ## Next Steps
 
