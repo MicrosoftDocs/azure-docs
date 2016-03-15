@@ -50,12 +50,17 @@ as the default virtual network that is created for your lab.
 	
 1. On the **Virtual network** blade, tap **[Select virtual network]**.
 
-	![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet.png)
+	![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 	
 1. On the **Choose virtual network** blade, select the desired virtual network. The blade shows all the virtual networks that 
 are under the same region in the subscription as the lab.  
 
-1. When you return to the **Virtual network blade**, specify a description for your virtual network / lab combination.
+1. Once you select a virtual network and return to the **Virtual network blade**, you'll see that several fields have been
+enabled.  
+
+	![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
+
+1. Specify a description for your virtual network / lab combination.
 
 1. To allow a subnet to be used in lab VM creation, select the **USE IN VM CREATION** option.
 
