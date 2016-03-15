@@ -18,7 +18,7 @@
 
 # Dead-letter queues 
 
-Service Bus queues and topic subscriptions provide a secondary sub-queue, called a *dead-letter queue*. The dead-letter queue (DLQ) does not need to be explicitly created and cannot be deleted or otherwise managed independent of the main entity.
+Service Bus queues and topic subscriptions provide a secondary sub-queue, called a *dead-letter queue* (DLQ). The dead-letter queue does not need to be explicitly created and cannot be deleted or otherwise managed independent of the main entity.
 
 The purpose of the dead-letter queue is to hold messages that cannot be delivered to any receiver, or simply messages that could not be processed. Messages can then be removed from the DLQ and inspected. An application might, with help of an operator, correct issues and resubmit the message, log the fact that there was an error, and/or take corrective action. 
 
@@ -65,7 +65,7 @@ In addition to the system-provided dead-lettering features, applications can use
 
 ## Example
 
-The following code snippet creates a message receiver. In the receive loop on the main queue, the code retrieves the message with [Receive(TimeSpan.Zero)](https://msdn.microsoft.com/library/azure/dn130350.aspx), which asks the broker to instantly return any message readily available, or to return with no result. If the code receives a message, it immediately abandons it, which increments the  `DeliveryCount`. Once the system moves the message to the DLQ, the main queue is empty and the loop exits, as [ReceiveAsync](https://msdn.microsoft.com/library/azure/dn130350.aspx) returns **null**.
+The following code snippet creates a message receiver. In the receive loop for the main queue, the code retrieves the message with [Receive(TimeSpan.Zero)](https://msdn.microsoft.com/library/azure/dn130350.aspx), which asks the broker to instantly return any message readily available, or to return with no result. If the code receives a message, it immediately abandons it, which increments the  `DeliveryCount`. Once the system moves the message to the DLQ, the main queue is empty and the loop exits, as [ReceiveAsync](https://msdn.microsoft.com/library/azure/dn130350.aspx) returns **null**.
 
 ```
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);
