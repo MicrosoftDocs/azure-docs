@@ -106,7 +106,7 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 		    SELECT *
 		    FROM @searchlog;        
 
-        OUTPUT @searchlog   
+        OUTPUT @res   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
