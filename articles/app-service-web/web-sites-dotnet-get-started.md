@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create an ASP.NET web app in Azure App Service using Visual Studio | Microsoft Azure"
-	description="Learn how to create an ASP.NET web project in Visual Studio 2015 and deploy it to a new web app in Azure App Service."
+	pageTitle="Create a web app using Visual Studio | Microsoft Azure"
+	description="Learn how to create an ASP.NET web project in Visual Studio and deploy it to a new web app in Azure App Service."
 	services="app-service\web"
 	documentationCenter=".net"
 	authors="tdykstra"
