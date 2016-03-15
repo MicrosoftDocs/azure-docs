@@ -16,10 +16,9 @@ The following table summarizes the features offered by each service:
 | Endpoints | Azure VMs and Cloud Services role instances | Any Azure Internal IP address or public internet IP address | Azure VMs, Cloud Services, Azure Web Apps and external endpoints |
 | Vnet support | Can be used for both Internet facing and internal (Vnet) applications | Can be used for both Internet facing and internal (Vnet) applications |	Only supports Internet-facing applications |
 Endpoint Monitoring | supported via probes | supported via probes | supported via HTTP/HTTPS GET | 
-
+<BR>
 Azure Load Balancer and Application Gateway route network traffic to endpoints but they have different usage scenarios to which traffic to handle. The table below helps understanding the difference between the two load balancers:
-
-
+<BR>
 | Type | Azure Load Balancer | Application Gateway |
 |---|---|---|
 | Protocols | UDP/TCP | HTTP/ HTTPS |
