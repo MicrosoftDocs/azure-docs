@@ -24,7 +24,7 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-This article will walk you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). The steps below use a combination of the Azure Classic Portal and PowerShell. If you want to connect virtual networks created using the Resource Manager deployment model, please see [Configure a VNet-to-VNet connection for virtual networks using Azure Resource Manager and PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+This article will walk you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). The steps below use a combination of the Azure Classic Portal and PowerShell.
 
 **About Azure deployment models**
 
