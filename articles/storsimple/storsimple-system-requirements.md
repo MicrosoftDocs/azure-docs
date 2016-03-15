@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/11/2016"
+   ms.date="03/15/2016"
    ms.author="alkohli"/>
 
 # StorSimple software, high availability, and networking requirements
@@ -79,14 +79,15 @@ Network administrators can often configure advanced firewall rules based on the 
 
 We recommend that you set your firewall rules liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
 
-> [AZURE.NOTE] The device (source) IPs should always be set to all the enabled network interfaces. The destination IPs should be set to Azure datacenter IP ranges.
+> [AZURE.NOTE] The device (source) IPs should always be set to all the enabled network interfaces. The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
 
 
 | URL pattern                                                      | Component/Functionality                                           | Device IPs                           |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>  | StorSimple Manager service<br>Access Control Service<br>Azure Service Bus | Cloud-enabled network interfaces        |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`http://crl.microsoft.com/pki/*`   | StorSimple Manager service<br>Access Control Service<br>Azure Service Bus<br>Certificate revocation| Cloud-enabled network interfaces        |
 | `https://*.core.windows.net/*`                                   | Azure storage accounts and monitoring                                | Cloud-enabled network interfaces        |
-| `http://windowsupdate.microsoft.com`<br>`http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://*.download.windowsupdate.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`<br>`http://*.deploy.akamaitechnologies.com`                         | Microsoft Update servers<br>Akamai CDN                             | Controller fixed IPs only               |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft Update servers<br>                             | Controller fixed IPs only               |
+| `http://*.deploy.akamaitechnologies.com`                         |Akamai CDN |Controller fixed IPs only   |
 | `https://*.partners.extranet.microsoft.com/*`                    | Support package                                                  | Cloud-enabled network interfaces        |
 
 ### Routing metric
@@ -119,7 +120,7 @@ Update 2 has several networking-related improvements and the routing metrics has
 
 - A set of predetermined values have been assigned to network interfaces. 	
 		
-- Consider an example table shown below with values assigned to the various network interfaces when they are cloud-enabled or cloud-disabled but with a configured gateway. Note the values assgined here are example values only.
+- Consider an example table shown below with values assigned to the various network interfaces when they are cloud-enabled or cloud-disabled but with a configured gateway. Note the values assigned here are example values only.
 
 		
 	| Network interface | Cloud-enabled | Cloud-disabled with gateway |
