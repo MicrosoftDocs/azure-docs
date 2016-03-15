@@ -17,11 +17,11 @@
    ms.date="03/15/2016"
    ms.author="sstein"/>
 
-# Get the required client values for connecting your app to SQL Database (register your app with Azure).
+# Get the required values for connecting your app to SQL Database
 
-To create and manage Azure SQL databases from an application you must register your app in the Azure Active Directory (AAD) domain associated with the subscription under which the Azure resources have been created. When you register your app, Azure will generate values that you will need in your code to authenticate your client application. 
+To create and manage Azure SQL databases from an application you must register your app in the Azure Active Directory (AAD) domain associated with the subscription where the Azure resources have been created. 
 
-
+When you register your app, Azure will generate values that you will need in your code to authenticate your client application. 
 
 ## Register a native client application and get the client id
 
@@ -134,13 +134,110 @@ The domain name is sometimes required for your auth code. An easy way to identif
 
 
 
+
+## Example Console Application (Native Application)
+
+
+Get the required management library by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
+
+
+    Install-Package Microsoft.Azure.Common.Authentication –Pre
+
+
+Create a console app named **SqlDbAuthSample** and replace the contents of **Program.cs** with the following:
+
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    
+    namespace SqlDbAuthSample
+    {
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            token = GetAccessTokenforNativeClient();
+            // token = GetAccessTokenUsingUserCredentials(new UserCredential("<email address>"));
+            // token = GetAccessTokenForWebApp();
+
+            Console.WriteLine("Signed in as: " + token.UserInfo.DisplayableId);
+
+            Console.WriteLine("Press Enter to continue...");
+            Console.ReadLine();
+        }
+
+
+        // authentication variables native
+        static string nclientId = "<your client id>";
+        static string nredirectUri = "<your redirect URI>";
+        static string ndomainName = "<i.e. microsoft.onmicrosoft.com>";
+        static AuthenticationResult token;
+
+        private static AuthenticationResult GetAccessTokenforNativeClient()
+        {
+            AuthenticationContext authContext = new AuthenticationContext
+                ("https://login.windows.net/" + ndomainName /* Tenant ID or AAD domain */);
+
+            token = authContext.AcquireToken
+                ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
+                    nclientId,
+            new Uri(nredirectUri),
+            PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
+
+            return token;
+        }
+
+
+        // authentication variables Web
+        static string wclientId = "<your client id>";
+        static string wkey = "<your key>";
+        static string wdomainName = "<i.e. microsoft.onmicrosoft.com>";
+
+        private static AuthenticationResult GetAccessTokenForWebApp()
+        {
+            AuthenticationContext authContext = new AuthenticationContext
+                ("https://login.windows.net/" /* AAD URI */
+                + wdomainName /* Tenant ID or AAD domain */);
+
+            ClientCredential cc = new ClientCredential(wclientId, wkey);
+
+            AuthenticationResult token = authContext.AcquireToken(
+                "https://management.azure.com/"/* the Azure Resource Management endpoint */,
+                cc);
+
+            return token;
+        }
+
+        private static AuthenticationResult GetAccessTokenUsingUserCredentials(UserCredential userCredential)
+        {
+            AuthenticationContext authContext = new AuthenticationContext
+                ("https://login.windows.net/" /* AAD URI */
+                + ndomainName /* Tenant ID or AAD domain */);
+
+            AuthenticationResult token = authContext.AcquireToken(
+                "https://management.azure.com/"/* the Azure Resource Management endpoint */,
+                nclientId /* application client ID from AAD*/,
+                new Uri(nredirectUri) /* redirect URI */,
+                PromptBehavior.Auto,
+                new UserIdentifier(userCredential.UserName, UserIdentifierType.RequiredDisplayableId));
+
+            return token;
+        }
+
+    }
+    }
+
+
 For specific code examples related to Azure AD authentication see the [SQL Server Security Blog](http://blogs.msdn.com/b/sqlsecurity/) on MSDN.
 
 ## See also
 
-- [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md)
-- [Contained Database Users](https://msdn.microsoft.com/library/ff929071.aspx)
-- [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
+- [Create a SQL database with C#](sql-database-get-started-csharp.md)
+- [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
+
 
 
 <!--Image references-->
