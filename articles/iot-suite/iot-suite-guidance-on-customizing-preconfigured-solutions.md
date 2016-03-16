@@ -83,7 +83,7 @@ The [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) provide libraries 
 
 ## Feedback
 
-Have a customization you'd like to see covered in this document? Please add feature suggestions to [User Voice](https://feedback.azure.com/forums/321918-azure-iot), comment on this article below, or send us a mail at iotsolhelp@microsoft.com. 
+Have a customization you'd like to see covered in this document? Please add feature suggestions to [User Voice](https://feedback.azure.com/forums/321918-azure-iot), or comment on this article below. 
 
 ## Next steps
 
