@@ -33,13 +33,13 @@ Azure SQL server uses firewall rules to allow connections to your servers and da
 > [AZURE.IMPORTANT] To allow applications from Azure to connect to your Azure SQL server, Azure connections must be enabled. To understand how the firewall rules work, see [Azure SQL Database Firewall](sql-database-firewall-configure.md). You may have to open some additional TCP ports if you are making connections inside the Azure cloud boundary. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
-### Manage server-level firewall rules through the Azure portal
+### Add a server-level firewall rules through the Azure portal
 
 
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-## Manage server-level firewall rules 
+## Manage existing server-level firewall rules through the Azure portal
 
 Repeat the steps to manage the server-level firewall rules. 
 	*  To add the current computer, click Add client IP.

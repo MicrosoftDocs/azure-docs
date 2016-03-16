@@ -11,7 +11,7 @@ articles/sql-database/sql-database-connect-query.md
 
 ## Server-level firewall rules
 
-### Manage server-level firewall rules through the new Azure portal
+### Add a server-level firewall rule through the new Azure portal
 -->
 
 
@@ -31,14 +31,12 @@ articles/sql-database/sql-database-connect-query.md
 
 	![Click Settings > Firewall][b31-SettingsFirewallNavig]
 
-7. Click **Add Client IP**. Type in a name for your new rule into the first text box.
-
-8. Type in the low and high IP address values for the range you want to enable.
- - If necessary you can enable a range of IP addresses. It can be handy to have the low value end with **.0** and the high with **.255**. 
+7. Click **Add Client IP** to add the IP address of your client computer. The portal will construct a name for your rule.
+Or you can type in a name and provide the low and high IP address values for the range you want to enable. It can be handy to have the low value end with **.0** and the high with **.255**. 
 
 	![Add an IP address range to allow][b41-AddRange]
 
-9. Click **Save**.
+8. Click **Save**.
 
 
 
