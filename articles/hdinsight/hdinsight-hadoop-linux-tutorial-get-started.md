@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/15/2016"
+   	ms.date="03/16/2016"
    	ms.author="jgao"/>
 
 # Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight
@@ -23,9 +23,7 @@
 - [Windows-based](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux-based](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-Learn how to create Linux-based Hadoop clusters in HDInsight, and how to run Hive jobs using the Ambari Hive view.
-
-If you are new to Hadoop and big data, you can read more about the terms: [Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084), [MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086), [Hadoop Distributed File System (HDFS)](http://go.microsoft.com/fwlink/?LinkId=510087), and [Hive](http://go.microsoft.com/fwlink/?LinkId=510085). To understand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight](hdinsight-hadoop-introduction.md).
+Learn how to create Linux-based [Hadoop](http://hadoop.apache.org/) clusters in HDInsight, and how to run Hive jobs using the [Ambari](https://ambari.apache.org/) Hive view. [Apache Hive](https://hive.apache.org/) is the most popular component in the Hadoop ecosystem. Currently HDInsight comes with 4 different cluster types: [Hadoop](hdinsight-hadoop-introduction), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) and [Storm](hdinsight-storm-overview.md).  Each cluster type supports a different set of components. All 4 cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](hdinsight-component-versioning.md)  
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -33,11 +31,11 @@ If you are new to Hadoop and big data, you can read more about the terms: [Apach
 
 Before you begin this tutorial, you must have:
 
-- **Azure subscription**: To create a free trial account, browse to [azure.microsoft.com/free](https://azure.microsoft.com/free).
+- **Azure subscription**: To create a free one-month trial account, browse to [azure.microsoft.com/free](https://azure.microsoft.com/free).
 
 ## Create cluster
 
-Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](../resource-group-template-deploy.md). ARM template is fully customizable; it makes easy to create Azure resources like HDInsight. Azure ARM template experience is not required for following this tutorial. For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using ARM template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md). The ARM template used in this tutorial is located in a public blob container, [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
+Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](../resource-group-template-deploy.md). ARM template is fully customizable; it makes easy to create Azure resources like HDInsight. Azure ARM template experience is not required for following this tutorial. For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). The ARM template used in this tutorial is located in a public blob container, [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
 
 1. Click the following image to open the ARM template in the Azure Portal. 
 
@@ -51,7 +49,7 @@ Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and the
     
     Other parameters are optional for following this tutorial. You can leave them as they are. 
     
-    Each cluster has an Azure Blob storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the template variables section.
+    Each cluster has an Azure Blob storage account dependency. It is usually referred as the default storage account. Deleting clusters will not delete the storage account. In the template, the default storage account name is defined as the cluster name with "store" appended. 
     
 3. Click **OK** to save the parameters.
 4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource. The resource group location can be different from the cluster location.
