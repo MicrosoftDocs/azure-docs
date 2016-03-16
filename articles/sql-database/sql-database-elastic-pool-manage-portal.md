@@ -62,13 +62,19 @@ When you see the resource utilization of a pool, you may discover that the pool 
 
 1. Click **Configure pool** to open the **Configure performance** blade.
 
-    Under Elastic database pool settings a chart shows you the recent trend of eDTU and storage utilization in percent of capacity for the pool.
+    Under **Elastic database pool settings**, a chart shows you the recent trend of eDTU and storage utilization in percent of capacity for the pool.
 
-3. Click a different **Pool eDTU**, and you'll see the estimated monthly cost of the change you want to make and its impact to resource utilization in the chart.
+    ![Elastic pool resource utilization](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
+
+3. Click a different **Pool eDTU**, and you'll see the estimated monthly cost of the change you want to make.
+
+    ![Updating a pool and new monthly cost](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
 4. Under **Elastic database setting**, a bar graph shows the eDTU utilization of each database in the pool.
 
 5. Click **eDTU max** to set the maximum and **eDTU min** to set the minimum number of eDTU for the databases in the pool.
+
+    ![Updating elastic database min and max eDTU](./media/sql-database-elastic-pool-manage-portal/change-db-edtuminmax.png)
 
 ##Add and remove databases
 
