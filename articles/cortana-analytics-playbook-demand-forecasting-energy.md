@@ -3,7 +3,7 @@
 	description="A Solution Template with Microsoft Cortana Analytics that helps forecast demand for an energy utility company."
 	services="cortana-analytics"
 	documentationCenter=""
-	authors="yijichen"
+	authors="ireiter"
 	manager="ireiter"
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="yijichen;garye"/>
+	ms.author="ireiter;yijichen;garye"/>
 
 # Cortana Analytics Solution Template Playbook for Demand Forecasting of Energy  
 
