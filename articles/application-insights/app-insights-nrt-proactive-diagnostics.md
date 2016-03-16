@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
  
 # Near Real Time Proactive Diagnostics
 
-[Visual Studio Application Insights](app-insights-overview.md) automatically notifies you in near real time if an abnormal rise in failed requests rate is detected. To help you triage and diagnose the problem, an analysis of the characteristics of failed requests and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up or configuration, as it uses machine learning algorithms to predict the baseline normal failure rate. It needs a certain minimum volume of traffic in order to work. 
+[Visual Studio Application Insights](app-insights-overview.md) automatically notifies you in near real time if an abnormal rise in failed requests rate is detected. To help you triage and diagnose the problem, an analysis of the characteristics of failed requests and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up or configuration, as it uses machine learning algorithms to predict the normal failure rate.
 
 This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request telemetry - for example, if you have a worker role that calls [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request). 
 
@@ -32,7 +32,7 @@ Notice that it tells you:
 * The failure rate compared to normal app behavior.
 * How many users are affected – so you know how much to worry.
 * A characteristic pattern associated with the failures. In this example, there’s a particular response code, request name (operation) and app version. That immediately tells you where to start looking in your code. Other possibilities could be a specific browser or client operating system.
-* The exception, log traces, and dependency failures (databases or other external components) that appear to be associated with the characterized failed requests.
+* The exception, log traces, and dependency failure (databases or other external components) that appear to be associated with the characterized failed requests.
 * Links directly to relevant searches on the telemetry in Application Insights.
 
 Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But NRT Proactive Diagnostics starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
@@ -81,7 +81,7 @@ Click any alert to see its full detail.
 
 ## Configure alerts 
 
-Open the Alerts page. The Adaptive Failure Alert is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
+Open the Alerts page. The Proactive Diagnostics is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
 
 ![On the Overview page, click Alerts tile. Or on any Metrics page, click Alerts button.](./media/app-insights-nrt-proactive-diagnostics/021.png)
 
@@ -89,7 +89,7 @@ Click the alert to configure it.
 
 ![Configuration](./media/app-insights-nrt-proactive-diagnostics/031.png)
 
-Notice that you can disable the Adaptive Failure Alert, but you can't delete it (or create another one).
+Notice that you can disable the Proactive Diagnostics, but you can't delete it (or create another one).
 
 
 ## What's the difference ...
@@ -137,4 +137,5 @@ NRT Proactive Diagnostics complements other similar but distinct features of App
 ## Feedback please
 
 *We are very interested to know what you think about this. Please send feedback to:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
+
 

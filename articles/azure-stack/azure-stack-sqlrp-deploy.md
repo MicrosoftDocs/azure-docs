@@ -3,8 +3,8 @@
 	description="Prepare the physical machine"
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
-	manager="v-kiwhit"
+	authors="Dumagar"
+	manager="bradleyb"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/29/2016"
-	ms.author="v-anpasi"/>
+	ms.author="dumagar"/>
 
 # Add a SQL Server resource provider to Azure Stack
 
