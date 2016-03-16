@@ -18,7 +18,7 @@
 
 # Introduction to Service Fabric Reliable Actors
 
-Reliable Actors is a Service Fabric application framework based on the [Virtual Actor](http://research.microsoft.com/en-us/projects/orleans/) pattern. The Reliable Actors API provides an asynchronous, single-threaded programming model built on the scalability and reliability guarantees provided by Service Fabric.
+Reliable Actors is a Service Fabric application framework based on the [Virtual Actor](http://research.microsoft.com/en-us/projects/orleans/) pattern. The Reliable Actors API provides a single-threaded programming model built on the scalability and reliability guarantees provided by Service Fabric.
 
 ## What are Actors?
 An actor is an isolated, independent unit of compute and state with single-threaded execution. The [actor pattern](https://en.wikipedia.org/wiki/Actor_model) is a computational model for concurrent or distributed systems in which a large number of these actors can execute simultaneously and independently of each other. Actors can communicate with each other and they can create more actors.
@@ -30,7 +30,10 @@ Service Fabric Reliable Actors is an implementation of the actor design pattern.
 Although the actor design pattern can be a good fit to a number of distributed systems problems and scenarios, careful consideration of the constraints of the pattern and the framework implementing it must be made. As general guidance, consider the actor pattern to model your problem or scenario if:
 
  - Your problem space involves a large number (thousands or more) of small, independent, and isolated units of state and logic.
- - You want to work with single-threaded objects that do not require significant external interaction, including querying the state of those objects.
+ 
+ - You want to work with single-threaded objects that do not require significant interaction from external components, including querying state across a set of actors.
+ 
+ - Your actor instances don't experience unpredictable delays by issuing I/O operations.
 
 ## Actors in Service Fabric
 
@@ -45,9 +48,10 @@ Service Fabric actors are virtual, meaning that their lifetime is not tied to th
 This virtual actor lifetime abstraction carries some caveats as a result of the virtual actor model, and in fact the Reliable Actors implementation deviates at times from this model.
 
  - An actor is automatically activated (causing an actor object to be contructed) the first time a message is sent to its actor ID. After some period of time, the actor object is garbage collected. In the future, using the actor ID again, causes a new actor object to be constructed. An actor's state outlives the object's lifetime when stored in the state manager.
+ 
  - Calling any actor method for an actor ID activates that actor. For this reason, actor types have their constructor called implicitly by the runtime. Therefore, client code cannot pass parameters to the actor type's constructor, although parameters may be passed to the actor's constructor by the service itself. The result is that actors may be constructed in a partially-initialized state by the time other methods are called on it, if the actor requires initialization parameters from the client. There is no single entry point for the activation of an actor from the client.
 
- - Although Reliable Actors implicitly create actor; you do have the abiilty to explicity delete an actor and its state. 
+ - Although Reliable Actors implicitly create actor objects; you do have the ability to explicitly delete an actor and its state. 
 
 ### Distribution and failover
 
@@ -65,7 +69,7 @@ The Actor Framework manages partition scheme and key range settings for you. Thi
  
  - By default, actors are randomly placed into partitions resulting in uniform distribution. 
  
- - Because actors are randomly placed, actor operations usually require network communication; incurring latency and overhead.
+ - Because actors are randomly placed, it should be expected that actor operations will always require network communication, including serialization and deserialization of method call data, incurring latency and overhead.
  
  - In advanced scenarios, it is possible to control actor partition placement by using Int64 actor IDs that map to specific partitions. However, doing so can result in an unbalanced distribution of actors across partitions. 
 
@@ -84,7 +88,7 @@ The Reliable Actors client API provides communication between an actor instance 
 ActorId actorId = ActorId.NewId();
 
 // This only creates a proxy object, it does not activate an actor or invoke any methods yet.
-IMyActor myActor = ActorProxy.Create<IMyActor>(actorId, "fabric:/MyApp");
+IMyActor myActor = ActorProxy.Create<IMyActor>(actorId, new Uri("fabric:/MyApp/MyActorService"));
 
 // This will invoke a method on the actor. If an actor with the given ID does not exist, it will be activated by this method call.
 await myActor.DoWorkAsync();
@@ -99,10 +103,10 @@ The `ActorProxy` class on the client side performs the necessary resolution to l
 
 ### Concurrency
 
-The Reliable Actors runtime provides a simple turn-based access model for accessing actor methods. This means that no more than one thread can be active inside the actor code at any time. Turn-based access greatly simplifies concurrent systems as there is no need for synchronization mechanisms for data access. It also means systems must be designed with special considerations for the single-threaded access nature of each actor instance.
+The Reliable Actors runtime provides a simple turn-based access model for accessing actor methods. This means that no more than one thread can be active inside an actor object's code at any time. Turn-based access greatly simplifies concurrent systems as there is no need for synchronization mechanisms for data access. It also means systems must be designed with special considerations for the single-threaded access nature of each actor instance.
 
  - A single actor instance cannot process more than one request at a time. An actor instance can cause a throughput bottleneck if it is expected to handle concurrent requests. 
- - Actors can deadlock on each other if there is a circular request between two actors while an external request is made to one of the actors simultaneously. 
+ - Actors can deadlock on each other if there is a circular request between two actors while an external request is made to one of the actors simultaneously. The actor runtime will automatically time out on actor calls and throw an exception to the caller to interrupt possible deadlock situations.
 
 ![Reliable Actors communication][3]
 
@@ -151,7 +155,7 @@ The following is an example of a stateless actor:
 ```csharp
 class HelloActor : StatelessActor, IHello
 {
-    public Task<string> SayHello(string greeting)
+    public Task<string> SayHelloAsync(string greeting)
     {
         return Task.FromResult("You said: '" + greeting + "', I say: Hello Actors!");
     }
@@ -159,7 +163,7 @@ class HelloActor : StatelessActor, IHello
 ```
 
 #### Stateful actors
-Stateful actors have a state that needs to be preserved across garbage collections and failovers. They derive from the `StatefulActor` that provides a State Manager to contain state reliably across garbage collection and failover. By default, actor state is persisted on disk and replicated across multiple nodes in the cluster. This means that, as with method arguments and return values, the actor state's type must be [data contract serializable](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+Stateful actors have a state that needs to be preserved across garbage collections and failovers. They derive from the `StatefulActor` base class that provides a State Manager to contain state reliably across garbage collection and failover. By default, actor state is persisted on disk and replicated across multiple nodes in the cluster. This means that, as with method arguments and return values, the actor state's type must be [data contract serializable](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 > [AZURE.NOTE] Refer to the [Reliable Actors notes on serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) article for more details on how interfaces and Actor state types should be defined. 
 
