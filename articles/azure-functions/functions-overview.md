@@ -3,20 +3,19 @@
    description="Understand how Azure Functions can optimize asynchronous workloads by creating simple functions that can be written in minutes."
    services="functions"
    documentationCenter=""
-   authors="GitHub-alias-of-only-one-author"
-   manager="manager-alias"
+   authors="syntaxc4
+   manager="erikre"
    editor=""
-   tags="optional"
-   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+   tags="optional" />
 
 <tags
    ms.service="functions"
    ms.devlang="multiple"
-   ms.topic="index-page"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="03/09/2016"
-   ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
+   ms.author="cfowler;mahender"/>
    
    
 # Azure Functions Overview
