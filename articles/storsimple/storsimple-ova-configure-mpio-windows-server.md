@@ -48,8 +48,6 @@ This section details the configuration prerequisites for the Windows Server host
 
 ### On StorSimple device
 
-Your StorSimple device should have:
-
 - The virtual device should be configured as an iSCSI server. To learn more, see [set up virtual device as an iSCSI server](storsimple-ova-deploy3-iscsi-setup.md). One or more network interfaces should be enabled on the device.   
 
 - The network interfaces on your virtual device should be reachable from the Windows Server host.
@@ -68,7 +66,7 @@ As shown in the preceding figure:
 
 - Your StorSimple virtual device provisioned on Hyper-V is a single node active device configured as an iSCSI server.
 
-- Two virtual network interfaces are enabled on your device. In the local web UI of your 1200 virtual device, verify that two network interfaces are enabled by navigating to **Network Setting**s as shown below:
+- Two virtual network interfaces are enabled on your device. In the local web UI of your 1200 virtual device, verify that two network interfaces are enabled by navigating to **Network Settings** as shown below:
 
 	![Network interfaces enabled on 1200](./media/storsimple-ova-configure-mpio-windows-server/mpio9.png)
 	
@@ -104,9 +102,9 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 
 	>[AZURE.IMPORTANT] **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
 
-4. Repeat steps 2-3 for a second network interface (for example, Ethernet2) on your device. 
+4. Repeat steps 2-3 for a second network interface (for example, Ethernet 2) on your device. 
 
-5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. For your virtual device, you should see each volume surface as a target under **Discovered Targets**.
+5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. For your virtual device, you should see each volume surface as a target under **Discovered Targets**. In this case, three target (corresponding to three volumes) would be discovered.
 
 	![mpio1](./media/storsimple-ova-configure-mpio-windows-server/mpio1.png)
 
