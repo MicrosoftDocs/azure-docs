@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Monitor, manage, and size an elastic database pool"
-	description="Learn how to manage, monitor, and right-size a scalable elastic database pool to optimize database performance and manage cost."
+	description="Learn how to use the Azure portal and SQL Database's built-in intelligence to manage, monitor, and right-size a scalable elastic database pool to optimize database performance and manage cost."
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Monitor, manage, and size an elastic database pool
+# Monitor, manage, and size an elastic database pool with the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)
@@ -26,7 +26,13 @@
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 
 
-You can use the Azure portal to monitor and manage an elastic pool and the databases in the pool. After you [create a pool](sql-database-elastic-pool-create-portal.md), in the [Azure portal](https://portal.azure.com) click **Browse**, click **SQL elastic pools** and then click the pool you want to work with from the list.
+This article describes how to use the Azure portal to monitor, manage, and right-size an elastic database pool and the databases in the pool. SQL Database has built-in intelligence that analyzes historical usage telemetry and proactively recommends a pool for databases when it will be more cost-effective. You can also add and remove databases before you commit to changes and see the impact on pool performance and storage. 
+
+To work through the steps in this article, you'll need databases and a pool. See [create a pool](sql-database-elastic-pool-create-portal.md) if you already have databases, and the [SQL database tutorial](sql-database-get-started) if you don't. 
+
+**To choose a pool to work with:**
+
+- In the [Azure portal](https://portal.azure.com) click **Browse**, click **SQL elastic pools**, and then click the pool you want to work with from the list.
 
 ##Monitor resource utilization of a pool
 After you select a pool to work with, under **Elastic Pool Monitoring**, a chart and live tiles show you important utilization information for your pool.
@@ -66,13 +72,13 @@ When you see the resource utilization of a pool, you may discover that the pool 
 
     ![Elastic pool resource utilization](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
-3. Click a different **Pool eDTU**, and you'll see the estimated monthly cost of the change you want to make.
+2. Click a different **Pool eDTU**, and you'll see the estimated monthly cost of the change you want to make, and the chart updates to show the predicted utilization values with the new max eDTU you selected.
 
     ![Updating a pool and new monthly cost](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
-4. Under **Elastic database setting**, a bar graph shows the eDTU utilization of each database in the pool.
+3. Under **Elastic database setting**, a bar graph shows the eDTU utilization of each database in the pool.
 
-5. Click **eDTU max** to set the maximum and **eDTU min** to set the minimum number of eDTU for the databases in the pool.
+4. Click **eDTU max** to set the maximum and **eDTU min** to set the minimum number of eDTU for the databases in the pool.
 
     ![Updating elastic database min and max eDTU](./media/sql-database-elastic-pool-manage-portal/change-db-edtuminmax.png)
 

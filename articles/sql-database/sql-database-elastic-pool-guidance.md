@@ -110,9 +110,9 @@ For more flexible resource usage assessments that allow ad hoc sizing estimates 
 | Granularity    | 15 seconds | 15 seconds
 | Considers pricing differences between a pool and performance levels for single databases| Yes| No
 | Allows customizing the list of the databases analyzed| Yes| Yes
-| Allows customizing the list of databases analyzed across different servers| No| Yes
 | Allows customizing the period of time used in the analysis| No| Yes
-| Allows customizing the list of databases analyzed on  v11 databases| No| Yes
+| Allows customizing the list of databases analyzed across different servers| No| Yes
+| Allows customizing the list of databases analyzed on v11 servers| No| Yes
 
 In cases where you can't use tooling, the following step-by-step can help you estimate whether a pool is more cost-effective than single databases:
 
@@ -127,3 +127,11 @@ MAX(<*Total number of DBs* X *average DTU utilization per DB*>,
 ## Summary
 
 Not all single databases are optimum candidates for pools. Databases with usage patterns that are characterized by low average utilization and relatively infrequent utilization spikes are excellent candidates. Application usage patterns are dynamic, so use the information and tools described in this article to make an initial assessment to see if a pool is a good choice for some or all of your databases. This article is just a starting point to help with your decision as to whether or not an elastic pool is a good fit. Remember that you should continually monitor historical resource usage and constantly reassess the performance levels of all of your databases. Keep in mind that you can easily move databases in and out of elastic pools, and if you have a very large number of databases you can have multiple pools of varying sizes that you can divide your databases into.
+
+## Next steps
+
+- [Create an elastic database pool](sql-database-elastic-pool-create-portal.md)
+- [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md)
+- [Elastic database pool reference](sql-database-elastic-pool-reference.md)
+- [SQL Database options and performance: understand what's available in each service tier](sql-database-service-tiers.md)
+- [PowerShell script for identifying databases suitable for an elastic database pool](sql-database-elastic-pool-database-assessment-powershell.md)
