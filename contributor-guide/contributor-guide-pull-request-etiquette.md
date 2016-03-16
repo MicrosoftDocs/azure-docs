@@ -2,9 +2,16 @@
 
 ## Basic principles to understand
 
-- The primary role of pull request reviewers is to ensure a basic level of quality is met in the content submitted into the repository and to prevent regressions in the repository. Pull request reviewers are in a content governance role. The primary intent is not to simply merge whatever is submitted as quickly as possible. You should expect feedback that will require you to make updates, especially for new and heavily revised articles.
+- Role of the pull request reviewer:
+  - Ensure the basic quality of the content
+  - Prevent regressions in the repository
+  - Provide feedback before merging
 
-- All the pull request reviewers have other work to do, and some of that work might be higher priority than reviewing pull requests. Some content submissions require planning that includes your pull request reviewer.
+  Pull request reviewers are in a content governance role. The primary intent is not to simply merge whatever is submitted as quickly as possible. Expect feedback that will require you to make updates, especially for new and heavily revised articles.
+
+- Plan ahead with your pull request reviewer for high-priority pull requests.
+
+  All the pull request reviewers have other work to do, and some of that work might be higher priority than reviewing pull requests. Some content submissions require planning that includes your pull request reviewer.
 
 
 ## Practical guidance to make it easier for us to review and merge your pull requests
