@@ -75,9 +75,11 @@ Update 2 enables Microsoft to pull additional diagnostic information from the de
 
 12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. The **Last updated date** should also be modified.
 
-You will now see that Maintenance mode updates are available. In some cases when you are running Update 1.2, your disk firmware may already be up-to-date. In these instances, the portal will automatically determine that and not prompt you for the maintenance mode updates.
+    You will now see that Maintenance mode updates are available. In some cases when you are running Update 1.2, your disk firmware may already be up-to-date. In these instances, the portal will automatically determine that and not prompt you for the maintenance mode updates.
 
-The maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. Follow the steps listed in [install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install these Maintenance mode updates.
+13. Follow the steps listed in [install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install these Maintenance mode updates.
+
+    The maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. Follow the steps listed in [install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install these Maintenance mode updates.
 
 > [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.  
 
