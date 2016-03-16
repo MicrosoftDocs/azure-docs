@@ -3,7 +3,7 @@
    description="Explains lifecycle and garbage collection for Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
-   ms.author="amanbha"/>
+   ms.date="03/17/2016"
+   ms.author="vturecek"/>
 
 
 # Actor lifecycle and garbage collection
