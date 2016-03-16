@@ -185,7 +185,7 @@ class MyActor : StatefulActor, IMyActor
 ```
 
 ##### Accessing state
-State can be accessed through the State Manager by key. Accessing state is an asynchronous operation because state is persisted to disk, and accessing state may require fetching state from disk. The State Manager caches objects in memory the first time they are accessed, so subsequent reads access live objects directly from memory and return synchronously without invoking disk I/O or thread context switching. The State Manager also keeps track of when objects are modified, and will not perform a save operation if no changes have been made in an actor method, making read operations from the State Manager highly efficient. 
+State can be accessed through the State Manager by key. Accessing state is an asynchronous operation because state is persisted to disk, and accessing state may require fetching state from disk. The State Manager caches objects in memory the first time they are accessed, so subsequent reads access live objects directly from memory and return synchronously without invoking disk I/O or thread context switching. Objects are removed from this cache when an actor instance is garbage collected or an unhandled exception occurs in an actor method, in which case the state is marked "dirty" and reloaded from disk the next time it is accessed. The State Manager also keeps track of when objects are modified, and will not perform a save operation if no changes have been made in an actor method, making read operations from the State Manager highly efficient. 
 
 ```csharp
 class MyActor : StatefulActor, IMyActor
