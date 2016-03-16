@@ -122,7 +122,7 @@ No. A VNet is limited to a single region.
 
 ### Can I connect a VNet to another VNet in Azure?
 
-Yes. You can create VNet to VNet communication by using REST APIs or Windows PowerShell. See [Configure a VNet to VNet Connection](../articles/virtual-network/virtual-networks-configure-vnet-to-vnet-connection.md).
+Yes. You can create VNet to VNet communication by using REST APIs or Windows PowerShell.
 
 ## Name Resolution (DNS)
 
@@ -177,7 +177,7 @@ Yes. You can deploy any distro of Linux supported by Azure.
 
 - **Internal IP address -** If you deploy a VM to a VNet, the VM receives an internal IP address from a pool of internal IP addresses that you specify. VMs communicate within the VNets by using internal IP addresses. Although Azure assigns a dynamic internal IP address, you can request a static address for your VM. To learn more about static internal IP addresses, visit [How to Set a Static Internal IP](../articles/virtual-network/virtual-networks-reserved-private-ip.md).
 
-- **VIP -** Your VM is also associated with a VIP, although a VIP is never assigned to the VM directly. A VIP is a public IP address that can be assigned to your cloud service. You can, optionally, reserve a VIP for your cloud service. See [Reserved Public IP](virtual-networks-reserved-public-ip.md).
+- **VIP -** Your VM is also associated with a VIP, although a VIP is never assigned to the VM directly. A VIP is a public IP address that can be assigned to your cloud service. You can, optionally, reserve a VIP for your cloud service.
 
 - **ILPIP -** You can also configure an instance-level public IP address (ILPIP). ILPIPs are directly associated with the VM, rather than the cloud service. To learn more about ILPIPs, visit [Instance-Level Public IP Overview](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 
