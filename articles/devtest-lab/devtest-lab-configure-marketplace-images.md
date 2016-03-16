@@ -40,10 +40,10 @@ creating new VMs in a DevTest Lab.
 	![Configure how Marketplace images are used](./media/devtest-lab-configure-marketplace-images/lab-settings-marketplace-images.png)
 
 1. Specify whether you want all the qualified Azure Marketplace images to be available for use as a base of a new VM. If you select **Yes**, 
-then all qualified Marketplace images are allowed in the lab, including images that:
+then all the Marketplace images that meet the following criteria are allowed in the lab:
 
-	- Create a single VM
-	- Create VMS using Azure Resource Manager (ARM)
+	- Create a single VM **and**
+	- Create VMS using Azure Resource Manager (ARM) **and**
 	- Do not require an extra purchasing plan
 	
 	If you want no images to be allowed, or you want to specify which images can be used, select **No**.
@@ -51,7 +51,7 @@ then all qualified Marketplace images are allowed in the lab, including images t
 	![Option to allow all Marketplace images to be used as base images for VMs](./media/devtest-lab-configure-marketplace-images/allow-all-marketplace-images.png)
  
 1. If you select **No** to the previous step, the **Allowed images/Select all** checkbox will be enabled. 
-You can use this option together with the search box to quickly select or deselect all the items displayed in the list
+You can use this option together with the search box to quickly select or deselect all the items displayed in the list.
 You can also select the Marketplace images you want to allow for VM creation individually by checking each image's corresponding checkbox.
 Select nothing from the list if you don't want to allow any Azure Marketplace images to be used in the lab.
 
