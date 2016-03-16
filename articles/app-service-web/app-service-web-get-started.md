@@ -48,7 +48,7 @@ you can immediately create a short-lived starter app in App Service—no credit 
 
 Let's deploy a web app to Azure App Service. 
 
-1. In a Windows command prompt, Linux shell, or OS X terminal, `CD` into a working directory and clone the sample app like so:
+1. Open a new Windows command prompt, Linux shell, or OS X terminal and `CD` into a working directory and clone the sample app like so:
 
         git clone <github_sample_url>
 
