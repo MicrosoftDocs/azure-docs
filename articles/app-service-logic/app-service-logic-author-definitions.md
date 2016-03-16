@@ -17,7 +17,7 @@
 	ms.author="stepsic"/>
 	
 # Author Logic App definitions
-This topic demonstrates how to use [App Services Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](app-service-logic-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+This topic demonstrates how to use [App Services Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](app-service-logic-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx).
 
 ## Several steps that repeat over a list
 
@@ -236,7 +236,7 @@ Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.micro
 }
 ```
 
-You can read about the [Logic app type action on MSDN](https://msdn.microsoft.com/library/azure/dn948511.aspx). 
+You can read about the [Logic app type action on MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx). 
 
 >[AZURE.NOTE]The Logic app designer does not support Logic app type actions so you will need to edit the definition manually.
 
