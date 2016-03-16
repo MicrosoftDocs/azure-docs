@@ -20,7 +20,7 @@
 
 Welcome to the Azure Site Recovery! Start with this article to get a quick overview of the Site Recovery service and how can contribute to your business continuity and disaster recovery (BCDR) strategy.
 
-Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../articles/resource-manager-deployment-model.md). This article applies to both models. Microsoft recommends that most new deployments use the Resource Manager model.
+Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article applies to both models. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Overview
 
