@@ -54,11 +54,11 @@ Let's deploy a web app to Azure App Service.
 
     For *&lt;github_sample_url>*, use one of the following URLs, depending on the framework you like: 
 
-    - ASP.NET: [https://github.com/cephalin/aspnet-get-started.git](https://github.com/azure-appservice-samples/aspnet-get-started.git)
-    - PHP (CodeIgniter): [https://github.com/cephalin/php-get-started.git](https://github.com/azure-appservice-samples/php-get-started.git)
-    - Node.js (Express): [https://github.com/cephalin/nodejs-get-started.git](https://github.com/azure-appservice-samples/nodejs-get-started.git) 
-    - Python (Django): [https://github.com/cephalin/python-get-started.git](https://github.com/azure-appservice-samples/python-get-started.git)
-    - Java: [https://github.com/cephalin/java-get-started.git](https://github.com/azure-appservice-samples/java-get-started.git)
+    - ASP.NET: [https://github.com/azure-appservice-samples/aspnet-get-started.git](https://github.com/azure-appservice-samples/aspnet-get-started.git)
+    - PHP (CodeIgniter): [https://github.com/azure-appservice-samples/php-get-started.git](https://github.com/azure-appservice-samples/php-get-started.git)
+    - Node.js (Express): [https://github.com/azure-appservice-samples/nodejs-get-started.git](https://github.com/azure-appservice-samples/nodejs-get-started.git) 
+    - Python (Django): [https://github.com/azure-appservice-samples/python-get-started.git](https://github.com/azure-appservice-samples/python-get-started.git)
+    - Java: [https://github.com/azure-appservice-samples/java-get-started.git](https://github.com/azure-appservice-samples/java-get-started.git)
 
 2. `CD` into your sample app's project root. For example, 
 
