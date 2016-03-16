@@ -30,7 +30,7 @@ Azure Scheduler is available via the UI in almost every geo region that's in Azu
 
 Not only is the Azure Scheduler front-end available for management requests, but your own job is also geo-replicated. When there’s an outage in one region, Azure Scheduler fails over and ensures that the job is run from another data center in the paired geographic region.
 
-For example, if you’ve created a job in South Central US, Azure Scheduler automatically replicates that job in North Central US. When there’s a failure in South Central US, Azure Scheduler ensures that the job is run from North Central US. [The list of paired Azure regions is available here](https://msdn.microsoft.com/library/azure/dn758204.aspx).
+For example, if you’ve created a job in South Central US, Azure Scheduler automatically replicates that job in North Central US. When there’s a failure in South Central US, Azure Scheduler ensures that the job is run from North Central US. [For an in-depth explanation of Azure's geo-replication capabilities, refer to this topic.](../sql-database/sql-database-business-continuity-design.md).
 
 ![][1]
 
@@ -56,7 +56,7 @@ As an example, in the diagram below, Azure Scheduler follows its retry policy to
 
 ![][2]
 
-Note that the same retry policy applies to both the original action and the alternate error action. It’s also possible to have the alternate error action’s action type be different from the main action’s action type. For example, while the main action may be invoking an HTTP endpoint, the error action may instead be a storage queue action that does error-logging.
+Note that the same retry policy applies to both the original action and the alternate error action. It’s also possible to have the alternate error action’s action type be different from the main action’s action type. For example, while the main action may be invoking an HTTP endpoint, the error action may instead be a storage queue, service bus queue, or service bus topic action that does error-logging.
 
 To learn how to configure an alternate endpoint, refer to [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
