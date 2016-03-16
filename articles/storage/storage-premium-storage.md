@@ -56,7 +56,7 @@ For step-by-step instructions, see the [Quick Start](#quick-start) section later
 
 ## DS and GS series VMs
 
-Premium Storage supports DS-series and GS-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with DS-series or GS-series of VMs. But you cannot use Premium Storage disks with non-DS-series or non-GS-series of VMs. For information on available Azure VM types and sizes, see [Sizes for Virtual Machines](../virtual-machines/virtual-machines-size-specs.md). Following are some of the features of DS and GS series VMs,
+Premium Storage supports DS-series and GS-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with DS-series or GS-series of VMs. But you cannot use Premium Storage disks with non-DS-series or non-GS-series of VMs. For information on available Azure VM types and sizes, see [Sizes for Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md). Following are some of the features of DS and GS series VMs,
 
 **Cloud Service**: DS-series VMs can be added to a cloud service that includes only DS-series VMs. Do not add DS-series VMs to an existing cloud service that includes non-DS-series VMs. You can migrate your existing VHDs to a new cloud service running only DS-series VMs. If you want to retain the same virtual IP address (VIP) for the new cloud service that hosts your DS-series VMs, use the [Reserved IP Addresses](../virtual-network/virtual-networks-instance-level-public-ip.md). GS-series VMs can be added to an existing cloud service running only G-series VMs.
 

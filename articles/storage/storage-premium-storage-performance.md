@@ -574,5 +574,5 @@ Learn more about Azure Premium Storage:
 
 For SQL Server users, read articles on Performance Best Practices for SQL Server:
 
-- [Performance Best Practices for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-sql-server-performance-best-practices.md)
+- [Performance Best Practices for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-classic-sql-perf.md)
 - [Azure Premium Storage provides highest performance for SQL Server in Azure VM](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 

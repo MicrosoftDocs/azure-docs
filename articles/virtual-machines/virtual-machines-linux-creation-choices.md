@@ -55,7 +55,7 @@ In all of the above articles, you can easily use an existing Azure image to crea
 
 Use an image based on an existing Azure virtual machine by *capturing* that VM, or upload an image of your own, stored in a virtual hard disk (VHD). For more information, see:
 
-* [Azure endorsed distributions](virtual-machines-linux-endorsed-distributions.md)
+* [Azure endorsed distributions](virtual-machines-linux-endorsed-distros.md)
 
 * [Information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md)
 
