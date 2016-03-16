@@ -33,7 +33,10 @@ You'll also take a first glance at the [Azure portal](https://portal.azure.com) 
 
 To complete this tutorial, you need:
 
-- Git. You can download the installation binary [here](http://www.git-scm.com/downloads).
+- Git. You can download the installation binary [here](http://www.git-scm.com/downloads). You should be able to run `git --version` from the command-line terminal
+of your choice. 
+- Basic knowledge of Git.
+- Azure CLI. Installation instructions are [here](../xplat-cli-install.md).
 - A Microsoft Azure account. If you don't have an account, you can 
 [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
 [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
@@ -44,10 +47,6 @@ you can immediately create a short-lived starter app in App Service—no credit 
 ## Deploy a web app
 
 Let's deploy a web app to Azure App Service. 
-
-2. First, install the [Azure CLI](../xplat-cli-install.md). If you have NPM installed already, you can just install it with the following command:
-
-        npm install azure-cli -g
 
 1. In a Windows command prompt, Linux shell, or OS X terminal, `CD` into a working directory and clone the sample app like so:
 
@@ -100,8 +99,8 @@ To see your app running live in Azure, run this command:
 
     azure site browse <app_name>
 
-If you see the error message: `Site <app_name> does not exist or has no hostnames`, retry the command in a few seconds. Some apps (especially Java) take longer
-to wrap up deployment. You'll notice it only if you're a fast typer.
+If you see the error message: `Site <app_name> does not exist or has no hostnames`, retry the command in a few seconds. Some apps, such as Java apps, take longer
+to wrap up deployment.
 
 ## Make updates to your app
 
