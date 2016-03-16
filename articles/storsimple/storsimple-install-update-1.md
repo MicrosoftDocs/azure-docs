@@ -82,6 +82,17 @@ Perform the following steps to update your device to [Update 1.2](storsimple-upd
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
+12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17584)**. The **Last updated date** should also be modified.
+
+    You will now see that Maintenance mode updates are available.
+
+13. Follow the steps listed in [install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install these Maintenance mode updates.
+
+    The maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
+
+> [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.  
+
+
 ## Install Update 1.2 on a device that has a gateway configured for a non-DATA 0 network interface
 
 You should use this procedure only if you fail the gateway check when trying to install the updates through the Azure classic portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1. If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Azure classic portal. See [Install update 1.2 via the Azure classic portal](#install-update-12-via-the-azure-portal).
