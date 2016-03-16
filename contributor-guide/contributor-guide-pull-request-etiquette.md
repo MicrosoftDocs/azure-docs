@@ -1,17 +1,21 @@
 # Pull request etiquette and best practices
 
-## Basic principles to understand
+For optimal functioning of the pull request workflow, keep the following in mind:
 
-- Role of the pull request reviewer:
-  - Ensure the basic quality of the content
-  - Prevent regressions in the repository
-  - Provide feedback before merging
+- <b>Understand the role of the pull request reviewer. The reviewer:</b>
+  - Ensures the basic quality of the content
+  - Prevents regressions in the repository
+  - Provides feedback before merging
 
   Pull request reviewers are in a content governance role. The primary intent is not to simply merge whatever is submitted as quickly as possible. Expect feedback that will require you to make updates, especially for new and heavily revised articles.
 
-- Plan ahead with your pull request reviewer for high-priority pull requests.
+- <b>Plan ahead with your pull request reviewer:</b>
+  - For high-priority pull requests
+  - Pull requests for timed/dated releases
+  - Pull requests that change or add lots of files
 
-  All the pull request reviewers have other work to do, and some of that work might be higher priority than reviewing pull requests. Some content submissions require planning that includes your pull request reviewer.
+- <b>Pull requests may take a few days to be merged</b>
+  All the pull request reviewers have other work to do, and some of that work might be higher priority than reviewing pull requests. 
 
 
 ## Practical guidance to make it easier for us to review and merge your pull requests
