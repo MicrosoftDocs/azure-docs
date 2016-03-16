@@ -43,15 +43,16 @@ The following table contains links to code samples for each supported language a
 
 If a device cannot use the device client SDKs, it can still connect to the public device endpoints using the MQTT protocol. In the **CONNECT** packet the device should use the following values:
 
-- The **deviceId** as the **ClientId**. Use `{iothubhostname}/{device_id}` in the **Username** field, where {iothubhostname} is the full CName of the IoT hub.
+- For the **ClientId** field use the **deviceId**. 
+- For the **Username** field use `{iothubhostname}/{device_id}`, where {iothubhostname} is the full CName of the IoT hub.
 
-    For example, if the name of your IoT hub is **contoso.azure-devices.net** and the name of your device is **MyDevice01**, the full **Username** field should contain `contoso.azure-devices.net/MyDevice01`.
+    For example, if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should contain `contoso.azure-devices.net/MyDevice01`.
 
-- A SAS token in the **Password** field. The [format of the SAS token][lnk-iothub-security] is the same as described for the HTTP and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
+- For the **Password** field use a SAS token. The [format of the SAS token][lnk-iothub-security] is the same as described for the HTTP and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
 
     For more information about how to generate SAS tokens, see [Using IoT Hub security tokens][lnk-sas-tokens].
     
-    You can also use the [Device Explorer][lnk-device-explorer] tool to generate a SAS token that you can copy and paste into your own code:
+    When testing, you can also use the [Device Explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
     
     1. Go to the **Management** tab in Device Explorer.
     2. Click **SAS Token** (top right).
