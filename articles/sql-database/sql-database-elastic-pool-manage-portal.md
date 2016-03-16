@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/11/2016"
+	ms.date="03/16/2016"
 	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -43,7 +43,7 @@ After you select a pool to work with, under **Elastic Pool Monitoring**, a chart
 
 ##Add an alert to a pool resource
 You can add rules to resources that send email to people or alert strings to URL endpoints when the resource hits a utilization threshold that you set up.
- 
+
 **To add an alert to any resource:**
 
 1. Click the **Resource utilization** chart to open the **Metric** blade, click **Add alert**, and then fill out the information in the **Add an alert rule** blade (**Resource** is automatically set up to be the pool you're working with).
@@ -94,7 +94,7 @@ After you create a pool, you can add databases to the pool or remove them. You c
 
     ![databases listing](./media/sql-database-elastic-pool-manage-portal/db-listing.png)
 
-2. In the **Elastic databases** blade, from the list of databases in the pool, click the databases you want to remove, and then click **Remove databases**. 
+2. In the **Elastic databases** blade, from the list of databases in the pool, click the databases you want to remove, and then click **Remove databases**.
 
     The pool utilization values now show you what the **New** values will be if you save your changes.
 
