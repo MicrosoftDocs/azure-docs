@@ -128,7 +128,7 @@ Now, let's go to the Azure portal to see what you created:
 
 3. Click the App Service app that you just created to open its blade in the portal. You will see that the **Settings** blade is also opened by default for your convenience.
 
-    ![](./media/app-service-web-get-started/portal-view.png) 
+    ![Portal view of first app in Azure App Service](./media/app-service-web-get-started/portal-view.png) 
 
 Your App Service app's blade surfaces a rich set of settings and tools for you to configure, monitor, and secure, and troubleshoot your app. Take a moment to 
 familiarize yourself with this interface by performing some simple tasks:

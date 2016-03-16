@@ -326,7 +326,7 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [nsg]: ../virtual-network/virtual-networks-nsg.md
 [password-reset]: ../virtual-machines/virtual-machines-windows-reset-password.md
 [planned-maintenance]: ../virtual-machines/virtual-machines-planned-maintenance.md
-[premium-storage]: ../storage/storage-premium-storage-preview-portal.md
+[premium-storage]: ../storage/storage-premium-storage.md
 [rbac]: ../active-directory/role-based-access-control-configure.md
 [reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
 [Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
