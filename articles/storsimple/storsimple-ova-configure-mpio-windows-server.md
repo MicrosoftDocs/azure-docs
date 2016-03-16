@@ -17,11 +17,11 @@
 
 # Configure Multipath I/O for your StorSimple device
 
-Microsoft built support for the Multipath I/O (MPIO) feature in Windows Server to help build highly available, fault-tolerant SAN configurations. MPIO uses redundant physical path components — adapters, cables, and switches — to create logical paths between the server and the storage device. If there is a component failure, causing a logical path to fail, multipathing logic uses an alternate path for I/O so that applications can still access their data. Additionally depending on your configuration, MPIO can also improve performance by re-balancing the load across all these paths. For more information, see [MPIO overview](https://technet.microsoft.com/library/cc725907.aspx "MPIO overview and features").  
+Microsoft built support for the Multipath I/O (MPIO) feature in Windows Server to help build highly available, fault-tolerant storage configurations. MPIO uses redundant physical path components — adapters, cables, and switches — to create logical paths between the server and the storage device. If there is a component failure, causing a logical path to fail, multipathing logic uses an alternate path for I/O so that applications can still access their data. Additionally depending on your configuration, MPIO can also improve performance by re-balancing the load across all these paths. For more information, see [MPIO overview](https://technet.microsoft.com/library/cc725907.aspx "MPIO overview and features").  
 
 For the high-availability of your StorSimple solution, MPIO should be configured on your StorSimple 1200 Virtual Array (also known as the on-premises virtual device). When MPIO is installed on your host servers running Windows Server 2012 R2, the servers can then tolerate a link, network, or interface failure. 
 
-A StorSimple 1200 virtual device connected to a Windows Server host can be configured for high availability and load balancing. The following procedure describes how to install MPIO on your host, apply specific configuration settings for StorSimple-only volumes, and then enable and verify MPIO for StorSimple volumes. The procedure assumes that your StorSimple 1200 virtual device with two network interfaces is connected to a Windows Server host with two network interfaces. 
+The following procedure describes how to install MPIO on your host, apply specific configuration settings for StorSimple-only volumes, and then verify MPIO for StorSimple volumes. The procedure assumes that your StorSimple 1200 virtual device with two network interfaces is connected to a Windows Server host with two network interfaces. 
 
 You will need to follow these steps to configure MPIO on your virtual device:
 
@@ -97,7 +97,7 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 2. In the **iSCSI Initiator Properties** dialog box, click the Discovery tab, and then click **Discover Target Portal**.
 3. In the **Discover Target Portal** dialog box, do the following:
 	
-	- Enter the IP address of the first enabled network interface on your StorSimple virtual device. By default, this would be **ETHERNET**. 
+	- Enter the IP address of the first enabled network interface on your StorSimple virtual device. By default, this would be **Ethernet**. 
 	- Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
 
 	>[AZURE.IMPORTANT] **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
@@ -168,11 +168,10 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 	- Retry Interval = 1
 	- Path Verify Enabled = Unchecked.
 
-
 	>[AZURE.NOTE] **Do not modify the default parameters.**
 
 
 ## Next steps
 
-Learn more about [using the StorSimple Manager service to modify your StorSimple device configuration](storsimple-modify-device-config.md).
+Learn more about [using the StorSimple Manager service to administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md).
  
