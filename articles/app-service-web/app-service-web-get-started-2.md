@@ -38,30 +38,30 @@ Regardless of which sample app you deployed in the previous article, you can fol
 Now, let's see how easy it is to add authentication to your app.  
 
 1. In your app's blade, that you just opened, click **Settings** > **Authentication / Authorization**.  
-    ![](./media/app-service-web-get-started/aad-login-settings.png)
+    ![Authenticate - settings blade](./media/app-service-web-get-started/aad-login-settings.png)
     
 2. Click **On** to turn on authentication.  
-    ![](./media/app-service-web-get-started/aad-login-auth-on.png)
+    ![Authenticate - turn on](./media/app-service-web-get-started/aad-login-auth-on.png)
     
 4. In **Authentication Providers**, click **Azure Active Directory**.  
-    ![](./media/app-service-web-get-started/aad-login-config.png)
+    ![Authenticate - select Azure AD](./media/app-service-web-get-started/aad-login-config.png)
 
 5. In the **Azure Active Directory Settings** blade, click **Express**, then click **OK**. The default settings will create a new Azure AD application in
 your default directory.  
-    ![](./media/app-service-web-get-started/aad-login-express.png)
+    ![Authenticate - express configuration](./media/app-service-web-get-started/aad-login-express.png)
 
 6. Click **Save**.  
-    ![](./media/app-service-web-get-started/aad-login-save.png)
+    ![Authenticate - save configuration](./media/app-service-web-get-started/aad-login-save.png)
 
     Once the change is successful, you'll see the notification bell turn green, along with a friendly message.
 
 7. Back in your app's main blade, click the **URL** link (or **Browse** in the menu bar). Note that the link is an HTTP address.  
-    ![](./media/app-service-web-get-started/aad-login-browse-click.png)  
+    ![Authenticate - browse to URL](./media/app-service-web-get-started/aad-login-browse-click.png)  
     But once it opens the app in a new tab, the URL box redirects several times and finishes on your app with an HTTPS address. What you're seeing is that
     you're already logged into the Microsoft account with your Azure subscription, and you're automatically logged into the app using that account.  
-    ![](./media/app-service-web-get-started/aad-login-browse-http-postclick.png)  
+    ![Authenticate - logged in](./media/app-service-web-get-started/aad-login-browse-http-postclick.png)  
     So if you now open another browser (to ensure that you're not already logged in), you'll see a login screen when you navigate to the same app's URL:  
-    ![](./media/app-service-web-get-started/aad-login-browse.png)  
+    ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  
     If you've never done anything with Azure Active Directory, your default directory might not have any Azure AD users. In that case, probably the only account
     in there is the Microsoft account with you Azure subscription, which is why you could be automatically logged into the app in the same browser earlier. 
     You can use that same Microsoft account to log in on this login page as well.
@@ -92,20 +92,20 @@ on performance metrics.
 Without further ado, let's set up autoscaling for your app.
 
 1. First, let's scale up to enable autoscaling. In your app's blade, click **Settings** > **Scale Up (App Service Plan)**.  
-    ![](./media/app-service-web-get-started/scale-up-settings.png)
+    ![Scale up - settings blade](./media/app-service-web-get-started/scale-up-settings.png)
 
 2. Scroll and select the **S1 Standard** tier, the lowest tier that supports autoscaling (circled below), then click **Select**. Note that this tier
 will burn your free trial credits.  
-    ![](./media/app-service-web-get-started/scale-up-select.png)
+    ![Scale up - choose tier](./media/app-service-web-get-started/scale-up-select.png)
 
     You're done scaling up.
     
 3. Next, let's configure autoscaling. In your app's blade, click **Settings** > **Scale Out (App Service Plan)**.  
-    ![](./media/app-service-web-get-started/scale-out-settings.png)
+    ![Scale out - settings blade](./media/app-service-web-get-started/scale-out-settings.png)
 
 4. Change **Scale by** to **CPU Percentage**. The sliders underneath the dropdown will change accordingly. Then, define an **Instances** range between
 **1** and **2** and a **Target range** between **40** and **80**, either by typing in the boxes or by moving the sliders.  
-    ![](./media/app-service-web-get-started/scale-out-configure.png)
+    ![Scale out - configure autoscaling](./media/app-service-web-get-started/scale-out-configure.png)
     
     Based on this configuration, your app will automatically scale out (to the maximum of 2 instances) when CPU utilization is above 80% and 
     scale in (to the minimum of 1 instance) when CPU utilization is below 40%. 
@@ -132,24 +132,24 @@ utilization goes above your desired percentage (80%)? You can set up an alert to
 example. Let's quickly set up an alert for this.
 
 1. In your app's blade, click **Tools** > **Alerts**.  
-    ![](./media/app-service-web-get-started/alert-settings.png)
+    ![Alerts - settings blade](./media/app-service-web-get-started/alert-settings.png)
 
 2. Click **Add alert**. Then, in the **Resource** box, select the resource that ends with **(serverfarms)**. That's your App Service plan.  
-    ![](./media/app-service-web-get-started/alert-add.png)
+    ![Alerts - add alert for App Service plan](./media/app-service-web-get-started/alert-add.png)
 
 3. Specify **Name** as `CPU Maxed`, **Metric** as **CPU Percentage**, and **Threshold** as `90`, then select **Email owners, contributors, and readers**,
 and then click **OK**.   
-    ![](./media/app-service-web-get-started/alert-configure.png)
+    ![Alerts - configure alert](./media/app-service-web-get-started/alert-configure.png)
     
     When Azure finishes creating the alert, you'll see it in the **Alerts** blade.  
-    ![](./media/app-service-web-get-started/alert-done.png)
+    ![Alerts - finished view](./media/app-service-web-get-started/alert-done.png)
 
 Congratulations, you're now getting alerts. 
 
 This alert setting will now check CPU utilization every 5 minutes. If that number goes above 90%,
 you'll receive an email alert, along with anyone who is authorized. To see everyone who is authorized to receive the alerts, go back to your app's blade
 and click the **Access** button.  
-![](./media/app-service-web-get-started/alert-rbac.png)
+![See who gets alerts](./media/app-service-web-get-started/alert-rbac.png)
 
 You should see that **Subscription admins** are already the **Owner** of the app. That would include you if you're the account administrator of your 
 Azure subscription (e.g. your trial subscription). For more information on Azure role-based access control, see 
