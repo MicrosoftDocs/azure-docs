@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Troubleshoot issue in deleting Azure storage account, container or VHD | Microsoft Azure"
-	description="Troubleshoot issue in deleting Azure storage account, container or VHD"
+	pageTitle="Troubleshoot deleting Azure storage accounts, containers or VHDs| Microsoft Azure"
+	description="Troubleshoot deleting Azure storage accounts, containers or VHDs"
 	services="storage"
 	documentationCenter=""
 	authors="genlin"
@@ -17,7 +17,7 @@
 	ms.date="03/14/2016"
 	ms.author="genli"/>
 
-# Troubleshoot issue in deleting Azure storage account, container or VHD
+# Troubleshoot deleting Azure storage accounts, containers or VHDs
 
 You may receive errors when you try to delete the Azure storage account, container or VHD in the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/). The issues can be caused by:
 
@@ -41,6 +41,8 @@ To resolve the most common issues, try the following method:
 
 After that, try to delete the storage account, container or VHD again.
 
+**WARNING**: Be sure to back up anything you want to save before you delete the account. It is not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. This also holds true for any resources in the account—once you delete a VHD, blob, table, queue, or file, it is permanently deleted. Please ensure the resource is not in use.
+
 For more detail about the issues, see:
 
 [Unable to delete the storage account](#unable-to-delete-a-storage-account)
@@ -49,7 +51,6 @@ For more detail about the issues, see:
 
 [Unable to delete a VHD](#unable-to-delete-a-vhd)
 
-**WARNING**: Be sure to back up anything you want to save before you delete the account. It is not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. This also holds true for any resources in the account—once you delete a VHD, blob, table, queue, or file, it is permanently deleted. Please ensure the resource is not in use.
 
 ## Unable to delete a storage account
 
