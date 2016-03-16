@@ -77,11 +77,11 @@ If you want to move the app to a different region, one alternative is app clonin
 
  ![][appclone]
  
- You can find **App Clone** in the **tools** menu. 
+ You can find **Clone App** in the **tools** menu. 
 
-App clone will make a copy of your app into a new or exisiting App Service plan in any region. or App Service Environment.
+Clone will make a copy of your app into a new or exisiting App Service plan or App Service environment in any region.
 
-App clone has some limitatiations, you can read more about it [here](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-app-cloning/#current-restrictions)
+Clone has some limitatiations, you can read more about it [here](..\app-service-web\app-service-web-app-cloning-portal.md)
 
 ## Scale an App Service plan
 
