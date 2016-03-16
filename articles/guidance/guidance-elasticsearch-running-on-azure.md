@@ -448,7 +448,7 @@ installing and configuring Elasticsearch on each one can be a time consuming and
 you are considering running Elasticsearch on Azure VMs, you have two options that can help to reduce the
 chances of errors.
 
-- Using [Azure Resource Manager (ARM) template] (https://azure.microsoft.com/marketplace/partners/elastic/elasticsearchelasticsearch/) in Azure marketplace. This template is created by Elastic. It allows to add commercial enhancements such as Sield, Marvel, and Watcher etc.
+- Using [Azure Resource Manager (ARM) template] (https://azure.microsoft.com/marketplace/partners/elastic/elasticsearchelasticsearch/) in Azure marketplace. This template is created by Elastic. It allows to add commercial enhancements such as Shield, Marvel, and Watcher etc.
 
 - Using another [ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) to build the cluster. This template is fully parameterized to enable you to specify the size and performance tier for the VMs that implement the nodes, the number of disks to use, and other common factors. The template can create a cluster based on Windows Server 2012 or Ubuntu Linux 14.0.4. This template is used for research and testing tasks in this document.
 
