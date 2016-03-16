@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Service Bus Dead-Letter Queues | Microsoft Azure" 
+    pageTitle="Service Bus dead-letter queues | Microsoft Azure" 
     description="Overview of Azure Service Bus dead-letter queues" 
     services="service-bus" 
     documentationCenter=".net" 
@@ -16,7 +16,7 @@
     ms.date="03/16/2016"
     ms.author="clemensv;sethm"/>
 
-# Dead-letter queues 
+# Overview of Service Bus dead-letter queues
 
 Service Bus queues and topic subscriptions provide a secondary sub-queue, called a *dead-letter queue* (DLQ). The dead-letter queue does not need to be explicitly created and cannot be deleted or otherwise managed independent of the main entity.
 
@@ -86,8 +86,7 @@ while(true)
 
 ## Next steps
 
-See the following articles for more information about Service Bus:
+See the following articles for more information about Service Bus queues:
 
-- [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+- [Azure Queues and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - How to use [Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
-- [Service Bus samples](service-bus-samples.md)
