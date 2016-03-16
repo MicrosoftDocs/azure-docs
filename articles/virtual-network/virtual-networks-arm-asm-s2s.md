@@ -347,5 +347,5 @@ Now that you have the two VNets connected, it is time to test the connectivity b
 
 ## Next Steps
 
-- Learn more about [the Network Resource Provider (NRP) for ARM](../resource-groups-networking.md).
+- Learn more about [the Network Resource Provider (NRP) for ARM](resource-groups-networking.md).
 - View the general guidelines on how to [create a S2S VPN connection between a classic VNet and an ARM VNet](virtual-networks-arm-asm-s2s-howto.md).
