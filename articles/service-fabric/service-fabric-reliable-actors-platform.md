@@ -3,7 +3,7 @@
    description="Describes how Reliable Actors use the features of the Service Fabric platform, covering concepts from the point of view of actor developers."
    services="service-fabric"
    documentationCenter=".net"
-   authors="amanbha"
+   authors="myamanbh"
    manager="timlt"
    editor="vturecek"/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="03/15/2016"
    ms.author="amanbha"/>
 
 # How Reliable Actors use the Service Fabric platform
