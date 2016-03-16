@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="03/15/2016"
+	ms.date="03/16/2016"
 	ms.author="rickbyh"/>
 
 
@@ -42,10 +42,12 @@ Azure SQL server uses firewall rules to allow connections to your servers and da
 ## Manage existing server-level firewall rules through the Azure portal
 
 Repeat the steps to manage the server-level firewall rules. 
-	*  To add the current computer, click Add client IP.
-	*  To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address.
-	*  To modify an existing rule, click any of the fields in the rule and modify.
-	*  To delete an existing rule, hover over the rule until the X appears at the end of the row. Click X to remove the rule.
+
+- To add the current computer, click Add client IP.
+- To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address.
+- To modify an existing rule, click any of the fields in the rule and modify.
+- To delete an existing rule, hover over the rule until the X appears at the end of the row. Click X to remove the rule.
+
 Click **Save** to save the changes.
 
 
