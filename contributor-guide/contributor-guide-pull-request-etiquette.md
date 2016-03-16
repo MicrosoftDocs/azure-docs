@@ -1,6 +1,6 @@
 # Pull request etiquette and best practices
 
-To publish changes to documentation, you submit pull requests from your fork. Every pull request has to be reviewed prior to being merged. Read this article to understand how you should work with pull request reviewers and how you can create pull requests that are easier and faster to review.
+To publish changes to documentation, you submit pull requests from your fork. Every pull request has to be reviewed prior to being merged. Read this article to understand how you should work with pull request reviewers and how you can create pull requests that are easier and faster to review so the pull request queue works better for everyone.
 
 ## Working with pull request reviewers
 
@@ -23,7 +23,7 @@ Here's the basics you need to know about working with pull request reviewers.
   While pull request reviewers try to review PRs at least twice daily, all the pull request reviewers have other work to do, and some of that work might be higher priority than reviewing pull requests. 
 
 
-## Creating pull requests that are easier and faster for the reviewers to approve
+## Make the pull request queue work better for everyone
 
 There are two basic realities in the PR queue:
 
