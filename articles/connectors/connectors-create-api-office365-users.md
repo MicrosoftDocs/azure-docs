@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/03/2016"
+ms.date="03/16/2016"
 ms.author="deonhe"/>
 
 # Get started with the Office 365 Users API
@@ -25,7 +25,7 @@ Connect to Office 365 Users to get profiles, search users, and more. The Office 
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-office365-users.md)
+- [Logic apps](../articles/connectors/connectors-create-api-office365-users.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-users.md)
 
 &nbsp; 
@@ -203,8 +203,8 @@ Go back to the [APIs list](apis-list.md).
 
 <!--References-->
 [5]: https://portal.azure.com
-[7]: ./media/create-api-office365-users/aad-tenant-applications.PNG
-[8]: ./media/create-api-office365-users/aad-tenant-applications-add-appinfo.PNG
-[9]: ./media/create-api-office365-users/aad-tenant-applications-add-app-properties.PNG
-[10]: ./media/create-api-office365-users/contoso-aad-app.PNG
-[11]: ./media/create-api-office365-users/contoso-aad-app-configure.PNG
+[7]: ./media/connectors-create-api-office365-users/aad-tenant-applications.PNG
+[8]: ./media/connectors-create-api-office365-users/aad-tenant-applications-add-appinfo.PNG
+[9]: ./media/connectors-create-api-office365-users/aad-tenant-applications-add-app-properties.PNG
+[10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
+[11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG

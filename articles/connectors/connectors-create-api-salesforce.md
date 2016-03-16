@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/03/2016"
+ms.date="03/16/2016"
 ms.author="deonhe"/>
 
 # Get started with the Salesforce API
@@ -24,7 +24,7 @@ Connect to Salesforce and create objects, get objects, and more. The Salesforce 
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-salesforce.md)
+- [Logic apps](../articles/connectors/connectors-create-api-salesforce.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
 
 &nbsp; 
@@ -268,6 +268,6 @@ Go back to the [APIs list](apis-list.md).
 
 
 [5]: https://developer.salesforce.com
-[6]: ./media/create-api-salesforce/salesforce-developer-homepage.png
-[7]: ./media/create-api-salesforce/salesforce-create-app.png
-[8]: ./media/create-api-salesforce/salesforce-new-app.png
+[6]: ./media/connectors-create-api-salesforce/salesforce-developer-homepage.png
+[7]: ./media/connectors-create-api-salesforce/salesforce-create-app.png
+[8]: ./media/connectors-create-api-salesforce/salesforce-new-app.png

@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="03/16/2016" 
 	ms.author="guayan"/>
 
 # Azure App Service API app triggers
 
+>[AZURE.NOTE] This version of the article applies to API apps 2014-12-01-preview schema version.
+>
 ## Overview
 
 This article explains how to implement API app triggers and consume them from a Logic app.
