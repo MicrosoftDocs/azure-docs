@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="seanmck"/>
 
 # Polymorphism in the Reliable Actors framework
@@ -29,42 +29,37 @@ The Reliable Actors framework requires you to define at least one interface to b
 
 ## Types
 
-You can also create a hierarchy of actor types, which are derived from the base Actor class that is provided by the platform. For stateful actors, you can likewise create a hierarchy of state types. In the case of shapes, you might have a base `Shape` type with a state type of `ShapeState`.
+You can also create a hierarchy of actor types, which are derived from the base Actor class that is provided by the platform. For stateful actors, you can likewise create a hierarchy of state types. In the case of shapes, you might have a base `Shape` type:
 
-    public abstract class Shape : Actor<ShapeState>, IShape
+```C#
+    public abstract class Shape : Actor, IShape
     {
         ...
     }
+```
 
 Subtypes of `Shape` can use subtypes of `ShapeType` for storing more-specific properties.
 
-    [ActorService(Name = "Circle")]
-    public class Circle : Shape, ICircle
+```C#
+[ActorService(Name = "Circle")]
+public class Circle : Shape, ICircle
+{
+    public override Task<int> GetVerticeCount()
     {
-        private CircleState CircleState => this.State as CircleState;
-
-        public override ShapeState InitializeState()
-        {
-            return new CircleState();
-        }
-
-        [Readonly]
-        public override Task<int> GetVerticeCount()
-        {
-            return Task.FromResult(0);
-        }
-
-       [Readonly]
-       public override Task<double> GetArea()
-       {
-           return Task.FromResult(
-               Math.PI*
-               this.CircleState.Radius*
-               this.CircleState.Radius);
-       }
-
-       ...
+        return Task.FromResult(0);
     }
+
+    public override async Task<double> GetAreaAsync()
+    {
+        CircleState state = await this.StateManager.GetStateAsync<CircleState>("circle");
+
+        return Math.PI *
+            state.Radius *
+            state.Radius;
+    }
+       ...
+}
+```
 
 Note the `ActorService` attribute on the actor type. This attribute tells the Azure Service Fabric SDK that it should automatically create a service for hosting actors of this type. In some cases, you may wish to create a base type that is solely intended for sharing functionality with subtypes and will never be used to instantiate concrete actors. In those cases, you should use the `abstract` keyword to indicate that you will never create an actor based on that type.
 
