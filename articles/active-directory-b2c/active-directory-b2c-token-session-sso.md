@@ -44,14 +44,17 @@ You can use this feature in your B2C tenant as follows:
 Azure AD B2C supports the [OAuth 2.0 authorization protocol](active-directory-b2c-reference-protocols.md) for enabling secure access to protected resources. To implement this support, Azure AD B2C emits various [security tokens](active-directory-b2c-reference-tokens.md). These are the properties you can use to manage lifetimes of security tokens emitted by Azure AD B2C:
 
 - **Access & ID token lifetimes (minutes)**: The lifetime of the OAuth 2.0 bearer token used to gain access to a protected resource. Azure AD B2C issues only ID tokens at this time. This value would apply to access tokens as well, when we add support for them.
+   - Default = 60 minutes.
+   - Minimum (inclusive) = 15 minutes.
+   - Maximum (inclusive) = 1440 minutes.
 - **Refresh token lifetime (days)**: The maximum time period before which a refresh token can be used to acquire a new access or ID token (and optionally, a new refresh token, if your application had been granted the `offline_access` scope).
+   - Default = 14 days.
+   - Minimum (inclusive) = 1 day.
+   - Maximum (inclusive) = 90 days.
 - **Refresh token sliding window lifetime (days)**: After this time period elapses the user is forced to re-authenticate, irrespective of the validity period of the most recent refresh token acquired by the application. It can only be provided if the switch is set to **Bounded**. It needs to be greater than or equal to the **Refresh token lifetime (days)** value. If the switch is set to **Unbounded**, you cannot provide a specific value.
-
-| Property | Default | Min (inclusive) | Max (inclusive) |
-| :- | :-: | :-: | :-: |
-| **Access & ID token lifetimes (minutes)** | 60 | 15 | 1440 |
-| **Refresh token lifetime (days)** | 14 | 1 | 90 |
-| **Refresh token sliding window lifetime (days)** | 90 | 1 | 365 |
+   - Default = 90 days.
+   - Minimum (inclusive) = 1 day.
+   - Maximum (inclusive) = 365 days.
 
 These are a couple of use cases that you can enable using these properties:
 
@@ -63,12 +66,10 @@ These are a couple of use cases that you can enable using these properties:
 Azure AD B2C supports the [OpenID Connect authentication protocol](active-directory-b2c-reference-oidc.md) for enabling secure sign-in to web applications. These are the properties you can use to manage web application sessions:
 
 - **Web app session lifetime (minutes)**: The lifetime of Azure AD B2C's session cookie stored on the user's browser upon successful authentication.
-- **Web app session timeout**: If this switch is set to **Absolute**, the user is forced to re-authenticate after the time period specified by **Web app session lifetime (minutes)** elaspses. If this switch is set to **Rolling**, the user remains signed in as long as the user is continually active in your web application.
-
-| Property | Default | Min (inclusive) | Max (inclusive) |
-| :- | :-: | :-: | :-: |
-| **Web app session lifetime (minutes)** | 1440 | 15 | 1440 |
-| **Web app session timeout** | **Rolling** | N/A | N/A |
+   - Default = 1440 minutes.
+   - Minimum (inclusive) = 15 minutes.
+   - Maximum (inclusive) = 1440 minutes.
+- **Web app session timeout**: If this switch is set to **Absolute**, the user is forced to re-authenticate after the time period specified by **Web app session lifetime (minutes)** elapses. If this switch is set to **Rolling** (the default setting), the user remains signed in as long as the user is continually active in your web application.
 
 These are a couple of use cases that you can enable using these properties:
 
