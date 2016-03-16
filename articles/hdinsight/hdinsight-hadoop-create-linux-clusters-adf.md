@@ -47,7 +47,7 @@ There are many benefits with using HDInsight with Data factory:
 
 - HDInsight clusters are billed hourly, whether you are using them or not. Using Data Factory, the clusters are created on demand. And the clusters are deleted automatically when the jobs are completed.  So you only pay for the job running time and the brief idle time (time-to-live).
 - You can create a workflow using Data Factory pipeline.
-- You can schedule jobs to be run recursivly.  
+- You can schedule recursive jobs .  
 
 ##Prerequisites:
 
@@ -69,7 +69,7 @@ To simplify the tutorial, you will use one storage account to serve the 3 purpos
 1. Login to Azure.
 2. Create an Azure resource group.
 3. Create an Azure Storage account.
-4. Create an Blob container on the storage account
+4. Create a Blob container on the storage account
 5. Copy the following two files to the Blob container:
 
     - Input data file: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log)
@@ -178,9 +178,9 @@ If you need help with this PowerShell script, see [Using the Azure PowerShell wi
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Click **Resource groups** on the left pane.
 3. Double-click the resource group name you created in your CLI or PowerShell script. Use the filter if you have too many resource groups listed. 
-4. On the **Resources** tile, you shall have one resource listed unless you share the resource group with other projects. That is the storage account with the name you specified earliser. Click the storage account name.
+4. On the **Resources** tile, you shall have one resource listed unless you share the resource group with other projects. That is the storage account with the name you specified earlier. Click the storage account name.
 5. Click the **Blobs** tiles.
-6. Click the **adfgetstarted** container. You will see two folder: **input data** and **script**.
+6. Click the **adfgetstarted** container. You will see two folders: **input data** and **script**.
 7. Open the folder and check the files in the folders.
  
 ## Create data factory
@@ -338,7 +338,7 @@ The *hdinsight-hive-on-demand* resource contains 4 resources:
 
 1. Use the same procedure in the last session to check the contain of the adfgetstarted container. There are two new containers in addition to **adfgetsarted**:
 
-    - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx: This is the default container for the HDInsight cluster
+    - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx: This is the default container for the HDInsight cluster. Default container name follows the pattern:  "adf>yourdatafactoryname>-linkedservicename-datetimestamp". 
     - adfjobs: This is the container for the ADF job logs.
     
     The data factory output is stored in afgetstarted as you configured in the ARM template. 
@@ -355,7 +355,7 @@ The *hdinsight-hive-on-demand* resource contains 4 resources:
 
 With on-demand HDInsight linked service, an HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (timeToLive); and the cluster is deleted when the processing is done. For each cluster, Azure Data Factory creates an Azure blob storage used as the default file system for the cluster.  Even though HDInsight cluster is deleted, the default blob storage container and the associated storage account are not deleted. This is by design. As more and more slices are processed, you will see a lot of containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The name of these containers follow a pattern: "adfyourdatafactoryname-linkedservicename-datetimestamp". 
 
-[Azure Resource Manager](resource-group-overview.md) is use to deploy, manage and monitor your solution as a group.  Deleting a resource group will deleting all the components inside the group.  
+[Azure Resource Manager](resource-group-overview.md) is used to deploy, manage and monitor your solution as a group.  Deleting a resource group will delete all the components inside the group.  
 
 **To delete the resource group**
 
@@ -363,8 +363,68 @@ With on-demand HDInsight linked service, an HDInsight cluster is created every t
 2. Click **Resource groups** on the left pane.
 3. Double-click the resource group name you created in your CLI or PowerShell script. Use the filter if you have too many resource groups listed. It opens the resource group ina  new blade.
 4. On the **Resources** tile, you shall have the default storage account and the data factory listed unless you share the resource group with other projects.
-5. click **Delete** on top the of the blade.
+5. Click **Delete** on top the of the blade. Doing so, you will also delete the storage account and the data stored in the storage account.
 6. Enter the resource group name, and then click **Delete**.
+
+In case you don't want to delete the storage account when you delete the resource group, you can consider the following architecture design by separating the business data from the default storage account. In this case, you will have one resource group for the storage account with the business data, and the other resource group for the default storage account and the data factory.  When you delete the second resource group, it will not impact the business data storage account.  To do so: 
+
+- Add the following to the top level resource group along with the Microsoft.DataFactory/datafactories resource in your ARM template. It will create a new storage account:
+
+        {
+            "name": "[parameters('defaultStorageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "location": "[parameters('location')]",
+            "apiVersion": "[variables('defaultApiVersion')]",
+            "dependsOn": [ ],
+            "tags": {
+
+            },
+            "properties": {
+                "accountType": "Standard_LRS"
+            }
+        },
+
+- Add a new linked service point to the new storage account:
+
+        {
+            "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
+            "type": "linkedservices",
+            "name": "[variables('defaultStorageLinkedServiceName')]",
+            "apiVersion": "[variables('apiVersion')]",
+            "properties": {
+                "type": "AzureStorage",
+                "typeProperties": {
+                    "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('defaultStorageAccountName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('defaultStorageAccountName')), variables('defaultApiVersion')).key1)]"
+                }
+            }
+        },
+    
+- Configure the HDInsight ondemand linked service with an additional dependsOn and an additionalLinkedServiceNames:
+
+        {
+            "dependsOn": [
+                "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
+                "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedservices/', variables('defaultStorageLinkedServiceName'))]",
+                "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedservices/', variables('storageLinkedServiceName'))]"
+                
+            ],
+            "type": "linkedservices",
+            "name": "[variables('hdInsightOnDemandLinkedServiceName')]",
+            "apiVersion": "[variables('apiVersion')]",
+            "properties": {
+                "type": "HDInsightOnDemand",
+                "typeProperties": {
+                    "osType": "linux",
+                    "version": "3.2",
+                    "clusterSize": 1,
+                    "sshUserName": "myuser",                            
+                    "sshPassword": "MyPassword!",
+                    "timeToLive": "00:30:00",
+                    "linkedServiceName": "[variables('storageLinkedServiceName')]",
+                    "additionalLinkedServiceNames": "[variables('defaultStorageLinkedServiceName')]"
+                }
+            }
+        },            
 
 ##Next steps
 In this article, you have learned how to use Azure Data Factory to create on-demand HDInsight cluster to process Hive jobs. To read more:
