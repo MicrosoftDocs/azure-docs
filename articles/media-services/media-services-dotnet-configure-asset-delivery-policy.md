@@ -129,7 +129,7 @@ Azure Media Services also enables you to add Widevine encryption. The following 
             new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
         {
             {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineUrl.ToString()},
+            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineUrl.ToString()}
 
         };
 
