@@ -1,6 +1,6 @@
 ﻿<properties
-	pageTitle="Microsoft Azure Stack troubleshooting and known issues? | Microsoft Azure"
-	description="Azure Stack troubleshooting and known issues."
+	pageTitle="Microsoft Azure Stack troubleshooting | Microsoft Azure"
+	description="Azure Stack troubleshooting."
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
