@@ -450,7 +450,7 @@ chances of errors.
 
 - Using [Azure Resource Manager (ARM) template] (https://azure.microsoft.com/marketplace/partners/elastic/elasticsearchelasticsearch/) in Azure marketplace. This template is created by Elastic. It allows you to add commercial enhancements such as Shield, Marvel, and Watcher etc.
 
-- Using Azure quickstart [template](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) to build the cluster. This template can create a cluster based on Windows Server 2012 or Ubuntu Linux 14.0.4. It allows you to use experimental features such as Azure Files. This template is used for the research and testing tasks in this document.
+- Using Azure quickstart [template](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) to build the cluster. This template can create a cluster based on Windows Server 2012 or Ubuntu Linux 14.0.4. It allows you to use experimental features such as Azure File Storage. This template is used for the research and testing tasks in this document.
 
 - Using scripts which can be automated or run unattended. Scripts that can create and deploy an Elasticsearch cluster are available on the [GitHub repository](https://github.com/mspnp/azure-guidance/tree/master/scripts/ps)
 
