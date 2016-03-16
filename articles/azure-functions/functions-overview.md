@@ -57,34 +57,22 @@ Code-less SaaS & PaaS Connectors | <span class="wa-check wa-check-green"></span>
 Open Source | <span class="wa-check wa-check-green"></span> | &nbsp;
 Community Extensions | <span class="wa-check wa-check-green"></span> | &nbsp;
 
-### Triggers
+### Integrations
 
-Connector | Azure Service | Supported
+Azure Functions supports a variety of integrations with Azure and 3rd-party services. You can use these to trigger your function and start execution or to serve as input and output for your code. The table below shows some examples integrations supported by Azure Functions.
+
+Integration type | Service | Trigger | Input | Output 
 ----------|---------------|----------
-Blob Storage | Azure Storage | <span class="wa-check wa-check-green"></span>
-No-SQL DB | DocumentDB | <span class="wa-check wa-check-green"></span>
-Streams | Event Hub | <span class="wa-check wa-check-green"></span>
-Queues | Azure Storage | <span class="wa-check wa-check-green"></span>
-Email | N/A | <span class="wa-cancel"></span>
-Identity | Azure <abbr title="Active Directory">AD</abbr> | <span class="wa-cancel"></span>
-Service Monitoring | Azure Insights | <span class="wa-check wa-check-green"></span>
-Scheduled | Functions | <span class="wa-check wa-check-green"></span>
-HTTP | Functions | <span class="wa-check wa-check-green"></span>
-Service Automation | <abbr title="Azure Resource Manager">ARM</abbr> | <span class="wa-check wa-check-green"></span>
-
-### SaaS & PaaS Integrations
-
-Connector | Azure Service | Supported 
-----------|---------------|----------
-Blob Storage | Azure Storage | <span class="wa-check wa-check-green"></span> 
-No-SQL DB | DocumentDB | <span class="wa-check wa-check-green"></span>
-Queues | Azure Storage | <span class="wa-check wa-check-green"></span>
-Tables | Azure Storage | <span class="wa-check wa-check-green"></span>
-Streams | Event Hubs | <span class="wa-check wa-check-green"></span>
-Notifications | Service Bus | <span class="wa-check wa-check-green"></span>
-Email | Send Grid* | <span class="wa-check wa-check-green"></span>
-HTTP | Functions | <span class="wa-check wa-check-green"></span>
-Slack | Slack* | <span class="wa-check wa-check-green"></span>
+Schedule | Azure Functions | <span class="wa-check wa-check-green"></span> | <span class="wa-cancel"></span> | <span class="wa-cancel"></span>
+HTTP (REST or webhook) | Azure Functions | <span class="wa-check wa-check-green"></span> | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span>
+Blob Storage | Azure Storage | <span class="wa-check wa-check-green"></span> | <span class="wa-check wa-check-green"></span> | <span class="wa-check wa-check-green"></span> 
+Queues | Azure Storage | <span class="wa-check wa-check-green"></span> | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span>
+Tables | Azure Storage | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span> | <span class="wa-check wa-check-green"></span>
+Tables | Azure Mobile Apps Easy Tables | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span> | <span class="wa-check wa-check-green"></span>
+No-SQL DB | Azure DocumentDB | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span> | <span class="wa-check wa-check-green"></span>
+Streams | Azure Event Hubs | <span class="wa-check wa-check-green"></span> | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span>
+Brokered queues | Azure Service Bus | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span> | <span class="wa-check wa-check-green"></span>
+Push Notifications | Azure Notification Hubs | <span class="wa-cancel"></span> | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span>
 
 ## How much does Functions cost?
 
