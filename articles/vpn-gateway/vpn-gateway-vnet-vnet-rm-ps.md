@@ -25,15 +25,16 @@
 
 This article will walk you through the steps to create a connection between virtual networks using the Resource Manager deployment model and PowerShell. The virtual networks can be in the same or different regions, from the same or different subscriptions.
 
+
+**About Azure deployment models**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+
 **Deployment models and tools for VNet-to-VNet**
 
 A VNet-to-VNet connection can be configured in both deployment models and by using several different tools. See the table below for more information. We update this table as new articles, new deployment models, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
-
-**About Azure deployment models**
-
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 
 ## About VNet-to-VNet connections
