@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/12/2016"
+   ms.date="03/16/2016"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight
@@ -23,12 +23,7 @@
 
 Learn how to plan for creating HDInsight clusters.
 
-###Prerequisites:
-
-Before you begin the instructions in this article, you must have the following:
-
-- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
+A Hadoop cluster consists of several virtual machines (nodes,) which are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. 
 
 ## Basic configuration options
 
