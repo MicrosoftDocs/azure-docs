@@ -1,18 +1,18 @@
 <properties
 	pageTitle="Create scalable elastic database pools | Microsoft Azure"
-	description="How to add an scalable elastic database pool to your SQL database configuration for easier administration and resource sharing across many databases."
+	description="How to add a scalable elastic database pool to your SQL database configuration for easier administration and resource sharing across many databases."
 	keywords="scalable database,database configuration"
 	services="sql-database"
 	documentationCenter=""
 	authors="jeffgoll"
-	manager="jhubbard"
+	manager="jeffreyg"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/10/2016"
-	ms.author="sidneyh"
+	ms.date="03/16/2016"
+	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
