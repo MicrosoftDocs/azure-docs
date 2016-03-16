@@ -110,6 +110,8 @@ Link references at the end of the article:
     [2]: http://search.yahoo.com/  
     [3]: http://search.msn.com/
 
+Make sure you include the space after the colon, before the link. When you link to other technical articles, if you forget to include the space, the link will be broken in the published article. 
+
 ## Remember the Azure library chrome!
 If you want to link to an Azure library topic that lives under [this node](https://msdn.microsoft.com/library/azure), remember to specify the Azure chrome in the link (/azure/). The Azure chrome shares the ACOM navigation options and displays only the Azure content of the MSDN library. A properly scoped link looks like this:
 

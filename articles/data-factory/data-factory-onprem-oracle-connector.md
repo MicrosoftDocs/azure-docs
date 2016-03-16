@@ -227,7 +227,7 @@ type | The type property must be set to: **OnPremisesOracle** | Yes
 connectionString | Specify information needed to connect to the Oracle Database instance for the connectionString property. | Yes 
 gatewayName | Name of the gateway that will be used to connect to the onpremises Oracle server | Yes
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises Oracle data source.
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises Oracle data source.
 ## Oracle dataset type properties
 
 For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Oracle, Azure blob, Azure table, etc...).

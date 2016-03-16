@@ -24,7 +24,7 @@
 This article describes how to monitor, manage and debug your pipelines using the **Monitoring and Management App**. It also provides information on how to create alerts and get notified on failures using the application.
       
 ## Launching the Monitoring and Management App 
-To launch the Monitor and Management App, click **Monitoring App** tile on the **DATA FACTORY** blade for your data factory.
+To launch the Monitor and Management App, click **Monitoring & Manage** tile on the **DATA FACTORY** blade for your data factory.
 
 ![Monitoring tile on Data Factory home page](./media/data-factory-monitor-manage-app/MonitoringAppTile.png) 
 
