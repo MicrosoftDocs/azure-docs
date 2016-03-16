@@ -29,19 +29,19 @@ An ML function in Stream Analytics can be used like a regular function call in t
 
 ## Configure an Stream Analytics job with ML functions
 
-When configuring an ML function for Stream Analytics job, there are two parameters to consider, the batch size of the Machine Learning function calls, and the Streaming Units (SUs) provisioned for the Stream Analytics job. To determine the appropriate values for these, first a decision must be made between latency and throughput, that is, latency of the Stream Analytics job, and throughput of each SU. SUs may always be added to a job to increase throughput of a well partitioned Stream Analytics query, although additional SUs increases the cost of runnign the job.
+When configuring an ML function for Stream Analytics job, there are two parameters to consider, the batch size of the Machine Learning function calls, and the Streaming Units (SUs) provisioned for the Stream Analytics job. To determine the appropriate values for these, first a decision must be made between latency and throughput, that is, latency of the Stream Analytics job, and throughput of each SU. SUs may always be added to a job to increase throughput of a well partitioned Stream Analytics query, although additional SUs increases the cost of running the job.
 
 Therefore it is important to determine the *tolerance* of latency in running a Stream Analytics job. Additional latency from running Azure Machine Learning service requests will naturally increase with batch size, which will compound the latency of the Stream Analytics job. On the other hand, increasing batch size allows the Stream Analytics job to process *more events with the *same number* of Machine Learning web service requests. Often the increase of Machine Learning web service latency is sub-linear to the increase of batch size so it is important to consider the most cost-efficient batch size for a Machine Learning web service in any given situation. The default batch size for the web service requests is 1000 and may be modified either by using the [Stream Analytics REST API](https://msdn.microsoft.com/library/mt653706.aspx "Stream Analytics REST API") or the [PowerShell client for Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md "PowerShell client for Stream Analytics").
 
 Once a batch size has been determined, the amount of Streaming Units (SUs) can be determined, based on the number of events that the function needs to process per second. For further information on Streaming Units consult the article [Stream Analytics Scale jobs](stream-analytics-scale-jobs.md#configuring-streaming-units).
 
-For example, the below configuration has 20 concurrent connections to the web service referenced by the Machine Learning function for every **6 SUs**. If the input data rate is 200,000 events per second and the batch size is left to the default of 1000 the resuliting web service latency with 1000 events mini-batch is 200ms. This means every connection can make 5 requests to the Machine Learning web service in a second. With 20 connections, the Stream Analytics job can process 20,000 events in 200ms  and therefore 100,000 events in a second. So to process 200,000 events per second, the Stream Analytics job needs 40 concurrent connections, which comes out to 12 SUs. The diagram below illustrates the requests from the Stream Analytics job to the ML web service endpoint – Every 6 SUs has 20 concurrent connections to ML web service at max.
+In general, there are 20 concurrent connections to the ML web service for every 6 SUs, except that 1 SU jobs and 3 SU jobs will get 20 concurrent connections also.  For example, if the input data rate is 200,000 events per second and the batch size is left to the default of 1000 the resulting web service latency with 1000 events mini-batch is 200ms. This means every connection can make 5 requests to the Machine Learning web service in a second. With 20 connections, the Stream Analytics job can process 20,000 events in 200ms  and therefore 100,000 events in a second. So to process 200,000 events per second, the Stream Analytics job needs 40 concurrent connections, which comes out to 12 SUs. The diagram below illustrates the requests from the Stream Analytics job to the ML web service endpoint – Every 6 SUs has 20 concurrent connections to ML web service at max.
 
 ![Scale Stream Analytics with Machine Learning Functions 2 job example](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Scale Stream Analytics with Machine Learning Functions 2 job example")
 
 In general, ***B*** for batch size, ***L*** for the web service latency at batch size B in milliseconds, the throughput of an Stream Analytics job with ***N*** SUs is:
 
-    20 * ceil(**N**/6) * **B** * (1000/**L**)
+![Scale Stream Analytics with Machine Learning Functions Formula](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Scale Stream Analytics with Machine Learning Functions Formula")
 
 An additional consideration may be the 'max concurrent calls' on the Machine Learning web service side, it’s recommended to set this to the maximum value (200 currently).
 
@@ -61,7 +61,7 @@ The query is a simple fully partitioned query followed by the **sentiment** func
     Into output
     From subquery
 
-Consider the following scenario; with a throughput of 10,000 tweets per second a Stream Analytics job must be created to perform sentiment analysis of the tweets (events). Using 1 SU, could this Stream Analytics job be able to handle the traffic? Using the default batch size of 1000 the job should be able to keep up with the input. Further the added Machine Learning function should generate no more than a second of latency, which is the general default latency of the sentiment analysis Machine Learning web service (with a default batch size of 1000). The Stream Analytics job’s **overall** or end-to-end latency would typically be a few seconds. This example will take a more detailed look into this Stream Analytics job, *especially* the Machine Learning function calls. Having the batch size as 1000, a throughput of 10,000 events will take about 10 requests to web service. Even with 1 SU, there are enough concurrent connections to accomodate this input traffic.
+Consider the following scenario; with a throughput of 10,000 tweets per second a Stream Analytics job must be created to perform sentiment analysis of the tweets (events). Using 1 SU, could this Stream Analytics job be able to handle the traffic? Using the default batch size of 1000 the job should be able to keep up with the input. Further the added Machine Learning function should generate no more than a second of latency, which is the general default latency of the sentiment analysis Machine Learning web service (with a default batch size of 1000). The Stream Analytics job’s **overall** or end-to-end latency would typically be a few seconds. Take a more detailed look into this Stream Analytics job, *especially* the Machine Learning function calls. Having the batch size as 1000, a throughput of 10,000 events will take about 10 requests to web service. Even with 1 SU, there are enough concurrent connections to accomodate this input traffic.
 
 But what if the input event rate increases by 100x and now the Stream Analytics job needs to process 1,000,000 tweets per second? There are two options:
 
@@ -73,10 +73,10 @@ With the first option, the job **latency** will increase.
 With the second option, more SUs would need to be provisioned and therefore generate more concurrent Machine Learning web service requests. This means the job **cost** will increase.
 
 
-If, the latency of the sentiment analysis Machine Learning web service is 200ms for 1000-event batches or below, 250ms for 5,000-event batches, 300ms for 10,000-event batches or 500ms for 25,000-event batches..
+Assume the latency of the sentiment analysis Machine Learning web service is 200ms for 1000-event batches or below, 250ms for 5,000-event batches, 300ms for 10,000-event batches or 500ms for 25,000-event batches.
 
 1. Using the first option, (**not** provisioning more SUs), the batch size could be increased to **25,000**. This in turn would allow the job to process 1,000,000 events with 20 concurrent connections to the Machine Learning web service (with a latency of 500ms per call). So the additional latency of the Stream Analytics job due to the sentiment function requests against the Machine Learning web service requests would be increased from **200ms** to **500ms**. However, note that batch size **cannot** be increased infinitely as the Machine Learning web services requires the payload size of a request be 4MB or smaller web service requests timeout after 100 seconds of operation.
-2. using the second option, the batch size is left at 1000, with 200ms web service latency, every 20 concurrent connections to the web service would be able to process 1000 * 20 * 5 events = 100,000 per second. So to process 1,000,000 events per second, the job would need 60 SUs. Compared to the first option, Stream Analytics job would make more web service batch requests, in turn generating an increased cost.
+2. Using the second option, the batch size is left at 1000, with 200ms web service latency, every 20 concurrent connections to the web service would be able to process 1000 * 20 * 5 events = 100,000 per second. So to process 1,000,000 events per second, the job would need 60 SUs. Compared to the first option, Stream Analytics job would make more web service batch requests, in turn generating an increased cost.
 
 Below is a table for the throughput of the Stream Analytics job for different SUs and batch sizes (in number of events per second).
 
@@ -97,19 +97,19 @@ By now, you should already have a good understanding of how Machine Learning fun
 
 Normally, the batch size we set for ML functions won’t exactly be divisible by the number of events returned by each Stream Analytics job “pull”. When this occurs the Machine Learning web service will be called with “partial” batches. This is done to not incur additional job latency overhead in coalesing events from pull to pull.
 
-## Machine Learning function-related metrics
+## New function-related monitoring metrics
 
-In the Monitor area of a Stream Analytics job, three additional Machine Learning function-related metrics have been added. They are FUNCTION REQUESTS, FUNCTION EVENTS and FAILED FUNCTION REQUESTS, as shown in the graphic below.
+In the Monitor area of a Stream Analytics job, three additional function-related metrics have been added. They are FUNCTION REQUESTS, FUNCTION EVENTS and FAILED FUNCTION REQUESTS, as shown in the graphic below.
 
 ![Scale Stream Analytics with Machine Learning Functions Metrics](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Scale Stream Analytics with Machine Learning Functions Metrics")
 
 The are defined as follows:
 
-**FUNCTION REQUESTS**: The number of Machine Learning web service requests.
+**FUNCTION REQUESTS**: The number of function requests.
 
-**FUNCTION EVENTS**: The number events in the requests.
+**FUNCTION EVENTS**: The number events in the function requests.
 
-**FAILED FUNCTION REQUESTS**: The number of failed ML web service requests.
+**FAILED FUNCTION REQUESTS**: The number of failed function requests.
 
 ## Key Takeaways  
 
