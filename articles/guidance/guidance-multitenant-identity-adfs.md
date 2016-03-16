@@ -119,7 +119,7 @@ Here are the steps in more detail.
 
 1.	Right-click the newly added claims provider trust, and select **Edit Claims Rules**.
 2.	Click **Add Rule**.
-3.	Select "Pass Through of Filter an Incoming Claim" and click **Next**.
+3.	Select "Pass Through or Filter an Incoming Claim" and click **Next**.
 	![Add Transform Claim Rule Wizard](media/guidance-multitenant-identity/edit-claims-rule.png)
 4.	Enter a name for the rule.
 5.	Under "Incoming claim type", select **UPN**.

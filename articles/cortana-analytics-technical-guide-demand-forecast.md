@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="yijichen"/>
+	ms.author="inqiu;yijichen"/>
 
 # Technical Guide to the Cortana Analytics Solution Template for Demand Forecast in Energy
 
@@ -25,8 +25,6 @@ Solution Templates are designed to accelerate the process of building an E2E dem
 The deployment process will guide you through several steps to set up your solution credentials. Make sure you record these credentials such as solution name, username, and password you provide during the deployment.
 
 The goal of this document is to explain the reference architecture and different components provisioned in your subscription as part of this Solution Template. The document also talks about how to replace the sample data, with real data of your own to be able to see insights/predictions from you won data. Additionally, the document talks about the parts of the Solution Template that would need to be modified if you want to customize the solution with your own data. Instructions on how to build the Power BI dashboard for this Solution Template are provided at the end.
-
->[AZURE.TIP] You can download and print a [PDF version of this document](http://github.com/yijichen/document-public/raw/master/Demand%20Forecasting%20for%20Engery%20Solution%20Template.pdf).
 
 ## **Big Picture**
 

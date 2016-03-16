@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/29/2016"
+   ms.date="03/15/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -27,6 +27,15 @@ Related links:
 - Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
 - For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1.1.119.0
+Released: 2016 March
+
+**Fixed issues:**
+
+- Made sure Express install cannot be used on Windows Server 2008 (pre-R2) since password sync is not supported on this operating system.
+- Upgrade from DirSync with a custom filter configuration did not work as expected.
+- When upgrading to a newer release and there are no changes to the configuration, a full import/synchronization should not be scheduled.
 
 ## 1.1.110.0
 Released: 2016 February

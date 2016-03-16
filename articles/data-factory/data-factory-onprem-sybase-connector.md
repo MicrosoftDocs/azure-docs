@@ -228,7 +228,7 @@ username | Specify user name if you are using Basic or Windows authentication. |
 password | Specify password for the user account you specified for the username. |  No
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises Sybase database. | Yes 
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises Sybase data source.
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises Sybase data source.
 
 ## Sybase dataset type properties
 

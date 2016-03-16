@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/16/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 
@@ -38,7 +38,7 @@ Make sure everything's in place before you begin.
 ### Azure prerequisites
 
 - You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/).
-- You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/storage-introduction.md).
+- You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.[Learn more about Azure storage](../storage/storage-introduction.md).
 - You'll need an Azure virtual network so that Azure virtual machines will be connected to a network when you fail over from your primary site.
 
 ### Hyper-V prerequisites
@@ -186,6 +186,9 @@ Where parameters include:
 1. In **Prepare resources** select **Create Storage Account**  to create an Azure storage account if you don't have one. The account should have geo-replication enabled. It should be in the same region as the Azure Site Recovery vault, and be associated with the same subscription.
 
 	![Create storage account](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateResources1.png)
+
+>[AZURE.NOTE] We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
+
 
 ## Step 5: Create and configure protection groups
 
