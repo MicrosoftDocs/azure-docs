@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="03/17/2015"
    ms.author="vturecek"/>
 
 # Notes on Service Fabric Reliable Actors type serialization
@@ -52,17 +52,7 @@ public class Voicemail
 
 ## Actor state class
 
-The actor's state needs to be data contract serializable. For example, an actor class definition can look like this:
-
-```csharp
-
-public class VoiceMailActor : StatefulActor<VoicemailBox>, IVoiceMail
-{
-...
-
-```
-
-The state class is going to be defined with the class, and its members will be annotated with the **DataContract** and **DataMember** attributes, respectively.
+The actor's state needs to be data contract serializable. Custom data objects and their members will be annotated with the **DataContract** and **DataMember** attributes, respectively.
 
 ```csharp
 
