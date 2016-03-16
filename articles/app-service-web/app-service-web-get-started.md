@@ -23,9 +23,9 @@
 This tutorial helps you to get started quickly with deploying web apps to [Azure App Service](../app-service/app-service-value-prop-what-is.md). With very little action on your 
 part, you will: 
 
-- deploy a sample web app (choose between ASP.NET, PHP, Node.js, Java, or Python)
-- see your app running live in seconds
-- update your web app the same way you would push [Git](http://www.git-scm.com/) commits
+- Deploy a sample web app (choose between ASP.NET, PHP, Node.js, Java, or Python).
+- See your app running live in seconds.
+- Update your web app the same way you would push [Git](http://www.git-scm.com/) commits.
 
 You'll also take a first glance at the [Azure portal](https://portal.azure.com) and survey the features available there. 
 
