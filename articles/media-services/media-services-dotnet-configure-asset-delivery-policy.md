@@ -120,10 +120,10 @@ Azure Media Services also enables you to add Widevine encryption. The following 
         Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
         
         // Build the Widevine license service URL.
-	Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
-	UriBuilder uriBuilder = new UriBuilder(widevineUrl);
-	uriBuilder.Query = String.Empty;
-	widevineUrl = uriBuilder.Uri;
+        Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+        UriBuilder uriBuilder = new UriBuilder(widevineUrl);
+        uriBuilder.Query = String.Empty;
+        widevineUrl = uriBuilder.Uri;
 
         Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
             new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
