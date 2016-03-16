@@ -57,8 +57,11 @@ Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and the
 4. From the **Custom deployment** blade, enter **New resource group name** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource. The resource group location can be different from the cluster location.
 5. Click **Legal terms**, and then click **Create**.
 6. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**. You will see a new tile titled **Deploying Template deployment**. It takes about around 20 minutes to create a cluster. 
-7.  Once the cluster is created, the caption of the tile is changed to the resource group name. Click the tile to open the cluster in a new blade.
-3. The **Essentials** pane list some basic information. Click **Settings** to see more properties of the cluster.
+7.  Once the cluster is created, the caption of the tile is changed to the resource group name. And the portal opens two blades automatically with the cluster and the cluster settings. 
+
+    ![HDInsight Linux get started cluster settings](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png).
+
+    There are two resource listed, the cluster and the default storage account.
 
 ##Run Hive queries
 
@@ -72,26 +75,34 @@ Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and the
 4. In the __Query Editor__ section of the page, paste the following HiveQL statements into the worksheet:
 
 		SHOW TABLES;
+
+    >[AZURE.NOTE] Semi-colon is required by Hive.       
+        
 5. Click __Execute__. A __Query Process Results__ section should appear beneath the Query Editor and display information about the job. 
 
     Once the query has finished, The __Query Process Results__ section will display the results of the operation. You shall see one table called **hivesampletable**. This sample Hive table comes with all the HDInsight clusters.
 
     ![HDInsight Hive views](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png).
 
-    
-    > [AZURE.TIP] Note the __Save results__ dropdown in the upper left of the __Query Process Results__ section; you can use this to either download the results, or save them to HDInsight storage as a CSV file.
 6. Repeat step 4 and step 5 to run the following query:
 
         SELECT * FROM hivesampletable;
+
+    > [AZURE.TIP] Note the __Save results__ dropdown in the upper left of the __Query Process Results__ section; you can use this to either download the results, or save them to HDInsight storage as a CSV file.
+
+7. Click **HIstory** to see the job history.
 
 After you have completed a Hive job, you can [export the results to Azure SQL database or SQL Server database](hdinsight-use-sqoop-mac-linux.md), you can also [visualize the results using Excel](hdinsight-connect-excel-power-query.md). For more information about using Hive in HDInsight, see [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md).
 
 ##Clean up the tutorial
 
-After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md#delete-clusters).
+After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. 
 
+**To delete the cluster or the resource group**
 
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. From the portal dashboard, click the tile with the resource group name you used when you created the cluster.
+3. Click **Delete** on the resource blade to delete the resource group which contains the cluster and the default storage account; or click the cluster name on the **Resources** tile and then click **Delete** on the cluster blade.
 
 ## Next steps
 

@@ -29,6 +29,8 @@ To help you learn Hadoop on Windows and start using HDInsight, this tutorial sho
 how to run a Hive query on unstructured data in a Hadoop cluster and then analyze the 
 results in Microsoft Excel.
 
+>[AZURE.NOTE] The information in this document is specific to Windows-based HDInsight clusters. For information on Linux-based clusters, see [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+
 Assume you have a large unstructured data set and you want to run a Hive query on it 
 to extract some meaningful information. That's exactly what you are going to do in this 
 tutorial. Here's how you achieve this:
