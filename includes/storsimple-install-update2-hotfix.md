@@ -8,22 +8,23 @@ Perform the following steps to download the software update from the Microsoft U
 
 2. If you are a first-time user, you will be prompted to install a Microsoft Update Catalog. Click **Install**.
 
-   	![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
+  ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. You will see a catalog search screen. Enter **3121901** in the search box, and click **Search**.
+3. You will see a catalog search screen. In the search box, enter the KB number of the hotfix you want to download, for example **3121901**, and then click **Search**.
 
     ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. You will see the **Cumulative Software Bundle Update 2.0 for StorSimple 8000 Series**. Click **Add**. The update will be added to the basket.
+4. You will see the hotfix listed, for example, **Cumulative Software Bundle Update 2.0 for StorSimple 8000 Series**. Click **Add**. The update will be added to the basket.
+
+5. Search for any additional hotfixes to install, and add each the basket.
 
 5. Click **View Basket**.
 
-6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update will be downloaded in a folder (same name as the update) to the chosen location. The folder can also be copied to a network share that is reachable from the device.
+6. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a subfolder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
 
-	> [AZURE.NOTE]
-	>
-	> - You will also need to download **LSI driver update** (SAS Controller Update 2.0 for StorSimple 8000 Series - KB3121900),  **Storport update** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3080728), **Spaceport update** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3090322), and **Disk firmware update** (Cumulative Disk Firmware Update 2.0 for StorSimple 8000 Series - KB3121899) and copy to the same shared folder.
-	> - The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller.
+>   [AZURE.NOTE]
+
+>   The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller.
 
 #### To install and  verify regular mode hotfixes
 
@@ -109,7 +110,7 @@ Perform the following steps to install and verify the regular hotfixes.
 
 #### To install and verify maintenance mode hotfixes
 
-Use KB3121899 to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console. 
+Use KB3121899 to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.
 
 Note that if your disk firmware is already up-to-date, you will not need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console. You will be notified if updates are available and whether the updates are disruptive (maintenance mode updates) or non-disruptive (regular).
 

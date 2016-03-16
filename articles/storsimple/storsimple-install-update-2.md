@@ -76,16 +76,19 @@ Update 2 enables Microsoft to pull additional diagnostic information from the de
 12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. The **Last updated date** should also be modified.
 
     You will now see that Maintenance mode updates are available. In some cases when you are running Update 1.2, your disk firmware may already be up-to-date. In these instances, the portal will automatically determine that and not prompt you for the maintenance mode updates.
+    > [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.
 
-13. Follow the steps listed in [install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install these Maintenance mode updates.
+13. Download the maintenance mode updates by using the steps listed in [To download hotfixes](#to-download-hotfixes) to search for and download KB3121899, which installs disk firmware updates (the other updates should at this point already be installed).
 
-    The maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
+13. Follow the steps listed in [install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install the maintenance mode updates.
 
-> [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.  
+    Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
+
+
 
 ## Install Update 2 as a hotfix
 
-Use this procedure only if you fail the gateway check when trying to install the updates through the Azure classic portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1.
+Use this procedure if you fail the gateway check when trying to install the updates through the Azure classic portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1.
 
 The software versions that can be upgraded using the hotfix method are Update 0.1, Update 0.2, and Update 0.3, Update 1, Update 1.1, and Update 1.2. The hotfix method involves the following three steps:
 
@@ -93,7 +96,7 @@ The software versions that can be upgraded using the hotfix method are Update 0.
 - Install and verify the regular mode hotfixes.
 - Install and verify the maintenance mode hotfix.
 
-The hotfixes applied through this method are as tabulated below:
+To install Update 2 as a hotfix, you must download and install the following hotfixes:
 
 | Order  | KB        | Name                    | Update type  |
 |--------|-----------|-------------------------|------------- |
@@ -111,7 +114,7 @@ The hotfixes applied through this method are as tabulated below:
 > - Each hotfix installation can take about 20 minutes to complete. Total install time is close to 2 hours.
 > - Before using this procedure to apply the update, make sure that both device controllers are online and all the hardware components are healthy.
 
-Perform the following steps to apply Update 2 as a hotfix.
+Perform the following steps to apply this update as a hotfix.
 
 [AZURE.INCLUDE [storsimple-install-update2-hotfix](../../includes/storsimple-install-update2-hotfix.md)]
 
