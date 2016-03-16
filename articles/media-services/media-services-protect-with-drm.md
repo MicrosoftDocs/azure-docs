@@ -527,7 +527,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            // Get the PlayReady license service URL.
 		            Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
 			    
-			     // Build the Widevine license service URL.
+		            // Build the Widevine license service URL.
 		            Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
 		            UriBuilder uriBuilder = new UriBuilder(widevineUrl);
 		            uriBuilder.Query = String.Empty;
