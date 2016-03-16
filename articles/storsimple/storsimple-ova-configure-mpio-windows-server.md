@@ -50,7 +50,7 @@ This section details the configuration prerequisites for the Windows Server host
 
 Your StorSimple device should have:
 
-- The virtual device should be configured as an iSCSI server. One or more network interfaces should be enabled on the device.   
+- The virtual device should be configured as an iSCSI server. To learn more, see [set up virtual device as an iSCSI server](storsimple-ova-deploy3-iscsi-setup.md). One or more network interfaces should be enabled on the device.   
 
 - The network interfaces on your virtual device should be reachable from the Windows Server host.
 
@@ -66,13 +66,13 @@ The figure below shows the hardware configuration for high availability and load
 
 As shown in the preceding figure:
 
-- Your StorSimple device is a single node active device.
+- Your StorSimple virtual device provisioned on Hyper-V is a single node active device configured as an iSCSI server.
 
-- Two network interfaces are enabled on your virtual device. In the local web UI of your 1200 virtual device, verify that two network interfaces are enabled by navigating to Network Settings as shown below:
+- Two virtual network interfaces are enabled on your device. In the local web UI of your 1200 virtual device, verify that two network interfaces are enabled by navigating to **Network Setting**s as shown below:
 
 	![Network interfaces enabled on 1200](./media/storsimple-ova-configure-mpio-windows-server/mpio9.png)
 	
-	Note the IPv4 addresses of the enabled network interfaces (Ethernet, Ethernet2 by default) and save for later use on the host.
+	Note the IPv4 addresses of the enabled network interfaces (Ethernet, Ethernet 2 by default) and save for later use on the host.
 
 - Two network interfaces are enabled on your Windows Server host. If the connected interfaces for host and device are on the same subnet, then there will be 4 paths available. This was the case in this procedure. However, if each network interface on the device and host interface are on a different IP subnet (and not routable), then only 2 paths will be available.
 
