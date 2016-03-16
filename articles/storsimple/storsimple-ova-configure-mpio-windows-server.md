@@ -60,7 +60,7 @@ Your StorSimple device should have:
 
 The figure below shows the hardware configuration for high availability and load-balancing multipathing for your Windows Server host and StorSimple  virtual device used in this procedure.  
 
-![mpio0](./media/storsimple-ova-configure-mpio-windows-server/mpio0.png)
+![mpio hardware configuration](./media/storsimple-ova-configure-mpio-windows-server/1200hardwareconfig.png)
 
 As shown in the preceding figure:
 
