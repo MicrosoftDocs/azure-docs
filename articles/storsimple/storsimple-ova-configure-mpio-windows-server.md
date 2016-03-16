@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/15/2016"
+   ms.date="03/16/2016"
    ms.author="alkohli" />
 
 # Configure Multipath I/O for your StorSimple device
@@ -34,6 +34,8 @@ You will need to follow these steps to configure MPIO on your virtual device:
 - Step 3: Mount StorSimple volumes on the host
 
 Each of the above steps is discussed in the following sections.
+
+This article applies only to the StorSimple Virtual Array. For information on StorSimple 8000 series devices, go to [Configure MPIO for StorSimple host](storsimple-configure-mpio-windows-server.md).
 
 ## Prerequisites
 
@@ -68,11 +70,11 @@ As shown in the preceding figure:
 
 - Two network interfaces are enabled on your virtual device. In the local web UI of your 1200 virtual device, verify that two network interfaces are enabled by navigating to Network Settings as shown below:
 
+	![Network interfaces enabled on 1200](./media/storsimple-ova-configure-mpio-windows-server/mpio9.png)
+	
 	Note the IPv4 addresses of the enabled network interfaces (Ethernet, Ethernet2 by default) and save for later use on the host.
 
-- Two network interfaces are enabled on your Windows Server host.
-
-If the connected interfaces for host and device are on the same subnet, then there will be 4 paths available. This was the case in this procedure. However, if each network interface on the device and host interface are on a different IP subnet (and not routable), then only 2 paths will be available.
+- Two network interfaces are enabled on your Windows Server host. If the connected interfaces for host and device are on the same subnet, then there will be 4 paths available. This was the case in this procedure. However, if each network interface on the device and host interface are on a different IP subnet (and not routable), then only 2 paths will be available.
 
 ## Step 1: Install MPIO on the Windows Server host
 
