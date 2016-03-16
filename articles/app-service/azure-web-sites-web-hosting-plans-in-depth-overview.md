@@ -73,15 +73,13 @@ This will open the App Service Plan selector. At this point, you can either pick
 Note that each plan has its own pricing tier. For example, when you move a site from a **Free** tier to a **Standard** tier, your app will be able to leverage all the features and resources of the **Standard** tier.
 
 ## Clone an app to a different App Service plan
-If you want to move the app to a different region, one alternative is app cloning.
+If you want to move the app to a different region, one alternative is app cloning. Clone will make a copy of your app into a new or exisiting App Service plan or App Service environment in any region.
 
  ![][appclone]
  
- You can find **Clone App** in the **tools** menu. 
+You can find **Clone App** in the **tools** menu. 
 
-Clone will make a copy of your app into a new or exisiting App Service plan or App Service environment in any region.
-
-Clone has some limitatiations, you can read more about it [here](..\app-service-web-app-cloning-portal.md)
+Clone has some limitatiations, you can read more about it [here](app-service-web-app-cloning-portal.md)
 
 ## Scale an App Service plan
 
