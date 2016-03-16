@@ -1,6 +1,10 @@
 # Pull request etiquette and best practices
 
-For optimal functioning of the pull request workflow, keep the following in mind:
+To publish changes to documentation, you submit pull requests from your fork. Every pull request has to be reviewed prior to being merged. Read this article to understand how you should work with pull request reviewers and how you can create pull requests that are easier and faster to review.
+
+## Working with pull request reviewers
+
+Here's the basics you need to know about working with pull request reviewers. 
 
 - <b>Understand the role of the pull request reviewer. The reviewer:</b>
   - Ensures the basic quality of the content
@@ -19,15 +23,18 @@ For optimal functioning of the pull request workflow, keep the following in mind
   While pull request reviewers try to review PRs at least twice daily, all the pull request reviewers have other work to do, and some of that work might be higher priority than reviewing pull requests. 
 
 
-## Practical guidance to make it easier for us to review and merge your pull requests
+## Creating pull requests that are easier and faster for the reviewers to approve
 
-Pull requests are not all equal! Pull requests that are small in scope (minor updates to existing articles) are easier and faster to review. Pull requests that contain new articles or that contain a mix of updates and new articles take more time to review. You can help make the pull request queue work better using these best practices:
+There are two basic realities in the PR queue:
 
-- Separate minor updates to existing articles from new articles or major rewrites by working on these changes in separate working branches. 
+- Pull requests that are small in scope and that contain very similar changes take less time to review. 
+- Pull requests that are large in scope or that contain different, mixed kinds of changes take more time to review.
+
+You can help make the pull request queue work better by following these best practices:
+
+- Separate minor updates to existing articles from new articles or major rewrites. Work on these changes in separate working branches. 
 
 - When you delete articles or images, don't mix the deletions with new content additions or updates. Handle the changes/new content in a separate working branch.
-
-- Do not assume your pull request will be merged immediately or even the same day. We are working through the private and public pull request queues daily, but may not get to all existing PRs. 
 
 - Contact your pull request reviewer to expedite PRs only when absolutely necessary. You can request expedited PR handling for Red Zone, privacy, and security issues; for truly broken customer experiences; and for executive escalations. 
 
