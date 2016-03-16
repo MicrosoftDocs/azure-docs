@@ -32,11 +32,11 @@ To programmatically access blobs in ASP.NET 5 projects, you need to add the foll
 
 1. Add the following code namespace declarations to the top of any C# file in which you want to programmatically access Azure storage.
 
-		using Microsoft.Framework.Configuration;
+		using Microsoft.Extensions.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 		using System.Threading.Tasks;
-		using LogLevel = Microsoft.Framework.Logging.LogLevel;
+		using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 
 2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
 
