@@ -43,7 +43,7 @@ creating new VMs in a DevTest Lab.
 then all the Marketplace images that meet all of the following criteria are allowed in the lab:
 
 	- Create a single VM, **and**
-	- Create VMS using Azure Resource Manager (ARM), **and**
+	- Create VMs using Azure Resource Manager (ARM), **and**
 	- Do not require an extra purchasing plan
 	
 	If you want no images to be allowed, or you want to specify which images can be used, select **No**.
