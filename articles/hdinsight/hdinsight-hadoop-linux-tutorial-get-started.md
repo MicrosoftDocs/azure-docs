@@ -51,13 +51,13 @@ Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and the
     
     Other parameters are optional for following this tutorial. You can leave them as they are. 
     
-    Each cluster has an Azure Blob storage account dependency. It is usually referred as the default storage account. Deleting clusters will not delete the storage account. In the template, the default storage account name is defined as the cluster name with "store" appended. 
+    Each cluster has an Azure Blob storage account dependency. It is usually referred as the default storage account. HDInsight cluster and its default storage account must co-located in the same region. Deleting clusters will not delete the storage account. In the template, the default storage account name is defined as the cluster name with "store" appended. 
     
 3. Click **OK** to save the parameters.
-4. From the **Custom deployment** blade, enter **New resource group name** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource. The resource group location can be different from the cluster location.
+4. From the **Custom deployment** blade, enter **New resource group name** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other s. The resource group location can be different from the cluster location.
 5. Click **Legal terms**, and then click **Create**.
 6. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**. You will see a new tile titled **Deploying Template deployment**. It takes about around 20 minutes to create a cluster. 
-7.  Once the cluster is created, the caption of the tile is changed to the resource group name. And the portal opens two blades automatically with the cluster and the cluster settings. 
+7.  Once the cluster is created, the caption of the tile is changed to the resource group name. And the portal automatically opens two blades with the cluster and the cluster settings. 
 
     ![HDInsight Linux get started cluster settings](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png).
 
@@ -90,7 +90,7 @@ Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and the
 
     > [AZURE.TIP] Note the __Save results__ dropdown in the upper left of the __Query Process Results__ section; you can use this to either download the results, or save them to HDInsight storage as a CSV file.
 
-7. Click **HIstory** to see the job history.
+7. Click **History** to see the job history.
 
 After you have completed a Hive job, you can [export the results to Azure SQL database or SQL Server database](hdinsight-use-sqoop-mac-linux.md), you can also [visualize the results using Excel](hdinsight-connect-excel-power-query.md). For more information about using Hive in HDInsight, see [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md).
 
@@ -102,7 +102,7 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. From the portal dashboard, click the tile with the resource group name you used when you created the cluster.
-3. Click **Delete** on the resource blade to delete the resource group which contains the cluster and the default storage account; or click the cluster name on the **Resources** tile and then click **Delete** on the cluster blade.
+3. Click **Delete** on the resource blade to delete the resource group which contains the cluster and the default storage account; or click the cluster name on the **Resources** tile and then click **Delete** on the cluster blade. Please note, deleting the resource group will delete the storage account. If you want to keep the storage account, choose to delete the cluster only.
 
 ## Next steps
 
