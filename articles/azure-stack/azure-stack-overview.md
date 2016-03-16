@@ -20,7 +20,7 @@
 
 Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliver Azure services from your organization’s datacenter. The delivery and administration of these services is consistent with Azure, bringing the cloud model of computing to every datacenter. Azure stack delivers the power of Azure to your datacenter.
 
-[AZURE.VIDEO An-early-look-at-Azure-Stack-and-what-it-means-for-IT-with-Jeffrey-Snover]
+[AZURE.VIDEO an-early-look-at-azure-stack-and-what-it-means-for-it-with-jeffrey-snover]
 
 >[AZURE.NOTE] The first release of Azure Stack is Technical Preview 1. Some of the features described will come at different times during the preview cycle.
 
