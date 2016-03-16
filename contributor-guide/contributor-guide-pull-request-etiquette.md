@@ -15,7 +15,8 @@ For optimal functioning of the pull request workflow, keep the following in mind
   - Pull requests that change or add lots of files
 
 - <b>Pull requests may take a few days to be merged</b>
-  All the pull request reviewers have other work to do, and some of that work might be higher priority than reviewing pull requests. 
+
+  While pull request reviewers try to review PRs at least twice daily, all the pull request reviewers have other work to do, and some of that work might be higher priority than reviewing pull requests. 
 
 
 ## Practical guidance to make it easier for us to review and merge your pull requests
