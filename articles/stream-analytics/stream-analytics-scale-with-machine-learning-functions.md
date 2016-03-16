@@ -45,7 +45,7 @@ In general, ***B*** for batch size, ***L*** for the web service latency at batch
 
 An additional consideration may be the 'max concurrent calls' on the Machine Learning web service side, it’s recommended to set this to the maximum value (200 currently).
 
-For more information on this setting please review the [Scaling article for Machine Learning Web Services](machine-learning/machine-learning-scaling-webservice.md).
+For more information on this setting please review the [Scaling article for Machine Learning Web Services](../machine-learning/machine-learning-scaling-webservice.md).
 
 ## Example – Sentiment Analysis
 
