@@ -1,7 +1,7 @@
 <properties
    pageTitle="Azure Functions developer reference | Microsoft Azure"
    description="Understand how Azure Functions are develop and configured using triggers and bindings which use a domain specific language."
-   services="app-service"
+   services="functions"
    documentationCenter="dev-center-name"
    authors="GitHub-alias-of-only-one-author"
    manager="manager-alias"
@@ -10,7 +10,7 @@
    keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
 
 <tags
-   ms.service="azure-functions"
+   ms.service="functions"
    ms.devlang="multiple"
    ms.topic="reference"
    ms.tgt_pltfrm="multiple"

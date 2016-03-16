@@ -1,7 +1,7 @@
 <properties
    pageTitle="Azure Functions Overview"
    description="Understand how Azure Functions can optimize asynchronous workloads by creating simple functions that can be written in minutes."
-   services="app-service"
+   services="functions"
    documentationCenter=""
    authors="GitHub-alias-of-only-one-author"
    manager="manager-alias"
@@ -10,7 +10,7 @@
    keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
 
 <tags
-   ms.service="azure-functions"
+   ms.service="functions"
    ms.devlang="multiple"
    ms.topic="index-page"
    ms.tgt_pltfrm="multiple"
