@@ -1,6 +1,7 @@
 > [AZURE.SELECTOR-LIST (OS | Creation method)]
 - [Linux | Overview](hdinsight-hadoop-provision-linux-clusters.md)
 - [Linux | Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md)
+- [Linux | Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md)
 - [Linux | Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
 - [Linux | Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 - [Linux | REST API](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
