@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Data Factory (Azure PowerShell)"
+	pageTitle="Build your first data factory (PowerShell) | Microsoft Azure"
 	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/18/2015"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# Get started with Azure Data Factory (Azure PowerShell)
+# Build your first Azure data factory using Azure PowerShell
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -53,8 +53,8 @@ In this step, you use Azure PowerShell to create an Azure Data Factory named **F
 
 1. Start Azure PowerShell and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
 	- Run **Login-AzureRmAccount** and enter the  user name and password that you use to sign in to the Azure Portal.  
-	- Run **Get-AzureSubscription** to view all the subscriptions for this account.
-	- Run **Select-AzureSubscription <Name of the subscription>** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
+	- Run **Get-AzureRmSubscription** to view all the subscriptions for this account.
+	- Run **Select-AzureRmSubscription <Name of the subscription>** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
 3. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command.
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -283,6 +283,8 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 	The **start** and **end** properties of the pipeline specifies the active period of the pipeline.
 
 	In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
+
+	> [ACOM.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the above example. 
 2.  Confirm that you see the **input.log** file in the **adfgetstarted/inputdata** folder in the Azure blob storage, and run the following command to deploy the pipeline. Since the **start** and **end** times are set in the past and **isPaused** is set to false, the pipeline (activity in the pipeline) runs immediately after you deploy. 
 
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json

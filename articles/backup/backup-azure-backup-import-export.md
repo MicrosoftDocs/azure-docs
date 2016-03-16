@@ -3,8 +3,8 @@
    description="Learn how Azure Backup enables you to send data off the network using Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service"
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="nkolli1"
+   manager="shivamg"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="01/28/2016"
-   ms.author="jimpark;"/>
+   ms.author="jimpark;nkolli;trinadhk"/>
 
 # Offline Backup workflow in Azure Backup
 Azure Backup has lot of efficeincies built in to save network and storage costs.  Azure Backup not only compresses data but also backs up full content only once and deltas/incrementals after that.  So, if there is a 10TB file volume that is being backed up, Azure Backup will send 10TB as part of Initial Replication (IR) and only deltas as part of Delta Replication.  So, maximum WAN bandwidth required during IR.  To reduce the dependency of WAN at IR, Azure Backup supports offline backup using Azure Import/Export Service.  

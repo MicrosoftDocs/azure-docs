@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -69,9 +69,9 @@ To configure the integration of Trakopolis into Azure AD, you need to add Trakop
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
 ![Applications][4]<br>
 6. In the search box, type **Trakopolis**.<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_01.png)<br>
+![Applications](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_01.png)<br>
 7. In the results pane, select **Trakopolis**, and then click **Complete** to add the application.
-<br><br>
+<br><br>![Applications](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Trakopolis based on a test user called "Britta Simon".

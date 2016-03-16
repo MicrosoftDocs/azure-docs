@@ -456,7 +456,7 @@ You can move existing resources to a new resource group. For examples, see [Move
 
 - To delete a resource from the resource group, use the **Remove-AzureRmResource** cmdlet. This cmdlet deletes the resource, but does not delete the resource group.
 
-	This command removes the TestSite website from the TestRG resource group.
+	This command removes the TestSite website from the TestRG1 resource group.
 
 		Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
 
