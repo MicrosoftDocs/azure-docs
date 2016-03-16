@@ -144,7 +144,8 @@ This isn't supported. [Send us feedback](https://feedback.azure.com/forums/25629
 
 ### Can I replicate virtual machines with  dynamic disks?
 
-Dynamic disks are supported when replicating Hyper-V virtual machines. They're not supported when replicating VMware virtual machines or physical servers. [Send us feedback](https://feedback.azure.com/forums/256299-site-recovery/) about this feature.
+Dynamic disks are supported when replicating Hyper-V virtual machines. They are also supported when replicating VMware VMs and physical machines if you're using the [enhanced deployment](site-recovery-vmware-to-azure-classic.md). Note that the OS disk must be a basic disk.
+
 
 ### How do I access Azure virtual machines after failover to Azure? 
 
