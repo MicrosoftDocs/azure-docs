@@ -85,12 +85,22 @@ Perform the following steps to update your device to [Update 1.2](storsimple-upd
 12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17584)**. The **Last updated date** should also be modified.
 
     You will now see that Maintenance mode updates are available.
+    > [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.
+
+13. Download the maintenance mode updates by using the steps listed in [To download hotfixes](#to-download-hotfixes) to search for and download KB3063416, which installs disk firmware updates (the other updates should already be installed by now).
+
+13. Follow the steps listed in TODO[install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install the maintenance mode updates.
+
+    Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
+
+
+
 
 13. Follow the steps listed in [install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install these Maintenance mode updates.
 
     The maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
 
-> [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.  
+
 
 
 ## Install Update 1.2 on a device that has a gateway configured for a non-DATA 0 network interface
@@ -117,6 +127,14 @@ Detailed instructions for each of these are provided in the following sections.
 ## Option 1: Use Windows PowerShell for StorSimple to apply Update 1.2 as a hotfix
 
 You should use this procedure only if you are running Update 0.1, 0.2, 0.3 and if your gateway check has failed when trying to install updates from the Azure classic portal. If you are running Release (GA) software, please [Microsoft Support](storsimple-contact-microsoft-support.md) to update your device.
+
+To install Update 1.2 as a hotfix, you must download and install the following hotfixes:
+
+| Order  | KB        | Name                    | Update type  |
+|--------|-----------|-------------------------|------------- |
+| 1      | KB3063418 | Software update         |  Regular     |
+| 2      | KB3043005 | LSI driver              |  Regular     |
+| 3      | KB3063416 | Disk firmware           | Maintenance  |
 
 Before using this procedure to apply the update, make sure that:
 

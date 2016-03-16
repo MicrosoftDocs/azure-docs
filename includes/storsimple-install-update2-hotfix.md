@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/26/16-->
+<!--author=alkohli last changed: 03/16/16-->
 
 #### To download hotfixes
 
@@ -16,7 +16,7 @@ Perform the following steps to download the software update from the Microsoft U
 
 4. You will see the hotfix listed, for example, **Cumulative Software Bundle Update 2.0 for StorSimple 8000 Series**. Click **Add**. The update will be added to the basket.
 
-5. Search for any additional hotfixes to install, and add each the basket.
+5. Search for any additional hotfixes listed in the table above (**3121900**, **3080728**, **3090322**, and **3121899**), and add each the basket.
 
 5. Click **View Basket**.
 
@@ -24,11 +24,11 @@ Perform the following steps to download the software update from the Microsoft U
 
 >   [AZURE.NOTE]
 
->   The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller.
+>   The hotfixes must be accessible from both controllers to detect any potential error messages from the peer controller.
 
 #### To install and  verify regular mode hotfixes
 
-Perform the following steps to install and verify the regular hotfixes.
+Perform the following steps to install and verify regular mode hotfixes.
 
 1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
 
@@ -84,7 +84,6 @@ Perform the following steps to install and verify the regular hotfixes.
         Controller1Events   :
 
         ````
-
 
 	> [AZURE.NOTE] Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
 
@@ -159,7 +158,6 @@ To install the disk firmware updates, follow the instructions below.
 		[Y] Yes [N] No (Default is "Y"): Y
 		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 
-
 1.  Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
 
 2.  After the installation is complete, the controller on which the maintenance mode hotfix was installed will be rebooted. Log in as option 1 with full access and verify the disk firmware version. Type:
@@ -172,7 +170,6 @@ To install the disk firmware updates, follow the instructions below.
 
 	A sample output is shown below.
 
-
         -----------------------MAINTENANCE MODE------------------------
     	Microsoft Azure StorSimple Appliance Model 8100
     	Name: Update2-8100-SHG0997879L76YD
@@ -182,7 +179,6 @@ To install the disk firmware updates, follow the instructions below.
     	---------------------------------------------------------------
 
     	Controller1>Get-HcsFirmwareVersion
-
 
     	Controller0 : TalladegaFirmware
     	  ActiveBIOS:0.45.0006
