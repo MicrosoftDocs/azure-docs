@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/04/2015"
+   ms.date="03/14/2016"
    ms.author="heeldin;motanv"/>
 
 # Testability actions
@@ -212,12 +212,11 @@ ReplicaSelector is a helper exposed in testability and is used to help select a 
 
 To use this helper, create a ReplicaSelector object and set the way you want to select the replica and the partition. You can then pass it into the API that requires it. If no option is selected, it defaults to a random replica and random partition.
 
+```csharp
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
 PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
 long replicaId = 130559876481875498;
 
-
-```csharp
 // Select a random replica
 ReplicaSelector randomReplicaSelector = ReplicaSelector.RandomOf(partitionSelector);
 
