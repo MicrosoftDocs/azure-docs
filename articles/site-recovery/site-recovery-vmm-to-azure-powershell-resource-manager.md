@@ -16,8 +16,11 @@
 	ms.date="03/15/2016"
 	ms.author="rajanaki"/>
 
-# Replicate Hyper-V virtual machines in VMM clouds using Azure Site Recovery and PowerShell
+# Replicate Hyper-V virtual machines in VMM clouds to Azure using PowerShell and Azure Resource Manager
 
+> [AZURE.SELECTOR]
+- [Azure Classic Portal](site-recovery-vmm-to-azure.md)
+- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 
 ## Overview
 
@@ -49,7 +52,7 @@ Make sure you have these prerequisites in place:
 - You'll need an Azure v2 storage (ARM) account to store data replicated to Azure. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery service, and be associated with the same subscription or the CSP subscription. To learn more about setting up Azure storage, see the [Introduction to Microsoft Azure Storage](http://go.microsoft.com/fwlink/p/?LinkId=398704 "Introduction to Microsoft Azure Storag") for reference.
 - You'll need to make sure that virtual machines you want to protect comply with the [Azure virtual machine prerequisites](site-recovery-best-practices.md#virtual-machines).
 
-Note that at present only VM level operations are possible through Powershell. Support for recovery plan level operations will be made soon.  For now, you are limited to performing fail-overs only at a ‘protected VM’ granularity and not at a Recovery Plan level.
+> [AZURE.NOTE] Currently, only VM level operations are possible through Powershell. Support for recovery plan level operations will be made soon.  For now, you are limited to performing fail-overs only at a ‘protected VM’ granularity and not at a Recovery Plan level.
 
 ### VMM prerequisites
 - You'll need VMM server running on System Center 2012 R2.
