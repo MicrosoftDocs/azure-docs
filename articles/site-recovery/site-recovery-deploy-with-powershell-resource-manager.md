@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="12/09/2015"
+	ms.date="03/16/2016"
 	ms.author="bsiva"/>
 
 # Azure Site Recovery using PowerShell and Azure Resource Manager.
