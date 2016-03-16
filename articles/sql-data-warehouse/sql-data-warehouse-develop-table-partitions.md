@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Table partitions in SQL Data Warehouse
@@ -22,6 +22,9 @@ To migrate SQL Server partition definitions to SQL Data Warehouse:
 
 - Remove SQL Server partition functions and schemes since this is managed for you when you create the table.
 - Define the partitions when you create the table. Simply specify partition boundary points and whether you want the boundary point to be effective `RANGE RIGHT` or `RANGE LEFT`.
+
+NOTE: To learn more about partitions in SQL Server, see [Partitioned Tables and Indexes](https://msdn.microsoft.com/library/ms190787.aspx).
+
 
 ### Partition sizing
 SQL DW offers a DBA several choices for table types: heap, clustered index (CI), and clustered column-store index (CCI).   For each of these table types, the DBA can also partition the table, which means dividing it into multiple sections to improve performance.  However, creating a table with too many partitions can actually cause performance degradations or query failures under some circumstances.  These concerns are especially true for CCI tables.  For partitioning to be helpful, it is important for a DBA to understand when to use partitioning and the number of partitions to create.  These guidelines are intended to help DBAs make the best choices for their scenarios.
