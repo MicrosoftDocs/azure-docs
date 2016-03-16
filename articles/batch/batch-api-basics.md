@@ -124,7 +124,6 @@ A job is a collection of tasks, and specifies how computation is performed on co
 	- Azure Batch can detect tasks that fail and retry the tasks. The **maximum number of task retries** can be specified as a constraint, including whether a task is always or never retried. Retrying a task means that the task is re-queued to be run again.
 - Tasks can be added to the job by your client application, or a [Job Manager task](#jobmanagertask) may be specified. A job manager task uses the Batch API and contains the information necessary to create the required tasks for a job, with the task being run on one of the compute nodes within the pool. The job manager task is handled specifically by Batch–it is queued as soon as the job is created, and restarted if it fails. A Job Manager task is required for jobs created by a job schedule as it is the only way to define the tasks before the job is instantiated. More information on job manager tasks appears below.
 
-
 ### <a name="task"></a>Task
 
 A task is a unit of computation that is associated with a job and runs on a node. Tasks are assigned to a node for execution, or are queued until a node becomes free. A task uses the following resources:
@@ -192,7 +191,15 @@ For a detailed discussion on running MPI jobs in Batch using the Batch .NET libr
 
 #### <a name="taskdep"></a>Task dependencies
 
-Task dependencies, as the name implies, allow you to specify that a task depends on the completion of one or more other tasks before its execution. The "downstream" task may consume the output of the "upstream" task, or perhaps depend on some initialization performed by the upstream task. In such a scenario, you can specify that your job uses task dependencies, then for each task that depends on another (or many others), you specify the tasks which that task depends on.
+Task dependencies, as the name implies, allow you to specify that a task depends on the completion of one or more other tasks before its execution. This feature provides support for situations in which a "downstream" task consumes the output of an "upstream" task, or when an upstream task performs some initialization that is required by a downstream task. In such a scenario, you can specify that your job uses task dependencies, then for each task that depends on another (or many others), you specify the tasks which that task depends on.
+
+With task dependencies, you can configure scenarios such as the following:
+
+* *taskB* depends on *taskA* (*taskB* will not begin execution until *taskA* has completed)
+* *taskC* depends on both *taskA* and *taskB*
+* *taskD* depends on a **range** of tasks, such as tasks *1* through *10*, before it executes
+
+Check out the [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] GitHub repository. In it, you will see how to configure tasks that depend on other tasks using the [Batch .NET][batch_net_api] library.
 
 ### <a name="jobschedule"></a>Scheduled jobs
 
@@ -366,6 +373,8 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -392,7 +401,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
-[rest_multiinstance]: https://msdn.microsoft.com/en-us/library/azure/mt637905.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
