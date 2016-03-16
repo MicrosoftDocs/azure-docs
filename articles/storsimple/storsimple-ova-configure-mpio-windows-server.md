@@ -106,7 +106,7 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 
 4. Repeat steps 2-3 for a second network interface (for example, Ethernet 2) on your device. 
 
-5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. For your virtual device, you should see each volume surface as a target under **Discovered Targets**. In this case, three target (corresponding to three volumes) would be discovered.
+5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. For your virtual device, you should see each volume surface as a target under **Discovered Targets**. In this case, three targets (corresponding to three volumes) would be discovered.
 
 	![mpio1](./media/storsimple-ova-configure-mpio-windows-server/mpio1.png)
 
