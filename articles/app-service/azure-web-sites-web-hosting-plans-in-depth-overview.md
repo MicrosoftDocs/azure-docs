@@ -81,7 +81,7 @@ If you want to move the app to a different region, one alternative is app clonin
 
 Clone will make a copy of your app into a new or exisiting App Service plan or App Service environment in any region.
 
-Clone has some limitatiations, you can read more about it [here](..\app-service-web\app-service-web-app-cloning-portal.md)
+Clone has some limitatiations, you can read more about it [here](..\app-service-web-app-cloning-portal.md)
 
 ## Scale an App Service plan
 
