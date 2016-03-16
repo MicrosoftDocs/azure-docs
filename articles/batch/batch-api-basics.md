@@ -191,13 +191,13 @@ For a detailed discussion on running MPI jobs in Batch using the Batch .NET libr
 
 #### <a name="taskdep"></a>Task dependencies
 
-Task dependencies, as the name implies, allow you to specify that a task depends on the completion of one or more other tasks before its execution. This feature provides support for situations in which a "downstream" task consumes the output of an "upstream" task, or when an upstream task performs some initialization that is required by a downstream task. In such a scenario, you can specify that your job uses task dependencies, then for each task that depends on another (or many others), you specify the tasks which that task depends on.
+Task dependencies, as the name implies, allow you to specify that a task depends on the completion of other tasks before its execution. This feature provides support for situations in which a "downstream" task consumes the output of an "upstream" task, or when an upstream task performs some initialization that is required by a downstream task. In such a scenario, you can specify that your job uses task dependencies, then for each task that depends on another (or many others), you specify the tasks which that task depends on.
 
 With task dependencies, you can configure scenarios such as the following:
 
 * *taskB* depends on *taskA* (*taskB* will not begin execution until *taskA* has completed)
 * *taskC* depends on both *taskA* and *taskB*
-* *taskD* depends on a **range** of tasks, such as tasks *1* through *10*, before it executes
+* *taskD* depends on a range of tasks, such as tasks *1* through *10*, before it executes
 
 Check out the [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] GitHub repository. In it, you will see how to configure tasks that depend on other tasks using the [Batch .NET][batch_net_api] library.
 
