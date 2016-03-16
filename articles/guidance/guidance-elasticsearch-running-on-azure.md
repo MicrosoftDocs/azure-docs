@@ -445,12 +445,12 @@ must install the Java 7 (update 55 or later) or Java 8 (update 20 or later) JVM 
 
 Although it is not difficult to deploy a single instance of Elasticsearch, creating a number of nodes and
 installing and configuring Elasticsearch on each one can be a time consuming and error-prone process. If
-you are considering running Elasticsearch on Azure VMs, you have two options that can help to reduce the
+you are considering running Elasticsearch on Azure VMs, you have three options that can help to reduce the
 chances of errors.
 
-- Using [Azure Resource Manager (ARM) template] (https://azure.microsoft.com/marketplace/partners/elastic/elasticsearchelasticsearch/) in Azure marketplace. This template is created by Elastic. It allows to add commercial enhancements such as Shield, Marvel, and Watcher etc.
+- Using [Azure Resource Manager (ARM) template] (https://azure.microsoft.com/marketplace/partners/elastic/elasticsearchelasticsearch/) in Azure marketplace. This template is created by Elastic. It allows you to add commercial enhancements such as Shield, Marvel, and Watcher etc.
 
-- Using another [ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) to build the cluster. This template is fully parameterized to enable you to specify the size and performance tier for the VMs that implement the nodes, the number of disks to use, and other common factors. The template can create a cluster based on Windows Server 2012 or Ubuntu Linux 14.0.4. This template is used for research and testing tasks in this document.
+- Using Azure quickstart [template](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) to build the cluster. This template can create a cluster based on Windows Server 2012 or Ubuntu Linux 14.0.4. It allows you to use experimental features such as Azure Files. This template is used for the research and testing tasks in this document.
 
 - Using scripts which can be automated or run unattended. Scripts that can create and deploy an Elasticsearch cluster are available on the [GitHub repository](https://github.com/mspnp/azure-guidance/tree/master/scripts/ps)
 
