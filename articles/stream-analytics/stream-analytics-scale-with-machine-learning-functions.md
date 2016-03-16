@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Scale your Stream Analytics job with Azure Machine Learning Functions | Microsoft Azure"
+	pageTitle="Scale your Stream Analytics job with Azure Machine Learning functions | Microsoft Azure"
 	description="Learn how to properly scale Stream Analytics jobs (partitioning, SU quantity, and more) when using Azure Machine Learning functions."
 	keywords=""
 	documentationCenter=""
@@ -19,7 +19,7 @@
 	ms.author="jeffstok"
 />
 
-# Scale your Stream Analytics job with Azure Machine Learning Functions
+# Scale your Stream Analytics job with Azure Machine Learning functions
 
 It is often quite easy to set up an Stream Analytics job and run some sample data through it. What should we do when we need to run the same job with higher data volume? It requires us to understand how to configure the Stream Analytics job so that it will scale. In this document, we will focus on the special aspects of scaling Stream Analytics jobs with ML functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](stream-analytics-scale-jobs.md).
 
@@ -99,7 +99,7 @@ Normally, the batch size we set for ML functions won’t exactly be divisible by
 
 ## Machine Learning function-related metrics
 
-In the Monitor area of a Stream Analytics job,three additional Machine Learning function-related metrics have been added. They are FUNCTION REQUESTS, FUNCTION EVENTS and FAILED FUNCTION REQUESTS, as shown in the graphic below.
+In the Monitor area of a Stream Analytics job, three additional Machine Learning function-related metrics have been added. They are FUNCTION REQUESTS, FUNCTION EVENTS and FAILED FUNCTION REQUESTS, as shown in the graphic below.
 
 ![Scale Stream Analytics with Machine Learning Functions Metrics](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Scale Stream Analytics with Machine Learning Functions Metrics")
 
