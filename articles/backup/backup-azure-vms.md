@@ -13,13 +13,13 @@
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="01/22/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Back up Azure virtual machines
-This article provides the procedures for how to back up existing Azure virtual machines (VMs).
+This article provides the procedures for how to back up your Azure virtual machines (VMs).
 
 First, there are a few things you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](backup-azure-vms-prepare.md) to prepare your environment for backing up your VMs.
 
@@ -29,10 +29,10 @@ Backing up Azure virtual machines involves three key steps:
 
 ![Three steps to back up an Azure IaaS VM](./media/backup-azure-vms/3-steps-for-backup.png)
 
->[AZURE.NOTE] Backing up virtual machines is a local process. You cannot back up virtual machines from one region to a backup vault in another region. So, for every Azure region that has VMs that need to be backed up, at least one backup vault must be created in that region.
+>[AZURE.NOTE] Backing up virtual machines is a local process. You cannot back up virtual machines in one region to a backup vault in another region. So, you must create a backup vault in each Azure region, where there are VMs that will be backed up.
 
 ## Step 1 - Discover Azure virtual machines
-To ensure any new virtual machines added to the subscription are identified before registering, run the the discovery process. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region.
+To ensure any new virtual machines (VMs) added to the subscription are identified before registering, run the discovery process. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region.
 
 1. Navigate to the backup vault under **Recovery Services** in the Azure portal, and click **Registered Items**.
 
@@ -135,7 +135,7 @@ Once the virtual machine is protected with a policy, it shows up under the **Pro
 
 To trigger the initial backup immediately after configuring protection:
 
-1. Click the **Backup Now** button at the bottom of the **Protected Items** page.
+1. At the bottom of the **Protected Items** page, click **Backup Now**.
 
     The Azure Backup service creates a backup job for the initial backup operation.
 
