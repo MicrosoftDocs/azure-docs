@@ -5,21 +5,22 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carmonm"
-   editor="" />
+   editor=""
+  tags="azure-resource-manager, azure-service-management"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/09/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc" />
 
 # About VPN devices for Site-to-Site VPN Gateway connections
 
 A VPN device is required in order to configure a Site-to-Site (S2S) VPN connection. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters. Please note that when configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                                
 
-If your device doesn't appear in the Validated VPN devices table, see the Non-Valided VPN devices section of this article. It's possible that your device may still work with Azure. For VPN device support, please contact your device manufacturer.
+If your device doesn't appear in the Validated VPN devices table, see the Non-validated VPN devices section of this article. It's possible that your device may still work with Azure. For VPN device support, please contact your device manufacturer.
 
 **Items to note when viewing the tables:**
 
@@ -40,8 +41,8 @@ To help configure your VPN device, please refer to the links that correspond to 
 | **Vendor**                      | **Device family**                                        | **Minimum OS version**                             | **Policy-based**                                                                                                                                                                                                             | **Route-based**                                                                                                                                                                    |
 |---------------------------------|----------------------------------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Allied Telesis                  | AR Series VPN Routers                                    | 2.9.2                                              | Coming soon                                                                                                                                                                                                                                          | Not compatible                                                                                                                                                                                               |
-| Barracuda Networks, Inc.        | Barracuda NG Firewall                 | Barracuda NG Firewall 5.4.3  | [Barracuda NG Firewall](https://techlib.barracuda.com/display/BNGV54/How%20to%20Configure%20an%20IPsec%20Site-to-Site%20VPN%20to%20a%20Windows%20Azure%20VPN%20Gateway)| Not compatible                                                                                                                                                                                               |
-| Barracuda Networks, Inc.        |  Barracuda Firewall                 | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | Not compatible                                                                                                                                                                                               |
+| Barracuda Networks, Inc.        | Barracuda NextGen Firewall F-series             | Policy-based: 5.4.3, Route-based: 6.2.0  | [Configuration instructions](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) | [Configuration instructions](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW)                                                                                                                                                                                              |
+| Barracuda Networks, Inc.        |  Barracuda NextGen Firewall X-series                 | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | Not compatible                                                                                                                                                                                               |
 | Brocade                         | Vyatta 5400 vRouter                                      | Virtual Router 6.6R3 GA                            | [Configuration instructions](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html)                                       | Not compatible                                                                                                                                                                                               |
 | Check Point                     | Security Gateway                                         | R75.40, R75.40VS                                     | [Configuration instructions](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275)                                         | [Configuration instructions](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco                           | ASA                                                      | 8.3                                                | [Cisco samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA)                                                                                                                                                                        | Not compatible                                                                                                                                                                                               |
@@ -62,7 +63,7 @@ To help configure your VPN device, please refer to the links that correspond to 
 | Watchguard                      | All                                                      | Fireware XTM v11.x                                 | [Configuration instructions](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/)                                                                                                                                                                          | Not compatible                                                                                                                                                                                               |
 
 
-## Non-Validated VPN devices
+## Non-validated VPN devices
 
 If you don’t see your device listed in the Validated VPN devices table (above), it still may work with a Site-to-Site connection. Verify that your VPN device meets the minimum requirements outlined in the Gateway Requirements section of the [About VPN Gateways](vpn-gateway-about-vpngateways.md#gateway-requirements) article. Devices meeting the minimum requirements should also work well with VPN gateways. Please contact your device manufacturer for additional support and configuration instructions.
 
