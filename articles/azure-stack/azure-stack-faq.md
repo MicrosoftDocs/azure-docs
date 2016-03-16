@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="Frequently Asked Questions? | Microsoft Azure"
+	pageTitle="Frequently asked questions for Azure Stack | Microsoft Azure"
 	description="Azure Stack frequently asked questions."
 	services="azure-stack"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="03/11/2016"
 	ms.author="erikje"/>
 
-# Frequently Asked Questions
+# Frequently asked questions for Azure Stack
 
 
 ## Deployment
