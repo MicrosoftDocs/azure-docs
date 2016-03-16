@@ -24,8 +24,6 @@
 [AZURE.INCLUDE [virtual-machines-common-about-disks-vhds](../../includes/virtual-machines-common-about-disks-vhds.md)]
 
 ## Next steps
--  [Capture a Windows virtual machine](virtual-machines-windows-capture-image.md)
--  [Upload a Windows VM image to Azure](virtual-machines-windows-upload-image.md)
--  [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md)
--  [Attach a disks and prepare it for use](virtual-machines-windows-classic-attach-disk.md)
--  [Detach a disk](virtual-machines-windows-classic-detach-disk.md)
+-  [Capture a Windows virtual machine](virtual-machines-windows-capture-image.md) so you can scale-out your VM deployment.
+-  [Upload a Windows VM image to Azure](virtual-machines-windows-upload-image.md) to use when creating a new VM.
+-  [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md) so your application can use the D: drive for data.

@@ -168,10 +168,8 @@ In the classic deployment model, some VM size names are slightly different in CL
 * Standard_A3 is Large
 * Standard_A4 is ExtraLarge
 
-### See also
+## Next steps
 
-[Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
-
-
-[About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md)
+- Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+- Learn more [about the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md) for workloads like High-performance Computing (HPC).
 

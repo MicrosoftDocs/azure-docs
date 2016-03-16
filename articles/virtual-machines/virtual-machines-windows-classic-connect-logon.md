@@ -50,9 +50,7 @@ Here's a video walkthrough of the steps in this tutorial. It also covers endpoin
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
-## Troubleshooting tips
-
-Here are a few things to try:
+## Next steps
 
 -	If the **Connect** button is inactive or you are having other problems with the Remote Desktop connection, try resetting the configuration. From the virtual machine dashboard, under **Quick Glance**, click **Reset remote configuration**.
 -	For problems with your password, try resetting it. From the virtual machine dashboard, under **Quick Glance**, click **Reset password**.

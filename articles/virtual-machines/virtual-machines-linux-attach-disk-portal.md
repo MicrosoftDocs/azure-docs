@@ -27,6 +27,4 @@
 
 After the disk is added, you need to prepare it for use. See in the virtual machine's operating system: "How to: Initialize a new data disk in Linux" in this [article](virtual-machines-linux-classic-attach-disk.md#how-to-initialize-a-new-data-disk-in-linux).
 
-## Additional resources
 
-[About Azure Storage Accounts](../articles/storage/storage-create-storage-account.md)

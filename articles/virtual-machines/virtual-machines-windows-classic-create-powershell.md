@@ -259,15 +259,9 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 
-## Additional resources
+## Next steps
 
-[Virtual machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Azure virtual machines FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
-
-[Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
-
-[How to install and configure Azure PowerShell](../powershell-install-configure.md)
+If you need an OS disk that is larger than 127 GB, you can [expand the OS drive](virtual-machines-windows-expand-os-disk.md).
 
 
 

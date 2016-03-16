@@ -31,7 +31,7 @@ For more information about how Azure uses the temporary disk, see [Understanding
 
 First, you'll need to attach the data disk to the virtual machine. 
 
-- To use the portal, see [How to attach a data disk in the Azure portal](virtual-machines-linux-attach-disk-portal.md)
+- To use the portal, see [How to attach a data disk in the Azure portal](virtual-machines-windows-attach-disk-portal.md)
 - To use the classic portal, see [How to attach a data disk to a Windows virtual machine](virtual-machines-windows-classic-attach-disk.md). 
 
 
@@ -108,10 +108,8 @@ First, you'll need to attach the data disk to the virtual machine.
 
 
 
-## Additional resources
-- [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
-
-- [About Azure Storage accounts](..storage/storage-create-storage-account.md)
+## Next steps
+- You can increase the storage available to your virtual machine by [attaching a additonal data disk](virtual-machines-windows-attach-disk-portal.md).
 
 
 

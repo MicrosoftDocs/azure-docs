@@ -19,8 +19,6 @@
 
 # How to attach a data disk in the Azure portal
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-attach-disk.md).
-
 [AZURE.INCLUDE [virtual-machines-common-attach-disk-portal](../../includes/virtual-machines-common-attach-disk-portal.md)]
 
 ## <a id="initializeinWS"></a>How to: initialize a new data disk in Windows Server
@@ -45,6 +43,6 @@
 > [AZURE.NOTE] The size of the VM determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
 
 
-## Additional resources
+## Next steps
 
-[About Azure Storage Accounts](..storage/storage-create-storage-account.md)
+If you application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk].

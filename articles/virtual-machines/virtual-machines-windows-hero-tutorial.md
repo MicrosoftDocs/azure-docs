@@ -116,4 +116,4 @@ You can now work with the virtual machine just as you would with any other serve
 
 * Use Azure PowerShell and the Azure CLI to [find and select virtual machine images](virtual-machines-linux-cli-ps-findimage.md).
 * Automate virtual machine and workload deployment and management using [Azure Resource Manager templates](https://azure.microsoft.com/documentation/templates/).
-* [Create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md)
+* You can also quickly [create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md) using the Azure CLI.
