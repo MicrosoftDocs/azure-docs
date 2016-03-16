@@ -49,9 +49,11 @@ https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-scale-
 
 Currently, we have 20 concurrent connections to the ML web service behind the ML function for every 6 SUs, except that 1 SU jobs and 3 SU jobs will get 20 concurrent connections also. So, for example, suppose the input data rate is 200, 000 events per second; we use the default batch size 1000; and the ML web service latency with 1000 events mini-batch is 200ms, which means every connection can be used to make 5 requests to ML web service in a second. With 20 connections, the Stream Analytics job can process 20 \* 1000 = 20, 000 events in 200ms, can process 20, 000 \* 5 = 100,000 events in a second. Therefore, to process 200,000 events per second, the Stream Analytics job needs 40 concurrent connections, which means 12 SUs. The diagram below illustrates the requests from the Stream Analytics job to the ML web service endpoint – Every 6 SUs has 20 concurrent connections to ML web service at max.
 
+![Scale Stream Analytics with Machine Learning Functions 2 job example](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Scale Stream Analytics with Machine Learning Functions 2 job example")
+
 In general, ***B*** for batch size, ***L*** for ML web service latency at batch size B in milliseconds, the throughput of an Stream Analytics job with ***N*** SUs is:
 
-> 20 \* ceil(**N**/6) \***B** \* (1000/**L**).
+    20 \* ceil(**N**/6) \***B** \* (1000/**L**)
 
 There is also setting of max concurrent calls on the ML web service side, and it’s recommended to set it to the max value, which is 200 currently.
 
@@ -63,19 +65,15 @@ Suppose we set up an Stream Analytics job with sentiment analysis ML function, j
 
 <https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-machine-learning-integration-tutorial/>
 
-The query is a simple, fully partitioned query, and the *sentiment* function
+The query is a simple, fully partitioned query, and the **sentiment** function
 
-WITH subquery AS (
-
-SELECT text, sentiment(text) as result from input
-
-)
-
-Select text, result.\[Score\]
-
-Into output
-
-From subquery
+    WITH subquery AS (
+        SELECT text, sentiment(text) as result from input
+    )
+    
+    Select text, result.[Score]
+    Into output
+    From subquery
 
 Suppose we have 10,000 tweets per second, and we set up an Stream Analytics job for sentiment analysis of tweets. The job uses 1 SU. Could this Stream Analytics job able to handle the traffic? By default, the batch size is 1000. This Stream Analytics job should work fine – it should be able to keep up with the input, and added latency is within a second, which is the latency of the sentiment analysis ML web service at 1000 batch size. The Stream Analytics job’s overall latency should be several seconds. Let’s take a more detailed look into this Stream Analytics job, especially the ML function calls. Having batch size as 1000, we 10,000 events will take about 10 requests to ML web service. Even with 1 SU, We have enough concurrent connections for this input
 traffic.
@@ -95,17 +93,18 @@ With the second option, if we keep the batch size the same, with 200ms latency o
 
 Below is a table for the throughput in number of events per second of the Stream Analytics job for different SUs and batch sizes.
 
-  SU       batch size (ML latency)
-  -------- ------------------------- --------------- --------------- ---------------- ----------------
-           500 (200ms)
-  1 SU     2,500
-  3 SUs    2,500
-  6 SUs    2,500
-  12 SUs   5,000
-  18 SUs   7,500
-  24 SUs   10,000
-  …        …
-  60 SUs   25,000
+| SU |   |   |   | batch size (ML latency) |   |
+|--------|-------------------------|---------------|---------------|----------------|----------------|
+|   |   |   |   |   |   |
+|   | 500 (200ms) | 1,000 (200ms) | 5,000 (250ms) | 10,000 (300ms) | 25,000 (500ms) |
+| 1 SU | 2,500 | 5,000 | 20,000 | 30,000 | 50,000 |
+| 3 SUs | 2,500 | 5,000 | 20,000 | 30,000 | 50,000 |
+| 6 SUs | 2,500 | 5,000 | 20,000 | 30,000 | 50,000 |
+| 12 SUs | 5,000 | 10,000 | 40,000 | 60,000 | 100,000 |
+| 18 SUs | 7,500 | 15,000 | 60,000 | 90,000 | 150,000 |
+| 24 SUs | 10,000 | 20,000 | 80,000 | 120,000 | 200,000 |
+| … | … | … | … | … | … |
+| 60 SUs | 25,000 | 50,000 | 200,000 | 300,000 | 500,000 |
 
 By now, you already have a good understanding of how ML functions in Stream Analytics works. You probably also know that Stream Analytics jobs “pull” data from data sources, and each “pull” returns a batch of events for the Stream Analytics job to process. How does the pull model impact the ML web service requests? Normally the batch size we set for ML functions won’t exactly divide the number of events returned by each “pull”. When it happens, the ML web service will be called with “partial” batches, so that there won’t be any additional delay to wait for the next “pull”.
 
@@ -115,13 +114,13 @@ We have added three ML function related metrics, FUNCTION REQUESTS, FUNCTION EVE
 
 ![Scale Stream Analytics with Machine Learning Functions Metrics](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Scale Stream Analytics with Machine Learning Functions Metrics")
 
-FUNCTION REQUESTS: The number of ML web service requests.
+**FUNCTION REQUESTS**: The number of ML web service requests.
 
-FUNCTION EVENTS: The number events in the requests.
+**FUNCTION EVENTS**: The number events in the requests.
 
-FAILED FUNCTION REQUESTS: The number of failed ML web service requests.
+**FAILED FUNCTION REQUESTS**: The number of failed ML web service requests.
 
-##Key Takeaways  
+## Key Takeaways  
 
 In summary, in order to scale an Stream Analytics job with ML functions, we need consider the following aspects:
 
@@ -130,3 +129,24 @@ In summary, in order to scale an Stream Analytics job with ML functions, we need
 3.  The provisioned Stream Analytics SUs and the number of ML web service requests (the dollar cost)
 
 We use a fully partitioned Stream Analytics query as the example. If you have a complex query to discuss, please feel free to reach out to the Stream Analytics team.
+
+## Get help
+
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+
+## Next steps
+
+You've learned about data connection options in Azure for your Stream Analytics jobs. To learn more about Stream Analytics, see:
+
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+<!--Link references-->
+[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
+[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
+[stream.analytics.introduction]: stream-analytics-introduction.md
+[stream.analytics.get.started]: stream-analytics-get-started.md
+[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
