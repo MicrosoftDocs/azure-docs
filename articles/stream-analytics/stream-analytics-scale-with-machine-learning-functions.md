@@ -113,7 +113,7 @@ By now, you already have a good understanding of how ML functions in Stream Anal
 
 We have added three ML function related metrics, FUNCTION REQUESTS, FUNCTION EVENTS, and FAILED FUNCTION REQUESTS, as shown below.
 
-![Scale Stream Analytics with Machine Learning Functions Metrics](./stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Scale Stream Analytics with Machine Learning Functions Metrics")
+![Scale Stream Analytics with Machine Learning Functions Metrics](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Scale Stream Analytics with Machine Learning Functions Metrics")
 
 FUNCTION REQUESTS: The number of ML web service requests.
 
