@@ -8,19 +8,19 @@
 	editor=""/>
 
 <tags
-    ms.service="backup"
+    ms.service="site-recovery"
     ms.workload="storage-backup-recovery"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/12/2016"
+    ms.date="03/20/2016"
     ms.author="raynew"/>
 
 # Business continuity and disaster recovery (BCDR): Azure Paired Regions
 
 ## What are paired regions?
 
-Azure operates in multiple geographies around the world. An Azure geography is a defined area of the world containing at least one Azure Region. An Azure region is an area within a geography containing one or more datacenters.
+Azure operates in multiple geographies around the world. An Azure geography is a defined area of the world that contains at least one Azure Region. An Azure region is an area within a geography containing one or more datacenters.
 
 Each Azure region is paired with another region within the same geography (with the exception of Brazil South which is paired with a region outside its geography), together making a regional pair.
 
