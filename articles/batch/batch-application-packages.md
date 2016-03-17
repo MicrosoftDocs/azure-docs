@@ -66,11 +66,11 @@ In order to use application packages, you must first link an Azure Storage accou
 
 ![No storage account configured warning in Azure portal][9]
 
-The Batch service uses the associated Storage account for the storage and retrieval of application packages. Once you've linked the two accounts, Batch can automatically deploy the packages stored in the linked Storage account to your compute nodes. Click **Storage account settings** on the *Warning* blade, then **Storage Account** on the *Storage Account* blade to link an existing storage account to your Batch account.
+The Batch service uses the associated Storage account for the storage and retrieval of application packages. Once you've linked the two accounts, Batch can automatically deploy the packages stored in the linked Storage account to your compute nodes. Click **Storage account settings** on the *Warning* blade, then **Storage Account** on the *Storage Account* blade to link a storage account to your Batch account.
 
 ![Choose storage account blade in Azure portal][10]
 
-You can use an existing Storage account within your subscription, or create a new one for application package storage. For details on creating a Storage account, see "Create a storage account" in [About Azure storage accounts](../storage/storage-create-storage-account.md). Once you've created a Storage account, you may then link it to your Batch account using the *Storage Account* blade.
+We recommend that you create a storage account *specifically* for use with your Batch account, and select it here. For details on creating a storage account, see "Create a storage account" in [About Azure storage accounts](../storage/storage-create-storage-account.md). Once you've created a Storage account, you may then link it to your Batch account using the *Storage Account* blade.
 
 > [AZURE.WARNING] Because Batch stores your application packages using Azure Storage, you are [charged as normal][storage_pricing] for the block blob data. Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize cost.
 
@@ -171,7 +171,7 @@ As you can see, the fields match those of the *New application* blade, except fo
 
 ### Update or Delete an application package
 
-To update or delete an existing application package, open the details blade for the application, click **Packages** to display the *Packages* blade, click the **ellipses** in the row of the application package you wish to modify, and select the action you wish to perform.
+To update or delete an existing application package, open the details blade for the application, click **Packages** to display the *Packages* blade, click the **ellipsis** in the row of the application package you wish to modify, and select the action you wish to perform.
 
 ![Update or delete package in Azure portal][7]
 

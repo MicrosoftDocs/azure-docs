@@ -29,10 +29,10 @@ Use this topic for quick steps to grant and remove access to an Azure SQL databa
 - See [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md).
 
 ##To create contained database users in the user database
-- Use the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement and see Contained Database [Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
+- Use the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement and see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## To authenticate contained database users by using your Azure Active Directory
-- See Connecting to [SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
+- See [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
 
 ## To create additional logins for high-privileged users in the virtual master database
 -Use the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement, and see the Managing Logins section of [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md) for more detail.
