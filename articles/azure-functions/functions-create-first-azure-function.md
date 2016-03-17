@@ -22,4 +22,4 @@
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
 
-[AZURE.VIDEO []()]
+[AZURE.VIDEO 9059]
