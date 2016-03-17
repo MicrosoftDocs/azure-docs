@@ -26,7 +26,7 @@ In order to copy the marketing campaign effectiveness data from Azure Blob to on
 
 ## Pre-requisites
 
-You **must** perform the walkthrough in the [Tutorial: Move and process log files using Data Factory][datafactorytutorial] before performing the walkthrough in this article. 
+You **must** perform the walkthrough in the [Tutorial: Move and process log files using Data Factory](data-factory-tutorial.md) before performing the walkthrough in this article. 
 
 **(recommended)** Review and practice the walkthrough in the [Enable your pipeline to work with on-premises data][useonpremisesdatasources] article for a walkthrough on creating a pipeline to move data from on-premises SQL Server to an Azure blob store.
 
@@ -139,7 +139,7 @@ To start with, you need to create the SQL Server database, table, user defined t
 	
 ## Monitor pipeline
 
-You can now use the same steps introduced in the **Monitor pipelines** section of the [Main tutorial][datafactorytutorial] to monitor the new pipeline and the data slices for the new on-premises ADF table.
+You can now use the same steps introduced in the **Monitor pipelines** section of the [Main tutorial](data-factory-tutorial.md#monitor-pipelines) to monitor the new pipeline and the data slices for the new on-premises ADF table.
  
 When you see the status of a slice of the table **MarketingCampaignEffectivenessOnPremSQLTable** turns into Ready, it means that the pipeline have completed the execution for the slice. To view the results, query the **MarketingCampaignEffectiveness** table in **MarketingCampaigns** database in your SQL Server.
  
@@ -151,7 +151,6 @@ Congratulations! You have successfully gone through the walkthrough to use your 
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-[datafactorytutorial]: data-factory-tutorial.md
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md

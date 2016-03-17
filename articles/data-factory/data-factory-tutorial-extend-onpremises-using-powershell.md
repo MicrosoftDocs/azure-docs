@@ -36,7 +36,7 @@ In this walkthrough, you will perform the following steps:
 	You must have at least one gateway installed in your corporate environment as well as register it with the Azure Data Factory before adding on-premises SQL Server database as a linked service to an Azure data factory.
 
 2. [Create SQL Server linked service](#create-sql-server-linked-service). In this step, you first create a database and a table on your on-premises SQL Server computer and then create the linked service: **OnPremSqlLinkedService**.  
-3. [Create datset and pipeline](Create-dataset-and-pipeline). In this step, you will create a table **MarketingCampaignEffectivenessOnPremSQLTable** and pipeline **EgressDataToOnPremPipeline**. 
+3. [Create datset and pipeline](#create-dataset-and-pipeline). In this step, you will create a table **MarketingCampaignEffectivenessOnPremSQLTable** and pipeline **EgressDataToOnPremPipeline**. 
 
 4. [Monitor pipeline](#monitor-pipeline). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Classic Portal.
 
@@ -135,7 +135,7 @@ To start with, you need to create the SQL Server database, table, user defined t
 	
 ## Monitor pipeline
 
-You can now use the same steps introduced in [Step 6: Monitoring tables and pipelines](data-factory-tutorial-using-powershell.md#monitor-pipelines)  to monitor the new pipeline and the data slices for the new on-premises ADF table.
+You can now use the same steps introduced in [Monitoring pipelines](data-factory-tutorial-using-powershell.md#monitor-pipelines)  to monitor the new pipeline and the data slices for the new on-premises ADF table.
  
 When you see the status of a slice of the table **MarketingCampaignEffectivenessOnPremSQLTable** turns into Ready, it means that the pipeline have completed the execution for the slice. To view the results, query the **MarketingCampaignEffectiveness** table in **MarketingCampaigns** database in your SQL Server.
  

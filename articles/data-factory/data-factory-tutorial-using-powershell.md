@@ -16,7 +16,7 @@
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Tutorial: Move and process log files using Data Factory [PowerShell]
+# Tutorial: Move and process log files using Data Factory (PowerShell)
 This article provides an end-to-end walkthrough of a canonical scenario of log processing using Azure Data Factory to transform data from log files into insights.
 
 ## Scenario
@@ -70,17 +70,18 @@ The end-to-end workflow is depicted below:
 2. The **EnrichGameLogsPipeline** joins partitioned game events (PartitionedGameEvents table, which is an output of the PartitionGameLogsPipeline) with geo code (RefGetoCodeDictionaryTable) and enriches the data by mapping an IP address to the corresponding geo-location (EnrichedGameEventsTable).
 3. The **AnalyzeMarketingCampaignPipeline** pipeline leverages the enriched data (EnrichedGameEventTable produced by the EnrichGameLogsPipeline) and processes it with the advertising data (RefMarketingCampaignnTable) to create the final output of marketing campaign effectiveness, which is copied to the Azure SQL database (MarketingCampainEffectivensessSQLTable) and an Azure blob storage (MarketingCampaignEffectivenessBlobTable) for analytics.
     
-## Walkthrough: Creating, deploying, and monitoring workflows
-1. [Step 1: Upload sample data and scripts](#upload-sample-data-and-scripts). In this step, you will upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that will be executed by the workflows. The scripts you execute also create an Azure SQL database (named MarketingCampaigns), tables, user-defined types, and stored procedures.
-2. [Step 2: Create an Azure data factory](#create-data-factory). In this step, you will create an Azure data factory named LogProcessingFactory.
-3. [Step 3: Create linked services](#create-linked-services). In this step, you will create the following linked services: 
+You will perform the following steps in this tutorial: 
+
+1. [Upload sample data and scripts](#upload-sample-data-and-scripts). In this step, you will upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that will be executed by the workflows. The scripts you execute also create an Azure SQL database (named MarketingCampaigns), tables, user-defined types, and stored procedures.
+2. [Create an Azure data factory](#create-data-factory). In this step, you will create an Azure data factory named LogProcessingFactory.
+3. [Create linked services](#create-linked-services). In this step, you will create the following linked services: 
 	
 	- 	**StorageLinkedService**. Links the Azure storage location that contains raw game events, partitioned game events, enriched game events, marketing campaign effective information, reference geo-code data, and reference marketing campaign data to the LogProcessingFactory   
 	- 	**AzureSqlLinkedService**. Links an Azure SQL database that contains marketing campaign effectiveness information. 
 	- 	**HDInsightStorageLinkedService**. Links an Azure blob storage that is associated with the HDInsight cluster that the HDInsightLinkedService refers to. 
 	- 	**HDInsightLinkedService**. Links an Azure HDInsight cluster to the LogProcessingFactory. This cluster is used to perform pig/hive processing on the data. 
  		
-4. [Step 4: Create datasets](#create-datasets). In this step, you will create the following tables:  	
+4. [Create datasets](#create-datasets). In this step, you will create the following tables:  	
 	
 	- **RawGameEventsTable**. This table specifies the location of the raw game event data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/logs/rawgameevents/) . 
 	- **PartitionedGameEventsTable**. This table specifies the location of the partitioned game event data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/logs/partitionedgameevents/) . 
@@ -91,7 +92,7 @@ The end-to-end workflow is depicted below:
 	- **MarketingCampaignEffectivenessBlobTable**. This table specifies the location of the marketing campaign effectiveness data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/marketingcampaigneffectiveness/). 
 
 	
-5. [Step 5: Create and schedule pipelines](#create-pipelines). In this step, you will create the following pipelines:
+5. [Create and schedule pipelines](#create-pipelines). In this step, you will create the following pipelines:
 	- **PartitionGameLogsPipeline**. This pipeline reads the raw game events from a blob storage (RawGameEventsTable) and creates partitions based on year, month, and day (PartitionedGameEventsTable). 
 
 
@@ -108,7 +109,7 @@ The end-to-end workflow is depicted below:
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Step 6: Monitor pipelines and data slices](#monitor-pipelines). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Classic Portal.
+6. [Monitor pipelines and data slices](#monitor-pipelines). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Classic Portal.
 
 ## Upload sample data and scripts
 In this step, you upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that are invoked by the workflows. The scripts you execute also create an Azure SQL database called **MarketingCampaigns**, tables, user-defined types, and stored procedures. 
