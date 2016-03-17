@@ -23,9 +23,9 @@
 This tutorial helps you to get started quickly with deploying web apps to [Azure App Service](../app-service/app-service-value-prop-what-is.md). With very little action on your 
 part, you will: 
 
-- deploy a sample web app (choose between ASP.NET, PHP, Node.js, Java, or Python)
-- see your app running live in seconds
-- update your web app the same way you would push [Git](http://www.git-scm.com/) commits
+- Deploy a sample web app (choose between ASP.NET, PHP, Node.js, Java, or Python).
+- See your app running live in seconds.
+- Update your web app the same way you would push [Git](http://www.git-scm.com/) commits.
 
 You'll also take a first glance at the [Azure portal](https://portal.azure.com) and survey the features available there. 
 
@@ -33,7 +33,10 @@ You'll also take a first glance at the [Azure portal](https://portal.azure.com) 
 
 To complete this tutorial, you need:
 
-- Git. You can download the installation binary [here](http://www.git-scm.com/downloads).
+- Git. You can download the installation binary [here](http://www.git-scm.com/downloads). You should be able to run `git --version` from the command-line terminal
+of your choice. 
+- Basic knowledge of Git.
+- Azure CLI. Installation instructions are [here](../xplat-cli-install.md).
 - A Microsoft Azure account. If you don't have an account, you can 
 [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
 [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
@@ -45,21 +48,17 @@ you can immediately create a short-lived starter app in App Service—no credit 
 
 Let's deploy a web app to Azure App Service. 
 
-2. First, install the [Azure CLI](../xplat-cli-install.md). If you have NPM installed already, you can just install it with the following command:
-
-        npm install azure-cli -g
-
-1. In a Windows command prompt, Linux shell, or OS X terminal, `CD` into a working directory and clone the sample app like so:
+1. Open a new Windows command prompt, Linux shell, or OS X terminal and `CD` into a working directory and clone the sample app like so:
 
         git clone <github_sample_url>
 
     For *&lt;github_sample_url>*, use one of the following URLs, depending on the framework you like: 
 
-    - ASP.NET: [https://github.com/cephalin/aspnet-get-started.git](https://github.com/azure-appservice-samples/aspnet-get-started.git)
-    - PHP (CodeIgniter): [https://github.com/cephalin/php-get-started.git](https://github.com/azure-appservice-samples/php-get-started.git)
-    - Node.js (Express): [https://github.com/cephalin/nodejs-get-started.git](https://github.com/azure-appservice-samples/nodejs-get-started.git) 
-    - Python (Django): [https://github.com/cephalin/python-get-started.git](https://github.com/azure-appservice-samples/python-get-started.git)
-    - Java: [https://github.com/cephalin/java-get-started.git](https://github.com/azure-appservice-samples/java-get-started.git)
+    - ASP.NET: [https://github.com/azure-appservice-samples/aspnet-get-started.git](https://github.com/azure-appservice-samples/aspnet-get-started.git)
+    - PHP (CodeIgniter): [https://github.com/azure-appservice-samples/php-get-started.git](https://github.com/azure-appservice-samples/php-get-started.git)
+    - Node.js (Express): [https://github.com/azure-appservice-samples/nodejs-get-started.git](https://github.com/azure-appservice-samples/nodejs-get-started.git) 
+    - Python (Django): [https://github.com/azure-appservice-samples/python-get-started.git](https://github.com/azure-appservice-samples/python-get-started.git)
+    - Java: [https://github.com/azure-appservice-samples/java-get-started.git](https://github.com/azure-appservice-samples/java-get-started.git)
 
 2. `CD` into your sample app's project root. For example, 
 
@@ -100,8 +99,8 @@ To see your app running live in Azure, run this command:
 
     azure site browse <app_name>
 
-If you see the error message: `Site <app_name> does not exist or has no hostnames`, retry the command in a few seconds. Some apps (especially Java) take longer
-to wrap up deployment. You'll notice it only if you're a fast typer.
+If you see the error message: `Site <app_name> does not exist or has no hostnames`, retry the command in a few seconds. Some apps, such as Java apps, take longer
+to wrap up deployment.
 
 ## Make updates to your app
 
