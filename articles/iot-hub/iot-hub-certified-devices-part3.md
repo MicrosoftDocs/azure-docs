@@ -16,6 +16,8 @@
      ms.date="02/28/2016"
      ms.author="hegate"/>
 
+# Microsoft Azure Certified for IoT - devices NEXCOM to USISH
+
 [AZURE.INCLUDE [iot-hub-certified-devices-header](../../includes/iot-hub-certified-devices-header.md)]
 
 |Device| Tested OS |Language|
