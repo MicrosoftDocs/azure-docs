@@ -112,4 +112,4 @@ Managed agent code requires Microsoft .NET Framework 4.5
 
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-[lnk-certified]: iot-hub-certified-devices-part1.md
+[lnk-certified]: iot-hub-certified-devices-linux-c.md
