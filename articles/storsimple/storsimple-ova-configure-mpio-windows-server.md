@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configure MPIO for your StorSimple virtual array | Microsoft Azure"
+   pageTitle="Configure MPIO on your StorSimple virtual array host| Microsoft Azure"
    description="Describes how to configure Multipath I/O (MPIO) for your StorSimple virtual array connected to a host running Windows Server 2012 R2."
    services="storsimple"
    documentationCenter=""
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/16/2016"
+   ms.date="03/17/2016"
    ms.author="alkohli" />
 
-# Configure Multipath I/O for your StorSimple device
+# Configure Multipath I/O for Windows Server host connected to StorSimple Virtual Array
 
 ## Overview
 
