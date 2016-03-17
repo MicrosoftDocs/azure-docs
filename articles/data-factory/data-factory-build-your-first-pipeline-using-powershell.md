@@ -290,7 +290,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. Congratulations, you have successfully created your first pipeline using Azure PowerShell!
 
-## <a name="MonitorDataSetsAndPipeline"></a> Monitor pipeline
+## Monitor pipeline
 In this step, you will use Azure PowerShell to monitor what’s going on in an Azure data factory.
 
 1. Run **Get-AzureRmDataFactory** and assign the output to a **$df** variable.
