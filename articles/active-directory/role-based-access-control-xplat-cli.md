@@ -105,13 +105,13 @@ To create a role assignment, you need to think about:
 Then use `azure role assignment create` to create a role assignment. For example:
 
  	#Create a role assignment at the current subscription level for a user as a reader:
-    azure role assignment create --upn <user's email> -o Reader
+    azure role assignment create --upn <user email> -o Reader
 
 	#Create a role assignment at a resource group level:
-    PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1
+    PS C:\> azure role assignment create --upn <user email> -o Contributor -g group1
 
 	#Create a role assignment at a resource level:
-    azure role assignment create --upn <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1
+    azure role assignment create --upn <user email> -o Owner -g group1 -r Microsoft.Web/sites -u site1
 
 ## <a id="verify"></a>Verify permissions
 

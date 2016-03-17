@@ -61,8 +61,6 @@ Since RBAC only works with Azure Resource Manager, the first thing to do is to s
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-For more information, please refer to [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
-
 To connect to your Azure subscriptions, type:
 
     PS C:\> Add-AzureAccount
