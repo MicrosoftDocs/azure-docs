@@ -166,7 +166,7 @@ The following limitations are applicable when using the multi NIC feature:
 - A VM with single NIC cannot be configured with multi NICs once it is deployed, without deleting and re-creating it.
 
 
-## Secondary NICs access to Internet
+## Secondary NICs access to other subnets
 
 By default secondary NICs will not be configured with a default gateway, due to which the traffic flow on the secondary NICs will be limited to be within the same subnet. If the users want to enable secondary NICs to talk outside their own subnet, they will need to add an entry in the routing table to configure the gateway as described below.
 
