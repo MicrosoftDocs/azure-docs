@@ -20,9 +20,11 @@
 # Enable SSO with ADAL SDK using Android
 
 
-Providing Single Sign-On (SSO) so that users only need to enter their credentials once and have those credentials automatically work across applications is now expected by customers. The difficult in entering in their username and password on a small screen, often times combined with an additional factor (2FA) like a phone call or a texted code, results in quick dissatisfaction if a user has to do this more than one time for your product. In addition, if you leverage an identity platform that other applications may use such as Microsoft Accounts or a work account from Office365 customers expect that those credentials once entered be avaiable to use across all their applications no matter the vendor. 
+Providing Single Sign-On (SSO) so that users only need to enter their credentials once and have those credentials automatically work across applications is now expected by customers. The difficulty in entering their username and password on a small screen, often times combined with an additional factor (2FA) like a phone call or a texted code, results in quick dissatisfaction if a user has to do this more than one time for your product. 
 
-The Microsoft Identity platform, along with our Microsoft Identity SDKs for both consumer and business customers, does all of this hard work for you and gives you the ability to delight your customers with SSO either within your own suite of applications or, with our broker capability and Authenticator applciations, across the entire device.
+In addition, if you leverage an identity platform that other applications may use such as Microsoft Accounts or a work account from Office365, customers expect that those credentials to be avaiable to use across all their applications no matter the vendor. 
+
+The Microsoft Identity platform, along with our Microsoft Identity SDKs, does all of this hard work for you and gives you the ability to delight your customers with SSO either within your own suite of applications or, as with our broker capability and Authenticator applciations, across the entire device.
 
 This walkthrough will tell you how to configure our SDK within your application to provide this benefit to your customers.
 
@@ -30,11 +32,11 @@ This walkthrough will tell you how to configure our SDK within your application 
 
 ### MS Identity Brokers
 
-Microsoft provides applications for every mobile platform that allow for the bridging of credentials across applications from different vendors as well as allows for special enhanced features that require a single secure place from where to validate credentials. On iOS and Android these are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages some or all of the device for their employee. The brokers support managing security just for some applications or the entire device based on what IT Administrators desire. In Windows this functionality is provided by an account chooser built in to the operating system, known techncially as the Web Authentication Broker.
+Microsoft provides applications for every mobile platform that allow for the bridging of credentials across applications from different vendors as well as allows for special enhanced features that require a single secure place from where to validate credentials. We call these **brokers**. On iOS and Android these are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages some or all of the device for their employee. These brokers support managing security just for some applications or the entire device based on what IT Administrators desire. In Windows this functionality is provided by an account chooser built in to the operating system, known techncially as the Web Authentication Broker.
 
-To understand how we use these applications and how your customers might see them in their login flow for the Microsoft Identity platform read on for more information.
+To understand how we use these brokers and how your customers might see them in their login flow for the Microsoft Identity platform read on for more information.
 
-#### Broker patterns for credentials on mobile devices
+#### Patterns for logging in on mobile devices
 
 Access to credentials on devices follow two basic patterns for the Micorsoft Identity platform: 
 
