@@ -38,6 +38,9 @@ To understand how we use these applications and how your customers might see the
 
 Access to credentials on devices follow two basic patterns for the Micorsoft Identity platform: 
 
+* Non-broker assisted logins
+* Broker assisted logins
+
 ##### Non-broker assisted logins
 
 Non-broker assisted logins are login experiences that happen inline with the application and use the local storage on the device for that application. This storage may be shared across applications but the credentails are tightly bound to the app or suite of apps using that credential. This is the experience you've most likely experienced in many mobile applications where you enter a username and password within the application itself.
@@ -81,7 +84,7 @@ For Android and Windows the account chooser is displayed on top of your applicat
 
 ##### How the broker gets invoked
 
-If a compatible broker is installed on the device, like the Azure Authenticator application, the Microsoft Identity SDKs will automatically do the work of invoking the broker for you when a user indicates they wish to log in using any account from the Microsoft Identity platform. This could be an a perosnal Microsoft Account, a work or schoole account, or an account that you provide and host in Azure using our B2C and B2B products. By using extrememly secure algorithms and encryption we ensure that the credentials are asked for and delivered back to your application in a secure manner. The exact technical detail of these mechanisms is not published but have been developed with collaboration by Apple and Google.
+If a compatible broker is installed on the device, like the Azure Authenticator application, the Microsoft Identity SDKs will automatically do the work of invoking the broker for you when a user indicates they wish to log in using any account from the Microsoft Identity platform. This could be an a perosnal Microsoft Account, a work or school account, or an account that you provide and host in Azure using our B2C and B2B products. By using extrememly secure algorithms and encryption we ensure that the credentials are asked for and delivered back to your application in a secure manner. The exact technical detail of these mechanisms is not published but have been developed with collaboration by Apple and Google.
 
 **The developer has the choice of if the Microsoft Identity SDK calls the broker or uses the non-broker assisted flow.** However if the developer chooses not to use the broker-assisted flow they lose the benefit of leveraging SSO credentials that the user may have already added on the device as well as prevents their application from being used with business featuers Microsoft provides its customers such as Conditional Access and Intune Management capabiltiies. 
 
