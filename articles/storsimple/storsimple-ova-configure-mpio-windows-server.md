@@ -15,7 +15,7 @@
    ms.date="03/17/2016"
    ms.author="alkohli" />
 
-# Configure Multipath I/O for Windows Server host connected to StorSimple Virtual Array
+# Configure Multipath I/O on Windows Server host for the StorSimple Virtual Array
 
 ## Overview
 
