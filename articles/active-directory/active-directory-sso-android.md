@@ -160,9 +160,9 @@ You may be wondering how you will identify different apps to the Microsoft Ident
 
 App1 Redirect URI: msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D
 
-App2 Redirect URI: msauth://com.example.userapp1/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D
+App2 Redirect URI: msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E
 
-App3 Redirect URI: msauth://com.example.userapp2/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D
+App3 Redirect URI: msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F
 
 ....
 
