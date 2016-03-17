@@ -22,7 +22,7 @@ To configure a table for Stretch Database, select **Stretch | Enable** for a tab
 
 -   If you store historical data in a separate table, you can migrate the entire table.
 
--   If your table contains both historical and current data, you can specify a filter predicate to select the rows to migrate. In CTP 3.1 through RC0, the option to specify a filter predicate is not available in the Enable Database for Stretch wizard. You have to use the ALTER TABLE statement to configure a table for Stretch Database with this option. For more info, see [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+-   If your table contains both historical and current data, you can specify a filter predicate to select the rows to migrate. In CTP 3.1 through RC1, the option to specify a filter predicate is not available in the Enable Database for Stretch wizard. You have to use the CREATE TABLE or ALTER TABLE statement to configure a table for Stretch Database with this option.
 
 **Prerequisites**. If you select **Stretch | Enable** for a table, and you have not yet enabled Stretch Database for the database, the wizard first configures the database for Stretch Database. Follow the steps in [Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md) instead of the steps in this topic.
 
@@ -30,22 +30,27 @@ To configure a table for Stretch Database, select **Stretch | Enable** for a tab
 
 ## <a name="EnableWizardTable"></a>Use the wizard to enable Stretch Database on a table
 **Launch the wizard**
+
 1.  In SQL Server Management Studio, in Object Explorer, select the table on which you want to enable Stretch.
 
 2.  Right\-click and select **Stretch**, and then select **Enable** to launch the wizard.
 
 **Introduction**
+
 Review the purpose of the wizard and the prerequisites.
 
 **Select database tables**
+
 Confirm that the table you want to enable is displayed and selected.
 
-In CTP 3.1 through RC0, you can only migrate an entire table by using the wizard. If you want to specify  a predicate to select rows to migrate from a table that contains both historical and current data, run the ALTER TABLE statement to specify a predicate after you exit the wizard, or exit the wizard and run the ALTER TABLE statement, as described later in this topic.
+In CTP 3.1 through RC1, you can only migrate an entire table by using the wizard. If you want to specify  a predicate to select rows to migrate from a table that contains both historical and current data, run the ALTER TABLE statement to specify a predicate after you exit the wizard, or exit the wizard and run the ALTER TABLE statement, as described later in this topic.
 
 **Summary**
+
 Review the values that you entered and the options that you selected in the wizard. Then select **Finish** to enable Stretch.
 
 **Results**
+
 Review the results.
 
 ## <a name="EnableTSQLTable"></a>Use Transact\-SQL to enable Stretch Database on a table
@@ -56,8 +61,7 @@ Use the following options when you run CREATE TABLE or ALTER TABLE to enable Str
 
 -   Optionally, use the `FILTER_PREDICATE = <predicate>` clause to specify  a predicate to select rows to migrate if the table contains both historical and current data. The predicate must call an inline table\-valued function. For more info, see [Write an Inline Table-Valued Function to Select Rows (Stretch Database)](sql-server-stretch-database-predicate-function.md). If you don't specify a filter predicate, the entire table is migrated.
 
-    > [!IMPORTANT]
-    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+        > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
     In CTP 3.1 through RC1, this option is not available in the Enable Database for Stretch wizard. You have to use the CREATE TABLE or ALTER TABLE statement to configure a table for Stretch Database with this option. For more info, see [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
