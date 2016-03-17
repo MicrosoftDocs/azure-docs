@@ -26,7 +26,7 @@ Actors are isolated, single-threaded components that encapsulate both state and 
 
 ## Defining and implementing actor interfaces
 
-Actors interact with rest of the system, including other actors, by passing asynchronous messages using a request-response pattern. These interactions are defined in an interface as asynchronous methods. For example, the interface for an actor type that implements the functionality of a calculator might be defined as follows:
+Actors interact with the rest of the system, including other actors, by passing asynchronous messages using a request-response pattern. These interactions are defined in an interface as asynchronous methods. For example, the interface for an actor type that implements the functionality of a calculator might be defined as follows:
 
 ```csharp
 public interface ICalculatorActor : IActor
