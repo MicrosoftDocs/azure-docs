@@ -12,7 +12,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
@@ -96,6 +96,8 @@ For more info about the database master key, see [CREATE MASTER KEY (Transact-SQ
 ## <a name="Network"></a>Select IP address
 Use the public IP address of your SQL Server, or enter a range of IP addresses, to create a firewall rule on Azure that lets SQL Server communicate with the remote Azure server.
 
+The IP address or addresses that you provide on this page tell the Azure server to allow incoming data, queries, and management operations initiated by SQL Server to pass through the Azure firewall. The wizard doesn't change anything in the firewall settings on the SQL Server.
+
 ![Select IP address page of the Stretch Database wizard][StretchWizardImage7]
 
 ## <a name="Summary"></a>Summary
@@ -126,7 +128,9 @@ Enable additional tables for Stretch Database. Monitor data migration and manage
 -   [Backup and restore Stretch-enabled databases](sql-server-stretch-database-backup.md)
 
 ## See also
+
 [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
+
 [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
 
 [StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png

@@ -3,8 +3,8 @@
    description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Natural Language Analyzers and moreLikeThis searches."
    services="search"
    documentationCenter="na"
-   authors="HeidiSteen"
-   manager="mblythe"
+   authors="brjohnstmsft"
+   manager="pablocas"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="02/16/2016"
-   ms.author="heidist"/>
+   ms.date="03/08/2016"
+   ms.author="brjohnst"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
 
@@ -1058,7 +1058,7 @@ The body of the request contains one or more documents to be indexed. Documents 
 - `upload`: An upload action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. Note that all fields are replaced in the update case.
 - `merge`: Merge updates an existing document with the specified fields. If the document doesn't exist, the merge will fail. Any field you specify in a merge will replace the existing field in the document. This includes fields of type `Collection(Edm.String)`. For example, if the document contains a field "tags" with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for "tags", the final value of the "tags" field will be `["economy", "pool"]`. It will **not** be `["budget", "economy", "pool"]`.
 - `mergeOrUpload`: behaves like `merge` if a document with the given key already exists in the index. If the document does not exist it behaves like `upload` with a new document.
-- `delete`: Delete removes the specified document from the index. Note that you can specify only the key field value in a `delete` operation. Attempting to specify other fields will result in an HTTP 400 error. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to `null`.
+- `delete`: Delete removes the specified document from the index. Note that any fields you specify in a `delete` operation, other than the key field, will be ignored. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to `null`.
 
 **Response**
 
