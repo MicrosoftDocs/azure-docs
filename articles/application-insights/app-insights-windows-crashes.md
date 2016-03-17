@@ -24,6 +24,7 @@ Microsoft provides two solutions for device devOps: [HockeyApp](http://hockeyapp
 Go to:
 
 * [HockeyApp](http://support.hockeyapp.net/kb)
+* [HockeyApp for Windows](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)
 * [HockeyApp Blog](http://hockeyapp.net/blog/)
 * Join [Hockeyapp Preseason](http://hockeyapp.net/preseason/) to get early releases.
 
@@ -32,6 +33,5 @@ If your app has a server side, use [Application Insights](app-insights-overview.
 You can also use [Application Insights for Windows Desktop apps](app-insights-windows-desktop.md).
 
 > [AZURE.NOTE] On June 15, 2016, we will stop showing data in Application Insights for iOS, Android, Windows Store, and Windows Phone apps.
-
-
-[More info about this change](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
+> 
+> [More info about this change](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).

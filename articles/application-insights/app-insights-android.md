@@ -31,5 +31,5 @@ Go to:
 If your app has a server side, use [Application Insights](app-insights-overview.md) to monitor the web server side of your app on [ASP.NET](app-insights-asp-net.md) or [J2EE](app-insights-java-get-started.md). 
 
 > [AZURE.NOTE] On June 15, 2016, we will stop showing data in Application Insights for iOS, Android, Windows Store, and Windows Phone apps.
- 
-[More info](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
+>
+> [More info about this change.](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
