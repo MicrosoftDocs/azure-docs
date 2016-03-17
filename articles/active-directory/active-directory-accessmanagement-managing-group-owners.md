@@ -14,14 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="03/17/2016"
 	ms.author="curtand"/>
 
 # Managing owners for a group
+Once a resource owner has assigned access to a resource to an Azure AD group, the membership of the group is managed by the group owner. The resource owner effectively delegates the permission to assign users to the resource to the owner of the group.
 
-## Assigning owners to a group
+## Assigning group ownership
 
-**To add an owner to a group in the Azure classic portal**
+**To add an owner to a group**
 
 1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
 
@@ -32,7 +33,7 @@
 4. On the **Add owners** page, select the user that you want to add as the owner of this group, and make sure this name is added to the **Selected** pane.
 
 
-**To remove an owner from a group from the Azure portal**
+**To remove an owner from a group**
 
 1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
 

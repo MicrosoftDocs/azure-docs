@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="03/17/2016"
 	ms.author="curtand"/>
 
 
@@ -67,15 +67,18 @@ The following table lists all the supported expression rule operators and their 
 | Match           | -match         |
 
 
-| Query Parse Error                                                    | Error Usage                                                                                                        | Corrected Usage                                                                                                                                                                                                                                                            |
-|----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Error: Attribute not supported.                                      | (user.invalidProperty -eq "Value")                                                                                 | (user.department -eq "value")Property should match one from the supported properties list above.                                                                                                                                                                           |
-| Error: Operator is not supported on attribute.                       | (user.accountEnabled -contains true)                                                                               | (user.accountEnabled -eq true)Property is of type boolean. Use the supported operators (-eq or -ne) on boolean type from the above list.                                                                                                                                   |
-| Error: Query compilation error.                                      | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")Logical operator should match one from the supported properties list above.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error in regular expression. |
-| Error: Binary expression is not in right format.                     | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales")                             | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")Query has multiple errors. Parenthesis not in right place.                                                                                                                            |
-| Error: Unknown error occurred during setting up dynamic memberships. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain")                               | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")Query has multiple errors. Parenthesis not in right place.                                                                                                                            |
+## Query error remediation
+The following table lists potential errors and how to correct them if they occur
 
-##Supported Parameters
+| Query Parse Error     | Error Usage       | Corrected Usage             |
+|-----------------------|-------------------|-----------------------------|
+| Error: Attribute not supported.                                      | (user.invalidProperty -eq "Value")       | (user.department -eq "value")<br/>Property should match one from the [supported properties list](#supported-properties).                          |
+| Error: Operator is not supported on attribute.                       | (user.accountEnabled -contains true)                                                                               | (user.accountEnabled -eq true)<br/>Property is of type boolean. Use the supported operators (-eq or -ne) on boolean type from the above list.                                                                                                                                   |
+| Error: Query compilation error.                                      | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Logical operator should match one from the supported properties list above.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error in regular expression. |
+| Error: Binary expression is not in right format.                     | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales")                             | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Query has multiple errors. Parenthesis not in right place.                                                                                                                            |
+| Error: Unknown error occurred during setting up dynamic memberships. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain")                               | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Query has multiple errors. Parenthesis not in right place.                                                                                                                            |
+
+## Supported properties
 The following are all the user properties that you can use in your advanced rule:
 
 ### Properties of type boolean
@@ -122,28 +125,28 @@ Allowed operators
 
 | Properties                 | Allowed values                                                                                        | Usage                                                     |
 |----------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| city                       | Any string value or $null.                                                                            | (user.city -eq "value")                                   |
-| country                    | Any string value or $null.                                                                            | (user.country -eq "value")                                |
-| department                 | Any string value or $null.                                                                            | (user.department -eq "value")                             |
-| displayName                | Any string value.                                                                                     | (user.displayName -eq "value")                            |
-| facsimileTelephoneNumber   | Any string value or $null.                                                                            | (user.facsimileTelephoneNumber -eq "value")               |
-| givenName                  | Any string value or $null.                                                                            | (user.givenName -eq "value")                              |
-| jobTitle                   | Any string value or $null.                                                                            | (user.jobTitle -eq "value")                               |
-| mail                       | Any string value or $null. SMTP address of the user.                                                  | (user.mail -eq "value")                                   |
-| mailNickName               | Any string value. Mail alias of the user.                                                             | (user.mailNickName -eq "value")                           |
-| mobile                     | Any string value or $null.                                                                            | (user.mobile -eq "value")                                 |
-| objectId                   | GUID of the user object                                                                               | (user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| city                       | Any string value or $null                                                                           | (user.city -eq "value")                                   |
+| country                    | Any string value or $null                                                                            | (user.country -eq "value")                                |
+| department                 | Any string value or $null                                                                          | (user.department -eq "value")                             |
+| displayName                | Any string value                                                                                 | (user.displayName -eq "value")                            |
+| facsimileTelephoneNumber   | Any string value or $null                                                                           | (user.facsimileTelephoneNumber -eq "value")               |
+| givenName                  | Any string value or $null                                                                           | (user.givenName -eq "value")                              |
+| jobTitle                   | Any string value or $null                                                                           | (user.jobTitle -eq "value")                               |
+| mail                       | Any string value or $null (SMTP address of the user)                                                  | (user.mail -eq "value")                                   |
+| mailNickName               | Any string value (mail alias of the user)                                                            | (user.mailNickName -eq "value")                           |
+| mobile                     | Any string value or $null                                                                           | (user.mobile -eq "value")                                 |
+| objectId                   | GUID of the user object                                                                            | (user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | passwordPolicies           | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |   (user.passwordPolicies -eq "DisableStrongPassword")                                                      |
-| physicalDeliveryOfficeName | Any string value or $null.                                                                            | (user.physicalDeliveryOfficeName -eq "value")             |
-| postalCode                 | Any string value or $null.                                                                            | (user.postalCode -eq "value")                             |
+| physicalDeliveryOfficeName | Any string value or $null                                                                            | (user.physicalDeliveryOfficeName -eq "value")             |
+| postalCode                 | Any string value or $null                                                                            | (user.postalCode -eq "value")                             |
 | preferredLanguage          | ISO 639-1 code                                                                                        | (user.preferredLanguage -eq "en-US")                      |
-| sipProxyAddress            | Any string value or $null.                                                                            | (user.sipProxyAddress -eq "value")                        |
-| state                      | Any string value or $null.                                                                            | (user.state -eq "value")                                  |
-| streetAddress              | Any string value or $null.                                                                            | (user.streetAddress -eq "value")                          |
-| surname                    | Any string value or $null.                                                                            | (user.surname -eq "value")                                |
-| telephoneNumber            | Any string value or $null.                                                                            | (user.telephoneNumber -eq "value")                        |
-| usageLocation              | Two lettered country code                                                                             | (user.usageLocation -eq "US")                             |
-| userPrincipalName          | Any string value.                                                                                     | (user.userPrincipalName -eq "alias@domain")               |
+| sipProxyAddress            | Any string value or $null                                                                            | (user.sipProxyAddress -eq "value")                        |
+| state                      | Any string value or $null                                                                            | (user.state -eq "value")                                  |
+| streetAddress              | Any string value or $null                                                                            | (user.streetAddress -eq "value")                          |
+| surname                    | Any string value or $null                                                                            | (user.surname -eq "value")                                |
+| telephoneNumber            | Any string value or $null                                                                            | (user.telephoneNumber -eq "value")                        |
+| usageLocation              | Two lettered country code                                                                           | (user.usageLocation -eq "US")                             |
+| userPrincipalName          | Any string value                                                                                     | (user.userPrincipalName -eq "alias@domain")               |
 | userType                   | member guest $null                                                                                    | (user.userType -eq "Member")                              |
 
 ### Properties of type string collection
@@ -188,7 +191,7 @@ You can now populate members in a group based on the manager attribute of a user
 
 4. Type the rule with the following syntax:
 
-	Direct Reports for *Direct Reports for {UserID_of_manager}*. An example of a valid rule for Direct Reports is
+	Direct Reports for *Direct Reports for {obectID_of_manager}*. An example of a valid rule for Direct Reports is
 
 					Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
