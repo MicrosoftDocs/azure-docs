@@ -4,9 +4,9 @@
 	services="notification-hubs"
 	documentationCenter="windows"
     keywords="push notification,push notification"
-	authors="dendeli"
+	authors="dend"
 	manager="yuaxu"
-	editor="dendeli"/>
+	editor="dend"/>
 
 <tags
 	ms.service="notification-hubs"
@@ -27,7 +27,7 @@ In this tutorial, you will learn how to deliver location-based push notification
 First and foremost, you need to make sure that you have all the software and service pre-requisites:
 
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) or later ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) will do as well). 
-* Latest version of the [Azure SDK](https://azure.microsoft.com/en-us/downloads/). 
+* Latest version of the [Azure SDK](https://azure.microsoft.com/downloads/). 
 * [Bing Maps Dev Center account](https://www.bingmapsportal.com/) (you can create one for free and associate it with your Microsoft account). 
 
 ##Getting Started
@@ -343,7 +343,7 @@ On the site, take note of the **Application Secret** and the **Package SID**. Yo
 
 Click on **Save**.
 
-Right click on **References** in **Solution Explorer** and select **Manage NuGet Packages**. We will need to add a reference to the **Windows Azure Service Bus managed library** – simply search for `WindowsAzure.Messaging.Managed` and add it to your project.
+Right click on **References** in **Solution Explorer** and select **Manage NuGet Packages**. We will need to add a reference to the **Microsoft Azure Service Bus managed library** – simply search for `WindowsAzure.Messaging.Managed` and add it to your project.
 
 ![](./media/notification-hubs-geofence/vs-nuget.png)
 
