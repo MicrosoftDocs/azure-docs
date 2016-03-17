@@ -36,7 +36,7 @@ Select an icon to learn how to quickly leverage these APIs to build  apps that c
 |[![API Icon][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![API Icon][slackicon]<br/>**Slack**<br/>][slackdoc]|[![API Icon][smtpicon]<br/>**SMTP**][smtpdoc]|[![API Icon][sqlicon]<br/>**SQL Azure**][sqldoc]|
 |[![API Icon][twilioicon]<br/>**Twilio**][twiliodoc]|[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] | |
 
-> [AZURE.NOTE] If you've been creating Logic apps using the 2014-12-01-preview schema, you'll notice that the enterprise integration APIs such as those for BizTalk aren't listed above. We know these are important and we are working hard to get them to you soon. While we don't have an exact availability date to share, be aware that getting these to you is one of our top priorities. Thanks for your understanding. Stay tuned.
+> [AZURE.NOTE] If you've been creating Logic apps using the 2014-12-01-preview schema, you'll notice that the enterprise integration APIs such as those for BizTalk aren't listed above. We know these are important and we are working hard to get them to you soon. While we don't have an exact availability date to share, be aware that getting these to you is one of our top priorities. In the meantime, you can access your [v1 APIs and BizTalk APIs from Logic Apps](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Thanks for your understanding. Stay tuned.
 
 
 ### APIs can be triggers
