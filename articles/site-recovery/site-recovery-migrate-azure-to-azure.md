@@ -53,7 +53,7 @@ Here's what you need for this deployment:
 
 	![EC2 discovery](./media/site-recovery-migrate-azure-to-azure/migrate-machine-ip.png)
 	
-After adding a machine to the group,  protection will be enabled and initial replication will run in accordance with the protection group settings.
+	After adding a machine to the group,  protection will be enabled and initial replication will run in accordance with the 		protection group settings.
 
 10. [ Run an unplanned failover](site-recovery-failover.md#run-an-unplanned-failover). After initial replication is complete you can run an unplanned failover from one Azure region to another. Optionally, you can create a recovery plan and run an unplanned failover, to migrate multiple virtual machines between regions. [Learn more](site-recovery-create-recovery-plans.md) about recovery plans.
 		
