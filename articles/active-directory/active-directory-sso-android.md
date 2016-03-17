@@ -132,7 +132,7 @@ Here is a representation of how the Microsoft Identity SDKs work with the broker
 Armed with this background information you should be able to better understand and implement SSO within your application using the Microsoft Identity platform and SDKs.
 
 
-## Enabling SSO wusing the Android ADAL SDK for B2C, B2B, and Active Directory tenants 
+## Enabling SSO using the Android ADAL SDK for B2C, B2B, and Active Directory tenants 
 
 Here we'll use the ADAL Android SDK to:
 
@@ -148,7 +148,7 @@ To enable SSO across applications you own you need to do the following:
 
 1. Ensure all your applications user the same Client ID or Application ID. 
 * Ensure all your applications have the same SharedUserID set.
-* Ensure that all of your applications share the same signing certificate from the Google Play store so that you can share storage
+* Ensure that all of your applications share the same signing certificate from the Google Play store so that you can share storage.
 
 #### Step 1: Using the same Client ID / Application ID for all the applications in your suite of apps
 
@@ -200,7 +200,7 @@ Setting the `SharedUserID` is beyond the scope of this document but can be learn
 Once you have the `SharedUserID` in all your applications you are ready to use SSO.
 
 > [AZURE.WARNING] 
-When you share a keychian across your applications any application can delete users or worse delete all the tokens across your application. This is particularly disasterous if you have applications that rely on the tokens to do backround work. Sharing a keychain means that you must be very careful in any and all remove operations through the Microsoft Identity SDKs.
+When you share a keychian across your applications any application can delete users or worse delete all the tokens across your application. This is particularly disasterous if you have applications that rely on the tokens to do backround work. Sharing storage means that you must be very careful in any and all remove operations through the Microsoft Identity SDKs.
 
 That's it! The Microsoft Identity SDK will now share credentials across all your applications. The user list will also be shared across application instances.
 

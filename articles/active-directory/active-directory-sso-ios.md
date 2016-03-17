@@ -131,7 +131,7 @@ Here is a representation of how the Microsoft Identity SDKs work with the broker
 Armed with this background information you should be able to better understand and implement SSO within your application using the Microsoft Identity platform and SDKs.
 
 
-## Enabling SSO wusing the ADAL SDK for B2C, B2B, and Active Directory tenants 
+## Enabling SSO using the ADAL SDK for B2C, B2B, and Active Directory tenants 
 
 Here we'll use the ADAL iOS SDK to:
 
@@ -229,10 +229,10 @@ The ability for an application to use any broker that is installed on the device
 
 The steps to follow are:
 
-1. Enable broker mode in your application code's call to the MS SDK
-2. Establish a new redirect URI and provide that to both the app and your app registration
-3. Registering a URL Scheme
-4. iOS9 Support: Add a permission to your info.plist file
+1. Enable broker mode in your application code's call to the MS SDK.
+2. Establish a new redirect URI and provide that to both the app and your app registration.
+3. Registering a URL Scheme.
+4. iOS9 Support: Add a permission to your info.plist file.
 
 
 #### Step 1: Enable broker mode in your application
