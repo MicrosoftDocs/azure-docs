@@ -36,7 +36,7 @@ To resolve the most common issues, try the following method:
 
 	![location](./media/storage-cannot-delete-storage-account-container-vhd/DiskLocation.png)
 
-4. Confirm there is no VM listed on the **Attached to** of the disks, and then delete the disks.
+4. Confirm there is no VM listed on the **Attached to** field of the disks, and then delete the disks.
 
  	> [AZURE.NOTE] If a disk is attaching to a VM, you will not be able to delete it. Disks are detached from a deleted VM asynchronously, it may take a few minutes after the VM is deleted for this field to clear up.
 
