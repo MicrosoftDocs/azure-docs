@@ -57,7 +57,7 @@ These logins have the following drawbacks:
 
 - User cannot experience signle-sign on across all apps that use a Microsoft Identity, only across those Microsoft Identities that are your application owns and have configured.
 - Your application can not be used with more advanced business features such as Conditional Access or use the InTune suite of products.
-- Your application can support certificate based authentication for business users.
+- Your application can't support certificate based authentication for business users.
 
 Here is a representation of how the Microsoft Identity SDKs work with the shared storage of your applications to enable SSO:
 
