@@ -163,7 +163,7 @@ The following limitations are applicable when using the multi NIC feature:
 
 - Multi NIC VMs must be created in Azure virtual networks (VNets). Non-VNet VMs cannot be configured with Multi NICs.
 - All VMs in an availability set need to use either multi NIC or single NIC. There cannot be a mixture of multi NIC VMs and single NIC VMs within an availability set. Same rules apply for VMs in a cloud service.
-- A VM with single NIC cannot be configured with multi NICs once it is deployed, without deleting and re-creating it.
+- A VM with single NIC cannot be configured with multi NICs (and vice-versa) once it is deployed, without deleting and re-creating it.
 
 
 ## Secondary NICs access to other subnets
