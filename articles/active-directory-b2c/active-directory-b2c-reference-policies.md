@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/15/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Extensible policy framework
@@ -119,3 +119,25 @@ To enable profile editing on your application, you will need to create a profile
 
     > [AZURE.NOTE]
     It takes up to a minute for policy creation and updates to take effect.
+    
+## Create a password reset policy
+
+To enable fine-grained password reset on your application, you will need to create a password reset policy. Note that the tenant-wide password reset option specified [here](active-directory-b2c-reference-sspr.md) is still applicable for sign-in policies. This policy describes the experiences that the consumers will go through during password reset and the contents of tokens that the application will receive on successful completion.
+
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Click **Password reset policies**.
+3. Click **+Add** at the top of the blade.
+4. The **Name** determines the password reset policy name used by your application. For example, enter "SSPR".
+5. Click **Identity providers** and select "Reset password using email address". Click **OK**.
+6. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful password reset experience. For example, select "User's Object ID".
+7. Click **Create**. Note that the policy just created appears as "**B2C_1_SSPR**" (the **B2C\_1\_** fragment is automatically added) in the **Password reset policies** blade.
+8. Open the policy by clicking "**B2C_1_SSPR**".
+9. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
+10. Click **Run now**. A new browser tab opens, and you can run through the password reset consumer experience in your application.
+
+    > [AZURE.NOTE]
+    It takes up to a minute for policy creation and updates to take effect.
+
+## Additional resources
+
+- [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
