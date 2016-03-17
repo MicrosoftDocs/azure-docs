@@ -73,6 +73,7 @@ If you receive an error and have problems with connectivity, please see [Trouble
 To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions.  This account can be a regular user account because it only needs the default read permissions.  However, depending on your scenario, you may need additional permissions.  For more information see [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
 
 ![Connect Directory](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
+>[NOTE] Accounts to additional forests must be entered with full FQDN as NetBiosDomainName. As an example, to add contoso.local as an additional forest to the above image, one must enter the username as CONTOSO.LOCAL\<sAMAccountName>
 
 ### Domain and OU filtering
 By default all domains and OUs will be synchronized. If there are some domains or OUs you do not want to synchronize to Azure AD, you can unselect these domains and OUs.  
