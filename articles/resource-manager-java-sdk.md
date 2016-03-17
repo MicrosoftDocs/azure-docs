@@ -171,7 +171,7 @@ DeploymentExtended deployment = ResourceHelper.createTemplateDeploymentFromURI(
         parameters);
 ```
 ## List all Virtual Machines
-You don't have to use the helper classes (tohugh they might make your life easier), and directly to the service classes for each resource provider. In this example we will list some of the resources under the authenticated subscritpion - for each resource group, find the virtual machines, and then the IPs assosicated with it.
+You don't have to use the helper classes (though it might make your life easier), but instead use directly service classes for each resource provider. In this example we will list some of the resources under the authenticated subscription - for each resource group, find the virtual machines, and then the IPs associated with it.
 
 ```java
 // authenticate and get access token
@@ -214,4 +214,5 @@ More samples can be found in the samples packages under [templatedeployments](ht
 
 ## Further Reading and Help
 Azure SDK for Java documentation: [Java docs](http://azure.github.io/azure-sdk-for-java/)
+
 If you encounter any bugs with the SDK please file an issue via [Issues](https://github.com/Azure/azure-sdk-for-java/issues) or checkout [StackOverflow for Azure Java SDK](http://stackoverflow.com/questions/tagged/azure-java-sdk).
