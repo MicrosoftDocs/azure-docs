@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to enable SSO with ADAL SDK using iOS | Microsoft Azure"
+	pageTitle="How to enable SSO with ADAL SDK using Android | Microsoft Azure"
 	description="How to use the features of the ADAL SDK to enable Single Sign On across your applications. "
 	services="active-directory"
 	documentationCenter=""
@@ -10,14 +10,13 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="03/14/2015"
 	ms.author="brandwe"/>
 
 
-# Enable SSO with ADAL SDK using iOS
+# Enable SSO with ADAL SDK using Android
 
 
 Providing Single Sign-On (SSO) so that users only need to enter their credentials once and have those credentials automatically work across applications is now expected by customers. The difficult in entering in their username and password on a small screen, often times combined with an additional factor (2FA) like a phone call or a texted code, results in quick dissatisfaction if a user has to do this more than one time for your product. In addition, if you leverage an identity platform that other applications may use such as Microsoft Accounts or a work account from Office365 customers expect that those credentials once entered be avaiable to use across all their applications no matter the vendor. 
@@ -123,6 +122,7 @@ Here is a representation of how the Microsoft Identity SDKs work with the broker
               |   Storage   |
               |             |
               +-------------+
+
 ```
               
 Armed with this background information you should be able to better understand and implement SSO within your application using the Microsoft Identity platform and SDKs.
@@ -130,7 +130,7 @@ Armed with this background information you should be able to better understand a
 
 ## Enabling SSO wusing the ADAL SDK for B2C, B2B, and Active Directory tenants 
 
-Here we'll use the ADAL iOS SDK to:
+Here we'll use the ADAL Android SDK to:
 
 - Turn on non-broker assisted SSO for your suite of apps
 - Turn on support for broker-assisted SSO
