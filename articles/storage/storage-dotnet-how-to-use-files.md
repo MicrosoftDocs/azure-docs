@@ -212,7 +212,7 @@ To demonstrate how to mount an Azure file share, we'll now create an Azure virtu
 
 
 1. First, create a new Azure virtual machine by following the instructions in [Create a Windows virtual machine in the Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Next, remote into the virtual machine by following the instructions in [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-windows-log-on.md).
+2. Next, remote into the virtual machine by following the instructions in [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md).
 3. Open a PowerShell window on the virtual machine.
 
 ### Persist your storage account credentials for the virtual machine
