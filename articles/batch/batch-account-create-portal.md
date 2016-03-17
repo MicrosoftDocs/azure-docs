@@ -58,7 +58,7 @@ The [Azure portal][azure_portal] provides you with the tools you need to create 
 
   The portal will indicate that it is **Deploying** the account, and upon completion, the Batch Account blade will be displayed.
 
-## Batch Account blade
+## View Batch account properties
 
 The Batch account blade displays several properties for the account, as well as provides access to additional settings such as access keys, users, quotas, and a linked Storage account.
 
@@ -74,11 +74,11 @@ The Batch account blade displays several properties for the account, as well as 
 
  ![Batch account settings and properties blades][5]
 
-## Additional things to know about Azure Batch accounts
+## Considerations for Batch accounts
 
-* Other ways to create and manage Batch accounts include the [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md) and the [Batch Management .NET library](batch-management-dotnet.md).
+* You can also create and manage Batch accounts with [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md) and the [Batch Management .NET library](batch-management-dotnet.md).
 
-* Azure doesn't charge you to have a Batch account. You are charged only for your use of the Azure compute resources and other services when your workloads run (see [Batch pricing][batch_pricing]).
+* You are not charged for the Batch account itself. You are charged for any Azure compute resources that your Batch solutions consume, and for the resources consumed by other services when your workloads run. For example, you are charged for the compute nodes in your pools, and for the storage resources used by the optional [application packages](batch-application-packages.md) feature. See [Batch pricing][batch_pricing] for more information.
 
 * You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts in different Azure regions.
 
