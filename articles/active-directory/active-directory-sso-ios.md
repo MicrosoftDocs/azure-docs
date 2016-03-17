@@ -218,7 +218,9 @@ When you do have entitements set up correctly you should see a file in your proj
 
 Once you have the keychain entitement enabled in each of your applications, and you are ready to use SSO, tell the Microsoft Identity SDK about your keychian by using the following setting in your `ADAuthenticationSettings` with the following setting:
 
+```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
+```
 
 > [AZURE.WARNING] 
 When you share a keychian across your applications any application can delete users or worse delete all the tokens across your application. This is particularly disasterous if you have applications that rely on the tokens to do backround work. Sharing a keychain means that you must be very careful in any and all remove operations through the Microsoft Identity SDKs.
