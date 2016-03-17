@@ -47,7 +47,7 @@ If you are using Azure PowerShell of **version < 1.0**, You will need to use cmd
 Please see [Deprecation of Switch AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell) for details. 
 
 
-## 1. Create data factory
+## Create data factory
 
 In this step, you use Azure PowerShell to create an Azure Data Factory named **FirstDataFactoryPSH**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. Let's start with creating the data factory in this step. 
 
@@ -70,7 +70,7 @@ In this step, you use Azure PowerShell to create an Azure Data Factory named **F
 
 Before creating a pipeline, you need to create a few Data Factory entities first. You first create linked services to link data stores/computes to your data store, define input and output datasets to represent data in linked data stores, and then create the pipeline with a activity that use these datasets. 
 
-## 2. Create linked services 
+## Create linked services 
 In this step, you will link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account will hold the input and output data for the pipeline in this sample. The HDInsight linked service is used to run Hive script specified in the activity of the pipeline in this sample. You need to identify what data store/compute services are used in your scenario and link those services to the data factory by creating linked services.
 
 ### Create Azure Storage linked service
@@ -147,7 +147,7 @@ In this step, you will link an on-demand HDInsight cluster to your data factory.
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
 
 
-## 3. Create datasets
+## Create datasets
 In this step, you will create datasets to represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
 
 ### Create input dataset
@@ -223,7 +223,7 @@ Now, you will create the output dataset to represent the output data stored in t
 
 		New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 
-## 4. Create pipeline
+## Create pipeline
 In this step, you will create your first pipeline with a **HDInsightHive** activity. Note that input slice is available monthly (frequency: Month, interval: 1), output slice is produced monthly, and the scheduler property for the activity is also set to monthly (see below). The settings for the output dataset and the activity scheduler must match. At this time, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. The properties used in the following JSON are explained at the end of this section. 
 
 
@@ -290,7 +290,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. Congratulations, you have successfully created your first pipeline using Azure PowerShell!
 
-## <a name="MonitorDataSetsAndPipeline"></a> 5. Monitor pipeline
+## <a name="MonitorDataSetsAndPipeline"></a> Monitor pipeline
 In this step, you will use Azure PowerShell to monitor what’s going on in an Azure data factory.
 
 1. Run **Get-AzureRmDataFactory** and assign the output to a **$df** variable.
