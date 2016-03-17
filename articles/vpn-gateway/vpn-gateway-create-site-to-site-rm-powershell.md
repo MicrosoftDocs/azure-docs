@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a virtual network with a site-to-site VPN connection using Azure Resource Manager and PowerShell | Microsoft Azure"
+   pageTitle="Create a virtual network with a Site-to-Site VPN connection using Azure Resource Manager and PowerShell | Microsoft Azure"
    description="This article walks you through creating a VNet using the Resource Manager model and connecting it to your local on-premises network using a S2S VPN gateway connection."
    services="vpn-gateway"
    documentationCenter="na"
@@ -17,13 +17,13 @@
    ms.date="03/16/2016"
    ms.author="cherylmc"/>
 
-# Create a virtual network with a site-to-site VPN connection using PowerShell and Azure Resource Manager
+# Create a virtual network with a Site-to-Site VPN connection using PowerShell and Azure Resource Manager
 
 > [AZURE.SELECTOR]
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the **Azure Resource Manager** deployment model. Site-to-site connections can be used for cross-premises and hybrid configurations. 
+This article will walk you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the **Azure Resource Manager** deployment model. Site-to-Site connections can be used for cross-premises and hybrid configurations. 
 
 **About Azure deployment models**
 
@@ -43,7 +43,7 @@ Verify that you have the following items before beginning configuration.
 
 - An externally-facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 	
-- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 	
 - You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 
@@ -62,11 +62,11 @@ Check the subscriptions for the account.
 
 Specify the subscription that you want to use.
 
-	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
 ## 2. Create a virtual network and a gateway subnet
 
-Our examples below show a gateway subnet of /28. While it's possible to create a gateway subnet as small as /29, we don't recommend this. We do recommend creating a gateway subnet /27 or larger (/26, /25 etc.) in order to accommodate additional feature requirements. If you already have a virtual network with a gateway subnet that is /29 or larger, you can jump ahead to **Step 3 - Add your local site**. 
+Our examples below show a gateway subnet of /28. While it's possible to create a gateway subnet as small as /29, we don't recommend this. We do recommend creating a gateway subnet /27 or larger (/26, /25, etc.) in order to accommodate additional feature requirements. If you already have a virtual network with a gateway subnet that is /29 or larger, you can jump ahead to [Step 3 - Add your local site](#localnet). 
 
 ### To create a virtual network and a gateway subnet
 
@@ -97,9 +97,9 @@ Now, set the configuration.
 
 	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-## 3. Add your local site
+## 3. <a name="localnet"></a>Add your local network gateway
 
-In a virtual network, the *local site* typically refers to your on-premises location. You'll give that site a name by which Azure can refer to it. 
+In a virtual network, the local network gateway (referred to as a *local site* in the classic deployment model) typically refers to your on-premises location. You'll give that site a name by which Azure can refer to it. 
 
 You'll also specify the address space prefix for the local site. Azure will use the IP address prefix you specify to identify which traffic to send to the local site. This means that you'll have to specify each address prefix that you want to be associated with the local site. You can easily update these prefixes if your on-premises network changes. 
 
@@ -108,17 +108,17 @@ When using the PowerShell examples, note the following:
 - The *GatewayIPAddress* is the IP address of your on-premises VPN device. Your VPN device cannot be located behind a NAT. 
 - The *AddressPrefix* is your on-premises address space.
 
-To add a local site with a single address prefix:
+To add a local network gateway with a single address prefix:
 
 	New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 
-To add a local site with multiple address prefixes:
+To add a local network gateway with multiple address prefixes:
 
 	New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
 
-### To modify IP address prefixes for your local site
+### To modify IP address prefixes for your local network gateway
 
-Sometimes your local site prefixes change. The steps you take to modify your IP address prefixes depend on whether or not you have created a VPN gateway connection. See [Modify IP address prefixes for a local site](#to-modify-ip-address-prefixes-for-a-local-site).
+Sometimes your local network gateway prefixes change. The steps you take to modify your IP address prefixes depend on whether or not you have created a VPN gateway connection. See [Modify IP address prefixes for a local network gateway](#modify).
 
 
 ## 4. Request a public IP address for the gateway
@@ -145,7 +145,8 @@ In this step, you'll create the virtual network gateway. Note that that creating
 
 Use the following values:
 
-- The **-GatewayType** for a Site-to-Site configuration is **Vpn**. The gateway type is always specific to the configuration that you are implementing. For example, other gateway configurations may require -GatewayType ExpressRoute, or -GatewayType VNet2VNet. **Site-to-Site requires Vpn**.
+- The **-GatewayType** for a Site-to-Site configuration is **Vpn**. The gateway type is always specific to the configuration that you are implementing. For example, other gateway configurations may require -GatewayType ExpressRoute, or -GatewayType VNet2VNet. 
+
 - The **-VpnType** can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *PolicyBased* (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateways](vpn-gateway-about-vpngateways.md).
 - The GatewaySku can be *Basic*, *Standard*, or *HighPerformance*. 	
 
@@ -208,29 +209,29 @@ You can use the following cmdlet example, configuring the values to match your o
 	  }
 
 
-## To modify IP address prefixes for a local site
+## <a name="localnet"></a>To modify IP address prefixes for a local network gateway
 
-If you need to change the prefixes for your local site, use the instructions below.  Two sets of instructions are provided and depend on whether you have already created your VPN gateway connection. 
+If you need to change the prefixes for your local network gateway, use the instructions below.  Two sets of instructions are provided. The instructions you choose depends on whether you have already created your VPN gateway connection. 
 
 ### Add or remove prefixes without a VPN gateway connection
 
-- **To add** additional address prefixes to a local site that you created, but that doesn't yet have a VPN gateway connection, use the example below.
+- **To add** additional address prefixes to a local network site that you created, but that doesn't yet have a VPN gateway connection, use the example below.
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
 
-- **To remove** an address prefix from a local site that doesn't have a VPN connection, use the example below. Leave out the prefixes that you no longer need. In this example, we no longer need prefix 20.0.0.0/24 (from the previous example), so we will update the local site and exclude that prefix.
+- **To remove** an address prefix from a local network site that doesn't have a VPN connection, use the example below. Leave out the prefixes that you no longer need. In this example, we no longer need prefix 20.0.0.0/24 (from the previous example), so we will update the local network site and exclude that prefix.
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
 ### Add or remove prefixes with a VPN gateway connection
 
-If you have created your VPN connection and want to add or remove the IP address prefixes contained in your local site, you'll need to do the following steps in order. This will result in some downtime for your VPN connection, as you will need to remove and rebuild the gateway.  However, because you have requested an IP address for the connection, you won't need to re-configure your on-premises VPN router unless you decide to change the values you previously used.
+If you have created your VPN connection and want to add or remove the IP address prefixes contained in your local network site, you'll need to do the following steps in order. This will result in some downtime for your VPN connection, as you will need to remove and rebuild the gateway.  However, because you have requested an IP address for the connection, you won't need to re-configure your on-premises VPN router unless you decide to change the values you previously used.
  
 1. Remove the gateway connection. 
-2. Modify the prefixes for your local site. 
+2. Modify the prefixes for your local network site. 
 3. Create a new gateway connection. 
 
 You can use the following sample as a guideline.
