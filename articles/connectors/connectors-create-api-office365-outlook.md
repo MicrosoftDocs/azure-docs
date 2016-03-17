@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/03/2016"
+ms.date="03/16/2016"
 ms.author="mandia"/>
 
 # Get started with the Office 365 Outlook API 
@@ -25,7 +25,7 @@ Connect to Office 365 Outlook to get email, reply to an email, update your calen
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-office365-outlook.md)
+- [Logic apps](../articles/connectors/connectors-create-api-office365-outlook.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
 
 &nbsp; 
@@ -784,10 +784,10 @@ Go back to the [APIs list](apis-list.md).
 
 <!--References-->
 [5]: https://portal.azure.com
-[7]: ./media/create-api-office365-outlook/aad-tenant-applications.png
-[8]: ./media/create-api-office365-outlook/aad-tenant-applications-add-appinfo.png
-[9]: ./media/create-api-office365-outlook/aad-tenant-applications-add-app-properties.png
-[10]: ./media/create-api-office365-outlook/contoso-aad-app.png
-[11]: ./media/create-api-office365-outlook/contoso-aad-app-configure.png
-[12]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
-[13]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
+[7]: ./media/connectors-create-api-office365-outlook/aad-tenant-applications.png
+[8]: ./media/connectors-create-api-office365-outlook/aad-tenant-applications-add-appinfo.png
+[9]: ./media/connectors-create-api-office365-outlook/aad-tenant-applications-add-app-properties.png
+[10]: ./media/connectors-create-api-office365-outlook/contoso-aad-app.png
+[11]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-configure.png
+[12]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
+[13]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png

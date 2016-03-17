@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/16/2016"
    ms.author="mandia"/>
 
 
@@ -25,7 +25,7 @@ Connect to Twitter to post a tweet, get a user's timeline, and more. The Twitter
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-twitter.md)
+- [Logic apps](../articles/connectors/connectors-create-api-twitter.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-twitter.md)
 
 &nbsp; 
@@ -322,5 +322,5 @@ Go back to the [APIs list](apis-list.md).
 
 <!--References-->
 
-[6]: ./media/create-api-twitter/twitter-apps-page.png
-[7]: ./media/create-api-twitter/twitter-app-create.png
+[6]: ./media/connectors-create-api-twitter/twitter-apps-page.png
+[7]: ./media/connectors-create-api-twitter/twitter-app-create.png

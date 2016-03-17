@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/03/2016"
+ms.date="03/16/2016"
 ms.author="mandia"/>
 
 # Get started with the OneDrive API
@@ -25,7 +25,7 @@ Connect to OneDrive to manage your files, including upload, get, delete files, a
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-onedrive.md)
+- [Logic apps](../articles/connectors/connectors-create-api-onedrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
 
 &nbsp; 
@@ -320,5 +320,5 @@ Extracts a folder to OneDrive.
 Go back to the [APIs list](apis-list.md).
 
 [5]: https://account.live.com/developers/applications/create
-[6]: ./media/create-api-onedrive/onedrive-new-app.png
-[7]: ./media/create-api-onedrive/onedrive-app-api-settings.png
+[6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
+[7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png

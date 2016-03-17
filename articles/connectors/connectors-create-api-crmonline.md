@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/02/2016"
+ms.date="03/16/2016"
 ms.author="deonhe"/>
 
 # Get started with the CRM API
@@ -23,7 +23,7 @@ Connect to Dynamics CRM Online to create a new record, update an item, and more.
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-crmonline.md)
+- [Logic apps](../articles/connectors/connectors-create-api-crmonline.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-crmonline.md)
 
 With CRM Online, you can:
@@ -271,9 +271,9 @@ Used for getting the list of entities present in a CRM instance.
 Go back to the [APIs list](apis-list.md).
 
 
-[9]: ./media/create-api-crmonline/aad-tenant-applications-add-appinfo.png
-[10]: ./media/create-api-crmonline/aad-tenant-applications-add-app-properties.png
-[12]: ./media/create-api-crmonline/contoso-aad-app-configure.png
-[13]: ./media/create-api-crmonline/crmconfig1.png
-[14]: ./media/create-api-crmonline/crmconfig2.png
-[15]: ./media/create-api-crmonline/crmconfig3.png
+[9]: ./media/connectors-create-api-crmonline/aad-tenant-applications-add-appinfo.png
+[10]: ./media/connectors-create-api-crmonline/aad-tenant-applications-add-app-properties.png
+[12]: ./media/connectors-create-api-crmonline/contoso-aad-app-configure.png
+[13]: ./media/connectors-create-api-crmonline/crmconfig1.png
+[14]: ./media/connectors-create-api-crmonline/crmconfig2.png
+[15]: ./media/connectors-create-api-crmonline/crmconfig3.png
