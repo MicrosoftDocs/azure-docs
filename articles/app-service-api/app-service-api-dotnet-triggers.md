@@ -19,7 +19,8 @@
 # Azure App Service API app triggers
 
 >[AZURE.NOTE] This version of the article applies to API apps 2014-12-01-preview schema version.
->
+
+
 ## Overview
 
 This article explains how to implement API app triggers and consume them from a Logic app.
