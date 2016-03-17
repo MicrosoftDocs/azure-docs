@@ -83,10 +83,7 @@ The following are the basic configuration options for creating an HDInsight clus
     
 - **Resource group name**
 
-	Azure Resource Manager (ARM) enables you to work with the resources in your application as a group, 
-	referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the resources 
-	for your application in a single, coordinated operation. For more information, 
-	see [Azure Resource Manager Overview](resource-group-overview.md).	
+	[Azure Resource Manager (ARM)](resource-group-overview.md) enables you to work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the resources for your application in a single, coordinated operation.	
 
 - **Credentials**
 
@@ -100,7 +97,7 @@ The following are the basic configuration options for creating an HDInsight clus
 
 	The original HDFS uses of many local disks on the cluster. HDInsight uses Azure Blob storage instead for data storage. Azure Blob storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data in Blob storage. Storing data in Blob storage enables you to safely delete the HDInsight clusters that are used for computation without losing user data.
 
-	During configuration, you must specify an Azure storage account and an Azure Blob storage container on the Azure storage account. Some creation process requires the Azure storage account and the Blob storage container created beforehand. The Blob storage container is used as the default storage location by the cluster. Optionally, you can specify additional Azure Storage accounts (linked storage) and/or [Azure Data Lake stores](data-lake-store-hdinsight-hadoop-use-portal.md) that will be accessible by the cluster. In addition, the cluster can also access any Blob containers that are configured with full public read access or pulic read access for blobs only.  For more information on the restrict access, see [Manage Access to Azure Storage Resources](storage-manage-access-to-resources.md).
+	During configuration, you must specify an Azure storage account and an Azure Blob storage container on the Azure storage account. Some creation process requires the Azure storage account and the Blob storage container created beforehand. The Blob storage container is used as the default storage location by the cluster. Optionally, you can specify additional Azure Storage accounts (linked storage) that will be accessible by the cluster. In addition, the cluster can also access any Blob containers that are configured with full public read access or pulic read access for blobs only.  For more information on the restrict access, see [Manage Access to Azure Storage Resources](storage-manage-access-to-resources.md).
 
 	![HDInsight storage](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
@@ -108,7 +105,7 @@ The following are the basic configuration options for creating an HDInsight clus
 
 	![Azure blob storage](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
-    It is not recommended to use the default Blob container for storing business data.  It is a good practice to delete default Blob container after each use to reduce storage cost.  Please note default container contains application logs.  Make sure to retrieve the logs before deleting the containers. 
+    It is not recommended to use the default Blob container for storing business data.  It is a good practice to delete default Blob container after each use to reduce storage cost.  Please note default container contains application and system logs.  Make sure to retrieve the logs before deleting the containers. 
     
 	>[AZURE.WARNING] Sharing one Blob storage container for multiple clusters is not supported. 
 
@@ -126,22 +123,16 @@ The following are the basic configuration options for creating an HDInsight clus
 
 - **Node pricing tiers**
 
-	Customers are billed for the usage of those nodes for the duration of the cluster’s life. Billing starts once a cluster is created and stops when the cluster is deleted (clusters can’t be de-allocated or put on hold). The cluster size affects the cluster price. For learning purposes, it is recommended to use 1 data node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
-
+	Different cluster types have different node types, number of nodes, and node sizes. For example, a Hadoop cluster type has two _head nodes_ and a default of four _data nodes_, while a Storm cluster type has two _nimbus nodes_, three _zookeeper nodes_, and a default of four _supervisor nodes_. Customers are billed for the usage of those nodes for the duration of the cluster’s life. Billing starts once a cluster is created and stops when the cluster is deleted (clusters can’t be de-allocated or put on hold). The cost of HDInsight clusters is determined by the number of nodes, and the virtual machines sizes for the nodes. For example, if you know that you will be performing operations that need a lot of memory, you may want to select a compute resource with more memory. For learning purposes, it is recommended to use 1 data node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 	>[AZURE.NOTE] The cluster size limit varies among Azure subscriptions. Contact billing support to increase the limit.
-
-
-	Different cluster types have different node types, number of nodes, and node sizes. For example, a Hadoop cluster type has two _head nodes_ and a default of four _data nodes_, while a Storm cluster type has two _nimbus nodes_, three _zookeeper nodes_, and a default of four _supervisor nodes_. The cost of HDInsight clusters is determined by the number of nodes, and the virtual machines sizes for the nodes. For example, if you know that you will be performing operations that need a lot of memory, you may want to select a compute resource with more memory.
-
-	>[AZURE.NOTE] The nodes used by your cluster do not count as Virtual Machines, as the Virtual Machines images used for the nodes are an implementation detail of the HDInsight service; however, the compute cores used by the nodes do count against the total number of compute cores available to your subscription. You can see the number of cores that will be used by the cluster, as well as the number of cores available, in the summary section of the Node Pricing Tiers blade when creating an HDInsight cluster.
+	>The nodes used by your cluster do not count as Virtual Machines, as the Virtual Machines images used for the nodes are an implementation detail of the HDInsight service; however, the compute cores used by the nodes do count against the total number of compute cores available to your subscription. You can see the number of cores that will be used by the cluster, as well as the number of cores available, in the summary section of the Node Pricing Tiers blade when creating an HDInsight cluster.
 
 	When using the Azure portal to configure the cluster, the Node size is available through the __Node Pricing Tier__ blade, and will also display the cost associated with the different node sizes. The following screenshot showes the choices for a Linux-base Hadoop cluster:
 
 	![hdinsight vm node sizes](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
 
-
-    The following tables show the sizes supported by HDInsight clusters and the capacities they provide. For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](virtual-machines-size-specs). For information about pricing of the various sizes, see [HDInsight Pricing]
+    The following tables show the sizes supported by HDInsight clusters and the capacities they provide. For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/virtual-machines-size-specs.md). For information about pricing of the various sizes, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight)
 
     - Standard tier: A-series
 
@@ -189,14 +180,14 @@ The following are the basic configuration options for creating an HDInsight clus
 
 In some cases, you may wish to add additional storage to the cluster. For example, if you have multiple Azure Storage Accounts for different geographical regions, or for different services, but want to analyze them all with HDInsight.
 
-For more information on using secondary blob stores, see [Using Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
+For more information on using secondary blob stores, see [Using Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information on using secondary Data Lake stores, see [Create HDInsight clusters with Data Lake Store using Azure Portal](../data-lake/data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
 ## Use Hive/Oozie metastore
 
-	The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. Using the metastore helps you to retain your Hive and Oozie metadata, so that you don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. For example, you have a cluster created with a Hive metastore. You created some Hive tables. After you delete the cluster, and recreat the cluster using the same Hive metastore, you will be able to see the Hive tables you created in the original cluster.
-    
-    > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
+The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. Using the metastore helps you to retain your Hive and Oozie metadata, so that you don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. For example, you have a cluster created with a Hive metastore. You created some Hive tables. After you delete the cluster, and recreat the cluster using the same Hive metastore, you will be able to see the Hive tables you created in the original cluster.
+
+> [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
 
 ## Use Azure virtual networks
 
@@ -214,8 +205,6 @@ An [Azure Virtual Network](https://azure.microsoft.com/documentation/services/vi
 
 For more information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
-
-
 ## Customize clusters using HDInsight cluster customization (bootstrap)
 
 Sometimes, you want to configure the configuration files:
@@ -231,7 +220,7 @@ The clusters can't retain the changes due to re-image. For more information,
 see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). 
 To keep the changes through the clusters' lifetime, you can use HDInsight cluster customization during the creation process. This is the recommended way to change configurations of a cluster and persist across these Azure reimage reboot restart events. These configuration changes are applied before service start, so services needn’t be restarted.  
 
-For more a sample, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 ## Customize clusters using Script action
 
