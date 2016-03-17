@@ -24,7 +24,7 @@
 
 The [Azure portal][azure_portal] provides you with the tools you need to create and manage an Azure Batch account, which you can use for large-scale parallel workload processing. In this article, we'll walk though Batch account creation using the portal, as well as discuss several of the most important settings and properties of a Batch account. For example, the applications and services you develop with Batch need your account's URL and an access key to communicate with the Batch service APIs, both of which are found in the Azure portal.
 
->[AZURE.NOTE] The Azure portal currently supports a subset of the features available in the Batch service, including account creation and the management of some settings and properties. The full feature set of Batch, such as creating and running jobs and tasks, is available to developers through the Batch APIs.
+>[AZURE.NOTE] The Azure portal currently supports a subset of the features available in the Batch service, including account creation and the management of account settings and properties. The full feature set of Batch, such as creating and running jobs and tasks, is available to developers through the Batch APIs.
 
 ## Create a Batch account
 
