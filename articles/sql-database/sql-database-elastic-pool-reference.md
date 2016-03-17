@@ -106,7 +106,6 @@ Several PowerShell cmdlets and REST API commands are available for creating and 
 | [Get-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603517.aspx) | [Gets elastic  database pools and their property values](https://msdn.microsoft.com/library/mt163646.aspx) |
 | [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) | [Get Status of Elastic Database Pool Operations](https://msdn.microsoft.com/library/mt163669.aspx) |
 | [Get-AzureRmSqlElasticPoolDatabase](https://msdn.microsoft.com/library/azure/mt619484.aspx) | [Get Databases in an Elastic Database Pool](https://msdn.microsoft.com/library/mt163646.aspx) |
-| [Get-AzureRmSqlElasticPoolDatabaseActivity]() | [Gets the status of moving databases in and out of a pool](https://msdn.microsoft.com/library/mt163669.aspx) |
 
 ## Transact-SQL
 
