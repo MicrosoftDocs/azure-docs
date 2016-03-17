@@ -149,13 +149,16 @@ To enable SSO across applications you own you need to do the following:
 
 #### Using the same Client ID / Application ID for all the applications in your suite of apps
 
-In order for the Microsoft Identity platform to know that it's allowed to share tokens across your applications, each of your applications will need to share the same Client ID or Application ID. This is the unique identifier that was provided to you when you registred your first pplicaiton in the portal. 
+In order for the Microsoft Identity platform to know that it's allowed to share tokens across your applications, each of your applications will need to share the same Client ID or Application ID. This is the unique identifier that was provided to you when you registred your first applicaiton in the portal. 
 
 You may be wondering how you will identify different apps to the Microsoft Identity service if it uses the same Application ID. The answer is with the **Redirct URIs**. Each application can have multiple Redirect URIs registered in the onboarding portal. Each app in your suite will have a different redirect URI. An example of how this looks is below:
 
 App1 Redirect URI: x-msauth-mytestiosapp://com.myapp.mytestapp
+
 App2 Redirect URI: x-msauth-mytestiosapp://com.myapp.mytestapp2
+
 App3 Redirect URI: x-msauth-mytestiosapp://com.myapp.mytestapp3
+
 ....
 
 These are nested under the same client ID / application ID and looked up based on the redirect URI you return to us in your SDK configuration. 

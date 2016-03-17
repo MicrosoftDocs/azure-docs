@@ -142,14 +142,58 @@ For non-broker assisted SSO across applications the Microsoft Identity SDKs mana
 
 To enable SSO across applications you own you need to do the following:
 
-1. Ensure that all of your applications share the same signing certificate from the Google Play store so that you can share keychains
-* Tell the Microsoft Identity SDKs about the shared storage you want us to use
+1. Ensure all your applications user the same Client ID or Application ID. 
+* Ensure all your applications have the same SharedUserID set.
+* Ensure that all of your applications share the same signing certificate from the Google Play store so that you can share storage
+
+#### Step 1: Using the same Client ID / Application ID for all the applications in your suite of apps
+
+In order for the Microsoft Identity platform to know that it's allowed to share tokens across your applications, each of your applications will need to share the same Client ID or Application ID. This is the unique identifier that was provided to you when you registred your first applicaiton in the portal. 
+
+You may be wondering how you will identify different apps to the Microsoft Identity service if it uses the same Application ID. The answer is with the **Redirct URIs**. Each application can have multiple Redirect URIs registered in the onboarding portal. Each app in your suite will have a different redirect URI. An example of how this looks is below:
+
+App1 Redirect URI: msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D
+
+App2 Redirect URI: msauth://com.example.userapp1/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D
+
+App3 Redirect URI: msauth://com.example.userapp2/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D
+
+....
+
+These are nested under the same client ID / application ID and looked up based on the redirect URI you return to us in your SDK configuration. 
+
+```
++-------------------+
+|                   |
+|  Client ID        |
++---------+---------+
+          |
+          |           +-----------------------------------+
+          |           |  App 1 Redirect URI               |
+          +----------^+                                   |
+          |           +-----------------------------------+
+          |
+          |           +-----------------------------------+
+          +----------^+  App 2 Redirect URI               |
+          |           |                                   |
+          |           +-----------------------------------+
+          |
+          +----------^+-----------------------------------+
+                      |  App 3 Redirect URI               |
+                      |                                   |
+                      +-----------------------------------+
+
+```
+
+
+*Note that the format of these Redirect URIs are explained below. You may use any Redirect URI unless you wish to support the broker, in which case they must look something like the above*
+
+
+#### Step 2: Configuring shared storage in Android
 
 Setting the `SharedUserID` is beyond the scope of this document but can be learned by reading the Google Android documentation on the [Manifest](http://developer.android.com/guide/topics/manifest/manifest-element.html). What is important is that you decide what you want your sharedUserID will be called and use that across all your applications. 
 
-Once you have the `SharedUserID` in all your applications, and you are ready to use SSO, tell the Microsoft Identity SDK about your keychian by using the following setting in your `ADAuthenticationSettings` with the following setting:
-
-defaultKeychainSharingGroup=@"com.myapp.mycache";
+Once you have the `SharedUserID` in all your applications you are ready to use SSO.
 
 > [AZURE.WARNING] 
 When you share a keychian across your applications any application can delete users or worse delete all the tokens across your application. This is particularly disasterous if you have applications that rely on the tokens to do backround work. Sharing a keychain means that you must be very careful in any and all remove operations through the Microsoft Identity SDKs.
@@ -164,73 +208,41 @@ The steps to follow are:
 
 1. Enable broker mode in your application code's call to the MS SDK
 2. Establish a new redirect URI and provide that to both the app and your app registration
-3. Registering a URL Scheme
-4. iOS9 Support: Add a permission to your info.plist file
+3. Setting up the correct permissions in the Android manifest
 
 
 #### Step 1: Enable broker mode in your application
-The ability for your application to use the broker is turned on when you create the "context" or inital setup of your Authenitcation object. You do this by setting your credentials type in your code:
+The ability for your application to use the broker is turned on when you create the "settings" or inital setup of your Authenitcation instance. You do this by setting your ApplicationSettings type in your code:
 
 ```
-/*! See the ADCredentialsType enumeration definition for details */
-@propertyADCredentialsType credentialsType;
-```
-The `AD_CREDENTIALS_AUTO` setting will allow the Microsoft Identity SDK to try to call out to the broker, `AD_CREDENTIALS_EMBEDDED` will prevent the Microsoft Identity SDK from calling to the broker.
-
-#### Step 2: Registering a URL Scheme
-The Microsoft Identity platform uses URLs to invoke the broker and then return control back to your application. To finish that round trip you need a URL scheme registered for your application that the Microsoft Identity platform will know about. This can be in addition to any other app schemes you may have previously registered with your application.
-
-> [AZURE.WARNING] 
-We recommend making the URL scheme fairly unique to minimize the chances of another app using the same URL scheme. Apple does not enforce the uniqueness of URL schemes that are registered in the app store. 
-
-Below is an example of how this appears in your project configuration. You may also do this in XCode as well:
-
-```
-<key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleTypeRole</key>
-        <string>Editor</string>
-        <key>CFBundleURLName</key>
-        <string>com.myapp.mytestapp</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>x-msauth-mytestiosapp</string>
-        </array>
-    </dict>
-</array>
+AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### Step 3: Establish a new redirect URI with your URL Scheme
 
-In order to ensure that we always return the credential tokens to the correct application, we need to make sure we call back to your application in a way that the iOS operating system can verify. The iOS operating system reports to the Micosoft broker applications the Bundle ID of the application calling it. This cannot be spoofed by a rogue application. Therefore, we leverage this along with the redirect URI you created in *Step 2* to ensure that require you to establish a unique redirect URI that you both set in your application and set as a Redirect URI in our portal. 
+#### Step 2: Establish a new redirect URI with your URL Scheme
+
+In order to ensure that we always return the credential tokens to the correct application, we need to make sure we call back to your application in a way that the Android operating system can verify. The Android operating system uses the hash of the certificate in the Google Play store. This cannot be spoofed by a rogue application. Therefore, we leverage this along with the URI of our broker application to ensure that the tokens are returned to the correct application. We require you to establish this unique redirect URI both in your application and set as a Redirect URI in our developer portal. 
 
 Your redirect URI must be in the proper form of:
 
-`<app-scheme>://<your.bundle.id>`
+`msauth://packagename/Base64UrlencodedSignature`
 
-ex: *x-msauth-mytestiosapp://com.myapp.mytestapp*
+ex: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
 This Redirect URI needs to be registered on the app portal as a valid redirect URI. 
 
 
-##### Step 3a: Add a redirect URI in your app and dev portal to support certificate based authentication
+#### Step 3: Set up the correct permissions in your application
 
-If you wish  a second "msauth" form needs to be registered to handle certificate authentication if you wish to add that support in your application.
+Our broker application in Android uses the Accounts Manager feature of the Android OS to manage credentials across applications. In order to use the broker in Android your app manifest must have permissions to use AccountManager accounts. This is discussed in detail in the Google documentation here: http://developer.android.com/reference/android/accounts/AccountManager.html
 
-`msauth://code/<broker-redirect-uri-in-url-encoded-form>`
+In particular, these permissions are:
 
-ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
-
-
-#### Step 4: iOS9: Add a configuration parameter to your app
-
-ADAL uses –canOpenURL: to check if the broker is installed on the device. In iOS 9 Apple locked down what schemes an application can query for. You will need to add “msauth” to the LSApplicationQueriesSchemes section of your `info.plist file`.
-
-<key>LSApplicationQueriesSchemes</key>
-<array>
-     <string>msauth</string>
-</array>
+```
+GET_ACCOUNTS
+USE_CREDENTIALS
+MANAGE_ACCOUNTS
+```
 
 ### You've configured SSO!
 
