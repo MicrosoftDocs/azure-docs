@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/18/2016"
+ms.date="03/16/2016"
 ms.author="deonhe"/>
 
 # Get started with the Azure Service Bus API
@@ -163,9 +163,9 @@ ContentTransferEncoding
 ## Next Steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-[1]: ./media/create-api-servicebus/connectionconfig1.png
-[2]: ./media/create-api-servicebus/connectionconfig2.png 
-[3]: ./media/create-api-servicebus/connectionconfig3.png
-[4]: ./media/create-api-servicebus/connectionconfig4.png
-[5]: ./media/create-api-servicebus/connectionconfig5.png
-[6]: ./media/create-api-servicebus/connectionconfig6.png
+[1]: ./media/connectors-create-api-servicebus/connectionconfig1.png
+[2]: ./media/connectors-create-api-servicebus/connectionconfig2.png 
+[3]: ./media/connectors-create-api-servicebus/connectionconfig3.png
+[4]: ./media/connectors-create-api-servicebus/connectionconfig4.png
+[5]: ./media/connectors-create-api-servicebus/connectionconfig5.png
+[6]: ./media/connectors-create-api-servicebus/connectionconfig6.png

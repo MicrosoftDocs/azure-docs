@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Get started with the Office 365 Connector and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Office 365 Outlook API](../connectors/connectors-create-api-office365-outlook.md) or [Office 365 Users API](../connectors/connectors-create-api-office365-users.md).
 
 Connect to your Office 365 account to send and receive emails, and manage your calendar and contacts. You can perform various actions such as send, receive and get emails, create and delete events in your calendar and create, update, get and delete your contacts.
 

@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="03/16/2016"
    ms.author="mandia"/>
 
 # Get started with the Bing Search API 
@@ -25,7 +25,7 @@ Connect to Bing Search to search news, search videos, and more. The Bing Search 
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-bingsearch.md)
+- [Logic apps](../articles/connectors/connectors-create-api-bingsearch.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
 
 

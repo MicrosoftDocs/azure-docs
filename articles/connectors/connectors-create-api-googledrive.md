@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="03/16/2016"
    ms.author="mandia"/>
 
 # Get started with the Google Drive API
@@ -25,7 +25,7 @@ Connect to Google Drive to create files, get rows, and more. The Google Drive AP
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-googledrive.md)
+- [Logic apps](../articles/connectors/connectors-create-api-googledrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-googledrive.md)
 
 With Google Drive, you can: 
@@ -361,10 +361,10 @@ Go back to the [APIs list](apis-list.md).
 
 <!--References-->
 [5]: https://console.developers.google.com/
-[6]: ./media/create-api-googledrive/google-developers-console.png
-[8]: ./media/create-api-googledrive/use-google-apis.png
-[9]: ./media/create-api-googledrive/googledrive-api-overview.png
-[10]: ./media/create-api-googledrive/enable-googledrive-api.png
-[12]: ./media/create-api-googledrive/googledrive-api-credentials-add.png
-[13]: ./media/create-api-googledrive/configure-consent-screen.png
-[14]: ./media/create-api-googledrive/create-client-id.png
+[6]: ./media/connectors-create-api-googledrive/google-developers-console.png
+[8]: ./media/connectors-create-api-googledrive/use-google-apis.png
+[9]: ./media/connectors-create-api-googledrive/googledrive-api-overview.png
+[10]: ./media/connectors-create-api-googledrive/enable-googledrive-api.png
+[12]: ./media/connectors-create-api-googledrive/googledrive-api-credentials-add.png
+[13]: ./media/connectors-create-api-googledrive/configure-consent-screen.png
+[14]: ./media/connectors-create-api-googledrive/create-client-id.png

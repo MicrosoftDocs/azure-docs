@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/16/2016"
    ms.author="mandia"/>
 
 # Get started with the Azure blob storage API
@@ -36,7 +36,7 @@ Azure blob includes the following actions. There are no triggers.
 
 | Triggers | Actions|
 | --- | --- |
-| None. | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using</li><li>Update file</li></ul> |
+| None. | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using path</li><li>Update file</li></ul> |
 
 All APIs support data in JSON and XML formats.
 
