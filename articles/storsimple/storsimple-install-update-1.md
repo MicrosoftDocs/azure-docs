@@ -54,7 +54,7 @@ Perform the following steps to update your device to [Update 1.2](storsimple-upd
 
 12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17584)**. The **Last updated date** should also be modified. You'll also see that Maintenance mode updates are available.
 
-    ![Maintenance page](./media/storsimple-install-update-1/installupdate12_10m.png "Maintenance page")
+    ![Maintenance page](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Maintenance page")
 
     > [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.
 
