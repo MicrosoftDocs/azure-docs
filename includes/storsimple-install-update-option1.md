@@ -6,10 +6,10 @@ Perform the following steps to download the software update.
 
 1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 
-2. If you are a first-time user, you will be prompted to install a Microsoft Update Catalog. Click **Install**.
+2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
     ![Install catalog](./media/storsimple-install-update-option-1/HCS_InstallCatalog-include.png)
 
-3. You will see a catalog search screen. Enter the KB number of the hotfix you want to download, for example enter **3063418** in the search box and then click **Search**.
+3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **3063418**, and then click **Search**.
 
 4. You will see the **StorSimple Update 1.2 Appliance Update** bundle. Click **Add**. The update will be added to the basket.
 
@@ -108,29 +108,29 @@ To install the disk firmware updates, follow the instructions below.
 
     `Enter-HcsMaintenanceMode`
 
-    A sample output is shown below.
+	A sample output is shown below.
 
-	   Controller0>Enter-HcsMaintenanceMode
-       Checking device state...
+		Controller0>Enter-HcsMaintenanceMode
+		Checking device state...
 
-       In maintenance mode, your device will not service IOs and will be disconnected from the Microsoft Azure StorSimple Manager service. Entering maintenance mode will end the current session and reboot both controllers, which takes a few minutes to complete. Are you sure you want to enter maintenance mode?
-       [Y] Yes [N] No (Default is "Y"): Y
+		In maintenance mode, your device will not service IOs and will be disconnected from the Microsoft Azure StorSimple Manager service. Entering maintenance mode will end the current session and reboot both controllers, which takes a few minutes to complete. Are you sure you want to enter maintenance mode?
+		[Y] Yes [N] No (Default is "Y"): Y
 
-       -----------------------MAINTENANCE MODE------------------------
-       Microsoft Azure StorSimple Appliance Model 8100
-       Name: Update1-8100-SHG0997879L76YD
-       Software Version: 6.3.9600.17584
-       Copyright (C) 2014 Microsoft Corporation. All rights reserved.
-       You are connected to Controller0 - Passive
-       ---------------------------------------------------------------
-       Serial Console Menu
-       [1] Log in with full access
-       [2] Log into peer controller with full access
-       [3] Connect with limited access
-       [4] Change language
-       Please enter your choice>
+		-----------------------MAINTENANCE MODE------------------------
+		Microsoft Azure StorSimple Appliance Model 8100
+		Name: Update1-8100-SHG0997879L76YD
+		Software Version: 6.3.9600.17584
+		Copyright (C) 2014 Microsoft Corporation. All rights reserved.
+		You are connected to Controller0 - Passive
+		---------------------------------------------------------------
+		Serial Console Menu
+		[1] Log in with full access
+		[2] Log into peer controller with full access
+		[3] Connect with limited access
+		[4] Change language
+		Please enter your choice>
 
-      Both the controllers will be rebooted. After the reboot is complete, both controllers will be in the Maintenance mode.
+	Both the controllers then restart into Maintenance mode.
 
 3. To install the disk firmware update, type:
 
