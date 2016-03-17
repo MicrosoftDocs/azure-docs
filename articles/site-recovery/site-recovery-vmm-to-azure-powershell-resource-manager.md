@@ -50,7 +50,7 @@ Make sure you have these prerequisites in place:
 - You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. If you don't have one, start with a [free account](https://azure.microsoft.com/free). In addition, you can read about the [Azure Site Recovery Manager pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
 - You'll need a CSP subscription if you are trying out the replication to a CSP subscription scenario. Learn more about the CSP program in [how to enroll in the CSP program](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
 - You'll need an Azure v2 storage (ARM) account to store data replicated to Azure. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery service, and be associated with the same subscription or the CSP subscription. To learn more about setting up Azure storage, see the [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md) for reference.
-- You'll need to make sure that virtual machines you want to protect comply with the [Azure virtual machine prerequisites](site-recovery-best-practices.md#Azure-virtual-machine-requirements).
+- You'll need to make sure that virtual machines you want to protect comply with the [Azure virtual machine prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 > [AZURE.NOTE] Currently, only VM level operations are possible through Powershell. Support for recovery plan level operations will be made soon.  For now, you are limited to performing fail-overs only at a ‘protected VM’ granularity and not at a Recovery Plan level.
 
@@ -71,7 +71,7 @@ Make sure you have these prerequisites in place:
 
 - The host Hyper-V servers must be running at least Windows Server 2012 with Hyper-V role and have the latest updates installed.
 - If you're running Hyper-V in a cluster note that cluster broker isn't created automatically if you have a static IP address-based cluster. You'll need to configure the cluster broker manually. For 
-- For instructions see [How to Configure Hyper-V Replica Broker](http://blogs.technet.com/b/yungchou/archive/2013/03/24/hyper-v-replica-broker-explained.aspx#sthash.YbeZZ9gp.dpuf).
+- For instructions see [How to Configure Hyper-V Replica Broker](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
 - Any Hyper-V host server or cluster for which you want to manage protection must be included in a VMM cloud.
 
 ### Network mapping prerequisites
@@ -236,7 +236,7 @@ and install it on each Hyper-V host server located in the VMM clouds you want to
     	}
         }While($isJobLeftForProcessing)
 
-To check the completion of the operation, follow the steps in [Monitor Activity](#monitor-activity).
+To check the completion of the operation, follow the steps in [Monitor Activity](#monitor).
 
 ## Step 8: Configure network mapping
 
