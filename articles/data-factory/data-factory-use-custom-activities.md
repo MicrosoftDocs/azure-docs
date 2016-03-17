@@ -748,7 +748,6 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 	3. For the **timeToLive** property, specify how long the customer can be idle before it is deleted.
 	4. For the **version** property, specify the HDInsight version you want to use. If you exclude this property, the latest version is used.  
 	5. For the **linkedServiceName**, specify **AzureStorageLinkedService** that you had created in the Get started tutorial.
-	6. You must specify values for **sshUserName** and **sshPassword**. 
 
 			{
 			    "name": "HDInsightOnDemandLinkedService",
@@ -758,8 +757,6 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 			            "clusterSize": 4,
 			            "timeToLive": "00:05:00",
 			            "osType": "linux",
-			            "sshPassword": "MyPassword!",
-			            "sshUserName": "myuser",
 			            "linkedServiceName": "AzureStorageLinkedService",
 			        }
 			    }

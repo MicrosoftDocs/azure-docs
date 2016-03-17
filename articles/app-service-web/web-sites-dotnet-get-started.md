@@ -108,7 +108,7 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 	This combo box lets you select an existing resource group or create a new one by typing in a name that is different from any existing resource group in your subscription.
 
-	A resource group is a collection of Azure resources such as API apps, databases, VMs, and so forth.	For a tutorial it's generally best to create a new resource group because that will make it easy to delete in one step any Azure resources that you create for the tutorial. For more information, see [Azure Resource Manager overview](../resource-group-overview.md)
+	A resource group is a collection of Azure resources such as API apps, databases, and VMs.	For a tutorial, it's generally best to create a new resource group because that makes it easy to delete in one step any Azure resources that you create for the tutorial. For more information, see [Azure Resource Manager overview](../resource-group-overview.md)
 
 4. Click the **New** button next to the **App Service Plan** drop-down.
 
@@ -116,7 +116,7 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 	The screen shot shows sample values for **Web App Name**, **Subscription**, and **Resource Group** -- your values will be different.
 
-	In the following steps you create an App Service plan for the new resource group. An App Service plan specifies the compute resources that your API app runs on. For example, if you choose the free tier, your API app runs on shared VMs, while for some paid tiers it runs on dedicated VMs. For more information, see [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	In the following steps, you create an App Service plan for the new resource group. An App Service plan specifies the compute resources that your API app runs on. For example, if you choose the free tier, your API app runs on shared VMs, while for some paid tiers it runs on dedicated VMs. For more information, see [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 5. In the **Configure App Service Plan** dialog, enter "MyExamplePlan" or another name if you prefer.
 
@@ -235,7 +235,7 @@ These are just a few of the Portal's features. You can create new web apps, dele
 
 When you no longer need the web app that you created for this tutorial, you can delete it. 
 
-An easy way to delete your web app is to click the **Delete** button at the top of its **Web App** blade in the Azure portal. A better way is to delete the resource group that you created to contain the web app. For this tutorial the resource group contains only the web app, but typically a resource group contains a collection of related resources. For instance, your web app might use a database or Azure storage account that is no longer needed when the web app is no longer needed. When you delete a resource group, everything it contains is deleted. To delete a resource group by using the Azure portal, perform the following steps.
+An easy way to delete your web app is to click the **Delete** button at the top of its **Web App** blade in the Azure portal. A better way is to delete the resource group that you created to contain the web app. For this tutorial, the resource group contains only the web app, but typically a resource group contains a collection of related resources. For instance, your web app might use a database or Azure storage account that is no longer needed when the web app is no longer needed. When you delete a resource group, everything it contains is deleted. To delete a resource group by using the Azure portal, perform the following steps.
 
 1. Go to the home page of [the Azure portal](https://portal.azure.com).
 
@@ -251,7 +251,7 @@ An easy way to delete your web app is to click the **Delete** button at the top 
 
 ## Troubleshooting
 
-If you run into a problem as you go through this tutorial, make sure that you're using the latest version of the Azure SDK for .NET. The easiest way to do that is to [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) -- if you have the current version installed, the Web Platform Installer will let you know that no installation is needed.
+If you run into a problem as you go through this tutorial, make sure that you're using the latest version of the Azure SDK for .NET. The easiest way to do that is to [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) -- if you have the current version installed, the Web Platform Installer lets you know that no installation is needed.
 
 If you're on a corporate network and are trying to deploy to Azure App Service through a firewall, make sure that ports 443 and 8172 are open for Web Deploy. If you can't open those ports, see the following Next steps section for other deployment options.
 

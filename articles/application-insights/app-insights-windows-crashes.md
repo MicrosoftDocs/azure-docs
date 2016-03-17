@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Detect and diagnose crashes in Windows Store and Phone apps with Application Insights" 
-	description="Analyze performance issues in your Windows device app with Application Insights." 
+	pageTitle="Detect and diagnose crashes in Windows Store and Phone apps" 
+	description="Analyze performance issues in your Windows device app." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,92 +12,26 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/21/2015" 
+	ms.date="03/17/2016" 
 	ms.author="awills"/>
 
-# Detect and diagnose crashes in Windows Store and Phone apps with Application Insights
+# Analytics for Windows Store apps
 
-*Application Insights is in preview.*
+Microsoft provides two solutions for device devOps: [HockeyApp](http://hockeyapp.net/) for client devices; and [Application Insights](app-insights-overview.md) for the server side and client web pages.
 
-If your users experience crashes in your app, you'd like to know about it quickly, and you'd like details about what happened. With Application Insights, you can monitor how frequently crashes occur, get alerts when they occur, and investigate reports of individual incidents.
+[HockeyApp](http://hockeyapp.net/) is our Mobile DevOps solution for building iOS, OS X, Android or Windows device apps, as well as cross platform apps based on Xamarin, Cordova, and Unity. With it, you can distribute builds to beta testers, collect crash data, and get user feedback. It’s integrated with Visual Studio Team Services enabling easy build deployments and work item integration. 
 
-"Crash" means that the application terminates because of an uncaught exception. If your app catches an exception you can report it with the [TrackException API][apiexceptions] but continue running. In that case, it will not be logged as a crash.
+Go to:
 
+* [HockeyApp](http://support.hockeyapp.net/kb)
+* [HockeyApp for Windows](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)
+* [HockeyApp Blog](http://hockeyapp.net/blog/)
+* Join [Hockeyapp Preseason](http://hockeyapp.net/preseason/) to get early releases.
 
-## Monitor crash frequency
+If your app has a server side, use [Application Insights](app-insights-overview.md) to monitor the web server side of your app on [ASP.NET](app-insights-asp-net.md) or [J2EE](app-insights-java-get-started.md). 
 
-If you haven't done this already, add [Application Insights to your app project][windows], and republish it. 
+You can also use [Application Insights for Windows Desktop apps](app-insights-windows-desktop.md).
 
-Crashes show up on your application's overview blade in [the Application Insights portal][portal].
-
-![](./media/app-insights-windows-crashes/appinsights-d018-oview.png)
-
-You can edit the time range shown by the chart.
-
-
-## Set an alert to detect crashes
-
-![From the crashes chart, click Alert rules and then Add Alert](./media/app-insights-windows-crashes/appinsights-d023-alert.png)
-
-## Diagnose crashes
-
-To find out if some versions of your app crash more than others, click through the crashes chart and then segment by Application Version:
-
-![](./media/app-insights-windows-crashes/appinsights-d26crashSegment.png)
-
-
-To discover the exceptions that are causing crashes, open Diagnostic Search. You might want to remove other types of telemetry, to focus on the exceptions:
-
-![](./media/app-insights-windows-crashes/appinsights-d26crashExceptions.png)
-
-[Learn more about filtering in Diagnostic Search][diagnostic].
- 
-
-Click any exception to see its details, including associated properties and stack trace.
-
-![](./media/app-insights-windows-crashes/appinsights-d26crash.png)
-
-See the other exceptions and events that occurred close to that exception:
-
-
-![](./media/app-insights-windows-crashes/appinsights-d26crashRelated.png)
-
-## Insert trace logs and events
-
-To help diagnose problems, you can [insert trace calls and search the logs in Application Insights][diagnostic].
-
-## <a name="debug"></a>Debug vs Release mode
-
-#### Debug
-
-If you build in debug mode, events are sent as soon as they are generated. If you lose internet connectivity and then exit the app before regaining connectivity, offline telemetry is discarded.
-
-#### Release
-
-If you build in release configuration, events are stored in the device and sent when the application resumes. Data is also sent on the application's first use. If there is no internet connectivity upon startup, previous telemetry as well as telemetry for the current lifecycle is stored and sent on the next resume.
-
-## <a name="next"></a>Next steps
-
-[Detect, triage and diagnose issues with Application Insights][detect]
-
-[Application Insights API][api]
-
-[Capture diagnostic logs][trace]
-
-[Troubleshooting](app-insights-windows-troubleshoot.md)
-
-
-
-
-<!--Link references-->
-
-[api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
-[detect]: app-insights-detect-triage-diagnose.md
-[diagnostic]: app-insights-diagnostic-search.md
-[platforms]: app-insights-platforms.md
-[portal]: http://portal.azure.com/
-[trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
-
- 
+> [AZURE.NOTE] On June 15, 2016, we will stop showing data in Application Insights for iOS, Android, Windows Store, and Windows Phone apps.
+> 
+> [More info about this change](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
