@@ -10,7 +10,7 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.devlang="objective-c"
+	ms.devlang="android"
 	ms.topic="article"
 	ms.date="03/14/2015"
 	ms.author="brandwe"/>
@@ -128,7 +128,7 @@ Here is a representation of how the Microsoft Identity SDKs work with the broker
 Armed with this background information you should be able to better understand and implement SSO within your application using the Microsoft Identity platform and SDKs.
 
 
-## Enabling SSO wusing the ADAL SDK for B2C, B2B, and Active Directory tenants 
+## Enabling SSO wusing the Android ADAL SDK for B2C, B2B, and Active Directory tenants 
 
 Here we'll use the ADAL Android SDK to:
 
@@ -142,31 +142,12 @@ For non-broker assisted SSO across applications the Microsoft Identity SDKs mana
 
 To enable SSO across applications you own you need to do the following:
 
-1. Ensure that all of your applications share the same signing certificate from Apple so that you can share keychains
-* Request the same keychain entitelment for each of your applications.
-* Tell the Microsoft Identity SDKs about the shared keychain you want us to use.
+1. Ensure that all of your applications share the same signing certificate from the Google Play store so that you can share keychains
+* Tell the Microsoft Identity SDKs about the shared storage you want us to use
 
-#### Create keychain sharing between applications
+Setting the `SharedUserID` is beyond the scope of this document but can be learned by reading the Google Android documentation on the [Manifest](http://developer.android.com/guide/topics/manifest/manifest-element.html). What is important is that you decide what you want your sharedUserID will be called and use that across all your applications. 
 
-Enabling keychain sharing is beyond the scope of this document and covered by Apple in their document [Adding Capabilities](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html). What is important is that you decide what you want your keychian to be called and add that capabiltiy across all your applications. 
-
-When you do have entitements set up correctly you should see a file in your project directy entitled `entitlements.plist` that contains something that looks like the following:
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>keychain-access-groups</key>
-	<array>
-		<string>$(AppIdentifierPrefix)com.myapp.mytestapp</string>
-		<string>$(AppIdentifierPrefix)com.myapp.mycache</string>
-	</array>
-</dict>
-</plist>
-```
-
-Once you have the keychain entitement enabled in each of your applications, and you are ready to use SSO, tell the Microsoft Identity SDK about your keychian by using the following setting in your `ADAuthenticationSettings` with the following setting:
+Once you have the `SharedUserID` in all your applications, and you are ready to use SSO, tell the Microsoft Identity SDK about your keychian by using the following setting in your `ADAuthenticationSettings` with the following setting:
 
 defaultKeychainSharingGroup=@"com.myapp.mycache";
 

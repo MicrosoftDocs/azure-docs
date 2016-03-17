@@ -142,9 +142,51 @@ For non-broker assisted SSO across applications the Microsoft Identity SDKs mana
 
 To enable SSO across applications you own you need to do the following:
 
-1. Ensure that all of your applications share the same signing certificate from Apple so that you can share keychains
+1. Ensure all your applications user the same Client ID or Application ID. 
+* Ensure that all of your applications share the same signing certificate from Apple so that you can share keychains
 * Request the same keychain entitelment for each of your applications.
 * Tell the Microsoft Identity SDKs about the shared keychain you want us to use.
+
+#### Using the same Client ID / Application ID for all the applications in your suite of apps
+
+In order for the Microsoft Identity platform to know that it's allowed to share tokens across your applications, each of your applications will need to share the same Client ID or Application ID. This is the unique identifier that was provided to you when you registred your first pplicaiton in the portal. 
+
+You may be wondering how you will identify different apps to the Microsoft Identity service if it uses the same Application ID. The answer is with the **Redirct URIs**. Each application can have multiple Redirect URIs registered in the onboarding portal. Each app in your suite will have a different redirect URI. An example of how this looks is below:
+
+App1 Redirect URI: x-msauth-mytestiosapp://com.myapp.mytestapp
+App2 Redirect URI: x-msauth-mytestiosapp://com.myapp.mytestapp2
+App3 Redirect URI: x-msauth-mytestiosapp://com.myapp.mytestapp3
+....
+
+These are nested under the same client ID / application ID and looked up based on the redirect URI you return to us in your SDK configuration. 
+
+```
++-------------------+
+|                   |
+|  Client ID        |
++---------+---------+
+          |
+          |           +-----------------------------------+
+          |           |  App 1 Redirect URI               |
+          +----------^+                                   |
+          |           +-----------------------------------+
+          |
+          |           +-----------------------------------+
+          +----------^+  App 2 Redirect URI               |
+          |           |                                   |
+          |           +-----------------------------------+
+          |
+          +----------^+-----------------------------------+
+                      |  App 3 Redirect URI               |
+                      |                                   |
+                      +-----------------------------------+
+
+```
+
+
+*Note that the format of these Redirect URIs are explained below. You may use any Redirect URI unless you wish to support the broker, in which case they must look something like the above*
+
+
 
 #### Create keychain sharing between applications
 
