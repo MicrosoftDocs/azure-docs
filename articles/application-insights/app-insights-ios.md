@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Analytics for iOS apps | Microsoft Azure"
+    pageTitle="Analytics for iOS apps"
     description="Analyze usage and performance of your iOS app."
     services="application-insights"
     documentationCenter="ios"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/04/2016"
+    ms.date="03/17/2016"
     ms.author="awills"/>
 
 # Analytics for iOS apps
@@ -29,9 +29,10 @@ Go to:
 
 If your app has a server side, use [Application Insights](app-insights-overview.md) to monitor the web server side of your app on [ASP.NET](app-insights-asp-net.md) or [J2EE](app-insights-java-get-started.md). 
 
+> [AZURE.NOTE] On June 15, 2016, we will stop showing data in Application Insights for iOS, Android, Windows Store, and Windows Phone apps.
 
 
-There is an [Application Insights SDK for iOS](https://github.com/Microsoft/ApplicationInsights-iOS) which is no longer supported.
+[More info](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
 
 
