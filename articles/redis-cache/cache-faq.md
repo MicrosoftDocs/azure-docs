@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="03/17/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -221,10 +221,31 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 
 -	If you have a Standard or Premium cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). This provides a secure way to run Redis commands in the Azure Portal.
 -	You can also use the Redis command line tools. To use them, perform the following steps.
-	-	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
+	-	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/).
 	-	Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example.
 		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
 	-	Note that the Redis command line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
+
+<a name="cache-emulator"></a>
+## Is there a local emulator for Azure Redis Cache?
+
+There is no local emulator for Azure Redis Cache, but you can run the MSOpenTech version of redis-server.exe from the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/) on your local machine and connect to it to get a similar experience to a local cache emulator, as shown in the following examples.
+
+	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	{
+		// Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+	    return ConnectionMultiplexer.Connect("127.0.0.1");
+	});
+	
+	public static ConnectionMultiplexer Connection
+	{
+	    get
+	    {
+	        return lazyConnection.Value;
+	    }
+	}
+
+You can optionally configure a [redis.conf](http://redis.io/topics/config) file to more closely match the [default cache settings](cache-configure.md#default-redis-server-configuration) for your online Azure Redis Cache if desired.
 
 <a name="cache-common-patterns"></a>
 ## What are some common cache patterns and considerations?
