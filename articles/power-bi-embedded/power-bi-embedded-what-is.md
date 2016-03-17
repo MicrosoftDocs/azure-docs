@@ -74,6 +74,7 @@ Cached datasets can be used in Preview.  However, you cannot refresh cached data
 ### Application Authentication Tokens
 
 **Application Authentication Tokens (App Tokens)** are used to authenticate against **Microsoft Power BI Embedded**.  There are three types of **App Tokens**:
+
 1.	Development Tokens
 2.	Provisioning Tokens
 3.	Embedding Tokens
@@ -88,4 +89,4 @@ The SDKs  that have been provided for the Preview let you generate the tokens.  
 -	CreateDevToken
 -	CreateReportEmbedToken
 
-These methods are defined in the Microsoft.PowerBI.Security.PowerBIToken class. See, [Get started sample](data-catalog-common-get-started.md) .
+These methods are defined in the Microsoft.PowerBI.Security.PowerBIToken class. See, [Get started sample](power-bi-embedded-get-started.md) .
