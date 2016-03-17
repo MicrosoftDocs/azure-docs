@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="03/17/2016"
 	ms.author="dkshir"/>
 
 # How to reset a password or the Remote Desktop service for a Windows VM
