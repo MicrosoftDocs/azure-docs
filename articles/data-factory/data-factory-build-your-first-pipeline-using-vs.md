@@ -32,7 +32,7 @@ In this article, you will learn how to use the Microsoft Visual Studio to create
 1. You **must** read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
 2. This article does not provide a conceptual overview of the Azure Data Factory service. We recommend that you go through [Introduction to Azure Data Factory](data-factory-introduction.md) article for a detailed overview of the service.  
 
-## Walkthrough: Create and deploy Data Factory entities using Visual Studio 
+## Walkthrough: Create and deploy Data Factory entities  
 
 ### Pre-requisites
 
@@ -44,7 +44,7 @@ You must have the following installed on your computer:
 	
 	
 
-### Create the Visual Studio project 
+### Create Visual Studio project 
 1. Launch **Visual Studio 2013** or **Visual Studio 2015**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
 2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**.   
 
@@ -113,7 +113,7 @@ In this step, you will link an on-demand HDInsight cluster to your data factory.
 ### Create datasets
 In this step, you will create datasets to represent the input and output data for Hive processing. These datasets refer to the **AzureStorageLinkedService1** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
 
-#### Create the input dataset
+#### Create input dataset
 
 1. In the **Solution Explorer**, right-click **Tables**, point to **Add**, and click **New Item**. 
 2. Select **Azure Blob** from the list, change the name of the file to **InputDataSet.json**, and click **Add**.
@@ -159,7 +159,7 @@ In this step, you will create datasets to represent the input and output data fo
 3. Save the **InputDataset.json** file. 
 
  
-#### Create the output dataset
+#### Create output dataset
 Now, you will create the output dataset to represent the output data stored in the Azure Blob storage. 
 
 1. In the **Solution Explorer**, right-click **tables**, point to **Add**, and click **New Item**. 
@@ -289,7 +289,7 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
 24. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
 25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
  
-## Step 4: Monitor the pipeline
+## Step 4: Monitor pipeline
 
 6. Log in into the [Azure Portal](https://portal.azure.com/), do the following:
 	1. Click **Browse** and select **Data factories**.
@@ -327,7 +327,7 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
 
 See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure Portal to monitor the pipeline and datasets you have created in this tutorial.
 
-## Use Server Explorer to review Data Factory entities
+## Use Server Explorer to view Data Factory entities
 
 1. In **Visual Studio**, click **View** on the menu, and click **Server Explorer**.
 2. In the Server Explorer window, expand **Azure** and expand **Data Factory**. If you see **Sign in to Visual Studio**, enter the **account** associated with your Azure subscription and click **Continue**. Enter **password**, and click **Sign in**. Visual Studio tries to get information about all Azure data factories in your subscription. You will see the status of this operation in the **Data Factory Task List** window.
