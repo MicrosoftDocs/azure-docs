@@ -66,7 +66,7 @@ Perform the following steps to update your device to [Update 1.2](storsimple-upd
 
 ## Install Update 1.2 on a device that has a gateway configured for a non-DATA 0 network interface
 
-You should use this procedure only if you fail the gateway check when trying to install the updates through the Azure classic portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1. If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Azure classic portal. See [Install update 1.2 via the Azure classic portal](#install-update-12-via-the-azure-portal).
+You should use this procedure only if you fail the gateway check when trying to install the updates through the Azure classic portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1. If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Azure classic portal. See [Install update 1.2 via the Azure classic portal](#install-update-1.2-via-the-azure-classic-portal).
 
 The software versions that can be upgraded using this method are Update 0.1, Update 0.2, and Update 0.3.
 
