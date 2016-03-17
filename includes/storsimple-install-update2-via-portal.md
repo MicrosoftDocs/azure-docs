@@ -14,7 +14,7 @@
 
     ![Confirmation message](./media/storsimple-install-update2-via-portal/InstallUpdate12_2M.png)
 
-7. A set of automatic pre-checks will now start. These include:
+7. A set of prerequisite checks will now start. These include:
 
 	- **Controller health checks** to verify that both the device controllers are healthy and online.
 
@@ -26,17 +26,17 @@
 
 	- **Gateway check** on any device running a version prior to Update 1. This check is performed on all the device running pre-update 1 software but fails on the devices that have a gateway configured for a network interface other than DATA 0.
 
-	The update is applied if all pre-update checks are successfully completed. You will be notified that pre-update checks are in progress.
+	The update is applied if all checks are successfully completed. You will be notified that checks are in progress.
 
     ![Pre-check notification](./media/storsimple-install-update2-via-portal/InstallUpdate12_3M.png)
 
-    The following is an example in which the pre-upgrade check failed. You will need to verify that both the device controllers are healthy and online. You will also need to check the health of the hardware components. In this example, Controller 0 and Controller 1 components need attention. You may need to contact Microsoft Support if you cannot address these issues by yourself.
+    The following is an example in which the checks failed. You will need to verify that both the device controllers are healthy and online. You will also need to check the health of the hardware components. In this example, Controller 0 and Controller 1 components need attention. You may need to contact Microsoft Support if you cannot address these issues by yourself.
 
    	 ![Pre-check failed](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
      > [AZURE.NOTE] If you are updating from a pre-Update 1 software, after you have applied the update on your StorSimple device, DATA 2 and DATA 3 checks and the gateway check will no longer be necessary for the future updates. The other pre-checks will still be required. If you updated from Update 1 or later, the DATA 2, DATA 3, and gateway pre-checks are not performed.
 
-8. After the pre-upgrade checks are successfully completed, an update job will be created. You will be notified when the update job is successfully created.
+8. After the checks are successfully completed, an update job will be created. You will be notified when the update job is successfully created.
 
     ![Update job creation](./media/storsimple-install-update2-via-portal/InstallUpdate12_44M.png)
 

@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 03/16/16-->
+<!--author=alkohli last changed: 03/17/16-->
 
 #### To download hotfixes
 
@@ -6,15 +6,16 @@ Perform the following steps to download the software update from the Microsoft U
 
 1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx).
 
-2. If you are a first-time user, you will be prompted to install a Microsoft Update Catalog. Click **Install**.
+2. If you are a first-time user, you are prompted to install the Microsoft Update Catalog. Click **Install**.
+    ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-  ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
+3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **3121901**, and then click **Search**.
 
-3. You will see a catalog search screen. In the search box, enter the KB number of the hotfix you want to download, for example **3121901**, and then click **Search**.
+    The hotfix listing appears, for example, **Cumulative Software Bundle Update 2.0 for StorSimple 8000 Series**.
 
     ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. You will see the hotfix listed, for example, **Cumulative Software Bundle Update 2.0 for StorSimple 8000 Series**. Click **Add**. The update will be added to the basket.
+4. Click **Add**. The update is added to the basket.
 
 5. Search for any additional hotfixes listed in the table above (**3121900**, **3080728**, **3090322**, and **3121899**), and add each the basket.
 
@@ -23,12 +24,11 @@ Perform the following steps to download the software update from the Microsoft U
 6. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a subfolder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
 
 >   [AZURE.NOTE]
-
->   The hotfixes must be accessible from both controllers to detect any potential error messages from the peer controller.
+The hotfixes must be accessible from both controllers to detect any potential error messages from the peer controller.
 
 #### To install and  verify regular mode hotfixes
 
-Perform the following steps to install and verify regular mode hotfixes.
+Perform the following steps to install and verify regular mode hotfixes. If you already installed them using the Azure Portal, skip ahead to [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
 
 1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
 
