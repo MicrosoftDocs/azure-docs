@@ -42,6 +42,7 @@ You can also try resetting the name and password of the local administrator acco
 
 ![](./media/virtual-machines-windows-reset-rdp/Portal-PW-Reset-Windows.png)
 
+Click on **Save** after entering the new username and password. 
 
 ### VMAccess extension and PowerShell
 
