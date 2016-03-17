@@ -44,37 +44,7 @@ Depending upon which version your device is running, you can determine if Update
 > - This update includes a set of manual and automatic pre-checks to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure classic portal.
 > - We recommend that you install the software and driver updates via the Azure  classic portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. The updates may take 5-10 hours to install (including the Windows Updates). The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these will result in a down time for your device.
 
-## Preparing for updates
-You will need to perform the following steps before you scan and apply the update:
-
-1. Take a cloud snapshot of the device data.
-
-2. Ensure that your controller fixed IPs are routable and can connect to the Internet. These fixed IPs will be used to service updates to your device. You can test this by running the following cmdlet on each controller from the Windows PowerShell interface of the device:
-
- 	`Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
-
-	**Sample output for Test-Connection when fixed IPs can connect to the Internet**
-
-
-		Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
-
-	    Source	  Destination 	IPV4Address      IPV6Address
-	    ----------------- -----------  -----------
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-
-		Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
-
-	    Source	  Destination 	  IPV4Address    IPV6Address
-	    ----------------- -----------  -----------
-	    HCSNODE0  204.79.197.200  204.79.197.200
-	    HCSNODE0  204.79.197.200  204.79.197.200
-	    HCSNODE0  204.79.197.200  204.79.197.200
-	    HCSNODE0  204.79.197.200  204.79.197.200
-
-After you have successfully completed these manual pre-checks, you can proceed to scan and install the updates.
+[AZURE.INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-update.md)]
 
 ## Install Update 1.2 via the Azure classic portal
 
@@ -84,24 +54,16 @@ Perform the following steps to update your device to [Update 1.2](storsimple-upd
 
 12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17584)**. The **Last updated date** should also be modified.
 
+    ![Maintenance page](./media/storsimple-install-update-via-portal/installupdate12_10m.png)
+
     You will now see that Maintenance mode updates are available.
     > [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.
 
-13. Download the maintenance mode updates by using the steps listed in [To download hotfixes](#to-download-hotfixes) to search for and download KB3063416, which installs disk firmware updates (the other updates should already be installed by now).
+13. Download the maintenance mode updates by using the steps listed in [To download hotfixes]( ../../includes/storsimple-install-update-option1.md) to search for and download KB3063416, which installs disk firmware updates (the other updates should already be installed by now).
 
-13. Follow the steps listed in TODO[install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install the maintenance mode updates.
+13. Follow the steps listed in [Install and verify maintenance mode hotfixes](../../includes/storsimple-install-update-option1.md#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates.
 
     Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
-
-
-
-
-13. Follow the steps listed in [install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install these Maintenance mode updates.
-
-    The maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
-
-
-
 
 ## Install Update 1.2 on a device that has a gateway configured for a non-DATA 0 network interface
 
