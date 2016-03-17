@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="03/16/2016"
 	ms.author="stepsic"/>
 	
 # Author Logic App definitions
@@ -23,8 +23,15 @@ This topic demonstrates how to use [App Services Logic Apps](app-service-logic-w
 
 A common pattern is to have one step that gets a list of items, and then you have a series of two or more actions that you want to do for each item in the list:  
 
-![Repeat over lists](./media/app-service-logic-author-definitions/repeatoverlists.png)
+![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists.png)
 
+![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists2.png)
+
+![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists3.png)
+
+![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists4.png) 
+
+ 
 In this example, there are 3 actions:
 
 1. Get a list of articles. This returns an object that contains an array.
@@ -77,7 +84,7 @@ In this example, there are 3 actions:
 
 As covered in [use logic app features](app-service-logic-use-logic-app-features.md), you iterate over the first list by using the `forEach:` property on the second action. However, for the third action, you need to select the `@actions('readLinks').outputs` property, because the second executed for each article.
 
-Inside the action you can use the [`item()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#item) function. In this example, I wanted to get the `location` header, so I had to continue with `@item().outputs.headers` to get the outputs of the action execution from the second action that we are now iterating over.  
+Inside the action you can use the [`item()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#item) function. In this example, I wanted to get the `location` header, so I had to continue with `@item().outputs.headers` to get the outputs of the action execution from the second action that we are now iterating over.  
 
 ## Mapping items in a list to some different configuration
 
@@ -134,7 +141,7 @@ Next, let's say that we want to get completely different content depending on a 
 
 In this case, we first get a list of articles, and then the second step looks up in a map, based on the category that was defined as a parameter, which URL to get the content from. 
 
-Two items to pay attention here: the [`intersection()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#intersection) function is used to check to see if the category matches one of the known categories defined. Second, once we get the category, we can pull the item of the map using square brackets: `parameters[...]`. 
+Two items to pay attention here: the [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) function is used to check to see if the category matches one of the known categories defined. Second, once we get the category, we can pull the item of the map using square brackets: `parameters[...]`. 
 
 ## Chain/nest Logic Apps while repeating over a list
 
@@ -199,7 +206,7 @@ In the parent logic app:
 }
 ```
 
-Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerBody) function to get the values that were passed into the child workflow. You'll then populate the outputs with the data that you want to return to the parent flow. 
+Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerBody) function to get the values that were passed into the child workflow. You'll then populate the outputs with the data that you want to return to the parent flow. 
 
 ```
 {
@@ -611,13 +618,7 @@ Let's say you have different behaviors that you want to run based on some value 
 }
 ```
 
-To actually make this work, when you start the run you need to pass the properties you want (in the above example `uriToGet` and `doMoreLogic`). Here is the call you can [use Basic auth for](https://msdn.microsoft.com/library/azure/dn948513.aspx#basicAuth):
-
-```
-POST https://<<Logic app endpoint from the Essentials>>/run?api-version=2015-02-01-preview
-Authorization: Basic <<Based 64 encoded username (default) : password (from the Settings blade)>>
-Content-type: application/json
-```
+To actually make this work, when you start the run you need to pass the properties you want (in the above example `uriToGet` and `doMoreLogic`). 
 
 With the following payload. Note that you have provided the Logic app with the values to use now:
 
