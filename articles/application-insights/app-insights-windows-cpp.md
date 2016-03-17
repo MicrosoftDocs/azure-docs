@@ -3,7 +3,7 @@
     description="Analyze usage and performance of your C++ Windows Store app." 
     services="application-insights" 
     documentationCenter="cpp"
-    authors="awills" 
+    authors="alancameronwills" 
     manager="douge""/>
 
 <tags 
