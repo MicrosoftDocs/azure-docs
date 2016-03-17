@@ -230,7 +230,7 @@ See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md
 
 > [AZURE.NOTE] You can find another example of ARM template for creating an Azure data factory on [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).  
 
-## Deploy Data Factory entities
+## Create data factory
 
 1. Start **Azure PowerShell** and run the following command. 
 	- Run **Login-AzureRmAccount** and enter the  user name and password that you use to sign in to the Azure Portal.  
