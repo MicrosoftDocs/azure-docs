@@ -25,7 +25,6 @@
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 
-##In this tutorial
 This tutorial contains the following steps:
 
 Step | Description

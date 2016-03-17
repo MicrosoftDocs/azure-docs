@@ -24,7 +24,6 @@
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
-##In This Tutorial
 In This tutorial you will do the following using Visual Studio 2013:
 
 1. Create two linked services: **AzureStorageLinkedService1** and **AzureSqlinkedService1**. The AzureStorageLinkedService1 links an Azure storage and AzureSqlLinkedService1 links an Azure SQL database to the data factory: **ADFTutorialDataFactoryVS**. The input data for the pipeline resides in a blob container in the Azure blob storage and output data will be stored in a table in the Azure SQL database. Therefore, you add these two data stores as linked services to the data factory.
@@ -32,7 +31,7 @@ In This tutorial you will do the following using Visual Studio 2013:
 3. Create a pipeline named **ADFTutorialPipeline** in the ADFTutorialDataFactoryVS. The pipeline will have a **Copy Activity** that copies input data from the Azure blob to the output Azure SQL table. The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
 4. Create a data factory, and deploy linked services, tables, and the pipeline.    
 
-## Pre-requisites
+## Prerequisites
 Please go through the [Tutorial Overview](data-factory-get-started.md) article and complete the pre-requisite steps before performing this tutorial.
 
 You must have the following installed on your computer: 
@@ -222,7 +221,7 @@ You have created input/output linked services and tables so far. Now, you will c
 25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
 
 
-## Use Server Explorer to view Data Factory entities
+## Use Server Explorer to view data factories
 
 1. In **Visual Studio**, click **View** on the menu, and click **Server Explorer**.
 2. In the Server Explorer window, expand **Azure** and expand **Data Factory**. If you see **Sign in to Visual Studio**, enter the **account** associated with your Azure subscription and click **Continue**. Enter **password**, and click **Sign in**. Visual Studio tries to get information about all Azure data factories in your subscription. You will see the status of this operation in the **Data Factory Task List** window.
