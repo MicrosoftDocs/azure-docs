@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/28/2016"
+	ms.date="03/18/2016"
 	ms.author="marsma"/>
 
 # Create and manage an Azure Batch account in the Azure portal
@@ -22,9 +22,9 @@
 - [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
-This article shows you how to use the [Azure portal][azure_portal] to create and manage an Azure Batch account, including where to find settings such as the account URL and account keys. You need a Batch account URL and an associated access key to authenticate all Batch API requests. And you associate all of your Batch resources (such as pools, jobs, and tasks) for your compute workload with a specific Batch account.
+The [Azure portal][azure_portal] provides you with the tools you need to create and manage an Azure Batch account, which you can use for large-scale parallel workload processing. In this article, we'll walk though Batch account creation using the portal, as well as discuss several of the most important settings and properties of a Batch account. For example, the applications and services you develop with Batch need your account's URL and an access key to communicate with the Batch service APIs, both of which are found in the Azure portal.
 
->[AZURE.NOTE] The Azure portal currently supports features for Batch account management and viewing some account resources. The full set of Batch features are available to developers through the Batch APIs.
+>[AZURE.NOTE] The Azure portal currently supports a subset of the features available in the Batch service, including account creation and the management of some settings and properties. The full feature set of Batch, such as creating and running jobs and tasks, is available to developers through the Batch APIs.
 
 ## Create a Batch account
 
@@ -90,9 +90,9 @@ The Batch account blade displays several properties for the account, as well as 
 
 ## Next steps
 
-* See [Azure Batch feature overview](batch-api-basics.md) to learn more about Batch service concepts and features of its APIs.
+* See the [Azure Batch feature overview](batch-api-basics.md) to learn more about Batch service concepts and features. This article discusses the primary Batch resources such as pools, compute nodes, jobs, and tasks, and provides an overview of the many features that enable large-scale compute workload execution.
 
-* [Get started with the Batch .NET client library](batch-dotnet-get-started.md) to learn how you can develop your own Batch solutions to run large-scale parallel jobs.
+* Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](batch-dotnet-get-started.md). This [introductory article](batch-dotnet-get-started.md) guides you through a working application that uses the Batch service to execute a workload on multiple compute nodes, including how Azure Storage can be used for file staging and retrieval in your Batch solutions.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: https://msdn.microsoft.com/library/azure/mt463120.aspx
