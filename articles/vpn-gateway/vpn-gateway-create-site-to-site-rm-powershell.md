@@ -29,7 +29,7 @@ This article will walk you through creating a virtual network and a Site-to-Site
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-![Site-to-Site diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/site2site.png)
+![Site-to-Site diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/site2site.png "site-to-site")
 
 **Deployment models and tools for Site-to-Site connections**
 
@@ -99,9 +99,9 @@ Now, set the configuration.
 
 ## 3. <a name="localnet"></a>Add your local network gateway
 
-In a virtual network, the local network gateway (referred to as a *local site* in the classic deployment model) typically refers to your on-premises location. You'll give that site a name by which Azure can refer to it. 
+In a virtual network, the local network gateway typically refers to your on-premises location. You'll give that site a name by which Azure can refer to it, and also specify the address space prefix for the local network gateway. 
 
-You'll also specify the address space prefix for the local site. Azure will use the IP address prefix you specify to identify which traffic to send to the local site. This means that you'll have to specify each address prefix that you want to be associated with the local site. You can easily update these prefixes if your on-premises network changes. 
+Azure will use the IP address prefix you specify to identify which traffic to send to your on-premises location. This means that you'll have to specify each address prefix that you want to be associated with your local network gateway. You can easily update these prefixes if your on-premises network changes. 
 
 When using the PowerShell examples, note the following:
 	
@@ -121,7 +121,7 @@ To add a local network gateway with multiple address prefixes:
 Sometimes your local network gateway prefixes change. The steps you take to modify your IP address prefixes depend on whether or not you have created a VPN gateway connection. See [Modify IP address prefixes for a local network gateway](#modify).
 
 
-## 4. Request a public IP address for the gateway
+## 4. Request a public IP address for the VPN gateway
 
 Next, you'll request a public IP address to be allocated to your Azure VNet VPN gateway. This is not the same IP address that is assigned to your VPN device, rather it's assigned to the Azure VPN gateway itself. You cannot specify the IP address that you want to use; it is dynamically allocated to your gateway. You'll use this IP address when configuring your on-premises VPN device to connect to the gateway.
 
@@ -139,7 +139,7 @@ The gateway configuration defines the subnet and the public IP address to use. U
 	$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 	$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
-## 6. Create the gateway
+## 6. Create the virtual network gateway
 
 In this step, you'll create the virtual network gateway. Note that that creating a gateway can take a long time to complete. Often 20 minutes or more. 
 
