@@ -52,11 +52,10 @@ Perform the following steps to update your device to [Update 1.2](storsimple-upd
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17584)**. The **Last updated date** should also be modified.
+12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17584)**. The **Last updated date** should also be modified. You'll also see that Maintenance mode updates are available.
 
-    ![Maintenance page](./media/storsimple-install-update-via-portal/installupdate12_10m.png)
+    ![Maintenance page](./media/storsimple-install-update-1/installupdate12_10m.png "Maintenance page")
 
-    You will now see that Maintenance mode updates are available.
     > [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.
 
 13. Download the maintenance mode updates by using the steps listed in [To download hotfixes]( ../../includes/storsimple-install-update-option1.md) to search for and download KB3063416, which installs disk firmware updates (the other updates should already be installed by now).
