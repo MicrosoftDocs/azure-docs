@@ -47,7 +47,7 @@ Update 2 enables Microsoft to pull additional diagnostic information from the de
     In some cases when you are running Update 1.2, your disk firmware may already be up-to-date. In these instances, the portal will automatically determine that and not prompt you for the maintenance mode updates.
 
     > [AZURE.NOTE]
-    In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.
+    In certain instances, the message indicating maintenance mode updates are available may be displayed for up to 24 hours after the maintenance mode updates are successfully applied on the device.
 
 13. Download the maintenance mode updates by using the steps listed in [To download hotfixes](#to-download-hotfixes) to search for and download KB3121899, which installs disk firmware updates (the other updates should already be installed by now).
 

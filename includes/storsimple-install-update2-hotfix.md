@@ -4,9 +4,9 @@
 
 Perform the following steps to download the software update from the Microsoft Update Catalog.
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx).
+1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 
-2. If you are a first-time user, you are prompted to install the Microsoft Update Catalog. Click **Install**.
+2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
     ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
 3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **3121901**, and then click **Search**.
@@ -26,9 +26,9 @@ Perform the following steps to download the software update from the Microsoft U
 >   [AZURE.NOTE]
 The hotfixes must be accessible from both controllers to detect any potential error messages from the peer controller.
 
-#### To install and  verify regular mode hotfixes
+#### To install and verify regular mode hotfixes
 
-Perform the following steps to install and verify regular mode hotfixes. If you already installed them using the Azure Portal, skip ahead to [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
+Perform the following steps to install and verify regular-mode hotfixes. If you already installed them using the Azure Portal, skip ahead to [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
 
 1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
 
@@ -101,21 +101,21 @@ Perform the following steps to install and verify regular mode hotfixes. If you 
 
 	If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
 
-9. Repeat steps 3-5 to install and monitor the remaining regular hotfixes.
+9. Repeat steps 3-5 to install the remaining regular-mode hotfixes.
 
-	- The LSI driver using KB3121900.
-	- The Storport fix using KB3080728.
-	- The Spaceport fix using KB3090322.
+	- The LSI driver - KB3121900
+	- The Storport update - KB3080728
+	- The Spaceport update - KB3090322
 
 #### To install and verify maintenance mode hotfixes
 
 Use KB3121899 to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.
 
-Note that if your disk firmware is already up-to-date, you will not need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console. You will be notified if updates are available and whether the updates are disruptive (maintenance mode updates) or non-disruptive (regular).
+Note that if your disk firmware is already up-to-date, you won't need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console to check if updates are available and whether the updates are disruptive (maintenance mode) or non-disruptive (regular mode) updates.
 
 To install the disk firmware updates, follow the instructions below.
 
-1. Place the device in the Maintenance mode. Note that you should not use Windows PowerShell remoting when connecting to a device in Maintenance mode. You will need to run this cmdlet on the device controller when connected through the device serial console. Type:
+1. Place the device in the Maintenance mode. Note that you should not use Windows PowerShell remoting when connecting to a device in Maintenance mode. Instead run this cmdlet on the device controller when connected through the device serial console. Type:
 
 	`Enter-HcsMaintenanceMode`
 
@@ -142,7 +142,7 @@ To install the disk firmware updates, follow the instructions below.
 		[4] Change language
 		Please enter your choice>
 
-	Both the controllers will be rebooted. After the reboot is complete, both controllers will be in the Maintenance mode.
+	Both the controllers then restart into Maintenance mode.
 
 3. To install the disk firmware update, type:
 
@@ -160,7 +160,7 @@ To install the disk firmware updates, follow the instructions below.
 
 1.  Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
 
-2.  After the installation is complete, the controller on which the maintenance mode hotfix was installed will be rebooted. Log in as option 1 with full access and verify the disk firmware version. Type:
+2.  After the installation is complete, the controller on which the maintenance mode hotfix was installed restarts. Log in as option 1 with full access and verify the disk firmware version. Type:
 
 	`Get-HcsFirmwareVersion`
 
@@ -222,8 +222,8 @@ To install the disk firmware updates, follow the instructions below.
     	  SEAGATE:ST4000NM0023:XMGG
     	  SEAGATE:ST4000NM0023:XMGG
 
-	 Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. Type the following command for each device controller:
+	 Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. To do so, type the following command for each device controller:
 
     `Exit-HcsMaintenanceMode`
 
-1. The controllers will be rebooted when you exit the Maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure classic portal. Maintenance mode updates are not updated on the portal until 24 hours have elapsed.
+1. The controllers restart when you exit Maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure classic portal. Note that the portal might not show that you installed the Maintenance mode updates for 24 hours.

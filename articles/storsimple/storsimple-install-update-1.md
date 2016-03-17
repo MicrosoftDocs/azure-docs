@@ -52,15 +52,15 @@ Perform the following steps to update your device to [Update 1.2](storsimple-upd
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17584)**. The **Last updated date** should also be modified. You'll also see that Maintenance mode updates are available.
+12. Verify that your device is running **StorSimple 8000 Series Update 1.2 (6.3.9600.17584)**. The **Last updated date** should also be modified. You'll also see that Maintenance mode updates are available.
 
     ![Maintenance page](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Maintenance page")
 
-    > [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.
+    > [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed for up to 24 hours after the maintenance mode updates are successfully applied on the device.
 
-13. Download the maintenance mode updates by using the steps listed in [To download hotfixes]( ../../includes/storsimple-install-update-option1.md) to search for and download KB3063416, which installs disk firmware updates (the other updates should already be installed by now).
+13. Download the maintenance mode updates by using the steps listed in [To download hotfixes]( #to-download-hotfixes) to search for and download KB3063416, which installs disk firmware updates (the other updates should already be installed by now).
 
-13. Follow the steps listed in [Install and verify maintenance mode hotfixes](../../includes/storsimple-install-update-option1.md#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates.
+13. Follow the steps listed in [Install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates.
 
     Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
 

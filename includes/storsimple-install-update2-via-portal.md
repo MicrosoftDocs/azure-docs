@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 03/14/16-->
+<!--author=alkohli last changed: 03/17/16-->
 
 #### To install an update from the Azure portal
 
@@ -34,7 +34,7 @@
 
    	 ![Pre-check failed](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
-     > [AZURE.NOTE] If you are updating from a pre-Update 1 software, after you have applied the update on your StorSimple device, DATA 2 and DATA 3 checks and the gateway check will no longer be necessary for the future updates. The other pre-checks will still be required. If you updated from Update 1 or later, the DATA 2, DATA 3, and gateway pre-checks are not performed.
+     > [AZURE.NOTE] If you are updating from pre-Update 1 software, after you have applied the update on your StorSimple device, DATA 2 and DATA 3 checks and the gateway check will no longer be necessary for the future updates. The other pre-checks will still be required. If you updated from Update 1 or later, the DATA 2, DATA 3, and gateway pre-checks are not performed.
 
 8. After the checks are successfully completed, an update job will be created. You will be notified when the update job is successfully created.
 
