@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# StorSimple Virtual Array system requirements (Preview)
+# StorSimple Virtual Array system requirements
 
 ## Overview
 
@@ -34,10 +34,6 @@ The StorSimple system requirements information published in this article applies
  
 - For 7000 series devices, go to [System requirements for your StorSimple 5000-7000 series device](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
-> [AZURE.IMPORTANT]
-> 
-> - This public preview is intended for evaluation only. Installing this preview in a production environment is not supported.
-> - If you experience any issues with StorSimple Virtual Array, please post the issues on the [StorSimple MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=StorSimple).  
 
 ## Software requirements
 

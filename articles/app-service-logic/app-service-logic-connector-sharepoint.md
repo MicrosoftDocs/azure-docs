@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 # Get started with the SharePoint Connector and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version on the SharePoint Online API, click [SharePoint API](../connectors/connectors-create-api-sharepointonline.md).
 
 Connect SharePoint Server or SharePoint Online to manage documents and list items. You can perform various actions such as create, update, get, and delete on documents and list items. When using on-premises SharePoint server, you enter the Service Bus Connection String as part of connector configuration and install the on-premises listener agent to connect to the server.
 
