@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/17/2016"
 	ms.author="larryfr"/>
 
 # Customize Linux-based HDInsight clusters using Script Action
@@ -475,7 +475,7 @@ Before proceeding, make sure you have installed and configured Azure PowerShell.
 
 ### Apply a Script Action to a running cluster from the HDInsight .NET SDK
 
-For an example of using the .NET SDK to apply scripts to a cluster, see [https://github.com/Blackmist/hdinsight-script-action-live](https://github.com/Blackmist/hdinsight-script-action-live).
+For an example of using the .NET SDK to apply scripts to a cluster, see [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 ## View history, promote, and demote Script Actions
 
