@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="documentdb"
-	ms.workload="data-services" 
+	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/23/2015"
+	ms.date="02/23/2016"
 	ms.author="mimig"/>
 
 # How to create a DocumentDB database account using the Azure portal

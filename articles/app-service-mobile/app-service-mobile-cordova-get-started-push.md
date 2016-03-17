@@ -86,19 +86,24 @@ You must make sure that your Apache Cordova app project is ready to handle push 
 ### Install the Apache Cordova Push Plugin
 
 Apache Cordova applications do not natively handle device or network capabilities.  These capabilities are provided
-by plugins that are published either on [npm] or on GitHub.  The `phonegap-plugin-push` plugin is used to handle
-network push notifications.  To install from the command line:
+by plugins that are published either on [npm](https://www.npmjs.com/) or on GitHub.  The `phonegap-plugin-push` plugin is used to handle network push notifications. 
+
+You can install the push plugin in one of these ways:  
+
+**From the command-prompt:**
 
     cordova plugin add phonegap-plugin-push
 
-To install the plugin within Visual Studio:
+**From within Visual Studio:**
 
-1.  Open the `config.xml` file from within the Solution Explorer.
-2.  Click on **Plugins** (along left hand side) and then **Custom** (along top)
-3.  Select **Git** as the installation source.  Enter `https://github.com/phonegap/phonegap-plugin-push` as the source
+1.  Open the `config.xml` file from Solution Explorer.
+2.  Click on **Plugins** > **Custom**, select **Git** as the installation source, then enter `https://github.com/phonegap/phonegap-plugin-push` as the source.
+	
+	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
+	
 4.  Click on the arrow next to the installation source, then click on **Add**
 
-The push plugin will now be installed.
+The push plugin is now installed.
 
 ### Install Android Google Play Services
 
@@ -118,68 +123,69 @@ The current required libraries are listed in the [phonegap-plugin-push installat
 
 ### Register your Device for Push on startup
 
-Add a call to `registerForPushNotifications()` during the callback for the login process, or at the bottom of the `onDeviceReady()`
-method:
+1. Add a call to **registerForPushNotifications** during the callback for the login process, or at the bottom of the **onDeviceReady** method:
 
-    // Login to the service
-    client.login('google')
-        .then(function () {
-            // Create a table reference
-            todoItemTable = client.getTable('todoitem');
+ 
+		// Login to the service.
+		client.login('google')
+		    .then(function () {
+		        // Create a table reference
+		        todoItemTable = client.getTable('todoitem');
+		
+		        // Refresh the todoItems
+		        refreshDisplay();
+		
+		        // Wire up the UI Event Handler for the Add Item
+		        $('#add-item').submit(addItemHandler);
+		        $('#refresh').on('click', refreshDisplay);
+		
+				// Added to register for push notifications.
+		        registerForPushNotifications();
+		
+		    }, handleError);
 
-            // Refresh the todoItems
-            refreshDisplay();
+	In this example shows calling **registerForPushNotifications** after authentication succeeds, which is recommended when using both push notifications and authentication in your app. 
 
-            // Wire up the UI Event Handler for the Add Item
-            $('#add-item').submit(addItemHandler);
-            $('#refresh').on('click', refreshDisplay);
+2. Add the new `registerForPushNotifications()` method as follows:
 
-            registerForPushNotifications();
+	    // Register for Push Notifications.
+		// Requires that phonegap-plugin-push be installed.
+	    var pushRegistration = null;
+	    function registerForPushNotifications() {
+	        pushRegistration = PushNotification.init({
+	            android: {
+	                senderID: 'Your_Project_ID'
+	            },
+	            ios: {
+	                alert: 'true',
+	                badge: 'true',
+	                sound: 'true'
+	            },
+	            wns: {
+	
+	            }
+	        });
+	
+	        pushRegistration.on('registration', function (data) {
+	            client.push.register('gcm', data.registrationId);
+	        });
+	
+	        pushRegistration.on('notification', function (data, d2) {
+	            alert('Push Received: ' + data.message);
+	        });
+	
+	        pushRegistration.on('error', handleError);
+	    }
 
-        }, handleError);
-
-Implement `registerForPushNotifications()` as follows:
-
-    /**
-     * Register for Push Notifications - requires the phonegap-plugin-push be installed
-     */
-    var pushRegistration = null;
-    function registerForPushNotifications() {
-        pushRegistration = PushNotification.init({
-            android: {
-                senderID: 'YourProjectID'
-            },
-            ios: {
-                alert: 'true',
-                badge: 'true',
-                sound: 'true'
-            },
-            wns: {
-
-            }
-        });
-
-        pushRegistration.on('registration', function (data) {
-            client.push.register('gcm', data.registrationId);
-        });
-
-        pushRegistration.on('notification', function (data, d2) {
-            alert('Push Received: ' + data.message);
-        });
-
-        pushRegistration.on('error', handleError);
-    }
-
-Replace _YourProjectID_ with the numberic project ID for your app from the [Google Developer Console].
+3. In the above code, replace `Your_Project_ID` with the numeric project ID for your app from the [Google Developer Console].
 
 ## Test the app against the published mobile service
 
-You can test the app by directly attaching an Android phone with a USB cable.  Instead of **Google Android Emulator**, select **Device**.
-Visual Studio will download the application to the device and run the application.  You will then interact with the application on the
-device.
+You can test the app by directly attaching an Android phone with a USB cable.  Instead of **Google Android Emulator**, select **Device**. Visual Studio will download the application to the device and run the application.  You will then interact with the application on the device.
 
-Improve your development experience.  Screen sharing applications such as [Mobizen] can assist you in developing an Android application
-by projecting your Android screen on to a web browser on your PC.
+Improve your development experience.  Screen sharing applications such as [Mobizen] can assist you in developing an Android application by projecting your Android screen on to a web browser on your PC.
+
+You can also test the Android app on the Android emulator. Remember to first add a Google account on the emulator.
 
 ##<a name="next-steps"></a>Next Steps
 

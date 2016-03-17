@@ -243,6 +243,54 @@ Once you kick off the rerun and the 9-10AM slice for dataset2 is ready, data fac
 
 For deeper dive on specifying dependency and tracking the dependencies for complex chain of activities and datasets, refer to sections below.
 
+## Chaining activities
+You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. 
+
+For example, consider the following case:
+ 
+1.	Pipeline P1 has Activity A1 that requires external input dataset D1, and produce **output** dataset **D2**.
+2.	Pipeline P2 has Activity A2 that requires **input** from dataset **D2**, and produces output dataset D3.
+ 
+In this scenario, the activity A1 will run when the external data is available, and the scheduled availability frequency is reached.  The activity A2 will run when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 will not run for that slice until it becomes available.
+
+The Diagram View would look like below:
+
+![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+
+The Diagram View with both activities in the same pipeline would look like below: 
+
+![Chaining activities in the same pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+
+### Ordered copy
+It is possible to run multiple copy operations one after another in a sequential/ordered manner. Say you have two copy activities in a pipeline: CopyActivity1 and CopyActivity with the following input data output datasets.   
+
+CopyActivity1: 
+Input: Dataset1
+Output Dataset2
+
+CopyActivity2: 
+Inputs: Dataset2
+Output: Dataset4
+
+CopyActivity2 would run only if the CopyActivity1 has run successfully and Dataset2 is available. 
+
+In the above example, CopyActivity2 can have a different input, say Dataset3, but you will need to specify Dataset2 also as an input to CopyActivity2 so the activity will not run until CopyActivity1 completes. For example: 
+
+CopyActivity1: 
+Input: Dataset1
+Output Dataset2
+
+CopyActivity2: 
+Inputs: Dataset3, Dataset2
+Output: Dataset4
+
+When multiple inputs are specified, only the first input dataset is used for copying data but other datasets are used as dependencies. CopyActivity2 would only start executing when the following conditions are met: 
+
+- CopyActivity2 has successfully completed and Dataset2 is available. This dataset will not be used when copying data to Dataset4. It only acts as a scheduling dependency for CopyActivity2.   
+- Dataset3 is available. This dataset represents the data that is copied to the destination.  
+
+
+
 ## Modeling datasets with different frequencies
 
 In the samples shown above, the frequencies for input and output datasets and activity schedule window were same. Some scenarios require the ability to produce output at a frequency different than frequencies of one or more inputs. Data factory supports modeling these scenarios.
@@ -510,9 +558,6 @@ The hive activity takes the 2 inputs and produces an output slice every day. You
 	   }
 	}
 
-
-## Chaining activities
-You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. This chaining occurs at the time slice level (a discrete unit within a dataset).
 
 ## Data Factory functions and system variables   
 

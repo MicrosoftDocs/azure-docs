@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/12/2016"
+	ms.date="03/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -71,7 +71,7 @@ When you enable password synchronization, the password complexity policies confi
 
 **Password expiration policy**
 
-If a user is in the scope of password synchronization, the cloud account password is set to "*Never Expire*". This means that it is possible for a user's password to expire in the on-premises environment, but they can continue to log into cloud services using this expired password.
+If a user is in the scope of password synchronization, the cloud account password is set to "*Never Expire*". This means that it is possible for a user's password to expire in the on-premises environment, but they can continue to log into cloud services using the new password after the next password sync cycle.
 
 The cloud password will be updated the next time the user changes the password in the on-premises environment.
 
@@ -91,7 +91,7 @@ If the user changes the on-premises password again, the new password will be syn
 If you use express settings when you install Azure AD Connect then password synchronization will be enabled by default.
 
 If you use custom settings when you install Azure AD Connect they you enable password synchronization on the user sign-in page.
-![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
+![usersignin](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
 
 If you select to use **Federation with AD FS** then you can optionally enable password sync as a backup in case your AD FS infrastructure fails. You can also enable it if you plan to use Azure AD Domain Services.
 
@@ -117,13 +117,17 @@ For information about security and FIPS see [AAD Password Sync, Encryption and F
 
 Start **Synchronization Service Manager**, open **Connectors**, select the Active Directory Connector the user is located in, select **Search Connector Space**, and find the user you are looking for.
 
-![csuser](./media/active-directory-aadsync-implement-password-synchronization/cspasswordsync.png)
+![csuser](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
 
 On the user, select the **lineage** tab and make sure at least one Sync Rule shows **Password Sync** as **True**. With default configuration, this would be the Sync Rule named **In from AD - User AccountEnabled**.
 
+You should also [follow the user](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) through the metaverse to the Azure AD Connector space and make sure there is also an outbound rule with **Password Sync** set to **True**. In the default configuration this would be the sync rule named **Out to AAD - User Join**.
+
+![csuser2](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
+
 To see the password sync details of the object, click on the button **Log...** at the bottom of this page. This will produce this page with a historic view of the user's password sync status for the past week.
 
-![object log](./media/active-directory-aadsync-implement-password-synchronization/csobjectlog.png)
+![object log](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
 
 The status column can have the following values which also indicates the issue and why a password is not synchronized.
 

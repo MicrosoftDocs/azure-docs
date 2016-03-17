@@ -21,22 +21,31 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as querying for data (inserting, updating, and deleting), authenticating users, handling errors, and customizing the client. It also does a deep-dive into common client code used in most mobile apps.
+This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as querying
+for data (inserting, updating, and deleting), authenticating users, handling errors, and customizing the client. It also
+does a deep-dive into common client code used in most mobile apps.
 
-This guide focuses on the client-side Android SDK.  To learn more about the server-side SDKs for Mobile Apps, see [Work with .NET backend SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) or [How to use the Node.js backend SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
+This guide focuses on the client-side Android SDK.  To learn more about the server-side SDKs for Mobile Apps, see
+[Work with .NET backend SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) or
+[How to use the Node.js backend SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
+## Reference Documentation
 
-<!---You can find the Javadocs API reference for the Android client library [here](http://go.microsoft.com/fwlink/p/?LinkId=298735).-->
+You can find the Javadocs API reference for the Android client library [on GitHub](http://azure.github.io/azure-mobile-apps-android-client/).
 
 ## Setup and Prerequisites
 
 The Mobile Services SDK for Android supports Android version 2.2 or later, but we recommend building against version 4.2 or later.
 
-Complete the [Mobile Apps quickstart](app-service-mobile-android-get-started.md) tutorial, which will ensure that you have installed Android Studio; it will help you configure your account and create your first Mobile App backend. If you do this, you can skip the rest of this section.
+Complete the [Mobile Apps quickstart](app-service-mobile-android-get-started.md) tutorial, which will ensure that you have
+installed Android Studio; it will help you configure your account and create your first Mobile App backend. If you do this,
+you can skip the rest of this section.
 
-If you decide not to complete the Quickstart tutorial, and want to connect an Android app to a Mobile App backend, you need to do the following:
+If you decide not to complete the Quickstart tutorial, and want to connect an Android app to a Mobile App backend, you
+need to do the following:
 
-- [create a Mobile App backend](app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend) to use with your Android app (unless your app already has one)
+- [create a Mobile App backend](app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend) to use
+  with your Android app (unless your app already has one)
 - In Android Studio, [update the Gradle build files](#gradle-build), and
 - [Enable internet permission](#enable-internet)
 
@@ -56,9 +65,9 @@ Change both **build.gradle** files:
 
 2. Add this code to the *Module app* level **build.gradle** file inside the *dependencies* tag:
 
-		compile 'com.microsoft.azure:azure-mobile-android:3.0'
+		compile 'com.microsoft.azure:azure-mobile-android:3.1'
 
-	Currently the latest version is 3.0. The supported versions are listed [here](http://go.microsoft.com/fwlink/p/?LinkID=717034).
+	Currently the latest version is 3.1. The supported versions are listed [here](http://go.microsoft.com/fwlink/p/?LinkID=717034).
 
 ###<a name="enable-internet"></a>Enable internet permission
 To access Azure, your app must have the INTERNET permission enabled. If it's not already enabled, add the following line of code to your **AndroidManifest.xml** file:
