@@ -30,20 +30,20 @@ This walkthrough will tell you how to configure our SDK within your application 
 
 ## SSO Concepts in the Microsoft Identity Platform
 
-### MS Identity Brokers
+### Microsoft Identity Brokers
 
 Microsoft provides applications for every mobile platform that allow for the bridging of credentials across applications from different vendors as well as allows for special enhanced features that require a single secure place from where to validate credentials. We call these **brokers**. On iOS and Android these are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages some or all of the device for their employee. These brokers support managing security just for some applications or the entire device based on what IT Administrators desire. In Windows this functionality is provided by an account chooser built in to the operating system, known techncially as the Web Authentication Broker.
 
 To understand how we use these brokers and how your customers might see them in their login flow for the Microsoft Identity platform read on for more information.
 
-#### Patterns for logging in on mobile devices
+### Patterns for logging in on mobile devices
 
 Access to credentials on devices follow two basic patterns for the Micorsoft Identity platform: 
 
 * Non-broker assisted logins
 * Broker assisted logins
 
-##### Non-broker assisted logins
+#### Non-broker assisted logins
 
 Non-broker assisted logins are login experiences that happen inline with the application and use the local storage on the device for that application. This storage may be shared across applications but the credentails are tightly bound to the app or suite of apps using that credential. This is the experience you've most likely experienced in many mobile applications where you enter a username and password within the application itself.
 
@@ -75,7 +75,7 @@ Here is a representation of how the Microsoft Identity SDKs work with the shared
 +--------------------------------------------+
 ```
 
-##### Broker assisted logins
+#### Broker assisted logins
 
 Broker-assisted logins are login experiences that occur within the broker application and use the storage and security of the broker to share credentials across all applications on the device that leverage the Microsoft Identity platform. This means that your applications will rely on the broker in order to sign users in. On iOS and Android these are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages the device for their user. An example of this type of applciation is the Azure Authenticator application on iOS. In Windows this functionality is provided by an account chooser built in to the operating system, known techncially as the Web Authentication Broker. 
 The experience varies by platform and can sometimes be disruptive to users if not managed correctly. You're probably most familar with this pattern if you have the Facebook application installed and use Facebook Login functionality in another application. The Microsoft Identity platform leverages the same pattern.
@@ -84,18 +84,18 @@ For iOS this leads to a "transistion" animation where your application is sent t
 
 For Android and Windows the account chooser is displayed on top of your application which is less disruptive to the user.
 
-##### How the broker gets invoked
+#### How the broker gets invoked
 
 If a compatible broker is installed on the device, like the Azure Authenticator application, the Microsoft Identity SDKs will automatically do the work of invoking the broker for you when a user indicates they wish to log in using any account from the Microsoft Identity platform. This could be an a perosnal Microsoft Account, a work or school account, or an account that you provide and host in Azure using our B2C and B2B products. By using extrememly secure algorithms and encryption we ensure that the credentials are asked for and delivered back to your application in a secure manner. The exact technical detail of these mechanisms is not published but have been developed with collaboration by Apple and Google.
 
-**The developer has the choice of if the Microsoft Identity SDK calls the broker or uses the non-broker assisted flow.** However if the developer chooses not to use the broker-assisted flow they lose the benefit of leveraging SSO credentials that the user may have already added on the device as well as prevents their application from being used with business featuers Microsoft provides its customers such as Conditional Access and Intune Management capabiltiies. 
+**The developer has the choice of if the Microsoft Identity SDK calls the broker or uses the non-broker assisted flow.** However if the developer chooses not to use the broker-assisted flow they lose the benefit of leveraging SSO credentials that the user may have already added on the device as well as prevents their application from being used with business featuers Microsoft provides its customers such as Conditional Access, Intune Management capabiltiies, and certificate based authentication. 
 
 These logins have the following benefits:
 
--  User experience experiences SSO across all their applications no matter the vendor.
+-  User experiences SSO across all their applications no matter the vendor.
 -  Your application can leverage more advanced business features such as Conditional Access or use the InTune suite of products.
 -  Your application can support certificate based authentication for business users.
-- Much more secure sign-in experience as the identity of the application and the user are verified by the broker application with additional security algorithms and encyption flows.
+- Much more secure sign-in experience as the identity of the application and the user are verified by the broker application with additional security algorithms and encyption.
 
 These logins have the following drawbacks:
 
