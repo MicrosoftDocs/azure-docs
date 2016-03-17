@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/14/2016"
 	ms.author="billmath"/>
 
 
@@ -56,7 +56,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 where `(your_FS_name) `is replaced with the federation service host name your organization uses, such as fs.contoso.com.  If you are able to verify both of these settings successfully, you do not have to do anything else.  
 
-Example: https://fs.contospocom/federationmetadata/2007-06/federationmetadata.xml
+Example: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
 ## If you decide to update your certificate manually
 Any time you manually update your AD FS certificates, you must update your Office 365 domain using the PowerShell command Update-MsolFederatedDomain as shown in the steps under Manually update Office 365 federation trust properties in the section [here](#if-your-metadata-is-not-publicly-accessible)
