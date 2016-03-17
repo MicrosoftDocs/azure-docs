@@ -24,7 +24,7 @@
 
 The [Azure portal][azure_portal] provides you with the tools you need to create and manage an Azure Batch account, which you can use for large-scale parallel workload processing. In this article, we'll walk though Batch account creation using the portal, as well as discuss several of the most important settings and properties of a Batch account. For example, the applications and services you develop with Batch need your account's URL and an access key to communicate with the Batch service APIs, both of which are found in the Azure portal.
 
->[AZURE.NOTE] The Azure portal currently supports a subset of the features available in the Batch service, including account creation and the management of account settings and properties. The full feature set of Batch, such as creating and running jobs and tasks, is available to developers through the Batch APIs.
+>[AZURE.NOTE] The Azure portal currently supports a subset of the features available in the Batch service, including account creation and the management of account settings and properties. The full feature set of Batch, including creating and running jobs and tasks, is available to developers through the Batch APIs.
 
 ## Create a Batch account
 
@@ -38,7 +38,7 @@ The [Azure portal][azure_portal] provides you with the tools you need to create 
 
 	![Batch Service create blade in Azure portal][3]
 
-4. The **New Batch Account** blade is displayed. See items *a* through *f* below for descriptions of each blade element.
+4. The **New Batch Account** blade is displayed. See items *a* through *e* below for descriptions of each blade element.
 
     ![Create a Batch account][account_portal]
 
@@ -52,7 +52,7 @@ The [Azure portal][azure_portal] provides you with the tools you need to create 
 
     e. **Storage Account** (optional) -- You can associate (link) a storage account to your new Batch account. The [application packages](batch-application-packages.md) feature of Batch will use the linked storage account for the storage and retrieval of application packages. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for more information on this feature.
 
-     > [AZURE.TIP] Regenerating keys in a linked Storage account requires special considerations. See the *Additional things to know* section below for more details.
+     > [AZURE.TIP] Regenerating keys in a linked Storage account requires special considerations. See [Considerations for Batch accounts](#considerations-for-batch-accounts) below for more details.
 
 5. Click **Create** to create the account.
 
@@ -60,13 +60,13 @@ The [Azure portal][azure_portal] provides you with the tools you need to create 
 
 ## View Batch account properties
 
-The Batch account blade displays several properties for the account, as well as provides access to additional settings such as access keys, users, quotas, and a linked Storage account.
+The Batch account blade displays several properties for the account, as well as provides access to additional settings such as access keys, quotas, users, and storage account association.
 
 * **Batch account URL** -- This URL provides access to your Batch account when using APIs such as the [Batch REST][api_rest] API or [Batch .NET][api_net] client library, and adheres to the following format:
 
   `https://<account_name>.<region>.batch.azure.com`
 
-* **Access keys** -- To view and manage the access keys for your Batch account, click the key icon to open the **Manage keys** blade, or click **All settings** > **Keys**. These access keys are used in various
+* **Access keys** -- To view and manage your Batch account's access keys, click the key icon to open the **Manage keys** blade, or click **All settings** > **Keys**. An access key is required when communicating with the Batch service APIs, such as with [Batch REST][api_rest] or the [Batch .NET][api_net] client library.
 
  ![Batch account keys][account_keys]
 
@@ -76,9 +76,9 @@ The Batch account blade displays several properties for the account, as well as 
 
 ## Considerations for Batch accounts
 
-* You can also create and manage Batch accounts with [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md) and the [Batch Management .NET library](batch-management-dotnet.md).
+* You can also create and manage Batch accounts with the [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md) and the [Batch Management .NET](batch-management-dotnet.md) library.
 
-* You are not charged for the Batch account itself. You are charged for any Azure compute resources that your Batch solutions consume, and for the resources consumed by other services when your workloads run. For example, you are charged for the compute nodes in your pools, and for the storage resources used by the optional [application packages](batch-application-packages.md) feature. See [Batch pricing][batch_pricing] for more information.
+* You are not charged for the Batch account itself. You are charged for any Azure compute resources that your Batch solutions consume, and for the resources consumed by other services when your workloads run. For example, you are charged for the compute nodes in your pools, and if you use the [application packages](batch-application-packages.md) feature, you are charged for the Azure Storage resources used for storing your application package versions. See [Batch pricing][batch_pricing] for more information.
 
 * You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts in different Azure regions.
 
@@ -95,7 +95,7 @@ The Batch account blade displays several properties for the account, as well as 
 * Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](batch-dotnet-get-started.md). This [introductory article](batch-dotnet-get-started.md) guides you through a working application that uses the Batch service to execute a workload on multiple compute nodes, including how Azure Storage can be used for file staging and retrieval in your Batch solutions.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
-[api_rest]: https://msdn.microsoft.com/library/azure/mt463120.aspx
+[api_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 
 [azure_portal]: https://portal.azure.com
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
