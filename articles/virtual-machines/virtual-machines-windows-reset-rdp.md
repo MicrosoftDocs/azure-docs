@@ -98,7 +98,7 @@ Make sure you have Azure PowerShell 1.0 or above installed and you have logged i
 
 #### **Reset the local administrator account password**
 
-You can reset the admin password and/or username by using the [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/en-us/library/mt619447.aspx) PowerShell command.
+You can reset the admin password and/or username by using the [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx) PowerShell command.
 
 Create your local admin account credentials by using the following command:
 
@@ -116,7 +116,7 @@ Replace `myRG`, `myVM`, `myVMAccess` and location with values relevant to your s
 
 #### **Reset the Remote Desktop service configuration**
 
-You can reset remote access to your VM, by using either [Set-AzureRmVMExtension](https://msdn.microsoft.com/en-us/library/mt603745.aspx) or Set-AzureRmVMAccessExtension as follows. Replace the `myRG`, `myVM`, `myVMAccess` and location with your own values.
+You can reset remote access to your VM, by using either [Set-AzureRmVMExtension](https://msdn.microsoft.com/library/mt603745.aspx) or Set-AzureRmVMAccessExtension as follows. Replace the `myRG`, `myVM`, `myVMAccess` and location with your own values.
 
 	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
 
