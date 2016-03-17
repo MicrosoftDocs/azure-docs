@@ -5,13 +5,13 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jhubbard"
+	manager="jeffreyg"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/09/2016"
+	ms.date="03/17/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -77,15 +77,6 @@ An elastic database pool is an Azure Resource Manager resource of type “Elasti
 [AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 
-
-## Azure Resource Manager limitations
-
-Azure SQL Database V12 servers are located in resource groups.
-
-- Each resource group can have a maximum 800 servers.
-- Each server can have a maximum 800 elastic pools.
-
-
 ## Latency of elastic pool operations
 
 - Changing the guaranteed eDTUs per database (databaseDtuMin) or maximum eDTUs per database (databaseDtuMax) typically completes in 5 minutes or less.
@@ -95,8 +86,14 @@ Azure SQL Database V12 servers are located in resource groups.
 
 ## PowerShell, REST API, and the .NET Client Library
 
-Several PowerShell cmdlets and REST API commands are available for creating and managing elastic pools. For details and code examples, see [Create and manage a SQL Database elastic database pool using PowerShell](sql-database-elastic-pool-powershell.md), and [Create and manage SQL Database with C#](sql-database-client-library.md).
+For details and code examples the demonstrate working with pools using PowerShell and C#:
 
+- [Create an elastic pool with PowerShell](sql-database-elastic-pool-create-powershell.md)
+- [Create an elastic pool with C#](sql-database-elastic-pool-create-csharp.md)
+- [Manage an elastic pool with PowerShell](sql-database-elastic-pool-manage-powershell.md)
+- [Manage an elastic pool with C#](sql-database-elastic-pool-manage-csharp.md)
+
+Here's a quick reference of cmdlets and equivalent REST API operations related to elastic pools:
 
 | [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx) | [REST API commands](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
