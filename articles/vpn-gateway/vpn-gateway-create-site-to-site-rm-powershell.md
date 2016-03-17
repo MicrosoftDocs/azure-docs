@@ -147,8 +147,8 @@ Use the following values:
 
 - The **-GatewayType** for a Site-to-Site configuration is **Vpn**. The gateway type is always specific to the configuration that you are implementing. For example, other gateway configurations may require -GatewayType ExpressRoute, or -GatewayType VNet2VNet. 
 
-- The **-VpnType** can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *PolicyBased* (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateways](vpn-gateway-about-vpngateways.md).
-- The GatewaySku can be *Basic*, *Standard*, or *HighPerformance*. 	
+- The **-VpnType** can be **RouteBased** (referred to as a Dynamic Gateway in some documentation), or **PolicyBased** (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateways](vpn-gateway-about-vpngateways.md#gw).
+- The **-GatewaySku** can be **Basic**, **Standard**, or **HighPerformance**. 	
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
