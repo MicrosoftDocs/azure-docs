@@ -31,7 +31,7 @@ In this article, you will learn how to use the [Azure Portal](https://portal.azu
 1. You **must** read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
 2. This article does not provide a conceptual overview of the Azure Data Factory service. We recommend that you go through [Introduction to Azure Data Factory](data-factory-introduction.md) article for a detailed overview of the service.  
 
-## Create data factory
+## 1. Create data factory
 A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. Let's start with creating the data factory in this step. 
 
 1.	After logging into the [Azure Portal](https://portal.azure.com/), do the following:
@@ -61,7 +61,7 @@ A data factory can have one or more pipelines. A pipeline can have one or more a
 
 Before creating a pipeline, you need to create a few Data Factory entities first. You first create linked services to link data stores/computes to your data store, define input and output datasets to represent data in linked data stores, and then create the pipeline with a activity that use these datasets. 
 
-## Create linked services
+## 2. Create linked services
 In this step, you will link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account will hold the input and output data for the pipeline in this sample. The HDInsight linked service is used to run Hive script specified in the activity of the pipeline in this sample. You need to identify what data store/compute services are used in your scenario and link those services to the data factory by creating linked services.  
 
 ### Create Azure Storage linked service
@@ -128,7 +128,7 @@ In this step, you will link an on-demand HDInsight cluster to your data factory.
 
 	![Tree view with linked services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
-## Create datasets
+## 3. Create datasets
 In this step, you will create datasets to represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
 
 ### Create input dataset
@@ -207,7 +207,7 @@ Now, you will create the output dataset to represent the output data stored in t
 
 	![Tree view with linked services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
-## Create pipeline
+## 4. Create pipeline
 In this step, you will create your first pipeline with a **HDInsightHive** activity. Note that input slice is available monthly (frequency: Month, interval: 1), output slice is produced monthly, and the scheduler property for the activity is also set to monthly (see below). The settings for the output dataset and the activity scheduler must match. At this time, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. The properties used in the following JSON are explained at the end of this section. 
 
 1. In the **Data Factory Editor**, click **Elipsis (…)** and then click **New pipeline**.
@@ -278,7 +278,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 	![Tree view with pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 5. Congratulations, you have successfully created your first pipeline!
 
-## Monitor pipeline
+## 5. Monitor pipeline
 
 6. Click **X** to close Data Factory Editor blades and to navigate back to the Data Factory blade, and click on **Diagram**.
   

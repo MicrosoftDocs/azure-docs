@@ -44,7 +44,7 @@ You must have the following installed on your computer:
 	
 	
 
-## Create Visual Studio project 
+## 1. Create Visual Studio project 
 1. Launch **Visual Studio 2013** or **Visual Studio 2015**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
 2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**.   
 
@@ -54,7 +54,7 @@ You must have the following installed on your computer:
 
 	![Solution Explorer](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
-## Create linked services
+## 2. Create linked services
 A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. You will specify the name and settings for the data factory later when you publish your Data Factory solution.
 
 In this step, you will link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account will hold the input and output data for the pipeline in this sample. The HDInsight linked service is used to run Hive script specified in the activity of the pipeline in this sample. You need to identify what data store/compute services are used in your scenario and link those services to the data factory by creating linked services.  
@@ -110,7 +110,7 @@ In this step, you will link an on-demand HDInsight cluster to your data factory.
 	See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details. 
 4. Save the **HDInsightOnDemandLinkedService1.json** file.
 
-## Create datasets
+## 3. Create datasets
 In this step, you will create datasets to represent the input and output data for Hive processing. These datasets refer to the **AzureStorageLinkedService1** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
 
 #### Create input dataset
@@ -192,7 +192,7 @@ Now, you will create the output dataset to represent the output data stored in t
 4. Save the **OutputDataset.json** file.
 
 
-### Create pipeline
+### 4. Create pipeline
 In this step, you will create your first pipeline with a **HDInsightHive** activity. Note that input slice is available monthly (frequency: Month, interval: 1), output slice is produced monthly, and the scheduler property for the activity is also set to monthly (see below). The settings for the output dataset and the activity scheduler must match. At this time, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. The properties used in the following JSON are explained at the end of this section.
 
 1. In the **Solution Explorer**, right-click **Pipelines**, point to **Add**, and click **New Item.** 
@@ -266,7 +266,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 
 When you publish the solution in the next step, the **partitionweblogs.hql** file is uploaded to the scripts folder in the **adfgetstarted** blob container.   
 
-### Publish/deploy Data Factory entities
+### 5. Publish/deploy Data Factory entities
 
 18. Right-click project in the Solution Explorer, and click **Publish**. 
 19. If you see **Sign in to your Microsoft account** dialog box, enter your credentials for the account that has Azure subscription, and click **sign in**.
@@ -289,7 +289,7 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
 24. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
 25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
  
-## Monitor pipeline
+## 6. Monitor pipeline
 
 6. Log in into the [Azure Portal](https://portal.azure.com/), do the following:
 	1. Click **Browse** and select **Data factories**.
