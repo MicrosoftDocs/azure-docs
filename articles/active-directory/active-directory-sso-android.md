@@ -10,9 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.devlang="android"
+	ms.tgt_pltfrm="android"
+	ms.devlang="java"
 	ms.topic="article"
-	ms.date="03/14/2015"
+	ms.date="03/17/2015"
 	ms.author="brandwe"/>
 
 
