@@ -118,7 +118,7 @@ To add a local network gateway with multiple address prefixes:
 
 ### To modify IP address prefixes for your local network gateway
 
-Sometimes your local network gateway prefixes change. The steps you take to modify your IP address prefixes depend on whether or not you have created a VPN gateway connection. See [Modify IP address prefixes for a local network gateway](#modify).
+Sometimes your local network gateway prefixes change. The steps you take to modify your IP address prefixes depend on whether or not you have created a VPN gateway connection. See the [Modify IP address prefixes for a local network gateway](#modify) section of this article.
 
 
 ## 4. Request a public IP address for the VPN gateway
