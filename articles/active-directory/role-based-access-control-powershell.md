@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Managing Role-Based Access Control with Windows PowerShell"
+	pageTitle="Role-Based Access Control guide for PowerShell"
 	description="Managing role-based access control with Windows PowerShell"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/17/2016"
 	ms.author="kgremban"/>
 
-# Managing Role-Based Access Control with Windows PowerShell
+# Role-Based Access Control guide for PowerShell
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
+- [PowerShell](role-based-access-control-powershell.md)
 - [Azure CLI](role-based-access-control-xplat-cli.md)
 
 
@@ -76,8 +76,6 @@ If you have multiple subscriptions and want to switch to another one, use the fo
     # Use the subscription name to select the one you want to work on.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
 
-For more information, please refer to [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-
 ## Check existing role assignments
 
 Now let's check what role assignments exist in the subscription already. Type:
@@ -96,7 +94,7 @@ You can also check existing role assignments for a particular role definition, a
 This will return all the role assignments for a particular user in your AD tenant, who has a role assignment of "Owner" for resource group "group1". The role assignment can come from two places:
 
 1. A role assignment of "Owner" to the user for the resource group.
-2. A role assignment of "Owner" to the user for the parent of the resource group (the subscription in this case) because if you have any permission at a parent level, you'll have the same permissions to all its children.
+2. A role assignment of "Owner" to the user for the parent of the resource group (the subscription in this case). If you assign any permission at a parent level, all the children will have the same permissions.
 
 All the parameters of this cmdlet are optional. You can combine them to check role assignments with different filters.
 
@@ -104,34 +102,36 @@ All the parameters of this cmdlet are optional. You can combine them to check ro
 
 To create a role assignment, you need to think about:
 
-Who you want to assign the role to: you can use the following Azure active directory cmdlets to see what users, groups and service principals you have in your AD tenant.  
+- Who you want to assign the role to: you can use the following Azure active directory cmdlets to see what users, groups and service principals you have in your AD tenant.  
 
+	```
     PS C:\> Get-AzureADUser
 	PS C:\> Get-AzureADGroup
 	PS C:\> Get-AzureADGroupMember
 	PS C:\> Get-AzureADServicePrincipal
+	```
 
-What role you want to assign: you can use the following cmdlet to see the supported role definitions.
+- What role you want to assign: you can use the following cmdlet to see the supported role definitions.
 
-    PS C:\> Get-AzureRoleDefinition
+    `PS C:\> Get-AzureRoleDefinition`
 
-What scope you want to assign: you have three levels for scopes
-  - The current subscription
-  - A resource group, to get a list of resource groups, type `PS C:\> Get-AzureResourceGroup`
-  - A resource, to get a list of resources, type `PS C:\> Get-AzureResource`
+- What scope you want to assign: you have three levels for scopes
+	- The current subscription
+	- A resource group. To get a list of resource groups, type `PS C:\> Get-AzureResourceGroup`
+	- A resource. To get a list of resources, type `PS C:\> Get-AzureResource`
 
 Then use `New-AzureRoleAssignment` to create a role assignment. For example:
 
-	#This will create a role assignment at the current subscription level for a user as a reader.
+	#Create a role assignment at the current subscription level for a user as a reader.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
-	#This will create a role assignment at a resource group level.
+	#Create a role assignment at a resource group level.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
-	#This will create a role assignment for a group at a resource group level.
+	#Create a role assignment for a group at a resource group level.
 	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
-	#This will create a role assignment at a resource level.
+	#Create a role assignment at a resource level.
 	PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
