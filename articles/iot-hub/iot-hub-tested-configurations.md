@@ -18,8 +18,11 @@
 
 # OS Platforms compatibility with device SDKs
 
-This document describes the SDK compatibility with different OS platforms. If you already have a device, please look at the list of devices included in the [Microsoft Azure Certified for IoT program][lnk-certified] to find device-specific information on compatibility. If you're unsure of which device to use, please take a look at the [OS Platform and libraries](#os-platforms) compatibility section in this article.
+This document describes the SDK compatibility with different OS platforms. If you're unsure of which device to use, please take a look at the [OS Platform and libraries](#os-platforms) compatibility section in this article.
 
+## Microsoft Azure Certified for IoT program
+
+If you already have a device, please look at the list of devices included in the [Microsoft Azure Certified for IoT program][lnk-certified] to find device-specific information on compatibility. Microsoft Azure Certified for IoT is the partner program that connects the broader IoT ecosystem with Microsoft Azure so that developers and architects understand the compatibility scenarios. Specifically, it provides a trusted list of OS/device combinations to help you get started quickly with an IoT project – whether you’re in a proof of concept or pilot phase
 
 ## OS Platforms
 

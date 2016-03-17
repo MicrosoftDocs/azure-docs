@@ -1,9 +1,16 @@
-> [AZURE.SELECTOR]
-- [AAEON to Axiomtek](../articles/iot-hub-certified-devices-part1.md)
-- [BeagleBone to MiTAC](../articles/iot-hub-certified-devices-part2.md)
-- [NEXCOM to USISH](../articles/iot-hub-certified-devices-part3.md)
+[AZURE.SELECTOR-LIST (Tested OS | Language )]  
+[(Linux | C)](../articles/iot-hub/iot-hub-certified-devices-linux-c)  
+[(Linux | Java)](../articles/iot-hub/iot-hub-certified-devices-linux-java)  
+[(Linux | Javascript)](../articles/iot-hub/iot-hub-certified-devices-linux-javascript)  
+[(Embedded | C)](../articles/iot-hub/iot-hub-certified-devices-embedded-c)  
+[(Embedded | Javascript)](../articles/iot-hub/iot-hub-certified-devices-embedded-javascript)  
+[(Windows 10 IoT Core | C#)](../articles/iot-hub/iot-hub-certified-devices-10iot-csharp)  
+[(Windows 10 IoT Core | C)](../articles/iot-hub/iot-hub-certified-devices-10iot-c)  
+[(Windows 10 IoT Core | Javascript)](../articles/iot-hub/iot-hub-certified-devices-10iot-javascript)  
+[(Windows 7,8,10 | C#)](../articles/iot-hub/iot-hub-certified-devices-7810-csharp)  
+[(Windows 10 | C)](../articles/iot-hub/iot-hub-certified-devices-10-c)  
 
-**Microsoft Azure Certified for IoT** is the partner program that connects the broader IoT ecosystem with Microsoft Azure so that developers and architects understand the compatibility scenarios. Specifically, it provides a trusted list of OS/device combinations to help you get started quickly with an IoT project – whether you’re in a proof of concept or pilot phase. With certified device and operating system combinations, your IoT project can get started quickly, with less work and customization required to make sure devices are compatible with [Azure IoT Suite][lnk-iot-suite] and Azure IoT Hub.
+*Microsoft Azure Certified for IoT* is the partner program that connects the broader IoT ecosystem with Microsoft Azure so that developers and architects understand the compatibility scenarios. Specifically, it provides a trusted list of OS/device combinations to help you get started quickly with an IoT project – whether you’re in a proof of concept or pilot phase. With certified device and operating system combinations, your IoT project can get started quickly, with less work and customization required to make sure devices are compatible with [Azure IoT Suite][lnk-iot-suite] and Azure IoT Hub.
 
 For general information about the Azure IoT SDK compatibility with different OS platforms, see [OS Platforms compatibility with device SDKs][lnk-os-compatibility].
 
